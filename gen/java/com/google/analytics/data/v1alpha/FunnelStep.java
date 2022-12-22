@@ -37,83 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FunnelStep(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            isDirectlyFollowedBy_ = input.readBool();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = withinDurationFromPriorStep_.toBuilder();
-            }
-            withinDurationFromPriorStep_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(withinDurationFromPriorStep_);
-              withinDurationFromPriorStep_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 34: {
-            com.google.analytics.data.v1alpha.FunnelFilterExpression.Builder subBuilder = null;
-            if (filterExpression_ != null) {
-              subBuilder = filterExpression_.toBuilder();
-            }
-            filterExpression_ = input.readMessage(com.google.analytics.data.v1alpha.FunnelFilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterExpression_);
-              filterExpression_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_FunnelStep_descriptor;
@@ -129,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The distinctive name for this step. If unspecified, steps will be named
@@ -183,7 +107,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_DIRECTLY_FOLLOWED_BY_FIELD_NUMBER = 2;
-  private boolean isDirectlyFollowedBy_;
+  private boolean isDirectlyFollowedBy_ = false;
   /**
    * <pre>
    * If true, this step must directly follow the previous step. If false,
@@ -293,7 +217,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.FunnelFilterExpressionOrBuilder getFilterExpressionOrBuilder() {
-    return getFilterExpression();
+    return filterExpression_ == null ? com.google.analytics.data.v1alpha.FunnelFilterExpression.getDefaultInstance() : filterExpression_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -322,7 +246,7 @@ private static final long serialVersionUID = 0L;
     if (filterExpression_ != null) {
       output.writeMessage(4, getFilterExpression());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -346,7 +270,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getFilterExpression());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -375,7 +299,7 @@ private static final long serialVersionUID = 0L;
       if (!getFilterExpression()
           .equals(other.getFilterExpression())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -399,7 +323,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FILTER_EXPRESSION_FIELD_NUMBER;
       hash = (53 * hash) + getFilterExpression().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -534,25 +458,23 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getWithinDurationFromPriorStepFieldBuilder();
+        getFilterExpressionFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       isDirectlyFollowedBy_ = false;
-
-      if (withinDurationFromPriorStepBuilder_ == null) {
-        withinDurationFromPriorStep_ = null;
-      } else {
-        withinDurationFromPriorStepBuilder_.clear();
+      withinDurationFromPriorStep_ = null;
+      if (withinDurationFromPriorStepBuilder_ != null) {
+        withinDurationFromPriorStepBuilder_.dispose();
+        withinDurationFromPriorStepBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (filterExpressionBuilder_ == null) {
-        filterExpression_ = null;
-      } else {
-        filterExpression_ = null;
+      filterExpression_ = null;
+      if (filterExpressionBuilder_ != null) {
+        filterExpressionBuilder_.dispose();
         filterExpressionBuilder_ = null;
       }
       return this;
@@ -581,26 +503,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.FunnelStep buildPartial() {
       com.google.analytics.data.v1alpha.FunnelStep result = new com.google.analytics.data.v1alpha.FunnelStep(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.name_ = name_;
-      result.isDirectlyFollowedBy_ = isDirectlyFollowedBy_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (withinDurationFromPriorStepBuilder_ == null) {
-          result.withinDurationFromPriorStep_ = withinDurationFromPriorStep_;
-        } else {
-          result.withinDurationFromPriorStep_ = withinDurationFromPriorStepBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      if (filterExpressionBuilder_ == null) {
-        result.filterExpression_ = filterExpression_;
-      } else {
-        result.filterExpression_ = filterExpressionBuilder_.build();
-      }
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.FunnelStep result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.isDirectlyFollowedBy_ = isDirectlyFollowedBy_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.withinDurationFromPriorStep_ = withinDurationFromPriorStepBuilder_ == null
+            ? withinDurationFromPriorStep_
+            : withinDurationFromPriorStepBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.filterExpression_ = filterExpressionBuilder_ == null
+            ? filterExpression_
+            : filterExpressionBuilder_.build();
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -649,6 +577,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.data.v1alpha.FunnelStep.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getIsDirectlyFollowedBy() != false) {
@@ -660,7 +589,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasFilterExpression()) {
         mergeFilterExpression(other.getFilterExpression());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -675,17 +604,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.FunnelStep parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              isDirectlyFollowedBy_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getWithinDurationFromPriorStepFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getFilterExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.FunnelStep) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -755,11 +721,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -776,8 +740,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -796,12 +760,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -835,6 +797,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsDirectlyFollowedBy(boolean value) {
       
       isDirectlyFollowedBy_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -849,7 +812,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsDirectlyFollowedBy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       isDirectlyFollowedBy_ = false;
       onChanged();
       return this;
@@ -873,7 +836,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the withinDurationFromPriorStep field is set.
      */
     public boolean hasWithinDurationFromPriorStep() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -915,11 +878,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         withinDurationFromPriorStep_ = value;
-        onChanged();
       } else {
         withinDurationFromPriorStepBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -939,11 +902,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (withinDurationFromPriorStepBuilder_ == null) {
         withinDurationFromPriorStep_ = builderForValue.build();
-        onChanged();
       } else {
         withinDurationFromPriorStepBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -961,19 +924,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWithinDurationFromPriorStep(com.google.protobuf.Duration value) {
       if (withinDurationFromPriorStepBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-            withinDurationFromPriorStep_ != null &&
-            withinDurationFromPriorStep_ != com.google.protobuf.Duration.getDefaultInstance()) {
-          withinDurationFromPriorStep_ =
-            com.google.protobuf.Duration.newBuilder(withinDurationFromPriorStep_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          withinDurationFromPriorStep_ != null &&
+          withinDurationFromPriorStep_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getWithinDurationFromPriorStepBuilder().mergeFrom(value);
         } else {
           withinDurationFromPriorStep_ = value;
         }
-        onChanged();
       } else {
         withinDurationFromPriorStepBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -990,13 +952,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Duration within_duration_from_prior_step = 3;</code>
      */
     public Builder clearWithinDurationFromPriorStep() {
-      if (withinDurationFromPriorStepBuilder_ == null) {
-        withinDurationFromPriorStep_ = null;
-        onChanged();
-      } else {
-        withinDurationFromPriorStepBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      withinDurationFromPriorStep_ = null;
+      if (withinDurationFromPriorStepBuilder_ != null) {
+        withinDurationFromPriorStepBuilder_.dispose();
+        withinDurationFromPriorStepBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
@@ -1013,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Duration within_duration_from_prior_step = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getWithinDurationFromPriorStepBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       onChanged();
       return getWithinDurationFromPriorStepFieldBuilder().getBuilder();
     }
@@ -1078,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterExpression field is set.
      */
     public boolean hasFilterExpression() {
-      return filterExpressionBuilder_ != null || filterExpression_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1110,11 +1072,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterExpression_ = value;
-        onChanged();
       } else {
         filterExpressionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1129,11 +1091,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.FunnelFilterExpression.Builder builderForValue) {
       if (filterExpressionBuilder_ == null) {
         filterExpression_ = builderForValue.build();
-        onChanged();
       } else {
         filterExpressionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1146,17 +1108,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterExpression(com.google.analytics.data.v1alpha.FunnelFilterExpression value) {
       if (filterExpressionBuilder_ == null) {
-        if (filterExpression_ != null) {
-          filterExpression_ =
-            com.google.analytics.data.v1alpha.FunnelFilterExpression.newBuilder(filterExpression_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          filterExpression_ != null &&
+          filterExpression_ != com.google.analytics.data.v1alpha.FunnelFilterExpression.getDefaultInstance()) {
+          getFilterExpressionBuilder().mergeFrom(value);
         } else {
           filterExpression_ = value;
         }
-        onChanged();
       } else {
         filterExpressionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1168,14 +1131,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.FunnelFilterExpression filter_expression = 4;</code>
      */
     public Builder clearFilterExpression() {
-      if (filterExpressionBuilder_ == null) {
-        filterExpression_ = null;
-        onChanged();
-      } else {
-        filterExpression_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      filterExpression_ = null;
+      if (filterExpressionBuilder_ != null) {
+        filterExpressionBuilder_.dispose();
         filterExpressionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1187,7 +1149,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.FunnelFilterExpression filter_expression = 4;</code>
      */
     public com.google.analytics.data.v1alpha.FunnelFilterExpression.Builder getFilterExpressionBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getFilterExpressionFieldBuilder().getBuilder();
     }
@@ -1261,7 +1223,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FunnelStep(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

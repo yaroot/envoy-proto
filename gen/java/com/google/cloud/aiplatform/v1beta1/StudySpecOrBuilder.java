@@ -69,7 +69,7 @@ public interface StudySpecOrBuilder extends
    *
    * <code>.google.cloud.aiplatform.v1beta1.StudySpec.ConvexStopConfig convex_stop_config = 8 [deprecated = true];</code>
    * @deprecated google.cloud.aiplatform.v1beta1.StudySpec.convex_stop_config is deprecated.
-   *     See google/cloud/aiplatform/v1beta1/study.proto;l=553
+   *     See google/cloud/aiplatform/v1beta1/study.proto;l=566
    * @return Whether the convexStopConfig field is set.
    */
   @java.lang.Deprecated boolean hasConvexStopConfig();
@@ -81,7 +81,7 @@ public interface StudySpecOrBuilder extends
    *
    * <code>.google.cloud.aiplatform.v1beta1.StudySpec.ConvexStopConfig convex_stop_config = 8 [deprecated = true];</code>
    * @deprecated google.cloud.aiplatform.v1beta1.StudySpec.convex_stop_config is deprecated.
-   *     See google/cloud/aiplatform/v1beta1/study.proto;l=553
+   *     See google/cloud/aiplatform/v1beta1/study.proto;l=566
    * @return The convexStopConfig.
    */
   @java.lang.Deprecated com.google.cloud.aiplatform.v1beta1.StudySpec.ConvexStopConfig getConvexStopConfig();
@@ -270,6 +270,36 @@ public interface StudySpecOrBuilder extends
    * @return The measurementSelectionType.
    */
   com.google.cloud.aiplatform.v1beta1.StudySpec.MeasurementSelectionType getMeasurementSelectionType();
+
+  /**
+   * <pre>
+   * The configuration info/options for transfer learning. Currently supported
+   * for Vertex AI Vizier service, not HyperParameterTuningJob
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.StudySpec.TransferLearningConfig transfer_learning_config = 10;</code>
+   * @return Whether the transferLearningConfig field is set.
+   */
+  boolean hasTransferLearningConfig();
+  /**
+   * <pre>
+   * The configuration info/options for transfer learning. Currently supported
+   * for Vertex AI Vizier service, not HyperParameterTuningJob
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.StudySpec.TransferLearningConfig transfer_learning_config = 10;</code>
+   * @return The transferLearningConfig.
+   */
+  com.google.cloud.aiplatform.v1beta1.StudySpec.TransferLearningConfig getTransferLearningConfig();
+  /**
+   * <pre>
+   * The configuration info/options for transfer learning. Currently supported
+   * for Vertex AI Vizier service, not HyperParameterTuningJob
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.StudySpec.TransferLearningConfig transfer_learning_config = 10;</code>
+   */
+  com.google.cloud.aiplatform.v1beta1.StudySpec.TransferLearningConfigOrBuilder getTransferLearningConfigOrBuilder();
 
   public com.google.cloud.aiplatform.v1beta1.StudySpec.AutomatedStoppingSpecCase getAutomatedStoppingSpecCase();
 }

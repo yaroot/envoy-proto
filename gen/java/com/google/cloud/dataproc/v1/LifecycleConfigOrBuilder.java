@@ -48,7 +48,8 @@ public interface LifecycleConfigOrBuilder extends
 
   /**
    * <pre>
-   * Optional. The time when cluster will be auto-deleted (see JSON representation of
+   * Optional. The time when cluster will be auto-deleted (see JSON
+   * representation of
    * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
    * </pre>
    *
@@ -58,7 +59,8 @@ public interface LifecycleConfigOrBuilder extends
   boolean hasAutoDeleteTime();
   /**
    * <pre>
-   * Optional. The time when cluster will be auto-deleted (see JSON representation of
+   * Optional. The time when cluster will be auto-deleted (see JSON
+   * representation of
    * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
    * </pre>
    *
@@ -68,7 +70,8 @@ public interface LifecycleConfigOrBuilder extends
   com.google.protobuf.Timestamp getAutoDeleteTime();
   /**
    * <pre>
-   * Optional. The time when cluster will be auto-deleted (see JSON representation of
+   * Optional. The time when cluster will be auto-deleted (see JSON
+   * representation of
    * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
    * </pre>
    *

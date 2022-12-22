@@ -35,162 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              segments_ = new java.util.ArrayList<com.google.cloud.videointelligence.v1p3beta1.VideoSegment>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            segments_.add(
-                input.readMessage(com.google.cloud.videointelligence.v1p3beta1.VideoSegment.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.Builder subBuilder = null;
-            if (labelDetectionConfig_ != null) {
-              subBuilder = labelDetectionConfig_.toBuilder();
-            }
-            labelDetectionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(labelDetectionConfig_);
-              labelDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.Builder subBuilder = null;
-            if (shotChangeDetectionConfig_ != null) {
-              subBuilder = shotChangeDetectionConfig_.toBuilder();
-            }
-            shotChangeDetectionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shotChangeDetectionConfig_);
-              shotChangeDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.Builder subBuilder = null;
-            if (explicitContentDetectionConfig_ != null) {
-              subBuilder = explicitContentDetectionConfig_.toBuilder();
-            }
-            explicitContentDetectionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(explicitContentDetectionConfig_);
-              explicitContentDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.Builder subBuilder = null;
-            if (faceDetectionConfig_ != null) {
-              subBuilder = faceDetectionConfig_.toBuilder();
-            }
-            faceDetectionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(faceDetectionConfig_);
-              faceDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.Builder subBuilder = null;
-            if (speechTranscriptionConfig_ != null) {
-              subBuilder = speechTranscriptionConfig_.toBuilder();
-            }
-            speechTranscriptionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(speechTranscriptionConfig_);
-              speechTranscriptionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.Builder subBuilder = null;
-            if (textDetectionConfig_ != null) {
-              subBuilder = textDetectionConfig_.toBuilder();
-            }
-            textDetectionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(textDetectionConfig_);
-              textDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.Builder subBuilder = null;
-            if (personDetectionConfig_ != null) {
-              subBuilder = personDetectionConfig_.toBuilder();
-            }
-            personDetectionConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(personDetectionConfig_);
-              personDetectionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.Builder subBuilder = null;
-            if (objectTrackingConfig_ != null) {
-              subBuilder = objectTrackingConfig_.toBuilder();
-            }
-            objectTrackingConfig_ = input.readMessage(com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(objectTrackingConfig_);
-              objectTrackingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        segments_ = java.util.Collections.unmodifiableList(segments_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.videointelligence.v1p3beta1.VideoIntelligenceServiceProto.internal_static_google_cloud_videointelligence_v1p3beta1_VideoContext_descriptor;
@@ -205,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEGMENTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.videointelligence.v1p3beta1.VideoSegment> segments_;
   /**
    * <pre>
@@ -309,7 +154,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfigOrBuilder getLabelDetectionConfigOrBuilder() {
-    return getLabelDetectionConfig();
+    return labelDetectionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.getDefaultInstance() : labelDetectionConfig_;
   }
 
   public static final int SHOT_CHANGE_DETECTION_CONFIG_FIELD_NUMBER = 3;
@@ -347,7 +192,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfigOrBuilder getShotChangeDetectionConfigOrBuilder() {
-    return getShotChangeDetectionConfig();
+    return shotChangeDetectionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.getDefaultInstance() : shotChangeDetectionConfig_;
   }
 
   public static final int EXPLICIT_CONTENT_DETECTION_CONFIG_FIELD_NUMBER = 4;
@@ -385,7 +230,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfigOrBuilder getExplicitContentDetectionConfigOrBuilder() {
-    return getExplicitContentDetectionConfig();
+    return explicitContentDetectionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.getDefaultInstance() : explicitContentDetectionConfig_;
   }
 
   public static final int FACE_DETECTION_CONFIG_FIELD_NUMBER = 5;
@@ -423,7 +268,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfigOrBuilder getFaceDetectionConfigOrBuilder() {
-    return getFaceDetectionConfig();
+    return faceDetectionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.getDefaultInstance() : faceDetectionConfig_;
   }
 
   public static final int SPEECH_TRANSCRIPTION_CONFIG_FIELD_NUMBER = 6;
@@ -461,7 +306,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfigOrBuilder getSpeechTranscriptionConfigOrBuilder() {
-    return getSpeechTranscriptionConfig();
+    return speechTranscriptionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.getDefaultInstance() : speechTranscriptionConfig_;
   }
 
   public static final int TEXT_DETECTION_CONFIG_FIELD_NUMBER = 8;
@@ -499,7 +344,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfigOrBuilder getTextDetectionConfigOrBuilder() {
-    return getTextDetectionConfig();
+    return textDetectionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.getDefaultInstance() : textDetectionConfig_;
   }
 
   public static final int PERSON_DETECTION_CONFIG_FIELD_NUMBER = 11;
@@ -537,7 +382,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfigOrBuilder getPersonDetectionConfigOrBuilder() {
-    return getPersonDetectionConfig();
+    return personDetectionConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.getDefaultInstance() : personDetectionConfig_;
   }
 
   public static final int OBJECT_TRACKING_CONFIG_FIELD_NUMBER = 13;
@@ -575,7 +420,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfigOrBuilder getObjectTrackingConfigOrBuilder() {
-    return getObjectTrackingConfig();
+    return objectTrackingConfig_ == null ? com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.getDefaultInstance() : objectTrackingConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -619,7 +464,7 @@ private static final long serialVersionUID = 0L;
     if (objectTrackingConfig_ != null) {
       output.writeMessage(13, getObjectTrackingConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -664,7 +509,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, getObjectTrackingConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -721,7 +566,7 @@ private static final long serialVersionUID = 0L;
       if (!getObjectTrackingConfig()
           .equals(other.getObjectTrackingConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -768,7 +613,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OBJECT_TRACKING_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getObjectTrackingConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -889,75 +734,63 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.videointelligence.v1p3beta1.VideoContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSegmentsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (segmentsBuilder_ == null) {
         segments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        segments_ = null;
         segmentsBuilder_.clear();
       }
-      if (labelDetectionConfigBuilder_ == null) {
-        labelDetectionConfig_ = null;
-      } else {
-        labelDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      labelDetectionConfig_ = null;
+      if (labelDetectionConfigBuilder_ != null) {
+        labelDetectionConfigBuilder_.dispose();
         labelDetectionConfigBuilder_ = null;
       }
-      if (shotChangeDetectionConfigBuilder_ == null) {
-        shotChangeDetectionConfig_ = null;
-      } else {
-        shotChangeDetectionConfig_ = null;
+      shotChangeDetectionConfig_ = null;
+      if (shotChangeDetectionConfigBuilder_ != null) {
+        shotChangeDetectionConfigBuilder_.dispose();
         shotChangeDetectionConfigBuilder_ = null;
       }
-      if (explicitContentDetectionConfigBuilder_ == null) {
-        explicitContentDetectionConfig_ = null;
-      } else {
-        explicitContentDetectionConfig_ = null;
+      explicitContentDetectionConfig_ = null;
+      if (explicitContentDetectionConfigBuilder_ != null) {
+        explicitContentDetectionConfigBuilder_.dispose();
         explicitContentDetectionConfigBuilder_ = null;
       }
-      if (faceDetectionConfigBuilder_ == null) {
-        faceDetectionConfig_ = null;
-      } else {
-        faceDetectionConfig_ = null;
+      faceDetectionConfig_ = null;
+      if (faceDetectionConfigBuilder_ != null) {
+        faceDetectionConfigBuilder_.dispose();
         faceDetectionConfigBuilder_ = null;
       }
-      if (speechTranscriptionConfigBuilder_ == null) {
-        speechTranscriptionConfig_ = null;
-      } else {
-        speechTranscriptionConfig_ = null;
+      speechTranscriptionConfig_ = null;
+      if (speechTranscriptionConfigBuilder_ != null) {
+        speechTranscriptionConfigBuilder_.dispose();
         speechTranscriptionConfigBuilder_ = null;
       }
-      if (textDetectionConfigBuilder_ == null) {
-        textDetectionConfig_ = null;
-      } else {
-        textDetectionConfig_ = null;
+      textDetectionConfig_ = null;
+      if (textDetectionConfigBuilder_ != null) {
+        textDetectionConfigBuilder_.dispose();
         textDetectionConfigBuilder_ = null;
       }
-      if (personDetectionConfigBuilder_ == null) {
-        personDetectionConfig_ = null;
-      } else {
-        personDetectionConfig_ = null;
+      personDetectionConfig_ = null;
+      if (personDetectionConfigBuilder_ != null) {
+        personDetectionConfigBuilder_.dispose();
         personDetectionConfigBuilder_ = null;
       }
-      if (objectTrackingConfigBuilder_ == null) {
-        objectTrackingConfig_ = null;
-      } else {
-        objectTrackingConfig_ = null;
+      objectTrackingConfig_ = null;
+      if (objectTrackingConfigBuilder_ != null) {
+        objectTrackingConfigBuilder_.dispose();
         objectTrackingConfigBuilder_ = null;
       }
       return this;
@@ -986,7 +819,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.videointelligence.v1p3beta1.VideoContext buildPartial() {
       com.google.cloud.videointelligence.v1p3beta1.VideoContext result = new com.google.cloud.videointelligence.v1p3beta1.VideoContext(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.videointelligence.v1p3beta1.VideoContext result) {
       if (segmentsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           segments_ = java.util.Collections.unmodifiableList(segments_);
@@ -996,48 +835,50 @@ private static final long serialVersionUID = 0L;
       } else {
         result.segments_ = segmentsBuilder_.build();
       }
-      if (labelDetectionConfigBuilder_ == null) {
-        result.labelDetectionConfig_ = labelDetectionConfig_;
-      } else {
-        result.labelDetectionConfig_ = labelDetectionConfigBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.videointelligence.v1p3beta1.VideoContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.labelDetectionConfig_ = labelDetectionConfigBuilder_ == null
+            ? labelDetectionConfig_
+            : labelDetectionConfigBuilder_.build();
       }
-      if (shotChangeDetectionConfigBuilder_ == null) {
-        result.shotChangeDetectionConfig_ = shotChangeDetectionConfig_;
-      } else {
-        result.shotChangeDetectionConfig_ = shotChangeDetectionConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.shotChangeDetectionConfig_ = shotChangeDetectionConfigBuilder_ == null
+            ? shotChangeDetectionConfig_
+            : shotChangeDetectionConfigBuilder_.build();
       }
-      if (explicitContentDetectionConfigBuilder_ == null) {
-        result.explicitContentDetectionConfig_ = explicitContentDetectionConfig_;
-      } else {
-        result.explicitContentDetectionConfig_ = explicitContentDetectionConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.explicitContentDetectionConfig_ = explicitContentDetectionConfigBuilder_ == null
+            ? explicitContentDetectionConfig_
+            : explicitContentDetectionConfigBuilder_.build();
       }
-      if (faceDetectionConfigBuilder_ == null) {
-        result.faceDetectionConfig_ = faceDetectionConfig_;
-      } else {
-        result.faceDetectionConfig_ = faceDetectionConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.faceDetectionConfig_ = faceDetectionConfigBuilder_ == null
+            ? faceDetectionConfig_
+            : faceDetectionConfigBuilder_.build();
       }
-      if (speechTranscriptionConfigBuilder_ == null) {
-        result.speechTranscriptionConfig_ = speechTranscriptionConfig_;
-      } else {
-        result.speechTranscriptionConfig_ = speechTranscriptionConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.speechTranscriptionConfig_ = speechTranscriptionConfigBuilder_ == null
+            ? speechTranscriptionConfig_
+            : speechTranscriptionConfigBuilder_.build();
       }
-      if (textDetectionConfigBuilder_ == null) {
-        result.textDetectionConfig_ = textDetectionConfig_;
-      } else {
-        result.textDetectionConfig_ = textDetectionConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.textDetectionConfig_ = textDetectionConfigBuilder_ == null
+            ? textDetectionConfig_
+            : textDetectionConfigBuilder_.build();
       }
-      if (personDetectionConfigBuilder_ == null) {
-        result.personDetectionConfig_ = personDetectionConfig_;
-      } else {
-        result.personDetectionConfig_ = personDetectionConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.personDetectionConfig_ = personDetectionConfigBuilder_ == null
+            ? personDetectionConfig_
+            : personDetectionConfigBuilder_.build();
       }
-      if (objectTrackingConfigBuilder_ == null) {
-        result.objectTrackingConfig_ = objectTrackingConfig_;
-      } else {
-        result.objectTrackingConfig_ = objectTrackingConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.objectTrackingConfig_ = objectTrackingConfigBuilder_ == null
+            ? objectTrackingConfig_
+            : objectTrackingConfigBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -1134,7 +975,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasObjectTrackingConfig()) {
         mergeObjectTrackingConfig(other.getObjectTrackingConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1149,17 +990,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.videointelligence.v1p3beta1.VideoContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.videointelligence.v1p3beta1.VideoSegment m =
+                  input.readMessage(
+                      com.google.cloud.videointelligence.v1p3beta1.VideoSegment.parser(),
+                      extensionRegistry);
+              if (segmentsBuilder_ == null) {
+                ensureSegmentsIsMutable();
+                segments_.add(m);
+              } else {
+                segmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getLabelDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getShotChangeDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getExplicitContentDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getFaceDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSpeechTranscriptionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getTextDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 90: {
+              input.readMessage(
+                  getPersonDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 90
+            case 106: {
+              input.readMessage(
+                  getObjectTrackingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.videointelligence.v1p3beta1.VideoContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1524,7 +1447,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the labelDetectionConfig field is set.
      */
     public boolean hasLabelDetectionConfig() {
-      return labelDetectionConfigBuilder_ != null || labelDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1554,11 +1477,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         labelDetectionConfig_ = value;
-        onChanged();
       } else {
         labelDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1572,11 +1495,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.Builder builderForValue) {
       if (labelDetectionConfigBuilder_ == null) {
         labelDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         labelDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1588,17 +1511,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLabelDetectionConfig(com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig value) {
       if (labelDetectionConfigBuilder_ == null) {
-        if (labelDetectionConfig_ != null) {
-          labelDetectionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.newBuilder(labelDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          labelDetectionConfig_ != null &&
+          labelDetectionConfig_ != com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.getDefaultInstance()) {
+          getLabelDetectionConfigBuilder().mergeFrom(value);
         } else {
           labelDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         labelDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1609,14 +1533,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig label_detection_config = 2;</code>
      */
     public Builder clearLabelDetectionConfig() {
-      if (labelDetectionConfigBuilder_ == null) {
-        labelDetectionConfig_ = null;
-        onChanged();
-      } else {
-        labelDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      labelDetectionConfig_ = null;
+      if (labelDetectionConfigBuilder_ != null) {
+        labelDetectionConfigBuilder_.dispose();
         labelDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1627,7 +1550,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig label_detection_config = 2;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.LabelDetectionConfig.Builder getLabelDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getLabelDetectionConfigFieldBuilder().getBuilder();
     }
@@ -1679,7 +1602,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shotChangeDetectionConfig field is set.
      */
     public boolean hasShotChangeDetectionConfig() {
-      return shotChangeDetectionConfigBuilder_ != null || shotChangeDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1709,11 +1632,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shotChangeDetectionConfig_ = value;
-        onChanged();
       } else {
         shotChangeDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1727,11 +1650,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.Builder builderForValue) {
       if (shotChangeDetectionConfigBuilder_ == null) {
         shotChangeDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         shotChangeDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1743,17 +1666,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShotChangeDetectionConfig(com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig value) {
       if (shotChangeDetectionConfigBuilder_ == null) {
-        if (shotChangeDetectionConfig_ != null) {
-          shotChangeDetectionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.newBuilder(shotChangeDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          shotChangeDetectionConfig_ != null &&
+          shotChangeDetectionConfig_ != com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.getDefaultInstance()) {
+          getShotChangeDetectionConfigBuilder().mergeFrom(value);
         } else {
           shotChangeDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         shotChangeDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1764,14 +1688,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig shot_change_detection_config = 3;</code>
      */
     public Builder clearShotChangeDetectionConfig() {
-      if (shotChangeDetectionConfigBuilder_ == null) {
-        shotChangeDetectionConfig_ = null;
-        onChanged();
-      } else {
-        shotChangeDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      shotChangeDetectionConfig_ = null;
+      if (shotChangeDetectionConfigBuilder_ != null) {
+        shotChangeDetectionConfigBuilder_.dispose();
         shotChangeDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1782,7 +1705,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig shot_change_detection_config = 3;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.ShotChangeDetectionConfig.Builder getShotChangeDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getShotChangeDetectionConfigFieldBuilder().getBuilder();
     }
@@ -1834,7 +1757,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the explicitContentDetectionConfig field is set.
      */
     public boolean hasExplicitContentDetectionConfig() {
-      return explicitContentDetectionConfigBuilder_ != null || explicitContentDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1864,11 +1787,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         explicitContentDetectionConfig_ = value;
-        onChanged();
       } else {
         explicitContentDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1882,11 +1805,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.Builder builderForValue) {
       if (explicitContentDetectionConfigBuilder_ == null) {
         explicitContentDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         explicitContentDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1898,17 +1821,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExplicitContentDetectionConfig(com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig value) {
       if (explicitContentDetectionConfigBuilder_ == null) {
-        if (explicitContentDetectionConfig_ != null) {
-          explicitContentDetectionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.newBuilder(explicitContentDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          explicitContentDetectionConfig_ != null &&
+          explicitContentDetectionConfig_ != com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.getDefaultInstance()) {
+          getExplicitContentDetectionConfigBuilder().mergeFrom(value);
         } else {
           explicitContentDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         explicitContentDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1919,14 +1843,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig explicit_content_detection_config = 4;</code>
      */
     public Builder clearExplicitContentDetectionConfig() {
-      if (explicitContentDetectionConfigBuilder_ == null) {
-        explicitContentDetectionConfig_ = null;
-        onChanged();
-      } else {
-        explicitContentDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      explicitContentDetectionConfig_ = null;
+      if (explicitContentDetectionConfigBuilder_ != null) {
+        explicitContentDetectionConfigBuilder_.dispose();
         explicitContentDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1937,7 +1860,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig explicit_content_detection_config = 4;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.ExplicitContentDetectionConfig.Builder getExplicitContentDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getExplicitContentDetectionConfigFieldBuilder().getBuilder();
     }
@@ -1989,7 +1912,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the faceDetectionConfig field is set.
      */
     public boolean hasFaceDetectionConfig() {
-      return faceDetectionConfigBuilder_ != null || faceDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2019,11 +1942,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         faceDetectionConfig_ = value;
-        onChanged();
       } else {
         faceDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2037,11 +1960,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.Builder builderForValue) {
       if (faceDetectionConfigBuilder_ == null) {
         faceDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         faceDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2053,17 +1976,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFaceDetectionConfig(com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig value) {
       if (faceDetectionConfigBuilder_ == null) {
-        if (faceDetectionConfig_ != null) {
-          faceDetectionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.newBuilder(faceDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          faceDetectionConfig_ != null &&
+          faceDetectionConfig_ != com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.getDefaultInstance()) {
+          getFaceDetectionConfigBuilder().mergeFrom(value);
         } else {
           faceDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         faceDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2074,14 +1998,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig face_detection_config = 5;</code>
      */
     public Builder clearFaceDetectionConfig() {
-      if (faceDetectionConfigBuilder_ == null) {
-        faceDetectionConfig_ = null;
-        onChanged();
-      } else {
-        faceDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      faceDetectionConfig_ = null;
+      if (faceDetectionConfigBuilder_ != null) {
+        faceDetectionConfigBuilder_.dispose();
         faceDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2092,7 +2015,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig face_detection_config = 5;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.FaceDetectionConfig.Builder getFaceDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getFaceDetectionConfigFieldBuilder().getBuilder();
     }
@@ -2144,7 +2067,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the speechTranscriptionConfig field is set.
      */
     public boolean hasSpeechTranscriptionConfig() {
-      return speechTranscriptionConfigBuilder_ != null || speechTranscriptionConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2174,11 +2097,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         speechTranscriptionConfig_ = value;
-        onChanged();
       } else {
         speechTranscriptionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2192,11 +2115,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.Builder builderForValue) {
       if (speechTranscriptionConfigBuilder_ == null) {
         speechTranscriptionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         speechTranscriptionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2208,17 +2131,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpeechTranscriptionConfig(com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig value) {
       if (speechTranscriptionConfigBuilder_ == null) {
-        if (speechTranscriptionConfig_ != null) {
-          speechTranscriptionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.newBuilder(speechTranscriptionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          speechTranscriptionConfig_ != null &&
+          speechTranscriptionConfig_ != com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.getDefaultInstance()) {
+          getSpeechTranscriptionConfigBuilder().mergeFrom(value);
         } else {
           speechTranscriptionConfig_ = value;
         }
-        onChanged();
       } else {
         speechTranscriptionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2229,14 +2153,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig speech_transcription_config = 6;</code>
      */
     public Builder clearSpeechTranscriptionConfig() {
-      if (speechTranscriptionConfigBuilder_ == null) {
-        speechTranscriptionConfig_ = null;
-        onChanged();
-      } else {
-        speechTranscriptionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      speechTranscriptionConfig_ = null;
+      if (speechTranscriptionConfigBuilder_ != null) {
+        speechTranscriptionConfigBuilder_.dispose();
         speechTranscriptionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2247,7 +2170,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig speech_transcription_config = 6;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.SpeechTranscriptionConfig.Builder getSpeechTranscriptionConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSpeechTranscriptionConfigFieldBuilder().getBuilder();
     }
@@ -2299,7 +2222,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the textDetectionConfig field is set.
      */
     public boolean hasTextDetectionConfig() {
-      return textDetectionConfigBuilder_ != null || textDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2329,11 +2252,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         textDetectionConfig_ = value;
-        onChanged();
       } else {
         textDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2347,11 +2270,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.Builder builderForValue) {
       if (textDetectionConfigBuilder_ == null) {
         textDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         textDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2363,17 +2286,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTextDetectionConfig(com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig value) {
       if (textDetectionConfigBuilder_ == null) {
-        if (textDetectionConfig_ != null) {
-          textDetectionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.newBuilder(textDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          textDetectionConfig_ != null &&
+          textDetectionConfig_ != com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.getDefaultInstance()) {
+          getTextDetectionConfigBuilder().mergeFrom(value);
         } else {
           textDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         textDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2384,14 +2308,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig text_detection_config = 8;</code>
      */
     public Builder clearTextDetectionConfig() {
-      if (textDetectionConfigBuilder_ == null) {
-        textDetectionConfig_ = null;
-        onChanged();
-      } else {
-        textDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      textDetectionConfig_ = null;
+      if (textDetectionConfigBuilder_ != null) {
+        textDetectionConfigBuilder_.dispose();
         textDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2402,7 +2325,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig text_detection_config = 8;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.TextDetectionConfig.Builder getTextDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getTextDetectionConfigFieldBuilder().getBuilder();
     }
@@ -2454,7 +2377,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the personDetectionConfig field is set.
      */
     public boolean hasPersonDetectionConfig() {
-      return personDetectionConfigBuilder_ != null || personDetectionConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2484,11 +2407,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         personDetectionConfig_ = value;
-        onChanged();
       } else {
         personDetectionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2502,11 +2425,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.Builder builderForValue) {
       if (personDetectionConfigBuilder_ == null) {
         personDetectionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         personDetectionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2518,17 +2441,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePersonDetectionConfig(com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig value) {
       if (personDetectionConfigBuilder_ == null) {
-        if (personDetectionConfig_ != null) {
-          personDetectionConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.newBuilder(personDetectionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          personDetectionConfig_ != null &&
+          personDetectionConfig_ != com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.getDefaultInstance()) {
+          getPersonDetectionConfigBuilder().mergeFrom(value);
         } else {
           personDetectionConfig_ = value;
         }
-        onChanged();
       } else {
         personDetectionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2539,14 +2463,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig person_detection_config = 11;</code>
      */
     public Builder clearPersonDetectionConfig() {
-      if (personDetectionConfigBuilder_ == null) {
-        personDetectionConfig_ = null;
-        onChanged();
-      } else {
-        personDetectionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      personDetectionConfig_ = null;
+      if (personDetectionConfigBuilder_ != null) {
+        personDetectionConfigBuilder_.dispose();
         personDetectionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2557,7 +2480,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig person_detection_config = 11;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.PersonDetectionConfig.Builder getPersonDetectionConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getPersonDetectionConfigFieldBuilder().getBuilder();
     }
@@ -2609,7 +2532,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the objectTrackingConfig field is set.
      */
     public boolean hasObjectTrackingConfig() {
-      return objectTrackingConfigBuilder_ != null || objectTrackingConfig_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2639,11 +2562,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         objectTrackingConfig_ = value;
-        onChanged();
       } else {
         objectTrackingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2657,11 +2580,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.Builder builderForValue) {
       if (objectTrackingConfigBuilder_ == null) {
         objectTrackingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         objectTrackingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2673,17 +2596,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeObjectTrackingConfig(com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig value) {
       if (objectTrackingConfigBuilder_ == null) {
-        if (objectTrackingConfig_ != null) {
-          objectTrackingConfig_ =
-            com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.newBuilder(objectTrackingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          objectTrackingConfig_ != null &&
+          objectTrackingConfig_ != com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.getDefaultInstance()) {
+          getObjectTrackingConfigBuilder().mergeFrom(value);
         } else {
           objectTrackingConfig_ = value;
         }
-        onChanged();
       } else {
         objectTrackingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2694,14 +2618,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig object_tracking_config = 13;</code>
      */
     public Builder clearObjectTrackingConfig() {
-      if (objectTrackingConfigBuilder_ == null) {
-        objectTrackingConfig_ = null;
-        onChanged();
-      } else {
-        objectTrackingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      objectTrackingConfig_ = null;
+      if (objectTrackingConfigBuilder_ != null) {
+        objectTrackingConfigBuilder_.dispose();
         objectTrackingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2712,7 +2635,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig object_tracking_config = 13;</code>
      */
     public com.google.cloud.videointelligence.v1p3beta1.ObjectTrackingConfig.Builder getObjectTrackingConfigBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getObjectTrackingConfigFieldBuilder().getBuilder();
     }
@@ -2784,7 +2707,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -42,93 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClientInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            applicationId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            applicationVersion_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            platform_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            operatingSystem_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            apiClient_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deviceModel_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            operatingSystemBuild_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.unity.ClientInfoProto.internal_static_google_maps_unity_ClientInfo_descriptor;
@@ -373,7 +286,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object applicationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object applicationId_ = "";
   /**
    * <pre>
    * Application ID, such as the package name on Android and the bundle
@@ -421,7 +335,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object applicationVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object applicationVersion_ = "";
   /**
    * <pre>
    * Application version number, such as "1.2.3". The exact format is
@@ -469,7 +384,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLATFORM_FIELD_NUMBER = 3;
-  private int platform_;
+  private int platform_ = 0;
   /**
    * <pre>
    * Platform where the application is running.
@@ -490,13 +405,13 @@ private static final long serialVersionUID = 0L;
    * @return The platform.
    */
   @java.lang.Override public com.google.maps.unity.ClientInfo.Platform getPlatform() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.unity.ClientInfo.Platform result = com.google.maps.unity.ClientInfo.Platform.valueOf(platform_);
+    com.google.maps.unity.ClientInfo.Platform result = com.google.maps.unity.ClientInfo.Platform.forNumber(platform_);
     return result == null ? com.google.maps.unity.ClientInfo.Platform.UNRECOGNIZED : result;
   }
 
   public static final int OPERATING_SYSTEM_FIELD_NUMBER = 4;
-  private volatile java.lang.Object operatingSystem_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operatingSystem_ = "";
   /**
    * <pre>
    * Operating system name and version as reported by the OS. For example,
@@ -544,7 +459,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int API_CLIENT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object apiClient_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object apiClient_ = "";
   /**
    * <pre>
    * API client name and version. For example, the SDK calling the API. The
@@ -592,7 +508,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_MODEL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object deviceModel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deviceModel_ = "";
   /**
    * <pre>
    * Device model as reported by the device. The exact format is
@@ -640,7 +557,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Language code (in BCP-47 format) indicating the UI language of the client.
@@ -690,7 +608,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATING_SYSTEM_BUILD_FIELD_NUMBER = 8;
-  private volatile java.lang.Object operatingSystemBuild_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operatingSystemBuild_ = "";
   /**
    * <pre>
    * Build number/version of the operating system. e.g., the contents of
@@ -777,7 +696,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(operatingSystemBuild_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, operatingSystemBuild_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -811,7 +730,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(operatingSystemBuild_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, operatingSystemBuild_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -841,7 +760,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLanguageCode())) return false;
     if (!getOperatingSystemBuild()
         .equals(other.getOperatingSystemBuild())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -868,7 +787,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLanguageCode().hashCode();
     hash = (37 * hash) + OPERATING_SYSTEM_BUILD_FIELD_NUMBER;
     hash = (53 * hash) + getOperatingSystemBuild().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -989,38 +908,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.unity.ClientInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       applicationId_ = "";
-
       applicationVersion_ = "";
-
       platform_ = 0;
-
       operatingSystem_ = "";
-
       apiClient_ = "";
-
       deviceModel_ = "";
-
       languageCode_ = "";
-
       operatingSystemBuild_ = "";
-
       return this;
     }
 
@@ -1047,16 +954,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.unity.ClientInfo buildPartial() {
       com.google.maps.unity.ClientInfo result = new com.google.maps.unity.ClientInfo(this);
-      result.applicationId_ = applicationId_;
-      result.applicationVersion_ = applicationVersion_;
-      result.platform_ = platform_;
-      result.operatingSystem_ = operatingSystem_;
-      result.apiClient_ = apiClient_;
-      result.deviceModel_ = deviceModel_;
-      result.languageCode_ = languageCode_;
-      result.operatingSystemBuild_ = operatingSystemBuild_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.unity.ClientInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.applicationId_ = applicationId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.applicationVersion_ = applicationVersion_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.platform_ = platform_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.operatingSystem_ = operatingSystem_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.apiClient_ = apiClient_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.deviceModel_ = deviceModel_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.operatingSystemBuild_ = operatingSystemBuild_;
+      }
     }
 
     @java.lang.Override
@@ -1105,10 +1033,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.maps.unity.ClientInfo.getDefaultInstance()) return this;
       if (!other.getApplicationId().isEmpty()) {
         applicationId_ = other.applicationId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getApplicationVersion().isEmpty()) {
         applicationVersion_ = other.applicationVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.platform_ != 0) {
@@ -1116,25 +1046,30 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOperatingSystem().isEmpty()) {
         operatingSystem_ = other.operatingSystem_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getApiClient().isEmpty()) {
         apiClient_ = other.apiClient_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDeviceModel().isEmpty()) {
         deviceModel_ = other.deviceModel_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getOperatingSystemBuild().isEmpty()) {
         operatingSystemBuild_ = other.operatingSystemBuild_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1149,19 +1084,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.unity.ClientInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              applicationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              applicationVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              platform_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              operatingSystem_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              apiClient_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              deviceModel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              operatingSystemBuild_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.unity.ClientInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object applicationId_ = "";
     /**
@@ -1219,11 +1208,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       applicationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1237,8 +1224,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplicationId() {
-      
       applicationId_ = getDefaultInstance().getApplicationId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1254,12 +1241,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       applicationId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1320,11 +1305,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       applicationVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1338,8 +1321,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplicationVersion() {
-      
       applicationVersion_ = getDefaultInstance().getApplicationVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1355,12 +1338,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApplicationVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       applicationVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1387,8 +1368,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlatformValue(int value) {
-      
       platform_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1402,8 +1383,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.unity.ClientInfo.Platform getPlatform() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.unity.ClientInfo.Platform result = com.google.maps.unity.ClientInfo.Platform.valueOf(platform_);
+      com.google.maps.unity.ClientInfo.Platform result = com.google.maps.unity.ClientInfo.Platform.forNumber(platform_);
       return result == null ? com.google.maps.unity.ClientInfo.Platform.UNRECOGNIZED : result;
     }
     /**
@@ -1419,7 +1399,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       platform_ = value.getNumber();
       onChanged();
       return this;
@@ -1433,7 +1413,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlatform() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       platform_ = 0;
       onChanged();
       return this;
@@ -1495,11 +1475,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperatingSystem(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       operatingSystem_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1513,8 +1491,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperatingSystem() {
-      
       operatingSystem_ = getDefaultInstance().getOperatingSystem();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1530,12 +1508,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperatingSystemBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operatingSystem_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1596,11 +1572,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApiClient(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       apiClient_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1614,8 +1588,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiClient() {
-      
       apiClient_ = getDefaultInstance().getApiClient();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1631,12 +1605,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApiClientBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       apiClient_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1697,11 +1669,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deviceModel_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1715,8 +1685,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeviceModel() {
-      
       deviceModel_ = getDefaultInstance().getDeviceModel();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1732,12 +1702,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deviceModel_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1801,11 +1769,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1820,8 +1786,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1838,12 +1804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1907,11 +1871,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperatingSystemBuild(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       operatingSystemBuild_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1926,8 +1888,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperatingSystemBuild() {
-      
       operatingSystemBuild_ = getDefaultInstance().getOperatingSystemBuild();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1944,12 +1906,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperatingSystemBuildBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operatingSystemBuild_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1986,7 +1946,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClientInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

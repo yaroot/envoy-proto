@@ -123,7 +123,6 @@ public interface HealthCheckOrBuilder extends
    *
    * <code>map&lt;string, .envoy.type.v3.Percent&gt; cluster_min_healthy_percentages = 4;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.type.v3.Percent getClusterMinHealthyPercentagesOrDefault(
       java.lang.String key,
@@ -141,7 +140,6 @@ io.envoyproxy.envoy.type.v3.Percent defaultValue);
    *
    * <code>map&lt;string, .envoy.type.v3.Percent&gt; cluster_min_healthy_percentages = 4;</code>
    */
-
   io.envoyproxy.envoy.type.v3.Percent getClusterMinHealthyPercentagesOrThrow(
       java.lang.String key);
 

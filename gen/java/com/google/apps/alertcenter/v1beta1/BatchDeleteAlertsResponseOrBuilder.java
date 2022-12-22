@@ -87,7 +87,6 @@ public interface BatchDeleteAlertsResponseOrBuilder extends
    *
    * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
    */
-
   /* nullable */
 com.google.rpc.Status getFailedAlertStatusOrDefault(
       java.lang.String key,
@@ -100,7 +99,6 @@ com.google.rpc.Status defaultValue);
    *
    * <code>map&lt;string, .google.rpc.Status&gt; failed_alert_status = 2;</code>
    */
-
   com.google.rpc.Status getFailedAlertStatusOrThrow(
       java.lang.String key);
 }

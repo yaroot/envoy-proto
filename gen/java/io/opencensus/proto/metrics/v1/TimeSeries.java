@@ -37,83 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimeSeries(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTimestamp_ != null) {
-              subBuilder = startTimestamp_.toBuilder();
-            }
-            startTimestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTimestamp_);
-              startTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labelValues_ = new java.util.ArrayList<io.opencensus.proto.metrics.v1.LabelValue>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            labelValues_.add(
-                input.readMessage(io.opencensus.proto.metrics.v1.LabelValue.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              points_ = new java.util.ArrayList<io.opencensus.proto.metrics.v1.Point>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            points_.add(
-                input.readMessage(io.opencensus.proto.metrics.v1.Point.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        labelValues_ = java.util.Collections.unmodifiableList(labelValues_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        points_ = java.util.Collections.unmodifiableList(points_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opencensus.proto.metrics.v1.MetricsProto.internal_static_opencensus_proto_metrics_v1_TimeSeries_descriptor;
@@ -171,10 +94,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimestampOrBuilder() {
-    return getStartTimestamp();
+    return startTimestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTimestamp_;
   }
 
   public static final int LABEL_VALUES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.opencensus.proto.metrics.v1.LabelValue> labelValues_;
   /**
    * <pre>
@@ -245,6 +169,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POINTS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.opencensus.proto.metrics.v1.Point> points_;
   /**
    * <pre>
@@ -332,7 +257,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < points_.size(); i++) {
       output.writeMessage(3, points_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -353,7 +278,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, points_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -377,7 +302,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLabelValuesList())) return false;
     if (!getPointsList()
         .equals(other.getPointsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -400,7 +325,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + POINTS_FIELD_NUMBER;
       hash = (53 * hash) + getPointsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -522,42 +447,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opencensus.proto.metrics.v1.TimeSeries.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLabelValuesFieldBuilder();
-        getPointsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (startTimestampBuilder_ == null) {
-        startTimestamp_ = null;
-      } else {
-        startTimestamp_ = null;
+      bitField0_ = 0;
+      startTimestamp_ = null;
+      if (startTimestampBuilder_ != null) {
+        startTimestampBuilder_.dispose();
         startTimestampBuilder_ = null;
       }
       if (labelValuesBuilder_ == null) {
         labelValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        labelValues_ = null;
         labelValuesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (pointsBuilder_ == null) {
         points_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        points_ = null;
         pointsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -584,32 +504,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opencensus.proto.metrics.v1.TimeSeries buildPartial() {
       io.opencensus.proto.metrics.v1.TimeSeries result = new io.opencensus.proto.metrics.v1.TimeSeries(this);
-      int from_bitField0_ = bitField0_;
-      if (startTimestampBuilder_ == null) {
-        result.startTimestamp_ = startTimestamp_;
-      } else {
-        result.startTimestamp_ = startTimestampBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.opencensus.proto.metrics.v1.TimeSeries result) {
       if (labelValuesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           labelValues_ = java.util.Collections.unmodifiableList(labelValues_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.labelValues_ = labelValues_;
       } else {
         result.labelValues_ = labelValuesBuilder_.build();
       }
       if (pointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           points_ = java.util.Collections.unmodifiableList(points_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.points_ = points_;
       } else {
         result.points_ = pointsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.opencensus.proto.metrics.v1.TimeSeries result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.startTimestamp_ = startTimestampBuilder_ == null
+            ? startTimestamp_
+            : startTimestampBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -663,7 +591,7 @@ private static final long serialVersionUID = 0L;
         if (!other.labelValues_.isEmpty()) {
           if (labelValues_.isEmpty()) {
             labelValues_ = other.labelValues_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureLabelValuesIsMutable();
             labelValues_.addAll(other.labelValues_);
@@ -676,7 +604,7 @@ private static final long serialVersionUID = 0L;
             labelValuesBuilder_.dispose();
             labelValuesBuilder_ = null;
             labelValues_ = other.labelValues_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             labelValuesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLabelValuesFieldBuilder() : null;
@@ -689,7 +617,7 @@ private static final long serialVersionUID = 0L;
         if (!other.points_.isEmpty()) {
           if (points_.isEmpty()) {
             points_ = other.points_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensurePointsIsMutable();
             points_.addAll(other.points_);
@@ -702,7 +630,7 @@ private static final long serialVersionUID = 0L;
             pointsBuilder_.dispose();
             pointsBuilder_ = null;
             points_ = other.points_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             pointsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPointsFieldBuilder() : null;
@@ -711,7 +639,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -726,17 +654,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opencensus.proto.metrics.v1.TimeSeries parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStartTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.opencensus.proto.metrics.v1.LabelValue m =
+                  input.readMessage(
+                      io.opencensus.proto.metrics.v1.LabelValue.parser(),
+                      extensionRegistry);
+              if (labelValuesBuilder_ == null) {
+                ensureLabelValuesIsMutable();
+                labelValues_.add(m);
+              } else {
+                labelValuesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              io.opencensus.proto.metrics.v1.Point m =
+                  input.readMessage(
+                      io.opencensus.proto.metrics.v1.Point.parser(),
+                      extensionRegistry);
+              if (pointsBuilder_ == null) {
+                ensurePointsIsMutable();
+                points_.add(m);
+              } else {
+                pointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opencensus.proto.metrics.v1.TimeSeries) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -756,7 +730,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTimestamp field is set.
      */
     public boolean hasStartTimestamp() {
-      return startTimestampBuilder_ != null || startTimestamp_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -792,11 +766,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTimestamp_ = value;
-        onChanged();
       } else {
         startTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -813,11 +787,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimestampBuilder_ == null) {
         startTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         startTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -832,17 +806,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTimestamp(com.google.protobuf.Timestamp value) {
       if (startTimestampBuilder_ == null) {
-        if (startTimestamp_ != null) {
-          startTimestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(startTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          startTimestamp_ != null &&
+          startTimestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimestampBuilder().mergeFrom(value);
         } else {
           startTimestamp_ = value;
         }
-        onChanged();
       } else {
         startTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -856,14 +831,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_timestamp = 1;</code>
      */
     public Builder clearStartTimestamp() {
-      if (startTimestampBuilder_ == null) {
-        startTimestamp_ = null;
-        onChanged();
-      } else {
-        startTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      startTimestamp_ = null;
+      if (startTimestampBuilder_ != null) {
+        startTimestampBuilder_.dispose();
         startTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -877,7 +851,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_timestamp = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimestampBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStartTimestampFieldBuilder().getBuilder();
     }
@@ -926,9 +900,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.opencensus.proto.metrics.v1.LabelValue> labelValues_ =
       java.util.Collections.emptyList();
     private void ensureLabelValuesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         labelValues_ = new java.util.ArrayList<io.opencensus.proto.metrics.v1.LabelValue>(labelValues_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1144,7 +1118,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLabelValues() {
       if (labelValuesBuilder_ == null) {
         labelValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         labelValuesBuilder_.clear();
@@ -1263,7 +1237,7 @@ private static final long serialVersionUID = 0L;
         labelValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.opencensus.proto.metrics.v1.LabelValue, io.opencensus.proto.metrics.v1.LabelValue.Builder, io.opencensus.proto.metrics.v1.LabelValueOrBuilder>(
                 labelValues_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         labelValues_ = null;
@@ -1274,9 +1248,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.opencensus.proto.metrics.v1.Point> points_ =
       java.util.Collections.emptyList();
     private void ensurePointsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         points_ = new java.util.ArrayList<io.opencensus.proto.metrics.v1.Point>(points_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1481,7 +1455,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPoints() {
       if (pointsBuilder_ == null) {
         points_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         pointsBuilder_.clear();
@@ -1593,7 +1567,7 @@ private static final long serialVersionUID = 0L;
         pointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.opencensus.proto.metrics.v1.Point, io.opencensus.proto.metrics.v1.Point.Builder, io.opencensus.proto.metrics.v1.PointOrBuilder>(
                 points_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         points_ = null;
@@ -1633,7 +1607,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeSeries(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

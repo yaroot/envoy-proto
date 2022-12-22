@@ -21,9 +21,11 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private Route() {
+    routeLabels_ = java.util.Collections.emptyList();
     legs_ = java.util.Collections.emptyList();
     description_ = "";
     warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    routeToken_ = "";
   }
 
   @java.lang.Override
@@ -38,146 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Route(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              legs_ = new java.util.ArrayList<com.google.maps.routing.v2.RouteLeg>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            legs_.add(
-                input.readMessage(com.google.maps.routing.v2.RouteLeg.parser(), extensionRegistry));
-            break;
-          }
-          case 16: {
-
-            distanceMeters_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (duration_ != null) {
-              subBuilder = duration_.toBuilder();
-            }
-            duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(duration_);
-              duration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (staticDuration_ != null) {
-              subBuilder = staticDuration_.toBuilder();
-            }
-            staticDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(staticDuration_);
-              staticDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.maps.routing.v2.Polyline.Builder subBuilder = null;
-            if (polyline_ != null) {
-              subBuilder = polyline_.toBuilder();
-            }
-            polyline_ = input.readMessage(com.google.maps.routing.v2.Polyline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(polyline_);
-              polyline_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              warnings_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            warnings_.add(s);
-            break;
-          }
-          case 66: {
-            com.google.geo.type.Viewport.Builder subBuilder = null;
-            if (viewport_ != null) {
-              subBuilder = viewport_.toBuilder();
-            }
-            viewport_ = input.readMessage(com.google.geo.type.Viewport.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(viewport_);
-              viewport_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.maps.routing.v2.RouteTravelAdvisory.Builder subBuilder = null;
-            if (travelAdvisory_ != null) {
-              subBuilder = travelAdvisory_.toBuilder();
-            }
-            travelAdvisory_ = input.readMessage(com.google.maps.routing.v2.RouteTravelAdvisory.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(travelAdvisory_);
-              travelAdvisory_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        legs_ = java.util.Collections.unmodifiableList(legs_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        warnings_ = warnings_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routing.v2.RouteProto.internal_static_google_maps_routing_v2_Route_descriptor;
@@ -191,7 +53,91 @@ private static final long serialVersionUID = 0L;
             com.google.maps.routing.v2.Route.class, com.google.maps.routing.v2.Route.Builder.class);
   }
 
+  public static final int ROUTE_LABELS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
+  private java.util.List<java.lang.Integer> routeLabels_;
+  private static final com.google.protobuf.Internal.ListAdapter.Converter<
+      java.lang.Integer, com.google.maps.routing.v2.RouteLabel> routeLabels_converter_ =
+          new com.google.protobuf.Internal.ListAdapter.Converter<
+              java.lang.Integer, com.google.maps.routing.v2.RouteLabel>() {
+            public com.google.maps.routing.v2.RouteLabel convert(java.lang.Integer from) {
+              com.google.maps.routing.v2.RouteLabel result = com.google.maps.routing.v2.RouteLabel.forNumber(from);
+              return result == null ? com.google.maps.routing.v2.RouteLabel.UNRECOGNIZED : result;
+            }
+          };
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @return A list containing the routeLabels.
+   */
+  @java.lang.Override
+  public java.util.List<com.google.maps.routing.v2.RouteLabel> getRouteLabelsList() {
+    return new com.google.protobuf.Internal.ListAdapter<
+        java.lang.Integer, com.google.maps.routing.v2.RouteLabel>(routeLabels_, routeLabels_converter_);
+  }
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @return The count of routeLabels.
+   */
+  @java.lang.Override
+  public int getRouteLabelsCount() {
+    return routeLabels_.size();
+  }
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @param index The index of the element to return.
+   * @return The routeLabels at the given index.
+   */
+  @java.lang.Override
+  public com.google.maps.routing.v2.RouteLabel getRouteLabels(int index) {
+    return routeLabels_converter_.convert(routeLabels_.get(index));
+  }
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @return A list containing the enum numeric values on the wire for routeLabels.
+   */
+  @java.lang.Override
+  public java.util.List<java.lang.Integer>
+  getRouteLabelsValueList() {
+    return routeLabels_;
+  }
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of routeLabels at the given index.
+   */
+  @java.lang.Override
+  public int getRouteLabelsValue(int index) {
+    return routeLabels_.get(index);
+  }
+  private int routeLabelsMemoizedSerializedSize;
+
   public static final int LEGS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routing.v2.RouteLeg> legs_;
   /**
    * <pre>
@@ -282,7 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISTANCE_METERS_FIELD_NUMBER = 2;
-  private int distanceMeters_;
+  private int distanceMeters_ = 0;
   /**
    * <pre>
    * The travel distance of the route, in meters.
@@ -301,8 +247,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -317,8 +263,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -333,8 +279,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -343,7 +289,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-    return getDuration();
+    return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
   }
 
   public static final int STATIC_DURATION_FIELD_NUMBER = 4;
@@ -384,7 +330,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getStaticDurationOrBuilder() {
-    return getStaticDuration();
+    return staticDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : staticDuration_;
   }
 
   public static final int POLYLINE_FIELD_NUMBER = 5;
@@ -425,11 +371,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routing.v2.PolylineOrBuilder getPolylineOrBuilder() {
-    return getPolyline();
+    return polyline_ == null ? com.google.maps.routing.v2.Polyline.getDefaultInstance() : polyline_;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A description of the route.
@@ -475,6 +422,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WARNINGS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList warnings_;
   /**
    * <pre>
@@ -560,7 +508,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.geo.type.ViewportOrBuilder getViewportOrBuilder() {
-    return getViewport();
+    return viewport_ == null ? com.google.geo.type.Viewport.getDefaultInstance() : viewport_;
   }
 
   public static final int TRAVEL_ADVISORY_FIELD_NUMBER = 9;
@@ -598,7 +546,70 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routing.v2.RouteTravelAdvisoryOrBuilder getTravelAdvisoryOrBuilder() {
-    return getTravelAdvisory();
+    return travelAdvisory_ == null ? com.google.maps.routing.v2.RouteTravelAdvisory.getDefaultInstance() : travelAdvisory_;
+  }
+
+  public static final int ROUTE_TOKEN_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object routeToken_ = "";
+  /**
+   * <pre>
+   * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+   * which allows the Navigation SDK to reconstruct the route during navigation,
+   * and in the event of rerouting honor the original intention when Routes
+   * ComputeRoutes is called. Customers should treat this token as an
+   * opaque blob.
+   * NOTE: `Route.route_token` is only available for requests that have set
+   * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+   * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+   * requests that have Via waypoints.
+   * </pre>
+   *
+   * <code>string route_token = 12;</code>
+   * @return The routeToken.
+   */
+  @java.lang.Override
+  public java.lang.String getRouteToken() {
+    java.lang.Object ref = routeToken_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      routeToken_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+   * which allows the Navigation SDK to reconstruct the route during navigation,
+   * and in the event of rerouting honor the original intention when Routes
+   * ComputeRoutes is called. Customers should treat this token as an
+   * opaque blob.
+   * NOTE: `Route.route_token` is only available for requests that have set
+   * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+   * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+   * requests that have Via waypoints.
+   * </pre>
+   *
+   * <code>string route_token = 12;</code>
+   * @return The bytes for routeToken.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRouteTokenBytes() {
+    java.lang.Object ref = routeToken_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      routeToken_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -615,6 +626,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    getSerializedSize();
     for (int i = 0; i < legs_.size(); i++) {
       output.writeMessage(1, legs_.get(i));
     }
@@ -642,7 +654,17 @@ private static final long serialVersionUID = 0L;
     if (travelAdvisory_ != null) {
       output.writeMessage(9, getTravelAdvisory());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(routeToken_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 12, routeToken_);
+    }
+    if (getRouteLabelsList().size() > 0) {
+      output.writeUInt32NoTag(106);
+      output.writeUInt32NoTag(routeLabelsMemoizedSerializedSize);
+    }
+    for (int i = 0; i < routeLabels_.size(); i++) {
+      output.writeEnumNoTag(routeLabels_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -690,7 +712,22 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getTravelAdvisory());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(routeToken_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, routeToken_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < routeLabels_.size(); i++) {
+        dataSize += com.google.protobuf.CodedOutputStream
+          .computeEnumSizeNoTag(routeLabels_.get(i));
+      }
+      size += dataSize;
+      if (!getRouteLabelsList().isEmpty()) {  size += 1;
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32SizeNoTag(dataSize);
+      }routeLabelsMemoizedSerializedSize = dataSize;
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -705,6 +742,7 @@ private static final long serialVersionUID = 0L;
     }
     com.google.maps.routing.v2.Route other = (com.google.maps.routing.v2.Route) obj;
 
+    if (!routeLabels_.equals(other.routeLabels_)) return false;
     if (!getLegsList()
         .equals(other.getLegsList())) return false;
     if (getDistanceMeters()
@@ -738,7 +776,9 @@ private static final long serialVersionUID = 0L;
       if (!getTravelAdvisory()
           .equals(other.getTravelAdvisory())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getRouteToken()
+        .equals(other.getRouteToken())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -749,6 +789,10 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    if (getRouteLabelsCount() > 0) {
+      hash = (37 * hash) + ROUTE_LABELS_FIELD_NUMBER;
+      hash = (53 * hash) + routeLabels_.hashCode();
+    }
     if (getLegsCount() > 0) {
       hash = (37 * hash) + LEGS_FIELD_NUMBER;
       hash = (53 * hash) + getLegsList().hashCode();
@@ -781,7 +825,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRAVEL_ADVISORY_FIELD_NUMBER;
       hash = (53 * hash) + getTravelAdvisory().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + ROUTE_TOKEN_FIELD_NUMBER;
+    hash = (53 * hash) + getRouteToken().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -903,65 +949,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routing.v2.Route.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLegsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      routeLabels_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (legsBuilder_ == null) {
         legs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        legs_ = null;
         legsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       distanceMeters_ = 0;
-
-      if (durationBuilder_ == null) {
-        duration_ = null;
-      } else {
-        duration_ = null;
+      duration_ = null;
+      if (durationBuilder_ != null) {
+        durationBuilder_.dispose();
         durationBuilder_ = null;
       }
-      if (staticDurationBuilder_ == null) {
-        staticDuration_ = null;
-      } else {
-        staticDuration_ = null;
+      staticDuration_ = null;
+      if (staticDurationBuilder_ != null) {
+        staticDurationBuilder_.dispose();
         staticDurationBuilder_ = null;
       }
-      if (polylineBuilder_ == null) {
-        polyline_ = null;
-      } else {
-        polyline_ = null;
+      polyline_ = null;
+      if (polylineBuilder_ != null) {
+        polylineBuilder_.dispose();
         polylineBuilder_ = null;
       }
       description_ = "";
-
       warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (viewportBuilder_ == null) {
-        viewport_ = null;
-      } else {
-        viewport_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      viewport_ = null;
+      if (viewportBuilder_ != null) {
+        viewportBuilder_.dispose();
         viewportBuilder_ = null;
       }
-      if (travelAdvisoryBuilder_ == null) {
-        travelAdvisory_ = null;
-      } else {
-        travelAdvisory_ = null;
+      travelAdvisory_ = null;
+      if (travelAdvisoryBuilder_ != null) {
+        travelAdvisoryBuilder_.dispose();
         travelAdvisoryBuilder_ = null;
       }
+      routeToken_ = "";
       return this;
     }
 
@@ -988,50 +1026,70 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routing.v2.Route buildPartial() {
       com.google.maps.routing.v2.Route result = new com.google.maps.routing.v2.Route(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routing.v2.Route result) {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        routeLabels_ = java.util.Collections.unmodifiableList(routeLabels_);
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
+      result.routeLabels_ = routeLabels_;
       if (legsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           legs_ = java.util.Collections.unmodifiableList(legs_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.legs_ = legs_;
       } else {
         result.legs_ = legsBuilder_.build();
       }
-      result.distanceMeters_ = distanceMeters_;
-      if (durationBuilder_ == null) {
-        result.duration_ = duration_;
-      } else {
-        result.duration_ = durationBuilder_.build();
-      }
-      if (staticDurationBuilder_ == null) {
-        result.staticDuration_ = staticDuration_;
-      } else {
-        result.staticDuration_ = staticDurationBuilder_.build();
-      }
-      if (polylineBuilder_ == null) {
-        result.polyline_ = polyline_;
-      } else {
-        result.polyline_ = polylineBuilder_.build();
-      }
-      result.description_ = description_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         warnings_ = warnings_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.warnings_ = warnings_;
-      if (viewportBuilder_ == null) {
-        result.viewport_ = viewport_;
-      } else {
-        result.viewport_ = viewportBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.maps.routing.v2.Route result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.distanceMeters_ = distanceMeters_;
       }
-      if (travelAdvisoryBuilder_ == null) {
-        result.travelAdvisory_ = travelAdvisory_;
-      } else {
-        result.travelAdvisory_ = travelAdvisoryBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.duration_ = durationBuilder_ == null
+            ? duration_
+            : durationBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.staticDuration_ = staticDurationBuilder_ == null
+            ? staticDuration_
+            : staticDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.polyline_ = polylineBuilder_ == null
+            ? polyline_
+            : polylineBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.viewport_ = viewportBuilder_ == null
+            ? viewport_
+            : viewportBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.travelAdvisory_ = travelAdvisoryBuilder_ == null
+            ? travelAdvisory_
+            : travelAdvisoryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.routeToken_ = routeToken_;
+      }
     }
 
     @java.lang.Override
@@ -1078,11 +1136,21 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(com.google.maps.routing.v2.Route other) {
       if (other == com.google.maps.routing.v2.Route.getDefaultInstance()) return this;
+      if (!other.routeLabels_.isEmpty()) {
+        if (routeLabels_.isEmpty()) {
+          routeLabels_ = other.routeLabels_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureRouteLabelsIsMutable();
+          routeLabels_.addAll(other.routeLabels_);
+        }
+        onChanged();
+      }
       if (legsBuilder_ == null) {
         if (!other.legs_.isEmpty()) {
           if (legs_.isEmpty()) {
             legs_ = other.legs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureLegsIsMutable();
             legs_.addAll(other.legs_);
@@ -1095,7 +1163,7 @@ private static final long serialVersionUID = 0L;
             legsBuilder_.dispose();
             legsBuilder_ = null;
             legs_ = other.legs_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             legsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLegsFieldBuilder() : null;
@@ -1118,12 +1186,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.warnings_.isEmpty()) {
         if (warnings_.isEmpty()) {
           warnings_ = other.warnings_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureWarningsIsMutable();
           warnings_.addAll(other.warnings_);
@@ -1136,7 +1205,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasTravelAdvisory()) {
         mergeTravelAdvisory(other.getTravelAdvisory());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getRouteToken().isEmpty()) {
+        routeToken_ = other.routeToken_;
+        bitField0_ |= 0x00000400;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1151,27 +1225,326 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routing.v2.Route parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.maps.routing.v2.RouteLeg m =
+                  input.readMessage(
+                      com.google.maps.routing.v2.RouteLeg.parser(),
+                      extensionRegistry);
+              if (legsBuilder_ == null) {
+                ensureLegsIsMutable();
+                legs_.add(m);
+              } else {
+                legsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              distanceMeters_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStaticDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPolylineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureWarningsIsMutable();
+              warnings_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getViewportFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getTravelAdvisoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 98: {
+              routeToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 104: {
+              int tmpRaw = input.readEnum();
+              ensureRouteLabelsIsMutable();
+              routeLabels_.add(tmpRaw);
+              break;
+            } // case 104
+            case 106: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureRouteLabelsIsMutable();
+                routeLabels_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routing.v2.Route) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
 
+    private java.util.List<java.lang.Integer> routeLabels_ =
+      java.util.Collections.emptyList();
+    private void ensureRouteLabelsIsMutable() {
+      if (!((bitField0_ & 0x00000001) != 0)) {
+        routeLabels_ = new java.util.ArrayList<java.lang.Integer>(routeLabels_);
+        bitField0_ |= 0x00000001;
+      }
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @return A list containing the routeLabels.
+     */
+    public java.util.List<com.google.maps.routing.v2.RouteLabel> getRouteLabelsList() {
+      return new com.google.protobuf.Internal.ListAdapter<
+          java.lang.Integer, com.google.maps.routing.v2.RouteLabel>(routeLabels_, routeLabels_converter_);
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @return The count of routeLabels.
+     */
+    public int getRouteLabelsCount() {
+      return routeLabels_.size();
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param index The index of the element to return.
+     * @return The routeLabels at the given index.
+     */
+    public com.google.maps.routing.v2.RouteLabel getRouteLabels(int index) {
+      return routeLabels_converter_.convert(routeLabels_.get(index));
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param index The index to set the value at.
+     * @param value The routeLabels to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRouteLabels(
+        int index, com.google.maps.routing.v2.RouteLabel value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureRouteLabelsIsMutable();
+      routeLabels_.set(index, value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param value The routeLabels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRouteLabels(com.google.maps.routing.v2.RouteLabel value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      ensureRouteLabelsIsMutable();
+      routeLabels_.add(value.getNumber());
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param values The routeLabels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRouteLabels(
+        java.lang.Iterable<? extends com.google.maps.routing.v2.RouteLabel> values) {
+      ensureRouteLabelsIsMutable();
+      for (com.google.maps.routing.v2.RouteLabel value : values) {
+        routeLabels_.add(value.getNumber());
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRouteLabels() {
+      routeLabels_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @return A list containing the enum numeric values on the wire for routeLabels.
+     */
+    public java.util.List<java.lang.Integer>
+    getRouteLabelsValueList() {
+      return java.util.Collections.unmodifiableList(routeLabels_);
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param index The index of the value to return.
+     * @return The enum numeric value on the wire of routeLabels at the given index.
+     */
+    public int getRouteLabelsValue(int index) {
+      return routeLabels_.get(index);
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param index The index to set the value at.
+     * @param value The enum numeric value on the wire for routeLabels to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRouteLabelsValue(
+        int index, int value) {
+      ensureRouteLabelsIsMutable();
+      routeLabels_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param value The enum numeric value on the wire for routeLabels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addRouteLabelsValue(int value) {
+      ensureRouteLabelsIsMutable();
+      routeLabels_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels for the `Route` that are useful to identify specific properties
+     * of the route to compare against others.
+     * </pre>
+     *
+     * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+     * @param values The enum numeric values on the wire for routeLabels to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllRouteLabelsValue(
+        java.lang.Iterable<java.lang.Integer> values) {
+      ensureRouteLabelsIsMutable();
+      for (int value : values) {
+        routeLabels_.add(value);
+      }
+      onChanged();
+      return this;
+    }
+
     private java.util.List<com.google.maps.routing.v2.RouteLeg> legs_ =
       java.util.Collections.emptyList();
     private void ensureLegsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         legs_ = new java.util.ArrayList<com.google.maps.routing.v2.RouteLeg>(legs_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1431,7 +1804,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLegs() {
       if (legsBuilder_ == null) {
         legs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         legsBuilder_.clear();
@@ -1578,7 +1951,7 @@ private static final long serialVersionUID = 0L;
         legsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.maps.routing.v2.RouteLeg, com.google.maps.routing.v2.RouteLeg.Builder, com.google.maps.routing.v2.RouteLegOrBuilder>(
                 legs_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         legs_ = null;
@@ -1611,6 +1984,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDistanceMeters(int value) {
       
       distanceMeters_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1623,7 +1997,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDistanceMeters() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       distanceMeters_ = 0;
       onChanged();
       return this;
@@ -1635,8 +2009,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1645,13 +2019,13 @@ private static final long serialVersionUID = 0L;
      * @return Whether the duration field is set.
      */
     public boolean hasDuration() {
-      return durationBuilder_ != null || duration_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1669,8 +2043,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1683,18 +2057,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         duration_ = value;
-        onChanged();
       } else {
         durationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1705,18 +2079,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (durationBuilder_ == null) {
         duration_ = builderForValue.build();
-        onChanged();
       } else {
         durationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1725,24 +2099,25 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDuration(com.google.protobuf.Duration value) {
       if (durationBuilder_ == null) {
-        if (duration_ != null) {
-          duration_ =
-            com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          duration_ != null &&
+          duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDurationBuilder().mergeFrom(value);
         } else {
           duration_ = value;
         }
-        onChanged();
       } else {
         durationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1750,21 +2125,20 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration duration = 3;</code>
      */
     public Builder clearDuration() {
-      if (durationBuilder_ == null) {
-        duration_ = null;
-        onChanged();
-      } else {
-        duration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      duration_ = null;
+      if (durationBuilder_ != null) {
+        durationBuilder_.dispose();
         durationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1772,15 +2146,15 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration duration = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getDurationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDurationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1798,8 +2172,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The length of time needed to navigate the route. If you set the
-     * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-     * `static_duration`. If you set the `route_preference` to either
+     * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+     * `static_duration`. If you set the `routing_preference` to either
      * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
      * taking traffic conditions into account.
      * </pre>
@@ -1833,7 +2207,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the staticDuration field is set.
      */
     public boolean hasStaticDuration() {
-      return staticDurationBuilder_ != null || staticDuration_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1865,11 +2239,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         staticDuration_ = value;
-        onChanged();
       } else {
         staticDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1884,11 +2258,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (staticDurationBuilder_ == null) {
         staticDuration_ = builderForValue.build();
-        onChanged();
       } else {
         staticDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1901,17 +2275,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStaticDuration(com.google.protobuf.Duration value) {
       if (staticDurationBuilder_ == null) {
-        if (staticDuration_ != null) {
-          staticDuration_ =
-            com.google.protobuf.Duration.newBuilder(staticDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          staticDuration_ != null &&
+          staticDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getStaticDurationBuilder().mergeFrom(value);
         } else {
           staticDuration_ = value;
         }
-        onChanged();
       } else {
         staticDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1923,14 +2298,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration static_duration = 4;</code>
      */
     public Builder clearStaticDuration() {
-      if (staticDurationBuilder_ == null) {
-        staticDuration_ = null;
-        onChanged();
-      } else {
-        staticDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      staticDuration_ = null;
+      if (staticDurationBuilder_ != null) {
+        staticDurationBuilder_.dispose();
         staticDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1942,7 +2316,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration static_duration = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getStaticDurationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getStaticDurationFieldBuilder().getBuilder();
     }
@@ -1997,7 +2371,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the polyline field is set.
      */
     public boolean hasPolyline() {
-      return polylineBuilder_ != null || polyline_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2029,11 +2403,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         polyline_ = value;
-        onChanged();
       } else {
         polylineBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2048,11 +2422,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routing.v2.Polyline.Builder builderForValue) {
       if (polylineBuilder_ == null) {
         polyline_ = builderForValue.build();
-        onChanged();
       } else {
         polylineBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2065,17 +2439,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePolyline(com.google.maps.routing.v2.Polyline value) {
       if (polylineBuilder_ == null) {
-        if (polyline_ != null) {
-          polyline_ =
-            com.google.maps.routing.v2.Polyline.newBuilder(polyline_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          polyline_ != null &&
+          polyline_ != com.google.maps.routing.v2.Polyline.getDefaultInstance()) {
+          getPolylineBuilder().mergeFrom(value);
         } else {
           polyline_ = value;
         }
-        onChanged();
       } else {
         polylineBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2087,14 +2462,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.Polyline polyline = 5;</code>
      */
     public Builder clearPolyline() {
-      if (polylineBuilder_ == null) {
-        polyline_ = null;
-        onChanged();
-      } else {
-        polyline_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      polyline_ = null;
+      if (polylineBuilder_ != null) {
+        polylineBuilder_.dispose();
         polylineBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2106,7 +2480,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.Polyline polyline = 5;</code>
      */
     public com.google.maps.routing.v2.Polyline.Builder getPolylineBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPolylineFieldBuilder().getBuilder();
     }
@@ -2201,11 +2575,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2218,8 +2590,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2234,21 +2606,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureWarningsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         warnings_ = new com.google.protobuf.LazyStringArrayList(warnings_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -2311,10 +2681,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWarnings(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWarningsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureWarningsIsMutable();
       warnings_.set(index, value);
       onChanged();
       return this;
@@ -2330,10 +2698,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addWarnings(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureWarningsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureWarningsIsMutable();
       warnings_.add(value);
       onChanged();
       return this;
@@ -2365,7 +2731,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearWarnings() {
       warnings_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2380,10 +2746,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addWarningsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureWarningsIsMutable();
       warnings_.add(value);
       onChanged();
@@ -2402,7 +2766,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the viewport field is set.
      */
     public boolean hasViewport() {
-      return viewportBuilder_ != null || viewport_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2432,11 +2796,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         viewport_ = value;
-        onChanged();
       } else {
         viewportBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2450,11 +2814,11 @@ private static final long serialVersionUID = 0L;
         com.google.geo.type.Viewport.Builder builderForValue) {
       if (viewportBuilder_ == null) {
         viewport_ = builderForValue.build();
-        onChanged();
       } else {
         viewportBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2466,17 +2830,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeViewport(com.google.geo.type.Viewport value) {
       if (viewportBuilder_ == null) {
-        if (viewport_ != null) {
-          viewport_ =
-            com.google.geo.type.Viewport.newBuilder(viewport_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          viewport_ != null &&
+          viewport_ != com.google.geo.type.Viewport.getDefaultInstance()) {
+          getViewportBuilder().mergeFrom(value);
         } else {
           viewport_ = value;
         }
-        onChanged();
       } else {
         viewportBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2487,14 +2852,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.geo.type.Viewport viewport = 8;</code>
      */
     public Builder clearViewport() {
-      if (viewportBuilder_ == null) {
-        viewport_ = null;
-        onChanged();
-      } else {
-        viewport_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      viewport_ = null;
+      if (viewportBuilder_ != null) {
+        viewportBuilder_.dispose();
         viewportBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2505,7 +2869,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.geo.type.Viewport viewport = 8;</code>
      */
     public com.google.geo.type.Viewport.Builder getViewportBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getViewportFieldBuilder().getBuilder();
     }
@@ -2557,7 +2921,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the travelAdvisory field is set.
      */
     public boolean hasTravelAdvisory() {
-      return travelAdvisoryBuilder_ != null || travelAdvisory_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2587,11 +2951,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         travelAdvisory_ = value;
-        onChanged();
       } else {
         travelAdvisoryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2605,11 +2969,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routing.v2.RouteTravelAdvisory.Builder builderForValue) {
       if (travelAdvisoryBuilder_ == null) {
         travelAdvisory_ = builderForValue.build();
-        onChanged();
       } else {
         travelAdvisoryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2621,17 +2985,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTravelAdvisory(com.google.maps.routing.v2.RouteTravelAdvisory value) {
       if (travelAdvisoryBuilder_ == null) {
-        if (travelAdvisory_ != null) {
-          travelAdvisory_ =
-            com.google.maps.routing.v2.RouteTravelAdvisory.newBuilder(travelAdvisory_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          travelAdvisory_ != null &&
+          travelAdvisory_ != com.google.maps.routing.v2.RouteTravelAdvisory.getDefaultInstance()) {
+          getTravelAdvisoryBuilder().mergeFrom(value);
         } else {
           travelAdvisory_ = value;
         }
-        onChanged();
       } else {
         travelAdvisoryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2642,14 +3007,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.RouteTravelAdvisory travel_advisory = 9;</code>
      */
     public Builder clearTravelAdvisory() {
-      if (travelAdvisoryBuilder_ == null) {
-        travelAdvisory_ = null;
-        onChanged();
-      } else {
-        travelAdvisory_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      travelAdvisory_ = null;
+      if (travelAdvisoryBuilder_ != null) {
+        travelAdvisoryBuilder_.dispose();
         travelAdvisoryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2660,7 +3024,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.RouteTravelAdvisory travel_advisory = 9;</code>
      */
     public com.google.maps.routing.v2.RouteTravelAdvisory.Builder getTravelAdvisoryBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getTravelAdvisoryFieldBuilder().getBuilder();
     }
@@ -2699,6 +3063,138 @@ private static final long serialVersionUID = 0L;
       }
       return travelAdvisoryBuilder_;
     }
+
+    private java.lang.Object routeToken_ = "";
+    /**
+     * <pre>
+     * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+     * which allows the Navigation SDK to reconstruct the route during navigation,
+     * and in the event of rerouting honor the original intention when Routes
+     * ComputeRoutes is called. Customers should treat this token as an
+     * opaque blob.
+     * NOTE: `Route.route_token` is only available for requests that have set
+     * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+     * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+     * requests that have Via waypoints.
+     * </pre>
+     *
+     * <code>string route_token = 12;</code>
+     * @return The routeToken.
+     */
+    public java.lang.String getRouteToken() {
+      java.lang.Object ref = routeToken_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        routeToken_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+     * which allows the Navigation SDK to reconstruct the route during navigation,
+     * and in the event of rerouting honor the original intention when Routes
+     * ComputeRoutes is called. Customers should treat this token as an
+     * opaque blob.
+     * NOTE: `Route.route_token` is only available for requests that have set
+     * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+     * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+     * requests that have Via waypoints.
+     * </pre>
+     *
+     * <code>string route_token = 12;</code>
+     * @return The bytes for routeToken.
+     */
+    public com.google.protobuf.ByteString
+        getRouteTokenBytes() {
+      java.lang.Object ref = routeToken_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        routeToken_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+     * which allows the Navigation SDK to reconstruct the route during navigation,
+     * and in the event of rerouting honor the original intention when Routes
+     * ComputeRoutes is called. Customers should treat this token as an
+     * opaque blob.
+     * NOTE: `Route.route_token` is only available for requests that have set
+     * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+     * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+     * requests that have Via waypoints.
+     * </pre>
+     *
+     * <code>string route_token = 12;</code>
+     * @param value The routeToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRouteToken(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      routeToken_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+     * which allows the Navigation SDK to reconstruct the route during navigation,
+     * and in the event of rerouting honor the original intention when Routes
+     * ComputeRoutes is called. Customers should treat this token as an
+     * opaque blob.
+     * NOTE: `Route.route_token` is only available for requests that have set
+     * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+     * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+     * requests that have Via waypoints.
+     * </pre>
+     *
+     * <code>string route_token = 12;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRouteToken() {
+      routeToken_ = getDefaultInstance().getRouteToken();
+      bitField0_ = (bitField0_ & ~0x00000400);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+     * which allows the Navigation SDK to reconstruct the route during navigation,
+     * and in the event of rerouting honor the original intention when Routes
+     * ComputeRoutes is called. Customers should treat this token as an
+     * opaque blob.
+     * NOTE: `Route.route_token` is only available for requests that have set
+     * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+     * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+     * requests that have Via waypoints.
+     * </pre>
+     *
+     * <code>string route_token = 12;</code>
+     * @param value The bytes for routeToken to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRouteTokenBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      routeToken_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2732,7 +3228,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Route(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

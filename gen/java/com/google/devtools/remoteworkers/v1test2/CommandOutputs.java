@@ -35,63 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CommandOutputs(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            exitCode_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            com.google.devtools.remoteworkers.v1test2.Digest.Builder subBuilder = null;
-            if (outputs_ != null) {
-              subBuilder = outputs_.toBuilder();
-            }
-            outputs_ = input.readMessage(com.google.devtools.remoteworkers.v1test2.Digest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputs_);
-              outputs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.remoteworkers.v1test2.RemoteWorkersCommands.internal_static_google_devtools_remoteworkers_v1test2_CommandOutputs_descriptor;
@@ -106,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXIT_CODE_FIELD_NUMBER = 1;
-  private int exitCode_;
+  private int exitCode_ = 0;
   /**
    * <pre>
    * exit_code is only fully reliable if the status' code is OK. If the task
@@ -167,7 +110,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.remoteworkers.v1test2.DigestOrBuilder getOutputsOrBuilder() {
-    return getOutputs();
+    return outputs_ == null ? com.google.devtools.remoteworkers.v1test2.Digest.getDefaultInstance() : outputs_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -190,7 +133,7 @@ private static final long serialVersionUID = 0L;
     if (outputs_ != null) {
       output.writeMessage(2, getOutputs());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -207,7 +150,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getOutputs());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -229,7 +172,7 @@ private static final long serialVersionUID = 0L;
       if (!getOutputs()
           .equals(other.getOutputs())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -246,7 +189,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTPUTS_FIELD_NUMBER;
       hash = (53 * hash) + getOutputs().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -368,28 +311,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.remoteworkers.v1test2.CommandOutputs.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       exitCode_ = 0;
-
-      if (outputsBuilder_ == null) {
-        outputs_ = null;
-      } else {
-        outputs_ = null;
+      outputs_ = null;
+      if (outputsBuilder_ != null) {
+        outputsBuilder_.dispose();
         outputsBuilder_ = null;
       }
       return this;
@@ -418,14 +355,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.remoteworkers.v1test2.CommandOutputs buildPartial() {
       com.google.devtools.remoteworkers.v1test2.CommandOutputs result = new com.google.devtools.remoteworkers.v1test2.CommandOutputs(this);
-      result.exitCode_ = exitCode_;
-      if (outputsBuilder_ == null) {
-        result.outputs_ = outputs_;
-      } else {
-        result.outputs_ = outputsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.remoteworkers.v1test2.CommandOutputs result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.exitCode_ = exitCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.outputs_ = outputsBuilder_ == null
+            ? outputs_
+            : outputsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -478,7 +422,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOutputs()) {
         mergeOutputs(other.getOutputs());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -493,19 +437,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.remoteworkers.v1test2.CommandOutputs parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              exitCode_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getOutputsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.remoteworkers.v1test2.CommandOutputs) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int exitCode_ ;
     /**
@@ -538,6 +508,7 @@ private static final long serialVersionUID = 0L;
     public Builder setExitCode(int value) {
       
       exitCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -553,7 +524,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExitCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       exitCode_ = 0;
       onChanged();
       return this;
@@ -574,7 +545,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputs field is set.
      */
     public boolean hasOutputs() {
-      return outputsBuilder_ != null || outputs_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -610,11 +581,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputs_ = value;
-        onChanged();
       } else {
         outputsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -631,11 +602,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.remoteworkers.v1test2.Digest.Builder builderForValue) {
       if (outputsBuilder_ == null) {
         outputs_ = builderForValue.build();
-        onChanged();
       } else {
         outputsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -650,17 +621,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputs(com.google.devtools.remoteworkers.v1test2.Digest value) {
       if (outputsBuilder_ == null) {
-        if (outputs_ != null) {
-          outputs_ =
-            com.google.devtools.remoteworkers.v1test2.Digest.newBuilder(outputs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          outputs_ != null &&
+          outputs_ != com.google.devtools.remoteworkers.v1test2.Digest.getDefaultInstance()) {
+          getOutputsBuilder().mergeFrom(value);
         } else {
           outputs_ = value;
         }
-        onChanged();
       } else {
         outputsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -674,14 +646,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.remoteworkers.v1test2.Digest outputs = 2;</code>
      */
     public Builder clearOutputs() {
-      if (outputsBuilder_ == null) {
-        outputs_ = null;
-        onChanged();
-      } else {
-        outputs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      outputs_ = null;
+      if (outputsBuilder_ != null) {
+        outputsBuilder_.dispose();
         outputsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -695,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.remoteworkers.v1test2.Digest outputs = 2;</code>
      */
     public com.google.devtools.remoteworkers.v1test2.Digest.Builder getOutputsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOutputsFieldBuilder().getBuilder();
     }
@@ -773,7 +744,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CommandOutputs(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

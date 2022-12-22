@@ -5,7 +5,8 @@ package com.google.cloud.secretmanager.v1;
 
 /**
  * <pre>
- * The replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+ * The replication status of a
+ * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
  * </pre>
  *
  * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus}
@@ -34,73 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReplicationStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus.Builder subBuilder = null;
-            if (replicationStatusCase_ == 1) {
-              subBuilder = ((com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus) replicationStatus_).toBuilder();
-            }
-            replicationStatus_ =
-                input.readMessage(com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus) replicationStatus_);
-              replicationStatus_ = subBuilder.buildPartial();
-            }
-            replicationStatusCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.Builder subBuilder = null;
-            if (replicationStatusCase_ == 2) {
-              subBuilder = ((com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus) replicationStatus_).toBuilder();
-            }
-            replicationStatus_ =
-                input.readMessage(com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus) replicationStatus_);
-              replicationStatus_ = subBuilder.buildPartial();
-            }
-            replicationStatusCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_ReplicationStatus_descriptor;
@@ -120,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+     * Output only. The customer-managed encryption status of the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
      * populated if customer-managed encryption is used.
      * </pre>
      *
@@ -130,7 +65,8 @@ private static final long serialVersionUID = 0L;
     boolean hasCustomerManagedEncryption();
     /**
      * <pre>
-     * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+     * Output only. The customer-managed encryption status of the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
      * populated if customer-managed encryption is used.
      * </pre>
      *
@@ -140,7 +76,8 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus getCustomerManagedEncryption();
     /**
      * <pre>
-     * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+     * Output only. The customer-managed encryption status of the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
      * populated if customer-managed encryption is used.
      * </pre>
      *
@@ -150,9 +87,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using automatic replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-   * policy.
+   * The replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using
+   * automatic replication.
+   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret]
+   * has an automatic replication policy.
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus}
@@ -181,58 +120,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AutomaticStatus(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder subBuilder = null;
-              if (customerManagedEncryption_ != null) {
-                subBuilder = customerManagedEncryption_.toBuilder();
-              }
-              customerManagedEncryption_ = input.readMessage(com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(customerManagedEncryption_);
-                customerManagedEncryption_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_ReplicationStatus_AutomaticStatus_descriptor;
@@ -250,7 +137,8 @@ private static final long serialVersionUID = 0L;
     private com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customerManagedEncryption_;
     /**
      * <pre>
-     * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+     * Output only. The customer-managed encryption status of the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
      * populated if customer-managed encryption is used.
      * </pre>
      *
@@ -263,7 +151,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+     * Output only. The customer-managed encryption status of the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
      * populated if customer-managed encryption is used.
      * </pre>
      *
@@ -276,7 +165,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+     * Output only. The customer-managed encryption status of the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
      * populated if customer-managed encryption is used.
      * </pre>
      *
@@ -284,7 +174,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatusOrBuilder getCustomerManagedEncryptionOrBuilder() {
-      return getCustomerManagedEncryption();
+      return customerManagedEncryption_ == null ? com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.getDefaultInstance() : customerManagedEncryption_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -304,7 +194,7 @@ private static final long serialVersionUID = 0L;
       if (customerManagedEncryption_ != null) {
         output.writeMessage(1, getCustomerManagedEncryption());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -317,7 +207,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getCustomerManagedEncryption());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -337,7 +227,7 @@ private static final long serialVersionUID = 0L;
         if (!getCustomerManagedEncryption()
             .equals(other.getCustomerManagedEncryption())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -352,7 +242,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CUSTOMER_MANAGED_ENCRYPTION_FIELD_NUMBER;
         hash = (53 * hash) + getCustomerManagedEncryption().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -449,9 +339,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * The replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using
+     * automatic replication.
+     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret]
+     * has an automatic replication policy.
      * </pre>
      *
      * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus}
@@ -475,26 +367,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (customerManagedEncryptionBuilder_ == null) {
-          customerManagedEncryption_ = null;
-        } else {
-          customerManagedEncryption_ = null;
+        bitField0_ = 0;
+        customerManagedEncryption_ = null;
+        if (customerManagedEncryptionBuilder_ != null) {
+          customerManagedEncryptionBuilder_.dispose();
           customerManagedEncryptionBuilder_ = null;
         }
         return this;
@@ -523,13 +410,18 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus buildPartial() {
         com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus result = new com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus(this);
-        if (customerManagedEncryptionBuilder_ == null) {
-          result.customerManagedEncryption_ = customerManagedEncryption_;
-        } else {
-          result.customerManagedEncryption_ = customerManagedEncryptionBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.customerManagedEncryption_ = customerManagedEncryptionBuilder_ == null
+              ? customerManagedEncryption_
+              : customerManagedEncryptionBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -579,7 +471,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasCustomerManagedEncryption()) {
           mergeCustomerManagedEncryption(other.getCustomerManagedEncryption());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -594,26 +486,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getCustomerManagedEncryptionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customerManagedEncryption_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus, com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder, com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatusOrBuilder> customerManagedEncryptionBuilder_;
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -621,11 +535,12 @@ private static final long serialVersionUID = 0L;
        * @return Whether the customerManagedEncryption field is set.
        */
       public boolean hasCustomerManagedEncryption() {
-        return customerManagedEncryptionBuilder_ != null || customerManagedEncryption_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -641,7 +556,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -653,16 +569,17 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           customerManagedEncryption_ = value;
-          onChanged();
         } else {
           customerManagedEncryptionBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -672,16 +589,17 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder builderForValue) {
         if (customerManagedEncryptionBuilder_ == null) {
           customerManagedEncryption_ = builderForValue.build();
-          onChanged();
         } else {
           customerManagedEncryptionBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -689,54 +607,57 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCustomerManagedEncryption(com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus value) {
         if (customerManagedEncryptionBuilder_ == null) {
-          if (customerManagedEncryption_ != null) {
-            customerManagedEncryption_ =
-              com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.newBuilder(customerManagedEncryption_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            customerManagedEncryption_ != null &&
+            customerManagedEncryption_ != com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.getDefaultInstance()) {
+            getCustomerManagedEncryptionBuilder().mergeFrom(value);
           } else {
             customerManagedEncryption_ = value;
           }
-          onChanged();
         } else {
           customerManagedEncryptionBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customer_managed_encryption = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearCustomerManagedEncryption() {
-        if (customerManagedEncryptionBuilder_ == null) {
-          customerManagedEncryption_ = null;
-          onChanged();
-        } else {
-          customerManagedEncryption_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        customerManagedEncryption_ = null;
+        if (customerManagedEncryptionBuilder_ != null) {
+          customerManagedEncryptionBuilder_.dispose();
           customerManagedEncryptionBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
        * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customer_managed_encryption = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder getCustomerManagedEncryptionBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getCustomerManagedEncryptionFieldBuilder().getBuilder();
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -752,7 +673,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -804,7 +726,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AutomaticStatus(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -830,7 +763,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -839,7 +773,8 @@ private static final long serialVersionUID = 0L;
         getReplicasList();
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -847,7 +782,8 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus getReplicas(int index);
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -855,7 +791,8 @@ private static final long serialVersionUID = 0L;
     int getReplicasCount();
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -864,7 +801,8 @@ private static final long serialVersionUID = 0L;
         getReplicasOrBuilderList();
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -874,10 +812,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using user-managed
-   * replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-   * policy.
+   * The replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using
+   * user-managed replication.
+   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret]
+   * has a user-managed replication policy.
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus}
@@ -906,58 +845,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private UserManagedStatus(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                replicas_ = new java.util.ArrayList<com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              replicas_.add(
-                  input.readMessage(com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          replicas_ = java.util.Collections.unmodifiableList(replicas_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1000,7 +887,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -1010,7 +898,8 @@ private static final long serialVersionUID = 0L;
       boolean hasCustomerManagedEncryption();
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -1020,7 +909,8 @@ private static final long serialVersionUID = 0L;
       com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus getCustomerManagedEncryption();
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -1030,7 +920,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the status of a user-managed replica for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Describes the status of a user-managed replica for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus}
@@ -1060,64 +951,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private ReplicaStatus(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                location_ = s;
-                break;
-              }
-              case 18: {
-                com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder subBuilder = null;
-                if (customerManagedEncryption_ != null) {
-                  subBuilder = customerManagedEncryption_.toBuilder();
-                }
-                customerManagedEncryption_ = input.readMessage(com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(customerManagedEncryption_);
-                  customerManagedEncryption_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.secretmanager.v1.ResourcesProto.internal_static_google_cloud_secretmanager_v1_ReplicationStatus_UserManagedStatus_ReplicaStatus_descriptor;
@@ -1132,7 +965,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int LOCATION_FIELD_NUMBER = 1;
-      private volatile java.lang.Object location_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object location_ = "";
       /**
        * <pre>
        * Output only. The canonical ID of the replica location.
@@ -1183,7 +1017,8 @@ private static final long serialVersionUID = 0L;
       private com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customerManagedEncryption_;
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -1196,7 +1031,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -1209,7 +1045,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+       * Output only. The customer-managed encryption status of the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
        * populated if customer-managed encryption is used.
        * </pre>
        *
@@ -1217,7 +1054,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatusOrBuilder getCustomerManagedEncryptionOrBuilder() {
-        return getCustomerManagedEncryption();
+        return customerManagedEncryption_ == null ? com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.getDefaultInstance() : customerManagedEncryption_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -1240,7 +1077,7 @@ private static final long serialVersionUID = 0L;
         if (customerManagedEncryption_ != null) {
           output.writeMessage(2, getCustomerManagedEncryption());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1256,7 +1093,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getCustomerManagedEncryption());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1278,7 +1115,7 @@ private static final long serialVersionUID = 0L;
           if (!getCustomerManagedEncryption()
               .equals(other.getCustomerManagedEncryption())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1295,7 +1132,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + CUSTOMER_MANAGED_ENCRYPTION_FIELD_NUMBER;
           hash = (53 * hash) + getCustomerManagedEncryption().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1392,7 +1229,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Describes the status of a user-managed replica for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Describes the status of a user-managed replica for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus}
@@ -1416,28 +1254,22 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           location_ = "";
-
-          if (customerManagedEncryptionBuilder_ == null) {
-            customerManagedEncryption_ = null;
-          } else {
-            customerManagedEncryption_ = null;
+          customerManagedEncryption_ = null;
+          if (customerManagedEncryptionBuilder_ != null) {
+            customerManagedEncryptionBuilder_.dispose();
             customerManagedEncryptionBuilder_ = null;
           }
           return this;
@@ -1466,14 +1298,21 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus buildPartial() {
           com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus result = new com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus(this);
-          result.location_ = location_;
-          if (customerManagedEncryptionBuilder_ == null) {
-            result.customerManagedEncryption_ = customerManagedEncryption_;
-          } else {
-            result.customerManagedEncryption_ = customerManagedEncryptionBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.location_ = location_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.customerManagedEncryption_ = customerManagedEncryptionBuilder_ == null
+                ? customerManagedEncryption_
+                : customerManagedEncryptionBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -1522,12 +1361,13 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus.getDefaultInstance()) return this;
           if (!other.getLocation().isEmpty()) {
             location_ = other.location_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.hasCustomerManagedEncryption()) {
             mergeCustomerManagedEncryption(other.getCustomerManagedEncryption());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1542,19 +1382,45 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  location_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getCustomerManagedEncryptionFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object location_ = "";
         /**
@@ -1612,11 +1478,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLocation(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           location_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1630,8 +1494,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearLocation() {
-          
           location_ = getDefaultInstance().getLocation();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1647,12 +1511,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLocationBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           location_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1662,7 +1524,8 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus, com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder, com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatusOrBuilder> customerManagedEncryptionBuilder_;
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1670,11 +1533,12 @@ private static final long serialVersionUID = 0L;
          * @return Whether the customerManagedEncryption field is set.
          */
         public boolean hasCustomerManagedEncryption() {
-          return customerManagedEncryptionBuilder_ != null || customerManagedEncryption_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1690,7 +1554,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1702,16 +1567,17 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             customerManagedEncryption_ = value;
-            onChanged();
           } else {
             customerManagedEncryptionBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1721,16 +1587,17 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder builderForValue) {
           if (customerManagedEncryptionBuilder_ == null) {
             customerManagedEncryption_ = builderForValue.build();
-            onChanged();
           } else {
             customerManagedEncryptionBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1738,54 +1605,57 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeCustomerManagedEncryption(com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus value) {
           if (customerManagedEncryptionBuilder_ == null) {
-            if (customerManagedEncryption_ != null) {
-              customerManagedEncryption_ =
-                com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.newBuilder(customerManagedEncryption_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              customerManagedEncryption_ != null &&
+              customerManagedEncryption_ != com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.getDefaultInstance()) {
+              getCustomerManagedEncryptionBuilder().mergeFrom(value);
             } else {
               customerManagedEncryption_ = value;
             }
-            onChanged();
           } else {
             customerManagedEncryptionBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customer_managed_encryption = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          */
         public Builder clearCustomerManagedEncryption() {
-          if (customerManagedEncryptionBuilder_ == null) {
-            customerManagedEncryption_ = null;
-            onChanged();
-          } else {
-            customerManagedEncryption_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          customerManagedEncryption_ = null;
+          if (customerManagedEncryptionBuilder_ != null) {
+            customerManagedEncryptionBuilder_.dispose();
             customerManagedEncryptionBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
          * <code>.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus customer_managed_encryption = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
          */
         public com.google.cloud.secretmanager.v1.CustomerManagedEncryptionStatus.Builder getCustomerManagedEncryptionBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getCustomerManagedEncryptionFieldBuilder().getBuilder();
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1801,7 +1671,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Output only. The customer-managed encryption status of the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
+         * Output only. The customer-managed encryption status of the
+         * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion]. Only
          * populated if customer-managed encryption is used.
          * </pre>
          *
@@ -1853,7 +1724,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ReplicaStatus(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1874,10 +1756,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REPLICAS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus> replicas_;
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1888,7 +1772,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1900,7 +1785,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1911,7 +1797,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1922,7 +1809,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+     * Output only. The list of replica statuses for the
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
      * </pre>
      *
      * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1950,7 +1838,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < replicas_.size(); i++) {
         output.writeMessage(1, replicas_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1963,7 +1851,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, replicas_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1980,7 +1868,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getReplicasList()
           .equals(other.getReplicasList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1995,7 +1883,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + REPLICAS_FIELD_NUMBER;
         hash = (53 * hash) + getReplicasList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2092,10 +1980,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using user-managed
-     * replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * The replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] using
+     * user-managed replication.
+     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret]
+     * has a user-managed replication policy.
      * </pre>
      *
      * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus}
@@ -2119,29 +2008,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getReplicasFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (replicasBuilder_ == null) {
           replicas_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          replicas_ = null;
           replicasBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2168,7 +2053,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus buildPartial() {
         com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus result = new com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus result) {
         if (replicasBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             replicas_ = java.util.Collections.unmodifiableList(replicas_);
@@ -2178,8 +2069,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.replicas_ = replicasBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -2252,7 +2145,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2267,17 +2160,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus m =
+                    input.readMessage(
+                        com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus.parser(),
+                        extensionRegistry);
+                if (replicasBuilder_ == null) {
+                  ensureReplicasIsMutable();
+                  replicas_.add(m);
+                } else {
+                  replicasBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2296,7 +2215,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2310,7 +2230,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2324,7 +2245,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2338,7 +2260,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2359,7 +2282,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2377,7 +2301,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2397,7 +2322,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2418,7 +2344,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2436,7 +2363,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2454,7 +2382,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2473,7 +2402,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2490,7 +2420,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2507,7 +2438,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2518,7 +2450,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2532,7 +2465,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2547,7 +2481,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2558,7 +2493,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2570,7 +2506,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The list of replica statuses for the [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+       * Output only. The list of replica statuses for the
+       * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
        * </pre>
        *
        * <code>repeated .google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.ReplicaStatus replicas = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2626,7 +2563,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UserManagedStatus(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2690,10 +2638,12 @@ private static final long serialVersionUID = 0L;
   public static final int AUTOMATIC_FIELD_NUMBER = 1;
   /**
    * <pre>
-   * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+   * Describes the replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
    * automatic replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-   * policy.
+   * Only populated if the parent
+   * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+   * replication policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -2705,10 +2655,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+   * Describes the replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
    * automatic replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-   * policy.
+   * Only populated if the parent
+   * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+   * replication policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -2723,10 +2675,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+   * Describes the replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
    * automatic replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-   * policy.
+   * Only populated if the parent
+   * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+   * replication policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -2742,10 +2696,12 @@ private static final long serialVersionUID = 0L;
   public static final int USER_MANAGED_FIELD_NUMBER = 2;
   /**
    * <pre>
-   * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+   * Describes the replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
    * user-managed replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-   * policy.
+   * Only populated if the parent
+   * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+   * replication policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -2757,10 +2713,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+   * Describes the replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
    * user-managed replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-   * policy.
+   * Only populated if the parent
+   * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+   * replication policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -2775,10 +2733,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+   * Describes the replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
    * user-managed replication.
-   * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-   * policy.
+   * Only populated if the parent
+   * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+   * replication policy.
    * </pre>
    *
    * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -2811,7 +2771,7 @@ private static final long serialVersionUID = 0L;
     if (replicationStatusCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus) replicationStatus_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2828,7 +2788,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus) replicationStatus_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2856,7 +2816,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2879,7 +2839,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2976,7 +2936,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
+   * The replication status of a
+   * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion].
    * </pre>
    *
    * Protobuf type {@code google.cloud.secretmanager.v1.ReplicationStatus}
@@ -3000,22 +2961,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.secretmanager.v1.ReplicationStatus.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (automaticBuilder_ != null) {
+        automaticBuilder_.clear();
+      }
+      if (userManagedBuilder_ != null) {
+        userManagedBuilder_.clear();
+      }
       replicationStatusCase_ = 0;
       replicationStatus_ = null;
       return this;
@@ -3044,23 +3007,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.secretmanager.v1.ReplicationStatus buildPartial() {
       com.google.cloud.secretmanager.v1.ReplicationStatus result = new com.google.cloud.secretmanager.v1.ReplicationStatus(this);
-      if (replicationStatusCase_ == 1) {
-        if (automaticBuilder_ == null) {
-          result.replicationStatus_ = replicationStatus_;
-        } else {
-          result.replicationStatus_ = automaticBuilder_.build();
-        }
-      }
-      if (replicationStatusCase_ == 2) {
-        if (userManagedBuilder_ == null) {
-          result.replicationStatus_ = replicationStatus_;
-        } else {
-          result.replicationStatus_ = userManagedBuilder_.build();
-        }
-      }
-      result.replicationStatusCase_ = replicationStatusCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.secretmanager.v1.ReplicationStatus result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.secretmanager.v1.ReplicationStatus result) {
+      result.replicationStatusCase_ = replicationStatusCase_;
+      result.replicationStatus_ = this.replicationStatus_;
+      if (replicationStatusCase_ == 1 &&
+          automaticBuilder_ != null) {
+        result.replicationStatus_ = automaticBuilder_.build();
+      }
+      if (replicationStatusCase_ == 2 &&
+          userManagedBuilder_ != null) {
+        result.replicationStatus_ = userManagedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3120,7 +3087,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3135,17 +3102,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.secretmanager.v1.ReplicationStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAutomaticFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              replicationStatusCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUserManagedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              replicationStatusCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.secretmanager.v1.ReplicationStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int replicationStatusCase_ = 0;
@@ -3163,15 +3157,18 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus, com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus.Builder, com.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatusOrBuilder> automaticBuilder_;
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3183,10 +3180,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3208,10 +3207,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3231,10 +3232,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3252,10 +3255,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3282,10 +3287,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3308,10 +3315,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3321,10 +3330,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3342,10 +3353,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * automatic replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has an automatic replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has an automatic
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.AutomaticStatus automatic = 1;</code>
@@ -3365,7 +3378,7 @@ private static final long serialVersionUID = 0L;
         replicationStatus_ = null;
       }
       replicationStatusCase_ = 1;
-      onChanged();;
+      onChanged();
       return automaticBuilder_;
     }
 
@@ -3373,10 +3386,12 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus, com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus.Builder, com.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatusOrBuilder> userManagedBuilder_;
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3388,10 +3403,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3413,10 +3430,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3436,10 +3455,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3457,10 +3478,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3487,10 +3510,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3513,10 +3538,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3526,10 +3553,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3547,10 +3576,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Describes the replication status of a [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
+     * Describes the replication status of a
+     * [SecretVersion][google.cloud.secretmanager.v1.SecretVersion] with
      * user-managed replication.
-     * Only populated if the parent [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed replication
-     * policy.
+     * Only populated if the parent
+     * [Secret][google.cloud.secretmanager.v1.Secret] has a user-managed
+     * replication policy.
      * </pre>
      *
      * <code>.google.cloud.secretmanager.v1.ReplicationStatus.UserManagedStatus user_managed = 2;</code>
@@ -3570,7 +3601,7 @@ private static final long serialVersionUID = 0L;
         replicationStatus_ = null;
       }
       replicationStatusCase_ = 2;
-      onChanged();;
+      onChanged();
       return userManagedBuilder_;
     }
     @java.lang.Override
@@ -3606,7 +3637,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReplicationStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

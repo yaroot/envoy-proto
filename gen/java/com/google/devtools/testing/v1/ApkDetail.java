@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ApkDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.devtools.testing.v1.ApkManifest.Builder subBuilder = null;
-            if (apkManifest_ != null) {
-              subBuilder = apkManifest_.toBuilder();
-            }
-            apkManifest_ = input.readMessage(com.google.devtools.testing.v1.ApkManifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(apkManifest_);
-              apkManifest_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.ApplicationDetailProto.internal_static_google_devtools_testing_v1_ApkDetail_descriptor;
@@ -123,7 +71,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.ApkManifestOrBuilder getApkManifestOrBuilder() {
-    return getApkManifest();
+    return apkManifest_ == null ? com.google.devtools.testing.v1.ApkManifest.getDefaultInstance() : apkManifest_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -143,7 +91,7 @@ private static final long serialVersionUID = 0L;
     if (apkManifest_ != null) {
       output.writeMessage(1, getApkManifest());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -156,7 +104,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getApkManifest());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -176,7 +124,7 @@ private static final long serialVersionUID = 0L;
       if (!getApkManifest()
           .equals(other.getApkManifest())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -191,7 +139,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + APK_MANIFEST_FIELD_NUMBER;
       hash = (53 * hash) + getApkManifest().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -313,26 +261,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.ApkDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (apkManifestBuilder_ == null) {
-        apkManifest_ = null;
-      } else {
-        apkManifest_ = null;
+      bitField0_ = 0;
+      apkManifest_ = null;
+      if (apkManifestBuilder_ != null) {
+        apkManifestBuilder_.dispose();
         apkManifestBuilder_ = null;
       }
       return this;
@@ -361,13 +304,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.ApkDetail buildPartial() {
       com.google.devtools.testing.v1.ApkDetail result = new com.google.devtools.testing.v1.ApkDetail(this);
-      if (apkManifestBuilder_ == null) {
-        result.apkManifest_ = apkManifest_;
-      } else {
-        result.apkManifest_ = apkManifestBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.ApkDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.apkManifest_ = apkManifestBuilder_ == null
+            ? apkManifest_
+            : apkManifestBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -417,7 +365,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasApkManifest()) {
         mergeApkManifest(other.getApkManifest());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -432,19 +380,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.ApkDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getApkManifestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.ApkDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.devtools.testing.v1.ApkManifest apkManifest_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -454,7 +423,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the apkManifest field is set.
      */
     public boolean hasApkManifest() {
-      return apkManifestBuilder_ != null || apkManifest_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.google.devtools.testing.v1.ApkManifest apk_manifest = 1;</code>
@@ -476,11 +445,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         apkManifest_ = value;
-        onChanged();
       } else {
         apkManifestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -490,11 +459,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.ApkManifest.Builder builderForValue) {
       if (apkManifestBuilder_ == null) {
         apkManifest_ = builderForValue.build();
-        onChanged();
       } else {
         apkManifestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -502,38 +471,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeApkManifest(com.google.devtools.testing.v1.ApkManifest value) {
       if (apkManifestBuilder_ == null) {
-        if (apkManifest_ != null) {
-          apkManifest_ =
-            com.google.devtools.testing.v1.ApkManifest.newBuilder(apkManifest_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          apkManifest_ != null &&
+          apkManifest_ != com.google.devtools.testing.v1.ApkManifest.getDefaultInstance()) {
+          getApkManifestBuilder().mergeFrom(value);
         } else {
           apkManifest_ = value;
         }
-        onChanged();
       } else {
         apkManifestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.google.devtools.testing.v1.ApkManifest apk_manifest = 1;</code>
      */
     public Builder clearApkManifest() {
-      if (apkManifestBuilder_ == null) {
-        apkManifest_ = null;
-        onChanged();
-      } else {
-        apkManifest_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      apkManifest_ = null;
+      if (apkManifestBuilder_ != null) {
+        apkManifestBuilder_.dispose();
         apkManifestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.google.devtools.testing.v1.ApkManifest apk_manifest = 1;</code>
      */
     public com.google.devtools.testing.v1.ApkManifest.Builder getApkManifestBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getApkManifestFieldBuilder().getBuilder();
     }
@@ -597,7 +566,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ApkDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

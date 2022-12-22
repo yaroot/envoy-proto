@@ -5,8 +5,7 @@ package com.google.cloud.asset.v1;
 
 /**
  * <pre>
- * A request message for
- * [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
+ * A request message for [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
  * </pre>
  *
  * Protobuf type {@code google.cloud.asset.v1.AnalyzeIamPolicyRequest}
@@ -35,77 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AnalyzeIamPolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder subBuilder = null;
-            if (analysisQuery_ != null) {
-              subBuilder = analysisQuery_.toBuilder();
-            }
-            analysisQuery_ = input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisQuery.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(analysisQuery_);
-              analysisQuery_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (executionTimeout_ != null) {
-              subBuilder = executionTimeout_.toBuilder();
-            }
-            executionTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(executionTimeout_);
-              executionTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            savedAnalysisQuery_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -155,11 +83,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.asset.v1.IamPolicyAnalysisQueryOrBuilder getAnalysisQueryOrBuilder() {
-    return getAnalysisQuery();
+    return analysisQuery_ == null ? com.google.cloud.asset.v1.IamPolicyAnalysisQuery.getDefaultInstance() : analysisQuery_;
   }
 
   public static final int SAVED_ANALYSIS_QUERY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object savedAnalysisQuery_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object savedAnalysisQuery_ = "";
   /**
    * <pre>
    * Optional. The name of a saved query, which must be in the format of:
@@ -232,8 +161,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration executionTimeout_;
   /**
    * <pre>
-   * Optional. Amount of time executable has to complete.  See JSON
-   * representation of
+   * Optional. Amount of time executable has to complete.  See JSON representation of
    * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
    * If this field is set with a value less than the RPC deadline, and the
    * execution of your query hasn't finished in the specified
@@ -252,8 +180,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Amount of time executable has to complete.  See JSON
-   * representation of
+   * Optional. Amount of time executable has to complete.  See JSON representation of
    * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
    * If this field is set with a value less than the RPC deadline, and the
    * execution of your query hasn't finished in the specified
@@ -272,8 +199,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Amount of time executable has to complete.  See JSON
-   * representation of
+   * Optional. Amount of time executable has to complete.  See JSON representation of
    * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
    * If this field is set with a value less than the RPC deadline, and the
    * execution of your query hasn't finished in the specified
@@ -287,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getExecutionTimeoutOrBuilder() {
-    return getExecutionTimeout();
+    return executionTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : executionTimeout_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -313,7 +239,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(savedAnalysisQuery_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, savedAnalysisQuery_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -333,7 +259,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(savedAnalysisQuery_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, savedAnalysisQuery_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -360,7 +286,7 @@ private static final long serialVersionUID = 0L;
       if (!getExecutionTimeout()
           .equals(other.getExecutionTimeout())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -381,7 +307,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXECUTION_TIMEOUT_FIELD_NUMBER;
       hash = (53 * hash) + getExecutionTimeout().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -478,8 +404,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A request message for
-   * [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
+   * A request message for [AssetService.AnalyzeIamPolicy][google.cloud.asset.v1.AssetService.AnalyzeIamPolicy].
    * </pre>
    *
    * Protobuf type {@code google.cloud.asset.v1.AnalyzeIamPolicyRequest}
@@ -503,34 +428,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.AnalyzeIamPolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (analysisQueryBuilder_ == null) {
-        analysisQuery_ = null;
-      } else {
-        analysisQuery_ = null;
+      bitField0_ = 0;
+      analysisQuery_ = null;
+      if (analysisQueryBuilder_ != null) {
+        analysisQueryBuilder_.dispose();
         analysisQueryBuilder_ = null;
       }
       savedAnalysisQuery_ = "";
-
-      if (executionTimeoutBuilder_ == null) {
-        executionTimeout_ = null;
-      } else {
-        executionTimeout_ = null;
+      executionTimeout_ = null;
+      if (executionTimeoutBuilder_ != null) {
+        executionTimeoutBuilder_.dispose();
         executionTimeoutBuilder_ = null;
       }
       return this;
@@ -559,19 +477,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.AnalyzeIamPolicyRequest buildPartial() {
       com.google.cloud.asset.v1.AnalyzeIamPolicyRequest result = new com.google.cloud.asset.v1.AnalyzeIamPolicyRequest(this);
-      if (analysisQueryBuilder_ == null) {
-        result.analysisQuery_ = analysisQuery_;
-      } else {
-        result.analysisQuery_ = analysisQueryBuilder_.build();
-      }
-      result.savedAnalysisQuery_ = savedAnalysisQuery_;
-      if (executionTimeoutBuilder_ == null) {
-        result.executionTimeout_ = executionTimeout_;
-      } else {
-        result.executionTimeout_ = executionTimeoutBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.AnalyzeIamPolicyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.analysisQuery_ = analysisQueryBuilder_ == null
+            ? analysisQuery_
+            : analysisQueryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.savedAnalysisQuery_ = savedAnalysisQuery_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.executionTimeout_ = executionTimeoutBuilder_ == null
+            ? executionTimeout_
+            : executionTimeoutBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -623,12 +548,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSavedAnalysisQuery().isEmpty()) {
         savedAnalysisQuery_ = other.savedAnalysisQuery_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasExecutionTimeout()) {
         mergeExecutionTimeout(other.getExecutionTimeout());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -643,19 +569,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.AnalyzeIamPolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAnalysisQueryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getExecutionTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              savedAnalysisQuery_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.AnalyzeIamPolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.asset.v1.IamPolicyAnalysisQuery analysisQuery_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -669,7 +628,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the analysisQuery field is set.
      */
     public boolean hasAnalysisQuery() {
-      return analysisQueryBuilder_ != null || analysisQuery_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -699,11 +658,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         analysisQuery_ = value;
-        onChanged();
       } else {
         analysisQueryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -717,11 +676,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder builderForValue) {
       if (analysisQueryBuilder_ == null) {
         analysisQuery_ = builderForValue.build();
-        onChanged();
       } else {
         analysisQueryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -733,17 +692,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnalysisQuery(com.google.cloud.asset.v1.IamPolicyAnalysisQuery value) {
       if (analysisQueryBuilder_ == null) {
-        if (analysisQuery_ != null) {
-          analysisQuery_ =
-            com.google.cloud.asset.v1.IamPolicyAnalysisQuery.newBuilder(analysisQuery_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          analysisQuery_ != null &&
+          analysisQuery_ != com.google.cloud.asset.v1.IamPolicyAnalysisQuery.getDefaultInstance()) {
+          getAnalysisQueryBuilder().mergeFrom(value);
         } else {
           analysisQuery_ = value;
         }
-        onChanged();
       } else {
         analysisQueryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -754,14 +714,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisQuery analysis_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAnalysisQuery() {
-      if (analysisQueryBuilder_ == null) {
-        analysisQuery_ = null;
-        onChanged();
-      } else {
-        analysisQuery_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      analysisQuery_ = null;
+      if (analysisQueryBuilder_ != null) {
+        analysisQueryBuilder_.dispose();
         analysisQueryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -772,7 +731,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisQuery analysis_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder getAnalysisQueryBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAnalysisQueryFieldBuilder().getBuilder();
     }
@@ -901,11 +860,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSavedAnalysisQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       savedAnalysisQuery_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -930,8 +887,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSavedAnalysisQuery() {
-      
       savedAnalysisQuery_ = getDefaultInstance().getSavedAnalysisQuery();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -958,12 +915,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSavedAnalysisQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       savedAnalysisQuery_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -973,8 +928,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> executionTimeoutBuilder_;
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -988,12 +942,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the executionTimeout field is set.
      */
     public boolean hasExecutionTimeout() {
-      return executionTimeoutBuilder_ != null || executionTimeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1015,8 +968,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1034,17 +986,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         executionTimeout_ = value;
-        onChanged();
       } else {
         executionTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1060,17 +1011,16 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (executionTimeoutBuilder_ == null) {
         executionTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         executionTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1084,23 +1034,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExecutionTimeout(com.google.protobuf.Duration value) {
       if (executionTimeoutBuilder_ == null) {
-        if (executionTimeout_ != null) {
-          executionTimeout_ =
-            com.google.protobuf.Duration.newBuilder(executionTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          executionTimeout_ != null &&
+          executionTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getExecutionTimeoutBuilder().mergeFrom(value);
         } else {
           executionTimeout_ = value;
         }
-        onChanged();
       } else {
         executionTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1113,20 +1063,18 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration execution_timeout = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearExecutionTimeout() {
-      if (executionTimeoutBuilder_ == null) {
-        executionTimeout_ = null;
-        onChanged();
-      } else {
-        executionTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      executionTimeout_ = null;
+      if (executionTimeoutBuilder_ != null) {
+        executionTimeoutBuilder_.dispose();
         executionTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1139,14 +1087,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration execution_timeout = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Duration.Builder getExecutionTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getExecutionTimeoutFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1168,8 +1115,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Amount of time executable has to complete.  See JSON
-     * representation of
+     * Optional. Amount of time executable has to complete.  See JSON representation of
      * [Duration](https://developers.google.com/protocol-buffers/docs/proto3#json).
      * If this field is set with a value less than the RPC deadline, and the
      * execution of your query hasn't finished in the specified
@@ -1227,7 +1173,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnalyzeIamPolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

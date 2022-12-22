@@ -28,7 +28,7 @@ package io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3;
  *         timeout: 1s
  *       cache_duration:
  *         seconds: 300
- * [#next-free-field: 15]
+ * [#next-free-field: 16]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.jwt_authn.v3.JwtProvider}
@@ -51,6 +51,7 @@ private static final long serialVersionUID = 0L;
     forwardPayloadHeader_ = "";
     payloadInMetadata_ = "";
     headerInMetadata_ = "";
+    claimToHeaders_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -64,174 +65,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private JwtProvider(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            issuer_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              audiences_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            audiences_.add(s);
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks.Builder subBuilder = null;
-            if (jwksSourceSpecifierCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks) jwksSourceSpecifier_).toBuilder();
-            }
-            jwksSourceSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RemoteJwks) jwksSourceSpecifier_);
-              jwksSourceSpecifier_ = subBuilder.buildPartial();
-            }
-            jwksSourceSpecifierCase_ = 3;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (jwksSourceSpecifierCase_ == 4) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.DataSource) jwksSourceSpecifier_).toBuilder();
-            }
-            jwksSourceSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.DataSource) jwksSourceSpecifier_);
-              jwksSourceSpecifier_ = subBuilder.buildPartial();
-            }
-            jwksSourceSpecifierCase_ = 4;
-            break;
-          }
-          case 40: {
-
-            forward_ = input.readBool();
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              fromHeaders_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            fromHeaders_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              fromParams_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            fromParams_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            forwardPayloadHeader_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payloadInMetadata_ = s;
-            break;
-          }
-          case 80: {
-
-            clockSkewSeconds_ = input.readUInt32();
-            break;
-          }
-          case 88: {
-
-            padForwardPayloadHeader_ = input.readBool();
-            break;
-          }
-          case 98: {
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.Builder subBuilder = null;
-            if (jwtCacheConfig_ != null) {
-              subBuilder = jwtCacheConfig_.toBuilder();
-            }
-            jwtCacheConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jwtCacheConfig_);
-              jwtCacheConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              fromCookies_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            fromCookies_.add(s);
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            headerInMetadata_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        audiences_ = audiences_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        fromHeaders_ = java.util.Collections.unmodifiableList(fromHeaders_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        fromParams_ = fromParams_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        fromCookies_ = fromCookies_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -288,7 +121,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ISSUER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object issuer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object issuer_ = "";
   /**
    * <pre>
    * Specify the `principal &lt;https://tools.ietf.org/html/rfc7519#section-4.1.1&gt;`_ that issued
@@ -358,6 +192,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIENCES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList audiences_;
   /**
    * <pre>
@@ -580,7 +415,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORWARD_FIELD_NUMBER = 5;
-  private boolean forward_;
+  private boolean forward_ = false;
   /**
    * <pre>
    * If false, the JWT is removed in the request after a success verification. If true, the JWT is
@@ -597,6 +432,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FROM_HEADERS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader> fromHeaders_;
   /**
    * <pre>
@@ -722,6 +558,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FROM_PARAMS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList fromParams_;
   /**
    * <pre>
@@ -797,6 +634,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FROM_COOKIES_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList fromCookies_;
   /**
    * <pre>
@@ -868,7 +706,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORWARD_PAYLOAD_HEADER_FIELD_NUMBER = 8;
-  private volatile java.lang.Object forwardPayloadHeader_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object forwardPayloadHeader_ = "";
   /**
    * <pre>
    * This field specifies the header name to forward a successfully verified JWT payload to the
@@ -920,7 +759,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAD_FORWARD_PAYLOAD_HEADER_FIELD_NUMBER = 11;
-  private boolean padForwardPayloadHeader_;
+  private boolean padForwardPayloadHeader_ = false;
   /**
    * <pre>
    * When :ref:`forward_payload_header &lt;envoy_v3_api_field_extensions.filters.http.jwt_authn.v3.JwtProvider.forward_payload_header&gt;`
@@ -940,7 +779,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_IN_METADATA_FIELD_NUMBER = 9;
-  private volatile java.lang.Object payloadInMetadata_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payloadInMetadata_ = "";
   /**
    * <pre>
    * If non empty, successfully verified JWT payloads will be written to StreamInfo DynamicMetadata
@@ -1008,7 +848,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADER_IN_METADATA_FIELD_NUMBER = 14;
-  private volatile java.lang.Object headerInMetadata_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object headerInMetadata_ = "";
   /**
    * <pre>
    * If not empty, similar to :ref:`payload_in_metadata &lt;envoy_v3_api_field_extensions.filters.http.jwt_authn.v3.JwtProvider.payload_in_metadata&gt;`,
@@ -1112,7 +953,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLOCK_SKEW_SECONDS_FIELD_NUMBER = 10;
-  private int clockSkewSeconds_;
+  private int clockSkewSeconds_ = 0;
   /**
    * <pre>
    * Specify the clock skew in seconds when verifying JWT time constraint,
@@ -1165,7 +1006,103 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfigOrBuilder getJwtCacheConfigOrBuilder() {
-    return getJwtCacheConfig();
+    return jwtCacheConfig_ == null ? io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.getDefaultInstance() : jwtCacheConfig_;
+  }
+
+  public static final int CLAIM_TO_HEADERS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
+  private java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader> claimToHeaders_;
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  @java.lang.Override
+  public java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader> getClaimToHeadersList() {
+    return claimToHeaders_;
+  }
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder> 
+      getClaimToHeadersOrBuilderList() {
+    return claimToHeaders_;
+  }
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  @java.lang.Override
+  public int getClaimToHeadersCount() {
+    return claimToHeaders_.size();
+  }
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader getClaimToHeaders(int index) {
+    return claimToHeaders_.get(index);
+  }
+  /**
+   * <pre>
+   * Add JWT claim to HTTP Header
+   * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+   * The claim must be of type; string, int, double, bool. Array type claims are not supported
+   * .. code-block:: yaml
+   *   claim_to_headers:
+   *     - name: x-jwt-claim-nested-claim
+   *       claim: claim.nested.key
+   * This header is only reserved for jwt claim; any other value will be overwrite.
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder getClaimToHeadersOrBuilder(
+      int index) {
+    return claimToHeaders_.get(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1224,7 +1161,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(headerInMetadata_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, headerInMetadata_);
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < claimToHeaders_.size(); i++) {
+      output.writeMessage(15, claimToHeaders_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1297,7 +1237,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(headerInMetadata_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, headerInMetadata_);
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < claimToHeaders_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(15, claimToHeaders_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1339,6 +1283,8 @@ private static final long serialVersionUID = 0L;
       if (!getJwtCacheConfig()
           .equals(other.getJwtCacheConfig())) return false;
     }
+    if (!getClaimToHeadersList()
+        .equals(other.getClaimToHeadersList())) return false;
     if (!getJwksSourceSpecifierCase().equals(other.getJwksSourceSpecifierCase())) return false;
     switch (jwksSourceSpecifierCase_) {
       case 3:
@@ -1352,7 +1298,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1399,6 +1345,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JWT_CACHE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getJwtCacheConfig().hashCode();
     }
+    if (getClaimToHeadersCount() > 0) {
+      hash = (37 * hash) + CLAIM_TO_HEADERS_FIELD_NUMBER;
+      hash = (53 * hash) + getClaimToHeadersList().hashCode();
+    }
     switch (jwksSourceSpecifierCase_) {
       case 3:
         hash = (37 * hash) + REMOTE_JWKS_FIELD_NUMBER;
@@ -1411,7 +1361,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1531,7 +1481,7 @@ private static final long serialVersionUID = 0L;
    *         timeout: 1s
    *       cache_duration:
    *         seconds: 300
-   * [#next-free-field: 15]
+   * [#next-free-field: 16]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.jwt_authn.v3.JwtProvider}
@@ -1555,55 +1505,56 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFromHeadersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       issuer_ = "";
-
       audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
+      if (remoteJwksBuilder_ != null) {
+        remoteJwksBuilder_.clear();
+      }
+      if (localJwksBuilder_ != null) {
+        localJwksBuilder_.clear();
+      }
       forward_ = false;
-
       if (fromHeadersBuilder_ == null) {
         fromHeaders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        fromHeaders_ = null;
         fromHeadersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       fromParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       fromCookies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000080);
       forwardPayloadHeader_ = "";
-
       padForwardPayloadHeader_ = false;
-
       payloadInMetadata_ = "";
-
       headerInMetadata_ = "";
-
       clockSkewSeconds_ = 0;
-
-      if (jwtCacheConfigBuilder_ == null) {
-        jwtCacheConfig_ = null;
-      } else {
-        jwtCacheConfig_ = null;
+      jwtCacheConfig_ = null;
+      if (jwtCacheConfigBuilder_ != null) {
+        jwtCacheConfigBuilder_.dispose();
         jwtCacheConfigBuilder_ = null;
       }
+      if (claimToHeadersBuilder_ == null) {
+        claimToHeaders_ = java.util.Collections.emptyList();
+      } else {
+        claimToHeaders_ = null;
+        claimToHeadersBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00004000);
       jwksSourceSpecifierCase_ = 0;
       jwksSourceSpecifier_ = null;
       return this;
@@ -1632,60 +1583,90 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider result = new io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider(this);
-      int from_bitField0_ = bitField0_;
-      result.issuer_ = issuer_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         audiences_ = audiences_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.audiences_ = audiences_;
-      if (jwksSourceSpecifierCase_ == 3) {
-        if (remoteJwksBuilder_ == null) {
-          result.jwksSourceSpecifier_ = jwksSourceSpecifier_;
-        } else {
-          result.jwksSourceSpecifier_ = remoteJwksBuilder_.build();
-        }
-      }
-      if (jwksSourceSpecifierCase_ == 4) {
-        if (localJwksBuilder_ == null) {
-          result.jwksSourceSpecifier_ = jwksSourceSpecifier_;
-        } else {
-          result.jwksSourceSpecifier_ = localJwksBuilder_.build();
-        }
-      }
-      result.forward_ = forward_;
       if (fromHeadersBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           fromHeaders_ = java.util.Collections.unmodifiableList(fromHeaders_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.fromHeaders_ = fromHeaders_;
       } else {
         result.fromHeaders_ = fromHeadersBuilder_.build();
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         fromParams_ = fromParams_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.fromParams_ = fromParams_;
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         fromCookies_ = fromCookies_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.fromCookies_ = fromCookies_;
-      result.forwardPayloadHeader_ = forwardPayloadHeader_;
-      result.padForwardPayloadHeader_ = padForwardPayloadHeader_;
-      result.payloadInMetadata_ = payloadInMetadata_;
-      result.headerInMetadata_ = headerInMetadata_;
-      result.clockSkewSeconds_ = clockSkewSeconds_;
-      if (jwtCacheConfigBuilder_ == null) {
-        result.jwtCacheConfig_ = jwtCacheConfig_;
+      if (claimToHeadersBuilder_ == null) {
+        if (((bitField0_ & 0x00004000) != 0)) {
+          claimToHeaders_ = java.util.Collections.unmodifiableList(claimToHeaders_);
+          bitField0_ = (bitField0_ & ~0x00004000);
+        }
+        result.claimToHeaders_ = claimToHeaders_;
       } else {
-        result.jwtCacheConfig_ = jwtCacheConfigBuilder_.build();
+        result.claimToHeaders_ = claimToHeadersBuilder_.build();
       }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.issuer_ = issuer_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.forward_ = forward_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.forwardPayloadHeader_ = forwardPayloadHeader_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.padForwardPayloadHeader_ = padForwardPayloadHeader_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.payloadInMetadata_ = payloadInMetadata_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.headerInMetadata_ = headerInMetadata_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.clockSkewSeconds_ = clockSkewSeconds_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.jwtCacheConfig_ = jwtCacheConfigBuilder_ == null
+            ? jwtCacheConfig_
+            : jwtCacheConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider result) {
       result.jwksSourceSpecifierCase_ = jwksSourceSpecifierCase_;
-      onBuilt();
-      return result;
+      result.jwksSourceSpecifier_ = this.jwksSourceSpecifier_;
+      if (jwksSourceSpecifierCase_ == 3 &&
+          remoteJwksBuilder_ != null) {
+        result.jwksSourceSpecifier_ = remoteJwksBuilder_.build();
+      }
+      if (jwksSourceSpecifierCase_ == 4 &&
+          localJwksBuilder_ != null) {
+        result.jwksSourceSpecifier_ = localJwksBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1734,12 +1715,13 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider.getDefaultInstance()) return this;
       if (!other.getIssuer().isEmpty()) {
         issuer_ = other.issuer_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.audiences_.isEmpty()) {
         if (audiences_.isEmpty()) {
           audiences_ = other.audiences_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureAudiencesIsMutable();
           audiences_.addAll(other.audiences_);
@@ -1753,7 +1735,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fromHeaders_.isEmpty()) {
           if (fromHeaders_.isEmpty()) {
             fromHeaders_ = other.fromHeaders_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureFromHeadersIsMutable();
             fromHeaders_.addAll(other.fromHeaders_);
@@ -1766,7 +1748,7 @@ private static final long serialVersionUID = 0L;
             fromHeadersBuilder_.dispose();
             fromHeadersBuilder_ = null;
             fromHeaders_ = other.fromHeaders_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             fromHeadersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFromHeadersFieldBuilder() : null;
@@ -1778,7 +1760,7 @@ private static final long serialVersionUID = 0L;
       if (!other.fromParams_.isEmpty()) {
         if (fromParams_.isEmpty()) {
           fromParams_ = other.fromParams_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureFromParamsIsMutable();
           fromParams_.addAll(other.fromParams_);
@@ -1788,7 +1770,7 @@ private static final long serialVersionUID = 0L;
       if (!other.fromCookies_.isEmpty()) {
         if (fromCookies_.isEmpty()) {
           fromCookies_ = other.fromCookies_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureFromCookiesIsMutable();
           fromCookies_.addAll(other.fromCookies_);
@@ -1797,6 +1779,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getForwardPayloadHeader().isEmpty()) {
         forwardPayloadHeader_ = other.forwardPayloadHeader_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.getPadForwardPayloadHeader() != false) {
@@ -1804,10 +1787,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPayloadInMetadata().isEmpty()) {
         payloadInMetadata_ = other.payloadInMetadata_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getHeaderInMetadata().isEmpty()) {
         headerInMetadata_ = other.headerInMetadata_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.getClockSkewSeconds() != 0) {
@@ -1815,6 +1800,32 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasJwtCacheConfig()) {
         mergeJwtCacheConfig(other.getJwtCacheConfig());
+      }
+      if (claimToHeadersBuilder_ == null) {
+        if (!other.claimToHeaders_.isEmpty()) {
+          if (claimToHeaders_.isEmpty()) {
+            claimToHeaders_ = other.claimToHeaders_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+          } else {
+            ensureClaimToHeadersIsMutable();
+            claimToHeaders_.addAll(other.claimToHeaders_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.claimToHeaders_.isEmpty()) {
+          if (claimToHeadersBuilder_.isEmpty()) {
+            claimToHeadersBuilder_.dispose();
+            claimToHeadersBuilder_ = null;
+            claimToHeaders_ = other.claimToHeaders_;
+            bitField0_ = (bitField0_ & ~0x00004000);
+            claimToHeadersBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getClaimToHeadersFieldBuilder() : null;
+          } else {
+            claimToHeadersBuilder_.addAllMessages(other.claimToHeaders_);
+          }
+        }
       }
       switch (other.getJwksSourceSpecifierCase()) {
         case REMOTE_JWKS: {
@@ -1829,7 +1840,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1844,17 +1855,130 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              issuer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAudiencesIsMutable();
+              audiences_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRemoteJwksFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              jwksSourceSpecifierCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLocalJwksFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              jwksSourceSpecifierCase_ = 4;
+              break;
+            } // case 34
+            case 40: {
+              forward_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader.parser(),
+                      extensionRegistry);
+              if (fromHeadersBuilder_ == null) {
+                ensureFromHeadersIsMutable();
+                fromHeaders_.add(m);
+              } else {
+                fromHeadersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFromParamsIsMutable();
+              fromParams_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              forwardPayloadHeader_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 74: {
+              payloadInMetadata_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 74
+            case 80: {
+              clockSkewSeconds_ = input.readUInt32();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 80
+            case 88: {
+              padForwardPayloadHeader_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getJwtCacheConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFromCookiesIsMutable();
+              fromCookies_.add(s);
+              break;
+            } // case 106
+            case 114: {
+              headerInMetadata_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 114
+            case 122: {
+              io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.parser(),
+                      extensionRegistry);
+              if (claimToHeadersBuilder_ == null) {
+                ensureClaimToHeadersIsMutable();
+                claimToHeaders_.add(m);
+              } else {
+                claimToHeadersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int jwksSourceSpecifierCase_ = 0;
@@ -1963,11 +2087,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIssuer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       issuer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1992,8 +2114,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIssuer() {
-      
       issuer_ = getDefaultInstance().getIssuer();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2020,21 +2142,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIssuerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       issuer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAudiencesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         audiences_ = new com.google.protobuf.LazyStringArrayList(audiences_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -2132,10 +2252,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudiences(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAudiencesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAudiencesIsMutable();
       audiences_.set(index, value);
       onChanged();
       return this;
@@ -2158,10 +2276,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAudiences(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAudiencesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAudiencesIsMutable();
       audiences_.add(value);
       onChanged();
       return this;
@@ -2207,7 +2323,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAudiences() {
       audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2229,10 +2345,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAudiencesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAudiencesIsMutable();
       audiences_.add(value);
       onChanged();
@@ -2503,7 +2617,7 @@ private static final long serialVersionUID = 0L;
         jwksSourceSpecifier_ = null;
       }
       jwksSourceSpecifierCase_ = 3;
-      onChanged();;
+      onChanged();
       return remoteJwksBuilder_;
     }
 
@@ -2762,7 +2876,7 @@ private static final long serialVersionUID = 0L;
         jwksSourceSpecifier_ = null;
       }
       jwksSourceSpecifierCase_ = 4;
-      onChanged();;
+      onChanged();
       return localJwksBuilder_;
     }
 
@@ -2795,6 +2909,7 @@ private static final long serialVersionUID = 0L;
     public Builder setForward(boolean value) {
       
       forward_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2809,7 +2924,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearForward() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       forward_ = false;
       onChanged();
       return this;
@@ -2818,9 +2933,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader> fromHeaders_ =
       java.util.Collections.emptyList();
     private void ensureFromHeadersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         fromHeaders_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader>(fromHeaders_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -3157,7 +3272,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFromHeaders() {
       if (fromHeadersBuilder_ == null) {
         fromHeaders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         fromHeadersBuilder_.clear();
@@ -3353,7 +3468,7 @@ private static final long serialVersionUID = 0L;
         fromHeadersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtHeaderOrBuilder>(
                 fromHeaders_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         fromHeaders_ = null;
@@ -3363,9 +3478,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList fromParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFromParamsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         fromParams_ = new com.google.protobuf.LazyStringArrayList(fromParams_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -3458,10 +3573,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFromParams(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFromParamsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFromParamsIsMutable();
       fromParams_.set(index, value);
       onChanged();
       return this;
@@ -3483,10 +3596,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFromParams(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFromParamsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFromParamsIsMutable();
       fromParams_.add(value);
       onChanged();
       return this;
@@ -3530,7 +3641,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFromParams() {
       fromParams_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3551,10 +3662,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFromParamsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFromParamsIsMutable();
       fromParams_.add(value);
       onChanged();
@@ -3563,9 +3672,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList fromCookies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFromCookiesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         fromCookies_ = new com.google.protobuf.LazyStringArrayList(fromCookies_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -3653,10 +3762,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFromCookies(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFromCookiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFromCookiesIsMutable();
       fromCookies_.set(index, value);
       onChanged();
       return this;
@@ -3677,10 +3784,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFromCookies(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFromCookiesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFromCookiesIsMutable();
       fromCookies_.add(value);
       onChanged();
       return this;
@@ -3722,7 +3827,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFromCookies() {
       fromCookies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3742,10 +3847,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFromCookiesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFromCookiesIsMutable();
       fromCookies_.add(value);
       onChanged();
@@ -3814,11 +3917,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setForwardPayloadHeader(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       forwardPayloadHeader_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3834,8 +3935,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearForwardPayloadHeader() {
-      
       forwardPayloadHeader_ = getDefaultInstance().getForwardPayloadHeader();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3853,12 +3954,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setForwardPayloadHeaderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       forwardPayloadHeader_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3898,6 +3997,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPadForwardPayloadHeader(boolean value) {
       
       padForwardPayloadHeader_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3915,7 +4015,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPadForwardPayloadHeader() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       padForwardPayloadHeader_ = false;
       onChanged();
       return this;
@@ -4007,11 +4107,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayloadInMetadata(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payloadInMetadata_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4035,8 +4133,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayloadInMetadata() {
-      
       payloadInMetadata_ = getDefaultInstance().getPayloadInMetadata();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -4062,12 +4160,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayloadInMetadataBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payloadInMetadata_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4212,11 +4308,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeaderInMetadata(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       headerInMetadata_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4258,8 +4352,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeaderInMetadata() {
-      
       headerInMetadata_ = getDefaultInstance().getHeaderInMetadata();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4303,12 +4397,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeaderInMetadataBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerInMetadata_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4340,6 +4432,7 @@ private static final long serialVersionUID = 0L;
     public Builder setClockSkewSeconds(int value) {
       
       clockSkewSeconds_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4353,7 +4446,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClockSkewSeconds() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       clockSkewSeconds_ = 0;
       onChanged();
       return this;
@@ -4372,7 +4465,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jwtCacheConfig field is set.
      */
     public boolean hasJwtCacheConfig() {
-      return jwtCacheConfigBuilder_ != null || jwtCacheConfig_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -4404,11 +4497,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jwtCacheConfig_ = value;
-        onChanged();
       } else {
         jwtCacheConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4423,11 +4516,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.Builder builderForValue) {
       if (jwtCacheConfigBuilder_ == null) {
         jwtCacheConfig_ = builderForValue.build();
-        onChanged();
       } else {
         jwtCacheConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4440,17 +4533,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJwtCacheConfig(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig value) {
       if (jwtCacheConfigBuilder_ == null) {
-        if (jwtCacheConfig_ != null) {
-          jwtCacheConfig_ =
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.newBuilder(jwtCacheConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          jwtCacheConfig_ != null &&
+          jwtCacheConfig_ != io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.getDefaultInstance()) {
+          getJwtCacheConfigBuilder().mergeFrom(value);
         } else {
           jwtCacheConfig_ = value;
         }
-        onChanged();
       } else {
         jwtCacheConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4462,14 +4556,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig jwt_cache_config = 12;</code>
      */
     public Builder clearJwtCacheConfig() {
-      if (jwtCacheConfigBuilder_ == null) {
-        jwtCacheConfig_ = null;
-        onChanged();
-      } else {
-        jwtCacheConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      jwtCacheConfig_ = null;
+      if (jwtCacheConfigBuilder_ != null) {
+        jwtCacheConfigBuilder_.dispose();
         jwtCacheConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4481,7 +4574,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig jwt_cache_config = 12;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtCacheConfig.Builder getJwtCacheConfigBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getJwtCacheConfigFieldBuilder().getBuilder();
     }
@@ -4522,6 +4615,444 @@ private static final long serialVersionUID = 0L;
       }
       return jwtCacheConfigBuilder_;
     }
+
+    private java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader> claimToHeaders_ =
+      java.util.Collections.emptyList();
+    private void ensureClaimToHeadersIsMutable() {
+      if (!((bitField0_ & 0x00004000) != 0)) {
+        claimToHeaders_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader>(claimToHeaders_);
+        bitField0_ |= 0x00004000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder> claimToHeadersBuilder_;
+
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader> getClaimToHeadersList() {
+      if (claimToHeadersBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(claimToHeaders_);
+      } else {
+        return claimToHeadersBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public int getClaimToHeadersCount() {
+      if (claimToHeadersBuilder_ == null) {
+        return claimToHeaders_.size();
+      } else {
+        return claimToHeadersBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader getClaimToHeaders(int index) {
+      if (claimToHeadersBuilder_ == null) {
+        return claimToHeaders_.get(index);
+      } else {
+        return claimToHeadersBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder setClaimToHeaders(
+        int index, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader value) {
+      if (claimToHeadersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.set(index, value);
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder setClaimToHeaders(
+        int index, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder builderForValue) {
+      if (claimToHeadersBuilder_ == null) {
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder addClaimToHeaders(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader value) {
+      if (claimToHeadersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.add(value);
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder addClaimToHeaders(
+        int index, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader value) {
+      if (claimToHeadersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.add(index, value);
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder addClaimToHeaders(
+        io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder builderForValue) {
+      if (claimToHeadersBuilder_ == null) {
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.add(builderForValue.build());
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder addClaimToHeaders(
+        int index, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder builderForValue) {
+      if (claimToHeadersBuilder_ == null) {
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder addAllClaimToHeaders(
+        java.lang.Iterable<? extends io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader> values) {
+      if (claimToHeadersBuilder_ == null) {
+        ensureClaimToHeadersIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, claimToHeaders_);
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder clearClaimToHeaders() {
+      if (claimToHeadersBuilder_ == null) {
+        claimToHeaders_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00004000);
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public Builder removeClaimToHeaders(int index) {
+      if (claimToHeadersBuilder_ == null) {
+        ensureClaimToHeadersIsMutable();
+        claimToHeaders_.remove(index);
+        onChanged();
+      } else {
+        claimToHeadersBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder getClaimToHeadersBuilder(
+        int index) {
+      return getClaimToHeadersFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder getClaimToHeadersOrBuilder(
+        int index) {
+      if (claimToHeadersBuilder_ == null) {
+        return claimToHeaders_.get(index);  } else {
+        return claimToHeadersBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public java.util.List<? extends io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder> 
+         getClaimToHeadersOrBuilderList() {
+      if (claimToHeadersBuilder_ != null) {
+        return claimToHeadersBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(claimToHeaders_);
+      }
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder addClaimToHeadersBuilder() {
+      return getClaimToHeadersFieldBuilder().addBuilder(
+          io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder addClaimToHeadersBuilder(
+        int index) {
+      return getClaimToHeadersFieldBuilder().addBuilder(
+          index, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Add JWT claim to HTTP Header
+     * Specify the claim name you want to copy in which HTTP header. For examples, following config:
+     * The claim must be of type; string, int, double, bool. Array type claims are not supported
+     * .. code-block:: yaml
+     *   claim_to_headers:
+     *     - name: x-jwt-claim-nested-claim
+     *       claim: claim.nested.key
+     * This header is only reserved for jwt claim; any other value will be overwrite.
+     * </pre>
+     *
+     * <code>repeated .envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader claim_to_headers = 15;</code>
+     */
+    public java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder> 
+         getClaimToHeadersBuilderList() {
+      return getClaimToHeadersFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder> 
+        getClaimToHeadersFieldBuilder() {
+      if (claimToHeadersBuilder_ == null) {
+        claimToHeadersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeader.Builder, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtClaimToHeaderOrBuilder>(
+                claimToHeaders_,
+                ((bitField0_ & 0x00004000) != 0),
+                getParentForChildren(),
+                isClean());
+        claimToHeaders_ = null;
+      }
+      return claimToHeadersBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4555,7 +5086,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JwtProvider(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,77 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InvalidateCacheUrlMapRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 296879706: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            requestId_ = s;
-            break;
-          }
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case -1792602774: {
-            com.google.cloud.compute.v1.CacheInvalidationRule.Builder subBuilder = null;
-            if (cacheInvalidationRuleResource_ != null) {
-              subBuilder = cacheInvalidationRuleResource_.toBuilder();
-            }
-            cacheInvalidationRuleResource_ = input.readMessage(com.google.cloud.compute.v1.CacheInvalidationRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cacheInvalidationRuleResource_);
-              cacheInvalidationRuleResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case -1358801822: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            urlMap_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_InvalidateCacheUrlMapRequest_descriptor;
@@ -157,11 +86,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.CacheInvalidationRuleOrBuilder getCacheInvalidationRuleResourceOrBuilder() {
-    return getCacheInvalidationRuleResource();
+    return cacheInvalidationRuleResource_ == null ? com.google.cloud.compute.v1.CacheInvalidationRule.getDefaultInstance() : cacheInvalidationRuleResource_;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -207,7 +137,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 37109963;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * An optional request ID to identify requests. Specify a unique request ID so that if you must retry your request, the server will know to ignore the request if it has already been completed. For example, consider a situation where you make an initial request and the request times out. If you make the request again with the same request ID, the server can check if original operation with the same request ID was received, and if so, will ignore the second request. This prevents clients from accidentally creating duplicate commitments. The request ID must be a valid UUID with the exception that zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
@@ -265,7 +196,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_MAP_FIELD_NUMBER = 367020684;
-  private volatile java.lang.Object urlMap_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object urlMap_ = "";
   /**
    * <pre>
    * Name of the UrlMap scoping this request.
@@ -336,7 +268,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(urlMap_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 367020684, urlMap_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -358,7 +290,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(urlMap_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(367020684, urlMap_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -387,7 +319,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getUrlMap()
         .equals(other.getUrlMap())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -410,7 +342,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + URL_MAP_FIELD_NUMBER;
     hash = (53 * hash) + getUrlMap().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -531,34 +463,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (cacheInvalidationRuleResourceBuilder_ == null) {
-        cacheInvalidationRuleResource_ = null;
-      } else {
-        cacheInvalidationRuleResource_ = null;
+      bitField0_ = 0;
+      cacheInvalidationRuleResource_ = null;
+      if (cacheInvalidationRuleResourceBuilder_ != null) {
+        cacheInvalidationRuleResourceBuilder_.dispose();
         cacheInvalidationRuleResourceBuilder_ = null;
       }
       project_ = "";
-
       requestId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       urlMap_ = "";
-
       return this;
     }
 
@@ -585,22 +509,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest buildPartial() {
       com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest result = new com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (cacheInvalidationRuleResourceBuilder_ == null) {
-        result.cacheInvalidationRuleResource_ = cacheInvalidationRuleResource_;
-      } else {
-        result.cacheInvalidationRuleResource_ = cacheInvalidationRuleResourceBuilder_.build();
-      }
-      result.project_ = project_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.requestId_ = requestId_;
-      result.urlMap_ = urlMap_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cacheInvalidationRuleResource_ = cacheInvalidationRuleResourceBuilder_ == null
+            ? cacheInvalidationRuleResource_
+            : cacheInvalidationRuleResourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.project_ = project_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestId_ = requestId_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.urlMap_ = urlMap_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -652,18 +584,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasRequestId()) {
-        bitField0_ |= 0x00000001;
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getUrlMap().isEmpty()) {
         urlMap_ = other.urlMap_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -678,17 +612,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 296879706: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 296879706
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1820481738
+            case -1792602774: {
+              input.readMessage(
+                  getCacheInvalidationRuleResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1792602774
+            case -1358801822: {
+              urlMap_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1358801822
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.InvalidateCacheUrlMapRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -705,7 +674,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cacheInvalidationRuleResource field is set.
      */
     public boolean hasCacheInvalidationRuleResource() {
-      return cacheInvalidationRuleResourceBuilder_ != null || cacheInvalidationRuleResource_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -735,11 +704,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cacheInvalidationRuleResource_ = value;
-        onChanged();
       } else {
         cacheInvalidationRuleResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -753,11 +722,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.CacheInvalidationRule.Builder builderForValue) {
       if (cacheInvalidationRuleResourceBuilder_ == null) {
         cacheInvalidationRuleResource_ = builderForValue.build();
-        onChanged();
       } else {
         cacheInvalidationRuleResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -769,17 +738,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCacheInvalidationRuleResource(com.google.cloud.compute.v1.CacheInvalidationRule value) {
       if (cacheInvalidationRuleResourceBuilder_ == null) {
-        if (cacheInvalidationRuleResource_ != null) {
-          cacheInvalidationRuleResource_ =
-            com.google.cloud.compute.v1.CacheInvalidationRule.newBuilder(cacheInvalidationRuleResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          cacheInvalidationRuleResource_ != null &&
+          cacheInvalidationRuleResource_ != com.google.cloud.compute.v1.CacheInvalidationRule.getDefaultInstance()) {
+          getCacheInvalidationRuleResourceBuilder().mergeFrom(value);
         } else {
           cacheInvalidationRuleResource_ = value;
         }
-        onChanged();
       } else {
         cacheInvalidationRuleResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -790,14 +760,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.CacheInvalidationRule cache_invalidation_rule_resource = 312795565 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCacheInvalidationRuleResource() {
-      if (cacheInvalidationRuleResourceBuilder_ == null) {
-        cacheInvalidationRuleResource_ = null;
-        onChanged();
-      } else {
-        cacheInvalidationRuleResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      cacheInvalidationRuleResource_ = null;
+      if (cacheInvalidationRuleResourceBuilder_ != null) {
+        cacheInvalidationRuleResourceBuilder_.dispose();
         cacheInvalidationRuleResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -808,7 +777,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.CacheInvalidationRule cache_invalidation_rule_resource = 312795565 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.CacheInvalidationRule.Builder getCacheInvalidationRuleResourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCacheInvalidationRuleResourceFieldBuilder().getBuilder();
     }
@@ -901,11 +870,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -918,8 +885,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -934,12 +901,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -954,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestId field is set.
      */
     public boolean hasRequestId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1008,11 +973,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1025,8 +988,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1041,12 +1004,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1104,11 +1065,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlMap(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       urlMap_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1121,8 +1080,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUrlMap() {
-      
       urlMap_ = getDefaultInstance().getUrlMap();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1137,12 +1096,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlMapBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       urlMap_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1179,7 +1136,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InvalidateCacheUrlMapRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

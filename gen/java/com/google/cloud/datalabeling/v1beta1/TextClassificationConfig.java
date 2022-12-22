@@ -35,69 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TextClassificationConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            allowMultiLabel_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            annotationSpecSet_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.datalabeling.v1beta1.SentimentConfig.Builder subBuilder = null;
-            if (sentimentConfig_ != null) {
-              subBuilder = sentimentConfig_.toBuilder();
-            }
-            sentimentConfig_ = input.readMessage(com.google.cloud.datalabeling.v1beta1.SentimentConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sentimentConfig_);
-              sentimentConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfigOuterClass.internal_static_google_cloud_datalabeling_v1beta1_TextClassificationConfig_descriptor;
@@ -112,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_MULTI_LABEL_FIELD_NUMBER = 1;
-  private boolean allowMultiLabel_;
+  private boolean allowMultiLabel_ = false;
   /**
    * <pre>
    * Optional. If allow_multi_label is true, contributors are able to choose
@@ -128,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATION_SPEC_SET_FIELD_NUMBER = 2;
-  private volatile java.lang.Object annotationSpecSet_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object annotationSpecSet_ = "";
   /**
    * <pre>
    * Required. Annotation spec set resource name.
@@ -208,7 +146,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datalabeling.v1beta1.SentimentConfigOrBuilder getSentimentConfigOrBuilder() {
-    return getSentimentConfig();
+    return sentimentConfig_ == null ? com.google.cloud.datalabeling.v1beta1.SentimentConfig.getDefaultInstance() : sentimentConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -234,7 +172,7 @@ private static final long serialVersionUID = 0L;
     if (sentimentConfig_ != null) {
       output.writeMessage(3, getSentimentConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -254,7 +192,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSentimentConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -278,7 +216,7 @@ private static final long serialVersionUID = 0L;
       if (!getSentimentConfig()
           .equals(other.getSentimentConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -298,7 +236,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SENTIMENT_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getSentimentConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -419,30 +357,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.TextClassificationConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       allowMultiLabel_ = false;
-
       annotationSpecSet_ = "";
-
-      if (sentimentConfigBuilder_ == null) {
-        sentimentConfig_ = null;
-      } else {
-        sentimentConfig_ = null;
+      sentimentConfig_ = null;
+      if (sentimentConfigBuilder_ != null) {
+        sentimentConfigBuilder_.dispose();
         sentimentConfigBuilder_ = null;
       }
       return this;
@@ -471,15 +402,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.TextClassificationConfig buildPartial() {
       com.google.cloud.datalabeling.v1beta1.TextClassificationConfig result = new com.google.cloud.datalabeling.v1beta1.TextClassificationConfig(this);
-      result.allowMultiLabel_ = allowMultiLabel_;
-      result.annotationSpecSet_ = annotationSpecSet_;
-      if (sentimentConfigBuilder_ == null) {
-        result.sentimentConfig_ = sentimentConfig_;
-      } else {
-        result.sentimentConfig_ = sentimentConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.TextClassificationConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowMultiLabel_ = allowMultiLabel_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.annotationSpecSet_ = annotationSpecSet_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sentimentConfig_ = sentimentConfigBuilder_ == null
+            ? sentimentConfig_
+            : sentimentConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -531,12 +471,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAnnotationSpecSet().isEmpty()) {
         annotationSpecSet_ = other.annotationSpecSet_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasSentimentConfig()) {
         mergeSentimentConfig(other.getSentimentConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -551,19 +492,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.TextClassificationConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              allowMultiLabel_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              annotationSpecSet_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSentimentConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.TextClassificationConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean allowMultiLabel_ ;
     /**
@@ -592,6 +564,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowMultiLabel(boolean value) {
       
       allowMultiLabel_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -605,7 +578,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowMultiLabel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       allowMultiLabel_ = false;
       onChanged();
       return this;
@@ -664,11 +637,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSpecSet(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       annotationSpecSet_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -681,8 +652,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnnotationSpecSet() {
-      
       annotationSpecSet_ = getDefaultInstance().getAnnotationSpecSet();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -697,12 +668,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSpecSetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       annotationSpecSet_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -719,7 +688,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sentimentConfig field is set.
      */
     public boolean hasSentimentConfig() {
-      return sentimentConfigBuilder_ != null || sentimentConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -749,11 +718,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sentimentConfig_ = value;
-        onChanged();
       } else {
         sentimentConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -767,11 +736,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datalabeling.v1beta1.SentimentConfig.Builder builderForValue) {
       if (sentimentConfigBuilder_ == null) {
         sentimentConfig_ = builderForValue.build();
-        onChanged();
       } else {
         sentimentConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -783,17 +752,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSentimentConfig(com.google.cloud.datalabeling.v1beta1.SentimentConfig value) {
       if (sentimentConfigBuilder_ == null) {
-        if (sentimentConfig_ != null) {
-          sentimentConfig_ =
-            com.google.cloud.datalabeling.v1beta1.SentimentConfig.newBuilder(sentimentConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          sentimentConfig_ != null &&
+          sentimentConfig_ != com.google.cloud.datalabeling.v1beta1.SentimentConfig.getDefaultInstance()) {
+          getSentimentConfigBuilder().mergeFrom(value);
         } else {
           sentimentConfig_ = value;
         }
-        onChanged();
       } else {
         sentimentConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -804,14 +774,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datalabeling.v1beta1.SentimentConfig sentiment_config = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearSentimentConfig() {
-      if (sentimentConfigBuilder_ == null) {
-        sentimentConfig_ = null;
-        onChanged();
-      } else {
-        sentimentConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      sentimentConfig_ = null;
+      if (sentimentConfigBuilder_ != null) {
+        sentimentConfigBuilder_.dispose();
         sentimentConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -822,7 +791,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datalabeling.v1beta1.SentimentConfig sentiment_config = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.datalabeling.v1beta1.SentimentConfig.Builder getSentimentConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSentimentConfigFieldBuilder().getBuilder();
     }
@@ -894,7 +863,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TextClassificationConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

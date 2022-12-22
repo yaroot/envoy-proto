@@ -12,10 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.cloud.automl.v1beta1 import classification_pb2 as google_dot_cloud_dot_automl_dot_v1beta1_dot_classification__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/automl/v1beta1/text_sentiment.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x30google/cloud/automl/v1beta1/classification.proto\x1a\x1cgoogle/api/annotations.proto\",\n\x17TextSentimentAnnotation\x12\x11\n\tsentiment\x18\x01 \x01(\x05\"\xc5\x02\n\x1eTextSentimentEvaluationMetrics\x12\x11\n\tprecision\x18\x01 \x01(\x02\x12\x0e\n\x06recall\x18\x02 \x01(\x02\x12\x10\n\x08\x66\x31_score\x18\x03 \x01(\x02\x12\x1b\n\x13mean_absolute_error\x18\x04 \x01(\x02\x12\x1a\n\x12mean_squared_error\x18\x05 \x01(\x02\x12\x14\n\x0clinear_kappa\x18\x06 \x01(\x02\x12\x17\n\x0fquadratic_kappa\x18\x07 \x01(\x02\x12\x66\n\x10\x63onfusion_matrix\x18\x08 \x01(\x0b\x32L.google.cloud.automl.v1beta1.ClassificationEvaluationMetrics.ConfusionMatrix\x12\x1e\n\x12\x61nnotation_spec_id\x18\t \x03(\tB\x02\x18\x01\x42\xb7\x01\n\x1f\x63om.google.cloud.automl.v1beta1B\x12TextSentimentProtoZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/automl/v1beta1/text_sentiment.proto\x12\x1bgoogle.cloud.automl.v1beta1\x1a\x30google/cloud/automl/v1beta1/classification.proto\",\n\x17TextSentimentAnnotation\x12\x11\n\tsentiment\x18\x01 \x01(\x05\"\xc5\x02\n\x1eTextSentimentEvaluationMetrics\x12\x11\n\tprecision\x18\x01 \x01(\x02\x12\x0e\n\x06recall\x18\x02 \x01(\x02\x12\x10\n\x08\x66\x31_score\x18\x03 \x01(\x02\x12\x1b\n\x13mean_absolute_error\x18\x04 \x01(\x02\x12\x1a\n\x12mean_squared_error\x18\x05 \x01(\x02\x12\x14\n\x0clinear_kappa\x18\x06 \x01(\x02\x12\x17\n\x0fquadratic_kappa\x18\x07 \x01(\x02\x12\x66\n\x10\x63onfusion_matrix\x18\x08 \x01(\x0b\x32L.google.cloud.automl.v1beta1.ClassificationEvaluationMetrics.ConfusionMatrix\x12\x1e\n\x12\x61nnotation_spec_id\x18\t \x03(\tB\x02\x18\x01\x42\xb7\x01\n\x1f\x63om.google.cloud.automl.v1beta1B\x12TextSentimentProtoZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\xca\x02\x1bGoogle\\Cloud\\AutoMl\\V1beta1\xea\x02\x1eGoogle::Cloud::AutoML::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.automl.v1beta1.text_sentiment_pb2', globals())
@@ -25,8 +24,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\037com.google.cloud.automl.v1beta1B\022TextSentimentProtoZAgoogle.golang.org/genproto/googleapis/cloud/automl/v1beta1;automl\312\002\033Google\\Cloud\\AutoMl\\V1beta1\352\002\036Google::Cloud::AutoML::V1beta1'
   _TEXTSENTIMENTEVALUATIONMETRICS.fields_by_name['annotation_spec_id']._options = None
   _TEXTSENTIMENTEVALUATIONMETRICS.fields_by_name['annotation_spec_id']._serialized_options = b'\030\001'
-  _TEXTSENTIMENTANNOTATION._serialized_start=161
-  _TEXTSENTIMENTANNOTATION._serialized_end=205
-  _TEXTSENTIMENTEVALUATIONMETRICS._serialized_start=208
-  _TEXTSENTIMENTEVALUATIONMETRICS._serialized_end=533
+  _TEXTSENTIMENTANNOTATION._serialized_start=131
+  _TEXTSENTIMENTANNOTATION._serialized_end=175
+  _TEXTSENTIMENTEVALUATIONMETRICS._serialized_start=178
+  _TEXTSENTIMENTEVALUATIONMETRICS._serialized_end=503
 # @@protoc_insertion_point(module_scope)

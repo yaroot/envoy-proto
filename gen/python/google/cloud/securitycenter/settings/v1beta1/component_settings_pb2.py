@@ -14,10 +14,9 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEgoogle/cloud/securitycenter/settings/v1beta1/component_settings.proto\x12,google.cloud.securitycenter.settings.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xa7\x0c\n\x11\x43omponentSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12U\n\x05state\x18\x02 \x01(\x0e\x32\x46.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState\x12$\n\x17project_service_account\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12p\n\x11\x64\x65tector_settings\x18\x04 \x03(\x0b\x32U.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettingsEntry\x12\x11\n\x04\x65tag\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12}\n#container_threat_detection_settings\x18) \x01(\x0b\x32N.google.cloud.securitycenter.settings.v1beta1.ContainerThreatDetectionSettingsH\x00\x12u\n\x1f\x65vent_threat_detection_settings\x18* \x01(\x0b\x32J.google.cloud.securitycenter.settings.v1beta1.EventThreatDetectionSettingsH\x00\x12{\n\"security_health_analytics_settings\x18, \x01(\x0b\x32M.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettingsH\x00\x12i\n\x1dweb_security_scanner_settings\x18( \x01(\x0b\x32@.google.cloud.securitycenter.settings.v1beta1.WebSecurityScannerH\x00\x1ai\n\x10\x44\x65tectorSettings\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x46.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState\x1a\x89\x01\n\x15\x44\x65tectorSettingsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12_\n\x05value\x18\x02 \x01(\x0b\x32P.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings:\x02\x38\x01:\xe1\x03\xea\x41\xdd\x03\n/securitycenter.googleapis.com/ComponentSettings\x12<organizations/{organization}/components/{component}/settings\x12\x30\x66olders/{folder}/components/{component}/settings\x12\x32projects/{project}/components/{component}/settings\x12Zprojects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings\x12Vprojects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings\x12Rprojects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settingsB\x13\n\x11specific_settings\"\x14\n\x12WebSecurityScanner\"\"\n ContainerThreatDetectionSettings\"\x1e\n\x1c\x45ventThreatDetectionSettings\"\xb6\x03\n\x1fSecurityHealthAnalyticsSettings\x12\x8a\x01\n\x1bnon_org_iam_member_settings\x18\x01 \x01(\x0b\x32\x65.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings\x12\x91\x01\n\x1e\x61\x64min_service_account_settings\x18\x02 \x01(\x0b\x32i.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings\x1a\x36\n\x17NonOrgIamMemberSettings\x12\x1b\n\x13\x61pproved_identities\x18\x01 \x03(\t\x1a:\n\x1b\x41\x64minServiceAccountSettings\x12\x1b\n\x13\x61pproved_identities\x18\x01 \x03(\t*l\n\x18\x43omponentEnablementState\x12*\n&COMPONENT_ENABLEMENT_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x44ISABLE\x10\x01\x12\n\n\x06\x45NABLE\x10\x02\x12\x0b\n\x07INHERIT\x10\x03\x42\xb6\x02\n0com.google.cloud.securitycenter.settings.v1beta1B\x16\x43omponentSettingsProtoP\x01ZTgoogle.golang.org/genproto/googleapis/cloud/securitycenter/settings/v1beta1;settings\xf8\x01\x01\xaa\x02,Google.Cloud.SecurityCenter.Settings.V1Beta1\xca\x02,Google\\Cloud\\SecurityCenter\\Settings\\V1beta1\xea\x02\x30Google::Cloud::SecurityCenter::Settings::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nEgoogle/cloud/securitycenter/settings/v1beta1/component_settings.proto\x12,google.cloud.securitycenter.settings.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xa7\x0c\n\x11\x43omponentSettings\x12\x0c\n\x04name\x18\x01 \x01(\t\x12U\n\x05state\x18\x02 \x01(\x0e\x32\x46.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState\x12$\n\x17project_service_account\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12p\n\x11\x64\x65tector_settings\x18\x04 \x03(\x0b\x32U.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettingsEntry\x12\x11\n\x04\x65tag\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12}\n#container_threat_detection_settings\x18) \x01(\x0b\x32N.google.cloud.securitycenter.settings.v1beta1.ContainerThreatDetectionSettingsH\x00\x12u\n\x1f\x65vent_threat_detection_settings\x18* \x01(\x0b\x32J.google.cloud.securitycenter.settings.v1beta1.EventThreatDetectionSettingsH\x00\x12{\n\"security_health_analytics_settings\x18, \x01(\x0b\x32M.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettingsH\x00\x12i\n\x1dweb_security_scanner_settings\x18( \x01(\x0b\x32@.google.cloud.securitycenter.settings.v1beta1.WebSecurityScannerH\x00\x1ai\n\x10\x44\x65tectorSettings\x12U\n\x05state\x18\x01 \x01(\x0e\x32\x46.google.cloud.securitycenter.settings.v1beta1.ComponentEnablementState\x1a\x89\x01\n\x15\x44\x65tectorSettingsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12_\n\x05value\x18\x02 \x01(\x0b\x32P.google.cloud.securitycenter.settings.v1beta1.ComponentSettings.DetectorSettings:\x02\x38\x01:\xe1\x03\xea\x41\xdd\x03\n/securitycenter.googleapis.com/ComponentSettings\x12<organizations/{organization}/components/{component}/settings\x12\x30\x66olders/{folder}/components/{component}/settings\x12\x32projects/{project}/components/{component}/settings\x12Zprojects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings\x12Vprojects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings\x12Rprojects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settingsB\x13\n\x11specific_settings\"\x14\n\x12WebSecurityScanner\"\"\n ContainerThreatDetectionSettings\"\x1e\n\x1c\x45ventThreatDetectionSettings\"\xb6\x03\n\x1fSecurityHealthAnalyticsSettings\x12\x8a\x01\n\x1bnon_org_iam_member_settings\x18\x01 \x01(\x0b\x32\x65.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings\x12\x91\x01\n\x1e\x61\x64min_service_account_settings\x18\x02 \x01(\x0b\x32i.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings\x1a\x36\n\x17NonOrgIamMemberSettings\x12\x1b\n\x13\x61pproved_identities\x18\x01 \x03(\t\x1a:\n\x1b\x41\x64minServiceAccountSettings\x12\x1b\n\x13\x61pproved_identities\x18\x01 \x03(\t*l\n\x18\x43omponentEnablementState\x12*\n&COMPONENT_ENABLEMENT_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x44ISABLE\x10\x01\x12\n\n\x06\x45NABLE\x10\x02\x12\x0b\n\x07INHERIT\x10\x03\x42\xb6\x02\n0com.google.cloud.securitycenter.settings.v1beta1B\x16\x43omponentSettingsProtoP\x01ZTgoogle.golang.org/genproto/googleapis/cloud/securitycenter/settings/v1beta1;settings\xf8\x01\x01\xaa\x02,Google.Cloud.SecurityCenter.Settings.V1Beta1\xca\x02,Google\\Cloud\\SecurityCenter\\Settings\\V1beta1\xea\x02\x30Google::Cloud::SecurityCenter::Settings::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.settings.v1beta1.component_settings_pb2', globals())
@@ -35,24 +34,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _COMPONENTSETTINGS.fields_by_name['update_time']._serialized_options = b'\340A\003'
   _COMPONENTSETTINGS._options = None
   _COMPONENTSETTINGS._serialized_options = b'\352A\335\003\n/securitycenter.googleapis.com/ComponentSettings\022<organizations/{organization}/components/{component}/settings\0220folders/{folder}/components/{component}/settings\0222projects/{project}/components/{component}/settings\022Zprojects/{project}/locations/{location}/clusters/{cluster}/components/{component}/settings\022Vprojects/{project}/regions/{region}/clusters/{cluster}/components/{component}/settings\022Rprojects/{project}/zones/{zone}/clusters/{cluster}/components/{component}/settings'
-  _COMPONENTENABLEMENTSTATE._serialized_start=2351
-  _COMPONENTENABLEMENTSTATE._serialized_end=2459
-  _COMPONENTSETTINGS._serialized_start=243
-  _COMPONENTSETTINGS._serialized_end=1818
-  _COMPONENTSETTINGS_DETECTORSETTINGS._serialized_start=1068
-  _COMPONENTSETTINGS_DETECTORSETTINGS._serialized_end=1173
-  _COMPONENTSETTINGS_DETECTORSETTINGSENTRY._serialized_start=1176
-  _COMPONENTSETTINGS_DETECTORSETTINGSENTRY._serialized_end=1313
-  _WEBSECURITYSCANNER._serialized_start=1820
-  _WEBSECURITYSCANNER._serialized_end=1840
-  _CONTAINERTHREATDETECTIONSETTINGS._serialized_start=1842
-  _CONTAINERTHREATDETECTIONSETTINGS._serialized_end=1876
-  _EVENTTHREATDETECTIONSETTINGS._serialized_start=1878
-  _EVENTTHREATDETECTIONSETTINGS._serialized_end=1908
-  _SECURITYHEALTHANALYTICSSETTINGS._serialized_start=1911
-  _SECURITYHEALTHANALYTICSSETTINGS._serialized_end=2349
-  _SECURITYHEALTHANALYTICSSETTINGS_NONORGIAMMEMBERSETTINGS._serialized_start=2235
-  _SECURITYHEALTHANALYTICSSETTINGS_NONORGIAMMEMBERSETTINGS._serialized_end=2289
-  _SECURITYHEALTHANALYTICSSETTINGS_ADMINSERVICEACCOUNTSETTINGS._serialized_start=2291
-  _SECURITYHEALTHANALYTICSSETTINGS_ADMINSERVICEACCOUNTSETTINGS._serialized_end=2349
+  _COMPONENTENABLEMENTSTATE._serialized_start=2321
+  _COMPONENTENABLEMENTSTATE._serialized_end=2429
+  _COMPONENTSETTINGS._serialized_start=213
+  _COMPONENTSETTINGS._serialized_end=1788
+  _COMPONENTSETTINGS_DETECTORSETTINGS._serialized_start=1038
+  _COMPONENTSETTINGS_DETECTORSETTINGS._serialized_end=1143
+  _COMPONENTSETTINGS_DETECTORSETTINGSENTRY._serialized_start=1146
+  _COMPONENTSETTINGS_DETECTORSETTINGSENTRY._serialized_end=1283
+  _WEBSECURITYSCANNER._serialized_start=1790
+  _WEBSECURITYSCANNER._serialized_end=1810
+  _CONTAINERTHREATDETECTIONSETTINGS._serialized_start=1812
+  _CONTAINERTHREATDETECTIONSETTINGS._serialized_end=1846
+  _EVENTTHREATDETECTIONSETTINGS._serialized_start=1848
+  _EVENTTHREATDETECTIONSETTINGS._serialized_end=1878
+  _SECURITYHEALTHANALYTICSSETTINGS._serialized_start=1881
+  _SECURITYHEALTHANALYTICSSETTINGS._serialized_end=2319
+  _SECURITYHEALTHANALYTICSSETTINGS_NONORGIAMMEMBERSETTINGS._serialized_start=2205
+  _SECURITYHEALTHANALYTICSSETTINGS_NONORGIAMMEMBERSETTINGS._serialized_end=2259
+  _SECURITYHEALTHANALYTICSSETTINGS_ADMINSERVICEACCOUNTSETTINGS._serialized_start=2261
+  _SECURITYHEALTHANALYTICSSETTINGS_ADMINSERVICEACCOUNTSETTINGS._serialized_end=2319
 # @@protoc_insertion_point(module_scope)

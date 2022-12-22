@@ -37,91 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListBreakpointsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            debuggeeId_ = s;
-            break;
-          }
-          case 16: {
-
-            includeAllUsers_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            includeInactive_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.Builder subBuilder = null;
-            if (action_ != null) {
-              subBuilder = action_.toBuilder();
-            }
-            action_ = input.readMessage(com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(action_);
-              action_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            stripResults_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            waitToken_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.clouddebugger.v2.DebuggerProto.internal_static_google_devtools_clouddebugger_v2_ListBreakpointsRequest_descriptor;
@@ -191,51 +106,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BreakpointActionValue(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              value_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.devtools.clouddebugger.v2.DebuggerProto.internal_static_google_devtools_clouddebugger_v2_ListBreakpointsRequest_BreakpointActionValue_descriptor;
@@ -250,7 +120,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
-    private int value_;
+    private int value_ = 0;
     /**
      * <pre>
      * Only breakpoints with the specified action will pass the filter.
@@ -271,8 +141,7 @@ private static final long serialVersionUID = 0L;
      * @return The value.
      */
     @java.lang.Override public com.google.devtools.clouddebugger.v2.Breakpoint.Action getValue() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.clouddebugger.v2.Breakpoint.Action result = com.google.devtools.clouddebugger.v2.Breakpoint.Action.valueOf(value_);
+      com.google.devtools.clouddebugger.v2.Breakpoint.Action result = com.google.devtools.clouddebugger.v2.Breakpoint.Action.forNumber(value_);
       return result == null ? com.google.devtools.clouddebugger.v2.Breakpoint.Action.UNRECOGNIZED : result;
     }
 
@@ -293,7 +162,7 @@ private static final long serialVersionUID = 0L;
       if (value_ != com.google.devtools.clouddebugger.v2.Breakpoint.Action.CAPTURE.getNumber()) {
         output.writeEnum(1, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -306,7 +175,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -322,7 +191,7 @@ private static final long serialVersionUID = 0L;
       com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue other = (com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue) obj;
 
       if (value_ != other.value_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -335,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + value_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -457,24 +326,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = 0;
-
         return this;
       }
 
@@ -501,9 +365,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue buildPartial() {
         com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue result = new com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue(this);
-        result.value_ = value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -553,7 +424,7 @@ private static final long serialVersionUID = 0L;
         if (other.value_ != 0) {
           setValueValue(other.getValueValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -568,19 +439,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                value_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int value_ = 0;
       /**
@@ -604,8 +494,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setValueValue(int value) {
-        
         value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -619,8 +509,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.devtools.clouddebugger.v2.Breakpoint.Action getValue() {
-        @SuppressWarnings("deprecation")
-        com.google.devtools.clouddebugger.v2.Breakpoint.Action result = com.google.devtools.clouddebugger.v2.Breakpoint.Action.valueOf(value_);
+        com.google.devtools.clouddebugger.v2.Breakpoint.Action result = com.google.devtools.clouddebugger.v2.Breakpoint.Action.forNumber(value_);
         return result == null ? com.google.devtools.clouddebugger.v2.Breakpoint.Action.UNRECOGNIZED : result;
       }
       /**
@@ -636,7 +525,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         value_ = value.getNumber();
         onChanged();
         return this;
@@ -650,7 +539,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         value_ = 0;
         onChanged();
         return this;
@@ -688,7 +577,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BreakpointActionValue(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -709,7 +609,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEBUGGEE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object debuggeeId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object debuggeeId_ = "";
   /**
    * <pre>
    * Required. ID of the debuggee whose breakpoints to list.
@@ -755,7 +656,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_ALL_USERS_FIELD_NUMBER = 2;
-  private boolean includeAllUsers_;
+  private boolean includeAllUsers_ = false;
   /**
    * <pre>
    * When set to `true`, the response includes the list of breakpoints set by
@@ -771,7 +672,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_INACTIVE_FIELD_NUMBER = 3;
-  private boolean includeInactive_;
+  private boolean includeInactive_ = false;
   /**
    * <pre>
    * When set to `true`, the response includes active and inactive
@@ -821,11 +722,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValueOrBuilder getActionOrBuilder() {
-    return getAction();
+    return action_ == null ? com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.getDefaultInstance() : action_;
   }
 
   public static final int STRIP_RESULTS_FIELD_NUMBER = 5;
-  private boolean stripResults_;
+  private boolean stripResults_ = false;
   /**
    * <pre>
    * This field is deprecated. The following fields are always stripped out of
@@ -843,7 +744,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WAIT_TOKEN_FIELD_NUMBER = 6;
-  private volatile java.lang.Object waitToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object waitToken_ = "";
   /**
    * <pre>
    * A wait token that, if specified, blocks the call until the breakpoints
@@ -897,7 +799,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_VERSION_FIELD_NUMBER = 8;
-  private volatile java.lang.Object clientVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientVersion_ = "";
   /**
    * <pre>
    * Required. The client version making the call.
@@ -979,7 +882,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, clientVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1013,7 +916,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clientVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, clientVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1045,7 +948,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWaitToken())) return false;
     if (!getClientVersion()
         .equals(other.getClientVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1075,7 +978,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getWaitToken().hashCode();
     hash = (37 * hash) + CLIENT_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getClientVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1196,40 +1099,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       debuggeeId_ = "";
-
       includeAllUsers_ = false;
-
       includeInactive_ = false;
-
-      if (actionBuilder_ == null) {
-        action_ = null;
-      } else {
-        action_ = null;
+      action_ = null;
+      if (actionBuilder_ != null) {
+        actionBuilder_.dispose();
         actionBuilder_ = null;
       }
       stripResults_ = false;
-
       waitToken_ = "";
-
       clientVersion_ = "";
-
       return this;
     }
 
@@ -1256,19 +1148,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.clouddebugger.v2.ListBreakpointsRequest buildPartial() {
       com.google.devtools.clouddebugger.v2.ListBreakpointsRequest result = new com.google.devtools.clouddebugger.v2.ListBreakpointsRequest(this);
-      result.debuggeeId_ = debuggeeId_;
-      result.includeAllUsers_ = includeAllUsers_;
-      result.includeInactive_ = includeInactive_;
-      if (actionBuilder_ == null) {
-        result.action_ = action_;
-      } else {
-        result.action_ = actionBuilder_.build();
-      }
-      result.stripResults_ = stripResults_;
-      result.waitToken_ = waitToken_;
-      result.clientVersion_ = clientVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.clouddebugger.v2.ListBreakpointsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.debuggeeId_ = debuggeeId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.includeAllUsers_ = includeAllUsers_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.includeInactive_ = includeInactive_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.action_ = actionBuilder_ == null
+            ? action_
+            : actionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stripResults_ = stripResults_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.waitToken_ = waitToken_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.clientVersion_ = clientVersion_;
+      }
     }
 
     @java.lang.Override
@@ -1317,6 +1226,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.getDefaultInstance()) return this;
       if (!other.getDebuggeeId().isEmpty()) {
         debuggeeId_ = other.debuggeeId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getIncludeAllUsers() != false) {
@@ -1333,13 +1243,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWaitToken().isEmpty()) {
         waitToken_ = other.waitToken_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getClientVersion().isEmpty()) {
         clientVersion_ = other.clientVersion_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1354,19 +1266,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.clouddebugger.v2.ListBreakpointsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              debuggeeId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              includeAllUsers_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              includeInactive_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getActionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              stripResults_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              waitToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 66: {
+              clientVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.clouddebugger.v2.ListBreakpointsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object debuggeeId_ = "";
     /**
@@ -1421,11 +1384,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebuggeeId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       debuggeeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1438,8 +1399,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDebuggeeId() {
-      
       debuggeeId_ = getDefaultInstance().getDebuggeeId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1454,12 +1415,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebuggeeIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       debuggeeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1491,6 +1450,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeAllUsers(boolean value) {
       
       includeAllUsers_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1504,7 +1464,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeAllUsers() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       includeAllUsers_ = false;
       onChanged();
       return this;
@@ -1537,6 +1497,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeInactive(boolean value) {
       
       includeInactive_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1550,7 +1511,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeInactive() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       includeInactive_ = false;
       onChanged();
       return this;
@@ -1568,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the action field is set.
      */
     public boolean hasAction() {
-      return actionBuilder_ != null || action_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1598,11 +1559,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         action_ = value;
-        onChanged();
       } else {
         actionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1616,11 +1577,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.Builder builderForValue) {
       if (actionBuilder_ == null) {
         action_ = builderForValue.build();
-        onChanged();
       } else {
         actionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1632,17 +1593,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAction(com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue value) {
       if (actionBuilder_ == null) {
-        if (action_ != null) {
-          action_ =
-            com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.newBuilder(action_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          action_ != null &&
+          action_ != com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.getDefaultInstance()) {
+          getActionBuilder().mergeFrom(value);
         } else {
           action_ = value;
         }
-        onChanged();
       } else {
         actionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1653,14 +1615,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue action = 4;</code>
      */
     public Builder clearAction() {
-      if (actionBuilder_ == null) {
-        action_ = null;
-        onChanged();
-      } else {
-        action_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      action_ = null;
+      if (actionBuilder_ != null) {
+        actionBuilder_.dispose();
         actionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1671,7 +1632,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue action = 4;</code>
      */
     public com.google.devtools.clouddebugger.v2.ListBreakpointsRequest.BreakpointActionValue.Builder getActionBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getActionFieldBuilder().getBuilder();
     }
@@ -1742,6 +1703,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder setStripResults(boolean value) {
       
       stripResults_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1757,7 +1719,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearStripResults() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       stripResults_ = false;
       onChanged();
       return this;
@@ -1828,11 +1790,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWaitToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       waitToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1849,8 +1809,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWaitToken() {
-      
       waitToken_ = getDefaultInstance().getWaitToken();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1869,12 +1829,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWaitTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       waitToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1935,11 +1893,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1953,8 +1909,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientVersion() {
-      
       clientVersion_ = getDefaultInstance().getClientVersion();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1970,12 +1926,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2012,7 +1966,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListBreakpointsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

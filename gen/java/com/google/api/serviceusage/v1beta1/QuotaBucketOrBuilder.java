@@ -177,7 +177,6 @@ public interface QuotaBucketOrBuilder extends
    *
    * <code>map&lt;string, string&gt; dimensions = 6;</code>
    */
-
   /* nullable */
 java.lang.String getDimensionsOrDefault(
       java.lang.String key,
@@ -197,7 +196,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; dimensions = 6;</code>
    */
-
   java.lang.String getDimensionsOrThrow(
       java.lang.String key);
 }

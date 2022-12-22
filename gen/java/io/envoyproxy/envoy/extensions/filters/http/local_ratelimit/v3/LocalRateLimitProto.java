@@ -36,7 +36,7 @@ public final class LocalRateLimitProto {
       "imit.proto\032\037envoy/type/v3/http_status.pr" +
       "oto\032 envoy/type/v3/token_bucket.proto\032\035u" +
       "dpa/annotations/status.proto\032\027validate/v" +
-      "alidate.proto\"\347\005\n\016LocalRateLimit\022\034\n\013stat" +
+      "alidate.proto\"\304\006\n\016LocalRateLimit\022\034\n\013stat" +
       "_prefix\030\001 \001(\tB\007\372B\004r\002\020\001\022)\n\006status\030\002 \001(\0132\031" +
       ".envoy.type.v3.HttpStatus\0220\n\014token_bucke" +
       "t\030\003 \001(\0132\032.envoy.type.v3.TokenBucket\022F\n\016f" +
@@ -54,13 +54,15 @@ public final class LocalRateLimitProto {
       "cal_rate_limit_per_downstream_connection" +
       "\030\013 \001(\010\022o\n\032enable_x_ratelimit_headers\030\014 \001" +
       "(\0162A.envoy.extensions.common.ratelimit.v" +
-      "3.XRateLimitHeadersRFCVersionB\010\372B\005\202\001\002\020\001B" +
-      "\312\001\n>io.envoyproxy.envoy.extensions.filte" +
-      "rs.http.local_ratelimit.v3B\023LocalRateLim" +
-      "itProtoP\001Zigithub.com/envoyproxy/go-cont" +
-      "rol-plane/envoy/extensions/filters/http/" +
-      "local_ratelimit/v3;local_ratelimitv3\272\200\310\321" +
-      "\006\002\020\002b\006proto3"
+      "3.XRateLimitHeadersRFCVersionB\010\372B\005\202\001\002\020\001\022" +
+      "[\n\016vh_rate_limits\030\r \001(\01629.envoy.extensio" +
+      "ns.common.ratelimit.v3.VhRateLimitsOptio" +
+      "nsB\010\372B\005\202\001\002\020\001B\312\001\n>io.envoyproxy.envoy.ext" +
+      "ensions.filters.http.local_ratelimit.v3B" +
+      "\023LocalRateLimitProtoP\001Zigithub.com/envoy" +
+      "proxy/go-control-plane/envoy/extensions/" +
+      "filters/http/local_ratelimit/v3;local_ra" +
+      "telimitv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -77,7 +79,7 @@ public final class LocalRateLimitProto {
     internal_static_envoy_extensions_filters_http_local_ratelimit_v3_LocalRateLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_local_ratelimit_v3_LocalRateLimit_descriptor,
-        new java.lang.String[] { "StatPrefix", "Status", "TokenBucket", "FilterEnabled", "FilterEnforced", "RequestHeadersToAddWhenNotEnforced", "ResponseHeadersToAdd", "Descriptors", "Stage", "LocalRateLimitPerDownstreamConnection", "EnableXRatelimitHeaders", });
+        new java.lang.String[] { "StatPrefix", "Status", "TokenBucket", "FilterEnabled", "FilterEnforced", "RequestHeadersToAddWhenNotEnforced", "ResponseHeadersToAdd", "Descriptors", "Stage", "LocalRateLimitPerDownstreamConnection", "EnableXRatelimitHeaders", "VhRateLimits", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);

@@ -11,15 +11,15 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.scheduler.v1beta1 import target_pb2 as google_dot_cloud_dot_scheduler_dot_v1beta1_dot_target__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(google/cloud/scheduler/v1beta1/job.proto\x12\x1egoogle.cloud.scheduler.v1beta1\x1a\x19google/api/resource.proto\x1a+google/cloud/scheduler/v1beta1/target.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\x1a\x1cgoogle/api/annotations.proto\"\xe4\x06\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x45\n\rpubsub_target\x18\x04 \x01(\x0b\x32,.google.cloud.scheduler.v1beta1.PubsubTargetH\x00\x12U\n\x16\x61pp_engine_http_target\x18\x05 \x01(\x0b\x32\x33.google.cloud.scheduler.v1beta1.AppEngineHttpTargetH\x00\x12\x41\n\x0bhttp_target\x18\x06 \x01(\x0b\x32*.google.cloud.scheduler.v1beta1.HttpTargetH\x00\x12\x10\n\x08schedule\x18\x14 \x01(\t\x12\x11\n\ttime_zone\x18\x15 \x01(\t\x12\x34\n\x10user_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x38\n\x05state\x18\n \x01(\x0e\x32).google.cloud.scheduler.v1beta1.Job.State\x12\"\n\x06status\x18\x0b \x01(\x0b\x32\x12.google.rpc.Status\x12\x31\n\rschedule_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x11last_attempt_time\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x41\n\x0cretry_config\x18\x13 \x01(\x0b\x32+.google.cloud.scheduler.v1beta1.RetryConfig\x12\x33\n\x10\x61ttempt_deadline\x18\x16 \x01(\x0b\x32\x19.google.protobuf.Duration\"X\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0c\n\x08\x44ISABLED\x10\x03\x12\x11\n\rUPDATE_FAILED\x10\x04:Z\xea\x41W\n!cloudscheduler.googleapis.com/Job\x12\x32projects/{project}/locations/{location}/jobs/{job}B\x08\n\x06target\"\xe2\x01\n\x0bRetryConfig\x12\x13\n\x0bretry_count\x18\x01 \x01(\x05\x12\x35\n\x12max_retry_duration\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x37\n\x14min_backoff_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x37\n\x14max_backoff_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x15\n\rmax_doublings\x18\x05 \x01(\x05\x42y\n\"com.google.cloud.scheduler.v1beta1B\x08JobProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/scheduler/v1beta1;schedulerb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(google/cloud/scheduler/v1beta1/job.proto\x12\x1egoogle.cloud.scheduler.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a+google/cloud/scheduler/v1beta1/target.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\x89\x07\n\x03Job\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x45\n\rpubsub_target\x18\x04 \x01(\x0b\x32,.google.cloud.scheduler.v1beta1.PubsubTargetH\x00\x12U\n\x16\x61pp_engine_http_target\x18\x05 \x01(\x0b\x32\x33.google.cloud.scheduler.v1beta1.AppEngineHttpTargetH\x00\x12\x41\n\x0bhttp_target\x18\x06 \x01(\x0b\x32*.google.cloud.scheduler.v1beta1.HttpTargetH\x00\x12\x10\n\x08schedule\x18\x14 \x01(\t\x12\x11\n\ttime_zone\x18\x15 \x01(\t\x12\x34\n\x10user_update_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x38\n\x05state\x18\n \x01(\x0e\x32).google.cloud.scheduler.v1beta1.Job.State\x12\"\n\x06status\x18\x0b \x01(\x0b\x32\x12.google.rpc.Status\x12\x31\n\rschedule_time\x18\x11 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x11last_attempt_time\x18\x12 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x41\n\x0cretry_config\x18\x13 \x01(\x0b\x32+.google.cloud.scheduler.v1beta1.RetryConfig\x12\x33\n\x10\x61ttempt_deadline\x18\x16 \x01(\x0b\x32\x19.google.protobuf.Duration\x12#\n\x16legacy_app_engine_cron\x18\x17 \x01(\x08\x42\x03\xe0\x41\x05\"X\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07\x45NABLED\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0c\n\x08\x44ISABLED\x10\x03\x12\x11\n\rUPDATE_FAILED\x10\x04:Z\xea\x41W\n!cloudscheduler.googleapis.com/Job\x12\x32projects/{project}/locations/{location}/jobs/{job}B\x08\n\x06target\"\xe2\x01\n\x0bRetryConfig\x12\x13\n\x0bretry_count\x18\x01 \x01(\x05\x12\x35\n\x12max_retry_duration\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x37\n\x14min_backoff_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x37\n\x14max_backoff_duration\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x15\n\rmax_doublings\x18\x05 \x01(\x05\x42y\n\"com.google.cloud.scheduler.v1beta1B\x08JobProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/scheduler/v1beta1;schedulerb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.scheduler.v1beta1.job_pb2', globals())
@@ -27,12 +27,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\"com.google.cloud.scheduler.v1beta1B\010JobProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/scheduler/v1beta1;scheduler'
+  _JOB.fields_by_name['legacy_app_engine_cron']._options = None
+  _JOB.fields_by_name['legacy_app_engine_cron']._serialized_options = b'\340A\005'
   _JOB._options = None
   _JOB._serialized_options = b'\352AW\n!cloudscheduler.googleapis.com/Job\0222projects/{project}/locations/{location}/jobs/{job}'
-  _JOB._serialized_start=269
-  _JOB._serialized_end=1137
-  _JOB_STATE._serialized_start=947
-  _JOB_STATE._serialized_end=1035
-  _RETRYCONFIG._serialized_start=1140
-  _RETRYCONFIG._serialized_end=1366
+  _JOB._serialized_start=272
+  _JOB._serialized_end=1177
+  _JOB_STATE._serialized_start=987
+  _JOB_STATE._serialized_end=1075
+  _RETRYCONFIG._serialized_start=1180
+  _RETRYCONFIG._serialized_end=1406
 # @@protoc_insertion_point(module_scope)

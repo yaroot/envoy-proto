@@ -216,93 +216,94 @@ public final class AssetProto {
       "\030\001\"\205\001\n\014RelatedAsset\0223\n\005asset\030\001 \001(\tB$\372A!\n" +
       "\037cloudasset.googleapis.com/Asset\022\022\n\nasse" +
       "t_type\030\002 \001(\t\022\021\n\tancestors\030\003 \003(\t\022\031\n\021relat" +
-      "ionship_type\030\004 \001(\t\"\262\007\n\024ResourceSearchRes" +
+      "ionship_type\030\004 \001(\t\"\310\007\n\024ResourceSearchRes" +
       "ult\022\014\n\004name\030\001 \001(\t\022\022\n\nasset_type\030\002 \001(\t\022\017\n" +
       "\007project\030\003 \001(\t\022\017\n\007folders\030\021 \003(\t\022\024\n\014organ" +
       "ization\030\022 \001(\t\022\024\n\014display_name\030\004 \001(\t\022\023\n\013d" +
       "escription\030\005 \001(\t\022\020\n\010location\030\006 \001(\t\022G\n\006la" +
       "bels\030\007 \003(\01327.google.cloud.asset.v1.Resou" +
       "rceSearchResult.LabelsEntry\022\024\n\014network_t" +
-      "ags\030\010 \003(\t\022\017\n\007kms_key\030\n \001(\t\022/\n\013create_tim" +
-      "e\030\013 \001(\0132\032.google.protobuf.Timestamp\022/\n\013u" +
-      "pdate_time\030\014 \001(\0132\032.google.protobuf.Times" +
-      "tamp\022\r\n\005state\030\r \001(\t\0226\n\025additional_attrib" +
-      "utes\030\t \001(\0132\027.google.protobuf.Struct\022!\n\031p" +
-      "arent_full_resource_name\030\023 \001(\t\022E\n\023versio" +
-      "ned_resources\030\020 \003(\0132(.google.cloud.asset" +
-      ".v1.VersionedResource\022C\n\022attached_resour" +
-      "ces\030\024 \003(\0132\'.google.cloud.asset.v1.Attach" +
-      "edResource\022U\n\rrelationships\030\025 \003(\0132>.goog" +
-      "le.cloud.asset.v1.ResourceSearchResult.R" +
-      "elationshipsEntry\022\020\n\010tag_keys\030\027 \003(\t\022\022\n\nt" +
-      "ag_values\030\031 \003(\t\022\025\n\rtag_value_ids\030\032 \003(\t\022\031" +
-      "\n\021parent_asset_type\030g \001(\t\032-\n\013LabelsEntry" +
-      "\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\032]\n\022Rela" +
-      "tionshipsEntry\022\013\n\003key\030\001 \001(\t\0226\n\005value\030\002 \001" +
-      "(\0132\'.google.cloud.asset.v1.RelatedResour" +
-      "ces:\0028\001\"O\n\021VersionedResource\022\017\n\007version\030" +
-      "\001 \001(\t\022)\n\010resource\030\002 \001(\0132\027.google.protobu" +
-      "f.Struct\"m\n\020AttachedResource\022\022\n\nasset_ty" +
-      "pe\030\001 \001(\t\022E\n\023versioned_resources\030\003 \003(\0132(." +
-      "google.cloud.asset.v1.VersionedResource\"" +
-      "U\n\020RelatedResources\022A\n\021related_resources" +
-      "\030\001 \003(\0132&.google.cloud.asset.v1.RelatedRe" +
-      "source\"A\n\017RelatedResource\022\022\n\nasset_type\030" +
-      "\001 \001(\t\022\032\n\022full_resource_name\030\002 \001(\t\"\217\004\n\025Ia" +
-      "mPolicySearchResult\022\020\n\010resource\030\001 \001(\t\022\022\n" +
-      "\nasset_type\030\005 \001(\t\022\017\n\007project\030\002 \001(\t\022\017\n\007fo" +
-      "lders\030\006 \003(\t\022\024\n\014organization\030\007 \001(\t\022%\n\006pol" +
-      "icy\030\003 \001(\0132\025.google.iam.v1.Policy\022M\n\013expl" +
-      "anation\030\004 \001(\01328.google.cloud.asset.v1.Ia" +
-      "mPolicySearchResult.Explanation\032\241\002\n\013Expl" +
-      "anation\022m\n\023matched_permissions\030\001 \003(\0132P.g" +
-      "oogle.cloud.asset.v1.IamPolicySearchResu" +
-      "lt.Explanation.MatchedPermissionsEntry\032\"" +
-      "\n\013Permissions\022\023\n\013permissions\030\001 \003(\t\032\177\n\027Ma" +
-      "tchedPermissionsEntry\022\013\n\003key\030\001 \001(\t\022S\n\005va" +
-      "lue\030\002 \001(\0132D.google.cloud.asset.v1.IamPol" +
-      "icySearchResult.Explanation.Permissions:" +
-      "\0028\001\"G\n\026IamPolicyAnalysisState\022\036\n\004code\030\001 " +
-      "\001(\0162\020.google.rpc.Code\022\r\n\005cause\030\002 \001(\t\"\306\001\n" +
-      "\023ConditionEvaluation\022T\n\020evaluation_value" +
-      "\030\001 \001(\0162:.google.cloud.asset.v1.Condition" +
-      "Evaluation.EvaluationValue\"Y\n\017Evaluation" +
-      "Value\022 \n\034EVALUATION_VALUE_UNSPECIFIED\020\000\022" +
-      "\010\n\004TRUE\020\001\022\t\n\005FALSE\020\002\022\017\n\013CONDITIONAL\020\003\"\253\t" +
-      "\n\027IamPolicyAnalysisResult\022#\n\033attached_re" +
-      "source_full_name\030\001 \001(\t\022+\n\013iam_binding\030\002 " +
-      "\001(\0132\026.google.iam.v1.Binding\022^\n\024access_co" +
-      "ntrol_lists\030\003 \003(\0132@.google.cloud.asset.v" +
-      "1.IamPolicyAnalysisResult.AccessControlL" +
-      "ist\022R\n\ridentity_list\030\004 \001(\0132;.google.clou" +
-      "d.asset.v1.IamPolicyAnalysisResult.Ident" +
-      "ityList\022\026\n\016fully_explored\030\005 \001(\010\032m\n\010Resou" +
-      "rce\022\032\n\022full_resource_name\030\001 \001(\t\022E\n\016analy" +
-      "sis_state\030\002 \001(\0132-.google.cloud.asset.v1." +
-      "IamPolicyAnalysisState\032\205\001\n\006Access\022\016\n\004rol" +
-      "e\030\001 \001(\tH\000\022\024\n\npermission\030\002 \001(\tH\000\022E\n\016analy" +
-      "sis_state\030\003 \001(\0132-.google.cloud.asset.v1." +
-      "IamPolicyAnalysisStateB\016\n\014oneof_access\032_" +
-      "\n\010Identity\022\014\n\004name\030\001 \001(\t\022E\n\016analysis_sta" +
-      "te\030\002 \001(\0132-.google.cloud.asset.v1.IamPoli" +
-      "cyAnalysisState\0320\n\004Edge\022\023\n\013source_node\030\001" +
-      " \001(\t\022\023\n\013target_node\030\002 \001(\t\032\277\002\n\021AccessCont" +
-      "rolList\022J\n\tresources\030\001 \003(\01327.google.clou" +
-      "d.asset.v1.IamPolicyAnalysisResult.Resou" +
-      "rce\022G\n\010accesses\030\002 \003(\01325.google.cloud.ass" +
-      "et.v1.IamPolicyAnalysisResult.Access\022K\n\016" +
-      "resource_edges\030\003 \003(\01323.google.cloud.asse" +
-      "t.v1.IamPolicyAnalysisResult.Edge\022H\n\024con" +
-      "dition_evaluation\030\004 \001(\0132*.google.cloud.a" +
-      "sset.v1.ConditionEvaluation\032\245\001\n\014Identity" +
-      "List\022K\n\nidentities\030\001 \003(\01327.google.cloud." +
-      "asset.v1.IamPolicyAnalysisResult.Identit" +
-      "y\022H\n\013group_edges\030\002 \003(\01323.google.cloud.as" +
-      "set.v1.IamPolicyAnalysisResult.EdgeB\230\001\n\031" +
-      "com.google.cloud.asset.v1B\nAssetProtoP\001Z" +
-      ":google.golang.org/genproto/googleapis/c" +
-      "loud/asset/v1;asset\370\001\001\252\002\025Google.Cloud.As" +
-      "set.V1\312\002\025Google\\Cloud\\Asset\\V1b\006proto3"
+      "ags\030\010 \003(\t\022\023\n\007kms_key\030\n \001(\tB\002\030\001\022\020\n\010kms_ke" +
+      "ys\030\034 \003(\t\022/\n\013create_time\030\013 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022/\n\013update_time\030\014 \001(\0132\032" +
+      ".google.protobuf.Timestamp\022\r\n\005state\030\r \001(" +
+      "\t\0226\n\025additional_attributes\030\t \001(\0132\027.googl" +
+      "e.protobuf.Struct\022!\n\031parent_full_resourc" +
+      "e_name\030\023 \001(\t\022E\n\023versioned_resources\030\020 \003(" +
+      "\0132(.google.cloud.asset.v1.VersionedResou" +
+      "rce\022C\n\022attached_resources\030\024 \003(\0132\'.google" +
+      ".cloud.asset.v1.AttachedResource\022U\n\rrela" +
+      "tionships\030\025 \003(\0132>.google.cloud.asset.v1." +
+      "ResourceSearchResult.RelationshipsEntry\022" +
+      "\020\n\010tag_keys\030\027 \003(\t\022\022\n\ntag_values\030\031 \003(\t\022\025\n" +
+      "\rtag_value_ids\030\032 \003(\t\022\031\n\021parent_asset_typ" +
+      "e\030g \001(\t\032-\n\013LabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005v" +
+      "alue\030\002 \001(\t:\0028\001\032]\n\022RelationshipsEntry\022\013\n\003" +
+      "key\030\001 \001(\t\0226\n\005value\030\002 \001(\0132\'.google.cloud." +
+      "asset.v1.RelatedResources:\0028\001\"O\n\021Version" +
+      "edResource\022\017\n\007version\030\001 \001(\t\022)\n\010resource\030" +
+      "\002 \001(\0132\027.google.protobuf.Struct\"m\n\020Attach" +
+      "edResource\022\022\n\nasset_type\030\001 \001(\t\022E\n\023versio" +
+      "ned_resources\030\003 \003(\0132(.google.cloud.asset" +
+      ".v1.VersionedResource\"U\n\020RelatedResource" +
+      "s\022A\n\021related_resources\030\001 \003(\0132&.google.cl" +
+      "oud.asset.v1.RelatedResource\"A\n\017RelatedR" +
+      "esource\022\022\n\nasset_type\030\001 \001(\t\022\032\n\022full_reso" +
+      "urce_name\030\002 \001(\t\"\217\004\n\025IamPolicySearchResul" +
+      "t\022\020\n\010resource\030\001 \001(\t\022\022\n\nasset_type\030\005 \001(\t\022" +
+      "\017\n\007project\030\002 \001(\t\022\017\n\007folders\030\006 \003(\t\022\024\n\014org" +
+      "anization\030\007 \001(\t\022%\n\006policy\030\003 \001(\0132\025.google" +
+      ".iam.v1.Policy\022M\n\013explanation\030\004 \001(\01328.go" +
+      "ogle.cloud.asset.v1.IamPolicySearchResul" +
+      "t.Explanation\032\241\002\n\013Explanation\022m\n\023matched" +
+      "_permissions\030\001 \003(\0132P.google.cloud.asset." +
+      "v1.IamPolicySearchResult.Explanation.Mat" +
+      "chedPermissionsEntry\032\"\n\013Permissions\022\023\n\013p" +
+      "ermissions\030\001 \003(\t\032\177\n\027MatchedPermissionsEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022S\n\005value\030\002 \001(\0132D.google" +
+      ".cloud.asset.v1.IamPolicySearchResult.Ex" +
+      "planation.Permissions:\0028\001\"G\n\026IamPolicyAn" +
+      "alysisState\022\036\n\004code\030\001 \001(\0162\020.google.rpc.C" +
+      "ode\022\r\n\005cause\030\002 \001(\t\"\306\001\n\023ConditionEvaluati" +
+      "on\022T\n\020evaluation_value\030\001 \001(\0162:.google.cl" +
+      "oud.asset.v1.ConditionEvaluation.Evaluat" +
+      "ionValue\"Y\n\017EvaluationValue\022 \n\034EVALUATIO" +
+      "N_VALUE_UNSPECIFIED\020\000\022\010\n\004TRUE\020\001\022\t\n\005FALSE" +
+      "\020\002\022\017\n\013CONDITIONAL\020\003\"\253\t\n\027IamPolicyAnalysi" +
+      "sResult\022#\n\033attached_resource_full_name\030\001" +
+      " \001(\t\022+\n\013iam_binding\030\002 \001(\0132\026.google.iam.v" +
+      "1.Binding\022^\n\024access_control_lists\030\003 \003(\0132" +
+      "@.google.cloud.asset.v1.IamPolicyAnalysi" +
+      "sResult.AccessControlList\022R\n\ridentity_li" +
+      "st\030\004 \001(\0132;.google.cloud.asset.v1.IamPoli" +
+      "cyAnalysisResult.IdentityList\022\026\n\016fully_e" +
+      "xplored\030\005 \001(\010\032m\n\010Resource\022\032\n\022full_resour" +
+      "ce_name\030\001 \001(\t\022E\n\016analysis_state\030\002 \001(\0132-." +
+      "google.cloud.asset.v1.IamPolicyAnalysisS" +
+      "tate\032\205\001\n\006Access\022\016\n\004role\030\001 \001(\tH\000\022\024\n\npermi" +
+      "ssion\030\002 \001(\tH\000\022E\n\016analysis_state\030\003 \001(\0132-." +
+      "google.cloud.asset.v1.IamPolicyAnalysisS" +
+      "tateB\016\n\014oneof_access\032_\n\010Identity\022\014\n\004name" +
+      "\030\001 \001(\t\022E\n\016analysis_state\030\002 \001(\0132-.google." +
+      "cloud.asset.v1.IamPolicyAnalysisState\0320\n" +
+      "\004Edge\022\023\n\013source_node\030\001 \001(\t\022\023\n\013target_nod" +
+      "e\030\002 \001(\t\032\277\002\n\021AccessControlList\022J\n\tresourc" +
+      "es\030\001 \003(\01327.google.cloud.asset.v1.IamPoli" +
+      "cyAnalysisResult.Resource\022G\n\010accesses\030\002 " +
+      "\003(\01325.google.cloud.asset.v1.IamPolicyAna" +
+      "lysisResult.Access\022K\n\016resource_edges\030\003 \003" +
+      "(\01323.google.cloud.asset.v1.IamPolicyAnal" +
+      "ysisResult.Edge\022H\n\024condition_evaluation\030" +
+      "\004 \001(\0132*.google.cloud.asset.v1.ConditionE" +
+      "valuation\032\245\001\n\014IdentityList\022K\n\nidentities" +
+      "\030\001 \003(\01327.google.cloud.asset.v1.IamPolicy" +
+      "AnalysisResult.Identity\022H\n\013group_edges\030\002" +
+      " \003(\01323.google.cloud.asset.v1.IamPolicyAn" +
+      "alysisResult.EdgeB\230\001\n\031com.google.cloud.a" +
+      "sset.v1B\nAssetProtoP\001Z:google.golang.org" +
+      "/genproto/googleapis/cloud/asset/v1;asse" +
+      "t\370\001\001\252\002\025Google.Cloud.Asset.V1\312\002\025Google\\Cl" +
+      "oud\\Asset\\V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -366,7 +367,7 @@ public final class AssetProto {
     internal_static_google_cloud_asset_v1_ResourceSearchResult_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_asset_v1_ResourceSearchResult_descriptor,
-        new java.lang.String[] { "Name", "AssetType", "Project", "Folders", "Organization", "DisplayName", "Description", "Location", "Labels", "NetworkTags", "KmsKey", "CreateTime", "UpdateTime", "State", "AdditionalAttributes", "ParentFullResourceName", "VersionedResources", "AttachedResources", "Relationships", "TagKeys", "TagValues", "TagValueIds", "ParentAssetType", });
+        new java.lang.String[] { "Name", "AssetType", "Project", "Folders", "Organization", "DisplayName", "Description", "Location", "Labels", "NetworkTags", "KmsKey", "KmsKeys", "CreateTime", "UpdateTime", "State", "AdditionalAttributes", "ParentFullResourceName", "VersionedResources", "AttachedResources", "Relationships", "TagKeys", "TagValues", "TagValueIds", "ParentAssetType", });
     internal_static_google_cloud_asset_v1_ResourceSearchResult_LabelsEntry_descriptor =
       internal_static_google_cloud_asset_v1_ResourceSearchResult_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_asset_v1_ResourceSearchResult_LabelsEntry_fieldAccessorTable = new

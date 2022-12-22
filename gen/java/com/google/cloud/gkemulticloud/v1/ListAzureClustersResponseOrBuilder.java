@@ -9,8 +9,8 @@ public interface ListAzureClustersResponseOrBuilder extends
 
   /**
    * <pre>
-   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resources in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureCluster azure_clusters = 1;</code>
@@ -19,8 +19,8 @@ public interface ListAzureClustersResponseOrBuilder extends
       getAzureClustersList();
   /**
    * <pre>
-   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resources in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureCluster azure_clusters = 1;</code>
@@ -28,8 +28,8 @@ public interface ListAzureClustersResponseOrBuilder extends
   com.google.cloud.gkemulticloud.v1.AzureCluster getAzureClusters(int index);
   /**
    * <pre>
-   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resources in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureCluster azure_clusters = 1;</code>
@@ -37,8 +37,8 @@ public interface ListAzureClustersResponseOrBuilder extends
   int getAzureClustersCount();
   /**
    * <pre>
-   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resources in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureCluster azure_clusters = 1;</code>
@@ -47,8 +47,8 @@ public interface ListAzureClustersResponseOrBuilder extends
       getAzureClustersOrBuilderList();
   /**
    * <pre>
-   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resources in the specified GCP
-   * project and region region.
+   * A list of [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
+   * resources in the specified GCP project and region region.
    * </pre>
    *
    * <code>repeated .google.cloud.gkemulticloud.v1.AzureCluster azure_clusters = 1;</code>

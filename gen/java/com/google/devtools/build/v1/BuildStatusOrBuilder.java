@@ -80,6 +80,26 @@ public interface BuildStatusOrBuilder extends
 
   /**
    * <pre>
+   * Human-readable error message. Do not use for programmatic purposes.
+   * </pre>
+   *
+   * <code>string error_message = 5;</code>
+   * @return The errorMessage.
+   */
+  java.lang.String getErrorMessage();
+  /**
+   * <pre>
+   * Human-readable error message. Do not use for programmatic purposes.
+   * </pre>
+   *
+   * <code>string error_message = 5;</code>
+   * @return The bytes for errorMessage.
+   */
+  com.google.protobuf.ByteString
+      getErrorMessageBytes();
+
+  /**
+   * <pre>
    * Fine-grained diagnostic information to complement the status.
    * </pre>
    *

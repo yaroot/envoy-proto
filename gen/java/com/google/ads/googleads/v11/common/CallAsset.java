@@ -39,82 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CallAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            countryCode_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            phoneNumber_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            callConversionReportingState_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callConversionAction_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              adScheduleTargets_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AdScheduleInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            adScheduleTargets_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.AdScheduleInfo.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        adScheduleTargets_ = java.util.Collections.unmodifiableList(adScheduleTargets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.AssetTypesProto.internal_static_google_ads_googleads_v11_common_CallAsset_descriptor;
@@ -129,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNTRY_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object countryCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object countryCode_ = "";
   /**
    * <pre>
    * Required. Two-letter country code of the phone number. Examples: 'US', 'us'.
@@ -175,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PHONE_NUMBER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object phoneNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object phoneNumber_ = "";
   /**
    * <pre>
    * Required. The advertiser's raw phone number. Examples: '1234567890', '(123)456-7890'
@@ -221,7 +147,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALL_CONVERSION_REPORTING_STATE_FIELD_NUMBER = 3;
-  private int callConversionReportingState_;
+  private int callConversionReportingState_ = 0;
   /**
    * <pre>
    * Indicates whether this CallAsset should use its own call conversion
@@ -244,13 +170,13 @@ private static final long serialVersionUID = 0L;
    * @return The callConversionReportingState.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState getCallConversionReportingState() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState result = com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState.valueOf(callConversionReportingState_);
+    com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState result = com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState.forNumber(callConversionReportingState_);
     return result == null ? com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState.UNRECOGNIZED : result;
   }
 
   public static final int CALL_CONVERSION_ACTION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object callConversionAction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callConversionAction_ = "";
   /**
    * <pre>
    * The conversion action to attribute a call conversion to. If not set, the
@@ -302,6 +228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_SCHEDULE_TARGETS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.AdScheduleInfo> adScheduleTargets_;
   /**
    * <pre>
@@ -400,7 +327,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < adScheduleTargets_.size(); i++) {
       output.writeMessage(5, adScheduleTargets_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -426,7 +353,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, adScheduleTargets_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -450,7 +377,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCallConversionAction())) return false;
     if (!getAdScheduleTargetsList()
         .equals(other.getAdScheduleTargetsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -473,7 +400,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AD_SCHEDULE_TARGETS_FIELD_NUMBER;
       hash = (53 * hash) + getAdScheduleTargetsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -594,37 +521,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.CallAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAdScheduleTargetsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       countryCode_ = "";
-
       phoneNumber_ = "";
-
       callConversionReportingState_ = 0;
-
       callConversionAction_ = "";
-
       if (adScheduleTargetsBuilder_ == null) {
         adScheduleTargets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        adScheduleTargets_ = null;
         adScheduleTargetsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -651,22 +570,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.CallAsset buildPartial() {
       com.google.ads.googleads.v11.common.CallAsset result = new com.google.ads.googleads.v11.common.CallAsset(this);
-      int from_bitField0_ = bitField0_;
-      result.countryCode_ = countryCode_;
-      result.phoneNumber_ = phoneNumber_;
-      result.callConversionReportingState_ = callConversionReportingState_;
-      result.callConversionAction_ = callConversionAction_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.CallAsset result) {
       if (adScheduleTargetsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           adScheduleTargets_ = java.util.Collections.unmodifiableList(adScheduleTargets_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.adScheduleTargets_ = adScheduleTargets_;
       } else {
         result.adScheduleTargets_ = adScheduleTargetsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.CallAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.countryCode_ = countryCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.phoneNumber_ = phoneNumber_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.callConversionReportingState_ = callConversionReportingState_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.callConversionAction_ = callConversionAction_;
+      }
     }
 
     @java.lang.Override
@@ -715,10 +650,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.common.CallAsset.getDefaultInstance()) return this;
       if (!other.getCountryCode().isEmpty()) {
         countryCode_ = other.countryCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPhoneNumber().isEmpty()) {
         phoneNumber_ = other.phoneNumber_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.callConversionReportingState_ != 0) {
@@ -726,13 +663,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCallConversionAction().isEmpty()) {
         callConversionAction_ = other.callConversionAction_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (adScheduleTargetsBuilder_ == null) {
         if (!other.adScheduleTargets_.isEmpty()) {
           if (adScheduleTargets_.isEmpty()) {
             adScheduleTargets_ = other.adScheduleTargets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureAdScheduleTargetsIsMutable();
             adScheduleTargets_.addAll(other.adScheduleTargets_);
@@ -745,7 +683,7 @@ private static final long serialVersionUID = 0L;
             adScheduleTargetsBuilder_.dispose();
             adScheduleTargetsBuilder_ = null;
             adScheduleTargets_ = other.adScheduleTargets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             adScheduleTargetsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAdScheduleTargetsFieldBuilder() : null;
@@ -754,7 +692,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -769,17 +707,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.CallAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              countryCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              phoneNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              callConversionReportingState_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              callConversionAction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.ads.googleads.v11.common.AdScheduleInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.AdScheduleInfo.parser(),
+                      extensionRegistry);
+              if (adScheduleTargetsBuilder_ == null) {
+                ensureAdScheduleTargetsIsMutable();
+                adScheduleTargets_.add(m);
+              } else {
+                adScheduleTargetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.CallAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -837,11 +821,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCountryCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       countryCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -854,8 +836,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCountryCode() {
-      
       countryCode_ = getDefaultInstance().getCountryCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -870,12 +852,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCountryCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       countryCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -933,11 +913,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       phoneNumber_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -950,8 +928,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPhoneNumber() {
-      
       phoneNumber_ = getDefaultInstance().getPhoneNumber();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -966,12 +944,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPhoneNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       phoneNumber_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1000,8 +976,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCallConversionReportingStateValue(int value) {
-      
       callConversionReportingState_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1016,8 +992,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState getCallConversionReportingState() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState result = com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState.valueOf(callConversionReportingState_);
+      com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState result = com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState.forNumber(callConversionReportingState_);
       return result == null ? com.google.ads.googleads.v11.enums.CallConversionReportingStateEnum.CallConversionReportingState.UNRECOGNIZED : result;
     }
     /**
@@ -1034,7 +1009,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       callConversionReportingState_ = value.getNumber();
       onChanged();
       return this;
@@ -1049,7 +1024,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallConversionReportingState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       callConversionReportingState_ = 0;
       onChanged();
       return this;
@@ -1117,11 +1092,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallConversionAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callConversionAction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1137,8 +1110,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallConversionAction() {
-      
       callConversionAction_ = getDefaultInstance().getCallConversionAction();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1156,12 +1129,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallConversionActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callConversionAction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1169,9 +1140,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.AdScheduleInfo> adScheduleTargets_ =
       java.util.Collections.emptyList();
     private void ensureAdScheduleTargetsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         adScheduleTargets_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.AdScheduleInfo>(adScheduleTargets_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1387,7 +1358,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAdScheduleTargets() {
       if (adScheduleTargetsBuilder_ == null) {
         adScheduleTargets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         adScheduleTargetsBuilder_.clear();
@@ -1506,7 +1477,7 @@ private static final long serialVersionUID = 0L;
         adScheduleTargetsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.AdScheduleInfo, com.google.ads.googleads.v11.common.AdScheduleInfo.Builder, com.google.ads.googleads.v11.common.AdScheduleInfoOrBuilder>(
                 adScheduleTargets_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         adScheduleTargets_ = null;
@@ -1546,7 +1517,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CallAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

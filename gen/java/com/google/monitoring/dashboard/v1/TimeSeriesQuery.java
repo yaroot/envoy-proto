@@ -36,85 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimeSeriesQuery(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.monitoring.dashboard.v1.TimeSeriesFilter.Builder subBuilder = null;
-            if (sourceCase_ == 1) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.TimeSeriesFilter) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.TimeSeriesFilter) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.Builder subBuilder = null;
-            if (sourceCase_ == 2) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 2;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 3;
-            source_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unitOverride_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.MetricsProto.internal_static_google_monitoring_dashboard_v1_TimeSeriesQuery_descriptor;
@@ -136,6 +57,7 @@ private static final long serialVersionUID = 0L;
     TIME_SERIES_FILTER(1),
     TIME_SERIES_FILTER_RATIO(2),
     TIME_SERIES_QUERY_LANGUAGE(3),
+    PROMETHEUS_QUERY(6),
     SOURCE_NOT_SET(0);
     private final int value;
     private SourceCase(int value) {
@@ -156,6 +78,7 @@ private static final long serialVersionUID = 0L;
         case 1: return TIME_SERIES_FILTER;
         case 2: return TIME_SERIES_FILTER_RATIO;
         case 3: return TIME_SERIES_QUERY_LANGUAGE;
+        case 6: return PROMETHEUS_QUERY;
         case 0: return SOURCE_NOT_SET;
         default: return null;
       }
@@ -260,7 +183,7 @@ private static final long serialVersionUID = 0L;
   public static final int TIME_SERIES_QUERY_LANGUAGE_FIELD_NUMBER = 3;
   /**
    * <pre>
-   * A query used to fetch time series.
+   * A query used to fetch time series with MQL.
    * </pre>
    *
    * <code>string time_series_query_language = 3;</code>
@@ -271,7 +194,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A query used to fetch time series.
+   * A query used to fetch time series with MQL.
    * </pre>
    *
    * <code>string time_series_query_language = 3;</code>
@@ -296,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A query used to fetch time series.
+   * A query used to fetch time series with MQL.
    * </pre>
    *
    * <code>string time_series_query_language = 3;</code>
@@ -321,8 +244,73 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PROMETHEUS_QUERY_FIELD_NUMBER = 6;
+  /**
+   * <pre>
+   * A query used to fetch time series with PromQL.
+   * </pre>
+   *
+   * <code>string prometheus_query = 6;</code>
+   * @return Whether the prometheusQuery field is set.
+   */
+  public boolean hasPrometheusQuery() {
+    return sourceCase_ == 6;
+  }
+  /**
+   * <pre>
+   * A query used to fetch time series with PromQL.
+   * </pre>
+   *
+   * <code>string prometheus_query = 6;</code>
+   * @return The prometheusQuery.
+   */
+  public java.lang.String getPrometheusQuery() {
+    java.lang.Object ref = "";
+    if (sourceCase_ == 6) {
+      ref = source_;
+    }
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      if (sourceCase_ == 6) {
+        source_ = s;
+      }
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * A query used to fetch time series with PromQL.
+   * </pre>
+   *
+   * <code>string prometheus_query = 6;</code>
+   * @return The bytes for prometheusQuery.
+   */
+  public com.google.protobuf.ByteString
+      getPrometheusQueryBytes() {
+    java.lang.Object ref = "";
+    if (sourceCase_ == 6) {
+      ref = source_;
+    }
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      if (sourceCase_ == 6) {
+        source_ = b;
+      }
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int UNIT_OVERRIDE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object unitOverride_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object unitOverride_ = "";
   /**
    * <pre>
    * The unit of data contained in fetched time series. If non-empty, this
@@ -401,7 +389,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unitOverride_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, unitOverride_);
     }
-    unknownFields.writeTo(output);
+    if (sourceCase_ == 6) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, source_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -424,7 +415,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(unitOverride_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, unitOverride_);
     }
-    size += unknownFields.getSerializedSize();
+    if (sourceCase_ == 6) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, source_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -455,10 +449,14 @@ private static final long serialVersionUID = 0L;
         if (!getTimeSeriesQueryLanguage()
             .equals(other.getTimeSeriesQueryLanguage())) return false;
         break;
+      case 6:
+        if (!getPrometheusQuery()
+            .equals(other.getPrometheusQuery())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -484,10 +482,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + TIME_SERIES_QUERY_LANGUAGE_FIELD_NUMBER;
         hash = (53 * hash) + getTimeSeriesQueryLanguage().hashCode();
         break;
+      case 6:
+        hash = (37 * hash) + PROMETHEUS_QUERY_FIELD_NUMBER;
+        hash = (53 * hash) + getPrometheusQuery().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -609,24 +611,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.TimeSeriesQuery.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (timeSeriesFilterBuilder_ != null) {
+        timeSeriesFilterBuilder_.clear();
+      }
+      if (timeSeriesFilterRatioBuilder_ != null) {
+        timeSeriesFilterRatioBuilder_.clear();
+      }
       unitOverride_ = "";
-
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -655,27 +658,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.TimeSeriesQuery buildPartial() {
       com.google.monitoring.dashboard.v1.TimeSeriesQuery result = new com.google.monitoring.dashboard.v1.TimeSeriesQuery(this);
-      if (sourceCase_ == 1) {
-        if (timeSeriesFilterBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = timeSeriesFilterBuilder_.build();
-        }
-      }
-      if (sourceCase_ == 2) {
-        if (timeSeriesFilterRatioBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = timeSeriesFilterRatioBuilder_.build();
-        }
-      }
-      if (sourceCase_ == 3) {
-        result.source_ = source_;
-      }
-      result.unitOverride_ = unitOverride_;
-      result.sourceCase_ = sourceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.TimeSeriesQuery result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.unitOverride_ = unitOverride_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.monitoring.dashboard.v1.TimeSeriesQuery result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 1 &&
+          timeSeriesFilterBuilder_ != null) {
+        result.source_ = timeSeriesFilterBuilder_.build();
+      }
+      if (sourceCase_ == 2 &&
+          timeSeriesFilterRatioBuilder_ != null) {
+        result.source_ = timeSeriesFilterRatioBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -724,6 +730,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.dashboard.v1.TimeSeriesQuery.getDefaultInstance()) return this;
       if (!other.getUnitOverride().isEmpty()) {
         unitOverride_ = other.unitOverride_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       switch (other.getSourceCase()) {
@@ -741,11 +748,17 @@ private static final long serialVersionUID = 0L;
           onChanged();
           break;
         }
+        case PROMETHEUS_QUERY: {
+          sourceCase_ = 6;
+          source_ = other.source_;
+          onChanged();
+          break;
+        }
         case SOURCE_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -760,17 +773,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.TimeSeriesQuery parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTimeSeriesFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTimeSeriesFilterRatioFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 3;
+              source_ = s;
+              break;
+            } // case 26
+            case 42: {
+              unitOverride_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 6;
+              source_ = s;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.TimeSeriesQuery) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -788,6 +845,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.monitoring.dashboard.v1.TimeSeriesFilter, com.google.monitoring.dashboard.v1.TimeSeriesFilter.Builder, com.google.monitoring.dashboard.v1.TimeSeriesFilterOrBuilder> timeSeriesFilterBuilder_;
@@ -963,7 +1021,7 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 1;
-      onChanged();;
+      onChanged();
       return timeSeriesFilterBuilder_;
     }
 
@@ -1141,13 +1199,13 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 2;
-      onChanged();;
+      onChanged();
       return timeSeriesFilterRatioBuilder_;
     }
 
     /**
      * <pre>
-     * A query used to fetch time series.
+     * A query used to fetch time series with MQL.
      * </pre>
      *
      * <code>string time_series_query_language = 3;</code>
@@ -1159,7 +1217,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A query used to fetch time series.
+     * A query used to fetch time series with MQL.
      * </pre>
      *
      * <code>string time_series_query_language = 3;</code>
@@ -1185,7 +1243,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A query used to fetch time series.
+     * A query used to fetch time series with MQL.
      * </pre>
      *
      * <code>string time_series_query_language = 3;</code>
@@ -1212,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A query used to fetch time series.
+     * A query used to fetch time series with MQL.
      * </pre>
      *
      * <code>string time_series_query_language = 3;</code>
@@ -1221,17 +1279,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeSeriesQueryLanguage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 3;
       source_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * A query used to fetch time series.
+     * A query used to fetch time series with MQL.
      * </pre>
      *
      * <code>string time_series_query_language = 3;</code>
@@ -1247,7 +1303,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A query used to fetch time series.
+     * A query used to fetch time series with MQL.
      * </pre>
      *
      * <code>string time_series_query_language = 3;</code>
@@ -1256,11 +1312,126 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeSeriesQueryLanguageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 3;
+      source_ = value;
+      onChanged();
+      return this;
+    }
+
+    /**
+     * <pre>
+     * A query used to fetch time series with PromQL.
+     * </pre>
+     *
+     * <code>string prometheus_query = 6;</code>
+     * @return Whether the prometheusQuery field is set.
+     */
+    @java.lang.Override
+    public boolean hasPrometheusQuery() {
+      return sourceCase_ == 6;
+    }
+    /**
+     * <pre>
+     * A query used to fetch time series with PromQL.
+     * </pre>
+     *
+     * <code>string prometheus_query = 6;</code>
+     * @return The prometheusQuery.
+     */
+    @java.lang.Override
+    public java.lang.String getPrometheusQuery() {
+      java.lang.Object ref = "";
+      if (sourceCase_ == 6) {
+        ref = source_;
+      }
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (sourceCase_ == 6) {
+          source_ = s;
+        }
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * A query used to fetch time series with PromQL.
+     * </pre>
+     *
+     * <code>string prometheus_query = 6;</code>
+     * @return The bytes for prometheusQuery.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPrometheusQueryBytes() {
+      java.lang.Object ref = "";
+      if (sourceCase_ == 6) {
+        ref = source_;
+      }
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        if (sourceCase_ == 6) {
+          source_ = b;
+        }
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * A query used to fetch time series with PromQL.
+     * </pre>
+     *
+     * <code>string prometheus_query = 6;</code>
+     * @param value The prometheusQuery to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrometheusQuery(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 6;
+      source_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A query used to fetch time series with PromQL.
+     * </pre>
+     *
+     * <code>string prometheus_query = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrometheusQuery() {
+      if (sourceCase_ == 6) {
+        sourceCase_ = 0;
+        source_ = null;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * A query used to fetch time series with PromQL.
+     * </pre>
+     *
+     * <code>string prometheus_query = 6;</code>
+     * @param value The bytes for prometheusQuery to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrometheusQueryBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      sourceCase_ = 6;
       source_ = value;
       onChanged();
       return this;
@@ -1331,11 +1502,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitOverride(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       unitOverride_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1352,8 +1521,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnitOverride() {
-      
       unitOverride_ = getDefaultInstance().getUnitOverride();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1372,12 +1541,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitOverrideBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       unitOverride_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1414,7 +1581,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeSeriesQuery(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InstancesTruncateLogRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.sql.v1beta4.TruncateLogContext.Builder subBuilder = null;
-            if (truncateLogContext_ != null) {
-              subBuilder = truncateLogContext_.toBuilder();
-            }
-            truncateLogContext_ = input.readMessage(com.google.cloud.sql.v1beta4.TruncateLogContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(truncateLogContext_);
-              truncateLogContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1beta4.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1beta4_InstancesTruncateLogRequest_descriptor;
@@ -134,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1beta4.TruncateLogContextOrBuilder getTruncateLogContextOrBuilder() {
-    return getTruncateLogContext();
+    return truncateLogContext_ == null ? com.google.cloud.sql.v1beta4.TruncateLogContext.getDefaultInstance() : truncateLogContext_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (truncateLogContext_ != null) {
       output.writeMessage(1, getTruncateLogContext());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getTruncateLogContext());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +135,7 @@ private static final long serialVersionUID = 0L;
       if (!getTruncateLogContext()
           .equals(other.getTruncateLogContext())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRUNCATE_LOG_CONTEXT_FIELD_NUMBER;
       hash = (53 * hash) + getTruncateLogContext().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +271,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (truncateLogContextBuilder_ == null) {
-        truncateLogContext_ = null;
-      } else {
-        truncateLogContext_ = null;
+      bitField0_ = 0;
+      truncateLogContext_ = null;
+      if (truncateLogContextBuilder_ != null) {
+        truncateLogContextBuilder_.dispose();
         truncateLogContextBuilder_ = null;
       }
       return this;
@@ -371,13 +314,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest buildPartial() {
       com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest result = new com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest(this);
-      if (truncateLogContextBuilder_ == null) {
-        result.truncateLogContext_ = truncateLogContext_;
-      } else {
-        result.truncateLogContext_ = truncateLogContextBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.truncateLogContext_ = truncateLogContextBuilder_ == null
+            ? truncateLogContext_
+            : truncateLogContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTruncateLogContext()) {
         mergeTruncateLogContext(other.getTruncateLogContext());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +390,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTruncateLogContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1beta4.InstancesTruncateLogRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.sql.v1beta4.TruncateLogContext truncateLogContext_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the truncateLogContext field is set.
      */
     public boolean hasTruncateLogContext() {
-      return truncateLogContextBuilder_ != null || truncateLogContext_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         truncateLogContext_ = value;
-        onChanged();
       } else {
         truncateLogContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +485,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1beta4.TruncateLogContext.Builder builderForValue) {
       if (truncateLogContextBuilder_ == null) {
         truncateLogContext_ = builderForValue.build();
-        onChanged();
       } else {
         truncateLogContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTruncateLogContext(com.google.cloud.sql.v1beta4.TruncateLogContext value) {
       if (truncateLogContextBuilder_ == null) {
-        if (truncateLogContext_ != null) {
-          truncateLogContext_ =
-            com.google.cloud.sql.v1beta4.TruncateLogContext.newBuilder(truncateLogContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          truncateLogContext_ != null &&
+          truncateLogContext_ != com.google.cloud.sql.v1beta4.TruncateLogContext.getDefaultInstance()) {
+          getTruncateLogContextBuilder().mergeFrom(value);
         } else {
           truncateLogContext_ = value;
         }
-        onChanged();
       } else {
         truncateLogContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1beta4.TruncateLogContext truncate_log_context = 1;</code>
      */
     public Builder clearTruncateLogContext() {
-      if (truncateLogContextBuilder_ == null) {
-        truncateLogContext_ = null;
-        onChanged();
-      } else {
-        truncateLogContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      truncateLogContext_ = null;
+      if (truncateLogContextBuilder_ != null) {
+        truncateLogContextBuilder_.dispose();
         truncateLogContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1beta4.TruncateLogContext truncate_log_context = 1;</code>
      */
     public com.google.cloud.sql.v1beta4.TruncateLogContext.Builder getTruncateLogContextBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTruncateLogContextFieldBuilder().getBuilder();
     }
@@ -643,7 +612,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InstancesTruncateLogRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

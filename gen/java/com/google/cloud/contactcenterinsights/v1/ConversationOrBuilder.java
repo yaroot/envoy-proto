@@ -311,7 +311,6 @@ public interface ConversationOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -325,7 +324,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -535,7 +533,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.DialogflowIntent&gt; dialogflow_intents = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.contactcenterinsights.v1.DialogflowIntent getDialogflowIntentsOrDefault(
       java.lang.String key,
@@ -550,7 +547,6 @@ com.google.cloud.contactcenterinsights.v1.DialogflowIntent defaultValue);
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.DialogflowIntent&gt; dialogflow_intents = 18 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.contactcenterinsights.v1.DialogflowIntent getDialogflowIntentsOrThrow(
       java.lang.String key);
 

@@ -38,76 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ShipmentTypeRequirement(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requiredShipmentTypeAlternatives_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            requiredShipmentTypeAlternatives_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              dependentShipmentTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            dependentShipmentTypes_.add(s);
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            requirementMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        requiredShipmentTypeAlternatives_ = requiredShipmentTypeAlternatives_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        dependentShipmentTypes_ = dependentShipmentTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentTypeRequirement_descriptor;
@@ -302,6 +232,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_SHIPMENT_TYPE_ALTERNATIVES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requiredShipmentTypeAlternatives_;
   /**
    * <pre>
@@ -357,6 +288,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEPENDENT_SHIPMENT_TYPES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList dependentShipmentTypes_;
   /**
    * <pre>
@@ -424,7 +356,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIREMENT_MODE_FIELD_NUMBER = 3;
-  private int requirementMode_;
+  private int requirementMode_ = 0;
   /**
    * <pre>
    * Mode applied to the requirement.
@@ -445,8 +377,7 @@ private static final long serialVersionUID = 0L;
    * @return The requirementMode.
    */
   @java.lang.Override public com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode getRequirementMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode result = com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.valueOf(requirementMode_);
+    com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode result = com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.forNumber(requirementMode_);
     return result == null ? com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.UNRECOGNIZED : result;
   }
 
@@ -473,7 +404,7 @@ private static final long serialVersionUID = 0L;
     if (requirementMode_ != com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.REQUIREMENT_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, requirementMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -502,7 +433,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, requirementMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -522,7 +453,7 @@ private static final long serialVersionUID = 0L;
     if (!getDependentShipmentTypesList()
         .equals(other.getDependentShipmentTypesList())) return false;
     if (requirementMode_ != other.requirementMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -543,7 +474,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REQUIREMENT_MODE_FIELD_NUMBER;
     hash = (53 * hash) + requirementMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -665,28 +596,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.ShipmentTypeRequirement.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       requiredShipmentTypeAlternatives_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       dependentShipmentTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       requirementMode_ = 0;
-
       return this;
     }
 
@@ -713,7 +639,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentTypeRequirement buildPartial() {
       com.google.cloud.optimization.v1.ShipmentTypeRequirement result = new com.google.cloud.optimization.v1.ShipmentTypeRequirement(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentTypeRequirement result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         requiredShipmentTypeAlternatives_ = requiredShipmentTypeAlternatives_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -724,9 +656,13 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.dependentShipmentTypes_ = dependentShipmentTypes_;
-      result.requirementMode_ = requirementMode_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.ShipmentTypeRequirement result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requirementMode_ = requirementMode_;
+      }
     }
 
     @java.lang.Override
@@ -796,7 +732,7 @@ private static final long serialVersionUID = 0L;
       if (other.requirementMode_ != 0) {
         setRequirementModeValue(other.getRequirementModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -811,17 +747,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.ShipmentTypeRequirement parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequiredShipmentTypeAlternativesIsMutable();
+              requiredShipmentTypeAlternatives_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDependentShipmentTypesIsMutable();
+              dependentShipmentTypes_.add(s);
+              break;
+            } // case 18
+            case 24: {
+              requirementMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.ShipmentTypeRequirement) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -898,10 +864,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequiredShipmentTypeAlternatives(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredShipmentTypeAlternativesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredShipmentTypeAlternativesIsMutable();
       requiredShipmentTypeAlternatives_.set(index, value);
       onChanged();
       return this;
@@ -918,10 +882,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredShipmentTypeAlternatives(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequiredShipmentTypeAlternativesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequiredShipmentTypeAlternativesIsMutable();
       requiredShipmentTypeAlternatives_.add(value);
       onChanged();
       return this;
@@ -971,10 +933,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequiredShipmentTypeAlternativesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequiredShipmentTypeAlternativesIsMutable();
       requiredShipmentTypeAlternatives_.add(value);
       onChanged();
@@ -1068,10 +1028,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDependentShipmentTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDependentShipmentTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDependentShipmentTypesIsMutable();
       dependentShipmentTypes_.set(index, value);
       onChanged();
       return this;
@@ -1091,10 +1049,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDependentShipmentTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDependentShipmentTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDependentShipmentTypesIsMutable();
       dependentShipmentTypes_.add(value);
       onChanged();
       return this;
@@ -1153,10 +1109,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDependentShipmentTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDependentShipmentTypesIsMutable();
       dependentShipmentTypes_.add(value);
       onChanged();
@@ -1185,8 +1139,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequirementModeValue(int value) {
-      
       requirementMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1200,8 +1154,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode getRequirementMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode result = com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.valueOf(requirementMode_);
+      com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode result = com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.forNumber(requirementMode_);
       return result == null ? com.google.cloud.optimization.v1.ShipmentTypeRequirement.RequirementMode.UNRECOGNIZED : result;
     }
     /**
@@ -1217,7 +1170,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       requirementMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1231,7 +1184,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequirementMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       requirementMode_ = 0;
       onChanged();
       return this;
@@ -1269,7 +1222,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ShipmentTypeRequirement(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

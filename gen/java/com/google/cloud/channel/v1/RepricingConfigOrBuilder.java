@@ -69,8 +69,8 @@ public interface RepricingConfigOrBuilder extends
 
   /**
    * <pre>
-   * Required. The YearMonth when these adjustments activate. The Day field needs to be
-   * "0" since we only accept YearMonth repricing boundaries.
+   * Required. The YearMonth when these adjustments activate. The Day field
+   * needs to be "0" since we only accept YearMonth repricing boundaries.
    * </pre>
    *
    * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -79,8 +79,8 @@ public interface RepricingConfigOrBuilder extends
   boolean hasEffectiveInvoiceMonth();
   /**
    * <pre>
-   * Required. The YearMonth when these adjustments activate. The Day field needs to be
-   * "0" since we only accept YearMonth repricing boundaries.
+   * Required. The YearMonth when these adjustments activate. The Day field
+   * needs to be "0" since we only accept YearMonth repricing boundaries.
    * </pre>
    *
    * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -89,8 +89,8 @@ public interface RepricingConfigOrBuilder extends
   com.google.type.Date getEffectiveInvoiceMonth();
   /**
    * <pre>
-   * Required. The YearMonth when these adjustments activate. The Day field needs to be
-   * "0" since we only accept YearMonth repricing boundaries.
+   * Required. The YearMonth when these adjustments activate. The Day field
+   * needs to be "0" since we only accept YearMonth repricing boundaries.
    * </pre>
    *
    * <code>.google.type.Date effective_invoice_month = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -126,8 +126,9 @@ public interface RepricingConfigOrBuilder extends
 
   /**
    * <pre>
-   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-   * based on repricing costs you will apply.
+   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+   * use for this bill. Specifies the relative cost based on repricing costs you
+   * will apply.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -136,14 +137,69 @@ public interface RepricingConfigOrBuilder extends
   int getRebillingBasisValue();
   /**
    * <pre>
-   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to use for this bill. Specifies the relative cost
-   * based on repricing costs you will apply.
+   * Required. The [RebillingBasis][google.cloud.channel.v1.RebillingBasis] to
+   * use for this bill. Specifies the relative cost based on repricing costs you
+   * will apply.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.RebillingBasis rebilling_basis = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The rebillingBasis.
    */
   com.google.cloud.channel.v1.RebillingBasis getRebillingBasis();
+
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  java.util.List<com.google.cloud.channel.v1.ConditionalOverride> 
+      getConditionalOverridesList();
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  com.google.cloud.channel.v1.ConditionalOverride getConditionalOverrides(int index);
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  int getConditionalOverridesCount();
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  java.util.List<? extends com.google.cloud.channel.v1.ConditionalOverrideOrBuilder> 
+      getConditionalOverridesOrBuilderList();
+  /**
+   * <pre>
+   * The conditional overrides to apply for this configuration. If you list
+   * multiple overrides, only the first valid override is used.  If you don't
+   * list any overrides, the API uses the normal adjustment and rebilling basis.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.channel.v1.ConditionalOverride conditional_overrides = 6;</code>
+   */
+  com.google.cloud.channel.v1.ConditionalOverrideOrBuilder getConditionalOverridesOrBuilder(
+      int index);
 
   public com.google.cloud.channel.v1.RepricingConfig.GranularityCase getGranularityCase();
 }

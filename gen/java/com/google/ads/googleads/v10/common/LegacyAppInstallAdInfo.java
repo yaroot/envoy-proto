@@ -39,76 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LegacyAppInstallAdInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 16: {
-            int rawValue = input.readEnum();
-
-            appStore_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            appId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            headline_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            description1_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            description2_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AdTypeInfosProto.internal_static_google_ads_googleads_v10_common_LegacyAppInstallAdInfo_descriptor;
@@ -124,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int APP_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object appId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object appId_ = "";
   /**
    * <pre>
    * The ID of the mobile app.
@@ -182,7 +113,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APP_STORE_FIELD_NUMBER = 2;
-  private int appStore_;
+  private int appStore_ = 0;
   /**
    * <pre>
    * The app store the mobile app is available in.
@@ -203,13 +134,13 @@ private static final long serialVersionUID = 0L;
    * @return The appStore.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore getAppStore() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore result = com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore.valueOf(appStore_);
+    com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore result = com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore.forNumber(appStore_);
     return result == null ? com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore.UNRECOGNIZED : result;
   }
 
   public static final int HEADLINE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object headline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object headline_ = "";
   /**
    * <pre>
    * The headline of the ad.
@@ -267,7 +198,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION1_FIELD_NUMBER = 8;
-  private volatile java.lang.Object description1_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description1_ = "";
   /**
    * <pre>
    * The first description line of the ad.
@@ -325,7 +257,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION2_FIELD_NUMBER = 9;
-  private volatile java.lang.Object description2_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description2_ = "";
   /**
    * <pre>
    * The second description line of the ad.
@@ -411,7 +344,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, description2_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -436,7 +369,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, description2_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -472,7 +405,7 @@ private static final long serialVersionUID = 0L;
       if (!getDescription2()
           .equals(other.getDescription2())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -501,7 +434,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DESCRIPTION2_FIELD_NUMBER;
       hash = (53 * hash) + getDescription2().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -622,32 +555,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       appId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       appStore_ = 0;
-
       headline_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       description1_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       description2_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -674,28 +598,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo buildPartial() {
       com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo result = new com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.appId_ = appId_;
         to_bitField0_ |= 0x00000001;
       }
-      result.appId_ = appId_;
-      result.appStore_ = appStore_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.appStore_ = appStore_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.headline_ = headline_;
         to_bitField0_ |= 0x00000002;
       }
-      result.headline_ = headline_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.description1_ = description1_;
         to_bitField0_ |= 0x00000004;
       }
-      result.description1_ = description1_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description2_ = description2_;
         to_bitField0_ |= 0x00000008;
       }
-      result.description2_ = description2_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -743,29 +673,29 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo other) {
       if (other == com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo.getDefaultInstance()) return this;
       if (other.hasAppId()) {
-        bitField0_ |= 0x00000001;
         appId_ = other.appId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.appStore_ != 0) {
         setAppStoreValue(other.getAppStoreValue());
       }
       if (other.hasHeadline()) {
-        bitField0_ |= 0x00000002;
         headline_ = other.headline_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDescription1()) {
-        bitField0_ |= 0x00000004;
         description1_ = other.description1_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDescription2()) {
-        bitField0_ |= 0x00000008;
         description2_ = other.description2_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -780,17 +710,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              appStore_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 50: {
+              appId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 50
+            case 58: {
+              headline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            case 66: {
+              description1_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            case 74: {
+              description2_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.LegacyAppInstallAdInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -859,11 +827,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       appId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -876,8 +842,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       appId_ = getDefaultInstance().getAppId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -892,12 +858,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       appId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -924,8 +888,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAppStoreValue(int value) {
-      
       appStore_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -939,8 +903,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore getAppStore() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore result = com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore.valueOf(appStore_);
+      com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore result = com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore.forNumber(appStore_);
       return result == null ? com.google.ads.googleads.v10.enums.LegacyAppInstallAdAppStoreEnum.LegacyAppInstallAdAppStore.UNRECOGNIZED : result;
     }
     /**
@@ -956,7 +919,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       appStore_ = value.getNumber();
       onChanged();
       return this;
@@ -970,7 +933,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppStore() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       appStore_ = 0;
       onChanged();
       return this;
@@ -986,7 +949,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the headline field is set.
      */
     public boolean hasHeadline() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1040,11 +1003,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       headline_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1057,8 +1018,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeadline() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       headline_ = getDefaultInstance().getHeadline();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1073,12 +1034,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headline_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1093,7 +1052,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the description1 field is set.
      */
     public boolean hasDescription1() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1147,11 +1106,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription1(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       description1_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1164,8 +1121,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription1() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       description1_ = getDefaultInstance().getDescription1();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1180,12 +1137,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription1Bytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description1_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1200,7 +1155,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the description2 field is set.
      */
     public boolean hasDescription2() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1254,11 +1209,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription2(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       description2_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1271,8 +1224,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription2() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       description2_ = getDefaultInstance().getDescription2();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1287,12 +1240,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription2Bytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description2_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1329,7 +1280,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LegacyAppInstallAdInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

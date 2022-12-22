@@ -28,6 +28,7 @@ private static final long serialVersionUID = 0L;
     uid_ = "";
     etag_ = "";
     clusterCaCertificate_ = "";
+    errors_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -41,216 +42,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AwsCluster(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.Builder subBuilder = null;
-            if (networking_ != null) {
-              subBuilder = networking_.toBuilder();
-            }
-            networking_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networking_);
-              networking_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            awsRegion_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.gkemulticloud.v1.AwsControlPlane.Builder subBuilder = null;
-            if (controlPlane_ != null) {
-              subBuilder = controlPlane_.toBuilder();
-            }
-            controlPlane_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AwsControlPlane.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(controlPlane_);
-              controlPlane_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            endpoint_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 80: {
-
-            reconciling_ = input.readBool();
-            break;
-          }
-          case 90: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              annotations_ = com.google.protobuf.MapField.newMapField(
-                  AnnotationsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            annotations__ = input.readMessage(
-                AnnotationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            annotations_.getMutableMap().put(
-                annotations__.getKey(), annotations__.getValue());
-            break;
-          }
-          case 122: {
-            com.google.cloud.gkemulticloud.v1.AwsAuthorization.Builder subBuilder = null;
-            if (authorization_ != null) {
-              subBuilder = authorization_.toBuilder();
-            }
-            authorization_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AwsAuthorization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authorization_);
-              authorization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.Builder subBuilder = null;
-            if (workloadIdentityConfig_ != null) {
-              subBuilder = workloadIdentityConfig_.toBuilder();
-            }
-            workloadIdentityConfig_ = input.readMessage(com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workloadIdentityConfig_);
-              workloadIdentityConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterCaCertificate_ = s;
-            break;
-          }
-          case 146: {
-            com.google.cloud.gkemulticloud.v1.Fleet.Builder subBuilder = null;
-            if (fleet_ != null) {
-              subBuilder = fleet_.toBuilder();
-            }
-            fleet_ = input.readMessage(com.google.cloud.gkemulticloud.v1.Fleet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fleet_);
-              fleet_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.cloud.gkemulticloud.v1.LoggingConfig.Builder subBuilder = null;
-            if (loggingConfig_ != null) {
-              subBuilder = loggingConfig_.toBuilder();
-            }
-            loggingConfig_ = input.readMessage(com.google.cloud.gkemulticloud.v1.LoggingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(loggingConfig_);
-              loggingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -499,7 +290,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of this resource.
@@ -553,7 +345,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Optional. A human readable description of this cluster.
@@ -635,11 +428,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AwsClusterNetworkingOrBuilder getNetworkingOrBuilder() {
-    return getNetworking();
+    return networking_ == null ? com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.getDefaultInstance() : networking_;
   }
 
   public static final int AWS_REGION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object awsRegion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object awsRegion_ = "";
   /**
    * <pre>
    * Required. The AWS region where the cluster runs.
@@ -727,7 +521,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AwsControlPlaneOrBuilder getControlPlaneOrBuilder() {
-    return getControlPlane();
+    return controlPlane_ == null ? com.google.cloud.gkemulticloud.v1.AwsControlPlane.getDefaultInstance() : controlPlane_;
   }
 
   public static final int AUTHORIZATION_FIELD_NUMBER = 15;
@@ -765,11 +559,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AwsAuthorizationOrBuilder getAuthorizationOrBuilder() {
-    return getAuthorization();
+    return authorization_ == null ? com.google.cloud.gkemulticloud.v1.AwsAuthorization.getDefaultInstance() : authorization_;
   }
 
   public static final int STATE_FIELD_NUMBER = 7;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state of the cluster.
@@ -790,13 +584,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.gkemulticloud.v1.AwsCluster.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkemulticloud.v1.AwsCluster.State result = com.google.cloud.gkemulticloud.v1.AwsCluster.State.valueOf(state_);
+    com.google.cloud.gkemulticloud.v1.AwsCluster.State result = com.google.cloud.gkemulticloud.v1.AwsCluster.State.forNumber(state_);
     return result == null ? com.google.cloud.gkemulticloud.v1.AwsCluster.State.UNRECOGNIZED : result;
   }
 
   public static final int ENDPOINT_FIELD_NUMBER = 8;
-  private volatile java.lang.Object endpoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpoint_ = "";
   /**
    * <pre>
    * Output only. The endpoint of the cluster's API server.
@@ -842,7 +636,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UID_FIELD_NUMBER = 9;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
    * Output only. A globally unique identifier for the cluster.
@@ -888,7 +683,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECONCILING_FIELD_NUMBER = 10;
-  private boolean reconciling_;
+  private boolean reconciling_ = false;
   /**
    * <pre>
    * Output only. If set, there are currently changes in flight to the cluster.
@@ -937,7 +732,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 12;
@@ -975,11 +770,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int ETAG_FIELD_NUMBER = 13;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Allows clients to perform consistent read-modify-writes
@@ -1042,6 +838,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> annotations_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1052,7 +849,6 @@ private static final long serialVersionUID = 0L;
     }
     return annotations_;
   }
-
   public int getAnnotationsCount() {
     return internalGetAnnotations().getMap().size();
   }
@@ -1070,7 +866,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsAnnotations(
       java.lang.String key) {
@@ -1100,7 +895,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getAnnotationsMap() {
     return internalGetAnnotations().getMap();
   }
@@ -1119,10 +913,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getAnnotationsOrDefault(
+  public /* nullable */
+java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAnnotations().getMap();
@@ -1143,7 +938,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getAnnotationsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1190,11 +984,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfigOrBuilder getWorkloadIdentityConfigOrBuilder() {
-    return getWorkloadIdentityConfig();
+    return workloadIdentityConfig_ == null ? com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.getDefaultInstance() : workloadIdentityConfig_;
   }
 
   public static final int CLUSTER_CA_CERTIFICATE_FIELD_NUMBER = 17;
-  private volatile java.lang.Object clusterCaCertificate_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterCaCertificate_ = "";
   /**
    * <pre>
    * Output only. PEM encoded x509 certificate of the cluster root of trust.
@@ -1243,10 +1038,10 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.gkemulticloud.v1.Fleet fleet_;
   /**
    * <pre>
-   * Optional. Fleet configuration.
+   * Required. Fleet configuration.
    * </pre>
    *
-   * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the fleet field is set.
    */
   @java.lang.Override
@@ -1255,10 +1050,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Fleet configuration.
+   * Required. Fleet configuration.
    * </pre>
    *
-   * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The fleet.
    */
   @java.lang.Override
@@ -1267,14 +1062,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Fleet configuration.
+   * Required. Fleet configuration.
    * </pre>
    *
-   * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.FleetOrBuilder getFleetOrBuilder() {
-    return getFleet();
+    return fleet_ == null ? com.google.cloud.gkemulticloud.v1.Fleet.getDefaultInstance() : fleet_;
   }
 
   public static final int LOGGING_CONFIG_FIELD_NUMBER = 19;
@@ -1312,7 +1107,106 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.LoggingConfigOrBuilder getLoggingConfigOrBuilder() {
-    return getLoggingConfig();
+    return loggingConfig_ == null ? com.google.cloud.gkemulticloud.v1.LoggingConfig.getDefaultInstance() : loggingConfig_;
+  }
+
+  public static final int ERRORS_FIELD_NUMBER = 20;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.gkemulticloud.v1.AwsClusterError> errors_;
+  /**
+   * <pre>
+   * Output only. A set of errors found in the cluster.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.gkemulticloud.v1.AwsClusterError> getErrorsList() {
+    return errors_;
+  }
+  /**
+   * <pre>
+   * Output only. A set of errors found in the cluster.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder> 
+      getErrorsOrBuilderList() {
+    return errors_;
+  }
+  /**
+   * <pre>
+   * Output only. A set of errors found in the cluster.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public int getErrorsCount() {
+    return errors_.size();
+  }
+  /**
+   * <pre>
+   * Output only. A set of errors found in the cluster.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.gkemulticloud.v1.AwsClusterError getErrors(int index) {
+    return errors_.get(index);
+  }
+  /**
+   * <pre>
+   * Output only. A set of errors found in the cluster.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder getErrorsOrBuilder(
+      int index) {
+    return errors_.get(index);
+  }
+
+  public static final int MONITORING_CONFIG_FIELD_NUMBER = 21;
+  private com.google.cloud.gkemulticloud.v1.MonitoringConfig monitoringConfig_;
+  /**
+   * <pre>
+   * Optional. Monitoring configuration for this cluster.
+   * </pre>
+   *
+   * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the monitoringConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasMonitoringConfig() {
+    return monitoringConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. Monitoring configuration for this cluster.
+   * </pre>
+   *
+   * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The monitoringConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.gkemulticloud.v1.MonitoringConfig getMonitoringConfig() {
+    return monitoringConfig_ == null ? com.google.cloud.gkemulticloud.v1.MonitoringConfig.getDefaultInstance() : monitoringConfig_;
+  }
+  /**
+   * <pre>
+   * Optional. Monitoring configuration for this cluster.
+   * </pre>
+   *
+   * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.gkemulticloud.v1.MonitoringConfigOrBuilder getMonitoringConfigOrBuilder() {
+    return monitoringConfig_ == null ? com.google.cloud.gkemulticloud.v1.MonitoringConfig.getDefaultInstance() : monitoringConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1386,7 +1280,13 @@ private static final long serialVersionUID = 0L;
     if (loggingConfig_ != null) {
       output.writeMessage(19, getLoggingConfig());
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < errors_.size(); i++) {
+      output.writeMessage(20, errors_.get(i));
+    }
+    if (monitoringConfig_ != null) {
+      output.writeMessage(21, getMonitoringConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1466,7 +1366,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, getLoggingConfig());
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < errors_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(20, errors_.get(i));
+    }
+    if (monitoringConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(21, getMonitoringConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1540,7 +1448,14 @@ private static final long serialVersionUID = 0L;
       if (!getLoggingConfig()
           .equals(other.getLoggingConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getErrorsList()
+        .equals(other.getErrorsList())) return false;
+    if (hasMonitoringConfig() != other.hasMonitoringConfig()) return false;
+    if (hasMonitoringConfig()) {
+      if (!getMonitoringConfig()
+          .equals(other.getMonitoringConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1606,7 +1521,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOGGING_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getLoggingConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getErrorsCount() > 0) {
+      hash = (37 * hash) + ERRORS_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorsList().hashCode();
+    }
+    if (hasMonitoringConfig()) {
+      hash = (37 * hash) + MONITORING_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getMonitoringConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1749,88 +1672,79 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AwsCluster.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
-      if (networkingBuilder_ == null) {
-        networking_ = null;
-      } else {
-        networking_ = null;
+      networking_ = null;
+      if (networkingBuilder_ != null) {
+        networkingBuilder_.dispose();
         networkingBuilder_ = null;
       }
       awsRegion_ = "";
-
-      if (controlPlaneBuilder_ == null) {
-        controlPlane_ = null;
-      } else {
-        controlPlane_ = null;
+      controlPlane_ = null;
+      if (controlPlaneBuilder_ != null) {
+        controlPlaneBuilder_.dispose();
         controlPlaneBuilder_ = null;
       }
-      if (authorizationBuilder_ == null) {
-        authorization_ = null;
-      } else {
-        authorization_ = null;
+      authorization_ = null;
+      if (authorizationBuilder_ != null) {
+        authorizationBuilder_.dispose();
         authorizationBuilder_ = null;
       }
       state_ = 0;
-
       endpoint_ = "";
-
       uid_ = "";
-
       reconciling_ = false;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       etag_ = "";
-
       internalGetMutableAnnotations().clear();
-      if (workloadIdentityConfigBuilder_ == null) {
-        workloadIdentityConfig_ = null;
-      } else {
-        workloadIdentityConfig_ = null;
+      workloadIdentityConfig_ = null;
+      if (workloadIdentityConfigBuilder_ != null) {
+        workloadIdentityConfigBuilder_.dispose();
         workloadIdentityConfigBuilder_ = null;
       }
       clusterCaCertificate_ = "";
-
-      if (fleetBuilder_ == null) {
-        fleet_ = null;
-      } else {
-        fleet_ = null;
+      fleet_ = null;
+      if (fleetBuilder_ != null) {
+        fleetBuilder_.dispose();
         fleetBuilder_ = null;
       }
-      if (loggingConfigBuilder_ == null) {
-        loggingConfig_ = null;
-      } else {
-        loggingConfig_ = null;
+      loggingConfig_ = null;
+      if (loggingConfigBuilder_ != null) {
+        loggingConfigBuilder_.dispose();
         loggingConfigBuilder_ = null;
+      }
+      if (errorsBuilder_ == null) {
+        errors_ = java.util.Collections.emptyList();
+      } else {
+        errors_ = null;
+        errorsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00040000);
+      monitoringConfig_ = null;
+      if (monitoringConfigBuilder_ != null) {
+        monitoringConfigBuilder_.dispose();
+        monitoringConfigBuilder_ = null;
       }
       return this;
     }
@@ -1858,60 +1772,102 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsCluster buildPartial() {
       com.google.cloud.gkemulticloud.v1.AwsCluster result = new com.google.cloud.gkemulticloud.v1.AwsCluster(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.description_ = description_;
-      if (networkingBuilder_ == null) {
-        result.networking_ = networking_;
-      } else {
-        result.networking_ = networkingBuilder_.build();
-      }
-      result.awsRegion_ = awsRegion_;
-      if (controlPlaneBuilder_ == null) {
-        result.controlPlane_ = controlPlane_;
-      } else {
-        result.controlPlane_ = controlPlaneBuilder_.build();
-      }
-      if (authorizationBuilder_ == null) {
-        result.authorization_ = authorization_;
-      } else {
-        result.authorization_ = authorizationBuilder_.build();
-      }
-      result.state_ = state_;
-      result.endpoint_ = endpoint_;
-      result.uid_ = uid_;
-      result.reconciling_ = reconciling_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.etag_ = etag_;
-      result.annotations_ = internalGetAnnotations();
-      result.annotations_.makeImmutable();
-      if (workloadIdentityConfigBuilder_ == null) {
-        result.workloadIdentityConfig_ = workloadIdentityConfig_;
-      } else {
-        result.workloadIdentityConfig_ = workloadIdentityConfigBuilder_.build();
-      }
-      result.clusterCaCertificate_ = clusterCaCertificate_;
-      if (fleetBuilder_ == null) {
-        result.fleet_ = fleet_;
-      } else {
-        result.fleet_ = fleetBuilder_.build();
-      }
-      if (loggingConfigBuilder_ == null) {
-        result.loggingConfig_ = loggingConfig_;
-      } else {
-        result.loggingConfig_ = loggingConfigBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.gkemulticloud.v1.AwsCluster result) {
+      if (errorsBuilder_ == null) {
+        if (((bitField0_ & 0x00040000) != 0)) {
+          errors_ = java.util.Collections.unmodifiableList(errors_);
+          bitField0_ = (bitField0_ & ~0x00040000);
+        }
+        result.errors_ = errors_;
+      } else {
+        result.errors_ = errorsBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AwsCluster result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.networking_ = networkingBuilder_ == null
+            ? networking_
+            : networkingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.awsRegion_ = awsRegion_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.controlPlane_ = controlPlaneBuilder_ == null
+            ? controlPlane_
+            : controlPlaneBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.authorization_ = authorizationBuilder_ == null
+            ? authorization_
+            : authorizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.endpoint_ = endpoint_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.reconciling_ = reconciling_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.annotations_ = internalGetAnnotations();
+        result.annotations_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.workloadIdentityConfig_ = workloadIdentityConfigBuilder_ == null
+            ? workloadIdentityConfig_
+            : workloadIdentityConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.clusterCaCertificate_ = clusterCaCertificate_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.fleet_ = fleetBuilder_ == null
+            ? fleet_
+            : fleetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.loggingConfig_ = loggingConfigBuilder_ == null
+            ? loggingConfig_
+            : loggingConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.monitoringConfig_ = monitoringConfigBuilder_ == null
+            ? monitoringConfig_
+            : monitoringConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1960,10 +1916,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.AwsCluster.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasNetworking()) {
@@ -1971,6 +1929,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAwsRegion().isEmpty()) {
         awsRegion_ = other.awsRegion_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasControlPlane()) {
@@ -1984,10 +1943,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEndpoint().isEmpty()) {
         endpoint_ = other.endpoint_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.getReconciling() != false) {
@@ -2001,15 +1962,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       internalGetMutableAnnotations().mergeFrom(
           other.internalGetAnnotations());
+      bitField0_ |= 0x00002000;
       if (other.hasWorkloadIdentityConfig()) {
         mergeWorkloadIdentityConfig(other.getWorkloadIdentityConfig());
       }
       if (!other.getClusterCaCertificate().isEmpty()) {
         clusterCaCertificate_ = other.clusterCaCertificate_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasFleet()) {
@@ -2018,7 +1982,36 @@ private static final long serialVersionUID = 0L;
       if (other.hasLoggingConfig()) {
         mergeLoggingConfig(other.getLoggingConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (errorsBuilder_ == null) {
+        if (!other.errors_.isEmpty()) {
+          if (errors_.isEmpty()) {
+            errors_ = other.errors_;
+            bitField0_ = (bitField0_ & ~0x00040000);
+          } else {
+            ensureErrorsIsMutable();
+            errors_.addAll(other.errors_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.errors_.isEmpty()) {
+          if (errorsBuilder_.isEmpty()) {
+            errorsBuilder_.dispose();
+            errorsBuilder_ = null;
+            errors_ = other.errors_;
+            bitField0_ = (bitField0_ & ~0x00040000);
+            errorsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getErrorsFieldBuilder() : null;
+          } else {
+            errorsBuilder_.addAllMessages(other.errors_);
+          }
+        }
+      }
+      if (other.hasMonitoringConfig()) {
+        mergeMonitoringConfig(other.getMonitoringConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2033,17 +2026,160 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AwsCluster parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNetworkingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              awsRegion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getControlPlaneFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 56: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              endpoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              reconciling_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              annotations__ = input.readMessage(
+                  AnnotationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAnnotations().getMutableMap().put(
+                  annotations__.getKey(), annotations__.getValue());
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getAuthorizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getWorkloadIdentityConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 130
+            case 138: {
+              clusterCaCertificate_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getFleetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getLoggingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 154
+            case 162: {
+              com.google.cloud.gkemulticloud.v1.AwsClusterError m =
+                  input.readMessage(
+                      com.google.cloud.gkemulticloud.v1.AwsClusterError.parser(),
+                      extensionRegistry);
+              if (errorsBuilder_ == null) {
+                ensureErrorsIsMutable();
+                errors_.add(m);
+              } else {
+                errorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getMonitoringConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 170
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AwsCluster) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2113,11 +2249,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2134,8 +2268,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2154,12 +2288,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2220,11 +2352,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2238,8 +2368,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2255,12 +2385,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2277,7 +2405,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the networking field is set.
      */
     public boolean hasNetworking() {
-      return networkingBuilder_ != null || networking_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2307,11 +2435,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networking_ = value;
-        onChanged();
       } else {
         networkingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2325,11 +2453,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.Builder builderForValue) {
       if (networkingBuilder_ == null) {
         networking_ = builderForValue.build();
-        onChanged();
       } else {
         networkingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2341,17 +2469,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNetworking(com.google.cloud.gkemulticloud.v1.AwsClusterNetworking value) {
       if (networkingBuilder_ == null) {
-        if (networking_ != null) {
-          networking_ =
-            com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.newBuilder(networking_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          networking_ != null &&
+          networking_ != com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.getDefaultInstance()) {
+          getNetworkingBuilder().mergeFrom(value);
         } else {
           networking_ = value;
         }
-        onChanged();
       } else {
         networkingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2362,14 +2491,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AwsClusterNetworking networking = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearNetworking() {
-      if (networkingBuilder_ == null) {
-        networking_ = null;
-        onChanged();
-      } else {
-        networking_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      networking_ = null;
+      if (networkingBuilder_ != null) {
+        networkingBuilder_.dispose();
         networkingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2380,7 +2508,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AwsClusterNetworking networking = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AwsClusterNetworking.Builder getNetworkingBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNetworkingFieldBuilder().getBuilder();
     }
@@ -2485,11 +2613,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAwsRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       awsRegion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2506,8 +2632,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAwsRegion() {
-      
       awsRegion_ = getDefaultInstance().getAwsRegion();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2526,12 +2652,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAwsRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       awsRegion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2548,7 +2672,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the controlPlane field is set.
      */
     public boolean hasControlPlane() {
-      return controlPlaneBuilder_ != null || controlPlane_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2578,11 +2702,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         controlPlane_ = value;
-        onChanged();
       } else {
         controlPlaneBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2596,11 +2720,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AwsControlPlane.Builder builderForValue) {
       if (controlPlaneBuilder_ == null) {
         controlPlane_ = builderForValue.build();
-        onChanged();
       } else {
         controlPlaneBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2612,17 +2736,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeControlPlane(com.google.cloud.gkemulticloud.v1.AwsControlPlane value) {
       if (controlPlaneBuilder_ == null) {
-        if (controlPlane_ != null) {
-          controlPlane_ =
-            com.google.cloud.gkemulticloud.v1.AwsControlPlane.newBuilder(controlPlane_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          controlPlane_ != null &&
+          controlPlane_ != com.google.cloud.gkemulticloud.v1.AwsControlPlane.getDefaultInstance()) {
+          getControlPlaneBuilder().mergeFrom(value);
         } else {
           controlPlane_ = value;
         }
-        onChanged();
       } else {
         controlPlaneBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2633,14 +2758,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AwsControlPlane control_plane = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearControlPlane() {
-      if (controlPlaneBuilder_ == null) {
-        controlPlane_ = null;
-        onChanged();
-      } else {
-        controlPlane_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      controlPlane_ = null;
+      if (controlPlaneBuilder_ != null) {
+        controlPlaneBuilder_.dispose();
         controlPlaneBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2651,7 +2775,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AwsControlPlane control_plane = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AwsControlPlane.Builder getControlPlaneBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getControlPlaneFieldBuilder().getBuilder();
     }
@@ -2703,7 +2827,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authorization field is set.
      */
     public boolean hasAuthorization() {
-      return authorizationBuilder_ != null || authorization_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2733,11 +2857,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authorization_ = value;
-        onChanged();
       } else {
         authorizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2751,11 +2875,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AwsAuthorization.Builder builderForValue) {
       if (authorizationBuilder_ == null) {
         authorization_ = builderForValue.build();
-        onChanged();
       } else {
         authorizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2767,17 +2891,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthorization(com.google.cloud.gkemulticloud.v1.AwsAuthorization value) {
       if (authorizationBuilder_ == null) {
-        if (authorization_ != null) {
-          authorization_ =
-            com.google.cloud.gkemulticloud.v1.AwsAuthorization.newBuilder(authorization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          authorization_ != null &&
+          authorization_ != com.google.cloud.gkemulticloud.v1.AwsAuthorization.getDefaultInstance()) {
+          getAuthorizationBuilder().mergeFrom(value);
         } else {
           authorization_ = value;
         }
-        onChanged();
       } else {
         authorizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2788,14 +2913,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AwsAuthorization authorization = 15 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAuthorization() {
-      if (authorizationBuilder_ == null) {
-        authorization_ = null;
-        onChanged();
-      } else {
-        authorization_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      authorization_ = null;
+      if (authorizationBuilder_ != null) {
+        authorizationBuilder_.dispose();
         authorizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2806,7 +2930,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AwsAuthorization authorization = 15 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AwsAuthorization.Builder getAuthorizationBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getAuthorizationFieldBuilder().getBuilder();
     }
@@ -2868,8 +2992,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2883,8 +3007,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsCluster.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkemulticloud.v1.AwsCluster.State result = com.google.cloud.gkemulticloud.v1.AwsCluster.State.valueOf(state_);
+      com.google.cloud.gkemulticloud.v1.AwsCluster.State result = com.google.cloud.gkemulticloud.v1.AwsCluster.State.forNumber(state_);
       return result == null ? com.google.cloud.gkemulticloud.v1.AwsCluster.State.UNRECOGNIZED : result;
     }
     /**
@@ -2900,7 +3023,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2914,7 +3037,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       state_ = 0;
       onChanged();
       return this;
@@ -2973,11 +3096,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endpoint_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2990,8 +3111,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpoint() {
-      
       endpoint_ = getDefaultInstance().getEndpoint();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3006,12 +3127,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endpoint_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3069,11 +3188,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3086,8 +3203,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3102,12 +3219,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3137,6 +3252,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReconciling(boolean value) {
       
       reconciling_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3149,7 +3265,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReconciling() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       reconciling_ = false;
       onChanged();
       return this;
@@ -3167,7 +3283,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3197,11 +3313,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3215,11 +3331,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3231,17 +3347,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3252,14 +3369,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3270,7 +3386,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3322,7 +3438,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3352,11 +3468,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3370,11 +3486,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3386,17 +3502,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3407,14 +3524,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3425,7 +3541,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -3527,11 +3643,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3547,8 +3661,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3566,12 +3680,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3579,7 +3691,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> annotations_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAnnotations() {
+        internalGetAnnotations() {
       if (annotations_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AnnotationsDefaultEntryHolder.defaultEntry);
@@ -3587,8 +3699,7 @@ private static final long serialVersionUID = 0L;
       return annotations_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableAnnotations() {
-      onChanged();;
+        internalGetMutableAnnotations() {
       if (annotations_ == null) {
         annotations_ = com.google.protobuf.MapField.newMapField(
             AnnotationsDefaultEntryHolder.defaultEntry);
@@ -3596,9 +3707,10 @@ private static final long serialVersionUID = 0L;
       if (!annotations_.isMutable()) {
         annotations_ = annotations_.copy();
       }
+      bitField0_ |= 0x00002000;
+      onChanged();
       return annotations_;
     }
-
     public int getAnnotationsCount() {
       return internalGetAnnotations().getMap().size();
     }
@@ -3616,7 +3728,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsAnnotations(
         java.lang.String key) {
@@ -3646,7 +3757,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getAnnotationsMap() {
       return internalGetAnnotations().getMap();
     }
@@ -3665,10 +3775,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getAnnotationsOrDefault(
+    public /* nullable */
+java.lang.String getAnnotationsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAnnotations().getMap();
@@ -3689,7 +3800,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getAnnotationsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3700,8 +3810,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAnnotations() {
+      bitField0_ = (bitField0_ & ~0x00002000);
       internalGetMutableAnnotations().getMutableMap()
           .clear();
       return this;
@@ -3720,7 +3830,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeAnnotations(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3733,7 +3842,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableAnnotations() {
+        getMutableAnnotations() {
+      bitField0_ |= 0x00002000;
       return internalGetMutableAnnotations().getMutableMap();
     }
     /**
@@ -3754,12 +3864,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAnnotations().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00002000;
       return this;
     }
     /**
@@ -3776,11 +3884,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; annotations = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllAnnotations(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableAnnotations().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00002000;
       return this;
     }
 
@@ -3796,7 +3904,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workloadIdentityConfig field is set.
      */
     public boolean hasWorkloadIdentityConfig() {
-      return workloadIdentityConfigBuilder_ != null || workloadIdentityConfig_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3826,11 +3934,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workloadIdentityConfig_ = value;
-        onChanged();
       } else {
         workloadIdentityConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3844,11 +3952,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.Builder builderForValue) {
       if (workloadIdentityConfigBuilder_ == null) {
         workloadIdentityConfig_ = builderForValue.build();
-        onChanged();
       } else {
         workloadIdentityConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3860,17 +3968,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkloadIdentityConfig(com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig value) {
       if (workloadIdentityConfigBuilder_ == null) {
-        if (workloadIdentityConfig_ != null) {
-          workloadIdentityConfig_ =
-            com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.newBuilder(workloadIdentityConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          workloadIdentityConfig_ != null &&
+          workloadIdentityConfig_ != com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.getDefaultInstance()) {
+          getWorkloadIdentityConfigBuilder().mergeFrom(value);
         } else {
           workloadIdentityConfig_ = value;
         }
-        onChanged();
       } else {
         workloadIdentityConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3881,14 +3990,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig workload_identity_config = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearWorkloadIdentityConfig() {
-      if (workloadIdentityConfigBuilder_ == null) {
-        workloadIdentityConfig_ = null;
-        onChanged();
-      } else {
-        workloadIdentityConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      workloadIdentityConfig_ = null;
+      if (workloadIdentityConfigBuilder_ != null) {
+        workloadIdentityConfigBuilder_.dispose();
         workloadIdentityConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3899,7 +4007,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig workload_identity_config = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.gkemulticloud.v1.WorkloadIdentityConfig.Builder getWorkloadIdentityConfigBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getWorkloadIdentityConfigFieldBuilder().getBuilder();
     }
@@ -3992,11 +4100,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterCaCertificate(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterCaCertificate_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4009,8 +4115,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterCaCertificate() {
-      
       clusterCaCertificate_ = getDefaultInstance().getClusterCaCertificate();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -4025,12 +4131,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterCaCertificateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterCaCertificate_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4040,21 +4144,21 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.Fleet, com.google.cloud.gkemulticloud.v1.Fleet.Builder, com.google.cloud.gkemulticloud.v1.FleetOrBuilder> fleetBuilder_;
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the fleet field is set.
      */
     public boolean hasFleet() {
-      return fleetBuilder_ != null || fleet_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The fleet.
      */
     public com.google.cloud.gkemulticloud.v1.Fleet getFleet() {
@@ -4066,10 +4170,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setFleet(com.google.cloud.gkemulticloud.v1.Fleet value) {
       if (fleetBuilder_ == null) {
@@ -4077,89 +4181,89 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fleet_ = value;
-        onChanged();
       } else {
         fleetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setFleet(
         com.google.cloud.gkemulticloud.v1.Fleet.Builder builderForValue) {
       if (fleetBuilder_ == null) {
         fleet_ = builderForValue.build();
-        onChanged();
       } else {
         fleetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeFleet(com.google.cloud.gkemulticloud.v1.Fleet value) {
       if (fleetBuilder_ == null) {
-        if (fleet_ != null) {
-          fleet_ =
-            com.google.cloud.gkemulticloud.v1.Fleet.newBuilder(fleet_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          fleet_ != null &&
+          fleet_ != com.google.cloud.gkemulticloud.v1.Fleet.getDefaultInstance()) {
+          getFleetBuilder().mergeFrom(value);
         } else {
           fleet_ = value;
         }
-        onChanged();
       } else {
         fleetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearFleet() {
-      if (fleetBuilder_ == null) {
-        fleet_ = null;
-        onChanged();
-      } else {
-        fleet_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      fleet_ = null;
+      if (fleetBuilder_ != null) {
+        fleetBuilder_.dispose();
         fleetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.Fleet.Builder getFleetBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getFleetFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.FleetOrBuilder getFleetOrBuilder() {
       if (fleetBuilder_ != null) {
@@ -4171,10 +4275,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Fleet configuration.
+     * Required. Fleet configuration.
      * </pre>
      *
-     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>.google.cloud.gkemulticloud.v1.Fleet fleet = 18 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.gkemulticloud.v1.Fleet, com.google.cloud.gkemulticloud.v1.Fleet.Builder, com.google.cloud.gkemulticloud.v1.FleetOrBuilder> 
@@ -4202,7 +4306,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the loggingConfig field is set.
      */
     public boolean hasLoggingConfig() {
-      return loggingConfigBuilder_ != null || loggingConfig_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -4232,11 +4336,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         loggingConfig_ = value;
-        onChanged();
       } else {
         loggingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -4250,11 +4354,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.LoggingConfig.Builder builderForValue) {
       if (loggingConfigBuilder_ == null) {
         loggingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         loggingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -4266,17 +4370,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLoggingConfig(com.google.cloud.gkemulticloud.v1.LoggingConfig value) {
       if (loggingConfigBuilder_ == null) {
-        if (loggingConfig_ != null) {
-          loggingConfig_ =
-            com.google.cloud.gkemulticloud.v1.LoggingConfig.newBuilder(loggingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          loggingConfig_ != null &&
+          loggingConfig_ != com.google.cloud.gkemulticloud.v1.LoggingConfig.getDefaultInstance()) {
+          getLoggingConfigBuilder().mergeFrom(value);
         } else {
           loggingConfig_ = value;
         }
-        onChanged();
       } else {
         loggingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -4287,14 +4392,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.LoggingConfig logging_config = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearLoggingConfig() {
-      if (loggingConfigBuilder_ == null) {
-        loggingConfig_ = null;
-        onChanged();
-      } else {
-        loggingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      loggingConfig_ = null;
+      if (loggingConfigBuilder_ != null) {
+        loggingConfigBuilder_.dispose();
         loggingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4305,7 +4409,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.LoggingConfig logging_config = 19 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.LoggingConfig.Builder getLoggingConfigBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getLoggingConfigFieldBuilder().getBuilder();
     }
@@ -4344,6 +4448,473 @@ private static final long serialVersionUID = 0L;
       }
       return loggingConfigBuilder_;
     }
+
+    private java.util.List<com.google.cloud.gkemulticloud.v1.AwsClusterError> errors_ =
+      java.util.Collections.emptyList();
+    private void ensureErrorsIsMutable() {
+      if (!((bitField0_ & 0x00040000) != 0)) {
+        errors_ = new java.util.ArrayList<com.google.cloud.gkemulticloud.v1.AwsClusterError>(errors_);
+        bitField0_ |= 0x00040000;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.gkemulticloud.v1.AwsClusterError, com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder, com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder> errorsBuilder_;
+
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<com.google.cloud.gkemulticloud.v1.AwsClusterError> getErrorsList() {
+      if (errorsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(errors_);
+      } else {
+        return errorsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public int getErrorsCount() {
+      if (errorsBuilder_ == null) {
+        return errors_.size();
+      } else {
+        return errorsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.AwsClusterError getErrors(int index) {
+      if (errorsBuilder_ == null) {
+        return errors_.get(index);
+      } else {
+        return errorsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setErrors(
+        int index, com.google.cloud.gkemulticloud.v1.AwsClusterError value) {
+      if (errorsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorsIsMutable();
+        errors_.set(index, value);
+        onChanged();
+      } else {
+        errorsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder setErrors(
+        int index, com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder builderForValue) {
+      if (errorsBuilder_ == null) {
+        ensureErrorsIsMutable();
+        errors_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        errorsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addErrors(com.google.cloud.gkemulticloud.v1.AwsClusterError value) {
+      if (errorsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorsIsMutable();
+        errors_.add(value);
+        onChanged();
+      } else {
+        errorsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addErrors(
+        int index, com.google.cloud.gkemulticloud.v1.AwsClusterError value) {
+      if (errorsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureErrorsIsMutable();
+        errors_.add(index, value);
+        onChanged();
+      } else {
+        errorsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addErrors(
+        com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder builderForValue) {
+      if (errorsBuilder_ == null) {
+        ensureErrorsIsMutable();
+        errors_.add(builderForValue.build());
+        onChanged();
+      } else {
+        errorsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addErrors(
+        int index, com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder builderForValue) {
+      if (errorsBuilder_ == null) {
+        ensureErrorsIsMutable();
+        errors_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        errorsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder addAllErrors(
+        java.lang.Iterable<? extends com.google.cloud.gkemulticloud.v1.AwsClusterError> values) {
+      if (errorsBuilder_ == null) {
+        ensureErrorsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, errors_);
+        onChanged();
+      } else {
+        errorsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder clearErrors() {
+      if (errorsBuilder_ == null) {
+        errors_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00040000);
+        onChanged();
+      } else {
+        errorsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public Builder removeErrors(int index) {
+      if (errorsBuilder_ == null) {
+        ensureErrorsIsMutable();
+        errors_.remove(index);
+        onChanged();
+      } else {
+        errorsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder getErrorsBuilder(
+        int index) {
+      return getErrorsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder getErrorsOrBuilder(
+        int index) {
+      if (errorsBuilder_ == null) {
+        return errors_.get(index);  } else {
+        return errorsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<? extends com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder> 
+         getErrorsOrBuilderList() {
+      if (errorsBuilder_ != null) {
+        return errorsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(errors_);
+      }
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder addErrorsBuilder() {
+      return getErrorsFieldBuilder().addBuilder(
+          com.google.cloud.gkemulticloud.v1.AwsClusterError.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder addErrorsBuilder(
+        int index) {
+      return getErrorsFieldBuilder().addBuilder(
+          index, com.google.cloud.gkemulticloud.v1.AwsClusterError.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Output only. A set of errors found in the cluster.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.gkemulticloud.v1.AwsClusterError errors = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     */
+    public java.util.List<com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder> 
+         getErrorsBuilderList() {
+      return getErrorsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.gkemulticloud.v1.AwsClusterError, com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder, com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder> 
+        getErrorsFieldBuilder() {
+      if (errorsBuilder_ == null) {
+        errorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.gkemulticloud.v1.AwsClusterError, com.google.cloud.gkemulticloud.v1.AwsClusterError.Builder, com.google.cloud.gkemulticloud.v1.AwsClusterErrorOrBuilder>(
+                errors_,
+                ((bitField0_ & 0x00040000) != 0),
+                getParentForChildren(),
+                isClean());
+        errors_ = null;
+      }
+      return errorsBuilder_;
+    }
+
+    private com.google.cloud.gkemulticloud.v1.MonitoringConfig monitoringConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.gkemulticloud.v1.MonitoringConfig, com.google.cloud.gkemulticloud.v1.MonitoringConfig.Builder, com.google.cloud.gkemulticloud.v1.MonitoringConfigOrBuilder> monitoringConfigBuilder_;
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the monitoringConfig field is set.
+     */
+    public boolean hasMonitoringConfig() {
+      return ((bitField0_ & 0x00080000) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The monitoringConfig.
+     */
+    public com.google.cloud.gkemulticloud.v1.MonitoringConfig getMonitoringConfig() {
+      if (monitoringConfigBuilder_ == null) {
+        return monitoringConfig_ == null ? com.google.cloud.gkemulticloud.v1.MonitoringConfig.getDefaultInstance() : monitoringConfig_;
+      } else {
+        return monitoringConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setMonitoringConfig(com.google.cloud.gkemulticloud.v1.MonitoringConfig value) {
+      if (monitoringConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        monitoringConfig_ = value;
+      } else {
+        monitoringConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setMonitoringConfig(
+        com.google.cloud.gkemulticloud.v1.MonitoringConfig.Builder builderForValue) {
+      if (monitoringConfigBuilder_ == null) {
+        monitoringConfig_ = builderForValue.build();
+      } else {
+        monitoringConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeMonitoringConfig(com.google.cloud.gkemulticloud.v1.MonitoringConfig value) {
+      if (monitoringConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00080000) != 0) &&
+          monitoringConfig_ != null &&
+          monitoringConfig_ != com.google.cloud.gkemulticloud.v1.MonitoringConfig.getDefaultInstance()) {
+          getMonitoringConfigBuilder().mergeFrom(value);
+        } else {
+          monitoringConfig_ = value;
+        }
+      } else {
+        monitoringConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearMonitoringConfig() {
+      bitField0_ = (bitField0_ & ~0x00080000);
+      monitoringConfig_ = null;
+      if (monitoringConfigBuilder_ != null) {
+        monitoringConfigBuilder_.dispose();
+        monitoringConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.MonitoringConfig.Builder getMonitoringConfigBuilder() {
+      bitField0_ |= 0x00080000;
+      onChanged();
+      return getMonitoringConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.gkemulticloud.v1.MonitoringConfigOrBuilder getMonitoringConfigOrBuilder() {
+      if (monitoringConfigBuilder_ != null) {
+        return monitoringConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return monitoringConfig_ == null ?
+            com.google.cloud.gkemulticloud.v1.MonitoringConfig.getDefaultInstance() : monitoringConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Monitoring configuration for this cluster.
+     * </pre>
+     *
+     * <code>.google.cloud.gkemulticloud.v1.MonitoringConfig monitoring_config = 21 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.gkemulticloud.v1.MonitoringConfig, com.google.cloud.gkemulticloud.v1.MonitoringConfig.Builder, com.google.cloud.gkemulticloud.v1.MonitoringConfigOrBuilder> 
+        getMonitoringConfigFieldBuilder() {
+      if (monitoringConfigBuilder_ == null) {
+        monitoringConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.gkemulticloud.v1.MonitoringConfig, com.google.cloud.gkemulticloud.v1.MonitoringConfig.Builder, com.google.cloud.gkemulticloud.v1.MonitoringConfigOrBuilder>(
+                getMonitoringConfig(),
+                getParentForChildren(),
+                isClean());
+        monitoringConfig_ = null;
+      }
+      return monitoringConfigBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4377,7 +4948,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AwsCluster(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -39,114 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Value(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            type_ = input.readInt64();
-            typeCase_ = 1;
-            break;
-          }
-          case 17: {
-            type_ = input.readDouble();
-            typeCase_ = 2;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            typeCase_ = 3;
-            type_ = s;
-            break;
-          }
-          case 32: {
-            type_ = input.readBool();
-            typeCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (typeCase_ == 5) {
-              subBuilder = ((com.google.protobuf.Timestamp) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Timestamp) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.type.TimeOfDay.Builder subBuilder = null;
-            if (typeCase_ == 6) {
-              subBuilder = ((com.google.type.TimeOfDay) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.type.TimeOfDay.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.type.TimeOfDay) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (typeCase_ == 7) {
-              subBuilder = ((com.google.type.Date) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.type.Date) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 7;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            typeCase_ = 8;
-            type_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_Value_descriptor;
@@ -529,8 +421,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.type.DayOfWeek getDayOfWeekValue() {
     if (typeCase_ == 8) {
-      @SuppressWarnings("deprecation")
-      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(
+      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(
           (java.lang.Integer) type_);
       return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
     }
@@ -578,7 +469,7 @@ private static final long serialVersionUID = 0L;
     if (typeCase_ == 8) {
       output.writeEnum(8, ((java.lang.Integer) type_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -621,7 +512,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(8, ((java.lang.Integer) type_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -674,7 +565,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -724,7 +615,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -850,22 +741,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.Value.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (timestampValueBuilder_ != null) {
+        timestampValueBuilder_.clear();
+      }
+      if (timeValueBuilder_ != null) {
+        timeValueBuilder_.clear();
+      }
+      if (dateValueBuilder_ != null) {
+        dateValueBuilder_.clear();
+      }
       typeCase_ = 0;
       type_ = null;
       return this;
@@ -894,45 +790,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.Value buildPartial() {
       com.google.privacy.dlp.v2.Value result = new com.google.privacy.dlp.v2.Value(this);
-      if (typeCase_ == 1) {
-        result.type_ = type_;
-      }
-      if (typeCase_ == 2) {
-        result.type_ = type_;
-      }
-      if (typeCase_ == 3) {
-        result.type_ = type_;
-      }
-      if (typeCase_ == 4) {
-        result.type_ = type_;
-      }
-      if (typeCase_ == 5) {
-        if (timestampValueBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = timestampValueBuilder_.build();
-        }
-      }
-      if (typeCase_ == 6) {
-        if (timeValueBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = timeValueBuilder_.build();
-        }
-      }
-      if (typeCase_ == 7) {
-        if (dateValueBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = dateValueBuilder_.build();
-        }
-      }
-      if (typeCase_ == 8) {
-        result.type_ = type_;
-      }
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.Value result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.Value result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 5 &&
+          timestampValueBuilder_ != null) {
+        result.type_ = timestampValueBuilder_.build();
+      }
+      if (typeCase_ == 6 &&
+          timeValueBuilder_ != null) {
+        result.type_ = timeValueBuilder_.build();
+      }
+      if (typeCase_ == 7 &&
+          dateValueBuilder_ != null) {
+        result.type_ = dateValueBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1018,7 +900,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1033,17 +915,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.Value parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readInt64();
+              typeCase_ = 1;
+              break;
+            } // case 8
+            case 17: {
+              type_ = input.readDouble();
+              typeCase_ = 2;
+              break;
+            } // case 17
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              typeCase_ = 3;
+              type_ = s;
+              break;
+            } // case 26
+            case 32: {
+              type_ = input.readBool();
+              typeCase_ = 4;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getTimestampValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getTimeValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDateValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 7;
+              break;
+            } // case 58
+            case 64: {
+              int rawValue = input.readEnum();
+              typeCase_ = 8;
+              type_ = rawValue;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.Value) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -1061,6 +1004,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1097,6 +1041,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIntegerValue(long value) {
+      
       typeCase_ = 1;
       type_ = value;
       onChanged();
@@ -1154,6 +1099,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFloatValue(double value) {
+      
       typeCase_ = 2;
       type_ = value;
       onChanged();
@@ -1252,10 +1198,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  typeCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      typeCase_ = 3;
       type_ = value;
       onChanged();
       return this;
@@ -1287,10 +1231,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       typeCase_ = 3;
       type_ = value;
       onChanged();
@@ -1332,6 +1274,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBooleanValue(boolean value) {
+      
       typeCase_ = 4;
       type_ = value;
       onChanged();
@@ -1528,7 +1471,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 5;
-      onChanged();;
+      onChanged();
       return timestampValueBuilder_;
     }
 
@@ -1706,7 +1649,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 6;
-      onChanged();;
+      onChanged();
       return timeValueBuilder_;
     }
 
@@ -1884,7 +1827,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 7;
-      onChanged();;
+      onChanged();
       return dateValueBuilder_;
     }
 
@@ -1941,8 +1884,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.type.DayOfWeek getDayOfWeekValue() {
       if (typeCase_ == 8) {
-        @SuppressWarnings("deprecation")
-        com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(
+        com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(
             (java.lang.Integer) type_);
         return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
       }
@@ -2015,7 +1957,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Value(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

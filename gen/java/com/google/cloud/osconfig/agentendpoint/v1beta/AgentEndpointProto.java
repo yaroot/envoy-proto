@@ -75,91 +75,90 @@ public final class AgentEndpointProto {
     java.lang.String[] descriptorData = {
       "\n>google/cloud/osconfig/agentendpoint/v1" +
       "beta/agentendpoint.proto\022*google.cloud.o" +
-      "sconfig.agentendpoint.v1beta\032\034google/api" +
-      "/annotations.proto\032\027google/api/client.pr" +
-      "oto\032\037google/api/field_behavior.proto\032?go" +
-      "ogle/cloud/osconfig/agentendpoint/v1beta" +
-      "/guest_policies.proto\0326google/cloud/osco" +
-      "nfig/agentendpoint/v1beta/tasks.proto\"\\\n" +
-      "\036ReceiveTaskNotificationRequest\022\036\n\021insta" +
-      "nce_id_token\030\001 \001(\tB\003\340A\002\022\032\n\ragent_version" +
-      "\030\002 \001(\tB\003\340A\002\"!\n\037ReceiveTaskNotificationRe" +
-      "sponse\"6\n\024StartNextTaskRequest\022\036\n\021instan" +
-      "ce_id_token\030\001 \001(\tB\003\340A\002\"W\n\025StartNextTaskR" +
-      "esponse\022>\n\004task\030\001 \001(\01320.google.cloud.osc" +
-      "onfig.agentendpoint.v1beta.Task\"\375\002\n\031Repo" +
-      "rtTaskProgressRequest\022\036\n\021instance_id_tok" +
-      "en\030\001 \001(\tB\003\340A\002\022\024\n\007task_id\030\002 \001(\tB\003\340A\002\022L\n\tt" +
-      "ask_type\030\003 \001(\01624.google.cloud.osconfig.a" +
-      "gentendpoint.v1beta.TaskTypeB\003\340A\002\022k\n\033app" +
-      "ly_patches_task_progress\030\004 \001(\0132D.google." +
-      "cloud.osconfig.agentendpoint.v1beta.Appl" +
-      "yPatchesTaskProgressH\000\022c\n\027exec_step_task" +
-      "_progress\030\005 \001(\0132@.google.cloud.osconfig." +
-      "agentendpoint.v1beta.ExecStepTaskProgres" +
-      "sH\000B\n\n\010progress\"o\n\032ReportTaskProgressRes" +
-      "ponse\022Q\n\016task_directive\030\001 \001(\01629.google.c" +
-      "loud.osconfig.agentendpoint.v1beta.TaskD" +
-      "irective\"\212\003\n\031ReportTaskCompleteRequest\022\036" +
-      "\n\021instance_id_token\030\001 \001(\tB\003\340A\002\022\024\n\007task_i" +
-      "d\030\002 \001(\tB\003\340A\002\022L\n\ttask_type\030\003 \001(\01624.google" +
+      "sconfig.agentendpoint.v1beta\032\027google/api" +
+      "/client.proto\032\037google/api/field_behavior" +
+      ".proto\032?google/cloud/osconfig/agentendpo" +
+      "int/v1beta/guest_policies.proto\0326google/" +
+      "cloud/osconfig/agentendpoint/v1beta/task" +
+      "s.proto\"\\\n\036ReceiveTaskNotificationReques" +
+      "t\022\036\n\021instance_id_token\030\001 \001(\tB\003\340A\002\022\032\n\rage" +
+      "nt_version\030\002 \001(\tB\003\340A\002\"!\n\037ReceiveTaskNoti" +
+      "ficationResponse\"6\n\024StartNextTaskRequest" +
+      "\022\036\n\021instance_id_token\030\001 \001(\tB\003\340A\002\"W\n\025Star" +
+      "tNextTaskResponse\022>\n\004task\030\001 \001(\01320.google" +
       ".cloud.osconfig.agentendpoint.v1beta.Tas" +
-      "kTypeB\003\340A\002\022\025\n\rerror_message\030\004 \001(\t\022g\n\031app" +
-      "ly_patches_task_output\030\005 \001(\0132B.google.cl" +
-      "oud.osconfig.agentendpoint.v1beta.ApplyP" +
-      "atchesTaskOutputH\000\022_\n\025exec_step_task_out" +
-      "put\030\006 \001(\0132>.google.cloud.osconfig.agente" +
-      "ndpoint.v1beta.ExecStepTaskOutputH\000B\010\n\006o" +
-      "utput\"\034\n\032ReportTaskCompleteResponse\"\321\001\n\024" +
-      "RegisterAgentRequest\022\036\n\021instance_id_toke" +
-      "n\030\001 \001(\tB\003\340A\002\022\032\n\ragent_version\030\002 \001(\tB\003\340A\002" +
-      "\022#\n\026supported_capabilities\030\003 \003(\tB\003\340A\002\022\024\n" +
-      "\014os_long_name\030\004 \001(\t\022\025\n\ros_short_name\030\005 \001" +
-      "(\t\022\022\n\nos_version\030\006 \001(\t\022\027\n\017os_architectur" +
-      "e\030\007 \001(\t\"\027\n\025RegisterAgentResponse2\245\n\n\024Age" +
-      "ntEndpointService\022\330\001\n\027ReceiveTaskNotific" +
-      "ation\022J.google.cloud.osconfig.agentendpo" +
-      "int.v1beta.ReceiveTaskNotificationReques" +
-      "t\032K.google.cloud.osconfig.agentendpoint." +
-      "v1beta.ReceiveTaskNotificationResponse\"\"" +
-      "\332A\037instance_id_token,agent_version0\001\022\252\001\n" +
-      "\rStartNextTask\022@.google.cloud.osconfig.a" +
-      "gentendpoint.v1beta.StartNextTaskRequest" +
-      "\032A.google.cloud.osconfig.agentendpoint.v" +
-      "1beta.StartNextTaskResponse\"\024\332A\021instance" +
-      "_id_token\022\313\001\n\022ReportTaskProgress\022E.googl" +
-      "e.cloud.osconfig.agentendpoint.v1beta.Re" +
-      "portTaskProgressRequest\032F.google.cloud.o" +
-      "sconfig.agentendpoint.v1beta.ReportTaskP" +
-      "rogressResponse\"&\332A#instance_id_token,ta" +
-      "sk_id,task_type\022\331\001\n\022ReportTaskComplete\022E" +
+      "k\"\375\002\n\031ReportTaskProgressRequest\022\036\n\021insta" +
+      "nce_id_token\030\001 \001(\tB\003\340A\002\022\024\n\007task_id\030\002 \001(\t" +
+      "B\003\340A\002\022L\n\ttask_type\030\003 \001(\01624.google.cloud." +
+      "osconfig.agentendpoint.v1beta.TaskTypeB\003" +
+      "\340A\002\022k\n\033apply_patches_task_progress\030\004 \001(\013" +
+      "2D.google.cloud.osconfig.agentendpoint.v" +
+      "1beta.ApplyPatchesTaskProgressH\000\022c\n\027exec" +
+      "_step_task_progress\030\005 \001(\0132@.google.cloud" +
+      ".osconfig.agentendpoint.v1beta.ExecStepT" +
+      "askProgressH\000B\n\n\010progress\"o\n\032ReportTaskP" +
+      "rogressResponse\022Q\n\016task_directive\030\001 \001(\0162" +
+      "9.google.cloud.osconfig.agentendpoint.v1" +
+      "beta.TaskDirective\"\212\003\n\031ReportTaskComplet" +
+      "eRequest\022\036\n\021instance_id_token\030\001 \001(\tB\003\340A\002" +
+      "\022\024\n\007task_id\030\002 \001(\tB\003\340A\002\022L\n\ttask_type\030\003 \001(" +
+      "\01624.google.cloud.osconfig.agentendpoint." +
+      "v1beta.TaskTypeB\003\340A\002\022\025\n\rerror_message\030\004 " +
+      "\001(\t\022g\n\031apply_patches_task_output\030\005 \001(\0132B" +
       ".google.cloud.osconfig.agentendpoint.v1b" +
-      "eta.ReportTaskCompleteRequest\032F.google.c" +
-      "loud.osconfig.agentendpoint.v1beta.Repor" +
-      "tTaskCompleteResponse\"4\332A1instance_id_to" +
-      "ken,task_id,task_type,error_message\022\354\001\n\032" +
-      "LookupEffectiveGuestPolicy\022M.google.clou" +
-      "d.osconfig.agentendpoint.v1beta.LookupEf" +
-      "fectiveGuestPolicyRequest\032@.google.cloud" +
-      ".osconfig.agentendpoint.v1beta.Effective" +
-      "GuestPolicy\"=\332A:instance_id_token,os_sho" +
-      "rt_name,os_version,os_architecture\022\317\001\n\rR" +
-      "egisterAgent\022@.google.cloud.osconfig.age" +
-      "ntendpoint.v1beta.RegisterAgentRequest\032A" +
-      ".google.cloud.osconfig.agentendpoint.v1b" +
-      "eta.RegisterAgentResponse\"9\332A6instance_i" +
-      "d_token,agent_version,supported_capabili" +
-      "ties\032\032\312A\027osconfig.googleapis.comB\276\001\n.com" +
-      ".google.cloud.osconfig.agentendpoint.v1b" +
-      "etaB\022AgentEndpointProtoP\001ZWgoogle.golang" +
-      ".org/genproto/googleapis/cloud/osconfig/" +
-      "agentendpoint/v1beta;agentendpoint\312\002\034Goo" +
-      "gle\\Cloud\\OsConfig\\V1betab\006proto3"
+      "eta.ApplyPatchesTaskOutputH\000\022_\n\025exec_ste" +
+      "p_task_output\030\006 \001(\0132>.google.cloud.oscon" +
+      "fig.agentendpoint.v1beta.ExecStepTaskOut" +
+      "putH\000B\010\n\006output\"\034\n\032ReportTaskCompleteRes" +
+      "ponse\"\321\001\n\024RegisterAgentRequest\022\036\n\021instan" +
+      "ce_id_token\030\001 \001(\tB\003\340A\002\022\032\n\ragent_version\030" +
+      "\002 \001(\tB\003\340A\002\022#\n\026supported_capabilities\030\003 \003" +
+      "(\tB\003\340A\002\022\024\n\014os_long_name\030\004 \001(\t\022\025\n\ros_shor" +
+      "t_name\030\005 \001(\t\022\022\n\nos_version\030\006 \001(\t\022\027\n\017os_a" +
+      "rchitecture\030\007 \001(\t\"\027\n\025RegisterAgentRespon" +
+      "se2\245\n\n\024AgentEndpointService\022\330\001\n\027ReceiveT" +
+      "askNotification\022J.google.cloud.osconfig." +
+      "agentendpoint.v1beta.ReceiveTaskNotifica" +
+      "tionRequest\032K.google.cloud.osconfig.agen" +
+      "tendpoint.v1beta.ReceiveTaskNotification" +
+      "Response\"\"\332A\037instance_id_token,agent_ver" +
+      "sion0\001\022\252\001\n\rStartNextTask\022@.google.cloud." +
+      "osconfig.agentendpoint.v1beta.StartNextT" +
+      "askRequest\032A.google.cloud.osconfig.agent" +
+      "endpoint.v1beta.StartNextTaskResponse\"\024\332" +
+      "A\021instance_id_token\022\313\001\n\022ReportTaskProgre" +
+      "ss\022E.google.cloud.osconfig.agentendpoint" +
+      ".v1beta.ReportTaskProgressRequest\032F.goog" +
+      "le.cloud.osconfig.agentendpoint.v1beta.R" +
+      "eportTaskProgressResponse\"&\332A#instance_i" +
+      "d_token,task_id,task_type\022\331\001\n\022ReportTask" +
+      "Complete\022E.google.cloud.osconfig.agenten" +
+      "dpoint.v1beta.ReportTaskCompleteRequest\032" +
+      "F.google.cloud.osconfig.agentendpoint.v1" +
+      "beta.ReportTaskCompleteResponse\"4\332A1inst" +
+      "ance_id_token,task_id,task_type,error_me" +
+      "ssage\022\354\001\n\032LookupEffectiveGuestPolicy\022M.g" +
+      "oogle.cloud.osconfig.agentendpoint.v1bet" +
+      "a.LookupEffectiveGuestPolicyRequest\032@.go" +
+      "ogle.cloud.osconfig.agentendpoint.v1beta" +
+      ".EffectiveGuestPolicy\"=\332A:instance_id_to" +
+      "ken,os_short_name,os_version,os_architec" +
+      "ture\022\317\001\n\rRegisterAgent\022@.google.cloud.os" +
+      "config.agentendpoint.v1beta.RegisterAgen" +
+      "tRequest\032A.google.cloud.osconfig.agenten" +
+      "dpoint.v1beta.RegisterAgentResponse\"9\332A6" +
+      "instance_id_token,agent_version,supporte" +
+      "d_capabilities\032\032\312A\027osconfig.googleapis.c" +
+      "omB\276\001\n.com.google.cloud.osconfig.agenten" +
+      "dpoint.v1betaB\022AgentEndpointProtoP\001ZWgoo" +
+      "gle.golang.org/genproto/googleapis/cloud" +
+      "/osconfig/agentendpoint/v1beta;agentendp" +
+      "oint\312\002\034Google\\Cloud\\OsConfig\\V1betab\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.api.ClientProto.getDescriptor(),
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.getDescriptor(),
@@ -232,7 +231,6 @@ public final class AgentEndpointProto {
     registry.add(com.google.api.ClientProto.methodSignature);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.api.ClientProto.getDescriptor();
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.getDescriptor();

@@ -37,128 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetTripRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.v1.RequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.v1.RequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (currentRouteSegmentVersion_ != null) {
-              subBuilder = currentRouteSegmentVersion_.toBuilder();
-            }
-            currentRouteSegmentVersion_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(currentRouteSegmentVersion_);
-              currentRouteSegmentVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (remainingWaypointsVersion_ != null) {
-              subBuilder = remainingWaypointsVersion_.toBuilder();
-            }
-            remainingWaypointsVersion_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(remainingWaypointsVersion_);
-              remainingWaypointsVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            routeFormatType_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (currentRouteSegmentTrafficVersion_ != null) {
-              subBuilder = currentRouteSegmentTrafficVersion_.toBuilder();
-            }
-            currentRouteSegmentTrafficVersion_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(currentRouteSegmentTrafficVersion_);
-              currentRouteSegmentTrafficVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (remainingWaypointsRouteVersion_ != null) {
-              subBuilder = remainingWaypointsRouteVersion_.toBuilder();
-            }
-            remainingWaypointsRouteVersion_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(remainingWaypointsRouteVersion_);
-              remainingWaypointsRouteVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            view_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.TripApi.internal_static_maps_fleetengine_v1_GetTripRequest_descriptor;
@@ -207,11 +85,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.RequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.v1.RequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Must be in the format `providers/{provider}/trips/{trip}`.
@@ -263,7 +142,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIEW_FIELD_NUMBER = 11;
-  private int view_;
+  private int view_ = 0;
   /**
    * <pre>
    * The subset of Trip fields that should be returned and their interpretation.
@@ -284,8 +163,7 @@ private static final long serialVersionUID = 0L;
    * @return The view.
    */
   @java.lang.Override public google.maps.fleetengine.v1.TripView getView() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.TripView result = google.maps.fleetengine.v1.TripView.valueOf(view_);
+    google.maps.fleetengine.v1.TripView result = google.maps.fleetengine.v1.TripView.forNumber(view_);
     return result == null ? google.maps.fleetengine.v1.TripView.UNRECOGNIZED : result;
   }
 
@@ -333,7 +211,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCurrentRouteSegmentVersionOrBuilder() {
-    return getCurrentRouteSegmentVersion();
+    return currentRouteSegmentVersion_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : currentRouteSegmentVersion_;
   }
 
   public static final int REMAINING_WAYPOINTS_VERSION_FIELD_NUMBER = 7;
@@ -380,11 +258,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRemainingWaypointsVersionOrBuilder() {
-    return getRemainingWaypointsVersion();
+    return remainingWaypointsVersion_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : remainingWaypointsVersion_;
   }
 
   public static final int ROUTE_FORMAT_TYPE_FIELD_NUMBER = 8;
-  private int routeFormatType_;
+  private int routeFormatType_ = 0;
   /**
    * <pre>
    * The returned current route format, `LAT_LNG_LIST_TYPE` (in `Trip.route`),
@@ -409,8 +287,7 @@ private static final long serialVersionUID = 0L;
    * @return The routeFormatType.
    */
   @java.lang.Override public google.maps.fleetengine.v1.PolylineFormatType getRouteFormatType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.PolylineFormatType result = google.maps.fleetengine.v1.PolylineFormatType.valueOf(routeFormatType_);
+    google.maps.fleetengine.v1.PolylineFormatType result = google.maps.fleetengine.v1.PolylineFormatType.forNumber(routeFormatType_);
     return result == null ? google.maps.fleetengine.v1.PolylineFormatType.UNRECOGNIZED : result;
   }
 
@@ -464,7 +341,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCurrentRouteSegmentTrafficVersionOrBuilder() {
-    return getCurrentRouteSegmentTrafficVersion();
+    return currentRouteSegmentTrafficVersion_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : currentRouteSegmentTrafficVersion_;
   }
 
   public static final int REMAINING_WAYPOINTS_ROUTE_VERSION_FIELD_NUMBER = 10;
@@ -517,7 +394,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRemainingWaypointsRouteVersionOrBuilder() {
-    return getRemainingWaypointsRouteVersion();
+    return remainingWaypointsRouteVersion_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : remainingWaypointsRouteVersion_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -558,7 +435,7 @@ private static final long serialVersionUID = 0L;
     if (view_ != google.maps.fleetengine.v1.TripView.TRIP_VIEW_UNSPECIFIED.getNumber()) {
       output.writeEnum(11, view_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -598,7 +475,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(11, view_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -642,7 +519,7 @@ private static final long serialVersionUID = 0L;
       if (!getRemainingWaypointsRouteVersion()
           .equals(other.getRemainingWaypointsRouteVersion())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -679,7 +556,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REMAINING_WAYPOINTS_ROUTE_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getRemainingWaypointsRouteVersion().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -800,56 +677,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.GetTripRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       name_ = "";
-
       view_ = 0;
-
-      if (currentRouteSegmentVersionBuilder_ == null) {
-        currentRouteSegmentVersion_ = null;
-      } else {
-        currentRouteSegmentVersion_ = null;
+      currentRouteSegmentVersion_ = null;
+      if (currentRouteSegmentVersionBuilder_ != null) {
+        currentRouteSegmentVersionBuilder_.dispose();
         currentRouteSegmentVersionBuilder_ = null;
       }
-      if (remainingWaypointsVersionBuilder_ == null) {
-        remainingWaypointsVersion_ = null;
-      } else {
-        remainingWaypointsVersion_ = null;
+      remainingWaypointsVersion_ = null;
+      if (remainingWaypointsVersionBuilder_ != null) {
+        remainingWaypointsVersionBuilder_.dispose();
         remainingWaypointsVersionBuilder_ = null;
       }
       routeFormatType_ = 0;
-
-      if (currentRouteSegmentTrafficVersionBuilder_ == null) {
-        currentRouteSegmentTrafficVersion_ = null;
-      } else {
-        currentRouteSegmentTrafficVersion_ = null;
+      currentRouteSegmentTrafficVersion_ = null;
+      if (currentRouteSegmentTrafficVersionBuilder_ != null) {
+        currentRouteSegmentTrafficVersionBuilder_.dispose();
         currentRouteSegmentTrafficVersionBuilder_ = null;
       }
-      if (remainingWaypointsRouteVersionBuilder_ == null) {
-        remainingWaypointsRouteVersion_ = null;
-      } else {
-        remainingWaypointsRouteVersion_ = null;
+      remainingWaypointsRouteVersion_ = null;
+      if (remainingWaypointsRouteVersionBuilder_ != null) {
+        remainingWaypointsRouteVersionBuilder_.dispose();
         remainingWaypointsRouteVersionBuilder_ = null;
       }
       return this;
@@ -878,36 +743,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.GetTripRequest buildPartial() {
       google.maps.fleetengine.v1.GetTripRequest result = new google.maps.fleetengine.v1.GetTripRequest(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.name_ = name_;
-      result.view_ = view_;
-      if (currentRouteSegmentVersionBuilder_ == null) {
-        result.currentRouteSegmentVersion_ = currentRouteSegmentVersion_;
-      } else {
-        result.currentRouteSegmentVersion_ = currentRouteSegmentVersionBuilder_.build();
-      }
-      if (remainingWaypointsVersionBuilder_ == null) {
-        result.remainingWaypointsVersion_ = remainingWaypointsVersion_;
-      } else {
-        result.remainingWaypointsVersion_ = remainingWaypointsVersionBuilder_.build();
-      }
-      result.routeFormatType_ = routeFormatType_;
-      if (currentRouteSegmentTrafficVersionBuilder_ == null) {
-        result.currentRouteSegmentTrafficVersion_ = currentRouteSegmentTrafficVersion_;
-      } else {
-        result.currentRouteSegmentTrafficVersion_ = currentRouteSegmentTrafficVersionBuilder_.build();
-      }
-      if (remainingWaypointsRouteVersionBuilder_ == null) {
-        result.remainingWaypointsRouteVersion_ = remainingWaypointsRouteVersion_;
-      } else {
-        result.remainingWaypointsRouteVersion_ = remainingWaypointsRouteVersionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.GetTripRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.view_ = view_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.currentRouteSegmentVersion_ = currentRouteSegmentVersionBuilder_ == null
+            ? currentRouteSegmentVersion_
+            : currentRouteSegmentVersionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.remainingWaypointsVersion_ = remainingWaypointsVersionBuilder_ == null
+            ? remainingWaypointsVersion_
+            : remainingWaypointsVersionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.routeFormatType_ = routeFormatType_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.currentRouteSegmentTrafficVersion_ = currentRouteSegmentTrafficVersionBuilder_ == null
+            ? currentRouteSegmentTrafficVersion_
+            : currentRouteSegmentTrafficVersionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.remainingWaypointsRouteVersion_ = remainingWaypointsRouteVersionBuilder_ == null
+            ? remainingWaypointsRouteVersion_
+            : remainingWaypointsRouteVersionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -959,6 +835,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.view_ != 0) {
@@ -979,7 +856,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRemainingWaypointsRouteVersion()) {
         mergeRemainingWaypointsRouteVersion(other.getRemainingWaypointsRouteVersion());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -994,19 +871,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.GetTripRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 50: {
+              input.readMessage(
+                  getCurrentRouteSegmentVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getRemainingWaypointsVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 64: {
+              routeFormatType_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getCurrentRouteSegmentTrafficVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getRemainingWaypointsRouteVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            case 88: {
+              view_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.GetTripRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.maps.fleetengine.v1.RequestHeader header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1020,7 +961,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1050,11 +991,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1068,11 +1009,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.RequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1084,17 +1025,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.v1.RequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.v1.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.v1.RequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1105,14 +1047,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1123,7 +1064,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public google.maps.fleetengine.v1.RequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -1225,11 +1166,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1245,8 +1184,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1264,12 +1203,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1296,8 +1233,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setViewValue(int value) {
-      
       view_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1311,8 +1248,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.TripView getView() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.TripView result = google.maps.fleetengine.v1.TripView.valueOf(view_);
+      google.maps.fleetengine.v1.TripView result = google.maps.fleetengine.v1.TripView.forNumber(view_);
       return result == null ? google.maps.fleetengine.v1.TripView.UNRECOGNIZED : result;
     }
     /**
@@ -1328,7 +1264,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       view_ = value.getNumber();
       onChanged();
       return this;
@@ -1342,7 +1278,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearView() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       view_ = 0;
       onChanged();
       return this;
@@ -1363,7 +1299,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the currentRouteSegmentVersion field is set.
      */
     public boolean hasCurrentRouteSegmentVersion() {
-      return currentRouteSegmentVersionBuilder_ != null || currentRouteSegmentVersion_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1399,11 +1335,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         currentRouteSegmentVersion_ = value;
-        onChanged();
       } else {
         currentRouteSegmentVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1420,11 +1356,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (currentRouteSegmentVersionBuilder_ == null) {
         currentRouteSegmentVersion_ = builderForValue.build();
-        onChanged();
       } else {
         currentRouteSegmentVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1439,17 +1375,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCurrentRouteSegmentVersion(com.google.protobuf.Timestamp value) {
       if (currentRouteSegmentVersionBuilder_ == null) {
-        if (currentRouteSegmentVersion_ != null) {
-          currentRouteSegmentVersion_ =
-            com.google.protobuf.Timestamp.newBuilder(currentRouteSegmentVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          currentRouteSegmentVersion_ != null &&
+          currentRouteSegmentVersion_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCurrentRouteSegmentVersionBuilder().mergeFrom(value);
         } else {
           currentRouteSegmentVersion_ = value;
         }
-        onChanged();
       } else {
         currentRouteSegmentVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1463,14 +1400,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp current_route_segment_version = 6;</code>
      */
     public Builder clearCurrentRouteSegmentVersion() {
-      if (currentRouteSegmentVersionBuilder_ == null) {
-        currentRouteSegmentVersion_ = null;
-        onChanged();
-      } else {
-        currentRouteSegmentVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      currentRouteSegmentVersion_ = null;
+      if (currentRouteSegmentVersionBuilder_ != null) {
+        currentRouteSegmentVersionBuilder_.dispose();
         currentRouteSegmentVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1484,7 +1420,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp current_route_segment_version = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCurrentRouteSegmentVersionBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCurrentRouteSegmentVersionFieldBuilder().getBuilder();
     }
@@ -1545,7 +1481,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the remainingWaypointsVersion field is set.
      */
     public boolean hasRemainingWaypointsVersion() {
-      return remainingWaypointsVersionBuilder_ != null || remainingWaypointsVersion_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1581,11 +1517,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         remainingWaypointsVersion_ = value;
-        onChanged();
       } else {
         remainingWaypointsVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1602,11 +1538,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (remainingWaypointsVersionBuilder_ == null) {
         remainingWaypointsVersion_ = builderForValue.build();
-        onChanged();
       } else {
         remainingWaypointsVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1621,17 +1557,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRemainingWaypointsVersion(com.google.protobuf.Timestamp value) {
       if (remainingWaypointsVersionBuilder_ == null) {
-        if (remainingWaypointsVersion_ != null) {
-          remainingWaypointsVersion_ =
-            com.google.protobuf.Timestamp.newBuilder(remainingWaypointsVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          remainingWaypointsVersion_ != null &&
+          remainingWaypointsVersion_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRemainingWaypointsVersionBuilder().mergeFrom(value);
         } else {
           remainingWaypointsVersion_ = value;
         }
-        onChanged();
       } else {
         remainingWaypointsVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1645,14 +1582,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp remaining_waypoints_version = 7;</code>
      */
     public Builder clearRemainingWaypointsVersion() {
-      if (remainingWaypointsVersionBuilder_ == null) {
-        remainingWaypointsVersion_ = null;
-        onChanged();
-      } else {
-        remainingWaypointsVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      remainingWaypointsVersion_ = null;
+      if (remainingWaypointsVersionBuilder_ != null) {
+        remainingWaypointsVersionBuilder_.dispose();
         remainingWaypointsVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1666,7 +1602,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp remaining_waypoints_version = 7;</code>
      */
     public com.google.protobuf.Timestamp.Builder getRemainingWaypointsVersionBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRemainingWaypointsVersionFieldBuilder().getBuilder();
     }
@@ -1738,8 +1674,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRouteFormatTypeValue(int value) {
-      
       routeFormatType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1755,8 +1691,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.PolylineFormatType getRouteFormatType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.PolylineFormatType result = google.maps.fleetengine.v1.PolylineFormatType.valueOf(routeFormatType_);
+      google.maps.fleetengine.v1.PolylineFormatType result = google.maps.fleetengine.v1.PolylineFormatType.forNumber(routeFormatType_);
       return result == null ? google.maps.fleetengine.v1.PolylineFormatType.UNRECOGNIZED : result;
     }
     /**
@@ -1774,7 +1709,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       routeFormatType_ = value.getNumber();
       onChanged();
       return this;
@@ -1790,7 +1725,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRouteFormatType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       routeFormatType_ = 0;
       onChanged();
       return this;
@@ -1813,7 +1748,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the currentRouteSegmentTrafficVersion field is set.
      */
     public boolean hasCurrentRouteSegmentTrafficVersion() {
-      return currentRouteSegmentTrafficVersionBuilder_ != null || currentRouteSegmentTrafficVersion_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1853,11 +1788,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         currentRouteSegmentTrafficVersion_ = value;
-        onChanged();
       } else {
         currentRouteSegmentTrafficVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1876,11 +1811,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (currentRouteSegmentTrafficVersionBuilder_ == null) {
         currentRouteSegmentTrafficVersion_ = builderForValue.build();
-        onChanged();
       } else {
         currentRouteSegmentTrafficVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1897,17 +1832,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCurrentRouteSegmentTrafficVersion(com.google.protobuf.Timestamp value) {
       if (currentRouteSegmentTrafficVersionBuilder_ == null) {
-        if (currentRouteSegmentTrafficVersion_ != null) {
-          currentRouteSegmentTrafficVersion_ =
-            com.google.protobuf.Timestamp.newBuilder(currentRouteSegmentTrafficVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          currentRouteSegmentTrafficVersion_ != null &&
+          currentRouteSegmentTrafficVersion_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCurrentRouteSegmentTrafficVersionBuilder().mergeFrom(value);
         } else {
           currentRouteSegmentTrafficVersion_ = value;
         }
-        onChanged();
       } else {
         currentRouteSegmentTrafficVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1923,14 +1859,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp current_route_segment_traffic_version = 9;</code>
      */
     public Builder clearCurrentRouteSegmentTrafficVersion() {
-      if (currentRouteSegmentTrafficVersionBuilder_ == null) {
-        currentRouteSegmentTrafficVersion_ = null;
-        onChanged();
-      } else {
-        currentRouteSegmentTrafficVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      currentRouteSegmentTrafficVersion_ = null;
+      if (currentRouteSegmentTrafficVersionBuilder_ != null) {
+        currentRouteSegmentTrafficVersionBuilder_.dispose();
         currentRouteSegmentTrafficVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1946,7 +1881,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp current_route_segment_traffic_version = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCurrentRouteSegmentTrafficVersionBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getCurrentRouteSegmentTrafficVersionFieldBuilder().getBuilder();
     }
@@ -2013,7 +1948,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the remainingWaypointsRouteVersion field is set.
      */
     public boolean hasRemainingWaypointsRouteVersion() {
-      return remainingWaypointsRouteVersionBuilder_ != null || remainingWaypointsRouteVersion_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2053,11 +1988,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         remainingWaypointsRouteVersion_ = value;
-        onChanged();
       } else {
         remainingWaypointsRouteVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2076,11 +2011,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (remainingWaypointsRouteVersionBuilder_ == null) {
         remainingWaypointsRouteVersion_ = builderForValue.build();
-        onChanged();
       } else {
         remainingWaypointsRouteVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2097,17 +2032,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRemainingWaypointsRouteVersion(com.google.protobuf.Timestamp value) {
       if (remainingWaypointsRouteVersionBuilder_ == null) {
-        if (remainingWaypointsRouteVersion_ != null) {
-          remainingWaypointsRouteVersion_ =
-            com.google.protobuf.Timestamp.newBuilder(remainingWaypointsRouteVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          remainingWaypointsRouteVersion_ != null &&
+          remainingWaypointsRouteVersion_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRemainingWaypointsRouteVersionBuilder().mergeFrom(value);
         } else {
           remainingWaypointsRouteVersion_ = value;
         }
-        onChanged();
       } else {
         remainingWaypointsRouteVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2123,14 +2059,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp remaining_waypoints_route_version = 10;</code>
      */
     public Builder clearRemainingWaypointsRouteVersion() {
-      if (remainingWaypointsRouteVersionBuilder_ == null) {
-        remainingWaypointsRouteVersion_ = null;
-        onChanged();
-      } else {
-        remainingWaypointsRouteVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      remainingWaypointsRouteVersion_ = null;
+      if (remainingWaypointsRouteVersionBuilder_ != null) {
+        remainingWaypointsRouteVersionBuilder_.dispose();
         remainingWaypointsRouteVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2146,7 +2081,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp remaining_waypoints_route_version = 10;</code>
      */
     public com.google.protobuf.Timestamp.Builder getRemainingWaypointsRouteVersionBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getRemainingWaypointsRouteVersionFieldBuilder().getBuilder();
     }
@@ -2228,7 +2163,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetTripRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

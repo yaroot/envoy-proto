@@ -51,8 +51,9 @@ public interface AssetOrBuilder extends
 
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the asset. This ID will be
-   * different if the asset is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the asset. This ID
+   * will be different if the asset is deleted and re-created with the same
+   * name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -61,8 +62,9 @@ public interface AssetOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the asset. This ID will be
-   * different if the asset is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the asset. This ID
+   * will be different if the asset is deleted and re-created with the same
+   * name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -164,7 +166,6 @@ public interface AssetOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -177,7 +178,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -276,7 +276,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. Status of the security policy applied to resource referenced by this asset.
+   * Output only. Status of the security policy applied to resource referenced
+   * by this asset.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.SecurityStatus security_status = 103 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -285,7 +286,8 @@ java.lang.String defaultValue);
   boolean hasSecurityStatus();
   /**
    * <pre>
-   * Output only. Status of the security policy applied to resource referenced by this asset.
+   * Output only. Status of the security policy applied to resource referenced
+   * by this asset.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.SecurityStatus security_status = 103 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -294,7 +296,8 @@ java.lang.String defaultValue);
   com.google.cloud.dataplex.v1.Asset.SecurityStatus getSecurityStatus();
   /**
    * <pre>
-   * Output only. Status of the security policy applied to resource referenced by this asset.
+   * Output only. Status of the security policy applied to resource referenced
+   * by this asset.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.SecurityStatus security_status = 103 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -303,10 +306,9 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data referenced by this
-   * asset.
-   * When this spec is left unset, the asset will use the spec set on the parent
-   * zone.
+   * Optional. Specification of the discovery feature applied to data referenced
+   * by this asset. When this spec is left unset, the asset will use the spec
+   * set on the parent zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.DiscoverySpec discovery_spec = 106 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -315,10 +317,9 @@ java.lang.String defaultValue);
   boolean hasDiscoverySpec();
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data referenced by this
-   * asset.
-   * When this spec is left unset, the asset will use the spec set on the parent
-   * zone.
+   * Optional. Specification of the discovery feature applied to data referenced
+   * by this asset. When this spec is left unset, the asset will use the spec
+   * set on the parent zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.DiscoverySpec discovery_spec = 106 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -327,10 +328,9 @@ java.lang.String defaultValue);
   com.google.cloud.dataplex.v1.Asset.DiscoverySpec getDiscoverySpec();
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data referenced by this
-   * asset.
-   * When this spec is left unset, the asset will use the spec set on the parent
-   * zone.
+   * Optional. Specification of the discovery feature applied to data referenced
+   * by this asset. When this spec is left unset, the asset will use the spec
+   * set on the parent zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.DiscoverySpec discovery_spec = 106 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -339,7 +339,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. Status of the discovery feature applied to data referenced by this asset.
+   * Output only. Status of the discovery feature applied to data referenced by
+   * this asset.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.DiscoveryStatus discovery_status = 107 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -348,7 +349,8 @@ java.lang.String defaultValue);
   boolean hasDiscoveryStatus();
   /**
    * <pre>
-   * Output only. Status of the discovery feature applied to data referenced by this asset.
+   * Output only. Status of the discovery feature applied to data referenced by
+   * this asset.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.DiscoveryStatus discovery_status = 107 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -357,7 +359,8 @@ java.lang.String defaultValue);
   com.google.cloud.dataplex.v1.Asset.DiscoveryStatus getDiscoveryStatus();
   /**
    * <pre>
-   * Output only. Status of the discovery feature applied to data referenced by this asset.
+   * Output only. Status of the discovery feature applied to data referenced by
+   * this asset.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Asset.DiscoveryStatus discovery_status = 107 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

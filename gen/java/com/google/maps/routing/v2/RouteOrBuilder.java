@@ -9,6 +9,60 @@ public interface RouteOrBuilder extends
 
   /**
    * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @return A list containing the routeLabels.
+   */
+  java.util.List<com.google.maps.routing.v2.RouteLabel> getRouteLabelsList();
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @return The count of routeLabels.
+   */
+  int getRouteLabelsCount();
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @param index The index of the element to return.
+   * @return The routeLabels at the given index.
+   */
+  com.google.maps.routing.v2.RouteLabel getRouteLabels(int index);
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @return A list containing the enum numeric values on the wire for routeLabels.
+   */
+  java.util.List<java.lang.Integer>
+  getRouteLabelsValueList();
+  /**
+   * <pre>
+   * Labels for the `Route` that are useful to identify specific properties
+   * of the route to compare against others.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.RouteLabel route_labels = 13;</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of routeLabels at the given index.
+   */
+  int getRouteLabelsValue(int index);
+
+  /**
+   * <pre>
    * A collection of legs (path segments between waypoints) that make-up the
    * route. Each leg corresponds to the trip between two non-`via` Waypoints.
    * For example, a route with no intermediate waypoints has only one leg. A
@@ -94,8 +148,8 @@ public interface RouteOrBuilder extends
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -107,8 +161,8 @@ public interface RouteOrBuilder extends
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -120,8 +174,8 @@ public interface RouteOrBuilder extends
   /**
    * <pre>
    * The length of time needed to navigate the route. If you set the
-   * `route_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
-   * `static_duration`. If you set the `route_preference` to either
+   * `routing_preference` to `TRAFFIC_UNAWARE`, then this value is the same as
+   * `static_duration`. If you set the `routing_preference` to either
    * `TRAFFIC_AWARE` or `TRAFFIC_AWARE_OPTIMAL`, then this value is calculated
    * taking traffic conditions into account.
    * </pre>
@@ -304,4 +358,40 @@ public interface RouteOrBuilder extends
    * <code>.google.maps.routing.v2.RouteTravelAdvisory travel_advisory = 9;</code>
    */
   com.google.maps.routing.v2.RouteTravelAdvisoryOrBuilder getTravelAdvisoryOrBuilder();
+
+  /**
+   * <pre>
+   * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+   * which allows the Navigation SDK to reconstruct the route during navigation,
+   * and in the event of rerouting honor the original intention when Routes
+   * ComputeRoutes is called. Customers should treat this token as an
+   * opaque blob.
+   * NOTE: `Route.route_token` is only available for requests that have set
+   * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+   * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+   * requests that have Via waypoints.
+   * </pre>
+   *
+   * <code>string route_token = 12;</code>
+   * @return The routeToken.
+   */
+  java.lang.String getRouteToken();
+  /**
+   * <pre>
+   * Web-safe base64 encoded route token that can be passed to NavigationSDK,
+   * which allows the Navigation SDK to reconstruct the route during navigation,
+   * and in the event of rerouting honor the original intention when Routes
+   * ComputeRoutes is called. Customers should treat this token as an
+   * opaque blob.
+   * NOTE: `Route.route_token` is only available for requests that have set
+   * `ComputeRoutesRequest.routing_preference` to `TRAFFIC_AWARE` or
+   * `TRAFFIC_AWARE_OPTIMAL`. `Route.route_token` is also not supported for
+   * requests that have Via waypoints.
+   * </pre>
+   *
+   * <code>string route_token = 12;</code>
+   * @return The bytes for routeToken.
+   */
+  com.google.protobuf.ByteString
+      getRouteTokenBytes();
 }

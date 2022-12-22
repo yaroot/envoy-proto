@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateAlertFeedbackRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customerId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alertId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.apps.alertcenter.v1beta1.AlertFeedback.Builder subBuilder = null;
-            if (feedback_ != null) {
-              subBuilder = feedback_.toBuilder();
-            }
-            feedback_ = input.readMessage(com.google.apps.alertcenter.v1beta1.AlertFeedback.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(feedback_);
-              feedback_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.alertcenter.v1beta1.AlertCenterProto.internal_static_google_apps_alertcenter_v1beta1_CreateAlertFeedbackRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object customerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerId_ = "";
   /**
    * <pre>
    * Optional. The unique identifier of the Google Workspace organization
@@ -164,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALERT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object alertId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object alertId_ = "";
   /**
    * <pre>
    * Required. The identifier of the alert this feedback belongs to.
@@ -244,7 +182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.alertcenter.v1beta1.AlertFeedbackOrBuilder getFeedbackOrBuilder() {
-    return getFeedback();
+    return feedback_ == null ? com.google.apps.alertcenter.v1beta1.AlertFeedback.getDefaultInstance() : feedback_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -270,7 +208,7 @@ private static final long serialVersionUID = 0L;
     if (feedback_ != null) {
       output.writeMessage(3, getFeedback());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -289,7 +227,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getFeedback());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -313,7 +251,7 @@ private static final long serialVersionUID = 0L;
       if (!getFeedback()
           .equals(other.getFeedback())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -332,7 +270,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FEEDBACK_FIELD_NUMBER;
       hash = (53 * hash) + getFeedback().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -453,30 +391,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       customerId_ = "";
-
       alertId_ = "";
-
-      if (feedbackBuilder_ == null) {
-        feedback_ = null;
-      } else {
-        feedback_ = null;
+      feedback_ = null;
+      if (feedbackBuilder_ != null) {
+        feedbackBuilder_.dispose();
         feedbackBuilder_ = null;
       }
       return this;
@@ -505,15 +436,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest buildPartial() {
       com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest result = new com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest(this);
-      result.customerId_ = customerId_;
-      result.alertId_ = alertId_;
-      if (feedbackBuilder_ == null) {
-        result.feedback_ = feedback_;
-      } else {
-        result.feedback_ = feedbackBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.customerId_ = customerId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.alertId_ = alertId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.feedback_ = feedbackBuilder_ == null
+            ? feedback_
+            : feedbackBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -562,16 +502,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest.getDefaultInstance()) return this;
       if (!other.getCustomerId().isEmpty()) {
         customerId_ = other.customerId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAlertId().isEmpty()) {
         alertId_ = other.alertId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasFeedback()) {
         mergeFeedback(other.getFeedback());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -586,19 +528,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              customerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              alertId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFeedbackFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.alertcenter.v1beta1.CreateAlertFeedbackRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object customerId_ = "";
     /**
@@ -659,11 +632,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -678,8 +649,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerId() {
-      
       customerId_ = getDefaultInstance().getCustomerId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -696,12 +667,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -759,11 +728,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlertId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       alertId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -776,8 +743,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlertId() {
-      
       alertId_ = getDefaultInstance().getAlertId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -792,12 +759,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlertIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       alertId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -814,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the feedback field is set.
      */
     public boolean hasFeedback() {
-      return feedbackBuilder_ != null || feedback_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -844,11 +809,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         feedback_ = value;
-        onChanged();
       } else {
         feedbackBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -862,11 +827,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.alertcenter.v1beta1.AlertFeedback.Builder builderForValue) {
       if (feedbackBuilder_ == null) {
         feedback_ = builderForValue.build();
-        onChanged();
       } else {
         feedbackBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -878,17 +843,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFeedback(com.google.apps.alertcenter.v1beta1.AlertFeedback value) {
       if (feedbackBuilder_ == null) {
-        if (feedback_ != null) {
-          feedback_ =
-            com.google.apps.alertcenter.v1beta1.AlertFeedback.newBuilder(feedback_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          feedback_ != null &&
+          feedback_ != com.google.apps.alertcenter.v1beta1.AlertFeedback.getDefaultInstance()) {
+          getFeedbackBuilder().mergeFrom(value);
         } else {
           feedback_ = value;
         }
-        onChanged();
       } else {
         feedbackBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -899,14 +865,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.alertcenter.v1beta1.AlertFeedback feedback = 3;</code>
      */
     public Builder clearFeedback() {
-      if (feedbackBuilder_ == null) {
-        feedback_ = null;
-        onChanged();
-      } else {
-        feedback_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      feedback_ = null;
+      if (feedbackBuilder_ != null) {
+        feedbackBuilder_.dispose();
         feedbackBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -917,7 +882,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.alertcenter.v1beta1.AlertFeedback feedback = 3;</code>
      */
     public com.google.apps.alertcenter.v1beta1.AlertFeedback.Builder getFeedbackBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFeedbackFieldBuilder().getBuilder();
     }
@@ -989,7 +954,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateAlertFeedbackRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

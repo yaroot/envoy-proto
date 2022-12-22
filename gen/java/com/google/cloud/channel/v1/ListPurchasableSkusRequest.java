@@ -37,96 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListPurchasableSkusRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customer_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase.Builder subBuilder = null;
-            if (purchaseOptionCase_ == 2) {
-              subBuilder = ((com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase) purchaseOption_).toBuilder();
-            }
-            purchaseOption_ =
-                input.readMessage(com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase) purchaseOption_);
-              purchaseOption_ = subBuilder.buildPartial();
-            }
-            purchaseOptionCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.Builder subBuilder = null;
-            if (purchaseOptionCase_ == 3) {
-              subBuilder = ((com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase) purchaseOption_).toBuilder();
-            }
-            purchaseOption_ =
-                input.readMessage(com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase) purchaseOption_);
-              purchaseOption_ = subBuilder.buildPartial();
-            }
-            purchaseOptionCase_ = 3;
-            break;
-          }
-          case 32: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_ListPurchasableSkusRequest_descriptor;
@@ -201,51 +111,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CreateEntitlementPurchase(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              product_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_ListPurchasableSkusRequest_CreateEntitlementPurchase_descriptor;
@@ -260,7 +125,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PRODUCT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object product_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object product_ = "";
     /**
      * <pre>
      * Required. List SKUs belonging to this Product.
@@ -326,7 +192,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(product_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, product_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -338,7 +204,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(product_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, product_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -355,7 +221,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getProduct()
           .equals(other.getProduct())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -368,7 +234,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + PRODUCT_FIELD_NUMBER;
       hash = (53 * hash) + getProduct().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -490,24 +356,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         product_ = "";
-
         return this;
       }
 
@@ -534,9 +395,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase buildPartial() {
         com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase result = new com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase(this);
-        result.product_ = product_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.product_ = product_;
+        }
       }
 
       @java.lang.Override
@@ -585,9 +453,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase.getDefaultInstance()) return this;
         if (!other.getProduct().isEmpty()) {
           product_ = other.product_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -602,19 +471,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                product_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object product_ = "";
       /**
@@ -675,11 +563,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setProduct(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         product_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -694,8 +580,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearProduct() {
-        
         product_ = getDefaultInstance().getProduct();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -712,12 +598,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setProductBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         product_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -754,7 +638,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CreateEntitlementPurchase(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -824,7 +719,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * List SKUs for upgrading or downgrading an entitlement. Make the purchase
-   * using [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
+   * using
+   * [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase}
@@ -854,57 +750,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ChangeOfferPurchase(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              entitlement_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              changeType_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1065,7 +910,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENTITLEMENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object entitlement_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object entitlement_ = "";
     /**
      * <pre>
      * Required. Resource name of the entitlement.
@@ -1115,7 +961,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CHANGE_TYPE_FIELD_NUMBER = 2;
-    private int changeType_;
+    private int changeType_ = 0;
     /**
      * <pre>
      * Required. Change Type for the entitlement.
@@ -1136,8 +982,7 @@ private static final long serialVersionUID = 0L;
      * @return The changeType.
      */
     @java.lang.Override public com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType getChangeType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType result = com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.valueOf(changeType_);
+      com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType result = com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.forNumber(changeType_);
       return result == null ? com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.UNRECOGNIZED : result;
     }
 
@@ -1161,7 +1006,7 @@ private static final long serialVersionUID = 0L;
       if (changeType_ != com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.CHANGE_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, changeType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1177,7 +1022,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, changeType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1195,7 +1040,7 @@ private static final long serialVersionUID = 0L;
       if (!getEntitlement()
           .equals(other.getEntitlement())) return false;
       if (changeType_ != other.changeType_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1210,7 +1055,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getEntitlement().hashCode();
       hash = (37 * hash) + CHANGE_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + changeType_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1308,7 +1153,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * List SKUs for upgrading or downgrading an entitlement. Make the purchase
-     * using [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
+     * using
+     * [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
      * </pre>
      *
      * Protobuf type {@code google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase}
@@ -1332,26 +1178,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         entitlement_ = "";
-
         changeType_ = 0;
-
         return this;
       }
 
@@ -1378,10 +1218,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase buildPartial() {
         com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase result = new com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase(this);
-        result.entitlement_ = entitlement_;
-        result.changeType_ = changeType_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.entitlement_ = entitlement_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.changeType_ = changeType_;
+        }
       }
 
       @java.lang.Override
@@ -1430,12 +1279,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.getDefaultInstance()) return this;
         if (!other.getEntitlement().isEmpty()) {
           entitlement_ = other.entitlement_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.changeType_ != 0) {
           setChangeTypeValue(other.getChangeTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1450,19 +1300,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                entitlement_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                changeType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object entitlement_ = "";
       /**
@@ -1523,11 +1397,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEntitlement(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         entitlement_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1542,8 +1414,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEntitlement() {
-        
         entitlement_ = getDefaultInstance().getEntitlement();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1560,12 +1432,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEntitlementBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         entitlement_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1592,8 +1462,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setChangeTypeValue(int value) {
-        
         changeType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1607,8 +1477,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType getChangeType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType result = com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.valueOf(changeType_);
+        com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType result = com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.forNumber(changeType_);
         return result == null ? com.google.cloud.channel.v1.ListPurchasableSkusRequest.ChangeOfferPurchase.ChangeType.UNRECOGNIZED : result;
       }
       /**
@@ -1624,7 +1493,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         changeType_ = value.getNumber();
         onChanged();
         return this;
@@ -1638,7 +1507,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearChangeType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         changeType_ = 0;
         onChanged();
         return this;
@@ -1676,7 +1545,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ChangeOfferPurchase(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1824,7 +1704,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object customer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customer_ = "";
   /**
    * <pre>
    * Required. The resource name of the customer to list SKUs for.
@@ -1872,12 +1753,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 4;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * Optional. Requested page size. Server might return fewer results than requested.
-   * If unspecified, returns at most 100 SKUs.
-   * The maximum value is 1000; the server will coerce values above 1000.
+   * Optional. Requested page size. Server might return fewer results than
+   * requested. If unspecified, returns at most 100 SKUs. The maximum value is
+   * 1000; the server will coerce values above 1000.
    * </pre>
    *
    * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1889,7 +1770,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 5;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * Optional. A token for a page of results other than the first page.
@@ -1935,7 +1817,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Optional. The BCP-47 language code. For example, "en-US". The
@@ -2016,7 +1899,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, languageCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2046,7 +1929,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, languageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2082,7 +1965,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2113,7 +1996,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2234,30 +2117,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ListPurchasableSkusRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (createEntitlementPurchaseBuilder_ != null) {
+        createEntitlementPurchaseBuilder_.clear();
+      }
+      if (changeOfferPurchaseBuilder_ != null) {
+        changeOfferPurchaseBuilder_.clear();
+      }
       customer_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       languageCode_ = "";
-
       purchaseOptionCase_ = 0;
       purchaseOption_ = null;
       return this;
@@ -2286,27 +2167,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ListPurchasableSkusRequest buildPartial() {
       com.google.cloud.channel.v1.ListPurchasableSkusRequest result = new com.google.cloud.channel.v1.ListPurchasableSkusRequest(this);
-      if (purchaseOptionCase_ == 2) {
-        if (createEntitlementPurchaseBuilder_ == null) {
-          result.purchaseOption_ = purchaseOption_;
-        } else {
-          result.purchaseOption_ = createEntitlementPurchaseBuilder_.build();
-        }
-      }
-      if (purchaseOptionCase_ == 3) {
-        if (changeOfferPurchaseBuilder_ == null) {
-          result.purchaseOption_ = purchaseOption_;
-        } else {
-          result.purchaseOption_ = changeOfferPurchaseBuilder_.build();
-        }
-      }
-      result.customer_ = customer_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.languageCode_ = languageCode_;
-      result.purchaseOptionCase_ = purchaseOptionCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ListPurchasableSkusRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.customer_ = customer_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.channel.v1.ListPurchasableSkusRequest result) {
+      result.purchaseOptionCase_ = purchaseOptionCase_;
+      result.purchaseOption_ = this.purchaseOption_;
+      if (purchaseOptionCase_ == 2 &&
+          createEntitlementPurchaseBuilder_ != null) {
+        result.purchaseOption_ = createEntitlementPurchaseBuilder_.build();
+      }
+      if (purchaseOptionCase_ == 3 &&
+          changeOfferPurchaseBuilder_ != null) {
+        result.purchaseOption_ = changeOfferPurchaseBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2355,6 +2248,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ListPurchasableSkusRequest.getDefaultInstance()) return this;
       if (!other.getCustomer().isEmpty()) {
         customer_ = other.customer_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -2362,10 +2256,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       switch (other.getPurchaseOptionCase()) {
@@ -2381,7 +2277,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2396,17 +2292,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ListPurchasableSkusRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              customer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateEntitlementPurchaseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              purchaseOptionCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getChangeOfferPurchaseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              purchaseOptionCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ListPurchasableSkusRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int purchaseOptionCase_ = 0;
@@ -2424,6 +2367,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase, com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchase.Builder, com.google.cloud.channel.v1.ListPurchasableSkusRequest.CreateEntitlementPurchaseOrBuilder> createEntitlementPurchaseBuilder_;
@@ -2599,7 +2543,7 @@ private static final long serialVersionUID = 0L;
         purchaseOption_ = null;
       }
       purchaseOptionCase_ = 2;
-      onChanged();;
+      onChanged();
       return createEntitlementPurchaseBuilder_;
     }
 
@@ -2777,7 +2721,7 @@ private static final long serialVersionUID = 0L;
         purchaseOption_ = null;
       }
       purchaseOptionCase_ = 3;
-      onChanged();;
+      onChanged();
       return changeOfferPurchaseBuilder_;
     }
 
@@ -2837,11 +2781,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customer_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2855,8 +2797,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
-      
       customer_ = getDefaultInstance().getCustomer();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2872,12 +2814,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customer_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2885,9 +2825,9 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * Optional. Requested page size. Server might return fewer results than requested.
-     * If unspecified, returns at most 100 SKUs.
-     * The maximum value is 1000; the server will coerce values above 1000.
+     * Optional. Requested page size. Server might return fewer results than
+     * requested. If unspecified, returns at most 100 SKUs. The maximum value is
+     * 1000; the server will coerce values above 1000.
      * </pre>
      *
      * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2899,9 +2839,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Requested page size. Server might return fewer results than requested.
-     * If unspecified, returns at most 100 SKUs.
-     * The maximum value is 1000; the server will coerce values above 1000.
+     * Optional. Requested page size. Server might return fewer results than
+     * requested. If unspecified, returns at most 100 SKUs. The maximum value is
+     * 1000; the server will coerce values above 1000.
      * </pre>
      *
      * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2911,21 +2851,22 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Requested page size. Server might return fewer results than requested.
-     * If unspecified, returns at most 100 SKUs.
-     * The maximum value is 1000; the server will coerce values above 1000.
+     * Optional. Requested page size. Server might return fewer results than
+     * requested. If unspecified, returns at most 100 SKUs. The maximum value is
+     * 1000; the server will coerce values above 1000.
      * </pre>
      *
      * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -2984,11 +2925,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3001,8 +2940,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3017,12 +2956,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3086,11 +3023,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3105,8 +3040,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3123,12 +3058,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3165,7 +3098,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListPurchasableSkusRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

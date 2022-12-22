@@ -34,64 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EndpointConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              httpPorts_ = com.google.protobuf.MapField.newMapField(
-                  HttpPortsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            httpPorts__ = input.readMessage(
-                HttpPortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            httpPorts_.getMutableMap().put(
-                httpPorts__.getKey(), httpPorts__.getValue());
-            break;
-          }
-          case 16: {
-
-            enableHttpPortAccess_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_EndpointConfig_descriptor;
@@ -129,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> httpPorts_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -139,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return httpPorts_;
   }
-
   public int getHttpPortsCount() {
     return internalGetHttpPorts().getMap().size();
   }
@@ -151,7 +93,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsHttpPorts(
       java.lang.String key) {
@@ -175,7 +116,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getHttpPortsMap() {
     return internalGetHttpPorts().getMap();
   }
@@ -188,10 +128,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getHttpPortsOrDefault(
+  public /* nullable */
+java.lang.String getHttpPortsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetHttpPorts().getMap();
@@ -206,7 +147,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.lang.String getHttpPortsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -219,7 +159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_HTTP_PORT_ACCESS_FIELD_NUMBER = 2;
-  private boolean enableHttpPortAccess_;
+  private boolean enableHttpPortAccess_ = false;
   /**
    * <pre>
    * Optional. If true, enable http access to specific ports on the cluster
@@ -257,7 +197,7 @@ private static final long serialVersionUID = 0L;
     if (enableHttpPortAccess_ != false) {
       output.writeBool(2, enableHttpPortAccess_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -280,7 +220,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, enableHttpPortAccess_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -299,7 +239,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetHttpPorts())) return false;
     if (getEnableHttpPortAccess()
         != other.getEnableHttpPortAccess()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -317,7 +257,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ENABLE_HTTP_PORT_ACCESS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEnableHttpPortAccess());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -460,25 +400,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.EndpointConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableHttpPorts().clear();
       enableHttpPortAccess_ = false;
-
       return this;
     }
 
@@ -505,12 +440,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.EndpointConfig buildPartial() {
       com.google.cloud.dataproc.v1.EndpointConfig result = new com.google.cloud.dataproc.v1.EndpointConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.httpPorts_ = internalGetHttpPorts();
-      result.httpPorts_.makeImmutable();
-      result.enableHttpPortAccess_ = enableHttpPortAccess_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.EndpointConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.httpPorts_ = internalGetHttpPorts();
+        result.httpPorts_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enableHttpPortAccess_ = enableHttpPortAccess_;
+      }
     }
 
     @java.lang.Override
@@ -559,10 +502,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.EndpointConfig.getDefaultInstance()) return this;
       internalGetMutableHttpPorts().mergeFrom(
           other.internalGetHttpPorts());
+      bitField0_ |= 0x00000001;
       if (other.getEnableHttpPortAccess() != false) {
         setEnableHttpPortAccess(other.getEnableHttpPortAccess());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,17 +521,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.EndpointConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              httpPorts__ = input.readMessage(
+                  HttpPortsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHttpPorts().getMutableMap().put(
+                  httpPorts__.getKey(), httpPorts__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              enableHttpPortAccess_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.EndpointConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -595,7 +566,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> httpPorts_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetHttpPorts() {
+        internalGetHttpPorts() {
       if (httpPorts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HttpPortsDefaultEntryHolder.defaultEntry);
@@ -603,8 +574,7 @@ private static final long serialVersionUID = 0L;
       return httpPorts_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableHttpPorts() {
-      onChanged();;
+        internalGetMutableHttpPorts() {
       if (httpPorts_ == null) {
         httpPorts_ = com.google.protobuf.MapField.newMapField(
             HttpPortsDefaultEntryHolder.defaultEntry);
@@ -612,9 +582,10 @@ private static final long serialVersionUID = 0L;
       if (!httpPorts_.isMutable()) {
         httpPorts_ = httpPorts_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return httpPorts_;
     }
-
     public int getHttpPortsCount() {
       return internalGetHttpPorts().getMap().size();
     }
@@ -626,7 +597,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsHttpPorts(
         java.lang.String key) {
@@ -650,7 +620,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getHttpPortsMap() {
       return internalGetHttpPorts().getMap();
     }
@@ -663,10 +632,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getHttpPortsOrDefault(
+    public /* nullable */
+java.lang.String getHttpPortsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHttpPorts().getMap();
@@ -681,7 +651,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.lang.String getHttpPortsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -692,8 +661,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearHttpPorts() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableHttpPorts().getMutableMap()
           .clear();
       return this;
@@ -706,7 +675,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeHttpPorts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -719,7 +687,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableHttpPorts() {
+        getMutableHttpPorts() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableHttpPorts().getMutableMap();
     }
     /**
@@ -734,12 +703,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableHttpPorts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -750,11 +717,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_ports = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllHttpPorts(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableHttpPorts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
@@ -785,6 +752,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableHttpPortAccess(boolean value) {
       
       enableHttpPortAccess_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -798,7 +766,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableHttpPortAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       enableHttpPortAccess_ = false;
       onChanged();
       return this;
@@ -836,7 +804,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EndpointConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

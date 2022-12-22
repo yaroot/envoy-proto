@@ -36,20 +36,20 @@ public interface UsageSignalOrBuilder extends
 
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   int getUsageWithinTimeRangeCount();
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   boolean containsUsageWithinTimeRange(
       java.lang.String key);
@@ -61,23 +61,22 @@ public interface UsageSignalOrBuilder extends
   getUsageWithinTimeRange();
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   java.util.Map<java.lang.String, com.google.cloud.datacatalog.v1.UsageStats>
   getUsageWithinTimeRangeMap();
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrDefault(
       java.lang.String key,
@@ -85,13 +84,12 @@ com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrDefault(
 com.google.cloud.datacatalog.v1.UsageStats defaultValue);
   /**
    * <pre>
-   * Usage statistics over each of the predefined time ranges.
+   * Output only. BigQuery usage statistics over each of the predefined time ranges.
    * Supported time ranges are `{"24H", "7D", "30D"}`.
    * </pre>
    *
-   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2;</code>
+   * <code>map&lt;string, .google.cloud.datacatalog.v1.UsageStats&gt; usage_within_time_range = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.datacatalog.v1.UsageStats getUsageWithinTimeRangeOrThrow(
       java.lang.String key);
 }

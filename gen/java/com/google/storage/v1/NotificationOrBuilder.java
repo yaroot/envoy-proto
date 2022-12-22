@@ -117,7 +117,6 @@ public interface NotificationOrBuilder extends
    *
    * <code>map&lt;string, string&gt; custom_attributes = 3;</code>
    */
-
   /* nullable */
 java.lang.String getCustomAttributesOrDefault(
       java.lang.String key,
@@ -131,7 +130,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; custom_attributes = 3;</code>
    */
-
   java.lang.String getCustomAttributesOrThrow(
       java.lang.String key);
 

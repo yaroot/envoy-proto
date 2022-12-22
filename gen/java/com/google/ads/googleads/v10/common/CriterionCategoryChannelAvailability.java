@@ -38,89 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CriterionCategoryChannelAvailability(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            availabilityMode_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            advertisingChannelType_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              advertisingChannelSubType_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            advertisingChannelSubType_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                advertisingChannelSubType_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              advertisingChannelSubType_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 40: {
-            bitField0_ |= 0x00000001;
-            includeDefaultChannelSubType_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        advertisingChannelSubType_ = java.util.Collections.unmodifiableList(advertisingChannelSubType_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.CriterionCategoryAvailabilityProto.internal_static_google_ads_googleads_v10_common_CriterionCategoryChannelAvailability_descriptor;
@@ -136,7 +53,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AVAILABILITY_MODE_FIELD_NUMBER = 1;
-  private int availabilityMode_;
+  private int availabilityMode_ = 0;
   /**
    * <pre>
    * Format of the channel availability. Can be ALL_CHANNELS (the rest of the
@@ -167,13 +84,12 @@ private static final long serialVersionUID = 0L;
    * @return The availabilityMode.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode getAvailabilityMode() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode result = com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode.valueOf(availabilityMode_);
+    com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode result = com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode.forNumber(availabilityMode_);
     return result == null ? com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode.UNRECOGNIZED : result;
   }
 
   public static final int ADVERTISING_CHANNEL_TYPE_FIELD_NUMBER = 2;
-  private int advertisingChannelType_;
+  private int advertisingChannelType_ = 0;
   /**
    * <pre>
    * Channel type the category is available to.
@@ -194,20 +110,19 @@ private static final long serialVersionUID = 0L;
    * @return The advertisingChannelType.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType getAdvertisingChannelType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType result = com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.valueOf(advertisingChannelType_);
+    com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType result = com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.forNumber(advertisingChannelType_);
     return result == null ? com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.UNRECOGNIZED : result;
   }
 
   public static final int ADVERTISING_CHANNEL_SUB_TYPE_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> advertisingChannelSubType_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType> advertisingChannelSubType_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType>() {
             public com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType result = com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType.valueOf(from);
+              com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType result = com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType.forNumber(from);
               return result == null ? com.google.ads.googleads.v10.enums.AdvertisingChannelSubTypeEnum.AdvertisingChannelSubType.UNRECOGNIZED : result;
             }
           };
@@ -278,7 +193,7 @@ private static final long serialVersionUID = 0L;
   private int advertisingChannelSubTypeMemoizedSerializedSize;
 
   public static final int INCLUDE_DEFAULT_CHANNEL_SUB_TYPE_FIELD_NUMBER = 5;
-  private boolean includeDefaultChannelSubType_;
+  private boolean includeDefaultChannelSubType_ = false;
   /**
    * <pre>
    * Whether default channel sub type is included. For example,
@@ -341,7 +256,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeBool(5, includeDefaultChannelSubType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -374,7 +289,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, includeDefaultChannelSubType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -397,7 +312,7 @@ private static final long serialVersionUID = 0L;
       if (getIncludeDefaultChannelSubType()
           != other.getIncludeDefaultChannelSubType()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -421,7 +336,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getIncludeDefaultChannelSubType());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -543,30 +458,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       availabilityMode_ = 0;
-
       advertisingChannelType_ = 0;
-
       advertisingChannelSubType_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       includeDefaultChannelSubType_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -593,22 +501,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability buildPartial() {
       com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability result = new com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.availabilityMode_ = availabilityMode_;
-      result.advertisingChannelType_ = advertisingChannelType_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         advertisingChannelSubType_ = java.util.Collections.unmodifiableList(advertisingChannelSubType_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.advertisingChannelSubType_ = advertisingChannelSubType_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.availabilityMode_ = availabilityMode_;
+      }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.advertisingChannelType_ = advertisingChannelType_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.includeDefaultChannelSubType_ = includeDefaultChannelSubType_;
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -664,7 +584,7 @@ private static final long serialVersionUID = 0L;
       if (!other.advertisingChannelSubType_.isEmpty()) {
         if (advertisingChannelSubType_.isEmpty()) {
           advertisingChannelSubType_ = other.advertisingChannelSubType_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureAdvertisingChannelSubTypeIsMutable();
           advertisingChannelSubType_.addAll(other.advertisingChannelSubType_);
@@ -674,7 +594,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasIncludeDefaultChannelSubType()) {
         setIncludeDefaultChannelSubType(other.getIncludeDefaultChannelSubType());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -689,17 +609,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              availabilityMode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              advertisingChannelType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureAdvertisingChannelSubTypeIsMutable();
+              advertisingChannelSubType_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAdvertisingChannelSubTypeIsMutable();
+                advertisingChannelSubType_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 40: {
+              includeDefaultChannelSubType_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.CriterionCategoryChannelAvailability) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -736,8 +701,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAvailabilityModeValue(int value) {
-      
       availabilityMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -756,8 +721,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode getAvailabilityMode() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode result = com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode.valueOf(availabilityMode_);
+      com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode result = com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode.forNumber(availabilityMode_);
       return result == null ? com.google.ads.googleads.v10.enums.CriterionCategoryChannelAvailabilityModeEnum.CriterionCategoryChannelAvailabilityMode.UNRECOGNIZED : result;
     }
     /**
@@ -778,7 +742,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       availabilityMode_ = value.getNumber();
       onChanged();
       return this;
@@ -797,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvailabilityMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       availabilityMode_ = 0;
       onChanged();
       return this;
@@ -825,8 +789,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdvertisingChannelTypeValue(int value) {
-      
       advertisingChannelType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -840,8 +804,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType getAdvertisingChannelType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType result = com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.valueOf(advertisingChannelType_);
+      com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType result = com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.forNumber(advertisingChannelType_);
       return result == null ? com.google.ads.googleads.v10.enums.AdvertisingChannelTypeEnum.AdvertisingChannelType.UNRECOGNIZED : result;
     }
     /**
@@ -857,7 +820,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       advertisingChannelType_ = value.getNumber();
       onChanged();
       return this;
@@ -871,7 +834,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdvertisingChannelType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       advertisingChannelType_ = 0;
       onChanged();
       return this;
@@ -880,9 +843,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> advertisingChannelSubType_ =
       java.util.Collections.emptyList();
     private void ensureAdvertisingChannelSubTypeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         advertisingChannelSubType_ = new java.util.ArrayList<java.lang.Integer>(advertisingChannelSubType_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -986,7 +949,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAdvertisingChannelSubType() {
       advertisingChannelSubType_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1079,7 +1042,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIncludeDefaultChannelSubType() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1109,8 +1072,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIncludeDefaultChannelSubType(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       includeDefaultChannelSubType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1126,7 +1090,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeDefaultChannelSubType() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       includeDefaultChannelSubType_ = false;
       onChanged();
       return this;
@@ -1164,7 +1128,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CriterionCategoryChannelAvailability(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

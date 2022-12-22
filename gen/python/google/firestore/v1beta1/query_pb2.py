@@ -13,10 +13,9 @@ _sym_db = _symbol_database.Default()
 
 from google.firestore.v1beta1 import document_pb2 as google_dot_firestore_dot_v1beta1_dot_document__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/firestore/v1beta1/query.proto\x12\x18google.firestore.v1beta1\x1a\'google/firestore/v1beta1/document.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1cgoogle/api/annotations.proto\"\x95\x10\n\x0fStructuredQuery\x12\x44\n\x06select\x18\x01 \x01(\x0b\x32\x34.google.firestore.v1beta1.StructuredQuery.Projection\x12J\n\x04\x66rom\x18\x02 \x03(\x0b\x32<.google.firestore.v1beta1.StructuredQuery.CollectionSelector\x12?\n\x05where\x18\x03 \x01(\x0b\x32\x30.google.firestore.v1beta1.StructuredQuery.Filter\x12\x41\n\x08order_by\x18\x04 \x03(\x0b\x32/.google.firestore.v1beta1.StructuredQuery.Order\x12\x32\n\x08start_at\x18\x07 \x01(\x0b\x32 .google.firestore.v1beta1.Cursor\x12\x30\n\x06\x65nd_at\x18\x08 \x01(\x0b\x32 .google.firestore.v1beta1.Cursor\x12\x0e\n\x06offset\x18\x06 \x01(\x05\x12*\n\x05limit\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x1a\x44\n\x12\x43ollectionSelector\x12\x15\n\rcollection_id\x18\x02 \x01(\t\x12\x17\n\x0f\x61ll_descendants\x18\x03 \x01(\x08\x1a\x8c\x02\n\x06\x46ilter\x12U\n\x10\x63omposite_filter\x18\x01 \x01(\x0b\x32\x39.google.firestore.v1beta1.StructuredQuery.CompositeFilterH\x00\x12M\n\x0c\x66ield_filter\x18\x02 \x01(\x0b\x32\x35.google.firestore.v1beta1.StructuredQuery.FieldFilterH\x00\x12M\n\x0cunary_filter\x18\x03 \x01(\x0b\x32\x35.google.firestore.v1beta1.StructuredQuery.UnaryFilterH\x00\x42\r\n\x0b\x66ilter_type\x1a\xd3\x01\n\x0f\x43ompositeFilter\x12N\n\x02op\x18\x01 \x01(\x0e\x32\x42.google.firestore.v1beta1.StructuredQuery.CompositeFilter.Operator\x12\x41\n\x07\x66ilters\x18\x02 \x03(\x0b\x32\x30.google.firestore.v1beta1.StructuredQuery.Filter\"-\n\x08Operator\x12\x18\n\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x07\n\x03\x41ND\x10\x01\x1a\xa7\x03\n\x0b\x46ieldFilter\x12G\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReference\x12J\n\x02op\x18\x02 \x01(\x0e\x32>.google.firestore.v1beta1.StructuredQuery.FieldFilter.Operator\x12.\n\x05value\x18\x03 \x01(\x0b\x32\x1f.google.firestore.v1beta1.Value\"\xd2\x01\n\x08Operator\x12\x18\n\x14OPERATOR_UNSPECIFIED\x10\x00\x12\r\n\tLESS_THAN\x10\x01\x12\x16\n\x12LESS_THAN_OR_EQUAL\x10\x02\x12\x10\n\x0cGREATER_THAN\x10\x03\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x04\x12\t\n\x05\x45QUAL\x10\x05\x12\r\n\tNOT_EQUAL\x10\x06\x12\x12\n\x0e\x41RRAY_CONTAINS\x10\x07\x12\x06\n\x02IN\x10\x08\x12\x16\n\x12\x41RRAY_CONTAINS_ANY\x10\t\x12\n\n\x06NOT_IN\x10\n\x1a\x94\x02\n\x0bUnaryFilter\x12J\n\x02op\x18\x01 \x01(\x0e\x32>.google.firestore.v1beta1.StructuredQuery.UnaryFilter.Operator\x12I\n\x05\x66ield\x18\x02 \x01(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReferenceH\x00\"^\n\x08Operator\x12\x18\n\x14OPERATOR_UNSPECIFIED\x10\x00\x12\n\n\x06IS_NAN\x10\x02\x12\x0b\n\x07IS_NULL\x10\x03\x12\x0e\n\nIS_NOT_NAN\x10\x04\x12\x0f\n\x0bIS_NOT_NULL\x10\x05\x42\x0e\n\x0coperand_type\x1a$\n\x0e\x46ieldReference\x12\x12\n\nfield_path\x18\x02 \x01(\t\x1a\x98\x01\n\x05Order\x12G\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReference\x12\x46\n\tdirection\x18\x02 \x01(\x0e\x32\x33.google.firestore.v1beta1.StructuredQuery.Direction\x1aV\n\nProjection\x12H\n\x06\x66ields\x18\x02 \x03(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReference\"E\n\tDirection\x12\x19\n\x15\x44IRECTION_UNSPECIFIED\x10\x00\x12\r\n\tASCENDING\x10\x01\x12\x0e\n\nDESCENDING\x10\x02\"I\n\x06\x43ursor\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.google.firestore.v1beta1.Value\x12\x0e\n\x06\x62\x65\x66ore\x18\x02 \x01(\x08\x42\xdc\x01\n\x1c\x63om.google.firestore.v1beta1B\nQueryProtoP\x01ZAgoogle.golang.org/genproto/googleapis/firestore/v1beta1;firestore\xa2\x02\x04GCFS\xaa\x02\x1eGoogle.Cloud.Firestore.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Firestore\\V1beta1\xea\x02!Google::Cloud::Firestore::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/firestore/v1beta1/query.proto\x12\x18google.firestore.v1beta1\x1a\'google/firestore/v1beta1/document.proto\x1a\x1egoogle/protobuf/wrappers.proto\"\x95\x10\n\x0fStructuredQuery\x12\x44\n\x06select\x18\x01 \x01(\x0b\x32\x34.google.firestore.v1beta1.StructuredQuery.Projection\x12J\n\x04\x66rom\x18\x02 \x03(\x0b\x32<.google.firestore.v1beta1.StructuredQuery.CollectionSelector\x12?\n\x05where\x18\x03 \x01(\x0b\x32\x30.google.firestore.v1beta1.StructuredQuery.Filter\x12\x41\n\x08order_by\x18\x04 \x03(\x0b\x32/.google.firestore.v1beta1.StructuredQuery.Order\x12\x32\n\x08start_at\x18\x07 \x01(\x0b\x32 .google.firestore.v1beta1.Cursor\x12\x30\n\x06\x65nd_at\x18\x08 \x01(\x0b\x32 .google.firestore.v1beta1.Cursor\x12\x0e\n\x06offset\x18\x06 \x01(\x05\x12*\n\x05limit\x18\x05 \x01(\x0b\x32\x1b.google.protobuf.Int32Value\x1a\x44\n\x12\x43ollectionSelector\x12\x15\n\rcollection_id\x18\x02 \x01(\t\x12\x17\n\x0f\x61ll_descendants\x18\x03 \x01(\x08\x1a\x8c\x02\n\x06\x46ilter\x12U\n\x10\x63omposite_filter\x18\x01 \x01(\x0b\x32\x39.google.firestore.v1beta1.StructuredQuery.CompositeFilterH\x00\x12M\n\x0c\x66ield_filter\x18\x02 \x01(\x0b\x32\x35.google.firestore.v1beta1.StructuredQuery.FieldFilterH\x00\x12M\n\x0cunary_filter\x18\x03 \x01(\x0b\x32\x35.google.firestore.v1beta1.StructuredQuery.UnaryFilterH\x00\x42\r\n\x0b\x66ilter_type\x1a\xd3\x01\n\x0f\x43ompositeFilter\x12N\n\x02op\x18\x01 \x01(\x0e\x32\x42.google.firestore.v1beta1.StructuredQuery.CompositeFilter.Operator\x12\x41\n\x07\x66ilters\x18\x02 \x03(\x0b\x32\x30.google.firestore.v1beta1.StructuredQuery.Filter\"-\n\x08Operator\x12\x18\n\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x07\n\x03\x41ND\x10\x01\x1a\xa7\x03\n\x0b\x46ieldFilter\x12G\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReference\x12J\n\x02op\x18\x02 \x01(\x0e\x32>.google.firestore.v1beta1.StructuredQuery.FieldFilter.Operator\x12.\n\x05value\x18\x03 \x01(\x0b\x32\x1f.google.firestore.v1beta1.Value\"\xd2\x01\n\x08Operator\x12\x18\n\x14OPERATOR_UNSPECIFIED\x10\x00\x12\r\n\tLESS_THAN\x10\x01\x12\x16\n\x12LESS_THAN_OR_EQUAL\x10\x02\x12\x10\n\x0cGREATER_THAN\x10\x03\x12\x19\n\x15GREATER_THAN_OR_EQUAL\x10\x04\x12\t\n\x05\x45QUAL\x10\x05\x12\r\n\tNOT_EQUAL\x10\x06\x12\x12\n\x0e\x41RRAY_CONTAINS\x10\x07\x12\x06\n\x02IN\x10\x08\x12\x16\n\x12\x41RRAY_CONTAINS_ANY\x10\t\x12\n\n\x06NOT_IN\x10\n\x1a\x94\x02\n\x0bUnaryFilter\x12J\n\x02op\x18\x01 \x01(\x0e\x32>.google.firestore.v1beta1.StructuredQuery.UnaryFilter.Operator\x12I\n\x05\x66ield\x18\x02 \x01(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReferenceH\x00\"^\n\x08Operator\x12\x18\n\x14OPERATOR_UNSPECIFIED\x10\x00\x12\n\n\x06IS_NAN\x10\x02\x12\x0b\n\x07IS_NULL\x10\x03\x12\x0e\n\nIS_NOT_NAN\x10\x04\x12\x0f\n\x0bIS_NOT_NULL\x10\x05\x42\x0e\n\x0coperand_type\x1a$\n\x0e\x46ieldReference\x12\x12\n\nfield_path\x18\x02 \x01(\t\x1a\x98\x01\n\x05Order\x12G\n\x05\x66ield\x18\x01 \x01(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReference\x12\x46\n\tdirection\x18\x02 \x01(\x0e\x32\x33.google.firestore.v1beta1.StructuredQuery.Direction\x1aV\n\nProjection\x12H\n\x06\x66ields\x18\x02 \x03(\x0b\x32\x38.google.firestore.v1beta1.StructuredQuery.FieldReference\"E\n\tDirection\x12\x19\n\x15\x44IRECTION_UNSPECIFIED\x10\x00\x12\r\n\tASCENDING\x10\x01\x12\x0e\n\nDESCENDING\x10\x02\"I\n\x06\x43ursor\x12/\n\x06values\x18\x01 \x03(\x0b\x32\x1f.google.firestore.v1beta1.Value\x12\x0e\n\x06\x62\x65\x66ore\x18\x02 \x01(\x08\x42\xdc\x01\n\x1c\x63om.google.firestore.v1beta1B\nQueryProtoP\x01ZAgoogle.golang.org/genproto/googleapis/firestore/v1beta1;firestore\xa2\x02\x04GCFS\xaa\x02\x1eGoogle.Cloud.Firestore.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Firestore\\V1beta1\xea\x02!Google::Cloud::Firestore::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.firestore.v1beta1.query_pb2', globals())
@@ -24,32 +23,32 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\034com.google.firestore.v1beta1B\nQueryProtoP\001ZAgoogle.golang.org/genproto/googleapis/firestore/v1beta1;firestore\242\002\004GCFS\252\002\036Google.Cloud.Firestore.V1Beta1\312\002\036Google\\Cloud\\Firestore\\V1beta1\352\002!Google::Cloud::Firestore::V1beta1'
-  _STRUCTUREDQUERY._serialized_start=170
-  _STRUCTUREDQUERY._serialized_end=2239
-  _STRUCTUREDQUERY_COLLECTIONSELECTOR._serialized_start=629
-  _STRUCTUREDQUERY_COLLECTIONSELECTOR._serialized_end=697
-  _STRUCTUREDQUERY_FILTER._serialized_start=700
-  _STRUCTUREDQUERY_FILTER._serialized_end=968
-  _STRUCTUREDQUERY_COMPOSITEFILTER._serialized_start=971
-  _STRUCTUREDQUERY_COMPOSITEFILTER._serialized_end=1182
-  _STRUCTUREDQUERY_COMPOSITEFILTER_OPERATOR._serialized_start=1137
-  _STRUCTUREDQUERY_COMPOSITEFILTER_OPERATOR._serialized_end=1182
-  _STRUCTUREDQUERY_FIELDFILTER._serialized_start=1185
-  _STRUCTUREDQUERY_FIELDFILTER._serialized_end=1608
-  _STRUCTUREDQUERY_FIELDFILTER_OPERATOR._serialized_start=1398
-  _STRUCTUREDQUERY_FIELDFILTER_OPERATOR._serialized_end=1608
-  _STRUCTUREDQUERY_UNARYFILTER._serialized_start=1611
-  _STRUCTUREDQUERY_UNARYFILTER._serialized_end=1887
-  _STRUCTUREDQUERY_UNARYFILTER_OPERATOR._serialized_start=1777
-  _STRUCTUREDQUERY_UNARYFILTER_OPERATOR._serialized_end=1871
-  _STRUCTUREDQUERY_FIELDREFERENCE._serialized_start=1889
-  _STRUCTUREDQUERY_FIELDREFERENCE._serialized_end=1925
-  _STRUCTUREDQUERY_ORDER._serialized_start=1928
-  _STRUCTUREDQUERY_ORDER._serialized_end=2080
-  _STRUCTUREDQUERY_PROJECTION._serialized_start=2082
-  _STRUCTUREDQUERY_PROJECTION._serialized_end=2168
-  _STRUCTUREDQUERY_DIRECTION._serialized_start=2170
-  _STRUCTUREDQUERY_DIRECTION._serialized_end=2239
-  _CURSOR._serialized_start=2241
-  _CURSOR._serialized_end=2314
+  _STRUCTUREDQUERY._serialized_start=140
+  _STRUCTUREDQUERY._serialized_end=2209
+  _STRUCTUREDQUERY_COLLECTIONSELECTOR._serialized_start=599
+  _STRUCTUREDQUERY_COLLECTIONSELECTOR._serialized_end=667
+  _STRUCTUREDQUERY_FILTER._serialized_start=670
+  _STRUCTUREDQUERY_FILTER._serialized_end=938
+  _STRUCTUREDQUERY_COMPOSITEFILTER._serialized_start=941
+  _STRUCTUREDQUERY_COMPOSITEFILTER._serialized_end=1152
+  _STRUCTUREDQUERY_COMPOSITEFILTER_OPERATOR._serialized_start=1107
+  _STRUCTUREDQUERY_COMPOSITEFILTER_OPERATOR._serialized_end=1152
+  _STRUCTUREDQUERY_FIELDFILTER._serialized_start=1155
+  _STRUCTUREDQUERY_FIELDFILTER._serialized_end=1578
+  _STRUCTUREDQUERY_FIELDFILTER_OPERATOR._serialized_start=1368
+  _STRUCTUREDQUERY_FIELDFILTER_OPERATOR._serialized_end=1578
+  _STRUCTUREDQUERY_UNARYFILTER._serialized_start=1581
+  _STRUCTUREDQUERY_UNARYFILTER._serialized_end=1857
+  _STRUCTUREDQUERY_UNARYFILTER_OPERATOR._serialized_start=1747
+  _STRUCTUREDQUERY_UNARYFILTER_OPERATOR._serialized_end=1841
+  _STRUCTUREDQUERY_FIELDREFERENCE._serialized_start=1859
+  _STRUCTUREDQUERY_FIELDREFERENCE._serialized_end=1895
+  _STRUCTUREDQUERY_ORDER._serialized_start=1898
+  _STRUCTUREDQUERY_ORDER._serialized_end=2050
+  _STRUCTUREDQUERY_PROJECTION._serialized_start=2052
+  _STRUCTUREDQUERY_PROJECTION._serialized_end=2138
+  _STRUCTUREDQUERY_DIRECTION._serialized_start=2140
+  _STRUCTUREDQUERY_DIRECTION._serialized_end=2209
+  _CURSOR._serialized_start=2211
+  _CURSOR._serialized_end=2284
 # @@protoc_insertion_point(module_scope)

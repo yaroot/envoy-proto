@@ -39,109 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Contact(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            email_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              notificationCategorySubscriptions_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            notificationCategorySubscriptions_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                notificationCategorySubscriptions_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              notificationCategorySubscriptions_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageTag_ = s;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            validationState_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (validateTime_ != null) {
-              subBuilder = validateTime_.toBuilder();
-            }
-            validateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(validateTime_);
-              validateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        notificationCategorySubscriptions_ = java.util.Collections.unmodifiableList(notificationCategorySubscriptions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.essentialcontacts.v1.Service.internal_static_google_cloud_essentialcontacts_v1_Contact_descriptor;
@@ -156,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The identifier for the contact.
@@ -204,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMAIL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object email_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object email_ = "";
   /**
    * <pre>
    * Required. The email address to send notifications to. This does not need to
@@ -252,14 +151,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOTIFICATION_CATEGORY_SUBSCRIPTIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> notificationCategorySubscriptions_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.essentialcontacts.v1.NotificationCategory> notificationCategorySubscriptions_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.essentialcontacts.v1.NotificationCategory>() {
             public com.google.cloud.essentialcontacts.v1.NotificationCategory convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.essentialcontacts.v1.NotificationCategory result = com.google.cloud.essentialcontacts.v1.NotificationCategory.valueOf(from);
+              com.google.cloud.essentialcontacts.v1.NotificationCategory result = com.google.cloud.essentialcontacts.v1.NotificationCategory.forNumber(from);
               return result == null ? com.google.cloud.essentialcontacts.v1.NotificationCategory.UNRECOGNIZED : result;
             }
           };
@@ -335,7 +234,8 @@ private static final long serialVersionUID = 0L;
   private int notificationCategorySubscriptionsMemoizedSerializedSize;
 
   public static final int LANGUAGE_TAG_FIELD_NUMBER = 4;
-  private volatile java.lang.Object languageTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageTag_ = "";
   /**
    * <pre>
    * The preferred language for notifications, as a ISO 639-1 language code. See
@@ -387,7 +287,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATION_STATE_FIELD_NUMBER = 8;
-  private int validationState_;
+  private int validationState_ = 0;
   /**
    * <pre>
    * The validity of the contact. A contact is considered valid if it is the
@@ -410,8 +310,7 @@ private static final long serialVersionUID = 0L;
    * @return The validationState.
    */
   @java.lang.Override public com.google.cloud.essentialcontacts.v1.ValidationState getValidationState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.essentialcontacts.v1.ValidationState result = com.google.cloud.essentialcontacts.v1.ValidationState.valueOf(validationState_);
+    com.google.cloud.essentialcontacts.v1.ValidationState result = com.google.cloud.essentialcontacts.v1.ValidationState.forNumber(validationState_);
     return result == null ? com.google.cloud.essentialcontacts.v1.ValidationState.UNRECOGNIZED : result;
   }
 
@@ -456,7 +355,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getValidateTimeOrBuilder() {
-    return getValidateTime();
+    return validateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : validateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -496,7 +395,7 @@ private static final long serialVersionUID = 0L;
     if (validateTime_ != null) {
       output.writeMessage(9, getValidateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -534,7 +433,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getValidateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -562,7 +461,7 @@ private static final long serialVersionUID = 0L;
       if (!getValidateTime()
           .equals(other.getValidateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -589,7 +488,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VALIDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getValidateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -710,36 +609,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.essentialcontacts.v1.Contact.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       email_ = "";
-
       notificationCategorySubscriptions_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       languageTag_ = "";
-
       validationState_ = 0;
-
-      if (validateTimeBuilder_ == null) {
-        validateTime_ = null;
-      } else {
-        validateTime_ = null;
+      validateTime_ = null;
+      if (validateTimeBuilder_ != null) {
+        validateTimeBuilder_.dispose();
         validateTimeBuilder_ = null;
       }
       return this;
@@ -768,23 +658,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.essentialcontacts.v1.Contact buildPartial() {
       com.google.cloud.essentialcontacts.v1.Contact result = new com.google.cloud.essentialcontacts.v1.Contact(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.email_ = email_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        notificationCategorySubscriptions_ = java.util.Collections.unmodifiableList(notificationCategorySubscriptions_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.notificationCategorySubscriptions_ = notificationCategorySubscriptions_;
-      result.languageTag_ = languageTag_;
-      result.validationState_ = validationState_;
-      if (validateTimeBuilder_ == null) {
-        result.validateTime_ = validateTime_;
-      } else {
-        result.validateTime_ = validateTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.essentialcontacts.v1.Contact result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        notificationCategorySubscriptions_ = java.util.Collections.unmodifiableList(notificationCategorySubscriptions_);
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.notificationCategorySubscriptions_ = notificationCategorySubscriptions_;
+    }
+
+    private void buildPartial0(com.google.cloud.essentialcontacts.v1.Contact result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.email_ = email_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.languageTag_ = languageTag_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.validationState_ = validationState_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.validateTime_ = validateTimeBuilder_ == null
+            ? validateTime_
+            : validateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -833,16 +739,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.essentialcontacts.v1.Contact.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getEmail().isEmpty()) {
         email_ = other.email_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.notificationCategorySubscriptions_.isEmpty()) {
         if (notificationCategorySubscriptions_.isEmpty()) {
           notificationCategorySubscriptions_ = other.notificationCategorySubscriptions_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureNotificationCategorySubscriptionsIsMutable();
           notificationCategorySubscriptions_.addAll(other.notificationCategorySubscriptions_);
@@ -851,6 +759,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageTag().isEmpty()) {
         languageTag_ = other.languageTag_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.validationState_ != 0) {
@@ -859,7 +768,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasValidateTime()) {
         mergeValidateTime(other.getValidateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -874,17 +783,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.essentialcontacts.v1.Contact parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              email_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureNotificationCategorySubscriptionsIsMutable();
+              notificationCategorySubscriptions_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureNotificationCategorySubscriptionsIsMutable();
+                notificationCategorySubscriptions_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 34: {
+              languageTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 64: {
+              validationState_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getValidateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.essentialcontacts.v1.Contact) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -945,11 +911,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -963,8 +927,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -980,12 +944,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1046,11 +1008,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       email_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1064,8 +1024,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmail() {
-      
       email_ = getDefaultInstance().getEmail();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1081,12 +1041,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       email_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1094,9 +1052,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> notificationCategorySubscriptions_ =
       java.util.Collections.emptyList();
     private void ensureNotificationCategorySubscriptionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         notificationCategorySubscriptions_ = new java.util.ArrayList<java.lang.Integer>(notificationCategorySubscriptions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -1207,7 +1165,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearNotificationCategorySubscriptions() {
       notificationCategorySubscriptions_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1353,11 +1311,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageTag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1373,8 +1329,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageTag() {
-      
       languageTag_ = getDefaultInstance().getLanguageTag();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1392,12 +1348,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageTag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1426,8 +1380,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setValidationStateValue(int value) {
-      
       validationState_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1442,8 +1396,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.essentialcontacts.v1.ValidationState getValidationState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.essentialcontacts.v1.ValidationState result = com.google.cloud.essentialcontacts.v1.ValidationState.valueOf(validationState_);
+      com.google.cloud.essentialcontacts.v1.ValidationState result = com.google.cloud.essentialcontacts.v1.ValidationState.forNumber(validationState_);
       return result == null ? com.google.cloud.essentialcontacts.v1.ValidationState.UNRECOGNIZED : result;
     }
     /**
@@ -1460,7 +1413,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       validationState_ = value.getNumber();
       onChanged();
       return this;
@@ -1475,7 +1428,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       validationState_ = 0;
       onChanged();
       return this;
@@ -1495,7 +1448,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the validateTime field is set.
      */
     public boolean hasValidateTime() {
-      return validateTimeBuilder_ != null || validateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1529,11 +1482,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         validateTime_ = value;
-        onChanged();
       } else {
         validateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1549,11 +1502,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (validateTimeBuilder_ == null) {
         validateTime_ = builderForValue.build();
-        onChanged();
       } else {
         validateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1567,17 +1520,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeValidateTime(com.google.protobuf.Timestamp value) {
       if (validateTimeBuilder_ == null) {
-        if (validateTime_ != null) {
-          validateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(validateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          validateTime_ != null &&
+          validateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getValidateTimeBuilder().mergeFrom(value);
         } else {
           validateTime_ = value;
         }
-        onChanged();
       } else {
         validateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1590,14 +1544,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp validate_time = 9;</code>
      */
     public Builder clearValidateTime() {
-      if (validateTimeBuilder_ == null) {
-        validateTime_ = null;
-        onChanged();
-      } else {
-        validateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      validateTime_ = null;
+      if (validateTimeBuilder_ != null) {
+        validateTimeBuilder_.dispose();
         validateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1610,7 +1563,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp validate_time = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getValidateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getValidateTimeFieldBuilder().getBuilder();
     }
@@ -1686,7 +1639,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Contact(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

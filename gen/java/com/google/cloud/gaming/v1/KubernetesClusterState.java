@@ -40,81 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KubernetesClusterState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            agonesVersionInstalled_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kubernetesVersionInstalled_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            installationState_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            versionInstalledErrorMessage_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            provider_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            agonesVersionTargeted_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gaming.v1.GameServerClusters.internal_static_google_cloud_gaming_v1_KubernetesClusterState_descriptor;
@@ -376,7 +301,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AGONES_VERSION_INSTALLED_FIELD_NUMBER = 1;
-  private volatile java.lang.Object agonesVersionInstalled_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object agonesVersionInstalled_ = "";
   /**
    * <pre>
    * Output only. The version of Agones currently installed in the registered Kubernetes
@@ -424,7 +350,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KUBERNETES_VERSION_INSTALLED_FIELD_NUMBER = 2;
-  private volatile java.lang.Object kubernetesVersionInstalled_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kubernetesVersionInstalled_ = "";
   /**
    * <pre>
    * Output only. The version of Kubernetes that is currently used in the registered
@@ -472,7 +399,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTALLATION_STATE_FIELD_NUMBER = 3;
-  private int installationState_;
+  private int installationState_ = 0;
   /**
    * <pre>
    * Output only. The state for the installed versions of Agones/Kubernetes.
@@ -493,13 +420,13 @@ private static final long serialVersionUID = 0L;
    * @return The installationState.
    */
   @java.lang.Override public com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState getInstallationState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState result = com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState.valueOf(installationState_);
+    com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState result = com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState.forNumber(installationState_);
     return result == null ? com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState.UNRECOGNIZED : result;
   }
 
   public static final int VERSION_INSTALLED_ERROR_MESSAGE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object versionInstalledErrorMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object versionInstalledErrorMessage_ = "";
   /**
    * <pre>
    * Output only. The detailed error message for the installed versions of Agones/Kubernetes.
@@ -545,7 +472,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROVIDER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object provider_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object provider_ = "";
   /**
    * <pre>
    * Output only. The cloud provider type reported by the first node's providerID in the list
@@ -595,7 +523,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AGONES_VERSION_TARGETED_FIELD_NUMBER = 6;
-  private volatile java.lang.Object agonesVersionTargeted_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object agonesVersionTargeted_ = "";
   /**
    * <pre>
    * Output only. The version of Agones that is targeted to be installed in the cluster.
@@ -672,7 +601,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agonesVersionTargeted_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, agonesVersionTargeted_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -700,7 +629,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(agonesVersionTargeted_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, agonesVersionTargeted_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -726,7 +655,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProvider())) return false;
     if (!getAgonesVersionTargeted()
         .equals(other.getAgonesVersionTargeted())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -749,7 +678,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getProvider().hashCode();
     hash = (37 * hash) + AGONES_VERSION_TARGETED_FIELD_NUMBER;
     hash = (53 * hash) + getAgonesVersionTargeted().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -870,34 +799,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gaming.v1.KubernetesClusterState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       agonesVersionInstalled_ = "";
-
       kubernetesVersionInstalled_ = "";
-
       installationState_ = 0;
-
       versionInstalledErrorMessage_ = "";
-
       provider_ = "";
-
       agonesVersionTargeted_ = "";
-
       return this;
     }
 
@@ -924,14 +843,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gaming.v1.KubernetesClusterState buildPartial() {
       com.google.cloud.gaming.v1.KubernetesClusterState result = new com.google.cloud.gaming.v1.KubernetesClusterState(this);
-      result.agonesVersionInstalled_ = agonesVersionInstalled_;
-      result.kubernetesVersionInstalled_ = kubernetesVersionInstalled_;
-      result.installationState_ = installationState_;
-      result.versionInstalledErrorMessage_ = versionInstalledErrorMessage_;
-      result.provider_ = provider_;
-      result.agonesVersionTargeted_ = agonesVersionTargeted_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gaming.v1.KubernetesClusterState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.agonesVersionInstalled_ = agonesVersionInstalled_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kubernetesVersionInstalled_ = kubernetesVersionInstalled_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.installationState_ = installationState_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.versionInstalledErrorMessage_ = versionInstalledErrorMessage_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.provider_ = provider_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.agonesVersionTargeted_ = agonesVersionTargeted_;
+      }
     }
 
     @java.lang.Override
@@ -980,10 +916,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gaming.v1.KubernetesClusterState.getDefaultInstance()) return this;
       if (!other.getAgonesVersionInstalled().isEmpty()) {
         agonesVersionInstalled_ = other.agonesVersionInstalled_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getKubernetesVersionInstalled().isEmpty()) {
         kubernetesVersionInstalled_ = other.kubernetesVersionInstalled_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.installationState_ != 0) {
@@ -991,17 +929,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersionInstalledErrorMessage().isEmpty()) {
         versionInstalledErrorMessage_ = other.versionInstalledErrorMessage_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getProvider().isEmpty()) {
         provider_ = other.provider_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getAgonesVersionTargeted().isEmpty()) {
         agonesVersionTargeted_ = other.agonesVersionTargeted_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1016,19 +957,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gaming.v1.KubernetesClusterState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              agonesVersionInstalled_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              kubernetesVersionInstalled_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              installationState_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              versionInstalledErrorMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              provider_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              agonesVersionTargeted_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gaming.v1.KubernetesClusterState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object agonesVersionInstalled_ = "";
     /**
@@ -1086,11 +1071,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgonesVersionInstalled(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       agonesVersionInstalled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1104,8 +1087,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAgonesVersionInstalled() {
-      
       agonesVersionInstalled_ = getDefaultInstance().getAgonesVersionInstalled();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1121,12 +1104,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgonesVersionInstalledBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       agonesVersionInstalled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1187,11 +1168,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKubernetesVersionInstalled(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kubernetesVersionInstalled_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1205,8 +1184,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKubernetesVersionInstalled() {
-      
       kubernetesVersionInstalled_ = getDefaultInstance().getKubernetesVersionInstalled();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1222,12 +1201,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKubernetesVersionInstalledBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kubernetesVersionInstalled_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1254,8 +1231,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInstallationStateValue(int value) {
-      
       installationState_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1269,8 +1246,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState getInstallationState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState result = com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState.valueOf(installationState_);
+      com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState result = com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState.forNumber(installationState_);
       return result == null ? com.google.cloud.gaming.v1.KubernetesClusterState.InstallationState.UNRECOGNIZED : result;
     }
     /**
@@ -1286,7 +1262,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       installationState_ = value.getNumber();
       onChanged();
       return this;
@@ -1300,7 +1276,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstallationState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       installationState_ = 0;
       onChanged();
       return this;
@@ -1359,11 +1335,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionInstalledErrorMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       versionInstalledErrorMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1376,8 +1350,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersionInstalledErrorMessage() {
-      
       versionInstalledErrorMessage_ = getDefaultInstance().getVersionInstalledErrorMessage();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1392,12 +1366,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionInstalledErrorMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       versionInstalledErrorMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1461,11 +1433,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProvider(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       provider_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1480,8 +1450,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProvider() {
-      
       provider_ = getDefaultInstance().getProvider();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1498,12 +1468,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProviderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       provider_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1561,11 +1529,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgonesVersionTargeted(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       agonesVersionTargeted_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1578,8 +1544,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAgonesVersionTargeted() {
-      
       agonesVersionTargeted_ = getDefaultInstance().getAgonesVersionTargeted();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1594,12 +1560,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAgonesVersionTargetedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       agonesVersionTargeted_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1636,7 +1600,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KubernetesClusterState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -131,7 +131,6 @@ public interface CheckUpgradeResponseOrBuilder extends
    *
    * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
    */
-
   /* nullable */
 java.lang.String getPypiDependenciesOrDefault(
       java.lang.String key,
@@ -145,7 +144,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
    */
-
   java.lang.String getPypiDependenciesOrThrow(
       java.lang.String key);
 }

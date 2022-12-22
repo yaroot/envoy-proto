@@ -105,7 +105,6 @@ public interface EntityOrBuilder extends
    *
    * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
    */
-
   /* nullable */
 com.google.datastore.v1beta3.Value getPropertiesOrDefault(
       java.lang.String key,
@@ -123,7 +122,6 @@ com.google.datastore.v1beta3.Value defaultValue);
    *
    * <code>map&lt;string, .google.datastore.v1beta3.Value&gt; properties = 3;</code>
    */
-
   com.google.datastore.v1beta3.Value getPropertiesOrThrow(
       java.lang.String key);
 }

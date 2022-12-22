@@ -1158,6 +1158,25 @@ public interface ClusterUpdateOrBuilder extends
 
   /**
    * <pre>
+   * Enable/Disable private endpoint for the cluster's master.
+   * </pre>
+   *
+   * <code>optional bool desired_enable_private_endpoint = 71;</code>
+   * @return Whether the desiredEnablePrivateEndpoint field is set.
+   */
+  boolean hasDesiredEnablePrivateEndpoint();
+  /**
+   * <pre>
+   * Enable/Disable private endpoint for the cluster's master.
+   * </pre>
+   *
+   * <code>optional bool desired_enable_private_endpoint = 71;</code>
+   * @return The desiredEnablePrivateEndpoint.
+   */
+  boolean getDesiredEnablePrivateEndpoint();
+
+  /**
+   * <pre>
    * The desired network tags that apply to all auto-provisioned node pools
    * in autopilot clusters and node auto-provisioning enabled clusters.
    * </pre>
@@ -1212,4 +1231,81 @@ public interface ClusterUpdateOrBuilder extends
    * <code>optional .google.container.v1beta1.ProtectConfig desired_protect_config = 112;</code>
    */
   com.google.container.v1beta1.ProtectConfigOrBuilder getDesiredProtectConfigOrBuilder();
+
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   * @return Whether the desiredGatewayApiConfig field is set.
+   */
+  boolean hasDesiredGatewayApiConfig();
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   * @return The desiredGatewayApiConfig.
+   */
+  com.google.container.v1beta1.GatewayAPIConfig getDesiredGatewayApiConfig();
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   */
+  com.google.container.v1beta1.GatewayAPIConfigOrBuilder getDesiredGatewayApiConfigOrBuilder();
+
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   * @return Whether the desiredNodePoolLoggingConfig field is set.
+   */
+  boolean hasDesiredNodePoolLoggingConfig();
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   * @return The desiredNodePoolLoggingConfig.
+   */
+  com.google.container.v1beta1.NodePoolLoggingConfig getDesiredNodePoolLoggingConfig();
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   */
+  com.google.container.v1beta1.NodePoolLoggingConfigOrBuilder getDesiredNodePoolLoggingConfigOrBuilder();
+
+  /**
+   * <pre>
+   * The desired stack type of the cluster.
+   * If a stack type is provided and does not match the current stack type of
+   * the cluster, update will attempt to change the stack type to the new type.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.StackType desired_stack_type = 119;</code>
+   * @return The enum numeric value on the wire for desiredStackType.
+   */
+  int getDesiredStackTypeValue();
+  /**
+   * <pre>
+   * The desired stack type of the cluster.
+   * If a stack type is provided and does not match the current stack type of
+   * the cluster, update will attempt to change the stack type to the new type.
+   * </pre>
+   *
+   * <code>.google.container.v1beta1.StackType desired_stack_type = 119;</code>
+   * @return The desiredStackType.
+   */
+  com.google.container.v1beta1.StackType getDesiredStackType();
 }

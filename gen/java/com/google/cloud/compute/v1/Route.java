@@ -53,188 +53,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Route(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000008;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            name_ = s;
-            break;
-          }
-          case 28418250: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00080000) != 0)) {
-              tags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00080000;
-            }
-            tags_.add(s);
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 882556234: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            nextHopIp_ = s;
-            break;
-          }
-          case 1100551434: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              asPaths_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouteAsPath>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            asPaths_.add(
-                input.readMessage(com.google.cloud.compute.v1.RouteAsPath.parser(), extensionRegistry));
-            break;
-          }
-          case 1589439210: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            nextHopIlb_ = s;
-            break;
-          }
-          case 1862979954: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            network_ = s;
-            break;
-          }
-          case 2098366306: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            nextHopNetwork_ = s;
-            break;
-          }
-          case -1287857278: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00010000;
-            routeType_ = s;
-            break;
-          }
-          case -1277564910: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            nextHopGateway_ = s;
-            break;
-          }
-          case -1244345598: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            destRange_ = s;
-            break;
-          }
-          case -1146901318: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            nextHopInstance_ = s;
-            break;
-          }
-          case -993505294: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            nextHopPeering_ = s;
-            break;
-          }
-          case -949668542: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00008000;
-            routeStatus_ = s;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            description_ = s;
-            break;
-          }
-          case -733754080: {
-            bitField0_ |= 0x00004000;
-            priority_ = input.readUInt32();
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00020000;
-            selfLink_ = s;
-            break;
-          }
-          case -310238534: {
-            if (!((mutable_bitField0_ & 0x00100000) != 0)) {
-              warnings_ = new java.util.ArrayList<com.google.cloud.compute.v1.Warnings>();
-              mutable_bitField0_ |= 0x00100000;
-            }
-            warnings_.add(
-                input.readMessage(com.google.cloud.compute.v1.Warnings.parser(), extensionRegistry));
-            break;
-          }
-          case -136211286: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00002000;
-            nextHopVpnTunnel_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00080000) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        asPaths_ = java.util.Collections.unmodifiableList(asPaths_);
-      }
-      if (((mutable_bitField0_ & 0x00100000) != 0)) {
-        warnings_ = java.util.Collections.unmodifiableList(warnings_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Route_descriptor;
@@ -576,6 +394,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AS_PATHS_FIELD_NUMBER = 137568929;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.RouteAsPath> asPaths_;
   /**
    * <pre>
@@ -636,7 +455,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -694,7 +514,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this field when you create the resource.
@@ -752,7 +573,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEST_RANGE_FIELD_NUMBER = 381327712;
-  private volatile java.lang.Object destRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destRange_ = "";
   /**
    * <pre>
    * The destination range of outgoing packets that this route applies to. Both IPv4 and IPv6 are supported.
@@ -810,7 +632,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -837,7 +659,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of this resource. Always compute#routes for Route resources.
@@ -895,7 +718,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`. The first character must be a lowercase letter, and all following characters (except for the last character) must be a dash, lowercase letter, or digit. The last character must be a lowercase letter or digit.
@@ -953,7 +777,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 232872494;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * Fully-qualified URL of the network that this route applies to.
@@ -1011,7 +836,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_GATEWAY_FIELD_NUMBER = 377175298;
-  private volatile java.lang.Object nextHopGateway_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopGateway_ = "";
   /**
    * <pre>
    * The URL to a gateway that should handle matching packets. You can only specify the internet gateway using a full or partial valid URL: projects/ project/global/gateways/default-internet-gateway
@@ -1069,7 +895,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_ILB_FIELD_NUMBER = 198679901;
-  private volatile java.lang.Object nextHopIlb_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopIlb_ = "";
   /**
    * <pre>
    * The URL to a forwarding rule of type loadBalancingScheme=INTERNAL that should handle matching packets or the IP address of the forwarding Rule. For example, the following are all valid URLs: - 10.128.0.56 - https://www.googleapis.com/compute/v1/projects/project/regions/region /forwardingRules/forwardingRule - regions/region/forwardingRules/forwardingRule 
@@ -1127,7 +954,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_INSTANCE_FIELD_NUMBER = 393508247;
-  private volatile java.lang.Object nextHopInstance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopInstance_ = "";
   /**
    * <pre>
    * The URL to an instance that should handle matching packets. You can specify this as a full or partial URL. For example: https://www.googleapis.com/compute/v1/projects/project/zones/zone/instances/
@@ -1185,7 +1013,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_IP_FIELD_NUMBER = 110319529;
-  private volatile java.lang.Object nextHopIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopIp_ = "";
   /**
    * <pre>
    * The network IP address of an instance that should handle matching packets. Only IPv4 is supported.
@@ -1243,7 +1072,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_NETWORK_FIELD_NUMBER = 262295788;
-  private volatile java.lang.Object nextHopNetwork_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopNetwork_ = "";
   /**
    * <pre>
    * The URL of the local network if it should handle matching packets.
@@ -1301,7 +1131,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_PEERING_FIELD_NUMBER = 412682750;
-  private volatile java.lang.Object nextHopPeering_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopPeering_ = "";
   /**
    * <pre>
    * [Output Only] The network peering name that should handle matching packets, which should conform to RFC1035.
@@ -1359,7 +1190,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEXT_HOP_VPN_TUNNEL_FIELD_NUMBER = 519844501;
-  private volatile java.lang.Object nextHopVpnTunnel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextHopVpnTunnel_ = "";
   /**
    * <pre>
    * The URL to a VpnTunnel that should handle matching packets.
@@ -1417,7 +1249,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 445151652;
-  private int priority_;
+  private int priority_ = 0;
   /**
    * <pre>
    * The priority of this route. Priority is used to break ties in cases where there is more than one matching route of equal prefix length. In cases where multiple routes have equal prefix length, the one with the lowest-numbered priority value wins. The default value is `1000`. The priority value must be from `0` to `65535`, inclusive.
@@ -1444,7 +1276,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTE_STATUS_FIELD_NUMBER = 418162344;
-  private volatile java.lang.Object routeStatus_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object routeStatus_ = "";
   /**
    * <pre>
    * [Output only] The status of the route.
@@ -1505,7 +1338,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTE_TYPE_FIELD_NUMBER = 375888752;
-  private volatile java.lang.Object routeType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object routeType_ = "";
   /**
    * <pre>
    * [Output Only] The type of this route, which can be one of the following values: - 'TRANSIT' for a transit route that this router learned from another Cloud Router and will readvertise to one of its BGP peers - 'SUBNET' for a route from a subnet of the VPC - 'BGP' for a route learned from a BGP peer of this router - 'STATIC' for a static route
@@ -1566,7 +1400,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined fully-qualified URL for this resource.
@@ -1624,6 +1459,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAGS_FIELD_NUMBER = 3552281;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tags_;
   /**
    * <pre>
@@ -1675,6 +1511,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WARNINGS_FIELD_NUMBER = 498091095;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.Warnings> warnings_;
   /**
    * <pre>
@@ -1811,7 +1648,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00002000) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 519844501, nextHopVpnTunnel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1892,7 +1729,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00002000) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(519844501, nextHopVpnTunnel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2003,7 +1840,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTagsList())) return false;
     if (!getWarningsList()
         .equals(other.getWarningsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2099,7 +1936,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WARNINGS_FIELD_NUMBER;
       hash = (53 * hash) + getWarningsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2220,74 +2057,52 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.Route.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAsPathsFieldBuilder();
-        getWarningsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (asPathsBuilder_ == null) {
         asPaths_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        asPaths_ = null;
         asPathsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       destRange_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000010);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       network_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       nextHopGateway_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       nextHopIlb_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       nextHopInstance_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       nextHopIp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       nextHopNetwork_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       nextHopPeering_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
       nextHopVpnTunnel_ = "";
-      bitField0_ = (bitField0_ & ~0x00004000);
       priority_ = 0;
-      bitField0_ = (bitField0_ & ~0x00008000);
       routeStatus_ = "";
-      bitField0_ = (bitField0_ & ~0x00010000);
       routeType_ = "";
-      bitField0_ = (bitField0_ & ~0x00020000);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00040000);
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00080000);
       if (warningsBuilder_ == null) {
         warnings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00100000);
       } else {
+        warnings_ = null;
         warningsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00100000);
       return this;
     }
 
@@ -2314,8 +2129,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Route buildPartial() {
       com.google.cloud.compute.v1.Route result = new com.google.cloud.compute.v1.Route(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.Route result) {
       if (asPathsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           asPaths_ = java.util.Collections.unmodifiableList(asPaths_);
@@ -2325,78 +2145,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.asPaths_ = asPathsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.description_ = description_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.destRange_ = destRange_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.kind_ = kind_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        to_bitField0_ |= 0x00000020;
-      }
-      result.name_ = name_;
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        to_bitField0_ |= 0x00000040;
-      }
-      result.network_ = network_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000080;
-      }
-      result.nextHopGateway_ = nextHopGateway_;
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        to_bitField0_ |= 0x00000100;
-      }
-      result.nextHopIlb_ = nextHopIlb_;
-      if (((from_bitField0_ & 0x00000400) != 0)) {
-        to_bitField0_ |= 0x00000200;
-      }
-      result.nextHopInstance_ = nextHopInstance_;
-      if (((from_bitField0_ & 0x00000800) != 0)) {
-        to_bitField0_ |= 0x00000400;
-      }
-      result.nextHopIp_ = nextHopIp_;
-      if (((from_bitField0_ & 0x00001000) != 0)) {
-        to_bitField0_ |= 0x00000800;
-      }
-      result.nextHopNetwork_ = nextHopNetwork_;
-      if (((from_bitField0_ & 0x00002000) != 0)) {
-        to_bitField0_ |= 0x00001000;
-      }
-      result.nextHopPeering_ = nextHopPeering_;
-      if (((from_bitField0_ & 0x00004000) != 0)) {
-        to_bitField0_ |= 0x00002000;
-      }
-      result.nextHopVpnTunnel_ = nextHopVpnTunnel_;
-      if (((from_bitField0_ & 0x00008000) != 0)) {
-        result.priority_ = priority_;
-        to_bitField0_ |= 0x00004000;
-      }
-      if (((from_bitField0_ & 0x00010000) != 0)) {
-        to_bitField0_ |= 0x00008000;
-      }
-      result.routeStatus_ = routeStatus_;
-      if (((from_bitField0_ & 0x00020000) != 0)) {
-        to_bitField0_ |= 0x00010000;
-      }
-      result.routeType_ = routeType_;
-      if (((from_bitField0_ & 0x00040000) != 0)) {
-        to_bitField0_ |= 0x00020000;
-      }
-      result.selfLink_ = selfLink_;
       if (((bitField0_ & 0x00080000) != 0)) {
         tags_ = tags_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00080000);
@@ -2411,9 +2159,84 @@ private static final long serialVersionUID = 0L;
       } else {
         result.warnings_ = warningsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Route result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.destRange_ = destRange_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.kind_ = kind_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.network_ = network_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.nextHopGateway_ = nextHopGateway_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.nextHopIlb_ = nextHopIlb_;
+        to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.nextHopInstance_ = nextHopInstance_;
+        to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.nextHopIp_ = nextHopIp_;
+        to_bitField0_ |= 0x00000400;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.nextHopNetwork_ = nextHopNetwork_;
+        to_bitField0_ |= 0x00000800;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.nextHopPeering_ = nextHopPeering_;
+        to_bitField0_ |= 0x00001000;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.nextHopVpnTunnel_ = nextHopVpnTunnel_;
+        to_bitField0_ |= 0x00002000;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.priority_ = priority_;
+        to_bitField0_ |= 0x00004000;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.routeStatus_ = routeStatus_;
+        to_bitField0_ |= 0x00008000;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.routeType_ = routeType_;
+        to_bitField0_ |= 0x00010000;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.selfLink_ = selfLink_;
+        to_bitField0_ |= 0x00020000;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2487,89 +2310,89 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000002;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000004;
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDestRange()) {
-        bitField0_ |= 0x00000008;
         destRange_ = other.destRange_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000020;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000040;
         name_ = other.name_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasNetwork()) {
-        bitField0_ |= 0x00000080;
         network_ = other.network_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasNextHopGateway()) {
-        bitField0_ |= 0x00000100;
         nextHopGateway_ = other.nextHopGateway_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasNextHopIlb()) {
-        bitField0_ |= 0x00000200;
         nextHopIlb_ = other.nextHopIlb_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasNextHopInstance()) {
-        bitField0_ |= 0x00000400;
         nextHopInstance_ = other.nextHopInstance_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasNextHopIp()) {
-        bitField0_ |= 0x00000800;
         nextHopIp_ = other.nextHopIp_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.hasNextHopNetwork()) {
-        bitField0_ |= 0x00001000;
         nextHopNetwork_ = other.nextHopNetwork_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasNextHopPeering()) {
-        bitField0_ |= 0x00002000;
         nextHopPeering_ = other.nextHopPeering_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasNextHopVpnTunnel()) {
-        bitField0_ |= 0x00004000;
         nextHopVpnTunnel_ = other.nextHopVpnTunnel_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.hasPriority()) {
         setPriority(other.getPriority());
       }
       if (other.hasRouteStatus()) {
-        bitField0_ |= 0x00010000;
         routeStatus_ = other.routeStatus_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (other.hasRouteType()) {
-        bitField0_ |= 0x00020000;
         routeType_ = other.routeType_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00040000;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00040000;
         onChanged();
       }
       if (!other.tags_.isEmpty()) {
@@ -2608,7 +2431,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2623,17 +2446,152 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Route parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26840
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 26989658
+            case 28418250: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagsIsMutable();
+              tags_.add(s);
+              break;
+            } // case 28418250
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 244202930
+            case 882556234: {
+              nextHopIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 882556234
+            case 1100551434: {
+              com.google.cloud.compute.v1.RouteAsPath m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouteAsPath.parser(),
+                      extensionRegistry);
+              if (asPathsBuilder_ == null) {
+                ensureAsPathsIsMutable();
+                asPaths_.add(m);
+              } else {
+                asPathsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 1100551434
+            case 1589439210: {
+              nextHopIlb_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1589439210
+            case 1862979954: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 1862979954
+            case 2098366306: {
+              nextHopNetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 2098366306
+            case -1287857278: {
+              routeType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case -1287857278
+            case -1277564910: {
+              nextHopGateway_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -1277564910
+            case -1244345598: {
+              destRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1244345598
+            case -1146901318: {
+              nextHopInstance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -1146901318
+            case -993505294: {
+              nextHopPeering_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case -993505294
+            case -949668542: {
+              routeStatus_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case -949668542
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -911466526
+            case -733754080: {
+              priority_ = input.readUInt32();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case -733754080
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case -645248918
+            case -310238534: {
+              com.google.cloud.compute.v1.Warnings m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.Warnings.parser(),
+                      extensionRegistry);
+              if (warningsBuilder_ == null) {
+                ensureWarningsIsMutable();
+                warnings_.add(m);
+              } else {
+                warningsBuilder_.addMessage(m);
+              }
+              break;
+            } // case -310238534
+            case -136211286: {
+              nextHopVpnTunnel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case -136211286
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Route) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3014,11 +2972,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3031,8 +2987,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3047,12 +3003,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3121,11 +3075,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3138,8 +3090,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3154,12 +3106,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3228,11 +3178,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       destRange_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3245,8 +3193,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestRange() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       destRange_ = getDefaultInstance().getDestRange();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3261,12 +3209,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destRange_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3306,8 +3252,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000010;
+      
       id_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3390,11 +3337,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3407,8 +3352,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3423,12 +3368,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3497,11 +3440,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3514,8 +3455,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3530,12 +3471,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3604,11 +3543,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3621,8 +3558,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3637,12 +3574,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3711,11 +3646,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopGateway(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       nextHopGateway_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3728,8 +3661,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopGateway() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       nextHopGateway_ = getDefaultInstance().getNextHopGateway();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3744,12 +3677,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopGatewayBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopGateway_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3818,11 +3749,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopIlb(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       nextHopIlb_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3835,8 +3764,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopIlb() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       nextHopIlb_ = getDefaultInstance().getNextHopIlb();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3851,12 +3780,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopIlbBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopIlb_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3925,11 +3852,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       nextHopInstance_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3942,8 +3867,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopInstance() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       nextHopInstance_ = getDefaultInstance().getNextHopInstance();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3958,12 +3883,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopInstance_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4032,11 +3955,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       nextHopIp_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4049,8 +3970,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopIp() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       nextHopIp_ = getDefaultInstance().getNextHopIp();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4065,12 +3986,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopIp_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4139,11 +4058,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       nextHopNetwork_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4156,8 +4073,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopNetwork() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       nextHopNetwork_ = getDefaultInstance().getNextHopNetwork();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -4172,12 +4089,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopNetwork_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4246,11 +4161,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopPeering(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       nextHopPeering_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4263,8 +4176,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopPeering() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       nextHopPeering_ = getDefaultInstance().getNextHopPeering();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -4279,12 +4192,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopPeeringBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopPeering_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4353,11 +4264,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopVpnTunnel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
       nextHopVpnTunnel_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4370,8 +4279,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNextHopVpnTunnel() {
-      bitField0_ = (bitField0_ & ~0x00004000);
       nextHopVpnTunnel_ = getDefaultInstance().getNextHopVpnTunnel();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -4386,12 +4295,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNextHopVpnTunnelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextHopVpnTunnel_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4431,8 +4338,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPriority(int value) {
-      bitField0_ |= 0x00008000;
+      
       priority_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4519,11 +4427,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouteStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00010000;
+      if (value == null) { throw new NullPointerException(); }
       routeStatus_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4537,8 +4443,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRouteStatus() {
-      bitField0_ = (bitField0_ & ~0x00010000);
       routeStatus_ = getDefaultInstance().getRouteStatus();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -4554,12 +4460,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouteStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00010000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       routeStatus_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4632,11 +4536,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouteType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
       routeType_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -4650,8 +4552,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRouteType() {
-      bitField0_ = (bitField0_ & ~0x00020000);
       routeType_ = getDefaultInstance().getRouteType();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -4667,12 +4569,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouteTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       routeType_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -4741,11 +4641,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00040000;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -4758,8 +4656,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00040000);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
@@ -4774,12 +4672,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00040000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -4851,10 +4747,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.set(index, value);
       onChanged();
       return this;
@@ -4870,10 +4764,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
       return this;
@@ -4920,10 +4812,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
@@ -5274,7 +5164,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Route(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

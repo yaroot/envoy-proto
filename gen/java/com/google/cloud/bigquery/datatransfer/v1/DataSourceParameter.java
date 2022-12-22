@@ -43,163 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataSourceParameter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            paramId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            required_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            repeated_ = input.readBool();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            validationRegex_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedValues_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            allowedValues_.add(s);
-            break;
-          }
-          case 74: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (minValue_ != null) {
-              subBuilder = minValue_.toBuilder();
-            }
-            minValue_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minValue_);
-              minValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (maxValue_ != null) {
-              subBuilder = maxValue_.toBuilder();
-            }
-            maxValue_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxValue_);
-              maxValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              fields_ = new java.util.ArrayList<com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            fields_.add(
-                input.readMessage(com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            validationDescription_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            validationHelpUrl_ = s;
-            break;
-          }
-          case 112: {
-
-            immutable_ = input.readBool();
-            break;
-          }
-          case 120: {
-
-            recurse_ = input.readBool();
-            break;
-          }
-          case 160: {
-
-            deprecated_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        allowedValues_ = allowedValues_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        fields_ = java.util.Collections.unmodifiableList(fields_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.datatransfer.v1.DataTransferProto.internal_static_google_cloud_bigquery_datatransfer_v1_DataSourceParameter_descriptor;
@@ -429,7 +272,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARAM_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object paramId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object paramId_ = "";
   /**
    * <pre>
    * Parameter identifier.
@@ -475,7 +319,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Parameter display name in the user interface.
@@ -521,7 +366,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Parameter description.
@@ -567,7 +413,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 4;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Parameter type.
@@ -588,13 +434,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type result = com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type.valueOf(type_);
+    com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type result = com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type.forNumber(type_);
     return result == null ? com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type.UNRECOGNIZED : result;
   }
 
   public static final int REQUIRED_FIELD_NUMBER = 5;
-  private boolean required_;
+  private boolean required_ = false;
   /**
    * <pre>
    * Is parameter required.
@@ -609,7 +454,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPEATED_FIELD_NUMBER = 6;
-  private boolean repeated_;
+  private boolean repeated_ = false;
   /**
    * <pre>
    * Deprecated. This field has no effect.
@@ -624,7 +469,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATION_REGEX_FIELD_NUMBER = 7;
-  private volatile java.lang.Object validationRegex_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object validationRegex_ = "";
   /**
    * <pre>
    * Regular expression which can be used for parameter validation.
@@ -670,6 +516,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_VALUES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList allowedValues_;
   /**
    * <pre>
@@ -755,14 +602,14 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getMinValueOrBuilder() {
-    return getMinValue();
+    return minValue_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : minValue_;
   }
 
   public static final int MAX_VALUE_FIELD_NUMBER = 10;
   private com.google.protobuf.DoubleValue maxValue_;
   /**
    * <pre>
-   * For integer and double values specifies maxminum allowed value.
+   * For integer and double values specifies maximum allowed value.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -774,7 +621,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * For integer and double values specifies maxminum allowed value.
+   * For integer and double values specifies maximum allowed value.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -786,17 +633,18 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * For integer and double values specifies maxminum allowed value.
+   * For integer and double values specifies maximum allowed value.
    * </pre>
    *
    * <code>.google.protobuf.DoubleValue max_value = 10;</code>
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getMaxValueOrBuilder() {
-    return getMaxValue();
+    return maxValue_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : maxValue_;
   }
 
   public static final int FIELDS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter> fields_;
   /**
    * <pre>
@@ -857,7 +705,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATION_DESCRIPTION_FIELD_NUMBER = 12;
-  private volatile java.lang.Object validationDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object validationDescription_ = "";
   /**
    * <pre>
    * Description of the requirements for this field, in case the user input does
@@ -905,7 +754,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATION_HELP_URL_FIELD_NUMBER = 13;
-  private volatile java.lang.Object validationHelpUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object validationHelpUrl_ = "";
   /**
    * <pre>
    * URL to a help document to further explain the naming requirements.
@@ -951,7 +801,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMMUTABLE_FIELD_NUMBER = 14;
-  private boolean immutable_;
+  private boolean immutable_ = false;
   /**
    * <pre>
    * Cannot be changed after initial creation.
@@ -966,7 +816,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECURSE_FIELD_NUMBER = 15;
-  private boolean recurse_;
+  private boolean recurse_ = false;
   /**
    * <pre>
    * Deprecated. This field has no effect.
@@ -981,7 +831,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEPRECATED_FIELD_NUMBER = 20;
-  private boolean deprecated_;
+  private boolean deprecated_ = false;
   /**
    * <pre>
    * If true, it should not be used in new transfers, and it should not be
@@ -1058,7 +908,7 @@ private static final long serialVersionUID = 0L;
     if (deprecated_ != false) {
       output.writeBool(20, deprecated_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1129,7 +979,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(20, deprecated_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1181,7 +1031,7 @@ private static final long serialVersionUID = 0L;
         != other.getRecurse()) return false;
     if (getDeprecated()
         != other.getDeprecated()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1237,7 +1087,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DEPRECATED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getDeprecated());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1358,67 +1208,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFieldsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       paramId_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       type_ = 0;
-
       required_ = false;
-
       repeated_ = false;
-
       validationRegex_ = "";
-
       allowedValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (minValueBuilder_ == null) {
-        minValue_ = null;
-      } else {
-        minValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      minValue_ = null;
+      if (minValueBuilder_ != null) {
+        minValueBuilder_.dispose();
         minValueBuilder_ = null;
       }
-      if (maxValueBuilder_ == null) {
-        maxValue_ = null;
-      } else {
-        maxValue_ = null;
+      maxValue_ = null;
+      if (maxValueBuilder_ != null) {
+        maxValueBuilder_.dispose();
         maxValueBuilder_ = null;
       }
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        fields_ = null;
         fieldsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       validationDescription_ = "";
-
       validationHelpUrl_ = "";
-
       immutable_ = false;
-
       recurse_ = false;
-
       deprecated_ = false;
-
       return this;
     }
 
@@ -1445,45 +1277,77 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter buildPartial() {
       com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter result = new com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter(this);
-      int from_bitField0_ = bitField0_;
-      result.paramId_ = paramId_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.type_ = type_;
-      result.required_ = required_;
-      result.repeated_ = repeated_;
-      result.validationRegex_ = validationRegex_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         allowedValues_ = allowedValues_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.allowedValues_ = allowedValues_;
-      if (minValueBuilder_ == null) {
-        result.minValue_ = minValue_;
-      } else {
-        result.minValue_ = minValueBuilder_.build();
-      }
-      if (maxValueBuilder_ == null) {
-        result.maxValue_ = maxValue_;
-      } else {
-        result.maxValue_ = maxValueBuilder_.build();
-      }
       if (fieldsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           fields_ = java.util.Collections.unmodifiableList(fields_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.fields_ = fields_;
       } else {
         result.fields_ = fieldsBuilder_.build();
       }
-      result.validationDescription_ = validationDescription_;
-      result.validationHelpUrl_ = validationHelpUrl_;
-      result.immutable_ = immutable_;
-      result.recurse_ = recurse_;
-      result.deprecated_ = deprecated_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.paramId_ = paramId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.required_ = required_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.repeated_ = repeated_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.validationRegex_ = validationRegex_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.minValue_ = minValueBuilder_ == null
+            ? minValue_
+            : minValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.maxValue_ = maxValueBuilder_ == null
+            ? maxValue_
+            : maxValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.validationDescription_ = validationDescription_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.validationHelpUrl_ = validationHelpUrl_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.immutable_ = immutable_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.recurse_ = recurse_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.deprecated_ = deprecated_;
+      }
     }
 
     @java.lang.Override
@@ -1532,14 +1396,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.getDefaultInstance()) return this;
       if (!other.getParamId().isEmpty()) {
         paramId_ = other.paramId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -1553,12 +1420,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getValidationRegex().isEmpty()) {
         validationRegex_ = other.validationRegex_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.allowedValues_.isEmpty()) {
         if (allowedValues_.isEmpty()) {
           allowedValues_ = other.allowedValues_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureAllowedValuesIsMutable();
           allowedValues_.addAll(other.allowedValues_);
@@ -1575,7 +1443,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fields_.isEmpty()) {
           if (fields_.isEmpty()) {
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureFieldsIsMutable();
             fields_.addAll(other.fields_);
@@ -1588,7 +1456,7 @@ private static final long serialVersionUID = 0L;
             fieldsBuilder_.dispose();
             fieldsBuilder_ = null;
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000400);
             fieldsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFieldsFieldBuilder() : null;
@@ -1599,10 +1467,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getValidationDescription().isEmpty()) {
         validationDescription_ = other.validationDescription_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.getValidationHelpUrl().isEmpty()) {
         validationHelpUrl_ = other.validationHelpUrl_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.getImmutable() != false) {
@@ -1614,7 +1484,7 @@ private static final long serialVersionUID = 0L;
       if (other.getDeprecated() != false) {
         setDeprecated(other.getDeprecated());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1629,17 +1499,123 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              paramId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              required_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              repeated_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              validationRegex_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAllowedValuesIsMutable();
+              allowedValues_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getMinValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getMaxValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter m =
+                  input.readMessage(
+                      com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.parser(),
+                      extensionRegistry);
+              if (fieldsBuilder_ == null) {
+                ensureFieldsIsMutable();
+                fields_.add(m);
+              } else {
+                fieldsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              validationDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              validationHelpUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 112: {
+              immutable_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              recurse_ = input.readBool();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 160: {
+              deprecated_ = input.readBool();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 160
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1697,11 +1673,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParamId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       paramId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1714,8 +1688,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParamId() {
-      
       paramId_ = getDefaultInstance().getParamId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1730,12 +1704,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParamIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       paramId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1793,11 +1765,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1810,8 +1780,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1826,12 +1796,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1889,11 +1857,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1906,8 +1872,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1922,12 +1888,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1954,8 +1918,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1969,8 +1933,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type result = com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type.valueOf(type_);
+      com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type result = com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type.forNumber(type_);
       return result == null ? com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Type.UNRECOGNIZED : result;
     }
     /**
@@ -1986,7 +1949,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -2000,7 +1963,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       type_ = 0;
       onChanged();
       return this;
@@ -2031,6 +1994,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequired(boolean value) {
       
       required_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2043,7 +2007,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequired() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       required_ = false;
       onChanged();
       return this;
@@ -2074,6 +2038,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRepeated(boolean value) {
       
       repeated_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2086,7 +2051,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRepeated() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       repeated_ = false;
       onChanged();
       return this;
@@ -2145,11 +2110,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationRegex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       validationRegex_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2162,8 +2125,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationRegex() {
-      
       validationRegex_ = getDefaultInstance().getValidationRegex();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2178,21 +2141,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationRegexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       validationRegex_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList allowedValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAllowedValuesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         allowedValues_ = new com.google.protobuf.LazyStringArrayList(allowedValues_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -2255,10 +2216,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAllowedValues(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAllowedValuesIsMutable();
       allowedValues_.set(index, value);
       onChanged();
       return this;
@@ -2274,10 +2233,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAllowedValues(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAllowedValuesIsMutable();
       allowedValues_.add(value);
       onChanged();
       return this;
@@ -2309,7 +2266,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAllowedValues() {
       allowedValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2324,10 +2281,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAllowedValuesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAllowedValuesIsMutable();
       allowedValues_.add(value);
       onChanged();
@@ -2346,7 +2301,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minValue field is set.
      */
     public boolean hasMinValue() {
-      return minValueBuilder_ != null || minValue_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2376,11 +2331,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minValue_ = value;
-        onChanged();
       } else {
         minValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2394,11 +2349,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (minValueBuilder_ == null) {
         minValue_ = builderForValue.build();
-        onChanged();
       } else {
         minValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2410,17 +2365,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinValue(com.google.protobuf.DoubleValue value) {
       if (minValueBuilder_ == null) {
-        if (minValue_ != null) {
-          minValue_ =
-            com.google.protobuf.DoubleValue.newBuilder(minValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          minValue_ != null &&
+          minValue_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getMinValueBuilder().mergeFrom(value);
         } else {
           minValue_ = value;
         }
-        onChanged();
       } else {
         minValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2431,14 +2387,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue min_value = 9;</code>
      */
     public Builder clearMinValue() {
-      if (minValueBuilder_ == null) {
-        minValue_ = null;
-        onChanged();
-      } else {
-        minValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      minValue_ = null;
+      if (minValueBuilder_ != null) {
+        minValueBuilder_.dispose();
         minValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2449,7 +2404,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue min_value = 9;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getMinValueBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getMinValueFieldBuilder().getBuilder();
     }
@@ -2494,18 +2449,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> maxValueBuilder_;
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
      * @return Whether the maxValue field is set.
      */
     public boolean hasMaxValue() {
-      return maxValueBuilder_ != null || maxValue_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -2520,7 +2475,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -2531,16 +2486,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxValue_ = value;
-        onChanged();
       } else {
         maxValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -2549,68 +2504,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (maxValueBuilder_ == null) {
         maxValue_ = builderForValue.build();
-        onChanged();
       } else {
         maxValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
      */
     public Builder mergeMaxValue(com.google.protobuf.DoubleValue value) {
       if (maxValueBuilder_ == null) {
-        if (maxValue_ != null) {
-          maxValue_ =
-            com.google.protobuf.DoubleValue.newBuilder(maxValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          maxValue_ != null &&
+          maxValue_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getMaxValueBuilder().mergeFrom(value);
         } else {
           maxValue_ = value;
         }
-        onChanged();
       } else {
         maxValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
      */
     public Builder clearMaxValue() {
-      if (maxValueBuilder_ == null) {
-        maxValue_ = null;
-        onChanged();
-      } else {
-        maxValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      maxValue_ = null;
+      if (maxValueBuilder_ != null) {
+        maxValueBuilder_.dispose();
         maxValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getMaxValueBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getMaxValueFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -2625,7 +2580,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * For integer and double values specifies maxminum allowed value.
+     * For integer and double values specifies maximum allowed value.
      * </pre>
      *
      * <code>.google.protobuf.DoubleValue max_value = 10;</code>
@@ -2647,9 +2602,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter> fields_ =
       java.util.Collections.emptyList();
     private void ensureFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         fields_ = new java.util.ArrayList<com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter>(fields_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -2843,7 +2798,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFields() {
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         fieldsBuilder_.clear();
@@ -2948,7 +2903,7 @@ private static final long serialVersionUID = 0L;
         fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter, com.google.cloud.bigquery.datatransfer.v1.DataSourceParameter.Builder, com.google.cloud.bigquery.datatransfer.v1.DataSourceParameterOrBuilder>(
                 fields_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         fields_ = null;
@@ -3012,11 +2967,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       validationDescription_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3030,8 +2983,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationDescription() {
-      
       validationDescription_ = getDefaultInstance().getValidationDescription();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3047,12 +3000,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       validationDescription_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3110,11 +3061,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationHelpUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       validationHelpUrl_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3127,8 +3076,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationHelpUrl() {
-      
       validationHelpUrl_ = getDefaultInstance().getValidationHelpUrl();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3143,12 +3092,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationHelpUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       validationHelpUrl_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3178,6 +3125,7 @@ private static final long serialVersionUID = 0L;
     public Builder setImmutable(boolean value) {
       
       immutable_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3190,7 +3138,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImmutable() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       immutable_ = false;
       onChanged();
       return this;
@@ -3221,6 +3169,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRecurse(boolean value) {
       
       recurse_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3233,7 +3182,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecurse() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       recurse_ = false;
       onChanged();
       return this;
@@ -3266,6 +3215,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDeprecated(boolean value) {
       
       deprecated_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -3279,7 +3229,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeprecated() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       deprecated_ = false;
       onChanged();
       return this;
@@ -3317,7 +3267,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataSourceParameter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

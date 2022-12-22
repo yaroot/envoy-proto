@@ -72,81 +72,84 @@ public final class ExtAuthzProto {
       "v3/http_uri.proto\032$envoy/type/matcher/v3" +
       "/metadata.proto\032\"envoy/type/matcher/v3/s" +
       "tring.proto\032\037envoy/type/v3/http_status.p" +
-      "roto\032 udpa/annotations/sensitive.proto\032\035" +
-      "udpa/annotations/status.proto\032!udpa/anno" +
-      "tations/versioning.proto\032\027validate/valid" +
-      "ate.proto\"\371\006\n\010ExtAuthz\0229\n\014grpc_service\030\001" +
-      " \001(\0132!.envoy.config.core.v3.GrpcServiceH" +
-      "\000\022O\n\014http_service\030\003 \001(\01327.envoy.extensio" +
-      "ns.filters.http.ext_authz.v3.HttpService" +
-      "H\000\022I\n\025transport_api_version\030\014 \001(\0162 .envo" +
-      "y.config.core.v3.ApiVersionB\010\372B\005\202\001\002\020\001\022\032\n" +
-      "\022failure_mode_allow\030\002 \001(\010\022U\n\021with_reques" +
-      "t_body\030\005 \001(\0132:.envoy.extensions.filters." +
-      "http.ext_authz.v3.BufferSettings\022\031\n\021clea" +
-      "r_route_cache\030\006 \001(\010\0222\n\017status_on_error\030\007" +
-      " \001(\0132\031.envoy.type.v3.HttpStatus\022#\n\033metad" +
-      "ata_context_namespaces\030\010 \003(\t\022)\n!typed_me" +
-      "tadata_context_namespaces\030\020 \003(\t\022F\n\016filte" +
-      "r_enabled\030\t \001(\0132..envoy.config.core.v3.R" +
-      "untimeFractionalPercent\022G\n\027filter_enable" +
-      "d_metadata\030\016 \001(\0132&.envoy.type.matcher.v3" +
-      ".MetadataMatcher\022A\n\017deny_at_disable\030\013 \001(" +
-      "\0132(.envoy.config.core.v3.RuntimeFeatureF" +
-      "lag\022 \n\030include_peer_certificate\030\n \001(\010\022\023\n" +
-      "\013stat_prefix\030\r \001(\t\022%\n\035bootstrap_metadata" +
-      "_labels_key\030\017 \001(\t:5\232\305\210\0360\n.envoy.config.f" +
-      "ilter.http.ext_authz.v2.ExtAuthzB\n\n\010serv" +
-      "icesJ\004\010\004\020\005R\tuse_alpha\"\247\001\n\016BufferSettings" +
-      "\022\"\n\021max_request_bytes\030\001 \001(\rB\007\372B\004*\002 \000\022\035\n\025" +
-      "allow_partial_message\030\002 \001(\010\022\025\n\rpack_as_b" +
-      "ytes\030\003 \001(\010:;\232\305\210\0366\n4envoy.config.filter.h" +
-      "ttp.ext_authz.v2.BufferSettings\"\353\002\n\013Http" +
-      "Service\0221\n\nserver_uri\030\001 \001(\0132\035.envoy.conf" +
-      "ig.core.v3.HttpUri\022\023\n\013path_prefix\030\002 \001(\t\022" +
-      "_\n\025authorization_request\030\007 \001(\0132@.envoy.e" +
-      "xtensions.filters.http.ext_authz.v3.Auth" +
-      "orizationRequest\022a\n\026authorization_respon" +
-      "se\030\010 \001(\0132A.envoy.extensions.filters.http" +
-      ".ext_authz.v3.AuthorizationResponse:8\232\305\210" +
-      "\0363\n1envoy.config.filter.http.ext_authz.v" +
-      "2.HttpServiceJ\004\010\003\020\004J\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020\007\"\327\001" +
-      "\n\024AuthorizationRequest\022A\n\017allowed_header" +
-      "s\030\001 \001(\0132(.envoy.type.matcher.v3.ListStri" +
-      "ngMatcher\0229\n\016headers_to_add\030\002 \003(\0132!.envo" +
-      "y.config.core.v3.HeaderValue:A\232\305\210\036<\n:env" +
-      "oy.config.filter.http.ext_authz.v2.Autho" +
-      "rizationRequest\"\355\003\n\025AuthorizationRespons" +
-      "e\022J\n\030allowed_upstream_headers\030\001 \001(\0132(.en" +
-      "voy.type.matcher.v3.ListStringMatcher\022T\n" +
-      "\"allowed_upstream_headers_to_append\030\003 \001(" +
-      "\0132(.envoy.type.matcher.v3.ListStringMatc" +
-      "her\022H\n\026allowed_client_headers\030\002 \001(\0132(.en" +
-      "voy.type.matcher.v3.ListStringMatcher\022S\n" +
-      "!allowed_client_headers_on_success\030\004 \001(\013" +
-      "2(.envoy.type.matcher.v3.ListStringMatch" +
-      "er\022O\n\035dynamic_metadata_from_headers\030\005 \001(" +
-      "\0132(.envoy.type.matcher.v3.ListStringMatc" +
-      "her:B\232\305\210\036=\n;envoy.config.filter.http.ext" +
-      "_authz.v2.AuthorizationResponse\"\336\001\n\020ExtA" +
-      "uthzPerRoute\022\033\n\010disabled\030\001 \001(\010B\007\372B\004j\002\010\001H" +
-      "\000\022]\n\016check_settings\030\002 \001(\01329.envoy.extens" +
-      "ions.filters.http.ext_authz.v3.CheckSett" +
-      "ingsB\010\372B\005\212\001\002\020\001H\000:=\232\305\210\0368\n6envoy.config.fi" +
-      "lter.http.ext_authz.v2.ExtAuthzPerRouteB" +
-      "\017\n\010override\022\003\370B\001\"\243\002\n\rCheckSettings\022t\n\022co" +
-      "ntext_extensions\030\001 \003(\0132P.envoy.extension" +
+      "roto\032#envoy/annotations/deprecation.prot" +
+      "o\032 udpa/annotations/sensitive.proto\032\035udp" +
+      "a/annotations/status.proto\032!udpa/annotat" +
+      "ions/versioning.proto\032\027validate/validate" +
+      ".proto\"\274\007\n\010ExtAuthz\0229\n\014grpc_service\030\001 \001(" +
+      "\0132!.envoy.config.core.v3.GrpcServiceH\000\022O" +
+      "\n\014http_service\030\003 \001(\01327.envoy.extensions." +
+      "filters.http.ext_authz.v3.HttpServiceH\000\022" +
+      "I\n\025transport_api_version\030\014 \001(\0162 .envoy.c" +
+      "onfig.core.v3.ApiVersionB\010\372B\005\202\001\002\020\001\022\032\n\022fa" +
+      "ilure_mode_allow\030\002 \001(\010\022U\n\021with_request_b" +
+      "ody\030\005 \001(\0132:.envoy.extensions.filters.htt" +
+      "p.ext_authz.v3.BufferSettings\022\031\n\021clear_r" +
+      "oute_cache\030\006 \001(\010\0222\n\017status_on_error\030\007 \001(" +
+      "\0132\031.envoy.type.v3.HttpStatus\022#\n\033metadata" +
+      "_context_namespaces\030\010 \003(\t\022)\n!typed_metad" +
+      "ata_context_namespaces\030\020 \003(\t\022F\n\016filter_e" +
+      "nabled\030\t \001(\0132..envoy.config.core.v3.Runt" +
+      "imeFractionalPercent\022G\n\027filter_enabled_m" +
+      "etadata\030\016 \001(\0132&.envoy.type.matcher.v3.Me" +
+      "tadataMatcher\022A\n\017deny_at_disable\030\013 \001(\0132(" +
+      ".envoy.config.core.v3.RuntimeFeatureFlag" +
+      "\022 \n\030include_peer_certificate\030\n \001(\010\022\023\n\013st" +
+      "at_prefix\030\r \001(\t\022%\n\035bootstrap_metadata_la" +
+      "bels_key\030\017 \001(\t\022A\n\017allowed_headers\030\021 \001(\0132" +
+      "(.envoy.type.matcher.v3.ListStringMatche" +
+      "r:5\232\305\210\0360\n.envoy.config.filter.http.ext_a" +
+      "uthz.v2.ExtAuthzB\n\n\010servicesJ\004\010\004\020\005R\tuse_" +
+      "alpha\"\247\001\n\016BufferSettings\022\"\n\021max_request_" +
+      "bytes\030\001 \001(\rB\007\372B\004*\002 \000\022\035\n\025allow_partial_me" +
+      "ssage\030\002 \001(\010\022\025\n\rpack_as_bytes\030\003 \001(\010:;\232\305\210\036" +
+      "6\n4envoy.config.filter.http.ext_authz.v2" +
+      ".BufferSettings\"\353\002\n\013HttpService\0221\n\nserve" +
+      "r_uri\030\001 \001(\0132\035.envoy.config.core.v3.HttpU" +
+      "ri\022\023\n\013path_prefix\030\002 \001(\t\022_\n\025authorization" +
+      "_request\030\007 \001(\0132@.envoy.extensions.filter" +
+      "s.http.ext_authz.v3.AuthorizationRequest" +
+      "\022a\n\026authorization_response\030\010 \001(\0132A.envoy" +
+      ".extensions.filters.http.ext_authz.v3.Au" +
+      "thorizationResponse:8\232\305\210\0363\n1envoy.config" +
+      ".filter.http.ext_authz.v2.HttpServiceJ\004\010" +
+      "\003\020\004J\004\010\004\020\005J\004\010\005\020\006J\004\010\006\020\007\"\344\001\n\024AuthorizationR" +
+      "equest\022N\n\017allowed_headers\030\001 \001(\0132(.envoy." +
+      "type.matcher.v3.ListStringMatcherB\013\030\001\222\307\206" +
+      "\330\004\0033.0\0229\n\016headers_to_add\030\002 \003(\0132!.envoy.c" +
+      "onfig.core.v3.HeaderValue:A\232\305\210\036<\n:envoy." +
+      "config.filter.http.ext_authz.v2.Authoriz" +
+      "ationRequest\"\355\003\n\025AuthorizationResponse\022J" +
+      "\n\030allowed_upstream_headers\030\001 \001(\0132(.envoy" +
+      ".type.matcher.v3.ListStringMatcher\022T\n\"al" +
+      "lowed_upstream_headers_to_append\030\003 \001(\0132(" +
+      ".envoy.type.matcher.v3.ListStringMatcher" +
+      "\022H\n\026allowed_client_headers\030\002 \001(\0132(.envoy" +
+      ".type.matcher.v3.ListStringMatcher\022S\n!al" +
+      "lowed_client_headers_on_success\030\004 \001(\0132(." +
+      "envoy.type.matcher.v3.ListStringMatcher\022" +
+      "O\n\035dynamic_metadata_from_headers\030\005 \001(\0132(" +
+      ".envoy.type.matcher.v3.ListStringMatcher" +
+      ":B\232\305\210\036=\n;envoy.config.filter.http.ext_au" +
+      "thz.v2.AuthorizationResponse\"\336\001\n\020ExtAuth" +
+      "zPerRoute\022\033\n\010disabled\030\001 \001(\010B\007\372B\004j\002\010\001H\000\022]" +
+      "\n\016check_settings\030\002 \001(\01329.envoy.extension" +
       "s.filters.http.ext_authz.v3.CheckSetting" +
-      "s.ContextExtensionsEntryB\006\270\267\213\244\002\001\022&\n\036disa" +
-      "ble_request_body_buffering\030\002 \001(\010\0328\n\026Cont" +
-      "extExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value" +
-      "\030\002 \001(\t:\0028\001::\232\305\210\0365\n3envoy.config.filter.h" +
-      "ttp.ext_authz.v2.CheckSettingsB\262\001\n8io.en" +
-      "voyproxy.envoy.extensions.filters.http.e" +
-      "xt_authz.v3B\rExtAuthzProtoP\001Z]github.com" +
-      "/envoyproxy/go-control-plane/envoy/exten" +
-      "sions/filters/http/ext_authz/v3;ext_auth" +
-      "zv3\272\200\310\321\006\002\020\002b\006proto3"
+      "sB\010\372B\005\212\001\002\020\001H\000:=\232\305\210\0368\n6envoy.config.filte" +
+      "r.http.ext_authz.v2.ExtAuthzPerRouteB\017\n\010" +
+      "override\022\003\370B\001\"\243\002\n\rCheckSettings\022t\n\022conte" +
+      "xt_extensions\030\001 \003(\0132P.envoy.extensions.f" +
+      "ilters.http.ext_authz.v3.CheckSettings.C" +
+      "ontextExtensionsEntryB\006\270\267\213\244\002\001\022&\n\036disable" +
+      "_request_body_buffering\030\002 \001(\010\0328\n\026Context" +
+      "ExtensionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001::\232\305\210\0365\n3envoy.config.filter.http" +
+      ".ext_authz.v2.CheckSettingsB\262\001\n8io.envoy" +
+      "proxy.envoy.extensions.filters.http.ext_" +
+      "authz.v3B\rExtAuthzProtoP\001Z]github.com/en" +
+      "voyproxy/go-control-plane/envoy/extensio" +
+      "ns/filters/http/ext_authz/v3;ext_authzv3" +
+      "\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -158,6 +161,7 @@ public final class ExtAuthzProto {
           io.envoyproxy.envoy.type.matcher.v3.MetadataProto.getDescriptor(),
           io.envoyproxy.envoy.type.matcher.v3.StringProto.getDescriptor(),
           io.envoyproxy.envoy.type.v3.HttpStatusProto.getDescriptor(),
+          envoy.annotations.Deprecation.getDescriptor(),
           udpa.annotations.Sensitive.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
           udpa.annotations.Versioning.getDescriptor(),
@@ -168,7 +172,7 @@ public final class ExtAuthzProto {
     internal_static_envoy_extensions_filters_http_ext_authz_v3_ExtAuthz_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_ext_authz_v3_ExtAuthz_descriptor,
-        new java.lang.String[] { "GrpcService", "HttpService", "TransportApiVersion", "FailureModeAllow", "WithRequestBody", "ClearRouteCache", "StatusOnError", "MetadataContextNamespaces", "TypedMetadataContextNamespaces", "FilterEnabled", "FilterEnabledMetadata", "DenyAtDisable", "IncludePeerCertificate", "StatPrefix", "BootstrapMetadataLabelsKey", "Services", });
+        new java.lang.String[] { "GrpcService", "HttpService", "TransportApiVersion", "FailureModeAllow", "WithRequestBody", "ClearRouteCache", "StatusOnError", "MetadataContextNamespaces", "TypedMetadataContextNamespaces", "FilterEnabled", "FilterEnabledMetadata", "DenyAtDisable", "IncludePeerCertificate", "StatPrefix", "BootstrapMetadataLabelsKey", "AllowedHeaders", "Services", });
     internal_static_envoy_extensions_filters_http_ext_authz_v3_BufferSettings_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_extensions_filters_http_ext_authz_v3_BufferSettings_fieldAccessorTable = new
@@ -213,6 +217,7 @@ public final class ExtAuthzProto {
         new java.lang.String[] { "Key", "Value", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
+    registry.add(envoy.annotations.Deprecation.deprecatedAtMinorVersion);
     registry.add(udpa.annotations.Status.fileStatus);
     registry.add(udpa.annotations.Sensitive.sensitive);
     registry.add(udpa.annotations.Versioning.versioning);
@@ -227,6 +232,7 @@ public final class ExtAuthzProto {
     io.envoyproxy.envoy.type.matcher.v3.MetadataProto.getDescriptor();
     io.envoyproxy.envoy.type.matcher.v3.StringProto.getDescriptor();
     io.envoyproxy.envoy.type.v3.HttpStatusProto.getDescriptor();
+    envoy.annotations.Deprecation.getDescriptor();
     udpa.annotations.Sensitive.getDescriptor();
     udpa.annotations.Status.getDescriptor();
     udpa.annotations.Versioning.getDescriptor();

@@ -37,91 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AudioStream(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            codec_ = s;
-            break;
-          }
-          case 16: {
-
-            bitrateBps_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            channelCount_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              channelLayout_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            channelLayout_.add(s);
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              mapping_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            mapping_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-
-            sampleRateHertz_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        channelLayout_ = channelLayout_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        mapping_ = java.util.Collections.unmodifiableList(mapping_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_AudioStream_descriptor;
@@ -255,77 +170,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AudioMapping(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              atomKey_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              inputKey_ = s;
-              break;
-            }
-            case 24: {
-
-              inputTrack_ = input.readInt32();
-              break;
-            }
-            case 32: {
-
-              inputChannel_ = input.readInt32();
-              break;
-            }
-            case 40: {
-
-              outputChannel_ = input.readInt32();
-              break;
-            }
-            case 49: {
-
-              gainDb_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_AudioStream_AudioMapping_descriptor;
@@ -340,7 +184,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ATOM_KEY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object atomKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object atomKey_ = "";
     /**
      * <pre>
      * Required. The `EditAtom.key` that references the atom with audio inputs in the
@@ -388,7 +233,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_KEY_FIELD_NUMBER = 2;
-    private volatile java.lang.Object inputKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object inputKey_ = "";
     /**
      * <pre>
      * Required. The `Input.key` that identifies the input file.
@@ -434,7 +280,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_TRACK_FIELD_NUMBER = 3;
-    private int inputTrack_;
+    private int inputTrack_ = 0;
     /**
      * <pre>
      * Required. The zero-based index of the track in the input file.
@@ -449,7 +295,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_CHANNEL_FIELD_NUMBER = 4;
-    private int inputChannel_;
+    private int inputChannel_ = 0;
     /**
      * <pre>
      * Required. The zero-based index of the channel in the input audio stream.
@@ -464,7 +310,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OUTPUT_CHANNEL_FIELD_NUMBER = 5;
-    private int outputChannel_;
+    private int outputChannel_ = 0;
     /**
      * <pre>
      * Required. The zero-based index of the channel in the output audio stream.
@@ -479,7 +325,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int GAIN_DB_FIELD_NUMBER = 6;
-    private double gainDb_;
+    private double gainDb_ = 0D;
     /**
      * <pre>
      * Audio volume control in dB. Negative values decrease volume,
@@ -526,7 +372,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToRawLongBits(gainDb_) != 0) {
         output.writeDouble(6, gainDb_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -557,7 +403,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(6, gainDb_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -585,7 +431,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getGainDb())
           != java.lang.Double.doubleToLongBits(
               other.getGainDb())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -609,7 +455,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GAIN_DB_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getGainDb()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -730,34 +576,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         atomKey_ = "";
-
         inputKey_ = "";
-
         inputTrack_ = 0;
-
         inputChannel_ = 0;
-
         outputChannel_ = 0;
-
         gainDb_ = 0D;
-
         return this;
       }
 
@@ -784,14 +620,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping buildPartial() {
         com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping result = new com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping(this);
-        result.atomKey_ = atomKey_;
-        result.inputKey_ = inputKey_;
-        result.inputTrack_ = inputTrack_;
-        result.inputChannel_ = inputChannel_;
-        result.outputChannel_ = outputChannel_;
-        result.gainDb_ = gainDb_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.atomKey_ = atomKey_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.inputKey_ = inputKey_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.inputTrack_ = inputTrack_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.inputChannel_ = inputChannel_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.outputChannel_ = outputChannel_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.gainDb_ = gainDb_;
+        }
       }
 
       @java.lang.Override
@@ -840,10 +693,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping.getDefaultInstance()) return this;
         if (!other.getAtomKey().isEmpty()) {
           atomKey_ = other.atomKey_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getInputKey().isEmpty()) {
           inputKey_ = other.inputKey_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getInputTrack() != 0) {
@@ -858,7 +713,7 @@ private static final long serialVersionUID = 0L;
         if (other.getGainDb() != 0D) {
           setGainDb(other.getGainDb());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -873,19 +728,63 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                atomKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                inputKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                inputTrack_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                inputChannel_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                outputChannel_ = input.readInt32();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 49: {
+                gainDb_ = input.readDouble();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object atomKey_ = "";
       /**
@@ -943,11 +842,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAtomKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         atomKey_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -961,8 +858,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAtomKey() {
-        
         atomKey_ = getDefaultInstance().getAtomKey();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -978,12 +875,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAtomKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         atomKey_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1041,11 +936,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         inputKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1058,8 +951,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInputKey() {
-        
         inputKey_ = getDefaultInstance().getInputKey();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1074,12 +967,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         inputKey_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1109,6 +1000,7 @@ private static final long serialVersionUID = 0L;
       public Builder setInputTrack(int value) {
         
         inputTrack_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1121,7 +1013,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInputTrack() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         inputTrack_ = 0;
         onChanged();
         return this;
@@ -1152,6 +1044,7 @@ private static final long serialVersionUID = 0L;
       public Builder setInputChannel(int value) {
         
         inputChannel_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1164,7 +1057,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInputChannel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         inputChannel_ = 0;
         onChanged();
         return this;
@@ -1195,6 +1088,7 @@ private static final long serialVersionUID = 0L;
       public Builder setOutputChannel(int value) {
         
         outputChannel_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1207,7 +1101,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOutputChannel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         outputChannel_ = 0;
         onChanged();
         return this;
@@ -1240,6 +1134,7 @@ private static final long serialVersionUID = 0L;
       public Builder setGainDb(double value) {
         
         gainDb_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1253,7 +1148,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearGainDb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         gainDb_ = 0D;
         onChanged();
         return this;
@@ -1291,7 +1186,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AudioMapping(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1312,7 +1218,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODEC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object codec_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object codec_ = "";
   /**
    * <pre>
    * The codec for this audio stream. The default is `aac`.
@@ -1372,7 +1279,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BITRATE_BPS_FIELD_NUMBER = 2;
-  private int bitrateBps_;
+  private int bitrateBps_ = 0;
   /**
    * <pre>
    * Required. Audio bitrate in bits per second. Must be between 1 and 10,000,000.
@@ -1387,7 +1294,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHANNEL_COUNT_FIELD_NUMBER = 3;
-  private int channelCount_;
+  private int channelCount_ = 0;
   /**
    * <pre>
    * Number of audio channels. Must be between 1 and 6. The default is 2.
@@ -1402,6 +1309,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHANNEL_LAYOUT_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList channelLayout_;
   /**
    * <pre>
@@ -1489,6 +1397,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAPPING_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping> mapping_;
   /**
    * <pre>
@@ -1549,7 +1458,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLE_RATE_HERTZ_FIELD_NUMBER = 6;
-  private int sampleRateHertz_;
+  private int sampleRateHertz_ = 0;
   /**
    * <pre>
    * The audio sample rate in Hertz. The default is 48000 Hertz.
@@ -1595,7 +1504,7 @@ private static final long serialVersionUID = 0L;
     if (sampleRateHertz_ != 0) {
       output.writeInt32(6, sampleRateHertz_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1631,7 +1540,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(6, sampleRateHertz_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1658,7 +1567,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMappingList())) return false;
     if (getSampleRateHertz()
         != other.getSampleRateHertz()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1685,7 +1594,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SAMPLE_RATE_HERTZ_FIELD_NUMBER;
     hash = (53 * hash) + getSampleRateHertz();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1806,39 +1715,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.transcoder.v1.AudioStream.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMappingFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       codec_ = "";
-
       bitrateBps_ = 0;
-
       channelCount_ = 0;
-
       channelLayout_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (mappingBuilder_ == null) {
         mapping_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        mapping_ = null;
         mappingBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       sampleRateHertz_ = 0;
-
       return this;
     }
 
@@ -1865,27 +1766,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.transcoder.v1.AudioStream buildPartial() {
       com.google.cloud.video.transcoder.v1.AudioStream result = new com.google.cloud.video.transcoder.v1.AudioStream(this);
-      int from_bitField0_ = bitField0_;
-      result.codec_ = codec_;
-      result.bitrateBps_ = bitrateBps_;
-      result.channelCount_ = channelCount_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.video.transcoder.v1.AudioStream result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         channelLayout_ = channelLayout_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.channelLayout_ = channelLayout_;
       if (mappingBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           mapping_ = java.util.Collections.unmodifiableList(mapping_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.mapping_ = mapping_;
       } else {
         result.mapping_ = mappingBuilder_.build();
       }
-      result.sampleRateHertz_ = sampleRateHertz_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.transcoder.v1.AudioStream result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.codec_ = codec_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bitrateBps_ = bitrateBps_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.channelCount_ = channelCount_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sampleRateHertz_ = sampleRateHertz_;
+      }
     }
 
     @java.lang.Override
@@ -1934,6 +1851,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.transcoder.v1.AudioStream.getDefaultInstance()) return this;
       if (!other.getCodec().isEmpty()) {
         codec_ = other.codec_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getBitrateBps() != 0) {
@@ -1945,7 +1863,7 @@ private static final long serialVersionUID = 0L;
       if (!other.channelLayout_.isEmpty()) {
         if (channelLayout_.isEmpty()) {
           channelLayout_ = other.channelLayout_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureChannelLayoutIsMutable();
           channelLayout_.addAll(other.channelLayout_);
@@ -1956,7 +1874,7 @@ private static final long serialVersionUID = 0L;
         if (!other.mapping_.isEmpty()) {
           if (mapping_.isEmpty()) {
             mapping_ = other.mapping_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureMappingIsMutable();
             mapping_.addAll(other.mapping_);
@@ -1969,7 +1887,7 @@ private static final long serialVersionUID = 0L;
             mappingBuilder_.dispose();
             mappingBuilder_ = null;
             mapping_ = other.mapping_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             mappingBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMappingFieldBuilder() : null;
@@ -1981,7 +1899,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSampleRateHertz() != 0) {
         setSampleRateHertz(other.getSampleRateHertz());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1996,17 +1914,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.transcoder.v1.AudioStream parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              codec_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              bitrateBps_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              channelCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureChannelLayoutIsMutable();
+              channelLayout_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping.parser(),
+                      extensionRegistry);
+              if (mappingBuilder_ == null) {
+                ensureMappingIsMutable();
+                mapping_.add(m);
+              } else {
+                mappingBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 48: {
+              sampleRateHertz_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.transcoder.v1.AudioStream) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2085,11 +2055,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodec(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2109,8 +2077,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCodec() {
-      
       codec_ = getDefaultInstance().getCodec();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2132,12 +2100,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodecBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2167,6 +2133,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBitrateBps(int value) {
       
       bitrateBps_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2179,7 +2146,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBitrateBps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       bitrateBps_ = 0;
       onChanged();
       return this;
@@ -2210,6 +2177,7 @@ private static final long serialVersionUID = 0L;
     public Builder setChannelCount(int value) {
       
       channelCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2222,7 +2190,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearChannelCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       channelCount_ = 0;
       onChanged();
       return this;
@@ -2230,9 +2198,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList channelLayout_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureChannelLayoutIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         channelLayout_ = new com.google.protobuf.LazyStringArrayList(channelLayout_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -2340,10 +2308,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setChannelLayout(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureChannelLayoutIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureChannelLayoutIsMutable();
       channelLayout_.set(index, value);
       onChanged();
       return this;
@@ -2368,10 +2334,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addChannelLayout(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureChannelLayoutIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureChannelLayoutIsMutable();
       channelLayout_.add(value);
       onChanged();
       return this;
@@ -2421,7 +2385,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearChannelLayout() {
       channelLayout_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2445,10 +2409,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addChannelLayoutBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureChannelLayoutIsMutable();
       channelLayout_.add(value);
       onChanged();
@@ -2458,9 +2420,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping> mapping_ =
       java.util.Collections.emptyList();
     private void ensureMappingIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         mapping_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping>(mapping_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2654,7 +2616,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMapping() {
       if (mappingBuilder_ == null) {
         mapping_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         mappingBuilder_.clear();
@@ -2759,7 +2721,7 @@ private static final long serialVersionUID = 0L;
         mappingBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping, com.google.cloud.video.transcoder.v1.AudioStream.AudioMapping.Builder, com.google.cloud.video.transcoder.v1.AudioStream.AudioMappingOrBuilder>(
                 mapping_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         mapping_ = null;
@@ -2792,6 +2754,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSampleRateHertz(int value) {
       
       sampleRateHertz_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2804,7 +2767,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSampleRateHertz() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       sampleRateHertz_ = 0;
       onChanged();
       return this;
@@ -2842,7 +2805,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AudioStream(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

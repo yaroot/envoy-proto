@@ -35,133 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompilationResultAction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataform.v1beta1.Target.Builder subBuilder = null;
-            if (target_ != null) {
-              subBuilder = target_.toBuilder();
-            }
-            target_ = input.readMessage(com.google.cloud.dataform.v1beta1.Target.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(target_);
-              target_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataform.v1beta1.Target.Builder subBuilder = null;
-            if (canonicalTarget_ != null) {
-              subBuilder = canonicalTarget_.toBuilder();
-            }
-            canonicalTarget_ = input.readMessage(com.google.cloud.dataform.v1beta1.Target.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(canonicalTarget_);
-              canonicalTarget_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filePath_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.Builder subBuilder = null;
-            if (compiledObjectCase_ == 4) {
-              subBuilder = ((com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation) compiledObject_).toBuilder();
-            }
-            compiledObject_ =
-                input.readMessage(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation) compiledObject_);
-              compiledObject_ = subBuilder.buildPartial();
-            }
-            compiledObjectCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations.Builder subBuilder = null;
-            if (compiledObjectCase_ == 5) {
-              subBuilder = ((com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations) compiledObject_).toBuilder();
-            }
-            compiledObject_ =
-                input.readMessage(com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations) compiledObject_);
-              compiledObject_ = subBuilder.buildPartial();
-            }
-            compiledObjectCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion.Builder subBuilder = null;
-            if (compiledObjectCase_ == 6) {
-              subBuilder = ((com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion) compiledObject_).toBuilder();
-            }
-            compiledObject_ =
-                input.readMessage(com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion) compiledObject_);
-              compiledObject_ = subBuilder.buildPartial();
-            }
-            compiledObjectCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration.Builder subBuilder = null;
-            if (compiledObjectCase_ == 7) {
-              subBuilder = ((com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration) compiledObject_).toBuilder();
-            }
-            compiledObject_ =
-                input.readMessage(com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration) compiledObject_);
-              compiledObject_ = subBuilder.buildPartial();
-            }
-            compiledObjectCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_CompilationResultAction_descriptor;
@@ -585,7 +458,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; additional_options = 14;</code>
      */
-
     /* nullable */
 java.lang.String getAdditionalOptionsOrDefault(
         java.lang.String key,
@@ -601,7 +473,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; additional_options = 14;</code>
      */
-
     java.lang.String getAdditionalOptionsOrThrow(
         java.lang.String key);
   }
@@ -643,178 +514,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Relation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dependencyTargets_ = new java.util.ArrayList<com.google.cloud.dataform.v1beta1.Target>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dependencyTargets_.add(
-                  input.readMessage(com.google.cloud.dataform.v1beta1.Target.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-
-              disabled_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                tags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              tags_.add(s);
-              break;
-            }
-            case 34: {
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder subBuilder = null;
-              if (relationDescriptor_ != null) {
-                subBuilder = relationDescriptor_.toBuilder();
-              }
-              relationDescriptor_ = input.readMessage(com.google.cloud.dataform.v1beta1.RelationDescriptor.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(relationDescriptor_);
-                relationDescriptor_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              relationType_ = rawValue;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              selectQuery_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                preOperations_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              preOperations_.add(s);
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                postOperations_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              postOperations_.add(s);
-              break;
-            }
-            case 74: {
-              com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.Builder subBuilder = null;
-              if (incrementalTableConfig_ != null) {
-                subBuilder = incrementalTableConfig_.toBuilder();
-              }
-              incrementalTableConfig_ = input.readMessage(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(incrementalTableConfig_);
-                incrementalTableConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              partitionExpression_ = s;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                clusterExpressions_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              clusterExpressions_.add(s);
-              break;
-            }
-            case 96: {
-
-              partitionExpirationDays_ = input.readInt32();
-              break;
-            }
-            case 104: {
-
-              requirePartitionFilter_ = input.readBool();
-              break;
-            }
-            case 114: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                additionalOptions_ = com.google.protobuf.MapField.newMapField(
-                    AdditionalOptionsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              additionalOptions__ = input.readMessage(
-                  AdditionalOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              additionalOptions_.getMutableMap().put(
-                  additionalOptions__.getKey(), additionalOptions__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dependencyTargets_ = java.util.Collections.unmodifiableList(dependencyTargets_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          tags_ = tags_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          preOperations_ = preOperations_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          postOperations_ = postOperations_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000010) != 0)) {
-          clusterExpressions_ = clusterExpressions_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1259,99 +958,6 @@ java.lang.String defaultValue);
       getUnknownFields() {
         return this.unknownFields;
       }
-      private IncrementalTableConfig(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                incrementalSelectQuery_ = s;
-                break;
-              }
-              case 16: {
-
-                refreshDisabled_ = input.readBool();
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  uniqueKeyParts_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                uniqueKeyParts_.add(s);
-                break;
-              }
-              case 34: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                updatePartitionFilter_ = s;
-                break;
-              }
-              case 42: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  incrementalPreOperations_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                incrementalPreOperations_.add(s);
-                break;
-              }
-              case 50: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                  incrementalPostOperations_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000004;
-                }
-                incrementalPostOperations_.add(s);
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            uniqueKeyParts_ = uniqueKeyParts_.getUnmodifiableView();
-          }
-          if (((mutable_bitField0_ & 0x00000002) != 0)) {
-            incrementalPreOperations_ = incrementalPreOperations_.getUnmodifiableView();
-          }
-          if (((mutable_bitField0_ & 0x00000004) != 0)) {
-            incrementalPostOperations_ = incrementalPostOperations_.getUnmodifiableView();
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_CompilationResultAction_Relation_IncrementalTableConfig_descriptor;
@@ -1366,7 +972,8 @@ java.lang.String defaultValue);
       }
 
       public static final int INCREMENTAL_SELECT_QUERY_FIELD_NUMBER = 1;
-      private volatile java.lang.Object incrementalSelectQuery_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object incrementalSelectQuery_ = "";
       /**
        * <pre>
        * The SELECT query which returns rows which should be inserted into the
@@ -1414,7 +1021,7 @@ java.lang.String defaultValue);
       }
 
       public static final int REFRESH_DISABLED_FIELD_NUMBER = 2;
-      private boolean refreshDisabled_;
+      private boolean refreshDisabled_ = false;
       /**
        * <pre>
        * Whether this table should be protected from being refreshed.
@@ -1429,6 +1036,7 @@ java.lang.String defaultValue);
       }
 
       public static final int UNIQUE_KEY_PARTS_FIELD_NUMBER = 3;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList uniqueKeyParts_;
       /**
        * <pre>
@@ -1492,7 +1100,8 @@ java.lang.String defaultValue);
       }
 
       public static final int UPDATE_PARTITION_FILTER_FIELD_NUMBER = 4;
-      private volatile java.lang.Object updatePartitionFilter_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object updatePartitionFilter_ = "";
       /**
        * <pre>
        * A SQL expression conditional used to limit the set of existing rows
@@ -1542,6 +1151,7 @@ java.lang.String defaultValue);
       }
 
       public static final int INCREMENTAL_PRE_OPERATIONS_FIELD_NUMBER = 5;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList incrementalPreOperations_;
       /**
        * <pre>
@@ -1597,6 +1207,7 @@ java.lang.String defaultValue);
       }
 
       public static final int INCREMENTAL_POST_OPERATIONS_FIELD_NUMBER = 6;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList incrementalPostOperations_;
       /**
        * <pre>
@@ -1683,7 +1294,7 @@ java.lang.String defaultValue);
         for (int i = 0; i < incrementalPostOperations_.size(); i++) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 6, incrementalPostOperations_.getRaw(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1726,7 +1337,7 @@ java.lang.String defaultValue);
           size += dataSize;
           size += 1 * getIncrementalPostOperationsList().size();
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1753,7 +1364,7 @@ java.lang.String defaultValue);
             .equals(other.getIncrementalPreOperationsList())) return false;
         if (!getIncrementalPostOperationsList()
             .equals(other.getIncrementalPostOperationsList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1783,7 +1394,7 @@ java.lang.String defaultValue);
           hash = (37 * hash) + INCREMENTAL_POST_OPERATIONS_FIELD_NUMBER;
           hash = (53 * hash) + getIncrementalPostOperationsList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1904,34 +1515,27 @@ java.lang.String defaultValue);
 
         // Construct using com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           incrementalSelectQuery_ = "";
-
           refreshDisabled_ = false;
-
           uniqueKeyParts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          updatePartitionFilter_ = "";
-
-          incrementalPreOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000002);
-          incrementalPostOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           bitField0_ = (bitField0_ & ~0x00000004);
+          updatePartitionFilter_ = "";
+          incrementalPreOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+          bitField0_ = (bitField0_ & ~0x00000010);
+          incrementalPostOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+          bitField0_ = (bitField0_ & ~0x00000020);
           return this;
         }
 
@@ -1958,27 +1562,41 @@ java.lang.String defaultValue);
         @java.lang.Override
         public com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig buildPartial() {
           com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig result = new com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig(this);
-          int from_bitField0_ = bitField0_;
-          result.incrementalSelectQuery_ = incrementalSelectQuery_;
-          result.refreshDisabled_ = refreshDisabled_;
-          if (((bitField0_ & 0x00000001) != 0)) {
-            uniqueKeyParts_ = uniqueKeyParts_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.uniqueKeyParts_ = uniqueKeyParts_;
-          result.updatePartitionFilter_ = updatePartitionFilter_;
-          if (((bitField0_ & 0x00000002) != 0)) {
-            incrementalPreOperations_ = incrementalPreOperations_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000002);
-          }
-          result.incrementalPreOperations_ = incrementalPreOperations_;
-          if (((bitField0_ & 0x00000004) != 0)) {
-            incrementalPostOperations_ = incrementalPostOperations_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000004);
-          }
-          result.incrementalPostOperations_ = incrementalPostOperations_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig result) {
+          if (((bitField0_ & 0x00000004) != 0)) {
+            uniqueKeyParts_ = uniqueKeyParts_.getUnmodifiableView();
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
+          result.uniqueKeyParts_ = uniqueKeyParts_;
+          if (((bitField0_ & 0x00000010) != 0)) {
+            incrementalPreOperations_ = incrementalPreOperations_.getUnmodifiableView();
+            bitField0_ = (bitField0_ & ~0x00000010);
+          }
+          result.incrementalPreOperations_ = incrementalPreOperations_;
+          if (((bitField0_ & 0x00000020) != 0)) {
+            incrementalPostOperations_ = incrementalPostOperations_.getUnmodifiableView();
+            bitField0_ = (bitField0_ & ~0x00000020);
+          }
+          result.incrementalPostOperations_ = incrementalPostOperations_;
+        }
+
+        private void buildPartial0(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.incrementalSelectQuery_ = incrementalSelectQuery_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.refreshDisabled_ = refreshDisabled_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.updatePartitionFilter_ = updatePartitionFilter_;
+          }
         }
 
         @java.lang.Override
@@ -2027,6 +1645,7 @@ java.lang.String defaultValue);
           if (other == com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.getDefaultInstance()) return this;
           if (!other.getIncrementalSelectQuery().isEmpty()) {
             incrementalSelectQuery_ = other.incrementalSelectQuery_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.getRefreshDisabled() != false) {
@@ -2035,7 +1654,7 @@ java.lang.String defaultValue);
           if (!other.uniqueKeyParts_.isEmpty()) {
             if (uniqueKeyParts_.isEmpty()) {
               uniqueKeyParts_ = other.uniqueKeyParts_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureUniqueKeyPartsIsMutable();
               uniqueKeyParts_.addAll(other.uniqueKeyParts_);
@@ -2044,12 +1663,13 @@ java.lang.String defaultValue);
           }
           if (!other.getUpdatePartitionFilter().isEmpty()) {
             updatePartitionFilter_ = other.updatePartitionFilter_;
+            bitField0_ |= 0x00000008;
             onChanged();
           }
           if (!other.incrementalPreOperations_.isEmpty()) {
             if (incrementalPreOperations_.isEmpty()) {
               incrementalPreOperations_ = other.incrementalPreOperations_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureIncrementalPreOperationsIsMutable();
               incrementalPreOperations_.addAll(other.incrementalPreOperations_);
@@ -2059,14 +1679,14 @@ java.lang.String defaultValue);
           if (!other.incrementalPostOperations_.isEmpty()) {
             if (incrementalPostOperations_.isEmpty()) {
               incrementalPostOperations_ = other.incrementalPostOperations_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureIncrementalPostOperationsIsMutable();
               incrementalPostOperations_.addAll(other.incrementalPostOperations_);
             }
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2081,17 +1701,63 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  incrementalSelectQuery_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  refreshDisabled_ = input.readBool();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                case 26: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensureUniqueKeyPartsIsMutable();
+                  uniqueKeyParts_.add(s);
+                  break;
+                } // case 26
+                case 34: {
+                  updatePartitionFilter_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 34
+                case 42: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensureIncrementalPreOperationsIsMutable();
+                  incrementalPreOperations_.add(s);
+                  break;
+                } // case 42
+                case 50: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensureIncrementalPostOperationsIsMutable();
+                  incrementalPostOperations_.add(s);
+                  break;
+                } // case 50
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -2152,11 +1818,9 @@ java.lang.String defaultValue);
          */
         public Builder setIncrementalSelectQuery(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           incrementalSelectQuery_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2170,8 +1834,8 @@ java.lang.String defaultValue);
          * @return This builder for chaining.
          */
         public Builder clearIncrementalSelectQuery() {
-          
           incrementalSelectQuery_ = getDefaultInstance().getIncrementalSelectQuery();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2187,12 +1851,10 @@ java.lang.String defaultValue);
          */
         public Builder setIncrementalSelectQueryBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           incrementalSelectQuery_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2222,6 +1884,7 @@ java.lang.String defaultValue);
         public Builder setRefreshDisabled(boolean value) {
           
           refreshDisabled_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2234,7 +1897,7 @@ java.lang.String defaultValue);
          * @return This builder for chaining.
          */
         public Builder clearRefreshDisabled() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           refreshDisabled_ = false;
           onChanged();
           return this;
@@ -2242,9 +1905,9 @@ java.lang.String defaultValue);
 
         private com.google.protobuf.LazyStringList uniqueKeyParts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         private void ensureUniqueKeyPartsIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000004) != 0)) {
             uniqueKeyParts_ = new com.google.protobuf.LazyStringArrayList(uniqueKeyParts_);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000004;
            }
         }
         /**
@@ -2322,10 +1985,8 @@ java.lang.String defaultValue);
          */
         public Builder setUniqueKeyParts(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUniqueKeyPartsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureUniqueKeyPartsIsMutable();
           uniqueKeyParts_.set(index, value);
           onChanged();
           return this;
@@ -2344,10 +2005,8 @@ java.lang.String defaultValue);
          */
         public Builder addUniqueKeyParts(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUniqueKeyPartsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureUniqueKeyPartsIsMutable();
           uniqueKeyParts_.add(value);
           onChanged();
           return this;
@@ -2385,7 +2044,7 @@ java.lang.String defaultValue);
          */
         public Builder clearUniqueKeyParts() {
           uniqueKeyParts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
           return this;
         }
@@ -2403,10 +2062,8 @@ java.lang.String defaultValue);
          */
         public Builder addUniqueKeyPartsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensureUniqueKeyPartsIsMutable();
           uniqueKeyParts_.add(value);
           onChanged();
@@ -2472,11 +2129,9 @@ java.lang.String defaultValue);
          */
         public Builder setUpdatePartitionFilter(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           updatePartitionFilter_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
@@ -2491,8 +2146,8 @@ java.lang.String defaultValue);
          * @return This builder for chaining.
          */
         public Builder clearUpdatePartitionFilter() {
-          
           updatePartitionFilter_ = getDefaultInstance().getUpdatePartitionFilter();
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
           return this;
         }
@@ -2509,21 +2164,19 @@ java.lang.String defaultValue);
          */
         public Builder setUpdatePartitionFilterBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           updatePartitionFilter_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
 
         private com.google.protobuf.LazyStringList incrementalPreOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         private void ensureIncrementalPreOperationsIsMutable() {
-          if (!((bitField0_ & 0x00000002) != 0)) {
+          if (!((bitField0_ & 0x00000010) != 0)) {
             incrementalPreOperations_ = new com.google.protobuf.LazyStringArrayList(incrementalPreOperations_);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000010;
            }
         }
         /**
@@ -2591,10 +2244,8 @@ java.lang.String defaultValue);
          */
         public Builder setIncrementalPreOperations(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncrementalPreOperationsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureIncrementalPreOperationsIsMutable();
           incrementalPreOperations_.set(index, value);
           onChanged();
           return this;
@@ -2611,10 +2262,8 @@ java.lang.String defaultValue);
          */
         public Builder addIncrementalPreOperations(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncrementalPreOperationsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureIncrementalPreOperationsIsMutable();
           incrementalPreOperations_.add(value);
           onChanged();
           return this;
@@ -2648,7 +2297,7 @@ java.lang.String defaultValue);
          */
         public Builder clearIncrementalPreOperations() {
           incrementalPreOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
           return this;
         }
@@ -2664,10 +2313,8 @@ java.lang.String defaultValue);
          */
         public Builder addIncrementalPreOperationsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensureIncrementalPreOperationsIsMutable();
           incrementalPreOperations_.add(value);
           onChanged();
@@ -2676,9 +2323,9 @@ java.lang.String defaultValue);
 
         private com.google.protobuf.LazyStringList incrementalPostOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         private void ensureIncrementalPostOperationsIsMutable() {
-          if (!((bitField0_ & 0x00000004) != 0)) {
+          if (!((bitField0_ & 0x00000020) != 0)) {
             incrementalPostOperations_ = new com.google.protobuf.LazyStringArrayList(incrementalPostOperations_);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000020;
            }
         }
         /**
@@ -2746,10 +2393,8 @@ java.lang.String defaultValue);
          */
         public Builder setIncrementalPostOperations(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncrementalPostOperationsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureIncrementalPostOperationsIsMutable();
           incrementalPostOperations_.set(index, value);
           onChanged();
           return this;
@@ -2766,10 +2411,8 @@ java.lang.String defaultValue);
          */
         public Builder addIncrementalPostOperations(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncrementalPostOperationsIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureIncrementalPostOperationsIsMutable();
           incrementalPostOperations_.add(value);
           onChanged();
           return this;
@@ -2803,7 +2446,7 @@ java.lang.String defaultValue);
          */
         public Builder clearIncrementalPostOperations() {
           incrementalPostOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
           return this;
         }
@@ -2819,10 +2462,8 @@ java.lang.String defaultValue);
          */
         public Builder addIncrementalPostOperationsBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensureIncrementalPostOperationsIsMutable();
           incrementalPostOperations_.add(value);
           onChanged();
@@ -2861,7 +2502,18 @@ java.lang.String defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new IncrementalTableConfig(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2882,6 +2534,7 @@ java.lang.String defaultValue);
     }
 
     public static final int DEPENDENCY_TARGETS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.dataform.v1beta1.Target> dependencyTargets_;
     /**
      * <pre>
@@ -2942,7 +2595,7 @@ java.lang.String defaultValue);
     }
 
     public static final int DISABLED_FIELD_NUMBER = 2;
-    private boolean disabled_;
+    private boolean disabled_ = false;
     /**
      * <pre>
      * Whether this action is disabled (i.e. should not be run).
@@ -2957,6 +2610,7 @@ java.lang.String defaultValue);
     }
 
     public static final int TAGS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <pre>
@@ -3042,11 +2696,11 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.RelationDescriptorOrBuilder getRelationDescriptorOrBuilder() {
-      return getRelationDescriptor();
+      return relationDescriptor_ == null ? com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance() : relationDescriptor_;
     }
 
     public static final int RELATION_TYPE_FIELD_NUMBER = 5;
-    private int relationType_;
+    private int relationType_ = 0;
     /**
      * <pre>
      * The type of this relation.
@@ -3067,13 +2721,13 @@ java.lang.String defaultValue);
      * @return The relationType.
      */
     @java.lang.Override public com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType getRelationType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType result = com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType.valueOf(relationType_);
+      com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType result = com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType.forNumber(relationType_);
       return result == null ? com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType.UNRECOGNIZED : result;
     }
 
     public static final int SELECT_QUERY_FIELD_NUMBER = 6;
-    private volatile java.lang.Object selectQuery_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object selectQuery_ = "";
     /**
      * <pre>
      * The SELECT query which returns rows which this relation should contain.
@@ -3119,6 +2773,7 @@ java.lang.String defaultValue);
     }
 
     public static final int PRE_OPERATIONS_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList preOperations_;
     /**
      * <pre>
@@ -3170,6 +2825,7 @@ java.lang.String defaultValue);
     }
 
     public static final int POST_OPERATIONS_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList postOperations_;
     /**
      * <pre>
@@ -3258,11 +2914,12 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfigOrBuilder getIncrementalTableConfigOrBuilder() {
-      return getIncrementalTableConfig();
+      return incrementalTableConfig_ == null ? com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.getDefaultInstance() : incrementalTableConfig_;
     }
 
     public static final int PARTITION_EXPRESSION_FIELD_NUMBER = 10;
-    private volatile java.lang.Object partitionExpression_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object partitionExpression_ = "";
     /**
      * <pre>
      * The SQL expression used to partition the relation.
@@ -3308,6 +2965,7 @@ java.lang.String defaultValue);
     }
 
     public static final int CLUSTER_EXPRESSIONS_FIELD_NUMBER = 11;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList clusterExpressions_;
     /**
      * <pre>
@@ -3359,7 +3017,7 @@ java.lang.String defaultValue);
     }
 
     public static final int PARTITION_EXPIRATION_DAYS_FIELD_NUMBER = 12;
-    private int partitionExpirationDays_;
+    private int partitionExpirationDays_ = 0;
     /**
      * <pre>
      * Sets the partition expiration in days.
@@ -3374,7 +3032,7 @@ java.lang.String defaultValue);
     }
 
     public static final int REQUIRE_PARTITION_FILTER_FIELD_NUMBER = 13;
-    private boolean requirePartitionFilter_;
+    private boolean requirePartitionFilter_ = false;
     /**
      * <pre>
      * Specifies whether queries on this table must include a predicate filter
@@ -3401,6 +3059,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> additionalOptions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -3411,7 +3070,6 @@ java.lang.String defaultValue);
       }
       return additionalOptions_;
     }
-
     public int getAdditionalOptionsCount() {
       return internalGetAdditionalOptions().getMap().size();
     }
@@ -3425,7 +3083,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; additional_options = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsAdditionalOptions(
         java.lang.String key) {
@@ -3451,7 +3108,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; additional_options = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getAdditionalOptionsMap() {
       return internalGetAdditionalOptions().getMap();
     }
@@ -3466,10 +3122,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; additional_options = 14;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getAdditionalOptionsOrDefault(
+    public /* nullable */
+java.lang.String getAdditionalOptionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAdditionalOptions().getMap();
@@ -3486,7 +3143,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; additional_options = 14;</code>
      */
     @java.lang.Override
-
     public java.lang.String getAdditionalOptionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3557,7 +3213,7 @@ java.lang.String defaultValue);
           internalGetAdditionalOptions(),
           AdditionalOptionsDefaultEntryHolder.defaultEntry,
           14);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3642,7 +3298,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(14, additionalOptions__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3690,7 +3346,7 @@ java.lang.String defaultValue);
           != other.getRequirePartitionFilter()) return false;
       if (!internalGetAdditionalOptions().equals(
           other.internalGetAdditionalOptions())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3747,7 +3403,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + ADDITIONAL_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + internalGetAdditionalOptions().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3890,61 +3546,49 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDependencyTargetsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (dependencyTargetsBuilder_ == null) {
           dependencyTargets_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          dependencyTargets_ = null;
           dependencyTargetsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         disabled_ = false;
-
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
         relationType_ = 0;
-
         selectQuery_ = "";
-
         preOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
         postOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        if (incrementalTableConfigBuilder_ == null) {
-          incrementalTableConfig_ = null;
-        } else {
-          incrementalTableConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        incrementalTableConfig_ = null;
+        if (incrementalTableConfigBuilder_ != null) {
+          incrementalTableConfigBuilder_.dispose();
           incrementalTableConfigBuilder_ = null;
         }
         partitionExpression_ = "";
-
         clusterExpressions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000400);
         partitionExpirationDays_ = 0;
-
         requirePartitionFilter_ = false;
-
         internalGetMutableAdditionalOptions().clear();
         return this;
       }
@@ -3972,7 +3616,13 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation buildPartial() {
         com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation result = new com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation result) {
         if (dependencyTargetsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             dependencyTargets_ = java.util.Collections.unmodifiableList(dependencyTargets_);
@@ -3982,46 +3632,62 @@ java.lang.String defaultValue);
         } else {
           result.dependencyTargets_ = dependencyTargetsBuilder_.build();
         }
-        result.disabled_ = disabled_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          tags_ = tags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.tags_ = tags_;
-        if (relationDescriptorBuilder_ == null) {
-          result.relationDescriptor_ = relationDescriptor_;
-        } else {
-          result.relationDescriptor_ = relationDescriptorBuilder_.build();
-        }
-        result.relationType_ = relationType_;
-        result.selectQuery_ = selectQuery_;
         if (((bitField0_ & 0x00000004) != 0)) {
-          preOperations_ = preOperations_.getUnmodifiableView();
+          tags_ = tags_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000004);
         }
+        result.tags_ = tags_;
+        if (((bitField0_ & 0x00000040) != 0)) {
+          preOperations_ = preOperations_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000040);
+        }
         result.preOperations_ = preOperations_;
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           postOperations_ = postOperations_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.postOperations_ = postOperations_;
-        if (incrementalTableConfigBuilder_ == null) {
-          result.incrementalTableConfig_ = incrementalTableConfig_;
-        } else {
-          result.incrementalTableConfig_ = incrementalTableConfigBuilder_.build();
-        }
-        result.partitionExpression_ = partitionExpression_;
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           clusterExpressions_ = clusterExpressions_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.clusterExpressions_ = clusterExpressions_;
-        result.partitionExpirationDays_ = partitionExpirationDays_;
-        result.requirePartitionFilter_ = requirePartitionFilter_;
-        result.additionalOptions_ = internalGetAdditionalOptions();
-        result.additionalOptions_.makeImmutable();
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.disabled_ = disabled_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.relationDescriptor_ = relationDescriptorBuilder_ == null
+              ? relationDescriptor_
+              : relationDescriptorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.relationType_ = relationType_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.selectQuery_ = selectQuery_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.incrementalTableConfig_ = incrementalTableConfigBuilder_ == null
+              ? incrementalTableConfig_
+              : incrementalTableConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.partitionExpression_ = partitionExpression_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.partitionExpirationDays_ = partitionExpirationDays_;
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.requirePartitionFilter_ = requirePartitionFilter_;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.additionalOptions_ = internalGetAdditionalOptions();
+          result.additionalOptions_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -4100,7 +3766,7 @@ java.lang.String defaultValue);
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
@@ -4115,12 +3781,13 @@ java.lang.String defaultValue);
         }
         if (!other.getSelectQuery().isEmpty()) {
           selectQuery_ = other.selectQuery_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.preOperations_.isEmpty()) {
           if (preOperations_.isEmpty()) {
             preOperations_ = other.preOperations_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensurePreOperationsIsMutable();
             preOperations_.addAll(other.preOperations_);
@@ -4130,7 +3797,7 @@ java.lang.String defaultValue);
         if (!other.postOperations_.isEmpty()) {
           if (postOperations_.isEmpty()) {
             postOperations_ = other.postOperations_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensurePostOperationsIsMutable();
             postOperations_.addAll(other.postOperations_);
@@ -4142,12 +3809,13 @@ java.lang.String defaultValue);
         }
         if (!other.getPartitionExpression().isEmpty()) {
           partitionExpression_ = other.partitionExpression_;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
         if (!other.clusterExpressions_.isEmpty()) {
           if (clusterExpressions_.isEmpty()) {
             clusterExpressions_ = other.clusterExpressions_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureClusterExpressionsIsMutable();
             clusterExpressions_.addAll(other.clusterExpressions_);
@@ -4162,7 +3830,8 @@ java.lang.String defaultValue);
         }
         internalGetMutableAdditionalOptions().mergeFrom(
             other.internalGetAdditionalOptions());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00002000;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4177,17 +3846,120 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.dataform.v1beta1.Target m =
+                    input.readMessage(
+                        com.google.cloud.dataform.v1beta1.Target.parser(),
+                        extensionRegistry);
+                if (dependencyTargetsBuilder_ == null) {
+                  ensureDependencyTargetsIsMutable();
+                  dependencyTargets_.add(m);
+                } else {
+                  dependencyTargetsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                disabled_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTagsIsMutable();
+                tags_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getRelationDescriptorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                relationType_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                selectQuery_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePreOperationsIsMutable();
+                preOperations_.add(s);
+                break;
+              } // case 58
+              case 66: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensurePostOperationsIsMutable();
+                postOperations_.add(s);
+                break;
+              } // case 66
+              case 74: {
+                input.readMessage(
+                    getIncrementalTableConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                partitionExpression_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureClusterExpressionsIsMutable();
+                clusterExpressions_.add(s);
+                break;
+              } // case 90
+              case 96: {
+                partitionExpirationDays_ = input.readInt32();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              case 104: {
+                requirePartitionFilter_ = input.readBool();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
+              case 114: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                additionalOptions__ = input.readMessage(
+                    AdditionalOptionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableAdditionalOptions().getMutableMap().put(
+                    additionalOptions__.getKey(), additionalOptions__.getValue());
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4529,6 +4301,7 @@ java.lang.String defaultValue);
       public Builder setDisabled(boolean value) {
         
         disabled_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4541,7 +4314,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDisabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         disabled_ = false;
         onChanged();
         return this;
@@ -4549,9 +4322,9 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -4614,10 +4387,8 @@ java.lang.String defaultValue);
        */
       public Builder setTags(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.set(index, value);
         onChanged();
         return this;
@@ -4633,10 +4404,8 @@ java.lang.String defaultValue);
        */
       public Builder addTags(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
         return this;
@@ -4668,7 +4437,7 @@ java.lang.String defaultValue);
        */
       public Builder clearTags() {
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4683,10 +4452,8 @@ java.lang.String defaultValue);
        */
       public Builder addTagsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
@@ -4705,7 +4472,7 @@ java.lang.String defaultValue);
        * @return Whether the relationDescriptor field is set.
        */
       public boolean hasRelationDescriptor() {
-        return relationDescriptorBuilder_ != null || relationDescriptor_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -4735,11 +4502,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           relationDescriptor_ = value;
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4753,11 +4520,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder builderForValue) {
         if (relationDescriptorBuilder_ == null) {
           relationDescriptor_ = builderForValue.build();
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4769,17 +4536,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeRelationDescriptor(com.google.cloud.dataform.v1beta1.RelationDescriptor value) {
         if (relationDescriptorBuilder_ == null) {
-          if (relationDescriptor_ != null) {
-            relationDescriptor_ =
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.newBuilder(relationDescriptor_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            relationDescriptor_ != null &&
+            relationDescriptor_ != com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance()) {
+            getRelationDescriptorBuilder().mergeFrom(value);
           } else {
             relationDescriptor_ = value;
           }
-          onChanged();
         } else {
           relationDescriptorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4790,14 +4558,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 4;</code>
        */
       public Builder clearRelationDescriptor() {
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-          onChanged();
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4808,7 +4575,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 4;</code>
        */
       public com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder getRelationDescriptorBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getRelationDescriptorFieldBuilder().getBuilder();
       }
@@ -4870,8 +4637,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setRelationTypeValue(int value) {
-        
         relationType_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -4885,8 +4652,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType getRelationType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType result = com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType.valueOf(relationType_);
+        com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType result = com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType.forNumber(relationType_);
         return result == null ? com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.RelationType.UNRECOGNIZED : result;
       }
       /**
@@ -4902,7 +4668,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         relationType_ = value.getNumber();
         onChanged();
         return this;
@@ -4916,7 +4682,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRelationType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         relationType_ = 0;
         onChanged();
         return this;
@@ -4975,11 +4741,9 @@ java.lang.String defaultValue);
        */
       public Builder setSelectQuery(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         selectQuery_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -4992,8 +4756,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearSelectQuery() {
-        
         selectQuery_ = getDefaultInstance().getSelectQuery();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -5008,21 +4772,19 @@ java.lang.String defaultValue);
        */
       public Builder setSelectQueryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         selectQuery_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList preOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensurePreOperationsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           preOperations_ = new com.google.protobuf.LazyStringArrayList(preOperations_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000040;
          }
       }
       /**
@@ -5085,10 +4847,8 @@ java.lang.String defaultValue);
        */
       public Builder setPreOperations(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePreOperationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePreOperationsIsMutable();
         preOperations_.set(index, value);
         onChanged();
         return this;
@@ -5104,10 +4864,8 @@ java.lang.String defaultValue);
        */
       public Builder addPreOperations(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePreOperationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePreOperationsIsMutable();
         preOperations_.add(value);
         onChanged();
         return this;
@@ -5139,7 +4897,7 @@ java.lang.String defaultValue);
        */
       public Builder clearPreOperations() {
         preOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -5154,10 +4912,8 @@ java.lang.String defaultValue);
        */
       public Builder addPreOperationsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensurePreOperationsIsMutable();
         preOperations_.add(value);
         onChanged();
@@ -5166,9 +4922,9 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.LazyStringList postOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensurePostOperationsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000080) != 0)) {
           postOperations_ = new com.google.protobuf.LazyStringArrayList(postOperations_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000080;
          }
       }
       /**
@@ -5231,10 +4987,8 @@ java.lang.String defaultValue);
        */
       public Builder setPostOperations(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePostOperationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePostOperationsIsMutable();
         postOperations_.set(index, value);
         onChanged();
         return this;
@@ -5250,10 +5004,8 @@ java.lang.String defaultValue);
        */
       public Builder addPostOperations(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensurePostOperationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensurePostOperationsIsMutable();
         postOperations_.add(value);
         onChanged();
         return this;
@@ -5285,7 +5037,7 @@ java.lang.String defaultValue);
        */
       public Builder clearPostOperations() {
         postOperations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -5300,10 +5052,8 @@ java.lang.String defaultValue);
        */
       public Builder addPostOperationsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensurePostOperationsIsMutable();
         postOperations_.add(value);
         onChanged();
@@ -5323,7 +5073,7 @@ java.lang.String defaultValue);
        * @return Whether the incrementalTableConfig field is set.
        */
       public boolean hasIncrementalTableConfig() {
-        return incrementalTableConfigBuilder_ != null || incrementalTableConfig_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -5355,11 +5105,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           incrementalTableConfig_ = value;
-          onChanged();
         } else {
           incrementalTableConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -5374,11 +5124,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.Builder builderForValue) {
         if (incrementalTableConfigBuilder_ == null) {
           incrementalTableConfig_ = builderForValue.build();
-          onChanged();
         } else {
           incrementalTableConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -5391,17 +5141,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeIncrementalTableConfig(com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig value) {
         if (incrementalTableConfigBuilder_ == null) {
-          if (incrementalTableConfig_ != null) {
-            incrementalTableConfig_ =
-              com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.newBuilder(incrementalTableConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            incrementalTableConfig_ != null &&
+            incrementalTableConfig_ != com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.getDefaultInstance()) {
+            getIncrementalTableConfigBuilder().mergeFrom(value);
           } else {
             incrementalTableConfig_ = value;
           }
-          onChanged();
         } else {
           incrementalTableConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -5413,14 +5164,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig incremental_table_config = 9;</code>
        */
       public Builder clearIncrementalTableConfig() {
-        if (incrementalTableConfigBuilder_ == null) {
-          incrementalTableConfig_ = null;
-          onChanged();
-        } else {
-          incrementalTableConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        incrementalTableConfig_ = null;
+        if (incrementalTableConfigBuilder_ != null) {
+          incrementalTableConfigBuilder_.dispose();
           incrementalTableConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5432,7 +5182,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig incremental_table_config = 9;</code>
        */
       public com.google.cloud.dataform.v1beta1.CompilationResultAction.Relation.IncrementalTableConfig.Builder getIncrementalTableConfigBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getIncrementalTableConfigFieldBuilder().getBuilder();
       }
@@ -5527,11 +5277,9 @@ java.lang.String defaultValue);
        */
       public Builder setPartitionExpression(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         partitionExpression_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -5544,8 +5292,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearPartitionExpression() {
-        
         partitionExpression_ = getDefaultInstance().getPartitionExpression();
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
@@ -5560,21 +5308,19 @@ java.lang.String defaultValue);
        */
       public Builder setPartitionExpressionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         partitionExpression_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList clusterExpressions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureClusterExpressionsIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
+        if (!((bitField0_ & 0x00000400) != 0)) {
           clusterExpressions_ = new com.google.protobuf.LazyStringArrayList(clusterExpressions_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000400;
          }
       }
       /**
@@ -5637,10 +5383,8 @@ java.lang.String defaultValue);
        */
       public Builder setClusterExpressions(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureClusterExpressionsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureClusterExpressionsIsMutable();
         clusterExpressions_.set(index, value);
         onChanged();
         return this;
@@ -5656,10 +5400,8 @@ java.lang.String defaultValue);
        */
       public Builder addClusterExpressions(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureClusterExpressionsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureClusterExpressionsIsMutable();
         clusterExpressions_.add(value);
         onChanged();
         return this;
@@ -5691,7 +5433,7 @@ java.lang.String defaultValue);
        */
       public Builder clearClusterExpressions() {
         clusterExpressions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
       }
@@ -5706,10 +5448,8 @@ java.lang.String defaultValue);
        */
       public Builder addClusterExpressionsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureClusterExpressionsIsMutable();
         clusterExpressions_.add(value);
         onChanged();
@@ -5741,6 +5481,7 @@ java.lang.String defaultValue);
       public Builder setPartitionExpirationDays(int value) {
         
         partitionExpirationDays_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -5753,7 +5494,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearPartitionExpirationDays() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         partitionExpirationDays_ = 0;
         onChanged();
         return this;
@@ -5786,6 +5527,7 @@ java.lang.String defaultValue);
       public Builder setRequirePartitionFilter(boolean value) {
         
         requirePartitionFilter_ = value;
+        bitField0_ |= 0x00001000;
         onChanged();
         return this;
       }
@@ -5799,7 +5541,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRequirePartitionFilter() {
-        
+        bitField0_ = (bitField0_ & ~0x00001000);
         requirePartitionFilter_ = false;
         onChanged();
         return this;
@@ -5808,7 +5550,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> additionalOptions_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetAdditionalOptions() {
+          internalGetAdditionalOptions() {
         if (additionalOptions_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               AdditionalOptionsDefaultEntryHolder.defaultEntry);
@@ -5816,8 +5558,7 @@ java.lang.String defaultValue);
         return additionalOptions_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableAdditionalOptions() {
-        onChanged();;
+          internalGetMutableAdditionalOptions() {
         if (additionalOptions_ == null) {
           additionalOptions_ = com.google.protobuf.MapField.newMapField(
               AdditionalOptionsDefaultEntryHolder.defaultEntry);
@@ -5825,9 +5566,10 @@ java.lang.String defaultValue);
         if (!additionalOptions_.isMutable()) {
           additionalOptions_ = additionalOptions_.copy();
         }
+        bitField0_ |= 0x00002000;
+        onChanged();
         return additionalOptions_;
       }
-
       public int getAdditionalOptionsCount() {
         return internalGetAdditionalOptions().getMap().size();
       }
@@ -5841,7 +5583,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; additional_options = 14;</code>
        */
-
       @java.lang.Override
       public boolean containsAdditionalOptions(
           java.lang.String key) {
@@ -5867,7 +5608,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; additional_options = 14;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getAdditionalOptionsMap() {
         return internalGetAdditionalOptions().getMap();
       }
@@ -5882,10 +5622,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; additional_options = 14;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getAdditionalOptionsOrDefault(
+      public /* nullable */
+java.lang.String getAdditionalOptionsOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetAdditionalOptions().getMap();
@@ -5902,7 +5643,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; additional_options = 14;</code>
        */
       @java.lang.Override
-
       public java.lang.String getAdditionalOptionsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5913,8 +5653,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearAdditionalOptions() {
+        bitField0_ = (bitField0_ & ~0x00002000);
         internalGetMutableAdditionalOptions().getMutableMap()
             .clear();
         return this;
@@ -5929,7 +5669,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; additional_options = 14;</code>
        */
-
       public Builder removeAdditionalOptions(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5942,7 +5681,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableAdditionalOptions() {
+          getMutableAdditionalOptions() {
+        bitField0_ |= 0x00002000;
         return internalGetMutableAdditionalOptions().getMutableMap();
       }
       /**
@@ -5959,12 +5699,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableAdditionalOptions().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
@@ -5977,11 +5715,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; additional_options = 14;</code>
        */
-
       public Builder putAllAdditionalOptions(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableAdditionalOptions().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00002000;
         return this;
       }
       @java.lang.Override
@@ -6017,7 +5755,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Relation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6255,105 +6004,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Operations(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dependencyTargets_ = new java.util.ArrayList<com.google.cloud.dataform.v1beta1.Target>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dependencyTargets_.add(
-                  input.readMessage(com.google.cloud.dataform.v1beta1.Target.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-
-              disabled_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                tags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              tags_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                queries_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              queries_.add(s);
-              break;
-            }
-            case 40: {
-
-              hasOutput_ = input.readBool();
-              break;
-            }
-            case 50: {
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder subBuilder = null;
-              if (relationDescriptor_ != null) {
-                subBuilder = relationDescriptor_.toBuilder();
-              }
-              relationDescriptor_ = input.readMessage(com.google.cloud.dataform.v1beta1.RelationDescriptor.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(relationDescriptor_);
-                relationDescriptor_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dependencyTargets_ = java.util.Collections.unmodifiableList(dependencyTargets_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          tags_ = tags_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          queries_ = queries_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_CompilationResultAction_Operations_descriptor;
@@ -6368,6 +6018,7 @@ java.lang.String defaultValue);
     }
 
     public static final int DEPENDENCY_TARGETS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.dataform.v1beta1.Target> dependencyTargets_;
     /**
      * <pre>
@@ -6428,7 +6079,7 @@ java.lang.String defaultValue);
     }
 
     public static final int DISABLED_FIELD_NUMBER = 2;
-    private boolean disabled_;
+    private boolean disabled_ = false;
     /**
      * <pre>
      * Whether this action is disabled (i.e. should not be run).
@@ -6443,6 +6094,7 @@ java.lang.String defaultValue);
     }
 
     public static final int TAGS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <pre>
@@ -6531,10 +6183,11 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.RelationDescriptorOrBuilder getRelationDescriptorOrBuilder() {
-      return getRelationDescriptor();
+      return relationDescriptor_ == null ? com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance() : relationDescriptor_;
     }
 
     public static final int QUERIES_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList queries_;
     /**
      * <pre>
@@ -6590,7 +6243,7 @@ java.lang.String defaultValue);
     }
 
     public static final int HAS_OUTPUT_FIELD_NUMBER = 5;
-    private boolean hasOutput_;
+    private boolean hasOutput_ = false;
     /**
      * <pre>
      * Whether these operations produce an output relation.
@@ -6636,7 +6289,7 @@ java.lang.String defaultValue);
       if (relationDescriptor_ != null) {
         output.writeMessage(6, getRelationDescriptor());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6677,7 +6330,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getRelationDescriptor());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6707,7 +6360,7 @@ java.lang.String defaultValue);
           .equals(other.getQueriesList())) return false;
       if (getHasOutput()
           != other.getHasOutput()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6740,7 +6393,7 @@ java.lang.String defaultValue);
       hash = (37 * hash) + HAS_OUTPUT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getHasOutput());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6861,43 +6514,36 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDependencyTargetsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (dependencyTargetsBuilder_ == null) {
           dependencyTargets_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          dependencyTargets_ = null;
           dependencyTargetsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         disabled_ = false;
-
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
         queries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         hasOutput_ = false;
-
         return this;
       }
 
@@ -6924,7 +6570,13 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations buildPartial() {
         com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations result = new com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations result) {
         if (dependencyTargetsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             dependencyTargets_ = java.util.Collections.unmodifiableList(dependencyTargets_);
@@ -6934,25 +6586,31 @@ java.lang.String defaultValue);
         } else {
           result.dependencyTargets_ = dependencyTargetsBuilder_.build();
         }
-        result.disabled_ = disabled_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          tags_ = tags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.tags_ = tags_;
-        if (relationDescriptorBuilder_ == null) {
-          result.relationDescriptor_ = relationDescriptor_;
-        } else {
-          result.relationDescriptor_ = relationDescriptorBuilder_.build();
-        }
         if (((bitField0_ & 0x00000004) != 0)) {
-          queries_ = queries_.getUnmodifiableView();
+          tags_ = tags_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000004);
         }
+        result.tags_ = tags_;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          queries_ = queries_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
         result.queries_ = queries_;
-        result.hasOutput_ = hasOutput_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.disabled_ = disabled_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.relationDescriptor_ = relationDescriptorBuilder_ == null
+              ? relationDescriptor_
+              : relationDescriptorBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.hasOutput_ = hasOutput_;
+        }
       }
 
       @java.lang.Override
@@ -7031,7 +6689,7 @@ java.lang.String defaultValue);
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
@@ -7044,7 +6702,7 @@ java.lang.String defaultValue);
         if (!other.queries_.isEmpty()) {
           if (queries_.isEmpty()) {
             queries_ = other.queries_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureQueriesIsMutable();
             queries_.addAll(other.queries_);
@@ -7054,7 +6712,7 @@ java.lang.String defaultValue);
         if (other.getHasOutput() != false) {
           setHasOutput(other.getHasOutput());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7069,17 +6727,72 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.dataform.v1beta1.Target m =
+                    input.readMessage(
+                        com.google.cloud.dataform.v1beta1.Target.parser(),
+                        extensionRegistry);
+                if (dependencyTargetsBuilder_ == null) {
+                  ensureDependencyTargetsIsMutable();
+                  dependencyTargets_.add(m);
+                } else {
+                  dependencyTargetsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                disabled_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTagsIsMutable();
+                tags_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureQueriesIsMutable();
+                queries_.add(s);
+                break;
+              } // case 34
+              case 40: {
+                hasOutput_ = input.readBool();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 40
+              case 50: {
+                input.readMessage(
+                    getRelationDescriptorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1beta1.CompilationResultAction.Operations) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7421,6 +7134,7 @@ java.lang.String defaultValue);
       public Builder setDisabled(boolean value) {
         
         disabled_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7433,7 +7147,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDisabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         disabled_ = false;
         onChanged();
         return this;
@@ -7441,9 +7155,9 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -7506,10 +7220,8 @@ java.lang.String defaultValue);
        */
       public Builder setTags(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.set(index, value);
         onChanged();
         return this;
@@ -7525,10 +7237,8 @@ java.lang.String defaultValue);
        */
       public Builder addTags(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
         return this;
@@ -7560,7 +7270,7 @@ java.lang.String defaultValue);
        */
       public Builder clearTags() {
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -7575,10 +7285,8 @@ java.lang.String defaultValue);
        */
       public Builder addTagsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
@@ -7598,7 +7306,7 @@ java.lang.String defaultValue);
        * @return Whether the relationDescriptor field is set.
        */
       public boolean hasRelationDescriptor() {
-        return relationDescriptorBuilder_ != null || relationDescriptor_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -7630,11 +7338,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           relationDescriptor_ = value;
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7649,11 +7357,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder builderForValue) {
         if (relationDescriptorBuilder_ == null) {
           relationDescriptor_ = builderForValue.build();
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7666,17 +7374,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeRelationDescriptor(com.google.cloud.dataform.v1beta1.RelationDescriptor value) {
         if (relationDescriptorBuilder_ == null) {
-          if (relationDescriptor_ != null) {
-            relationDescriptor_ =
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.newBuilder(relationDescriptor_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            relationDescriptor_ != null &&
+            relationDescriptor_ != com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance()) {
+            getRelationDescriptorBuilder().mergeFrom(value);
           } else {
             relationDescriptor_ = value;
           }
-          onChanged();
         } else {
           relationDescriptorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7688,14 +7397,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 6;</code>
        */
       public Builder clearRelationDescriptor() {
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-          onChanged();
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7707,7 +7415,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 6;</code>
        */
       public com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder getRelationDescriptorBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getRelationDescriptorFieldBuilder().getBuilder();
       }
@@ -7751,9 +7459,9 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.LazyStringList queries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureQueriesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           queries_ = new com.google.protobuf.LazyStringArrayList(queries_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -7821,10 +7529,8 @@ java.lang.String defaultValue);
        */
       public Builder setQueries(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureQueriesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureQueriesIsMutable();
         queries_.set(index, value);
         onChanged();
         return this;
@@ -7841,10 +7547,8 @@ java.lang.String defaultValue);
        */
       public Builder addQueries(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureQueriesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureQueriesIsMutable();
         queries_.add(value);
         onChanged();
         return this;
@@ -7878,7 +7582,7 @@ java.lang.String defaultValue);
        */
       public Builder clearQueries() {
         queries_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -7894,10 +7598,8 @@ java.lang.String defaultValue);
        */
       public Builder addQueriesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureQueriesIsMutable();
         queries_.add(value);
         onChanged();
@@ -7929,6 +7631,7 @@ java.lang.String defaultValue);
       public Builder setHasOutput(boolean value) {
         
         hasOutput_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -7941,7 +7644,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearHasOutput() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         hasOutput_ = false;
         onChanged();
         return this;
@@ -7979,7 +7682,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Operations(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8215,107 +7929,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Assertion(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dependencyTargets_ = new java.util.ArrayList<com.google.cloud.dataform.v1beta1.Target>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dependencyTargets_.add(
-                  input.readMessage(com.google.cloud.dataform.v1beta1.Target.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-
-              disabled_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                tags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              tags_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              selectQuery_ = s;
-              break;
-            }
-            case 42: {
-              com.google.cloud.dataform.v1beta1.Target.Builder subBuilder = null;
-              if (parentAction_ != null) {
-                subBuilder = parentAction_.toBuilder();
-              }
-              parentAction_ = input.readMessage(com.google.cloud.dataform.v1beta1.Target.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(parentAction_);
-                parentAction_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder subBuilder = null;
-              if (relationDescriptor_ != null) {
-                subBuilder = relationDescriptor_.toBuilder();
-              }
-              relationDescriptor_ = input.readMessage(com.google.cloud.dataform.v1beta1.RelationDescriptor.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(relationDescriptor_);
-                relationDescriptor_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dependencyTargets_ = java.util.Collections.unmodifiableList(dependencyTargets_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          tags_ = tags_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_CompilationResultAction_Assertion_descriptor;
@@ -8330,6 +7943,7 @@ java.lang.String defaultValue);
     }
 
     public static final int DEPENDENCY_TARGETS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.dataform.v1beta1.Target> dependencyTargets_;
     /**
      * <pre>
@@ -8427,11 +8041,11 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.TargetOrBuilder getParentActionOrBuilder() {
-      return getParentAction();
+      return parentAction_ == null ? com.google.cloud.dataform.v1beta1.Target.getDefaultInstance() : parentAction_;
     }
 
     public static final int DISABLED_FIELD_NUMBER = 2;
-    private boolean disabled_;
+    private boolean disabled_ = false;
     /**
      * <pre>
      * Whether this action is disabled (i.e. should not be run).
@@ -8446,6 +8060,7 @@ java.lang.String defaultValue);
     }
 
     public static final int TAGS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <pre>
@@ -8497,7 +8112,8 @@ java.lang.String defaultValue);
     }
 
     public static final int SELECT_QUERY_FIELD_NUMBER = 4;
-    private volatile java.lang.Object selectQuery_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object selectQuery_ = "";
     /**
      * <pre>
      * The SELECT query which must return zero rows in order for this assertion
@@ -8582,7 +8198,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.RelationDescriptorOrBuilder getRelationDescriptorOrBuilder() {
-      return getRelationDescriptor();
+      return relationDescriptor_ == null ? com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance() : relationDescriptor_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -8617,7 +8233,7 @@ java.lang.String defaultValue);
       if (relationDescriptor_ != null) {
         output.writeMessage(6, getRelationDescriptor());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8653,7 +8269,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getRelationDescriptor());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8686,7 +8302,7 @@ java.lang.String defaultValue);
         if (!getRelationDescriptor()
             .equals(other.getRelationDescriptor())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8718,7 +8334,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + RELATION_DESCRIPTOR_FIELD_NUMBER;
         hash = (53 * hash) + getRelationDescriptor().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8840,45 +8456,37 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDependencyTargetsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (dependencyTargetsBuilder_ == null) {
           dependencyTargets_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          dependencyTargets_ = null;
           dependencyTargetsBuilder_.clear();
         }
-        if (parentActionBuilder_ == null) {
-          parentAction_ = null;
-        } else {
-          parentAction_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        parentAction_ = null;
+        if (parentActionBuilder_ != null) {
+          parentActionBuilder_.dispose();
           parentActionBuilder_ = null;
         }
         disabled_ = false;
-
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         selectQuery_ = "";
-
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-        } else {
-          relationDescriptor_ = null;
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
         return this;
@@ -8907,7 +8515,13 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion buildPartial() {
         com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion result = new com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion result) {
         if (dependencyTargetsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             dependencyTargets_ = java.util.Collections.unmodifiableList(dependencyTargets_);
@@ -8917,25 +8531,31 @@ java.lang.String defaultValue);
         } else {
           result.dependencyTargets_ = dependencyTargetsBuilder_.build();
         }
-        if (parentActionBuilder_ == null) {
-          result.parentAction_ = parentAction_;
-        } else {
-          result.parentAction_ = parentActionBuilder_.build();
-        }
-        result.disabled_ = disabled_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           tags_ = tags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.tags_ = tags_;
-        result.selectQuery_ = selectQuery_;
-        if (relationDescriptorBuilder_ == null) {
-          result.relationDescriptor_ = relationDescriptor_;
-        } else {
-          result.relationDescriptor_ = relationDescriptorBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.parentAction_ = parentActionBuilder_ == null
+              ? parentAction_
+              : parentActionBuilder_.build();
         }
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.disabled_ = disabled_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.selectQuery_ = selectQuery_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.relationDescriptor_ = relationDescriptorBuilder_ == null
+              ? relationDescriptor_
+              : relationDescriptorBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -9017,7 +8637,7 @@ java.lang.String defaultValue);
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
@@ -9026,12 +8646,13 @@ java.lang.String defaultValue);
         }
         if (!other.getSelectQuery().isEmpty()) {
           selectQuery_ = other.selectQuery_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasRelationDescriptor()) {
           mergeRelationDescriptor(other.getRelationDescriptor());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9046,17 +8667,73 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.dataform.v1beta1.Target m =
+                    input.readMessage(
+                        com.google.cloud.dataform.v1beta1.Target.parser(),
+                        extensionRegistry);
+                if (dependencyTargetsBuilder_ == null) {
+                  ensureDependencyTargetsIsMutable();
+                  dependencyTargets_.add(m);
+                } else {
+                  dependencyTargetsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                disabled_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 16
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTagsIsMutable();
+                tags_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                selectQuery_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getParentActionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getRelationDescriptorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1beta1.CompilationResultAction.Assertion) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9386,7 +9063,7 @@ java.lang.String defaultValue);
        * @return Whether the parentAction field is set.
        */
       public boolean hasParentAction() {
-        return parentActionBuilder_ != null || parentAction_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -9418,11 +9095,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           parentAction_ = value;
-          onChanged();
         } else {
           parentActionBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -9437,11 +9114,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1beta1.Target.Builder builderForValue) {
         if (parentActionBuilder_ == null) {
           parentAction_ = builderForValue.build();
-          onChanged();
         } else {
           parentActionBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -9454,17 +9131,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeParentAction(com.google.cloud.dataform.v1beta1.Target value) {
         if (parentActionBuilder_ == null) {
-          if (parentAction_ != null) {
-            parentAction_ =
-              com.google.cloud.dataform.v1beta1.Target.newBuilder(parentAction_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            parentAction_ != null &&
+            parentAction_ != com.google.cloud.dataform.v1beta1.Target.getDefaultInstance()) {
+            getParentActionBuilder().mergeFrom(value);
           } else {
             parentAction_ = value;
           }
-          onChanged();
         } else {
           parentActionBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -9476,14 +9154,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.Target parent_action = 5;</code>
        */
       public Builder clearParentAction() {
-        if (parentActionBuilder_ == null) {
-          parentAction_ = null;
-          onChanged();
-        } else {
-          parentAction_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        parentAction_ = null;
+        if (parentActionBuilder_ != null) {
+          parentActionBuilder_.dispose();
           parentActionBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -9495,7 +9172,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.Target parent_action = 5;</code>
        */
       public com.google.cloud.dataform.v1beta1.Target.Builder getParentActionBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getParentActionFieldBuilder().getBuilder();
       }
@@ -9562,6 +9239,7 @@ java.lang.String defaultValue);
       public Builder setDisabled(boolean value) {
         
         disabled_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -9574,7 +9252,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDisabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         disabled_ = false;
         onChanged();
         return this;
@@ -9582,9 +9260,9 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -9647,10 +9325,8 @@ java.lang.String defaultValue);
        */
       public Builder setTags(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.set(index, value);
         onChanged();
         return this;
@@ -9666,10 +9342,8 @@ java.lang.String defaultValue);
        */
       public Builder addTags(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
         return this;
@@ -9701,7 +9375,7 @@ java.lang.String defaultValue);
        */
       public Builder clearTags() {
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -9716,10 +9390,8 @@ java.lang.String defaultValue);
        */
       public Builder addTagsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
@@ -9782,11 +9454,9 @@ java.lang.String defaultValue);
        */
       public Builder setSelectQuery(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         selectQuery_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -9800,8 +9470,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearSelectQuery() {
-        
         selectQuery_ = getDefaultInstance().getSelectQuery();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -9817,12 +9487,10 @@ java.lang.String defaultValue);
        */
       public Builder setSelectQueryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         selectQuery_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -9840,7 +9508,7 @@ java.lang.String defaultValue);
        * @return Whether the relationDescriptor field is set.
        */
       public boolean hasRelationDescriptor() {
-        return relationDescriptorBuilder_ != null || relationDescriptor_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -9872,11 +9540,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           relationDescriptor_ = value;
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -9891,11 +9559,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder builderForValue) {
         if (relationDescriptorBuilder_ == null) {
           relationDescriptor_ = builderForValue.build();
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -9908,17 +9576,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeRelationDescriptor(com.google.cloud.dataform.v1beta1.RelationDescriptor value) {
         if (relationDescriptorBuilder_ == null) {
-          if (relationDescriptor_ != null) {
-            relationDescriptor_ =
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.newBuilder(relationDescriptor_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            relationDescriptor_ != null &&
+            relationDescriptor_ != com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance()) {
+            getRelationDescriptorBuilder().mergeFrom(value);
           } else {
             relationDescriptor_ = value;
           }
-          onChanged();
         } else {
           relationDescriptorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -9930,14 +9599,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 6;</code>
        */
       public Builder clearRelationDescriptor() {
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-          onChanged();
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -9949,7 +9617,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 6;</code>
        */
       public com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder getRelationDescriptorBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getRelationDescriptorFieldBuilder().getBuilder();
       }
@@ -10023,7 +9691,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Assertion(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10109,58 +9788,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Declaration(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder subBuilder = null;
-              if (relationDescriptor_ != null) {
-                subBuilder = relationDescriptor_.toBuilder();
-              }
-              relationDescriptor_ = input.readMessage(com.google.cloud.dataform.v1beta1.RelationDescriptor.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(relationDescriptor_);
-                relationDescriptor_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataform.v1beta1.DataformProto.internal_static_google_cloud_dataform_v1beta1_CompilationResultAction_Declaration_descriptor;
@@ -10212,7 +9839,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.RelationDescriptorOrBuilder getRelationDescriptorOrBuilder() {
-      return getRelationDescriptor();
+      return relationDescriptor_ == null ? com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance() : relationDescriptor_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10232,7 +9859,7 @@ java.lang.String defaultValue);
       if (relationDescriptor_ != null) {
         output.writeMessage(1, getRelationDescriptor());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10245,7 +9872,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getRelationDescriptor());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10265,7 +9892,7 @@ java.lang.String defaultValue);
         if (!getRelationDescriptor()
             .equals(other.getRelationDescriptor())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10280,7 +9907,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + RELATION_DESCRIPTOR_FIELD_NUMBER;
         hash = (53 * hash) + getRelationDescriptor().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10402,26 +10029,21 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = 0;
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
         return this;
@@ -10450,13 +10072,18 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration buildPartial() {
         com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration result = new com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration(this);
-        if (relationDescriptorBuilder_ == null) {
-          result.relationDescriptor_ = relationDescriptor_;
-        } else {
-          result.relationDescriptor_ = relationDescriptorBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.relationDescriptor_ = relationDescriptorBuilder_ == null
+              ? relationDescriptor_
+              : relationDescriptorBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -10506,7 +10133,7 @@ java.lang.String defaultValue);
         if (other.hasRelationDescriptor()) {
           mergeRelationDescriptor(other.getRelationDescriptor());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10521,19 +10148,40 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getRelationDescriptorFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.dataform.v1beta1.RelationDescriptor relationDescriptor_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10548,7 +10196,7 @@ java.lang.String defaultValue);
        * @return Whether the relationDescriptor field is set.
        */
       public boolean hasRelationDescriptor() {
-        return relationDescriptorBuilder_ != null || relationDescriptor_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -10580,11 +10228,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           relationDescriptor_ = value;
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10599,11 +10247,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder builderForValue) {
         if (relationDescriptorBuilder_ == null) {
           relationDescriptor_ = builderForValue.build();
-          onChanged();
         } else {
           relationDescriptorBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10616,17 +10264,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeRelationDescriptor(com.google.cloud.dataform.v1beta1.RelationDescriptor value) {
         if (relationDescriptorBuilder_ == null) {
-          if (relationDescriptor_ != null) {
-            relationDescriptor_ =
-              com.google.cloud.dataform.v1beta1.RelationDescriptor.newBuilder(relationDescriptor_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            relationDescriptor_ != null &&
+            relationDescriptor_ != com.google.cloud.dataform.v1beta1.RelationDescriptor.getDefaultInstance()) {
+            getRelationDescriptorBuilder().mergeFrom(value);
           } else {
             relationDescriptor_ = value;
           }
-          onChanged();
         } else {
           relationDescriptorBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10638,14 +10287,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 1;</code>
        */
       public Builder clearRelationDescriptor() {
-        if (relationDescriptorBuilder_ == null) {
-          relationDescriptor_ = null;
-          onChanged();
-        } else {
-          relationDescriptor_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        relationDescriptor_ = null;
+        if (relationDescriptorBuilder_ != null) {
+          relationDescriptorBuilder_.dispose();
           relationDescriptorBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10657,7 +10305,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataform.v1beta1.RelationDescriptor relation_descriptor = 1;</code>
        */
       public com.google.cloud.dataform.v1beta1.RelationDescriptor.Builder getRelationDescriptorBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getRelationDescriptorFieldBuilder().getBuilder();
       }
@@ -10731,7 +10379,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Declaration(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10831,7 +10490,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.dataform.v1beta1.TargetOrBuilder getTargetOrBuilder() {
-    return getTarget();
+    return target_ == null ? com.google.cloud.dataform.v1beta1.Target.getDefaultInstance() : target_;
   }
 
   public static final int CANONICAL_TARGET_FIELD_NUMBER = 2;
@@ -10872,11 +10531,12 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.dataform.v1beta1.TargetOrBuilder getCanonicalTargetOrBuilder() {
-    return getCanonicalTarget();
+    return canonicalTarget_ == null ? com.google.cloud.dataform.v1beta1.Target.getDefaultInstance() : canonicalTarget_;
   }
 
   public static final int FILE_PATH_FIELD_NUMBER = 3;
-  private volatile java.lang.Object filePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filePath_ = "";
   /**
    * <pre>
    * The full path including filename in which this action is located, relative
@@ -11130,7 +10790,7 @@ java.lang.String defaultValue);
     if (compiledObjectCase_ == 7) {
       output.writeMessage(7, (com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration) compiledObject_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -11166,7 +10826,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (com.google.cloud.dataform.v1beta1.CompilationResultAction.Declaration) compiledObject_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -11214,7 +10874,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -11255,7 +10915,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -11376,36 +11036,41 @@ java.lang.String defaultValue);
 
     // Construct using com.google.cloud.dataform.v1beta1.CompilationResultAction.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (targetBuilder_ == null) {
-        target_ = null;
-      } else {
-        target_ = null;
+      bitField0_ = 0;
+      target_ = null;
+      if (targetBuilder_ != null) {
+        targetBuilder_.dispose();
         targetBuilder_ = null;
       }
-      if (canonicalTargetBuilder_ == null) {
-        canonicalTarget_ = null;
-      } else {
-        canonicalTarget_ = null;
+      canonicalTarget_ = null;
+      if (canonicalTargetBuilder_ != null) {
+        canonicalTargetBuilder_.dispose();
         canonicalTargetBuilder_ = null;
       }
       filePath_ = "";
-
+      if (relationBuilder_ != null) {
+        relationBuilder_.clear();
+      }
+      if (operationsBuilder_ != null) {
+        operationsBuilder_.clear();
+      }
+      if (assertionBuilder_ != null) {
+        assertionBuilder_.clear();
+      }
+      if (declarationBuilder_ != null) {
+        declarationBuilder_.clear();
+      }
       compiledObjectCase_ = 0;
       compiledObject_ = null;
       return this;
@@ -11434,48 +11099,48 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.cloud.dataform.v1beta1.CompilationResultAction buildPartial() {
       com.google.cloud.dataform.v1beta1.CompilationResultAction result = new com.google.cloud.dataform.v1beta1.CompilationResultAction(this);
-      if (targetBuilder_ == null) {
-        result.target_ = target_;
-      } else {
-        result.target_ = targetBuilder_.build();
-      }
-      if (canonicalTargetBuilder_ == null) {
-        result.canonicalTarget_ = canonicalTarget_;
-      } else {
-        result.canonicalTarget_ = canonicalTargetBuilder_.build();
-      }
-      result.filePath_ = filePath_;
-      if (compiledObjectCase_ == 4) {
-        if (relationBuilder_ == null) {
-          result.compiledObject_ = compiledObject_;
-        } else {
-          result.compiledObject_ = relationBuilder_.build();
-        }
-      }
-      if (compiledObjectCase_ == 5) {
-        if (operationsBuilder_ == null) {
-          result.compiledObject_ = compiledObject_;
-        } else {
-          result.compiledObject_ = operationsBuilder_.build();
-        }
-      }
-      if (compiledObjectCase_ == 6) {
-        if (assertionBuilder_ == null) {
-          result.compiledObject_ = compiledObject_;
-        } else {
-          result.compiledObject_ = assertionBuilder_.build();
-        }
-      }
-      if (compiledObjectCase_ == 7) {
-        if (declarationBuilder_ == null) {
-          result.compiledObject_ = compiledObject_;
-        } else {
-          result.compiledObject_ = declarationBuilder_.build();
-        }
-      }
-      result.compiledObjectCase_ = compiledObjectCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataform.v1beta1.CompilationResultAction result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.target_ = targetBuilder_ == null
+            ? target_
+            : targetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.canonicalTarget_ = canonicalTargetBuilder_ == null
+            ? canonicalTarget_
+            : canonicalTargetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.filePath_ = filePath_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataform.v1beta1.CompilationResultAction result) {
+      result.compiledObjectCase_ = compiledObjectCase_;
+      result.compiledObject_ = this.compiledObject_;
+      if (compiledObjectCase_ == 4 &&
+          relationBuilder_ != null) {
+        result.compiledObject_ = relationBuilder_.build();
+      }
+      if (compiledObjectCase_ == 5 &&
+          operationsBuilder_ != null) {
+        result.compiledObject_ = operationsBuilder_.build();
+      }
+      if (compiledObjectCase_ == 6 &&
+          assertionBuilder_ != null) {
+        result.compiledObject_ = assertionBuilder_.build();
+      }
+      if (compiledObjectCase_ == 7 &&
+          declarationBuilder_ != null) {
+        result.compiledObject_ = declarationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -11530,6 +11195,7 @@ java.lang.String defaultValue);
       }
       if (!other.getFilePath().isEmpty()) {
         filePath_ = other.filePath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getCompiledObjectCase()) {
@@ -11553,7 +11219,7 @@ java.lang.String defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -11568,17 +11234,77 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataform.v1beta1.CompilationResultAction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCanonicalTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              filePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRelationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              compiledObjectCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getOperationsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              compiledObjectCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAssertionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              compiledObjectCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDeclarationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              compiledObjectCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataform.v1beta1.CompilationResultAction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int compiledObjectCase_ = 0;
@@ -11596,6 +11322,7 @@ java.lang.String defaultValue);
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.cloud.dataform.v1beta1.Target target_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -11609,7 +11336,7 @@ java.lang.String defaultValue);
      * @return Whether the target field is set.
      */
     public boolean hasTarget() {
-      return targetBuilder_ != null || target_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -11639,11 +11366,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         target_ = value;
-        onChanged();
       } else {
         targetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -11657,11 +11384,11 @@ java.lang.String defaultValue);
         com.google.cloud.dataform.v1beta1.Target.Builder builderForValue) {
       if (targetBuilder_ == null) {
         target_ = builderForValue.build();
-        onChanged();
       } else {
         targetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -11673,17 +11400,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeTarget(com.google.cloud.dataform.v1beta1.Target value) {
       if (targetBuilder_ == null) {
-        if (target_ != null) {
-          target_ =
-            com.google.cloud.dataform.v1beta1.Target.newBuilder(target_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          target_ != null &&
+          target_ != com.google.cloud.dataform.v1beta1.Target.getDefaultInstance()) {
+          getTargetBuilder().mergeFrom(value);
         } else {
           target_ = value;
         }
-        onChanged();
       } else {
         targetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -11694,14 +11422,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataform.v1beta1.Target target = 1;</code>
      */
     public Builder clearTarget() {
-      if (targetBuilder_ == null) {
-        target_ = null;
-        onChanged();
-      } else {
-        target_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      target_ = null;
+      if (targetBuilder_ != null) {
+        targetBuilder_.dispose();
         targetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11712,7 +11439,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataform.v1beta1.Target target = 1;</code>
      */
     public com.google.cloud.dataform.v1beta1.Target.Builder getTargetBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTargetFieldBuilder().getBuilder();
     }
@@ -11765,7 +11492,7 @@ java.lang.String defaultValue);
      * @return Whether the canonicalTarget field is set.
      */
     public boolean hasCanonicalTarget() {
-      return canonicalTargetBuilder_ != null || canonicalTarget_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -11797,11 +11524,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         canonicalTarget_ = value;
-        onChanged();
       } else {
         canonicalTargetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -11816,11 +11543,11 @@ java.lang.String defaultValue);
         com.google.cloud.dataform.v1beta1.Target.Builder builderForValue) {
       if (canonicalTargetBuilder_ == null) {
         canonicalTarget_ = builderForValue.build();
-        onChanged();
       } else {
         canonicalTargetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -11833,17 +11560,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeCanonicalTarget(com.google.cloud.dataform.v1beta1.Target value) {
       if (canonicalTargetBuilder_ == null) {
-        if (canonicalTarget_ != null) {
-          canonicalTarget_ =
-            com.google.cloud.dataform.v1beta1.Target.newBuilder(canonicalTarget_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          canonicalTarget_ != null &&
+          canonicalTarget_ != com.google.cloud.dataform.v1beta1.Target.getDefaultInstance()) {
+          getCanonicalTargetBuilder().mergeFrom(value);
         } else {
           canonicalTarget_ = value;
         }
-        onChanged();
       } else {
         canonicalTargetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -11855,14 +11583,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataform.v1beta1.Target canonical_target = 2;</code>
      */
     public Builder clearCanonicalTarget() {
-      if (canonicalTargetBuilder_ == null) {
-        canonicalTarget_ = null;
-        onChanged();
-      } else {
-        canonicalTarget_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      canonicalTarget_ = null;
+      if (canonicalTargetBuilder_ != null) {
+        canonicalTargetBuilder_.dispose();
         canonicalTargetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11874,7 +11601,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataform.v1beta1.Target canonical_target = 2;</code>
      */
     public com.google.cloud.dataform.v1beta1.Target.Builder getCanonicalTargetBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCanonicalTargetFieldBuilder().getBuilder();
     }
@@ -11972,11 +11699,9 @@ java.lang.String defaultValue);
      */
     public Builder setFilePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filePath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -11990,8 +11715,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearFilePath() {
-      
       filePath_ = getDefaultInstance().getFilePath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -12007,12 +11732,10 @@ java.lang.String defaultValue);
      */
     public Builder setFilePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filePath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -12191,7 +11914,7 @@ java.lang.String defaultValue);
         compiledObject_ = null;
       }
       compiledObjectCase_ = 4;
-      onChanged();;
+      onChanged();
       return relationBuilder_;
     }
 
@@ -12369,7 +12092,7 @@ java.lang.String defaultValue);
         compiledObject_ = null;
       }
       compiledObjectCase_ = 5;
-      onChanged();;
+      onChanged();
       return operationsBuilder_;
     }
 
@@ -12547,7 +12270,7 @@ java.lang.String defaultValue);
         compiledObject_ = null;
       }
       compiledObjectCase_ = 6;
-      onChanged();;
+      onChanged();
       return assertionBuilder_;
     }
 
@@ -12725,7 +12448,7 @@ java.lang.String defaultValue);
         compiledObject_ = null;
       }
       compiledObjectCase_ = 7;
-      onChanged();;
+      onChanged();
       return declarationBuilder_;
     }
     @java.lang.Override
@@ -12761,7 +12484,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompilationResultAction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -7,7 +7,6 @@ package io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3;
  * <pre>
  * Configuration for the wrr_locality LB policy. See the :ref:`load balancing architecture overview
  * &lt;arch_overview_load_balancing_types&gt;` for more information.
- * [#extension: envoy.clusters.lb_policy]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality}
@@ -35,58 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private WrrLocality(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.Builder subBuilder = null;
-            if (endpointPickingPolicy_ != null) {
-              subBuilder = endpointPickingPolicy_.toBuilder();
-            }
-            endpointPickingPolicy_ = input.readMessage(io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endpointPickingPolicy_);
-              endpointPickingPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -136,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicyOrBuilder getEndpointPickingPolicyOrBuilder() {
-    return getEndpointPickingPolicy();
+    return endpointPickingPolicy_ == null ? io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.getDefaultInstance() : endpointPickingPolicy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -156,7 +103,7 @@ private static final long serialVersionUID = 0L;
     if (endpointPickingPolicy_ != null) {
       output.writeMessage(1, getEndpointPickingPolicy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -169,7 +116,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getEndpointPickingPolicy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -189,7 +136,7 @@ private static final long serialVersionUID = 0L;
       if (!getEndpointPickingPolicy()
           .equals(other.getEndpointPickingPolicy())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -204,7 +151,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENDPOINT_PICKING_POLICY_FIELD_NUMBER;
       hash = (53 * hash) + getEndpointPickingPolicy().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -303,7 +250,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Configuration for the wrr_locality LB policy. See the :ref:`load balancing architecture overview
    * &lt;arch_overview_load_balancing_types&gt;` for more information.
-   * [#extension: envoy.clusters.lb_policy]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality}
@@ -327,26 +273,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (endpointPickingPolicyBuilder_ == null) {
-        endpointPickingPolicy_ = null;
-      } else {
-        endpointPickingPolicy_ = null;
+      bitField0_ = 0;
+      endpointPickingPolicy_ = null;
+      if (endpointPickingPolicyBuilder_ != null) {
+        endpointPickingPolicyBuilder_.dispose();
         endpointPickingPolicyBuilder_ = null;
       }
       return this;
@@ -375,13 +316,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality buildPartial() {
       io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality result = new io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality(this);
-      if (endpointPickingPolicyBuilder_ == null) {
-        result.endpointPickingPolicy_ = endpointPickingPolicy_;
-      } else {
-        result.endpointPickingPolicy_ = endpointPickingPolicyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.endpointPickingPolicy_ = endpointPickingPolicyBuilder_ == null
+            ? endpointPickingPolicy_
+            : endpointPickingPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -431,7 +377,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEndpointPickingPolicy()) {
         mergeEndpointPickingPolicy(other.getEndpointPickingPolicy());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -446,19 +392,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEndpointPickingPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.load_balancing_policies.wrr_locality.v3.WrrLocality) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy endpointPickingPolicy_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +439,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endpointPickingPolicy field is set.
      */
     public boolean hasEndpointPickingPolicy() {
-      return endpointPickingPolicyBuilder_ != null || endpointPickingPolicy_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -502,11 +469,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endpointPickingPolicy_ = value;
-        onChanged();
       } else {
         endpointPickingPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -520,11 +487,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.Builder builderForValue) {
       if (endpointPickingPolicyBuilder_ == null) {
         endpointPickingPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         endpointPickingPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -536,17 +503,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndpointPickingPolicy(io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy value) {
       if (endpointPickingPolicyBuilder_ == null) {
-        if (endpointPickingPolicy_ != null) {
-          endpointPickingPolicy_ =
-            io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.newBuilder(endpointPickingPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          endpointPickingPolicy_ != null &&
+          endpointPickingPolicy_ != io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.getDefaultInstance()) {
+          getEndpointPickingPolicyBuilder().mergeFrom(value);
         } else {
           endpointPickingPolicy_ = value;
         }
-        onChanged();
       } else {
         endpointPickingPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -557,14 +525,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.cluster.v3.LoadBalancingPolicy endpoint_picking_policy = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEndpointPickingPolicy() {
-      if (endpointPickingPolicyBuilder_ == null) {
-        endpointPickingPolicy_ = null;
-        onChanged();
-      } else {
-        endpointPickingPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      endpointPickingPolicy_ = null;
+      if (endpointPickingPolicyBuilder_ != null) {
+        endpointPickingPolicyBuilder_.dispose();
         endpointPickingPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -575,7 +542,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.cluster.v3.LoadBalancingPolicy endpoint_picking_policy = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.cluster.v3.LoadBalancingPolicy.Builder getEndpointPickingPolicyBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEndpointPickingPolicyFieldBuilder().getBuilder();
     }
@@ -647,7 +614,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WrrLocality(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.google/cloud/securitycenter/v1/indicator.proto\x12\x1egoogle.cloud.securitycenter.v1\"\x83\x05\n\tIndicator\x12\x14\n\x0cip_addresses\x18\x01 \x03(\t\x12\x0f\n\x07\x64omains\x18\x02 \x03(\t\x12N\n\nsignatures\x18\x03 \x03(\x0b\x32:.google.cloud.securitycenter.v1.Indicator.ProcessSignature\x1a\xfe\x03\n\x10ProcessSignature\x12o\n\x15memory_hash_signature\x18\x06 \x01(\x0b\x32N.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignatureH\x00\x12k\n\x13yara_rule_signature\x18\x07 \x01(\x0b\x32L.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignatureH\x00\x1a\xd6\x01\n\x13MemoryHashSignature\x12\x15\n\rbinary_family\x18\x01 \x01(\t\x12l\n\ndetections\x18\x04 \x03(\x0b\x32X.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection\x1a:\n\tDetection\x12\x0e\n\x06\x62inary\x18\x02 \x01(\t\x12\x1d\n\x15percent_pages_matched\x18\x03 \x01(\x01\x1a&\n\x11YaraRuleSignature\x12\x11\n\tyara_rule\x18\x05 \x01(\tB\x0b\n\tsignatureB\xea\x01\n\"com.google.cloud.securitycenter.v1B\x0eIndicatorProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n.google/cloud/securitycenter/v1/indicator.proto\x12\x1egoogle.cloud.securitycenter.v1\"\x91\x05\n\tIndicator\x12\x14\n\x0cip_addresses\x18\x01 \x03(\t\x12\x0f\n\x07\x64omains\x18\x02 \x03(\t\x12N\n\nsignatures\x18\x03 \x03(\x0b\x32:.google.cloud.securitycenter.v1.Indicator.ProcessSignature\x12\x0c\n\x04uris\x18\x04 \x03(\t\x1a\xfe\x03\n\x10ProcessSignature\x12o\n\x15memory_hash_signature\x18\x06 \x01(\x0b\x32N.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignatureH\x00\x12k\n\x13yara_rule_signature\x18\x07 \x01(\x0b\x32L.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignatureH\x00\x1a\xd6\x01\n\x13MemoryHashSignature\x12\x15\n\rbinary_family\x18\x01 \x01(\t\x12l\n\ndetections\x18\x04 \x03(\x0b\x32X.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection\x1a:\n\tDetection\x12\x0e\n\x06\x62inary\x18\x02 \x01(\t\x12\x1d\n\x15percent_pages_matched\x18\x03 \x01(\x01\x1a&\n\x11YaraRuleSignature\x12\x11\n\tyara_rule\x18\x05 \x01(\tB\x0b\n\tsignatureB\xea\x01\n\"com.google.cloud.securitycenter.v1B\x0eIndicatorProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.v1.indicator_pb2', globals())
@@ -22,13 +22,13 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\"com.google.cloud.securitycenter.v1B\016IndicatorProtoP\001ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\252\002\036Google.Cloud.SecurityCenter.V1\312\002\036Google\\Cloud\\SecurityCenter\\V1\352\002!Google::Cloud::SecurityCenter::V1'
   _INDICATOR._serialized_start=83
-  _INDICATOR._serialized_end=726
-  _INDICATOR_PROCESSSIGNATURE._serialized_start=216
-  _INDICATOR_PROCESSSIGNATURE._serialized_end=726
-  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE._serialized_start=459
-  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE._serialized_end=673
-  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE_DETECTION._serialized_start=615
-  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE_DETECTION._serialized_end=673
-  _INDICATOR_PROCESSSIGNATURE_YARARULESIGNATURE._serialized_start=675
-  _INDICATOR_PROCESSSIGNATURE_YARARULESIGNATURE._serialized_end=713
+  _INDICATOR._serialized_end=740
+  _INDICATOR_PROCESSSIGNATURE._serialized_start=230
+  _INDICATOR_PROCESSSIGNATURE._serialized_end=740
+  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE._serialized_start=473
+  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE._serialized_end=687
+  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE_DETECTION._serialized_start=629
+  _INDICATOR_PROCESSSIGNATURE_MEMORYHASHSIGNATURE_DETECTION._serialized_end=687
+  _INDICATOR_PROCESSSIGNATURE_YARARULESIGNATURE._serialized_start=689
+  _INDICATOR_PROCESSSIGNATURE_YARARULESIGNATURE._serialized_end=727
 # @@protoc_insertion_point(module_scope)

@@ -38,122 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProductCatalogItem(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice.Builder subBuilder = null;
-            if (priceCase_ == 1) {
-              subBuilder = ((com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice) price_).toBuilder();
-            }
-            price_ =
-                input.readMessage(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice) price_);
-              price_ = subBuilder.buildPartial();
-            }
-            priceCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange.Builder subBuilder = null;
-            if (priceCase_ == 2) {
-              subBuilder = ((com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange) price_).toBuilder();
-            }
-            price_ =
-                input.readMessage(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange) price_);
-              price_ = subBuilder.buildPartial();
-            }
-            priceCase_ = 2;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              costs_ = com.google.protobuf.MapField.newMapField(
-                  CostsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
-            costs__ = input.readMessage(
-                CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            costs_.getMutableMap().put(
-                costs__.getKey(), costs__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currencyCode_ = s;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            stockState_ = rawValue;
-            break;
-          }
-          case 48: {
-
-            availableQuantity_ = input.readInt64();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            canonicalProductUri_ = s;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              images_ = new java.util.ArrayList<com.google.cloud.recommendationengine.v1beta1.Image>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            images_.add(
-                input.readMessage(com.google.cloud.recommendationengine.v1beta1.Image.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        images_ = java.util.Collections.unmodifiableList(images_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.Catalog.internal_static_google_cloud_recommendationengine_v1beta1_ProductCatalogItem_descriptor;
@@ -420,55 +304,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ExactPrice(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              displayPrice_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              originalPrice_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.recommendationengine.v1beta1.Catalog.internal_static_google_cloud_recommendationengine_v1beta1_ProductCatalogItem_ExactPrice_descriptor;
@@ -483,7 +318,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISPLAY_PRICE_FIELD_NUMBER = 1;
-    private float displayPrice_;
+    private float displayPrice_ = 0F;
     /**
      * <pre>
      * Optional. Display price of the product.
@@ -498,7 +333,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ORIGINAL_PRICE_FIELD_NUMBER = 2;
-    private float originalPrice_;
+    private float originalPrice_ = 0F;
     /**
      * <pre>
      * Optional. Price of the product without any discount. If zero, by default
@@ -533,7 +368,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Float.floatToRawIntBits(originalPrice_) != 0) {
         output.writeFloat(2, originalPrice_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -550,7 +385,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, originalPrice_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -571,7 +406,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Float.floatToIntBits(getOriginalPrice())
           != java.lang.Float.floatToIntBits(
               other.getOriginalPrice())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -588,7 +423,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ORIGINAL_PRICE_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getOriginalPrice());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -709,26 +544,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         displayPrice_ = 0F;
-
         originalPrice_ = 0F;
-
         return this;
       }
 
@@ -755,10 +584,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice buildPartial() {
         com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice result = new com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice(this);
-        result.displayPrice_ = displayPrice_;
-        result.originalPrice_ = originalPrice_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.displayPrice_ = displayPrice_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.originalPrice_ = originalPrice_;
+        }
       }
 
       @java.lang.Override
@@ -811,7 +649,7 @@ private static final long serialVersionUID = 0L;
         if (other.getOriginalPrice() != 0F) {
           setOriginalPrice(other.getOriginalPrice());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -826,19 +664,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                displayPrice_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                originalPrice_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.ExactPrice) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float displayPrice_ ;
       /**
@@ -865,6 +727,7 @@ private static final long serialVersionUID = 0L;
       public Builder setDisplayPrice(float value) {
         
         displayPrice_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -877,7 +740,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisplayPrice() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         displayPrice_ = 0F;
         onChanged();
         return this;
@@ -910,6 +773,7 @@ private static final long serialVersionUID = 0L;
       public Builder setOriginalPrice(float value) {
         
         originalPrice_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -923,7 +787,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOriginalPrice() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         originalPrice_ = 0F;
         onChanged();
         return this;
@@ -961,7 +825,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExactPrice(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1037,55 +912,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PriceRange(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              min_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              max_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.recommendationengine.v1beta1.Catalog.internal_static_google_cloud_recommendationengine_v1beta1_ProductCatalogItem_PriceRange_descriptor;
@@ -1100,7 +926,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MIN_FIELD_NUMBER = 1;
-    private float min_;
+    private float min_ = 0F;
     /**
      * <pre>
      * Required. The minimum product price.
@@ -1115,7 +941,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_FIELD_NUMBER = 2;
-    private float max_;
+    private float max_ = 0F;
     /**
      * <pre>
      * Required. The maximum product price.
@@ -1149,7 +975,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Float.floatToRawIntBits(max_) != 0) {
         output.writeFloat(2, max_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1166,7 +992,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(2, max_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1187,7 +1013,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Float.floatToIntBits(getMax())
           != java.lang.Float.floatToIntBits(
               other.getMax())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1204,7 +1030,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getMax());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1326,26 +1152,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         min_ = 0F;
-
         max_ = 0F;
-
         return this;
       }
 
@@ -1372,10 +1192,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange buildPartial() {
         com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange result = new com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange(this);
-        result.min_ = min_;
-        result.max_ = max_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.min_ = min_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.max_ = max_;
+        }
       }
 
       @java.lang.Override
@@ -1428,7 +1257,7 @@ private static final long serialVersionUID = 0L;
         if (other.getMax() != 0F) {
           setMax(other.getMax());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1443,19 +1272,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                min_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                max_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.PriceRange) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float min_ ;
       /**
@@ -1482,6 +1335,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMin(float value) {
         
         min_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1494,7 +1348,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMin() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         min_ = 0F;
         onChanged();
         return this;
@@ -1525,6 +1379,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMax(float value) {
         
         max_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1537,7 +1392,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMax() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         max_ = 0F;
         onChanged();
         return this;
@@ -1575,7 +1430,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PriceRange(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1734,6 +1600,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.FLOAT,
                 0F);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Float> costs_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
@@ -1744,7 +1611,6 @@ private static final long serialVersionUID = 0L;
     }
     return costs_;
   }
-
   public int getCostsCount() {
     return internalGetCosts().getMap().size();
   }
@@ -1760,7 +1626,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsCosts(
       java.lang.String key) {
@@ -1788,7 +1653,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Float> getCostsMap() {
     return internalGetCosts().getMap();
   }
@@ -1805,7 +1669,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public float getCostsOrDefault(
       java.lang.String key,
       float defaultValue) {
@@ -1827,7 +1690,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public float getCostsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1840,7 +1702,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENCY_CODE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object currencyCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object currencyCode_ = "";
   /**
    * <pre>
    * Optional. Only required if the price is set. Currency code for price/costs. Use
@@ -1888,7 +1751,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STOCK_STATE_FIELD_NUMBER = 5;
-  private int stockState_;
+  private int stockState_ = 0;
   /**
    * <pre>
    * Optional. Online stock state of the catalog item. Default is `IN_STOCK`.
@@ -1909,13 +1772,12 @@ private static final long serialVersionUID = 0L;
    * @return The stockState.
    */
   @java.lang.Override public com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState getStockState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState result = com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState.valueOf(stockState_);
+    com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState result = com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState.forNumber(stockState_);
     return result == null ? com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState.UNRECOGNIZED : result;
   }
 
   public static final int AVAILABLE_QUANTITY_FIELD_NUMBER = 6;
-  private long availableQuantity_;
+  private long availableQuantity_ = 0L;
   /**
    * <pre>
    * Optional. The available quantity of the item.
@@ -1930,7 +1792,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CANONICAL_PRODUCT_URI_FIELD_NUMBER = 7;
-  private volatile java.lang.Object canonicalProductUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object canonicalProductUri_ = "";
   /**
    * <pre>
    * Optional. Canonical URL directly linking to the item detail page with a
@@ -1978,6 +1841,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.recommendationengine.v1beta1.Image> images_;
   /**
    * <pre>
@@ -2078,7 +1942,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < images_.size(); i++) {
       output.writeMessage(8, images_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2123,7 +1987,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, images_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2162,7 +2026,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2202,7 +2066,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2345,38 +2209,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getImagesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (exactPriceBuilder_ != null) {
+        exactPriceBuilder_.clear();
+      }
+      if (priceRangeBuilder_ != null) {
+        priceRangeBuilder_.clear();
+      }
       internalGetMutableCosts().clear();
       currencyCode_ = "";
-
       stockState_ = 0;
-
       availableQuantity_ = 0L;
-
       canonicalProductUri_ = "";
-
       if (imagesBuilder_ == null) {
         images_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        images_ = null;
         imagesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       priceCase_ = 0;
       price_ = null;
       return this;
@@ -2405,39 +2267,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem result = new com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem(this);
-      int from_bitField0_ = bitField0_;
-      if (priceCase_ == 1) {
-        if (exactPriceBuilder_ == null) {
-          result.price_ = price_;
-        } else {
-          result.price_ = exactPriceBuilder_.build();
-        }
-      }
-      if (priceCase_ == 2) {
-        if (priceRangeBuilder_ == null) {
-          result.price_ = price_;
-        } else {
-          result.price_ = priceRangeBuilder_.build();
-        }
-      }
-      result.costs_ = internalGetCosts();
-      result.costs_.makeImmutable();
-      result.currencyCode_ = currencyCode_;
-      result.stockState_ = stockState_;
-      result.availableQuantity_ = availableQuantity_;
-      result.canonicalProductUri_ = canonicalProductUri_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem result) {
       if (imagesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           images_ = java.util.Collections.unmodifiableList(images_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.images_ = images_;
       } else {
         result.images_ = imagesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.costs_ = internalGetCosts();
+        result.costs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.currencyCode_ = currencyCode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stockState_ = stockState_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.availableQuantity_ = availableQuantity_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.canonicalProductUri_ = canonicalProductUri_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem result) {
       result.priceCase_ = priceCase_;
-      onBuilt();
-      return result;
+      result.price_ = this.price_;
+      if (priceCase_ == 1 &&
+          exactPriceBuilder_ != null) {
+        result.price_ = exactPriceBuilder_.build();
+      }
+      if (priceCase_ == 2 &&
+          priceRangeBuilder_ != null) {
+        result.price_ = priceRangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2486,8 +2365,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.getDefaultInstance()) return this;
       internalGetMutableCosts().mergeFrom(
           other.internalGetCosts());
+      bitField0_ |= 0x00000004;
       if (!other.getCurrencyCode().isEmpty()) {
         currencyCode_ = other.currencyCode_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.stockState_ != 0) {
@@ -2498,13 +2379,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCanonicalProductUri().isEmpty()) {
         canonicalProductUri_ = other.canonicalProductUri_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (imagesBuilder_ == null) {
         if (!other.images_.isEmpty()) {
           if (images_.isEmpty()) {
             images_ = other.images_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureImagesIsMutable();
             images_.addAll(other.images_);
@@ -2517,7 +2399,7 @@ private static final long serialVersionUID = 0L;
             imagesBuilder_.dispose();
             imagesBuilder_ = null;
             images_ = other.images_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
             imagesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getImagesFieldBuilder() : null;
@@ -2539,7 +2421,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2554,17 +2436,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getExactPriceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              priceCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPriceRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              priceCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
+              costs__ = input.readMessage(
+                  CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCosts().getMutableMap().put(
+                  costs__.getKey(), costs__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              currencyCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              stockState_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              availableQuantity_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              canonicalProductUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.recommendationengine.v1beta1.Image m =
+                  input.readMessage(
+                      com.google.cloud.recommendationengine.v1beta1.Image.parser(),
+                      extensionRegistry);
+              if (imagesBuilder_ == null) {
+                ensureImagesIsMutable();
+                images_.add(m);
+              } else {
+                imagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int priceCase_ = 0;
@@ -2758,7 +2709,7 @@ private static final long serialVersionUID = 0L;
         price_ = null;
       }
       priceCase_ = 1;
-      onChanged();;
+      onChanged();
       return exactPriceBuilder_;
     }
 
@@ -2936,14 +2887,14 @@ private static final long serialVersionUID = 0L;
         price_ = null;
       }
       priceCase_ = 2;
-      onChanged();;
+      onChanged();
       return priceRangeBuilder_;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Float> costs_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
-    internalGetCosts() {
+        internalGetCosts() {
       if (costs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CostsDefaultEntryHolder.defaultEntry);
@@ -2951,8 +2902,7 @@ private static final long serialVersionUID = 0L;
       return costs_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
-    internalGetMutableCosts() {
-      onChanged();;
+        internalGetMutableCosts() {
       if (costs_ == null) {
         costs_ = com.google.protobuf.MapField.newMapField(
             CostsDefaultEntryHolder.defaultEntry);
@@ -2960,9 +2910,10 @@ private static final long serialVersionUID = 0L;
       if (!costs_.isMutable()) {
         costs_ = costs_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return costs_;
     }
-
     public int getCostsCount() {
       return internalGetCosts().getMap().size();
     }
@@ -2978,7 +2929,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsCosts(
         java.lang.String key) {
@@ -3006,7 +2956,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Float> getCostsMap() {
       return internalGetCosts().getMap();
     }
@@ -3023,7 +2972,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public float getCostsOrDefault(
         java.lang.String key,
         float defaultValue) {
@@ -3045,7 +2993,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public float getCostsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3056,8 +3003,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearCosts() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableCosts().getMutableMap()
           .clear();
       return this;
@@ -3074,7 +3021,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeCosts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3087,7 +3033,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Float>
-    getMutableCosts() {
+        getMutableCosts() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableCosts().getMutableMap();
     }
     /**
@@ -3109,6 +3056,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableCosts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -3123,11 +3071,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllCosts(
         java.util.Map<java.lang.String, java.lang.Float> values) {
       internalGetMutableCosts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -3187,11 +3135,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrencyCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       currencyCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3205,8 +3151,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrencyCode() {
-      
       currencyCode_ = getDefaultInstance().getCurrencyCode();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3222,12 +3168,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrencyCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       currencyCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3254,8 +3198,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStockStateValue(int value) {
-      
       stockState_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3269,8 +3213,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState getStockState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState result = com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState.valueOf(stockState_);
+      com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState result = com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState.forNumber(stockState_);
       return result == null ? com.google.cloud.recommendationengine.v1beta1.ProductCatalogItem.StockState.UNRECOGNIZED : result;
     }
     /**
@@ -3286,7 +3229,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       stockState_ = value.getNumber();
       onChanged();
       return this;
@@ -3300,7 +3243,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStockState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       stockState_ = 0;
       onChanged();
       return this;
@@ -3331,6 +3274,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAvailableQuantity(long value) {
       
       availableQuantity_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3343,7 +3287,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvailableQuantity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       availableQuantity_ = 0L;
       onChanged();
       return this;
@@ -3405,11 +3349,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCanonicalProductUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       canonicalProductUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3423,8 +3365,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCanonicalProductUri() {
-      
       canonicalProductUri_ = getDefaultInstance().getCanonicalProductUri();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3440,12 +3382,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCanonicalProductUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       canonicalProductUri_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3453,9 +3393,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.recommendationengine.v1beta1.Image> images_ =
       java.util.Collections.emptyList();
     private void ensureImagesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         images_ = new java.util.ArrayList<com.google.cloud.recommendationengine.v1beta1.Image>(images_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -3649,7 +3589,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearImages() {
       if (imagesBuilder_ == null) {
         images_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         imagesBuilder_.clear();
@@ -3754,7 +3694,7 @@ private static final long serialVersionUID = 0L;
         imagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.recommendationengine.v1beta1.Image, com.google.cloud.recommendationengine.v1beta1.Image.Builder, com.google.cloud.recommendationengine.v1beta1.ImageOrBuilder>(
                 images_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         images_ = null;
@@ -3794,7 +3734,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProductCatalogItem(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

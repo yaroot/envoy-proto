@@ -40,144 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecuteSqlRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            session_ = s;
-            break;
-          }
-          case 18: {
-            com.google.spanner.v1.TransactionSelector.Builder subBuilder = null;
-            if (transaction_ != null) {
-              subBuilder = transaction_.toBuilder();
-            }
-            transaction_ = input.readMessage(com.google.spanner.v1.TransactionSelector.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transaction_);
-              transaction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sql_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (params_ != null) {
-              subBuilder = params_.toBuilder();
-            }
-            params_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(params_);
-              params_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              paramTypes_ = com.google.protobuf.MapField.newMapField(
-                  ParamTypesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.spanner.v1.Type>
-            paramTypes__ = input.readMessage(
-                ParamTypesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            paramTypes_.getMutableMap().put(
-                paramTypes__.getKey(), paramTypes__.getValue());
-            break;
-          }
-          case 50: {
-
-            resumeToken_ = input.readBytes();
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            queryMode_ = rawValue;
-            break;
-          }
-          case 66: {
-
-            partitionToken_ = input.readBytes();
-            break;
-          }
-          case 72: {
-
-            seqno_ = input.readInt64();
-            break;
-          }
-          case 82: {
-            com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.Builder subBuilder = null;
-            if (queryOptions_ != null) {
-              subBuilder = queryOptions_.toBuilder();
-            }
-            queryOptions_ = input.readMessage(com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryOptions_);
-              queryOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.spanner.v1.RequestOptions.Builder subBuilder = null;
-            if (requestOptions_ != null) {
-              subBuilder = requestOptions_.toBuilder();
-            }
-            requestOptions_ = input.readMessage(com.google.spanner.v1.RequestOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestOptions_);
-              requestOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.v1.SpannerProto.internal_static_google_spanner_v1_ExecuteSqlRequest_descriptor;
@@ -493,57 +355,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryOptions(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              optimizerVersion_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              optimizerStatisticsPackage_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.spanner.v1.SpannerProto.internal_static_google_spanner_v1_ExecuteSqlRequest_QueryOptions_descriptor;
@@ -558,7 +369,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OPTIMIZER_VERSION_FIELD_NUMBER = 1;
-    private volatile java.lang.Object optimizerVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object optimizerVersion_ = "";
     /**
      * <pre>
      * An option to control the selection of optimizer version.
@@ -634,7 +446,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OPTIMIZER_STATISTICS_PACKAGE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object optimizerStatisticsPackage_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object optimizerStatisticsPackage_ = "";
     /**
      * <pre>
      * An option to control the selection of optimizer statistics package.
@@ -733,7 +546,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optimizerStatisticsPackage_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, optimizerStatisticsPackage_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -748,7 +561,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(optimizerStatisticsPackage_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, optimizerStatisticsPackage_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -767,7 +580,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getOptimizerVersion())) return false;
       if (!getOptimizerStatisticsPackage()
           .equals(other.getOptimizerStatisticsPackage())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -782,7 +595,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getOptimizerVersion().hashCode();
       hash = (37 * hash) + OPTIMIZER_STATISTICS_PACKAGE_FIELD_NUMBER;
       hash = (53 * hash) + getOptimizerStatisticsPackage().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -903,26 +716,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         optimizerVersion_ = "";
-
         optimizerStatisticsPackage_ = "";
-
         return this;
       }
 
@@ -949,10 +756,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.spanner.v1.ExecuteSqlRequest.QueryOptions buildPartial() {
         com.google.spanner.v1.ExecuteSqlRequest.QueryOptions result = new com.google.spanner.v1.ExecuteSqlRequest.QueryOptions(this);
-        result.optimizerVersion_ = optimizerVersion_;
-        result.optimizerStatisticsPackage_ = optimizerStatisticsPackage_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.spanner.v1.ExecuteSqlRequest.QueryOptions result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.optimizerVersion_ = optimizerVersion_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.optimizerStatisticsPackage_ = optimizerStatisticsPackage_;
+        }
       }
 
       @java.lang.Override
@@ -1001,13 +817,15 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.getDefaultInstance()) return this;
         if (!other.getOptimizerVersion().isEmpty()) {
           optimizerVersion_ = other.optimizerVersion_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getOptimizerStatisticsPackage().isEmpty()) {
           optimizerStatisticsPackage_ = other.optimizerStatisticsPackage_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1022,19 +840,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.spanner.v1.ExecuteSqlRequest.QueryOptions parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                optimizerVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                optimizerStatisticsPackage_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.spanner.v1.ExecuteSqlRequest.QueryOptions) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object optimizerVersion_ = "";
       /**
@@ -1134,11 +976,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOptimizerVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         optimizerVersion_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1166,8 +1006,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOptimizerVersion() {
-        
         optimizerVersion_ = getDefaultInstance().getOptimizerVersion();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1197,12 +1037,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOptimizerVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         optimizerVersion_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1311,11 +1149,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOptimizerStatisticsPackage(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         optimizerStatisticsPackage_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1345,8 +1181,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOptimizerStatisticsPackage() {
-        
         optimizerStatisticsPackage_ = getDefaultInstance().getOptimizerStatisticsPackage();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1378,12 +1214,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOptimizerStatisticsPackageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         optimizerStatisticsPackage_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1420,7 +1254,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryOptions(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1441,7 +1286,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SESSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object session_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object session_ = "";
   /**
    * <pre>
    * Required. The session in which the SQL query should be performed.
@@ -1539,11 +1385,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.v1.TransactionSelectorOrBuilder getTransactionOrBuilder() {
-    return getTransaction();
+    return transaction_ == null ? com.google.spanner.v1.TransactionSelector.getDefaultInstance() : transaction_;
   }
 
   public static final int SQL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object sql_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sql_ = "";
   /**
    * <pre>
    * Required. The SQL string.
@@ -1647,7 +1494,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getParamsOrBuilder() {
-    return getParams();
+    return params_ == null ? com.google.protobuf.Struct.getDefaultInstance() : params_;
   }
 
   public static final int PARAM_TYPES_FIELD_NUMBER = 5;
@@ -1662,6 +1509,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.spanner.v1.Type.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.spanner.v1.Type> paramTypes_;
   private com.google.protobuf.MapField<java.lang.String, com.google.spanner.v1.Type>
@@ -1672,7 +1520,6 @@ private static final long serialVersionUID = 0L;
     }
     return paramTypes_;
   }
-
   public int getParamTypesCount() {
     return internalGetParamTypes().getMap().size();
   }
@@ -1689,7 +1536,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsParamTypes(
       java.lang.String key) {
@@ -1718,7 +1564,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.spanner.v1.Type> getParamTypesMap() {
     return internalGetParamTypes().getMap();
   }
@@ -1736,10 +1581,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
    */
   @java.lang.Override
-
-  public com.google.spanner.v1.Type getParamTypesOrDefault(
+  public /* nullable */
+com.google.spanner.v1.Type getParamTypesOrDefault(
       java.lang.String key,
-      com.google.spanner.v1.Type defaultValue) {
+      /* nullable */
+com.google.spanner.v1.Type defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.spanner.v1.Type> map =
         internalGetParamTypes().getMap();
@@ -1759,7 +1605,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
    */
   @java.lang.Override
-
   public com.google.spanner.v1.Type getParamTypesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1772,7 +1617,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESUME_TOKEN_FIELD_NUMBER = 6;
-  private com.google.protobuf.ByteString resumeToken_;
+  private com.google.protobuf.ByteString resumeToken_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * If this request is resuming a previously interrupted SQL statement
@@ -1792,7 +1637,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_MODE_FIELD_NUMBER = 7;
-  private int queryMode_;
+  private int queryMode_ = 0;
   /**
    * <pre>
    * Used to control the amount of debugging information returned in
@@ -1817,13 +1662,12 @@ private static final long serialVersionUID = 0L;
    * @return The queryMode.
    */
   @java.lang.Override public com.google.spanner.v1.ExecuteSqlRequest.QueryMode getQueryMode() {
-    @SuppressWarnings("deprecation")
-    com.google.spanner.v1.ExecuteSqlRequest.QueryMode result = com.google.spanner.v1.ExecuteSqlRequest.QueryMode.valueOf(queryMode_);
+    com.google.spanner.v1.ExecuteSqlRequest.QueryMode result = com.google.spanner.v1.ExecuteSqlRequest.QueryMode.forNumber(queryMode_);
     return result == null ? com.google.spanner.v1.ExecuteSqlRequest.QueryMode.UNRECOGNIZED : result;
   }
 
   public static final int PARTITION_TOKEN_FIELD_NUMBER = 8;
-  private com.google.protobuf.ByteString partitionToken_;
+  private com.google.protobuf.ByteString partitionToken_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * If present, results will be restricted to the specified partition
@@ -1841,7 +1685,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEQNO_FIELD_NUMBER = 9;
-  private long seqno_;
+  private long seqno_ = 0L;
   /**
    * <pre>
    * A per-transaction sequence number used to identify this request. This field
@@ -1897,7 +1741,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.v1.ExecuteSqlRequest.QueryOptionsOrBuilder getQueryOptionsOrBuilder() {
-    return getQueryOptions();
+    return queryOptions_ == null ? com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.getDefaultInstance() : queryOptions_;
   }
 
   public static final int REQUEST_OPTIONS_FIELD_NUMBER = 11;
@@ -1935,7 +1779,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.v1.RequestOptionsOrBuilder getRequestOptionsOrBuilder() {
-    return getRequestOptions();
+    return requestOptions_ == null ? com.google.spanner.v1.RequestOptions.getDefaultInstance() : requestOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1988,7 +1832,7 @@ private static final long serialVersionUID = 0L;
     if (requestOptions_ != null) {
       output.writeMessage(11, getRequestOptions());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2045,7 +1889,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getRequestOptions());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2093,7 +1937,7 @@ private static final long serialVersionUID = 0L;
       if (!getRequestOptions()
           .equals(other.getRequestOptions())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2137,7 +1981,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REQUEST_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getRequestOptions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2281,57 +2125,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.v1.ExecuteSqlRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       session_ = "";
-
-      if (transactionBuilder_ == null) {
-        transaction_ = null;
-      } else {
-        transaction_ = null;
+      transaction_ = null;
+      if (transactionBuilder_ != null) {
+        transactionBuilder_.dispose();
         transactionBuilder_ = null;
       }
       sql_ = "";
-
-      if (paramsBuilder_ == null) {
-        params_ = null;
-      } else {
-        params_ = null;
+      params_ = null;
+      if (paramsBuilder_ != null) {
+        paramsBuilder_.dispose();
         paramsBuilder_ = null;
       }
       internalGetMutableParamTypes().clear();
       resumeToken_ = com.google.protobuf.ByteString.EMPTY;
-
       queryMode_ = 0;
-
       partitionToken_ = com.google.protobuf.ByteString.EMPTY;
-
       seqno_ = 0L;
-
-      if (queryOptionsBuilder_ == null) {
-        queryOptions_ = null;
-      } else {
-        queryOptions_ = null;
+      queryOptions_ = null;
+      if (queryOptionsBuilder_ != null) {
+        queryOptionsBuilder_.dispose();
         queryOptionsBuilder_ = null;
       }
-      if (requestOptionsBuilder_ == null) {
-        requestOptions_ = null;
-      } else {
-        requestOptions_ = null;
+      requestOptions_ = null;
+      if (requestOptionsBuilder_ != null) {
+        requestOptionsBuilder_.dispose();
         requestOptionsBuilder_ = null;
       }
       return this;
@@ -2360,37 +2190,55 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.v1.ExecuteSqlRequest buildPartial() {
       com.google.spanner.v1.ExecuteSqlRequest result = new com.google.spanner.v1.ExecuteSqlRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.session_ = session_;
-      if (transactionBuilder_ == null) {
-        result.transaction_ = transaction_;
-      } else {
-        result.transaction_ = transactionBuilder_.build();
-      }
-      result.sql_ = sql_;
-      if (paramsBuilder_ == null) {
-        result.params_ = params_;
-      } else {
-        result.params_ = paramsBuilder_.build();
-      }
-      result.paramTypes_ = internalGetParamTypes();
-      result.paramTypes_.makeImmutable();
-      result.resumeToken_ = resumeToken_;
-      result.queryMode_ = queryMode_;
-      result.partitionToken_ = partitionToken_;
-      result.seqno_ = seqno_;
-      if (queryOptionsBuilder_ == null) {
-        result.queryOptions_ = queryOptions_;
-      } else {
-        result.queryOptions_ = queryOptionsBuilder_.build();
-      }
-      if (requestOptionsBuilder_ == null) {
-        result.requestOptions_ = requestOptions_;
-      } else {
-        result.requestOptions_ = requestOptionsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.spanner.v1.ExecuteSqlRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.session_ = session_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transaction_ = transactionBuilder_ == null
+            ? transaction_
+            : transactionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sql_ = sql_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.params_ = paramsBuilder_ == null
+            ? params_
+            : paramsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.paramTypes_ = internalGetParamTypes();
+        result.paramTypes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.resumeToken_ = resumeToken_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.queryMode_ = queryMode_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.partitionToken_ = partitionToken_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.seqno_ = seqno_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.queryOptions_ = queryOptionsBuilder_ == null
+            ? queryOptions_
+            : queryOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.requestOptions_ = requestOptionsBuilder_ == null
+            ? requestOptions_
+            : requestOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2439,6 +2287,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.spanner.v1.ExecuteSqlRequest.getDefaultInstance()) return this;
       if (!other.getSession().isEmpty()) {
         session_ = other.session_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTransaction()) {
@@ -2446,6 +2295,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSql().isEmpty()) {
         sql_ = other.sql_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasParams()) {
@@ -2453,6 +2303,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableParamTypes().mergeFrom(
           other.internalGetParamTypes());
+      bitField0_ |= 0x00000010;
       if (other.getResumeToken() != com.google.protobuf.ByteString.EMPTY) {
         setResumeToken(other.getResumeToken());
       }
@@ -2471,7 +2322,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRequestOptions()) {
         mergeRequestOptions(other.getRequestOptions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2486,17 +2337,97 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.v1.ExecuteSqlRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              session_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTransactionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              sql_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.spanner.v1.Type>
+              paramTypes__ = input.readMessage(
+                  ParamTypesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableParamTypes().getMutableMap().put(
+                  paramTypes__.getKey(), paramTypes__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              resumeToken_ = input.readBytes();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              queryMode_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              partitionToken_ = input.readBytes();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              seqno_ = input.readInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getQueryOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getRequestOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.v1.ExecuteSqlRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2554,11 +2485,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSession(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       session_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2571,8 +2500,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSession() {
-      
       session_ = getDefaultInstance().getSession();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2587,12 +2516,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       session_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2615,7 +2542,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transaction field is set.
      */
     public boolean hasTransaction() {
-      return transactionBuilder_ != null || transaction_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2657,11 +2584,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transaction_ = value;
-        onChanged();
       } else {
         transactionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2681,11 +2608,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.v1.TransactionSelector.Builder builderForValue) {
       if (transactionBuilder_ == null) {
         transaction_ = builderForValue.build();
-        onChanged();
       } else {
         transactionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2703,17 +2630,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransaction(com.google.spanner.v1.TransactionSelector value) {
       if (transactionBuilder_ == null) {
-        if (transaction_ != null) {
-          transaction_ =
-            com.google.spanner.v1.TransactionSelector.newBuilder(transaction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          transaction_ != null &&
+          transaction_ != com.google.spanner.v1.TransactionSelector.getDefaultInstance()) {
+          getTransactionBuilder().mergeFrom(value);
         } else {
           transaction_ = value;
         }
-        onChanged();
       } else {
         transactionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2730,14 +2658,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.TransactionSelector transaction = 2;</code>
      */
     public Builder clearTransaction() {
-      if (transactionBuilder_ == null) {
-        transaction_ = null;
-        onChanged();
-      } else {
-        transaction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      transaction_ = null;
+      if (transactionBuilder_ != null) {
+        transactionBuilder_.dispose();
         transactionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2754,7 +2681,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.TransactionSelector transaction = 2;</code>
      */
     public com.google.spanner.v1.TransactionSelector.Builder getTransactionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTransactionFieldBuilder().getBuilder();
     }
@@ -2859,11 +2786,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSql(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sql_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2876,8 +2801,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSql() {
-      
       sql_ = getDefaultInstance().getSql();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2892,12 +2817,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSqlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sql_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2922,7 +2845,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the params field is set.
      */
     public boolean hasParams() {
-      return paramsBuilder_ != null || params_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2968,11 +2891,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         params_ = value;
-        onChanged();
       } else {
         paramsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2994,11 +2917,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (paramsBuilder_ == null) {
         params_ = builderForValue.build();
-        onChanged();
       } else {
         paramsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3018,17 +2941,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParams(com.google.protobuf.Struct value) {
       if (paramsBuilder_ == null) {
-        if (params_ != null) {
-          params_ =
-            com.google.protobuf.Struct.newBuilder(params_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          params_ != null &&
+          params_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getParamsBuilder().mergeFrom(value);
         } else {
           params_ = value;
         }
-        onChanged();
       } else {
         paramsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3047,14 +2971,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct params = 4;</code>
      */
     public Builder clearParams() {
-      if (paramsBuilder_ == null) {
-        params_ = null;
-        onChanged();
-      } else {
-        params_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      params_ = null;
+      if (paramsBuilder_ != null) {
+        paramsBuilder_.dispose();
         paramsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3073,7 +2996,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct params = 4;</code>
      */
     public com.google.protobuf.Struct.Builder getParamsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getParamsFieldBuilder().getBuilder();
     }
@@ -3132,7 +3055,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.spanner.v1.Type> paramTypes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.spanner.v1.Type>
-    internalGetParamTypes() {
+        internalGetParamTypes() {
       if (paramTypes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ParamTypesDefaultEntryHolder.defaultEntry);
@@ -3140,8 +3063,7 @@ private static final long serialVersionUID = 0L;
       return paramTypes_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.spanner.v1.Type>
-    internalGetMutableParamTypes() {
-      onChanged();;
+        internalGetMutableParamTypes() {
       if (paramTypes_ == null) {
         paramTypes_ = com.google.protobuf.MapField.newMapField(
             ParamTypesDefaultEntryHolder.defaultEntry);
@@ -3149,9 +3071,10 @@ private static final long serialVersionUID = 0L;
       if (!paramTypes_.isMutable()) {
         paramTypes_ = paramTypes_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return paramTypes_;
     }
-
     public int getParamTypesCount() {
       return internalGetParamTypes().getMap().size();
     }
@@ -3168,7 +3091,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsParamTypes(
         java.lang.String key) {
@@ -3197,7 +3119,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.spanner.v1.Type> getParamTypesMap() {
       return internalGetParamTypes().getMap();
     }
@@ -3215,10 +3136,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
      */
     @java.lang.Override
-
-    public com.google.spanner.v1.Type getParamTypesOrDefault(
+    public /* nullable */
+com.google.spanner.v1.Type getParamTypesOrDefault(
         java.lang.String key,
-        com.google.spanner.v1.Type defaultValue) {
+        /* nullable */
+com.google.spanner.v1.Type defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.spanner.v1.Type> map =
           internalGetParamTypes().getMap();
@@ -3238,7 +3160,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
      */
     @java.lang.Override
-
     public com.google.spanner.v1.Type getParamTypesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3249,8 +3170,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearParamTypes() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableParamTypes().getMutableMap()
           .clear();
       return this;
@@ -3268,7 +3189,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
      */
-
     public Builder removeParamTypes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3281,7 +3201,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.spanner.v1.Type>
-    getMutableParamTypes() {
+        getMutableParamTypes() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableParamTypes().getMutableMap();
     }
     /**
@@ -3301,12 +3222,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.spanner.v1.Type value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableParamTypes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -3322,11 +3241,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.spanner.v1.Type&gt; param_types = 5;</code>
      */
-
     public Builder putAllParamTypes(
         java.util.Map<java.lang.String, com.google.spanner.v1.Type> values) {
       internalGetMutableParamTypes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -3363,11 +3282,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResumeToken(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resumeToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3385,7 +3302,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResumeToken() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       resumeToken_ = getDefaultInstance().getResumeToken();
       onChanged();
       return this;
@@ -3417,8 +3334,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setQueryModeValue(int value) {
-      
       queryMode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3434,8 +3351,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.spanner.v1.ExecuteSqlRequest.QueryMode getQueryMode() {
-      @SuppressWarnings("deprecation")
-      com.google.spanner.v1.ExecuteSqlRequest.QueryMode result = com.google.spanner.v1.ExecuteSqlRequest.QueryMode.valueOf(queryMode_);
+      com.google.spanner.v1.ExecuteSqlRequest.QueryMode result = com.google.spanner.v1.ExecuteSqlRequest.QueryMode.forNumber(queryMode_);
       return result == null ? com.google.spanner.v1.ExecuteSqlRequest.QueryMode.UNRECOGNIZED : result;
     }
     /**
@@ -3453,7 +3369,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       queryMode_ = value.getNumber();
       onChanged();
       return this;
@@ -3469,7 +3385,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQueryMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       queryMode_ = 0;
       onChanged();
       return this;
@@ -3504,11 +3420,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartitionToken(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       partitionToken_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3524,7 +3438,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPartitionToken() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       partitionToken_ = getDefaultInstance().getPartitionToken();
       onChanged();
       return this;
@@ -3569,6 +3483,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSeqno(long value) {
       
       seqno_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3588,7 +3503,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeqno() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       seqno_ = 0L;
       onChanged();
       return this;
@@ -3606,7 +3521,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryOptions field is set.
      */
     public boolean hasQueryOptions() {
-      return queryOptionsBuilder_ != null || queryOptions_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3636,11 +3551,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryOptions_ = value;
-        onChanged();
       } else {
         queryOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3654,11 +3569,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.Builder builderForValue) {
       if (queryOptionsBuilder_ == null) {
         queryOptions_ = builderForValue.build();
-        onChanged();
       } else {
         queryOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3670,17 +3585,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryOptions(com.google.spanner.v1.ExecuteSqlRequest.QueryOptions value) {
       if (queryOptionsBuilder_ == null) {
-        if (queryOptions_ != null) {
-          queryOptions_ =
-            com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.newBuilder(queryOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          queryOptions_ != null &&
+          queryOptions_ != com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.getDefaultInstance()) {
+          getQueryOptionsBuilder().mergeFrom(value);
         } else {
           queryOptions_ = value;
         }
-        onChanged();
       } else {
         queryOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3691,14 +3607,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.ExecuteSqlRequest.QueryOptions query_options = 10;</code>
      */
     public Builder clearQueryOptions() {
-      if (queryOptionsBuilder_ == null) {
-        queryOptions_ = null;
-        onChanged();
-      } else {
-        queryOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      queryOptions_ = null;
+      if (queryOptionsBuilder_ != null) {
+        queryOptionsBuilder_.dispose();
         queryOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3709,7 +3624,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.ExecuteSqlRequest.QueryOptions query_options = 10;</code>
      */
     public com.google.spanner.v1.ExecuteSqlRequest.QueryOptions.Builder getQueryOptionsBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getQueryOptionsFieldBuilder().getBuilder();
     }
@@ -3761,7 +3676,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestOptions field is set.
      */
     public boolean hasRequestOptions() {
-      return requestOptionsBuilder_ != null || requestOptions_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3791,11 +3706,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestOptions_ = value;
-        onChanged();
       } else {
         requestOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3809,11 +3724,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.v1.RequestOptions.Builder builderForValue) {
       if (requestOptionsBuilder_ == null) {
         requestOptions_ = builderForValue.build();
-        onChanged();
       } else {
         requestOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3825,17 +3740,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestOptions(com.google.spanner.v1.RequestOptions value) {
       if (requestOptionsBuilder_ == null) {
-        if (requestOptions_ != null) {
-          requestOptions_ =
-            com.google.spanner.v1.RequestOptions.newBuilder(requestOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          requestOptions_ != null &&
+          requestOptions_ != com.google.spanner.v1.RequestOptions.getDefaultInstance()) {
+          getRequestOptionsBuilder().mergeFrom(value);
         } else {
           requestOptions_ = value;
         }
-        onChanged();
       } else {
         requestOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3846,14 +3762,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.RequestOptions request_options = 11;</code>
      */
     public Builder clearRequestOptions() {
-      if (requestOptionsBuilder_ == null) {
-        requestOptions_ = null;
-        onChanged();
-      } else {
-        requestOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      requestOptions_ = null;
+      if (requestOptionsBuilder_ != null) {
+        requestOptionsBuilder_.dispose();
         requestOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3864,7 +3779,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.RequestOptions request_options = 11;</code>
      */
     public com.google.spanner.v1.RequestOptions.Builder getRequestOptionsBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getRequestOptionsFieldBuilder().getBuilder();
     }
@@ -3936,7 +3851,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecuteSqlRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

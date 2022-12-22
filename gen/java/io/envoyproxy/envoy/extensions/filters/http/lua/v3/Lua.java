@@ -17,6 +17,7 @@ private static final long serialVersionUID = 0L;
   }
   private Lua() {
     inlineCode_ = "";
+    statPrefix_ = "";
   }
 
   @java.lang.Override
@@ -30,78 +31,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Lua(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inlineCode_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              sourceCodes_ = com.google.protobuf.MapField.newMapField(
-                  SourceCodesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource>
-            sourceCodes__ = input.readMessage(
-                SourceCodesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            sourceCodes_.getMutableMap().put(
-                sourceCodes__.getKey(), sourceCodes__.getValue());
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (defaultSourceCode_ != null) {
-              subBuilder = defaultSourceCode_.toBuilder();
-            }
-            defaultSourceCode_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultSourceCode_);
-              defaultSourceCode_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -129,7 +58,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INLINE_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object inlineCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inlineCode_ = "";
   /**
    * <pre>
    * The Lua code that Envoy will execute. This can be a very small script that
@@ -206,6 +136,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> sourceCodes_;
   private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource>
@@ -216,7 +147,6 @@ private static final long serialVersionUID = 0L;
     }
     return sourceCodes_;
   }
-
   public int getSourceCodesCount() {
     return internalGetSourceCodes().getMap().size();
   }
@@ -239,7 +169,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsSourceCodes(
       java.lang.String key) {
@@ -274,7 +203,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> getSourceCodesMap() {
     return internalGetSourceCodes().getMap();
   }
@@ -298,10 +226,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
    */
   @java.lang.Override
-
-  public io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrDefault(
+  public /* nullable */
+io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrDefault(
       java.lang.String key,
-      io.envoyproxy.envoy.config.core.v3.DataSource defaultValue) {
+      /* nullable */
+io.envoyproxy.envoy.config.core.v3.DataSource defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> map =
         internalGetSourceCodes().getMap();
@@ -327,7 +256,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
    */
   @java.lang.Override
-
   public io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -377,7 +305,82 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getDefaultSourceCodeOrBuilder() {
-    return getDefaultSourceCode();
+    return defaultSourceCode_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : defaultSourceCode_;
+  }
+
+  public static final int STAT_PREFIX_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
+  /**
+   * <pre>
+   * Optional additional prefix to use when emitting statistics. By default
+   * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+   * configured in a filter chain, the stats from each filter instance can
+   * be emitted using custom stat prefix to distinguish emitted
+   * statistics. For example:
+   * .. code-block:: yaml
+   *   http_filters:
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+   * </pre>
+   *
+   * <code>string stat_prefix = 4;</code>
+   * @return The statPrefix.
+   */
+  @java.lang.Override
+  public java.lang.String getStatPrefix() {
+    java.lang.Object ref = statPrefix_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      statPrefix_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Optional additional prefix to use when emitting statistics. By default
+   * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+   * configured in a filter chain, the stats from each filter instance can
+   * be emitted using custom stat prefix to distinguish emitted
+   * statistics. For example:
+   * .. code-block:: yaml
+   *   http_filters:
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+   *     - name: envoy.filters.http.lua
+   *       typed_config:
+   *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+   *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+   * </pre>
+   *
+   * <code>string stat_prefix = 4;</code>
+   * @return The bytes for statPrefix.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getStatPrefixBytes() {
+    java.lang.Object ref = statPrefix_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      statPrefix_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -406,7 +409,10 @@ private static final long serialVersionUID = 0L;
     if (defaultSourceCode_ != null) {
       output.writeMessage(3, getDefaultSourceCode());
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(statPrefix_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, statPrefix_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -432,7 +438,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getDefaultSourceCode());
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(statPrefix_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, statPrefix_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -456,7 +465,9 @@ private static final long serialVersionUID = 0L;
       if (!getDefaultSourceCode()
           .equals(other.getDefaultSourceCode())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getStatPrefix()
+        .equals(other.getStatPrefix())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -477,7 +488,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEFAULT_SOURCE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getDefaultSourceCode().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + STAT_PREFIX_FIELD_NUMBER;
+    hash = (53 * hash) + getStatPrefix().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -616,31 +629,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       inlineCode_ = "";
-
       internalGetMutableSourceCodes().clear();
-      if (defaultSourceCodeBuilder_ == null) {
-        defaultSourceCode_ = null;
-      } else {
-        defaultSourceCode_ = null;
+      defaultSourceCode_ = null;
+      if (defaultSourceCodeBuilder_ != null) {
+        defaultSourceCodeBuilder_.dispose();
         defaultSourceCodeBuilder_ = null;
       }
+      statPrefix_ = "";
       return this;
     }
 
@@ -667,17 +675,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua result = new io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua(this);
-      int from_bitField0_ = bitField0_;
-      result.inlineCode_ = inlineCode_;
-      result.sourceCodes_ = internalGetSourceCodes();
-      result.sourceCodes_.makeImmutable();
-      if (defaultSourceCodeBuilder_ == null) {
-        result.defaultSourceCode_ = defaultSourceCode_;
-      } else {
-        result.defaultSourceCode_ = defaultSourceCodeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inlineCode_ = inlineCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sourceCodes_ = internalGetSourceCodes();
+        result.sourceCodes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultSourceCode_ = defaultSourceCodeBuilder_ == null
+            ? defaultSourceCode_
+            : defaultSourceCodeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
     }
 
     @java.lang.Override
@@ -726,14 +745,21 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua.getDefaultInstance()) return this;
       if (!other.getInlineCode().isEmpty()) {
         inlineCode_ = other.inlineCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableSourceCodes().mergeFrom(
           other.internalGetSourceCodes());
+      bitField0_ |= 0x00000002;
       if (other.hasDefaultSourceCode()) {
         mergeDefaultSourceCode(other.getDefaultSourceCode());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getStatPrefix().isEmpty()) {
+        statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -748,17 +774,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              inlineCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource>
+              sourceCodes__ = input.readMessage(
+                  SourceCodesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSourceCodes().getMutableMap().put(
+                  sourceCodes__.getKey(), sourceCodes__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDefaultSourceCodeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.lua.v3.Lua) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -846,11 +911,9 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setInlineCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inlineCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -873,8 +936,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearInlineCode() {
-      
       inlineCode_ = getDefaultInstance().getInlineCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -899,12 +962,10 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setInlineCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inlineCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -912,7 +973,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> sourceCodes_;
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource>
-    internalGetSourceCodes() {
+        internalGetSourceCodes() {
       if (sourceCodes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SourceCodesDefaultEntryHolder.defaultEntry);
@@ -920,8 +981,7 @@ private static final long serialVersionUID = 0L;
       return sourceCodes_;
     }
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource>
-    internalGetMutableSourceCodes() {
-      onChanged();;
+        internalGetMutableSourceCodes() {
       if (sourceCodes_ == null) {
         sourceCodes_ = com.google.protobuf.MapField.newMapField(
             SourceCodesDefaultEntryHolder.defaultEntry);
@@ -929,9 +989,10 @@ private static final long serialVersionUID = 0L;
       if (!sourceCodes_.isMutable()) {
         sourceCodes_ = sourceCodes_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return sourceCodes_;
     }
-
     public int getSourceCodesCount() {
       return internalGetSourceCodes().getMap().size();
     }
@@ -954,7 +1015,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsSourceCodes(
         java.lang.String key) {
@@ -989,7 +1049,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> getSourceCodesMap() {
       return internalGetSourceCodes().getMap();
     }
@@ -1013,10 +1072,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
      */
     @java.lang.Override
-
-    public io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrDefault(
+    public /* nullable */
+io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrDefault(
         java.lang.String key,
-        io.envoyproxy.envoy.config.core.v3.DataSource defaultValue) {
+        /* nullable */
+io.envoyproxy.envoy.config.core.v3.DataSource defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> map =
           internalGetSourceCodes().getMap();
@@ -1042,7 +1102,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
      */
     @java.lang.Override
-
     public io.envoyproxy.envoy.config.core.v3.DataSource getSourceCodesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1053,8 +1112,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSourceCodes() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableSourceCodes().getMutableMap()
           .clear();
       return this;
@@ -1078,7 +1137,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
      */
-
     public Builder removeSourceCodes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1091,7 +1149,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource>
-    getMutableSourceCodes() {
+        getMutableSourceCodes() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableSourceCodes().getMutableMap();
     }
     /**
@@ -1117,12 +1176,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableSourceCodes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1144,11 +1201,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.config.core.v3.DataSource&gt; source_codes = 2;</code>
      */
-
     public Builder putAllSourceCodes(
         java.util.Map<java.lang.String, io.envoyproxy.envoy.config.core.v3.DataSource> values) {
       internalGetMutableSourceCodes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1165,7 +1222,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the defaultSourceCode field is set.
      */
     public boolean hasDefaultSourceCode() {
-      return defaultSourceCodeBuilder_ != null || defaultSourceCode_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1197,11 +1254,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultSourceCode_ = value;
-        onChanged();
       } else {
         defaultSourceCodeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1216,11 +1273,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (defaultSourceCodeBuilder_ == null) {
         defaultSourceCode_ = builderForValue.build();
-        onChanged();
       } else {
         defaultSourceCodeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1233,17 +1290,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefaultSourceCode(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (defaultSourceCodeBuilder_ == null) {
-        if (defaultSourceCode_ != null) {
-          defaultSourceCode_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(defaultSourceCode_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          defaultSourceCode_ != null &&
+          defaultSourceCode_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getDefaultSourceCodeBuilder().mergeFrom(value);
         } else {
           defaultSourceCode_ = value;
         }
-        onChanged();
       } else {
         defaultSourceCodeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1255,14 +1313,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource default_source_code = 3;</code>
      */
     public Builder clearDefaultSourceCode() {
-      if (defaultSourceCodeBuilder_ == null) {
-        defaultSourceCode_ = null;
-        onChanged();
-      } else {
-        defaultSourceCode_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      defaultSourceCode_ = null;
+      if (defaultSourceCodeBuilder_ != null) {
+        defaultSourceCodeBuilder_.dispose();
         defaultSourceCodeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1274,7 +1331,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource default_source_code = 3;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getDefaultSourceCodeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDefaultSourceCodeFieldBuilder().getBuilder();
     }
@@ -1315,6 +1372,168 @@ private static final long serialVersionUID = 0L;
       }
       return defaultSourceCodeBuilder_;
     }
+
+    private java.lang.Object statPrefix_ = "";
+    /**
+     * <pre>
+     * Optional additional prefix to use when emitting statistics. By default
+     * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+     * configured in a filter chain, the stats from each filter instance can
+     * be emitted using custom stat prefix to distinguish emitted
+     * statistics. For example:
+     * .. code-block:: yaml
+     *   http_filters:
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+     * </pre>
+     *
+     * <code>string stat_prefix = 4;</code>
+     * @return The statPrefix.
+     */
+    public java.lang.String getStatPrefix() {
+      java.lang.Object ref = statPrefix_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        statPrefix_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional additional prefix to use when emitting statistics. By default
+     * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+     * configured in a filter chain, the stats from each filter instance can
+     * be emitted using custom stat prefix to distinguish emitted
+     * statistics. For example:
+     * .. code-block:: yaml
+     *   http_filters:
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+     * </pre>
+     *
+     * <code>string stat_prefix = 4;</code>
+     * @return The bytes for statPrefix.
+     */
+    public com.google.protobuf.ByteString
+        getStatPrefixBytes() {
+      java.lang.Object ref = statPrefix_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        statPrefix_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional additional prefix to use when emitting statistics. By default
+     * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+     * configured in a filter chain, the stats from each filter instance can
+     * be emitted using custom stat prefix to distinguish emitted
+     * statistics. For example:
+     * .. code-block:: yaml
+     *   http_filters:
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+     * </pre>
+     *
+     * <code>string stat_prefix = 4;</code>
+     * @param value The statPrefix to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatPrefix(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      statPrefix_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional additional prefix to use when emitting statistics. By default
+     * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+     * configured in a filter chain, the stats from each filter instance can
+     * be emitted using custom stat prefix to distinguish emitted
+     * statistics. For example:
+     * .. code-block:: yaml
+     *   http_filters:
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+     * </pre>
+     *
+     * <code>string stat_prefix = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearStatPrefix() {
+      statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional additional prefix to use when emitting statistics. By default
+     * metrics are emitted in *.lua.* namespace. If multiple lua filters are
+     * configured in a filter chain, the stats from each filter instance can
+     * be emitted using custom stat prefix to distinguish emitted
+     * statistics. For example:
+     * .. code-block:: yaml
+     *   http_filters:
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: foo_script # This emits lua.foo_script.errors etc.
+     *     - name: envoy.filters.http.lua
+     *       typed_config:
+     *         "&#64;type": type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua
+     *         stat_prefix: bar_script # This emits lua.bar_script.errors etc.
+     * </pre>
+     *
+     * <code>string stat_prefix = 4;</code>
+     * @param value The bytes for statPrefix to set.
+     * @return This builder for chaining.
+     */
+    public Builder setStatPrefixBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      statPrefix_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1348,7 +1567,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Lua(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

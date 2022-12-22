@@ -111,179 +111,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Read(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            readGroupId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            readGroupSetId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fragmentName_ = s;
-            break;
-          }
-          case 40: {
-
-            properPlacement_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            duplicateFragment_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            fragmentLength_ = input.readInt32();
-            break;
-          }
-          case 64: {
-
-            readNumber_ = input.readInt32();
-            break;
-          }
-          case 72: {
-
-            numberReads_ = input.readInt32();
-            break;
-          }
-          case 80: {
-
-            failedVendorQualityChecks_ = input.readBool();
-            break;
-          }
-          case 90: {
-            com.google.genomics.v1.LinearAlignment.Builder subBuilder = null;
-            if (alignment_ != null) {
-              subBuilder = alignment_.toBuilder();
-            }
-            alignment_ = input.readMessage(com.google.genomics.v1.LinearAlignment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(alignment_);
-              alignment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-
-            secondaryAlignment_ = input.readBool();
-            break;
-          }
-          case 104: {
-
-            supplementaryAlignment_ = input.readBool();
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            alignedSequence_ = s;
-            break;
-          }
-          case 120: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              alignedQuality_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            alignedQuality_.addInt(input.readInt32());
-            break;
-          }
-          case 122: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              alignedQuality_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              alignedQuality_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 130: {
-            com.google.genomics.v1.Position.Builder subBuilder = null;
-            if (nextMatePosition_ != null) {
-              subBuilder = nextMatePosition_.toBuilder();
-            }
-            nextMatePosition_ = input.readMessage(com.google.genomics.v1.Position.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nextMatePosition_);
-              nextMatePosition_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              info_ = com.google.protobuf.MapField.newMapField(
-                  InfoDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ListValue>
-            info__ = input.readMessage(
-                InfoDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            info_.getMutableMap().put(
-                info__.getKey(), info__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        alignedQuality_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.ReadAlignmentProto.internal_static_google_genomics_v1_Read_descriptor;
@@ -310,7 +137,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The server-generated read ID, unique across all reads. This is different
@@ -358,7 +186,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int READ_GROUP_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object readGroupId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object readGroupId_ = "";
   /**
    * <pre>
    * The ID of the read group this read belongs to. A read belongs to exactly
@@ -410,7 +239,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int READ_GROUP_SET_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object readGroupSetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object readGroupSetId_ = "";
   /**
    * <pre>
    * The ID of the read group set this read belongs to. A read belongs to
@@ -458,7 +288,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FRAGMENT_NAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object fragmentName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fragmentName_ = "";
   /**
    * <pre>
    * The fragment name. Equivalent to QNAME (query template name) in SAM.
@@ -504,7 +335,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROPER_PLACEMENT_FIELD_NUMBER = 5;
-  private boolean properPlacement_;
+  private boolean properPlacement_ = false;
   /**
    * <pre>
    * The orientation and the distance between reads from the fragment are
@@ -520,7 +351,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DUPLICATE_FRAGMENT_FIELD_NUMBER = 6;
-  private boolean duplicateFragment_;
+  private boolean duplicateFragment_ = false;
   /**
    * <pre>
    * The fragment is a PCR or optical duplicate (SAM flag 0x400).
@@ -535,7 +366,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FRAGMENT_LENGTH_FIELD_NUMBER = 7;
-  private int fragmentLength_;
+  private int fragmentLength_ = 0;
   /**
    * <pre>
    * The observed length of the fragment, equivalent to TLEN in SAM.
@@ -550,7 +381,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int READ_NUMBER_FIELD_NUMBER = 8;
-  private int readNumber_;
+  private int readNumber_ = 0;
   /**
    * <pre>
    * The read number in sequencing. 0-based and less than numberReads. This
@@ -566,7 +397,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUMBER_READS_FIELD_NUMBER = 9;
-  private int numberReads_;
+  private int numberReads_ = 0;
   /**
    * <pre>
    * The number of reads in the fragment (extension to SAM flag 0x1).
@@ -581,7 +412,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAILED_VENDOR_QUALITY_CHECKS_FIELD_NUMBER = 10;
-  private boolean failedVendorQualityChecks_;
+  private boolean failedVendorQualityChecks_ = false;
   /**
    * <pre>
    * Whether this read did not pass filters, such as platform or vendor quality
@@ -634,11 +465,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1.LinearAlignmentOrBuilder getAlignmentOrBuilder() {
-    return getAlignment();
+    return alignment_ == null ? com.google.genomics.v1.LinearAlignment.getDefaultInstance() : alignment_;
   }
 
   public static final int SECONDARY_ALIGNMENT_FIELD_NUMBER = 12;
-  private boolean secondaryAlignment_;
+  private boolean secondaryAlignment_ = false;
   /**
    * <pre>
    * Whether this alignment is secondary. Equivalent to SAM flag 0x100.
@@ -658,7 +489,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPLEMENTARY_ALIGNMENT_FIELD_NUMBER = 13;
-  private boolean supplementaryAlignment_;
+  private boolean supplementaryAlignment_ = false;
   /**
    * <pre>
    * Whether this alignment is supplementary. Equivalent to SAM flag 0x800.
@@ -683,7 +514,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALIGNED_SEQUENCE_FIELD_NUMBER = 14;
-  private volatile java.lang.Object alignedSequence_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object alignedSequence_ = "";
   /**
    * <pre>
    * The bases of the read sequence contained in this alignment record,
@@ -741,6 +573,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALIGNED_QUALITY_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList alignedQuality_;
   /**
    * <pre>
@@ -839,7 +672,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1.PositionOrBuilder getNextMatePositionOrBuilder() {
-    return getNextMatePosition();
+    return nextMatePosition_ == null ? com.google.genomics.v1.Position.getDefaultInstance() : nextMatePosition_;
   }
 
   public static final int INFO_FIELD_NUMBER = 17;
@@ -854,6 +687,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.ListValue.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.ListValue> info_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
@@ -864,7 +698,6 @@ private static final long serialVersionUID = 0L;
     }
     return info_;
   }
-
   public int getInfoCount() {
     return internalGetInfo().getMap().size();
   }
@@ -876,7 +709,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
    */
-
   @java.lang.Override
   public boolean containsInfo(
       java.lang.String key) {
@@ -900,7 +732,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.ListValue> getInfoMap() {
     return internalGetInfo().getMap();
   }
@@ -913,10 +744,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.ListValue getInfoOrDefault(
+  public /* nullable */
+com.google.protobuf.ListValue getInfoOrDefault(
       java.lang.String key,
-      com.google.protobuf.ListValue defaultValue) {
+      /* nullable */
+com.google.protobuf.ListValue defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.ListValue> map =
         internalGetInfo().getMap();
@@ -931,7 +763,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.ListValue getInfoOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1016,7 +847,7 @@ private static final long serialVersionUID = 0L;
         internalGetInfo(),
         InfoDefaultEntryHolder.defaultEntry,
         17);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1104,7 +935,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(17, info__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1159,7 +990,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetInfo().equals(
         other.internalGetInfo())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1217,7 +1048,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INFO_FIELD_NUMBER;
       hash = (53 * hash) + internalGetInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1431,60 +1262,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1.Read.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       readGroupId_ = "";
-
       readGroupSetId_ = "";
-
       fragmentName_ = "";
-
       properPlacement_ = false;
-
       duplicateFragment_ = false;
-
       fragmentLength_ = 0;
-
       readNumber_ = 0;
-
       numberReads_ = 0;
-
       failedVendorQualityChecks_ = false;
-
-      if (alignmentBuilder_ == null) {
-        alignment_ = null;
-      } else {
-        alignment_ = null;
+      alignment_ = null;
+      if (alignmentBuilder_ != null) {
+        alignmentBuilder_.dispose();
         alignmentBuilder_ = null;
       }
       secondaryAlignment_ = false;
-
       supplementaryAlignment_ = false;
-
       alignedSequence_ = "";
-
       alignedQuality_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (nextMatePositionBuilder_ == null) {
-        nextMatePosition_ = null;
-      } else {
-        nextMatePosition_ = null;
+      nextMatePosition_ = null;
+      if (nextMatePositionBuilder_ != null) {
+        nextMatePositionBuilder_.dispose();
         nextMatePositionBuilder_ = null;
       }
       internalGetMutableInfo().clear();
@@ -1514,39 +1325,75 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1.Read buildPartial() {
       com.google.genomics.v1.Read result = new com.google.genomics.v1.Read(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.readGroupId_ = readGroupId_;
-      result.readGroupSetId_ = readGroupSetId_;
-      result.fragmentName_ = fragmentName_;
-      result.properPlacement_ = properPlacement_;
-      result.duplicateFragment_ = duplicateFragment_;
-      result.fragmentLength_ = fragmentLength_;
-      result.readNumber_ = readNumber_;
-      result.numberReads_ = numberReads_;
-      result.failedVendorQualityChecks_ = failedVendorQualityChecks_;
-      if (alignmentBuilder_ == null) {
-        result.alignment_ = alignment_;
-      } else {
-        result.alignment_ = alignmentBuilder_.build();
-      }
-      result.secondaryAlignment_ = secondaryAlignment_;
-      result.supplementaryAlignment_ = supplementaryAlignment_;
-      result.alignedSequence_ = alignedSequence_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        alignedQuality_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.alignedQuality_ = alignedQuality_;
-      if (nextMatePositionBuilder_ == null) {
-        result.nextMatePosition_ = nextMatePosition_;
-      } else {
-        result.nextMatePosition_ = nextMatePositionBuilder_.build();
-      }
-      result.info_ = internalGetInfo();
-      result.info_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1.Read result) {
+      if (((bitField0_ & 0x00004000) != 0)) {
+        alignedQuality_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00004000);
+      }
+      result.alignedQuality_ = alignedQuality_;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.Read result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.readGroupId_ = readGroupId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.readGroupSetId_ = readGroupSetId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fragmentName_ = fragmentName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.properPlacement_ = properPlacement_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.duplicateFragment_ = duplicateFragment_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.fragmentLength_ = fragmentLength_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.readNumber_ = readNumber_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.numberReads_ = numberReads_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.failedVendorQualityChecks_ = failedVendorQualityChecks_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.alignment_ = alignmentBuilder_ == null
+            ? alignment_
+            : alignmentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.secondaryAlignment_ = secondaryAlignment_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.supplementaryAlignment_ = supplementaryAlignment_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.alignedSequence_ = alignedSequence_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.nextMatePosition_ = nextMatePositionBuilder_ == null
+            ? nextMatePosition_
+            : nextMatePositionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.info_ = internalGetInfo();
+        result.info_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1595,18 +1442,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1.Read.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getReadGroupId().isEmpty()) {
         readGroupId_ = other.readGroupId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getReadGroupSetId().isEmpty()) {
         readGroupSetId_ = other.readGroupSetId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getFragmentName().isEmpty()) {
         fragmentName_ = other.fragmentName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getProperPlacement() != false) {
@@ -1638,12 +1489,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAlignedSequence().isEmpty()) {
         alignedSequence_ = other.alignedSequence_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (!other.alignedQuality_.isEmpty()) {
         if (alignedQuality_.isEmpty()) {
           alignedQuality_ = other.alignedQuality_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00004000);
         } else {
           ensureAlignedQualityIsMutable();
           alignedQuality_.addAll(other.alignedQuality_);
@@ -1655,7 +1507,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableInfo().mergeFrom(
           other.internalGetInfo());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00010000;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1670,17 +1523,134 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.Read parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              readGroupId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              readGroupSetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              fragmentName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              properPlacement_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              duplicateFragment_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              fragmentLength_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              readNumber_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              numberReads_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              failedVendorQualityChecks_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getAlignmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 96: {
+              secondaryAlignment_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              supplementaryAlignment_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 114: {
+              alignedSequence_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 120: {
+              int v = input.readInt32();
+              ensureAlignedQualityIsMutable();
+              alignedQuality_.addInt(v);
+              break;
+            } // case 120
+            case 122: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureAlignedQualityIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                alignedQuality_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getNextMatePositionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 138: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ListValue>
+              info__ = input.readMessage(
+                  InfoDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInfo().getMutableMap().put(
+                  info__.getKey(), info__.getValue());
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.Read) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1741,11 +1711,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1759,8 +1727,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1776,12 +1744,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1848,11 +1814,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReadGroupId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       readGroupId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1868,8 +1832,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReadGroupId() {
-      
       readGroupId_ = getDefaultInstance().getReadGroupId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1887,12 +1851,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReadGroupIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       readGroupId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1953,11 +1915,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReadGroupSetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       readGroupSetId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1971,8 +1931,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReadGroupSetId() {
-      
       readGroupSetId_ = getDefaultInstance().getReadGroupSetId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1988,12 +1948,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReadGroupSetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       readGroupSetId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2051,11 +2009,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFragmentName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fragmentName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2068,8 +2024,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFragmentName() {
-      
       fragmentName_ = getDefaultInstance().getFragmentName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2084,12 +2040,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFragmentNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fragmentName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2121,6 +2075,7 @@ private static final long serialVersionUID = 0L;
     public Builder setProperPlacement(boolean value) {
       
       properPlacement_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2134,7 +2089,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProperPlacement() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       properPlacement_ = false;
       onChanged();
       return this;
@@ -2165,6 +2120,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDuplicateFragment(boolean value) {
       
       duplicateFragment_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2177,7 +2133,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDuplicateFragment() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       duplicateFragment_ = false;
       onChanged();
       return this;
@@ -2208,6 +2164,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFragmentLength(int value) {
       
       fragmentLength_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2220,7 +2177,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFragmentLength() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       fragmentLength_ = 0;
       onChanged();
       return this;
@@ -2253,6 +2210,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReadNumber(int value) {
       
       readNumber_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2266,7 +2224,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReadNumber() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       readNumber_ = 0;
       onChanged();
       return this;
@@ -2297,6 +2255,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNumberReads(int value) {
       
       numberReads_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2309,7 +2268,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumberReads() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       numberReads_ = 0;
       onChanged();
       return this;
@@ -2342,6 +2301,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailedVendorQualityChecks(boolean value) {
       
       failedVendorQualityChecks_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2355,7 +2315,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailedVendorQualityChecks() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       failedVendorQualityChecks_ = false;
       onChanged();
       return this;
@@ -2374,7 +2334,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the alignment field is set.
      */
     public boolean hasAlignment() {
-      return alignmentBuilder_ != null || alignment_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2406,11 +2366,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         alignment_ = value;
-        onChanged();
       } else {
         alignmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2425,11 +2385,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1.LinearAlignment.Builder builderForValue) {
       if (alignmentBuilder_ == null) {
         alignment_ = builderForValue.build();
-        onChanged();
       } else {
         alignmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2442,17 +2402,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAlignment(com.google.genomics.v1.LinearAlignment value) {
       if (alignmentBuilder_ == null) {
-        if (alignment_ != null) {
-          alignment_ =
-            com.google.genomics.v1.LinearAlignment.newBuilder(alignment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          alignment_ != null &&
+          alignment_ != com.google.genomics.v1.LinearAlignment.getDefaultInstance()) {
+          getAlignmentBuilder().mergeFrom(value);
         } else {
           alignment_ = value;
         }
-        onChanged();
       } else {
         alignmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2464,14 +2425,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.LinearAlignment alignment = 11;</code>
      */
     public Builder clearAlignment() {
-      if (alignmentBuilder_ == null) {
-        alignment_ = null;
-        onChanged();
-      } else {
-        alignment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      alignment_ = null;
+      if (alignmentBuilder_ != null) {
+        alignmentBuilder_.dispose();
         alignmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2483,7 +2443,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.LinearAlignment alignment = 11;</code>
      */
     public com.google.genomics.v1.LinearAlignment.Builder getAlignmentBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getAlignmentFieldBuilder().getBuilder();
     }
@@ -2560,6 +2520,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSecondaryAlignment(boolean value) {
       
       secondaryAlignment_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2577,7 +2538,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecondaryAlignment() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       secondaryAlignment_ = false;
       onChanged();
       return this;
@@ -2628,6 +2589,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSupplementaryAlignment(boolean value) {
       
       supplementaryAlignment_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2650,7 +2612,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSupplementaryAlignment() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       supplementaryAlignment_ = false;
       onChanged();
       return this;
@@ -2727,11 +2689,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlignedSequence(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       alignedSequence_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2750,8 +2710,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAlignedSequence() {
-      
       alignedSequence_ = getDefaultInstance().getAlignedSequence();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -2772,22 +2732,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlignedSequenceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       alignedSequence_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.IntList alignedQuality_ = emptyIntList();
     private void ensureAlignedQualityIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00004000) != 0)) {
         alignedQuality_ = mutableCopy(alignedQuality_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00004000;
+      }
     }
     /**
      * <pre>
@@ -2805,7 +2763,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getAlignedQualityList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00004000) != 0) ?
                java.util.Collections.unmodifiableList(alignedQuality_) : alignedQuality_;
     }
     /**
@@ -2861,6 +2819,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAlignedQuality(
         int index, int value) {
+      
       ensureAlignedQualityIsMutable();
       alignedQuality_.setInt(index, value);
       onChanged();
@@ -2882,6 +2841,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addAlignedQuality(int value) {
+      
       ensureAlignedQualityIsMutable();
       alignedQuality_.addInt(value);
       onChanged();
@@ -2926,7 +2886,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAlignedQuality() {
       alignedQuality_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -2945,7 +2905,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nextMatePosition field is set.
      */
     public boolean hasNextMatePosition() {
-      return nextMatePositionBuilder_ != null || nextMatePosition_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -2979,11 +2939,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nextMatePosition_ = value;
-        onChanged();
       } else {
         nextMatePositionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -2999,11 +2959,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1.Position.Builder builderForValue) {
       if (nextMatePositionBuilder_ == null) {
         nextMatePosition_ = builderForValue.build();
-        onChanged();
       } else {
         nextMatePositionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3017,17 +2977,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNextMatePosition(com.google.genomics.v1.Position value) {
       if (nextMatePositionBuilder_ == null) {
-        if (nextMatePosition_ != null) {
-          nextMatePosition_ =
-            com.google.genomics.v1.Position.newBuilder(nextMatePosition_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          nextMatePosition_ != null &&
+          nextMatePosition_ != com.google.genomics.v1.Position.getDefaultInstance()) {
+          getNextMatePositionBuilder().mergeFrom(value);
         } else {
           nextMatePosition_ = value;
         }
-        onChanged();
       } else {
         nextMatePositionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3040,14 +3001,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Position next_mate_position = 16;</code>
      */
     public Builder clearNextMatePosition() {
-      if (nextMatePositionBuilder_ == null) {
-        nextMatePosition_ = null;
-        onChanged();
-      } else {
-        nextMatePosition_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      nextMatePosition_ = null;
+      if (nextMatePositionBuilder_ != null) {
+        nextMatePositionBuilder_.dispose();
         nextMatePositionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3060,7 +3020,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1.Position next_mate_position = 16;</code>
      */
     public com.google.genomics.v1.Position.Builder getNextMatePositionBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getNextMatePositionFieldBuilder().getBuilder();
     }
@@ -3107,7 +3067,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.ListValue> info_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
-    internalGetInfo() {
+        internalGetInfo() {
       if (info_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             InfoDefaultEntryHolder.defaultEntry);
@@ -3115,8 +3075,7 @@ private static final long serialVersionUID = 0L;
       return info_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ListValue>
-    internalGetMutableInfo() {
-      onChanged();;
+        internalGetMutableInfo() {
       if (info_ == null) {
         info_ = com.google.protobuf.MapField.newMapField(
             InfoDefaultEntryHolder.defaultEntry);
@@ -3124,9 +3083,10 @@ private static final long serialVersionUID = 0L;
       if (!info_.isMutable()) {
         info_ = info_.copy();
       }
+      bitField0_ |= 0x00010000;
+      onChanged();
       return info_;
     }
-
     public int getInfoCount() {
       return internalGetInfo().getMap().size();
     }
@@ -3138,7 +3098,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
      */
-
     @java.lang.Override
     public boolean containsInfo(
         java.lang.String key) {
@@ -3162,7 +3121,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.ListValue> getInfoMap() {
       return internalGetInfo().getMap();
     }
@@ -3175,10 +3133,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ListValue getInfoOrDefault(
+    public /* nullable */
+com.google.protobuf.ListValue getInfoOrDefault(
         java.lang.String key,
-        com.google.protobuf.ListValue defaultValue) {
+        /* nullable */
+com.google.protobuf.ListValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ListValue> map =
           internalGetInfo().getMap();
@@ -3193,7 +3152,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ListValue getInfoOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3204,8 +3162,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInfo() {
+      bitField0_ = (bitField0_ & ~0x00010000);
       internalGetMutableInfo().getMutableMap()
           .clear();
       return this;
@@ -3218,7 +3176,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
      */
-
     public Builder removeInfo(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3231,7 +3188,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.ListValue>
-    getMutableInfo() {
+        getMutableInfo() {
+      bitField0_ |= 0x00010000;
       return internalGetMutableInfo().getMutableMap();
     }
     /**
@@ -3246,12 +3204,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.ListValue value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInfo().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00010000;
       return this;
     }
     /**
@@ -3262,11 +3218,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
      */
-
     public Builder putAllInfo(
         java.util.Map<java.lang.String, com.google.protobuf.ListValue> values) {
       internalGetMutableInfo().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00010000;
       return this;
     }
     @java.lang.Override
@@ -3302,7 +3258,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Read(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

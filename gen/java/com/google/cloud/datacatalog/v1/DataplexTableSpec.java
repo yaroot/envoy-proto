@@ -35,76 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataplexTableSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              externalTables_ = new java.util.ArrayList<com.google.cloud.datacatalog.v1.DataplexExternalTable>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            externalTables_.add(
-                input.readMessage(com.google.cloud.datacatalog.v1.DataplexExternalTable.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.cloud.datacatalog.v1.DataplexSpec.Builder subBuilder = null;
-            if (dataplexSpec_ != null) {
-              subBuilder = dataplexSpec_.toBuilder();
-            }
-            dataplexSpec_ = input.readMessage(com.google.cloud.datacatalog.v1.DataplexSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataplexSpec_);
-              dataplexSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            userManaged_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        externalTables_ = java.util.Collections.unmodifiableList(externalTables_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1.DataplexSpecProto.internal_static_google_cloud_datacatalog_v1_DataplexTableSpec_descriptor;
@@ -119,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXTERNAL_TABLES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.datacatalog.v1.DataplexExternalTable> externalTables_;
   /**
    * <pre>
@@ -223,11 +154,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datacatalog.v1.DataplexSpecOrBuilder getDataplexSpecOrBuilder() {
-    return getDataplexSpec();
+    return dataplexSpec_ == null ? com.google.cloud.datacatalog.v1.DataplexSpec.getDefaultInstance() : dataplexSpec_;
   }
 
   public static final int USER_MANAGED_FIELD_NUMBER = 3;
-  private boolean userManaged_;
+  private boolean userManaged_ = false;
   /**
    * <pre>
    * Indicates if the table schema is managed by the user or not.
@@ -264,7 +195,7 @@ private static final long serialVersionUID = 0L;
     if (userManaged_ != false) {
       output.writeBool(3, userManaged_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +216,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, userManaged_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +240,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getUserManaged()
         != other.getUserManaged()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -331,7 +262,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USER_MANAGED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUserManaged());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -452,37 +383,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1.DataplexTableSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getExternalTablesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (externalTablesBuilder_ == null) {
         externalTables_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        externalTables_ = null;
         externalTablesBuilder_.clear();
       }
-      if (dataplexSpecBuilder_ == null) {
-        dataplexSpec_ = null;
-      } else {
-        dataplexSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      dataplexSpec_ = null;
+      if (dataplexSpecBuilder_ != null) {
+        dataplexSpecBuilder_.dispose();
         dataplexSpecBuilder_ = null;
       }
       userManaged_ = false;
-
       return this;
     }
 
@@ -509,7 +434,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1.DataplexTableSpec buildPartial() {
       com.google.cloud.datacatalog.v1.DataplexTableSpec result = new com.google.cloud.datacatalog.v1.DataplexTableSpec(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.datacatalog.v1.DataplexTableSpec result) {
       if (externalTablesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           externalTables_ = java.util.Collections.unmodifiableList(externalTables_);
@@ -519,14 +450,18 @@ private static final long serialVersionUID = 0L;
       } else {
         result.externalTables_ = externalTablesBuilder_.build();
       }
-      if (dataplexSpecBuilder_ == null) {
-        result.dataplexSpec_ = dataplexSpec_;
-      } else {
-        result.dataplexSpec_ = dataplexSpecBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1.DataplexTableSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataplexSpec_ = dataplexSpecBuilder_ == null
+            ? dataplexSpec_
+            : dataplexSpecBuilder_.build();
       }
-      result.userManaged_ = userManaged_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.userManaged_ = userManaged_;
+      }
     }
 
     @java.lang.Override
@@ -605,7 +540,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUserManaged() != false) {
         setUserManaged(other.getUserManaged());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -620,17 +555,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1.DataplexTableSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.datacatalog.v1.DataplexExternalTable m =
+                  input.readMessage(
+                      com.google.cloud.datacatalog.v1.DataplexExternalTable.parser(),
+                      extensionRegistry);
+              if (externalTablesBuilder_ == null) {
+                ensureExternalTablesIsMutable();
+                externalTables_.add(m);
+              } else {
+                externalTablesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDataplexSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              userManaged_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1.DataplexTableSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -995,7 +968,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dataplexSpec field is set.
      */
     public boolean hasDataplexSpec() {
-      return dataplexSpecBuilder_ != null || dataplexSpec_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1025,11 +998,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataplexSpec_ = value;
-        onChanged();
       } else {
         dataplexSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1043,11 +1016,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datacatalog.v1.DataplexSpec.Builder builderForValue) {
       if (dataplexSpecBuilder_ == null) {
         dataplexSpec_ = builderForValue.build();
-        onChanged();
       } else {
         dataplexSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1059,17 +1032,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDataplexSpec(com.google.cloud.datacatalog.v1.DataplexSpec value) {
       if (dataplexSpecBuilder_ == null) {
-        if (dataplexSpec_ != null) {
-          dataplexSpec_ =
-            com.google.cloud.datacatalog.v1.DataplexSpec.newBuilder(dataplexSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dataplexSpec_ != null &&
+          dataplexSpec_ != com.google.cloud.datacatalog.v1.DataplexSpec.getDefaultInstance()) {
+          getDataplexSpecBuilder().mergeFrom(value);
         } else {
           dataplexSpec_ = value;
         }
-        onChanged();
       } else {
         dataplexSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1080,14 +1054,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.DataplexSpec dataplex_spec = 2;</code>
      */
     public Builder clearDataplexSpec() {
-      if (dataplexSpecBuilder_ == null) {
-        dataplexSpec_ = null;
-        onChanged();
-      } else {
-        dataplexSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dataplexSpec_ = null;
+      if (dataplexSpecBuilder_ != null) {
+        dataplexSpecBuilder_.dispose();
         dataplexSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1098,7 +1071,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datacatalog.v1.DataplexSpec dataplex_spec = 2;</code>
      */
     public com.google.cloud.datacatalog.v1.DataplexSpec.Builder getDataplexSpecBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDataplexSpecFieldBuilder().getBuilder();
     }
@@ -1163,6 +1136,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUserManaged(boolean value) {
       
       userManaged_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1175,7 +1149,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserManaged() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       userManaged_ = false;
       onChanged();
       return this;
@@ -1213,7 +1187,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataplexTableSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

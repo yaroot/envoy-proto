@@ -181,7 +181,6 @@ public interface VpnGatewayOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 500195327;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -194,7 +193,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 500195327;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -316,7 +314,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * The stack type for this VPN gateway to identify the IP protocols that are enabled. If not specified, IPV4_ONLY will be used.
+   * The stack type for this VPN gateway to identify the IP protocols that are enabled. Possible values are: IPV4_ONLY, IPV4_IPV6. If not specified, IPV4_ONLY will be used.
    * Check the StackType enum for the list of possible values.
    * </pre>
    *
@@ -326,7 +324,7 @@ java.lang.String defaultValue);
   boolean hasStackType();
   /**
    * <pre>
-   * The stack type for this VPN gateway to identify the IP protocols that are enabled. If not specified, IPV4_ONLY will be used.
+   * The stack type for this VPN gateway to identify the IP protocols that are enabled. Possible values are: IPV4_ONLY, IPV4_IPV6. If not specified, IPV4_ONLY will be used.
    * Check the StackType enum for the list of possible values.
    * </pre>
    *
@@ -336,7 +334,7 @@ java.lang.String defaultValue);
   java.lang.String getStackType();
   /**
    * <pre>
-   * The stack type for this VPN gateway to identify the IP protocols that are enabled. If not specified, IPV4_ONLY will be used.
+   * The stack type for this VPN gateway to identify the IP protocols that are enabled. Possible values are: IPV4_ONLY, IPV4_IPV6. If not specified, IPV4_ONLY will be used.
    * Check the StackType enum for the list of possible values.
    * </pre>
    *

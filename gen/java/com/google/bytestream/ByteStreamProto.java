@@ -98,61 +98,6 @@ public final class ByteStreamProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReadRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              resourceName_ = s;
-              break;
-            }
-            case 16: {
-
-              readOffset_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              readLimit_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bytestream.ByteStreamProto.internal_static_google_bytestream_ReadRequest_descriptor;
@@ -167,7 +112,8 @@ public final class ByteStreamProto {
     }
 
     public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object resourceName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object resourceName_ = "";
     /**
      * <pre>
      * The name of the resource to read.
@@ -213,7 +159,7 @@ public final class ByteStreamProto {
     }
 
     public static final int READ_OFFSET_FIELD_NUMBER = 2;
-    private long readOffset_;
+    private long readOffset_ = 0L;
     /**
      * <pre>
      * The offset for the first byte to return in the read, relative to the start
@@ -231,7 +177,7 @@ public final class ByteStreamProto {
     }
 
     public static final int READ_LIMIT_FIELD_NUMBER = 3;
-    private long readLimit_;
+    private long readLimit_ = 0L;
     /**
      * <pre>
      * The maximum number of `data` bytes the server is allowed to return in the
@@ -273,7 +219,7 @@ public final class ByteStreamProto {
       if (readLimit_ != 0L) {
         output.writeInt64(3, readLimit_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -293,7 +239,7 @@ public final class ByteStreamProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, readLimit_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -314,7 +260,7 @@ public final class ByteStreamProto {
           != other.getReadOffset()) return false;
       if (getReadLimit()
           != other.getReadLimit()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -333,7 +279,7 @@ public final class ByteStreamProto {
       hash = (37 * hash) + READ_LIMIT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getReadLimit());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -454,28 +400,21 @@ public final class ByteStreamProto {
 
       // Construct using com.google.bytestream.ByteStreamProto.ReadRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         resourceName_ = "";
-
         readOffset_ = 0L;
-
         readLimit_ = 0L;
-
         return this;
       }
 
@@ -502,11 +441,22 @@ public final class ByteStreamProto {
       @java.lang.Override
       public com.google.bytestream.ByteStreamProto.ReadRequest buildPartial() {
         com.google.bytestream.ByteStreamProto.ReadRequest result = new com.google.bytestream.ByteStreamProto.ReadRequest(this);
-        result.resourceName_ = resourceName_;
-        result.readOffset_ = readOffset_;
-        result.readLimit_ = readLimit_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bytestream.ByteStreamProto.ReadRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.resourceName_ = resourceName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.readOffset_ = readOffset_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.readLimit_ = readLimit_;
+        }
       }
 
       @java.lang.Override
@@ -555,6 +505,7 @@ public final class ByteStreamProto {
         if (other == com.google.bytestream.ByteStreamProto.ReadRequest.getDefaultInstance()) return this;
         if (!other.getResourceName().isEmpty()) {
           resourceName_ = other.resourceName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getReadOffset() != 0L) {
@@ -563,7 +514,7 @@ public final class ByteStreamProto {
         if (other.getReadLimit() != 0L) {
           setReadLimit(other.getReadLimit());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -578,19 +529,48 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bytestream.ByteStreamProto.ReadRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                resourceName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                readOffset_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                readLimit_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bytestream.ByteStreamProto.ReadRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object resourceName_ = "";
       /**
@@ -645,11 +625,9 @@ public final class ByteStreamProto {
        */
       public Builder setResourceName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         resourceName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -662,8 +640,8 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearResourceName() {
-        
         resourceName_ = getDefaultInstance().getResourceName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -678,12 +656,10 @@ public final class ByteStreamProto {
        */
       public Builder setResourceNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         resourceName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -719,6 +695,7 @@ public final class ByteStreamProto {
       public Builder setReadOffset(long value) {
         
         readOffset_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -734,7 +711,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearReadOffset() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         readOffset_ = 0L;
         onChanged();
         return this;
@@ -775,6 +752,7 @@ public final class ByteStreamProto {
       public Builder setReadLimit(long value) {
         
         readLimit_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -792,7 +770,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearReadLimit() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         readLimit_ = 0L;
         onChanged();
         return this;
@@ -830,7 +808,18 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReadRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -899,50 +888,6 @@ public final class ByteStreamProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReadResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 82: {
-
-              data_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bytestream.ByteStreamProto.internal_static_google_bytestream_ReadResponse_descriptor;
@@ -957,7 +902,7 @@ public final class ByteStreamProto {
     }
 
     public static final int DATA_FIELD_NUMBER = 10;
-    private com.google.protobuf.ByteString data_;
+    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * A portion of the data for the resource. The service **may** leave `data`
@@ -991,7 +936,7 @@ public final class ByteStreamProto {
       if (!data_.isEmpty()) {
         output.writeBytes(10, data_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1004,7 +949,7 @@ public final class ByteStreamProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(10, data_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1021,7 +966,7 @@ public final class ByteStreamProto {
 
       if (!getData()
           .equals(other.getData())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1034,7 +979,7 @@ public final class ByteStreamProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1155,24 +1100,19 @@ public final class ByteStreamProto {
 
       // Construct using com.google.bytestream.ByteStreamProto.ReadResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         data_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -1199,9 +1139,16 @@ public final class ByteStreamProto {
       @java.lang.Override
       public com.google.bytestream.ByteStreamProto.ReadResponse buildPartial() {
         com.google.bytestream.ByteStreamProto.ReadResponse result = new com.google.bytestream.ByteStreamProto.ReadResponse(this);
-        result.data_ = data_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bytestream.ByteStreamProto.ReadResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.data_ = data_;
+        }
       }
 
       @java.lang.Override
@@ -1251,7 +1198,7 @@ public final class ByteStreamProto {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1266,19 +1213,38 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bytestream.ByteStreamProto.ReadResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 82: {
+                data_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bytestream.ByteStreamProto.ReadResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -1309,11 +1275,9 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         data_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1329,7 +1293,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -1367,7 +1331,18 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReadResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1491,66 +1466,6 @@ public final class ByteStreamProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WriteRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              resourceName_ = s;
-              break;
-            }
-            case 16: {
-
-              writeOffset_ = input.readInt64();
-              break;
-            }
-            case 24: {
-
-              finishWrite_ = input.readBool();
-              break;
-            }
-            case 82: {
-
-              data_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bytestream.ByteStreamProto.internal_static_google_bytestream_WriteRequest_descriptor;
@@ -1565,7 +1480,8 @@ public final class ByteStreamProto {
     }
 
     public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object resourceName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object resourceName_ = "";
     /**
      * <pre>
      * The name of the resource to write. This **must** be set on the first
@@ -1615,7 +1531,7 @@ public final class ByteStreamProto {
     }
 
     public static final int WRITE_OFFSET_FIELD_NUMBER = 2;
-    private long writeOffset_;
+    private long writeOffset_ = 0L;
     /**
      * <pre>
      * The offset from the beginning of the resource at which the data should be
@@ -1638,7 +1554,7 @@ public final class ByteStreamProto {
     }
 
     public static final int FINISH_WRITE_FIELD_NUMBER = 3;
-    private boolean finishWrite_;
+    private boolean finishWrite_ = false;
     /**
      * <pre>
      * If `true`, this indicates that the write is complete. Sending any
@@ -1655,7 +1571,7 @@ public final class ByteStreamProto {
     }
 
     public static final int DATA_FIELD_NUMBER = 10;
-    private com.google.protobuf.ByteString data_;
+    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * A portion of the data for the resource. The client **may** leave `data`
@@ -1698,7 +1614,7 @@ public final class ByteStreamProto {
       if (!data_.isEmpty()) {
         output.writeBytes(10, data_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1722,7 +1638,7 @@ public final class ByteStreamProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(10, data_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1745,7 +1661,7 @@ public final class ByteStreamProto {
           != other.getFinishWrite()) return false;
       if (!getData()
           .equals(other.getData())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1766,7 +1682,7 @@ public final class ByteStreamProto {
           getFinishWrite());
       hash = (37 * hash) + DATA_FIELD_NUMBER;
       hash = (53 * hash) + getData().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1887,30 +1803,22 @@ public final class ByteStreamProto {
 
       // Construct using com.google.bytestream.ByteStreamProto.WriteRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         resourceName_ = "";
-
         writeOffset_ = 0L;
-
         finishWrite_ = false;
-
         data_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -1937,12 +1845,25 @@ public final class ByteStreamProto {
       @java.lang.Override
       public com.google.bytestream.ByteStreamProto.WriteRequest buildPartial() {
         com.google.bytestream.ByteStreamProto.WriteRequest result = new com.google.bytestream.ByteStreamProto.WriteRequest(this);
-        result.resourceName_ = resourceName_;
-        result.writeOffset_ = writeOffset_;
-        result.finishWrite_ = finishWrite_;
-        result.data_ = data_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bytestream.ByteStreamProto.WriteRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.resourceName_ = resourceName_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.writeOffset_ = writeOffset_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.finishWrite_ = finishWrite_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.data_ = data_;
+        }
       }
 
       @java.lang.Override
@@ -1991,6 +1912,7 @@ public final class ByteStreamProto {
         if (other == com.google.bytestream.ByteStreamProto.WriteRequest.getDefaultInstance()) return this;
         if (!other.getResourceName().isEmpty()) {
           resourceName_ = other.resourceName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getWriteOffset() != 0L) {
@@ -2002,7 +1924,7 @@ public final class ByteStreamProto {
         if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
           setData(other.getData());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2017,19 +1939,53 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bytestream.ByteStreamProto.WriteRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                resourceName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                writeOffset_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                finishWrite_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 82: {
+                data_ = input.readBytes();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bytestream.ByteStreamProto.WriteRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object resourceName_ = "";
       /**
@@ -2090,11 +2046,9 @@ public final class ByteStreamProto {
        */
       public Builder setResourceName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         resourceName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2109,8 +2063,8 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearResourceName() {
-        
         resourceName_ = getDefaultInstance().getResourceName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2127,12 +2081,10 @@ public final class ByteStreamProto {
        */
       public Builder setResourceNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         resourceName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2178,6 +2130,7 @@ public final class ByteStreamProto {
       public Builder setWriteOffset(long value) {
         
         writeOffset_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2198,7 +2151,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearWriteOffset() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         writeOffset_ = 0L;
         onChanged();
         return this;
@@ -2233,6 +2186,7 @@ public final class ByteStreamProto {
       public Builder setFinishWrite(boolean value) {
         
         finishWrite_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2247,7 +2201,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearFinishWrite() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         finishWrite_ = false;
         onChanged();
         return this;
@@ -2282,11 +2236,9 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder setData(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         data_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2302,7 +2254,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearData() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -2340,7 +2292,18 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WriteRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2405,50 +2368,6 @@ public final class ByteStreamProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private WriteResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              committedSize_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bytestream.ByteStreamProto.internal_static_google_bytestream_WriteResponse_descriptor;
@@ -2463,7 +2382,7 @@ public final class ByteStreamProto {
     }
 
     public static final int COMMITTED_SIZE_FIELD_NUMBER = 1;
-    private long committedSize_;
+    private long committedSize_ = 0L;
     /**
      * <pre>
      * The number of bytes that have been processed for the given resource.
@@ -2494,7 +2413,7 @@ public final class ByteStreamProto {
       if (committedSize_ != 0L) {
         output.writeInt64(1, committedSize_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2507,7 +2426,7 @@ public final class ByteStreamProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, committedSize_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2524,7 +2443,7 @@ public final class ByteStreamProto {
 
       if (getCommittedSize()
           != other.getCommittedSize()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2538,7 +2457,7 @@ public final class ByteStreamProto {
       hash = (37 * hash) + COMMITTED_SIZE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCommittedSize());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2659,24 +2578,19 @@ public final class ByteStreamProto {
 
       // Construct using com.google.bytestream.ByteStreamProto.WriteResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         committedSize_ = 0L;
-
         return this;
       }
 
@@ -2703,9 +2617,16 @@ public final class ByteStreamProto {
       @java.lang.Override
       public com.google.bytestream.ByteStreamProto.WriteResponse buildPartial() {
         com.google.bytestream.ByteStreamProto.WriteResponse result = new com.google.bytestream.ByteStreamProto.WriteResponse(this);
-        result.committedSize_ = committedSize_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bytestream.ByteStreamProto.WriteResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.committedSize_ = committedSize_;
+        }
       }
 
       @java.lang.Override
@@ -2755,7 +2676,7 @@ public final class ByteStreamProto {
         if (other.getCommittedSize() != 0L) {
           setCommittedSize(other.getCommittedSize());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2770,19 +2691,38 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bytestream.ByteStreamProto.WriteResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                committedSize_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bytestream.ByteStreamProto.WriteResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long committedSize_ ;
       /**
@@ -2809,6 +2749,7 @@ public final class ByteStreamProto {
       public Builder setCommittedSize(long value) {
         
         committedSize_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2821,7 +2762,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearCommittedSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         committedSize_ = 0L;
         onChanged();
         return this;
@@ -2859,7 +2800,18 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WriteResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2935,51 +2887,6 @@ public final class ByteStreamProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryWriteStatusRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              resourceName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bytestream.ByteStreamProto.internal_static_google_bytestream_QueryWriteStatusRequest_descriptor;
@@ -2994,7 +2901,8 @@ public final class ByteStreamProto {
     }
 
     public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object resourceName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object resourceName_ = "";
     /**
      * <pre>
      * The name of the resource whose write status is being requested.
@@ -3056,7 +2964,7 @@ public final class ByteStreamProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, resourceName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3068,7 +2976,7 @@ public final class ByteStreamProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(resourceName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, resourceName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3085,7 +2993,7 @@ public final class ByteStreamProto {
 
       if (!getResourceName()
           .equals(other.getResourceName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3098,7 +3006,7 @@ public final class ByteStreamProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + RESOURCE_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getResourceName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3219,24 +3127,19 @@ public final class ByteStreamProto {
 
       // Construct using com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         resourceName_ = "";
-
         return this;
       }
 
@@ -3263,9 +3166,16 @@ public final class ByteStreamProto {
       @java.lang.Override
       public com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest buildPartial() {
         com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest result = new com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest(this);
-        result.resourceName_ = resourceName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.resourceName_ = resourceName_;
+        }
       }
 
       @java.lang.Override
@@ -3314,9 +3224,10 @@ public final class ByteStreamProto {
         if (other == com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest.getDefaultInstance()) return this;
         if (!other.getResourceName().isEmpty()) {
           resourceName_ = other.resourceName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3331,19 +3242,38 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                resourceName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bytestream.ByteStreamProto.QueryWriteStatusRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object resourceName_ = "";
       /**
@@ -3398,11 +3328,9 @@ public final class ByteStreamProto {
        */
       public Builder setResourceName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         resourceName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3415,8 +3343,8 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearResourceName() {
-        
         resourceName_ = getDefaultInstance().getResourceName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3431,12 +3359,10 @@ public final class ByteStreamProto {
        */
       public Builder setResourceNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         resourceName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3473,7 +3399,18 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryWriteStatusRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3549,55 +3486,6 @@ public final class ByteStreamProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private QueryWriteStatusResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              committedSize_ = input.readInt64();
-              break;
-            }
-            case 16: {
-
-              complete_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.bytestream.ByteStreamProto.internal_static_google_bytestream_QueryWriteStatusResponse_descriptor;
@@ -3612,7 +3500,7 @@ public final class ByteStreamProto {
     }
 
     public static final int COMMITTED_SIZE_FIELD_NUMBER = 1;
-    private long committedSize_;
+    private long committedSize_ = 0L;
     /**
      * <pre>
      * The number of bytes that have been processed for the given resource.
@@ -3627,7 +3515,7 @@ public final class ByteStreamProto {
     }
 
     public static final int COMPLETE_FIELD_NUMBER = 2;
-    private boolean complete_;
+    private boolean complete_ = false;
     /**
      * <pre>
      * `complete` is `true` only if the client has sent a `WriteRequest` with
@@ -3662,7 +3550,7 @@ public final class ByteStreamProto {
       if (complete_ != false) {
         output.writeBool(2, complete_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3679,7 +3567,7 @@ public final class ByteStreamProto {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, complete_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3698,7 +3586,7 @@ public final class ByteStreamProto {
           != other.getCommittedSize()) return false;
       if (getComplete()
           != other.getComplete()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3715,7 +3603,7 @@ public final class ByteStreamProto {
       hash = (37 * hash) + COMPLETE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getComplete());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3836,26 +3724,20 @@ public final class ByteStreamProto {
 
       // Construct using com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         committedSize_ = 0L;
-
         complete_ = false;
-
         return this;
       }
 
@@ -3882,10 +3764,19 @@ public final class ByteStreamProto {
       @java.lang.Override
       public com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse buildPartial() {
         com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse result = new com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse(this);
-        result.committedSize_ = committedSize_;
-        result.complete_ = complete_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.committedSize_ = committedSize_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.complete_ = complete_;
+        }
       }
 
       @java.lang.Override
@@ -3938,7 +3829,7 @@ public final class ByteStreamProto {
         if (other.getComplete() != false) {
           setComplete(other.getComplete());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3953,19 +3844,43 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                committedSize_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                complete_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.bytestream.ByteStreamProto.QueryWriteStatusResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long committedSize_ ;
       /**
@@ -3992,6 +3907,7 @@ public final class ByteStreamProto {
       public Builder setCommittedSize(long value) {
         
         committedSize_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4004,7 +3920,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearCommittedSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         committedSize_ = 0L;
         onChanged();
         return this;
@@ -4037,6 +3953,7 @@ public final class ByteStreamProto {
       public Builder setComplete(boolean value) {
         
         complete_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4050,7 +3967,7 @@ public final class ByteStreamProto {
        * @return This builder for chaining.
        */
       public Builder clearComplete() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         complete_ = false;
         onChanged();
         return this;
@@ -4088,7 +4005,18 @@ public final class ByteStreamProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new QueryWriteStatusResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

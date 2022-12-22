@@ -45,108 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BotSession(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            botId_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.devtools.remoteworkers.v1test2.Worker.Builder subBuilder = null;
-            if (worker_ != null) {
-              subBuilder = worker_.toBuilder();
-            }
-            worker_ = input.readMessage(com.google.devtools.remoteworkers.v1test2.Worker.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(worker_);
-              worker_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              leases_ = new java.util.ArrayList<com.google.devtools.remoteworkers.v1test2.Lease>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            leases_.add(
-                input.readMessage(com.google.devtools.remoteworkers.v1test2.Lease.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (expireTime_ != null) {
-              subBuilder = expireTime_.toBuilder();
-            }
-            expireTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(expireTime_);
-              expireTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        leases_ = java.util.Collections.unmodifiableList(leases_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.remoteworkers.v1test2.RemoteWorkersBots.internal_static_google_devtools_remoteworkers_v1test2_BotSession_descriptor;
@@ -161,7 +59,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The bot session name, as selected by the server. Output only during a call
@@ -209,7 +108,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOT_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object botId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object botId_ = "";
   /**
    * <pre>
    * A unique bot ID within the farm used to persistently identify this bot over
@@ -279,7 +179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 3;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * The status of the bot. This must be populated in every call to
@@ -302,8 +202,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.devtools.remoteworkers.v1test2.BotStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.remoteworkers.v1test2.BotStatus result = com.google.devtools.remoteworkers.v1test2.BotStatus.valueOf(status_);
+    com.google.devtools.remoteworkers.v1test2.BotStatus result = com.google.devtools.remoteworkers.v1test2.BotStatus.forNumber(status_);
     return result == null ? com.google.devtools.remoteworkers.v1test2.BotStatus.UNRECOGNIZED : result;
   }
 
@@ -360,10 +259,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.remoteworkers.v1test2.WorkerOrBuilder getWorkerOrBuilder() {
-    return getWorker();
+    return worker_ == null ? com.google.devtools.remoteworkers.v1test2.Worker.getDefaultInstance() : worker_;
   }
 
   public static final int LEASES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.remoteworkers.v1test2.Lease> leases_;
   /**
    * <pre>
@@ -466,11 +366,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExpireTimeOrBuilder() {
-    return getExpireTime();
+    return expireTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireTime_;
   }
 
   public static final int VERSION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * The version of the bot code currently running. The server may use this
@@ -552,7 +453,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, version_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -586,7 +487,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(version_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, version_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -620,7 +521,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getVersion()
         .equals(other.getVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -651,7 +552,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -778,49 +679,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.remoteworkers.v1test2.BotSession.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLeasesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       botId_ = "";
-
       status_ = 0;
-
-      if (workerBuilder_ == null) {
-        worker_ = null;
-      } else {
-        worker_ = null;
+      worker_ = null;
+      if (workerBuilder_ != null) {
+        workerBuilder_.dispose();
         workerBuilder_ = null;
       }
       if (leasesBuilder_ == null) {
         leases_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        leases_ = null;
         leasesBuilder_.clear();
       }
-      if (expireTimeBuilder_ == null) {
-        expireTime_ = null;
-      } else {
-        expireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      expireTime_ = null;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.dispose();
         expireTimeBuilder_ = null;
       }
       version_ = "";
-
       return this;
     }
 
@@ -847,32 +738,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.remoteworkers.v1test2.BotSession buildPartial() {
       com.google.devtools.remoteworkers.v1test2.BotSession result = new com.google.devtools.remoteworkers.v1test2.BotSession(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.botId_ = botId_;
-      result.status_ = status_;
-      if (workerBuilder_ == null) {
-        result.worker_ = worker_;
-      } else {
-        result.worker_ = workerBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.remoteworkers.v1test2.BotSession result) {
       if (leasesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           leases_ = java.util.Collections.unmodifiableList(leases_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.leases_ = leases_;
       } else {
         result.leases_ = leasesBuilder_.build();
       }
-      if (expireTimeBuilder_ == null) {
-        result.expireTime_ = expireTime_;
-      } else {
-        result.expireTime_ = expireTimeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.devtools.remoteworkers.v1test2.BotSession result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      result.version_ = version_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.botId_ = botId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.worker_ = workerBuilder_ == null
+            ? worker_
+            : workerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.expireTime_ = expireTimeBuilder_ == null
+            ? expireTime_
+            : expireTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.version_ = version_;
+      }
     }
 
     @java.lang.Override
@@ -921,10 +828,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.remoteworkers.v1test2.BotSession.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getBotId().isEmpty()) {
         botId_ = other.botId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.status_ != 0) {
@@ -937,7 +846,7 @@ private static final long serialVersionUID = 0L;
         if (!other.leases_.isEmpty()) {
           if (leases_.isEmpty()) {
             leases_ = other.leases_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureLeasesIsMutable();
             leases_.addAll(other.leases_);
@@ -950,7 +859,7 @@ private static final long serialVersionUID = 0L;
             leasesBuilder_.dispose();
             leasesBuilder_ = null;
             leases_ = other.leases_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             leasesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLeasesFieldBuilder() : null;
@@ -964,9 +873,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -981,17 +891,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.remoteworkers.v1test2.BotSession parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              botId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getWorkerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.devtools.remoteworkers.v1test2.Lease m =
+                  input.readMessage(
+                      com.google.devtools.remoteworkers.v1test2.Lease.parser(),
+                      extensionRegistry);
+              if (leasesBuilder_ == null) {
+                ensureLeasesIsMutable();
+                leases_.add(m);
+              } else {
+                leasesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.remoteworkers.v1test2.BotSession) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1052,11 +1022,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1070,8 +1038,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1087,12 +1055,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1186,11 +1152,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBotId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       botId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1215,8 +1179,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBotId() {
-      
       botId_ = getDefaultInstance().getBotId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1243,12 +1207,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBotIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       botId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1277,8 +1239,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1293,8 +1255,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.remoteworkers.v1test2.BotStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.remoteworkers.v1test2.BotStatus result = com.google.devtools.remoteworkers.v1test2.BotStatus.valueOf(status_);
+      com.google.devtools.remoteworkers.v1test2.BotStatus result = com.google.devtools.remoteworkers.v1test2.BotStatus.forNumber(status_);
       return result == null ? com.google.devtools.remoteworkers.v1test2.BotStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1311,7 +1272,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1326,7 +1287,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       status_ = 0;
       onChanged();
       return this;
@@ -1350,7 +1311,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the worker field is set.
      */
     public boolean hasWorker() {
-      return workerBuilder_ != null || worker_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1392,11 +1353,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         worker_ = value;
-        onChanged();
       } else {
         workerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1416,11 +1377,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.remoteworkers.v1test2.Worker.Builder builderForValue) {
       if (workerBuilder_ == null) {
         worker_ = builderForValue.build();
-        onChanged();
       } else {
         workerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1438,17 +1399,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorker(com.google.devtools.remoteworkers.v1test2.Worker value) {
       if (workerBuilder_ == null) {
-        if (worker_ != null) {
-          worker_ =
-            com.google.devtools.remoteworkers.v1test2.Worker.newBuilder(worker_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          worker_ != null &&
+          worker_ != com.google.devtools.remoteworkers.v1test2.Worker.getDefaultInstance()) {
+          getWorkerBuilder().mergeFrom(value);
         } else {
           worker_ = value;
         }
-        onChanged();
       } else {
         workerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1465,14 +1427,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.remoteworkers.v1test2.Worker worker = 4;</code>
      */
     public Builder clearWorker() {
-      if (workerBuilder_ == null) {
-        worker_ = null;
-        onChanged();
-      } else {
-        worker_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      worker_ = null;
+      if (workerBuilder_ != null) {
+        workerBuilder_.dispose();
         workerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1489,7 +1450,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.remoteworkers.v1test2.Worker worker = 4;</code>
      */
     public com.google.devtools.remoteworkers.v1test2.Worker.Builder getWorkerBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getWorkerFieldBuilder().getBuilder();
     }
@@ -1544,9 +1505,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.remoteworkers.v1test2.Lease> leases_ =
       java.util.Collections.emptyList();
     private void ensureLeasesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         leases_ = new java.util.ArrayList<com.google.devtools.remoteworkers.v1test2.Lease>(leases_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1751,7 +1712,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLeases() {
       if (leasesBuilder_ == null) {
         leases_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         leasesBuilder_.clear();
@@ -1863,7 +1824,7 @@ private static final long serialVersionUID = 0L;
         leasesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.remoteworkers.v1test2.Lease, com.google.devtools.remoteworkers.v1test2.Lease.Builder, com.google.devtools.remoteworkers.v1test2.LeaseOrBuilder>(
                 leases_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         leases_ = null;
@@ -1884,7 +1845,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the expireTime field is set.
      */
     public boolean hasExpireTime() {
-      return expireTimeBuilder_ != null || expireTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1916,11 +1877,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         expireTime_ = value;
-        onChanged();
       } else {
         expireTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1935,11 +1896,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (expireTimeBuilder_ == null) {
         expireTime_ = builderForValue.build();
-        onChanged();
       } else {
         expireTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1952,17 +1913,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExpireTime(com.google.protobuf.Timestamp value) {
       if (expireTimeBuilder_ == null) {
-        if (expireTime_ != null) {
-          expireTime_ =
-            com.google.protobuf.Timestamp.newBuilder(expireTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          expireTime_ != null &&
+          expireTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getExpireTimeBuilder().mergeFrom(value);
         } else {
           expireTime_ = value;
         }
-        onChanged();
       } else {
         expireTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1974,14 +1936,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp expire_time = 6;</code>
      */
     public Builder clearExpireTime() {
-      if (expireTimeBuilder_ == null) {
-        expireTime_ = null;
-        onChanged();
-      } else {
-        expireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      expireTime_ = null;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.dispose();
         expireTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1993,7 +1954,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp expire_time = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpireTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getExpireTimeFieldBuilder().getBuilder();
     }
@@ -2091,11 +2052,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2109,8 +2068,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2126,12 +2085,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2168,7 +2125,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BotSession(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

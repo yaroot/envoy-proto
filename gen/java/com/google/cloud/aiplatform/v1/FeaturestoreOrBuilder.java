@@ -176,7 +176,6 @@ public interface FeaturestoreOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -197,14 +196,15 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * Optional. Config for online storage resources. If unset, the featurestore will
-   * not have an online store and cannot be used for online serving.
+   * Optional. Config for online storage resources. The field should not co-exist with the
+   * field of `OnlineStoreReplicationConfig`. If both of it and
+   * OnlineStoreReplicationConfig are unset, the feature store will not have an
+   * online store and cannot be used for online serving.
    * </pre>
    *
    * <code>.google.cloud.aiplatform.v1.Featurestore.OnlineServingConfig online_serving_config = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -213,8 +213,10 @@ java.lang.String defaultValue);
   boolean hasOnlineServingConfig();
   /**
    * <pre>
-   * Optional. Config for online storage resources. If unset, the featurestore will
-   * not have an online store and cannot be used for online serving.
+   * Optional. Config for online storage resources. The field should not co-exist with the
+   * field of `OnlineStoreReplicationConfig`. If both of it and
+   * OnlineStoreReplicationConfig are unset, the feature store will not have an
+   * online store and cannot be used for online serving.
    * </pre>
    *
    * <code>.google.cloud.aiplatform.v1.Featurestore.OnlineServingConfig online_serving_config = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -223,8 +225,10 @@ java.lang.String defaultValue);
   com.google.cloud.aiplatform.v1.Featurestore.OnlineServingConfig getOnlineServingConfig();
   /**
    * <pre>
-   * Optional. Config for online storage resources. If unset, the featurestore will
-   * not have an online store and cannot be used for online serving.
+   * Optional. Config for online storage resources. The field should not co-exist with the
+   * field of `OnlineStoreReplicationConfig`. If both of it and
+   * OnlineStoreReplicationConfig are unset, the feature store will not have an
+   * online store and cannot be used for online serving.
    * </pre>
    *
    * <code>.google.cloud.aiplatform.v1.Featurestore.OnlineServingConfig online_serving_config = 7 [(.google.api.field_behavior) = OPTIONAL];</code>

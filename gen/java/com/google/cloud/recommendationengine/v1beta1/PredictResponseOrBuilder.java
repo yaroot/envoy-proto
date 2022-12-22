@@ -170,7 +170,6 @@ public interface PredictResponseOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getMetadataOrDefault(
       java.lang.String key,
@@ -183,7 +182,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
    */
-
   com.google.protobuf.Value getMetadataOrThrow(
       java.lang.String key);
 

@@ -41,95 +41,181 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AppendRowsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            writeStream_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (offset_ != null) {
-              subBuilder = offset_.toBuilder();
-            }
-            offset_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(offset_);
-              offset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData.Builder subBuilder = null;
-            if (rowsCase_ == 4) {
-              subBuilder = ((com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData) rows_).toBuilder();
-            }
-            rows_ =
-                input.readMessage(com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData) rows_);
-              rows_ = subBuilder.buildPartial();
-            }
-            rowsCase_ = 4;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            traceId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_descriptor;
   }
 
+  @SuppressWarnings({"rawtypes"})
+  @java.lang.Override
+  protected com.google.protobuf.MapField internalGetMapField(
+      int number) {
+    switch (number) {
+      case 7:
+        return internalGetMissingValueInterpretations();
+      default:
+        throw new RuntimeException(
+            "Invalid map field number: " + number);
+    }
+  }
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
     return com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.cloud.bigquery.storage.v1.AppendRowsRequest.class, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.Builder.class);
+  }
+
+  /**
+   * <pre>
+   * An enum to indicate how to interpret missing values. Missing values are
+   * fields present in user schema but missing in rows. A missing value can
+   * represent a NULL or a column default value defined in BigQuery table
+   * schema.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation}
+   */
+  public enum MissingValueInterpretation
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Invalid missing value interpretation. Requests with this value will be
+     * rejected.
+     * </pre>
+     *
+     * <code>MISSING_VALUE_INTERPRETATION_UNSPECIFIED = 0;</code>
+     */
+    MISSING_VALUE_INTERPRETATION_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Missing value is interpreted as NULL.
+     * </pre>
+     *
+     * <code>NULL_VALUE = 1;</code>
+     */
+    NULL_VALUE(1),
+    /**
+     * <pre>
+     * Missing value is interpreted as column default value if declared in the
+     * table schema, NULL otherwise.
+     * </pre>
+     *
+     * <code>DEFAULT_VALUE = 2;</code>
+     */
+    DEFAULT_VALUE(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Invalid missing value interpretation. Requests with this value will be
+     * rejected.
+     * </pre>
+     *
+     * <code>MISSING_VALUE_INTERPRETATION_UNSPECIFIED = 0;</code>
+     */
+    public static final int MISSING_VALUE_INTERPRETATION_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Missing value is interpreted as NULL.
+     * </pre>
+     *
+     * <code>NULL_VALUE = 1;</code>
+     */
+    public static final int NULL_VALUE_VALUE = 1;
+    /**
+     * <pre>
+     * Missing value is interpreted as column default value if declared in the
+     * table schema, NULL otherwise.
+     * </pre>
+     *
+     * <code>DEFAULT_VALUE = 2;</code>
+     */
+    public static final int DEFAULT_VALUE_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static MissingValueInterpretation valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static MissingValueInterpretation forNumber(int value) {
+      switch (value) {
+        case 0: return MISSING_VALUE_INTERPRETATION_UNSPECIFIED;
+        case 1: return NULL_VALUE;
+        case 2: return DEFAULT_VALUE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<MissingValueInterpretation>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        MissingValueInterpretation> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<MissingValueInterpretation>() {
+            public MissingValueInterpretation findValueByNumber(int number) {
+              return MissingValueInterpretation.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.bigquery.storage.v1.AppendRowsRequest.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final MissingValueInterpretation[] VALUES = values();
+
+    public static MissingValueInterpretation valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private MissingValueInterpretation(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation)
   }
 
   public interface ProtoDataOrBuilder extends
@@ -237,71 +323,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ProtoData(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.bigquery.storage.v1.ProtoSchema.Builder subBuilder = null;
-              if (writerSchema_ != null) {
-                subBuilder = writerSchema_.toBuilder();
-              }
-              writerSchema_ = input.readMessage(com.google.cloud.bigquery.storage.v1.ProtoSchema.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(writerSchema_);
-                writerSchema_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.cloud.bigquery.storage.v1.ProtoRows.Builder subBuilder = null;
-              if (rows_ != null) {
-                subBuilder = rows_.toBuilder();
-              }
-              rows_ = input.readMessage(com.google.cloud.bigquery.storage.v1.ProtoRows.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(rows_);
-                rows_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_ProtoData_descriptor;
@@ -356,7 +377,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.ProtoSchemaOrBuilder getWriterSchemaOrBuilder() {
-      return getWriterSchema();
+      return writerSchema_ == null ? com.google.cloud.bigquery.storage.v1.ProtoSchema.getDefaultInstance() : writerSchema_;
     }
 
     public static final int ROWS_FIELD_NUMBER = 2;
@@ -403,7 +424,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.ProtoRowsOrBuilder getRowsOrBuilder() {
-      return getRows();
+      return rows_ == null ? com.google.cloud.bigquery.storage.v1.ProtoRows.getDefaultInstance() : rows_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -432,7 +453,7 @@ private static final long serialVersionUID = 0L;
       if (rows_ != null) {
         output.writeMessage(2, getRows());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -449,7 +470,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getRows());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -474,7 +495,7 @@ private static final long serialVersionUID = 0L;
         if (!getRows()
             .equals(other.getRows())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -493,7 +514,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ROWS_FIELD_NUMBER;
         hash = (53 * hash) + getRows().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -615,32 +636,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (writerSchemaBuilder_ == null) {
-          writerSchema_ = null;
-        } else {
-          writerSchema_ = null;
+        bitField0_ = 0;
+        writerSchema_ = null;
+        if (writerSchemaBuilder_ != null) {
+          writerSchemaBuilder_.dispose();
           writerSchemaBuilder_ = null;
         }
-        if (rowsBuilder_ == null) {
-          rows_ = null;
-        } else {
-          rows_ = null;
+        rows_ = null;
+        if (rowsBuilder_ != null) {
+          rowsBuilder_.dispose();
           rowsBuilder_ = null;
         }
         return this;
@@ -669,18 +684,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData buildPartial() {
         com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData result = new com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData(this);
-        if (writerSchemaBuilder_ == null) {
-          result.writerSchema_ = writerSchema_;
-        } else {
-          result.writerSchema_ = writerSchemaBuilder_.build();
-        }
-        if (rowsBuilder_ == null) {
-          result.rows_ = rows_;
-        } else {
-          result.rows_ = rowsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.writerSchema_ = writerSchemaBuilder_ == null
+              ? writerSchema_
+              : writerSchemaBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.rows_ = rowsBuilder_ == null
+              ? rows_
+              : rowsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -733,7 +753,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasRows()) {
           mergeRows(other.getRows());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -753,19 +773,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getWriterSchemaFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getRowsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.storage.v1.AppendRowsRequest.ProtoData) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.bigquery.storage.v1.ProtoSchema writerSchema_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -781,7 +829,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the writerSchema field is set.
        */
       public boolean hasWriterSchema() {
-        return writerSchemaBuilder_ != null || writerSchema_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -815,11 +863,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           writerSchema_ = value;
-          onChanged();
         } else {
           writerSchemaBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -835,11 +883,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.bigquery.storage.v1.ProtoSchema.Builder builderForValue) {
         if (writerSchemaBuilder_ == null) {
           writerSchema_ = builderForValue.build();
-          onChanged();
         } else {
           writerSchemaBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -853,17 +901,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeWriterSchema(com.google.cloud.bigquery.storage.v1.ProtoSchema value) {
         if (writerSchemaBuilder_ == null) {
-          if (writerSchema_ != null) {
-            writerSchema_ =
-              com.google.cloud.bigquery.storage.v1.ProtoSchema.newBuilder(writerSchema_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            writerSchema_ != null &&
+            writerSchema_ != com.google.cloud.bigquery.storage.v1.ProtoSchema.getDefaultInstance()) {
+            getWriterSchemaBuilder().mergeFrom(value);
           } else {
             writerSchema_ = value;
           }
-          onChanged();
         } else {
           writerSchemaBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -876,14 +925,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.bigquery.storage.v1.ProtoSchema writer_schema = 1;</code>
        */
       public Builder clearWriterSchema() {
-        if (writerSchemaBuilder_ == null) {
-          writerSchema_ = null;
-          onChanged();
-        } else {
-          writerSchema_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        writerSchema_ = null;
+        if (writerSchemaBuilder_ != null) {
+          writerSchemaBuilder_.dispose();
           writerSchemaBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -896,7 +944,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.bigquery.storage.v1.ProtoSchema writer_schema = 1;</code>
        */
       public com.google.cloud.bigquery.storage.v1.ProtoSchema.Builder getWriterSchemaBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getWriterSchemaFieldBuilder().getBuilder();
       }
@@ -955,7 +1003,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the rows field is set.
        */
       public boolean hasRows() {
-        return rowsBuilder_ != null || rows_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -991,11 +1039,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           rows_ = value;
-          onChanged();
         } else {
           rowsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1012,11 +1060,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.bigquery.storage.v1.ProtoRows.Builder builderForValue) {
         if (rowsBuilder_ == null) {
           rows_ = builderForValue.build();
-          onChanged();
         } else {
           rowsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1031,17 +1079,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeRows(com.google.cloud.bigquery.storage.v1.ProtoRows value) {
         if (rowsBuilder_ == null) {
-          if (rows_ != null) {
-            rows_ =
-              com.google.cloud.bigquery.storage.v1.ProtoRows.newBuilder(rows_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            rows_ != null &&
+            rows_ != com.google.cloud.bigquery.storage.v1.ProtoRows.getDefaultInstance()) {
+            getRowsBuilder().mergeFrom(value);
           } else {
             rows_ = value;
           }
-          onChanged();
         } else {
           rowsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1055,14 +1104,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.bigquery.storage.v1.ProtoRows rows = 2;</code>
        */
       public Builder clearRows() {
-        if (rowsBuilder_ == null) {
-          rows_ = null;
-          onChanged();
-        } else {
-          rows_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        rows_ = null;
+        if (rowsBuilder_ != null) {
+          rowsBuilder_.dispose();
           rowsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1076,7 +1124,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.bigquery.storage.v1.ProtoRows rows = 2;</code>
        */
       public com.google.cloud.bigquery.storage.v1.ProtoRows.Builder getRowsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getRowsFieldBuilder().getBuilder();
       }
@@ -1154,7 +1202,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProtoData(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1214,13 +1273,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WRITE_STREAM_FIELD_NUMBER = 1;
-  private volatile java.lang.Object writeStream_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object writeStream_ = "";
   /**
    * <pre>
-   * Required. The write_stream identifies the target of the append operation, and only
-   * needs to be specified as part of the first request on the gRPC connection.
-   * If provided for subsequent requests, it must match the value of the first
-   * request.
+   * Required. The write_stream identifies the target of the append operation,
+   * and only needs to be specified as part of the first request on the gRPC
+   * connection. If provided for subsequent requests, it must match the value of
+   * the first request.
    * For explicitly created write streams, the format is:
    * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
    * For the special default stream, the format is:
@@ -1245,10 +1305,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The write_stream identifies the target of the append operation, and only
-   * needs to be specified as part of the first request on the gRPC connection.
-   * If provided for subsequent requests, it must match the value of the first
-   * request.
+   * Required. The write_stream identifies the target of the append operation,
+   * and only needs to be specified as part of the first request on the gRPC
+   * connection. If provided for subsequent requests, it must match the value of
+   * the first request.
    * For explicitly created write streams, the format is:
    * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
    * For the special default stream, the format is:
@@ -1317,7 +1377,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getOffsetOrBuilder() {
-    return getOffset();
+    return offset_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : offset_;
   }
 
   public static final int PROTO_ROWS_FIELD_NUMBER = 4;
@@ -1364,7 +1424,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRACE_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object traceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object traceId_ = "";
   /**
    * <pre>
    * Id set by client to annotate its identity. Only initial request setting is
@@ -1411,6 +1472,264 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int MISSING_VALUE_INTERPRETATIONS_FIELD_NUMBER = 7;
+  private static final class MissingValueInterpretationsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.Integer> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.Integer>newDefaultInstance(
+                com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_MissingValueInterpretationsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.ENUM,
+                com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation.MISSING_VALUE_INTERPRETATION_UNSPECIFIED.getNumber());
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.Integer> missingValueInterpretations_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+  internalGetMissingValueInterpretations() {
+    if (missingValueInterpretations_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          MissingValueInterpretationsDefaultEntryHolder.defaultEntry);
+    }
+    return missingValueInterpretations_;
+  }
+  private static final
+  com.google.protobuf.Internal.MapAdapter.Converter<
+      java.lang.Integer, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation> missingValueInterpretationsValueConverter =
+          com.google.protobuf.Internal.MapAdapter.newEnumConverter(
+              com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation.internalGetValueMap(),
+              com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation.UNRECOGNIZED);
+  private static final java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation>
+  internalGetAdaptedMissingValueInterpretationsMap(
+      java.util.Map<java.lang.String, java.lang.Integer> map) {
+    return new com.google.protobuf.Internal.MapAdapter<
+        java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation, java.lang.Integer>(
+            map, missingValueInterpretationsValueConverter);
+  }
+  public int getMissingValueInterpretationsCount() {
+    return internalGetMissingValueInterpretations().getMap().size();
+  }
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public boolean containsMissingValueInterpretations(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetMissingValueInterpretations().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getMissingValueInterpretationsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation>
+  getMissingValueInterpretations() {
+    return getMissingValueInterpretationsMap();
+  }
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation>
+  getMissingValueInterpretationsMap() {
+    return internalGetAdaptedMissingValueInterpretationsMap(
+        internalGetMissingValueInterpretations().getMap());}
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation getMissingValueInterpretationsOrDefault(
+      java.lang.String key,
+      /* nullable */
+com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Integer> map =
+        internalGetMissingValueInterpretations().getMap();
+    return map.containsKey(key)
+           ? missingValueInterpretationsValueConverter.doForward(map.get(key))
+           : defaultValue;
+  }
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation getMissingValueInterpretationsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Integer> map =
+        internalGetMissingValueInterpretations().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return missingValueInterpretationsValueConverter.doForward(map.get(key));
+  }
+  /**
+   * Use {@link #getMissingValueInterpretationsValueMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.Integer>
+  getMissingValueInterpretationsValue() {
+    return getMissingValueInterpretationsValueMap();
+  }
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.Integer>
+  getMissingValueInterpretationsValueMap() {
+    return internalGetMissingValueInterpretations().getMap();
+  }
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public int getMissingValueInterpretationsValueOrDefault(
+      java.lang.String key,
+      int defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Integer> map =
+        internalGetMissingValueInterpretations().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * A map to indicate how to interpret missing value for some fields. Missing
+   * values are fields present in user schema but missing in rows. The key is
+   * the field name. The value is the interpretation of missing values for the
+   * field.
+   * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+   * missing values in field foo are interpreted as NULL, all missing values in
+   * field bar are interpreted as the default value of field bar in table
+   * schema.
+   * If a field is not in this map and has missing values, the missing values
+   * in this field are interpreted as NULL.
+   * This field only applies to the current request, it won't affect other
+   * requests on the connection.
+   * Currently, field name can only be top-level column name, can't be a struct
+   * field path like 'foo.bar'.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+   */
+  @java.lang.Override
+  public int getMissingValueInterpretationsValueOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.Integer> map =
+        internalGetMissingValueInterpretations().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1443,7 +1762,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(traceId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, traceId_);
     }
-    unknownFields.writeTo(output);
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetMissingValueInterpretations(),
+        MissingValueInterpretationsDefaultEntryHolder.defaultEntry,
+        7);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1466,7 +1791,17 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(traceId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, traceId_);
     }
-    size += unknownFields.getSerializedSize();
+    for (java.util.Map.Entry<java.lang.String, java.lang.Integer> entry
+         : internalGetMissingValueInterpretations().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+      missingValueInterpretations__ = MissingValueInterpretationsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, missingValueInterpretations__);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1490,6 +1825,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTraceId()
         .equals(other.getTraceId())) return false;
+    if (!internalGetMissingValueInterpretations().equals(
+        other.internalGetMissingValueInterpretations())) return false;
     if (!getRowsCase().equals(other.getRowsCase())) return false;
     switch (rowsCase_) {
       case 4:
@@ -1499,7 +1836,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1518,6 +1855,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + TRACE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getTraceId().hashCode();
+    if (!internalGetMissingValueInterpretations().getMap().isEmpty()) {
+      hash = (37 * hash) + MISSING_VALUE_INTERPRETATIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetMissingValueInterpretations().hashCode();
+    }
     switch (rowsCase_) {
       case 4:
         hash = (37 * hash) + PROTO_ROWS_FIELD_NUMBER;
@@ -1526,7 +1867,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1642,6 +1983,28 @@ private static final long serialVersionUID = 0L;
       return com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_AppendRowsRequest_descriptor;
     }
 
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMapField(
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetMissingValueInterpretations();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
+    @SuppressWarnings({"rawtypes"})
+    protected com.google.protobuf.MapField internalGetMutableMapField(
+        int number) {
+      switch (number) {
+        case 7:
+          return internalGetMutableMissingValueInterpretations();
+        default:
+          throw new RuntimeException(
+              "Invalid map field number: " + number);
+      }
+    }
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
@@ -1652,32 +2015,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.storage.v1.AppendRowsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       writeStream_ = "";
-
-      if (offsetBuilder_ == null) {
-        offset_ = null;
-      } else {
-        offset_ = null;
+      offset_ = null;
+      if (offsetBuilder_ != null) {
+        offsetBuilder_.dispose();
         offsetBuilder_ = null;
       }
+      if (protoRowsBuilder_ != null) {
+        protoRowsBuilder_.clear();
+      }
       traceId_ = "";
-
+      internalGetMutableMissingValueInterpretations().clear();
       rowsCase_ = 0;
       rows_ = null;
       return this;
@@ -1706,23 +2066,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.AppendRowsRequest buildPartial() {
       com.google.cloud.bigquery.storage.v1.AppendRowsRequest result = new com.google.cloud.bigquery.storage.v1.AppendRowsRequest(this);
-      result.writeStream_ = writeStream_;
-      if (offsetBuilder_ == null) {
-        result.offset_ = offset_;
-      } else {
-        result.offset_ = offsetBuilder_.build();
-      }
-      if (rowsCase_ == 4) {
-        if (protoRowsBuilder_ == null) {
-          result.rows_ = rows_;
-        } else {
-          result.rows_ = protoRowsBuilder_.build();
-        }
-      }
-      result.traceId_ = traceId_;
-      result.rowsCase_ = rowsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.storage.v1.AppendRowsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.writeStream_ = writeStream_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.offset_ = offsetBuilder_ == null
+            ? offset_
+            : offsetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.traceId_ = traceId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.missingValueInterpretations_ = internalGetMissingValueInterpretations();
+        result.missingValueInterpretations_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.bigquery.storage.v1.AppendRowsRequest result) {
+      result.rowsCase_ = rowsCase_;
+      result.rows_ = this.rows_;
+      if (rowsCase_ == 4 &&
+          protoRowsBuilder_ != null) {
+        result.rows_ = protoRowsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1771,6 +2146,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.storage.v1.AppendRowsRequest.getDefaultInstance()) return this;
       if (!other.getWriteStream().isEmpty()) {
         writeStream_ = other.writeStream_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasOffset()) {
@@ -1778,8 +2154,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTraceId().isEmpty()) {
         traceId_ = other.traceId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
+      internalGetMutableMissingValueInterpretations().mergeFrom(
+          other.internalGetMissingValueInterpretations());
+      bitField0_ |= 0x00000010;
       switch (other.getRowsCase()) {
         case PROTO_ROWS: {
           mergeProtoRows(other.getProtoRows());
@@ -1789,7 +2169,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1809,17 +2189,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.storage.v1.AppendRowsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              writeStream_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getProtoRowsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              rowsCase_ = 4;
+              break;
+            } // case 34
+            case 50: {
+              traceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              missingValueInterpretations__ = input.readMessage(
+                  MissingValueInterpretationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMissingValueInterpretations().getMutableMap().put(
+                  missingValueInterpretations__.getKey(), missingValueInterpretations__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.storage.v1.AppendRowsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int rowsCase_ = 0;
@@ -1837,14 +2263,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object writeStream_ = "";
     /**
      * <pre>
-     * Required. The write_stream identifies the target of the append operation, and only
-     * needs to be specified as part of the first request on the gRPC connection.
-     * If provided for subsequent requests, it must match the value of the first
-     * request.
+     * Required. The write_stream identifies the target of the append operation,
+     * and only needs to be specified as part of the first request on the gRPC
+     * connection. If provided for subsequent requests, it must match the value of
+     * the first request.
      * For explicitly created write streams, the format is:
      * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
      * For the special default stream, the format is:
@@ -1868,10 +2295,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The write_stream identifies the target of the append operation, and only
-     * needs to be specified as part of the first request on the gRPC connection.
-     * If provided for subsequent requests, it must match the value of the first
-     * request.
+     * Required. The write_stream identifies the target of the append operation,
+     * and only needs to be specified as part of the first request on the gRPC
+     * connection. If provided for subsequent requests, it must match the value of
+     * the first request.
      * For explicitly created write streams, the format is:
      * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
      * For the special default stream, the format is:
@@ -1896,10 +2323,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The write_stream identifies the target of the append operation, and only
-     * needs to be specified as part of the first request on the gRPC connection.
-     * If provided for subsequent requests, it must match the value of the first
-     * request.
+     * Required. The write_stream identifies the target of the append operation,
+     * and only needs to be specified as part of the first request on the gRPC
+     * connection. If provided for subsequent requests, it must match the value of
+     * the first request.
      * For explicitly created write streams, the format is:
      * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
      * For the special default stream, the format is:
@@ -1912,20 +2339,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWriteStream(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       writeStream_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The write_stream identifies the target of the append operation, and only
-     * needs to be specified as part of the first request on the gRPC connection.
-     * If provided for subsequent requests, it must match the value of the first
-     * request.
+     * Required. The write_stream identifies the target of the append operation,
+     * and only needs to be specified as part of the first request on the gRPC
+     * connection. If provided for subsequent requests, it must match the value of
+     * the first request.
      * For explicitly created write streams, the format is:
      * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
      * For the special default stream, the format is:
@@ -1936,17 +2361,17 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWriteStream() {
-      
       writeStream_ = getDefaultInstance().getWriteStream();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The write_stream identifies the target of the append operation, and only
-     * needs to be specified as part of the first request on the gRPC connection.
-     * If provided for subsequent requests, it must match the value of the first
-     * request.
+     * Required. The write_stream identifies the target of the append operation,
+     * and only needs to be specified as part of the first request on the gRPC
+     * connection. If provided for subsequent requests, it must match the value of
+     * the first request.
      * For explicitly created write streams, the format is:
      * * `projects/{project}/datasets/{dataset}/tables/{table}/streams/{id}`
      * For the special default stream, the format is:
@@ -1959,12 +2384,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWriteStreamBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       writeStream_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1984,7 +2407,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the offset field is set.
      */
     public boolean hasOffset() {
-      return offsetBuilder_ != null || offset_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2020,11 +2443,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         offset_ = value;
-        onChanged();
       } else {
         offsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2041,11 +2464,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (offsetBuilder_ == null) {
         offset_ = builderForValue.build();
-        onChanged();
       } else {
         offsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2060,17 +2483,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOffset(com.google.protobuf.Int64Value value) {
       if (offsetBuilder_ == null) {
-        if (offset_ != null) {
-          offset_ =
-            com.google.protobuf.Int64Value.newBuilder(offset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          offset_ != null &&
+          offset_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getOffsetBuilder().mergeFrom(value);
         } else {
           offset_ = value;
         }
-        onChanged();
       } else {
         offsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2084,14 +2508,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value offset = 2;</code>
      */
     public Builder clearOffset() {
-      if (offsetBuilder_ == null) {
-        offset_ = null;
-        onChanged();
-      } else {
-        offset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      offset_ = null;
+      if (offsetBuilder_ != null) {
+        offsetBuilder_.dispose();
         offsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2105,7 +2528,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value offset = 2;</code>
      */
     public com.google.protobuf.Int64Value.Builder getOffsetBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOffsetFieldBuilder().getBuilder();
     }
@@ -2325,7 +2748,7 @@ private static final long serialVersionUID = 0L;
         rows_ = null;
       }
       rowsCase_ = 4;
-      onChanged();;
+      onChanged();
       return protoRowsBuilder_;
     }
 
@@ -2385,11 +2808,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTraceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       traceId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2403,8 +2824,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTraceId() {
-      
       traceId_ = getDefaultInstance().getTraceId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2420,13 +2841,423 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTraceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       traceId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.Integer> missingValueInterpretations_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMissingValueInterpretations() {
+      if (missingValueInterpretations_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            MissingValueInterpretationsDefaultEntryHolder.defaultEntry);
+      }
+      return missingValueInterpretations_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableMissingValueInterpretations() {
+      if (missingValueInterpretations_ == null) {
+        missingValueInterpretations_ = com.google.protobuf.MapField.newMapField(
+            MissingValueInterpretationsDefaultEntryHolder.defaultEntry);
+      }
+      if (!missingValueInterpretations_.isMutable()) {
+        missingValueInterpretations_ = missingValueInterpretations_.copy();
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return missingValueInterpretations_;
+    }
+    public int getMissingValueInterpretationsCount() {
+      return internalGetMissingValueInterpretations().getMap().size();
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public boolean containsMissingValueInterpretations(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetMissingValueInterpretations().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getMissingValueInterpretationsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation>
+    getMissingValueInterpretations() {
+      return getMissingValueInterpretationsMap();
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation>
+    getMissingValueInterpretationsMap() {
+      return internalGetAdaptedMissingValueInterpretationsMap(
+          internalGetMissingValueInterpretations().getMap());}
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation getMissingValueInterpretationsOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Integer> map =
+          internalGetMissingValueInterpretations().getMap();
+      return map.containsKey(key)
+             ? missingValueInterpretationsValueConverter.doForward(map.get(key))
+             : defaultValue;
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation getMissingValueInterpretationsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Integer> map =
+          internalGetMissingValueInterpretations().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return missingValueInterpretationsValueConverter.doForward(map.get(key));
+    }
+    /**
+     * Use {@link #getMissingValueInterpretationsValueMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Integer>
+    getMissingValueInterpretationsValue() {
+      return getMissingValueInterpretationsValueMap();
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.Integer>
+    getMissingValueInterpretationsValueMap() {
+      return internalGetMissingValueInterpretations().getMap();
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public int getMissingValueInterpretationsValueOrDefault(
+        java.lang.String key,
+        int defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Integer> map =
+          internalGetMissingValueInterpretations().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    @java.lang.Override
+    public int getMissingValueInterpretationsValueOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.Integer> map =
+          internalGetMissingValueInterpretations().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearMissingValueInterpretations() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      internalGetMutableMissingValueInterpretations().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    public Builder removeMissingValueInterpretations(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableMissingValueInterpretations().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation>
+        getMutableMissingValueInterpretations() {
+      bitField0_ |= 0x00000010;
+      return internalGetAdaptedMissingValueInterpretationsMap(
+           internalGetMutableMissingValueInterpretations().getMutableMap());
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    public Builder putMissingValueInterpretations(
+        java.lang.String key,
+        com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      
+      internalGetMutableMissingValueInterpretations().getMutableMap()
+          .put(key, missingValueInterpretationsValueConverter.doBackward(value));
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    public Builder putAllMissingValueInterpretations(
+        java.util.Map<java.lang.String, com.google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation> values) {
+      internalGetAdaptedMissingValueInterpretationsMap(
+          internalGetMutableMissingValueInterpretations().getMutableMap())
+              .putAll(values);
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.Integer>
+    getMutableMissingValueInterpretationsValue() {
+      bitField0_ |= 0x00000010;
+      return internalGetMutableMissingValueInterpretations().getMutableMap();
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    public Builder putMissingValueInterpretationsValue(
+        java.lang.String key,
+        int value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      
+      internalGetMutableMissingValueInterpretations().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <pre>
+     * A map to indicate how to interpret missing value for some fields. Missing
+     * values are fields present in user schema but missing in rows. The key is
+     * the field name. The value is the interpretation of missing values for the
+     * field.
+     * For example, a map {'foo': NULL_VALUE, 'bar': DEFAULT_VALUE} means all
+     * missing values in field foo are interpreted as NULL, all missing values in
+     * field bar are interpreted as the default value of field bar in table
+     * schema.
+     * If a field is not in this map and has missing values, the missing values
+     * in this field are interpreted as NULL.
+     * This field only applies to the current request, it won't affect other
+     * requests on the connection.
+     * Currently, field name can only be top-level column name, can't be a struct
+     * field path like 'foo.bar'.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.bigquery.storage.v1.AppendRowsRequest.MissingValueInterpretation&gt; missing_value_interpretations = 7;</code>
+     */
+    public Builder putAllMissingValueInterpretationsValue(
+        java.util.Map<java.lang.String, java.lang.Integer> values) {
+      internalGetMutableMissingValueInterpretations().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -2462,7 +3293,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AppendRowsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

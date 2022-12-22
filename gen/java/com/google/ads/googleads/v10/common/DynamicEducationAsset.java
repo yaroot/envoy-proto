@@ -47,141 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DynamicEducationAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            programId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            locationId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            programName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subject_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            programDescription_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            schoolName_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            address_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              contextualKeywords_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            contextualKeywords_.add(s);
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            androidAppLink_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              similarProgramIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            similarProgramIds_.add(s);
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            iosAppLink_ = s;
-            break;
-          }
-          case 96: {
-
-            iosAppStoreId_ = input.readInt64();
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            thumbnailImageUrl_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUrl_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        contextualKeywords_ = contextualKeywords_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        similarProgramIds_ = similarProgramIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AssetTypesProto.internal_static_google_ads_googleads_v10_common_DynamicEducationAsset_descriptor;
@@ -196,7 +61,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROGRAM_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object programId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object programId_ = "";
   /**
    * <pre>
    * Required. Program ID which can be any sequence of letters and digits, and must be
@@ -244,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object locationId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object locationId_ = "";
   /**
    * <pre>
    * Location ID which can be any sequence of letters and digits and must be
@@ -292,7 +159,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROGRAM_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object programName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object programName_ = "";
   /**
    * <pre>
    * Required. Program name, e.g. Nursing. Required.
@@ -338,7 +206,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBJECT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object subject_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subject_ = "";
   /**
    * <pre>
    * Subject of study, e.g. Health.
@@ -384,7 +253,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROGRAM_DESCRIPTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object programDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object programDescription_ = "";
   /**
    * <pre>
    * Program description, e.g. Nursing Certification.
@@ -430,7 +300,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHOOL_NAME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object schoolName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schoolName_ = "";
   /**
    * <pre>
    * School name, e.g. Mountain View School of Nursing.
@@ -476,7 +347,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESS_FIELD_NUMBER = 7;
-  private volatile java.lang.Object address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
   /**
    * <pre>
    * School address which can be specified in one of the following formats.
@@ -528,6 +400,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTEXTUAL_KEYWORDS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList contextualKeywords_;
   /**
    * <pre>
@@ -579,7 +452,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANDROID_APP_LINK_FIELD_NUMBER = 9;
-  private volatile java.lang.Object androidAppLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object androidAppLink_ = "";
   /**
    * <pre>
    * Android deep link, e.g.
@@ -627,6 +501,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIMILAR_PROGRAM_IDS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList similarProgramIds_;
   /**
    * <pre>
@@ -678,7 +553,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_APP_LINK_FIELD_NUMBER = 11;
-  private volatile java.lang.Object iosAppLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object iosAppLink_ = "";
   /**
    * <pre>
    * iOS deep link, e.g. exampleApp://content/page.
@@ -724,7 +600,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IOS_APP_STORE_ID_FIELD_NUMBER = 12;
-  private long iosAppStoreId_;
+  private long iosAppStoreId_ = 0L;
   /**
    * <pre>
    * iOS app store ID. This is used to check if the user has the app installed
@@ -741,7 +617,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int THUMBNAIL_IMAGE_URL_FIELD_NUMBER = 13;
-  private volatile java.lang.Object thumbnailImageUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object thumbnailImageUrl_ = "";
   /**
    * <pre>
    * Thumbnail image url, e.g. http://www.example.com/thumbnail.png. The
@@ -789,7 +666,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_URL_FIELD_NUMBER = 14;
-  private volatile java.lang.Object imageUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUrl_ = "";
   /**
    * <pre>
    * Image url, e.g. http://www.example.com/image.png. The image will not be
@@ -892,7 +770,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, imageUrl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -954,7 +832,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(imageUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, imageUrl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -997,7 +875,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getThumbnailImageUrl())) return false;
     if (!getImageUrl()
         .equals(other.getImageUrl())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1041,7 +919,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getThumbnailImageUrl().hashCode();
     hash = (37 * hash) + IMAGE_URL_FIELD_NUMBER;
     hash = (53 * hash) + getImageUrl().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1162,50 +1040,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.DynamicEducationAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       programId_ = "";
-
       locationId_ = "";
-
       programName_ = "";
-
       subject_ = "";
-
       programDescription_ = "";
-
       schoolName_ = "";
-
       address_ = "";
-
       contextualKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       androidAppLink_ = "";
-
       similarProgramIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000200);
       iosAppLink_ = "";
-
       iosAppStoreId_ = 0L;
-
       thumbnailImageUrl_ = "";
-
       imageUrl_ = "";
-
       return this;
     }
 
@@ -1232,31 +1094,63 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.DynamicEducationAsset buildPartial() {
       com.google.ads.googleads.v10.common.DynamicEducationAsset result = new com.google.ads.googleads.v10.common.DynamicEducationAsset(this);
-      int from_bitField0_ = bitField0_;
-      result.programId_ = programId_;
-      result.locationId_ = locationId_;
-      result.programName_ = programName_;
-      result.subject_ = subject_;
-      result.programDescription_ = programDescription_;
-      result.schoolName_ = schoolName_;
-      result.address_ = address_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        contextualKeywords_ = contextualKeywords_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.contextualKeywords_ = contextualKeywords_;
-      result.androidAppLink_ = androidAppLink_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        similarProgramIds_ = similarProgramIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.similarProgramIds_ = similarProgramIds_;
-      result.iosAppLink_ = iosAppLink_;
-      result.iosAppStoreId_ = iosAppStoreId_;
-      result.thumbnailImageUrl_ = thumbnailImageUrl_;
-      result.imageUrl_ = imageUrl_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.common.DynamicEducationAsset result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
+        contextualKeywords_ = contextualKeywords_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.contextualKeywords_ = contextualKeywords_;
+      if (((bitField0_ & 0x00000200) != 0)) {
+        similarProgramIds_ = similarProgramIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.similarProgramIds_ = similarProgramIds_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.DynamicEducationAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.programId_ = programId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.locationId_ = locationId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.programName_ = programName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.subject_ = subject_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.programDescription_ = programDescription_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.schoolName_ = schoolName_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.address_ = address_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.androidAppLink_ = androidAppLink_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.iosAppLink_ = iosAppLink_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.iosAppStoreId_ = iosAppStoreId_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.thumbnailImageUrl_ = thumbnailImageUrl_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.imageUrl_ = imageUrl_;
+      }
     }
 
     @java.lang.Override
@@ -1305,36 +1199,43 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v10.common.DynamicEducationAsset.getDefaultInstance()) return this;
       if (!other.getProgramId().isEmpty()) {
         programId_ = other.programId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLocationId().isEmpty()) {
         locationId_ = other.locationId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getProgramName().isEmpty()) {
         programName_ = other.programName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getSubject().isEmpty()) {
         subject_ = other.subject_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getProgramDescription().isEmpty()) {
         programDescription_ = other.programDescription_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getSchoolName().isEmpty()) {
         schoolName_ = other.schoolName_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.contextualKeywords_.isEmpty()) {
         if (contextualKeywords_.isEmpty()) {
           contextualKeywords_ = other.contextualKeywords_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureContextualKeywordsIsMutable();
           contextualKeywords_.addAll(other.contextualKeywords_);
@@ -1343,12 +1244,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAndroidAppLink().isEmpty()) {
         androidAppLink_ = other.androidAppLink_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.similarProgramIds_.isEmpty()) {
         if (similarProgramIds_.isEmpty()) {
           similarProgramIds_ = other.similarProgramIds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureSimilarProgramIdsIsMutable();
           similarProgramIds_.addAll(other.similarProgramIds_);
@@ -1357,6 +1259,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getIosAppLink().isEmpty()) {
         iosAppLink_ = other.iosAppLink_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.getIosAppStoreId() != 0L) {
@@ -1364,13 +1267,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getThumbnailImageUrl().isEmpty()) {
         thumbnailImageUrl_ = other.thumbnailImageUrl_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (!other.getImageUrl().isEmpty()) {
         imageUrl_ = other.imageUrl_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1385,17 +1290,102 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.DynamicEducationAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              programId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              locationId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              programName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              subject_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              programDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              schoolName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureContextualKeywordsIsMutable();
+              contextualKeywords_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              androidAppLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSimilarProgramIdsIsMutable();
+              similarProgramIds_.add(s);
+              break;
+            } // case 82
+            case 90: {
+              iosAppLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 96: {
+              iosAppStoreId_ = input.readInt64();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 106: {
+              thumbnailImageUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              imageUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.DynamicEducationAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1456,11 +1446,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProgramId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       programId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1474,8 +1462,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProgramId() {
-      
       programId_ = getDefaultInstance().getProgramId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1491,12 +1479,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProgramIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       programId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1557,11 +1543,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       locationId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1575,8 +1559,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationId() {
-      
       locationId_ = getDefaultInstance().getLocationId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1592,12 +1576,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locationId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1655,11 +1637,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProgramName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       programName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1672,8 +1652,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProgramName() {
-      
       programName_ = getDefaultInstance().getProgramName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1688,12 +1668,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProgramNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       programName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1751,11 +1729,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subject_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1768,8 +1744,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubject() {
-      
       subject_ = getDefaultInstance().getSubject();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1784,12 +1760,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subject_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1847,11 +1821,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProgramDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       programDescription_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1864,8 +1836,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProgramDescription() {
-      
       programDescription_ = getDefaultInstance().getProgramDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1880,12 +1852,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProgramDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       programDescription_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1943,11 +1913,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchoolName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       schoolName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1960,8 +1928,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSchoolName() {
-      
       schoolName_ = getDefaultInstance().getSchoolName();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1976,12 +1944,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchoolNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       schoolName_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2048,11 +2014,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       address_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2068,8 +2032,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
-      
       address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2087,21 +2051,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       address_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList contextualKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureContextualKeywordsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         contextualKeywords_ = new com.google.protobuf.LazyStringArrayList(contextualKeywords_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -2164,10 +2126,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContextualKeywords(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContextualKeywordsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContextualKeywordsIsMutable();
       contextualKeywords_.set(index, value);
       onChanged();
       return this;
@@ -2183,10 +2143,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addContextualKeywords(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureContextualKeywordsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureContextualKeywordsIsMutable();
       contextualKeywords_.add(value);
       onChanged();
       return this;
@@ -2218,7 +2176,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearContextualKeywords() {
       contextualKeywords_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2233,10 +2191,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addContextualKeywordsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureContextualKeywordsIsMutable();
       contextualKeywords_.add(value);
       onChanged();
@@ -2299,11 +2255,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidAppLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       androidAppLink_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2317,8 +2271,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAndroidAppLink() {
-      
       androidAppLink_ = getDefaultInstance().getAndroidAppLink();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2334,21 +2288,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAndroidAppLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       androidAppLink_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList similarProgramIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSimilarProgramIdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         similarProgramIds_ = new com.google.protobuf.LazyStringArrayList(similarProgramIds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000200;
        }
     }
     /**
@@ -2411,10 +2363,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSimilarProgramIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSimilarProgramIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSimilarProgramIdsIsMutable();
       similarProgramIds_.set(index, value);
       onChanged();
       return this;
@@ -2430,10 +2380,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSimilarProgramIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSimilarProgramIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSimilarProgramIdsIsMutable();
       similarProgramIds_.add(value);
       onChanged();
       return this;
@@ -2465,7 +2413,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSimilarProgramIds() {
       similarProgramIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2480,10 +2428,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSimilarProgramIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSimilarProgramIdsIsMutable();
       similarProgramIds_.add(value);
       onChanged();
@@ -2543,11 +2489,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosAppLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       iosAppLink_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2560,8 +2504,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosAppLink() {
-      
       iosAppLink_ = getDefaultInstance().getIosAppLink();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2576,12 +2520,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIosAppLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       iosAppLink_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2615,6 +2557,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIosAppStoreId(long value) {
       
       iosAppStoreId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2629,7 +2572,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIosAppStoreId() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       iosAppStoreId_ = 0L;
       onChanged();
       return this;
@@ -2691,11 +2634,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setThumbnailImageUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       thumbnailImageUrl_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2709,8 +2650,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearThumbnailImageUrl() {
-      
       thumbnailImageUrl_ = getDefaultInstance().getThumbnailImageUrl();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -2726,12 +2667,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setThumbnailImageUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       thumbnailImageUrl_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2792,11 +2731,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageUrl_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2810,8 +2747,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageUrl() {
-      
       imageUrl_ = getDefaultInstance().getImageUrl();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -2827,12 +2764,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageUrl_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2869,7 +2804,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DynamicEducationAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

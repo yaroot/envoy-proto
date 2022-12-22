@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              consumers_ = new java.util.ArrayList<com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            consumers_.add(
-                input.readMessage(com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        consumers_ = java.util.Collections.unmodifiableList(consumers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1alpha.MetastoreProto.internal_static_google_cloud_metastore_v1alpha_NetworkConfig_descriptor;
@@ -106,46 +54,46 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * The subnetwork of the customer project from which an IP address is
-     * reserved and used as the Dataproc Metastore service's
+     * Immutable. The subnetwork of the customer project from which an IP
+     * address is reserved and used as the Dataproc Metastore service's
      * endpoint. It is accessible to hosts in the subnet and to all
      * hosts in a subnet in the same region and same network. There must
      * be at least one IP address available in the subnet's primary range. The
      * subnet is specified in the following form:
-     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
      * </pre>
      *
-     * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
      * @return Whether the subnetwork field is set.
      */
     boolean hasSubnetwork();
     /**
      * <pre>
-     * The subnetwork of the customer project from which an IP address is
-     * reserved and used as the Dataproc Metastore service's
+     * Immutable. The subnetwork of the customer project from which an IP
+     * address is reserved and used as the Dataproc Metastore service's
      * endpoint. It is accessible to hosts in the subnet and to all
      * hosts in a subnet in the same region and same network. There must
      * be at least one IP address available in the subnet's primary range. The
      * subnet is specified in the following form:
-     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
      * </pre>
      *
-     * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
      * @return The subnetwork.
      */
     java.lang.String getSubnetwork();
     /**
      * <pre>
-     * The subnetwork of the customer project from which an IP address is
-     * reserved and used as the Dataproc Metastore service's
+     * Immutable. The subnetwork of the customer project from which an IP
+     * address is reserved and used as the Dataproc Metastore service's
      * endpoint. It is accessible to hosts in the subnet and to all
      * hosts in a subnet in the same region and same network. There must
      * be at least one IP address available in the subnet's primary range. The
      * subnet is specified in the following form:
-     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
      * </pre>
      *
-     * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
      * @return The bytes for subnetwork.
      */
     com.google.protobuf.ByteString
@@ -153,7 +101,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Output only. The URI of the endpoint used to access the metastore service.
+     * Output only. The URI of the endpoint used to access the metastore
+     * service.
      * </pre>
      *
      * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -162,7 +111,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getEndpointUri();
     /**
      * <pre>
-     * Output only. The URI of the endpoint used to access the metastore service.
+     * Output only. The URI of the endpoint used to access the metastore
+     * service.
      * </pre>
      *
      * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -204,57 +154,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Consumer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              vpcResourceCase_ = 1;
-              vpcResource_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              endpointUri_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -311,16 +210,16 @@ private static final long serialVersionUID = 0L;
     public static final int SUBNETWORK_FIELD_NUMBER = 1;
     /**
      * <pre>
-     * The subnetwork of the customer project from which an IP address is
-     * reserved and used as the Dataproc Metastore service's
+     * Immutable. The subnetwork of the customer project from which an IP
+     * address is reserved and used as the Dataproc Metastore service's
      * endpoint. It is accessible to hosts in the subnet and to all
      * hosts in a subnet in the same region and same network. There must
      * be at least one IP address available in the subnet's primary range. The
      * subnet is specified in the following form:
-     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
      * </pre>
      *
-     * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
      * @return Whether the subnetwork field is set.
      */
     public boolean hasSubnetwork() {
@@ -328,16 +227,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The subnetwork of the customer project from which an IP address is
-     * reserved and used as the Dataproc Metastore service's
+     * Immutable. The subnetwork of the customer project from which an IP
+     * address is reserved and used as the Dataproc Metastore service's
      * endpoint. It is accessible to hosts in the subnet and to all
      * hosts in a subnet in the same region and same network. There must
      * be at least one IP address available in the subnet's primary range. The
      * subnet is specified in the following form:
-     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
      * </pre>
      *
-     * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
      * @return The subnetwork.
      */
     public java.lang.String getSubnetwork() {
@@ -359,16 +258,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The subnetwork of the customer project from which an IP address is
-     * reserved and used as the Dataproc Metastore service's
+     * Immutable. The subnetwork of the customer project from which an IP
+     * address is reserved and used as the Dataproc Metastore service's
      * endpoint. It is accessible to hosts in the subnet and to all
      * hosts in a subnet in the same region and same network. There must
      * be at least one IP address available in the subnet's primary range. The
      * subnet is specified in the following form:
-     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+     * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
      * </pre>
      *
-     * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
      * @return The bytes for subnetwork.
      */
     public com.google.protobuf.ByteString
@@ -391,10 +290,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENDPOINT_URI_FIELD_NUMBER = 3;
-    private volatile java.lang.Object endpointUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object endpointUri_ = "";
     /**
      * <pre>
-     * Output only. The URI of the endpoint used to access the metastore service.
+     * Output only. The URI of the endpoint used to access the metastore
+     * service.
      * </pre>
      *
      * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -415,7 +316,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The URI of the endpoint used to access the metastore service.
+     * Output only. The URI of the endpoint used to access the metastore
+     * service.
      * </pre>
      *
      * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -456,7 +358,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointUri_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, endpointUri_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -471,7 +373,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointUri_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, endpointUri_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -497,7 +399,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -518,7 +420,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -639,24 +541,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         endpointUri_ = "";
-
         vpcResourceCase_ = 0;
         vpcResource_ = null;
         return this;
@@ -685,13 +582,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer buildPartial() {
         com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer result = new com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer(this);
-        if (vpcResourceCase_ == 1) {
-          result.vpcResource_ = vpcResource_;
-        }
-        result.endpointUri_ = endpointUri_;
-        result.vpcResourceCase_ = vpcResourceCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.endpointUri_ = endpointUri_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer result) {
+        result.vpcResourceCase_ = vpcResourceCase_;
+        result.vpcResource_ = this.vpcResource_;
       }
 
       @java.lang.Override
@@ -740,6 +646,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer.getDefaultInstance()) return this;
         if (!other.getEndpointUri().isEmpty()) {
           endpointUri_ = other.endpointUri_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         switch (other.getVpcResourceCase()) {
@@ -753,7 +660,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -768,17 +675,41 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                vpcResourceCase_ = 1;
+                vpcResource_ = s;
+                break;
+              } // case 10
+              case 26: {
+                endpointUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int vpcResourceCase_ = 0;
@@ -796,19 +727,20 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
-       * The subnetwork of the customer project from which an IP address is
-       * reserved and used as the Dataproc Metastore service's
+       * Immutable. The subnetwork of the customer project from which an IP
+       * address is reserved and used as the Dataproc Metastore service's
        * endpoint. It is accessible to hosts in the subnet and to all
        * hosts in a subnet in the same region and same network. There must
        * be at least one IP address available in the subnet's primary range. The
        * subnet is specified in the following form:
-       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
        * </pre>
        *
-       * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+       * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
        * @return Whether the subnetwork field is set.
        */
       @java.lang.Override
@@ -817,16 +749,16 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The subnetwork of the customer project from which an IP address is
-       * reserved and used as the Dataproc Metastore service's
+       * Immutable. The subnetwork of the customer project from which an IP
+       * address is reserved and used as the Dataproc Metastore service's
        * endpoint. It is accessible to hosts in the subnet and to all
        * hosts in a subnet in the same region and same network. There must
        * be at least one IP address available in the subnet's primary range. The
        * subnet is specified in the following form:
-       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
        * </pre>
        *
-       * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+       * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
        * @return The subnetwork.
        */
       @java.lang.Override
@@ -849,16 +781,16 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The subnetwork of the customer project from which an IP address is
-       * reserved and used as the Dataproc Metastore service's
+       * Immutable. The subnetwork of the customer project from which an IP
+       * address is reserved and used as the Dataproc Metastore service's
        * endpoint. It is accessible to hosts in the subnet and to all
        * hosts in a subnet in the same region and same network. There must
        * be at least one IP address available in the subnet's primary range. The
        * subnet is specified in the following form:
-       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
        * </pre>
        *
-       * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+       * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
        * @return The bytes for subnetwork.
        */
       @java.lang.Override
@@ -882,41 +814,39 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The subnetwork of the customer project from which an IP address is
-       * reserved and used as the Dataproc Metastore service's
+       * Immutable. The subnetwork of the customer project from which an IP
+       * address is reserved and used as the Dataproc Metastore service's
        * endpoint. It is accessible to hosts in the subnet and to all
        * hosts in a subnet in the same region and same network. There must
        * be at least one IP address available in the subnet's primary range. The
        * subnet is specified in the following form:
-       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
        * </pre>
        *
-       * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+       * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
        * @param value The subnetwork to set.
        * @return This builder for chaining.
        */
       public Builder setSubnetwork(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  vpcResourceCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        vpcResourceCase_ = 1;
         vpcResource_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The subnetwork of the customer project from which an IP address is
-       * reserved and used as the Dataproc Metastore service's
+       * Immutable. The subnetwork of the customer project from which an IP
+       * address is reserved and used as the Dataproc Metastore service's
        * endpoint. It is accessible to hosts in the subnet and to all
        * hosts in a subnet in the same region and same network. There must
        * be at least one IP address available in the subnet's primary range. The
        * subnet is specified in the following form:
-       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
        * </pre>
        *
-       * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+       * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
        * @return This builder for chaining.
        */
       public Builder clearSubnetwork() {
@@ -929,25 +859,23 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The subnetwork of the customer project from which an IP address is
-       * reserved and used as the Dataproc Metastore service's
+       * Immutable. The subnetwork of the customer project from which an IP
+       * address is reserved and used as the Dataproc Metastore service's
        * endpoint. It is accessible to hosts in the subnet and to all
        * hosts in a subnet in the same region and same network. There must
        * be at least one IP address available in the subnet's primary range. The
        * subnet is specified in the following form:
-       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}
+       * `projects/{project_number}/regions/{region_id}/subnetworks/{subnetwork_id}`
        * </pre>
        *
-       * <code>string subnetwork = 1 [(.google.api.resource_reference) = { ... }</code>
+       * <code>string subnetwork = 1 [(.google.api.field_behavior) = IMMUTABLE, (.google.api.resource_reference) = { ... }</code>
        * @param value The bytes for subnetwork to set.
        * @return This builder for chaining.
        */
       public Builder setSubnetworkBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         vpcResourceCase_ = 1;
         vpcResource_ = value;
         onChanged();
@@ -957,7 +885,8 @@ private static final long serialVersionUID = 0L;
       private java.lang.Object endpointUri_ = "";
       /**
        * <pre>
-       * Output only. The URI of the endpoint used to access the metastore service.
+       * Output only. The URI of the endpoint used to access the metastore
+       * service.
        * </pre>
        *
        * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -977,7 +906,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The URI of the endpoint used to access the metastore service.
+       * Output only. The URI of the endpoint used to access the metastore
+       * service.
        * </pre>
        *
        * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -998,7 +928,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Output only. The URI of the endpoint used to access the metastore service.
+       * Output only. The URI of the endpoint used to access the metastore
+       * service.
        * </pre>
        *
        * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1007,31 +938,31 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndpointUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         endpointUri_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Output only. The URI of the endpoint used to access the metastore service.
+       * Output only. The URI of the endpoint used to access the metastore
+       * service.
        * </pre>
        *
        * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        * @return This builder for chaining.
        */
       public Builder clearEndpointUri() {
-        
         endpointUri_ = getDefaultInstance().getEndpointUri();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Output only. The URI of the endpoint used to access the metastore service.
+       * Output only. The URI of the endpoint used to access the metastore
+       * service.
        * </pre>
        *
        * <code>string endpoint_uri = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1040,12 +971,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndpointUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         endpointUri_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1082,7 +1011,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Consumer(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1103,11 +1043,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSUMERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer> consumers_;
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1118,8 +1059,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1131,8 +1072,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1143,8 +1084,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1155,8 +1096,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1184,7 +1125,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < consumers_.size(); i++) {
       output.writeMessage(1, consumers_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1197,7 +1138,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, consumers_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1214,7 +1155,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getConsumersList()
         .equals(other.getConsumersList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1229,7 +1170,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONSUMERS_FIELD_NUMBER;
       hash = (53 * hash) + getConsumersList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1350,29 +1291,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1alpha.NetworkConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getConsumersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (consumersBuilder_ == null) {
         consumers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        consumers_ = null;
         consumersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1399,7 +1336,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.NetworkConfig buildPartial() {
       com.google.cloud.metastore.v1alpha.NetworkConfig result = new com.google.cloud.metastore.v1alpha.NetworkConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.metastore.v1alpha.NetworkConfig result) {
       if (consumersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           consumers_ = java.util.Collections.unmodifiableList(consumers_);
@@ -1409,8 +1352,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.consumers_ = consumersBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1alpha.NetworkConfig result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1483,7 +1428,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1498,17 +1443,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1alpha.NetworkConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer m =
+                  input.readMessage(
+                      com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer.parser(),
+                      extensionRegistry);
+              if (consumersBuilder_ == null) {
+                ensureConsumersIsMutable();
+                consumers_.add(m);
+              } else {
+                consumersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1alpha.NetworkConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1527,8 +1498,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1542,8 +1513,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1557,8 +1528,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1572,8 +1543,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1594,8 +1565,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1613,8 +1584,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1634,8 +1605,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1656,8 +1627,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1675,8 +1646,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1694,8 +1665,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1714,8 +1685,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1732,8 +1703,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1750,8 +1721,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1762,8 +1733,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1777,8 +1748,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1793,8 +1764,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1805,8 +1776,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1818,8 +1789,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Immutable. The consumer-side network configuration for the Dataproc Metastore
-     * instance.
+     * Immutable. The consumer-side network configuration for the Dataproc
+     * Metastore instance.
      * </pre>
      *
      * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1875,7 +1846,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

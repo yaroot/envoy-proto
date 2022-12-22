@@ -46,7 +46,6 @@ public interface RuntimeMetricsOrBuilder extends
    *
    * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getSystemMetricsOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getSystemMetricsOrThrow(
       java.lang.String key);
 }

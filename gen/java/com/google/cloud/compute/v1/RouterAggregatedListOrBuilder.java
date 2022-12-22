@@ -75,7 +75,6 @@ public interface RouterAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.RoutersScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.RoutersScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.RoutersScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.RoutersScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.RoutersScopedList getItemsOrThrow(
       java.lang.String key);
 

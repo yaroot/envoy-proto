@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataproc.v1.KerberosConfig.Builder subBuilder = null;
-            if (kerberosConfig_ != null) {
-              subBuilder = kerberosConfig_.toBuilder();
-            }
-            kerberosConfig_ = input.readMessage(com.google.cloud.dataproc.v1.KerberosConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kerberosConfig_);
-              kerberosConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataproc.v1.IdentityConfig.Builder subBuilder = null;
-            if (identityConfig_ != null) {
-              subBuilder = identityConfig_.toBuilder();
-            }
-            identityConfig_ = input.readMessage(com.google.cloud.dataproc.v1.IdentityConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(identityConfig_);
-              identityConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_SecurityConfig_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.KerberosConfigOrBuilder getKerberosConfigOrBuilder() {
-    return getKerberosConfig();
+    return kerberosConfig_ == null ? com.google.cloud.dataproc.v1.KerberosConfig.getDefaultInstance() : kerberosConfig_;
   }
 
   public static final int IDENTITY_CONFIG_FIELD_NUMBER = 2;
@@ -188,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.IdentityConfigOrBuilder getIdentityConfigOrBuilder() {
-    return getIdentityConfig();
+    return identityConfig_ == null ? com.google.cloud.dataproc.v1.IdentityConfig.getDefaultInstance() : identityConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -211,7 +146,7 @@ private static final long serialVersionUID = 0L;
     if (identityConfig_ != null) {
       output.writeMessage(2, getIdentityConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +163,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getIdentityConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -253,7 +188,7 @@ private static final long serialVersionUID = 0L;
       if (!getIdentityConfig()
           .equals(other.getIdentityConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -272,7 +207,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IDENTITY_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getIdentityConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -393,32 +328,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.SecurityConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-      } else {
-        kerberosConfig_ = null;
+      bitField0_ = 0;
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
-      if (identityConfigBuilder_ == null) {
-        identityConfig_ = null;
-      } else {
-        identityConfig_ = null;
+      identityConfig_ = null;
+      if (identityConfigBuilder_ != null) {
+        identityConfigBuilder_.dispose();
         identityConfigBuilder_ = null;
       }
       return this;
@@ -447,18 +376,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.SecurityConfig buildPartial() {
       com.google.cloud.dataproc.v1.SecurityConfig result = new com.google.cloud.dataproc.v1.SecurityConfig(this);
-      if (kerberosConfigBuilder_ == null) {
-        result.kerberosConfig_ = kerberosConfig_;
-      } else {
-        result.kerberosConfig_ = kerberosConfigBuilder_.build();
-      }
-      if (identityConfigBuilder_ == null) {
-        result.identityConfig_ = identityConfig_;
-      } else {
-        result.identityConfig_ = identityConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.SecurityConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kerberosConfig_ = kerberosConfigBuilder_ == null
+            ? kerberosConfig_
+            : kerberosConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.identityConfig_ = identityConfigBuilder_ == null
+            ? identityConfig_
+            : identityConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -511,7 +445,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasIdentityConfig()) {
         mergeIdentityConfig(other.getIdentityConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -526,19 +460,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.SecurityConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getKerberosConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIdentityConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.SecurityConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.dataproc.v1.KerberosConfig kerberosConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -552,7 +514,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kerberosConfig field is set.
      */
     public boolean hasKerberosConfig() {
-      return kerberosConfigBuilder_ != null || kerberosConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -582,11 +544,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kerberosConfig_ = value;
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -600,11 +562,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.KerberosConfig.Builder builderForValue) {
       if (kerberosConfigBuilder_ == null) {
         kerberosConfig_ = builderForValue.build();
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -616,17 +578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKerberosConfig(com.google.cloud.dataproc.v1.KerberosConfig value) {
       if (kerberosConfigBuilder_ == null) {
-        if (kerberosConfig_ != null) {
-          kerberosConfig_ =
-            com.google.cloud.dataproc.v1.KerberosConfig.newBuilder(kerberosConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          kerberosConfig_ != null &&
+          kerberosConfig_ != com.google.cloud.dataproc.v1.KerberosConfig.getDefaultInstance()) {
+          getKerberosConfigBuilder().mergeFrom(value);
         } else {
           kerberosConfig_ = value;
         }
-        onChanged();
       } else {
         kerberosConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -637,14 +600,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.KerberosConfig kerberos_config = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearKerberosConfig() {
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-        onChanged();
-      } else {
-        kerberosConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -655,7 +617,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.KerberosConfig kerberos_config = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.KerberosConfig.Builder getKerberosConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getKerberosConfigFieldBuilder().getBuilder();
     }
@@ -708,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the identityConfig field is set.
      */
     public boolean hasIdentityConfig() {
-      return identityConfigBuilder_ != null || identityConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -740,11 +702,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         identityConfig_ = value;
-        onChanged();
       } else {
         identityConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -759,11 +721,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.IdentityConfig.Builder builderForValue) {
       if (identityConfigBuilder_ == null) {
         identityConfig_ = builderForValue.build();
-        onChanged();
       } else {
         identityConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -776,17 +738,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdentityConfig(com.google.cloud.dataproc.v1.IdentityConfig value) {
       if (identityConfigBuilder_ == null) {
-        if (identityConfig_ != null) {
-          identityConfig_ =
-            com.google.cloud.dataproc.v1.IdentityConfig.newBuilder(identityConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          identityConfig_ != null &&
+          identityConfig_ != com.google.cloud.dataproc.v1.IdentityConfig.getDefaultInstance()) {
+          getIdentityConfigBuilder().mergeFrom(value);
         } else {
           identityConfig_ = value;
         }
-        onChanged();
       } else {
         identityConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -798,14 +761,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.IdentityConfig identity_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearIdentityConfig() {
-      if (identityConfigBuilder_ == null) {
-        identityConfig_ = null;
-        onChanged();
-      } else {
-        identityConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      identityConfig_ = null;
+      if (identityConfigBuilder_ != null) {
+        identityConfigBuilder_.dispose();
         identityConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -817,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.IdentityConfig identity_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.IdentityConfig.Builder getIdentityConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getIdentityConfigFieldBuilder().getBuilder();
     }
@@ -891,7 +853,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

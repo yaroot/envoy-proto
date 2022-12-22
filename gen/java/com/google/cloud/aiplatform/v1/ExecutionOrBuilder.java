@@ -155,7 +155,6 @@ public interface ExecutionOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 10;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -173,7 +172,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 10;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -286,6 +284,7 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Properties of the Execution.
+   * Top level metadata keys' heading and trailing spaces will be trimmed.
    * The size of this field should not exceed 200KB.
    * </pre>
    *
@@ -296,6 +295,7 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Properties of the Execution.
+   * Top level metadata keys' heading and trailing spaces will be trimmed.
    * The size of this field should not exceed 200KB.
    * </pre>
    *
@@ -306,6 +306,7 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Properties of the Execution.
+   * Top level metadata keys' heading and trailing spaces will be trimmed.
    * The size of this field should not exceed 200KB.
    * </pre>
    *

@@ -37,135 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RegisterDomainRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.domains.v1beta1.Registration.Builder subBuilder = null;
-            if (registration_ != null) {
-              subBuilder = registration_.toBuilder();
-            }
-            registration_ = input.readMessage(com.google.cloud.domains.v1beta1.Registration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(registration_);
-              registration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              domainNotices_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            domainNotices_.add(rawValue);
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                domainNotices_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              domainNotices_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              contactNotices_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            contactNotices_.add(rawValue);
-            break;
-          }
-          case 34: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                contactNotices_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              contactNotices_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 42: {
-            com.google.type.Money.Builder subBuilder = null;
-            if (yearlyPrice_ != null) {
-              subBuilder = yearlyPrice_.toBuilder();
-            }
-            yearlyPrice_ = input.readMessage(com.google.type.Money.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(yearlyPrice_);
-              yearlyPrice_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        domainNotices_ = java.util.Collections.unmodifiableList(domainNotices_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        contactNotices_ = java.util.Collections.unmodifiableList(contactNotices_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.domains.v1beta1.DomainsProto.internal_static_google_cloud_domains_v1beta1_RegisterDomainRequest_descriptor;
@@ -180,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource of the `Registration`. Must be in the
@@ -262,18 +134,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.domains.v1beta1.RegistrationOrBuilder getRegistrationOrBuilder() {
-    return getRegistration();
+    return registration_ == null ? com.google.cloud.domains.v1beta1.Registration.getDefaultInstance() : registration_;
   }
 
   public static final int DOMAIN_NOTICES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> domainNotices_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.domains.v1beta1.DomainNotice> domainNotices_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.domains.v1beta1.DomainNotice>() {
             public com.google.cloud.domains.v1beta1.DomainNotice convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.domains.v1beta1.DomainNotice result = com.google.cloud.domains.v1beta1.DomainNotice.valueOf(from);
+              com.google.cloud.domains.v1beta1.DomainNotice result = com.google.cloud.domains.v1beta1.DomainNotice.forNumber(from);
               return result == null ? com.google.cloud.domains.v1beta1.DomainNotice.UNRECOGNIZED : result;
             }
           };
@@ -349,14 +221,14 @@ private static final long serialVersionUID = 0L;
   private int domainNoticesMemoizedSerializedSize;
 
   public static final int CONTACT_NOTICES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> contactNotices_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.domains.v1beta1.ContactNotice> contactNotices_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.domains.v1beta1.ContactNotice>() {
             public com.google.cloud.domains.v1beta1.ContactNotice convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.domains.v1beta1.ContactNotice result = com.google.cloud.domains.v1beta1.ContactNotice.valueOf(from);
+              com.google.cloud.domains.v1beta1.ContactNotice result = com.google.cloud.domains.v1beta1.ContactNotice.forNumber(from);
               return result == null ? com.google.cloud.domains.v1beta1.ContactNotice.UNRECOGNIZED : result;
             }
           };
@@ -477,11 +349,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.MoneyOrBuilder getYearlyPriceOrBuilder() {
-    return getYearlyPrice();
+    return yearlyPrice_ == null ? com.google.type.Money.getDefaultInstance() : yearlyPrice_;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 6;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * When true, only validation is performed, without actually registering
@@ -538,7 +410,7 @@ private static final long serialVersionUID = 0L;
     if (validateOnly_ != false) {
       output.writeBool(6, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -586,7 +458,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -617,7 +489,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -649,7 +521,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -770,42 +642,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.domains.v1beta1.RegisterDomainRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (registrationBuilder_ == null) {
-        registration_ = null;
-      } else {
-        registration_ = null;
+      registration_ = null;
+      if (registrationBuilder_ != null) {
+        registrationBuilder_.dispose();
         registrationBuilder_ = null;
       }
       domainNotices_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       contactNotices_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (yearlyPriceBuilder_ == null) {
-        yearlyPrice_ = null;
-      } else {
-        yearlyPrice_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      yearlyPrice_ = null;
+      if (yearlyPriceBuilder_ != null) {
+        yearlyPriceBuilder_.dispose();
         yearlyPriceBuilder_ = null;
       }
       validateOnly_ = false;
-
       return this;
     }
 
@@ -832,31 +696,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.domains.v1beta1.RegisterDomainRequest buildPartial() {
       com.google.cloud.domains.v1beta1.RegisterDomainRequest result = new com.google.cloud.domains.v1beta1.RegisterDomainRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.parent_ = parent_;
-      if (registrationBuilder_ == null) {
-        result.registration_ = registration_;
-      } else {
-        result.registration_ = registrationBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        domainNotices_ = java.util.Collections.unmodifiableList(domainNotices_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.domainNotices_ = domainNotices_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        contactNotices_ = java.util.Collections.unmodifiableList(contactNotices_);
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.contactNotices_ = contactNotices_;
-      if (yearlyPriceBuilder_ == null) {
-        result.yearlyPrice_ = yearlyPrice_;
-      } else {
-        result.yearlyPrice_ = yearlyPriceBuilder_.build();
-      }
-      result.validateOnly_ = validateOnly_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.domains.v1beta1.RegisterDomainRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        domainNotices_ = java.util.Collections.unmodifiableList(domainNotices_);
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.domainNotices_ = domainNotices_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        contactNotices_ = java.util.Collections.unmodifiableList(contactNotices_);
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.contactNotices_ = contactNotices_;
+    }
+
+    private void buildPartial0(com.google.cloud.domains.v1beta1.RegisterDomainRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.registration_ = registrationBuilder_ == null
+            ? registration_
+            : registrationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.yearlyPrice_ = yearlyPriceBuilder_ == null
+            ? yearlyPrice_
+            : yearlyPriceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
     }
 
     @java.lang.Override
@@ -905,6 +781,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.domains.v1beta1.RegisterDomainRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasRegistration()) {
@@ -913,7 +790,7 @@ private static final long serialVersionUID = 0L;
       if (!other.domainNotices_.isEmpty()) {
         if (domainNotices_.isEmpty()) {
           domainNotices_ = other.domainNotices_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureDomainNoticesIsMutable();
           domainNotices_.addAll(other.domainNotices_);
@@ -923,7 +800,7 @@ private static final long serialVersionUID = 0L;
       if (!other.contactNotices_.isEmpty()) {
         if (contactNotices_.isEmpty()) {
           contactNotices_ = other.contactNotices_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureContactNoticesIsMutable();
           contactNotices_.addAll(other.contactNotices_);
@@ -936,7 +813,7 @@ private static final long serialVersionUID = 0L;
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -951,17 +828,88 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.domains.v1beta1.RegisterDomainRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRegistrationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureDomainNoticesIsMutable();
+              domainNotices_.add(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureDomainNoticesIsMutable();
+                domainNotices_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensureContactNoticesIsMutable();
+              contactNotices_.add(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureContactNoticesIsMutable();
+                contactNotices_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getYearlyPriceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.domains.v1beta1.RegisterDomainRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1022,11 +970,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1040,8 +986,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1057,12 +1003,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1079,7 +1023,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the registration field is set.
      */
     public boolean hasRegistration() {
-      return registrationBuilder_ != null || registration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1109,11 +1053,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         registration_ = value;
-        onChanged();
       } else {
         registrationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1127,11 +1071,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.domains.v1beta1.Registration.Builder builderForValue) {
       if (registrationBuilder_ == null) {
         registration_ = builderForValue.build();
-        onChanged();
       } else {
         registrationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1143,17 +1087,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRegistration(com.google.cloud.domains.v1beta1.Registration value) {
       if (registrationBuilder_ == null) {
-        if (registration_ != null) {
-          registration_ =
-            com.google.cloud.domains.v1beta1.Registration.newBuilder(registration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          registration_ != null &&
+          registration_ != com.google.cloud.domains.v1beta1.Registration.getDefaultInstance()) {
+          getRegistrationBuilder().mergeFrom(value);
         } else {
           registration_ = value;
         }
-        onChanged();
       } else {
         registrationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1164,14 +1109,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.Registration registration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRegistration() {
-      if (registrationBuilder_ == null) {
-        registration_ = null;
-        onChanged();
-      } else {
-        registration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      registration_ = null;
+      if (registrationBuilder_ != null) {
+        registrationBuilder_.dispose();
         registrationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1182,7 +1126,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.Registration registration = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.domains.v1beta1.Registration.Builder getRegistrationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRegistrationFieldBuilder().getBuilder();
     }
@@ -1225,9 +1169,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> domainNotices_ =
       java.util.Collections.emptyList();
     private void ensureDomainNoticesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         domainNotices_ = new java.util.ArrayList<java.lang.Integer>(domainNotices_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -1338,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDomainNotices() {
       domainNotices_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1425,9 +1369,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> contactNotices_ =
       java.util.Collections.emptyList();
     private void ensureContactNoticesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         contactNotices_ = new java.util.ArrayList<java.lang.Integer>(contactNotices_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
       }
     }
     /**
@@ -1545,7 +1489,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearContactNotices() {
       contactNotices_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1648,7 +1592,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the yearlyPrice field is set.
      */
     public boolean hasYearlyPrice() {
-      return yearlyPriceBuilder_ != null || yearlyPrice_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1682,11 +1626,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         yearlyPrice_ = value;
-        onChanged();
       } else {
         yearlyPriceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1702,11 +1646,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Money.Builder builderForValue) {
       if (yearlyPriceBuilder_ == null) {
         yearlyPrice_ = builderForValue.build();
-        onChanged();
       } else {
         yearlyPriceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1720,17 +1664,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeYearlyPrice(com.google.type.Money value) {
       if (yearlyPriceBuilder_ == null) {
-        if (yearlyPrice_ != null) {
-          yearlyPrice_ =
-            com.google.type.Money.newBuilder(yearlyPrice_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          yearlyPrice_ != null &&
+          yearlyPrice_ != com.google.type.Money.getDefaultInstance()) {
+          getYearlyPriceBuilder().mergeFrom(value);
         } else {
           yearlyPrice_ = value;
         }
-        onChanged();
       } else {
         yearlyPriceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1743,14 +1688,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Money yearly_price = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearYearlyPrice() {
-      if (yearlyPriceBuilder_ == null) {
-        yearlyPrice_ = null;
-        onChanged();
-      } else {
-        yearlyPrice_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      yearlyPrice_ = null;
+      if (yearlyPriceBuilder_ != null) {
+        yearlyPriceBuilder_.dispose();
         yearlyPriceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1763,7 +1707,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Money yearly_price = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.type.Money.Builder getYearlyPriceBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getYearlyPriceFieldBuilder().getBuilder();
     }
@@ -1836,6 +1780,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1850,7 +1795,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1888,7 +1833,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RegisterDomainRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

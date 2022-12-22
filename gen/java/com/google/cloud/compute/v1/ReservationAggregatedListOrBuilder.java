@@ -75,7 +75,6 @@ public interface ReservationAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ReservationsScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.ReservationsScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.ReservationsScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ReservationsScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.ReservationsScopedList getItemsOrThrow(
       java.lang.String key);
 

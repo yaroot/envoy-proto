@@ -35,57 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CharsToIgnore(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            charactersCase_ = 1;
-            characters_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            charactersCase_ = 2;
-            characters_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_CharsToIgnore_descriptor;
@@ -101,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Convenience enum for indication common characters to not transform.
+   * Convenience enum for indicating common characters to not transform.
    * </pre>
    *
    * Protobuf enum {@code google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore}
@@ -439,8 +388,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore getCommonCharactersToIgnore() {
     if (charactersCase_ == 2) {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore result = com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore.valueOf(
+      com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore result = com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore.forNumber(
           (java.lang.Integer) characters_);
       return result == null ? com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore.UNRECOGNIZED : result;
     }
@@ -467,7 +415,7 @@ private static final long serialVersionUID = 0L;
     if (charactersCase_ == 2) {
       output.writeEnum(2, ((java.lang.Integer) characters_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -483,7 +431,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, ((java.lang.Integer) characters_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -511,7 +459,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -534,7 +482,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -656,22 +604,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.CharsToIgnore.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       charactersCase_ = 0;
       characters_ = null;
       return this;
@@ -700,15 +644,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.CharsToIgnore buildPartial() {
       com.google.privacy.dlp.v2.CharsToIgnore result = new com.google.privacy.dlp.v2.CharsToIgnore(this);
-      if (charactersCase_ == 1) {
-        result.characters_ = characters_;
-      }
-      if (charactersCase_ == 2) {
-        result.characters_ = characters_;
-      }
-      result.charactersCase_ = charactersCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.CharsToIgnore result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.CharsToIgnore result) {
+      result.charactersCase_ = charactersCase_;
+      result.characters_ = this.characters_;
     }
 
     @java.lang.Override
@@ -770,7 +718,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -785,17 +733,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.CharsToIgnore parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              charactersCase_ = 1;
+              characters_ = s;
+              break;
+            } // case 10
+            case 16: {
+              int rawValue = input.readEnum();
+              charactersCase_ = 2;
+              characters_ = rawValue;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.CharsToIgnore) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int charactersCase_ = 0;
@@ -813,6 +786,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -890,10 +864,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCharactersToSkip(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  charactersCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      charactersCase_ = 1;
       characters_ = value;
       onChanged();
       return this;
@@ -925,10 +897,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCharactersToSkipBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       charactersCase_ = 1;
       characters_ = value;
       onChanged();
@@ -992,8 +962,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore getCommonCharactersToIgnore() {
       if (charactersCase_ == 2) {
-        @SuppressWarnings("deprecation")
-        com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore result = com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore.valueOf(
+        com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore result = com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore.forNumber(
             (java.lang.Integer) characters_);
         return result == null ? com.google.privacy.dlp.v2.CharsToIgnore.CommonCharsToIgnore.UNRECOGNIZED : result;
       }
@@ -1068,7 +1037,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CharsToIgnore(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

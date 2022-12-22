@@ -20,7 +20,7 @@ public interface MasterAuthOrBuilder extends
    *
    * <code>string username = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=979
+   *     See google/container/v1beta1/cluster_service.proto;l=1002
    * @return The username.
    */
   @java.lang.Deprecated java.lang.String getUsername();
@@ -37,7 +37,7 @@ public interface MasterAuthOrBuilder extends
    *
    * <code>string username = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.username is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=979
+   *     See google/container/v1beta1/cluster_service.proto;l=1002
    * @return The bytes for username.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -57,7 +57,7 @@ public interface MasterAuthOrBuilder extends
    *
    * <code>string password = 2 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=990
+   *     See google/container/v1beta1/cluster_service.proto;l=1013
    * @return The password.
    */
   @java.lang.Deprecated java.lang.String getPassword();
@@ -75,7 +75,7 @@ public interface MasterAuthOrBuilder extends
    *
    * <code>string password = 2 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.MasterAuth.password is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=990
+   *     See google/container/v1beta1/cluster_service.proto;l=1013
    * @return The bytes for password.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

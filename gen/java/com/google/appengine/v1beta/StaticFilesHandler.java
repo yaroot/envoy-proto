@@ -40,100 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StaticFilesHandler(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uploadPathRegex_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              httpHeaders_ = com.google.protobuf.MapField.newMapField(
-                  HttpHeadersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            httpHeaders__ = input.readMessage(
-                HttpHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            httpHeaders_.getMutableMap().put(
-                httpHeaders__.getKey(), httpHeaders__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mimeType_ = s;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (expiration_ != null) {
-              subBuilder = expiration_.toBuilder();
-            }
-            expiration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(expiration_);
-              expiration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            requireMatchingFile_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            applicationReadable_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.AppYamlProto.internal_static_google_appengine_v1beta_StaticFilesHandler_descriptor;
@@ -160,7 +66,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <pre>
    * Path to the static files matched by the URL pattern, from the
@@ -210,7 +117,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPLOAD_PATH_REGEX_FIELD_NUMBER = 2;
-  private volatile java.lang.Object uploadPathRegex_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uploadPathRegex_ = "";
   /**
    * <pre>
    * Regular expression that matches the file paths for all files that should be
@@ -269,6 +177,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> httpHeaders_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -279,7 +188,6 @@ private static final long serialVersionUID = 0L;
     }
     return httpHeaders_;
   }
-
   public int getHttpHeadersCount() {
     return internalGetHttpHeaders().getMap().size();
   }
@@ -290,7 +198,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; http_headers = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsHttpHeaders(
       java.lang.String key) {
@@ -313,7 +220,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; http_headers = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getHttpHeadersMap() {
     return internalGetHttpHeaders().getMap();
   }
@@ -325,10 +231,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; http_headers = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getHttpHeadersOrDefault(
+  public /* nullable */
+java.lang.String getHttpHeadersOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetHttpHeaders().getMap();
@@ -342,7 +249,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; http_headers = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getHttpHeadersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -355,7 +261,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIME_TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object mimeType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mimeType_ = "";
   /**
    * <pre>
    * MIME type used to serve all files served by this handler.
@@ -442,11 +349,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getExpirationOrBuilder() {
-    return getExpiration();
+    return expiration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : expiration_;
   }
 
   public static final int REQUIRE_MATCHING_FILE_FIELD_NUMBER = 6;
-  private boolean requireMatchingFile_;
+  private boolean requireMatchingFile_ = false;
   /**
    * <pre>
    * Whether this handler should match the request if the file
@@ -462,7 +369,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPLICATION_READABLE_FIELD_NUMBER = 7;
-  private boolean applicationReadable_;
+  private boolean applicationReadable_ = false;
   /**
    * <pre>
    * Whether files should also be uploaded as code data. By default, files
@@ -518,7 +425,7 @@ private static final long serialVersionUID = 0L;
     if (applicationReadable_ != false) {
       output.writeBool(7, applicationReadable_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -558,7 +465,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, applicationReadable_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -590,7 +497,7 @@ private static final long serialVersionUID = 0L;
         != other.getRequireMatchingFile()) return false;
     if (getApplicationReadable()
         != other.getApplicationReadable()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -621,7 +528,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + APPLICATION_READABLE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getApplicationReadable());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -767,39 +674,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.StaticFilesHandler.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       path_ = "";
-
       uploadPathRegex_ = "";
-
       internalGetMutableHttpHeaders().clear();
       mimeType_ = "";
-
-      if (expirationBuilder_ == null) {
-        expiration_ = null;
-      } else {
-        expiration_ = null;
+      expiration_ = null;
+      if (expirationBuilder_ != null) {
+        expirationBuilder_.dispose();
         expirationBuilder_ = null;
       }
       requireMatchingFile_ = false;
-
       applicationReadable_ = false;
-
       return this;
     }
 
@@ -826,21 +723,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.StaticFilesHandler buildPartial() {
       com.google.appengine.v1beta.StaticFilesHandler result = new com.google.appengine.v1beta.StaticFilesHandler(this);
-      int from_bitField0_ = bitField0_;
-      result.path_ = path_;
-      result.uploadPathRegex_ = uploadPathRegex_;
-      result.httpHeaders_ = internalGetHttpHeaders();
-      result.httpHeaders_.makeImmutable();
-      result.mimeType_ = mimeType_;
-      if (expirationBuilder_ == null) {
-        result.expiration_ = expiration_;
-      } else {
-        result.expiration_ = expirationBuilder_.build();
-      }
-      result.requireMatchingFile_ = requireMatchingFile_;
-      result.applicationReadable_ = applicationReadable_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.StaticFilesHandler result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.path_ = path_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uploadPathRegex_ = uploadPathRegex_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.httpHeaders_ = internalGetHttpHeaders();
+        result.httpHeaders_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.mimeType_ = mimeType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.expiration_ = expirationBuilder_ == null
+            ? expiration_
+            : expirationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requireMatchingFile_ = requireMatchingFile_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.applicationReadable_ = applicationReadable_;
+      }
     }
 
     @java.lang.Override
@@ -889,16 +802,20 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.appengine.v1beta.StaticFilesHandler.getDefaultInstance()) return this;
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUploadPathRegex().isEmpty()) {
         uploadPathRegex_ = other.uploadPathRegex_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       internalGetMutableHttpHeaders().mergeFrom(
           other.internalGetHttpHeaders());
+      bitField0_ |= 0x00000004;
       if (!other.getMimeType().isEmpty()) {
         mimeType_ = other.mimeType_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasExpiration()) {
@@ -910,7 +827,7 @@ private static final long serialVersionUID = 0L;
       if (other.getApplicationReadable() != false) {
         setApplicationReadable(other.getApplicationReadable());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -925,17 +842,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.StaticFilesHandler parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              uploadPathRegex_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              httpHeaders__ = input.readMessage(
+                  HttpHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHttpHeaders().getMutableMap().put(
+                  httpHeaders__.getKey(), httpHeaders__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              mimeType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getExpirationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              requireMatchingFile_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              applicationReadable_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.StaticFilesHandler) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -999,11 +970,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1018,8 +987,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1036,12 +1005,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1102,11 +1069,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUploadPathRegex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uploadPathRegex_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1120,8 +1085,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUploadPathRegex() {
-      
       uploadPathRegex_ = getDefaultInstance().getUploadPathRegex();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1137,12 +1102,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUploadPathRegexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uploadPathRegex_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1150,7 +1113,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> httpHeaders_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetHttpHeaders() {
+        internalGetHttpHeaders() {
       if (httpHeaders_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HttpHeadersDefaultEntryHolder.defaultEntry);
@@ -1158,8 +1121,7 @@ private static final long serialVersionUID = 0L;
       return httpHeaders_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableHttpHeaders() {
-      onChanged();;
+        internalGetMutableHttpHeaders() {
       if (httpHeaders_ == null) {
         httpHeaders_ = com.google.protobuf.MapField.newMapField(
             HttpHeadersDefaultEntryHolder.defaultEntry);
@@ -1167,9 +1129,10 @@ private static final long serialVersionUID = 0L;
       if (!httpHeaders_.isMutable()) {
         httpHeaders_ = httpHeaders_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return httpHeaders_;
     }
-
     public int getHttpHeadersCount() {
       return internalGetHttpHeaders().getMap().size();
     }
@@ -1180,7 +1143,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_headers = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsHttpHeaders(
         java.lang.String key) {
@@ -1203,7 +1165,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; http_headers = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getHttpHeadersMap() {
       return internalGetHttpHeaders().getMap();
     }
@@ -1215,10 +1176,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; http_headers = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getHttpHeadersOrDefault(
+    public /* nullable */
+java.lang.String getHttpHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHttpHeaders().getMap();
@@ -1232,7 +1194,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; http_headers = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getHttpHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1243,8 +1204,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearHttpHeaders() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableHttpHeaders().getMutableMap()
           .clear();
       return this;
@@ -1256,7 +1217,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_headers = 3;</code>
      */
-
     public Builder removeHttpHeaders(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1269,7 +1229,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableHttpHeaders() {
+        getMutableHttpHeaders() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableHttpHeaders().getMutableMap();
     }
     /**
@@ -1283,12 +1244,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableHttpHeaders().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1298,11 +1257,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_headers = 3;</code>
      */
-
     public Builder putAllHttpHeaders(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableHttpHeaders().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1365,11 +1324,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMimeType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mimeType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1384,8 +1341,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMimeType() {
-      
       mimeType_ = getDefaultInstance().getMimeType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1402,12 +1359,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMimeTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mimeType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1425,7 +1380,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the expiration field is set.
      */
     public boolean hasExpiration() {
-      return expirationBuilder_ != null || expiration_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1457,11 +1412,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         expiration_ = value;
-        onChanged();
       } else {
         expirationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1476,11 +1431,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (expirationBuilder_ == null) {
         expiration_ = builderForValue.build();
-        onChanged();
       } else {
         expirationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1493,17 +1448,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExpiration(com.google.protobuf.Duration value) {
       if (expirationBuilder_ == null) {
-        if (expiration_ != null) {
-          expiration_ =
-            com.google.protobuf.Duration.newBuilder(expiration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          expiration_ != null &&
+          expiration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getExpirationBuilder().mergeFrom(value);
         } else {
           expiration_ = value;
         }
-        onChanged();
       } else {
         expirationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1515,14 +1471,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration expiration = 5;</code>
      */
     public Builder clearExpiration() {
-      if (expirationBuilder_ == null) {
-        expiration_ = null;
-        onChanged();
-      } else {
-        expiration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      expiration_ = null;
+      if (expirationBuilder_ != null) {
+        expirationBuilder_.dispose();
         expirationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1534,7 +1489,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration expiration = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getExpirationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getExpirationFieldBuilder().getBuilder();
     }
@@ -1603,6 +1558,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRequireMatchingFile(boolean value) {
       
       requireMatchingFile_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1616,7 +1572,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequireMatchingFile() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       requireMatchingFile_ = false;
       onChanged();
       return this;
@@ -1655,6 +1611,7 @@ private static final long serialVersionUID = 0L;
     public Builder setApplicationReadable(boolean value) {
       
       applicationReadable_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1671,7 +1628,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApplicationReadable() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       applicationReadable_ = false;
       onChanged();
       return this;
@@ -1709,7 +1666,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StaticFilesHandler(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

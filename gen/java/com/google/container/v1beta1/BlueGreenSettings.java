@@ -34,73 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BlueGreenSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy.Builder subBuilder = null;
-            if (rolloutPolicyCase_ == 1) {
-              subBuilder = ((com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy) rolloutPolicy_).toBuilder();
-            }
-            rolloutPolicy_ =
-                input.readMessage(com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy) rolloutPolicy_);
-              rolloutPolicy_ = subBuilder.buildPartial();
-            }
-            rolloutPolicyCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = nodePoolSoakDuration_.toBuilder();
-            }
-            nodePoolSoakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nodePoolSoakDuration_);
-              nodePoolSoakDuration_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_BlueGreenSettings_descriptor;
@@ -120,7 +53,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Percentage of the bool pool nodes to drain in a batch.
+     * Percentage of the blue pool nodes to drain in a batch.
      * The range of this field should be (0.0, 1.0].
      * </pre>
      *
@@ -130,7 +63,7 @@ private static final long serialVersionUID = 0L;
     boolean hasBatchPercentage();
     /**
      * <pre>
-     * Percentage of the bool pool nodes to drain in a batch.
+     * Percentage of the blue pool nodes to drain in a batch.
      * The range of this field should be (0.0, 1.0].
      * </pre>
      *
@@ -218,69 +151,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StandardRolloutPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-              updateBatchSize_ = input.readFloat();
-              updateBatchSizeCase_ = 1;
-              break;
-            }
-            case 16: {
-              updateBatchSize_ = input.readInt32();
-              updateBatchSizeCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = batchSoakDuration_.toBuilder();
-              }
-              batchSoakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(batchSoakDuration_);
-                batchSoakDuration_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_BlueGreenSettings_StandardRolloutPolicy_descriptor;
@@ -339,7 +209,7 @@ private static final long serialVersionUID = 0L;
     public static final int BATCH_PERCENTAGE_FIELD_NUMBER = 1;
     /**
      * <pre>
-     * Percentage of the bool pool nodes to drain in a batch.
+     * Percentage of the blue pool nodes to drain in a batch.
      * The range of this field should be (0.0, 1.0].
      * </pre>
      *
@@ -352,7 +222,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Percentage of the bool pool nodes to drain in a batch.
+     * Percentage of the blue pool nodes to drain in a batch.
      * The range of this field should be (0.0, 1.0].
      * </pre>
      *
@@ -459,7 +329,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(3, getBatchSoakDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -482,7 +352,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getBatchSoakDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -516,7 +386,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -544,7 +414,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -682,12 +552,12 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (batchSoakDurationBuilder_ == null) {
-          batchSoakDuration_ = null;
-        } else {
-          batchSoakDurationBuilder_.clear();
+        bitField0_ = 0;
+        batchSoakDuration_ = null;
+        if (batchSoakDurationBuilder_ != null) {
+          batchSoakDurationBuilder_.dispose();
+          batchSoakDurationBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         updateBatchSizeCase_ = 0;
         updateBatchSize_ = null;
         return this;
@@ -716,26 +586,27 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy buildPartial() {
         com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy result = new com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (updateBatchSizeCase_ == 1) {
-          result.updateBatchSize_ = updateBatchSize_;
-        }
-        if (updateBatchSizeCase_ == 2) {
-          result.updateBatchSize_ = updateBatchSize_;
-        }
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (batchSoakDurationBuilder_ == null) {
-            result.batchSoakDuration_ = batchSoakDuration_;
-          } else {
-            result.batchSoakDuration_ = batchSoakDurationBuilder_.build();
-          }
-          to_bitField0_ |= 0x00000001;
-        }
-        result.bitField0_ = to_bitField0_;
-        result.updateBatchSizeCase_ = updateBatchSizeCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.batchSoakDuration_ = batchSoakDurationBuilder_ == null
+              ? batchSoakDuration_
+              : batchSoakDurationBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy result) {
+        result.updateBatchSizeCase_ = updateBatchSizeCase_;
+        result.updateBatchSize_ = this.updateBatchSize_;
       }
 
       @java.lang.Override
@@ -798,7 +669,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -813,17 +684,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                updateBatchSize_ = input.readFloat();
+                updateBatchSizeCase_ = 1;
+                break;
+              } // case 13
+              case 16: {
+                updateBatchSize_ = input.readInt32();
+                updateBatchSizeCase_ = 2;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getBatchSoakDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.container.v1beta1.BlueGreenSettings.StandardRolloutPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int updateBatchSizeCase_ = 0;
@@ -845,7 +746,7 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Percentage of the bool pool nodes to drain in a batch.
+       * Percentage of the blue pool nodes to drain in a batch.
        * The range of this field should be (0.0, 1.0].
        * </pre>
        *
@@ -857,7 +758,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Percentage of the bool pool nodes to drain in a batch.
+       * Percentage of the blue pool nodes to drain in a batch.
        * The range of this field should be (0.0, 1.0].
        * </pre>
        *
@@ -872,7 +773,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Percentage of the bool pool nodes to drain in a batch.
+       * Percentage of the blue pool nodes to drain in a batch.
        * The range of this field should be (0.0, 1.0].
        * </pre>
        *
@@ -881,6 +782,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setBatchPercentage(float value) {
+        
         updateBatchSizeCase_ = 1;
         updateBatchSize_ = value;
         onChanged();
@@ -888,7 +790,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Percentage of the bool pool nodes to drain in a batch.
+       * Percentage of the blue pool nodes to drain in a batch.
        * The range of this field should be (0.0, 1.0].
        * </pre>
        *
@@ -939,6 +841,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setBatchNodeCount(int value) {
+        
         updateBatchSizeCase_ = 2;
         updateBatchSize_ = value;
         onChanged();
@@ -973,7 +876,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the batchSoakDuration field is set.
        */
       public boolean hasBatchSoakDuration() {
-        return ((bitField0_ & 0x00000001) != 0);
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1003,11 +906,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           batchSoakDuration_ = value;
-          onChanged();
         } else {
           batchSoakDurationBuilder_.setMessage(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1021,11 +924,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (batchSoakDurationBuilder_ == null) {
           batchSoakDuration_ = builderForValue.build();
-          onChanged();
         } else {
           batchSoakDurationBuilder_.setMessage(builderForValue.build());
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1037,19 +940,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeBatchSoakDuration(com.google.protobuf.Duration value) {
         if (batchSoakDurationBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0) &&
-              batchSoakDuration_ != null &&
-              batchSoakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
-            batchSoakDuration_ =
-              com.google.protobuf.Duration.newBuilder(batchSoakDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            batchSoakDuration_ != null &&
+            batchSoakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getBatchSoakDurationBuilder().mergeFrom(value);
           } else {
             batchSoakDuration_ = value;
           }
-          onChanged();
         } else {
           batchSoakDurationBuilder_.mergeFrom(value);
         }
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1060,13 +962,13 @@ private static final long serialVersionUID = 0L;
        * <code>optional .google.protobuf.Duration batch_soak_duration = 3;</code>
        */
       public Builder clearBatchSoakDuration() {
-        if (batchSoakDurationBuilder_ == null) {
-          batchSoakDuration_ = null;
-          onChanged();
-        } else {
-          batchSoakDurationBuilder_.clear();
+        bitField0_ = (bitField0_ & ~0x00000004);
+        batchSoakDuration_ = null;
+        if (batchSoakDurationBuilder_ != null) {
+          batchSoakDurationBuilder_.dispose();
+          batchSoakDurationBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
         return this;
       }
       /**
@@ -1077,7 +979,7 @@ private static final long serialVersionUID = 0L;
        * <code>optional .google.protobuf.Duration batch_soak_duration = 3;</code>
        */
       public com.google.protobuf.Duration.Builder getBatchSoakDurationBuilder() {
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
         onChanged();
         return getBatchSoakDurationFieldBuilder().getBuilder();
       }
@@ -1149,7 +1051,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StandardRolloutPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1313,7 +1226,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(2, getNodePoolSoakDuration());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1330,7 +1243,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getNodePoolSoakDuration());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1359,7 +1272,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1382,7 +1295,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1520,12 +1433,15 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nodePoolSoakDurationBuilder_ == null) {
-        nodePoolSoakDuration_ = null;
-      } else {
-        nodePoolSoakDurationBuilder_.clear();
+      bitField0_ = 0;
+      if (standardRolloutPolicyBuilder_ != null) {
+        standardRolloutPolicyBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      nodePoolSoakDuration_ = null;
+      if (nodePoolSoakDurationBuilder_ != null) {
+        nodePoolSoakDurationBuilder_.dispose();
+        nodePoolSoakDurationBuilder_ = null;
+      }
       rolloutPolicyCase_ = 0;
       rolloutPolicy_ = null;
       return this;
@@ -1554,27 +1470,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.BlueGreenSettings buildPartial() {
       com.google.container.v1beta1.BlueGreenSettings result = new com.google.container.v1beta1.BlueGreenSettings(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (rolloutPolicyCase_ == 1) {
-        if (standardRolloutPolicyBuilder_ == null) {
-          result.rolloutPolicy_ = rolloutPolicy_;
-        } else {
-          result.rolloutPolicy_ = standardRolloutPolicyBuilder_.build();
-        }
-      }
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (nodePoolSoakDurationBuilder_ == null) {
-          result.nodePoolSoakDuration_ = nodePoolSoakDuration_;
-        } else {
-          result.nodePoolSoakDuration_ = nodePoolSoakDurationBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      result.bitField0_ = to_bitField0_;
-      result.rolloutPolicyCase_ = rolloutPolicyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.BlueGreenSettings result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.nodePoolSoakDuration_ = nodePoolSoakDurationBuilder_ == null
+            ? nodePoolSoakDuration_
+            : nodePoolSoakDurationBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.container.v1beta1.BlueGreenSettings result) {
+      result.rolloutPolicyCase_ = rolloutPolicyCase_;
+      result.rolloutPolicy_ = this.rolloutPolicy_;
+      if (rolloutPolicyCase_ == 1 &&
+          standardRolloutPolicyBuilder_ != null) {
+        result.rolloutPolicy_ = standardRolloutPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1633,7 +1553,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1648,17 +1568,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.BlueGreenSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStandardRolloutPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              rolloutPolicyCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getNodePoolSoakDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.BlueGreenSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int rolloutPolicyCase_ = 0;
@@ -1852,7 +1799,7 @@ private static final long serialVersionUID = 0L;
         rolloutPolicy_ = null;
       }
       rolloutPolicyCase_ = 1;
-      onChanged();;
+      onChanged();
       return standardRolloutPolicyBuilder_;
     }
 
@@ -1869,7 +1816,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nodePoolSoakDuration field is set.
      */
     public boolean hasNodePoolSoakDuration() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1901,11 +1848,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nodePoolSoakDuration_ = value;
-        onChanged();
       } else {
         nodePoolSoakDurationBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1920,11 +1867,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (nodePoolSoakDurationBuilder_ == null) {
         nodePoolSoakDuration_ = builderForValue.build();
-        onChanged();
       } else {
         nodePoolSoakDurationBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1937,19 +1884,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNodePoolSoakDuration(com.google.protobuf.Duration value) {
       if (nodePoolSoakDurationBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-            nodePoolSoakDuration_ != null &&
-            nodePoolSoakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
-          nodePoolSoakDuration_ =
-            com.google.protobuf.Duration.newBuilder(nodePoolSoakDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          nodePoolSoakDuration_ != null &&
+          nodePoolSoakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getNodePoolSoakDurationBuilder().mergeFrom(value);
         } else {
           nodePoolSoakDuration_ = value;
         }
-        onChanged();
       } else {
         nodePoolSoakDurationBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1961,13 +1907,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Duration node_pool_soak_duration = 2;</code>
      */
     public Builder clearNodePoolSoakDuration() {
-      if (nodePoolSoakDurationBuilder_ == null) {
-        nodePoolSoakDuration_ = null;
-        onChanged();
-      } else {
-        nodePoolSoakDurationBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      nodePoolSoakDuration_ = null;
+      if (nodePoolSoakDurationBuilder_ != null) {
+        nodePoolSoakDurationBuilder_.dispose();
+        nodePoolSoakDurationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
@@ -1979,7 +1925,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.protobuf.Duration node_pool_soak_duration = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getNodePoolSoakDurationBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getNodePoolSoakDurationFieldBuilder().getBuilder();
     }
@@ -2053,7 +1999,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BlueGreenSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

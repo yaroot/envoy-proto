@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.Builder subBuilder = null;
-            if (dnsCacheConfig_ != null) {
-              subBuilder = dnsCacheConfig_.toBuilder();
-            }
-            dnsCacheConfig_ = input.readMessage(io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dnsCacheConfig_);
-              dnsCacheConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterProto.internal_static_envoy_config_cluster_dynamic_forward_proxy_v2alpha_ClusterConfig_descriptor;
@@ -142,7 +90,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfigOrBuilder getDnsCacheConfigOrBuilder() {
-    return getDnsCacheConfig();
+    return dnsCacheConfig_ == null ? io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.getDefaultInstance() : dnsCacheConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -162,7 +110,7 @@ private static final long serialVersionUID = 0L;
     if (dnsCacheConfig_ != null) {
       output.writeMessage(1, getDnsCacheConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -175,7 +123,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getDnsCacheConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -195,7 +143,7 @@ private static final long serialVersionUID = 0L;
       if (!getDnsCacheConfig()
           .equals(other.getDnsCacheConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -210,7 +158,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DNS_CACHE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getDnsCacheConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -333,26 +281,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (dnsCacheConfigBuilder_ == null) {
-        dnsCacheConfig_ = null;
-      } else {
-        dnsCacheConfig_ = null;
+      bitField0_ = 0;
+      dnsCacheConfig_ = null;
+      if (dnsCacheConfigBuilder_ != null) {
+        dnsCacheConfigBuilder_.dispose();
         dnsCacheConfigBuilder_ = null;
       }
       return this;
@@ -381,13 +324,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig buildPartial() {
       io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig result = new io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig(this);
-      if (dnsCacheConfigBuilder_ == null) {
-        result.dnsCacheConfig_ = dnsCacheConfig_;
-      } else {
-        result.dnsCacheConfig_ = dnsCacheConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.dnsCacheConfig_ = dnsCacheConfigBuilder_ == null
+            ? dnsCacheConfig_
+            : dnsCacheConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -437,7 +385,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDnsCacheConfig()) {
         mergeDnsCacheConfig(other.getDnsCacheConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -452,19 +400,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDnsCacheConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.cluster.dynamic_forward_proxy.v2alpha.ClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig dnsCacheConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -480,7 +449,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dnsCacheConfig field is set.
      */
     public boolean hasDnsCacheConfig() {
-      return dnsCacheConfigBuilder_ != null || dnsCacheConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -514,11 +483,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dnsCacheConfig_ = value;
-        onChanged();
       } else {
         dnsCacheConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -534,11 +503,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.Builder builderForValue) {
       if (dnsCacheConfigBuilder_ == null) {
         dnsCacheConfig_ = builderForValue.build();
-        onChanged();
       } else {
         dnsCacheConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -552,17 +521,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDnsCacheConfig(io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig value) {
       if (dnsCacheConfigBuilder_ == null) {
-        if (dnsCacheConfig_ != null) {
-          dnsCacheConfig_ =
-            io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.newBuilder(dnsCacheConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          dnsCacheConfig_ != null &&
+          dnsCacheConfig_ != io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.getDefaultInstance()) {
+          getDnsCacheConfigBuilder().mergeFrom(value);
         } else {
           dnsCacheConfig_ = value;
         }
-        onChanged();
       } else {
         dnsCacheConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -575,14 +545,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig dns_cache_config = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearDnsCacheConfig() {
-      if (dnsCacheConfigBuilder_ == null) {
-        dnsCacheConfig_ = null;
-        onChanged();
-      } else {
-        dnsCacheConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      dnsCacheConfig_ = null;
+      if (dnsCacheConfigBuilder_ != null) {
+        dnsCacheConfigBuilder_.dispose();
         dnsCacheConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -595,7 +564,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig dns_cache_config = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.common.dynamic_forward_proxy.v2alpha.DnsCacheConfig.Builder getDnsCacheConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDnsCacheConfigFieldBuilder().getBuilder();
     }
@@ -671,7 +640,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

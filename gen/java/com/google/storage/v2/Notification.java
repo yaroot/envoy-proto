@@ -40,101 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Notification(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            topic_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              eventTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            eventTypes_.add(s);
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              customAttributes_ = com.google.protobuf.MapField.newMapField(
-                  CustomAttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            customAttributes__ = input.readMessage(
-                CustomAttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            customAttributes_.getMutableMap().put(
-                customAttributes__.getKey(), customAttributes__.getValue());
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            objectNamePrefix_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payloadFormat_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        eventTypes_ = eventTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_Notification_descriptor;
@@ -161,7 +66,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of this notification.
@@ -213,10 +119,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOPIC_FIELD_NUMBER = 2;
-  private volatile java.lang.Object topic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object topic_ = "";
   /**
    * <pre>
-   * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+   * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+   * as:
    * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
    * </pre>
    *
@@ -238,7 +146,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+   * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+   * as:
    * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
    * </pre>
    *
@@ -261,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 7;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * The etag of the Notification.
@@ -311,14 +221,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_TYPES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList eventTypes_;
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @return A list containing the eventTypes.
    */
   public com.google.protobuf.ProtocolStringList
@@ -327,11 +238,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @return The count of eventTypes.
    */
   public int getEventTypesCount() {
@@ -339,11 +250,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @param index The index of the element to return.
    * @return The eventTypes at the given index.
    */
@@ -352,11 +263,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If present, only send notifications about listed event types. If empty,
+   * If present, only send notifications about listed event types. If empty,
    * sent notifications for all event types.
    * </pre>
    *
-   * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string event_types = 3;</code>
    * @param index The index of the value to return.
    * @return The bytes of the eventTypes at the given index.
    */
@@ -377,6 +288,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> customAttributes_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -387,19 +299,17 @@ private static final long serialVersionUID = 0L;
     }
     return customAttributes_;
   }
-
   public int getCustomAttributesCount() {
     return internalGetCustomAttributes().getMap().size();
   }
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsCustomAttributes(
       java.lang.String key) {
@@ -416,30 +326,30 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getCustomAttributesMap() {
     return internalGetCustomAttributes().getMap();
   }
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getCustomAttributesOrDefault(
+  public /* nullable */
+java.lang.String getCustomAttributesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetCustomAttributes().getMap();
@@ -447,14 +357,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. An optional list of additional attributes to attach to each Pub/Sub
+   * A list of additional attributes to attach to each Pub/Sub
    * message published for this notification subscription.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getCustomAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -467,14 +376,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OBJECT_NAME_PREFIX_FIELD_NUMBER = 5;
-  private volatile java.lang.Object objectNamePrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object objectNamePrefix_ = "";
   /**
    * <pre>
-   * Optional. If present, only apply this notification config to object names that
+   * If present, only apply this notification config to object names that
    * begin with this prefix.
    * </pre>
    *
-   * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string object_name_prefix = 5;</code>
    * @return The objectNamePrefix.
    */
   @java.lang.Override
@@ -492,11 +402,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If present, only apply this notification config to object names that
+   * If present, only apply this notification config to object names that
    * begin with this prefix.
    * </pre>
    *
-   * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string object_name_prefix = 5;</code>
    * @return The bytes for objectNamePrefix.
    */
   @java.lang.Override
@@ -515,7 +425,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_FORMAT_FIELD_NUMBER = 6;
-  private volatile java.lang.Object payloadFormat_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payloadFormat_ = "";
   /**
    * <pre>
    * Required. The desired content of the Payload.
@@ -598,7 +509,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, etag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -640,7 +551,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -669,7 +580,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getObjectNamePrefix())) return false;
     if (!getPayloadFormat()
         .equals(other.getPayloadFormat())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -698,7 +609,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getObjectNamePrefix().hashCode();
     hash = (37 * hash) + PAYLOAD_FORMAT_FIELD_NUMBER;
     hash = (53 * hash) + getPayloadFormat().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -841,35 +752,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v2.Notification.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       topic_ = "";
-
       etag_ = "";
-
       eventTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableCustomAttributes().clear();
       objectNamePrefix_ = "";
-
       payloadFormat_ = "";
-
       return this;
     }
 
@@ -896,21 +798,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.Notification buildPartial() {
       com.google.storage.v2.Notification result = new com.google.storage.v2.Notification(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.topic_ = topic_;
-      result.etag_ = etag_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        eventTypes_ = eventTypes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.eventTypes_ = eventTypes_;
-      result.customAttributes_ = internalGetCustomAttributes();
-      result.customAttributes_.makeImmutable();
-      result.objectNamePrefix_ = objectNamePrefix_;
-      result.payloadFormat_ = payloadFormat_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.storage.v2.Notification result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        eventTypes_ = eventTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.eventTypes_ = eventTypes_;
+    }
+
+    private void buildPartial0(com.google.storage.v2.Notification result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.topic_ = topic_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.etag_ = etag_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.customAttributes_ = internalGetCustomAttributes();
+        result.customAttributes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.objectNamePrefix_ = objectNamePrefix_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.payloadFormat_ = payloadFormat_;
+      }
     }
 
     @java.lang.Override
@@ -959,20 +881,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.storage.v2.Notification.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTopic().isEmpty()) {
         topic_ = other.topic_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.eventTypes_.isEmpty()) {
         if (eventTypes_.isEmpty()) {
           eventTypes_ = other.eventTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureEventTypesIsMutable();
           eventTypes_.addAll(other.eventTypes_);
@@ -981,15 +906,18 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableCustomAttributes().mergeFrom(
           other.internalGetCustomAttributes());
+      bitField0_ |= 0x00000010;
       if (!other.getObjectNamePrefix().isEmpty()) {
         objectNamePrefix_ = other.objectNamePrefix_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getPayloadFormat().isEmpty()) {
         payloadFormat_ = other.payloadFormat_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1004,17 +932,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.Notification parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              topic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEventTypesIsMutable();
+              eventTypes_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              customAttributes__ = input.readMessage(
+                  CustomAttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCustomAttributes().getMutableMap().put(
+                  customAttributes__.getKey(), customAttributes__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              objectNamePrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              payloadFormat_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.Notification) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1081,11 +1062,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1101,8 +1080,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1120,12 +1099,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1133,7 +1110,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object topic_ = "";
     /**
      * <pre>
-     * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+     * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+     * as:
      * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
      * </pre>
      *
@@ -1154,7 +1132,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+     * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+     * as:
      * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
      * </pre>
      *
@@ -1176,7 +1155,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+     * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+     * as:
      * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
      * </pre>
      *
@@ -1186,17 +1166,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       topic_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+     * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+     * as:
      * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
      * </pre>
      *
@@ -1204,14 +1183,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTopic() {
-      
       topic_ = getDefaultInstance().getTopic();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The Pub/Sub topic to which this subscription publishes. Formatted as:
+     * Required. The Pub/Sub topic to which this subscription publishes. Formatted
+     * as:
      * '//pubsub.googleapis.com/projects/{project-identifier}/topics/{my-topic}'
      * </pre>
      *
@@ -1221,12 +1201,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       topic_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1290,11 +1268,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1309,8 +1285,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1327,30 +1303,28 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList eventTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureEventTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         eventTypes_ = new com.google.protobuf.LazyStringArrayList(eventTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @return A list containing the eventTypes.
      */
     public com.google.protobuf.ProtocolStringList
@@ -1359,11 +1333,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @return The count of eventTypes.
      */
     public int getEventTypesCount() {
@@ -1371,11 +1345,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @param index The index of the element to return.
      * @return The eventTypes at the given index.
      */
@@ -1384,11 +1358,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @param index The index of the value to return.
      * @return The bytes of the eventTypes at the given index.
      */
@@ -1398,52 +1372,48 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @param index The index to set the value at.
      * @param value The eventTypes to set.
      * @return This builder for chaining.
      */
     public Builder setEventTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEventTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEventTypesIsMutable();
       eventTypes_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @param value The eventTypes to add.
      * @return This builder for chaining.
      */
     public Builder addEventTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEventTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEventTypesIsMutable();
       eventTypes_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @param values The eventTypes to add.
      * @return This builder for chaining.
      */
@@ -1457,35 +1427,33 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearEventTypes() {
       eventTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, only send notifications about listed event types. If empty,
+     * If present, only send notifications about listed event types. If empty,
      * sent notifications for all event types.
      * </pre>
      *
-     * <code>repeated string event_types = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string event_types = 3;</code>
      * @param value The bytes of the eventTypes to add.
      * @return This builder for chaining.
      */
     public Builder addEventTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEventTypesIsMutable();
       eventTypes_.add(value);
       onChanged();
@@ -1495,7 +1463,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> customAttributes_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetCustomAttributes() {
+        internalGetCustomAttributes() {
       if (customAttributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CustomAttributesDefaultEntryHolder.defaultEntry);
@@ -1503,8 +1471,7 @@ private static final long serialVersionUID = 0L;
       return customAttributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableCustomAttributes() {
-      onChanged();;
+        internalGetMutableCustomAttributes() {
       if (customAttributes_ == null) {
         customAttributes_ = com.google.protobuf.MapField.newMapField(
             CustomAttributesDefaultEntryHolder.defaultEntry);
@@ -1512,21 +1479,21 @@ private static final long serialVersionUID = 0L;
       if (!customAttributes_.isMutable()) {
         customAttributes_ = customAttributes_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return customAttributes_;
     }
-
     public int getCustomAttributesCount() {
       return internalGetCustomAttributes().getMap().size();
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsCustomAttributes(
         java.lang.String key) {
@@ -1543,30 +1510,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getCustomAttributesMap() {
       return internalGetCustomAttributes().getMap();
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getCustomAttributesOrDefault(
+    public /* nullable */
+java.lang.String getCustomAttributesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetCustomAttributes().getMap();
@@ -1574,14 +1541,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getCustomAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1592,21 +1558,20 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearCustomAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableCustomAttributes().getMutableMap()
           .clear();
       return this;
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
-
     public Builder removeCustomAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1619,53 +1584,52 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableCustomAttributes() {
+        getMutableCustomAttributes() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableCustomAttributes().getMutableMap();
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
     public Builder putCustomAttributes(
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableCustomAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
      * <pre>
-     * Optional. An optional list of additional attributes to attach to each Pub/Sub
+     * A list of additional attributes to attach to each Pub/Sub
      * message published for this notification subscription.
      * </pre>
      *
-     * <code>map&lt;string, string&gt; custom_attributes = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>map&lt;string, string&gt; custom_attributes = 4;</code>
      */
-
     public Builder putAllCustomAttributes(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableCustomAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
     private java.lang.Object objectNamePrefix_ = "";
     /**
      * <pre>
-     * Optional. If present, only apply this notification config to object names that
+     * If present, only apply this notification config to object names that
      * begin with this prefix.
      * </pre>
      *
-     * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string object_name_prefix = 5;</code>
      * @return The objectNamePrefix.
      */
     public java.lang.String getObjectNamePrefix() {
@@ -1682,11 +1646,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only apply this notification config to object names that
+     * If present, only apply this notification config to object names that
      * begin with this prefix.
      * </pre>
      *
-     * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string object_name_prefix = 5;</code>
      * @return The bytes for objectNamePrefix.
      */
     public com.google.protobuf.ByteString
@@ -1704,57 +1668,53 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, only apply this notification config to object names that
+     * If present, only apply this notification config to object names that
      * begin with this prefix.
      * </pre>
      *
-     * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string object_name_prefix = 5;</code>
      * @param value The objectNamePrefix to set.
      * @return This builder for chaining.
      */
     public Builder setObjectNamePrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       objectNamePrefix_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, only apply this notification config to object names that
+     * If present, only apply this notification config to object names that
      * begin with this prefix.
      * </pre>
      *
-     * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string object_name_prefix = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearObjectNamePrefix() {
-      
       objectNamePrefix_ = getDefaultInstance().getObjectNamePrefix();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, only apply this notification config to object names that
+     * If present, only apply this notification config to object names that
      * begin with this prefix.
      * </pre>
      *
-     * <code>string object_name_prefix = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string object_name_prefix = 5;</code>
      * @param value The bytes for objectNamePrefix to set.
      * @return This builder for chaining.
      */
     public Builder setObjectNamePrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       objectNamePrefix_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1812,11 +1772,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayloadFormat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payloadFormat_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1829,8 +1787,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayloadFormat() {
-      
       payloadFormat_ = getDefaultInstance().getPayloadFormat();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1845,12 +1803,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPayloadFormatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payloadFormat_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1887,7 +1843,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Notification(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

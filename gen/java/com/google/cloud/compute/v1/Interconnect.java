@@ -52,197 +52,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Interconnect(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000040;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            name_ = s;
-            break;
-          }
-          case 29323874: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            customerName_ = s;
-            break;
-          }
-          case 112582658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            nocContactEmail_ = s;
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 360411096: {
-            bitField0_ |= 0x00010000;
-            requestedLinkCount_ = input.readInt32();
-            break;
-          }
-          case 878060682: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00080000;
-            state_ = s;
-            break;
-          }
-          case 1318718842: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              circuitInfos_ = new java.util.ArrayList<com.google.cloud.compute.v1.InterconnectCircuitInfo>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            circuitInfos_.add(
-                input.readMessage(com.google.cloud.compute.v1.InterconnectCircuitInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 1608566778: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00002000;
-            operationalStatus_ = s;
-            break;
-          }
-          case 1661886154: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00004000;
-            peerIpAddress_ = s;
-            break;
-          }
-          case 2115872986: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              expectedOutages_ = new java.util.ArrayList<com.google.cloud.compute.v1.InterconnectOutageNotification>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            expectedOutages_.add(
-                input.readMessage(com.google.cloud.compute.v1.InterconnectOutageNotification.parser(), extensionRegistry));
-            break;
-          }
-          case -1971520086: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            location_ = s;
-            break;
-          }
-          case -1007858776: {
-            bitField0_ |= 0x00008000;
-            provisionedLinkCount_ = input.readInt32();
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            description_ = s;
-            break;
-          }
-          case -891859974: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              interconnectAttachments_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            interconnectAttachments_.add(s);
-            break;
-          }
-          case -750119662: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            googleIpAddress_ = s;
-            break;
-          }
-          case -729566584: {
-            bitField0_ |= 0x00000001;
-            adminEnabled_ = input.readBool();
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00040000;
-            selfLink_ = s;
-            break;
-          }
-          case -447253160: {
-            bitField0_ |= 0x00020000;
-            satisfiesPzs_ = input.readBool();
-            break;
-          }
-          case -173645222: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            interconnectType_ = s;
-            break;
-          }
-          case -109305094: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            linkType_ = s;
-            break;
-          }
-          case -15411542: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            googleReferenceId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        circuitInfos_ = java.util.Collections.unmodifiableList(circuitInfos_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        expectedOutages_ = java.util.Collections.unmodifiableList(expectedOutages_);
-      }
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        interconnectAttachments_ = interconnectAttachments_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Interconnect_descriptor;
@@ -855,7 +664,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ADMIN_ENABLED_FIELD_NUMBER = 445675089;
-  private boolean adminEnabled_;
+  private boolean adminEnabled_ = false;
   /**
    * <pre>
    * Administrative status of the interconnect. When this is set to true, the Interconnect is functional and can carry traffic. When set to false, no packets can be carried over the interconnect and no BGP routes are exchanged over it. By default, the status is set to true.
@@ -882,6 +691,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIRCUIT_INFOS_FIELD_NUMBER = 164839855;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.InterconnectCircuitInfo> circuitInfos_;
   /**
    * <pre>
@@ -942,7 +752,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -1000,7 +811,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_NAME_FIELD_NUMBER = 3665484;
-  private volatile java.lang.Object customerName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerName_ = "";
   /**
    * <pre>
    * Customer name, to put in the Letter of Authorization as the party authorized to request a crossconnect.
@@ -1058,7 +870,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -1116,6 +929,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXPECTED_OUTAGES_FIELD_NUMBER = 264484123;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.InterconnectOutageNotification> expectedOutages_;
   /**
    * <pre>
@@ -1176,7 +990,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOOGLE_IP_ADDRESS_FIELD_NUMBER = 443105954;
-  private volatile java.lang.Object googleIpAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object googleIpAddress_ = "";
   /**
    * <pre>
    * [Output Only] IP address configured on the Google side of the Interconnect link. This can be used only for ping tests.
@@ -1234,7 +1049,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOOGLE_REFERENCE_ID_FIELD_NUMBER = 534944469;
-  private volatile java.lang.Object googleReferenceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object googleReferenceId_ = "";
   /**
    * <pre>
    * [Output Only] Google reference ID to be used when raising support tickets with Google or otherwise to debug backend connectivity issues.
@@ -1292,7 +1108,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -1319,6 +1135,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERCONNECT_ATTACHMENTS_FIELD_NUMBER = 425388415;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList interconnectAttachments_;
   /**
    * <pre>
@@ -1370,7 +1187,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERCONNECT_TYPE_FIELD_NUMBER = 515165259;
-  private volatile java.lang.Object interconnectType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object interconnectType_ = "";
   /**
    * <pre>
    * Type of interconnect, which can take one of the following values: - PARTNER: A partner-managed interconnection shared between customers though a partner. - DEDICATED: A dedicated physical interconnection with the customer. Note that a value IT_PRIVATE has been deprecated in favor of DEDICATED.
@@ -1431,7 +1249,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#interconnect for interconnects.
@@ -1489,7 +1308,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINK_TYPE_FIELD_NUMBER = 523207775;
-  private volatile java.lang.Object linkType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object linkType_ = "";
   /**
    * <pre>
    * Type of link requested, which can take one of the following values: - LINK_TYPE_ETHERNET_10G_LR: A 10G Ethernet with LR optics - LINK_TYPE_ETHERNET_100G_LR: A 100G Ethernet with LR optics. Note that this field indicates the speed of each of the links in the bundle, not the speed of the entire bundle.
@@ -1550,7 +1370,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FIELD_NUMBER = 290430901;
-  private volatile java.lang.Object location_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
   /**
    * <pre>
    * URL of the InterconnectLocation object that represents where this connection is to be provisioned.
@@ -1608,7 +1429,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -1666,7 +1488,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOC_CONTACT_EMAIL_FIELD_NUMBER = 14072832;
-  private volatile java.lang.Object nocContactEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nocContactEmail_ = "";
   /**
    * <pre>
    * Email address to contact the customer NOC for operations and maintenance notifications regarding this Interconnect. If specified, this will be used for notifications in addition to all other forms described, such as Stackdriver logs alerting and Cloud Notifications.
@@ -1724,7 +1547,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATIONAL_STATUS_FIELD_NUMBER = 201070847;
-  private volatile java.lang.Object operationalStatus_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operationalStatus_ = "";
   /**
    * <pre>
    * [Output Only] The current status of this Interconnect's functionality, which can take one of the following values: - OS_ACTIVE: A valid Interconnect, which is turned up and is ready to use. Attachments may be provisioned on this Interconnect. - OS_UNPROVISIONED: An Interconnect that has not completed turnup. No attachments may be provisioned on this Interconnect. - OS_UNDER_MAINTENANCE: An Interconnect that is undergoing internal maintenance. No attachments may be provisioned or updated on this Interconnect.
@@ -1785,7 +1609,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PEER_IP_ADDRESS_FIELD_NUMBER = 207735769;
-  private volatile java.lang.Object peerIpAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object peerIpAddress_ = "";
   /**
    * <pre>
    * [Output Only] IP address configured on the customer side of the Interconnect link. The customer should configure this IP address during turnup when prompted by Google NOC. This can be used only for ping tests.
@@ -1843,7 +1668,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROVISIONED_LINK_COUNT_FIELD_NUMBER = 410888565;
-  private int provisionedLinkCount_;
+  private int provisionedLinkCount_ = 0;
   /**
    * <pre>
    * [Output Only] Number of links actually provisioned in this interconnect.
@@ -1870,7 +1695,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUESTED_LINK_COUNT_FIELD_NUMBER = 45051387;
-  private int requestedLinkCount_;
+  private int requestedLinkCount_ = 0;
   /**
    * <pre>
    * Target number of physical links in the link bundle, as requested by the customer.
@@ -1897,7 +1722,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SATISFIES_PZS_FIELD_NUMBER = 480964267;
-  private boolean satisfiesPzs_;
+  private boolean satisfiesPzs_ = false;
   /**
    * <pre>
    * [Output Only] Set to true if the resource satisfies the zone separation organization policy constraints and false otherwise. Defaults to false if the field is not present.
@@ -1924,7 +1749,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -1982,7 +1808,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 109757585;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * [Output Only] The current state of Interconnect functionality, which can take one of the following values: - ACTIVE: The Interconnect is valid, turned up and ready to use. Attachments may be provisioned on this Interconnect. - UNPROVISIONED: The Interconnect has not completed turnup. No attachments may be provisioned on this Interconnect. - UNDER_MAINTENANCE: The Interconnect is undergoing internal maintenance. No attachments may be provisioned or updated on this Interconnect.
@@ -2125,7 +1952,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 534944469, googleReferenceId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2215,7 +2042,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(534944469, googleReferenceId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2336,7 +2163,7 @@ private static final long serialVersionUID = 0L;
       if (!getState()
           .equals(other.getState())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2442,7 +2269,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + getState().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2563,78 +2390,54 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.Interconnect.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getCircuitInfosFieldBuilder();
-        getExpectedOutagesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       adminEnabled_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (circuitInfosBuilder_ == null) {
         circuitInfos_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        circuitInfos_ = null;
         circuitInfosBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       customerName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       if (expectedOutagesBuilder_ == null) {
         expectedOutages_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        expectedOutages_ = null;
         expectedOutagesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       googleIpAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       googleReferenceId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000100);
       interconnectAttachments_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000200);
       interconnectType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       linkType_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       location_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00004000);
       nocContactEmail_ = "";
-      bitField0_ = (bitField0_ & ~0x00008000);
       operationalStatus_ = "";
-      bitField0_ = (bitField0_ & ~0x00010000);
       peerIpAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00020000);
       provisionedLinkCount_ = 0;
-      bitField0_ = (bitField0_ & ~0x00040000);
       requestedLinkCount_ = 0;
-      bitField0_ = (bitField0_ & ~0x00080000);
       satisfiesPzs_ = false;
-      bitField0_ = (bitField0_ & ~0x00100000);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00200000);
       state_ = "";
-      bitField0_ = (bitField0_ & ~0x00400000);
       return this;
     }
 
@@ -2661,12 +2464,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Interconnect buildPartial() {
       com.google.cloud.compute.v1.Interconnect result = new com.google.cloud.compute.v1.Interconnect(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.adminEnabled_ = adminEnabled_;
-        to_bitField0_ |= 0x00000001;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.Interconnect result) {
       if (circuitInfosBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           circuitInfos_ = java.util.Collections.unmodifiableList(circuitInfos_);
@@ -2676,18 +2480,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.circuitInfos_ = circuitInfosBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.customerName_ = customerName_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000008;
-      }
-      result.description_ = description_;
       if (expectedOutagesBuilder_ == null) {
         if (((bitField0_ & 0x00000020) != 0)) {
           expectedOutages_ = java.util.Collections.unmodifiableList(expectedOutages_);
@@ -2697,55 +2489,76 @@ private static final long serialVersionUID = 0L;
       } else {
         result.expectedOutages_ = expectedOutagesBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.googleIpAddress_ = googleIpAddress_;
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        to_bitField0_ |= 0x00000020;
-      }
-      result.googleReferenceId_ = googleReferenceId_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000040;
-      }
       if (((bitField0_ & 0x00000200) != 0)) {
         interconnectAttachments_ = interconnectAttachments_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000200);
       }
       result.interconnectAttachments_ = interconnectAttachments_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Interconnect result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.adminEnabled_ = adminEnabled_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.customerName_ = customerName_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.googleIpAddress_ = googleIpAddress_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.googleReferenceId_ = googleReferenceId_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000040;
+      }
       if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.interconnectType_ = interconnectType_;
         to_bitField0_ |= 0x00000080;
       }
-      result.interconnectType_ = interconnectType_;
       if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.kind_ = kind_;
         to_bitField0_ |= 0x00000100;
       }
-      result.kind_ = kind_;
       if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.linkType_ = linkType_;
         to_bitField0_ |= 0x00000200;
       }
-      result.linkType_ = linkType_;
       if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.location_ = location_;
         to_bitField0_ |= 0x00000400;
       }
-      result.location_ = location_;
       if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000800;
       }
-      result.name_ = name_;
       if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.nocContactEmail_ = nocContactEmail_;
         to_bitField0_ |= 0x00001000;
       }
-      result.nocContactEmail_ = nocContactEmail_;
       if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.operationalStatus_ = operationalStatus_;
         to_bitField0_ |= 0x00002000;
       }
-      result.operationalStatus_ = operationalStatus_;
       if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.peerIpAddress_ = peerIpAddress_;
         to_bitField0_ |= 0x00004000;
       }
-      result.peerIpAddress_ = peerIpAddress_;
       if (((from_bitField0_ & 0x00040000) != 0)) {
         result.provisionedLinkCount_ = provisionedLinkCount_;
         to_bitField0_ |= 0x00008000;
@@ -2759,16 +2572,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00020000;
       }
       if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00040000;
       }
-      result.selfLink_ = selfLink_;
       if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.state_ = state_;
         to_bitField0_ |= 0x00080000;
       }
-      result.state_ = state_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2845,18 +2656,18 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000004;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasCustomerName()) {
-        bitField0_ |= 0x00000008;
         customerName_ = other.customerName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000010;
         description_ = other.description_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (expectedOutagesBuilder_ == null) {
@@ -2886,13 +2697,13 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasGoogleIpAddress()) {
-        bitField0_ |= 0x00000040;
         googleIpAddress_ = other.googleIpAddress_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasGoogleReferenceId()) {
-        bitField0_ |= 0x00000080;
         googleReferenceId_ = other.googleReferenceId_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasId()) {
@@ -2909,43 +2720,43 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasInterconnectType()) {
-        bitField0_ |= 0x00000400;
         interconnectType_ = other.interconnectType_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000800;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.hasLinkType()) {
-        bitField0_ |= 0x00001000;
         linkType_ = other.linkType_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasLocation()) {
-        bitField0_ |= 0x00002000;
         location_ = other.location_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00004000;
         name_ = other.name_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       if (other.hasNocContactEmail()) {
-        bitField0_ |= 0x00008000;
         nocContactEmail_ = other.nocContactEmail_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasOperationalStatus()) {
-        bitField0_ |= 0x00010000;
         operationalStatus_ = other.operationalStatus_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (other.hasPeerIpAddress()) {
-        bitField0_ |= 0x00020000;
         peerIpAddress_ = other.peerIpAddress_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
       if (other.hasProvisionedLinkCount()) {
@@ -2958,16 +2769,16 @@ private static final long serialVersionUID = 0L;
         setSatisfiesPzs(other.getSatisfiesPzs());
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00200000;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00200000;
         onChanged();
       }
       if (other.hasState()) {
-        bitField0_ |= 0x00400000;
         state_ = other.state_;
+        bitField0_ |= 0x00400000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2982,17 +2793,162 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Interconnect parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 26840
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 26989658
+            case 29323874: {
+              customerName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 29323874
+            case 112582658: {
+              nocContactEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 112582658
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 244202930
+            case 360411096: {
+              requestedLinkCount_ = input.readInt32();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 360411096
+            case 878060682: {
+              state_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 878060682
+            case 1318718842: {
+              com.google.cloud.compute.v1.InterconnectCircuitInfo m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.InterconnectCircuitInfo.parser(),
+                      extensionRegistry);
+              if (circuitInfosBuilder_ == null) {
+                ensureCircuitInfosIsMutable();
+                circuitInfos_.add(m);
+              } else {
+                circuitInfosBuilder_.addMessage(m);
+              }
+              break;
+            } // case 1318718842
+            case 1608566778: {
+              operationalStatus_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 1608566778
+            case 1661886154: {
+              peerIpAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 1661886154
+            case 2115872986: {
+              com.google.cloud.compute.v1.InterconnectOutageNotification m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.InterconnectOutageNotification.parser(),
+                      extensionRegistry);
+              if (expectedOutagesBuilder_ == null) {
+                ensureExpectedOutagesIsMutable();
+                expectedOutages_.add(m);
+              } else {
+                expectedOutagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 2115872986
+            case -1971520086: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case -1971520086
+            case -1007858776: {
+              provisionedLinkCount_ = input.readInt32();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case -1007858776
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -911466526
+            case -891859974: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInterconnectAttachmentsIsMutable();
+              interconnectAttachments_.add(s);
+              break;
+            } // case -891859974
+            case -750119662: {
+              googleIpAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -750119662
+            case -729566584: {
+              adminEnabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -729566584
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case -645248918
+            case -447253160: {
+              satisfiesPzs_ = input.readBool();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case -447253160
+            case -173645222: {
+              interconnectType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -173645222
+            case -109305094: {
+              linkType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case -109305094
+            case -15411542: {
+              googleReferenceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -15411542
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Interconnect) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3032,8 +2988,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdminEnabled(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       adminEnabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3428,11 +3385,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3445,8 +3400,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -3461,12 +3416,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -3535,11 +3488,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       customerName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3552,8 +3503,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerName() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       customerName_ = getDefaultInstance().getCustomerName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3568,12 +3519,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3642,11 +3591,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3659,8 +3606,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3675,12 +3622,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4061,11 +4006,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleIpAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       googleIpAddress_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4078,8 +4021,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoogleIpAddress() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       googleIpAddress_ = getDefaultInstance().getGoogleIpAddress();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -4094,12 +4037,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleIpAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       googleIpAddress_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4168,11 +4109,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleReferenceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       googleReferenceId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4185,8 +4124,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoogleReferenceId() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       googleReferenceId_ = getDefaultInstance().getGoogleReferenceId();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -4201,12 +4140,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleReferenceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       googleReferenceId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -4246,8 +4183,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000100;
+      
       id_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4333,10 +4271,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterconnectAttachments(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInterconnectAttachmentsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInterconnectAttachmentsIsMutable();
       interconnectAttachments_.set(index, value);
       onChanged();
       return this;
@@ -4352,10 +4288,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInterconnectAttachments(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInterconnectAttachmentsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInterconnectAttachmentsIsMutable();
       interconnectAttachments_.add(value);
       onChanged();
       return this;
@@ -4402,10 +4336,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInterconnectAttachmentsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInterconnectAttachmentsIsMutable();
       interconnectAttachments_.add(value);
       onChanged();
@@ -4480,11 +4412,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterconnectType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       interconnectType_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4498,8 +4428,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInterconnectType() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       interconnectType_ = getDefaultInstance().getInterconnectType();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -4515,12 +4445,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInterconnectTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       interconnectType_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -4589,11 +4517,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4606,8 +4532,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4622,12 +4548,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4700,11 +4624,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLinkType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       linkType_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4718,8 +4640,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLinkType() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       linkType_ = getDefaultInstance().getLinkType();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -4735,12 +4657,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLinkTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       linkType_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4809,11 +4729,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       location_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4826,8 +4744,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -4842,12 +4760,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       location_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4916,11 +4832,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4933,8 +4847,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00004000);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -4949,12 +4863,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00004000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5023,11 +4935,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNocContactEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
       nocContactEmail_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5040,8 +4950,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNocContactEmail() {
-      bitField0_ = (bitField0_ & ~0x00008000);
       nocContactEmail_ = getDefaultInstance().getNocContactEmail();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -5056,12 +4966,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNocContactEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nocContactEmail_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5134,11 +5042,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationalStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00010000;
+      if (value == null) { throw new NullPointerException(); }
       operationalStatus_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5152,8 +5058,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationalStatus() {
-      bitField0_ = (bitField0_ & ~0x00010000);
       operationalStatus_ = getDefaultInstance().getOperationalStatus();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -5169,12 +5075,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationalStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00010000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operationalStatus_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5243,11 +5147,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeerIpAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
       peerIpAddress_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -5260,8 +5162,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPeerIpAddress() {
-      bitField0_ = (bitField0_ & ~0x00020000);
       peerIpAddress_ = getDefaultInstance().getPeerIpAddress();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -5276,12 +5178,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPeerIpAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       peerIpAddress_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -5321,8 +5221,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProvisionedLinkCount(int value) {
-      bitField0_ |= 0x00040000;
+      
       provisionedLinkCount_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -5376,8 +5277,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequestedLinkCount(int value) {
-      bitField0_ |= 0x00080000;
+      
       requestedLinkCount_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -5431,8 +5333,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSatisfiesPzs(boolean value) {
-      bitField0_ |= 0x00100000;
+      
       satisfiesPzs_ = value;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -5515,11 +5418,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00200000;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -5532,8 +5433,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00200000);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00200000);
       onChanged();
       return this;
     }
@@ -5548,12 +5449,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00200000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -5626,11 +5525,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00400000;
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -5644,8 +5541,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      bitField0_ = (bitField0_ & ~0x00400000);
       state_ = getDefaultInstance().getState();
+      bitField0_ = (bitField0_ & ~0x00400000);
       onChanged();
       return this;
     }
@@ -5661,12 +5558,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00400000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -5703,7 +5598,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Interconnect(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

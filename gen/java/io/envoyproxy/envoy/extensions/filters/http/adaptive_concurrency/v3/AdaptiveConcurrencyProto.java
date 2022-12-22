@@ -47,61 +47,64 @@ public final class AdaptiveConcurrencyProto {
       "_concurrency/v3/adaptive_concurrency.pro" +
       "to\0225envoy.extensions.filters.http.adapti" +
       "ve_concurrency.v3\032\037envoy/config/core/v3/" +
-      "base.proto\032\033envoy/type/v3/percent.proto\032" +
-      "\036google/protobuf/duration.proto\032\036google/" +
-      "protobuf/wrappers.proto\032\035udpa/annotation" +
-      "s/status.proto\032!udpa/annotations/version" +
-      "ing.proto\032\027validate/validate.proto\"\262\t\n\030G" +
-      "radientControllerConfig\022;\n\033sample_aggreg" +
-      "ate_percentile\030\001 \001(\0132\026.envoy.type.v3.Per" +
-      "cent\022\235\001\n\030concurrency_limit_params\030\002 \001(\0132" +
-      "q.envoy.extensions.filters.http.adaptive" +
-      "_concurrency.v3.GradientControllerConfig" +
-      ".ConcurrencyLimitCalculationParamsB\010\372B\005\212" +
-      "\001\002\020\001\022\222\001\n\023min_rtt_calc_params\030\003 \001(\0132k.env" +
-      "oy.extensions.filters.http.adaptive_conc" +
-      "urrency.v3.GradientControllerConfig.Mini" +
-      "mumRTTCalculationParamsB\010\372B\005\212\001\002\020\001\032\256\002\n!Co" +
-      "ncurrencyLimitCalculationParams\022D\n\025max_c" +
-      "oncurrency_limit\030\002 \001(\0132\034.google.protobuf" +
-      ".UInt32ValueB\007\372B\004*\002 \000\022J\n\033concurrency_upd" +
-      "ate_interval\030\003 \001(\0132\031.google.protobuf.Dur" +
-      "ationB\n\372B\007\252\001\004\010\001*\000:w\232\305\210\036r\npenvoy.config.f" +
-      "ilter.http.adaptive_concurrency.v2alpha." +
-      "GradientControllerConfig.ConcurrencyLimi" +
-      "tCalculationParams\032\233\003\n\033MinimumRTTCalcula" +
-      "tionParams\022;\n\010interval\030\001 \001(\0132\031.google.pr" +
-      "otobuf.DurationB\016\372B\013\252\001\010\010\0012\004\020\300\204=\022<\n\rreque" +
-      "st_count\030\002 \001(\0132\034.google.protobuf.UInt32V" +
-      "alueB\007\372B\004*\002 \000\022&\n\006jitter\030\003 \001(\0132\026.envoy.ty" +
-      "pe.v3.Percent\022>\n\017min_concurrency\030\004 \001(\0132\034" +
-      ".google.protobuf.UInt32ValueB\007\372B\004*\002 \000\022&\n" +
-      "\006buffer\030\005 \001(\0132\026.envoy.type.v3.Percent:q\232" +
-      "\305\210\036l\njenvoy.config.filter.http.adaptive_" +
-      "concurrency.v2alpha.GradientControllerCo" +
-      "nfig.MinimumRTTCalculationParams:U\232\305\210\036P\n" +
-      "Nenvoy.config.filter.http.adaptive_concu" +
-      "rrency.v2alpha.GradientControllerConfig\"" +
-      "\311\002\n\023AdaptiveConcurrency\022\177\n\032gradient_cont" +
-      "roller_config\030\001 \001(\0132O.envoy.extensions.f" +
-      "ilters.http.adaptive_concurrency.v3.Grad" +
-      "ientControllerConfigB\010\372B\005\212\001\002\020\001H\000\0229\n\007enab" +
-      "led\030\002 \001(\0132(.envoy.config.core.v3.Runtime" +
-      "FeatureFlag:P\232\305\210\036K\nIenvoy.config.filter." +
-      "http.adaptive_concurrency.v2alpha.Adapti" +
-      "veConcurrencyB$\n\035concurrency_controller_" +
-      "config\022\003\370B\001B\336\001\nCio.envoyproxy.envoy.exte" +
+      "base.proto\032\037envoy/type/v3/http_status.pr" +
+      "oto\032\033envoy/type/v3/percent.proto\032\036google" +
+      "/protobuf/duration.proto\032\036google/protobu" +
+      "f/wrappers.proto\032\035udpa/annotations/statu" +
+      "s.proto\032!udpa/annotations/versioning.pro" +
+      "to\032\027validate/validate.proto\"\262\t\n\030Gradient" +
+      "ControllerConfig\022;\n\033sample_aggregate_per" +
+      "centile\030\001 \001(\0132\026.envoy.type.v3.Percent\022\235\001" +
+      "\n\030concurrency_limit_params\030\002 \001(\0132q.envoy" +
+      ".extensions.filters.http.adaptive_concur" +
+      "rency.v3.GradientControllerConfig.Concur" +
+      "rencyLimitCalculationParamsB\010\372B\005\212\001\002\020\001\022\222\001" +
+      "\n\023min_rtt_calc_params\030\003 \001(\0132k.envoy.exte" +
       "nsions.filters.http.adaptive_concurrency" +
-      ".v3B\030AdaptiveConcurrencyProtoP\001Zsgithub." +
-      "com/envoyproxy/go-control-plane/envoy/ex" +
-      "tensions/filters/http/adaptive_concurren" +
-      "cy/v3;adaptive_concurrencyv3\272\200\310\321\006\002\020\002b\006pr" +
-      "oto3"
+      ".v3.GradientControllerConfig.MinimumRTTC" +
+      "alculationParamsB\010\372B\005\212\001\002\020\001\032\256\002\n!Concurren" +
+      "cyLimitCalculationParams\022D\n\025max_concurre" +
+      "ncy_limit\030\002 \001(\0132\034.google.protobuf.UInt32" +
+      "ValueB\007\372B\004*\002 \000\022J\n\033concurrency_update_int" +
+      "erval\030\003 \001(\0132\031.google.protobuf.DurationB\n" +
+      "\372B\007\252\001\004\010\001*\000:w\232\305\210\036r\npenvoy.config.filter.h" +
+      "ttp.adaptive_concurrency.v2alpha.Gradien" +
+      "tControllerConfig.ConcurrencyLimitCalcul" +
+      "ationParams\032\233\003\n\033MinimumRTTCalculationPar" +
+      "ams\022;\n\010interval\030\001 \001(\0132\031.google.protobuf." +
+      "DurationB\016\372B\013\252\001\010\010\0012\004\020\300\204=\022<\n\rrequest_coun" +
+      "t\030\002 \001(\0132\034.google.protobuf.UInt32ValueB\007\372" +
+      "B\004*\002 \000\022&\n\006jitter\030\003 \001(\0132\026.envoy.type.v3.P" +
+      "ercent\022>\n\017min_concurrency\030\004 \001(\0132\034.google" +
+      ".protobuf.UInt32ValueB\007\372B\004*\002 \000\022&\n\006buffer" +
+      "\030\005 \001(\0132\026.envoy.type.v3.Percent:q\232\305\210\036l\nje" +
+      "nvoy.config.filter.http.adaptive_concurr" +
+      "ency.v2alpha.GradientControllerConfig.Mi" +
+      "nimumRTTCalculationParams:U\232\305\210\036P\nNenvoy." +
+      "config.filter.http.adaptive_concurrency." +
+      "v2alpha.GradientControllerConfig\"\217\003\n\023Ada" +
+      "ptiveConcurrency\022\177\n\032gradient_controller_" +
+      "config\030\001 \001(\0132O.envoy.extensions.filters." +
+      "http.adaptive_concurrency.v3.GradientCon" +
+      "trollerConfigB\010\372B\005\212\001\002\020\001H\000\0229\n\007enabled\030\002 \001" +
+      "(\0132(.envoy.config.core.v3.RuntimeFeature" +
+      "Flag\022D\n!concurrency_limit_exceeded_statu" +
+      "s\030\003 \001(\0132\031.envoy.type.v3.HttpStatus:P\232\305\210\036" +
+      "K\nIenvoy.config.filter.http.adaptive_con" +
+      "currency.v2alpha.AdaptiveConcurrencyB$\n\035" +
+      "concurrency_controller_config\022\003\370B\001B\336\001\nCi" +
+      "o.envoyproxy.envoy.extensions.filters.ht" +
+      "tp.adaptive_concurrency.v3B\030AdaptiveConc" +
+      "urrencyProtoP\001Zsgithub.com/envoyproxy/go" +
+      "-control-plane/envoy/extensions/filters/" +
+      "http/adaptive_concurrency/v3;adaptive_co" +
+      "ncurrencyv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
+          io.envoyproxy.envoy.type.v3.HttpStatusProto.getDescriptor(),
           io.envoyproxy.envoy.type.v3.PercentProto.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
@@ -132,7 +135,7 @@ public final class AdaptiveConcurrencyProto {
     internal_static_envoy_extensions_filters_http_adaptive_concurrency_v3_AdaptiveConcurrency_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_adaptive_concurrency_v3_AdaptiveConcurrency_descriptor,
-        new java.lang.String[] { "GradientControllerConfig", "Enabled", "ConcurrencyControllerConfig", });
+        new java.lang.String[] { "GradientControllerConfig", "Enabled", "ConcurrencyLimitExceededStatus", "ConcurrencyControllerConfig", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
@@ -142,6 +145,7 @@ public final class AdaptiveConcurrencyProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
+    io.envoyproxy.envoy.type.v3.HttpStatusProto.getDescriptor();
     io.envoyproxy.envoy.type.v3.PercentProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();

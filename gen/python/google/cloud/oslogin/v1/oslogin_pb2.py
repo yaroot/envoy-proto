@@ -20,7 +20,7 @@ from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%google/cloud/oslogin/v1/oslogin.proto\x12\x17google.cloud.oslogin.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/oslogin/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x98\x02\n\x0cLoginProfile\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0eposix_accounts\x18\x02 \x03(\x0b\x32).google.cloud.oslogin.common.PosixAccount\x12Q\n\x0fssh_public_keys\x18\x03 \x03(\x0b\x32\x38.google.cloud.oslogin.v1.LoginProfile.SshPublicKeysEntry\x1a_\n\x12SshPublicKeysEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKey:\x02\x38\x01\"V\n\x19\x44\x65letePosixAccountRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/PosixAccount\"V\n\x19\x44\x65leteSshPublicKeyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/SshPublicKey\"z\n\x16GetLoginProfileRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#oslogin.googleapis.com/PosixAccount\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x11\n\tsystem_id\x18\x03 \x01(\t\"S\n\x16GetSshPublicKeyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/SshPublicKey\"\xb4\x01\n\x19ImportSshPublicKeyRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#oslogin.googleapis.com/SshPublicKey\x12\x46\n\x0essh_public_key\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKeyB\x03\xe0\x41\x01\x12\x12\n\nproject_id\x18\x03 \x01(\t\"Z\n\x1aImportSshPublicKeyResponse\x12<\n\rlogin_profile\x18\x01 \x01(\x0b\x32%.google.cloud.oslogin.v1.LoginProfile\"\xcf\x01\n\x19UpdateSshPublicKeyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/SshPublicKey\x12\x46\n\x0essh_public_key\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKeyB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask2\xd0\t\n\x0eOsLoginService\x12\x8e\x01\n\x12\x44\x65letePosixAccount\x12\x32.google.cloud.oslogin.v1.DeletePosixAccountRequest\x1a\x16.google.protobuf.Empty\",\x82\xd3\xe4\x93\x02\x1f*\x1d/v1/{name=users/*/projects/*}\xda\x41\x04name\x12\x93\x01\n\x12\x44\x65leteSshPublicKey\x12\x32.google.cloud.oslogin.v1.DeleteSshPublicKeyRequest\x1a\x16.google.protobuf.Empty\"1\x82\xd3\xe4\x93\x02$*\"/v1/{name=users/*/sshPublicKeys/*}\xda\x41\x04name\x12\x99\x01\n\x0fGetLoginProfile\x12/.google.cloud.oslogin.v1.GetLoginProfileRequest\x1a%.google.cloud.oslogin.v1.LoginProfile\".\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=users/*}/loginProfile\xda\x41\x04name\x12\xa0\x01\n\x0fGetSshPublicKey\x12/.google.cloud.oslogin.v1.GetSshPublicKeyRequest\x1a).google.cloud.oslogin.common.SshPublicKey\"1\x82\xd3\xe4\x93\x02$\x12\"/v1/{name=users/*/sshPublicKeys/*}\xda\x41\x04name\x12\xf9\x01\n\x12ImportSshPublicKey\x12\x32.google.cloud.oslogin.v1.ImportSshPublicKeyRequest\x1a\x33.google.cloud.oslogin.v1.ImportSshPublicKeyResponse\"z\x82\xd3\xe4\x93\x02\x39\"\'/v1/{parent=users/*}:importSshPublicKey:\x0essh_public_key\xda\x41\x15parent,ssh_public_key\xda\x41 parent,ssh_public_key,project_id\x12\xe7\x01\n\x12UpdateSshPublicKey\x12\x32.google.cloud.oslogin.v1.UpdateSshPublicKeyRequest\x1a).google.cloud.oslogin.common.SshPublicKey\"r\x82\xd3\xe4\x93\x02\x34\x32\"/v1/{name=users/*/sshPublicKeys/*}:\x0essh_public_key\xda\x41\x13name,ssh_public_key\xda\x41\x1fname,ssh_public_key,update_mask\x1ar\xca\x41\x16oslogin.googleapis.com\xd2\x41Vhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/computeB\xbe\x01\n\x1b\x63om.google.cloud.oslogin.v1B\x0cOsLoginProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/oslogin/v1;oslogin\xaa\x02\x17Google.Cloud.OsLogin.V1\xca\x02\x17Google\\Cloud\\OsLogin\\V1\xea\x02\x1aGoogle::Cloud::OsLogin::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%google/cloud/oslogin/v1/oslogin.proto\x12\x17google.cloud.oslogin.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/oslogin/common/common.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"\x98\x02\n\x0cLoginProfile\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x41\n\x0eposix_accounts\x18\x02 \x03(\x0b\x32).google.cloud.oslogin.common.PosixAccount\x12Q\n\x0fssh_public_keys\x18\x03 \x03(\x0b\x32\x38.google.cloud.oslogin.v1.LoginProfile.SshPublicKeysEntry\x1a_\n\x12SshPublicKeysEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x38\n\x05value\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKey:\x02\x38\x01\"\xa0\x01\n\x19\x43reateSshPublicKeyRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#oslogin.googleapis.com/SshPublicKey\x12\x46\n\x0essh_public_key\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKeyB\x03\xe0\x41\x02\"V\n\x19\x44\x65letePosixAccountRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/PosixAccount\"V\n\x19\x44\x65leteSshPublicKeyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/SshPublicKey\"z\n\x16GetLoginProfileRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#oslogin.googleapis.com/PosixAccount\x12\x12\n\nproject_id\x18\x02 \x01(\t\x12\x11\n\tsystem_id\x18\x03 \x01(\t\"S\n\x16GetSshPublicKeyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/SshPublicKey\"\xb4\x01\n\x19ImportSshPublicKeyRequest\x12;\n\x06parent\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\x12#oslogin.googleapis.com/SshPublicKey\x12\x46\n\x0essh_public_key\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKeyB\x03\xe0\x41\x01\x12\x12\n\nproject_id\x18\x03 \x01(\t\"k\n\x1aImportSshPublicKeyResponse\x12<\n\rlogin_profile\x18\x01 \x01(\x0b\x32%.google.cloud.oslogin.v1.LoginProfile\x12\x0f\n\x07\x64\x65tails\x18\x02 \x01(\t\"\xcf\x01\n\x19UpdateSshPublicKeyRequest\x12\x39\n\x04name\x18\x01 \x01(\tB+\xe0\x41\x02\xfa\x41%\n#oslogin.googleapis.com/SshPublicKey\x12\x46\n\x0essh_public_key\x18\x02 \x01(\x0b\x32).google.cloud.oslogin.common.SshPublicKeyB\x03\xe0\x41\x02\x12/\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMask2\x86\x0c\n\x0eOsLoginService\x12\xc7\x01\n\x12\x43reateSshPublicKey\x12\x32.google.cloud.oslogin.v1.CreateSshPublicKeyRequest\x1a).google.cloud.oslogin.common.SshPublicKey\"R\x82\xd3\xe4\x93\x02\x34\"\"/v1/{parent=users/*}/sshPublicKeys:\x0essh_public_key\xda\x41\x15parent,ssh_public_key\x12\x8e\x01\n\x12\x44\x65letePosixAccount\x12\x32.google.cloud.oslogin.v1.DeletePosixAccountRequest\x1a\x16.google.protobuf.Empty\",\x82\xd3\xe4\x93\x02\x1f*\x1d/v1/{name=users/*/projects/*}\xda\x41\x04name\x12\x93\x01\n\x12\x44\x65leteSshPublicKey\x12\x32.google.cloud.oslogin.v1.DeleteSshPublicKeyRequest\x1a\x16.google.protobuf.Empty\"1\x82\xd3\xe4\x93\x02$*\"/v1/{name=users/*/sshPublicKeys/*}\xda\x41\x04name\x12\x99\x01\n\x0fGetLoginProfile\x12/.google.cloud.oslogin.v1.GetLoginProfileRequest\x1a%.google.cloud.oslogin.v1.LoginProfile\".\x82\xd3\xe4\x93\x02!\x12\x1f/v1/{name=users/*}/loginProfile\xda\x41\x04name\x12\xa0\x01\n\x0fGetSshPublicKey\x12/.google.cloud.oslogin.v1.GetSshPublicKeyRequest\x1a).google.cloud.oslogin.common.SshPublicKey\"1\x82\xd3\xe4\x93\x02$\x12\"/v1/{name=users/*/sshPublicKeys/*}\xda\x41\x04name\x12\xf9\x01\n\x12ImportSshPublicKey\x12\x32.google.cloud.oslogin.v1.ImportSshPublicKeyRequest\x1a\x33.google.cloud.oslogin.v1.ImportSshPublicKeyResponse\"z\x82\xd3\xe4\x93\x02\x39\"\'/v1/{parent=users/*}:importSshPublicKey:\x0essh_public_key\xda\x41\x15parent,ssh_public_key\xda\x41 parent,ssh_public_key,project_id\x12\xe7\x01\n\x12UpdateSshPublicKey\x12\x32.google.cloud.oslogin.v1.UpdateSshPublicKeyRequest\x1a).google.cloud.oslogin.common.SshPublicKey\"r\x82\xd3\xe4\x93\x02\x34\x32\"/v1/{name=users/*/sshPublicKeys/*}:\x0essh_public_key\xda\x41\x13name,ssh_public_key\xda\x41\x1fname,ssh_public_key,update_mask\x1a\xdd\x01\xca\x41\x16oslogin.googleapis.com\xd2\x41\xc0\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-only,https://www.googleapis.com/auth/compute,https://www.googleapis.com/auth/compute.readonlyB\xbe\x01\n\x1b\x63om.google.cloud.oslogin.v1B\x0cOsLoginProtoP\x01Z>google.golang.org/genproto/googleapis/cloud/oslogin/v1;oslogin\xaa\x02\x17Google.Cloud.OsLogin.V1\xca\x02\x17Google\\Cloud\\OsLogin\\V1\xea\x02\x1aGoogle::Cloud::OsLogin::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.oslogin.v1.oslogin_pb2', globals())
@@ -32,6 +32,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LOGINPROFILE_SSHPUBLICKEYSENTRY._serialized_options = b'8\001'
   _LOGINPROFILE.fields_by_name['name']._options = None
   _LOGINPROFILE.fields_by_name['name']._serialized_options = b'\340A\002'
+  _CREATESSHPUBLICKEYREQUEST.fields_by_name['parent']._options = None
+  _CREATESSHPUBLICKEYREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A%\022#oslogin.googleapis.com/SshPublicKey'
+  _CREATESSHPUBLICKEYREQUEST.fields_by_name['ssh_public_key']._options = None
+  _CREATESSHPUBLICKEYREQUEST.fields_by_name['ssh_public_key']._serialized_options = b'\340A\002'
   _DELETEPOSIXACCOUNTREQUEST.fields_by_name['name']._options = None
   _DELETEPOSIXACCOUNTREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A%\n#oslogin.googleapis.com/PosixAccount'
   _DELETESSHPUBLICKEYREQUEST.fields_by_name['name']._options = None
@@ -49,7 +53,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _UPDATESSHPUBLICKEYREQUEST.fields_by_name['ssh_public_key']._options = None
   _UPDATESSHPUBLICKEYREQUEST.fields_by_name['ssh_public_key']._serialized_options = b'\340A\002'
   _OSLOGINSERVICE._options = None
-  _OSLOGINSERVICE._serialized_options = b'\312A\026oslogin.googleapis.com\322AVhttps://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/compute'
+  _OSLOGINSERVICE._serialized_options = b'\312A\026oslogin.googleapis.com\322A\300\001https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-only,https://www.googleapis.com/auth/compute,https://www.googleapis.com/auth/compute.readonly'
+  _OSLOGINSERVICE.methods_by_name['CreateSshPublicKey']._options = None
+  _OSLOGINSERVICE.methods_by_name['CreateSshPublicKey']._serialized_options = b'\202\323\344\223\0024\"\"/v1/{parent=users/*}/sshPublicKeys:\016ssh_public_key\332A\025parent,ssh_public_key'
   _OSLOGINSERVICE.methods_by_name['DeletePosixAccount']._options = None
   _OSLOGINSERVICE.methods_by_name['DeletePosixAccount']._serialized_options = b'\202\323\344\223\002\037*\035/v1/{name=users/*/projects/*}\332A\004name'
   _OSLOGINSERVICE.methods_by_name['DeleteSshPublicKey']._options = None
@@ -66,20 +72,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LOGINPROFILE._serialized_end=567
   _LOGINPROFILE_SSHPUBLICKEYSENTRY._serialized_start=472
   _LOGINPROFILE_SSHPUBLICKEYSENTRY._serialized_end=567
-  _DELETEPOSIXACCOUNTREQUEST._serialized_start=569
-  _DELETEPOSIXACCOUNTREQUEST._serialized_end=655
-  _DELETESSHPUBLICKEYREQUEST._serialized_start=657
-  _DELETESSHPUBLICKEYREQUEST._serialized_end=743
-  _GETLOGINPROFILEREQUEST._serialized_start=745
-  _GETLOGINPROFILEREQUEST._serialized_end=867
-  _GETSSHPUBLICKEYREQUEST._serialized_start=869
-  _GETSSHPUBLICKEYREQUEST._serialized_end=952
-  _IMPORTSSHPUBLICKEYREQUEST._serialized_start=955
-  _IMPORTSSHPUBLICKEYREQUEST._serialized_end=1135
-  _IMPORTSSHPUBLICKEYRESPONSE._serialized_start=1137
-  _IMPORTSSHPUBLICKEYRESPONSE._serialized_end=1227
-  _UPDATESSHPUBLICKEYREQUEST._serialized_start=1230
-  _UPDATESSHPUBLICKEYREQUEST._serialized_end=1437
-  _OSLOGINSERVICE._serialized_start=1440
-  _OSLOGINSERVICE._serialized_end=2672
+  _CREATESSHPUBLICKEYREQUEST._serialized_start=570
+  _CREATESSHPUBLICKEYREQUEST._serialized_end=730
+  _DELETEPOSIXACCOUNTREQUEST._serialized_start=732
+  _DELETEPOSIXACCOUNTREQUEST._serialized_end=818
+  _DELETESSHPUBLICKEYREQUEST._serialized_start=820
+  _DELETESSHPUBLICKEYREQUEST._serialized_end=906
+  _GETLOGINPROFILEREQUEST._serialized_start=908
+  _GETLOGINPROFILEREQUEST._serialized_end=1030
+  _GETSSHPUBLICKEYREQUEST._serialized_start=1032
+  _GETSSHPUBLICKEYREQUEST._serialized_end=1115
+  _IMPORTSSHPUBLICKEYREQUEST._serialized_start=1118
+  _IMPORTSSHPUBLICKEYREQUEST._serialized_end=1298
+  _IMPORTSSHPUBLICKEYRESPONSE._serialized_start=1300
+  _IMPORTSSHPUBLICKEYRESPONSE._serialized_end=1407
+  _UPDATESSHPUBLICKEYREQUEST._serialized_start=1410
+  _UPDATESSHPUBLICKEYREQUEST._serialized_end=1617
+  _OSLOGINSERVICE._serialized_start=1620
+  _OSLOGINSERVICE._serialized_end=3162
 # @@protoc_insertion_point(module_scope)

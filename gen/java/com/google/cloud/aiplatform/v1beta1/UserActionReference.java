@@ -36,63 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserActionReference(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            referenceCase_ = 1;
-            reference_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            referenceCase_ = 2;
-            reference_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            method_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.UserActionReferenceProto.internal_static_google_cloud_aiplatform_v1beta1_UserActionReference_descriptor;
@@ -153,7 +96,7 @@ private static final long serialVersionUID = 0L;
    * For API calls that return a long running operation.
    * Resource name of the long running operation.
    * Format:
-   * 'projects/{project}/locations/{location}/operations/{operation}'
+   * `projects/{project}/locations/{location}/operations/{operation}`
    * </pre>
    *
    * <code>string operation = 1;</code>
@@ -167,7 +110,7 @@ private static final long serialVersionUID = 0L;
    * For API calls that return a long running operation.
    * Resource name of the long running operation.
    * Format:
-   * 'projects/{project}/locations/{location}/operations/{operation}'
+   * `projects/{project}/locations/{location}/operations/{operation}`
    * </pre>
    *
    * <code>string operation = 1;</code>
@@ -195,7 +138,7 @@ private static final long serialVersionUID = 0L;
    * For API calls that return a long running operation.
    * Resource name of the long running operation.
    * Format:
-   * 'projects/{project}/locations/{location}/operations/{operation}'
+   * `projects/{project}/locations/{location}/operations/{operation}`
    * </pre>
    *
    * <code>string operation = 1;</code>
@@ -226,7 +169,7 @@ private static final long serialVersionUID = 0L;
    * For API calls that start a LabelingJob.
    * Resource name of the LabelingJob.
    * Format:
-   * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+   * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
    * </pre>
    *
    * <code>string data_labeling_job = 2;</code>
@@ -240,7 +183,7 @@ private static final long serialVersionUID = 0L;
    * For API calls that start a LabelingJob.
    * Resource name of the LabelingJob.
    * Format:
-   * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+   * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
    * </pre>
    *
    * <code>string data_labeling_job = 2;</code>
@@ -268,7 +211,7 @@ private static final long serialVersionUID = 0L;
    * For API calls that start a LabelingJob.
    * Resource name of the LabelingJob.
    * Format:
-   * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+   * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
    * </pre>
    *
    * <code>string data_labeling_job = 2;</code>
@@ -294,7 +237,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METHOD_FIELD_NUMBER = 3;
-  private volatile java.lang.Object method_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object method_ = "";
   /**
    * <pre>
    * The method name of the API RPC call. For example,
@@ -364,7 +308,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, method_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -382,7 +326,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(method_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, method_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -412,7 +356,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -437,7 +381,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -559,24 +503,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.UserActionReference.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       method_ = "";
-
       referenceCase_ = 0;
       reference_ = null;
       return this;
@@ -605,16 +544,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.UserActionReference buildPartial() {
       com.google.cloud.aiplatform.v1beta1.UserActionReference result = new com.google.cloud.aiplatform.v1beta1.UserActionReference(this);
-      if (referenceCase_ == 1) {
-        result.reference_ = reference_;
-      }
-      if (referenceCase_ == 2) {
-        result.reference_ = reference_;
-      }
-      result.method_ = method_;
-      result.referenceCase_ = referenceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.UserActionReference result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.method_ = method_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.UserActionReference result) {
+      result.referenceCase_ = referenceCase_;
+      result.reference_ = this.reference_;
     }
 
     @java.lang.Override
@@ -663,6 +608,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.UserActionReference.getDefaultInstance()) return this;
       if (!other.getMethod().isEmpty()) {
         method_ = other.method_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getReferenceCase()) {
@@ -682,7 +628,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -697,17 +643,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.UserActionReference parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              referenceCase_ = 1;
+              reference_ = s;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              referenceCase_ = 2;
+              reference_ = s;
+              break;
+            } // case 18
+            case 26: {
+              method_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.UserActionReference) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int referenceCase_ = 0;
@@ -725,13 +701,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
      * For API calls that return a long running operation.
      * Resource name of the long running operation.
      * Format:
-     * 'projects/{project}/locations/{location}/operations/{operation}'
+     * `projects/{project}/locations/{location}/operations/{operation}`
      * </pre>
      *
      * <code>string operation = 1;</code>
@@ -746,7 +723,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that return a long running operation.
      * Resource name of the long running operation.
      * Format:
-     * 'projects/{project}/locations/{location}/operations/{operation}'
+     * `projects/{project}/locations/{location}/operations/{operation}`
      * </pre>
      *
      * <code>string operation = 1;</code>
@@ -775,7 +752,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that return a long running operation.
      * Resource name of the long running operation.
      * Format:
-     * 'projects/{project}/locations/{location}/operations/{operation}'
+     * `projects/{project}/locations/{location}/operations/{operation}`
      * </pre>
      *
      * <code>string operation = 1;</code>
@@ -805,7 +782,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that return a long running operation.
      * Resource name of the long running operation.
      * Format:
-     * 'projects/{project}/locations/{location}/operations/{operation}'
+     * `projects/{project}/locations/{location}/operations/{operation}`
      * </pre>
      *
      * <code>string operation = 1;</code>
@@ -814,10 +791,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  referenceCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      referenceCase_ = 1;
       reference_ = value;
       onChanged();
       return this;
@@ -827,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that return a long running operation.
      * Resource name of the long running operation.
      * Format:
-     * 'projects/{project}/locations/{location}/operations/{operation}'
+     * `projects/{project}/locations/{location}/operations/{operation}`
      * </pre>
      *
      * <code>string operation = 1;</code>
@@ -846,7 +821,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that return a long running operation.
      * Resource name of the long running operation.
      * Format:
-     * 'projects/{project}/locations/{location}/operations/{operation}'
+     * `projects/{project}/locations/{location}/operations/{operation}`
      * </pre>
      *
      * <code>string operation = 1;</code>
@@ -855,10 +830,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       referenceCase_ = 1;
       reference_ = value;
       onChanged();
@@ -870,7 +843,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that start a LabelingJob.
      * Resource name of the LabelingJob.
      * Format:
-     * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+     * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
      * </pre>
      *
      * <code>string data_labeling_job = 2;</code>
@@ -885,7 +858,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that start a LabelingJob.
      * Resource name of the LabelingJob.
      * Format:
-     * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+     * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
      * </pre>
      *
      * <code>string data_labeling_job = 2;</code>
@@ -914,7 +887,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that start a LabelingJob.
      * Resource name of the LabelingJob.
      * Format:
-     * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+     * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
      * </pre>
      *
      * <code>string data_labeling_job = 2;</code>
@@ -944,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that start a LabelingJob.
      * Resource name of the LabelingJob.
      * Format:
-     * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+     * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
      * </pre>
      *
      * <code>string data_labeling_job = 2;</code>
@@ -953,10 +926,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataLabelingJob(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  referenceCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      referenceCase_ = 2;
       reference_ = value;
       onChanged();
       return this;
@@ -966,7 +937,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that start a LabelingJob.
      * Resource name of the LabelingJob.
      * Format:
-     * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+     * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
      * </pre>
      *
      * <code>string data_labeling_job = 2;</code>
@@ -985,7 +956,7 @@ private static final long serialVersionUID = 0L;
      * For API calls that start a LabelingJob.
      * Resource name of the LabelingJob.
      * Format:
-     * 'projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}'
+     * `projects/{project}/locations/{location}/dataLabelingJobs/{data_labeling_job}`
      * </pre>
      *
      * <code>string data_labeling_job = 2;</code>
@@ -994,10 +965,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataLabelingJobBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       referenceCase_ = 2;
       reference_ = value;
       onChanged();
@@ -1060,11 +1029,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMethod(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       method_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1078,8 +1045,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMethod() {
-      
       method_ = getDefaultInstance().getMethod();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1095,12 +1062,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMethodBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       method_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1137,7 +1102,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserActionReference(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

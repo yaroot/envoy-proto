@@ -36,67 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeleteAzureClusterRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            allowMissing_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureServiceProto.internal_static_google_cloud_gkemulticloud_v1_DeleteAzureClusterRequest_descriptor;
@@ -111,10 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+   * Required. The resource name the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
    * `AzureCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -139,7 +80,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+   * Required. The resource name the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
    * `AzureCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -165,12 +107,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_MISSING_FIELD_NUMBER = 2;
-  private boolean allowMissing_;
+  private boolean allowMissing_ = false;
   /**
    * <pre>
-   * If set to true, and the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not found,
-   * the request will succeed but no action will be taken on the server and a
-   * completed [Operation][google.longrunning.Operation] will be returned.
+   * If set to true, and the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not
+   * found, the request will succeed but no action will be taken on the server
+   * and a completed [Operation][google.longrunning.Operation] will be returned.
    * Useful for idempotent deletion.
    * </pre>
    *
@@ -183,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 3;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If set, only validate the request, but do not actually delete the resource.
@@ -198,10 +141,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 4;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
-   * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+   * The current etag of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
    * Allows clients to perform deletions through optimistic concurrency control.
    * If the provided etag does not match the current etag of the cluster,
    * the request will fail and an ABORTED error will be returned.
@@ -225,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+   * The current etag of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
    * Allows clients to perform deletions through optimistic concurrency control.
    * If the provided etag does not match the current etag of the cluster,
    * the request will fail and an ABORTED error will be returned.
@@ -275,7 +221,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, etag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -298,7 +244,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -321,7 +267,7 @@ private static final long serialVersionUID = 0L;
         != other.getValidateOnly()) return false;
     if (!getEtag()
         .equals(other.getEtag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -342,7 +288,7 @@ private static final long serialVersionUID = 0L;
         getValidateOnly());
     hash = (37 * hash) + ETAG_FIELD_NUMBER;
     hash = (53 * hash) + getEtag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -463,30 +409,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       allowMissing_ = false;
-
       validateOnly_ = false;
-
       etag_ = "";
-
       return this;
     }
 
@@ -513,12 +451,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest buildPartial() {
       com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest result = new com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest(this);
-      result.name_ = name_;
-      result.allowMissing_ = allowMissing_;
-      result.validateOnly_ = validateOnly_;
-      result.etag_ = etag_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.allowMissing_ = allowMissing_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.etag_ = etag_;
+      }
     }
 
     @java.lang.Override
@@ -567,6 +518,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getAllowMissing() != false) {
@@ -577,9 +529,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -594,24 +547,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              allowMissing_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.DeleteAzureClusterRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+     * Required. The resource name the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -635,7 +623,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+     * Required. The resource name the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -660,7 +649,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+     * Required. The resource name the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -673,17 +663,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+     * Required. The resource name the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -694,14 +683,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+     * Required. The resource name the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -714,12 +704,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -727,9 +715,10 @@ private static final long serialVersionUID = 0L;
     private boolean allowMissing_ ;
     /**
      * <pre>
-     * If set to true, and the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not found,
-     * the request will succeed but no action will be taken on the server and a
-     * completed [Operation][google.longrunning.Operation] will be returned.
+     * If set to true, and the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not
+     * found, the request will succeed but no action will be taken on the server
+     * and a completed [Operation][google.longrunning.Operation] will be returned.
      * Useful for idempotent deletion.
      * </pre>
      *
@@ -742,9 +731,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * If set to true, and the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not found,
-     * the request will succeed but no action will be taken on the server and a
-     * completed [Operation][google.longrunning.Operation] will be returned.
+     * If set to true, and the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not
+     * found, the request will succeed but no action will be taken on the server
+     * and a completed [Operation][google.longrunning.Operation] will be returned.
      * Useful for idempotent deletion.
      * </pre>
      *
@@ -755,14 +745,16 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowMissing(boolean value) {
       
       allowMissing_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * If set to true, and the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not found,
-     * the request will succeed but no action will be taken on the server and a
-     * completed [Operation][google.longrunning.Operation] will be returned.
+     * If set to true, and the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not
+     * found, the request will succeed but no action will be taken on the server
+     * and a completed [Operation][google.longrunning.Operation] will be returned.
      * Useful for idempotent deletion.
      * </pre>
      *
@@ -770,7 +762,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowMissing() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       allowMissing_ = false;
       onChanged();
       return this;
@@ -801,6 +793,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -813,7 +806,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -822,7 +815,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object etag_ = "";
     /**
      * <pre>
-     * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+     * The current etag of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
      * Allows clients to perform deletions through optimistic concurrency control.
      * If the provided etag does not match the current etag of the cluster,
      * the request will fail and an ABORTED error will be returned.
@@ -845,7 +839,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+     * The current etag of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
      * Allows clients to perform deletions through optimistic concurrency control.
      * If the provided etag does not match the current etag of the cluster,
      * the request will fail and an ABORTED error will be returned.
@@ -869,7 +864,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+     * The current etag of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
      * Allows clients to perform deletions through optimistic concurrency control.
      * If the provided etag does not match the current etag of the cluster,
      * the request will fail and an ABORTED error will be returned.
@@ -881,17 +877,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+     * The current etag of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
      * Allows clients to perform deletions through optimistic concurrency control.
      * If the provided etag does not match the current etag of the cluster,
      * the request will fail and an ABORTED error will be returned.
@@ -901,14 +896,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+     * The current etag of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
      * Allows clients to perform deletions through optimistic concurrency control.
      * If the provided etag does not match the current etag of the cluster,
      * the request will fail and an ABORTED error will be returned.
@@ -920,12 +916,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -962,7 +956,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeleteAzureClusterRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

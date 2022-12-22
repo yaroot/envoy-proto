@@ -34,87 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DetectionRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.chromeos.uidetection.v1.WordDetectionRequest.Builder subBuilder = null;
-            if (detectionRequestTypeCase_ == 1) {
-              subBuilder = ((com.google.chromeos.uidetection.v1.WordDetectionRequest) detectionRequestType_).toBuilder();
-            }
-            detectionRequestType_ =
-                input.readMessage(com.google.chromeos.uidetection.v1.WordDetectionRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.chromeos.uidetection.v1.WordDetectionRequest) detectionRequestType_);
-              detectionRequestType_ = subBuilder.buildPartial();
-            }
-            detectionRequestTypeCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.chromeos.uidetection.v1.TextBlockDetectionRequest.Builder subBuilder = null;
-            if (detectionRequestTypeCase_ == 2) {
-              subBuilder = ((com.google.chromeos.uidetection.v1.TextBlockDetectionRequest) detectionRequestType_).toBuilder();
-            }
-            detectionRequestType_ =
-                input.readMessage(com.google.chromeos.uidetection.v1.TextBlockDetectionRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.chromeos.uidetection.v1.TextBlockDetectionRequest) detectionRequestType_);
-              detectionRequestType_ = subBuilder.buildPartial();
-            }
-            detectionRequestTypeCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.chromeos.uidetection.v1.CustomIconDetectionRequest.Builder subBuilder = null;
-            if (detectionRequestTypeCase_ == 3) {
-              subBuilder = ((com.google.chromeos.uidetection.v1.CustomIconDetectionRequest) detectionRequestType_).toBuilder();
-            }
-            detectionRequestType_ =
-                input.readMessage(com.google.chromeos.uidetection.v1.CustomIconDetectionRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.chromeos.uidetection.v1.CustomIconDetectionRequest) detectionRequestType_);
-              detectionRequestType_ = subBuilder.buildPartial();
-            }
-            detectionRequestTypeCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.chromeos.uidetection.v1.UiDetectionProto.internal_static_google_chromeos_uidetection_v1_DetectionRequest_descriptor;
@@ -323,7 +242,7 @@ private static final long serialVersionUID = 0L;
     if (detectionRequestTypeCase_ == 3) {
       output.writeMessage(3, (com.google.chromeos.uidetection.v1.CustomIconDetectionRequest) detectionRequestType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -344,7 +263,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.chromeos.uidetection.v1.CustomIconDetectionRequest) detectionRequestType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -376,7 +295,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +322,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,22 +443,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.chromeos.uidetection.v1.DetectionRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (wordDetectionRequestBuilder_ != null) {
+        wordDetectionRequestBuilder_.clear();
+      }
+      if (textBlockDetectionRequestBuilder_ != null) {
+        textBlockDetectionRequestBuilder_.clear();
+      }
+      if (customIconDetectionRequestBuilder_ != null) {
+        customIconDetectionRequestBuilder_.clear();
+      }
       detectionRequestTypeCase_ = 0;
       detectionRequestType_ = null;
       return this;
@@ -568,30 +492,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.chromeos.uidetection.v1.DetectionRequest buildPartial() {
       com.google.chromeos.uidetection.v1.DetectionRequest result = new com.google.chromeos.uidetection.v1.DetectionRequest(this);
-      if (detectionRequestTypeCase_ == 1) {
-        if (wordDetectionRequestBuilder_ == null) {
-          result.detectionRequestType_ = detectionRequestType_;
-        } else {
-          result.detectionRequestType_ = wordDetectionRequestBuilder_.build();
-        }
-      }
-      if (detectionRequestTypeCase_ == 2) {
-        if (textBlockDetectionRequestBuilder_ == null) {
-          result.detectionRequestType_ = detectionRequestType_;
-        } else {
-          result.detectionRequestType_ = textBlockDetectionRequestBuilder_.build();
-        }
-      }
-      if (detectionRequestTypeCase_ == 3) {
-        if (customIconDetectionRequestBuilder_ == null) {
-          result.detectionRequestType_ = detectionRequestType_;
-        } else {
-          result.detectionRequestType_ = customIconDetectionRequestBuilder_.build();
-        }
-      }
-      result.detectionRequestTypeCase_ = detectionRequestTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.chromeos.uidetection.v1.DetectionRequest result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.chromeos.uidetection.v1.DetectionRequest result) {
+      result.detectionRequestTypeCase_ = detectionRequestTypeCase_;
+      result.detectionRequestType_ = this.detectionRequestType_;
+      if (detectionRequestTypeCase_ == 1 &&
+          wordDetectionRequestBuilder_ != null) {
+        result.detectionRequestType_ = wordDetectionRequestBuilder_.build();
+      }
+      if (detectionRequestTypeCase_ == 2 &&
+          textBlockDetectionRequestBuilder_ != null) {
+        result.detectionRequestType_ = textBlockDetectionRequestBuilder_.build();
+      }
+      if (detectionRequestTypeCase_ == 3 &&
+          customIconDetectionRequestBuilder_ != null) {
+        result.detectionRequestType_ = customIconDetectionRequestBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -655,7 +580,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -670,17 +595,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.chromeos.uidetection.v1.DetectionRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getWordDetectionRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detectionRequestTypeCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTextBlockDetectionRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detectionRequestTypeCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCustomIconDetectionRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detectionRequestTypeCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.chromeos.uidetection.v1.DetectionRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int detectionRequestTypeCase_ = 0;
@@ -698,6 +657,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.chromeos.uidetection.v1.WordDetectionRequest, com.google.chromeos.uidetection.v1.WordDetectionRequest.Builder, com.google.chromeos.uidetection.v1.WordDetectionRequestOrBuilder> wordDetectionRequestBuilder_;
@@ -873,7 +833,7 @@ private static final long serialVersionUID = 0L;
         detectionRequestType_ = null;
       }
       detectionRequestTypeCase_ = 1;
-      onChanged();;
+      onChanged();
       return wordDetectionRequestBuilder_;
     }
 
@@ -1051,7 +1011,7 @@ private static final long serialVersionUID = 0L;
         detectionRequestType_ = null;
       }
       detectionRequestTypeCase_ = 2;
-      onChanged();;
+      onChanged();
       return textBlockDetectionRequestBuilder_;
     }
 
@@ -1229,7 +1189,7 @@ private static final long serialVersionUID = 0L;
         detectionRequestType_ = null;
       }
       detectionRequestTypeCase_ = 3;
-      onChanged();;
+      onChanged();
       return customIconDetectionRequestBuilder_;
     }
     @java.lang.Override
@@ -1265,7 +1225,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DetectionRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

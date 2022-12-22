@@ -34,119 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExplanationParameters(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.SampledShapleyAttribution.Builder subBuilder = null;
-            if (methodCase_ == 1) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.SampledShapleyAttribution) method_).toBuilder();
-            }
-            method_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.SampledShapleyAttribution.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.SampledShapleyAttribution) method_);
-              method_ = subBuilder.buildPartial();
-            }
-            methodCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.IntegratedGradientsAttribution.Builder subBuilder = null;
-            if (methodCase_ == 2) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.IntegratedGradientsAttribution) method_).toBuilder();
-            }
-            method_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.IntegratedGradientsAttribution.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.IntegratedGradientsAttribution) method_);
-              method_ = subBuilder.buildPartial();
-            }
-            methodCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1beta1.XraiAttribution.Builder subBuilder = null;
-            if (methodCase_ == 3) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.XraiAttribution) method_).toBuilder();
-            }
-            method_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.XraiAttribution.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.XraiAttribution) method_);
-              method_ = subBuilder.buildPartial();
-            }
-            methodCase_ = 3;
-            break;
-          }
-          case 32: {
-
-            topK_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.ListValue.Builder subBuilder = null;
-            if (outputIndices_ != null) {
-              subBuilder = outputIndices_.toBuilder();
-            }
-            outputIndices_ = input.readMessage(com.google.protobuf.ListValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputIndices_);
-              outputIndices_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.aiplatform.v1beta1.Examples.Builder subBuilder = null;
-            if (methodCase_ == 7) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.Examples) method_).toBuilder();
-            }
-            method_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.Examples.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.Examples) method_);
-              method_ = subBuilder.buildPartial();
-            }
-            methodCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ExplanationProto.internal_static_google_cloud_aiplatform_v1beta1_ExplanationParameters_descriptor;
@@ -417,7 +304,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOP_K_FIELD_NUMBER = 4;
-  private int topK_;
+  private int topK_ = 0;
   /**
    * <pre>
    * If populated, returns attributions for top K indices of outputs
@@ -443,7 +330,7 @@ private static final long serialVersionUID = 0L;
    * must be an ndarray of integers, with the same shape of the output it's
    * explaining.
    * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-   * If neither top_k nor output_indeices is populated, returns the argmax
+   * If neither top_k nor output_indices is populated, returns the argmax
    * index of the outputs.
    * Only applicable to Models that predict multiple outputs (e,g, multi-class
    * Models that predict multiple classes).
@@ -463,7 +350,7 @@ private static final long serialVersionUID = 0L;
    * must be an ndarray of integers, with the same shape of the output it's
    * explaining.
    * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-   * If neither top_k nor output_indeices is populated, returns the argmax
+   * If neither top_k nor output_indices is populated, returns the argmax
    * index of the outputs.
    * Only applicable to Models that predict multiple outputs (e,g, multi-class
    * Models that predict multiple classes).
@@ -483,7 +370,7 @@ private static final long serialVersionUID = 0L;
    * must be an ndarray of integers, with the same shape of the output it's
    * explaining.
    * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-   * If neither top_k nor output_indeices is populated, returns the argmax
+   * If neither top_k nor output_indices is populated, returns the argmax
    * index of the outputs.
    * Only applicable to Models that predict multiple outputs (e,g, multi-class
    * Models that predict multiple classes).
@@ -493,7 +380,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ListValueOrBuilder getOutputIndicesOrBuilder() {
-    return getOutputIndices();
+    return outputIndices_ == null ? com.google.protobuf.ListValue.getDefaultInstance() : outputIndices_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -528,7 +415,7 @@ private static final long serialVersionUID = 0L;
     if (methodCase_ == 7) {
       output.writeMessage(7, (com.google.cloud.aiplatform.v1beta1.Examples) method_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -561,7 +448,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (com.google.cloud.aiplatform.v1beta1.Examples) method_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -604,7 +491,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -641,7 +528,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -762,28 +649,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationParameters.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (sampledShapleyAttributionBuilder_ != null) {
+        sampledShapleyAttributionBuilder_.clear();
+      }
+      if (integratedGradientsAttributionBuilder_ != null) {
+        integratedGradientsAttributionBuilder_.clear();
+      }
+      if (xraiAttributionBuilder_ != null) {
+        xraiAttributionBuilder_.clear();
+      }
+      if (examplesBuilder_ != null) {
+        examplesBuilder_.clear();
+      }
       topK_ = 0;
-
-      if (outputIndicesBuilder_ == null) {
-        outputIndices_ = null;
-      } else {
-        outputIndices_ = null;
+      outputIndices_ = null;
+      if (outputIndicesBuilder_ != null) {
+        outputIndicesBuilder_.dispose();
         outputIndicesBuilder_ = null;
       }
       methodCase_ = 0;
@@ -814,43 +707,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExplanationParameters buildPartial() {
       com.google.cloud.aiplatform.v1beta1.ExplanationParameters result = new com.google.cloud.aiplatform.v1beta1.ExplanationParameters(this);
-      if (methodCase_ == 1) {
-        if (sampledShapleyAttributionBuilder_ == null) {
-          result.method_ = method_;
-        } else {
-          result.method_ = sampledShapleyAttributionBuilder_.build();
-        }
-      }
-      if (methodCase_ == 2) {
-        if (integratedGradientsAttributionBuilder_ == null) {
-          result.method_ = method_;
-        } else {
-          result.method_ = integratedGradientsAttributionBuilder_.build();
-        }
-      }
-      if (methodCase_ == 3) {
-        if (xraiAttributionBuilder_ == null) {
-          result.method_ = method_;
-        } else {
-          result.method_ = xraiAttributionBuilder_.build();
-        }
-      }
-      if (methodCase_ == 7) {
-        if (examplesBuilder_ == null) {
-          result.method_ = method_;
-        } else {
-          result.method_ = examplesBuilder_.build();
-        }
-      }
-      result.topK_ = topK_;
-      if (outputIndicesBuilder_ == null) {
-        result.outputIndices_ = outputIndices_;
-      } else {
-        result.outputIndices_ = outputIndicesBuilder_.build();
-      }
-      result.methodCase_ = methodCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationParameters result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.topK_ = topK_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.outputIndices_ = outputIndicesBuilder_ == null
+            ? outputIndices_
+            : outputIndicesBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.ExplanationParameters result) {
+      result.methodCase_ = methodCase_;
+      result.method_ = this.method_;
+      if (methodCase_ == 1 &&
+          sampledShapleyAttributionBuilder_ != null) {
+        result.method_ = sampledShapleyAttributionBuilder_.build();
+      }
+      if (methodCase_ == 2 &&
+          integratedGradientsAttributionBuilder_ != null) {
+        result.method_ = integratedGradientsAttributionBuilder_.build();
+      }
+      if (methodCase_ == 3 &&
+          xraiAttributionBuilder_ != null) {
+        result.method_ = xraiAttributionBuilder_.build();
+      }
+      if (methodCase_ == 7 &&
+          examplesBuilder_ != null) {
+        result.method_ = examplesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -924,7 +817,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -939,17 +832,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.ExplanationParameters parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSampledShapleyAttributionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              methodCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIntegratedGradientsAttributionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              methodCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getXraiAttributionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              methodCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              topK_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getOutputIndicesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 58: {
+              input.readMessage(
+                  getExamplesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              methodCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationParameters) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int methodCase_ = 0;
@@ -967,6 +913,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.aiplatform.v1beta1.SampledShapleyAttribution, com.google.cloud.aiplatform.v1beta1.SampledShapleyAttribution.Builder, com.google.cloud.aiplatform.v1beta1.SampledShapleyAttributionOrBuilder> sampledShapleyAttributionBuilder_;
@@ -1169,7 +1116,7 @@ private static final long serialVersionUID = 0L;
         method_ = null;
       }
       methodCase_ = 1;
-      onChanged();;
+      onChanged();
       return sampledShapleyAttributionBuilder_;
     }
 
@@ -1365,7 +1312,7 @@ private static final long serialVersionUID = 0L;
         method_ = null;
       }
       methodCase_ = 2;
-      onChanged();;
+      onChanged();
       return integratedGradientsAttributionBuilder_;
     }
 
@@ -1606,7 +1553,7 @@ private static final long serialVersionUID = 0L;
         method_ = null;
       }
       methodCase_ = 3;
-      onChanged();;
+      onChanged();
       return xraiAttributionBuilder_;
     }
 
@@ -1793,7 +1740,7 @@ private static final long serialVersionUID = 0L;
         method_ = null;
       }
       methodCase_ = 7;
-      onChanged();;
+      onChanged();
       return examplesBuilder_;
     }
 
@@ -1828,6 +1775,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTopK(int value) {
       
       topK_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1843,7 +1791,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTopK() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       topK_ = 0;
       onChanged();
       return this;
@@ -1859,7 +1807,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -1869,7 +1817,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputIndices field is set.
      */
     public boolean hasOutputIndices() {
-      return outputIndicesBuilder_ != null || outputIndices_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1878,7 +1826,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -1901,7 +1849,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -1915,11 +1863,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputIndices_ = value;
-        onChanged();
       } else {
         outputIndicesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1929,7 +1877,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -1941,11 +1889,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ListValue.Builder builderForValue) {
       if (outputIndicesBuilder_ == null) {
         outputIndices_ = builderForValue.build();
-        onChanged();
       } else {
         outputIndicesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1955,7 +1903,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -1965,17 +1913,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputIndices(com.google.protobuf.ListValue value) {
       if (outputIndicesBuilder_ == null) {
-        if (outputIndices_ != null) {
-          outputIndices_ =
-            com.google.protobuf.ListValue.newBuilder(outputIndices_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          outputIndices_ != null &&
+          outputIndices_ != com.google.protobuf.ListValue.getDefaultInstance()) {
+          getOutputIndicesBuilder().mergeFrom(value);
         } else {
           outputIndices_ = value;
         }
-        onChanged();
       } else {
         outputIndicesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1985,7 +1934,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -1994,14 +1943,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.ListValue output_indices = 5;</code>
      */
     public Builder clearOutputIndices() {
-      if (outputIndicesBuilder_ == null) {
-        outputIndices_ = null;
-        onChanged();
-      } else {
-        outputIndices_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      outputIndices_ = null;
+      if (outputIndicesBuilder_ != null) {
+        outputIndicesBuilder_.dispose();
         outputIndicesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2011,7 +1959,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -2020,7 +1968,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.ListValue output_indices = 5;</code>
      */
     public com.google.protobuf.ListValue.Builder getOutputIndicesBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getOutputIndicesFieldBuilder().getBuilder();
     }
@@ -2031,7 +1979,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -2054,7 +2002,7 @@ private static final long serialVersionUID = 0L;
      * must be an ndarray of integers, with the same shape of the output it's
      * explaining.
      * If not populated, returns attributions for [top_k][google.cloud.aiplatform.v1beta1.ExplanationParameters.top_k] indices of outputs.
-     * If neither top_k nor output_indeices is populated, returns the argmax
+     * If neither top_k nor output_indices is populated, returns the argmax
      * index of the outputs.
      * Only applicable to Models that predict multiple outputs (e,g, multi-class
      * Models that predict multiple classes).
@@ -2108,7 +2056,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExplanationParameters(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

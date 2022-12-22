@@ -140,8 +140,8 @@ public interface ExponentialHistogramDataPointOrBuilder extends
    * located at powers of the base, where:
    *   base = (2^(2^-scale))
    * The histogram bucket identified by `index`, a signed integer,
-   * contains values that are greater than or equal to (base^index) and
-   * less than (base^(index+1)).
+   * contains values that are greater than (base^index) and
+   * less than or equal to (base^(index+1)).
    * The positive and negative ranges of the histogram are expressed
    * separately.  Negative values are mapped by their absolute value
    * into the negative range using the same scale as the positive range.

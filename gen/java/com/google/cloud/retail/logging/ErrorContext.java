@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ErrorContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.retail.logging.HttpRequestContext.Builder subBuilder = null;
-            if (httpRequest_ != null) {
-              subBuilder = httpRequest_.toBuilder();
-            }
-            httpRequest_ = input.readMessage(com.google.cloud.retail.logging.HttpRequestContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(httpRequest_);
-              httpRequest_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.retail.logging.SourceLocation.Builder subBuilder = null;
-            if (reportLocation_ != null) {
-              subBuilder = reportLocation_.toBuilder();
-            }
-            reportLocation_ = input.readMessage(com.google.cloud.retail.logging.SourceLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reportLocation_);
-              reportLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.logging.ErrorLogProto.internal_static_google_cloud_retail_logging_ErrorContext_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.logging.HttpRequestContextOrBuilder getHttpRequestOrBuilder() {
-    return getHttpRequest();
+    return httpRequest_ == null ? com.google.cloud.retail.logging.HttpRequestContext.getDefaultInstance() : httpRequest_;
   }
 
   public static final int REPORT_LOCATION_FIELD_NUMBER = 2;
@@ -188,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.logging.SourceLocationOrBuilder getReportLocationOrBuilder() {
-    return getReportLocation();
+    return reportLocation_ == null ? com.google.cloud.retail.logging.SourceLocation.getDefaultInstance() : reportLocation_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -211,7 +146,7 @@ private static final long serialVersionUID = 0L;
     if (reportLocation_ != null) {
       output.writeMessage(2, getReportLocation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +163,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getReportLocation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -253,7 +188,7 @@ private static final long serialVersionUID = 0L;
       if (!getReportLocation()
           .equals(other.getReportLocation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -272,7 +207,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REPORT_LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getReportLocation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -393,32 +328,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.logging.ErrorContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (httpRequestBuilder_ == null) {
-        httpRequest_ = null;
-      } else {
-        httpRequest_ = null;
+      bitField0_ = 0;
+      httpRequest_ = null;
+      if (httpRequestBuilder_ != null) {
+        httpRequestBuilder_.dispose();
         httpRequestBuilder_ = null;
       }
-      if (reportLocationBuilder_ == null) {
-        reportLocation_ = null;
-      } else {
-        reportLocation_ = null;
+      reportLocation_ = null;
+      if (reportLocationBuilder_ != null) {
+        reportLocationBuilder_.dispose();
         reportLocationBuilder_ = null;
       }
       return this;
@@ -447,18 +376,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.logging.ErrorContext buildPartial() {
       com.google.cloud.retail.logging.ErrorContext result = new com.google.cloud.retail.logging.ErrorContext(this);
-      if (httpRequestBuilder_ == null) {
-        result.httpRequest_ = httpRequest_;
-      } else {
-        result.httpRequest_ = httpRequestBuilder_.build();
-      }
-      if (reportLocationBuilder_ == null) {
-        result.reportLocation_ = reportLocation_;
-      } else {
-        result.reportLocation_ = reportLocationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.logging.ErrorContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.httpRequest_ = httpRequestBuilder_ == null
+            ? httpRequest_
+            : httpRequestBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.reportLocation_ = reportLocationBuilder_ == null
+            ? reportLocation_
+            : reportLocationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -511,7 +445,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasReportLocation()) {
         mergeReportLocation(other.getReportLocation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -526,19 +460,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.logging.ErrorContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHttpRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getReportLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.logging.ErrorContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.retail.logging.HttpRequestContext httpRequest_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -552,7 +514,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the httpRequest field is set.
      */
     public boolean hasHttpRequest() {
-      return httpRequestBuilder_ != null || httpRequest_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -582,11 +544,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         httpRequest_ = value;
-        onChanged();
       } else {
         httpRequestBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -600,11 +562,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.logging.HttpRequestContext.Builder builderForValue) {
       if (httpRequestBuilder_ == null) {
         httpRequest_ = builderForValue.build();
-        onChanged();
       } else {
         httpRequestBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -616,17 +578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHttpRequest(com.google.cloud.retail.logging.HttpRequestContext value) {
       if (httpRequestBuilder_ == null) {
-        if (httpRequest_ != null) {
-          httpRequest_ =
-            com.google.cloud.retail.logging.HttpRequestContext.newBuilder(httpRequest_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          httpRequest_ != null &&
+          httpRequest_ != com.google.cloud.retail.logging.HttpRequestContext.getDefaultInstance()) {
+          getHttpRequestBuilder().mergeFrom(value);
         } else {
           httpRequest_ = value;
         }
-        onChanged();
       } else {
         httpRequestBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -637,14 +600,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.logging.HttpRequestContext http_request = 1;</code>
      */
     public Builder clearHttpRequest() {
-      if (httpRequestBuilder_ == null) {
-        httpRequest_ = null;
-        onChanged();
-      } else {
-        httpRequest_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      httpRequest_ = null;
+      if (httpRequestBuilder_ != null) {
+        httpRequestBuilder_.dispose();
         httpRequestBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -655,7 +617,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.logging.HttpRequestContext http_request = 1;</code>
      */
     public com.google.cloud.retail.logging.HttpRequestContext.Builder getHttpRequestBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHttpRequestFieldBuilder().getBuilder();
     }
@@ -708,7 +670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reportLocation field is set.
      */
     public boolean hasReportLocation() {
-      return reportLocationBuilder_ != null || reportLocation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -740,11 +702,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reportLocation_ = value;
-        onChanged();
       } else {
         reportLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -759,11 +721,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.logging.SourceLocation.Builder builderForValue) {
       if (reportLocationBuilder_ == null) {
         reportLocation_ = builderForValue.build();
-        onChanged();
       } else {
         reportLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -776,17 +738,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReportLocation(com.google.cloud.retail.logging.SourceLocation value) {
       if (reportLocationBuilder_ == null) {
-        if (reportLocation_ != null) {
-          reportLocation_ =
-            com.google.cloud.retail.logging.SourceLocation.newBuilder(reportLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          reportLocation_ != null &&
+          reportLocation_ != com.google.cloud.retail.logging.SourceLocation.getDefaultInstance()) {
+          getReportLocationBuilder().mergeFrom(value);
         } else {
           reportLocation_ = value;
         }
-        onChanged();
       } else {
         reportLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -798,14 +761,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.logging.SourceLocation report_location = 2;</code>
      */
     public Builder clearReportLocation() {
-      if (reportLocationBuilder_ == null) {
-        reportLocation_ = null;
-        onChanged();
-      } else {
-        reportLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      reportLocation_ = null;
+      if (reportLocationBuilder_ != null) {
+        reportLocationBuilder_.dispose();
         reportLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -817,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.logging.SourceLocation report_location = 2;</code>
      */
     public com.google.cloud.retail.logging.SourceLocation.Builder getReportLocationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getReportLocationFieldBuilder().getBuilder();
     }
@@ -891,7 +853,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ErrorContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -62,7 +62,6 @@ public interface WriteLogEntriesPartialErrorsOrBuilder extends
    *
    * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
    */
-
   /* nullable */
 com.google.rpc.Status getLogEntryErrorsOrDefault(
       int key,
@@ -79,7 +78,6 @@ com.google.rpc.Status defaultValue);
    *
    * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
    */
-
   com.google.rpc.Status getLogEntryErrorsOrThrow(
       int key);
 }

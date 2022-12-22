@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VmEndpointNatMappings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1823580074: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            instanceName_ = s;
-            break;
-          }
-          case 2049572938: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              interfaceNatMappings_ = new java.util.ArrayList<com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            interfaceNatMappings_.add(
-                input.readMessage(com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        interfaceNatMappings_ = java.util.Collections.unmodifiableList(interfaceNatMappings_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_VmEndpointNatMappings_descriptor;
@@ -109,7 +51,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int INSTANCE_NAME_FIELD_NUMBER = 227947509;
-  private volatile java.lang.Object instanceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceName_ = "";
   /**
    * <pre>
    * Name of the VM instance which the endpoint belongs to
@@ -167,6 +110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERFACE_NAT_MAPPINGS_FIELD_NUMBER = 256196617;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings> interfaceNatMappings_;
   /**
    * <code>repeated .google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings interface_nat_mappings = 256196617;</code>
@@ -226,7 +170,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < interfaceNatMappings_.size(); i++) {
       output.writeMessage(256196617, interfaceNatMappings_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -242,7 +186,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(256196617, interfaceNatMappings_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -264,7 +208,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getInterfaceNatMappingsList()
         .equals(other.getInterfaceNatMappingsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -283,7 +227,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INTERFACE_NAT_MAPPINGS_FIELD_NUMBER;
       hash = (53 * hash) + getInterfaceNatMappingsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -404,31 +348,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.VmEndpointNatMappings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInterfaceNatMappingsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instanceName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (interfaceNatMappingsBuilder_ == null) {
         interfaceNatMappings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        interfaceNatMappings_ = null;
         interfaceNatMappingsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -455,12 +394,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.VmEndpointNatMappings buildPartial() {
       com.google.cloud.compute.v1.VmEndpointNatMappings result = new com.google.cloud.compute.v1.VmEndpointNatMappings(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.instanceName_ = instanceName_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.VmEndpointNatMappings result) {
       if (interfaceNatMappingsBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           interfaceNatMappings_ = java.util.Collections.unmodifiableList(interfaceNatMappings_);
@@ -470,9 +410,16 @@ private static final long serialVersionUID = 0L;
       } else {
         result.interfaceNatMappings_ = interfaceNatMappingsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.VmEndpointNatMappings result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instanceName_ = instanceName_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -520,8 +467,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.VmEndpointNatMappings other) {
       if (other == com.google.cloud.compute.v1.VmEndpointNatMappings.getDefaultInstance()) return this;
       if (other.hasInstanceName()) {
-        bitField0_ |= 0x00000001;
         instanceName_ = other.instanceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (interfaceNatMappingsBuilder_ == null) {
@@ -550,7 +497,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -565,17 +512,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.VmEndpointNatMappings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1823580074: {
+              instanceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1823580074
+            case 2049572938: {
+              com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings.parser(),
+                      extensionRegistry);
+              if (interfaceNatMappingsBuilder_ == null) {
+                ensureInterfaceNatMappingsIsMutable();
+                interfaceNatMappings_.add(m);
+              } else {
+                interfaceNatMappingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 2049572938
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.VmEndpointNatMappings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -644,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       instanceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -661,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceName() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       instanceName_ = getDefaultInstance().getInstanceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -677,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -959,7 +933,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VmEndpointNatMappings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

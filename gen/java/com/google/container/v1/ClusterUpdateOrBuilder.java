@@ -267,6 +267,33 @@ public interface ClusterUpdateOrBuilder extends
 
   /**
    * <pre>
+   * The desired configuration for the fine-grained cost management feature.
+   * </pre>
+   *
+   * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+   * @return Whether the desiredCostManagementConfig field is set.
+   */
+  boolean hasDesiredCostManagementConfig();
+  /**
+   * <pre>
+   * The desired configuration for the fine-grained cost management feature.
+   * </pre>
+   *
+   * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+   * @return The desiredCostManagementConfig.
+   */
+  com.google.container.v1.CostManagementConfig getDesiredCostManagementConfig();
+  /**
+   * <pre>
+   * The desired configuration for the fine-grained cost management feature.
+   * </pre>
+   *
+   * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+   */
+  com.google.container.v1.CostManagementConfigOrBuilder getDesiredCostManagementConfigOrBuilder();
+
+  /**
+   * <pre>
    * DNSConfig contains clusterDNS config for this cluster.
    * </pre>
    *
@@ -900,6 +927,25 @@ public interface ClusterUpdateOrBuilder extends
 
   /**
    * <pre>
+   * Enable/Disable private endpoint for the cluster's master.
+   * </pre>
+   *
+   * <code>optional bool desired_enable_private_endpoint = 71;</code>
+   * @return Whether the desiredEnablePrivateEndpoint field is set.
+   */
+  boolean hasDesiredEnablePrivateEndpoint();
+  /**
+   * <pre>
+   * Enable/Disable private endpoint for the cluster's master.
+   * </pre>
+   *
+   * <code>optional bool desired_enable_private_endpoint = 71;</code>
+   * @return The desiredEnablePrivateEndpoint.
+   */
+  boolean getDesiredEnablePrivateEndpoint();
+
+  /**
+   * <pre>
    * The Kubernetes version to change the master to.
    * Users may specify either explicit versions offered by
    * Kubernetes Engine or version aliases, which have the following behavior:
@@ -988,4 +1034,81 @@ public interface ClusterUpdateOrBuilder extends
    * <code>.google.container.v1.NetworkTags desired_node_pool_auto_config_network_tags = 110;</code>
    */
   com.google.container.v1.NetworkTagsOrBuilder getDesiredNodePoolAutoConfigNetworkTagsOrBuilder();
+
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   * @return Whether the desiredGatewayApiConfig field is set.
+   */
+  boolean hasDesiredGatewayApiConfig();
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   * @return The desiredGatewayApiConfig.
+   */
+  com.google.container.v1.GatewayAPIConfig getDesiredGatewayApiConfig();
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   */
+  com.google.container.v1.GatewayAPIConfigOrBuilder getDesiredGatewayApiConfigOrBuilder();
+
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   * @return Whether the desiredNodePoolLoggingConfig field is set.
+   */
+  boolean hasDesiredNodePoolLoggingConfig();
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   * @return The desiredNodePoolLoggingConfig.
+   */
+  com.google.container.v1.NodePoolLoggingConfig getDesiredNodePoolLoggingConfig();
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   */
+  com.google.container.v1.NodePoolLoggingConfigOrBuilder getDesiredNodePoolLoggingConfigOrBuilder();
+
+  /**
+   * <pre>
+   * The desired stack type of the cluster.
+   * If a stack type is provided and does not match the current stack type of
+   * the cluster, update will attempt to change the stack type to the new type.
+   * </pre>
+   *
+   * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+   * @return The enum numeric value on the wire for desiredStackType.
+   */
+  int getDesiredStackTypeValue();
+  /**
+   * <pre>
+   * The desired stack type of the cluster.
+   * If a stack type is provided and does not match the current stack type of
+   * the cluster, update will attempt to change the stack type to the new type.
+   * </pre>
+   *
+   * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+   * @return The desiredStackType.
+   */
+  com.google.container.v1.StackType getDesiredStackType();
 }

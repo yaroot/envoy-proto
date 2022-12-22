@@ -43,112 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ModelContainerSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageUri_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              command_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            command_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              args_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            args_.add(s);
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              env_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.EnvVar>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            env_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.EnvVar.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              ports_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.Port>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            ports_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.Port.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predictRoute_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            healthRoute_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        command_ = command_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        args_ = args_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        env_ = java.util.Collections.unmodifiableList(env_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        ports_ = java.util.Collections.unmodifiableList(ports_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ModelProto.internal_static_google_cloud_aiplatform_v1beta1_ModelContainerSpec_descriptor;
@@ -163,7 +57,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_URI_FIELD_NUMBER = 1;
-  private volatile java.lang.Object imageUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageUri_ = "";
   /**
    * <pre>
    * Required. Immutable. URI of the Docker image to be used as the custom container for serving
@@ -233,6 +128,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMMAND_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList command_;
   /**
    * <pre>
@@ -412,6 +308,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ARGS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList args_;
   /**
    * <pre>
@@ -591,6 +488,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENV_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1beta1.EnvVar> env_;
   /**
    * <pre>
@@ -766,6 +664,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1beta1.Port> ports_;
   /**
    * <pre>
@@ -911,7 +810,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREDICT_ROUTE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object predictRoute_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predictRoute_ = "";
   /**
    * <pre>
    * Immutable. HTTP path on the container to send prediction requests to. Vertex AI
@@ -1001,7 +901,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEALTH_ROUTE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object healthRoute_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object healthRoute_ = "";
   /**
    * <pre>
    * Immutable. HTTP path on the container to send health checks to. Vertex AI
@@ -1123,7 +1024,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(healthRoute_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, healthRoute_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1165,7 +1066,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(healthRoute_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, healthRoute_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1194,7 +1095,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPredictRoute())) return false;
     if (!getHealthRoute()
         .equals(other.getHealthRoute())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1227,7 +1128,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPredictRoute().hashCode();
     hash = (37 * hash) + HEALTH_ROUTE_FIELD_NUMBER;
     hash = (53 * hash) + getHealthRoute().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1350,46 +1251,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.ModelContainerSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getEnvFieldBuilder();
-        getPortsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       imageUri_ = "";
-
       command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
+      args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (envBuilder_ == null) {
         env_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        env_ = null;
         envBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (portsBuilder_ == null) {
         ports_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        ports_ = null;
         portsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       predictRoute_ = "";
-
       healthRoute_ = "";
-
       return this;
     }
 
@@ -1416,40 +1310,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ModelContainerSpec buildPartial() {
       com.google.cloud.aiplatform.v1beta1.ModelContainerSpec result = new com.google.cloud.aiplatform.v1beta1.ModelContainerSpec(this);
-      int from_bitField0_ = bitField0_;
-      result.imageUri_ = imageUri_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.ModelContainerSpec result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         command_ = command_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.command_ = command_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         args_ = args_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.args_ = args_;
       if (envBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           env_ = java.util.Collections.unmodifiableList(env_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.env_ = env_;
       } else {
         result.env_ = envBuilder_.build();
       }
       if (portsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           ports_ = java.util.Collections.unmodifiableList(ports_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.ports_ = ports_;
       } else {
         result.ports_ = portsBuilder_.build();
       }
-      result.predictRoute_ = predictRoute_;
-      result.healthRoute_ = healthRoute_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ModelContainerSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.imageUri_ = imageUri_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.predictRoute_ = predictRoute_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.healthRoute_ = healthRoute_;
+      }
     }
 
     @java.lang.Override
@@ -1498,12 +1406,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.ModelContainerSpec.getDefaultInstance()) return this;
       if (!other.getImageUri().isEmpty()) {
         imageUri_ = other.imageUri_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.command_.isEmpty()) {
         if (command_.isEmpty()) {
           command_ = other.command_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureCommandIsMutable();
           command_.addAll(other.command_);
@@ -1513,7 +1422,7 @@ private static final long serialVersionUID = 0L;
       if (!other.args_.isEmpty()) {
         if (args_.isEmpty()) {
           args_ = other.args_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureArgsIsMutable();
           args_.addAll(other.args_);
@@ -1524,7 +1433,7 @@ private static final long serialVersionUID = 0L;
         if (!other.env_.isEmpty()) {
           if (env_.isEmpty()) {
             env_ = other.env_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureEnvIsMutable();
             env_.addAll(other.env_);
@@ -1537,7 +1446,7 @@ private static final long serialVersionUID = 0L;
             envBuilder_.dispose();
             envBuilder_ = null;
             env_ = other.env_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             envBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEnvFieldBuilder() : null;
@@ -1550,7 +1459,7 @@ private static final long serialVersionUID = 0L;
         if (!other.ports_.isEmpty()) {
           if (ports_.isEmpty()) {
             ports_ = other.ports_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensurePortsIsMutable();
             ports_.addAll(other.ports_);
@@ -1563,7 +1472,7 @@ private static final long serialVersionUID = 0L;
             portsBuilder_.dispose();
             portsBuilder_ = null;
             ports_ = other.ports_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             portsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPortsFieldBuilder() : null;
@@ -1574,13 +1483,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPredictRoute().isEmpty()) {
         predictRoute_ = other.predictRoute_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getHealthRoute().isEmpty()) {
         healthRoute_ = other.healthRoute_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1595,17 +1506,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.ModelContainerSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              imageUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCommandIsMutable();
+              command_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureArgsIsMutable();
+              args_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.aiplatform.v1beta1.EnvVar m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.EnvVar.parser(),
+                      extensionRegistry);
+              if (envBuilder_ == null) {
+                ensureEnvIsMutable();
+                env_.add(m);
+              } else {
+                envBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.aiplatform.v1beta1.Port m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.Port.parser(),
+                      extensionRegistry);
+              if (portsBuilder_ == null) {
+                ensurePortsIsMutable();
+                ports_.add(m);
+              } else {
+                portsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              predictRoute_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              healthRoute_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.ModelContainerSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1699,11 +1676,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageUri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1728,8 +1703,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageUri() {
-      
       imageUri_ = getDefaultInstance().getImageUri();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1756,21 +1731,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageUri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCommandIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         command_ = new com.google.protobuf.LazyStringArrayList(command_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1993,10 +1966,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommand(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCommandIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCommandIsMutable();
       command_.set(index, value);
       onChanged();
       return this;
@@ -2044,10 +2015,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCommand(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCommandIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCommandIsMutable();
       command_.add(value);
       onChanged();
       return this;
@@ -2143,7 +2112,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCommand() {
       command_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2190,10 +2159,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCommandBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCommandIsMutable();
       command_.add(value);
       onChanged();
@@ -2202,9 +2169,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureArgsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         args_ = new com.google.protobuf.LazyStringArrayList(args_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -2427,10 +2394,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArgs(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureArgsIsMutable();
       args_.set(index, value);
       onChanged();
       return this;
@@ -2478,10 +2443,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addArgs(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureArgsIsMutable();
       args_.add(value);
       onChanged();
       return this;
@@ -2577,7 +2540,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearArgs() {
       args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2624,10 +2587,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addArgsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureArgsIsMutable();
       args_.add(value);
       onChanged();
@@ -2637,9 +2598,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.aiplatform.v1beta1.EnvVar> env_ =
       java.util.Collections.emptyList();
     private void ensureEnvIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         env_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.EnvVar>(env_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -3086,7 +3047,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearEnv() {
       if (envBuilder_ == null) {
         env_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         envBuilder_.clear();
@@ -3352,7 +3313,7 @@ private static final long serialVersionUID = 0L;
         envBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.aiplatform.v1beta1.EnvVar, com.google.cloud.aiplatform.v1beta1.EnvVar.Builder, com.google.cloud.aiplatform.v1beta1.EnvVarOrBuilder>(
                 env_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         env_ = null;
@@ -3363,9 +3324,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.aiplatform.v1beta1.Port> ports_ =
       java.util.Collections.emptyList();
     private void ensurePortsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         ports_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.Port>(ports_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -3746,7 +3707,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPorts() {
       if (portsBuilder_ == null) {
         ports_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         portsBuilder_.clear();
@@ -3970,7 +3931,7 @@ private static final long serialVersionUID = 0L;
         portsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.aiplatform.v1beta1.Port, com.google.cloud.aiplatform.v1beta1.Port.Builder, com.google.cloud.aiplatform.v1beta1.PortOrBuilder>(
                 ports_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         ports_ = null;
@@ -4097,11 +4058,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredictRoute(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predictRoute_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4136,8 +4095,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredictRoute() {
-      
       predictRoute_ = getDefaultInstance().getPredictRoute();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -4174,12 +4133,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredictRouteBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predictRoute_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -4300,11 +4257,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHealthRoute(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       healthRoute_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4338,8 +4293,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthRoute() {
-      
       healthRoute_ = getDefaultInstance().getHealthRoute();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -4375,12 +4330,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHealthRouteBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       healthRoute_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4417,7 +4370,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ModelContainerSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

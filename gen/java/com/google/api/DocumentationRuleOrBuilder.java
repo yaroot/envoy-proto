@@ -9,12 +9,13 @@ public interface DocumentationRuleOrBuilder extends
 
   /**
    * <pre>
-   * The selector is a comma-separated list of patterns. Each pattern is a
-   * qualified name of the element which may end in "*", indicating a wildcard.
-   * Wildcards are only allowed at the end and for a whole component of the
-   * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-   * wildcard will match one or more components. To specify a default for all
-   * applicable elements, the whole pattern "*" is used.
+   * The selector is a comma-separated list of patterns for any element such as
+   * a method, a field, an enum value. Each pattern is a qualified name of the
+   * element which may end in "*", indicating a wildcard. Wildcards are only
+   * allowed at the end and for a whole component of the qualified name,
+   * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+   * one or more components. To specify a default for all applicable elements,
+   * the whole pattern "*" is used.
    * </pre>
    *
    * <code>string selector = 1;</code>
@@ -23,12 +24,13 @@ public interface DocumentationRuleOrBuilder extends
   java.lang.String getSelector();
   /**
    * <pre>
-   * The selector is a comma-separated list of patterns. Each pattern is a
-   * qualified name of the element which may end in "*", indicating a wildcard.
-   * Wildcards are only allowed at the end and for a whole component of the
-   * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-   * wildcard will match one or more components. To specify a default for all
-   * applicable elements, the whole pattern "*" is used.
+   * The selector is a comma-separated list of patterns for any element such as
+   * a method, a field, an enum value. Each pattern is a qualified name of the
+   * element which may end in "*", indicating a wildcard. Wildcards are only
+   * allowed at the end and for a whole component of the qualified name,
+   * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+   * one or more components. To specify a default for all applicable elements,
+   * the whole pattern "*" is used.
    * </pre>
    *
    * <code>string selector = 1;</code>
@@ -39,7 +41,9 @@ public interface DocumentationRuleOrBuilder extends
 
   /**
    * <pre>
-   * Description of the selected API(s).
+   * Description of the selected proto element (e.g. a message, a method, a
+   * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+   * taken from the proto source definition of the proto element.
    * </pre>
    *
    * <code>string description = 2;</code>
@@ -48,7 +52,9 @@ public interface DocumentationRuleOrBuilder extends
   java.lang.String getDescription();
   /**
    * <pre>
-   * Description of the selected API(s).
+   * Description of the selected proto element (e.g. a message, a method, a
+   * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+   * taken from the proto source definition of the proto element.
    * </pre>
    *
    * <code>string description = 2;</code>

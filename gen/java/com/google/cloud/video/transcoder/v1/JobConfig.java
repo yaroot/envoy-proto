@@ -42,168 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              inputs_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.Input>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            inputs_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.Input.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              editList_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.EditAtom>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            editList_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.EditAtom.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              elementaryStreams_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.ElementaryStream>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            elementaryStreams_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.ElementaryStream.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              muxStreams_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.MuxStream>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            muxStreams_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.MuxStream.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              manifests_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.Manifest>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            manifests_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.Manifest.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.cloud.video.transcoder.v1.Output.Builder subBuilder = null;
-            if (output_ != null) {
-              subBuilder = output_.toBuilder();
-            }
-            output_ = input.readMessage(com.google.cloud.video.transcoder.v1.Output.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(output_);
-              output_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              adBreaks_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.AdBreak>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            adBreaks_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.AdBreak.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.cloud.video.transcoder.v1.PubsubDestination.Builder subBuilder = null;
-            if (pubsubDestination_ != null) {
-              subBuilder = pubsubDestination_.toBuilder();
-            }
-            pubsubDestination_ = input.readMessage(com.google.cloud.video.transcoder.v1.PubsubDestination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pubsubDestination_);
-              pubsubDestination_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              spriteSheets_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.SpriteSheet>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            spriteSheets_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.SpriteSheet.parser(), extensionRegistry));
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              overlays_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.Overlay>();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            overlays_.add(
-                input.readMessage(com.google.cloud.video.transcoder.v1.Overlay.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        inputs_ = java.util.Collections.unmodifiableList(inputs_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        editList_ = java.util.Collections.unmodifiableList(editList_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        elementaryStreams_ = java.util.Collections.unmodifiableList(elementaryStreams_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        muxStreams_ = java.util.Collections.unmodifiableList(muxStreams_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        manifests_ = java.util.Collections.unmodifiableList(manifests_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        adBreaks_ = java.util.Collections.unmodifiableList(adBreaks_);
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        spriteSheets_ = java.util.Collections.unmodifiableList(spriteSheets_);
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        overlays_ = java.util.Collections.unmodifiableList(overlays_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_JobConfig_descriptor;
@@ -218,6 +56,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.Input> inputs_;
   /**
    * <pre>
@@ -278,6 +117,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EDIT_LIST_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.EditAtom> editList_;
   /**
    * <pre>
@@ -343,6 +183,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ELEMENTARY_STREAMS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.ElementaryStream> elementaryStreams_;
   /**
    * <pre>
@@ -403,6 +244,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MUX_STREAMS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.MuxStream> muxStreams_;
   /**
    * <pre>
@@ -463,6 +305,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MANIFESTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.Manifest> manifests_;
   /**
    * <pre>
@@ -557,10 +400,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.OutputOrBuilder getOutputOrBuilder() {
-    return getOutput();
+    return output_ == null ? com.google.cloud.video.transcoder.v1.Output.getDefaultInstance() : output_;
   }
 
   public static final int AD_BREAKS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.AdBreak> adBreaks_;
   /**
    * <pre>
@@ -660,10 +504,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PubsubDestinationOrBuilder getPubsubDestinationOrBuilder() {
-    return getPubsubDestination();
+    return pubsubDestination_ == null ? com.google.cloud.video.transcoder.v1.PubsubDestination.getDefaultInstance() : pubsubDestination_;
   }
 
   public static final int SPRITE_SHEETS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.SpriteSheet> spriteSheets_;
   /**
    * <pre>
@@ -729,6 +574,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OVERLAYS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.video.transcoder.v1.Overlay> overlays_;
   /**
    * <pre>
@@ -832,7 +678,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < overlays_.size(); i++) {
       output.writeMessage(10, overlays_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -881,7 +727,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, overlays_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -922,7 +768,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSpriteSheetsList())) return false;
     if (!getOverlaysList()
         .equals(other.getOverlaysList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -973,7 +819,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OVERLAYS_FIELD_NUMBER;
       hash = (53 * hash) + getOverlaysList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1094,90 +940,84 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.transcoder.v1.JobConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInputsFieldBuilder();
-        getEditListFieldBuilder();
-        getElementaryStreamsFieldBuilder();
-        getMuxStreamsFieldBuilder();
-        getManifestsFieldBuilder();
-        getAdBreaksFieldBuilder();
-        getSpriteSheetsFieldBuilder();
-        getOverlaysFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (inputsBuilder_ == null) {
         inputs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        inputs_ = null;
         inputsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (editListBuilder_ == null) {
         editList_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        editList_ = null;
         editListBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (elementaryStreamsBuilder_ == null) {
         elementaryStreams_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        elementaryStreams_ = null;
         elementaryStreamsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (muxStreamsBuilder_ == null) {
         muxStreams_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        muxStreams_ = null;
         muxStreamsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (manifestsBuilder_ == null) {
         manifests_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        manifests_ = null;
         manifestsBuilder_.clear();
       }
-      if (outputBuilder_ == null) {
-        output_ = null;
-      } else {
-        output_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      output_ = null;
+      if (outputBuilder_ != null) {
+        outputBuilder_.dispose();
         outputBuilder_ = null;
       }
       if (adBreaksBuilder_ == null) {
         adBreaks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        adBreaks_ = null;
         adBreaksBuilder_.clear();
       }
-      if (pubsubDestinationBuilder_ == null) {
-        pubsubDestination_ = null;
-      } else {
-        pubsubDestination_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      pubsubDestination_ = null;
+      if (pubsubDestinationBuilder_ != null) {
+        pubsubDestinationBuilder_.dispose();
         pubsubDestinationBuilder_ = null;
       }
       if (spriteSheetsBuilder_ == null) {
         spriteSheets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        spriteSheets_ = null;
         spriteSheetsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       if (overlaysBuilder_ == null) {
         overlays_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
       } else {
+        overlays_ = null;
         overlaysBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       return this;
     }
 
@@ -1204,7 +1044,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.transcoder.v1.JobConfig buildPartial() {
       com.google.cloud.video.transcoder.v1.JobConfig result = new com.google.cloud.video.transcoder.v1.JobConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.video.transcoder.v1.JobConfig result) {
       if (inputsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           inputs_ = java.util.Collections.unmodifiableList(inputs_);
@@ -1250,45 +1096,47 @@ private static final long serialVersionUID = 0L;
       } else {
         result.manifests_ = manifestsBuilder_.build();
       }
-      if (outputBuilder_ == null) {
-        result.output_ = output_;
-      } else {
-        result.output_ = outputBuilder_.build();
-      }
       if (adBreaksBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           adBreaks_ = java.util.Collections.unmodifiableList(adBreaks_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.adBreaks_ = adBreaks_;
       } else {
         result.adBreaks_ = adBreaksBuilder_.build();
       }
-      if (pubsubDestinationBuilder_ == null) {
-        result.pubsubDestination_ = pubsubDestination_;
-      } else {
-        result.pubsubDestination_ = pubsubDestinationBuilder_.build();
-      }
       if (spriteSheetsBuilder_ == null) {
-        if (((bitField0_ & 0x00000040) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           spriteSheets_ = java.util.Collections.unmodifiableList(spriteSheets_);
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.spriteSheets_ = spriteSheets_;
       } else {
         result.spriteSheets_ = spriteSheetsBuilder_.build();
       }
       if (overlaysBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           overlays_ = java.util.Collections.unmodifiableList(overlays_);
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.overlays_ = overlays_;
       } else {
         result.overlays_ = overlaysBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.transcoder.v1.JobConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.output_ = outputBuilder_ == null
+            ? output_
+            : outputBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.pubsubDestination_ = pubsubDestinationBuilder_ == null
+            ? pubsubDestination_
+            : pubsubDestinationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1472,7 +1320,7 @@ private static final long serialVersionUID = 0L;
         if (!other.adBreaks_.isEmpty()) {
           if (adBreaks_.isEmpty()) {
             adBreaks_ = other.adBreaks_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureAdBreaksIsMutable();
             adBreaks_.addAll(other.adBreaks_);
@@ -1485,7 +1333,7 @@ private static final long serialVersionUID = 0L;
             adBreaksBuilder_.dispose();
             adBreaksBuilder_ = null;
             adBreaks_ = other.adBreaks_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
             adBreaksBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAdBreaksFieldBuilder() : null;
@@ -1501,7 +1349,7 @@ private static final long serialVersionUID = 0L;
         if (!other.spriteSheets_.isEmpty()) {
           if (spriteSheets_.isEmpty()) {
             spriteSheets_ = other.spriteSheets_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureSpriteSheetsIsMutable();
             spriteSheets_.addAll(other.spriteSheets_);
@@ -1514,7 +1362,7 @@ private static final long serialVersionUID = 0L;
             spriteSheetsBuilder_.dispose();
             spriteSheetsBuilder_ = null;
             spriteSheets_ = other.spriteSheets_;
-            bitField0_ = (bitField0_ & ~0x00000040);
+            bitField0_ = (bitField0_ & ~0x00000100);
             spriteSheetsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpriteSheetsFieldBuilder() : null;
@@ -1527,7 +1375,7 @@ private static final long serialVersionUID = 0L;
         if (!other.overlays_.isEmpty()) {
           if (overlays_.isEmpty()) {
             overlays_ = other.overlays_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureOverlaysIsMutable();
             overlays_.addAll(other.overlays_);
@@ -1540,7 +1388,7 @@ private static final long serialVersionUID = 0L;
             overlaysBuilder_.dispose();
             overlaysBuilder_ = null;
             overlays_ = other.overlays_;
-            bitField0_ = (bitField0_ & ~0x00000080);
+            bitField0_ = (bitField0_ & ~0x00000200);
             overlaysBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getOverlaysFieldBuilder() : null;
@@ -1549,7 +1397,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1564,17 +1412,148 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.transcoder.v1.JobConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.video.transcoder.v1.Input m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.Input.parser(),
+                      extensionRegistry);
+              if (inputsBuilder_ == null) {
+                ensureInputsIsMutable();
+                inputs_.add(m);
+              } else {
+                inputsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.video.transcoder.v1.EditAtom m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.EditAtom.parser(),
+                      extensionRegistry);
+              if (editListBuilder_ == null) {
+                ensureEditListIsMutable();
+                editList_.add(m);
+              } else {
+                editListBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.video.transcoder.v1.ElementaryStream m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.ElementaryStream.parser(),
+                      extensionRegistry);
+              if (elementaryStreamsBuilder_ == null) {
+                ensureElementaryStreamsIsMutable();
+                elementaryStreams_.add(m);
+              } else {
+                elementaryStreamsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.video.transcoder.v1.MuxStream m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.MuxStream.parser(),
+                      extensionRegistry);
+              if (muxStreamsBuilder_ == null) {
+                ensureMuxStreamsIsMutable();
+                muxStreams_.add(m);
+              } else {
+                muxStreamsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.video.transcoder.v1.Manifest m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.Manifest.parser(),
+                      extensionRegistry);
+              if (manifestsBuilder_ == null) {
+                ensureManifestsIsMutable();
+                manifests_.add(m);
+              } else {
+                manifestsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getOutputFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.video.transcoder.v1.AdBreak m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.AdBreak.parser(),
+                      extensionRegistry);
+              if (adBreaksBuilder_ == null) {
+                ensureAdBreaksIsMutable();
+                adBreaks_.add(m);
+              } else {
+                adBreaksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getPubsubDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.google.cloud.video.transcoder.v1.SpriteSheet m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.SpriteSheet.parser(),
+                      extensionRegistry);
+              if (spriteSheetsBuilder_ == null) {
+                ensureSpriteSheetsIsMutable();
+                spriteSheets_.add(m);
+              } else {
+                spriteSheetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              com.google.cloud.video.transcoder.v1.Overlay m =
+                  input.readMessage(
+                      com.google.cloud.video.transcoder.v1.Overlay.parser(),
+                      extensionRegistry);
+              if (overlaysBuilder_ == null) {
+                ensureOverlaysIsMutable();
+                overlays_.add(m);
+              } else {
+                overlaysBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.transcoder.v1.JobConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3169,7 +3148,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the output field is set.
      */
     public boolean hasOutput() {
-      return outputBuilder_ != null || output_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3199,11 +3178,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         output_ = value;
-        onChanged();
       } else {
         outputBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3217,11 +3196,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.Output.Builder builderForValue) {
       if (outputBuilder_ == null) {
         output_ = builderForValue.build();
-        onChanged();
       } else {
         outputBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3233,17 +3212,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutput(com.google.cloud.video.transcoder.v1.Output value) {
       if (outputBuilder_ == null) {
-        if (output_ != null) {
-          output_ =
-            com.google.cloud.video.transcoder.v1.Output.newBuilder(output_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          output_ != null &&
+          output_ != com.google.cloud.video.transcoder.v1.Output.getDefaultInstance()) {
+          getOutputBuilder().mergeFrom(value);
         } else {
           output_ = value;
         }
-        onChanged();
       } else {
         outputBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3254,14 +3234,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.Output output = 6;</code>
      */
     public Builder clearOutput() {
-      if (outputBuilder_ == null) {
-        output_ = null;
-        onChanged();
-      } else {
-        output_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      output_ = null;
+      if (outputBuilder_ != null) {
+        outputBuilder_.dispose();
         outputBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3272,7 +3251,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.Output output = 6;</code>
      */
     public com.google.cloud.video.transcoder.v1.Output.Builder getOutputBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getOutputFieldBuilder().getBuilder();
     }
@@ -3315,9 +3294,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.video.transcoder.v1.AdBreak> adBreaks_ =
       java.util.Collections.emptyList();
     private void ensureAdBreaksIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         adBreaks_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.AdBreak>(adBreaks_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -3522,7 +3501,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAdBreaks() {
       if (adBreaksBuilder_ == null) {
         adBreaks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         adBreaksBuilder_.clear();
@@ -3634,7 +3613,7 @@ private static final long serialVersionUID = 0L;
         adBreaksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.video.transcoder.v1.AdBreak, com.google.cloud.video.transcoder.v1.AdBreak.Builder, com.google.cloud.video.transcoder.v1.AdBreakOrBuilder>(
                 adBreaks_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         adBreaks_ = null;
@@ -3654,7 +3633,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pubsubDestination field is set.
      */
     public boolean hasPubsubDestination() {
-      return pubsubDestinationBuilder_ != null || pubsubDestination_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3684,11 +3663,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pubsubDestination_ = value;
-        onChanged();
       } else {
         pubsubDestinationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3702,11 +3681,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PubsubDestination.Builder builderForValue) {
       if (pubsubDestinationBuilder_ == null) {
         pubsubDestination_ = builderForValue.build();
-        onChanged();
       } else {
         pubsubDestinationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3718,17 +3697,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePubsubDestination(com.google.cloud.video.transcoder.v1.PubsubDestination value) {
       if (pubsubDestinationBuilder_ == null) {
-        if (pubsubDestination_ != null) {
-          pubsubDestination_ =
-            com.google.cloud.video.transcoder.v1.PubsubDestination.newBuilder(pubsubDestination_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          pubsubDestination_ != null &&
+          pubsubDestination_ != com.google.cloud.video.transcoder.v1.PubsubDestination.getDefaultInstance()) {
+          getPubsubDestinationBuilder().mergeFrom(value);
         } else {
           pubsubDestination_ = value;
         }
-        onChanged();
       } else {
         pubsubDestinationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3739,14 +3719,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PubsubDestination pubsub_destination = 8;</code>
      */
     public Builder clearPubsubDestination() {
-      if (pubsubDestinationBuilder_ == null) {
-        pubsubDestination_ = null;
-        onChanged();
-      } else {
-        pubsubDestination_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      pubsubDestination_ = null;
+      if (pubsubDestinationBuilder_ != null) {
+        pubsubDestinationBuilder_.dispose();
         pubsubDestinationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3757,7 +3736,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PubsubDestination pubsub_destination = 8;</code>
      */
     public com.google.cloud.video.transcoder.v1.PubsubDestination.Builder getPubsubDestinationBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getPubsubDestinationFieldBuilder().getBuilder();
     }
@@ -3800,9 +3779,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.video.transcoder.v1.SpriteSheet> spriteSheets_ =
       java.util.Collections.emptyList();
     private void ensureSpriteSheetsIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         spriteSheets_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.SpriteSheet>(spriteSheets_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -4007,7 +3986,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpriteSheets() {
       if (spriteSheetsBuilder_ == null) {
         spriteSheets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         spriteSheetsBuilder_.clear();
@@ -4119,7 +4098,7 @@ private static final long serialVersionUID = 0L;
         spriteSheetsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.video.transcoder.v1.SpriteSheet, com.google.cloud.video.transcoder.v1.SpriteSheet.Builder, com.google.cloud.video.transcoder.v1.SpriteSheetOrBuilder>(
                 spriteSheets_,
-                ((bitField0_ & 0x00000040) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         spriteSheets_ = null;
@@ -4130,9 +4109,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.video.transcoder.v1.Overlay> overlays_ =
       java.util.Collections.emptyList();
     private void ensureOverlaysIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         overlays_ = new java.util.ArrayList<com.google.cloud.video.transcoder.v1.Overlay>(overlays_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -4326,7 +4305,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearOverlays() {
       if (overlaysBuilder_ == null) {
         overlays_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000080);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         overlaysBuilder_.clear();
@@ -4431,7 +4410,7 @@ private static final long serialVersionUID = 0L;
         overlaysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.video.transcoder.v1.Overlay, com.google.cloud.video.transcoder.v1.Overlay.Builder, com.google.cloud.video.transcoder.v1.OverlayOrBuilder>(
                 overlays_,
-                ((bitField0_ & 0x00000080) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         overlays_ = null;
@@ -4471,7 +4450,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

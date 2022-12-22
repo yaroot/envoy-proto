@@ -33,59 +33,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityPoliciesWafConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 599199394: {
-            com.google.cloud.compute.v1.PreconfiguredWafSet.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = wafRules_.toBuilder();
-            }
-            wafRules_ = input.readMessage(com.google.cloud.compute.v1.PreconfiguredWafSet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(wafRules_);
-              wafRules_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_SecurityPoliciesWafConfig_descriptor;
@@ -143,7 +90,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(74899924, getWafRules());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -156,7 +103,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(74899924, getWafRules());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -176,7 +123,7 @@ private static final long serialVersionUID = 0L;
       if (!getWafRules()
           .equals(other.getWafRules())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -191,7 +138,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + WAF_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getWafRules().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -328,12 +275,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (wafRulesBuilder_ == null) {
-        wafRules_ = null;
-      } else {
-        wafRulesBuilder_.clear();
+      bitField0_ = 0;
+      wafRules_ = null;
+      if (wafRulesBuilder_ != null) {
+        wafRulesBuilder_.dispose();
+        wafRulesBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -360,19 +307,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.SecurityPoliciesWafConfig buildPartial() {
       com.google.cloud.compute.v1.SecurityPoliciesWafConfig result = new com.google.cloud.compute.v1.SecurityPoliciesWafConfig(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.SecurityPoliciesWafConfig result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (wafRulesBuilder_ == null) {
-          result.wafRules_ = wafRules_;
-        } else {
-          result.wafRules_ = wafRulesBuilder_.build();
-        }
+        result.wafRules_ = wafRulesBuilder_ == null
+            ? wafRules_
+            : wafRulesBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -422,7 +371,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasWafRules()) {
         mergeWafRules(other.getWafRules());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -437,17 +386,37 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.SecurityPoliciesWafConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 599199394: {
+              input.readMessage(
+                  getWafRulesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 599199394
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.SecurityPoliciesWafConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -482,11 +451,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         wafRules_ = value;
-        onChanged();
       } else {
         wafRulesBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -496,11 +465,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.PreconfiguredWafSet.Builder builderForValue) {
       if (wafRulesBuilder_ == null) {
         wafRules_ = builderForValue.build();
-        onChanged();
       } else {
         wafRulesBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -509,31 +478,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeWafRules(com.google.cloud.compute.v1.PreconfiguredWafSet value) {
       if (wafRulesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            wafRules_ != null &&
-            wafRules_ != com.google.cloud.compute.v1.PreconfiguredWafSet.getDefaultInstance()) {
-          wafRules_ =
-            com.google.cloud.compute.v1.PreconfiguredWafSet.newBuilder(wafRules_).mergeFrom(value).buildPartial();
+          wafRules_ != null &&
+          wafRules_ != com.google.cloud.compute.v1.PreconfiguredWafSet.getDefaultInstance()) {
+          getWafRulesBuilder().mergeFrom(value);
         } else {
           wafRules_ = value;
         }
-        onChanged();
       } else {
         wafRulesBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.PreconfiguredWafSet waf_rules = 74899924;</code>
      */
     public Builder clearWafRules() {
-      if (wafRulesBuilder_ == null) {
-        wafRules_ = null;
-        onChanged();
-      } else {
-        wafRulesBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      wafRules_ = null;
+      if (wafRulesBuilder_ != null) {
+        wafRulesBuilder_.dispose();
+        wafRulesBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -604,7 +572,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityPoliciesWafConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

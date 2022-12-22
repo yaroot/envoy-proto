@@ -5,8 +5,9 @@ package com.google.cloud.billing.v1;
 
 /**
  * <pre>
- * A billing account in [GCP Console](https://console.cloud.google.com/).
- * You can assign a billing account to one or more projects.
+ * A billing account in the
+ * [Google Cloud Console](https://console.cloud.google.com/). You can assign a
+ * billing account to one or more projects.
  * </pre>
  *
  * Protobuf type {@code google.cloud.billing.v1.BillingAccount}
@@ -38,68 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BillingAccount(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            open_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            masterBillingAccount_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.billing.v1.CloudBillingProto.internal_static_google_cloud_billing_v1_BillingAccount_descriptor;
@@ -114,16 +53,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * The resource name of the billing account. The resource name has the form
+   * Output only. The resource name of the billing account. The resource name has the form
    * `billingAccounts/{billing_account_id}`. For example,
    * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
    * billing account `012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
    * @return The name.
    */
   @java.lang.Override
@@ -141,13 +81,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The resource name of the billing account. The resource name has the form
+   * Output only. The resource name of the billing account. The resource name has the form
    * `billingAccounts/{billing_account_id}`. For example,
    * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
    * billing account `012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -166,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPEN_FIELD_NUMBER = 2;
-  private boolean open_;
+  private boolean open_ = false;
   /**
    * <pre>
    * Output only. True if the billing account is open, and will therefore be charged for any
@@ -183,11 +123,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * The display name given to the billing account, such as `My Billing
-   * Account`. This name is displayed in the GCP Console.
+   * Account`. This name is displayed in the Google Cloud Console.
    * </pre>
    *
    * <code>string display_name = 3;</code>
@@ -209,7 +150,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The display name given to the billing account, such as `My Billing
-   * Account`. This name is displayed in the GCP Console.
+   * Account`. This name is displayed in the Google Cloud Console.
    * </pre>
    *
    * <code>string display_name = 3;</code>
@@ -231,12 +172,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MASTER_BILLING_ACCOUNT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object masterBillingAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object masterBillingAccount_ = "";
   /**
    * <pre>
    * If this account is a
    * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-   * will be the resource name of the master billing account that it is being
+   * will be the resource name of the parent billing account that it is being
    * resold through.
    * Otherwise this will be empty.
    * </pre>
@@ -261,7 +203,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * If this account is a
    * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-   * will be the resource name of the master billing account that it is being
+   * will be the resource name of the parent billing account that it is being
    * resold through.
    * Otherwise this will be empty.
    * </pre>
@@ -310,7 +252,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterBillingAccount_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, masterBillingAccount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -332,7 +274,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(masterBillingAccount_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, masterBillingAccount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -355,7 +297,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDisplayName())) return false;
     if (!getMasterBillingAccount()
         .equals(other.getMasterBillingAccount())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -375,7 +317,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDisplayName().hashCode();
     hash = (37 * hash) + MASTER_BILLING_ACCOUNT_FIELD_NUMBER;
     hash = (53 * hash) + getMasterBillingAccount().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -472,8 +414,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A billing account in [GCP Console](https://console.cloud.google.com/).
-   * You can assign a billing account to one or more projects.
+   * A billing account in the
+   * [Google Cloud Console](https://console.cloud.google.com/). You can assign a
+   * billing account to one or more projects.
    * </pre>
    *
    * Protobuf type {@code google.cloud.billing.v1.BillingAccount}
@@ -497,30 +440,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.v1.BillingAccount.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       open_ = false;
-
       displayName_ = "";
-
       masterBillingAccount_ = "";
-
       return this;
     }
 
@@ -547,12 +482,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.v1.BillingAccount buildPartial() {
       com.google.cloud.billing.v1.BillingAccount result = new com.google.cloud.billing.v1.BillingAccount(this);
-      result.name_ = name_;
-      result.open_ = open_;
-      result.displayName_ = displayName_;
-      result.masterBillingAccount_ = masterBillingAccount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.billing.v1.BillingAccount result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.open_ = open_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.masterBillingAccount_ = masterBillingAccount_;
+      }
     }
 
     @java.lang.Override
@@ -601,6 +549,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.billing.v1.BillingAccount.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getOpen() != false) {
@@ -608,13 +557,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getMasterBillingAccount().isEmpty()) {
         masterBillingAccount_ = other.masterBillingAccount_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -629,30 +580,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.v1.BillingAccount parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              open_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              masterBillingAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.v1.BillingAccount) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * The resource name of the billing account. The resource name has the form
+     * Output only. The resource name of the billing account. The resource name has the form
      * `billingAccounts/{billing_account_id}`. For example,
      * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
      * billing account `012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
      * @return The name.
      */
     public java.lang.String getName() {
@@ -669,13 +654,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The resource name of the billing account. The resource name has the form
+     * Output only. The resource name of the billing account. The resource name has the form
      * `billingAccounts/{billing_account_id}`. For example,
      * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
      * billing account `012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
      * @return The bytes for name.
      */
     public com.google.protobuf.ByteString
@@ -693,63 +678,59 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The resource name of the billing account. The resource name has the form
+     * Output only. The resource name of the billing account. The resource name has the form
      * `billingAccounts/{billing_account_id}`. For example,
      * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
      * billing account `012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
      * @param value The name to set.
      * @return This builder for chaining.
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The resource name of the billing account. The resource name has the form
+     * Output only. The resource name of the billing account. The resource name has the form
      * `billingAccounts/{billing_account_id}`. For example,
      * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
      * billing account `012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The resource name of the billing account. The resource name has the form
+     * Output only. The resource name of the billing account. The resource name has the form
      * `billingAccounts/{billing_account_id}`. For example,
      * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
      * billing account `012345-567890-ABCDEF`.
      * </pre>
      *
-     * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -783,6 +764,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOpen(boolean value) {
       
       open_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -797,7 +779,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOpen() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       open_ = false;
       onChanged();
       return this;
@@ -807,7 +789,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The display name given to the billing account, such as `My Billing
-     * Account`. This name is displayed in the GCP Console.
+     * Account`. This name is displayed in the Google Cloud Console.
      * </pre>
      *
      * <code>string display_name = 3;</code>
@@ -828,7 +810,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The display name given to the billing account, such as `My Billing
-     * Account`. This name is displayed in the GCP Console.
+     * Account`. This name is displayed in the Google Cloud Console.
      * </pre>
      *
      * <code>string display_name = 3;</code>
@@ -850,7 +832,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The display name given to the billing account, such as `My Billing
-     * Account`. This name is displayed in the GCP Console.
+     * Account`. This name is displayed in the Google Cloud Console.
      * </pre>
      *
      * <code>string display_name = 3;</code>
@@ -859,33 +841,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The display name given to the billing account, such as `My Billing
-     * Account`. This name is displayed in the GCP Console.
+     * Account`. This name is displayed in the Google Cloud Console.
      * </pre>
      *
      * <code>string display_name = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The display name given to the billing account, such as `My Billing
-     * Account`. This name is displayed in the GCP Console.
+     * Account`. This name is displayed in the Google Cloud Console.
      * </pre>
      *
      * <code>string display_name = 3;</code>
@@ -894,12 +874,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -909,7 +887,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If this account is a
      * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-     * will be the resource name of the master billing account that it is being
+     * will be the resource name of the parent billing account that it is being
      * resold through.
      * Otherwise this will be empty.
      * </pre>
@@ -933,7 +911,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If this account is a
      * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-     * will be the resource name of the master billing account that it is being
+     * will be the resource name of the parent billing account that it is being
      * resold through.
      * Otherwise this will be empty.
      * </pre>
@@ -958,7 +936,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If this account is a
      * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-     * will be the resource name of the master billing account that it is being
+     * will be the resource name of the parent billing account that it is being
      * resold through.
      * Otherwise this will be empty.
      * </pre>
@@ -969,11 +947,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterBillingAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       masterBillingAccount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -981,7 +957,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If this account is a
      * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-     * will be the resource name of the master billing account that it is being
+     * will be the resource name of the parent billing account that it is being
      * resold through.
      * Otherwise this will be empty.
      * </pre>
@@ -990,8 +966,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMasterBillingAccount() {
-      
       masterBillingAccount_ = getDefaultInstance().getMasterBillingAccount();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -999,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If this account is a
      * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-     * will be the resource name of the master billing account that it is being
+     * will be the resource name of the parent billing account that it is being
      * resold through.
      * Otherwise this will be empty.
      * </pre>
@@ -1010,12 +986,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMasterBillingAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       masterBillingAccount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1052,7 +1026,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BillingAccount(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RouteLegTravelAdvisory(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.maps.routing.v2.TollInfo.Builder subBuilder = null;
-            if (tollInfo_ != null) {
-              subBuilder = tollInfo_.toBuilder();
-            }
-            tollInfo_ = input.readMessage(com.google.maps.routing.v2.TollInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tollInfo_);
-              tollInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              speedReadingIntervals_ = new java.util.ArrayList<com.google.maps.routing.v2.SpeedReadingInterval>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            speedReadingIntervals_.add(
-                input.readMessage(com.google.maps.routing.v2.SpeedReadingInterval.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        speedReadingIntervals_ = java.util.Collections.unmodifiableList(speedReadingIntervals_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routing.v2.RouteProto.internal_static_google_maps_routing_v2_RouteLegTravelAdvisory_descriptor;
@@ -161,10 +96,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routing.v2.TollInfoOrBuilder getTollInfoOrBuilder() {
-    return getTollInfo();
+    return tollInfo_ == null ? com.google.maps.routing.v2.TollInfo.getDefaultInstance() : tollInfo_;
   }
 
   public static final int SPEED_READING_INTERVALS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routing.v2.SpeedReadingInterval> speedReadingIntervals_;
   /**
    * <pre>
@@ -279,7 +215,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < speedReadingIntervals_.size(); i++) {
       output.writeMessage(2, speedReadingIntervals_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -296,7 +232,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, speedReadingIntervals_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -318,7 +254,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSpeedReadingIntervalsList()
         .equals(other.getSpeedReadingIntervalsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -337,7 +273,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SPEED_READING_INTERVALS_FIELD_NUMBER;
       hash = (53 * hash) + getSpeedReadingIntervalsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -459,35 +395,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routing.v2.RouteLegTravelAdvisory.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpeedReadingIntervalsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (tollInfoBuilder_ == null) {
-        tollInfo_ = null;
-      } else {
-        tollInfo_ = null;
+      bitField0_ = 0;
+      tollInfo_ = null;
+      if (tollInfoBuilder_ != null) {
+        tollInfoBuilder_.dispose();
         tollInfoBuilder_ = null;
       }
       if (speedReadingIntervalsBuilder_ == null) {
         speedReadingIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        speedReadingIntervals_ = null;
         speedReadingIntervalsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -514,23 +445,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routing.v2.RouteLegTravelAdvisory buildPartial() {
       com.google.maps.routing.v2.RouteLegTravelAdvisory result = new com.google.maps.routing.v2.RouteLegTravelAdvisory(this);
-      int from_bitField0_ = bitField0_;
-      if (tollInfoBuilder_ == null) {
-        result.tollInfo_ = tollInfo_;
-      } else {
-        result.tollInfo_ = tollInfoBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routing.v2.RouteLegTravelAdvisory result) {
       if (speedReadingIntervalsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           speedReadingIntervals_ = java.util.Collections.unmodifiableList(speedReadingIntervals_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.speedReadingIntervals_ = speedReadingIntervals_;
       } else {
         result.speedReadingIntervals_ = speedReadingIntervalsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.maps.routing.v2.RouteLegTravelAdvisory result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tollInfo_ = tollInfoBuilder_ == null
+            ? tollInfo_
+            : tollInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -584,7 +523,7 @@ private static final long serialVersionUID = 0L;
         if (!other.speedReadingIntervals_.isEmpty()) {
           if (speedReadingIntervals_.isEmpty()) {
             speedReadingIntervals_ = other.speedReadingIntervals_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSpeedReadingIntervalsIsMutable();
             speedReadingIntervals_.addAll(other.speedReadingIntervals_);
@@ -597,7 +536,7 @@ private static final long serialVersionUID = 0L;
             speedReadingIntervalsBuilder_.dispose();
             speedReadingIntervalsBuilder_ = null;
             speedReadingIntervals_ = other.speedReadingIntervals_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             speedReadingIntervalsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpeedReadingIntervalsFieldBuilder() : null;
@@ -606,7 +545,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -621,17 +560,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routing.v2.RouteLegTravelAdvisory parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTollInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.maps.routing.v2.SpeedReadingInterval m =
+                  input.readMessage(
+                      com.google.maps.routing.v2.SpeedReadingInterval.parser(),
+                      extensionRegistry);
+              if (speedReadingIntervalsBuilder_ == null) {
+                ensureSpeedReadingIntervalsIsMutable();
+                speedReadingIntervals_.add(m);
+              } else {
+                speedReadingIntervalsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routing.v2.RouteLegTravelAdvisory) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -652,7 +624,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tollInfo field is set.
      */
     public boolean hasTollInfo() {
-      return tollInfoBuilder_ != null || tollInfo_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -690,11 +662,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tollInfo_ = value;
-        onChanged();
       } else {
         tollInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -712,11 +684,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routing.v2.TollInfo.Builder builderForValue) {
       if (tollInfoBuilder_ == null) {
         tollInfo_ = builderForValue.build();
-        onChanged();
       } else {
         tollInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -732,17 +704,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTollInfo(com.google.maps.routing.v2.TollInfo value) {
       if (tollInfoBuilder_ == null) {
-        if (tollInfo_ != null) {
-          tollInfo_ =
-            com.google.maps.routing.v2.TollInfo.newBuilder(tollInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          tollInfo_ != null &&
+          tollInfo_ != com.google.maps.routing.v2.TollInfo.getDefaultInstance()) {
+          getTollInfoBuilder().mergeFrom(value);
         } else {
           tollInfo_ = value;
         }
-        onChanged();
       } else {
         tollInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -757,14 +730,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.TollInfo toll_info = 1;</code>
      */
     public Builder clearTollInfo() {
-      if (tollInfoBuilder_ == null) {
-        tollInfo_ = null;
-        onChanged();
-      } else {
-        tollInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      tollInfo_ = null;
+      if (tollInfoBuilder_ != null) {
+        tollInfoBuilder_.dispose();
         tollInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -779,7 +751,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.TollInfo toll_info = 1;</code>
      */
     public com.google.maps.routing.v2.TollInfo.Builder getTollInfoBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTollInfoFieldBuilder().getBuilder();
     }
@@ -830,9 +802,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.maps.routing.v2.SpeedReadingInterval> speedReadingIntervals_ =
       java.util.Collections.emptyList();
     private void ensureSpeedReadingIntervalsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         speedReadingIntervals_ = new java.util.ArrayList<com.google.maps.routing.v2.SpeedReadingInterval>(speedReadingIntervals_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1103,7 +1075,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpeedReadingIntervals() {
       if (speedReadingIntervalsBuilder_ == null) {
         speedReadingIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         speedReadingIntervalsBuilder_.clear();
@@ -1257,7 +1229,7 @@ private static final long serialVersionUID = 0L;
         speedReadingIntervalsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.maps.routing.v2.SpeedReadingInterval, com.google.maps.routing.v2.SpeedReadingInterval.Builder, com.google.maps.routing.v2.SpeedReadingIntervalOrBuilder>(
                 speedReadingIntervals_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         speedReadingIntervals_ = null;
@@ -1297,7 +1269,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RouteLegTravelAdvisory(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

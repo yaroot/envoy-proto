@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateAzureAccessTokenRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            azureCluster_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureServiceProto.internal_static_google_cloud_gkemulticloud_v1_GenerateAzureAccessTokenRequest_descriptor;
@@ -94,10 +49,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AZURE_CLUSTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object azureCluster_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object azureCluster_ = "";
   /**
    * <pre>
-   * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+   * Required. The name of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+   * authenticate to.
    * `AzureCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -122,7 +80,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+   * Required. The name of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+   * authenticate to.
    * `AzureCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -164,7 +124,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(azureCluster_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, azureCluster_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -176,7 +136,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(azureCluster_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, azureCluster_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -193,7 +153,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getAzureCluster()
         .equals(other.getAzureCluster())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -206,7 +166,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + AZURE_CLUSTER_FIELD_NUMBER;
     hash = (53 * hash) + getAzureCluster().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -327,24 +287,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       azureCluster_ = "";
-
       return this;
     }
 
@@ -371,9 +326,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest buildPartial() {
       com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest result = new com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest(this);
-      result.azureCluster_ = azureCluster_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.azureCluster_ = azureCluster_;
+      }
     }
 
     @java.lang.Override
@@ -422,9 +384,10 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest.getDefaultInstance()) return this;
       if (!other.getAzureCluster().isEmpty()) {
         azureCluster_ = other.azureCluster_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -439,24 +402,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              azureCluster_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.GenerateAzureAccessTokenRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object azureCluster_ = "";
     /**
      * <pre>
-     * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+     * Required. The name of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+     * authenticate to.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -480,7 +464,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+     * Required. The name of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+     * authenticate to.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -505,7 +491,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+     * Required. The name of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+     * authenticate to.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -518,17 +506,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureCluster(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       azureCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+     * Required. The name of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+     * authenticate to.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -539,14 +527,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAzureCluster() {
-      
       azureCluster_ = getDefaultInstance().getAzureCluster();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The name of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to authenticate to.
+     * Required. The name of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource to
+     * authenticate to.
      * `AzureCluster` names are formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/AzureClusters/&lt;cluster-id&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -559,12 +549,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureClusterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       azureCluster_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -601,7 +589,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateAzureAccessTokenRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -52,113 +52,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HeaderMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 4;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 5;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.type.Int64Range.Builder subBuilder = null;
-            if (headerMatchSpecifierCase_ == 6) {
-              subBuilder = ((io.envoyproxy.envoy.type.Int64Range) headerMatchSpecifier_).toBuilder();
-            }
-            headerMatchSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.type.Int64Range.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.type.Int64Range) headerMatchSpecifier_);
-              headerMatchSpecifier_ = subBuilder.buildPartial();
-            }
-            headerMatchSpecifierCase_ = 6;
-            break;
-          }
-          case 56: {
-            headerMatchSpecifier_ = input.readBool();
-            headerMatchSpecifierCase_ = 7;
-            break;
-          }
-          case 64: {
-
-            invertMatch_ = input.readBool();
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 9;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            headerMatchSpecifierCase_ = 10;
-            headerMatchSpecifier_ = s;
-            break;
-          }
-          case 90: {
-            io.envoyproxy.envoy.type.matcher.RegexMatcher.Builder subBuilder = null;
-            if (headerMatchSpecifierCase_ == 11) {
-              subBuilder = ((io.envoyproxy.envoy.type.matcher.RegexMatcher) headerMatchSpecifier_).toBuilder();
-            }
-            headerMatchSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.type.matcher.RegexMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.type.matcher.RegexMatcher) headerMatchSpecifier_);
-              headerMatchSpecifier_ = subBuilder.buildPartial();
-            }
-            headerMatchSpecifierCase_ = 11;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.route.RouteComponentsProto.internal_static_envoy_api_v2_route_HeaderMatcher_descriptor;
@@ -224,7 +117,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Specifies the name of the header in the request.
@@ -351,7 +245,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1541
+   *     See envoy/api/v2/route/route_components.proto;l=1542
    * @return Whether the regexMatch field is set.
    */
   @java.lang.Deprecated public boolean hasRegexMatch() {
@@ -374,7 +268,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1541
+   *     See envoy/api/v2/route/route_components.proto;l=1542
    * @return The regexMatch.
    */
   @java.lang.Deprecated public java.lang.String getRegexMatch() {
@@ -411,7 +305,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1541
+   *     See envoy/api/v2/route/route_components.proto;l=1542
    * @return The bytes for regexMatch.
    */
   @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -727,7 +621,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVERT_MATCH_FIELD_NUMBER = 8;
-  private boolean invertMatch_;
+  private boolean invertMatch_ = false;
   /**
    * <pre>
    * If specified, the match result will be inverted before checking. Defaults to false.
@@ -786,7 +680,7 @@ private static final long serialVersionUID = 0L;
     if (headerMatchSpecifierCase_ == 11) {
       output.writeMessage(11, (io.envoyproxy.envoy.type.matcher.RegexMatcher) headerMatchSpecifier_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -827,7 +721,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, (io.envoyproxy.envoy.type.matcher.RegexMatcher) headerMatchSpecifier_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -879,7 +773,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -928,7 +822,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1066,26 +960,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.route.HeaderMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
+      if (safeRegexMatchBuilder_ != null) {
+        safeRegexMatchBuilder_.clear();
+      }
+      if (rangeMatchBuilder_ != null) {
+        rangeMatchBuilder_.clear();
+      }
       invertMatch_ = false;
-
       headerMatchSpecifierCase_ = 0;
       headerMatchSpecifier_ = null;
       return this;
@@ -1114,40 +1008,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.route.HeaderMatcher buildPartial() {
       io.envoyproxy.envoy.api.v2.route.HeaderMatcher result = new io.envoyproxy.envoy.api.v2.route.HeaderMatcher(this);
-      result.name_ = name_;
-      if (headerMatchSpecifierCase_ == 4) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 5) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 11) {
-        if (safeRegexMatchBuilder_ == null) {
-          result.headerMatchSpecifier_ = headerMatchSpecifier_;
-        } else {
-          result.headerMatchSpecifier_ = safeRegexMatchBuilder_.build();
-        }
-      }
-      if (headerMatchSpecifierCase_ == 6) {
-        if (rangeMatchBuilder_ == null) {
-          result.headerMatchSpecifier_ = headerMatchSpecifier_;
-        } else {
-          result.headerMatchSpecifier_ = rangeMatchBuilder_.build();
-        }
-      }
-      if (headerMatchSpecifierCase_ == 7) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 9) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      if (headerMatchSpecifierCase_ == 10) {
-        result.headerMatchSpecifier_ = headerMatchSpecifier_;
-      }
-      result.invertMatch_ = invertMatch_;
-      result.headerMatchSpecifierCase_ = headerMatchSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.route.HeaderMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.invertMatch_ = invertMatch_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.route.HeaderMatcher result) {
+      result.headerMatchSpecifierCase_ = headerMatchSpecifierCase_;
+      result.headerMatchSpecifier_ = this.headerMatchSpecifier_;
+      if (headerMatchSpecifierCase_ == 11 &&
+          safeRegexMatchBuilder_ != null) {
+        result.headerMatchSpecifier_ = safeRegexMatchBuilder_.build();
+      }
+      if (headerMatchSpecifierCase_ == 6 &&
+          rangeMatchBuilder_ != null) {
+        result.headerMatchSpecifier_ = rangeMatchBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1196,6 +1083,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.api.v2.route.HeaderMatcher.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getInvertMatch() != false) {
@@ -1242,7 +1130,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1257,17 +1145,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.route.HeaderMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 4;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 5;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getRangeMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              headerMatchSpecifierCase_ = 6;
+              break;
+            } // case 50
+            case 56: {
+              headerMatchSpecifier_ = input.readBool();
+              headerMatchSpecifierCase_ = 7;
+              break;
+            } // case 56
+            case 64: {
+              invertMatch_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 64
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 9;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              headerMatchSpecifierCase_ = 10;
+              headerMatchSpecifier_ = s;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getSafeRegexMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              headerMatchSpecifierCase_ = 11;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.route.HeaderMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int headerMatchSpecifierCase_ = 0;
@@ -1285,6 +1239,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1339,11 +1294,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1356,8 +1309,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1372,12 +1325,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1458,10 +1409,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExactMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 4;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -1493,10 +1442,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExactMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 4;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -1520,7 +1467,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1541
+     *     See envoy/api/v2/route/route_components.proto;l=1542
      * @return Whether the regexMatch field is set.
      */
     @java.lang.Override
@@ -1544,7 +1491,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1541
+     *     See envoy/api/v2/route/route_components.proto;l=1542
      * @return The regexMatch.
      */
     @java.lang.Override
@@ -1582,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1541
+     *     See envoy/api/v2/route/route_components.proto;l=1542
      * @return The bytes for regexMatch.
      */
     @java.lang.Override
@@ -1621,16 +1568,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1541
+     *     See envoy/api/v2/route/route_components.proto;l=1542
      * @param value The regexMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setRegexMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 5;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -1652,7 +1597,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1541
+     *     See envoy/api/v2/route/route_components.proto;l=1542
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearRegexMatch() {
@@ -1680,16 +1625,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string regex_match = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.HeaderMatcher.regex_match is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1541
+     *     See envoy/api/v2/route/route_components.proto;l=1542
      * @param value The bytes for regexMatch to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setRegexMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 5;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -1888,7 +1831,7 @@ private static final long serialVersionUID = 0L;
         headerMatchSpecifier_ = null;
       }
       headerMatchSpecifierCase_ = 11;
-      onChanged();;
+      onChanged();
       return safeRegexMatchBuilder_;
     }
 
@@ -2138,7 +2081,7 @@ private static final long serialVersionUID = 0L;
         headerMatchSpecifier_ = null;
       }
       headerMatchSpecifierCase_ = 6;
-      onChanged();;
+      onChanged();
       return rangeMatchBuilder_;
     }
 
@@ -2180,6 +2123,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPresentMatch(boolean value) {
+      
       headerMatchSpecifierCase_ = 7;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2291,10 +2235,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 9;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 9;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -2332,10 +2274,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 9;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2430,10 +2370,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuffixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  headerMatchSpecifierCase_ = 10;
+      if (value == null) { throw new NullPointerException(); }
+      headerMatchSpecifierCase_ = 10;
       headerMatchSpecifier_ = value;
       onChanged();
       return this;
@@ -2471,10 +2409,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuffixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerMatchSpecifierCase_ = 10;
       headerMatchSpecifier_ = value;
       onChanged();
@@ -2512,6 +2448,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInvertMatch(boolean value) {
       
       invertMatch_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2527,7 +2464,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvertMatch() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       invertMatch_ = false;
       onChanged();
       return this;
@@ -2565,7 +2502,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HeaderMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

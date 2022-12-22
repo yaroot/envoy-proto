@@ -45,58 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CelMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.github.xds.type.v3.CelExpression.Builder subBuilder = null;
-            if (exprMatch_ != null) {
-              subBuilder = exprMatch_.toBuilder();
-            }
-            exprMatch_ = input.readMessage(com.github.xds.type.v3.CelExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(exprMatch_);
-              exprMatch_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.github.xds.type.matcher.v3.CelProto.internal_static_xds_type_matcher_v3_CelMatcher_descriptor;
@@ -145,7 +93,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.github.xds.type.v3.CelExpressionOrBuilder getExprMatchOrBuilder() {
-    return getExprMatch();
+    return exprMatch_ == null ? com.github.xds.type.v3.CelExpression.getDefaultInstance() : exprMatch_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -165,7 +113,7 @@ private static final long serialVersionUID = 0L;
     if (exprMatch_ != null) {
       output.writeMessage(1, getExprMatch());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -178,7 +126,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExprMatch());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -198,7 +146,7 @@ private static final long serialVersionUID = 0L;
       if (!getExprMatch()
           .equals(other.getExprMatch())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -213,7 +161,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXPR_MATCH_FIELD_NUMBER;
       hash = (53 * hash) + getExprMatch().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -345,26 +293,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.xds.type.matcher.v3.CelMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (exprMatchBuilder_ == null) {
-        exprMatch_ = null;
-      } else {
-        exprMatch_ = null;
+      bitField0_ = 0;
+      exprMatch_ = null;
+      if (exprMatchBuilder_ != null) {
+        exprMatchBuilder_.dispose();
         exprMatchBuilder_ = null;
       }
       return this;
@@ -393,13 +336,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.xds.type.matcher.v3.CelMatcher buildPartial() {
       com.github.xds.type.matcher.v3.CelMatcher result = new com.github.xds.type.matcher.v3.CelMatcher(this);
-      if (exprMatchBuilder_ == null) {
-        result.exprMatch_ = exprMatch_;
-      } else {
-        result.exprMatch_ = exprMatchBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.github.xds.type.matcher.v3.CelMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.exprMatch_ = exprMatchBuilder_ == null
+            ? exprMatch_
+            : exprMatchBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -449,7 +397,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasExprMatch()) {
         mergeExprMatch(other.getExprMatch());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -464,19 +412,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.xds.type.matcher.v3.CelMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getExprMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.xds.type.matcher.v3.CelMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.github.xds.type.v3.CelExpression exprMatch_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -490,7 +459,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the exprMatch field is set.
      */
     public boolean hasExprMatch() {
-      return exprMatchBuilder_ != null || exprMatch_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -520,11 +489,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         exprMatch_ = value;
-        onChanged();
       } else {
         exprMatchBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -538,11 +507,11 @@ private static final long serialVersionUID = 0L;
         com.github.xds.type.v3.CelExpression.Builder builderForValue) {
       if (exprMatchBuilder_ == null) {
         exprMatch_ = builderForValue.build();
-        onChanged();
       } else {
         exprMatchBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -554,17 +523,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExprMatch(com.github.xds.type.v3.CelExpression value) {
       if (exprMatchBuilder_ == null) {
-        if (exprMatch_ != null) {
-          exprMatch_ =
-            com.github.xds.type.v3.CelExpression.newBuilder(exprMatch_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          exprMatch_ != null &&
+          exprMatch_ != com.github.xds.type.v3.CelExpression.getDefaultInstance()) {
+          getExprMatchBuilder().mergeFrom(value);
         } else {
           exprMatch_ = value;
         }
-        onChanged();
       } else {
         exprMatchBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -575,14 +545,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xds.type.v3.CelExpression expr_match = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearExprMatch() {
-      if (exprMatchBuilder_ == null) {
-        exprMatch_ = null;
-        onChanged();
-      } else {
-        exprMatch_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      exprMatch_ = null;
+      if (exprMatchBuilder_ != null) {
+        exprMatchBuilder_.dispose();
         exprMatchBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -593,7 +562,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xds.type.v3.CelExpression expr_match = 1 [(.validate.rules) = { ... }</code>
      */
     public com.github.xds.type.v3.CelExpression.Builder getExprMatchBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getExprMatchFieldBuilder().getBuilder();
     }
@@ -665,7 +634,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CelMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

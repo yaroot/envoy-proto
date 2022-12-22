@@ -312,63 +312,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Package(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              desiredState_ = rawValue;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              manager_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_Package_descriptor;
@@ -579,7 +522,8 @@ public final class GuestPolicies {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * The name of the package. A package is uniquely identified for conflict
@@ -629,7 +573,7 @@ public final class GuestPolicies {
     }
 
     public static final int DESIRED_STATE_FIELD_NUMBER = 2;
-    private int desiredState_;
+    private int desiredState_ = 0;
     /**
      * <pre>
      * The desired_state the agent should maintain for this package. The
@@ -652,13 +596,12 @@ public final class GuestPolicies {
      * @return The desiredState.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState getDesiredState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.valueOf(desiredState_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.forNumber(desiredState_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.UNRECOGNIZED : result;
     }
 
     public static final int MANAGER_FIELD_NUMBER = 3;
-    private int manager_;
+    private int manager_ = 0;
     /**
      * <pre>
      * Type of package manager that can be used to install this package.
@@ -693,8 +636,7 @@ public final class GuestPolicies {
      * @return The manager.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager getManager() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.valueOf(manager_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.forNumber(manager_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.UNRECOGNIZED : result;
     }
 
@@ -721,7 +663,7 @@ public final class GuestPolicies {
       if (manager_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.MANAGER_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, manager_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -741,7 +683,7 @@ public final class GuestPolicies {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, manager_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -760,7 +702,7 @@ public final class GuestPolicies {
           .equals(other.getName())) return false;
       if (desiredState_ != other.desiredState_) return false;
       if (manager_ != other.manager_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -777,7 +719,7 @@ public final class GuestPolicies {
       hash = (53 * hash) + desiredState_;
       hash = (37 * hash) + MANAGER_FIELD_NUMBER;
       hash = (53 * hash) + manager_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -914,28 +856,21 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         desiredState_ = 0;
-
         manager_ = 0;
-
         return this;
       }
 
@@ -962,11 +897,22 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package(this);
-        result.name_ = name_;
-        result.desiredState_ = desiredState_;
-        result.manager_ = manager_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.desiredState_ = desiredState_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.manager_ = manager_;
+        }
       }
 
       @java.lang.Override
@@ -1015,6 +961,7 @@ public final class GuestPolicies {
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.desiredState_ != 0) {
@@ -1023,7 +970,7 @@ public final class GuestPolicies {
         if (other.manager_ != 0) {
           setManagerValue(other.getManagerValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1038,19 +985,48 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                desiredState_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                manager_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -1111,11 +1087,9 @@ public final class GuestPolicies {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1130,8 +1104,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1148,12 +1122,10 @@ public final class GuestPolicies {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1182,8 +1154,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder setDesiredStateValue(int value) {
-        
         desiredState_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1198,8 +1170,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState getDesiredState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.valueOf(desiredState_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.forNumber(desiredState_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.UNRECOGNIZED : result;
       }
       /**
@@ -1216,7 +1187,7 @@ public final class GuestPolicies {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         desiredState_ = value.getNumber();
         onChanged();
         return this;
@@ -1231,7 +1202,7 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearDesiredState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         desiredState_ = 0;
         onChanged();
         return this;
@@ -1273,8 +1244,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder setManagerValue(int value) {
-        
         manager_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1295,8 +1266,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager getManager() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.valueOf(manager_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.forNumber(manager_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Manager.UNRECOGNIZED : result;
       }
       /**
@@ -1319,7 +1289,7 @@ public final class GuestPolicies {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         manager_ = value.getNumber();
         onChanged();
         return this;
@@ -1340,7 +1310,7 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearManager() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         manager_ = 0;
         onChanged();
         return this;
@@ -1378,7 +1348,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Package(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1564,82 +1545,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AptRepository(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              archiveType_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              uri_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              distribution_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                components_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              components_.add(s);
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gpgKey_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          components_ = components_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_AptRepository_descriptor;
@@ -1799,7 +1704,7 @@ public final class GuestPolicies {
     }
 
     public static final int ARCHIVE_TYPE_FIELD_NUMBER = 1;
-    private int archiveType_;
+    private int archiveType_ = 0;
     /**
      * <pre>
      * Type of archive files in this repository. The default behavior is DEB.
@@ -1820,13 +1725,13 @@ public final class GuestPolicies {
      * @return The archiveType.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType getArchiveType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType.valueOf(archiveType_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType.forNumber(archiveType_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType.UNRECOGNIZED : result;
     }
 
     public static final int URI_FIELD_NUMBER = 2;
-    private volatile java.lang.Object uri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object uri_ = "";
     /**
      * <pre>
      * URI for this repository.
@@ -1872,7 +1777,8 @@ public final class GuestPolicies {
     }
 
     public static final int DISTRIBUTION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object distribution_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object distribution_ = "";
     /**
      * <pre>
      * Distribution of this repository.
@@ -1918,6 +1824,7 @@ public final class GuestPolicies {
     }
 
     public static final int COMPONENTS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList components_;
     /**
      * <pre>
@@ -1969,7 +1876,8 @@ public final class GuestPolicies {
     }
 
     public static final int GPG_KEY_FIELD_NUMBER = 5;
-    private volatile java.lang.Object gpgKey_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object gpgKey_ = "";
     /**
      * <pre>
      * URI of the key file for this repository. The agent maintains
@@ -2047,7 +1955,7 @@ public final class GuestPolicies {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gpgKey_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, gpgKey_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2077,7 +1985,7 @@ public final class GuestPolicies {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(gpgKey_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, gpgKey_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2101,7 +2009,7 @@ public final class GuestPolicies {
           .equals(other.getComponentsList())) return false;
       if (!getGpgKey()
           .equals(other.getGpgKey())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2124,7 +2032,7 @@ public final class GuestPolicies {
       }
       hash = (37 * hash) + GPG_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getGpgKey().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2247,32 +2155,24 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         archiveType_ = 0;
-
         uri_ = "";
-
         distribution_ = "";
-
         components_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         gpgKey_ = "";
-
         return this;
       }
 
@@ -2299,18 +2199,34 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository(this);
-        int from_bitField0_ = bitField0_;
-        result.archiveType_ = archiveType_;
-        result.uri_ = uri_;
-        result.distribution_ = distribution_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          components_ = components_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.components_ = components_;
-        result.gpgKey_ = gpgKey_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository result) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          components_ = components_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.components_ = components_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.archiveType_ = archiveType_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.uri_ = uri_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.distribution_ = distribution_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.gpgKey_ = gpgKey_;
+        }
       }
 
       @java.lang.Override
@@ -2362,16 +2278,18 @@ public final class GuestPolicies {
         }
         if (!other.getUri().isEmpty()) {
           uri_ = other.uri_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDistribution().isEmpty()) {
           distribution_ = other.distribution_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.components_.isEmpty()) {
           if (components_.isEmpty()) {
             components_ = other.components_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureComponentsIsMutable();
             components_.addAll(other.components_);
@@ -2380,9 +2298,10 @@ public final class GuestPolicies {
         }
         if (!other.getGpgKey().isEmpty()) {
           gpgKey_ = other.gpgKey_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2397,17 +2316,56 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                archiveType_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                uri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                distribution_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureComponentsIsMutable();
+                components_.add(s);
+                break;
+              } // case 34
+              case 42: {
+                gpgKey_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2434,8 +2392,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder setArchiveTypeValue(int value) {
-        
         archiveType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2449,8 +2407,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType getArchiveType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType.valueOf(archiveType_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType.forNumber(archiveType_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.ArchiveType.UNRECOGNIZED : result;
       }
       /**
@@ -2466,7 +2423,7 @@ public final class GuestPolicies {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         archiveType_ = value.getNumber();
         onChanged();
         return this;
@@ -2480,7 +2437,7 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearArchiveType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         archiveType_ = 0;
         onChanged();
         return this;
@@ -2539,11 +2496,9 @@ public final class GuestPolicies {
        */
       public Builder setUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         uri_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2556,8 +2511,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearUri() {
-        
         uri_ = getDefaultInstance().getUri();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2572,12 +2527,10 @@ public final class GuestPolicies {
        */
       public Builder setUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         uri_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2635,11 +2588,9 @@ public final class GuestPolicies {
        */
       public Builder setDistribution(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         distribution_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2652,8 +2603,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearDistribution() {
-        
         distribution_ = getDefaultInstance().getDistribution();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -2668,21 +2619,19 @@ public final class GuestPolicies {
        */
       public Builder setDistributionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         distribution_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList components_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureComponentsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           components_ = new com.google.protobuf.LazyStringArrayList(components_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -2745,10 +2694,8 @@ public final class GuestPolicies {
        */
       public Builder setComponents(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureComponentsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureComponentsIsMutable();
         components_.set(index, value);
         onChanged();
         return this;
@@ -2764,10 +2711,8 @@ public final class GuestPolicies {
        */
       public Builder addComponents(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureComponentsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureComponentsIsMutable();
         components_.add(value);
         onChanged();
         return this;
@@ -2799,7 +2744,7 @@ public final class GuestPolicies {
        */
       public Builder clearComponents() {
         components_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -2814,10 +2759,8 @@ public final class GuestPolicies {
        */
       public Builder addComponentsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureComponentsIsMutable();
         components_.add(value);
         onChanged();
@@ -2883,11 +2826,9 @@ public final class GuestPolicies {
        */
       public Builder setGpgKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         gpgKey_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2902,8 +2843,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearGpgKey() {
-        
         gpgKey_ = getDefaultInstance().getGpgKey();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -2920,12 +2861,10 @@ public final class GuestPolicies {
        */
       public Builder setGpgKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         gpgKey_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2962,7 +2901,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AptRepository(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3129,76 +3079,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private YumRepository(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              baseUrl_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                gpgKeys_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              gpgKeys_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          gpgKeys_ = gpgKeys_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_YumRepository_descriptor;
@@ -3213,7 +3093,8 @@ public final class GuestPolicies {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * A one word, unique name for this repository. This is
@@ -3265,7 +3146,8 @@ public final class GuestPolicies {
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * The display name of the repository.
@@ -3311,7 +3193,8 @@ public final class GuestPolicies {
     }
 
     public static final int BASE_URL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object baseUrl_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object baseUrl_ = "";
     /**
      * <pre>
      * The location of the repository directory.
@@ -3357,6 +3240,7 @@ public final class GuestPolicies {
     }
 
     public static final int GPG_KEYS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList gpgKeys_;
     /**
      * <pre>
@@ -3433,7 +3317,7 @@ public final class GuestPolicies {
       for (int i = 0; i < gpgKeys_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, gpgKeys_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3459,7 +3343,7 @@ public final class GuestPolicies {
         size += dataSize;
         size += 1 * getGpgKeysList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3482,7 +3366,7 @@ public final class GuestPolicies {
           .equals(other.getBaseUrl())) return false;
       if (!getGpgKeysList()
           .equals(other.getGpgKeysList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3503,7 +3387,7 @@ public final class GuestPolicies {
         hash = (37 * hash) + GPG_KEYS_FIELD_NUMBER;
         hash = (53 * hash) + getGpgKeysList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3625,30 +3509,23 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         displayName_ = "";
-
         baseUrl_ = "";
-
         gpgKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -3675,17 +3552,31 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        result.displayName_ = displayName_;
-        result.baseUrl_ = baseUrl_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          gpgKeys_ = gpgKeys_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.gpgKeys_ = gpgKeys_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository result) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          gpgKeys_ = gpgKeys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.gpgKeys_ = gpgKeys_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.displayName_ = displayName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.baseUrl_ = baseUrl_;
+        }
       }
 
       @java.lang.Override
@@ -3734,27 +3625,30 @@ public final class GuestPolicies {
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getBaseUrl().isEmpty()) {
           baseUrl_ = other.baseUrl_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.gpgKeys_.isEmpty()) {
           if (gpgKeys_.isEmpty()) {
             gpgKeys_ = other.gpgKeys_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureGpgKeysIsMutable();
             gpgKeys_.addAll(other.gpgKeys_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3769,17 +3663,51 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                baseUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureGpgKeysIsMutable();
+                gpgKeys_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3846,11 +3774,9 @@ public final class GuestPolicies {
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3866,8 +3792,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3885,12 +3811,10 @@ public final class GuestPolicies {
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3948,11 +3872,9 @@ public final class GuestPolicies {
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3965,8 +3887,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -3981,12 +3903,10 @@ public final class GuestPolicies {
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4044,11 +3964,9 @@ public final class GuestPolicies {
        */
       public Builder setBaseUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         baseUrl_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4061,8 +3979,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearBaseUrl() {
-        
         baseUrl_ = getDefaultInstance().getBaseUrl();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4077,21 +3995,19 @@ public final class GuestPolicies {
        */
       public Builder setBaseUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         baseUrl_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList gpgKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureGpgKeysIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           gpgKeys_ = new com.google.protobuf.LazyStringArrayList(gpgKeys_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -4154,10 +4070,8 @@ public final class GuestPolicies {
        */
       public Builder setGpgKeys(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGpgKeysIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGpgKeysIsMutable();
         gpgKeys_.set(index, value);
         onChanged();
         return this;
@@ -4173,10 +4087,8 @@ public final class GuestPolicies {
        */
       public Builder addGpgKeys(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGpgKeysIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGpgKeysIsMutable();
         gpgKeys_.add(value);
         onChanged();
         return this;
@@ -4208,7 +4120,7 @@ public final class GuestPolicies {
        */
       public Builder clearGpgKeys() {
         gpgKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -4223,10 +4135,8 @@ public final class GuestPolicies {
        */
       public Builder addGpgKeysBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureGpgKeysIsMutable();
         gpgKeys_.add(value);
         onChanged();
@@ -4265,7 +4175,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new YumRepository(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4432,76 +4353,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ZypperRepository(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              baseUrl_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                gpgKeys_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              gpgKeys_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          gpgKeys_ = gpgKeys_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_ZypperRepository_descriptor;
@@ -4516,7 +4367,8 @@ public final class GuestPolicies {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * A one word, unique name for this repository. This is
@@ -4568,7 +4420,8 @@ public final class GuestPolicies {
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * The display name of the repository.
@@ -4614,7 +4467,8 @@ public final class GuestPolicies {
     }
 
     public static final int BASE_URL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object baseUrl_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object baseUrl_ = "";
     /**
      * <pre>
      * The location of the repository directory.
@@ -4660,6 +4514,7 @@ public final class GuestPolicies {
     }
 
     public static final int GPG_KEYS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList gpgKeys_;
     /**
      * <pre>
@@ -4736,7 +4591,7 @@ public final class GuestPolicies {
       for (int i = 0; i < gpgKeys_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, gpgKeys_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4762,7 +4617,7 @@ public final class GuestPolicies {
         size += dataSize;
         size += 1 * getGpgKeysList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4785,7 +4640,7 @@ public final class GuestPolicies {
           .equals(other.getBaseUrl())) return false;
       if (!getGpgKeysList()
           .equals(other.getGpgKeysList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4806,7 +4661,7 @@ public final class GuestPolicies {
         hash = (37 * hash) + GPG_KEYS_FIELD_NUMBER;
         hash = (53 * hash) + getGpgKeysList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4928,30 +4783,23 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         displayName_ = "";
-
         baseUrl_ = "";
-
         gpgKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -4978,17 +4826,31 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        result.displayName_ = displayName_;
-        result.baseUrl_ = baseUrl_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          gpgKeys_ = gpgKeys_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.gpgKeys_ = gpgKeys_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository result) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          gpgKeys_ = gpgKeys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.gpgKeys_ = gpgKeys_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.displayName_ = displayName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.baseUrl_ = baseUrl_;
+        }
       }
 
       @java.lang.Override
@@ -5037,27 +4899,30 @@ public final class GuestPolicies {
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getBaseUrl().isEmpty()) {
           baseUrl_ = other.baseUrl_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.gpgKeys_.isEmpty()) {
           if (gpgKeys_.isEmpty()) {
             gpgKeys_ = other.gpgKeys_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureGpgKeysIsMutable();
             gpgKeys_.addAll(other.gpgKeys_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5072,17 +4937,51 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                baseUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureGpgKeysIsMutable();
+                gpgKeys_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5149,11 +5048,9 @@ public final class GuestPolicies {
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5169,8 +5066,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5188,12 +5085,10 @@ public final class GuestPolicies {
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5251,11 +5146,9 @@ public final class GuestPolicies {
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5268,8 +5161,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5284,12 +5177,10 @@ public final class GuestPolicies {
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5347,11 +5238,9 @@ public final class GuestPolicies {
        */
       public Builder setBaseUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         baseUrl_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5364,8 +5253,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearBaseUrl() {
-        
         baseUrl_ = getDefaultInstance().getBaseUrl();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -5380,21 +5269,19 @@ public final class GuestPolicies {
        */
       public Builder setBaseUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         baseUrl_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList gpgKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureGpgKeysIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           gpgKeys_ = new com.google.protobuf.LazyStringArrayList(gpgKeys_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -5457,10 +5344,8 @@ public final class GuestPolicies {
        */
       public Builder setGpgKeys(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGpgKeysIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGpgKeysIsMutable();
         gpgKeys_.set(index, value);
         onChanged();
         return this;
@@ -5476,10 +5361,8 @@ public final class GuestPolicies {
        */
       public Builder addGpgKeys(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGpgKeysIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGpgKeysIsMutable();
         gpgKeys_.add(value);
         onChanged();
         return this;
@@ -5511,7 +5394,7 @@ public final class GuestPolicies {
        */
       public Builder clearGpgKeys() {
         gpgKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5526,10 +5409,8 @@ public final class GuestPolicies {
        */
       public Builder addGpgKeysBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureGpgKeysIsMutable();
         gpgKeys_.add(value);
         onChanged();
@@ -5568,7 +5449,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ZypperRepository(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5666,57 +5558,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GooRepository(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              url_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_GooRepository_descriptor;
@@ -5731,7 +5572,8 @@ public final class GuestPolicies {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * The name of the repository.
@@ -5777,7 +5619,8 @@ public final class GuestPolicies {
     }
 
     public static final int URL_FIELD_NUMBER = 2;
-    private volatile java.lang.Object url_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object url_ = "";
     /**
      * <pre>
      * The url of the repository.
@@ -5842,7 +5685,7 @@ public final class GuestPolicies {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, url_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5857,7 +5700,7 @@ public final class GuestPolicies {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(url_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, url_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5876,7 +5719,7 @@ public final class GuestPolicies {
           .equals(other.getName())) return false;
       if (!getUrl()
           .equals(other.getUrl())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5891,7 +5734,7 @@ public final class GuestPolicies {
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + URL_FIELD_NUMBER;
       hash = (53 * hash) + getUrl().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6013,26 +5856,20 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         url_ = "";
-
         return this;
       }
 
@@ -6059,10 +5896,19 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository(this);
-        result.name_ = name_;
-        result.url_ = url_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.url_ = url_;
+        }
       }
 
       @java.lang.Override
@@ -6111,13 +5957,15 @@ public final class GuestPolicies {
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getUrl().isEmpty()) {
           url_ = other.url_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6132,19 +5980,43 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                url_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -6199,11 +6071,9 @@ public final class GuestPolicies {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6216,8 +6086,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6232,12 +6102,10 @@ public final class GuestPolicies {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6295,11 +6163,9 @@ public final class GuestPolicies {
        */
       public Builder setUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         url_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6312,8 +6178,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearUrl() {
-        
         url_ = getDefaultInstance().getUrl();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6328,12 +6194,10 @@ public final class GuestPolicies {
        */
       public Builder setUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         url_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6370,7 +6234,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GooRepository(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6534,101 +6409,6 @@ public final class GuestPolicies {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private PackageRepository(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.Builder subBuilder = null;
-              if (repositoryCase_ == 1) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository) repository_).toBuilder();
-              }
-              repository_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository) repository_);
-                repository_ = subBuilder.buildPartial();
-              }
-              repositoryCase_ = 1;
-              break;
-            }
-            case 18: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository.Builder subBuilder = null;
-              if (repositoryCase_ == 2) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository) repository_).toBuilder();
-              }
-              repository_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.YumRepository) repository_);
-                repository_ = subBuilder.buildPartial();
-              }
-              repositoryCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository.Builder subBuilder = null;
-              if (repositoryCase_ == 3) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository) repository_).toBuilder();
-              }
-              repository_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.ZypperRepository) repository_);
-                repository_ = subBuilder.buildPartial();
-              }
-              repositoryCase_ = 3;
-              break;
-            }
-            case 34: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository.Builder subBuilder = null;
-              if (repositoryCase_ == 4) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository) repository_).toBuilder();
-              }
-              repository_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository) repository_);
-                repository_ = subBuilder.buildPartial();
-              }
-              repositoryCase_ = 4;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6886,7 +6666,7 @@ public final class GuestPolicies {
       if (repositoryCase_ == 4) {
         output.writeMessage(4, (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository) repository_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6911,7 +6691,7 @@ public final class GuestPolicies {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.GooRepository) repository_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6947,7 +6727,7 @@ public final class GuestPolicies {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6978,7 +6758,7 @@ public final class GuestPolicies {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7099,22 +6879,30 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (aptBuilder_ != null) {
+          aptBuilder_.clear();
+        }
+        if (yumBuilder_ != null) {
+          yumBuilder_.clear();
+        }
+        if (zypperBuilder_ != null) {
+          zypperBuilder_.clear();
+        }
+        if (gooBuilder_ != null) {
+          gooBuilder_.clear();
+        }
         repositoryCase_ = 0;
         repository_ = null;
         return this;
@@ -7143,37 +6931,35 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository(this);
-        if (repositoryCase_ == 1) {
-          if (aptBuilder_ == null) {
-            result.repository_ = repository_;
-          } else {
-            result.repository_ = aptBuilder_.build();
-          }
-        }
-        if (repositoryCase_ == 2) {
-          if (yumBuilder_ == null) {
-            result.repository_ = repository_;
-          } else {
-            result.repository_ = yumBuilder_.build();
-          }
-        }
-        if (repositoryCase_ == 3) {
-          if (zypperBuilder_ == null) {
-            result.repository_ = repository_;
-          } else {
-            result.repository_ = zypperBuilder_.build();
-          }
-        }
-        if (repositoryCase_ == 4) {
-          if (gooBuilder_ == null) {
-            result.repository_ = repository_;
-          } else {
-            result.repository_ = gooBuilder_.build();
-          }
-        }
-        result.repositoryCase_ = repositoryCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository result) {
+        result.repositoryCase_ = repositoryCase_;
+        result.repository_ = this.repository_;
+        if (repositoryCase_ == 1 &&
+            aptBuilder_ != null) {
+          result.repository_ = aptBuilder_.build();
+        }
+        if (repositoryCase_ == 2 &&
+            yumBuilder_ != null) {
+          result.repository_ = yumBuilder_.build();
+        }
+        if (repositoryCase_ == 3 &&
+            zypperBuilder_ != null) {
+          result.repository_ = zypperBuilder_.build();
+        }
+        if (repositoryCase_ == 4 &&
+            gooBuilder_ != null) {
+          result.repository_ = gooBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -7241,7 +7027,7 @@ public final class GuestPolicies {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7256,17 +7042,58 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getAptFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                repositoryCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getYumFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                repositoryCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getZypperFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                repositoryCase_ = 3;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getGooFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                repositoryCase_ = 4;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int repositoryCase_ = 0;
@@ -7284,6 +7111,7 @@ public final class GuestPolicies {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepository.Builder, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.AptRepositoryOrBuilder> aptBuilder_;
@@ -7459,7 +7287,7 @@ public final class GuestPolicies {
           repository_ = null;
         }
         repositoryCase_ = 1;
-        onChanged();;
+        onChanged();
         return aptBuilder_;
       }
 
@@ -7637,7 +7465,7 @@ public final class GuestPolicies {
           repository_ = null;
         }
         repositoryCase_ = 2;
-        onChanged();;
+        onChanged();
         return yumBuilder_;
       }
 
@@ -7815,7 +7643,7 @@ public final class GuestPolicies {
           repository_ = null;
         }
         repositoryCase_ = 3;
-        onChanged();;
+        onChanged();
         return zypperBuilder_;
       }
 
@@ -7993,7 +7821,7 @@ public final class GuestPolicies {
           repository_ = null;
         }
         repositoryCase_ = 4;
-        onChanged();;
+        onChanged();
         return gooBuilder_;
       }
       @java.lang.Override
@@ -8029,7 +7857,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PackageRepository(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8355,100 +8194,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SoftwareRecipe(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              version_ = s;
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                artifacts_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              artifacts_.add(
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.parser(), extensionRegistry));
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                installSteps_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              installSteps_.add(
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                updateSteps_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              updateSteps_.add(
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.parser(), extensionRegistry));
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-
-              desiredState_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          artifacts_ = java.util.Collections.unmodifiableList(artifacts_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          installSteps_ = java.util.Collections.unmodifiableList(installSteps_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          updateSteps_ = java.util.Collections.unmodifiableList(updateSteps_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_descriptor;
@@ -8590,84 +8335,6 @@ public final class GuestPolicies {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Artifact(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                id_ = s;
-                break;
-              }
-              case 18: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote.Builder subBuilder = null;
-                if (artifactCase_ == 2) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote) artifact_).toBuilder();
-                }
-                artifact_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote) artifact_);
-                  artifact_ = subBuilder.buildPartial();
-                }
-                artifactCase_ = 2;
-                break;
-              }
-              case 26: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs.Builder subBuilder = null;
-                if (artifactCase_ == 3) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs) artifact_).toBuilder();
-                }
-                artifact_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs) artifact_);
-                  artifact_ = subBuilder.buildPartial();
-                }
-                artifactCase_ = 3;
-                break;
-              }
-              case 32: {
-
-                allowInsecure_ = input.readBool();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Artifact_descriptor;
@@ -8768,57 +8435,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private Remote(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  uri_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  checksum_ = s;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Artifact_Remote_descriptor;
@@ -8833,7 +8449,8 @@ public final class GuestPolicies {
         }
 
         public static final int URI_FIELD_NUMBER = 1;
-        private volatile java.lang.Object uri_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object uri_ = "";
         /**
          * <pre>
          * URI from which to fetch the object. It should contain both the protocol
@@ -8881,7 +8498,8 @@ public final class GuestPolicies {
         }
 
         public static final int CHECKSUM_FIELD_NUMBER = 2;
-        private volatile java.lang.Object checksum_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object checksum_ = "";
         /**
          * <pre>
          * Must be provided if `allow_insecure` is `false`.
@@ -8954,7 +8572,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(checksum_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 2, checksum_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -8969,7 +8587,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(checksum_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, checksum_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -8988,7 +8606,7 @@ public final class GuestPolicies {
               .equals(other.getUri())) return false;
           if (!getChecksum()
               .equals(other.getChecksum())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -9003,7 +8621,7 @@ public final class GuestPolicies {
           hash = (53 * hash) + getUri().hashCode();
           hash = (37 * hash) + CHECKSUM_FIELD_NUMBER;
           hash = (53 * hash) + getChecksum().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -9124,26 +8742,20 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             uri_ = "";
-
             checksum_ = "";
-
             return this;
           }
 
@@ -9170,10 +8782,19 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote(this);
-            result.uri_ = uri_;
-            result.checksum_ = checksum_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.uri_ = uri_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.checksum_ = checksum_;
+            }
           }
 
           @java.lang.Override
@@ -9222,13 +8843,15 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote.getDefaultInstance()) return this;
             if (!other.getUri().isEmpty()) {
               uri_ = other.uri_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.getChecksum().isEmpty()) {
               checksum_ = other.checksum_;
+              bitField0_ |= 0x00000002;
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -9243,19 +8866,43 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    uri_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    checksum_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Remote) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object uri_ = "";
           /**
@@ -9313,11 +8960,9 @@ public final class GuestPolicies {
            */
           public Builder setUri(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             uri_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -9331,8 +8976,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearUri() {
-            
             uri_ = getDefaultInstance().getUri();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -9348,12 +8993,10 @@ public final class GuestPolicies {
            */
           public Builder setUriBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             uri_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -9423,11 +9066,9 @@ public final class GuestPolicies {
            */
           public Builder setChecksum(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             checksum_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -9444,8 +9085,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearChecksum() {
-            
             checksum_ = getDefaultInstance().getChecksum();
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -9464,12 +9105,10 @@ public final class GuestPolicies {
            */
           public Builder setChecksumBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             checksum_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -9506,7 +9145,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Remote(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -9632,62 +9282,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private Gcs(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  bucket_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  object_ = s;
-                  break;
-                }
-                case 24: {
-
-                  generation_ = input.readInt64();
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Artifact_Gcs_descriptor;
@@ -9702,7 +9296,8 @@ public final class GuestPolicies {
         }
 
         public static final int BUCKET_FIELD_NUMBER = 1;
-        private volatile java.lang.Object bucket_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object bucket_ = "";
         /**
          * <pre>
          * Bucket of the Cloud Storage object.
@@ -9754,7 +9349,8 @@ public final class GuestPolicies {
         }
 
         public static final int OBJECT_FIELD_NUMBER = 2;
-        private volatile java.lang.Object object_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object object_ = "";
         /**
          * <pre>
          * Name of the Cloud Storage object.
@@ -9810,7 +9406,7 @@ public final class GuestPolicies {
         }
 
         public static final int GENERATION_FIELD_NUMBER = 3;
-        private long generation_;
+        private long generation_ = 0L;
         /**
          * <pre>
          * Must be provided if allow_insecure is false.
@@ -9850,7 +9446,7 @@ public final class GuestPolicies {
           if (generation_ != 0L) {
             output.writeInt64(3, generation_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -9869,7 +9465,7 @@ public final class GuestPolicies {
             size += com.google.protobuf.CodedOutputStream
               .computeInt64Size(3, generation_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -9890,7 +9486,7 @@ public final class GuestPolicies {
               .equals(other.getObject())) return false;
           if (getGeneration()
               != other.getGeneration()) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -9908,7 +9504,7 @@ public final class GuestPolicies {
           hash = (37 * hash) + GENERATION_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getGeneration());
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -10029,28 +9625,21 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             bucket_ = "";
-
             object_ = "";
-
             generation_ = 0L;
-
             return this;
           }
 
@@ -10077,11 +9666,22 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs(this);
-            result.bucket_ = bucket_;
-            result.object_ = object_;
-            result.generation_ = generation_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.bucket_ = bucket_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.object_ = object_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
+              result.generation_ = generation_;
+            }
           }
 
           @java.lang.Override
@@ -10130,16 +9730,18 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs.getDefaultInstance()) return this;
             if (!other.getBucket().isEmpty()) {
               bucket_ = other.bucket_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.getObject().isEmpty()) {
               object_ = other.object_;
+              bitField0_ |= 0x00000002;
               onChanged();
             }
             if (other.getGeneration() != 0L) {
               setGeneration(other.getGeneration());
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -10154,19 +9756,48 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    bucket_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    object_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  case 24: {
+                    generation_ = input.readInt64();
+                    bitField0_ |= 0x00000004;
+                    break;
+                  } // case 24
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Gcs) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object bucket_ = "";
           /**
@@ -10230,11 +9861,9 @@ public final class GuestPolicies {
            */
           public Builder setBucket(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             bucket_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -10250,8 +9879,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearBucket() {
-            
             bucket_ = getDefaultInstance().getBucket();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -10269,12 +9898,10 @@ public final class GuestPolicies {
            */
           public Builder setBucketBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             bucket_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -10347,11 +9974,9 @@ public final class GuestPolicies {
            */
           public Builder setObject(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             object_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -10369,8 +9994,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearObject() {
-            
             object_ = getDefaultInstance().getObject();
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -10390,12 +10015,10 @@ public final class GuestPolicies {
            */
           public Builder setObjectBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             object_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -10431,6 +10054,7 @@ public final class GuestPolicies {
           public Builder setGeneration(long value) {
             
             generation_ = value;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
           }
@@ -10446,7 +10070,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearGeneration() {
-            
+            bitField0_ = (bitField0_ & ~0x00000004);
             generation_ = 0L;
             onChanged();
             return this;
@@ -10484,7 +10108,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Gcs(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -10546,7 +10181,8 @@ public final class GuestPolicies {
       }
 
       public static final int ID_FIELD_NUMBER = 1;
-      private volatile java.lang.Object id_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object id_ = "";
       /**
        * <pre>
        * Id of the artifact, which the installation and update steps of this
@@ -10680,7 +10316,7 @@ public final class GuestPolicies {
       }
 
       public static final int ALLOW_INSECURE_FIELD_NUMBER = 4;
-      private boolean allowInsecure_;
+      private boolean allowInsecure_ = false;
       /**
        * <pre>
        * Defaults to false. When false, recipes are subject to validations
@@ -10724,7 +10360,7 @@ public final class GuestPolicies {
         if (allowInsecure_ != false) {
           output.writeBool(4, allowInsecure_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -10748,7 +10384,7 @@ public final class GuestPolicies {
           size += com.google.protobuf.CodedOutputStream
             .computeBoolSize(4, allowInsecure_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -10780,7 +10416,7 @@ public final class GuestPolicies {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -10808,7 +10444,7 @@ public final class GuestPolicies {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -10929,26 +10565,26 @@ public final class GuestPolicies {
 
         // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           id_ = "";
-
+          if (remoteBuilder_ != null) {
+            remoteBuilder_.clear();
+          }
+          if (gcsBuilder_ != null) {
+            gcsBuilder_.clear();
+          }
           allowInsecure_ = false;
-
           artifactCase_ = 0;
           artifact_ = null;
           return this;
@@ -10977,25 +10613,33 @@ public final class GuestPolicies {
         @java.lang.Override
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact buildPartial() {
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact(this);
-          result.id_ = id_;
-          if (artifactCase_ == 2) {
-            if (remoteBuilder_ == null) {
-              result.artifact_ = artifact_;
-            } else {
-              result.artifact_ = remoteBuilder_.build();
-            }
-          }
-          if (artifactCase_ == 3) {
-            if (gcsBuilder_ == null) {
-              result.artifact_ = artifact_;
-            } else {
-              result.artifact_ = gcsBuilder_.build();
-            }
-          }
-          result.allowInsecure_ = allowInsecure_;
-          result.artifactCase_ = artifactCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.id_ = id_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.allowInsecure_ = allowInsecure_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact result) {
+          result.artifactCase_ = artifactCase_;
+          result.artifact_ = this.artifact_;
+          if (artifactCase_ == 2 &&
+              remoteBuilder_ != null) {
+            result.artifact_ = remoteBuilder_.build();
+          }
+          if (artifactCase_ == 3 &&
+              gcsBuilder_ != null) {
+            result.artifact_ = gcsBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -11044,6 +10688,7 @@ public final class GuestPolicies {
           if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.getDefaultInstance()) return this;
           if (!other.getId().isEmpty()) {
             id_ = other.id_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.getAllowInsecure() != false) {
@@ -11062,7 +10707,7 @@ public final class GuestPolicies {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -11077,17 +10722,54 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  id_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getRemoteFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  artifactCase_ = 2;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getGcsFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  artifactCase_ = 3;
+                  break;
+                } // case 26
+                case 32: {
+                  allowInsecure_ = input.readBool();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int artifactCase_ = 0;
@@ -11105,6 +10787,7 @@ public final class GuestPolicies {
           return this;
         }
 
+        private int bitField0_;
 
         private java.lang.Object id_ = "";
         /**
@@ -11162,11 +10845,9 @@ public final class GuestPolicies {
          */
         public Builder setId(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           id_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -11180,8 +10861,8 @@ public final class GuestPolicies {
          * @return This builder for chaining.
          */
         public Builder clearId() {
-          
           id_ = getDefaultInstance().getId();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -11197,12 +10878,10 @@ public final class GuestPolicies {
          */
         public Builder setIdBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           id_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -11381,7 +11060,7 @@ public final class GuestPolicies {
             artifact_ = null;
           }
           artifactCase_ = 2;
-          onChanged();;
+          onChanged();
           return remoteBuilder_;
         }
 
@@ -11559,7 +11238,7 @@ public final class GuestPolicies {
             artifact_ = null;
           }
           artifactCase_ = 3;
-          onChanged();;
+          onChanged();
           return gcsBuilder_;
         }
 
@@ -11596,6 +11275,7 @@ public final class GuestPolicies {
         public Builder setAllowInsecure(boolean value) {
           
           allowInsecure_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
@@ -11612,7 +11292,7 @@ public final class GuestPolicies {
          * @return This builder for chaining.
          */
         public Builder clearAllowInsecure() {
-          
+          bitField0_ = (bitField0_ & ~0x00000008);
           allowInsecure_ = false;
           onChanged();
           return this;
@@ -11650,7 +11330,18 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Artifact(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -11896,143 +11587,6 @@ public final class GuestPolicies {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Step(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile.Builder subBuilder = null;
-                if (stepCase_ == 1) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 1;
-                break;
-              }
-              case 18: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.Builder subBuilder = null;
-                if (stepCase_ == 2) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 2;
-                break;
-              }
-              case 26: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi.Builder subBuilder = null;
-                if (stepCase_ == 3) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 3;
-                break;
-              }
-              case 34: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg.Builder subBuilder = null;
-                if (stepCase_ == 4) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 4;
-                break;
-              }
-              case 42: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm.Builder subBuilder = null;
-                if (stepCase_ == 5) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 5;
-                break;
-              }
-              case 50: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile.Builder subBuilder = null;
-                if (stepCase_ == 6) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 6;
-                break;
-              }
-              case 58: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Builder subBuilder = null;
-                if (stepCase_ == 7) {
-                  subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript) step_).toBuilder();
-                }
-                step_ =
-                    input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript) step_);
-                  step_ = subBuilder.buildPartial();
-                }
-                stepCase_ = 7;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Step_descriptor;
@@ -12178,68 +11732,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private CopyFile(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  artifactId_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  destination_ = s;
-                  break;
-                }
-                case 24: {
-
-                  overwrite_ = input.readBool();
-                  break;
-                }
-                case 34: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  permissions_ = s;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Step_CopyFile_descriptor;
@@ -12254,7 +11746,8 @@ public final class GuestPolicies {
         }
 
         public static final int ARTIFACT_ID_FIELD_NUMBER = 1;
-        private volatile java.lang.Object artifactId_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object artifactId_ = "";
         /**
          * <pre>
          * The id of the relevant artifact in the recipe.
@@ -12300,7 +11793,8 @@ public final class GuestPolicies {
         }
 
         public static final int DESTINATION_FIELD_NUMBER = 2;
-        private volatile java.lang.Object destination_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object destination_ = "";
         /**
          * <pre>
          * The absolute path on the instance to put the file.
@@ -12346,7 +11840,7 @@ public final class GuestPolicies {
         }
 
         public static final int OVERWRITE_FIELD_NUMBER = 3;
-        private boolean overwrite_;
+        private boolean overwrite_ = false;
         /**
          * <pre>
          * Whether to allow this step to overwrite existing files. If this is
@@ -12363,7 +11857,8 @@ public final class GuestPolicies {
         }
 
         public static final int PERMISSIONS_FIELD_NUMBER = 4;
-        private volatile java.lang.Object permissions_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object permissions_ = "";
         /**
          * <pre>
          * Consists of three octal digits which represent, in
@@ -12456,7 +11951,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 4, permissions_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -12478,7 +11973,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(permissions_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, permissions_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -12501,7 +11996,7 @@ public final class GuestPolicies {
               != other.getOverwrite()) return false;
           if (!getPermissions()
               .equals(other.getPermissions())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -12521,7 +12016,7 @@ public final class GuestPolicies {
               getOverwrite());
           hash = (37 * hash) + PERMISSIONS_FIELD_NUMBER;
           hash = (53 * hash) + getPermissions().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -12642,30 +12137,22 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             artifactId_ = "";
-
             destination_ = "";
-
             overwrite_ = false;
-
             permissions_ = "";
-
             return this;
           }
 
@@ -12692,12 +12179,25 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile(this);
-            result.artifactId_ = artifactId_;
-            result.destination_ = destination_;
-            result.overwrite_ = overwrite_;
-            result.permissions_ = permissions_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.artifactId_ = artifactId_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.destination_ = destination_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
+              result.overwrite_ = overwrite_;
+            }
+            if (((from_bitField0_ & 0x00000008) != 0)) {
+              result.permissions_ = permissions_;
+            }
           }
 
           @java.lang.Override
@@ -12746,10 +12246,12 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile.getDefaultInstance()) return this;
             if (!other.getArtifactId().isEmpty()) {
               artifactId_ = other.artifactId_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.getDestination().isEmpty()) {
               destination_ = other.destination_;
+              bitField0_ |= 0x00000002;
               onChanged();
             }
             if (other.getOverwrite() != false) {
@@ -12757,9 +12259,10 @@ public final class GuestPolicies {
             }
             if (!other.getPermissions().isEmpty()) {
               permissions_ = other.permissions_;
+              bitField0_ |= 0x00000008;
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -12774,19 +12277,53 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    artifactId_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    destination_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  case 24: {
+                    overwrite_ = input.readBool();
+                    bitField0_ |= 0x00000004;
+                    break;
+                  } // case 24
+                  case 34: {
+                    permissions_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000008;
+                    break;
+                  } // case 34
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object artifactId_ = "";
           /**
@@ -12841,11 +12378,9 @@ public final class GuestPolicies {
            */
           public Builder setArtifactId(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -12858,8 +12393,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearArtifactId() {
-            
             artifactId_ = getDefaultInstance().getArtifactId();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -12874,12 +12409,10 @@ public final class GuestPolicies {
            */
           public Builder setArtifactIdBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -12937,11 +12470,9 @@ public final class GuestPolicies {
            */
           public Builder setDestination(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             destination_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -12954,8 +12485,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearDestination() {
-            
             destination_ = getDefaultInstance().getDestination();
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -12970,12 +12501,10 @@ public final class GuestPolicies {
            */
           public Builder setDestinationBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             destination_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -13009,6 +12538,7 @@ public final class GuestPolicies {
           public Builder setOverwrite(boolean value) {
             
             overwrite_ = value;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
           }
@@ -13023,7 +12553,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearOverwrite() {
-            
+            bitField0_ = (bitField0_ & ~0x00000004);
             overwrite_ = false;
             onChanged();
             return this;
@@ -13115,11 +12645,9 @@ public final class GuestPolicies {
            */
           public Builder setPermissions(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             permissions_ = value;
+            bitField0_ |= 0x00000008;
             onChanged();
             return this;
           }
@@ -13143,8 +12671,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearPermissions() {
-            
             permissions_ = getDefaultInstance().getPermissions();
+            bitField0_ = (bitField0_ & ~0x00000008);
             onChanged();
             return this;
           }
@@ -13170,12 +12698,10 @@ public final class GuestPolicies {
            */
           public Builder setPermissionsBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             permissions_ = value;
+            bitField0_ |= 0x00000008;
             onChanged();
             return this;
           }
@@ -13212,7 +12738,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new CopyFile(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -13330,63 +12867,6 @@ public final class GuestPolicies {
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
           return this.unknownFields;
-        }
-        private ExtractArchive(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  artifactId_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  destination_ = s;
-                  break;
-                }
-                case 24: {
-                  int rawValue = input.readEnum();
-
-                  type_ = rawValue;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
@@ -13615,7 +13095,8 @@ public final class GuestPolicies {
         }
 
         public static final int ARTIFACT_ID_FIELD_NUMBER = 1;
-        private volatile java.lang.Object artifactId_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object artifactId_ = "";
         /**
          * <pre>
          * The id of the relevant artifact in the recipe.
@@ -13661,7 +13142,8 @@ public final class GuestPolicies {
         }
 
         public static final int DESTINATION_FIELD_NUMBER = 2;
-        private volatile java.lang.Object destination_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object destination_ = "";
         /**
          * <pre>
          * Directory to extract archive to.
@@ -13709,7 +13191,7 @@ public final class GuestPolicies {
         }
 
         public static final int TYPE_FIELD_NUMBER = 3;
-        private int type_;
+        private int type_ = 0;
         /**
          * <pre>
          * The type of the archive to extract.
@@ -13730,8 +13212,7 @@ public final class GuestPolicies {
          * @return The type.
          */
         @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType getType() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.valueOf(type_);
+          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.forNumber(type_);
           return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.UNRECOGNIZED : result;
         }
 
@@ -13758,7 +13239,7 @@ public final class GuestPolicies {
           if (type_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.ARCHIVE_TYPE_UNSPECIFIED.getNumber()) {
             output.writeEnum(3, type_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -13777,7 +13258,7 @@ public final class GuestPolicies {
             size += com.google.protobuf.CodedOutputStream
               .computeEnumSize(3, type_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -13797,7 +13278,7 @@ public final class GuestPolicies {
           if (!getDestination()
               .equals(other.getDestination())) return false;
           if (type_ != other.type_) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -13814,7 +13295,7 @@ public final class GuestPolicies {
           hash = (53 * hash) + getDestination().hashCode();
           hash = (37 * hash) + TYPE_FIELD_NUMBER;
           hash = (53 * hash) + type_;
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -13935,28 +13416,21 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             artifactId_ = "";
-
             destination_ = "";
-
             type_ = 0;
-
             return this;
           }
 
@@ -13983,11 +13457,22 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive(this);
-            result.artifactId_ = artifactId_;
-            result.destination_ = destination_;
-            result.type_ = type_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.artifactId_ = artifactId_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.destination_ = destination_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
+              result.type_ = type_;
+            }
           }
 
           @java.lang.Override
@@ -14036,16 +13521,18 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.getDefaultInstance()) return this;
             if (!other.getArtifactId().isEmpty()) {
               artifactId_ = other.artifactId_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.getDestination().isEmpty()) {
               destination_ = other.destination_;
+              bitField0_ |= 0x00000002;
               onChanged();
             }
             if (other.type_ != 0) {
               setTypeValue(other.getTypeValue());
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -14060,19 +13547,48 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    artifactId_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    destination_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  case 24: {
+                    type_ = input.readEnum();
+                    bitField0_ |= 0x00000004;
+                    break;
+                  } // case 24
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object artifactId_ = "";
           /**
@@ -14127,11 +13643,9 @@ public final class GuestPolicies {
            */
           public Builder setArtifactId(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -14144,8 +13658,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearArtifactId() {
-            
             artifactId_ = getDefaultInstance().getArtifactId();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -14160,12 +13674,10 @@ public final class GuestPolicies {
            */
           public Builder setArtifactIdBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -14226,11 +13738,9 @@ public final class GuestPolicies {
            */
           public Builder setDestination(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             destination_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -14244,8 +13754,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearDestination() {
-            
             destination_ = getDefaultInstance().getDestination();
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -14261,12 +13771,10 @@ public final class GuestPolicies {
            */
           public Builder setDestinationBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             destination_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -14293,8 +13801,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder setTypeValue(int value) {
-            
             type_ = value;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
           }
@@ -14308,8 +13816,7 @@ public final class GuestPolicies {
            */
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType getType() {
-            @SuppressWarnings("deprecation")
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.valueOf(type_);
+            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.forNumber(type_);
             return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExtractArchive.ArchiveType.UNRECOGNIZED : result;
           }
           /**
@@ -14325,7 +13832,7 @@ public final class GuestPolicies {
             if (value == null) {
               throw new NullPointerException();
             }
-            
+            bitField0_ |= 0x00000004;
             type_ = value.getNumber();
             onChanged();
             return this;
@@ -14339,7 +13846,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearType() {
-            
+            bitField0_ = (bitField0_ & ~0x00000004);
             type_ = 0;
             onChanged();
             return this;
@@ -14377,7 +13884,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new ExtractArchive(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -14532,88 +14050,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private InstallMsi(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  artifactId_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-                  if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                    flags_ = new com.google.protobuf.LazyStringArrayList();
-                    mutable_bitField0_ |= 0x00000001;
-                  }
-                  flags_.add(s);
-                  break;
-                }
-                case 24: {
-                  if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                    allowedExitCodes_ = newIntList();
-                    mutable_bitField0_ |= 0x00000002;
-                  }
-                  allowedExitCodes_.addInt(input.readInt32());
-                  break;
-                }
-                case 26: {
-                  int length = input.readRawVarint32();
-                  int limit = input.pushLimit(length);
-                  if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                    allowedExitCodes_ = newIntList();
-                    mutable_bitField0_ |= 0x00000002;
-                  }
-                  while (input.getBytesUntilLimit() > 0) {
-                    allowedExitCodes_.addInt(input.readInt32());
-                  }
-                  input.popLimit(limit);
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            if (((mutable_bitField0_ & 0x00000001) != 0)) {
-              flags_ = flags_.getUnmodifiableView();
-            }
-            if (((mutable_bitField0_ & 0x00000002) != 0)) {
-              allowedExitCodes_.makeImmutable(); // C
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Step_InstallMsi_descriptor;
@@ -14628,7 +14064,8 @@ public final class GuestPolicies {
         }
 
         public static final int ARTIFACT_ID_FIELD_NUMBER = 1;
-        private volatile java.lang.Object artifactId_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object artifactId_ = "";
         /**
          * <pre>
          * The id of the relevant artifact in the recipe.
@@ -14674,6 +14111,7 @@ public final class GuestPolicies {
         }
 
         public static final int FLAGS_FIELD_NUMBER = 2;
+        @SuppressWarnings("serial")
         private com.google.protobuf.LazyStringList flags_;
         /**
          * <pre>
@@ -14729,6 +14167,7 @@ public final class GuestPolicies {
         }
 
         public static final int ALLOWED_EXIT_CODES_FIELD_NUMBER = 3;
+        @SuppressWarnings("serial")
         private com.google.protobuf.Internal.IntList allowedExitCodes_;
         /**
          * <pre>
@@ -14799,7 +14238,7 @@ public final class GuestPolicies {
           for (int i = 0; i < allowedExitCodes_.size(); i++) {
             output.writeInt32NoTag(allowedExitCodes_.getInt(i));
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -14833,7 +14272,7 @@ public final class GuestPolicies {
             }
             allowedExitCodesMemoizedSerializedSize = dataSize;
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -14854,7 +14293,7 @@ public final class GuestPolicies {
               .equals(other.getFlagsList())) return false;
           if (!getAllowedExitCodesList()
               .equals(other.getAllowedExitCodesList())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -14875,7 +14314,7 @@ public final class GuestPolicies {
             hash = (37 * hash) + ALLOWED_EXIT_CODES_FIELD_NUMBER;
             hash = (53 * hash) + getAllowedExitCodesList().hashCode();
           }
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -14996,28 +14435,22 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             artifactId_ = "";
-
             flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            bitField0_ = (bitField0_ & ~0x00000001);
-            allowedExitCodes_ = emptyIntList();
             bitField0_ = (bitField0_ & ~0x00000002);
+            allowedExitCodes_ = emptyIntList();
             return this;
           }
 
@@ -15044,20 +14477,30 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi(this);
-            int from_bitField0_ = bitField0_;
-            result.artifactId_ = artifactId_;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              flags_ = flags_.getUnmodifiableView();
-              bitField0_ = (bitField0_ & ~0x00000001);
-            }
-            result.flags_ = flags_;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              allowedExitCodes_.makeImmutable();
-              bitField0_ = (bitField0_ & ~0x00000002);
-            }
-            result.allowedExitCodes_ = allowedExitCodes_;
+            buildPartialRepeatedFields(result);
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi result) {
+            if (((bitField0_ & 0x00000002) != 0)) {
+              flags_ = flags_.getUnmodifiableView();
+              bitField0_ = (bitField0_ & ~0x00000002);
+            }
+            result.flags_ = flags_;
+            if (((bitField0_ & 0x00000004) != 0)) {
+              allowedExitCodes_.makeImmutable();
+              bitField0_ = (bitField0_ & ~0x00000004);
+            }
+            result.allowedExitCodes_ = allowedExitCodes_;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.artifactId_ = artifactId_;
+            }
           }
 
           @java.lang.Override
@@ -15106,12 +14549,13 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi.getDefaultInstance()) return this;
             if (!other.getArtifactId().isEmpty()) {
               artifactId_ = other.artifactId_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.flags_.isEmpty()) {
               if (flags_.isEmpty()) {
                 flags_ = other.flags_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
               } else {
                 ensureFlagsIsMutable();
                 flags_.addAll(other.flags_);
@@ -15121,14 +14565,14 @@ public final class GuestPolicies {
             if (!other.allowedExitCodes_.isEmpty()) {
               if (allowedExitCodes_.isEmpty()) {
                 allowedExitCodes_ = other.allowedExitCodes_;
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = (bitField0_ & ~0x00000004);
               } else {
                 ensureAllowedExitCodesIsMutable();
                 allowedExitCodes_.addAll(other.allowedExitCodes_);
               }
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -15143,17 +14587,57 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    artifactId_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    java.lang.String s = input.readStringRequireUtf8();
+                    ensureFlagsIsMutable();
+                    flags_.add(s);
+                    break;
+                  } // case 18
+                  case 24: {
+                    int v = input.readInt32();
+                    ensureAllowedExitCodesIsMutable();
+                    allowedExitCodes_.addInt(v);
+                    break;
+                  } // case 24
+                  case 26: {
+                    int length = input.readRawVarint32();
+                    int limit = input.pushLimit(length);
+                    ensureAllowedExitCodesIsMutable();
+                    while (input.getBytesUntilLimit() > 0) {
+                      allowedExitCodes_.addInt(input.readInt32());
+                    }
+                    input.popLimit(limit);
+                    break;
+                  } // case 26
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallMsi) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
           private int bitField0_;
@@ -15211,11 +14695,9 @@ public final class GuestPolicies {
            */
           public Builder setArtifactId(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -15228,8 +14710,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearArtifactId() {
-            
             artifactId_ = getDefaultInstance().getArtifactId();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -15244,21 +14726,19 @@ public final class GuestPolicies {
            */
           public Builder setArtifactIdBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
 
           private com.google.protobuf.LazyStringList flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           private void ensureFlagsIsMutable() {
-            if (!((bitField0_ & 0x00000001) != 0)) {
+            if (!((bitField0_ & 0x00000002) != 0)) {
               flags_ = new com.google.protobuf.LazyStringArrayList(flags_);
-              bitField0_ |= 0x00000001;
+              bitField0_ |= 0x00000002;
              }
           }
           /**
@@ -15326,10 +14806,8 @@ public final class GuestPolicies {
            */
           public Builder setFlags(
               int index, java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFlagsIsMutable();
+            if (value == null) { throw new NullPointerException(); }
+            ensureFlagsIsMutable();
             flags_.set(index, value);
             onChanged();
             return this;
@@ -15346,10 +14824,8 @@ public final class GuestPolicies {
            */
           public Builder addFlags(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFlagsIsMutable();
+            if (value == null) { throw new NullPointerException(); }
+            ensureFlagsIsMutable();
             flags_.add(value);
             onChanged();
             return this;
@@ -15383,7 +14859,7 @@ public final class GuestPolicies {
            */
           public Builder clearFlags() {
             flags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -15399,10 +14875,8 @@ public final class GuestPolicies {
            */
           public Builder addFlagsBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             ensureFlagsIsMutable();
             flags_.add(value);
             onChanged();
@@ -15411,10 +14885,10 @@ public final class GuestPolicies {
 
           private com.google.protobuf.Internal.IntList allowedExitCodes_ = emptyIntList();
           private void ensureAllowedExitCodesIsMutable() {
-            if (!((bitField0_ & 0x00000002) != 0)) {
+            if (!((bitField0_ & 0x00000004) != 0)) {
               allowedExitCodes_ = mutableCopy(allowedExitCodes_);
-              bitField0_ |= 0x00000002;
-             }
+              bitField0_ |= 0x00000004;
+            }
           }
           /**
            * <pre>
@@ -15427,7 +14901,7 @@ public final class GuestPolicies {
            */
           public java.util.List<java.lang.Integer>
               getAllowedExitCodesList() {
-            return ((bitField0_ & 0x00000002) != 0) ?
+            return ((bitField0_ & 0x00000004) != 0) ?
                      java.util.Collections.unmodifiableList(allowedExitCodes_) : allowedExitCodes_;
           }
           /**
@@ -15468,6 +14942,7 @@ public final class GuestPolicies {
            */
           public Builder setAllowedExitCodes(
               int index, int value) {
+            
             ensureAllowedExitCodesIsMutable();
             allowedExitCodes_.setInt(index, value);
             onChanged();
@@ -15484,6 +14959,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder addAllowedExitCodes(int value) {
+            
             ensureAllowedExitCodesIsMutable();
             allowedExitCodes_.addInt(value);
             onChanged();
@@ -15518,7 +14994,7 @@ public final class GuestPolicies {
            */
           public Builder clearAllowedExitCodes() {
             allowedExitCodes_ = emptyIntList();
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             onChanged();
             return this;
           }
@@ -15555,7 +15031,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new InstallMsi(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -15631,51 +15118,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private InstallDpkg(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  artifactId_ = s;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Step_InstallDpkg_descriptor;
@@ -15690,7 +15132,8 @@ public final class GuestPolicies {
         }
 
         public static final int ARTIFACT_ID_FIELD_NUMBER = 1;
-        private volatile java.lang.Object artifactId_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object artifactId_ = "";
         /**
          * <pre>
          * The id of the relevant artifact in the recipe.
@@ -15752,7 +15195,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactId_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 1, artifactId_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -15764,7 +15207,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactId_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, artifactId_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -15781,7 +15224,7 @@ public final class GuestPolicies {
 
           if (!getArtifactId()
               .equals(other.getArtifactId())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -15794,7 +15237,7 @@ public final class GuestPolicies {
           hash = (19 * hash) + getDescriptor().hashCode();
           hash = (37 * hash) + ARTIFACT_ID_FIELD_NUMBER;
           hash = (53 * hash) + getArtifactId().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -15915,24 +15358,19 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             artifactId_ = "";
-
             return this;
           }
 
@@ -15959,9 +15397,16 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg(this);
-            result.artifactId_ = artifactId_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.artifactId_ = artifactId_;
+            }
           }
 
           @java.lang.Override
@@ -16010,9 +15455,10 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg.getDefaultInstance()) return this;
             if (!other.getArtifactId().isEmpty()) {
               artifactId_ = other.artifactId_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -16027,19 +15473,38 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    artifactId_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallDpkg) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object artifactId_ = "";
           /**
@@ -16094,11 +15559,9 @@ public final class GuestPolicies {
            */
           public Builder setArtifactId(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -16111,8 +15574,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearArtifactId() {
-            
             artifactId_ = getDefaultInstance().getArtifactId();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -16127,12 +15590,10 @@ public final class GuestPolicies {
            */
           public Builder setArtifactIdBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -16169,7 +15630,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new InstallDpkg(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -16245,51 +15717,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private InstallRpm(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  artifactId_ = s;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Step_InstallRpm_descriptor;
@@ -16304,7 +15731,8 @@ public final class GuestPolicies {
         }
 
         public static final int ARTIFACT_ID_FIELD_NUMBER = 1;
-        private volatile java.lang.Object artifactId_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object artifactId_ = "";
         /**
          * <pre>
          * The id of the relevant artifact in the recipe.
@@ -16366,7 +15794,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactId_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 1, artifactId_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -16378,7 +15806,7 @@ public final class GuestPolicies {
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactId_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, artifactId_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -16395,7 +15823,7 @@ public final class GuestPolicies {
 
           if (!getArtifactId()
               .equals(other.getArtifactId())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -16408,7 +15836,7 @@ public final class GuestPolicies {
           hash = (19 * hash) + getDescriptor().hashCode();
           hash = (37 * hash) + ARTIFACT_ID_FIELD_NUMBER;
           hash = (53 * hash) + getArtifactId().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -16529,24 +15957,19 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             artifactId_ = "";
-
             return this;
           }
 
@@ -16573,9 +15996,16 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm(this);
-            result.artifactId_ = artifactId_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.artifactId_ = artifactId_;
+            }
           }
 
           @java.lang.Override
@@ -16624,9 +16054,10 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm.getDefaultInstance()) return this;
             if (!other.getArtifactId().isEmpty()) {
               artifactId_ = other.artifactId_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -16641,19 +16072,38 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    artifactId_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.InstallRpm) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object artifactId_ = "";
           /**
@@ -16708,11 +16158,9 @@ public final class GuestPolicies {
            */
           public Builder setArtifactId(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -16725,8 +16173,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearArtifactId() {
-            
             artifactId_ = getDefaultInstance().getArtifactId();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -16741,12 +16189,10 @@ public final class GuestPolicies {
            */
           public Builder setArtifactIdBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             artifactId_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -16783,7 +16229,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new InstallRpm(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -16973,94 +16430,6 @@ public final class GuestPolicies {
         getUnknownFields() {
           return this.unknownFields;
         }
-        private ExecFile(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-                  locationTypeCase_ = 1;
-                  locationType_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-                  locationTypeCase_ = 2;
-                  locationType_ = s;
-                  break;
-                }
-                case 26: {
-                  java.lang.String s = input.readStringRequireUtf8();
-                  if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                    args_ = new com.google.protobuf.LazyStringArrayList();
-                    mutable_bitField0_ |= 0x00000001;
-                  }
-                  args_.add(s);
-                  break;
-                }
-                case 32: {
-                  if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                    allowedExitCodes_ = newIntList();
-                    mutable_bitField0_ |= 0x00000002;
-                  }
-                  allowedExitCodes_.addInt(input.readInt32());
-                  break;
-                }
-                case 34: {
-                  int length = input.readRawVarint32();
-                  int limit = input.pushLimit(length);
-                  if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-                    allowedExitCodes_ = newIntList();
-                    mutable_bitField0_ |= 0x00000002;
-                  }
-                  while (input.getBytesUntilLimit() > 0) {
-                    allowedExitCodes_.addInt(input.readInt32());
-                  }
-                  input.popLimit(limit);
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            if (((mutable_bitField0_ & 0x00000001) != 0)) {
-              args_ = args_.getUnmodifiableView();
-            }
-            if (((mutable_bitField0_ & 0x00000002) != 0)) {
-              allowedExitCodes_.makeImmutable(); // C
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_SoftwareRecipe_Step_ExecFile_descriptor;
@@ -17244,6 +16613,7 @@ public final class GuestPolicies {
         }
 
         public static final int ARGS_FIELD_NUMBER = 3;
+        @SuppressWarnings("serial")
         private com.google.protobuf.LazyStringList args_;
         /**
          * <pre>
@@ -17295,6 +16665,7 @@ public final class GuestPolicies {
         }
 
         public static final int ALLOWED_EXIT_CODES_FIELD_NUMBER = 4;
+        @SuppressWarnings("serial")
         private com.google.protobuf.Internal.IntList allowedExitCodes_;
         /**
          * <pre>
@@ -17368,7 +16739,7 @@ public final class GuestPolicies {
           for (int i = 0; i < allowedExitCodes_.size(); i++) {
             output.writeInt32NoTag(allowedExitCodes_.getInt(i));
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -17405,7 +16776,7 @@ public final class GuestPolicies {
             }
             allowedExitCodesMemoizedSerializedSize = dataSize;
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -17437,7 +16808,7 @@ public final class GuestPolicies {
             case 0:
             default:
           }
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -17468,7 +16839,7 @@ public final class GuestPolicies {
             case 0:
             default:
           }
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -17589,26 +16960,21 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             allowedExitCodes_ = emptyIntList();
-            bitField0_ = (bitField0_ & ~0x00000002);
             locationTypeCase_ = 0;
             locationType_ = null;
             return this;
@@ -17637,26 +17003,33 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile(this);
-            int from_bitField0_ = bitField0_;
-            if (locationTypeCase_ == 1) {
-              result.locationType_ = locationType_;
-            }
-            if (locationTypeCase_ == 2) {
-              result.locationType_ = locationType_;
-            }
-            if (((bitField0_ & 0x00000001) != 0)) {
-              args_ = args_.getUnmodifiableView();
-              bitField0_ = (bitField0_ & ~0x00000001);
-            }
-            result.args_ = args_;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              allowedExitCodes_.makeImmutable();
-              bitField0_ = (bitField0_ & ~0x00000002);
-            }
-            result.allowedExitCodes_ = allowedExitCodes_;
-            result.locationTypeCase_ = locationTypeCase_;
+            buildPartialRepeatedFields(result);
+            if (bitField0_ != 0) { buildPartial0(result); }
+            buildPartialOneofs(result);
             onBuilt();
             return result;
+          }
+
+          private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile result) {
+            if (((bitField0_ & 0x00000004) != 0)) {
+              args_ = args_.getUnmodifiableView();
+              bitField0_ = (bitField0_ & ~0x00000004);
+            }
+            result.args_ = args_;
+            if (((bitField0_ & 0x00000008) != 0)) {
+              allowedExitCodes_.makeImmutable();
+              bitField0_ = (bitField0_ & ~0x00000008);
+            }
+            result.allowedExitCodes_ = allowedExitCodes_;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile result) {
+            int from_bitField0_ = bitField0_;
+          }
+
+          private void buildPartialOneofs(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile result) {
+            result.locationTypeCase_ = locationTypeCase_;
+            result.locationType_ = this.locationType_;
           }
 
           @java.lang.Override
@@ -17706,7 +17079,7 @@ public final class GuestPolicies {
             if (!other.args_.isEmpty()) {
               if (args_.isEmpty()) {
                 args_ = other.args_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000004);
               } else {
                 ensureArgsIsMutable();
                 args_.addAll(other.args_);
@@ -17716,7 +17089,7 @@ public final class GuestPolicies {
             if (!other.allowedExitCodes_.isEmpty()) {
               if (allowedExitCodes_.isEmpty()) {
                 allowedExitCodes_ = other.allowedExitCodes_;
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = (bitField0_ & ~0x00000008);
               } else {
                 ensureAllowedExitCodesIsMutable();
                 allowedExitCodes_.addAll(other.allowedExitCodes_);
@@ -17740,7 +17113,7 @@ public final class GuestPolicies {
                 break;
               }
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -17755,17 +17128,64 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    java.lang.String s = input.readStringRequireUtf8();
+                    locationTypeCase_ = 1;
+                    locationType_ = s;
+                    break;
+                  } // case 10
+                  case 18: {
+                    java.lang.String s = input.readStringRequireUtf8();
+                    locationTypeCase_ = 2;
+                    locationType_ = s;
+                    break;
+                  } // case 18
+                  case 26: {
+                    java.lang.String s = input.readStringRequireUtf8();
+                    ensureArgsIsMutable();
+                    args_.add(s);
+                    break;
+                  } // case 26
+                  case 32: {
+                    int v = input.readInt32();
+                    ensureAllowedExitCodesIsMutable();
+                    allowedExitCodes_.addInt(v);
+                    break;
+                  } // case 32
+                  case 34: {
+                    int length = input.readRawVarint32();
+                    int limit = input.pushLimit(length);
+                    ensureAllowedExitCodesIsMutable();
+                    while (input.getBytesUntilLimit() > 0) {
+                      allowedExitCodes_.addInt(input.readInt32());
+                    }
+                    input.popLimit(limit);
+                    break;
+                  } // case 34
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.ExecFile) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
           private int locationTypeCase_ = 0;
@@ -17861,10 +17281,8 @@ public final class GuestPolicies {
            */
           public Builder setArtifactId(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  locationTypeCase_ = 1;
+            if (value == null) { throw new NullPointerException(); }
+            locationTypeCase_ = 1;
             locationType_ = value;
             onChanged();
             return this;
@@ -17896,10 +17314,8 @@ public final class GuestPolicies {
            */
           public Builder setArtifactIdBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             locationTypeCase_ = 1;
             locationType_ = value;
             onChanged();
@@ -17982,10 +17398,8 @@ public final class GuestPolicies {
            */
           public Builder setLocalPath(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  locationTypeCase_ = 2;
+            if (value == null) { throw new NullPointerException(); }
+            locationTypeCase_ = 2;
             locationType_ = value;
             onChanged();
             return this;
@@ -18017,10 +17431,8 @@ public final class GuestPolicies {
            */
           public Builder setLocalPathBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             locationTypeCase_ = 2;
             locationType_ = value;
             onChanged();
@@ -18029,9 +17441,9 @@ public final class GuestPolicies {
 
           private com.google.protobuf.LazyStringList args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
           private void ensureArgsIsMutable() {
-            if (!((bitField0_ & 0x00000001) != 0)) {
+            if (!((bitField0_ & 0x00000004) != 0)) {
               args_ = new com.google.protobuf.LazyStringArrayList(args_);
-              bitField0_ |= 0x00000001;
+              bitField0_ |= 0x00000004;
              }
           }
           /**
@@ -18094,10 +17506,8 @@ public final class GuestPolicies {
            */
           public Builder setArgs(
               int index, java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
+            if (value == null) { throw new NullPointerException(); }
+            ensureArgsIsMutable();
             args_.set(index, value);
             onChanged();
             return this;
@@ -18113,10 +17523,8 @@ public final class GuestPolicies {
            */
           public Builder addArgs(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureArgsIsMutable();
+            if (value == null) { throw new NullPointerException(); }
+            ensureArgsIsMutable();
             args_.add(value);
             onChanged();
             return this;
@@ -18148,7 +17556,7 @@ public final class GuestPolicies {
            */
           public Builder clearArgs() {
             args_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             onChanged();
             return this;
           }
@@ -18163,10 +17571,8 @@ public final class GuestPolicies {
            */
           public Builder addArgsBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             ensureArgsIsMutable();
             args_.add(value);
             onChanged();
@@ -18175,10 +17581,10 @@ public final class GuestPolicies {
 
           private com.google.protobuf.Internal.IntList allowedExitCodes_ = emptyIntList();
           private void ensureAllowedExitCodesIsMutable() {
-            if (!((bitField0_ & 0x00000002) != 0)) {
+            if (!((bitField0_ & 0x00000008) != 0)) {
               allowedExitCodes_ = mutableCopy(allowedExitCodes_);
-              bitField0_ |= 0x00000002;
-             }
+              bitField0_ |= 0x00000008;
+            }
           }
           /**
            * <pre>
@@ -18191,7 +17597,7 @@ public final class GuestPolicies {
            */
           public java.util.List<java.lang.Integer>
               getAllowedExitCodesList() {
-            return ((bitField0_ & 0x00000002) != 0) ?
+            return ((bitField0_ & 0x00000008) != 0) ?
                      java.util.Collections.unmodifiableList(allowedExitCodes_) : allowedExitCodes_;
           }
           /**
@@ -18232,6 +17638,7 @@ public final class GuestPolicies {
            */
           public Builder setAllowedExitCodes(
               int index, int value) {
+            
             ensureAllowedExitCodesIsMutable();
             allowedExitCodes_.setInt(index, value);
             onChanged();
@@ -18248,6 +17655,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder addAllowedExitCodes(int value) {
+            
             ensureAllowedExitCodesIsMutable();
             allowedExitCodes_.addInt(value);
             onChanged();
@@ -18282,7 +17690,7 @@ public final class GuestPolicies {
            */
           public Builder clearAllowedExitCodes() {
             allowedExitCodes_ = emptyIntList();
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             onChanged();
             return this;
           }
@@ -18319,7 +17727,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new ExecFile(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -18453,82 +17872,6 @@ public final class GuestPolicies {
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
           return this.unknownFields;
-        }
-        private RunScript(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          int mutable_bitField0_ = 0;
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  script_ = s;
-                  break;
-                }
-                case 16: {
-                  if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                    allowedExitCodes_ = newIntList();
-                    mutable_bitField0_ |= 0x00000001;
-                  }
-                  allowedExitCodes_.addInt(input.readInt32());
-                  break;
-                }
-                case 18: {
-                  int length = input.readRawVarint32();
-                  int limit = input.pushLimit(length);
-                  if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                    allowedExitCodes_ = newIntList();
-                    mutable_bitField0_ |= 0x00000001;
-                  }
-                  while (input.getBytesUntilLimit() > 0) {
-                    allowedExitCodes_.addInt(input.readInt32());
-                  }
-                  input.popLimit(limit);
-                  break;
-                }
-                case 24: {
-                  int rawValue = input.readEnum();
-
-                  interpreter_ = rawValue;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            if (((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedExitCodes_.makeImmutable(); // C
-            }
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
         }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
@@ -18691,7 +18034,8 @@ public final class GuestPolicies {
         }
 
         public static final int SCRIPT_FIELD_NUMBER = 1;
-        private volatile java.lang.Object script_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object script_ = "";
         /**
          * <pre>
          * The shell script to be executed.
@@ -18737,6 +18081,7 @@ public final class GuestPolicies {
         }
 
         public static final int ALLOWED_EXIT_CODES_FIELD_NUMBER = 2;
+        @SuppressWarnings("serial")
         private com.google.protobuf.Internal.IntList allowedExitCodes_;
         /**
          * <pre>
@@ -18780,7 +18125,7 @@ public final class GuestPolicies {
         private int allowedExitCodesMemoizedSerializedSize = -1;
 
         public static final int INTERPRETER_FIELD_NUMBER = 3;
-        private int interpreter_;
+        private int interpreter_ = 0;
         /**
          * <pre>
          * The script interpreter to use to run the script. If no interpreter is
@@ -18807,8 +18152,7 @@ public final class GuestPolicies {
          * @return The interpreter.
          */
         @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter getInterpreter() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.valueOf(interpreter_);
+          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.forNumber(interpreter_);
           return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.UNRECOGNIZED : result;
         }
 
@@ -18840,7 +18184,7 @@ public final class GuestPolicies {
           if (interpreter_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.INTERPRETER_UNSPECIFIED.getNumber()) {
             output.writeEnum(3, interpreter_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -18870,7 +18214,7 @@ public final class GuestPolicies {
             size += com.google.protobuf.CodedOutputStream
               .computeEnumSize(3, interpreter_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -18890,7 +18234,7 @@ public final class GuestPolicies {
           if (!getAllowedExitCodesList()
               .equals(other.getAllowedExitCodesList())) return false;
           if (interpreter_ != other.interpreter_) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -18909,7 +18253,7 @@ public final class GuestPolicies {
           }
           hash = (37 * hash) + INTERPRETER_FIELD_NUMBER;
           hash = (53 * hash) + interpreter_;
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -19030,28 +18374,21 @@ public final class GuestPolicies {
 
           // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             script_ = "";
-
             allowedExitCodes_ = emptyIntList();
-            bitField0_ = (bitField0_ & ~0x00000001);
             interpreter_ = 0;
-
             return this;
           }
 
@@ -19078,16 +18415,28 @@ public final class GuestPolicies {
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript buildPartial() {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript(this);
-            int from_bitField0_ = bitField0_;
-            result.script_ = script_;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              allowedExitCodes_.makeImmutable();
-              bitField0_ = (bitField0_ & ~0x00000001);
-            }
-            result.allowedExitCodes_ = allowedExitCodes_;
-            result.interpreter_ = interpreter_;
+            buildPartialRepeatedFields(result);
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript result) {
+            if (((bitField0_ & 0x00000002) != 0)) {
+              allowedExitCodes_.makeImmutable();
+              bitField0_ = (bitField0_ & ~0x00000002);
+            }
+            result.allowedExitCodes_ = allowedExitCodes_;
+          }
+
+          private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.script_ = script_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
+              result.interpreter_ = interpreter_;
+            }
           }
 
           @java.lang.Override
@@ -19136,12 +18485,13 @@ public final class GuestPolicies {
             if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.getDefaultInstance()) return this;
             if (!other.getScript().isEmpty()) {
               script_ = other.script_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.allowedExitCodes_.isEmpty()) {
               if (allowedExitCodes_.isEmpty()) {
                 allowedExitCodes_ = other.allowedExitCodes_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
               } else {
                 ensureAllowedExitCodesIsMutable();
                 allowedExitCodes_.addAll(other.allowedExitCodes_);
@@ -19151,7 +18501,7 @@ public final class GuestPolicies {
             if (other.interpreter_ != 0) {
               setInterpreterValue(other.getInterpreterValue());
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -19166,17 +18516,56 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    script_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 16: {
+                    int v = input.readInt32();
+                    ensureAllowedExitCodesIsMutable();
+                    allowedExitCodes_.addInt(v);
+                    break;
+                  } // case 16
+                  case 18: {
+                    int length = input.readRawVarint32();
+                    int limit = input.pushLimit(length);
+                    ensureAllowedExitCodesIsMutable();
+                    while (input.getBytesUntilLimit() > 0) {
+                      allowedExitCodes_.addInt(input.readInt32());
+                    }
+                    input.popLimit(limit);
+                    break;
+                  } // case 18
+                  case 24: {
+                    interpreter_ = input.readEnum();
+                    bitField0_ |= 0x00000004;
+                    break;
+                  } // case 24
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
           private int bitField0_;
@@ -19234,11 +18623,9 @@ public final class GuestPolicies {
            */
           public Builder setScript(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             script_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -19251,8 +18638,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearScript() {
-            
             script_ = getDefaultInstance().getScript();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -19267,22 +18654,20 @@ public final class GuestPolicies {
            */
           public Builder setScriptBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             script_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
 
           private com.google.protobuf.Internal.IntList allowedExitCodes_ = emptyIntList();
           private void ensureAllowedExitCodesIsMutable() {
-            if (!((bitField0_ & 0x00000001) != 0)) {
+            if (!((bitField0_ & 0x00000002) != 0)) {
               allowedExitCodes_ = mutableCopy(allowedExitCodes_);
-              bitField0_ |= 0x00000001;
-             }
+              bitField0_ |= 0x00000002;
+            }
           }
           /**
            * <pre>
@@ -19295,7 +18680,7 @@ public final class GuestPolicies {
            */
           public java.util.List<java.lang.Integer>
               getAllowedExitCodesList() {
-            return ((bitField0_ & 0x00000001) != 0) ?
+            return ((bitField0_ & 0x00000002) != 0) ?
                      java.util.Collections.unmodifiableList(allowedExitCodes_) : allowedExitCodes_;
           }
           /**
@@ -19336,6 +18721,7 @@ public final class GuestPolicies {
            */
           public Builder setAllowedExitCodes(
               int index, int value) {
+            
             ensureAllowedExitCodesIsMutable();
             allowedExitCodes_.setInt(index, value);
             onChanged();
@@ -19352,6 +18738,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder addAllowedExitCodes(int value) {
+            
             ensureAllowedExitCodesIsMutable();
             allowedExitCodes_.addInt(value);
             onChanged();
@@ -19386,7 +18773,7 @@ public final class GuestPolicies {
            */
           public Builder clearAllowedExitCodes() {
             allowedExitCodes_ = emptyIntList();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -19419,8 +18806,8 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder setInterpreterValue(int value) {
-            
             interpreter_ = value;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
           }
@@ -19437,8 +18824,7 @@ public final class GuestPolicies {
            */
           @java.lang.Override
           public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter getInterpreter() {
-            @SuppressWarnings("deprecation")
-            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.valueOf(interpreter_);
+            com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.forNumber(interpreter_);
             return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript.Interpreter.UNRECOGNIZED : result;
           }
           /**
@@ -19457,7 +18843,7 @@ public final class GuestPolicies {
             if (value == null) {
               throw new NullPointerException();
             }
-            
+            bitField0_ |= 0x00000004;
             interpreter_ = value.getNumber();
             onChanged();
             return this;
@@ -19474,7 +18860,7 @@ public final class GuestPolicies {
            * @return This builder for chaining.
            */
           public Builder clearInterpreter() {
-            
+            bitField0_ = (bitField0_ & ~0x00000004);
             interpreter_ = 0;
             onChanged();
             return this;
@@ -19512,7 +18898,18 @@ public final class GuestPolicies {
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new RunScript(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -19919,7 +19316,7 @@ public final class GuestPolicies {
         if (stepCase_ == 7) {
           output.writeMessage(7, (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript) step_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -19956,7 +19353,7 @@ public final class GuestPolicies {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(7, (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.RunScript) step_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -20004,7 +19401,7 @@ public final class GuestPolicies {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -20047,7 +19444,7 @@ public final class GuestPolicies {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -20168,22 +19565,39 @@ public final class GuestPolicies {
 
         // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (fileCopyBuilder_ != null) {
+            fileCopyBuilder_.clear();
+          }
+          if (archiveExtractionBuilder_ != null) {
+            archiveExtractionBuilder_.clear();
+          }
+          if (msiInstallationBuilder_ != null) {
+            msiInstallationBuilder_.clear();
+          }
+          if (dpkgInstallationBuilder_ != null) {
+            dpkgInstallationBuilder_.clear();
+          }
+          if (rpmInstallationBuilder_ != null) {
+            rpmInstallationBuilder_.clear();
+          }
+          if (fileExecBuilder_ != null) {
+            fileExecBuilder_.clear();
+          }
+          if (scriptRunBuilder_ != null) {
+            scriptRunBuilder_.clear();
+          }
           stepCase_ = 0;
           step_ = null;
           return this;
@@ -20212,58 +19626,47 @@ public final class GuestPolicies {
         @java.lang.Override
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step buildPartial() {
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step(this);
-          if (stepCase_ == 1) {
-            if (fileCopyBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = fileCopyBuilder_.build();
-            }
-          }
-          if (stepCase_ == 2) {
-            if (archiveExtractionBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = archiveExtractionBuilder_.build();
-            }
-          }
-          if (stepCase_ == 3) {
-            if (msiInstallationBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = msiInstallationBuilder_.build();
-            }
-          }
-          if (stepCase_ == 4) {
-            if (dpkgInstallationBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = dpkgInstallationBuilder_.build();
-            }
-          }
-          if (stepCase_ == 5) {
-            if (rpmInstallationBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = rpmInstallationBuilder_.build();
-            }
-          }
-          if (stepCase_ == 6) {
-            if (fileExecBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = fileExecBuilder_.build();
-            }
-          }
-          if (stepCase_ == 7) {
-            if (scriptRunBuilder_ == null) {
-              result.step_ = step_;
-            } else {
-              result.step_ = scriptRunBuilder_.build();
-            }
-          }
-          result.stepCase_ = stepCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step result) {
+          result.stepCase_ = stepCase_;
+          result.step_ = this.step_;
+          if (stepCase_ == 1 &&
+              fileCopyBuilder_ != null) {
+            result.step_ = fileCopyBuilder_.build();
+          }
+          if (stepCase_ == 2 &&
+              archiveExtractionBuilder_ != null) {
+            result.step_ = archiveExtractionBuilder_.build();
+          }
+          if (stepCase_ == 3 &&
+              msiInstallationBuilder_ != null) {
+            result.step_ = msiInstallationBuilder_.build();
+          }
+          if (stepCase_ == 4 &&
+              dpkgInstallationBuilder_ != null) {
+            result.step_ = dpkgInstallationBuilder_.build();
+          }
+          if (stepCase_ == 5 &&
+              rpmInstallationBuilder_ != null) {
+            result.step_ = rpmInstallationBuilder_.build();
+          }
+          if (stepCase_ == 6 &&
+              fileExecBuilder_ != null) {
+            result.step_ = fileExecBuilder_.build();
+          }
+          if (stepCase_ == 7 &&
+              scriptRunBuilder_ != null) {
+            result.step_ = scriptRunBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -20343,7 +19746,7 @@ public final class GuestPolicies {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -20358,17 +19761,79 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getFileCopyFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 1;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getArchiveExtractionFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 2;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getMsiInstallationFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 3;
+                  break;
+                } // case 26
+                case 34: {
+                  input.readMessage(
+                      getDpkgInstallationFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 4;
+                  break;
+                } // case 34
+                case 42: {
+                  input.readMessage(
+                      getRpmInstallationFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 5;
+                  break;
+                } // case 42
+                case 50: {
+                  input.readMessage(
+                      getFileExecFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 6;
+                  break;
+                } // case 50
+                case 58: {
+                  input.readMessage(
+                      getScriptRunFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  stepCase_ = 7;
+                  break;
+                } // case 58
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int stepCase_ = 0;
@@ -20386,6 +19851,7 @@ public final class GuestPolicies {
           return this;
         }
 
+        private int bitField0_;
 
         private com.google.protobuf.SingleFieldBuilderV3<
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFile.Builder, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.CopyFileOrBuilder> fileCopyBuilder_;
@@ -20561,7 +20027,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 1;
-          onChanged();;
+          onChanged();
           return fileCopyBuilder_;
         }
 
@@ -20739,7 +20205,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 2;
-          onChanged();;
+          onChanged();
           return archiveExtractionBuilder_;
         }
 
@@ -20917,7 +20383,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 3;
-          onChanged();;
+          onChanged();
           return msiInstallationBuilder_;
         }
 
@@ -21095,7 +20561,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 4;
-          onChanged();;
+          onChanged();
           return dpkgInstallationBuilder_;
         }
 
@@ -21273,7 +20739,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 5;
-          onChanged();;
+          onChanged();
           return rpmInstallationBuilder_;
         }
 
@@ -21451,7 +20917,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 6;
-          onChanged();;
+          onChanged();
           return fileExecBuilder_;
         }
 
@@ -21629,7 +21095,7 @@ public final class GuestPolicies {
             step_ = null;
           }
           stepCase_ = 7;
-          onChanged();;
+          onChanged();
           return scriptRunBuilder_;
         }
         @java.lang.Override
@@ -21665,7 +21131,18 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Step(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -21686,7 +21163,8 @@ public final class GuestPolicies {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Unique identifier for the recipe. Only one recipe with a given name is
@@ -21742,7 +21220,8 @@ public final class GuestPolicies {
     }
 
     public static final int VERSION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object version_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object version_ = "";
     /**
      * <pre>
      * The version of this software recipe. Version can be up to 4 period
@@ -21790,6 +21269,7 @@ public final class GuestPolicies {
     }
 
     public static final int ARTIFACTS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact> artifacts_;
     /**
      * <pre>
@@ -21850,6 +21330,7 @@ public final class GuestPolicies {
     }
 
     public static final int INSTALL_STEPS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step> installSteps_;
     /**
      * <pre>
@@ -21925,6 +21406,7 @@ public final class GuestPolicies {
     }
 
     public static final int UPDATE_STEPS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step> updateSteps_;
     /**
      * <pre>
@@ -22000,7 +21482,7 @@ public final class GuestPolicies {
     }
 
     public static final int DESIRED_STATE_FIELD_NUMBER = 6;
-    private int desiredState_;
+    private int desiredState_ = 0;
     /**
      * <pre>
      * Default is INSTALLED. The desired state the agent should maintain for this
@@ -22037,8 +21519,7 @@ public final class GuestPolicies {
      * @return The desiredState.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState getDesiredState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.valueOf(desiredState_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.forNumber(desiredState_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.UNRECOGNIZED : result;
     }
 
@@ -22074,7 +21555,7 @@ public final class GuestPolicies {
       if (desiredState_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.DESIRED_STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(6, desiredState_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -22105,7 +21586,7 @@ public final class GuestPolicies {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(6, desiredState_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -22131,7 +21612,7 @@ public final class GuestPolicies {
       if (!getUpdateStepsList()
           .equals(other.getUpdateStepsList())) return false;
       if (desiredState_ != other.desiredState_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -22160,7 +21641,7 @@ public final class GuestPolicies {
       }
       hash = (37 * hash) + DESIRED_STATE_FIELD_NUMBER;
       hash = (53 * hash) + desiredState_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -22297,49 +21778,42 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getArtifactsFieldBuilder();
-          getInstallStepsFieldBuilder();
-          getUpdateStepsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         version_ = "";
-
         if (artifactsBuilder_ == null) {
           artifacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          artifacts_ = null;
           artifactsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (installStepsBuilder_ == null) {
           installSteps_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          installSteps_ = null;
           installStepsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (updateStepsBuilder_ == null) {
           updateSteps_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          updateSteps_ = null;
           updateStepsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         desiredState_ = 0;
-
         return this;
       }
 
@@ -22366,39 +21840,53 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        result.version_ = version_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe result) {
         if (artifactsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             artifacts_ = java.util.Collections.unmodifiableList(artifacts_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.artifacts_ = artifacts_;
         } else {
           result.artifacts_ = artifactsBuilder_.build();
         }
         if (installStepsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             installSteps_ = java.util.Collections.unmodifiableList(installSteps_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.installSteps_ = installSteps_;
         } else {
           result.installSteps_ = installStepsBuilder_.build();
         }
         if (updateStepsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             updateSteps_ = java.util.Collections.unmodifiableList(updateSteps_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.updateSteps_ = updateSteps_;
         } else {
           result.updateSteps_ = updateStepsBuilder_.build();
         }
-        result.desiredState_ = desiredState_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.version_ = version_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.desiredState_ = desiredState_;
+        }
       }
 
       @java.lang.Override
@@ -22447,17 +21935,19 @@ public final class GuestPolicies {
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getVersion().isEmpty()) {
           version_ = other.version_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (artifactsBuilder_ == null) {
           if (!other.artifacts_.isEmpty()) {
             if (artifacts_.isEmpty()) {
               artifacts_ = other.artifacts_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureArtifactsIsMutable();
               artifacts_.addAll(other.artifacts_);
@@ -22470,7 +21960,7 @@ public final class GuestPolicies {
               artifactsBuilder_.dispose();
               artifactsBuilder_ = null;
               artifacts_ = other.artifacts_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               artifactsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getArtifactsFieldBuilder() : null;
@@ -22483,7 +21973,7 @@ public final class GuestPolicies {
           if (!other.installSteps_.isEmpty()) {
             if (installSteps_.isEmpty()) {
               installSteps_ = other.installSteps_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureInstallStepsIsMutable();
               installSteps_.addAll(other.installSteps_);
@@ -22496,7 +21986,7 @@ public final class GuestPolicies {
               installStepsBuilder_.dispose();
               installStepsBuilder_ = null;
               installSteps_ = other.installSteps_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
               installStepsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getInstallStepsFieldBuilder() : null;
@@ -22509,7 +21999,7 @@ public final class GuestPolicies {
           if (!other.updateSteps_.isEmpty()) {
             if (updateSteps_.isEmpty()) {
               updateSteps_ = other.updateSteps_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureUpdateStepsIsMutable();
               updateSteps_.addAll(other.updateSteps_);
@@ -22522,7 +22012,7 @@ public final class GuestPolicies {
               updateStepsBuilder_.dispose();
               updateStepsBuilder_ = null;
               updateSteps_ = other.updateSteps_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000010);
               updateStepsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getUpdateStepsFieldBuilder() : null;
@@ -22534,7 +22024,7 @@ public final class GuestPolicies {
         if (other.desiredState_ != 0) {
           setDesiredStateValue(other.getDesiredStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -22549,17 +22039,84 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                version_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.parser(),
+                        extensionRegistry);
+                if (artifactsBuilder_ == null) {
+                  ensureArtifactsIsMutable();
+                  artifacts_.add(m);
+                } else {
+                  artifactsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 34: {
+                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.parser(),
+                        extensionRegistry);
+                if (installStepsBuilder_ == null) {
+                  ensureInstallStepsIsMutable();
+                  installSteps_.add(m);
+                } else {
+                  installStepsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.parser(),
+                        extensionRegistry);
+                if (updateStepsBuilder_ == null) {
+                  ensureUpdateStepsIsMutable();
+                  updateSteps_.add(m);
+                } else {
+                  updateStepsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 48: {
+                desiredState_ = input.readEnum();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -22632,11 +22189,9 @@ public final class GuestPolicies {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -22654,8 +22209,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -22675,12 +22230,10 @@ public final class GuestPolicies {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -22741,11 +22294,9 @@ public final class GuestPolicies {
        */
       public Builder setVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         version_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -22759,8 +22310,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearVersion() {
-        
         version_ = getDefaultInstance().getVersion();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -22776,12 +22327,10 @@ public final class GuestPolicies {
        */
       public Builder setVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         version_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -22789,9 +22338,9 @@ public final class GuestPolicies {
       private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact> artifacts_ =
         java.util.Collections.emptyList();
       private void ensureArtifactsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           artifacts_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact>(artifacts_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -22985,7 +22534,7 @@ public final class GuestPolicies {
       public Builder clearArtifacts() {
         if (artifactsBuilder_ == null) {
           artifacts_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           artifactsBuilder_.clear();
@@ -23090,7 +22639,7 @@ public final class GuestPolicies {
           artifactsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Artifact.Builder, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.ArtifactOrBuilder>(
                   artifacts_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           artifacts_ = null;
@@ -23101,9 +22650,9 @@ public final class GuestPolicies {
       private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step> installSteps_ =
         java.util.Collections.emptyList();
       private void ensureInstallStepsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           installSteps_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step>(installSteps_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -23330,7 +22879,7 @@ public final class GuestPolicies {
       public Builder clearInstallSteps() {
         if (installStepsBuilder_ == null) {
           installSteps_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           installStepsBuilder_.clear();
@@ -23456,7 +23005,7 @@ public final class GuestPolicies {
           installStepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.Builder, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.StepOrBuilder>(
                   installSteps_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           installSteps_ = null;
@@ -23467,9 +23016,9 @@ public final class GuestPolicies {
       private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step> updateSteps_ =
         java.util.Collections.emptyList();
       private void ensureUpdateStepsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           updateSteps_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step>(updateSteps_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -23696,7 +23245,7 @@ public final class GuestPolicies {
       public Builder clearUpdateSteps() {
         if (updateStepsBuilder_ == null) {
           updateSteps_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           updateStepsBuilder_.clear();
@@ -23822,7 +23371,7 @@ public final class GuestPolicies {
           updateStepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Step.Builder, com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.StepOrBuilder>(
                   updateSteps_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           updateSteps_ = null;
@@ -23868,8 +23417,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder setDesiredStateValue(int value) {
-        
         desiredState_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -23891,8 +23440,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState getDesiredState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.valueOf(desiredState_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState result = com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.forNumber(desiredState_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.DesiredState.UNRECOGNIZED : result;
       }
       /**
@@ -23916,7 +23464,7 @@ public final class GuestPolicies {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000020;
         desiredState_ = value.getNumber();
         onChanged();
         return this;
@@ -23938,7 +23486,7 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearDesiredState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         desiredState_ = 0;
         onChanged();
         return this;
@@ -23976,7 +23524,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SoftwareRecipe(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -24131,69 +23690,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LookupEffectiveGuestPolicyRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              instanceIdToken_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              osShortName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              osVersion_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              osArchitecture_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_LookupEffectiveGuestPolicyRequest_descriptor;
@@ -24208,7 +23704,8 @@ public final class GuestPolicies {
     }
 
     public static final int INSTANCE_ID_TOKEN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object instanceIdToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object instanceIdToken_ = "";
     /**
      * <pre>
      * Required. This is the GCE instance identity token described in
@@ -24258,7 +23755,8 @@ public final class GuestPolicies {
     }
 
     public static final int OS_SHORT_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object osShortName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object osShortName_ = "";
     /**
      * <pre>
      * Short name of the OS running on the instance. The OS Config agent only
@@ -24308,7 +23806,8 @@ public final class GuestPolicies {
     }
 
     public static final int OS_VERSION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object osVersion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object osVersion_ = "";
     /**
      * <pre>
      * Version of the OS running on the instance. The OS Config agent only
@@ -24358,7 +23857,8 @@ public final class GuestPolicies {
     }
 
     public static final int OS_ARCHITECTURE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object osArchitecture_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object osArchitecture_ = "";
     /**
      * <pre>
      * Architecture of OS running on the instance. The OS Config agent only
@@ -24433,7 +23933,7 @@ public final class GuestPolicies {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osArchitecture_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, osArchitecture_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -24454,7 +23954,7 @@ public final class GuestPolicies {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(osArchitecture_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, osArchitecture_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -24477,7 +23977,7 @@ public final class GuestPolicies {
           .equals(other.getOsVersion())) return false;
       if (!getOsArchitecture()
           .equals(other.getOsArchitecture())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -24496,7 +23996,7 @@ public final class GuestPolicies {
       hash = (53 * hash) + getOsVersion().hashCode();
       hash = (37 * hash) + OS_ARCHITECTURE_FIELD_NUMBER;
       hash = (53 * hash) + getOsArchitecture().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -24617,30 +24117,22 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         instanceIdToken_ = "";
-
         osShortName_ = "";
-
         osVersion_ = "";
-
         osArchitecture_ = "";
-
         return this;
       }
 
@@ -24667,12 +24159,25 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest(this);
-        result.instanceIdToken_ = instanceIdToken_;
-        result.osShortName_ = osShortName_;
-        result.osVersion_ = osVersion_;
-        result.osArchitecture_ = osArchitecture_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.instanceIdToken_ = instanceIdToken_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.osShortName_ = osShortName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.osVersion_ = osVersion_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.osArchitecture_ = osArchitecture_;
+        }
       }
 
       @java.lang.Override
@@ -24721,21 +24226,25 @@ public final class GuestPolicies {
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest.getDefaultInstance()) return this;
         if (!other.getInstanceIdToken().isEmpty()) {
           instanceIdToken_ = other.instanceIdToken_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getOsShortName().isEmpty()) {
           osShortName_ = other.osShortName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getOsVersion().isEmpty()) {
           osVersion_ = other.osVersion_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getOsArchitecture().isEmpty()) {
           osArchitecture_ = other.osArchitecture_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -24750,19 +24259,53 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instanceIdToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                osShortName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                osVersion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                osArchitecture_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.LookupEffectiveGuestPolicyRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object instanceIdToken_ = "";
       /**
@@ -24823,11 +24366,9 @@ public final class GuestPolicies {
        */
       public Builder setInstanceIdToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         instanceIdToken_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -24842,8 +24383,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearInstanceIdToken() {
-        
         instanceIdToken_ = getDefaultInstance().getInstanceIdToken();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -24860,12 +24401,10 @@ public final class GuestPolicies {
        */
       public Builder setInstanceIdTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         instanceIdToken_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -24929,11 +24468,9 @@ public final class GuestPolicies {
        */
       public Builder setOsShortName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         osShortName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -24948,8 +24485,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearOsShortName() {
-        
         osShortName_ = getDefaultInstance().getOsShortName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -24966,12 +24503,10 @@ public final class GuestPolicies {
        */
       public Builder setOsShortNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         osShortName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -25035,11 +24570,9 @@ public final class GuestPolicies {
        */
       public Builder setOsVersion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         osVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -25054,8 +24587,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearOsVersion() {
-        
         osVersion_ = getDefaultInstance().getOsVersion();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -25072,12 +24605,10 @@ public final class GuestPolicies {
        */
       public Builder setOsVersionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         osVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -25141,11 +24672,9 @@ public final class GuestPolicies {
        */
       public Builder setOsArchitecture(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         osArchitecture_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -25160,8 +24689,8 @@ public final class GuestPolicies {
        * @return This builder for chaining.
        */
       public Builder clearOsArchitecture() {
-        
         osArchitecture_ = getDefaultInstance().getOsArchitecture();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -25178,12 +24707,10 @@ public final class GuestPolicies {
        */
       public Builder setOsArchitectureBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         osArchitecture_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -25220,7 +24747,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LookupEffectiveGuestPolicyRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -25410,82 +24948,6 @@ public final class GuestPolicies {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EffectiveGuestPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                packages_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              packages_.add(
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                packageRepositories_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              packageRepositories_.add(
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                softwareRecipes_ = new java.util.ArrayList<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              softwareRecipes_.add(
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          packages_ = java.util.Collections.unmodifiableList(packages_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          packageRepositories_ = java.util.Collections.unmodifiableList(packageRepositories_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          softwareRecipes_ = java.util.Collections.unmodifiableList(softwareRecipes_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_EffectiveGuestPolicy_descriptor;
@@ -25582,64 +25044,6 @@ public final class GuestPolicies {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private SourcedPackage(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                source_ = s;
-                break;
-              }
-              case 18: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Builder subBuilder = null;
-                if (package_ != null) {
-                  subBuilder = package_.toBuilder();
-                }
-                package_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(package_);
-                  package_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_EffectiveGuestPolicy_SourcedPackage_descriptor;
@@ -25654,7 +25058,8 @@ public final class GuestPolicies {
       }
 
       public static final int SOURCE_FIELD_NUMBER = 1;
-      private volatile java.lang.Object source_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object source_ = "";
       /**
        * <pre>
        * Name of the guest policy providing this config.
@@ -25734,7 +25139,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageOrBuilder getPackageOrBuilder() {
-        return getPackage();
+        return package_ == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.getDefaultInstance() : package_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -25757,7 +25162,7 @@ public final class GuestPolicies {
         if (package_ != null) {
           output.writeMessage(2, getPackage());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -25773,7 +25178,7 @@ public final class GuestPolicies {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getPackage());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -25795,7 +25200,7 @@ public final class GuestPolicies {
           if (!getPackage()
               .equals(other.getPackage())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -25812,7 +25217,7 @@ public final class GuestPolicies {
           hash = (37 * hash) + PACKAGE_FIELD_NUMBER;
           hash = (53 * hash) + getPackage().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -25933,28 +25338,22 @@ public final class GuestPolicies {
 
         // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           source_ = "";
-
-          if (packageBuilder_ == null) {
-            package_ = null;
-          } else {
-            package_ = null;
+          package_ = null;
+          if (packageBuilder_ != null) {
+            packageBuilder_.dispose();
             packageBuilder_ = null;
           }
           return this;
@@ -25983,14 +25382,21 @@ public final class GuestPolicies {
         @java.lang.Override
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage buildPartial() {
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage(this);
-          result.source_ = source_;
-          if (packageBuilder_ == null) {
-            result.package_ = package_;
-          } else {
-            result.package_ = packageBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.source_ = source_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.package_ = packageBuilder_ == null
+                ? package_
+                : packageBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -26039,12 +25445,13 @@ public final class GuestPolicies {
           if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage.getDefaultInstance()) return this;
           if (!other.getSource().isEmpty()) {
             source_ = other.source_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.hasPackage()) {
             mergePackage(other.getPackage());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -26059,19 +25466,45 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  source_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getPackageFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object source_ = "";
         /**
@@ -26126,11 +25559,9 @@ public final class GuestPolicies {
          */
         public Builder setSource(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           source_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -26143,8 +25574,8 @@ public final class GuestPolicies {
          * @return This builder for chaining.
          */
         public Builder clearSource() {
-          
           source_ = getDefaultInstance().getSource();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -26159,12 +25590,10 @@ public final class GuestPolicies {
          */
         public Builder setSourceBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           source_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -26181,7 +25610,7 @@ public final class GuestPolicies {
          * @return Whether the package field is set.
          */
         public boolean hasPackage() {
-          return packageBuilder_ != null || package_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -26211,11 +25640,11 @@ public final class GuestPolicies {
               throw new NullPointerException();
             }
             package_ = value;
-            onChanged();
           } else {
             packageBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -26229,11 +25658,11 @@ public final class GuestPolicies {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Builder builderForValue) {
           if (packageBuilder_ == null) {
             package_ = builderForValue.build();
-            onChanged();
           } else {
             packageBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -26245,17 +25674,18 @@ public final class GuestPolicies {
          */
         public Builder mergePackage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package value) {
           if (packageBuilder_ == null) {
-            if (package_ != null) {
-              package_ =
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.newBuilder(package_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              package_ != null &&
+              package_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.getDefaultInstance()) {
+              getPackageBuilder().mergeFrom(value);
             } else {
               package_ = value;
             }
-            onChanged();
           } else {
             packageBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -26266,14 +25696,13 @@ public final class GuestPolicies {
          * <code>.google.cloud.osconfig.agentendpoint.v1beta.Package package = 2;</code>
          */
         public Builder clearPackage() {
-          if (packageBuilder_ == null) {
-            package_ = null;
-            onChanged();
-          } else {
-            package_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          package_ = null;
+          if (packageBuilder_ != null) {
+            packageBuilder_.dispose();
             packageBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -26284,7 +25713,7 @@ public final class GuestPolicies {
          * <code>.google.cloud.osconfig.agentendpoint.v1beta.Package package = 2;</code>
          */
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.Package.Builder getPackageBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getPackageFieldBuilder().getBuilder();
         }
@@ -26356,7 +25785,18 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SourcedPackage(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -26459,64 +25899,6 @@ public final class GuestPolicies {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private SourcedPackageRepository(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                source_ = s;
-                break;
-              }
-              case 18: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.Builder subBuilder = null;
-                if (packageRepository_ != null) {
-                  subBuilder = packageRepository_.toBuilder();
-                }
-                packageRepository_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(packageRepository_);
-                  packageRepository_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_EffectiveGuestPolicy_SourcedPackageRepository_descriptor;
@@ -26531,7 +25913,8 @@ public final class GuestPolicies {
       }
 
       public static final int SOURCE_FIELD_NUMBER = 1;
-      private volatile java.lang.Object source_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object source_ = "";
       /**
        * <pre>
        * Name of the guest policy providing this config.
@@ -26611,7 +25994,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepositoryOrBuilder getPackageRepositoryOrBuilder() {
-        return getPackageRepository();
+        return packageRepository_ == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.getDefaultInstance() : packageRepository_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -26634,7 +26017,7 @@ public final class GuestPolicies {
         if (packageRepository_ != null) {
           output.writeMessage(2, getPackageRepository());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -26650,7 +26033,7 @@ public final class GuestPolicies {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getPackageRepository());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -26672,7 +26055,7 @@ public final class GuestPolicies {
           if (!getPackageRepository()
               .equals(other.getPackageRepository())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -26689,7 +26072,7 @@ public final class GuestPolicies {
           hash = (37 * hash) + PACKAGE_REPOSITORY_FIELD_NUMBER;
           hash = (53 * hash) + getPackageRepository().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -26810,28 +26193,22 @@ public final class GuestPolicies {
 
         // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           source_ = "";
-
-          if (packageRepositoryBuilder_ == null) {
-            packageRepository_ = null;
-          } else {
-            packageRepository_ = null;
+          packageRepository_ = null;
+          if (packageRepositoryBuilder_ != null) {
+            packageRepositoryBuilder_.dispose();
             packageRepositoryBuilder_ = null;
           }
           return this;
@@ -26860,14 +26237,21 @@ public final class GuestPolicies {
         @java.lang.Override
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository buildPartial() {
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository(this);
-          result.source_ = source_;
-          if (packageRepositoryBuilder_ == null) {
-            result.packageRepository_ = packageRepository_;
-          } else {
-            result.packageRepository_ = packageRepositoryBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.source_ = source_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.packageRepository_ = packageRepositoryBuilder_ == null
+                ? packageRepository_
+                : packageRepositoryBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -26916,12 +26300,13 @@ public final class GuestPolicies {
           if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository.getDefaultInstance()) return this;
           if (!other.getSource().isEmpty()) {
             source_ = other.source_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.hasPackageRepository()) {
             mergePackageRepository(other.getPackageRepository());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -26936,19 +26321,45 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  source_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getPackageRepositoryFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object source_ = "";
         /**
@@ -27003,11 +26414,9 @@ public final class GuestPolicies {
          */
         public Builder setSource(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           source_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -27020,8 +26429,8 @@ public final class GuestPolicies {
          * @return This builder for chaining.
          */
         public Builder clearSource() {
-          
           source_ = getDefaultInstance().getSource();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -27036,12 +26445,10 @@ public final class GuestPolicies {
          */
         public Builder setSourceBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           source_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -27058,7 +26465,7 @@ public final class GuestPolicies {
          * @return Whether the packageRepository field is set.
          */
         public boolean hasPackageRepository() {
-          return packageRepositoryBuilder_ != null || packageRepository_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -27088,11 +26495,11 @@ public final class GuestPolicies {
               throw new NullPointerException();
             }
             packageRepository_ = value;
-            onChanged();
           } else {
             packageRepositoryBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -27106,11 +26513,11 @@ public final class GuestPolicies {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.Builder builderForValue) {
           if (packageRepositoryBuilder_ == null) {
             packageRepository_ = builderForValue.build();
-            onChanged();
           } else {
             packageRepositoryBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -27122,17 +26529,18 @@ public final class GuestPolicies {
          */
         public Builder mergePackageRepository(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository value) {
           if (packageRepositoryBuilder_ == null) {
-            if (packageRepository_ != null) {
-              packageRepository_ =
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.newBuilder(packageRepository_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              packageRepository_ != null &&
+              packageRepository_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.getDefaultInstance()) {
+              getPackageRepositoryBuilder().mergeFrom(value);
             } else {
               packageRepository_ = value;
             }
-            onChanged();
           } else {
             packageRepositoryBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -27143,14 +26551,13 @@ public final class GuestPolicies {
          * <code>.google.cloud.osconfig.agentendpoint.v1beta.PackageRepository package_repository = 2;</code>
          */
         public Builder clearPackageRepository() {
-          if (packageRepositoryBuilder_ == null) {
-            packageRepository_ = null;
-            onChanged();
-          } else {
-            packageRepository_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          packageRepository_ = null;
+          if (packageRepositoryBuilder_ != null) {
+            packageRepositoryBuilder_.dispose();
             packageRepositoryBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -27161,7 +26568,7 @@ public final class GuestPolicies {
          * <code>.google.cloud.osconfig.agentendpoint.v1beta.PackageRepository package_repository = 2;</code>
          */
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.PackageRepository.Builder getPackageRepositoryBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getPackageRepositoryFieldBuilder().getBuilder();
         }
@@ -27233,7 +26640,18 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SourcedPackageRepository(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -27336,64 +26754,6 @@ public final class GuestPolicies {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private SourcedSoftwareRecipe(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                source_ = s;
-                break;
-              }
-              case 18: {
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Builder subBuilder = null;
-                if (softwareRecipe_ != null) {
-                  subBuilder = softwareRecipe_.toBuilder();
-                }
-                softwareRecipe_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(softwareRecipe_);
-                  softwareRecipe_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.internal_static_google_cloud_osconfig_agentendpoint_v1beta_EffectiveGuestPolicy_SourcedSoftwareRecipe_descriptor;
@@ -27408,7 +26768,8 @@ public final class GuestPolicies {
       }
 
       public static final int SOURCE_FIELD_NUMBER = 1;
-      private volatile java.lang.Object source_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object source_ = "";
       /**
        * <pre>
        * Name of the guest policy providing this config.
@@ -27488,7 +26849,7 @@ public final class GuestPolicies {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipeOrBuilder getSoftwareRecipeOrBuilder() {
-        return getSoftwareRecipe();
+        return softwareRecipe_ == null ? com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.getDefaultInstance() : softwareRecipe_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -27511,7 +26872,7 @@ public final class GuestPolicies {
         if (softwareRecipe_ != null) {
           output.writeMessage(2, getSoftwareRecipe());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -27527,7 +26888,7 @@ public final class GuestPolicies {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, getSoftwareRecipe());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -27549,7 +26910,7 @@ public final class GuestPolicies {
           if (!getSoftwareRecipe()
               .equals(other.getSoftwareRecipe())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -27566,7 +26927,7 @@ public final class GuestPolicies {
           hash = (37 * hash) + SOFTWARE_RECIPE_FIELD_NUMBER;
           hash = (53 * hash) + getSoftwareRecipe().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -27687,28 +27048,22 @@ public final class GuestPolicies {
 
         // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           source_ = "";
-
-          if (softwareRecipeBuilder_ == null) {
-            softwareRecipe_ = null;
-          } else {
-            softwareRecipe_ = null;
+          softwareRecipe_ = null;
+          if (softwareRecipeBuilder_ != null) {
+            softwareRecipeBuilder_.dispose();
             softwareRecipeBuilder_ = null;
           }
           return this;
@@ -27737,14 +27092,21 @@ public final class GuestPolicies {
         @java.lang.Override
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe buildPartial() {
           com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe(this);
-          result.source_ = source_;
-          if (softwareRecipeBuilder_ == null) {
-            result.softwareRecipe_ = softwareRecipe_;
-          } else {
-            result.softwareRecipe_ = softwareRecipeBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.source_ = source_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.softwareRecipe_ = softwareRecipeBuilder_ == null
+                ? softwareRecipe_
+                : softwareRecipeBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -27793,12 +27155,13 @@ public final class GuestPolicies {
           if (other == com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe.getDefaultInstance()) return this;
           if (!other.getSource().isEmpty()) {
             source_ = other.source_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.hasSoftwareRecipe()) {
             mergeSoftwareRecipe(other.getSoftwareRecipe());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -27813,19 +27176,45 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  source_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getSoftwareRecipeFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object source_ = "";
         /**
@@ -27880,11 +27269,9 @@ public final class GuestPolicies {
          */
         public Builder setSource(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           source_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -27897,8 +27284,8 @@ public final class GuestPolicies {
          * @return This builder for chaining.
          */
         public Builder clearSource() {
-          
           source_ = getDefaultInstance().getSource();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -27913,12 +27300,10 @@ public final class GuestPolicies {
          */
         public Builder setSourceBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           source_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -27935,7 +27320,7 @@ public final class GuestPolicies {
          * @return Whether the softwareRecipe field is set.
          */
         public boolean hasSoftwareRecipe() {
-          return softwareRecipeBuilder_ != null || softwareRecipe_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -27965,11 +27350,11 @@ public final class GuestPolicies {
               throw new NullPointerException();
             }
             softwareRecipe_ = value;
-            onChanged();
           } else {
             softwareRecipeBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -27983,11 +27368,11 @@ public final class GuestPolicies {
             com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Builder builderForValue) {
           if (softwareRecipeBuilder_ == null) {
             softwareRecipe_ = builderForValue.build();
-            onChanged();
           } else {
             softwareRecipeBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -27999,17 +27384,18 @@ public final class GuestPolicies {
          */
         public Builder mergeSoftwareRecipe(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe value) {
           if (softwareRecipeBuilder_ == null) {
-            if (softwareRecipe_ != null) {
-              softwareRecipe_ =
-                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.newBuilder(softwareRecipe_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              softwareRecipe_ != null &&
+              softwareRecipe_ != com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.getDefaultInstance()) {
+              getSoftwareRecipeBuilder().mergeFrom(value);
             } else {
               softwareRecipe_ = value;
             }
-            onChanged();
           } else {
             softwareRecipeBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -28020,14 +27406,13 @@ public final class GuestPolicies {
          * <code>.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe software_recipe = 2;</code>
          */
         public Builder clearSoftwareRecipe() {
-          if (softwareRecipeBuilder_ == null) {
-            softwareRecipe_ = null;
-            onChanged();
-          } else {
-            softwareRecipe_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          softwareRecipe_ = null;
+          if (softwareRecipeBuilder_ != null) {
+            softwareRecipeBuilder_.dispose();
             softwareRecipeBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -28038,7 +27423,7 @@ public final class GuestPolicies {
          * <code>.google.cloud.osconfig.agentendpoint.v1beta.SoftwareRecipe software_recipe = 2;</code>
          */
         public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.SoftwareRecipe.Builder getSoftwareRecipeBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getSoftwareRecipeFieldBuilder().getBuilder();
         }
@@ -28110,7 +27495,18 @@ public final class GuestPolicies {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SourcedSoftwareRecipe(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -28131,6 +27527,7 @@ public final class GuestPolicies {
     }
 
     public static final int PACKAGES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage> packages_;
     /**
      * <pre>
@@ -28191,6 +27588,7 @@ public final class GuestPolicies {
     }
 
     public static final int PACKAGE_REPOSITORIES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository> packageRepositories_;
     /**
      * <pre>
@@ -28251,6 +27649,7 @@ public final class GuestPolicies {
     }
 
     public static final int SOFTWARE_RECIPES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe> softwareRecipes_;
     /**
      * <pre>
@@ -28333,7 +27732,7 @@ public final class GuestPolicies {
       for (int i = 0; i < softwareRecipes_.size(); i++) {
         output.writeMessage(3, softwareRecipes_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -28354,7 +27753,7 @@ public final class GuestPolicies {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, softwareRecipes_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -28375,7 +27774,7 @@ public final class GuestPolicies {
           .equals(other.getPackageRepositoriesList())) return false;
       if (!getSoftwareRecipesList()
           .equals(other.getSoftwareRecipesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -28398,7 +27797,7 @@ public final class GuestPolicies {
         hash = (37 * hash) + SOFTWARE_RECIPES_FIELD_NUMBER;
         hash = (53 * hash) + getSoftwareRecipesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -28519,43 +27918,39 @@ public final class GuestPolicies {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPackagesFieldBuilder();
-          getPackageRepositoriesFieldBuilder();
-          getSoftwareRecipesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (packagesBuilder_ == null) {
           packages_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          packages_ = null;
           packagesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (packageRepositoriesBuilder_ == null) {
           packageRepositories_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          packageRepositories_ = null;
           packageRepositoriesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (softwareRecipesBuilder_ == null) {
           softwareRecipes_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          softwareRecipes_ = null;
           softwareRecipesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -28582,7 +27977,13 @@ public final class GuestPolicies {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy result = new com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy result) {
         if (packagesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             packages_ = java.util.Collections.unmodifiableList(packages_);
@@ -28610,8 +28011,10 @@ public final class GuestPolicies {
         } else {
           result.softwareRecipes_ = softwareRecipesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -28736,7 +28139,7 @@ public final class GuestPolicies {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -28751,17 +28154,69 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackage.parser(),
+                        extensionRegistry);
+                if (packagesBuilder_ == null) {
+                  ensurePackagesIsMutable();
+                  packages_.add(m);
+                } else {
+                  packagesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedPackageRepository.parser(),
+                        extensionRegistry);
+                if (packageRepositoriesBuilder_ == null) {
+                  ensurePackageRepositoriesIsMutable();
+                  packageRepositories_.add(m);
+                } else {
+                  packageRepositoriesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe m =
+                    input.readMessage(
+                        com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy.SourcedSoftwareRecipe.parser(),
+                        extensionRegistry);
+                if (softwareRecipesBuilder_ == null) {
+                  ensureSoftwareRecipesIsMutable();
+                  softwareRecipes_.add(m);
+                } else {
+                  softwareRecipesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.GuestPolicies.EffectiveGuestPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -29734,7 +29189,18 @@ public final class GuestPolicies {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EffectiveGuestPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -29880,128 +29346,126 @@ public final class GuestPolicies {
     java.lang.String[] descriptorData = {
       "\n?google/cloud/osconfig/agentendpoint/v1" +
       "beta/guest_policies.proto\022*google.cloud." +
-      "osconfig.agentendpoint.v1beta\032\034google/ap" +
-      "i/annotations.proto\032\037google/api/field_be" +
-      "havior.proto\"\212\002\n\007Package\022\014\n\004name\030\001 \001(\t\022O" +
-      "\n\rdesired_state\030\002 \001(\01628.google.cloud.osc" +
-      "onfig.agentendpoint.v1beta.DesiredState\022" +
-      "L\n\007manager\030\003 \001(\0162;.google.cloud.osconfig" +
-      ".agentendpoint.v1beta.Package.Manager\"R\n" +
-      "\007Manager\022\027\n\023MANAGER_UNSPECIFIED\020\000\022\007\n\003ANY" +
-      "\020\001\022\007\n\003APT\020\002\022\007\n\003YUM\020\003\022\n\n\006ZYPPER\020\004\022\007\n\003GOO\020" +
-      "\005\"\367\001\n\rAptRepository\022[\n\014archive_type\030\001 \001(" +
-      "\0162E.google.cloud.osconfig.agentendpoint." +
-      "v1beta.AptRepository.ArchiveType\022\013\n\003uri\030" +
-      "\002 \001(\t\022\024\n\014distribution\030\003 \001(\t\022\022\n\ncomponent" +
-      "s\030\004 \003(\t\022\017\n\007gpg_key\030\005 \001(\t\"A\n\013ArchiveType\022" +
-      "\034\n\030ARCHIVE_TYPE_UNSPECIFIED\020\000\022\007\n\003DEB\020\001\022\013" +
-      "\n\007DEB_SRC\020\002\"U\n\rYumRepository\022\n\n\002id\030\001 \001(\t" +
-      "\022\024\n\014display_name\030\002 \001(\t\022\020\n\010base_url\030\003 \001(\t" +
-      "\022\020\n\010gpg_keys\030\004 \003(\t\"X\n\020ZypperRepository\022\n" +
+      "osconfig.agentendpoint.v1beta\032\037google/ap" +
+      "i/field_behavior.proto\"\212\002\n\007Package\022\014\n\004na" +
+      "me\030\001 \001(\t\022O\n\rdesired_state\030\002 \001(\01628.google" +
+      ".cloud.osconfig.agentendpoint.v1beta.Des" +
+      "iredState\022L\n\007manager\030\003 \001(\0162;.google.clou" +
+      "d.osconfig.agentendpoint.v1beta.Package." +
+      "Manager\"R\n\007Manager\022\027\n\023MANAGER_UNSPECIFIE" +
+      "D\020\000\022\007\n\003ANY\020\001\022\007\n\003APT\020\002\022\007\n\003YUM\020\003\022\n\n\006ZYPPER" +
+      "\020\004\022\007\n\003GOO\020\005\"\367\001\n\rAptRepository\022[\n\014archive" +
+      "_type\030\001 \001(\0162E.google.cloud.osconfig.agen" +
+      "tendpoint.v1beta.AptRepository.ArchiveTy" +
+      "pe\022\013\n\003uri\030\002 \001(\t\022\024\n\014distribution\030\003 \001(\t\022\022\n" +
+      "\ncomponents\030\004 \003(\t\022\017\n\007gpg_key\030\005 \001(\t\"A\n\013Ar" +
+      "chiveType\022\034\n\030ARCHIVE_TYPE_UNSPECIFIED\020\000\022" +
+      "\007\n\003DEB\020\001\022\013\n\007DEB_SRC\020\002\"U\n\rYumRepository\022\n" +
       "\n\002id\030\001 \001(\t\022\024\n\014display_name\030\002 \001(\t\022\020\n\010base" +
-      "_url\030\003 \001(\t\022\020\n\010gpg_keys\030\004 \003(\t\"*\n\rGooRepos" +
-      "itory\022\014\n\004name\030\001 \001(\t\022\013\n\003url\030\002 \001(\t\"\317\002\n\021Pac" +
-      "kageRepository\022H\n\003apt\030\001 \001(\01329.google.clo" +
-      "ud.osconfig.agentendpoint.v1beta.AptRepo" +
-      "sitoryH\000\022H\n\003yum\030\002 \001(\01329.google.cloud.osc" +
-      "onfig.agentendpoint.v1beta.YumRepository" +
-      "H\000\022N\n\006zypper\030\003 \001(\0132<.google.cloud.osconf" +
-      "ig.agentendpoint.v1beta.ZypperRepository" +
-      "H\000\022H\n\003goo\030\004 \001(\01329.google.cloud.osconfig." +
-      "agentendpoint.v1beta.GooRepositoryH\000B\014\n\n" +
-      "repository\"\246\022\n\016SoftwareRecipe\022\014\n\004name\030\001 " +
-      "\001(\t\022\017\n\007version\030\002 \001(\t\022V\n\tartifacts\030\003 \003(\0132" +
-      "C.google.cloud.osconfig.agentendpoint.v1" +
-      "beta.SoftwareRecipe.Artifact\022V\n\rinstall_" +
-      "steps\030\004 \003(\0132?.google.cloud.osconfig.agen" +
-      "tendpoint.v1beta.SoftwareRecipe.Step\022U\n\014" +
-      "update_steps\030\005 \003(\0132?.google.cloud.osconf" +
-      "ig.agentendpoint.v1beta.SoftwareRecipe.S" +
-      "tep\022O\n\rdesired_state\030\006 \001(\01628.google.clou" +
-      "d.osconfig.agentendpoint.v1beta.DesiredS" +
-      "tate\032\324\002\n\010Artifact\022\n\n\002id\030\001 \001(\t\022\\\n\006remote\030" +
-      "\002 \001(\0132J.google.cloud.osconfig.agentendpo" +
-      "int.v1beta.SoftwareRecipe.Artifact.Remot" +
-      "eH\000\022V\n\003gcs\030\003 \001(\0132G.google.cloud.osconfig" +
-      ".agentendpoint.v1beta.SoftwareRecipe.Art" +
-      "ifact.GcsH\000\022\026\n\016allow_insecure\030\004 \001(\010\032\'\n\006R" +
-      "emote\022\013\n\003uri\030\001 \001(\t\022\020\n\010checksum\030\002 \001(\t\0329\n\003" +
-      "Gcs\022\016\n\006bucket\030\001 \001(\t\022\016\n\006object\030\002 \001(\t\022\022\n\ng" +
-      "eneration\030\003 \001(\003B\n\n\010artifact\032\305\014\n\004Step\022]\n\t" +
-      "file_copy\030\001 \001(\0132H.google.cloud.osconfig." +
-      "agentendpoint.v1beta.SoftwareRecipe.Step" +
-      ".CopyFileH\000\022l\n\022archive_extraction\030\002 \001(\0132" +
-      "N.google.cloud.osconfig.agentendpoint.v1" +
-      "beta.SoftwareRecipe.Step.ExtractArchiveH" +
-      "\000\022f\n\020msi_installation\030\003 \001(\0132J.google.clo" +
-      "ud.osconfig.agentendpoint.v1beta.Softwar" +
-      "eRecipe.Step.InstallMsiH\000\022h\n\021dpkg_instal" +
-      "lation\030\004 \001(\0132K.google.cloud.osconfig.age" +
-      "ntendpoint.v1beta.SoftwareRecipe.Step.In" +
-      "stallDpkgH\000\022f\n\020rpm_installation\030\005 \001(\0132J." +
+      "_url\030\003 \001(\t\022\020\n\010gpg_keys\030\004 \003(\t\"X\n\020ZypperRe" +
+      "pository\022\n\n\002id\030\001 \001(\t\022\024\n\014display_name\030\002 \001" +
+      "(\t\022\020\n\010base_url\030\003 \001(\t\022\020\n\010gpg_keys\030\004 \003(\t\"*" +
+      "\n\rGooRepository\022\014\n\004name\030\001 \001(\t\022\013\n\003url\030\002 \001" +
+      "(\t\"\317\002\n\021PackageRepository\022H\n\003apt\030\001 \001(\01329." +
       "google.cloud.osconfig.agentendpoint.v1be" +
-      "ta.SoftwareRecipe.Step.InstallRpmH\000\022]\n\tf" +
-      "ile_exec\030\006 \001(\0132H.google.cloud.osconfig.a" +
-      "gentendpoint.v1beta.SoftwareRecipe.Step." +
-      "ExecFileH\000\022_\n\nscript_run\030\007 \001(\0132I.google." +
-      "cloud.osconfig.agentendpoint.v1beta.Soft" +
-      "wareRecipe.Step.RunScriptH\000\032\\\n\010CopyFile\022" +
-      "\023\n\013artifact_id\030\001 \001(\t\022\023\n\013destination\030\002 \001(" +
-      "\t\022\021\n\toverwrite\030\003 \001(\010\022\023\n\013permissions\030\004 \001(" +
-      "\t\032\231\002\n\016ExtractArchive\022\023\n\013artifact_id\030\001 \001(" +
-      "\t\022\023\n\013destination\030\002 \001(\t\022h\n\004type\030\003 \001(\0162Z.g" +
+      "ta.AptRepositoryH\000\022H\n\003yum\030\002 \001(\01329.google" +
+      ".cloud.osconfig.agentendpoint.v1beta.Yum" +
+      "RepositoryH\000\022N\n\006zypper\030\003 \001(\0132<.google.cl" +
+      "oud.osconfig.agentendpoint.v1beta.Zypper" +
+      "RepositoryH\000\022H\n\003goo\030\004 \001(\01329.google.cloud" +
+      ".osconfig.agentendpoint.v1beta.GooReposi" +
+      "toryH\000B\014\n\nrepository\"\246\022\n\016SoftwareRecipe\022" +
+      "\014\n\004name\030\001 \001(\t\022\017\n\007version\030\002 \001(\t\022V\n\tartifa" +
+      "cts\030\003 \003(\0132C.google.cloud.osconfig.agente" +
+      "ndpoint.v1beta.SoftwareRecipe.Artifact\022V" +
+      "\n\rinstall_steps\030\004 \003(\0132?.google.cloud.osc" +
+      "onfig.agentendpoint.v1beta.SoftwareRecip" +
+      "e.Step\022U\n\014update_steps\030\005 \003(\0132?.google.cl" +
+      "oud.osconfig.agentendpoint.v1beta.Softwa" +
+      "reRecipe.Step\022O\n\rdesired_state\030\006 \001(\01628.g" +
       "oogle.cloud.osconfig.agentendpoint.v1bet" +
-      "a.SoftwareRecipe.Step.ExtractArchive.Arc" +
-      "hiveType\"s\n\013ArchiveType\022\034\n\030ARCHIVE_TYPE_" +
-      "UNSPECIFIED\020\000\022\007\n\003TAR\020\001\022\014\n\010TAR_GZIP\020\002\022\014\n\010" +
-      "TAR_BZIP\020\003\022\014\n\010TAR_LZMA\020\004\022\n\n\006TAR_XZ\020\005\022\007\n\003" +
-      "ZIP\020\013\032L\n\nInstallMsi\022\023\n\013artifact_id\030\001 \001(\t" +
-      "\022\r\n\005flags\030\002 \003(\t\022\032\n\022allowed_exit_codes\030\003 " +
-      "\003(\005\032\"\n\013InstallDpkg\022\023\n\013artifact_id\030\001 \001(\t\032" +
-      "!\n\nInstallRpm\022\023\n\013artifact_id\030\001 \001(\t\032r\n\010Ex" +
-      "ecFile\022\025\n\013artifact_id\030\001 \001(\tH\000\022\024\n\nlocal_p" +
-      "ath\030\002 \001(\tH\000\022\014\n\004args\030\003 \003(\t\022\032\n\022allowed_exi" +
-      "t_codes\030\004 \003(\005B\017\n\rlocation_type\032\352\001\n\tRunSc" +
-      "ript\022\016\n\006script\030\001 \001(\t\022\032\n\022allowed_exit_cod" +
-      "es\030\002 \003(\005\022j\n\013interpreter\030\003 \001(\0162U.google.c" +
-      "loud.osconfig.agentendpoint.v1beta.Softw" +
-      "areRecipe.Step.RunScript.Interpreter\"E\n\013" +
-      "Interpreter\022\033\n\027INTERPRETER_UNSPECIFIED\020\000" +
-      "\022\t\n\005SHELL\020\001\022\016\n\nPOWERSHELL\020\003B\006\n\004step\"\207\001\n!" +
-      "LookupEffectiveGuestPolicyRequest\022\036\n\021ins" +
-      "tance_id_token\030\001 \001(\tB\003\340A\002\022\025\n\ros_short_na" +
-      "me\030\002 \001(\t\022\022\n\nos_version\030\003 \001(\t\022\027\n\017os_archi" +
-      "tecture\030\004 \001(\t\"\322\005\n\024EffectiveGuestPolicy\022a" +
-      "\n\010packages\030\001 \003(\0132O.google.cloud.osconfig" +
-      ".agentendpoint.v1beta.EffectiveGuestPoli" +
-      "cy.SourcedPackage\022w\n\024package_repositorie" +
-      "s\030\002 \003(\0132Y.google.cloud.osconfig.agentend" +
-      "point.v1beta.EffectiveGuestPolicy.Source" +
-      "dPackageRepository\022p\n\020software_recipes\030\003" +
-      " \003(\0132V.google.cloud.osconfig.agentendpoi" +
-      "nt.v1beta.EffectiveGuestPolicy.SourcedSo" +
-      "ftwareRecipe\032f\n\016SourcedPackage\022\016\n\006source" +
-      "\030\001 \001(\t\022D\n\007package\030\002 \001(\01323.google.cloud.o" +
-      "sconfig.agentendpoint.v1beta.Package\032\205\001\n" +
-      "\030SourcedPackageRepository\022\016\n\006source\030\001 \001(" +
-      "\t\022Y\n\022package_repository\030\002 \001(\0132=.google.c" +
-      "loud.osconfig.agentendpoint.v1beta.Packa" +
-      "geRepository\032|\n\025SourcedSoftwareRecipe\022\016\n" +
-      "\006source\030\001 \001(\t\022S\n\017software_recipe\030\002 \001(\0132:" +
-      ".google.cloud.osconfig.agentendpoint.v1b" +
-      "eta.SoftwareRecipe*V\n\014DesiredState\022\035\n\031DE" +
-      "SIRED_STATE_UNSPECIFIED\020\000\022\r\n\tINSTALLED\020\001" +
-      "\022\013\n\007UPDATED\020\002\022\013\n\007REMOVED\020\003B\267\001\n.com.googl" +
-      "e.cloud.osconfig.agentendpoint.v1betaB\rG" +
-      "uestPoliciesZWgoogle.golang.org/genproto" +
-      "/googleapis/cloud/osconfig/agentendpoint" +
-      "/v1beta;agentendpoint\312\002\034Google\\Cloud\\OsC" +
-      "onfig\\V1betab\006proto3"
+      "a.DesiredState\032\324\002\n\010Artifact\022\n\n\002id\030\001 \001(\t\022" +
+      "\\\n\006remote\030\002 \001(\0132J.google.cloud.osconfig." +
+      "agentendpoint.v1beta.SoftwareRecipe.Arti" +
+      "fact.RemoteH\000\022V\n\003gcs\030\003 \001(\0132G.google.clou" +
+      "d.osconfig.agentendpoint.v1beta.Software" +
+      "Recipe.Artifact.GcsH\000\022\026\n\016allow_insecure\030" +
+      "\004 \001(\010\032\'\n\006Remote\022\013\n\003uri\030\001 \001(\t\022\020\n\010checksum" +
+      "\030\002 \001(\t\0329\n\003Gcs\022\016\n\006bucket\030\001 \001(\t\022\016\n\006object\030" +
+      "\002 \001(\t\022\022\n\ngeneration\030\003 \001(\003B\n\n\010artifact\032\305\014" +
+      "\n\004Step\022]\n\tfile_copy\030\001 \001(\0132H.google.cloud" +
+      ".osconfig.agentendpoint.v1beta.SoftwareR" +
+      "ecipe.Step.CopyFileH\000\022l\n\022archive_extract" +
+      "ion\030\002 \001(\0132N.google.cloud.osconfig.agente" +
+      "ndpoint.v1beta.SoftwareRecipe.Step.Extra" +
+      "ctArchiveH\000\022f\n\020msi_installation\030\003 \001(\0132J." +
+      "google.cloud.osconfig.agentendpoint.v1be" +
+      "ta.SoftwareRecipe.Step.InstallMsiH\000\022h\n\021d" +
+      "pkg_installation\030\004 \001(\0132K.google.cloud.os" +
+      "config.agentendpoint.v1beta.SoftwareReci" +
+      "pe.Step.InstallDpkgH\000\022f\n\020rpm_installatio" +
+      "n\030\005 \001(\0132J.google.cloud.osconfig.agentend" +
+      "point.v1beta.SoftwareRecipe.Step.Install" +
+      "RpmH\000\022]\n\tfile_exec\030\006 \001(\0132H.google.cloud." +
+      "osconfig.agentendpoint.v1beta.SoftwareRe" +
+      "cipe.Step.ExecFileH\000\022_\n\nscript_run\030\007 \001(\013" +
+      "2I.google.cloud.osconfig.agentendpoint.v" +
+      "1beta.SoftwareRecipe.Step.RunScriptH\000\032\\\n" +
+      "\010CopyFile\022\023\n\013artifact_id\030\001 \001(\t\022\023\n\013destin" +
+      "ation\030\002 \001(\t\022\021\n\toverwrite\030\003 \001(\010\022\023\n\013permis" +
+      "sions\030\004 \001(\t\032\231\002\n\016ExtractArchive\022\023\n\013artifa" +
+      "ct_id\030\001 \001(\t\022\023\n\013destination\030\002 \001(\t\022h\n\004type" +
+      "\030\003 \001(\0162Z.google.cloud.osconfig.agentendp" +
+      "oint.v1beta.SoftwareRecipe.Step.ExtractA" +
+      "rchive.ArchiveType\"s\n\013ArchiveType\022\034\n\030ARC" +
+      "HIVE_TYPE_UNSPECIFIED\020\000\022\007\n\003TAR\020\001\022\014\n\010TAR_" +
+      "GZIP\020\002\022\014\n\010TAR_BZIP\020\003\022\014\n\010TAR_LZMA\020\004\022\n\n\006TA" +
+      "R_XZ\020\005\022\007\n\003ZIP\020\013\032L\n\nInstallMsi\022\023\n\013artifac" +
+      "t_id\030\001 \001(\t\022\r\n\005flags\030\002 \003(\t\022\032\n\022allowed_exi" +
+      "t_codes\030\003 \003(\005\032\"\n\013InstallDpkg\022\023\n\013artifact" +
+      "_id\030\001 \001(\t\032!\n\nInstallRpm\022\023\n\013artifact_id\030\001" +
+      " \001(\t\032r\n\010ExecFile\022\025\n\013artifact_id\030\001 \001(\tH\000\022" +
+      "\024\n\nlocal_path\030\002 \001(\tH\000\022\014\n\004args\030\003 \003(\t\022\032\n\022a" +
+      "llowed_exit_codes\030\004 \003(\005B\017\n\rlocation_type" +
+      "\032\352\001\n\tRunScript\022\016\n\006script\030\001 \001(\t\022\032\n\022allowe" +
+      "d_exit_codes\030\002 \003(\005\022j\n\013interpreter\030\003 \001(\0162" +
+      "U.google.cloud.osconfig.agentendpoint.v1" +
+      "beta.SoftwareRecipe.Step.RunScript.Inter" +
+      "preter\"E\n\013Interpreter\022\033\n\027INTERPRETER_UNS" +
+      "PECIFIED\020\000\022\t\n\005SHELL\020\001\022\016\n\nPOWERSHELL\020\003B\006\n" +
+      "\004step\"\207\001\n!LookupEffectiveGuestPolicyRequ" +
+      "est\022\036\n\021instance_id_token\030\001 \001(\tB\003\340A\002\022\025\n\ro" +
+      "s_short_name\030\002 \001(\t\022\022\n\nos_version\030\003 \001(\t\022\027" +
+      "\n\017os_architecture\030\004 \001(\t\"\322\005\n\024EffectiveGue" +
+      "stPolicy\022a\n\010packages\030\001 \003(\0132O.google.clou" +
+      "d.osconfig.agentendpoint.v1beta.Effectiv" +
+      "eGuestPolicy.SourcedPackage\022w\n\024package_r" +
+      "epositories\030\002 \003(\0132Y.google.cloud.osconfi" +
+      "g.agentendpoint.v1beta.EffectiveGuestPol" +
+      "icy.SourcedPackageRepository\022p\n\020software" +
+      "_recipes\030\003 \003(\0132V.google.cloud.osconfig.a" +
+      "gentendpoint.v1beta.EffectiveGuestPolicy" +
+      ".SourcedSoftwareRecipe\032f\n\016SourcedPackage" +
+      "\022\016\n\006source\030\001 \001(\t\022D\n\007package\030\002 \001(\01323.goog" +
+      "le.cloud.osconfig.agentendpoint.v1beta.P" +
+      "ackage\032\205\001\n\030SourcedPackageRepository\022\016\n\006s" +
+      "ource\030\001 \001(\t\022Y\n\022package_repository\030\002 \001(\0132" +
+      "=.google.cloud.osconfig.agentendpoint.v1" +
+      "beta.PackageRepository\032|\n\025SourcedSoftwar" +
+      "eRecipe\022\016\n\006source\030\001 \001(\t\022S\n\017software_reci" +
+      "pe\030\002 \001(\0132:.google.cloud.osconfig.agenten" +
+      "dpoint.v1beta.SoftwareRecipe*V\n\014DesiredS" +
+      "tate\022\035\n\031DESIRED_STATE_UNSPECIFIED\020\000\022\r\n\tI" +
+      "NSTALLED\020\001\022\013\n\007UPDATED\020\002\022\013\n\007REMOVED\020\003B\267\001\n" +
+      ".com.google.cloud.osconfig.agentendpoint" +
+      ".v1betaB\rGuestPoliciesZWgoogle.golang.or" +
+      "g/genproto/googleapis/cloud/osconfig/age" +
+      "ntendpoint/v1beta;agentendpoint\312\002\034Google" +
+      "\\Cloud\\OsConfig\\V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.api.FieldBehaviorProto.getDescriptor(),
         });
     internal_static_google_cloud_osconfig_agentendpoint_v1beta_Package_descriptor =
@@ -30147,7 +29611,6 @@ public final class GuestPolicies {
     registry.add(com.google.api.FieldBehaviorProto.fieldBehavior);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.api.FieldBehaviorProto.getDescriptor();
   }
 

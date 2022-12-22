@@ -42,7 +42,7 @@ public interface DeletePartitionRequestOrBuilder extends
    *
    * <code>string etag = 2 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
    * @deprecated google.cloud.dataplex.v1.DeletePartitionRequest.etag is deprecated.
-   *     See google/cloud/dataplex/v1/metadata.proto;l=327
+   *     See google/cloud/dataplex/v1/metadata.proto;l=318
    * @return The etag.
    */
   @java.lang.Deprecated java.lang.String getEtag();
@@ -53,7 +53,7 @@ public interface DeletePartitionRequestOrBuilder extends
    *
    * <code>string etag = 2 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
    * @deprecated google.cloud.dataplex.v1.DeletePartitionRequest.etag is deprecated.
-   *     See google/cloud/dataplex/v1/metadata.proto;l=327
+   *     See google/cloud/dataplex/v1/metadata.proto;l=318
    * @return The bytes for etag.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

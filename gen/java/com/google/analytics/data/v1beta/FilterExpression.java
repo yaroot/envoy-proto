@@ -5,9 +5,8 @@ package com.google.analytics.data.v1beta;
 
 /**
  * <pre>
- * To express dimension or metric filters.
- * The fields in the same FilterExpression need to be either all dimensions or
- * all metrics.
+ * To express dimension or metric filters. The fields in the same
+ * FilterExpression need to be either all dimensions or all metrics.
  * </pre>
  *
  * Protobuf type {@code google.analytics.data.v1beta.FilterExpression}
@@ -35,101 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private FilterExpression(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.analytics.data.v1beta.FilterExpressionList.Builder subBuilder = null;
-            if (exprCase_ == 1) {
-              subBuilder = ((com.google.analytics.data.v1beta.FilterExpressionList) expr_).toBuilder();
-            }
-            expr_ =
-                input.readMessage(com.google.analytics.data.v1beta.FilterExpressionList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.FilterExpressionList) expr_);
-              expr_ = subBuilder.buildPartial();
-            }
-            exprCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1beta.FilterExpressionList.Builder subBuilder = null;
-            if (exprCase_ == 2) {
-              subBuilder = ((com.google.analytics.data.v1beta.FilterExpressionList) expr_).toBuilder();
-            }
-            expr_ =
-                input.readMessage(com.google.analytics.data.v1beta.FilterExpressionList.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.FilterExpressionList) expr_);
-              expr_ = subBuilder.buildPartial();
-            }
-            exprCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.analytics.data.v1beta.FilterExpression.Builder subBuilder = null;
-            if (exprCase_ == 3) {
-              subBuilder = ((com.google.analytics.data.v1beta.FilterExpression) expr_).toBuilder();
-            }
-            expr_ =
-                input.readMessage(com.google.analytics.data.v1beta.FilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.FilterExpression) expr_);
-              expr_ = subBuilder.buildPartial();
-            }
-            exprCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.analytics.data.v1beta.Filter.Builder subBuilder = null;
-            if (exprCase_ == 4) {
-              subBuilder = ((com.google.analytics.data.v1beta.Filter) expr_).toBuilder();
-            }
-            expr_ =
-                input.readMessage(com.google.analytics.data.v1beta.Filter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.analytics.data.v1beta.Filter) expr_);
-              expr_ = subBuilder.buildPartial();
-            }
-            exprCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -321,9 +225,8 @@ private static final long serialVersionUID = 0L;
   public static final int FILTER_FIELD_NUMBER = 4;
   /**
    * <pre>
-   * A primitive filter.
-   * All fields in filter in same FilterExpression needs to be either all
-   * dimensions or metrics.
+   * A primitive filter. In the same FilterExpression, all of the filter's
+   * field names need to be either all dimensions or all metrics.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -335,9 +238,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A primitive filter.
-   * All fields in filter in same FilterExpression needs to be either all
-   * dimensions or metrics.
+   * A primitive filter. In the same FilterExpression, all of the filter's
+   * field names need to be either all dimensions or all metrics.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -352,9 +254,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A primitive filter.
-   * All fields in filter in same FilterExpression needs to be either all
-   * dimensions or metrics.
+   * A primitive filter. In the same FilterExpression, all of the filter's
+   * field names need to be either all dimensions or all metrics.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -393,7 +294,7 @@ private static final long serialVersionUID = 0L;
     if (exprCase_ == 4) {
       output.writeMessage(4, (com.google.analytics.data.v1beta.Filter) expr_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -418,7 +319,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.analytics.data.v1beta.Filter) expr_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -454,7 +355,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -485,7 +386,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -582,9 +483,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * To express dimension or metric filters.
-   * The fields in the same FilterExpression need to be either all dimensions or
-   * all metrics.
+   * To express dimension or metric filters. The fields in the same
+   * FilterExpression need to be either all dimensions or all metrics.
    * </pre>
    *
    * Protobuf type {@code google.analytics.data.v1beta.FilterExpression}
@@ -608,22 +508,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1beta.FilterExpression.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (andGroupBuilder_ != null) {
+        andGroupBuilder_.clear();
+      }
+      if (orGroupBuilder_ != null) {
+        orGroupBuilder_.clear();
+      }
+      if (notExpressionBuilder_ != null) {
+        notExpressionBuilder_.clear();
+      }
+      if (filterBuilder_ != null) {
+        filterBuilder_.clear();
+      }
       exprCase_ = 0;
       expr_ = null;
       return this;
@@ -652,37 +560,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1beta.FilterExpression buildPartial() {
       com.google.analytics.data.v1beta.FilterExpression result = new com.google.analytics.data.v1beta.FilterExpression(this);
-      if (exprCase_ == 1) {
-        if (andGroupBuilder_ == null) {
-          result.expr_ = expr_;
-        } else {
-          result.expr_ = andGroupBuilder_.build();
-        }
-      }
-      if (exprCase_ == 2) {
-        if (orGroupBuilder_ == null) {
-          result.expr_ = expr_;
-        } else {
-          result.expr_ = orGroupBuilder_.build();
-        }
-      }
-      if (exprCase_ == 3) {
-        if (notExpressionBuilder_ == null) {
-          result.expr_ = expr_;
-        } else {
-          result.expr_ = notExpressionBuilder_.build();
-        }
-      }
-      if (exprCase_ == 4) {
-        if (filterBuilder_ == null) {
-          result.expr_ = expr_;
-        } else {
-          result.expr_ = filterBuilder_.build();
-        }
-      }
-      result.exprCase_ = exprCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1beta.FilterExpression result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.analytics.data.v1beta.FilterExpression result) {
+      result.exprCase_ = exprCase_;
+      result.expr_ = this.expr_;
+      if (exprCase_ == 1 &&
+          andGroupBuilder_ != null) {
+        result.expr_ = andGroupBuilder_.build();
+      }
+      if (exprCase_ == 2 &&
+          orGroupBuilder_ != null) {
+        result.expr_ = orGroupBuilder_.build();
+      }
+      if (exprCase_ == 3 &&
+          notExpressionBuilder_ != null) {
+        result.expr_ = notExpressionBuilder_.build();
+      }
+      if (exprCase_ == 4 &&
+          filterBuilder_ != null) {
+        result.expr_ = filterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -750,7 +656,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -765,17 +671,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1beta.FilterExpression parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAndGroupFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              exprCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOrGroupFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              exprCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNotExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              exprCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              exprCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1beta.FilterExpression) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int exprCase_ = 0;
@@ -793,6 +740,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.analytics.data.v1beta.FilterExpressionList, com.google.analytics.data.v1beta.FilterExpressionList.Builder, com.google.analytics.data.v1beta.FilterExpressionListOrBuilder> andGroupBuilder_;
@@ -968,7 +916,7 @@ private static final long serialVersionUID = 0L;
         expr_ = null;
       }
       exprCase_ = 1;
-      onChanged();;
+      onChanged();
       return andGroupBuilder_;
     }
 
@@ -1146,7 +1094,7 @@ private static final long serialVersionUID = 0L;
         expr_ = null;
       }
       exprCase_ = 2;
-      onChanged();;
+      onChanged();
       return orGroupBuilder_;
     }
 
@@ -1324,7 +1272,7 @@ private static final long serialVersionUID = 0L;
         expr_ = null;
       }
       exprCase_ = 3;
-      onChanged();;
+      onChanged();
       return notExpressionBuilder_;
     }
 
@@ -1332,9 +1280,8 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1beta.Filter, com.google.analytics.data.v1beta.Filter.Builder, com.google.analytics.data.v1beta.FilterOrBuilder> filterBuilder_;
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1346,9 +1293,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1370,9 +1316,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1392,9 +1337,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1412,9 +1356,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1441,9 +1384,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1466,9 +1408,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1478,9 +1419,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1498,9 +1438,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A primitive filter.
-     * All fields in filter in same FilterExpression needs to be either all
-     * dimensions or metrics.
+     * A primitive filter. In the same FilterExpression, all of the filter's
+     * field names need to be either all dimensions or all metrics.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.Filter filter = 4;</code>
@@ -1520,7 +1459,7 @@ private static final long serialVersionUID = 0L;
         expr_ = null;
       }
       exprCase_ = 4;
-      onChanged();;
+      onChanged();
       return filterBuilder_;
     }
     @java.lang.Override
@@ -1556,7 +1495,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FilterExpression(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -270,7 +270,6 @@ public interface FlexTemplateRuntimeEnvironmentOrBuilder extends
    *
    * <code>map&lt;string, string&gt; additional_user_labels = 10;</code>
    */
-
   /* nullable */
 java.lang.String getAdditionalUserLabelsOrDefault(
       java.lang.String key,
@@ -288,7 +287,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; additional_user_labels = 10;</code>
    */
-
   java.lang.String getAdditionalUserLabelsOrThrow(
       java.lang.String key);
 

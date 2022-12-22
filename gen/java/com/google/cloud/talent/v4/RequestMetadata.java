@@ -39,81 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RequestMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            domain_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sessionId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            userId_ = s;
-            break;
-          }
-          case 32: {
-
-            allowMissingIds_ = input.readBool();
-            break;
-          }
-          case 42: {
-            com.google.cloud.talent.v4.DeviceInfo.Builder subBuilder = null;
-            if (deviceInfo_ != null) {
-              subBuilder = deviceInfo_.toBuilder();
-            }
-            deviceInfo_ = input.readMessage(com.google.cloud.talent.v4.DeviceInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deviceInfo_);
-              deviceInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4.CommonProto.internal_static_google_cloud_talent_v4_RequestMetadata_descriptor;
@@ -128,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object domain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object domain_ = "";
   /**
    * <pre>
    * Required if [allow_missing_ids][google.cloud.talent.v4.RequestMetadata.allow_missing_ids] is unset or `false`.
@@ -194,7 +120,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SESSION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object sessionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sessionId_ = "";
   /**
    * <pre>
    * Required if [allow_missing_ids][google.cloud.talent.v4.RequestMetadata.allow_missing_ids] is unset or `false`.
@@ -256,7 +183,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object userId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userId_ = "";
   /**
    * <pre>
    * Required if [allow_missing_ids][google.cloud.talent.v4.RequestMetadata.allow_missing_ids] is unset or `false`.
@@ -318,7 +246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_MISSING_IDS_FIELD_NUMBER = 4;
-  private boolean allowMissingIds_;
+  private boolean allowMissingIds_ = false;
   /**
    * <pre>
    * Only set when any of [domain][google.cloud.talent.v4.RequestMetadata.domain], [session_id][google.cloud.talent.v4.RequestMetadata.session_id] and [user_id][google.cloud.talent.v4.RequestMetadata.user_id] isn't
@@ -373,7 +301,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.DeviceInfoOrBuilder getDeviceInfoOrBuilder() {
-    return getDeviceInfo();
+    return deviceInfo_ == null ? com.google.cloud.talent.v4.DeviceInfo.getDefaultInstance() : deviceInfo_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -405,7 +333,7 @@ private static final long serialVersionUID = 0L;
     if (deviceInfo_ != null) {
       output.writeMessage(5, getDeviceInfo());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -431,7 +359,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getDeviceInfo());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -459,7 +387,7 @@ private static final long serialVersionUID = 0L;
       if (!getDeviceInfo()
           .equals(other.getDeviceInfo())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -483,7 +411,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEVICE_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getDeviceInfo().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -606,34 +534,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4.RequestMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       domain_ = "";
-
       sessionId_ = "";
-
       userId_ = "";
-
       allowMissingIds_ = false;
-
-      if (deviceInfoBuilder_ == null) {
-        deviceInfo_ = null;
-      } else {
-        deviceInfo_ = null;
+      deviceInfo_ = null;
+      if (deviceInfoBuilder_ != null) {
+        deviceInfoBuilder_.dispose();
         deviceInfoBuilder_ = null;
       }
       return this;
@@ -662,17 +581,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4.RequestMetadata buildPartial() {
       com.google.cloud.talent.v4.RequestMetadata result = new com.google.cloud.talent.v4.RequestMetadata(this);
-      result.domain_ = domain_;
-      result.sessionId_ = sessionId_;
-      result.userId_ = userId_;
-      result.allowMissingIds_ = allowMissingIds_;
-      if (deviceInfoBuilder_ == null) {
-        result.deviceInfo_ = deviceInfo_;
-      } else {
-        result.deviceInfo_ = deviceInfoBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4.RequestMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.domain_ = domain_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sessionId_ = sessionId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.userId_ = userId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.allowMissingIds_ = allowMissingIds_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.deviceInfo_ = deviceInfoBuilder_ == null
+            ? deviceInfo_
+            : deviceInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -721,14 +653,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4.RequestMetadata.getDefaultInstance()) return this;
       if (!other.getDomain().isEmpty()) {
         domain_ = other.domain_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSessionId().isEmpty()) {
         sessionId_ = other.sessionId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUserId().isEmpty()) {
         userId_ = other.userId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getAllowMissingIds() != false) {
@@ -737,7 +672,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDeviceInfo()) {
         mergeDeviceInfo(other.getDeviceInfo());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -752,19 +687,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4.RequestMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              domain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              sessionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              userId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              allowMissingIds_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getDeviceInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4.RequestMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object domain_ = "";
     /**
@@ -849,11 +825,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       domain_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -876,8 +850,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDomain() {
-      
       domain_ = getDefaultInstance().getDomain();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -902,12 +876,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       domain_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -989,11 +961,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sessionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1014,8 +984,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSessionId() {
-      
       sessionId_ = getDefaultInstance().getSessionId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1038,12 +1008,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSessionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sessionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1125,11 +1093,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       userId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1150,8 +1116,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserId() {
-      
       userId_ = getDefaultInstance().getUserId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1174,12 +1140,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       userId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1215,6 +1179,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowMissingIds(boolean value) {
       
       allowMissingIds_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1230,7 +1195,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowMissingIds() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       allowMissingIds_ = false;
       onChanged();
       return this;
@@ -1249,7 +1214,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deviceInfo field is set.
      */
     public boolean hasDeviceInfo() {
-      return deviceInfoBuilder_ != null || deviceInfo_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1281,11 +1246,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deviceInfo_ = value;
-        onChanged();
       } else {
         deviceInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1300,11 +1265,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.DeviceInfo.Builder builderForValue) {
       if (deviceInfoBuilder_ == null) {
         deviceInfo_ = builderForValue.build();
-        onChanged();
       } else {
         deviceInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1317,17 +1282,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeviceInfo(com.google.cloud.talent.v4.DeviceInfo value) {
       if (deviceInfoBuilder_ == null) {
-        if (deviceInfo_ != null) {
-          deviceInfo_ =
-            com.google.cloud.talent.v4.DeviceInfo.newBuilder(deviceInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          deviceInfo_ != null &&
+          deviceInfo_ != com.google.cloud.talent.v4.DeviceInfo.getDefaultInstance()) {
+          getDeviceInfoBuilder().mergeFrom(value);
         } else {
           deviceInfo_ = value;
         }
-        onChanged();
       } else {
         deviceInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1339,14 +1305,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.DeviceInfo device_info = 5;</code>
      */
     public Builder clearDeviceInfo() {
-      if (deviceInfoBuilder_ == null) {
-        deviceInfo_ = null;
-        onChanged();
-      } else {
-        deviceInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      deviceInfo_ = null;
+      if (deviceInfoBuilder_ != null) {
+        deviceInfoBuilder_.dispose();
         deviceInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1358,7 +1323,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.DeviceInfo device_info = 5;</code>
      */
     public com.google.cloud.talent.v4.DeviceInfo.Builder getDeviceInfoBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDeviceInfoFieldBuilder().getBuilder();
     }
@@ -1432,7 +1397,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RequestMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -20,6 +20,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private LinuxNodeConfig() {
+    cgroupMode_ = 0;
   }
 
   @java.lang.Override
@@ -33,59 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private LinuxNodeConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              sysctls_ = com.google.protobuf.MapField.newMapField(
-                  SysctlsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            sysctls__ = input.readMessage(
-                SysctlsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            sysctls_.getMutableMap().put(
-                sysctls__.getKey(), sysctls__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -112,6 +60,157 @@ private static final long serialVersionUID = 0L;
             com.google.container.v1.LinuxNodeConfig.class, com.google.container.v1.LinuxNodeConfig.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Possible cgroup modes that can be used.
+   * </pre>
+   *
+   * Protobuf enum {@code google.container.v1.LinuxNodeConfig.CgroupMode}
+   */
+  public enum CgroupMode
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * CGROUP_MODE_UNSPECIFIED is when unspecified cgroup configuration is used.
+     * The default for the GKE node OS image will be used.
+     * </pre>
+     *
+     * <code>CGROUP_MODE_UNSPECIFIED = 0;</code>
+     */
+    CGROUP_MODE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * CGROUP_MODE_V1 specifies to use cgroupv1 for the cgroup configuration on
+     * the node image.
+     * </pre>
+     *
+     * <code>CGROUP_MODE_V1 = 1;</code>
+     */
+    CGROUP_MODE_V1(1),
+    /**
+     * <pre>
+     * CGROUP_MODE_V2 specifies to use cgroupv2 for the cgroup configuration on
+     * the node image.
+     * </pre>
+     *
+     * <code>CGROUP_MODE_V2 = 2;</code>
+     */
+    CGROUP_MODE_V2(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * CGROUP_MODE_UNSPECIFIED is when unspecified cgroup configuration is used.
+     * The default for the GKE node OS image will be used.
+     * </pre>
+     *
+     * <code>CGROUP_MODE_UNSPECIFIED = 0;</code>
+     */
+    public static final int CGROUP_MODE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * CGROUP_MODE_V1 specifies to use cgroupv1 for the cgroup configuration on
+     * the node image.
+     * </pre>
+     *
+     * <code>CGROUP_MODE_V1 = 1;</code>
+     */
+    public static final int CGROUP_MODE_V1_VALUE = 1;
+    /**
+     * <pre>
+     * CGROUP_MODE_V2 specifies to use cgroupv2 for the cgroup configuration on
+     * the node image.
+     * </pre>
+     *
+     * <code>CGROUP_MODE_V2 = 2;</code>
+     */
+    public static final int CGROUP_MODE_V2_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static CgroupMode valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static CgroupMode forNumber(int value) {
+      switch (value) {
+        case 0: return CGROUP_MODE_UNSPECIFIED;
+        case 1: return CGROUP_MODE_V1;
+        case 2: return CGROUP_MODE_V2;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<CgroupMode>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        CgroupMode> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<CgroupMode>() {
+            public CgroupMode findValueByNumber(int number) {
+              return CgroupMode.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.container.v1.LinuxNodeConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final CgroupMode[] VALUES = values();
+
+    public static CgroupMode valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private CgroupMode(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.container.v1.LinuxNodeConfig.CgroupMode)
+  }
+
   public static final int SYSCTLS_FIELD_NUMBER = 1;
   private static final class SysctlsDefaultEntryHolder {
     static final com.google.protobuf.MapEntry<
@@ -124,6 +223,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> sysctls_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -134,7 +234,6 @@ private static final long serialVersionUID = 0L;
     }
     return sysctls_;
   }
-
   public int getSysctlsCount() {
     return internalGetSysctls().getMap().size();
   }
@@ -158,7 +257,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; sysctls = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsSysctls(
       java.lang.String key) {
@@ -194,7 +292,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; sysctls = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getSysctlsMap() {
     return internalGetSysctls().getMap();
   }
@@ -219,10 +316,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; sysctls = 1;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getSysctlsOrDefault(
+  public /* nullable */
+java.lang.String getSysctlsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetSysctls().getMap();
@@ -249,7 +347,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; sysctls = 1;</code>
    */
   @java.lang.Override
-
   public java.lang.String getSysctlsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -259,6 +356,32 @@ private static final long serialVersionUID = 0L;
       throw new java.lang.IllegalArgumentException();
     }
     return map.get(key);
+  }
+
+  public static final int CGROUP_MODE_FIELD_NUMBER = 2;
+  private int cgroupMode_ = 0;
+  /**
+   * <pre>
+   * cgroup_mode specifies the cgroup mode to be used on the node.
+   * </pre>
+   *
+   * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+   * @return The enum numeric value on the wire for cgroupMode.
+   */
+  @java.lang.Override public int getCgroupModeValue() {
+    return cgroupMode_;
+  }
+  /**
+   * <pre>
+   * cgroup_mode specifies the cgroup mode to be used on the node.
+   * </pre>
+   *
+   * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+   * @return The cgroupMode.
+   */
+  @java.lang.Override public com.google.container.v1.LinuxNodeConfig.CgroupMode getCgroupMode() {
+    com.google.container.v1.LinuxNodeConfig.CgroupMode result = com.google.container.v1.LinuxNodeConfig.CgroupMode.forNumber(cgroupMode_);
+    return result == null ? com.google.container.v1.LinuxNodeConfig.CgroupMode.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -281,7 +404,10 @@ private static final long serialVersionUID = 0L;
         internalGetSysctls(),
         SysctlsDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    if (cgroupMode_ != com.google.container.v1.LinuxNodeConfig.CgroupMode.CGROUP_MODE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(2, cgroupMode_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -300,7 +426,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, sysctls__);
     }
-    size += unknownFields.getSerializedSize();
+    if (cgroupMode_ != com.google.container.v1.LinuxNodeConfig.CgroupMode.CGROUP_MODE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(2, cgroupMode_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -317,7 +447,8 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetSysctls().equals(
         other.internalGetSysctls())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (cgroupMode_ != other.cgroupMode_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -332,7 +463,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SYSCTLS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSysctls().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + CGROUP_MODE_FIELD_NUMBER;
+    hash = (53 * hash) + cgroupMode_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -475,23 +608,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.LinuxNodeConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableSysctls().clear();
+      cgroupMode_ = 0;
       return this;
     }
 
@@ -518,11 +648,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.LinuxNodeConfig buildPartial() {
       com.google.container.v1.LinuxNodeConfig result = new com.google.container.v1.LinuxNodeConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.sysctls_ = internalGetSysctls();
-      result.sysctls_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1.LinuxNodeConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sysctls_ = internalGetSysctls();
+        result.sysctls_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cgroupMode_ = cgroupMode_;
+      }
     }
 
     @java.lang.Override
@@ -571,7 +710,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1.LinuxNodeConfig.getDefaultInstance()) return this;
       internalGetMutableSysctls().mergeFrom(
           other.internalGetSysctls());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      if (other.cgroupMode_ != 0) {
+        setCgroupModeValue(other.getCgroupModeValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -586,17 +729,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.LinuxNodeConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              sysctls__ = input.readMessage(
+                  SysctlsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSysctls().getMutableMap().put(
+                  sysctls__.getKey(), sysctls__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              cgroupMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.LinuxNodeConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -604,7 +774,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> sysctls_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSysctls() {
+        internalGetSysctls() {
       if (sysctls_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SysctlsDefaultEntryHolder.defaultEntry);
@@ -612,8 +782,7 @@ private static final long serialVersionUID = 0L;
       return sysctls_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableSysctls() {
-      onChanged();;
+        internalGetMutableSysctls() {
       if (sysctls_ == null) {
         sysctls_ = com.google.protobuf.MapField.newMapField(
             SysctlsDefaultEntryHolder.defaultEntry);
@@ -621,9 +790,10 @@ private static final long serialVersionUID = 0L;
       if (!sysctls_.isMutable()) {
         sysctls_ = sysctls_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return sysctls_;
     }
-
     public int getSysctlsCount() {
       return internalGetSysctls().getMap().size();
     }
@@ -647,7 +817,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; sysctls = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsSysctls(
         java.lang.String key) {
@@ -683,7 +852,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; sysctls = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getSysctlsMap() {
       return internalGetSysctls().getMap();
     }
@@ -708,10 +876,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; sysctls = 1;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getSysctlsOrDefault(
+    public /* nullable */
+java.lang.String getSysctlsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetSysctls().getMap();
@@ -738,7 +907,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; sysctls = 1;</code>
      */
     @java.lang.Override
-
     public java.lang.String getSysctlsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -749,8 +917,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSysctls() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableSysctls().getMutableMap()
           .clear();
       return this;
@@ -775,7 +943,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; sysctls = 1;</code>
      */
-
     public Builder removeSysctls(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -788,7 +955,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableSysctls() {
+        getMutableSysctls() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableSysctls().getMutableMap();
     }
     /**
@@ -815,12 +983,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableSysctls().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -843,11 +1009,84 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; sysctls = 1;</code>
      */
-
     public Builder putAllSysctls(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableSysctls().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
+      return this;
+    }
+
+    private int cgroupMode_ = 0;
+    /**
+     * <pre>
+     * cgroup_mode specifies the cgroup mode to be used on the node.
+     * </pre>
+     *
+     * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+     * @return The enum numeric value on the wire for cgroupMode.
+     */
+    @java.lang.Override public int getCgroupModeValue() {
+      return cgroupMode_;
+    }
+    /**
+     * <pre>
+     * cgroup_mode specifies the cgroup mode to be used on the node.
+     * </pre>
+     *
+     * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+     * @param value The enum numeric value on the wire for cgroupMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCgroupModeValue(int value) {
+      cgroupMode_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * cgroup_mode specifies the cgroup mode to be used on the node.
+     * </pre>
+     *
+     * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+     * @return The cgroupMode.
+     */
+    @java.lang.Override
+    public com.google.container.v1.LinuxNodeConfig.CgroupMode getCgroupMode() {
+      com.google.container.v1.LinuxNodeConfig.CgroupMode result = com.google.container.v1.LinuxNodeConfig.CgroupMode.forNumber(cgroupMode_);
+      return result == null ? com.google.container.v1.LinuxNodeConfig.CgroupMode.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * cgroup_mode specifies the cgroup mode to be used on the node.
+     * </pre>
+     *
+     * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+     * @param value The cgroupMode to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCgroupMode(com.google.container.v1.LinuxNodeConfig.CgroupMode value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      cgroupMode_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * cgroup_mode specifies the cgroup mode to be used on the node.
+     * </pre>
+     *
+     * <code>.google.container.v1.LinuxNodeConfig.CgroupMode cgroup_mode = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCgroupMode() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cgroupMode_ = 0;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -883,7 +1122,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LinuxNodeConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

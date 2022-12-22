@@ -34,64 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpFaultDelay(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1215272145: {
-            bitField0_ |= 0x00000002;
-            percentage_ = input.readDouble();
-            break;
-          }
-          case -1758664766: {
-            com.google.cloud.compute.v1.Duration.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = fixedDelay_.toBuilder();
-            }
-            fixedDelay_ = input.readMessage(com.google.cloud.compute.v1.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fixedDelay_);
-              fixedDelay_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_HttpFaultDelay_descriptor;
@@ -145,7 +87,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERCENTAGE_FIELD_NUMBER = 151909018;
-  private double percentage_;
+  private double percentage_ = 0D;
   /**
    * <pre>
    * The percentage of traffic for connections, operations, or requests for which a delay is introduced as part of fault injection. The value must be from 0.0 to 100.0 inclusive.
@@ -191,7 +133,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(317037816, getFixedDelay());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -208,7 +150,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(317037816, getFixedDelay());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -234,7 +176,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Double.doubleToLongBits(
               other.getPercentage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -254,7 +196,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getPercentage()));
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,14 +334,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (fixedDelayBuilder_ == null) {
-        fixedDelay_ = null;
-      } else {
-        fixedDelayBuilder_.clear();
+      bitField0_ = 0;
+      fixedDelay_ = null;
+      if (fixedDelayBuilder_ != null) {
+        fixedDelayBuilder_.dispose();
+        fixedDelayBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       percentage_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -426,23 +367,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.HttpFaultDelay buildPartial() {
       com.google.cloud.compute.v1.HttpFaultDelay result = new com.google.cloud.compute.v1.HttpFaultDelay(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.HttpFaultDelay result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (fixedDelayBuilder_ == null) {
-          result.fixedDelay_ = fixedDelay_;
-        } else {
-          result.fixedDelay_ = fixedDelayBuilder_.build();
-        }
+        result.fixedDelay_ = fixedDelayBuilder_ == null
+            ? fixedDelay_
+            : fixedDelayBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.percentage_ = percentage_;
         to_bitField0_ |= 0x00000002;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -495,7 +438,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPercentage()) {
         setPercentage(other.getPercentage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -510,17 +453,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.HttpFaultDelay parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1215272145: {
+              percentage_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1215272145
+            case -1758664766: {
+              input.readMessage(
+                  getFixedDelayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1758664766
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.HttpFaultDelay) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -567,11 +535,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fixedDelay_ = value;
-        onChanged();
       } else {
         fixedDelayBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -585,11 +553,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Duration.Builder builderForValue) {
       if (fixedDelayBuilder_ == null) {
         fixedDelay_ = builderForValue.build();
-        onChanged();
       } else {
         fixedDelayBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -602,18 +570,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFixedDelay(com.google.cloud.compute.v1.Duration value) {
       if (fixedDelayBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            fixedDelay_ != null &&
-            fixedDelay_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
-          fixedDelay_ =
-            com.google.cloud.compute.v1.Duration.newBuilder(fixedDelay_).mergeFrom(value).buildPartial();
+          fixedDelay_ != null &&
+          fixedDelay_ != com.google.cloud.compute.v1.Duration.getDefaultInstance()) {
+          getFixedDelayBuilder().mergeFrom(value);
         } else {
           fixedDelay_ = value;
         }
-        onChanged();
       } else {
         fixedDelayBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -624,13 +591,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Duration fixed_delay = 317037816;</code>
      */
     public Builder clearFixedDelay() {
-      if (fixedDelayBuilder_ == null) {
-        fixedDelay_ = null;
-        onChanged();
-      } else {
-        fixedDelayBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      fixedDelay_ = null;
+      if (fixedDelayBuilder_ != null) {
+        fixedDelayBuilder_.dispose();
+        fixedDelayBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -716,8 +683,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPercentage(double value) {
-      bitField0_ |= 0x00000002;
+      
       percentage_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -768,7 +736,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpFaultDelay(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

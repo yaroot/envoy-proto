@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AwsProxyConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            secretArn_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            secretVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AwsResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AwsProxyConfig_descriptor;
@@ -101,11 +50,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECRET_ARN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object secretArn_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object secretArn_ = "";
   /**
    * <pre>
    * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
    * configuration.
+   * The secret must be a JSON encoded proxy configuration
+   * as described in
+   * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
    * </pre>
    *
    * <code>string secret_arn = 1;</code>
@@ -128,6 +81,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
    * configuration.
+   * The secret must be a JSON encoded proxy configuration
+   * as described in
+   * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
    * </pre>
    *
    * <code>string secret_arn = 1;</code>
@@ -149,7 +105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECRET_VERSION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object secretVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object secretVersion_ = "";
   /**
    * <pre>
    * The version string of the AWS Secret Manager secret that contains the
@@ -216,7 +173,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, secretVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -231,7 +188,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(secretVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, secretVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +207,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSecretArn())) return false;
     if (!getSecretVersion()
         .equals(other.getSecretVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -265,7 +222,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getSecretArn().hashCode();
     hash = (37 * hash) + SECRET_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getSecretVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -386,26 +343,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AwsProxyConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       secretArn_ = "";
-
       secretVersion_ = "";
-
       return this;
     }
 
@@ -432,10 +383,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsProxyConfig buildPartial() {
       com.google.cloud.gkemulticloud.v1.AwsProxyConfig result = new com.google.cloud.gkemulticloud.v1.AwsProxyConfig(this);
-      result.secretArn_ = secretArn_;
-      result.secretVersion_ = secretVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AwsProxyConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.secretArn_ = secretArn_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.secretVersion_ = secretVersion_;
+      }
     }
 
     @java.lang.Override
@@ -484,13 +444,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.AwsProxyConfig.getDefaultInstance()) return this;
       if (!other.getSecretArn().isEmpty()) {
         secretArn_ = other.secretArn_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSecretVersion().isEmpty()) {
         secretVersion_ = other.secretVersion_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -505,25 +467,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AwsProxyConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              secretArn_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              secretVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AwsProxyConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object secretArn_ = "";
     /**
      * <pre>
      * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
      * configuration.
+     * The secret must be a JSON encoded proxy configuration
+     * as described in
+     * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
      * </pre>
      *
      * <code>string secret_arn = 1;</code>
@@ -545,6 +534,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
      * configuration.
+     * The secret must be a JSON encoded proxy configuration
+     * as described in
+     * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
      * </pre>
      *
      * <code>string secret_arn = 1;</code>
@@ -567,6 +559,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
      * configuration.
+     * The secret must be a JSON encoded proxy configuration
+     * as described in
+     * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
      * </pre>
      *
      * <code>string secret_arn = 1;</code>
@@ -575,11 +570,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretArn(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       secretArn_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -587,14 +580,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
      * configuration.
+     * The secret must be a JSON encoded proxy configuration
+     * as described in
+     * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
      * </pre>
      *
      * <code>string secret_arn = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearSecretArn() {
-      
       secretArn_ = getDefaultInstance().getSecretArn();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -602,6 +598,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
      * configuration.
+     * The secret must be a JSON encoded proxy configuration
+     * as described in
+     * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
      * </pre>
      *
      * <code>string secret_arn = 1;</code>
@@ -610,12 +609,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretArnBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       secretArn_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -676,11 +673,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       secretVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -694,8 +689,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecretVersion() {
-      
       secretVersion_ = getDefaultInstance().getSecretVersion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -711,12 +706,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecretVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       secretVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -753,7 +746,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AwsProxyConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

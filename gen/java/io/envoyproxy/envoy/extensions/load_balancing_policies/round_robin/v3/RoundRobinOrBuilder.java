@@ -13,7 +13,7 @@ public interface RoundRobinOrBuilder extends
    * If this configuration is not set, slow start will not be not enabled.
    * </pre>
    *
-   * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 1;</code>
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 1;</code>
    * @return Whether the slowStartConfig field is set.
    */
   boolean hasSlowStartConfig();
@@ -23,17 +23,44 @@ public interface RoundRobinOrBuilder extends
    * If this configuration is not set, slow start will not be not enabled.
    * </pre>
    *
-   * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 1;</code>
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 1;</code>
    * @return The slowStartConfig.
    */
-  io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfig getSlowStartConfig();
+  io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig getSlowStartConfig();
   /**
    * <pre>
    * Configuration for slow start mode.
    * If this configuration is not set, slow start will not be not enabled.
    * </pre>
    *
-   * <code>.envoy.config.cluster.v3.Cluster.SlowStartConfig slow_start_config = 1;</code>
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig slow_start_config = 1;</code>
    */
-  io.envoyproxy.envoy.config.cluster.v3.Cluster.SlowStartConfigOrBuilder getSlowStartConfigOrBuilder();
+  io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfigOrBuilder getSlowStartConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Configuration for local zone aware load balancing or locality weighted load balancing.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 2;</code>
+   * @return Whether the localityLbConfig field is set.
+   */
+  boolean hasLocalityLbConfig();
+  /**
+   * <pre>
+   * Configuration for local zone aware load balancing or locality weighted load balancing.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 2;</code>
+   * @return The localityLbConfig.
+   */
+  io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig getLocalityLbConfig();
+  /**
+   * <pre>
+   * Configuration for local zone aware load balancing or locality weighted load balancing.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfig locality_lb_config = 2;</code>
+   */
+  io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigOrBuilder getLocalityLbConfigOrBuilder();
 }

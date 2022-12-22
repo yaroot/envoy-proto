@@ -60,36 +60,34 @@ public final class DeployProto {
     java.lang.String[] descriptorData = {
       "\n$google/appengine/v1beta/deploy.proto\022\027" +
       "google.appengine.v1beta\032\036google/protobuf" +
-      "/duration.proto\032\034google/api/annotations." +
-      "proto\"\202\003\n\nDeployment\022=\n\005files\030\001 \003(\0132..go" +
-      "ogle.appengine.v1beta.Deployment.FilesEn" +
-      "try\0229\n\tcontainer\030\002 \001(\0132&.google.appengin" +
-      "e.v1beta.ContainerInfo\022-\n\003zip\030\003 \001(\0132 .go" +
-      "ogle.appengine.v1beta.ZipInfo\0221\n\005build\030\005" +
-      " \001(\0132\".google.appengine.v1beta.BuildInfo" +
-      "\022G\n\023cloud_build_options\030\006 \001(\0132*.google.a" +
-      "ppengine.v1beta.CloudBuildOptions\032O\n\nFil" +
-      "esEntry\022\013\n\003key\030\001 \001(\t\0220\n\005value\030\002 \001(\0132!.go" +
-      "ogle.appengine.v1beta.FileInfo:\0028\001\"C\n\010Fi" +
-      "leInfo\022\022\n\nsource_url\030\001 \001(\t\022\020\n\010sha1_sum\030\002" +
-      " \001(\t\022\021\n\tmime_type\030\003 \001(\t\"\036\n\rContainerInfo" +
-      "\022\r\n\005image\030\001 \001(\t\"#\n\tBuildInfo\022\026\n\016cloud_bu" +
-      "ild_id\030\001 \001(\t\"b\n\021CloudBuildOptions\022\025\n\rapp" +
-      "_yaml_path\030\001 \001(\t\0226\n\023cloud_build_timeout\030" +
-      "\002 \001(\0132\031.google.protobuf.Duration\"2\n\007ZipI" +
-      "nfo\022\022\n\nsource_url\030\003 \001(\t\022\023\n\013files_count\030\004" +
-      " \001(\005B\321\001\n\033com.google.appengine.v1betaB\013De" +
-      "ployProtoP\001Z@google.golang.org/genproto/" +
-      "googleapis/appengine/v1beta;appengine\252\002\035" +
-      "Google.Cloud.AppEngine.V1Beta\312\002\035Google\\C" +
-      "loud\\AppEngine\\V1beta\352\002 Google::Cloud::A" +
-      "ppEngine::V1betab\006proto3"
+      "/duration.proto\"\202\003\n\nDeployment\022=\n\005files\030" +
+      "\001 \003(\0132..google.appengine.v1beta.Deployme" +
+      "nt.FilesEntry\0229\n\tcontainer\030\002 \001(\0132&.googl" +
+      "e.appengine.v1beta.ContainerInfo\022-\n\003zip\030" +
+      "\003 \001(\0132 .google.appengine.v1beta.ZipInfo\022" +
+      "1\n\005build\030\005 \001(\0132\".google.appengine.v1beta" +
+      ".BuildInfo\022G\n\023cloud_build_options\030\006 \001(\0132" +
+      "*.google.appengine.v1beta.CloudBuildOpti" +
+      "ons\032O\n\nFilesEntry\022\013\n\003key\030\001 \001(\t\0220\n\005value\030" +
+      "\002 \001(\0132!.google.appengine.v1beta.FileInfo" +
+      ":\0028\001\"C\n\010FileInfo\022\022\n\nsource_url\030\001 \001(\t\022\020\n\010" +
+      "sha1_sum\030\002 \001(\t\022\021\n\tmime_type\030\003 \001(\t\"\036\n\rCon" +
+      "tainerInfo\022\r\n\005image\030\001 \001(\t\"#\n\tBuildInfo\022\026" +
+      "\n\016cloud_build_id\030\001 \001(\t\"b\n\021CloudBuildOpti" +
+      "ons\022\025\n\rapp_yaml_path\030\001 \001(\t\0226\n\023cloud_buil" +
+      "d_timeout\030\002 \001(\0132\031.google.protobuf.Durati" +
+      "on\"2\n\007ZipInfo\022\022\n\nsource_url\030\003 \001(\t\022\023\n\013fil" +
+      "es_count\030\004 \001(\005B\321\001\n\033com.google.appengine." +
+      "v1betaB\013DeployProtoP\001Z@google.golang.org" +
+      "/genproto/googleapis/appengine/v1beta;ap" +
+      "pengine\252\002\035Google.Cloud.AppEngine.V1Beta\312" +
+      "\002\035Google\\Cloud\\AppEngine\\V1beta\352\002 Google" +
+      "::Cloud::AppEngine::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.DurationProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_Deployment_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -134,7 +132,6 @@ public final class DeployProto {
         internal_static_google_appengine_v1beta_ZipInfo_descriptor,
         new java.lang.String[] { "SourceUrl", "FilesCount", });
     com.google.protobuf.DurationProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

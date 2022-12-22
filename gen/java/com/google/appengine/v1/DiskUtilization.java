@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DiskUtilization(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 112: {
-
-            targetWriteBytesPerSecond_ = input.readInt32();
-            break;
-          }
-          case 120: {
-
-            targetWriteOpsPerSecond_ = input.readInt32();
-            break;
-          }
-          case 128: {
-
-            targetReadBytesPerSecond_ = input.readInt32();
-            break;
-          }
-          case 136: {
-
-            targetReadOpsPerSecond_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1.VersionProto.internal_static_google_appengine_v1_DiskUtilization_descriptor;
@@ -108,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_WRITE_BYTES_PER_SECOND_FIELD_NUMBER = 14;
-  private int targetWriteBytesPerSecond_;
+  private int targetWriteBytesPerSecond_ = 0;
   /**
    * <pre>
    * Target bytes written per second.
@@ -123,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_WRITE_OPS_PER_SECOND_FIELD_NUMBER = 15;
-  private int targetWriteOpsPerSecond_;
+  private int targetWriteOpsPerSecond_ = 0;
   /**
    * <pre>
    * Target ops written per second.
@@ -138,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_READ_BYTES_PER_SECOND_FIELD_NUMBER = 16;
-  private int targetReadBytesPerSecond_;
+  private int targetReadBytesPerSecond_ = 0;
   /**
    * <pre>
    * Target bytes read per second.
@@ -153,7 +94,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_READ_OPS_PER_SECOND_FIELD_NUMBER = 17;
-  private int targetReadOpsPerSecond_;
+  private int targetReadOpsPerSecond_ = 0;
   /**
    * <pre>
    * Target ops read per seconds.
@@ -193,7 +134,7 @@ private static final long serialVersionUID = 0L;
     if (targetReadOpsPerSecond_ != 0) {
       output.writeInt32(17, targetReadOpsPerSecond_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -218,7 +159,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(17, targetReadOpsPerSecond_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -241,7 +182,7 @@ private static final long serialVersionUID = 0L;
         != other.getTargetReadBytesPerSecond()) return false;
     if (getTargetReadOpsPerSecond()
         != other.getTargetReadOpsPerSecond()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -260,7 +201,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTargetReadBytesPerSecond();
     hash = (37 * hash) + TARGET_READ_OPS_PER_SECOND_FIELD_NUMBER;
     hash = (53 * hash) + getTargetReadOpsPerSecond();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -382,30 +323,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1.DiskUtilization.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       targetWriteBytesPerSecond_ = 0;
-
       targetWriteOpsPerSecond_ = 0;
-
       targetReadBytesPerSecond_ = 0;
-
       targetReadOpsPerSecond_ = 0;
-
       return this;
     }
 
@@ -432,12 +365,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1.DiskUtilization buildPartial() {
       com.google.appengine.v1.DiskUtilization result = new com.google.appengine.v1.DiskUtilization(this);
-      result.targetWriteBytesPerSecond_ = targetWriteBytesPerSecond_;
-      result.targetWriteOpsPerSecond_ = targetWriteOpsPerSecond_;
-      result.targetReadBytesPerSecond_ = targetReadBytesPerSecond_;
-      result.targetReadOpsPerSecond_ = targetReadOpsPerSecond_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1.DiskUtilization result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.targetWriteBytesPerSecond_ = targetWriteBytesPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.targetWriteOpsPerSecond_ = targetWriteOpsPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.targetReadBytesPerSecond_ = targetReadBytesPerSecond_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.targetReadOpsPerSecond_ = targetReadOpsPerSecond_;
+      }
     }
 
     @java.lang.Override
@@ -496,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTargetReadOpsPerSecond() != 0) {
         setTargetReadOpsPerSecond(other.getTargetReadOpsPerSecond());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -511,19 +457,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1.DiskUtilization parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 112: {
+              targetWriteBytesPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 112
+            case 120: {
+              targetWriteOpsPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 120
+            case 128: {
+              targetReadBytesPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 128
+            case 136: {
+              targetReadOpsPerSecond_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 136
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1.DiskUtilization) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int targetWriteBytesPerSecond_ ;
     /**
@@ -550,6 +530,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetWriteBytesPerSecond(int value) {
       
       targetWriteBytesPerSecond_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -562,7 +543,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetWriteBytesPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       targetWriteBytesPerSecond_ = 0;
       onChanged();
       return this;
@@ -593,6 +574,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetWriteOpsPerSecond(int value) {
       
       targetWriteOpsPerSecond_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -605,7 +587,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetWriteOpsPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       targetWriteOpsPerSecond_ = 0;
       onChanged();
       return this;
@@ -636,6 +618,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetReadBytesPerSecond(int value) {
       
       targetReadBytesPerSecond_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -648,7 +631,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetReadBytesPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       targetReadBytesPerSecond_ = 0;
       onChanged();
       return this;
@@ -679,6 +662,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTargetReadOpsPerSecond(int value) {
       
       targetReadOpsPerSecond_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -691,7 +675,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetReadOpsPerSecond() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       targetReadOpsPerSecond_ = 0;
       onChanged();
       return this;
@@ -729,7 +713,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DiskUtilization(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

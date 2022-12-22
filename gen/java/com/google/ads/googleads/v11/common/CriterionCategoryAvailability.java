@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CriterionCategoryAvailability(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.Builder subBuilder = null;
-            if (channel_ != null) {
-              subBuilder = channel_.toBuilder();
-            }
-            channel_ = input.readMessage(com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(channel_);
-              channel_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              locale_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            locale_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        locale_ = java.util.Collections.unmodifiableList(locale_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.CriterionCategoryAvailabilityProto.internal_static_google_ads_googleads_v11_common_CriterionCategoryAvailability_descriptor;
@@ -148,10 +83,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailabilityOrBuilder getChannelOrBuilder() {
-    return getChannel();
+    return channel_ == null ? com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.getDefaultInstance() : channel_;
   }
 
   public static final int LOCALE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability> locale_;
   /**
    * <pre>
@@ -231,7 +167,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < locale_.size(); i++) {
       output.writeMessage(2, locale_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +184,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, locale_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -270,7 +206,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getLocaleList()
         .equals(other.getLocaleList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -289,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOCALE_FIELD_NUMBER;
       hash = (53 * hash) + getLocaleList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -410,35 +346,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.CriterionCategoryAvailability.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLocaleFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (channelBuilder_ == null) {
-        channel_ = null;
-      } else {
-        channel_ = null;
+      bitField0_ = 0;
+      channel_ = null;
+      if (channelBuilder_ != null) {
+        channelBuilder_.dispose();
         channelBuilder_ = null;
       }
       if (localeBuilder_ == null) {
         locale_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        locale_ = null;
         localeBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -465,23 +396,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.CriterionCategoryAvailability buildPartial() {
       com.google.ads.googleads.v11.common.CriterionCategoryAvailability result = new com.google.ads.googleads.v11.common.CriterionCategoryAvailability(this);
-      int from_bitField0_ = bitField0_;
-      if (channelBuilder_ == null) {
-        result.channel_ = channel_;
-      } else {
-        result.channel_ = channelBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.CriterionCategoryAvailability result) {
       if (localeBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           locale_ = java.util.Collections.unmodifiableList(locale_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.locale_ = locale_;
       } else {
         result.locale_ = localeBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.CriterionCategoryAvailability result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.channel_ = channelBuilder_ == null
+            ? channel_
+            : channelBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -535,7 +474,7 @@ private static final long serialVersionUID = 0L;
         if (!other.locale_.isEmpty()) {
           if (locale_.isEmpty()) {
             locale_ = other.locale_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureLocaleIsMutable();
             locale_.addAll(other.locale_);
@@ -548,7 +487,7 @@ private static final long serialVersionUID = 0L;
             localeBuilder_.dispose();
             localeBuilder_ = null;
             locale_ = other.locale_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             localeBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLocaleFieldBuilder() : null;
@@ -557,7 +496,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -572,17 +511,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.CriterionCategoryAvailability parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getChannelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability.parser(),
+                      extensionRegistry);
+              if (localeBuilder_ == null) {
+                ensureLocaleIsMutable();
+                locale_.add(m);
+              } else {
+                localeBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.CriterionCategoryAvailability) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -599,7 +571,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the channel field is set.
      */
     public boolean hasChannel() {
-      return channelBuilder_ != null || channel_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -629,11 +601,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         channel_ = value;
-        onChanged();
       } else {
         channelBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -647,11 +619,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.Builder builderForValue) {
       if (channelBuilder_ == null) {
         channel_ = builderForValue.build();
-        onChanged();
       } else {
         channelBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -663,17 +635,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChannel(com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability value) {
       if (channelBuilder_ == null) {
-        if (channel_ != null) {
-          channel_ =
-            com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.newBuilder(channel_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          channel_ != null &&
+          channel_ != com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.getDefaultInstance()) {
+          getChannelBuilder().mergeFrom(value);
         } else {
           channel_ = value;
         }
-        onChanged();
       } else {
         channelBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -684,14 +657,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability channel = 1;</code>
      */
     public Builder clearChannel() {
-      if (channelBuilder_ == null) {
-        channel_ = null;
-        onChanged();
-      } else {
-        channel_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      channel_ = null;
+      if (channelBuilder_ != null) {
+        channelBuilder_.dispose();
         channelBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -702,7 +674,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability channel = 1;</code>
      */
     public com.google.ads.googleads.v11.common.CriterionCategoryChannelAvailability.Builder getChannelBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getChannelFieldBuilder().getBuilder();
     }
@@ -745,9 +717,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability> locale_ =
       java.util.Collections.emptyList();
     private void ensureLocaleIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         locale_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability>(locale_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -941,7 +913,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLocale() {
       if (localeBuilder_ == null) {
         locale_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         localeBuilder_.clear();
@@ -1046,7 +1018,7 @@ private static final long serialVersionUID = 0L;
         localeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability, com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailability.Builder, com.google.ads.googleads.v11.common.CriterionCategoryLocaleAvailabilityOrBuilder>(
                 locale_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         locale_ = null;
@@ -1086,7 +1058,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CriterionCategoryAvailability(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

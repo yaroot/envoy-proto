@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MutateAssetGroupListingGroupFilterResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.Builder subBuilder = null;
-            if (assetGroupListingGroupFilter_ != null) {
-              subBuilder = assetGroupListingGroupFilter_.toBuilder();
-            }
-            assetGroupListingGroupFilter_ = input.readMessage(com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(assetGroupListingGroupFilter_);
-              assetGroupListingGroupFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.AssetGroupListingGroupFilterServiceProto.internal_static_google_ads_googleads_v11_services_MutateAssetGroupListingGroupFilterResult_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Returned for successful operations.
@@ -193,7 +136,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilterOrBuilder getAssetGroupListingGroupFilterOrBuilder() {
-    return getAssetGroupListingGroupFilter();
+    return assetGroupListingGroupFilter_ == null ? com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.getDefaultInstance() : assetGroupListingGroupFilter_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (assetGroupListingGroupFilter_ != null) {
       output.writeMessage(2, getAssetGroupListingGroupFilter());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getAssetGroupListingGroupFilter());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +197,7 @@ private static final long serialVersionUID = 0L;
       if (!getAssetGroupListingGroupFilter()
           .equals(other.getAssetGroupListingGroupFilter())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +214,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ASSET_GROUP_LISTING_GROUP_FILTER_FIELD_NUMBER;
       hash = (53 * hash) + getAssetGroupListingGroupFilter().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,28 +335,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
-      if (assetGroupListingGroupFilterBuilder_ == null) {
-        assetGroupListingGroupFilter_ = null;
-      } else {
-        assetGroupListingGroupFilter_ = null;
+      assetGroupListingGroupFilter_ = null;
+      if (assetGroupListingGroupFilterBuilder_ != null) {
+        assetGroupListingGroupFilterBuilder_.dispose();
         assetGroupListingGroupFilterBuilder_ = null;
       }
       return this;
@@ -442,14 +379,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult buildPartial() {
       com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult result = new com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult(this);
-      result.resourceName_ = resourceName_;
-      if (assetGroupListingGroupFilterBuilder_ == null) {
-        result.assetGroupListingGroupFilter_ = assetGroupListingGroupFilter_;
-      } else {
-        result.assetGroupListingGroupFilter_ = assetGroupListingGroupFilterBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.assetGroupListingGroupFilter_ = assetGroupListingGroupFilterBuilder_ == null
+            ? assetGroupListingGroupFilter_
+            : assetGroupListingGroupFilterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -498,12 +442,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAssetGroupListingGroupFilter()) {
         mergeAssetGroupListingGroupFilter(other.getAssetGroupListingGroupFilter());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +463,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAssetGroupListingGroupFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.MutateAssetGroupListingGroupFilterResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object resourceName_ = "";
     /**
@@ -585,11 +556,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,8 +571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -618,12 +587,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -642,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the assetGroupListingGroupFilter field is set.
      */
     public boolean hasAssetGroupListingGroupFilter() {
-      return assetGroupListingGroupFilterBuilder_ != null || assetGroupListingGroupFilter_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -676,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         assetGroupListingGroupFilter_ = value;
-        onChanged();
       } else {
         assetGroupListingGroupFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -696,11 +663,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.Builder builderForValue) {
       if (assetGroupListingGroupFilterBuilder_ == null) {
         assetGroupListingGroupFilter_ = builderForValue.build();
-        onChanged();
       } else {
         assetGroupListingGroupFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAssetGroupListingGroupFilter(com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter value) {
       if (assetGroupListingGroupFilterBuilder_ == null) {
-        if (assetGroupListingGroupFilter_ != null) {
-          assetGroupListingGroupFilter_ =
-            com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.newBuilder(assetGroupListingGroupFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          assetGroupListingGroupFilter_ != null &&
+          assetGroupListingGroupFilter_ != com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.getDefaultInstance()) {
+          getAssetGroupListingGroupFilterBuilder().mergeFrom(value);
         } else {
           assetGroupListingGroupFilter_ = value;
         }
-        onChanged();
       } else {
         assetGroupListingGroupFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -737,14 +705,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter asset_group_listing_group_filter = 2;</code>
      */
     public Builder clearAssetGroupListingGroupFilter() {
-      if (assetGroupListingGroupFilterBuilder_ == null) {
-        assetGroupListingGroupFilter_ = null;
-        onChanged();
-      } else {
-        assetGroupListingGroupFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      assetGroupListingGroupFilter_ = null;
+      if (assetGroupListingGroupFilterBuilder_ != null) {
+        assetGroupListingGroupFilterBuilder_.dispose();
         assetGroupListingGroupFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -757,7 +724,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter asset_group_listing_group_filter = 2;</code>
      */
     public com.google.ads.googleads.v11.resources.AssetGroupListingGroupFilter.Builder getAssetGroupListingGroupFilterBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAssetGroupListingGroupFilterFieldBuilder().getBuilder();
     }
@@ -833,7 +800,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MutateAssetGroupListingGroupFilterResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

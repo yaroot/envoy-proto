@@ -34,76 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HedgePolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (initialRequests_ != null) {
-              subBuilder = initialRequests_.toBuilder();
-            }
-            initialRequests_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(initialRequests_);
-              initialRequests_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.type.FractionalPercent.Builder subBuilder = null;
-            if (additionalRequestChance_ != null) {
-              subBuilder = additionalRequestChance_.toBuilder();
-            }
-            additionalRequestChance_ = input.readMessage(io.envoyproxy.envoy.type.FractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(additionalRequestChance_);
-              additionalRequestChance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            hedgeOnPerTryTimeout_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.route.RouteComponentsProto.internal_static_envoy_api_v2_route_HedgePolicy_descriptor;
@@ -161,7 +91,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getInitialRequestsOrBuilder() {
-    return getInitialRequests();
+    return initialRequests_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : initialRequests_;
   }
 
   public static final int ADDITIONAL_REQUEST_CHANCE_FIELD_NUMBER = 2;
@@ -208,11 +138,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.FractionalPercentOrBuilder getAdditionalRequestChanceOrBuilder() {
-    return getAdditionalRequestChance();
+    return additionalRequestChance_ == null ? io.envoyproxy.envoy.type.FractionalPercent.getDefaultInstance() : additionalRequestChance_;
   }
 
   public static final int HEDGE_ON_PER_TRY_TIMEOUT_FIELD_NUMBER = 3;
-  private boolean hedgeOnPerTryTimeout_;
+  private boolean hedgeOnPerTryTimeout_ = false;
   /**
    * <pre>
    * Indicates that a hedged request should be sent when the per-try timeout is hit.
@@ -258,7 +188,7 @@ private static final long serialVersionUID = 0L;
     if (hedgeOnPerTryTimeout_ != false) {
       output.writeBool(3, hedgeOnPerTryTimeout_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -279,7 +209,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, hedgeOnPerTryTimeout_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -306,7 +236,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getHedgeOnPerTryTimeout()
         != other.getHedgeOnPerTryTimeout()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +258,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + HEDGE_ON_PER_TRY_TIMEOUT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHedgeOnPerTryTimeout());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,36 +379,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.route.HedgePolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (initialRequestsBuilder_ == null) {
-        initialRequests_ = null;
-      } else {
-        initialRequests_ = null;
+      bitField0_ = 0;
+      initialRequests_ = null;
+      if (initialRequestsBuilder_ != null) {
+        initialRequestsBuilder_.dispose();
         initialRequestsBuilder_ = null;
       }
-      if (additionalRequestChanceBuilder_ == null) {
-        additionalRequestChance_ = null;
-      } else {
-        additionalRequestChance_ = null;
+      additionalRequestChance_ = null;
+      if (additionalRequestChanceBuilder_ != null) {
+        additionalRequestChanceBuilder_.dispose();
         additionalRequestChanceBuilder_ = null;
       }
       hedgeOnPerTryTimeout_ = false;
-
       return this;
     }
 
@@ -505,19 +428,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.route.HedgePolicy buildPartial() {
       io.envoyproxy.envoy.api.v2.route.HedgePolicy result = new io.envoyproxy.envoy.api.v2.route.HedgePolicy(this);
-      if (initialRequestsBuilder_ == null) {
-        result.initialRequests_ = initialRequests_;
-      } else {
-        result.initialRequests_ = initialRequestsBuilder_.build();
-      }
-      if (additionalRequestChanceBuilder_ == null) {
-        result.additionalRequestChance_ = additionalRequestChance_;
-      } else {
-        result.additionalRequestChance_ = additionalRequestChanceBuilder_.build();
-      }
-      result.hedgeOnPerTryTimeout_ = hedgeOnPerTryTimeout_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.route.HedgePolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.initialRequests_ = initialRequestsBuilder_ == null
+            ? initialRequests_
+            : initialRequestsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.additionalRequestChance_ = additionalRequestChanceBuilder_ == null
+            ? additionalRequestChance_
+            : additionalRequestChanceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.hedgeOnPerTryTimeout_ = hedgeOnPerTryTimeout_;
+      }
     }
 
     @java.lang.Override
@@ -573,7 +503,7 @@ private static final long serialVersionUID = 0L;
       if (other.getHedgeOnPerTryTimeout() != false) {
         setHedgeOnPerTryTimeout(other.getHedgeOnPerTryTimeout());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -588,19 +518,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.route.HedgePolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getInitialRequestsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAdditionalRequestChanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              hedgeOnPerTryTimeout_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.route.HedgePolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value initialRequests_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -617,7 +580,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the initialRequests field is set.
      */
     public boolean hasInitialRequests() {
-      return initialRequestsBuilder_ != null || initialRequests_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -653,11 +616,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         initialRequests_ = value;
-        onChanged();
       } else {
         initialRequestsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -674,11 +637,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (initialRequestsBuilder_ == null) {
         initialRequests_ = builderForValue.build();
-        onChanged();
       } else {
         initialRequestsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -693,17 +656,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInitialRequests(com.google.protobuf.UInt32Value value) {
       if (initialRequestsBuilder_ == null) {
-        if (initialRequests_ != null) {
-          initialRequests_ =
-            com.google.protobuf.UInt32Value.newBuilder(initialRequests_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          initialRequests_ != null &&
+          initialRequests_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getInitialRequestsBuilder().mergeFrom(value);
         } else {
           initialRequests_ = value;
         }
-        onChanged();
       } else {
         initialRequestsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -717,14 +681,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value initial_requests = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearInitialRequests() {
-      if (initialRequestsBuilder_ == null) {
-        initialRequests_ = null;
-        onChanged();
-      } else {
-        initialRequests_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      initialRequests_ = null;
+      if (initialRequestsBuilder_ != null) {
+        initialRequestsBuilder_.dispose();
         initialRequestsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -738,7 +701,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value initial_requests = 1 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getInitialRequestsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getInitialRequestsFieldBuilder().getBuilder();
     }
@@ -799,7 +762,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the additionalRequestChance field is set.
      */
     public boolean hasAdditionalRequestChance() {
-      return additionalRequestChanceBuilder_ != null || additionalRequestChance_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -835,11 +798,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         additionalRequestChance_ = value;
-        onChanged();
       } else {
         additionalRequestChanceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -856,11 +819,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.FractionalPercent.Builder builderForValue) {
       if (additionalRequestChanceBuilder_ == null) {
         additionalRequestChance_ = builderForValue.build();
-        onChanged();
       } else {
         additionalRequestChanceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -875,17 +838,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdditionalRequestChance(io.envoyproxy.envoy.type.FractionalPercent value) {
       if (additionalRequestChanceBuilder_ == null) {
-        if (additionalRequestChance_ != null) {
-          additionalRequestChance_ =
-            io.envoyproxy.envoy.type.FractionalPercent.newBuilder(additionalRequestChance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          additionalRequestChance_ != null &&
+          additionalRequestChance_ != io.envoyproxy.envoy.type.FractionalPercent.getDefaultInstance()) {
+          getAdditionalRequestChanceBuilder().mergeFrom(value);
         } else {
           additionalRequestChance_ = value;
         }
-        onChanged();
       } else {
         additionalRequestChanceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -899,14 +863,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.FractionalPercent additional_request_chance = 2;</code>
      */
     public Builder clearAdditionalRequestChance() {
-      if (additionalRequestChanceBuilder_ == null) {
-        additionalRequestChance_ = null;
-        onChanged();
-      } else {
-        additionalRequestChance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      additionalRequestChance_ = null;
+      if (additionalRequestChanceBuilder_ != null) {
+        additionalRequestChanceBuilder_.dispose();
         additionalRequestChanceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -920,7 +883,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.FractionalPercent additional_request_chance = 2;</code>
      */
     public io.envoyproxy.envoy.type.FractionalPercent.Builder getAdditionalRequestChanceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAdditionalRequestChanceFieldBuilder().getBuilder();
     }
@@ -1009,6 +972,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHedgeOnPerTryTimeout(boolean value) {
       
       hedgeOnPerTryTimeout_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1030,7 +994,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHedgeOnPerTryTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       hedgeOnPerTryTimeout_ = false;
       onChanged();
       return this;
@@ -1068,7 +1032,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HedgePolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

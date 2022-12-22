@@ -37,69 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FailurePolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            retryStrategy_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            maxRetries_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (intervalTime_ != null) {
-              subBuilder = intervalTime_.toBuilder();
-            }
-            intervalTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(intervalTime_);
-              intervalTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.integrations.v1alpha.TaskConfigProto.internal_static_google_cloud_integrations_v1alpha_FailurePolicy_descriptor;
@@ -392,7 +329,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RETRY_STRATEGY_FIELD_NUMBER = 1;
-  private int retryStrategy_;
+  private int retryStrategy_ = 0;
   /**
    * <pre>
    * Defines what happens to the task upon failure.
@@ -413,13 +350,12 @@ private static final long serialVersionUID = 0L;
    * @return The retryStrategy.
    */
   @java.lang.Override public com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy getRetryStrategy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy result = com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy.valueOf(retryStrategy_);
+    com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy result = com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy.forNumber(retryStrategy_);
     return result == null ? com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy.UNRECOGNIZED : result;
   }
 
   public static final int MAX_RETRIES_FIELD_NUMBER = 2;
-  private int maxRetries_;
+  private int maxRetries_ = 0;
   /**
    * <pre>
    * Required if retry_strategy is FIXED_INTERVAL or
@@ -476,7 +412,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getIntervalTimeOrBuilder() {
-    return getIntervalTime();
+    return intervalTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : intervalTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -502,7 +438,7 @@ private static final long serialVersionUID = 0L;
     if (intervalTime_ != null) {
       output.writeMessage(3, getIntervalTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -523,7 +459,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getIntervalTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -546,7 +482,7 @@ private static final long serialVersionUID = 0L;
       if (!getIntervalTime()
           .equals(other.getIntervalTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -565,7 +501,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INTERVAL_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getIntervalTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -688,30 +624,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.integrations.v1alpha.FailurePolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       retryStrategy_ = 0;
-
       maxRetries_ = 0;
-
-      if (intervalTimeBuilder_ == null) {
-        intervalTime_ = null;
-      } else {
-        intervalTime_ = null;
+      intervalTime_ = null;
+      if (intervalTimeBuilder_ != null) {
+        intervalTimeBuilder_.dispose();
         intervalTimeBuilder_ = null;
       }
       return this;
@@ -740,15 +669,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.integrations.v1alpha.FailurePolicy buildPartial() {
       com.google.cloud.integrations.v1alpha.FailurePolicy result = new com.google.cloud.integrations.v1alpha.FailurePolicy(this);
-      result.retryStrategy_ = retryStrategy_;
-      result.maxRetries_ = maxRetries_;
-      if (intervalTimeBuilder_ == null) {
-        result.intervalTime_ = intervalTime_;
-      } else {
-        result.intervalTime_ = intervalTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.integrations.v1alpha.FailurePolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.retryStrategy_ = retryStrategy_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxRetries_ = maxRetries_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.intervalTime_ = intervalTimeBuilder_ == null
+            ? intervalTime_
+            : intervalTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -804,7 +742,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasIntervalTime()) {
         mergeIntervalTime(other.getIntervalTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -819,19 +757,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.integrations.v1alpha.FailurePolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              retryStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              maxRetries_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getIntervalTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.integrations.v1alpha.FailurePolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int retryStrategy_ = 0;
     /**
@@ -855,8 +824,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRetryStrategyValue(int value) {
-      
       retryStrategy_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -870,8 +839,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy getRetryStrategy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy result = com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy.valueOf(retryStrategy_);
+      com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy result = com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy.forNumber(retryStrategy_);
       return result == null ? com.google.cloud.integrations.v1alpha.FailurePolicy.RetryStrategy.UNRECOGNIZED : result;
     }
     /**
@@ -887,7 +855,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       retryStrategy_ = value.getNumber();
       onChanged();
       return this;
@@ -901,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRetryStrategy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       retryStrategy_ = 0;
       onChanged();
       return this;
@@ -936,6 +904,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxRetries(int value) {
       
       maxRetries_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -950,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxRetries() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxRetries_ = 0;
       onChanged();
       return this;
@@ -970,7 +939,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the intervalTime field is set.
      */
     public boolean hasIntervalTime() {
-      return intervalTimeBuilder_ != null || intervalTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1004,11 +973,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         intervalTime_ = value;
-        onChanged();
       } else {
         intervalTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1024,11 +993,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (intervalTimeBuilder_ == null) {
         intervalTime_ = builderForValue.build();
-        onChanged();
       } else {
         intervalTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1042,17 +1011,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIntervalTime(com.google.protobuf.Timestamp value) {
       if (intervalTimeBuilder_ == null) {
-        if (intervalTime_ != null) {
-          intervalTime_ =
-            com.google.protobuf.Timestamp.newBuilder(intervalTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          intervalTime_ != null &&
+          intervalTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getIntervalTimeBuilder().mergeFrom(value);
         } else {
           intervalTime_ = value;
         }
-        onChanged();
       } else {
         intervalTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1065,14 +1035,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp interval_time = 3;</code>
      */
     public Builder clearIntervalTime() {
-      if (intervalTimeBuilder_ == null) {
-        intervalTime_ = null;
-        onChanged();
-      } else {
-        intervalTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      intervalTime_ = null;
+      if (intervalTimeBuilder_ != null) {
+        intervalTimeBuilder_.dispose();
         intervalTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1085,7 +1054,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp interval_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getIntervalTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getIntervalTimeFieldBuilder().getBuilder();
     }
@@ -1161,7 +1130,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FailurePolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

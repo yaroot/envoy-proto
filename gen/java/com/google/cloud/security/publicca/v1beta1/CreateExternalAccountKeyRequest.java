@@ -5,9 +5,7 @@ package com.google.cloud.security.publicca.v1beta1;
 
 /**
  * <pre>
- * Creates a new
- * [ExternalAccountKey][google.cloud.security.publicca.v1beta1.ExternalAccountKey]
- * in a given project.
+ * Creates a new [ExternalAccountKey][google.cloud.security.publicca.v1beta1.ExternalAccountKey] in a given project.
  * </pre>
  *
  * Protobuf type {@code google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest}
@@ -37,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateExternalAccountKeyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.Builder subBuilder = null;
-            if (externalAccountKey_ != null) {
-              subBuilder = externalAccountKey_.toBuilder();
-            }
-            externalAccountKey_ = input.readMessage(com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(externalAccountKey_);
-              externalAccountKey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.security.publicca.v1beta1.ServiceProto.internal_static_google_cloud_security_publicca_v1beta1_CreateExternalAccountKeyRequest_descriptor;
@@ -109,12 +49,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The parent resource where this external_account_key will be
-   * created. Format:
-   * projects/[project_id]/locations/[location]/externalAccountKeys.
+   * Required. The parent resource where this external_account_key will be created.
+   * Format: projects/[project_id]/locations/[location].
+   * At present only the "global" location is supported.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -135,9 +76,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The parent resource where this external_account_key will be
-   * created. Format:
-   * projects/[project_id]/locations/[location]/externalAccountKeys.
+   * Required. The parent resource where this external_account_key will be created.
+   * Format: projects/[project_id]/locations/[location].
+   * At present only the "global" location is supported.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -162,7 +103,10 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.security.publicca.v1beta1.ExternalAccountKey externalAccountKey_;
   /**
    * <pre>
-   * Required. The external account key to create.
+   * Required. The external account key to create. This field only exists to future-proof
+   * the API. At present, all fields in ExternalAccountKey are output only and
+   * all values are ignored. For the purpose of the
+   * CreateExternalAccountKeyRequest, set it to a default/empty value.
    * </pre>
    *
    * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -174,7 +118,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The external account key to create.
+   * Required. The external account key to create. This field only exists to future-proof
+   * the API. At present, all fields in ExternalAccountKey are output only and
+   * all values are ignored. For the purpose of the
+   * CreateExternalAccountKeyRequest, set it to a default/empty value.
    * </pre>
    *
    * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -186,14 +133,17 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The external account key to create.
+   * Required. The external account key to create. This field only exists to future-proof
+   * the API. At present, all fields in ExternalAccountKey are output only and
+   * all values are ignored. For the purpose of the
+   * CreateExternalAccountKeyRequest, set it to a default/empty value.
    * </pre>
    *
    * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.security.publicca.v1beta1.ExternalAccountKeyOrBuilder getExternalAccountKeyOrBuilder() {
-    return getExternalAccountKey();
+    return externalAccountKey_ == null ? com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.getDefaultInstance() : externalAccountKey_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +166,7 @@ private static final long serialVersionUID = 0L;
     if (externalAccountKey_ != null) {
       output.writeMessage(2, getExternalAccountKey());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +182,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getExternalAccountKey());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +204,7 @@ private static final long serialVersionUID = 0L;
       if (!getExternalAccountKey()
           .equals(other.getExternalAccountKey())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +221,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXTERNAL_ACCOUNT_KEY_FIELD_NUMBER;
       hash = (53 * hash) + getExternalAccountKey().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -368,9 +318,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Creates a new
-   * [ExternalAccountKey][google.cloud.security.publicca.v1beta1.ExternalAccountKey]
-   * in a given project.
+   * Creates a new [ExternalAccountKey][google.cloud.security.publicca.v1beta1.ExternalAccountKey] in a given project.
    * </pre>
    *
    * Protobuf type {@code google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest}
@@ -394,28 +342,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (externalAccountKeyBuilder_ == null) {
-        externalAccountKey_ = null;
-      } else {
-        externalAccountKey_ = null;
+      externalAccountKey_ = null;
+      if (externalAccountKeyBuilder_ != null) {
+        externalAccountKeyBuilder_.dispose();
         externalAccountKeyBuilder_ = null;
       }
       return this;
@@ -444,14 +386,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest buildPartial() {
       com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest result = new com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest(this);
-      result.parent_ = parent_;
-      if (externalAccountKeyBuilder_ == null) {
-        result.externalAccountKey_ = externalAccountKey_;
-      } else {
-        result.externalAccountKey_ = externalAccountKeyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.externalAccountKey_ = externalAccountKeyBuilder_ == null
+            ? externalAccountKey_
+            : externalAccountKeyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -500,12 +449,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasExternalAccountKey()) {
         mergeExternalAccountKey(other.getExternalAccountKey());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -520,26 +470,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getExternalAccountKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.security.publicca.v1beta1.CreateExternalAccountKeyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The parent resource where this external_account_key will be
-     * created. Format:
-     * projects/[project_id]/locations/[location]/externalAccountKeys.
+     * Required. The parent resource where this external_account_key will be created.
+     * Format: projects/[project_id]/locations/[location].
+     * At present only the "global" location is supported.
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -559,9 +535,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The parent resource where this external_account_key will be
-     * created. Format:
-     * projects/[project_id]/locations/[location]/externalAccountKeys.
+     * Required. The parent resource where this external_account_key will be created.
+     * Format: projects/[project_id]/locations/[location].
+     * At present only the "global" location is supported.
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -582,9 +558,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The parent resource where this external_account_key will be
-     * created. Format:
-     * projects/[project_id]/locations/[location]/externalAccountKeys.
+     * Required. The parent resource where this external_account_key will be created.
+     * Format: projects/[project_id]/locations/[location].
+     * At present only the "global" location is supported.
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -593,35 +569,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The parent resource where this external_account_key will be
-     * created. Format:
-     * projects/[project_id]/locations/[location]/externalAccountKeys.
+     * Required. The parent resource where this external_account_key will be created.
+     * Format: projects/[project_id]/locations/[location].
+     * At present only the "global" location is supported.
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The parent resource where this external_account_key will be
-     * created. Format:
-     * projects/[project_id]/locations/[location]/externalAccountKeys.
+     * Required. The parent resource where this external_account_key will be created.
+     * Format: projects/[project_id]/locations/[location].
+     * At present only the "global" location is supported.
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -630,12 +604,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -645,18 +617,24 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.security.publicca.v1beta1.ExternalAccountKey, com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.Builder, com.google.cloud.security.publicca.v1beta1.ExternalAccountKeyOrBuilder> externalAccountKeyBuilder_;
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the externalAccountKey field is set.
      */
     public boolean hasExternalAccountKey() {
-      return externalAccountKeyBuilder_ != null || externalAccountKey_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -671,7 +649,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -682,16 +663,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         externalAccountKey_ = value;
-        onChanged();
       } else {
         externalAccountKeyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -700,68 +684,80 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.Builder builderForValue) {
       if (externalAccountKeyBuilder_ == null) {
         externalAccountKey_ = builderForValue.build();
-        onChanged();
       } else {
         externalAccountKeyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeExternalAccountKey(com.google.cloud.security.publicca.v1beta1.ExternalAccountKey value) {
       if (externalAccountKeyBuilder_ == null) {
-        if (externalAccountKey_ != null) {
-          externalAccountKey_ =
-            com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.newBuilder(externalAccountKey_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          externalAccountKey_ != null &&
+          externalAccountKey_ != com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.getDefaultInstance()) {
+          getExternalAccountKeyBuilder().mergeFrom(value);
         } else {
           externalAccountKey_ = value;
         }
-        onChanged();
       } else {
         externalAccountKeyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearExternalAccountKey() {
-      if (externalAccountKeyBuilder_ == null) {
-        externalAccountKey_ = null;
-        onChanged();
-      } else {
-        externalAccountKey_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      externalAccountKey_ = null;
+      if (externalAccountKeyBuilder_ != null) {
+        externalAccountKeyBuilder_.dispose();
         externalAccountKeyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.security.publicca.v1beta1.ExternalAccountKey.Builder getExternalAccountKeyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getExternalAccountKeyFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -776,7 +772,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The external account key to create.
+     * Required. The external account key to create. This field only exists to future-proof
+     * the API. At present, all fields in ExternalAccountKey are output only and
+     * all values are ignored. For the purpose of the
+     * CreateExternalAccountKeyRequest, set it to a default/empty value.
      * </pre>
      *
      * <code>.google.cloud.security.publicca.v1beta1.ExternalAccountKey external_account_key = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -827,7 +826,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateExternalAccountKeyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

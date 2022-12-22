@@ -9,7 +9,7 @@ public interface ContainerOrBuilder extends
 
   /**
    * <pre>
-   * Container type, for example BigQuery or Google Cloud Storage.
+   * Container type, for example BigQuery or Cloud Storage.
    * </pre>
    *
    * <code>string type = 1;</code>
@@ -18,7 +18,7 @@ public interface ContainerOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * Container type, for example BigQuery or Google Cloud Storage.
+   * Container type, for example BigQuery or Cloud Storage.
    * </pre>
    *
    * <code>string type = 1;</code>
@@ -54,7 +54,7 @@ public interface ContainerOrBuilder extends
    * A string representation of the full container name.
    * Examples:
    * - BigQuery: 'Project:DataSetId.TableId'
-   * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+   * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
    * </pre>
    *
    * <code>string full_path = 3;</code>
@@ -66,7 +66,7 @@ public interface ContainerOrBuilder extends
    * A string representation of the full container name.
    * Examples:
    * - BigQuery: 'Project:DataSetId.TableId'
-   * - Google Cloud Storage: 'gs://Bucket/folders/filename.txt'
+   * - Cloud Storage: 'gs://Bucket/folders/filename.txt'
    * </pre>
    *
    * <code>string full_path = 3;</code>
@@ -81,7 +81,7 @@ public interface ContainerOrBuilder extends
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the root is
    *  `dataset_id`
-   * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
    *  is `gs://bucket`
    * </pre>
    *
@@ -95,7 +95,7 @@ public interface ContainerOrBuilder extends
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the root is
    *  `dataset_id`
-   * - For Google Cloud Storage file `gs://bucket/folder/filename.txt`, the root
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the root
    *  is `gs://bucket`
    * </pre>
    *
@@ -111,7 +111,7 @@ public interface ContainerOrBuilder extends
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
    *  `table_id`
-   * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
    *  path is `folder/filename.txt`
    * </pre>
    *
@@ -125,7 +125,7 @@ public interface ContainerOrBuilder extends
    * Examples:
    * - For BigQuery table `project_id:dataset_id.table_id`, the relative path is
    *  `table_id`
-   * - Google Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
+   * - For Cloud Storage file `gs://bucket/folder/filename.txt`, the relative
    *  path is `folder/filename.txt`
    * </pre>
    *
@@ -137,10 +137,10 @@ public interface ContainerOrBuilder extends
 
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Findings container modification timestamp, if applicable. For Cloud
+   * Storage, this field contains the last file modification timestamp. For a
+   * BigQuery table, this field contains the last_modified_time property. For
+   * Datastore, this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -149,10 +149,10 @@ public interface ContainerOrBuilder extends
   boolean hasUpdateTime();
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Findings container modification timestamp, if applicable. For Cloud
+   * Storage, this field contains the last file modification timestamp. For a
+   * BigQuery table, this field contains the last_modified_time property. For
+   * Datastore, this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -161,10 +161,10 @@ public interface ContainerOrBuilder extends
   com.google.protobuf.Timestamp getUpdateTime();
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Findings container modification timestamp, if applicable. For Cloud
+   * Storage, this field contains the last file modification timestamp. For a
+   * BigQuery table, this field contains the last_modified_time property. For
+   * Datastore, this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp update_time = 6;</code>
@@ -174,7 +174,7 @@ public interface ContainerOrBuilder extends
   /**
    * <pre>
    * Findings container version, if available
-   * ("generation" for Google Cloud Storage).
+   * ("generation" for Cloud Storage).
    * </pre>
    *
    * <code>string version = 7;</code>
@@ -184,7 +184,7 @@ public interface ContainerOrBuilder extends
   /**
    * <pre>
    * Findings container version, if available
-   * ("generation" for Google Cloud Storage).
+   * ("generation" for Cloud Storage).
    * </pre>
    *
    * <code>string version = 7;</code>

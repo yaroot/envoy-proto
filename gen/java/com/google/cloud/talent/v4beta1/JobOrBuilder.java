@@ -431,7 +431,6 @@ public interface JobOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.talent.v4beta1.CustomAttribute&gt; custom_attributes = 10;</code>
    */
-
   /* nullable */
 com.google.cloud.talent.v4beta1.CustomAttribute getCustomAttributesOrDefault(
       java.lang.String key,
@@ -453,7 +452,6 @@ com.google.cloud.talent.v4beta1.CustomAttribute defaultValue);
    *
    * <code>map&lt;string, .google.cloud.talent.v4beta1.CustomAttribute&gt; custom_attributes = 10;</code>
    */
-
   com.google.cloud.talent.v4beta1.CustomAttribute getCustomAttributesOrThrow(
       java.lang.String key);
 

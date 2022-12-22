@@ -90,103 +90,107 @@ public final class RateLimitProto {
     java.lang.String[] descriptorData = {
       "\n;envoy/extensions/filters/http/ratelimi" +
       "t/v3/rate_limit.proto\022*envoy.extensions." +
-      "filters.http.ratelimit.v3\032$envoy/config/" +
-      "core/v3/extension.proto\032#envoy/config/ra" +
-      "telimit/v3/rls.proto\032,envoy/config/route" +
-      "/v3/route_components.proto\032%envoy/type/m" +
-      "etadata/v3/metadata.proto\032\037envoy/type/v3" +
-      "/http_status.proto\032\036google/protobuf/dura" +
-      "tion.proto\032\035udpa/annotations/status.prot" +
-      "o\032!udpa/annotations/versioning.proto\032\027va" +
-      "lidate/validate.proto\"\235\005\n\tRateLimit\022\027\n\006d" +
-      "omain\030\001 \001(\tB\007\372B\004r\002\020\001\022\026\n\005stage\030\002 \001(\rB\007\372B\004" +
-      "*\002\030\n\0227\n\014request_type\030\003 \001(\tB!\372B\036r\034R\010inter" +
-      "nalR\010externalR\004bothR\000\022*\n\007timeout\030\004 \001(\0132\031" +
-      ".google.protobuf.Duration\022\031\n\021failure_mod" +
-      "e_deny\030\005 \001(\010\022*\n\"rate_limited_as_resource" +
-      "_exhausted\030\006 \001(\010\022W\n\022rate_limit_service\030\007" +
-      " \001(\01321.envoy.config.ratelimit.v3.RateLim" +
-      "itServiceConfigB\010\372B\005\212\001\002\020\001\022\177\n\032enable_x_ra" +
-      "telimit_headers\030\010 \001(\0162Q.envoy.extensions" +
-      ".filters.http.ratelimit.v3.RateLimit.XRa" +
-      "teLimitHeadersRFCVersionB\010\372B\005\202\001\002\020\001\022*\n\"di" +
-      "sable_x_envoy_ratelimited_header\030\t \001(\010\0226" +
-      "\n\023rate_limited_status\030\n \001(\0132\031.envoy.type" +
-      ".v3.HttpStatus\"<\n\033XRateLimitHeadersRFCVe" +
-      "rsion\022\007\n\003OFF\020\000\022\024\n\020DRAFT_VERSION_03\020\001:7\232\305" +
-      "\210\0362\n0envoy.config.filter.http.rate_limit" +
-      ".v2.RateLimit\"\336\017\n\017RateLimitConfig\022\026\n\005sta" +
-      "ge\030\001 \001(\rB\007\372B\004*\002\030\n\022\023\n\013disable_key\030\002 \001(\t\022]" +
-      "\n\007actions\030\003 \003(\0132B.envoy.extensions.filte" +
-      "rs.http.ratelimit.v3.RateLimitConfig.Act" +
-      "ionB\010\372B\005\222\001\002\010\001\022S\n\005limit\030\004 \001(\0132D.envoy.ext" +
-      "ensions.filters.http.ratelimit.v3.RateLi" +
-      "mitConfig.Override\032\367\013\n\006Action\022j\n\016source_" +
-      "cluster\030\001 \001(\0132P.envoy.extensions.filters" +
-      ".http.ratelimit.v3.RateLimitConfig.Actio" +
-      "n.SourceClusterH\000\022t\n\023destination_cluster" +
-      "\030\002 \001(\0132U.envoy.extensions.filters.http.r" +
-      "atelimit.v3.RateLimitConfig.Action.Desti" +
-      "nationClusterH\000\022l\n\017request_headers\030\003 \001(\013" +
-      "2Q.envoy.extensions.filters.http.ratelim" +
-      "it.v3.RateLimitConfig.Action.RequestHead" +
-      "ersH\000\022j\n\016remote_address\030\004 \001(\0132P.envoy.ex" +
-      "tensions.filters.http.ratelimit.v3.RateL" +
-      "imitConfig.Action.RemoteAddressH\000\022d\n\013gen" +
-      "eric_key\030\005 \001(\0132M.envoy.extensions.filter" +
-      "s.http.ratelimit.v3.RateLimitConfig.Acti" +
-      "on.GenericKeyH\000\022q\n\022header_value_match\030\006 " +
-      "\001(\0132S.envoy.extensions.filters.http.rate" +
-      "limit.v3.RateLimitConfig.Action.HeaderVa" +
-      "lueMatchH\000\022_\n\010metadata\030\010 \001(\0132K.envoy.ext" +
-      "ensions.filters.http.ratelimit.v3.RateLi" +
-      "mitConfig.Action.MetaDataH\000\022?\n\textension" +
-      "\030\t \001(\0132*.envoy.config.core.v3.TypedExten" +
-      "sionConfigH\000\032\017\n\rSourceCluster\032\024\n\022Destina" +
-      "tionCluster\032m\n\016RequestHeaders\022\"\n\013header_" +
-      "name\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000\022\037\n\016descriptor_" +
-      "key\030\002 \001(\tB\007\372B\004r\002\020\001\022\026\n\016skip_if_absent\030\003 \001" +
-      "(\010\032\017\n\rRemoteAddress\032G\n\nGenericKey\022!\n\020des" +
-      "criptor_value\030\001 \001(\tB\007\372B\004r\002\020\001\022\026\n\016descript" +
-      "or_key\030\002 \001(\t\032\214\001\n\020HeaderValueMatch\022!\n\020des" +
-      "criptor_value\030\001 \001(\tB\007\372B\004r\002\020\001\022\024\n\014expect_m" +
-      "atch\030\002 \001(\010\022?\n\007headers\030\003 \003(\0132$.envoy.conf" +
-      "ig.route.v3.HeaderMatcherB\010\372B\005\222\001\002\010\001\032\235\002\n\010" +
-      "MetaData\022\037\n\016descriptor_key\030\001 \001(\tB\007\372B\004r\002\020" +
-      "\001\022C\n\014metadata_key\030\002 \001(\0132#.envoy.type.met" +
-      "adata.v3.MetadataKeyB\010\372B\005\212\001\002\020\001\022\025\n\rdefaul" +
-      "t_value\030\003 \001(\t\022l\n\006source\030\004 \001(\0162R.envoy.ex" +
-      "tensions.filters.http.ratelimit.v3.RateL" +
-      "imitConfig.Action.MetaData.SourceB\010\372B\005\202\001" +
-      "\002\020\001\"&\n\006Source\022\013\n\007DYNAMIC\020\000\022\017\n\013ROUTE_ENTR" +
-      "Y\020\001B\027\n\020action_specifier\022\003\370B\001\032\357\001\n\010Overrid" +
-      "e\022p\n\020dynamic_metadata\030\001 \001(\0132T.envoy.exte" +
-      "nsions.filters.http.ratelimit.v3.RateLim" +
-      "itConfig.Override.DynamicMetadataH\000\032V\n\017D" +
-      "ynamicMetadata\022C\n\014metadata_key\030\001 \001(\0132#.e" +
-      "nvoy.type.metadata.v3.MetadataKeyB\010\372B\005\212\001" +
-      "\002\020\001B\031\n\022override_specifier\022\003\370B\001\"\346\003\n\021RateL" +
-      "imitPerRoute\022s\n\016vh_rate_limits\030\001 \001(\0162Q.e" +
-      "nvoy.extensions.filters.http.ratelimit.v" +
-      "3.RateLimitPerRoute.VhRateLimitsOptionsB" +
-      "\010\372B\005\202\001\002\020\001\022p\n\017override_option\030\002 \001(\0162M.env" +
-      "oy.extensions.filters.http.ratelimit.v3." +
-      "RateLimitPerRoute.OverrideOptionsB\010\372B\005\202\001" +
-      "\002\020\001\022P\n\013rate_limits\030\003 \003(\0132;.envoy.extensi" +
+      "filters.http.ratelimit.v3\032\037envoy/config/" +
+      "core/v3/base.proto\032$envoy/config/core/v3" +
+      "/extension.proto\032#envoy/config/ratelimit" +
+      "/v3/rls.proto\032,envoy/config/route/v3/rou" +
+      "te_components.proto\032%envoy/type/metadata" +
+      "/v3/metadata.proto\032\037envoy/type/v3/http_s" +
+      "tatus.proto\032\036google/protobuf/duration.pr" +
+      "oto\032\035udpa/annotations/status.proto\032!udpa" +
+      "/annotations/versioning.proto\032\027validate/" +
+      "validate.proto\"\361\005\n\tRateLimit\022\027\n\006domain\030\001" +
+      " \001(\tB\007\372B\004r\002\020\001\022\026\n\005stage\030\002 \001(\rB\007\372B\004*\002\030\n\0227\n" +
+      "\014request_type\030\003 \001(\tB!\372B\036r\034R\010internalR\010ex" +
+      "ternalR\004bothR\000\022*\n\007timeout\030\004 \001(\0132\031.google" +
+      ".protobuf.Duration\022\031\n\021failure_mode_deny\030" +
+      "\005 \001(\010\022*\n\"rate_limited_as_resource_exhaus" +
+      "ted\030\006 \001(\010\022W\n\022rate_limit_service\030\007 \001(\01321." +
+      "envoy.config.ratelimit.v3.RateLimitServi" +
+      "ceConfigB\010\372B\005\212\001\002\020\001\022\177\n\032enable_x_ratelimit" +
+      "_headers\030\010 \001(\0162Q.envoy.extensions.filter" +
+      "s.http.ratelimit.v3.RateLimit.XRateLimit" +
+      "HeadersRFCVersionB\010\372B\005\202\001\002\020\001\022*\n\"disable_x" +
+      "_envoy_ratelimited_header\030\t \001(\010\0226\n\023rate_" +
+      "limited_status\030\n \001(\0132\031.envoy.type.v3.Htt" +
+      "pStatus\022R\n\027response_headers_to_add\030\013 \003(\013" +
+      "2\'.envoy.config.core.v3.HeaderValueOptio" +
+      "nB\010\372B\005\222\001\002\020\n\"<\n\033XRateLimitHeadersRFCVersi" +
+      "on\022\007\n\003OFF\020\000\022\024\n\020DRAFT_VERSION_03\020\001:7\232\305\210\0362" +
+      "\n0envoy.config.filter.http.rate_limit.v2" +
+      ".RateLimit\"\336\017\n\017RateLimitConfig\022\026\n\005stage\030" +
+      "\001 \001(\rB\007\372B\004*\002\030\n\022\023\n\013disable_key\030\002 \001(\t\022]\n\007a" +
+      "ctions\030\003 \003(\0132B.envoy.extensions.filters." +
+      "http.ratelimit.v3.RateLimitConfig.Action" +
+      "B\010\372B\005\222\001\002\010\001\022S\n\005limit\030\004 \001(\0132D.envoy.extens" +
+      "ions.filters.http.ratelimit.v3.RateLimit" +
+      "Config.Override\032\367\013\n\006Action\022j\n\016source_clu" +
+      "ster\030\001 \001(\0132P.envoy.extensions.filters.ht" +
+      "tp.ratelimit.v3.RateLimitConfig.Action.S" +
+      "ourceClusterH\000\022t\n\023destination_cluster\030\002 " +
+      "\001(\0132U.envoy.extensions.filters.http.rate" +
+      "limit.v3.RateLimitConfig.Action.Destinat" +
+      "ionClusterH\000\022l\n\017request_headers\030\003 \001(\0132Q." +
+      "envoy.extensions.filters.http.ratelimit." +
+      "v3.RateLimitConfig.Action.RequestHeaders" +
+      "H\000\022j\n\016remote_address\030\004 \001(\0132P.envoy.exten" +
+      "sions.filters.http.ratelimit.v3.RateLimi" +
+      "tConfig.Action.RemoteAddressH\000\022d\n\013generi" +
+      "c_key\030\005 \001(\0132M.envoy.extensions.filters.h" +
+      "ttp.ratelimit.v3.RateLimitConfig.Action." +
+      "GenericKeyH\000\022q\n\022header_value_match\030\006 \001(\013" +
+      "2S.envoy.extensions.filters.http.ratelim" +
+      "it.v3.RateLimitConfig.Action.HeaderValue" +
+      "MatchH\000\022_\n\010metadata\030\010 \001(\0132K.envoy.extens" +
+      "ions.filters.http.ratelimit.v3.RateLimit" +
+      "Config.Action.MetaDataH\000\022?\n\textension\030\t " +
+      "\001(\0132*.envoy.config.core.v3.TypedExtensio" +
+      "nConfigH\000\032\017\n\rSourceCluster\032\024\n\022Destinatio" +
+      "nCluster\032m\n\016RequestHeaders\022\"\n\013header_nam" +
+      "e\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000\022\037\n\016descriptor_key" +
+      "\030\002 \001(\tB\007\372B\004r\002\020\001\022\026\n\016skip_if_absent\030\003 \001(\010\032" +
+      "\017\n\rRemoteAddress\032G\n\nGenericKey\022!\n\020descri" +
+      "ptor_value\030\001 \001(\tB\007\372B\004r\002\020\001\022\026\n\016descriptor_" +
+      "key\030\002 \001(\t\032\214\001\n\020HeaderValueMatch\022!\n\020descri" +
+      "ptor_value\030\001 \001(\tB\007\372B\004r\002\020\001\022\024\n\014expect_matc" +
+      "h\030\002 \001(\010\022?\n\007headers\030\003 \003(\0132$.envoy.config." +
+      "route.v3.HeaderMatcherB\010\372B\005\222\001\002\010\001\032\235\002\n\010Met" +
+      "aData\022\037\n\016descriptor_key\030\001 \001(\tB\007\372B\004r\002\020\001\022C" +
+      "\n\014metadata_key\030\002 \001(\0132#.envoy.type.metada" +
+      "ta.v3.MetadataKeyB\010\372B\005\212\001\002\020\001\022\025\n\rdefault_v" +
+      "alue\030\003 \001(\t\022l\n\006source\030\004 \001(\0162R.envoy.exten" +
+      "sions.filters.http.ratelimit.v3.RateLimi" +
+      "tConfig.Action.MetaData.SourceB\010\372B\005\202\001\002\020\001" +
+      "\"&\n\006Source\022\013\n\007DYNAMIC\020\000\022\017\n\013ROUTE_ENTRY\020\001" +
+      "B\027\n\020action_specifier\022\003\370B\001\032\357\001\n\010Override\022p" +
+      "\n\020dynamic_metadata\030\001 \001(\0132T.envoy.extensi" +
       "ons.filters.http.ratelimit.v3.RateLimitC" +
-      "onfig\"<\n\023VhRateLimitsOptions\022\014\n\010OVERRIDE" +
-      "\020\000\022\013\n\007INCLUDE\020\001\022\n\n\006IGNORE\020\002\"Z\n\017OverrideO" +
-      "ptions\022\013\n\007DEFAULT\020\000\022\023\n\017OVERRIDE_POLICY\020\001" +
-      "\022\022\n\016INCLUDE_POLICY\020\002\022\021\n\rIGNORE_POLICY\020\003B" +
-      "\263\001\n8io.envoyproxy.envoy.extensions.filte" +
-      "rs.http.ratelimit.v3B\016RateLimitProtoP\001Z]" +
-      "github.com/envoyproxy/go-control-plane/e" +
-      "nvoy/extensions/filters/http/ratelimit/v" +
-      "3;ratelimitv3\272\200\310\321\006\002\020\002b\006proto3"
+      "onfig.Override.DynamicMetadataH\000\032V\n\017Dyna" +
+      "micMetadata\022C\n\014metadata_key\030\001 \001(\0132#.envo" +
+      "y.type.metadata.v3.MetadataKeyB\010\372B\005\212\001\002\020\001" +
+      "B\031\n\022override_specifier\022\003\370B\001\"\346\003\n\021RateLimi" +
+      "tPerRoute\022s\n\016vh_rate_limits\030\001 \001(\0162Q.envo" +
+      "y.extensions.filters.http.ratelimit.v3.R" +
+      "ateLimitPerRoute.VhRateLimitsOptionsB\010\372B" +
+      "\005\202\001\002\020\001\022p\n\017override_option\030\002 \001(\0162M.envoy." +
+      "extensions.filters.http.ratelimit.v3.Rat" +
+      "eLimitPerRoute.OverrideOptionsB\010\372B\005\202\001\002\020\001" +
+      "\022P\n\013rate_limits\030\003 \003(\0132;.envoy.extensions" +
+      ".filters.http.ratelimit.v3.RateLimitConf" +
+      "ig\"<\n\023VhRateLimitsOptions\022\014\n\010OVERRIDE\020\000\022" +
+      "\013\n\007INCLUDE\020\001\022\n\n\006IGNORE\020\002\"Z\n\017OverrideOpti" +
+      "ons\022\013\n\007DEFAULT\020\000\022\023\n\017OVERRIDE_POLICY\020\001\022\022\n" +
+      "\016INCLUDE_POLICY\020\002\022\021\n\rIGNORE_POLICY\020\003B\263\001\n" +
+      "8io.envoyproxy.envoy.extensions.filters." +
+      "http.ratelimit.v3B\016RateLimitProtoP\001Z]git" +
+      "hub.com/envoyproxy/go-control-plane/envo" +
+      "y/extensions/filters/http/ratelimit/v3;r" +
+      "atelimitv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
           io.envoyproxy.envoy.config.core.v3.ExtensionProto.getDescriptor(),
           io.envoyproxy.envoy.config.ratelimit.v3.RlsProto.getDescriptor(),
           io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.getDescriptor(),
@@ -202,7 +206,7 @@ public final class RateLimitProto {
     internal_static_envoy_extensions_filters_http_ratelimit_v3_RateLimit_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_ratelimit_v3_RateLimit_descriptor,
-        new java.lang.String[] { "Domain", "Stage", "RequestType", "Timeout", "FailureModeDeny", "RateLimitedAsResourceExhausted", "RateLimitService", "EnableXRatelimitHeaders", "DisableXEnvoyRatelimitedHeader", "RateLimitedStatus", });
+        new java.lang.String[] { "Domain", "Stage", "RequestType", "Timeout", "FailureModeDeny", "RateLimitedAsResourceExhausted", "RateLimitService", "EnableXRatelimitHeaders", "DisableXEnvoyRatelimitedHeader", "RateLimitedStatus", "ResponseHeadersToAdd", });
     internal_static_envoy_extensions_filters_http_ratelimit_v3_RateLimitConfig_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_extensions_filters_http_ratelimit_v3_RateLimitConfig_fieldAccessorTable = new
@@ -283,6 +287,7 @@ public final class RateLimitProto {
     registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
+    io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
     io.envoyproxy.envoy.config.core.v3.ExtensionProto.getDescriptor();
     io.envoyproxy.envoy.config.ratelimit.v3.RlsProto.getDescriptor();
     io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.getDescriptor();

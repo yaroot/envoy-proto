@@ -651,7 +651,6 @@ public interface AccessLogCommonOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; filter_state_objects = 21;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getFilterStateObjectsOrDefault(
       java.lang.String key,
@@ -666,7 +665,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; filter_state_objects = 21;</code>
    */
-
   com.google.protobuf.Any getFilterStateObjectsOrThrow(
       java.lang.String key);
 
@@ -717,7 +715,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, string&gt; custom_tags = 22;</code>
    */
-
   /* nullable */
 java.lang.String getCustomTagsOrDefault(
       java.lang.String key,
@@ -732,7 +729,111 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; custom_tags = 22;</code>
    */
-
   java.lang.String getCustomTagsOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * For HTTP: Total duration in milliseconds of the request from the start time to the last byte out.
+   * For TCP: Total duration in milliseconds of the downstream connection.
+   * This is the total duration of the request (i.e., when the request's ActiveStream is destroyed)
+   * and may be longer than ``time_to_last_downstream_tx_byte``.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration duration = 23;</code>
+   * @return Whether the duration field is set.
+   */
+  boolean hasDuration();
+  /**
+   * <pre>
+   * For HTTP: Total duration in milliseconds of the request from the start time to the last byte out.
+   * For TCP: Total duration in milliseconds of the downstream connection.
+   * This is the total duration of the request (i.e., when the request's ActiveStream is destroyed)
+   * and may be longer than ``time_to_last_downstream_tx_byte``.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration duration = 23;</code>
+   * @return The duration.
+   */
+  com.google.protobuf.Duration getDuration();
+  /**
+   * <pre>
+   * For HTTP: Total duration in milliseconds of the request from the start time to the last byte out.
+   * For TCP: Total duration in milliseconds of the downstream connection.
+   * This is the total duration of the request (i.e., when the request's ActiveStream is destroyed)
+   * and may be longer than ``time_to_last_downstream_tx_byte``.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration duration = 23;</code>
+   */
+  com.google.protobuf.DurationOrBuilder getDurationOrBuilder();
+
+  /**
+   * <pre>
+   * For HTTP: Number of times the request is attempted upstream. Note that the field is omitted when the request was never attempted upstream.
+   * For TCP: Number of times the connection request is attempted upstream. Note that the field is omitted when the connect request was never attempted upstream.
+   * </pre>
+   *
+   * <code>uint32 upstream_request_attempt_count = 24;</code>
+   * @return The upstreamRequestAttemptCount.
+   */
+  int getUpstreamRequestAttemptCount();
+
+  /**
+   * <pre>
+   * Connection termination details may provide additional information about why the connection was terminated by Envoy for L4 reasons.
+   * </pre>
+   *
+   * <code>string connection_termination_details = 25;</code>
+   * @return The connectionTerminationDetails.
+   */
+  java.lang.String getConnectionTerminationDetails();
+  /**
+   * <pre>
+   * Connection termination details may provide additional information about why the connection was terminated by Envoy for L4 reasons.
+   * </pre>
+   *
+   * <code>string connection_termination_details = 25;</code>
+   * @return The bytes for connectionTerminationDetails.
+   */
+  com.google.protobuf.ByteString
+      getConnectionTerminationDetailsBytes();
+
+  /**
+   * <pre>
+   * Optional unique id of stream (TCP connection, long-live HTTP2 stream, HTTP request) for logging and tracing.
+   * This could be any format string that could be used to identify one stream.
+   * </pre>
+   *
+   * <code>string stream_id = 26;</code>
+   * @return The streamId.
+   */
+  java.lang.String getStreamId();
+  /**
+   * <pre>
+   * Optional unique id of stream (TCP connection, long-live HTTP2 stream, HTTP request) for logging and tracing.
+   * This could be any format string that could be used to identify one stream.
+   * </pre>
+   *
+   * <code>string stream_id = 26;</code>
+   * @return The bytes for streamId.
+   */
+  com.google.protobuf.ByteString
+      getStreamIdBytes();
+
+  /**
+   * <pre>
+   * If this log entry is final log entry that flushed after the stream completed or
+   * intermediate log entry that flushed periodically during the stream.
+   * There may be multiple intermediate log entries and only one final log entry for each
+   * long-live stream (TCP connection, long-live HTTP2 stream).
+   * And if it is necessary, unique ID or identifier can be added to the log entry
+   * :ref:`stream_id &lt;envoy_v3_api_field_data.accesslog.v3.AccessLogCommon.stream_id&gt;` to
+   * correlate all these intermediate log entries and final log entry.
+   * </pre>
+   *
+   * <code>bool intermediate_log_entry = 27;</code>
+   * @return The intermediateLogEntry.
+   */
+  boolean getIntermediateLogEntry();
 }

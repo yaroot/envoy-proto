@@ -124,7 +124,6 @@ public interface RolloutOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -140,7 +139,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 
@@ -219,7 +217,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -241,7 +238,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -440,7 +436,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. Reason the build failed. Empty if the build succeeded.
+   * Output only. Additional information about the rollout failure, if available.
    * </pre>
    *
    * <code>string failure_reason = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -449,7 +445,7 @@ java.lang.String defaultValue);
   java.lang.String getFailureReason();
   /**
    * <pre>
-   * Output only. Reason the build failed. Empty if the build succeeded.
+   * Output only. Additional information about the rollout failure, if available.
    * </pre>
    *
    * <code>string failure_reason = 14 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -508,8 +504,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. The reason this deploy failed. This will always be unspecified while the
-   * deploy in progress.
+   * Output only. The reason this rollout failed. This will always be unspecified while the
+   * rollout is in progress.
    * </pre>
    *
    * <code>.google.cloud.deploy.v1.Rollout.FailureCause deploy_failure_cause = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -518,12 +514,83 @@ java.lang.String defaultValue);
   int getDeployFailureCauseValue();
   /**
    * <pre>
-   * Output only. The reason this deploy failed. This will always be unspecified while the
-   * deploy in progress.
+   * Output only. The reason this rollout failed. This will always be unspecified while the
+   * rollout is in progress.
    * </pre>
    *
    * <code>.google.cloud.deploy.v1.Rollout.FailureCause deploy_failure_cause = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The deployFailureCause.
    */
   com.google.cloud.deploy.v1.Rollout.FailureCause getDeployFailureCause();
+
+  /**
+   * <pre>
+   * Output only. The phases that represent the workflows of this `Rollout`.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.deploy.v1.Phase phases = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<com.google.cloud.deploy.v1.Phase> 
+      getPhasesList();
+  /**
+   * <pre>
+   * Output only. The phases that represent the workflows of this `Rollout`.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.deploy.v1.Phase phases = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.deploy.v1.Phase getPhases(int index);
+  /**
+   * <pre>
+   * Output only. The phases that represent the workflows of this `Rollout`.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.deploy.v1.Phase phases = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  int getPhasesCount();
+  /**
+   * <pre>
+   * Output only. The phases that represent the workflows of this `Rollout`.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.deploy.v1.Phase phases = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  java.util.List<? extends com.google.cloud.deploy.v1.PhaseOrBuilder> 
+      getPhasesOrBuilderList();
+  /**
+   * <pre>
+   * Output only. The phases that represent the workflows of this `Rollout`.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.deploy.v1.Phase phases = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.deploy.v1.PhaseOrBuilder getPhasesOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Output only. Metadata contains information about the rollout.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.Metadata metadata = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the metadata field is set.
+   */
+  boolean hasMetadata();
+  /**
+   * <pre>
+   * Output only. Metadata contains information about the rollout.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.Metadata metadata = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The metadata.
+   */
+  com.google.cloud.deploy.v1.Metadata getMetadata();
+  /**
+   * <pre>
+   * Output only. Metadata contains information about the rollout.
+   * </pre>
+   *
+   * <code>.google.cloud.deploy.v1.Metadata metadata = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.cloud.deploy.v1.MetadataOrBuilder getMetadataOrBuilder();
 }

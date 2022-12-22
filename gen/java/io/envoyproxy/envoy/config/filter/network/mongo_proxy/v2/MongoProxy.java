@@ -32,75 +32,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MongoProxy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            accessLog_ = s;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.Builder subBuilder = null;
-            if (delay_ != null) {
-              subBuilder = delay_.toBuilder();
-            }
-            delay_ = input.readMessage(io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(delay_);
-              delay_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            emitDynamicMetadata_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxyProto.internal_static_envoy_config_filter_network_mongo_proxy_v2_MongoProxy_descriptor;
@@ -115,7 +46,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The human readable prefix to use when emitting :ref:`statistics
@@ -163,7 +95,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_LOG_FIELD_NUMBER = 2;
-  private volatile java.lang.Object accessLog_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object accessLog_ = "";
   /**
    * <pre>
    * The optional path to use for writing Mongo access logs. If not access log
@@ -256,11 +189,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.filter.fault.v2.FaultDelayOrBuilder getDelayOrBuilder() {
-    return getDelay();
+    return delay_ == null ? io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.getDefaultInstance() : delay_;
   }
 
   public static final int EMIT_DYNAMIC_METADATA_FIELD_NUMBER = 4;
-  private boolean emitDynamicMetadata_;
+  private boolean emitDynamicMetadata_ = false;
   /**
    * <pre>
    * Flag to specify whether :ref:`dynamic metadata
@@ -301,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (emitDynamicMetadata_ != false) {
       output.writeBool(4, emitDynamicMetadata_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -324,7 +257,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, emitDynamicMetadata_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -350,7 +283,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getEmitDynamicMetadata()
         != other.getEmitDynamicMetadata()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -372,7 +305,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + EMIT_DYNAMIC_METADATA_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getEmitDynamicMetadata());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -489,34 +422,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       statPrefix_ = "";
-
       accessLog_ = "";
-
-      if (delayBuilder_ == null) {
-        delay_ = null;
-      } else {
-        delay_ = null;
+      delay_ = null;
+      if (delayBuilder_ != null) {
+        delayBuilder_.dispose();
         delayBuilder_ = null;
       }
       emitDynamicMetadata_ = false;
-
       return this;
     }
 
@@ -543,16 +468,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy buildPartial() {
       io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy result = new io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy(this);
-      result.statPrefix_ = statPrefix_;
-      result.accessLog_ = accessLog_;
-      if (delayBuilder_ == null) {
-        result.delay_ = delay_;
-      } else {
-        result.delay_ = delayBuilder_.build();
-      }
-      result.emitDynamicMetadata_ = emitDynamicMetadata_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accessLog_ = accessLog_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.delay_ = delayBuilder_ == null
+            ? delay_
+            : delayBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.emitDynamicMetadata_ = emitDynamicMetadata_;
+      }
     }
 
     @java.lang.Override
@@ -601,10 +537,12 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy.getDefaultInstance()) return this;
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAccessLog().isEmpty()) {
         accessLog_ = other.accessLog_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDelay()) {
@@ -613,7 +551,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEmitDynamicMetadata() != false) {
         setEmitDynamicMetadata(other.getEmitDynamicMetadata());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -628,19 +566,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              accessLog_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDelayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              emitDynamicMetadata_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.network.mongo_proxy.v2.MongoProxy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object statPrefix_ = "";
     /**
@@ -698,11 +672,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -716,8 +688,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -733,12 +705,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -802,11 +772,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccessLog(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       accessLog_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -821,8 +789,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccessLog() {
-      
       accessLog_ = getDefaultInstance().getAccessLog();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -839,12 +807,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccessLogBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       accessLog_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -864,7 +830,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the delay field is set.
      */
     public boolean hasDelay() {
-      return delayBuilder_ != null || delay_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -900,11 +866,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         delay_ = value;
-        onChanged();
       } else {
         delayBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -921,11 +887,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.Builder builderForValue) {
       if (delayBuilder_ == null) {
         delay_ = builderForValue.build();
-        onChanged();
       } else {
         delayBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -940,17 +906,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDelay(io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay value) {
       if (delayBuilder_ == null) {
-        if (delay_ != null) {
-          delay_ =
-            io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.newBuilder(delay_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          delay_ != null &&
+          delay_ != io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.getDefaultInstance()) {
+          getDelayBuilder().mergeFrom(value);
         } else {
           delay_ = value;
         }
-        onChanged();
       } else {
         delayBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -964,14 +931,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.filter.fault.v2.FaultDelay delay = 3;</code>
      */
     public Builder clearDelay() {
-      if (delayBuilder_ == null) {
-        delay_ = null;
-        onChanged();
-      } else {
-        delay_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      delay_ = null;
+      if (delayBuilder_ != null) {
+        delayBuilder_.dispose();
         delayBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -985,7 +951,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.filter.fault.v2.FaultDelay delay = 3;</code>
      */
     public io.envoyproxy.envoy.config.filter.fault.v2.FaultDelay.Builder getDelayBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDelayFieldBuilder().getBuilder();
     }
@@ -1058,6 +1024,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEmitDynamicMetadata(boolean value) {
       
       emitDynamicMetadata_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1071,7 +1038,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmitDynamicMetadata() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       emitDynamicMetadata_ = false;
       onChanged();
       return this;
@@ -1109,7 +1076,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MongoProxy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

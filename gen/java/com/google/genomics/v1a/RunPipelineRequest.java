@@ -40,78 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RunPipelineRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            pipelineCase_ = 1;
-            pipeline_ = s;
-            break;
-          }
-          case 18: {
-            com.google.genomics.v1a.Pipeline.Builder subBuilder = null;
-            if (pipelineCase_ == 2) {
-              subBuilder = ((com.google.genomics.v1a.Pipeline) pipeline_).toBuilder();
-            }
-            pipeline_ =
-                input.readMessage(com.google.genomics.v1a.Pipeline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.genomics.v1a.Pipeline) pipeline_);
-              pipeline_ = subBuilder.buildPartial();
-            }
-            pipelineCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.genomics.v1a.RunPipelineArgs.Builder subBuilder = null;
-            if (pipelineArgs_ != null) {
-              subBuilder = pipelineArgs_.toBuilder();
-            }
-            pipelineArgs_ = input.readMessage(com.google.genomics.v1a.RunPipelineArgs.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pipelineArgs_);
-              pipelineArgs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_RunPipelineRequest_descriptor;
@@ -308,7 +236,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1a.RunPipelineArgsOrBuilder getPipelineArgsOrBuilder() {
-    return getPipelineArgs();
+    return pipelineArgs_ == null ? com.google.genomics.v1a.RunPipelineArgs.getDefaultInstance() : pipelineArgs_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -334,7 +262,7 @@ private static final long serialVersionUID = 0L;
     if (pipelineArgs_ != null) {
       output.writeMessage(3, getPipelineArgs());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -354,7 +282,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getPipelineArgs());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -387,7 +315,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -414,7 +342,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -541,26 +469,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1a.RunPipelineRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (pipelineArgsBuilder_ == null) {
-        pipelineArgs_ = null;
-      } else {
-        pipelineArgs_ = null;
+      bitField0_ = 0;
+      if (ephemeralPipelineBuilder_ != null) {
+        ephemeralPipelineBuilder_.clear();
+      }
+      pipelineArgs_ = null;
+      if (pipelineArgsBuilder_ != null) {
+        pipelineArgsBuilder_.dispose();
         pipelineArgsBuilder_ = null;
       }
       pipelineCase_ = 0;
@@ -591,24 +517,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1a.RunPipelineRequest buildPartial() {
       com.google.genomics.v1a.RunPipelineRequest result = new com.google.genomics.v1a.RunPipelineRequest(this);
-      if (pipelineCase_ == 1) {
-        result.pipeline_ = pipeline_;
-      }
-      if (pipelineCase_ == 2) {
-        if (ephemeralPipelineBuilder_ == null) {
-          result.pipeline_ = pipeline_;
-        } else {
-          result.pipeline_ = ephemeralPipelineBuilder_.build();
-        }
-      }
-      if (pipelineArgsBuilder_ == null) {
-        result.pipelineArgs_ = pipelineArgs_;
-      } else {
-        result.pipelineArgs_ = pipelineArgsBuilder_.build();
-      }
-      result.pipelineCase_ = pipelineCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1a.RunPipelineRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pipelineArgs_ = pipelineArgsBuilder_ == null
+            ? pipelineArgs_
+            : pipelineArgsBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.genomics.v1a.RunPipelineRequest result) {
+      result.pipelineCase_ = pipelineCase_;
+      result.pipeline_ = this.pipeline_;
+      if (pipelineCase_ == 2 &&
+          ephemeralPipelineBuilder_ != null) {
+        result.pipeline_ = ephemeralPipelineBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -673,7 +603,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -688,17 +618,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1a.RunPipelineRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              pipelineCase_ = 1;
+              pipeline_ = s;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEphemeralPipelineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              pipelineCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPipelineArgsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1a.RunPipelineRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int pipelineCase_ = 0;
@@ -716,6 +679,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -793,10 +757,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPipelineId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  pipelineCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      pipelineCase_ = 1;
       pipeline_ = value;
       onChanged();
       return this;
@@ -828,10 +790,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPipelineIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pipelineCase_ = 1;
       pipeline_ = value;
       onChanged();
@@ -1012,7 +972,7 @@ private static final long serialVersionUID = 0L;
         pipeline_ = null;
       }
       pipelineCase_ = 2;
-      onChanged();;
+      onChanged();
       return ephemeralPipelineBuilder_;
     }
 
@@ -1028,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pipelineArgs field is set.
      */
     public boolean hasPipelineArgs() {
-      return pipelineArgsBuilder_ != null || pipelineArgs_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1058,11 +1018,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pipelineArgs_ = value;
-        onChanged();
       } else {
         pipelineArgsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1076,11 +1036,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1a.RunPipelineArgs.Builder builderForValue) {
       if (pipelineArgsBuilder_ == null) {
         pipelineArgs_ = builderForValue.build();
-        onChanged();
       } else {
         pipelineArgsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1092,17 +1052,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePipelineArgs(com.google.genomics.v1a.RunPipelineArgs value) {
       if (pipelineArgsBuilder_ == null) {
-        if (pipelineArgs_ != null) {
-          pipelineArgs_ =
-            com.google.genomics.v1a.RunPipelineArgs.newBuilder(pipelineArgs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          pipelineArgs_ != null &&
+          pipelineArgs_ != com.google.genomics.v1a.RunPipelineArgs.getDefaultInstance()) {
+          getPipelineArgsBuilder().mergeFrom(value);
         } else {
           pipelineArgs_ = value;
         }
-        onChanged();
       } else {
         pipelineArgsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1113,14 +1074,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1alpha2.RunPipelineArgs pipeline_args = 3;</code>
      */
     public Builder clearPipelineArgs() {
-      if (pipelineArgsBuilder_ == null) {
-        pipelineArgs_ = null;
-        onChanged();
-      } else {
-        pipelineArgs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      pipelineArgs_ = null;
+      if (pipelineArgsBuilder_ != null) {
+        pipelineArgsBuilder_.dispose();
         pipelineArgsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1131,7 +1091,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1alpha2.RunPipelineArgs pipeline_args = 3;</code>
      */
     public com.google.genomics.v1a.RunPipelineArgs.Builder getPipelineArgsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getPipelineArgsFieldBuilder().getBuilder();
     }
@@ -1203,7 +1163,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RunPipelineRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

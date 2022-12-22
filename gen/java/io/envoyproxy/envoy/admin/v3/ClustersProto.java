@@ -53,7 +53,7 @@ public final class ClustersProto {
       "s/status.proto\032!udpa/annotations/version" +
       "ing.proto\"h\n\010Clusters\0227\n\020cluster_statuse" +
       "s\030\001 \003(\0132\035.envoy.admin.v3.ClusterStatus:#" +
-      "\232\305\210\036\036\n\034envoy.admin.v2alpha.Clusters\"\200\003\n\r" +
+      "\232\305\210\036\036\n\034envoy.admin.v2alpha.Clusters\"\232\003\n\r" +
       "ClusterStatus\022\014\n\004name\030\001 \001(\t\022\025\n\radded_via" +
       "_api\030\002 \001(\010\022?\n\037success_rate_ejection_thre" +
       "shold\030\003 \001(\0132\026.envoy.type.v3.Percent\0221\n\rh" +
@@ -62,31 +62,31 @@ public final class ClustersProto {
       "tion_threshold\030\005 \001(\0132\026.envoy.type.v3.Per" +
       "cent\022B\n\020circuit_breakers\030\006 \001(\0132(.envoy.c" +
       "onfig.cluster.v3.CircuitBreakers\022\032\n\022obse" +
-      "rvability_name\030\007 \001(\t:(\232\305\210\036#\n!envoy.admin" +
-      ".v2alpha.ClusterStatus\"\230\003\n\nHostStatus\022.\n" +
-      "\007address\030\001 \001(\0132\035.envoy.config.core.v3.Ad" +
-      "dress\022+\n\005stats\030\002 \003(\0132\034.envoy.admin.v3.Si" +
-      "mpleMetric\0227\n\rhealth_status\030\003 \001(\0132 .envo" +
-      "y.admin.v3.HostHealthStatus\022,\n\014success_r" +
-      "ate\030\004 \001(\0132\026.envoy.type.v3.Percent\022\016\n\006wei" +
-      "ght\030\005 \001(\r\022\020\n\010hostname\030\006 \001(\t\022\020\n\010priority\030" +
-      "\007 \001(\r\0229\n\031local_origin_success_rate\030\010 \001(\013" +
-      "2\026.envoy.type.v3.Percent\0220\n\010locality\030\t \001" +
-      "(\0132\036.envoy.config.core.v3.Locality:%\232\305\210\036" +
-      " \n\036envoy.admin.v2alpha.HostStatus\"\345\002\n\020Ho" +
-      "stHealthStatus\022\"\n\032failed_active_health_c" +
-      "heck\030\001 \001(\010\022\034\n\024failed_outlier_check\030\002 \001(\010" +
-      "\022$\n\034failed_active_degraded_check\030\004 \001(\010\022\037" +
-      "\n\027pending_dynamic_removal\030\005 \001(\010\022\031\n\021pendi" +
-      "ng_active_hc\030\006 \001(\010\022&\n\036excluded_via_immed" +
-      "iate_hc_fail\030\007 \001(\010\022\031\n\021active_hc_timeout\030" +
-      "\010 \001(\010\022=\n\021eds_health_status\030\003 \001(\0162\".envoy" +
-      ".config.core.v3.HealthStatus:+\232\305\210\036&\n$env" +
-      "oy.admin.v2alpha.HostHealthStatusBv\n\034io." +
-      "envoyproxy.envoy.admin.v3B\rClustersProto" +
-      "P\001Z=github.com/envoyproxy/go-control-pla" +
-      "ne/envoy/admin/v3;adminv3\272\200\310\321\006\002\020\002b\006proto" +
-      "3"
+      "rvability_name\030\007 \001(\t\022\030\n\020eds_service_name" +
+      "\030\010 \001(\t:(\232\305\210\036#\n!envoy.admin.v2alpha.Clust" +
+      "erStatus\"\230\003\n\nHostStatus\022.\n\007address\030\001 \001(\013" +
+      "2\035.envoy.config.core.v3.Address\022+\n\005stats" +
+      "\030\002 \003(\0132\034.envoy.admin.v3.SimpleMetric\0227\n\r" +
+      "health_status\030\003 \001(\0132 .envoy.admin.v3.Hos" +
+      "tHealthStatus\022,\n\014success_rate\030\004 \001(\0132\026.en" +
+      "voy.type.v3.Percent\022\016\n\006weight\030\005 \001(\r\022\020\n\010h" +
+      "ostname\030\006 \001(\t\022\020\n\010priority\030\007 \001(\r\0229\n\031local" +
+      "_origin_success_rate\030\010 \001(\0132\026.envoy.type." +
+      "v3.Percent\0220\n\010locality\030\t \001(\0132\036.envoy.con" +
+      "fig.core.v3.Locality:%\232\305\210\036 \n\036envoy.admin" +
+      ".v2alpha.HostStatus\"\345\002\n\020HostHealthStatus" +
+      "\022\"\n\032failed_active_health_check\030\001 \001(\010\022\034\n\024" +
+      "failed_outlier_check\030\002 \001(\010\022$\n\034failed_act" +
+      "ive_degraded_check\030\004 \001(\010\022\037\n\027pending_dyna" +
+      "mic_removal\030\005 \001(\010\022\031\n\021pending_active_hc\030\006" +
+      " \001(\010\022&\n\036excluded_via_immediate_hc_fail\030\007" +
+      " \001(\010\022\031\n\021active_hc_timeout\030\010 \001(\010\022=\n\021eds_h" +
+      "ealth_status\030\003 \001(\0162\".envoy.config.core.v" +
+      "3.HealthStatus:+\232\305\210\036&\n$envoy.admin.v2alp" +
+      "ha.HostHealthStatusBv\n\034io.envoyproxy.env" +
+      "oy.admin.v3B\rClustersProtoP\001Z=github.com" +
+      "/envoyproxy/go-control-plane/envoy/admin" +
+      "/v3;adminv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -111,7 +111,7 @@ public final class ClustersProto {
     internal_static_envoy_admin_v3_ClusterStatus_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_admin_v3_ClusterStatus_descriptor,
-        new java.lang.String[] { "Name", "AddedViaApi", "SuccessRateEjectionThreshold", "HostStatuses", "LocalOriginSuccessRateEjectionThreshold", "CircuitBreakers", "ObservabilityName", });
+        new java.lang.String[] { "Name", "AddedViaApi", "SuccessRateEjectionThreshold", "HostStatuses", "LocalOriginSuccessRateEjectionThreshold", "CircuitBreakers", "ObservabilityName", "EdsServiceName", });
     internal_static_envoy_admin_v3_HostStatus_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_envoy_admin_v3_HostStatus_fieldAccessorTable = new

@@ -15,14 +15,14 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6google/cloud/security/publicca/v1beta1/resources.proto\x12&google.cloud.security.publicca.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xdd\x01\n\x12\x45xternalAccountKey\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x06key_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x62\x36\x34_mac_key\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x03:\x84\x01\xea\x41\x80\x01\n*publicca.googleapis.com/ExternalAccountKey\x12Rprojects/{project}/locations/{location}/externalAccountKeys/{external_account_key}B\x91\x01\n*com.google.cloud.security.publicca.v1beta1B\x0eResourcesProtoP\x01ZNgoogle.golang.org/genproto/googleapis/cloud/security/publicca/v1beta1;publicca\xf8\x01\x01\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n6google/cloud/security/publicca/v1beta1/resources.proto\x12&google.cloud.security.publicca.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xdd\x01\n\x12\x45xternalAccountKey\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x13\n\x06key_id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0b\x62\x36\x34_mac_key\x18\x03 \x01(\x0c\x42\x03\xe0\x41\x03:\x84\x01\xea\x41\x80\x01\n*publicca.googleapis.com/ExternalAccountKey\x12Rprojects/{project}/locations/{location}/externalAccountKeys/{external_account_key}B\x90\x02\n*com.google.cloud.security.publicca.v1beta1B\x0eResourcesProtoP\x01ZNgoogle.golang.org/genproto/googleapis/cloud/security/publicca/v1beta1;publicca\xf8\x01\x01\xaa\x02&Google.Cloud.Security.PublicCA.V1Beta1\xca\x02&Google\\Cloud\\Security\\PublicCA\\V1beta1\xea\x02*Google::Cloud::Security::PublicCA::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.security.publicca.v1beta1.resources_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n*com.google.cloud.security.publicca.v1beta1B\016ResourcesProtoP\001ZNgoogle.golang.org/genproto/googleapis/cloud/security/publicca/v1beta1;publicca\370\001\001'
+  DESCRIPTOR._serialized_options = b'\n*com.google.cloud.security.publicca.v1beta1B\016ResourcesProtoP\001ZNgoogle.golang.org/genproto/googleapis/cloud/security/publicca/v1beta1;publicca\370\001\001\252\002&Google.Cloud.Security.PublicCA.V1Beta1\312\002&Google\\Cloud\\Security\\PublicCA\\V1beta1\352\002*Google::Cloud::Security::PublicCA::V1beta1'
   _EXTERNALACCOUNTKEY.fields_by_name['name']._options = None
   _EXTERNALACCOUNTKEY.fields_by_name['name']._serialized_options = b'\340A\003'
   _EXTERNALACCOUNTKEY.fields_by_name['key_id']._options = None

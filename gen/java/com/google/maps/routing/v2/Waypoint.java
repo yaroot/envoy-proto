@@ -35,80 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Waypoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.maps.routing.v2.Location.Builder subBuilder = null;
-            if (locationTypeCase_ == 1) {
-              subBuilder = ((com.google.maps.routing.v2.Location) locationType_).toBuilder();
-            }
-            locationType_ =
-                input.readMessage(com.google.maps.routing.v2.Location.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.maps.routing.v2.Location) locationType_);
-              locationType_ = subBuilder.buildPartial();
-            }
-            locationTypeCase_ = 1;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            locationTypeCase_ = 2;
-            locationType_ = s;
-            break;
-          }
-          case 24: {
-
-            via_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            vehicleStopover_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            sideOfRoad_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routing.v2.WaypointProto.internal_static_google_maps_routing_v2_Waypoint_descriptor;
@@ -274,7 +200,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIA_FIELD_NUMBER = 3;
-  private boolean via_;
+  private boolean via_ = false;
   /**
    * <pre>
    * Marks this waypoint as a milestone rather a stopping point. For
@@ -285,8 +211,7 @@ private static final long serialVersionUID = 0L;
    * added to the `legs` array, but they do route the journey through the
    * waypoint. You can only set this value on waypoints that are intermediates.
    * The request fails if you set this field on terminal waypoints.
-   * If
-   * [ComputeRoutesRequest][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
+   * If `ComputeRoutesRequest.optimize_waypoint_order`
    * is set to true then this field cannot be set to
    * true; otherwise, the request fails.
    * </pre>
@@ -300,7 +225,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VEHICLE_STOPOVER_FIELD_NUMBER = 4;
-  private boolean vehicleStopover_;
+  private boolean vehicleStopover_ = false;
   /**
    * <pre>
    * Indicates that the waypoint is meant for vehicles to stop at, where the
@@ -319,7 +244,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIDE_OF_ROAD_FIELD_NUMBER = 5;
-  private boolean sideOfRoad_;
+  private boolean sideOfRoad_ = false;
   /**
    * <pre>
    * Indicates that the location of this waypoint is meant to have a preference
@@ -327,7 +252,7 @@ private static final long serialVersionUID = 0L;
    * value, the route will pass through the location so that the vehicle can
    * stop at the side of road that the location is biased towards from the
    * center of the road. This option works only for 'DRIVE' and 'TWO_WHEELER'
-   * travel modes, and when the 'location_type' is set to 'location'.
+   * travel modes.
    * </pre>
    *
    * <code>bool side_of_road = 5;</code>
@@ -367,7 +292,7 @@ private static final long serialVersionUID = 0L;
     if (sideOfRoad_ != false) {
       output.writeBool(5, sideOfRoad_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -395,7 +320,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, sideOfRoad_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -429,7 +354,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -461,7 +386,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -583,28 +508,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routing.v2.Waypoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (locationBuilder_ != null) {
+        locationBuilder_.clear();
+      }
       via_ = false;
-
       vehicleStopover_ = false;
-
       sideOfRoad_ = false;
-
       locationTypeCase_ = 0;
       locationType_ = null;
       return this;
@@ -633,22 +554,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routing.v2.Waypoint buildPartial() {
       com.google.maps.routing.v2.Waypoint result = new com.google.maps.routing.v2.Waypoint(this);
-      if (locationTypeCase_ == 1) {
-        if (locationBuilder_ == null) {
-          result.locationType_ = locationType_;
-        } else {
-          result.locationType_ = locationBuilder_.build();
-        }
-      }
-      if (locationTypeCase_ == 2) {
-        result.locationType_ = locationType_;
-      }
-      result.via_ = via_;
-      result.vehicleStopover_ = vehicleStopover_;
-      result.sideOfRoad_ = sideOfRoad_;
-      result.locationTypeCase_ = locationTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.routing.v2.Waypoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.via_ = via_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.vehicleStopover_ = vehicleStopover_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sideOfRoad_ = sideOfRoad_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.maps.routing.v2.Waypoint result) {
+      result.locationTypeCase_ = locationTypeCase_;
+      result.locationType_ = this.locationType_;
+      if (locationTypeCase_ == 1 &&
+          locationBuilder_ != null) {
+        result.locationType_ = locationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -719,7 +650,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -734,17 +665,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routing.v2.Waypoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              locationTypeCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              locationTypeCase_ = 2;
+              locationType_ = s;
+              break;
+            } // case 18
+            case 24: {
+              via_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              vehicleStopover_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              sideOfRoad_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routing.v2.Waypoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int locationTypeCase_ = 0;
@@ -762,6 +734,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.maps.routing.v2.Location, com.google.maps.routing.v2.Location.Builder, com.google.maps.routing.v2.LocationOrBuilder> locationBuilder_;
@@ -946,7 +919,7 @@ private static final long serialVersionUID = 0L;
         locationType_ = null;
       }
       locationTypeCase_ = 1;
-      onChanged();;
+      onChanged();
       return locationBuilder_;
     }
 
@@ -1026,10 +999,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  locationTypeCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      locationTypeCase_ = 2;
       locationType_ = value;
       onChanged();
       return this;
@@ -1061,10 +1032,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locationTypeCase_ = 2;
       locationType_ = value;
       onChanged();
@@ -1082,8 +1051,7 @@ private static final long serialVersionUID = 0L;
      * added to the `legs` array, but they do route the journey through the
      * waypoint. You can only set this value on waypoints that are intermediates.
      * The request fails if you set this field on terminal waypoints.
-     * If
-     * [ComputeRoutesRequest][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
+     * If `ComputeRoutesRequest.optimize_waypoint_order`
      * is set to true then this field cannot be set to
      * true; otherwise, the request fails.
      * </pre>
@@ -1105,8 +1073,7 @@ private static final long serialVersionUID = 0L;
      * added to the `legs` array, but they do route the journey through the
      * waypoint. You can only set this value on waypoints that are intermediates.
      * The request fails if you set this field on terminal waypoints.
-     * If
-     * [ComputeRoutesRequest][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
+     * If `ComputeRoutesRequest.optimize_waypoint_order`
      * is set to true then this field cannot be set to
      * true; otherwise, the request fails.
      * </pre>
@@ -1118,6 +1085,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVia(boolean value) {
       
       via_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1131,8 +1099,7 @@ private static final long serialVersionUID = 0L;
      * added to the `legs` array, but they do route the journey through the
      * waypoint. You can only set this value on waypoints that are intermediates.
      * The request fails if you set this field on terminal waypoints.
-     * If
-     * [ComputeRoutesRequest][google.maps.routing.v2.ComputeRoutesRequest.optimize_waypoint_order]
+     * If `ComputeRoutesRequest.optimize_waypoint_order`
      * is set to true then this field cannot be set to
      * true; otherwise, the request fails.
      * </pre>
@@ -1141,7 +1108,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVia() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       via_ = false;
       onChanged();
       return this;
@@ -1180,6 +1147,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVehicleStopover(boolean value) {
       
       vehicleStopover_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1196,7 +1164,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVehicleStopover() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       vehicleStopover_ = false;
       onChanged();
       return this;
@@ -1210,7 +1178,7 @@ private static final long serialVersionUID = 0L;
      * value, the route will pass through the location so that the vehicle can
      * stop at the side of road that the location is biased towards from the
      * center of the road. This option works only for 'DRIVE' and 'TWO_WHEELER'
-     * travel modes, and when the 'location_type' is set to 'location'.
+     * travel modes.
      * </pre>
      *
      * <code>bool side_of_road = 5;</code>
@@ -1227,7 +1195,7 @@ private static final long serialVersionUID = 0L;
      * value, the route will pass through the location so that the vehicle can
      * stop at the side of road that the location is biased towards from the
      * center of the road. This option works only for 'DRIVE' and 'TWO_WHEELER'
-     * travel modes, and when the 'location_type' is set to 'location'.
+     * travel modes.
      * </pre>
      *
      * <code>bool side_of_road = 5;</code>
@@ -1237,6 +1205,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSideOfRoad(boolean value) {
       
       sideOfRoad_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1247,14 +1216,14 @@ private static final long serialVersionUID = 0L;
      * value, the route will pass through the location so that the vehicle can
      * stop at the side of road that the location is biased towards from the
      * center of the road. This option works only for 'DRIVE' and 'TWO_WHEELER'
-     * travel modes, and when the 'location_type' is set to 'location'.
+     * travel modes.
      * </pre>
      *
      * <code>bool side_of_road = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearSideOfRoad() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       sideOfRoad_ = false;
       onChanged();
       return this;
@@ -1292,7 +1261,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Waypoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

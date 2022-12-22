@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConsumableTrafficPolyline(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              speedReadingInterval_ = new java.util.ArrayList<google.maps.fleetengine.v1.SpeedReadingInterval>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            speedReadingInterval_.add(
-                input.readMessage(google.maps.fleetengine.v1.SpeedReadingInterval.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            encodedPathToWaypoint_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        speedReadingInterval_ = java.util.Collections.unmodifiableList(speedReadingInterval_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.TrafficProto.internal_static_maps_fleetengine_v1_ConsumableTrafficPolyline_descriptor;
@@ -108,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPEED_READING_INTERVAL_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.SpeedReadingInterval> speedReadingInterval_;
   /**
    * <pre>
@@ -173,7 +116,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCODED_PATH_TO_WAYPOINT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object encodedPathToWaypoint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object encodedPathToWaypoint_ = "";
   /**
    * <pre>
    * The path the driver is taking from the previous waypoint to the current
@@ -244,7 +188,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(encodedPathToWaypoint_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, encodedPathToWaypoint_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -260,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(encodedPathToWaypoint_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, encodedPathToWaypoint_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -279,7 +223,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSpeedReadingIntervalList())) return false;
     if (!getEncodedPathToWaypoint()
         .equals(other.getEncodedPathToWaypoint())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -296,7 +240,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ENCODED_PATH_TO_WAYPOINT_FIELD_NUMBER;
     hash = (53 * hash) + getEncodedPathToWaypoint().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -417,31 +361,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.ConsumableTrafficPolyline.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpeedReadingIntervalFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (speedReadingIntervalBuilder_ == null) {
         speedReadingInterval_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        speedReadingInterval_ = null;
         speedReadingIntervalBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       encodedPathToWaypoint_ = "";
-
       return this;
     }
 
@@ -468,7 +407,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.ConsumableTrafficPolyline buildPartial() {
       google.maps.fleetengine.v1.ConsumableTrafficPolyline result = new google.maps.fleetengine.v1.ConsumableTrafficPolyline(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.ConsumableTrafficPolyline result) {
       if (speedReadingIntervalBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           speedReadingInterval_ = java.util.Collections.unmodifiableList(speedReadingInterval_);
@@ -478,9 +423,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.speedReadingInterval_ = speedReadingIntervalBuilder_.build();
       }
-      result.encodedPathToWaypoint_ = encodedPathToWaypoint_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.ConsumableTrafficPolyline result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.encodedPathToWaypoint_ = encodedPathToWaypoint_;
+      }
     }
 
     @java.lang.Override
@@ -555,9 +504,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEncodedPathToWaypoint().isEmpty()) {
         encodedPathToWaypoint_ = other.encodedPathToWaypoint_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -572,17 +522,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.ConsumableTrafficPolyline parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              google.maps.fleetengine.v1.SpeedReadingInterval m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.SpeedReadingInterval.parser(),
+                      extensionRegistry);
+              if (speedReadingIntervalBuilder_ == null) {
+                ensureSpeedReadingIntervalIsMutable();
+                speedReadingInterval_.add(m);
+              } else {
+                speedReadingIntervalBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              encodedPathToWaypoint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.ConsumableTrafficPolyline) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -979,11 +960,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncodedPathToWaypoint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       encodedPathToWaypoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -999,8 +978,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncodedPathToWaypoint() {
-      
       encodedPathToWaypoint_ = getDefaultInstance().getEncodedPathToWaypoint();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1018,12 +997,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEncodedPathToWaypointBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       encodedPathToWaypoint_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1060,7 +1037,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConsumableTrafficPolyline(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

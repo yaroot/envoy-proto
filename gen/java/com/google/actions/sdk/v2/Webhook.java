@@ -42,86 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Webhook(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              handlers_ = new java.util.ArrayList<com.google.actions.sdk.v2.Webhook.Handler>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            handlers_.add(
-                input.readMessage(com.google.actions.sdk.v2.Webhook.Handler.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.Webhook.HttpsEndpoint.Builder subBuilder = null;
-            if (webhookTypeCase_ == 2) {
-              subBuilder = ((com.google.actions.sdk.v2.Webhook.HttpsEndpoint) webhookType_).toBuilder();
-            }
-            webhookType_ =
-                input.readMessage(com.google.actions.sdk.v2.Webhook.HttpsEndpoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.Webhook.HttpsEndpoint) webhookType_);
-              webhookType_ = subBuilder.buildPartial();
-            }
-            webhookTypeCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.actions.sdk.v2.Webhook.InlineCloudFunction.Builder subBuilder = null;
-            if (webhookTypeCase_ == 3) {
-              subBuilder = ((com.google.actions.sdk.v2.Webhook.InlineCloudFunction) webhookType_).toBuilder();
-            }
-            webhookType_ =
-                input.readMessage(com.google.actions.sdk.v2.Webhook.InlineCloudFunction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.Webhook.InlineCloudFunction) webhookType_);
-              webhookType_ = subBuilder.buildPartial();
-            }
-            webhookTypeCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        handlers_ = java.util.Collections.unmodifiableList(handlers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.WebhookProto.internal_static_google_actions_sdk_v2_Webhook_descriptor;
@@ -197,51 +117,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Handler(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.actions.sdk.v2.WebhookProto.internal_static_google_actions_sdk_v2_Webhook_Handler_descriptor;
@@ -256,7 +131,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. Name of the handler. Must be unique across all handlers the Actions
@@ -322,7 +198,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -334,7 +210,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -351,7 +227,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -364,7 +240,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -487,24 +363,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.actions.sdk.v2.Webhook.Handler.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -531,9 +402,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.actions.sdk.v2.Webhook.Handler buildPartial() {
         com.google.actions.sdk.v2.Webhook.Handler result = new com.google.actions.sdk.v2.Webhook.Handler(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.actions.sdk.v2.Webhook.Handler result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -582,9 +460,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.actions.sdk.v2.Webhook.Handler.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -599,19 +478,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.actions.sdk.v2.Webhook.Handler parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.actions.sdk.v2.Webhook.Handler) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -672,11 +570,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -691,8 +587,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -709,12 +605,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -751,7 +645,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Handler(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -844,7 +749,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; http_headers = 2;</code>
      */
-
     /* nullable */
 java.lang.String getHttpHeadersOrDefault(
         java.lang.String key,
@@ -857,7 +761,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; http_headers = 2;</code>
      */
-
     java.lang.String getHttpHeadersOrThrow(
         java.lang.String key);
 
@@ -904,70 +807,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private HttpsEndpoint(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              baseUrl_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                httpHeaders_ = com.google.protobuf.MapField.newMapField(
-                    HttpHeadersDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              httpHeaders__ = input.readMessage(
-                  HttpHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              httpHeaders_.getMutableMap().put(
-                  httpHeaders__.getKey(), httpHeaders__.getValue());
-              break;
-            }
-            case 24: {
-
-              endpointApiVersion_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.actions.sdk.v2.WebhookProto.internal_static_google_actions_sdk_v2_Webhook_HttpsEndpoint_descriptor;
@@ -994,7 +833,8 @@ java.lang.String defaultValue);
     }
 
     public static final int BASE_URL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object baseUrl_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object baseUrl_ = "";
     /**
      * <pre>
      * The HTTPS base URL for your fulfillment endpoint (HTTP is not supported).
@@ -1061,6 +901,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> httpHeaders_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1071,7 +912,6 @@ java.lang.String defaultValue);
       }
       return httpHeaders_;
     }
-
     public int getHttpHeadersCount() {
       return internalGetHttpHeaders().getMap().size();
     }
@@ -1082,7 +922,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; http_headers = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsHttpHeaders(
         java.lang.String key) {
@@ -1105,7 +944,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; http_headers = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getHttpHeadersMap() {
       return internalGetHttpHeaders().getMap();
     }
@@ -1117,10 +955,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; http_headers = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getHttpHeadersOrDefault(
+    public /* nullable */
+java.lang.String getHttpHeadersOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetHttpHeaders().getMap();
@@ -1134,7 +973,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; http_headers = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getHttpHeadersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1147,7 +985,7 @@ java.lang.String defaultValue);
     }
 
     public static final int ENDPOINT_API_VERSION_FIELD_NUMBER = 3;
-    private int endpointApiVersion_;
+    private int endpointApiVersion_ = 0;
     /**
      * <pre>
      * Version of the protocol used by the endpoint. This is the protocol shared
@@ -1188,7 +1026,7 @@ java.lang.String defaultValue);
       if (endpointApiVersion_ != 0) {
         output.writeInt32(3, endpointApiVersion_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1214,7 +1052,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, endpointApiVersion_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1235,7 +1073,7 @@ java.lang.String defaultValue);
           other.internalGetHttpHeaders())) return false;
       if (getEndpointApiVersion()
           != other.getEndpointApiVersion()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1254,7 +1092,7 @@ java.lang.String defaultValue);
       }
       hash = (37 * hash) + ENDPOINT_API_VERSION_FIELD_NUMBER;
       hash = (53 * hash) + getEndpointApiVersion();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1397,27 +1235,21 @@ java.lang.String defaultValue);
 
       // Construct using com.google.actions.sdk.v2.Webhook.HttpsEndpoint.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         baseUrl_ = "";
-
         internalGetMutableHttpHeaders().clear();
         endpointApiVersion_ = 0;
-
         return this;
       }
 
@@ -1444,13 +1276,23 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.actions.sdk.v2.Webhook.HttpsEndpoint buildPartial() {
         com.google.actions.sdk.v2.Webhook.HttpsEndpoint result = new com.google.actions.sdk.v2.Webhook.HttpsEndpoint(this);
-        int from_bitField0_ = bitField0_;
-        result.baseUrl_ = baseUrl_;
-        result.httpHeaders_ = internalGetHttpHeaders();
-        result.httpHeaders_.makeImmutable();
-        result.endpointApiVersion_ = endpointApiVersion_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.actions.sdk.v2.Webhook.HttpsEndpoint result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.baseUrl_ = baseUrl_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.httpHeaders_ = internalGetHttpHeaders();
+          result.httpHeaders_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.endpointApiVersion_ = endpointApiVersion_;
+        }
       }
 
       @java.lang.Override
@@ -1499,14 +1341,16 @@ java.lang.String defaultValue);
         if (other == com.google.actions.sdk.v2.Webhook.HttpsEndpoint.getDefaultInstance()) return this;
         if (!other.getBaseUrl().isEmpty()) {
           baseUrl_ = other.baseUrl_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         internalGetMutableHttpHeaders().mergeFrom(
             other.internalGetHttpHeaders());
+        bitField0_ |= 0x00000002;
         if (other.getEndpointApiVersion() != 0) {
           setEndpointApiVersion(other.getEndpointApiVersion());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1521,17 +1365,49 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.actions.sdk.v2.Webhook.HttpsEndpoint parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                baseUrl_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                httpHeaders__ = input.readMessage(
+                    HttpHeadersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableHttpHeaders().getMutableMap().put(
+                    httpHeaders__.getKey(), httpHeaders__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                endpointApiVersion_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.actions.sdk.v2.Webhook.HttpsEndpoint) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1604,11 +1480,9 @@ java.lang.String defaultValue);
        */
       public Builder setBaseUrl(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         baseUrl_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1626,8 +1500,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearBaseUrl() {
-        
         baseUrl_ = getDefaultInstance().getBaseUrl();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1647,12 +1521,10 @@ java.lang.String defaultValue);
        */
       public Builder setBaseUrlBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         baseUrl_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1660,7 +1532,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> httpHeaders_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetHttpHeaders() {
+          internalGetHttpHeaders() {
         if (httpHeaders_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               HttpHeadersDefaultEntryHolder.defaultEntry);
@@ -1668,8 +1540,7 @@ java.lang.String defaultValue);
         return httpHeaders_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableHttpHeaders() {
-        onChanged();;
+          internalGetMutableHttpHeaders() {
         if (httpHeaders_ == null) {
           httpHeaders_ = com.google.protobuf.MapField.newMapField(
               HttpHeadersDefaultEntryHolder.defaultEntry);
@@ -1677,9 +1548,10 @@ java.lang.String defaultValue);
         if (!httpHeaders_.isMutable()) {
           httpHeaders_ = httpHeaders_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return httpHeaders_;
       }
-
       public int getHttpHeadersCount() {
         return internalGetHttpHeaders().getMap().size();
       }
@@ -1690,7 +1562,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; http_headers = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsHttpHeaders(
           java.lang.String key) {
@@ -1713,7 +1584,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; http_headers = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getHttpHeadersMap() {
         return internalGetHttpHeaders().getMap();
       }
@@ -1725,10 +1595,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; http_headers = 2;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getHttpHeadersOrDefault(
+      public /* nullable */
+java.lang.String getHttpHeadersOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetHttpHeaders().getMap();
@@ -1742,7 +1613,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; http_headers = 2;</code>
        */
       @java.lang.Override
-
       public java.lang.String getHttpHeadersOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1753,8 +1623,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearHttpHeaders() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableHttpHeaders().getMutableMap()
             .clear();
         return this;
@@ -1766,7 +1636,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; http_headers = 2;</code>
        */
-
       public Builder removeHttpHeaders(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1779,7 +1648,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableHttpHeaders() {
+          getMutableHttpHeaders() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableHttpHeaders().getMutableMap();
       }
       /**
@@ -1793,12 +1663,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableHttpHeaders().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -1808,11 +1676,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; http_headers = 2;</code>
        */
-
       public Builder putAllHttpHeaders(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableHttpHeaders().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
 
@@ -1843,6 +1711,7 @@ java.lang.String defaultValue);
       public Builder setEndpointApiVersion(int value) {
         
         endpointApiVersion_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1856,7 +1725,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearEndpointApiVersion() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         endpointApiVersion_ = 0;
         onChanged();
         return this;
@@ -1894,7 +1763,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HttpsEndpoint(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1973,51 +1853,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private InlineCloudFunction(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              executeFunction_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.actions.sdk.v2.WebhookProto.internal_static_google_actions_sdk_v2_Webhook_InlineCloudFunction_descriptor;
@@ -2032,7 +1867,8 @@ java.lang.String defaultValue);
     }
 
     public static final int EXECUTE_FUNCTION_FIELD_NUMBER = 1;
-    private volatile java.lang.Object executeFunction_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object executeFunction_ = "";
     /**
      * <pre>
      * The name of the Cloud Function entry point. The value of this field
@@ -2096,7 +1932,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(executeFunction_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, executeFunction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2108,7 +1944,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(executeFunction_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, executeFunction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2125,7 +1961,7 @@ java.lang.String defaultValue);
 
       if (!getExecuteFunction()
           .equals(other.getExecuteFunction())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2138,7 +1974,7 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + EXECUTE_FUNCTION_FIELD_NUMBER;
       hash = (53 * hash) + getExecuteFunction().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2260,24 +2096,19 @@ java.lang.String defaultValue);
 
       // Construct using com.google.actions.sdk.v2.Webhook.InlineCloudFunction.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         executeFunction_ = "";
-
         return this;
       }
 
@@ -2304,9 +2135,16 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.actions.sdk.v2.Webhook.InlineCloudFunction buildPartial() {
         com.google.actions.sdk.v2.Webhook.InlineCloudFunction result = new com.google.actions.sdk.v2.Webhook.InlineCloudFunction(this);
-        result.executeFunction_ = executeFunction_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.actions.sdk.v2.Webhook.InlineCloudFunction result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.executeFunction_ = executeFunction_;
+        }
       }
 
       @java.lang.Override
@@ -2355,9 +2193,10 @@ java.lang.String defaultValue);
         if (other == com.google.actions.sdk.v2.Webhook.InlineCloudFunction.getDefaultInstance()) return this;
         if (!other.getExecuteFunction().isEmpty()) {
           executeFunction_ = other.executeFunction_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2372,19 +2211,38 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.actions.sdk.v2.Webhook.InlineCloudFunction parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                executeFunction_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.actions.sdk.v2.Webhook.InlineCloudFunction) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object executeFunction_ = "";
       /**
@@ -2442,11 +2300,9 @@ java.lang.String defaultValue);
        */
       public Builder setExecuteFunction(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         executeFunction_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2460,8 +2316,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearExecuteFunction() {
-        
         executeFunction_ = getDefaultInstance().getExecuteFunction();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2477,12 +2333,10 @@ java.lang.String defaultValue);
        */
       public Builder setExecuteFunctionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         executeFunction_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2519,7 +2373,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InlineCloudFunction(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2581,6 +2446,7 @@ java.lang.String defaultValue);
   }
 
   public static final int HANDLERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.Webhook.Handler> handlers_;
   /**
    * <pre>
@@ -2749,7 +2615,7 @@ java.lang.String defaultValue);
     if (webhookTypeCase_ == 3) {
       output.writeMessage(3, (com.google.actions.sdk.v2.Webhook.InlineCloudFunction) webhookType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2770,7 +2636,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.actions.sdk.v2.Webhook.InlineCloudFunction) webhookType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2800,7 +2666,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2827,7 +2693,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2955,28 +2821,30 @@ java.lang.String defaultValue);
 
     // Construct using com.google.actions.sdk.v2.Webhook.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHandlersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (handlersBuilder_ == null) {
         handlers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        handlers_ = null;
         handlersBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000001);
+      if (httpsEndpointBuilder_ != null) {
+        httpsEndpointBuilder_.clear();
+      }
+      if (inlineCloudFunctionBuilder_ != null) {
+        inlineCloudFunctionBuilder_.clear();
       }
       webhookTypeCase_ = 0;
       webhookType_ = null;
@@ -3006,7 +2874,14 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.actions.sdk.v2.Webhook buildPartial() {
       com.google.actions.sdk.v2.Webhook result = new com.google.actions.sdk.v2.Webhook(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.Webhook result) {
       if (handlersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           handlers_ = java.util.Collections.unmodifiableList(handlers_);
@@ -3016,23 +2891,23 @@ java.lang.String defaultValue);
       } else {
         result.handlers_ = handlersBuilder_.build();
       }
-      if (webhookTypeCase_ == 2) {
-        if (httpsEndpointBuilder_ == null) {
-          result.webhookType_ = webhookType_;
-        } else {
-          result.webhookType_ = httpsEndpointBuilder_.build();
-        }
-      }
-      if (webhookTypeCase_ == 3) {
-        if (inlineCloudFunctionBuilder_ == null) {
-          result.webhookType_ = webhookType_;
-        } else {
-          result.webhookType_ = inlineCloudFunctionBuilder_.build();
-        }
-      }
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.Webhook result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.actions.sdk.v2.Webhook result) {
       result.webhookTypeCase_ = webhookTypeCase_;
-      onBuilt();
-      return result;
+      result.webhookType_ = this.webhookType_;
+      if (webhookTypeCase_ == 2 &&
+          httpsEndpointBuilder_ != null) {
+        result.webhookType_ = httpsEndpointBuilder_.build();
+      }
+      if (webhookTypeCase_ == 3 &&
+          inlineCloudFunctionBuilder_ != null) {
+        result.webhookType_ = inlineCloudFunctionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3118,7 +2993,7 @@ java.lang.String defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3133,17 +3008,57 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.Webhook parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.actions.sdk.v2.Webhook.Handler m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.Webhook.Handler.parser(),
+                      extensionRegistry);
+              if (handlersBuilder_ == null) {
+                ensureHandlersIsMutable();
+                handlers_.add(m);
+              } else {
+                handlersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getHttpsEndpointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              webhookTypeCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getInlineCloudFunctionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              webhookTypeCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.Webhook) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int webhookTypeCase_ = 0;
@@ -3649,7 +3564,7 @@ java.lang.String defaultValue);
         webhookType_ = null;
       }
       webhookTypeCase_ = 2;
-      onChanged();;
+      onChanged();
       return httpsEndpointBuilder_;
     }
 
@@ -3827,7 +3742,7 @@ java.lang.String defaultValue);
         webhookType_ = null;
       }
       webhookTypeCase_ = 3;
-      onChanged();;
+      onChanged();
       return inlineCloudFunctionBuilder_;
     }
     @java.lang.Override
@@ -3863,7 +3778,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Webhook(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

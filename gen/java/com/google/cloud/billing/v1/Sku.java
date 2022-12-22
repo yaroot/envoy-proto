@@ -40,107 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Sku(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            skuId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.billing.v1.Category.Builder subBuilder = null;
-            if (category_ != null) {
-              subBuilder = category_.toBuilder();
-            }
-            category_ = input.readMessage(com.google.cloud.billing.v1.Category.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(category_);
-              category_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              serviceRegions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            serviceRegions_.add(s);
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pricingInfo_ = new java.util.ArrayList<com.google.cloud.billing.v1.PricingInfo>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            pricingInfo_.add(
-                input.readMessage(com.google.cloud.billing.v1.PricingInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceProviderName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        serviceRegions_ = serviceRegions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        pricingInfo_ = java.util.Collections.unmodifiableList(pricingInfo_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.billing.v1.CloudCatalogProto.internal_static_google_cloud_billing_v1_Sku_descriptor;
@@ -155,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name for the SKU.
@@ -203,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SKU_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object skuId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object skuId_ = "";
   /**
    * <pre>
    * The identifier for the SKU.
@@ -251,7 +152,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A human readable description of the SKU, has a maximum length of 256
@@ -333,10 +235,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.billing.v1.CategoryOrBuilder getCategoryOrBuilder() {
-    return getCategory();
+    return category_ == null ? com.google.cloud.billing.v1.Category.getDefaultInstance() : category_;
   }
 
   public static final int SERVICE_REGIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList serviceRegions_;
   /**
    * <pre>
@@ -396,6 +299,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRICING_INFO_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.billing.v1.PricingInfo> pricingInfo_;
   /**
    * <pre>
@@ -456,7 +360,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_PROVIDER_NAME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object serviceProviderName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceProviderName_ = "";
   /**
    * <pre>
    * Identifies the service provider.
@@ -503,6 +408,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int GEO_TAXONOMY_FIELD_NUMBER = 8;
+  private com.google.cloud.billing.v1.GeoTaxonomy geoTaxonomy_;
+  /**
+   * <pre>
+   * The geographic taxonomy for this sku.
+   * </pre>
+   *
+   * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+   * @return Whether the geoTaxonomy field is set.
+   */
+  @java.lang.Override
+  public boolean hasGeoTaxonomy() {
+    return geoTaxonomy_ != null;
+  }
+  /**
+   * <pre>
+   * The geographic taxonomy for this sku.
+   * </pre>
+   *
+   * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+   * @return The geoTaxonomy.
+   */
+  @java.lang.Override
+  public com.google.cloud.billing.v1.GeoTaxonomy getGeoTaxonomy() {
+    return geoTaxonomy_ == null ? com.google.cloud.billing.v1.GeoTaxonomy.getDefaultInstance() : geoTaxonomy_;
+  }
+  /**
+   * <pre>
+   * The geographic taxonomy for this sku.
+   * </pre>
+   *
+   * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.billing.v1.GeoTaxonomyOrBuilder getGeoTaxonomyOrBuilder() {
+    return geoTaxonomy_ == null ? com.google.cloud.billing.v1.GeoTaxonomy.getDefaultInstance() : geoTaxonomy_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -538,7 +481,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceProviderName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, serviceProviderName_);
     }
-    unknownFields.writeTo(output);
+    if (geoTaxonomy_ != null) {
+      output.writeMessage(8, getGeoTaxonomy());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -575,7 +521,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceProviderName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, serviceProviderName_);
     }
-    size += unknownFields.getSerializedSize();
+    if (geoTaxonomy_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(8, getGeoTaxonomy());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -607,7 +557,12 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPricingInfoList())) return false;
     if (!getServiceProviderName()
         .equals(other.getServiceProviderName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasGeoTaxonomy() != other.hasGeoTaxonomy()) return false;
+    if (hasGeoTaxonomy()) {
+      if (!getGeoTaxonomy()
+          .equals(other.getGeoTaxonomy())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -638,7 +593,11 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SERVICE_PROVIDER_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getServiceProviderName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasGeoTaxonomy()) {
+      hash = (37 * hash) + GEO_TAXONOMY_FIELD_NUMBER;
+      hash = (53 * hash) + getGeoTaxonomy().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -759,45 +718,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.v1.Sku.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPricingInfoFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       skuId_ = "";
-
       description_ = "";
-
-      if (categoryBuilder_ == null) {
-        category_ = null;
-      } else {
-        category_ = null;
+      category_ = null;
+      if (categoryBuilder_ != null) {
+        categoryBuilder_.dispose();
         categoryBuilder_ = null;
       }
       serviceRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (pricingInfoBuilder_ == null) {
         pricingInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        pricingInfo_ = null;
         pricingInfoBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       serviceProviderName_ = "";
-
+      geoTaxonomy_ = null;
+      if (geoTaxonomyBuilder_ != null) {
+        geoTaxonomyBuilder_.dispose();
+        geoTaxonomyBuilder_ = null;
+      }
       return this;
     }
 
@@ -824,32 +779,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.v1.Sku buildPartial() {
       com.google.cloud.billing.v1.Sku result = new com.google.cloud.billing.v1.Sku(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.skuId_ = skuId_;
-      result.description_ = description_;
-      if (categoryBuilder_ == null) {
-        result.category_ = category_;
-      } else {
-        result.category_ = categoryBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.billing.v1.Sku result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         serviceRegions_ = serviceRegions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.serviceRegions_ = serviceRegions_;
       if (pricingInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           pricingInfo_ = java.util.Collections.unmodifiableList(pricingInfo_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.pricingInfo_ = pricingInfo_;
       } else {
         result.pricingInfo_ = pricingInfoBuilder_.build();
       }
-      result.serviceProviderName_ = serviceProviderName_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.billing.v1.Sku result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.skuId_ = skuId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.category_ = categoryBuilder_ == null
+            ? category_
+            : categoryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.serviceProviderName_ = serviceProviderName_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.geoTaxonomy_ = geoTaxonomyBuilder_ == null
+            ? geoTaxonomy_
+            : geoTaxonomyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -898,14 +874,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.billing.v1.Sku.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSkuId().isEmpty()) {
         skuId_ = other.skuId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasCategory()) {
@@ -914,7 +893,7 @@ private static final long serialVersionUID = 0L;
       if (!other.serviceRegions_.isEmpty()) {
         if (serviceRegions_.isEmpty()) {
           serviceRegions_ = other.serviceRegions_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureServiceRegionsIsMutable();
           serviceRegions_.addAll(other.serviceRegions_);
@@ -925,7 +904,7 @@ private static final long serialVersionUID = 0L;
         if (!other.pricingInfo_.isEmpty()) {
           if (pricingInfo_.isEmpty()) {
             pricingInfo_ = other.pricingInfo_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensurePricingInfoIsMutable();
             pricingInfo_.addAll(other.pricingInfo_);
@@ -938,7 +917,7 @@ private static final long serialVersionUID = 0L;
             pricingInfoBuilder_.dispose();
             pricingInfoBuilder_ = null;
             pricingInfo_ = other.pricingInfo_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             pricingInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPricingInfoFieldBuilder() : null;
@@ -949,9 +928,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceProviderName().isEmpty()) {
         serviceProviderName_ = other.serviceProviderName_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasGeoTaxonomy()) {
+        mergeGeoTaxonomy(other.getGeoTaxonomy());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -966,17 +949,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.v1.Sku parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              skuId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCategoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureServiceRegionsIsMutable();
+              serviceRegions_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              com.google.cloud.billing.v1.PricingInfo m =
+                  input.readMessage(
+                      com.google.cloud.billing.v1.PricingInfo.parser(),
+                      extensionRegistry);
+              if (pricingInfoBuilder_ == null) {
+                ensurePricingInfoIsMutable();
+                pricingInfo_.add(m);
+              } else {
+                pricingInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              serviceProviderName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getGeoTaxonomyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.v1.Sku) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1037,11 +1086,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1055,8 +1102,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1072,12 +1119,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1138,11 +1183,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkuId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       skuId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1156,8 +1199,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkuId() {
-      
       skuId_ = getDefaultInstance().getSkuId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1173,12 +1216,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkuIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       skuId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1239,11 +1280,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1257,8 +1296,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1274,12 +1313,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1296,7 +1333,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the category field is set.
      */
     public boolean hasCategory() {
-      return categoryBuilder_ != null || category_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1326,11 +1363,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         category_ = value;
-        onChanged();
       } else {
         categoryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1344,11 +1381,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.billing.v1.Category.Builder builderForValue) {
       if (categoryBuilder_ == null) {
         category_ = builderForValue.build();
-        onChanged();
       } else {
         categoryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1360,17 +1397,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCategory(com.google.cloud.billing.v1.Category value) {
       if (categoryBuilder_ == null) {
-        if (category_ != null) {
-          category_ =
-            com.google.cloud.billing.v1.Category.newBuilder(category_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          category_ != null &&
+          category_ != com.google.cloud.billing.v1.Category.getDefaultInstance()) {
+          getCategoryBuilder().mergeFrom(value);
         } else {
           category_ = value;
         }
-        onChanged();
       } else {
         categoryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1381,14 +1419,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.v1.Category category = 4;</code>
      */
     public Builder clearCategory() {
-      if (categoryBuilder_ == null) {
-        category_ = null;
-        onChanged();
-      } else {
-        category_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      category_ = null;
+      if (categoryBuilder_ != null) {
+        categoryBuilder_.dispose();
         categoryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1399,7 +1436,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.v1.Category category = 4;</code>
      */
     public com.google.cloud.billing.v1.Category.Builder getCategoryBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCategoryFieldBuilder().getBuilder();
     }
@@ -1441,9 +1478,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList serviceRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureServiceRegionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         serviceRegions_ = new com.google.protobuf.LazyStringArrayList(serviceRegions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1516,10 +1553,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceRegions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServiceRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureServiceRegionsIsMutable();
       serviceRegions_.set(index, value);
       onChanged();
       return this;
@@ -1537,10 +1572,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addServiceRegions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureServiceRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureServiceRegionsIsMutable();
       serviceRegions_.add(value);
       onChanged();
       return this;
@@ -1576,7 +1609,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearServiceRegions() {
       serviceRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1593,10 +1626,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addServiceRegionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureServiceRegionsIsMutable();
       serviceRegions_.add(value);
       onChanged();
@@ -1606,9 +1637,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.billing.v1.PricingInfo> pricingInfo_ =
       java.util.Collections.emptyList();
     private void ensurePricingInfoIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         pricingInfo_ = new java.util.ArrayList<com.google.cloud.billing.v1.PricingInfo>(pricingInfo_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1802,7 +1833,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPricingInfo() {
       if (pricingInfoBuilder_ == null) {
         pricingInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         pricingInfoBuilder_.clear();
@@ -1907,7 +1938,7 @@ private static final long serialVersionUID = 0L;
         pricingInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.billing.v1.PricingInfo, com.google.cloud.billing.v1.PricingInfo.Builder, com.google.cloud.billing.v1.PricingInfoOrBuilder>(
                 pricingInfo_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         pricingInfo_ = null;
@@ -1971,11 +2002,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceProviderName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceProviderName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1989,8 +2018,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceProviderName() {
-      
       serviceProviderName_ = getDefaultInstance().getServiceProviderName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2006,14 +2035,167 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceProviderNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceProviderName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.billing.v1.GeoTaxonomy geoTaxonomy_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.billing.v1.GeoTaxonomy, com.google.cloud.billing.v1.GeoTaxonomy.Builder, com.google.cloud.billing.v1.GeoTaxonomyOrBuilder> geoTaxonomyBuilder_;
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     * @return Whether the geoTaxonomy field is set.
+     */
+    public boolean hasGeoTaxonomy() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     * @return The geoTaxonomy.
+     */
+    public com.google.cloud.billing.v1.GeoTaxonomy getGeoTaxonomy() {
+      if (geoTaxonomyBuilder_ == null) {
+        return geoTaxonomy_ == null ? com.google.cloud.billing.v1.GeoTaxonomy.getDefaultInstance() : geoTaxonomy_;
+      } else {
+        return geoTaxonomyBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    public Builder setGeoTaxonomy(com.google.cloud.billing.v1.GeoTaxonomy value) {
+      if (geoTaxonomyBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        geoTaxonomy_ = value;
+      } else {
+        geoTaxonomyBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    public Builder setGeoTaxonomy(
+        com.google.cloud.billing.v1.GeoTaxonomy.Builder builderForValue) {
+      if (geoTaxonomyBuilder_ == null) {
+        geoTaxonomy_ = builderForValue.build();
+      } else {
+        geoTaxonomyBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    public Builder mergeGeoTaxonomy(com.google.cloud.billing.v1.GeoTaxonomy value) {
+      if (geoTaxonomyBuilder_ == null) {
+        if (((bitField0_ & 0x00000080) != 0) &&
+          geoTaxonomy_ != null &&
+          geoTaxonomy_ != com.google.cloud.billing.v1.GeoTaxonomy.getDefaultInstance()) {
+          getGeoTaxonomyBuilder().mergeFrom(value);
+        } else {
+          geoTaxonomy_ = value;
+        }
+      } else {
+        geoTaxonomyBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    public Builder clearGeoTaxonomy() {
+      bitField0_ = (bitField0_ & ~0x00000080);
+      geoTaxonomy_ = null;
+      if (geoTaxonomyBuilder_ != null) {
+        geoTaxonomyBuilder_.dispose();
+        geoTaxonomyBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    public com.google.cloud.billing.v1.GeoTaxonomy.Builder getGeoTaxonomyBuilder() {
+      bitField0_ |= 0x00000080;
+      onChanged();
+      return getGeoTaxonomyFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    public com.google.cloud.billing.v1.GeoTaxonomyOrBuilder getGeoTaxonomyOrBuilder() {
+      if (geoTaxonomyBuilder_ != null) {
+        return geoTaxonomyBuilder_.getMessageOrBuilder();
+      } else {
+        return geoTaxonomy_ == null ?
+            com.google.cloud.billing.v1.GeoTaxonomy.getDefaultInstance() : geoTaxonomy_;
+      }
+    }
+    /**
+     * <pre>
+     * The geographic taxonomy for this sku.
+     * </pre>
+     *
+     * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.billing.v1.GeoTaxonomy, com.google.cloud.billing.v1.GeoTaxonomy.Builder, com.google.cloud.billing.v1.GeoTaxonomyOrBuilder> 
+        getGeoTaxonomyFieldBuilder() {
+      if (geoTaxonomyBuilder_ == null) {
+        geoTaxonomyBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.billing.v1.GeoTaxonomy, com.google.cloud.billing.v1.GeoTaxonomy.Builder, com.google.cloud.billing.v1.GeoTaxonomyOrBuilder>(
+                getGeoTaxonomy(),
+                getParentForChildren(),
+                isClean());
+        geoTaxonomy_ = null;
+      }
+      return geoTaxonomyBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2048,7 +2230,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Sku(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

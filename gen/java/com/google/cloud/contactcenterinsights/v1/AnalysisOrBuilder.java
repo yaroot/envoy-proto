@@ -117,4 +117,34 @@ public interface AnalysisOrBuilder extends
    * <code>.google.cloud.contactcenterinsights.v1.AnalysisResult analysis_result = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   com.google.cloud.contactcenterinsights.v1.AnalysisResultOrBuilder getAnalysisResultOrBuilder();
+
+  /**
+   * <pre>
+   * To select the annotators to run and the phrase matchers to use
+   * (if any). If not specified, all annotators will be run.
+   * </pre>
+   *
+   * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+   * @return Whether the annotatorSelector field is set.
+   */
+  boolean hasAnnotatorSelector();
+  /**
+   * <pre>
+   * To select the annotators to run and the phrase matchers to use
+   * (if any). If not specified, all annotators will be run.
+   * </pre>
+   *
+   * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+   * @return The annotatorSelector.
+   */
+  com.google.cloud.contactcenterinsights.v1.AnnotatorSelector getAnnotatorSelector();
+  /**
+   * <pre>
+   * To select the annotators to run and the phrase matchers to use
+   * (if any). If not specified, all annotators will be run.
+   * </pre>
+   *
+   * <code>.google.cloud.contactcenterinsights.v1.AnnotatorSelector annotator_selector = 8;</code>
+   */
+  com.google.cloud.contactcenterinsights.v1.AnnotatorSelectorOrBuilder getAnnotatorSelectorOrBuilder();
 }

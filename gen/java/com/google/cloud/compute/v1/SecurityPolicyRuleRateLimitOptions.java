@@ -37,114 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityPolicyRuleRateLimitOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 343173808: {
-            bitField0_ |= 0x00000001;
-            banDurationSec_ = input.readInt32();
-            break;
-          }
-          case 1060441970: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            enforceOnKeyName_ = s;
-            break;
-          }
-          case 1337272586: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            exceedAction_ = s;
-            break;
-          }
-          case -1767965630: {
-            com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000080) != 0)) {
-              subBuilder = rateLimitThreshold_.toBuilder();
-            }
-            rateLimitThreshold_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rateLimitThreshold_);
-              rateLimitThreshold_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000080;
-            break;
-          }
-          case -961775646: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            enforceOnKey_ = s;
-            break;
-          }
-          case -505793742: {
-            com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000040) != 0)) {
-              subBuilder = exceedRedirectOptions_.toBuilder();
-            }
-            exceedRedirectOptions_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(exceedRedirectOptions_);
-              exceedRedirectOptions_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000040;
-            break;
-          }
-          case -285302310: {
-            com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = banThreshold_.toBuilder();
-            }
-            banThreshold_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(banThreshold_);
-              banThreshold_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case -154068358: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            conformAction_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_SecurityPolicyRuleRateLimitOptions_descriptor;
@@ -160,7 +52,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. 
+   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates. 
    * </pre>
    *
    * Protobuf enum {@code google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions.EnforceOnKey}
@@ -188,9 +80,21 @@ private static final long serialVersionUID = 0L;
      */
     HTTP_HEADER(91597348),
     /**
+     * <code>HTTP_PATH = 311503228;</code>
+     */
+    HTTP_PATH(311503228),
+    /**
      * <code>IP = 2343;</code>
      */
     IP(2343),
+    /**
+     * <code>REGION_CODE = 79559768;</code>
+     */
+    REGION_CODE(79559768),
+    /**
+     * <code>SNI = 82254;</code>
+     */
+    SNI(82254),
     /**
      * <code>XFF_IP = 438707118;</code>
      */
@@ -219,9 +123,21 @@ private static final long serialVersionUID = 0L;
      */
     public static final int HTTP_HEADER_VALUE = 91597348;
     /**
+     * <code>HTTP_PATH = 311503228;</code>
+     */
+    public static final int HTTP_PATH_VALUE = 311503228;
+    /**
      * <code>IP = 2343;</code>
      */
     public static final int IP_VALUE = 2343;
+    /**
+     * <code>REGION_CODE = 79559768;</code>
+     */
+    public static final int REGION_CODE_VALUE = 79559768;
+    /**
+     * <code>SNI = 82254;</code>
+     */
+    public static final int SNI_VALUE = 82254;
     /**
      * <code>XFF_IP = 438707118;</code>
      */
@@ -256,7 +172,10 @@ private static final long serialVersionUID = 0L;
         case 64897: return ALL;
         case 494981627: return HTTP_COOKIE;
         case 91597348: return HTTP_HEADER;
+        case 311503228: return HTTP_PATH;
         case 2343: return IP;
+        case 79559768: return REGION_CODE;
+        case 82254: return SNI;
         case 438707118: return XFF_IP;
         default: return null;
       }
@@ -316,7 +235,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int BAN_DURATION_SEC_FIELD_NUMBER = 42896726;
-  private int banDurationSec_;
+  private int banDurationSec_ = 0;
   /**
    * <pre>
    * Can only be specified if the action for the rule is "rate_based_ban". If specified, determines the time (in seconds) the traffic will continue to be banned by the rate limit after the rate falls below the threshold.
@@ -381,7 +300,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFORM_ACTION_FIELD_NUMBER = 517612367;
-  private volatile java.lang.Object conformAction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object conformAction_ = "";
   /**
    * <pre>
    * Action to take for requests that are under the configured rate limit threshold. Valid option is "allow" only.
@@ -439,10 +359,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENFORCE_ON_KEY_FIELD_NUMBER = 416648956;
-  private volatile java.lang.Object enforceOnKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object enforceOnKey_ = "";
   /**
    * <pre>
-   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
    * Check the EnforceOnKey enum for the list of possible values.
    * </pre>
    *
@@ -455,7 +376,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
    * Check the EnforceOnKey enum for the list of possible values.
    * </pre>
    *
@@ -477,7 +398,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+   * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
    * Check the EnforceOnKey enum for the list of possible values.
    * </pre>
    *
@@ -500,7 +421,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENFORCE_ON_KEY_NAME_FIELD_NUMBER = 132555246;
-  private volatile java.lang.Object enforceOnKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object enforceOnKeyName_ = "";
   /**
    * <pre>
    * Rate limit key name applicable only for the following key types: HTTP_HEADER -- Name of the HTTP header whose value is taken as the key value. HTTP_COOKIE -- Name of the HTTP cookie whose value is taken as the key value.
@@ -558,7 +480,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCEED_ACTION_FIELD_NUMBER = 167159073;
-  private volatile java.lang.Object exceedAction_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object exceedAction_ = "";
   /**
    * <pre>
    * Action to take for requests that are above the configured rate limit threshold, to either deny with a specified HTTP response code, or redirect to a different endpoint. Valid options are "deny(status)", where valid values for status are 403, 404, 429, and 502, and "redirect" where the redirect parameters come from exceedRedirectOptions below.
@@ -729,7 +652,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 517612367, conformAction_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -766,7 +689,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(517612367, conformAction_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -821,7 +744,7 @@ private static final long serialVersionUID = 0L;
       if (!getRateLimitThreshold()
           .equals(other.getRateLimitThreshold())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -864,7 +787,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RATE_LIMIT_THRESHOLD_FIELD_NUMBER;
       hash = (53 * hash) + getRateLimitThreshold().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1003,34 +926,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       banDurationSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (banThresholdBuilder_ == null) {
-        banThreshold_ = null;
-      } else {
-        banThresholdBuilder_.clear();
+      banThreshold_ = null;
+      if (banThresholdBuilder_ != null) {
+        banThresholdBuilder_.dispose();
+        banThresholdBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
       conformAction_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       enforceOnKey_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       enforceOnKeyName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       exceedAction_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
-      if (exceedRedirectOptionsBuilder_ == null) {
-        exceedRedirectOptions_ = null;
-      } else {
-        exceedRedirectOptionsBuilder_.clear();
+      exceedRedirectOptions_ = null;
+      if (exceedRedirectOptionsBuilder_ != null) {
+        exceedRedirectOptionsBuilder_.dispose();
+        exceedRedirectOptionsBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (rateLimitThresholdBuilder_ == null) {
-        rateLimitThreshold_ = null;
-      } else {
-        rateLimitThresholdBuilder_.clear();
+      rateLimitThreshold_ = null;
+      if (rateLimitThresholdBuilder_ != null) {
+        rateLimitThresholdBuilder_.dispose();
+        rateLimitThresholdBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -1057,6 +973,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions buildPartial() {
       com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions result = new com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1064,48 +986,40 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (banThresholdBuilder_ == null) {
-          result.banThreshold_ = banThreshold_;
-        } else {
-          result.banThreshold_ = banThresholdBuilder_.build();
-        }
+        result.banThreshold_ = banThresholdBuilder_ == null
+            ? banThreshold_
+            : banThresholdBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.conformAction_ = conformAction_;
         to_bitField0_ |= 0x00000004;
       }
-      result.conformAction_ = conformAction_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enforceOnKey_ = enforceOnKey_;
         to_bitField0_ |= 0x00000008;
       }
-      result.enforceOnKey_ = enforceOnKey_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enforceOnKeyName_ = enforceOnKeyName_;
         to_bitField0_ |= 0x00000010;
       }
-      result.enforceOnKeyName_ = enforceOnKeyName_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.exceedAction_ = exceedAction_;
         to_bitField0_ |= 0x00000020;
       }
-      result.exceedAction_ = exceedAction_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
-        if (exceedRedirectOptionsBuilder_ == null) {
-          result.exceedRedirectOptions_ = exceedRedirectOptions_;
-        } else {
-          result.exceedRedirectOptions_ = exceedRedirectOptionsBuilder_.build();
-        }
+        result.exceedRedirectOptions_ = exceedRedirectOptionsBuilder_ == null
+            ? exceedRedirectOptions_
+            : exceedRedirectOptionsBuilder_.build();
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        if (rateLimitThresholdBuilder_ == null) {
-          result.rateLimitThreshold_ = rateLimitThreshold_;
-        } else {
-          result.rateLimitThreshold_ = rateLimitThresholdBuilder_.build();
-        }
+        result.rateLimitThreshold_ = rateLimitThresholdBuilder_ == null
+            ? rateLimitThreshold_
+            : rateLimitThresholdBuilder_.build();
         to_bitField0_ |= 0x00000080;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1159,23 +1073,23 @@ private static final long serialVersionUID = 0L;
         mergeBanThreshold(other.getBanThreshold());
       }
       if (other.hasConformAction()) {
-        bitField0_ |= 0x00000004;
         conformAction_ = other.conformAction_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasEnforceOnKey()) {
-        bitField0_ |= 0x00000008;
         enforceOnKey_ = other.enforceOnKey_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasEnforceOnKeyName()) {
-        bitField0_ |= 0x00000010;
         enforceOnKeyName_ = other.enforceOnKeyName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasExceedAction()) {
-        bitField0_ |= 0x00000020;
         exceedAction_ = other.exceedAction_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasExceedRedirectOptions()) {
@@ -1184,7 +1098,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRateLimitThreshold()) {
         mergeRateLimitThreshold(other.getRateLimitThreshold());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1199,17 +1113,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 343173808: {
+              banDurationSec_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 343173808
+            case 1060441970: {
+              enforceOnKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1060441970
+            case 1337272586: {
+              exceedAction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1337272586
+            case -1767965630: {
+              input.readMessage(
+                  getRateLimitThresholdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -1767965630
+            case -961775646: {
+              enforceOnKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -961775646
+            case -505793742: {
+              input.readMessage(
+                  getExceedRedirectOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -505793742
+            case -285302310: {
+              input.readMessage(
+                  getBanThresholdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -285302310
+            case -154068358: {
+              conformAction_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -154068358
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1249,8 +1222,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBanDurationSec(int value) {
-      bitField0_ |= 0x00000001;
+      
       banDurationSec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1311,11 +1285,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         banThreshold_ = value;
-        onChanged();
       } else {
         banThresholdBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1329,11 +1303,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.Builder builderForValue) {
       if (banThresholdBuilder_ == null) {
         banThreshold_ = builderForValue.build();
-        onChanged();
       } else {
         banThresholdBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1346,18 +1320,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeBanThreshold(com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold value) {
       if (banThresholdBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            banThreshold_ != null &&
-            banThreshold_ != com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.getDefaultInstance()) {
-          banThreshold_ =
-            com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.newBuilder(banThreshold_).mergeFrom(value).buildPartial();
+          banThreshold_ != null &&
+          banThreshold_ != com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.getDefaultInstance()) {
+          getBanThresholdBuilder().mergeFrom(value);
         } else {
           banThreshold_ = value;
         }
-        onChanged();
       } else {
         banThresholdBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1368,13 +1341,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold ban_threshold = 501208123;</code>
      */
     public Builder clearBanThreshold() {
-      if (banThresholdBuilder_ == null) {
-        banThreshold_ = null;
-        onChanged();
-      } else {
-        banThresholdBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      banThreshold_ = null;
+      if (banThresholdBuilder_ != null) {
+        banThresholdBuilder_.dispose();
+        banThresholdBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1489,11 +1462,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConformAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       conformAction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1506,8 +1477,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConformAction() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       conformAction_ = getDefaultInstance().getConformAction();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1522,12 +1493,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConformActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       conformAction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1535,7 +1504,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object enforceOnKey_ = "";
     /**
      * <pre>
-     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
      * Check the EnforceOnKey enum for the list of possible values.
      * </pre>
      *
@@ -1547,7 +1516,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
      * Check the EnforceOnKey enum for the list of possible values.
      * </pre>
      *
@@ -1568,7 +1537,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
      * Check the EnforceOnKey enum for the list of possible values.
      * </pre>
      *
@@ -1590,7 +1559,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
      * Check the EnforceOnKey enum for the list of possible values.
      * </pre>
      *
@@ -1600,17 +1569,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnforceOnKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       enforceOnKey_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
      * Check the EnforceOnKey enum for the list of possible values.
      * </pre>
      *
@@ -1618,14 +1585,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnforceOnKey() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       enforceOnKey_ = getDefaultInstance().getEnforceOnKey();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if this field 'enforce_on_key' is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforce_on_key_name". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL.
+     * Determines the key to enforce the rate_limit_threshold on. Possible values are: - ALL: A single rate limit threshold is applied to all the requests matching this rule. This is the default value if "enforceOnKey" is not configured. - IP: The source IP address of the request is the key. Each IP has this limit enforced separately. - HTTP_HEADER: The value of the HTTP header whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the header value. If no such header is present in the request, the key type defaults to ALL. - XFF_IP: The first IP address (i.e. the originating client IP address) specified in the list of IPs under X-Forwarded-For HTTP header. If no such header is present or the value is not a valid IP, the key defaults to the source IP address of the request i.e. key type IP. - HTTP_COOKIE: The value of the HTTP cookie whose name is configured under "enforceOnKeyName". The key value is truncated to the first 128 bytes of the cookie value. If no such cookie is present in the request, the key type defaults to ALL. - HTTP_PATH: The URL path of the HTTP request. The key value is truncated to the first 128 bytes. - SNI: Server name indication in the TLS session of the HTTPS request. The key value is truncated to the first 128 bytes. The key type defaults to ALL on a HTTP session. - REGION_CODE: The country/region from which the request originates.
      * Check the EnforceOnKey enum for the list of possible values.
      * </pre>
      *
@@ -1635,12 +1602,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnforceOnKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       enforceOnKey_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1709,11 +1674,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnforceOnKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       enforceOnKeyName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1726,8 +1689,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnforceOnKeyName() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       enforceOnKeyName_ = getDefaultInstance().getEnforceOnKeyName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1742,12 +1705,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnforceOnKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       enforceOnKeyName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1816,11 +1777,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExceedAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       exceedAction_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1833,8 +1792,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExceedAction() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       exceedAction_ = getDefaultInstance().getExceedAction();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1849,12 +1808,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExceedActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       exceedAction_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1901,11 +1858,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         exceedRedirectOptions_ = value;
-        onChanged();
       } else {
         exceedRedirectOptionsBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1919,11 +1876,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions.Builder builderForValue) {
       if (exceedRedirectOptionsBuilder_ == null) {
         exceedRedirectOptions_ = builderForValue.build();
-        onChanged();
       } else {
         exceedRedirectOptionsBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1936,18 +1893,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeExceedRedirectOptions(com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions value) {
       if (exceedRedirectOptionsBuilder_ == null) {
         if (((bitField0_ & 0x00000040) != 0) &&
-            exceedRedirectOptions_ != null &&
-            exceedRedirectOptions_ != com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions.getDefaultInstance()) {
-          exceedRedirectOptions_ =
-            com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions.newBuilder(exceedRedirectOptions_).mergeFrom(value).buildPartial();
+          exceedRedirectOptions_ != null &&
+          exceedRedirectOptions_ != com.google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions.getDefaultInstance()) {
+          getExceedRedirectOptionsBuilder().mergeFrom(value);
         } else {
           exceedRedirectOptions_ = value;
         }
-        onChanged();
       } else {
         exceedRedirectOptionsBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1958,13 +1914,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.SecurityPolicyRuleRedirectOptions exceed_redirect_options = 473646694;</code>
      */
     public Builder clearExceedRedirectOptions() {
-      if (exceedRedirectOptionsBuilder_ == null) {
-        exceedRedirectOptions_ = null;
-        onChanged();
-      } else {
-        exceedRedirectOptionsBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000040);
+      exceedRedirectOptions_ = null;
+      if (exceedRedirectOptionsBuilder_ != null) {
+        exceedRedirectOptionsBuilder_.dispose();
+        exceedRedirectOptionsBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2057,11 +2013,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rateLimitThreshold_ = value;
-        onChanged();
       } else {
         rateLimitThresholdBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2075,11 +2031,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.Builder builderForValue) {
       if (rateLimitThresholdBuilder_ == null) {
         rateLimitThreshold_ = builderForValue.build();
-        onChanged();
       } else {
         rateLimitThresholdBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2092,18 +2048,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRateLimitThreshold(com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold value) {
       if (rateLimitThresholdBuilder_ == null) {
         if (((bitField0_ & 0x00000080) != 0) &&
-            rateLimitThreshold_ != null &&
-            rateLimitThreshold_ != com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.getDefaultInstance()) {
-          rateLimitThreshold_ =
-            com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.newBuilder(rateLimitThreshold_).mergeFrom(value).buildPartial();
+          rateLimitThreshold_ != null &&
+          rateLimitThreshold_ != com.google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold.getDefaultInstance()) {
+          getRateLimitThresholdBuilder().mergeFrom(value);
         } else {
           rateLimitThreshold_ = value;
         }
-        onChanged();
       } else {
         rateLimitThresholdBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2114,13 +2069,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.SecurityPolicyRuleRateLimitOptionsThreshold rate_limit_threshold = 315875208;</code>
      */
     public Builder clearRateLimitThreshold() {
-      if (rateLimitThresholdBuilder_ == null) {
-        rateLimitThreshold_ = null;
-        onChanged();
-      } else {
-        rateLimitThresholdBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000080);
+      rateLimitThreshold_ = null;
+      if (rateLimitThresholdBuilder_ != null) {
+        rateLimitThresholdBuilder_.dispose();
+        rateLimitThresholdBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2203,7 +2158,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityPolicyRuleRateLimitOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

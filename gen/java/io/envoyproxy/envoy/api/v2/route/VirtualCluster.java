@@ -51,76 +51,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VirtualCluster(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pattern_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            method_ = rawValue;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              headers_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.route.HeaderMatcher>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            headers_.add(
-                input.readMessage(io.envoyproxy.envoy.api.v2.route.HeaderMatcher.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        headers_ = java.util.Collections.unmodifiableList(headers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.route.RouteComponentsProto.internal_static_envoy_api_v2_route_VirtualCluster_descriptor;
@@ -135,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATTERN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object pattern_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pattern_ = "";
   /**
    * <pre>
    * Specifies a regex pattern to use for matching requests. The entire path of the request
@@ -152,7 +83,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1328
+   *     See envoy/api/v2/route/route_components.proto;l=1329
    * @return The pattern.
    */
   @java.lang.Override
@@ -184,7 +115,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1328
+   *     See envoy/api/v2/route/route_components.proto;l=1329
    * @return The bytes for pattern.
    */
   @java.lang.Override
@@ -203,6 +134,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADERS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.api.v2.route.HeaderMatcher> headers_;
   /**
    * <pre>
@@ -273,7 +205,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Specifies the name of the virtual cluster. The virtual cluster name as well
@@ -323,7 +256,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METHOD_FIELD_NUMBER = 3;
-  private int method_;
+  private int method_ = 0;
   /**
    * <pre>
    * Optionally specifies the HTTP method to match on. For example GET, PUT,
@@ -334,7 +267,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1349
+   *     See envoy/api/v2/route/route_components.proto;l=1350
    * @return The enum numeric value on the wire for method.
    */
   @java.lang.Override @java.lang.Deprecated public int getMethodValue() {
@@ -350,12 +283,11 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
    * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-   *     See envoy/api/v2/route/route_components.proto;l=1349
+   *     See envoy/api/v2/route/route_components.proto;l=1350
    * @return The method.
    */
   @java.lang.Override @java.lang.Deprecated public io.envoyproxy.envoy.api.v2.core.RequestMethod getMethod() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.api.v2.core.RequestMethod result = io.envoyproxy.envoy.api.v2.core.RequestMethod.valueOf(method_);
+    io.envoyproxy.envoy.api.v2.core.RequestMethod result = io.envoyproxy.envoy.api.v2.core.RequestMethod.forNumber(method_);
     return result == null ? io.envoyproxy.envoy.api.v2.core.RequestMethod.UNRECOGNIZED : result;
   }
 
@@ -385,7 +317,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < headers_.size(); i++) {
       output.writeMessage(4, headers_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -408,7 +340,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, headers_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -430,7 +362,7 @@ private static final long serialVersionUID = 0L;
     if (!getName()
         .equals(other.getName())) return false;
     if (method_ != other.method_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -451,7 +383,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + METHOD_FIELD_NUMBER;
     hash = (53 * hash) + method_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -585,35 +517,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.route.VirtualCluster.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHeadersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       pattern_ = "";
-
       if (headersBuilder_ == null) {
         headers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        headers_ = null;
         headersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       name_ = "";
-
       method_ = 0;
-
       return this;
     }
 
@@ -640,21 +565,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.route.VirtualCluster buildPartial() {
       io.envoyproxy.envoy.api.v2.route.VirtualCluster result = new io.envoyproxy.envoy.api.v2.route.VirtualCluster(this);
-      int from_bitField0_ = bitField0_;
-      result.pattern_ = pattern_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.route.VirtualCluster result) {
       if (headersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           headers_ = java.util.Collections.unmodifiableList(headers_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.headers_ = headers_;
       } else {
         result.headers_ = headersBuilder_.build();
       }
-      result.name_ = name_;
-      result.method_ = method_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.route.VirtualCluster result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pattern_ = pattern_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.method_ = method_;
+      }
     }
 
     @java.lang.Override
@@ -703,13 +642,14 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.api.v2.route.VirtualCluster.getDefaultInstance()) return this;
       if (!other.getPattern().isEmpty()) {
         pattern_ = other.pattern_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (headersBuilder_ == null) {
         if (!other.headers_.isEmpty()) {
           if (headers_.isEmpty()) {
             headers_ = other.headers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureHeadersIsMutable();
             headers_.addAll(other.headers_);
@@ -722,7 +662,7 @@ private static final long serialVersionUID = 0L;
             headersBuilder_.dispose();
             headersBuilder_ = null;
             headers_ = other.headers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             headersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHeadersFieldBuilder() : null;
@@ -733,12 +673,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.method_ != 0) {
         setMethodValue(other.getMethodValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -753,17 +694,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.route.VirtualCluster parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              pattern_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 24: {
+              method_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 24
+            case 34: {
+              io.envoyproxy.envoy.api.v2.route.HeaderMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.api.v2.route.HeaderMatcher.parser(),
+                      extensionRegistry);
+              if (headersBuilder_ == null) {
+                ensureHeadersIsMutable();
+                headers_.add(m);
+              } else {
+                headersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.route.VirtualCluster) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -785,7 +767,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1328
+     *     See envoy/api/v2/route/route_components.proto;l=1329
      * @return The pattern.
      */
     @java.lang.Deprecated public java.lang.String getPattern() {
@@ -816,7 +798,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1328
+     *     See envoy/api/v2/route/route_components.proto;l=1329
      * @return The bytes for pattern.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -848,17 +830,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1328
+     *     See envoy/api/v2/route/route_components.proto;l=1329
      * @param value The pattern to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPattern(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pattern_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -878,12 +858,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1328
+     *     See envoy/api/v2/route/route_components.proto;l=1329
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPattern() {
-      
       pattern_ = getDefaultInstance().getPattern();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -903,18 +883,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string pattern = 1 [deprecated = true, (.validate.rules) = { ... }</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.pattern is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1328
+     *     See envoy/api/v2/route/route_components.proto;l=1329
      * @param value The bytes for pattern to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPatternBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pattern_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -922,9 +900,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.api.v2.route.HeaderMatcher> headers_ =
       java.util.Collections.emptyList();
     private void ensureHeadersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         headers_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.route.HeaderMatcher>(headers_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1140,7 +1118,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHeaders() {
       if (headersBuilder_ == null) {
         headers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         headersBuilder_.clear();
@@ -1259,7 +1237,7 @@ private static final long serialVersionUID = 0L;
         headersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.api.v2.route.HeaderMatcher, io.envoyproxy.envoy.api.v2.route.HeaderMatcher.Builder, io.envoyproxy.envoy.api.v2.route.HeaderMatcherOrBuilder>(
                 headers_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         headers_ = null;
@@ -1326,11 +1304,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1345,8 +1321,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1363,12 +1339,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1384,7 +1358,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1349
+     *     See envoy/api/v2/route/route_components.proto;l=1350
      * @return The enum numeric value on the wire for method.
      */
     @java.lang.Override @java.lang.Deprecated public int getMethodValue() {
@@ -1400,13 +1374,13 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1349
+     *     See envoy/api/v2/route/route_components.proto;l=1350
      * @param value The enum numeric value on the wire for method to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setMethodValue(int value) {
-      
       method_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1420,13 +1394,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1349
+     *     See envoy/api/v2/route/route_components.proto;l=1350
      * @return The method.
      */
     @java.lang.Override
     @java.lang.Deprecated public io.envoyproxy.envoy.api.v2.core.RequestMethod getMethod() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.api.v2.core.RequestMethod result = io.envoyproxy.envoy.api.v2.core.RequestMethod.valueOf(method_);
+      io.envoyproxy.envoy.api.v2.core.RequestMethod result = io.envoyproxy.envoy.api.v2.core.RequestMethod.forNumber(method_);
       return result == null ? io.envoyproxy.envoy.api.v2.core.RequestMethod.UNRECOGNIZED : result;
     }
     /**
@@ -1439,7 +1412,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1349
+     *     See envoy/api/v2/route/route_components.proto;l=1350
      * @param value The method to set.
      * @return This builder for chaining.
      */
@@ -1447,7 +1420,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       method_ = value.getNumber();
       onChanged();
       return this;
@@ -1462,11 +1435,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.envoy.api.v2.core.RequestMethod method = 3 [deprecated = true, (.envoy.annotations.disallowed_by_default) = true];</code>
      * @deprecated envoy.api.v2.route.VirtualCluster.method is deprecated.
-     *     See envoy/api/v2/route/route_components.proto;l=1349
+     *     See envoy/api/v2/route/route_components.proto;l=1350
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       method_ = 0;
       onChanged();
       return this;
@@ -1504,7 +1477,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VirtualCluster(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

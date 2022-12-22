@@ -38,72 +38,22 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SignJwtRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            payload_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignJwtRequest_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignJwtRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignJwtRequest_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignJwtRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.SignJwtRequest.class, com.google.iam.admin.v1.SignJwtRequest.Builder.class);
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Deprecated. [Migrate to Service Account Credentials
@@ -117,7 +67,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
    * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=955
+   *     See google/iam/admin/v1/iam.proto;l=1023
    * @return The name.
    */
   @java.lang.Override
@@ -146,7 +96,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
    * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=955
+   *     See google/iam/admin/v1/iam.proto;l=1023
    * @return The bytes for name.
    */
   @java.lang.Override
@@ -165,7 +115,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_FIELD_NUMBER = 2;
-  private volatile java.lang.Object payload_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object payload_ = "";
   /**
    * <pre>
    * Required. Deprecated. [Migrate to Service Account Credentials
@@ -173,8 +124,8 @@ private static final long serialVersionUID = 0L;
    * The JWT payload to sign. Must be a serialized JSON object that contains a
    * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
    * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-   * an integer timestamp that is not in the past and no more than 1 hour in the
-   * future.
+   * an integer timestamp that is not in the past and no more than 12 hours in
+   * the future.
    * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
    * this claim is added automatically, with a timestamp that is 1 hour in the
    * future.
@@ -182,7 +133,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=976
+   *     See google/iam/admin/v1/iam.proto;l=1044
    * @return The payload.
    */
   @java.lang.Override
@@ -205,8 +156,8 @@ private static final long serialVersionUID = 0L;
    * The JWT payload to sign. Must be a serialized JSON object that contains a
    * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
    * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-   * an integer timestamp that is not in the past and no more than 1 hour in the
-   * future.
+   * an integer timestamp that is not in the past and no more than 12 hours in
+   * the future.
    * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
    * this claim is added automatically, with a timestamp that is 1 hour in the
    * future.
@@ -214,7 +165,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
    * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=976
+   *     See google/iam/admin/v1/iam.proto;l=1044
    * @return The bytes for payload.
    */
   @java.lang.Override
@@ -252,7 +203,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, payload_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -267,7 +218,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(payload_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, payload_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -286,7 +237,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getName())) return false;
     if (!getPayload()
         .equals(other.getPayload())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -301,7 +252,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getName().hashCode();
     hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
     hash = (53 * hash) + getPayload().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -411,46 +362,40 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.SignJwtRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignJwtRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignJwtRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignJwtRequest_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignJwtRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.SignJwtRequest.class, com.google.iam.admin.v1.SignJwtRequest.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.SignJwtRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       payload_ = "";
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_SignJwtRequest_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_SignJwtRequest_descriptor;
     }
 
     @java.lang.Override
@@ -470,10 +415,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.SignJwtRequest buildPartial() {
       com.google.iam.admin.v1.SignJwtRequest result = new com.google.iam.admin.v1.SignJwtRequest(this);
-      result.name_ = name_;
-      result.payload_ = payload_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.SignJwtRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.payload_ = payload_;
+      }
     }
 
     @java.lang.Override
@@ -522,13 +476,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.iam.admin.v1.SignJwtRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPayload().isEmpty()) {
         payload_ = other.payload_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -543,19 +499,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.SignJwtRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              payload_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.SignJwtRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -571,7 +551,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=955
+     *     See google/iam/admin/v1/iam.proto;l=1023
      * @return The name.
      */
     @java.lang.Deprecated public java.lang.String getName() {
@@ -599,7 +579,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=955
+     *     See google/iam/admin/v1/iam.proto;l=1023
      * @return The bytes for name.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -628,17 +608,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=955
+     *     See google/iam/admin/v1/iam.proto;l=1023
      * @param value The name to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -655,12 +633,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=955
+     *     See google/iam/admin/v1/iam.proto;l=1023
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -677,18 +655,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string name = 1 [deprecated = true, (.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.name is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=955
+     *     See google/iam/admin/v1/iam.proto;l=1023
      * @param value The bytes for name to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -701,8 +677,8 @@ private static final long serialVersionUID = 0L;
      * The JWT payload to sign. Must be a serialized JSON object that contains a
      * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
      * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-     * an integer timestamp that is not in the past and no more than 1 hour in the
-     * future.
+     * an integer timestamp that is not in the past and no more than 12 hours in
+     * the future.
      * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
      * this claim is added automatically, with a timestamp that is 1 hour in the
      * future.
@@ -710,7 +686,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=976
+     *     See google/iam/admin/v1/iam.proto;l=1044
      * @return The payload.
      */
     @java.lang.Deprecated public java.lang.String getPayload() {
@@ -732,8 +708,8 @@ private static final long serialVersionUID = 0L;
      * The JWT payload to sign. Must be a serialized JSON object that contains a
      * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
      * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-     * an integer timestamp that is not in the past and no more than 1 hour in the
-     * future.
+     * an integer timestamp that is not in the past and no more than 12 hours in
+     * the future.
      * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
      * this claim is added automatically, with a timestamp that is 1 hour in the
      * future.
@@ -741,7 +717,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=976
+     *     See google/iam/admin/v1/iam.proto;l=1044
      * @return The bytes for payload.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -764,8 +740,8 @@ private static final long serialVersionUID = 0L;
      * The JWT payload to sign. Must be a serialized JSON object that contains a
      * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
      * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-     * an integer timestamp that is not in the past and no more than 1 hour in the
-     * future.
+     * an integer timestamp that is not in the past and no more than 12 hours in
+     * the future.
      * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
      * this claim is added automatically, with a timestamp that is 1 hour in the
      * future.
@@ -773,17 +749,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=976
+     *     See google/iam/admin/v1/iam.proto;l=1044
      * @param value The payload to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPayload(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       payload_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -794,8 +768,8 @@ private static final long serialVersionUID = 0L;
      * The JWT payload to sign. Must be a serialized JSON object that contains a
      * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
      * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-     * an integer timestamp that is not in the past and no more than 1 hour in the
-     * future.
+     * an integer timestamp that is not in the past and no more than 12 hours in
+     * the future.
      * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
      * this claim is added automatically, with a timestamp that is 1 hour in the
      * future.
@@ -803,12 +777,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=976
+     *     See google/iam/admin/v1/iam.proto;l=1044
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPayload() {
-      
       payload_ = getDefaultInstance().getPayload();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -819,8 +793,8 @@ private static final long serialVersionUID = 0L;
      * The JWT payload to sign. Must be a serialized JSON object that contains a
      * JWT Claims Set. For example: `{"sub": "user&#64;example.com", "iat": 313435}`
      * If the JWT Claims Set contains an expiration time (`exp`) claim, it must be
-     * an integer timestamp that is not in the past and no more than 1 hour in the
-     * future.
+     * an integer timestamp that is not in the past and no more than 12 hours in
+     * the future.
      * If the JWT Claims Set does not contain an expiration time (`exp`) claim,
      * this claim is added automatically, with a timestamp that is 1 hour in the
      * future.
@@ -828,18 +802,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string payload = 2 [deprecated = true, (.google.api.field_behavior) = REQUIRED];</code>
      * @deprecated google.iam.admin.v1.SignJwtRequest.payload is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=976
+     *     See google/iam/admin/v1/iam.proto;l=1044
      * @param value The bytes for payload to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setPayloadBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       payload_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -876,7 +848,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SignJwtRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

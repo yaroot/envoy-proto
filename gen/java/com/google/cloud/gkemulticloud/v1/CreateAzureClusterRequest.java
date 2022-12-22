@@ -36,75 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateAzureClusterRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.gkemulticloud.v1.AzureCluster.Builder subBuilder = null;
-            if (azureCluster_ != null) {
-              subBuilder = azureCluster_.toBuilder();
-            }
-            azureCluster_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(azureCluster_);
-              azureCluster_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            azureClusterId_ = s;
-            break;
-          }
-          case 32: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureServiceProto.internal_static_google_cloud_gkemulticloud_v1_CreateAzureClusterRequest_descriptor;
@@ -119,11 +50,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-   * will be created.
+   * Required. The parent location where this
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+   * created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -147,8 +80,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-   * will be created.
+   * Required. The parent location where this
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+   * created.
    * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
    * for more details on Google Cloud resource names.
@@ -176,7 +110,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.gkemulticloud.v1.AzureCluster azureCluster_;
   /**
    * <pre>
-   * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+   * Required. The specification of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -188,7 +123,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+   * Required. The specification of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -200,26 +136,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+   * Required. The specification of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
    * </pre>
    *
    * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureClusterOrBuilder getAzureClusterOrBuilder() {
-    return getAzureCluster();
+    return azureCluster_ == null ? com.google.cloud.gkemulticloud.v1.AzureCluster.getDefaultInstance() : azureCluster_;
   }
 
   public static final int AZURE_CLUSTER_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object azureClusterId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object azureClusterId_ = "";
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -240,12 +179,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. A client provided ID the resource. Must be unique within the parent
-   * resource.
-   * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-   * resource name formatted as
+   * Required. A client provided ID the resource. Must be unique within the
+   * parent resource.
+   * The provided ID will be part of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+   * formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+   * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
    * </pre>
    *
    * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -267,7 +207,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 4;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If set, only validate the request, but do not actually create the cluster.
@@ -307,7 +247,7 @@ private static final long serialVersionUID = 0L;
     if (validateOnly_ != false) {
       output.writeBool(4, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -330,7 +270,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -356,7 +296,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAzureClusterId())) return false;
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -378,7 +318,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -499,34 +439,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (azureClusterBuilder_ == null) {
-        azureCluster_ = null;
-      } else {
-        azureCluster_ = null;
+      azureCluster_ = null;
+      if (azureClusterBuilder_ != null) {
+        azureClusterBuilder_.dispose();
         azureClusterBuilder_ = null;
       }
       azureClusterId_ = "";
-
       validateOnly_ = false;
-
       return this;
     }
 
@@ -553,16 +485,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest buildPartial() {
       com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest result = new com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest(this);
-      result.parent_ = parent_;
-      if (azureClusterBuilder_ == null) {
-        result.azureCluster_ = azureCluster_;
-      } else {
-        result.azureCluster_ = azureClusterBuilder_.build();
-      }
-      result.azureClusterId_ = azureClusterId_;
-      result.validateOnly_ = validateOnly_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.azureCluster_ = azureClusterBuilder_ == null
+            ? azureCluster_
+            : azureClusterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.azureClusterId_ = azureClusterId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
     }
 
     @java.lang.Override
@@ -611,6 +554,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAzureCluster()) {
@@ -618,12 +562,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAzureClusterId().isEmpty()) {
         azureClusterId_ = other.azureClusterId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -638,25 +583,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAzureClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              azureClusterId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.CreateAzureClusterRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-     * will be created.
+     * Required. The parent location where this
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+     * created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -679,8 +661,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-     * will be created.
+     * Required. The parent location where this
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+     * created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -704,8 +687,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-     * will be created.
+     * Required. The parent location where this
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+     * created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -717,18 +701,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-     * will be created.
+     * Required. The parent location where this
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+     * created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -738,15 +721,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The parent location where this [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource
-     * will be created.
+     * Required. The parent location where this
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource will be
+     * created.
      * Location names are formatted as `projects/&lt;project-id&gt;/locations/&lt;region&gt;`.
      * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
      * for more details on Google Cloud resource names.
@@ -758,12 +742,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -773,18 +755,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureCluster, com.google.cloud.gkemulticloud.v1.AzureCluster.Builder, com.google.cloud.gkemulticloud.v1.AzureClusterOrBuilder> azureClusterBuilder_;
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the azureCluster field is set.
      */
     public boolean hasAzureCluster() {
-      return azureClusterBuilder_ != null || azureCluster_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -799,7 +783,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -810,16 +795,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         azureCluster_ = value;
-        onChanged();
       } else {
         azureClusterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -828,68 +814,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureCluster.Builder builderForValue) {
       if (azureClusterBuilder_ == null) {
         azureCluster_ = builderForValue.build();
-        onChanged();
       } else {
         azureClusterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeAzureCluster(com.google.cloud.gkemulticloud.v1.AzureCluster value) {
       if (azureClusterBuilder_ == null) {
-        if (azureCluster_ != null) {
-          azureCluster_ =
-            com.google.cloud.gkemulticloud.v1.AzureCluster.newBuilder(azureCluster_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          azureCluster_ != null &&
+          azureCluster_ != com.google.cloud.gkemulticloud.v1.AzureCluster.getDefaultInstance()) {
+          getAzureClusterBuilder().mergeFrom(value);
         } else {
           azureCluster_ = value;
         }
-        onChanged();
       } else {
         azureClusterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAzureCluster() {
-      if (azureClusterBuilder_ == null) {
-        azureCluster_ = null;
-        onChanged();
-      } else {
-        azureCluster_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      azureCluster_ = null;
+      if (azureClusterBuilder_ != null) {
+        azureClusterBuilder_.dispose();
         azureClusterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureCluster.Builder getAzureClusterBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAzureClusterFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -904,7 +894,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The specification of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
+     * Required. The specification of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to create.
      * </pre>
      *
      * <code>.google.cloud.gkemulticloud.v1.AzureCluster azure_cluster = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -926,12 +917,13 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object azureClusterId_ = "";
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -951,12 +943,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -977,12 +970,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -991,41 +985,41 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureClusterId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       azureClusterId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearAzureClusterId() {
-      
       azureClusterId_ = getDefaultInstance().getAzureClusterId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A client provided ID the resource. Must be unique within the parent
-     * resource.
-     * The provided ID will be part of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster]
-     * resource name formatted as
+     * Required. A client provided ID the resource. Must be unique within the
+     * parent resource.
+     * The provided ID will be part of the
+     * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource name
+     * formatted as
      * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
-     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 40 characters.
+     * Valid characters are `/[a-z][0-9]-/`. Cannot be longer than 63 characters.
      * </pre>
      *
      * <code>string azure_cluster_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1034,12 +1028,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAzureClusterIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       azureClusterId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1069,6 +1061,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1081,7 +1074,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1119,7 +1112,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateAzureClusterRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

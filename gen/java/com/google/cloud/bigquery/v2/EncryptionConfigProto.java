@@ -78,58 +78,6 @@ public final class EncryptionConfigProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EncryptionConfiguration(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.StringValue.Builder subBuilder = null;
-              if (kmsKeyName_ != null) {
-                subBuilder = kmsKeyName_.toBuilder();
-              }
-              kmsKeyName_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(kmsKeyName_);
-                kmsKeyName_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.v2.EncryptionConfigProto.internal_static_google_cloud_bigquery_v2_EncryptionConfiguration_descriptor;
@@ -184,7 +132,7 @@ public final class EncryptionConfigProto {
      */
     @java.lang.Override
     public com.google.protobuf.StringValueOrBuilder getKmsKeyNameOrBuilder() {
-      return getKmsKeyName();
+      return kmsKeyName_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : kmsKeyName_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -204,7 +152,7 @@ public final class EncryptionConfigProto {
       if (kmsKeyName_ != null) {
         output.writeMessage(1, getKmsKeyName());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -217,7 +165,7 @@ public final class EncryptionConfigProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getKmsKeyName());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -237,7 +185,7 @@ public final class EncryptionConfigProto {
         if (!getKmsKeyName()
             .equals(other.getKmsKeyName())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -252,7 +200,7 @@ public final class EncryptionConfigProto {
         hash = (37 * hash) + KMS_KEY_NAME_FIELD_NUMBER;
         hash = (53 * hash) + getKmsKeyName().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -369,26 +317,21 @@ public final class EncryptionConfigProto {
 
       // Construct using com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (kmsKeyNameBuilder_ == null) {
-          kmsKeyName_ = null;
-        } else {
-          kmsKeyName_ = null;
+        bitField0_ = 0;
+        kmsKeyName_ = null;
+        if (kmsKeyNameBuilder_ != null) {
+          kmsKeyNameBuilder_.dispose();
           kmsKeyNameBuilder_ = null;
         }
         return this;
@@ -417,13 +360,18 @@ public final class EncryptionConfigProto {
       @java.lang.Override
       public com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration buildPartial() {
         com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration result = new com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration(this);
-        if (kmsKeyNameBuilder_ == null) {
-          result.kmsKeyName_ = kmsKeyName_;
-        } else {
-          result.kmsKeyName_ = kmsKeyNameBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.kmsKeyName_ = kmsKeyNameBuilder_ == null
+              ? kmsKeyName_
+              : kmsKeyNameBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -473,7 +421,7 @@ public final class EncryptionConfigProto {
         if (other.hasKmsKeyName()) {
           mergeKmsKeyName(other.getKmsKeyName());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -488,19 +436,40 @@ public final class EncryptionConfigProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getKmsKeyNameFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.v2.EncryptionConfigProto.EncryptionConfiguration) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.StringValue kmsKeyName_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -516,7 +485,7 @@ public final class EncryptionConfigProto {
        * @return Whether the kmsKeyName field is set.
        */
       public boolean hasKmsKeyName() {
-        return kmsKeyNameBuilder_ != null || kmsKeyName_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -550,11 +519,11 @@ public final class EncryptionConfigProto {
             throw new NullPointerException();
           }
           kmsKeyName_ = value;
-          onChanged();
         } else {
           kmsKeyNameBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -570,11 +539,11 @@ public final class EncryptionConfigProto {
           com.google.protobuf.StringValue.Builder builderForValue) {
         if (kmsKeyNameBuilder_ == null) {
           kmsKeyName_ = builderForValue.build();
-          onChanged();
         } else {
           kmsKeyNameBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -588,17 +557,18 @@ public final class EncryptionConfigProto {
        */
       public Builder mergeKmsKeyName(com.google.protobuf.StringValue value) {
         if (kmsKeyNameBuilder_ == null) {
-          if (kmsKeyName_ != null) {
-            kmsKeyName_ =
-              com.google.protobuf.StringValue.newBuilder(kmsKeyName_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            kmsKeyName_ != null &&
+            kmsKeyName_ != com.google.protobuf.StringValue.getDefaultInstance()) {
+            getKmsKeyNameBuilder().mergeFrom(value);
           } else {
             kmsKeyName_ = value;
           }
-          onChanged();
         } else {
           kmsKeyNameBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -611,14 +581,13 @@ public final class EncryptionConfigProto {
        * <code>.google.protobuf.StringValue kms_key_name = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearKmsKeyName() {
-        if (kmsKeyNameBuilder_ == null) {
-          kmsKeyName_ = null;
-          onChanged();
-        } else {
-          kmsKeyName_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        kmsKeyName_ = null;
+        if (kmsKeyNameBuilder_ != null) {
+          kmsKeyNameBuilder_.dispose();
           kmsKeyNameBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -631,7 +600,7 @@ public final class EncryptionConfigProto {
        * <code>.google.protobuf.StringValue kms_key_name = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.protobuf.StringValue.Builder getKmsKeyNameBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getKmsKeyNameFieldBuilder().getBuilder();
       }
@@ -707,7 +676,18 @@ public final class EncryptionConfigProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EncryptionConfiguration(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

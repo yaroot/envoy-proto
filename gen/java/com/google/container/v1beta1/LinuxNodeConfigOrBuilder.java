@@ -98,7 +98,6 @@ public interface LinuxNodeConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; sysctls = 1;</code>
    */
-
   /* nullable */
 java.lang.String getSysctlsOrDefault(
       java.lang.String key,
@@ -124,7 +123,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; sysctls = 1;</code>
    */
-
   java.lang.String getSysctlsOrThrow(
       java.lang.String key);
 

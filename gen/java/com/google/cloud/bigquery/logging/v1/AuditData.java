@@ -38,337 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuditData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.bigquery.logging.v1.TableInsertRequest.Builder subBuilder = null;
-            if (requestCase_ == 1) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.TableInsertRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.TableInsertRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.TableInsertRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.logging.v1.DatasetListRequest.Builder subBuilder = null;
-            if (requestCase_ == 2) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.DatasetListRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetListRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.DatasetListRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.bigquery.logging.v1.DatasetInsertRequest.Builder subBuilder = null;
-            if (requestCase_ == 3) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.DatasetInsertRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetInsertRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.DatasetInsertRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.bigquery.logging.v1.DatasetUpdateRequest.Builder subBuilder = null;
-            if (requestCase_ == 4) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.DatasetUpdateRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetUpdateRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.DatasetUpdateRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.bigquery.logging.v1.JobInsertRequest.Builder subBuilder = null;
-            if (requestCase_ == 5) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobInsertRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobInsertRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobInsertRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.bigquery.logging.v1.JobQueryRequest.Builder subBuilder = null;
-            if (requestCase_ == 6) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobQueryRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobQueryRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobQueryRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.bigquery.logging.v1.JobGetQueryResultsRequest.Builder subBuilder = null;
-            if (requestCase_ == 7) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobGetQueryResultsRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobGetQueryResultsRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobGetQueryResultsRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.bigquery.logging.v1.TableDataListRequest.Builder subBuilder = null;
-            if (requestCase_ == 8) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.TableDataListRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.TableDataListRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.TableDataListRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.cloud.bigquery.logging.v1.TableInsertResponse.Builder subBuilder = null;
-            if (responseCase_ == 9) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.TableInsertResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.TableInsertResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.TableInsertResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.cloud.bigquery.logging.v1.TableUpdateResponse.Builder subBuilder = null;
-            if (responseCase_ == 10) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.TableUpdateResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.TableUpdateResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.TableUpdateResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.bigquery.logging.v1.DatasetInsertResponse.Builder subBuilder = null;
-            if (responseCase_ == 11) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.DatasetInsertResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetInsertResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.DatasetInsertResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.cloud.bigquery.logging.v1.DatasetUpdateResponse.Builder subBuilder = null;
-            if (responseCase_ == 12) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.DatasetUpdateResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetUpdateResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.DatasetUpdateResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.cloud.bigquery.logging.v1.JobQueryResponse.Builder subBuilder = null;
-            if (responseCase_ == 13) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobQueryResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobQueryResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobQueryResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 13;
-            break;
-          }
-          case 114: {
-            com.google.cloud.bigquery.logging.v1.JobGetQueryResultsResponse.Builder subBuilder = null;
-            if (responseCase_ == 14) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobGetQueryResultsResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobGetQueryResultsResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobGetQueryResultsResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 14;
-            break;
-          }
-          case 122: {
-            com.google.cloud.bigquery.logging.v1.JobQueryDoneResponse.Builder subBuilder = null;
-            if (responseCase_ == 15) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobQueryDoneResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobQueryDoneResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobQueryDoneResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 15;
-            break;
-          }
-          case 130: {
-            com.google.cloud.bigquery.logging.v1.TableUpdateRequest.Builder subBuilder = null;
-            if (requestCase_ == 16) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.TableUpdateRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.TableUpdateRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.TableUpdateRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 16;
-            break;
-          }
-          case 138: {
-            com.google.cloud.bigquery.logging.v1.JobCompletedEvent.Builder subBuilder = null;
-            if (jobCompletedEvent_ != null) {
-              subBuilder = jobCompletedEvent_.toBuilder();
-            }
-            jobCompletedEvent_ = input.readMessage(com.google.cloud.bigquery.logging.v1.JobCompletedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobCompletedEvent_);
-              jobCompletedEvent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.cloud.bigquery.logging.v1.JobInsertResponse.Builder subBuilder = null;
-            if (responseCase_ == 18) {
-              subBuilder = ((com.google.cloud.bigquery.logging.v1.JobInsertResponse) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.cloud.bigquery.logging.v1.JobInsertResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.logging.v1.JobInsertResponse) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 18;
-            break;
-          }
-          case 154: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tableDataReadEvents_ = new java.util.ArrayList<com.google.cloud.bigquery.logging.v1.TableDataReadEvent>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tableDataReadEvents_.add(
-                input.readMessage(com.google.cloud.bigquery.logging.v1.TableDataReadEvent.parser(), extensionRegistry));
-            break;
-          }
-          case 162: {
-            com.google.iam.v1.SetIamPolicyRequest.Builder subBuilder = null;
-            if (requestCase_ == 20) {
-              subBuilder = ((com.google.iam.v1.SetIamPolicyRequest) request_).toBuilder();
-            }
-            request_ =
-                input.readMessage(com.google.iam.v1.SetIamPolicyRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.iam.v1.SetIamPolicyRequest) request_);
-              request_ = subBuilder.buildPartial();
-            }
-            requestCase_ = 20;
-            break;
-          }
-          case 170: {
-            com.google.iam.v1.Policy.Builder subBuilder = null;
-            if (responseCase_ == 21) {
-              subBuilder = ((com.google.iam.v1.Policy) response_).toBuilder();
-            }
-            response_ =
-                input.readMessage(com.google.iam.v1.Policy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.iam.v1.Policy) response_);
-              response_ = subBuilder.buildPartial();
-            }
-            responseCase_ = 21;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tableDataReadEvents_ = java.util.Collections.unmodifiableList(tableDataReadEvents_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.logging.v1.AuditDataProto.internal_static_google_cloud_bigquery_logging_v1_AuditData_descriptor;
@@ -1349,10 +1018,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.JobCompletedEventOrBuilder getJobCompletedEventOrBuilder() {
-    return getJobCompletedEvent();
+    return jobCompletedEvent_ == null ? com.google.cloud.bigquery.logging.v1.JobCompletedEvent.getDefaultInstance() : jobCompletedEvent_;
   }
 
   public static final int TABLE_DATA_READ_EVENTS_FIELD_NUMBER = 19;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.bigquery.logging.v1.TableDataReadEvent> tableDataReadEvents_;
   /**
    * <pre>
@@ -1489,7 +1159,7 @@ private static final long serialVersionUID = 0L;
     if (responseCase_ == 21) {
       output.writeMessage(21, (com.google.iam.v1.Policy) response_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1582,7 +1252,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(21, (com.google.iam.v1.Policy) response_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1690,7 +1360,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1793,7 +1463,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1917,35 +1587,87 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.logging.v1.AuditData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTableDataReadEventsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (jobCompletedEventBuilder_ == null) {
-        jobCompletedEvent_ = null;
-      } else {
-        jobCompletedEvent_ = null;
+      bitField0_ = 0;
+      if (tableInsertRequestBuilder_ != null) {
+        tableInsertRequestBuilder_.clear();
+      }
+      if (tableUpdateRequestBuilder_ != null) {
+        tableUpdateRequestBuilder_.clear();
+      }
+      if (datasetListRequestBuilder_ != null) {
+        datasetListRequestBuilder_.clear();
+      }
+      if (datasetInsertRequestBuilder_ != null) {
+        datasetInsertRequestBuilder_.clear();
+      }
+      if (datasetUpdateRequestBuilder_ != null) {
+        datasetUpdateRequestBuilder_.clear();
+      }
+      if (jobInsertRequestBuilder_ != null) {
+        jobInsertRequestBuilder_.clear();
+      }
+      if (jobQueryRequestBuilder_ != null) {
+        jobQueryRequestBuilder_.clear();
+      }
+      if (jobGetQueryResultsRequestBuilder_ != null) {
+        jobGetQueryResultsRequestBuilder_.clear();
+      }
+      if (tableDataListRequestBuilder_ != null) {
+        tableDataListRequestBuilder_.clear();
+      }
+      if (setIamPolicyRequestBuilder_ != null) {
+        setIamPolicyRequestBuilder_.clear();
+      }
+      if (tableInsertResponseBuilder_ != null) {
+        tableInsertResponseBuilder_.clear();
+      }
+      if (tableUpdateResponseBuilder_ != null) {
+        tableUpdateResponseBuilder_.clear();
+      }
+      if (datasetInsertResponseBuilder_ != null) {
+        datasetInsertResponseBuilder_.clear();
+      }
+      if (datasetUpdateResponseBuilder_ != null) {
+        datasetUpdateResponseBuilder_.clear();
+      }
+      if (jobInsertResponseBuilder_ != null) {
+        jobInsertResponseBuilder_.clear();
+      }
+      if (jobQueryResponseBuilder_ != null) {
+        jobQueryResponseBuilder_.clear();
+      }
+      if (jobGetQueryResultsResponseBuilder_ != null) {
+        jobGetQueryResultsResponseBuilder_.clear();
+      }
+      if (jobQueryDoneResponseBuilder_ != null) {
+        jobQueryDoneResponseBuilder_.clear();
+      }
+      if (policyResponseBuilder_ != null) {
+        policyResponseBuilder_.clear();
+      }
+      jobCompletedEvent_ = null;
+      if (jobCompletedEventBuilder_ != null) {
+        jobCompletedEventBuilder_.dispose();
         jobCompletedEventBuilder_ = null;
       }
       if (tableDataReadEventsBuilder_ == null) {
         tableDataReadEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        tableDataReadEvents_ = null;
         tableDataReadEventsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00100000);
       requestCase_ = 0;
       request_ = null;
       responseCase_ = 0;
@@ -1976,158 +1698,115 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.logging.v1.AuditData buildPartial() {
       com.google.cloud.bigquery.logging.v1.AuditData result = new com.google.cloud.bigquery.logging.v1.AuditData(this);
-      int from_bitField0_ = bitField0_;
-      if (requestCase_ == 1) {
-        if (tableInsertRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = tableInsertRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 16) {
-        if (tableUpdateRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = tableUpdateRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 2) {
-        if (datasetListRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = datasetListRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 3) {
-        if (datasetInsertRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = datasetInsertRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 4) {
-        if (datasetUpdateRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = datasetUpdateRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 5) {
-        if (jobInsertRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = jobInsertRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 6) {
-        if (jobQueryRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = jobQueryRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 7) {
-        if (jobGetQueryResultsRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = jobGetQueryResultsRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 8) {
-        if (tableDataListRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = tableDataListRequestBuilder_.build();
-        }
-      }
-      if (requestCase_ == 20) {
-        if (setIamPolicyRequestBuilder_ == null) {
-          result.request_ = request_;
-        } else {
-          result.request_ = setIamPolicyRequestBuilder_.build();
-        }
-      }
-      if (responseCase_ == 9) {
-        if (tableInsertResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = tableInsertResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 10) {
-        if (tableUpdateResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = tableUpdateResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 11) {
-        if (datasetInsertResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = datasetInsertResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 12) {
-        if (datasetUpdateResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = datasetUpdateResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 18) {
-        if (jobInsertResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = jobInsertResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 13) {
-        if (jobQueryResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = jobQueryResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 14) {
-        if (jobGetQueryResultsResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = jobGetQueryResultsResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 15) {
-        if (jobQueryDoneResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = jobQueryDoneResponseBuilder_.build();
-        }
-      }
-      if (responseCase_ == 21) {
-        if (policyResponseBuilder_ == null) {
-          result.response_ = response_;
-        } else {
-          result.response_ = policyResponseBuilder_.build();
-        }
-      }
-      if (jobCompletedEventBuilder_ == null) {
-        result.jobCompletedEvent_ = jobCompletedEvent_;
-      } else {
-        result.jobCompletedEvent_ = jobCompletedEventBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.bigquery.logging.v1.AuditData result) {
       if (tableDataReadEventsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00100000) != 0)) {
           tableDataReadEvents_ = java.util.Collections.unmodifiableList(tableDataReadEvents_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00100000);
         }
         result.tableDataReadEvents_ = tableDataReadEvents_;
       } else {
         result.tableDataReadEvents_ = tableDataReadEventsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.logging.v1.AuditData result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.jobCompletedEvent_ = jobCompletedEventBuilder_ == null
+            ? jobCompletedEvent_
+            : jobCompletedEventBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.bigquery.logging.v1.AuditData result) {
       result.requestCase_ = requestCase_;
+      result.request_ = this.request_;
+      if (requestCase_ == 1 &&
+          tableInsertRequestBuilder_ != null) {
+        result.request_ = tableInsertRequestBuilder_.build();
+      }
+      if (requestCase_ == 16 &&
+          tableUpdateRequestBuilder_ != null) {
+        result.request_ = tableUpdateRequestBuilder_.build();
+      }
+      if (requestCase_ == 2 &&
+          datasetListRequestBuilder_ != null) {
+        result.request_ = datasetListRequestBuilder_.build();
+      }
+      if (requestCase_ == 3 &&
+          datasetInsertRequestBuilder_ != null) {
+        result.request_ = datasetInsertRequestBuilder_.build();
+      }
+      if (requestCase_ == 4 &&
+          datasetUpdateRequestBuilder_ != null) {
+        result.request_ = datasetUpdateRequestBuilder_.build();
+      }
+      if (requestCase_ == 5 &&
+          jobInsertRequestBuilder_ != null) {
+        result.request_ = jobInsertRequestBuilder_.build();
+      }
+      if (requestCase_ == 6 &&
+          jobQueryRequestBuilder_ != null) {
+        result.request_ = jobQueryRequestBuilder_.build();
+      }
+      if (requestCase_ == 7 &&
+          jobGetQueryResultsRequestBuilder_ != null) {
+        result.request_ = jobGetQueryResultsRequestBuilder_.build();
+      }
+      if (requestCase_ == 8 &&
+          tableDataListRequestBuilder_ != null) {
+        result.request_ = tableDataListRequestBuilder_.build();
+      }
+      if (requestCase_ == 20 &&
+          setIamPolicyRequestBuilder_ != null) {
+        result.request_ = setIamPolicyRequestBuilder_.build();
+      }
       result.responseCase_ = responseCase_;
-      onBuilt();
-      return result;
+      result.response_ = this.response_;
+      if (responseCase_ == 9 &&
+          tableInsertResponseBuilder_ != null) {
+        result.response_ = tableInsertResponseBuilder_.build();
+      }
+      if (responseCase_ == 10 &&
+          tableUpdateResponseBuilder_ != null) {
+        result.response_ = tableUpdateResponseBuilder_.build();
+      }
+      if (responseCase_ == 11 &&
+          datasetInsertResponseBuilder_ != null) {
+        result.response_ = datasetInsertResponseBuilder_.build();
+      }
+      if (responseCase_ == 12 &&
+          datasetUpdateResponseBuilder_ != null) {
+        result.response_ = datasetUpdateResponseBuilder_.build();
+      }
+      if (responseCase_ == 18 &&
+          jobInsertResponseBuilder_ != null) {
+        result.response_ = jobInsertResponseBuilder_.build();
+      }
+      if (responseCase_ == 13 &&
+          jobQueryResponseBuilder_ != null) {
+        result.response_ = jobQueryResponseBuilder_.build();
+      }
+      if (responseCase_ == 14 &&
+          jobGetQueryResultsResponseBuilder_ != null) {
+        result.response_ = jobGetQueryResultsResponseBuilder_.build();
+      }
+      if (responseCase_ == 15 &&
+          jobQueryDoneResponseBuilder_ != null) {
+        result.response_ = jobQueryDoneResponseBuilder_.build();
+      }
+      if (responseCase_ == 21 &&
+          policyResponseBuilder_ != null) {
+        result.response_ = policyResponseBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2181,7 +1860,7 @@ private static final long serialVersionUID = 0L;
         if (!other.tableDataReadEvents_.isEmpty()) {
           if (tableDataReadEvents_.isEmpty()) {
             tableDataReadEvents_ = other.tableDataReadEvents_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00100000);
           } else {
             ensureTableDataReadEventsIsMutable();
             tableDataReadEvents_.addAll(other.tableDataReadEvents_);
@@ -2194,7 +1873,7 @@ private static final long serialVersionUID = 0L;
             tableDataReadEventsBuilder_.dispose();
             tableDataReadEventsBuilder_ = null;
             tableDataReadEvents_ = other.tableDataReadEvents_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00100000);
             tableDataReadEventsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTableDataReadEventsFieldBuilder() : null;
@@ -2289,7 +1968,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2304,17 +1983,183 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.logging.v1.AuditData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTableInsertRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDatasetListRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDatasetInsertRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDatasetUpdateRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getJobInsertRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getJobQueryRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getJobGetQueryResultsRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getTableDataListRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getTableInsertResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getTableUpdateResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getDatasetInsertResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getDatasetUpdateResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getJobQueryResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getJobGetQueryResultsResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 14;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getJobQueryDoneResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getTableUpdateRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 16;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getJobCompletedEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getJobInsertResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 18;
+              break;
+            } // case 146
+            case 154: {
+              com.google.cloud.bigquery.logging.v1.TableDataReadEvent m =
+                  input.readMessage(
+                      com.google.cloud.bigquery.logging.v1.TableDataReadEvent.parser(),
+                      extensionRegistry);
+              if (tableDataReadEventsBuilder_ == null) {
+                ensureTableDataReadEventsIsMutable();
+                tableDataReadEvents_.add(m);
+              } else {
+                tableDataReadEventsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getSetIamPolicyRequestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              requestCase_ = 20;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getPolicyResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              responseCase_ = 21;
+              break;
+            } // case 170
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.logging.v1.AuditData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int requestCase_ = 0;
@@ -2523,7 +2368,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 1;
-      onChanged();;
+      onChanged();
       return tableInsertRequestBuilder_;
     }
 
@@ -2701,7 +2546,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 16;
-      onChanged();;
+      onChanged();
       return tableUpdateRequestBuilder_;
     }
 
@@ -2879,7 +2724,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 2;
-      onChanged();;
+      onChanged();
       return datasetListRequestBuilder_;
     }
 
@@ -3057,7 +2902,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 3;
-      onChanged();;
+      onChanged();
       return datasetInsertRequestBuilder_;
     }
 
@@ -3235,7 +3080,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 4;
-      onChanged();;
+      onChanged();
       return datasetUpdateRequestBuilder_;
     }
 
@@ -3413,7 +3258,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 5;
-      onChanged();;
+      onChanged();
       return jobInsertRequestBuilder_;
     }
 
@@ -3591,7 +3436,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 6;
-      onChanged();;
+      onChanged();
       return jobQueryRequestBuilder_;
     }
 
@@ -3769,7 +3614,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 7;
-      onChanged();;
+      onChanged();
       return jobGetQueryResultsRequestBuilder_;
     }
 
@@ -3947,7 +3792,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 8;
-      onChanged();;
+      onChanged();
       return tableDataListRequestBuilder_;
     }
 
@@ -4125,7 +3970,7 @@ private static final long serialVersionUID = 0L;
         request_ = null;
       }
       requestCase_ = 20;
-      onChanged();;
+      onChanged();
       return setIamPolicyRequestBuilder_;
     }
 
@@ -4303,7 +4148,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 9;
-      onChanged();;
+      onChanged();
       return tableInsertResponseBuilder_;
     }
 
@@ -4481,7 +4326,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 10;
-      onChanged();;
+      onChanged();
       return tableUpdateResponseBuilder_;
     }
 
@@ -4659,7 +4504,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 11;
-      onChanged();;
+      onChanged();
       return datasetInsertResponseBuilder_;
     }
 
@@ -4837,7 +4682,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 12;
-      onChanged();;
+      onChanged();
       return datasetUpdateResponseBuilder_;
     }
 
@@ -5015,7 +4860,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 18;
-      onChanged();;
+      onChanged();
       return jobInsertResponseBuilder_;
     }
 
@@ -5193,7 +5038,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 13;
-      onChanged();;
+      onChanged();
       return jobQueryResponseBuilder_;
     }
 
@@ -5371,7 +5216,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 14;
-      onChanged();;
+      onChanged();
       return jobGetQueryResultsResponseBuilder_;
     }
 
@@ -5558,7 +5403,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 15;
-      onChanged();;
+      onChanged();
       return jobQueryDoneResponseBuilder_;
     }
 
@@ -5736,7 +5581,7 @@ private static final long serialVersionUID = 0L;
         response_ = null;
       }
       responseCase_ = 21;
-      onChanged();;
+      onChanged();
       return policyResponseBuilder_;
     }
 
@@ -5752,7 +5597,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobCompletedEvent field is set.
      */
     public boolean hasJobCompletedEvent() {
-      return jobCompletedEventBuilder_ != null || jobCompletedEvent_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -5782,11 +5627,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobCompletedEvent_ = value;
-        onChanged();
       } else {
         jobCompletedEventBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5800,11 +5645,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.JobCompletedEvent.Builder builderForValue) {
       if (jobCompletedEventBuilder_ == null) {
         jobCompletedEvent_ = builderForValue.build();
-        onChanged();
       } else {
         jobCompletedEventBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5816,17 +5661,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobCompletedEvent(com.google.cloud.bigquery.logging.v1.JobCompletedEvent value) {
       if (jobCompletedEventBuilder_ == null) {
-        if (jobCompletedEvent_ != null) {
-          jobCompletedEvent_ =
-            com.google.cloud.bigquery.logging.v1.JobCompletedEvent.newBuilder(jobCompletedEvent_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          jobCompletedEvent_ != null &&
+          jobCompletedEvent_ != com.google.cloud.bigquery.logging.v1.JobCompletedEvent.getDefaultInstance()) {
+          getJobCompletedEventBuilder().mergeFrom(value);
         } else {
           jobCompletedEvent_ = value;
         }
-        onChanged();
       } else {
         jobCompletedEventBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5837,14 +5683,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobCompletedEvent job_completed_event = 17;</code>
      */
     public Builder clearJobCompletedEvent() {
-      if (jobCompletedEventBuilder_ == null) {
-        jobCompletedEvent_ = null;
-        onChanged();
-      } else {
-        jobCompletedEvent_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      jobCompletedEvent_ = null;
+      if (jobCompletedEventBuilder_ != null) {
+        jobCompletedEventBuilder_.dispose();
         jobCompletedEventBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5855,7 +5700,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobCompletedEvent job_completed_event = 17;</code>
      */
     public com.google.cloud.bigquery.logging.v1.JobCompletedEvent.Builder getJobCompletedEventBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getJobCompletedEventFieldBuilder().getBuilder();
     }
@@ -5898,9 +5743,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.bigquery.logging.v1.TableDataReadEvent> tableDataReadEvents_ =
       java.util.Collections.emptyList();
     private void ensureTableDataReadEventsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00100000) != 0)) {
         tableDataReadEvents_ = new java.util.ArrayList<com.google.cloud.bigquery.logging.v1.TableDataReadEvent>(tableDataReadEvents_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00100000;
        }
     }
 
@@ -6094,7 +5939,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTableDataReadEvents() {
       if (tableDataReadEventsBuilder_ == null) {
         tableDataReadEvents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00100000);
         onChanged();
       } else {
         tableDataReadEventsBuilder_.clear();
@@ -6199,7 +6044,7 @@ private static final long serialVersionUID = 0L;
         tableDataReadEventsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.bigquery.logging.v1.TableDataReadEvent, com.google.cloud.bigquery.logging.v1.TableDataReadEvent.Builder, com.google.cloud.bigquery.logging.v1.TableDataReadEventOrBuilder>(
                 tableDataReadEvents_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00100000) != 0),
                 getParentForChildren(),
                 isClean());
         tableDataReadEvents_ = null;
@@ -6239,7 +6084,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuditData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

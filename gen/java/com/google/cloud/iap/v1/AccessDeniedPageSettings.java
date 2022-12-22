@@ -37,71 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccessDeniedPageSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (accessDeniedPageUri_ != null) {
-              subBuilder = accessDeniedPageUri_.toBuilder();
-            }
-            accessDeniedPageUri_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accessDeniedPageUri_);
-              accessDeniedPageUri_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (generateTroubleshootingUri_ != null) {
-              subBuilder = generateTroubleshootingUri_.toBuilder();
-            }
-            generateTroubleshootingUri_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(generateTroubleshootingUri_);
-              generateTroubleshootingUri_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_AccessDeniedPageSettings_descriptor;
@@ -115,6 +50,7 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.iap.v1.AccessDeniedPageSettings.class, com.google.cloud.iap.v1.AccessDeniedPageSettings.Builder.class);
   }
 
+  private int bitField0_;
   public static final int ACCESS_DENIED_PAGE_URI_FIELD_NUMBER = 1;
   private com.google.protobuf.StringValue accessDeniedPageUri_;
   /**
@@ -150,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getAccessDeniedPageUriOrBuilder() {
-    return getAccessDeniedPageUri();
+    return accessDeniedPageUri_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : accessDeniedPageUri_;
   }
 
   public static final int GENERATE_TROUBLESHOOTING_URI_FIELD_NUMBER = 2;
@@ -191,7 +127,48 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getGenerateTroubleshootingUriOrBuilder() {
-    return getGenerateTroubleshootingUri();
+    return generateTroubleshootingUri_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : generateTroubleshootingUri_;
+  }
+
+  public static final int REMEDIATION_TOKEN_GENERATION_ENABLED_FIELD_NUMBER = 3;
+  private com.google.protobuf.BoolValue remediationTokenGenerationEnabled_;
+  /**
+   * <pre>
+   * Whether to generate remediation token on access denied events to this
+   * application.
+   * </pre>
+   *
+   * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+   * @return Whether the remediationTokenGenerationEnabled field is set.
+   */
+  @java.lang.Override
+  public boolean hasRemediationTokenGenerationEnabled() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Whether to generate remediation token on access denied events to this
+   * application.
+   * </pre>
+   *
+   * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+   * @return The remediationTokenGenerationEnabled.
+   */
+  @java.lang.Override
+  public com.google.protobuf.BoolValue getRemediationTokenGenerationEnabled() {
+    return remediationTokenGenerationEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : remediationTokenGenerationEnabled_;
+  }
+  /**
+   * <pre>
+   * Whether to generate remediation token on access denied events to this
+   * application.
+   * </pre>
+   *
+   * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.BoolValueOrBuilder getRemediationTokenGenerationEnabledOrBuilder() {
+    return remediationTokenGenerationEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : remediationTokenGenerationEnabled_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -214,7 +191,10 @@ private static final long serialVersionUID = 0L;
     if (generateTroubleshootingUri_ != null) {
       output.writeMessage(2, getGenerateTroubleshootingUri());
     }
-    unknownFields.writeTo(output);
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(3, getRemediationTokenGenerationEnabled());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -231,7 +211,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getGenerateTroubleshootingUri());
     }
-    size += unknownFields.getSerializedSize();
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getRemediationTokenGenerationEnabled());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -256,7 +240,12 @@ private static final long serialVersionUID = 0L;
       if (!getGenerateTroubleshootingUri()
           .equals(other.getGenerateTroubleshootingUri())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasRemediationTokenGenerationEnabled() != other.hasRemediationTokenGenerationEnabled()) return false;
+    if (hasRemediationTokenGenerationEnabled()) {
+      if (!getRemediationTokenGenerationEnabled()
+          .equals(other.getRemediationTokenGenerationEnabled())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -275,7 +264,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GENERATE_TROUBLESHOOTING_URI_FIELD_NUMBER;
       hash = (53 * hash) + getGenerateTroubleshootingUri().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasRemediationTokenGenerationEnabled()) {
+      hash = (37 * hash) + REMEDIATION_TOKEN_GENERATION_ENABLED_FIELD_NUMBER;
+      hash = (53 * hash) + getRemediationTokenGenerationEnabled().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -410,22 +403,29 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getAccessDeniedPageUriFieldBuilder();
+        getGenerateTroubleshootingUriFieldBuilder();
+        getRemediationTokenGenerationEnabledFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (accessDeniedPageUriBuilder_ == null) {
-        accessDeniedPageUri_ = null;
-      } else {
-        accessDeniedPageUri_ = null;
+      bitField0_ = 0;
+      accessDeniedPageUri_ = null;
+      if (accessDeniedPageUriBuilder_ != null) {
+        accessDeniedPageUriBuilder_.dispose();
         accessDeniedPageUriBuilder_ = null;
       }
-      if (generateTroubleshootingUriBuilder_ == null) {
-        generateTroubleshootingUri_ = null;
-      } else {
-        generateTroubleshootingUri_ = null;
+      generateTroubleshootingUri_ = null;
+      if (generateTroubleshootingUriBuilder_ != null) {
+        generateTroubleshootingUriBuilder_.dispose();
         generateTroubleshootingUriBuilder_ = null;
+      }
+      remediationTokenGenerationEnabled_ = null;
+      if (remediationTokenGenerationEnabledBuilder_ != null) {
+        remediationTokenGenerationEnabledBuilder_.dispose();
+        remediationTokenGenerationEnabledBuilder_ = null;
       }
       return this;
     }
@@ -453,18 +453,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.AccessDeniedPageSettings buildPartial() {
       com.google.cloud.iap.v1.AccessDeniedPageSettings result = new com.google.cloud.iap.v1.AccessDeniedPageSettings(this);
-      if (accessDeniedPageUriBuilder_ == null) {
-        result.accessDeniedPageUri_ = accessDeniedPageUri_;
-      } else {
-        result.accessDeniedPageUri_ = accessDeniedPageUriBuilder_.build();
-      }
-      if (generateTroubleshootingUriBuilder_ == null) {
-        result.generateTroubleshootingUri_ = generateTroubleshootingUri_;
-      } else {
-        result.generateTroubleshootingUri_ = generateTroubleshootingUriBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.AccessDeniedPageSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.accessDeniedPageUri_ = accessDeniedPageUriBuilder_ == null
+            ? accessDeniedPageUri_
+            : accessDeniedPageUriBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.generateTroubleshootingUri_ = generateTroubleshootingUriBuilder_ == null
+            ? generateTroubleshootingUri_
+            : generateTroubleshootingUriBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.remediationTokenGenerationEnabled_ = remediationTokenGenerationEnabledBuilder_ == null
+            ? remediationTokenGenerationEnabled_
+            : remediationTokenGenerationEnabledBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -517,7 +530,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasGenerateTroubleshootingUri()) {
         mergeGenerateTroubleshootingUri(other.getGenerateTroubleshootingUri());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasRemediationTokenGenerationEnabled()) {
+        mergeRemediationTokenGenerationEnabled(other.getRemediationTokenGenerationEnabled());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -532,19 +548,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.AccessDeniedPageSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAccessDeniedPageUriFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGenerateTroubleshootingUriFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRemediationTokenGenerationEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.AccessDeniedPageSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.StringValue accessDeniedPageUri_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -558,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accessDeniedPageUri field is set.
      */
     public boolean hasAccessDeniedPageUri() {
-      return accessDeniedPageUriBuilder_ != null || accessDeniedPageUri_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -588,11 +639,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accessDeniedPageUri_ = value;
-        onChanged();
       } else {
         accessDeniedPageUriBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -606,11 +657,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.StringValue.Builder builderForValue) {
       if (accessDeniedPageUriBuilder_ == null) {
         accessDeniedPageUri_ = builderForValue.build();
-        onChanged();
       } else {
         accessDeniedPageUriBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -622,17 +673,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccessDeniedPageUri(com.google.protobuf.StringValue value) {
       if (accessDeniedPageUriBuilder_ == null) {
-        if (accessDeniedPageUri_ != null) {
-          accessDeniedPageUri_ =
-            com.google.protobuf.StringValue.newBuilder(accessDeniedPageUri_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          accessDeniedPageUri_ != null &&
+          accessDeniedPageUri_ != com.google.protobuf.StringValue.getDefaultInstance()) {
+          getAccessDeniedPageUriBuilder().mergeFrom(value);
         } else {
           accessDeniedPageUri_ = value;
         }
-        onChanged();
       } else {
         accessDeniedPageUriBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -643,14 +695,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue access_denied_page_uri = 1;</code>
      */
     public Builder clearAccessDeniedPageUri() {
-      if (accessDeniedPageUriBuilder_ == null) {
-        accessDeniedPageUri_ = null;
-        onChanged();
-      } else {
-        accessDeniedPageUri_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      accessDeniedPageUri_ = null;
+      if (accessDeniedPageUriBuilder_ != null) {
+        accessDeniedPageUriBuilder_.dispose();
         accessDeniedPageUriBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -661,7 +712,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue access_denied_page_uri = 1;</code>
      */
     public com.google.protobuf.StringValue.Builder getAccessDeniedPageUriBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAccessDeniedPageUriFieldBuilder().getBuilder();
     }
@@ -714,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the generateTroubleshootingUri field is set.
      */
     public boolean hasGenerateTroubleshootingUri() {
-      return generateTroubleshootingUriBuilder_ != null || generateTroubleshootingUri_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -746,11 +797,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         generateTroubleshootingUri_ = value;
-        onChanged();
       } else {
         generateTroubleshootingUriBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -765,11 +816,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (generateTroubleshootingUriBuilder_ == null) {
         generateTroubleshootingUri_ = builderForValue.build();
-        onChanged();
       } else {
         generateTroubleshootingUriBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -782,17 +833,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGenerateTroubleshootingUri(com.google.protobuf.BoolValue value) {
       if (generateTroubleshootingUriBuilder_ == null) {
-        if (generateTroubleshootingUri_ != null) {
-          generateTroubleshootingUri_ =
-            com.google.protobuf.BoolValue.newBuilder(generateTroubleshootingUri_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          generateTroubleshootingUri_ != null &&
+          generateTroubleshootingUri_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getGenerateTroubleshootingUriBuilder().mergeFrom(value);
         } else {
           generateTroubleshootingUri_ = value;
         }
-        onChanged();
       } else {
         generateTroubleshootingUriBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -804,14 +856,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue generate_troubleshooting_uri = 2;</code>
      */
     public Builder clearGenerateTroubleshootingUri() {
-      if (generateTroubleshootingUriBuilder_ == null) {
-        generateTroubleshootingUri_ = null;
-        onChanged();
-      } else {
-        generateTroubleshootingUri_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      generateTroubleshootingUri_ = null;
+      if (generateTroubleshootingUriBuilder_ != null) {
+        generateTroubleshootingUriBuilder_.dispose();
         generateTroubleshootingUriBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -823,7 +874,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue generate_troubleshooting_uri = 2;</code>
      */
     public com.google.protobuf.BoolValue.Builder getGenerateTroubleshootingUriBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getGenerateTroubleshootingUriFieldBuilder().getBuilder();
     }
@@ -864,6 +915,170 @@ private static final long serialVersionUID = 0L;
       }
       return generateTroubleshootingUriBuilder_;
     }
+
+    private com.google.protobuf.BoolValue remediationTokenGenerationEnabled_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> remediationTokenGenerationEnabledBuilder_;
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     * @return Whether the remediationTokenGenerationEnabled field is set.
+     */
+    public boolean hasRemediationTokenGenerationEnabled() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     * @return The remediationTokenGenerationEnabled.
+     */
+    public com.google.protobuf.BoolValue getRemediationTokenGenerationEnabled() {
+      if (remediationTokenGenerationEnabledBuilder_ == null) {
+        return remediationTokenGenerationEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : remediationTokenGenerationEnabled_;
+      } else {
+        return remediationTokenGenerationEnabledBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    public Builder setRemediationTokenGenerationEnabled(com.google.protobuf.BoolValue value) {
+      if (remediationTokenGenerationEnabledBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        remediationTokenGenerationEnabled_ = value;
+      } else {
+        remediationTokenGenerationEnabledBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    public Builder setRemediationTokenGenerationEnabled(
+        com.google.protobuf.BoolValue.Builder builderForValue) {
+      if (remediationTokenGenerationEnabledBuilder_ == null) {
+        remediationTokenGenerationEnabled_ = builderForValue.build();
+      } else {
+        remediationTokenGenerationEnabledBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    public Builder mergeRemediationTokenGenerationEnabled(com.google.protobuf.BoolValue value) {
+      if (remediationTokenGenerationEnabledBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          remediationTokenGenerationEnabled_ != null &&
+          remediationTokenGenerationEnabled_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getRemediationTokenGenerationEnabledBuilder().mergeFrom(value);
+        } else {
+          remediationTokenGenerationEnabled_ = value;
+        }
+      } else {
+        remediationTokenGenerationEnabledBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    public Builder clearRemediationTokenGenerationEnabled() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      remediationTokenGenerationEnabled_ = null;
+      if (remediationTokenGenerationEnabledBuilder_ != null) {
+        remediationTokenGenerationEnabledBuilder_.dispose();
+        remediationTokenGenerationEnabledBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    public com.google.protobuf.BoolValue.Builder getRemediationTokenGenerationEnabledBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getRemediationTokenGenerationEnabledFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    public com.google.protobuf.BoolValueOrBuilder getRemediationTokenGenerationEnabledOrBuilder() {
+      if (remediationTokenGenerationEnabledBuilder_ != null) {
+        return remediationTokenGenerationEnabledBuilder_.getMessageOrBuilder();
+      } else {
+        return remediationTokenGenerationEnabled_ == null ?
+            com.google.protobuf.BoolValue.getDefaultInstance() : remediationTokenGenerationEnabled_;
+      }
+    }
+    /**
+     * <pre>
+     * Whether to generate remediation token on access denied events to this
+     * application.
+     * </pre>
+     *
+     * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
+        getRemediationTokenGenerationEnabledFieldBuilder() {
+      if (remediationTokenGenerationEnabledBuilder_ == null) {
+        remediationTokenGenerationEnabledBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+                getRemediationTokenGenerationEnabled(),
+                getParentForChildren(),
+                isClean());
+        remediationTokenGenerationEnabled_ = null;
+      }
+      return remediationTokenGenerationEnabledBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -897,7 +1112,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccessDeniedPageSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

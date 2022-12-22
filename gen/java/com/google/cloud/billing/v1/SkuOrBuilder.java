@@ -214,4 +214,31 @@ public interface SkuOrBuilder extends
    */
   com.google.protobuf.ByteString
       getServiceProviderNameBytes();
+
+  /**
+   * <pre>
+   * The geographic taxonomy for this sku.
+   * </pre>
+   *
+   * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+   * @return Whether the geoTaxonomy field is set.
+   */
+  boolean hasGeoTaxonomy();
+  /**
+   * <pre>
+   * The geographic taxonomy for this sku.
+   * </pre>
+   *
+   * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+   * @return The geoTaxonomy.
+   */
+  com.google.cloud.billing.v1.GeoTaxonomy getGeoTaxonomy();
+  /**
+   * <pre>
+   * The geographic taxonomy for this sku.
+   * </pre>
+   *
+   * <code>.google.cloud.billing.v1.GeoTaxonomy geo_taxonomy = 8;</code>
+   */
+  com.google.cloud.billing.v1.GeoTaxonomyOrBuilder getGeoTaxonomyOrBuilder();
 }

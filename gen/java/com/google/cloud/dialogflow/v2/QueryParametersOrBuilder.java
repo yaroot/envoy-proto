@@ -314,7 +314,6 @@ public interface QueryParametersOrBuilder extends
    *
    * <code>map&lt;string, string&gt; webhook_headers = 14;</code>
    */
-
   /* nullable */
 java.lang.String getWebhookHeadersOrDefault(
       java.lang.String key,
@@ -335,7 +334,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; webhook_headers = 14;</code>
    */
-
   java.lang.String getWebhookHeadersOrThrow(
       java.lang.String key);
 }

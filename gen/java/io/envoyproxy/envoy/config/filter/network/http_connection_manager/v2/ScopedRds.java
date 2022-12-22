@@ -30,58 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ScopedRds(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.ConfigSource.Builder subBuilder = null;
-            if (scopedRdsConfigSource_ != null) {
-              subBuilder = scopedRdsConfigSource_.toBuilder();
-            }
-            scopedRdsConfigSource_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.ConfigSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(scopedRdsConfigSource_);
-              scopedRdsConfigSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.HttpConnectionManagerProto.internal_static_envoy_config_filter_network_http_connection_manager_v2_ScopedRds_descriptor;
@@ -130,7 +78,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.ConfigSourceOrBuilder getScopedRdsConfigSourceOrBuilder() {
-    return getScopedRdsConfigSource();
+    return scopedRdsConfigSource_ == null ? io.envoyproxy.envoy.api.v2.core.ConfigSource.getDefaultInstance() : scopedRdsConfigSource_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,7 +98,7 @@ private static final long serialVersionUID = 0L;
     if (scopedRdsConfigSource_ != null) {
       output.writeMessage(1, getScopedRdsConfigSource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -163,7 +111,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getScopedRdsConfigSource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -183,7 +131,7 @@ private static final long serialVersionUID = 0L;
       if (!getScopedRdsConfigSource()
           .equals(other.getScopedRdsConfigSource())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -198,7 +146,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SCOPED_RDS_CONFIG_SOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getScopedRdsConfigSource().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -315,26 +263,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (scopedRdsConfigSourceBuilder_ == null) {
-        scopedRdsConfigSource_ = null;
-      } else {
-        scopedRdsConfigSource_ = null;
+      bitField0_ = 0;
+      scopedRdsConfigSource_ = null;
+      if (scopedRdsConfigSourceBuilder_ != null) {
+        scopedRdsConfigSourceBuilder_.dispose();
         scopedRdsConfigSourceBuilder_ = null;
       }
       return this;
@@ -363,13 +306,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds buildPartial() {
       io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds result = new io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds(this);
-      if (scopedRdsConfigSourceBuilder_ == null) {
-        result.scopedRdsConfigSource_ = scopedRdsConfigSource_;
-      } else {
-        result.scopedRdsConfigSource_ = scopedRdsConfigSourceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scopedRdsConfigSource_ = scopedRdsConfigSourceBuilder_ == null
+            ? scopedRdsConfigSource_
+            : scopedRdsConfigSourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -419,7 +367,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasScopedRdsConfigSource()) {
         mergeScopedRdsConfigSource(other.getScopedRdsConfigSource());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -434,19 +382,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getScopedRdsConfigSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.network.http_connection_manager.v2.ScopedRds) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.api.v2.core.ConfigSource scopedRdsConfigSource_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -460,7 +429,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the scopedRdsConfigSource field is set.
      */
     public boolean hasScopedRdsConfigSource() {
-      return scopedRdsConfigSourceBuilder_ != null || scopedRdsConfigSource_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -490,11 +459,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         scopedRdsConfigSource_ = value;
-        onChanged();
       } else {
         scopedRdsConfigSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -508,11 +477,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.ConfigSource.Builder builderForValue) {
       if (scopedRdsConfigSourceBuilder_ == null) {
         scopedRdsConfigSource_ = builderForValue.build();
-        onChanged();
       } else {
         scopedRdsConfigSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -524,17 +493,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScopedRdsConfigSource(io.envoyproxy.envoy.api.v2.core.ConfigSource value) {
       if (scopedRdsConfigSourceBuilder_ == null) {
-        if (scopedRdsConfigSource_ != null) {
-          scopedRdsConfigSource_ =
-            io.envoyproxy.envoy.api.v2.core.ConfigSource.newBuilder(scopedRdsConfigSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          scopedRdsConfigSource_ != null &&
+          scopedRdsConfigSource_ != io.envoyproxy.envoy.api.v2.core.ConfigSource.getDefaultInstance()) {
+          getScopedRdsConfigSourceBuilder().mergeFrom(value);
         } else {
           scopedRdsConfigSource_ = value;
         }
-        onChanged();
       } else {
         scopedRdsConfigSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -545,14 +515,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.ConfigSource scoped_rds_config_source = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearScopedRdsConfigSource() {
-      if (scopedRdsConfigSourceBuilder_ == null) {
-        scopedRdsConfigSource_ = null;
-        onChanged();
-      } else {
-        scopedRdsConfigSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      scopedRdsConfigSource_ = null;
+      if (scopedRdsConfigSourceBuilder_ != null) {
+        scopedRdsConfigSourceBuilder_.dispose();
         scopedRdsConfigSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -563,7 +532,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.ConfigSource scoped_rds_config_source = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.api.v2.core.ConfigSource.Builder getScopedRdsConfigSourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getScopedRdsConfigSourceFieldBuilder().getBuilder();
     }
@@ -635,7 +604,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ScopedRds(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

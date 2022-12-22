@@ -39,109 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StaticMediaPrompt(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (startOffset_ != null) {
-              subBuilder = startOffset_.toBuilder();
-            }
-            startOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startOffset_);
-              startOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              optionalMediaControls_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            optionalMediaControls_.add(rawValue);
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                optionalMediaControls_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              optionalMediaControls_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              mediaObjects_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            mediaObjects_.add(
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject.parser(), extensionRegistry));
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            mediaType_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            repeatMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        optionalMediaControls_ = java.util.Collections.unmodifiableList(optionalMediaControls_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        mediaObjects_ = java.util.Collections.unmodifiableList(mediaObjects_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_StaticMediaPrompt_descriptor;
@@ -593,7 +490,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEDIA_TYPE_FIELD_NUMBER = 8;
-  private int mediaType_;
+  private int mediaType_ = 0;
   /**
    * <pre>
    * Media type of this response.
@@ -614,8 +511,7 @@ private static final long serialVersionUID = 0L;
    * @return The mediaType.
    */
   @java.lang.Override public com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType getMediaType() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType.valueOf(mediaType_);
+    com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType.forNumber(mediaType_);
     return result == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType.UNRECOGNIZED : result;
   }
 
@@ -654,18 +550,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getStartOffsetOrBuilder() {
-    return getStartOffset();
+    return startOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : startOffset_;
   }
 
   public static final int OPTIONAL_MEDIA_CONTROLS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> optionalMediaControls_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls> optionalMediaControls_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls>() {
             public com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls.valueOf(from);
+              com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls.forNumber(from);
               return result == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.OptionalMediaControls.UNRECOGNIZED : result;
             }
           };
@@ -751,6 +647,7 @@ private static final long serialVersionUID = 0L;
   private int optionalMediaControlsMemoizedSerializedSize;
 
   public static final int MEDIA_OBJECTS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject> mediaObjects_;
   /**
    * <pre>
@@ -811,7 +708,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPEAT_MODE_FIELD_NUMBER = 9;
-  private int repeatMode_;
+  private int repeatMode_ = 0;
   /**
    * <pre>
    * Repeat mode for the list of Media Objects.
@@ -832,8 +729,7 @@ private static final long serialVersionUID = 0L;
    * @return The repeatMode.
    */
   @java.lang.Override public com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode getRepeatMode() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.valueOf(repeatMode_);
+    com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.forNumber(repeatMode_);
     return result == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.UNRECOGNIZED : result;
   }
 
@@ -871,7 +767,7 @@ private static final long serialVersionUID = 0L;
     if (repeatMode_ != com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.REPEAT_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(9, repeatMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -908,7 +804,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(9, repeatMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -933,7 +829,7 @@ private static final long serialVersionUID = 0L;
     if (!getMediaObjectsList()
         .equals(other.getMediaObjectsList())) return false;
     if (repeatMode_ != other.repeatMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -960,7 +856,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REPEAT_MODE_FIELD_NUMBER;
     hash = (53 * hash) + repeatMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1082,41 +978,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMediaObjectsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       mediaType_ = 0;
-
-      if (startOffsetBuilder_ == null) {
-        startOffset_ = null;
-      } else {
-        startOffset_ = null;
+      startOffset_ = null;
+      if (startOffsetBuilder_ != null) {
+        startOffsetBuilder_.dispose();
         startOffsetBuilder_ = null;
       }
       optionalMediaControls_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (mediaObjectsBuilder_ == null) {
         mediaObjects_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        mediaObjects_ = null;
         mediaObjectsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       repeatMode_ = 0;
-
       return this;
     }
 
@@ -1143,30 +1032,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt result = new com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt(this);
-      int from_bitField0_ = bitField0_;
-      result.mediaType_ = mediaType_;
-      if (startOffsetBuilder_ == null) {
-        result.startOffset_ = startOffset_;
-      } else {
-        result.startOffset_ = startOffsetBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         optionalMediaControls_ = java.util.Collections.unmodifiableList(optionalMediaControls_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.optionalMediaControls_ = optionalMediaControls_;
       if (mediaObjectsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           mediaObjects_ = java.util.Collections.unmodifiableList(mediaObjects_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.mediaObjects_ = mediaObjects_;
       } else {
         result.mediaObjects_ = mediaObjectsBuilder_.build();
       }
-      result.repeatMode_ = repeatMode_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mediaType_ = mediaType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startOffset_ = startOffsetBuilder_ == null
+            ? startOffset_
+            : startOffsetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.repeatMode_ = repeatMode_;
+      }
     }
 
     @java.lang.Override
@@ -1222,7 +1123,7 @@ private static final long serialVersionUID = 0L;
       if (!other.optionalMediaControls_.isEmpty()) {
         if (optionalMediaControls_.isEmpty()) {
           optionalMediaControls_ = other.optionalMediaControls_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureOptionalMediaControlsIsMutable();
           optionalMediaControls_.addAll(other.optionalMediaControls_);
@@ -1233,7 +1134,7 @@ private static final long serialVersionUID = 0L;
         if (!other.mediaObjects_.isEmpty()) {
           if (mediaObjects_.isEmpty()) {
             mediaObjects_ = other.mediaObjects_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureMediaObjectsIsMutable();
             mediaObjects_.addAll(other.mediaObjects_);
@@ -1246,7 +1147,7 @@ private static final long serialVersionUID = 0L;
             mediaObjectsBuilder_.dispose();
             mediaObjectsBuilder_ = null;
             mediaObjects_ = other.mediaObjects_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             mediaObjectsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMediaObjectsFieldBuilder() : null;
@@ -1258,7 +1159,7 @@ private static final long serialVersionUID = 0L;
       if (other.repeatMode_ != 0) {
         setRepeatModeValue(other.getRepeatModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1273,17 +1174,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 42: {
+              input.readMessage(
+                  getStartOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 48: {
+              int tmpRaw = input.readEnum();
+              ensureOptionalMediaControlsIsMutable();
+              optionalMediaControls_.add(tmpRaw);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureOptionalMediaControlsIsMutable();
+                optionalMediaControls_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 50
+            case 58: {
+              com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject.parser(),
+                      extensionRegistry);
+              if (mediaObjectsBuilder_ == null) {
+                ensureMediaObjectsIsMutable();
+                mediaObjects_.add(m);
+              } else {
+                mediaObjectsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 64: {
+              mediaType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 64
+            case 72: {
+              repeatMode_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1310,8 +1271,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMediaTypeValue(int value) {
-      
       mediaType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1325,8 +1286,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType getMediaType() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType.valueOf(mediaType_);
+      com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType.forNumber(mediaType_);
       return result == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.MediaType.UNRECOGNIZED : result;
     }
     /**
@@ -1342,7 +1302,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       mediaType_ = value.getNumber();
       onChanged();
       return this;
@@ -1356,7 +1316,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMediaType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       mediaType_ = 0;
       onChanged();
       return this;
@@ -1374,7 +1334,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startOffset field is set.
      */
     public boolean hasStartOffset() {
-      return startOffsetBuilder_ != null || startOffset_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1404,11 +1364,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startOffset_ = value;
-        onChanged();
       } else {
         startOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1422,11 +1382,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (startOffsetBuilder_ == null) {
         startOffset_ = builderForValue.build();
-        onChanged();
       } else {
         startOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1438,17 +1398,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartOffset(com.google.protobuf.Duration value) {
       if (startOffsetBuilder_ == null) {
-        if (startOffset_ != null) {
-          startOffset_ =
-            com.google.protobuf.Duration.newBuilder(startOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          startOffset_ != null &&
+          startOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getStartOffsetBuilder().mergeFrom(value);
         } else {
           startOffset_ = value;
         }
-        onChanged();
       } else {
         startOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1459,14 +1420,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration start_offset = 5;</code>
      */
     public Builder clearStartOffset() {
-      if (startOffsetBuilder_ == null) {
-        startOffset_ = null;
-        onChanged();
-      } else {
-        startOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      startOffset_ = null;
+      if (startOffsetBuilder_ != null) {
+        startOffsetBuilder_.dispose();
         startOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1477,7 +1437,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration start_offset = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getStartOffsetBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStartOffsetFieldBuilder().getBuilder();
     }
@@ -1520,9 +1480,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> optionalMediaControls_ =
       java.util.Collections.emptyList();
     private void ensureOptionalMediaControlsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         optionalMediaControls_ = new java.util.ArrayList<java.lang.Integer>(optionalMediaControls_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
       }
     }
     /**
@@ -1647,7 +1607,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearOptionalMediaControls() {
       optionalMediaControls_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1744,9 +1704,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject> mediaObjects_ =
       java.util.Collections.emptyList();
     private void ensureMediaObjectsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         mediaObjects_ = new java.util.ArrayList<com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject>(mediaObjects_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1940,7 +1900,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMediaObjects() {
       if (mediaObjectsBuilder_ == null) {
         mediaObjects_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         mediaObjectsBuilder_.clear();
@@ -2045,7 +2005,7 @@ private static final long serialVersionUID = 0L;
         mediaObjectsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject, com.google.actions.sdk.v2.interactionmodel.prompt.MediaObject.Builder, com.google.actions.sdk.v2.interactionmodel.prompt.MediaObjectOrBuilder>(
                 mediaObjects_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         mediaObjects_ = null;
@@ -2075,8 +2035,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRepeatModeValue(int value) {
-      
       repeatMode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2090,8 +2050,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode getRepeatMode() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.valueOf(repeatMode_);
+      com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode result = com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.forNumber(repeatMode_);
       return result == null ? com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPrompt.RepeatMode.UNRECOGNIZED : result;
     }
     /**
@@ -2107,7 +2066,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       repeatMode_ = value.getNumber();
       onChanged();
       return this;
@@ -2121,7 +2080,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRepeatMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       repeatMode_ = 0;
       onChanged();
       return this;
@@ -2159,7 +2118,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StaticMediaPrompt(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

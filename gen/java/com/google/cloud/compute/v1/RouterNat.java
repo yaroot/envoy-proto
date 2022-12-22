@@ -42,182 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RouterNat(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            name_ = s;
-            break;
-          }
-          case 29180496: {
-            bitField0_ |= 0x00000004;
-            icmpIdleTimeoutSec_ = input.readInt32();
-            break;
-          }
-          case 519359024: {
-            bitField0_ |= 0x00001000;
-            udpIdleTimeoutSec_ = input.readInt32();
-            break;
-          }
-          case 870991802: {
-            if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-              rules_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterNatRule>();
-              mutable_bitField0_ |= 0x00000800;
-            }
-            rules_.add(
-                input.readMessage(com.google.cloud.compute.v1.RouterNatRule.parser(), extensionRegistry));
-            break;
-          }
-          case 941080690: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-              natIps_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000400;
-            }
-            natIps_.add(s);
-            break;
-          }
-          case 1489548696: {
-            bitField0_ |= 0x00000020;
-            minPortsPerVm_ = input.readInt32();
-            break;
-          }
-          case 1640230192: {
-            bitField0_ |= 0x00000800;
-            tcpTransitoryIdleTimeoutSec_ = input.readInt32();
-            break;
-          }
-          case 1784786792: {
-            bitField0_ |= 0x00000200;
-            tcpEstablishedIdleTimeoutSec_ = input.readInt32();
-            break;
-          }
-          case 2000496392: {
-            bitField0_ |= 0x00000010;
-            maxPortsPerVm_ = input.readInt32();
-            break;
-          }
-          case 2017705690: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            sourceSubnetworkIpRangesToNat_ = s;
-            break;
-          }
-          case 2075534552: {
-            bitField0_ |= 0x00000002;
-            enableEndpointIndependentMapping_ = input.readBool();
-            break;
-          }
-          case -1484569366: {
-            com.google.cloud.compute.v1.RouterNatLogConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = logConfig_.toBuilder();
-            }
-            logConfig_ = input.readMessage(com.google.cloud.compute.v1.RouterNatLogConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(logConfig_);
-              logConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case -968142294: {
-            if (!((mutable_bitField0_ & 0x00002000) != 0)) {
-              subnetworks_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterNatSubnetworkToNat>();
-              mutable_bitField0_ |= 0x00002000;
-            }
-            subnetworks_.add(
-                input.readMessage(com.google.cloud.compute.v1.RouterNatSubnetworkToNat.parser(), extensionRegistry));
-            break;
-          }
-          case -857152534: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            natIpAllocateOption_ = s;
-            break;
-          }
-          case -273896838: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              endpointTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            endpointTypes_.add(s);
-            break;
-          }
-          case -262339014: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              drainNatIps_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            drainNatIps_.add(s);
-            break;
-          }
-          case -186191896: {
-            bitField0_ |= 0x00000400;
-            tcpTimeWaitTimeoutSec_ = input.readInt32();
-            break;
-          }
-          case -38116080: {
-            bitField0_ |= 0x00000001;
-            enableDynamicPortAllocation_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000800) != 0)) {
-        rules_ = java.util.Collections.unmodifiableList(rules_);
-      }
-      if (((mutable_bitField0_ & 0x00000400) != 0)) {
-        natIps_ = natIps_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00002000) != 0)) {
-        subnetworks_ = java.util.Collections.unmodifiableList(subnetworks_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        endpointTypes_ = endpointTypes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        drainNatIps_ = drainNatIps_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_RouterNat_descriptor;
@@ -684,6 +508,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DRAIN_NAT_IPS_FIELD_NUMBER = 504078535;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList drainNatIps_;
   /**
    * <pre>
@@ -735,7 +560,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_DYNAMIC_PORT_ALLOCATION_FIELD_NUMBER = 532106402;
-  private boolean enableDynamicPortAllocation_;
+  private boolean enableDynamicPortAllocation_ = false;
   /**
    * <pre>
    * Enable Dynamic Port Allocation. If not specified, it is disabled by default. If set to true, - Dynamic Port Allocation will be enabled on this NAT config. - enableEndpointIndependentMapping cannot be set to true. - If minPorts is set, minPortsPerVm must be set to a power of two greater than or equal to 32. If minPortsPerVm is not set, a minimum of 32 ports will be allocated to a VM from this NAT config. 
@@ -762,7 +587,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_ENDPOINT_INDEPENDENT_MAPPING_FIELD_NUMBER = 259441819;
-  private boolean enableEndpointIndependentMapping_;
+  private boolean enableEndpointIndependentMapping_ = false;
   /**
    * <code>optional bool enable_endpoint_independent_mapping = 259441819;</code>
    * @return Whether the enableEndpointIndependentMapping field is set.
@@ -781,6 +606,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDPOINT_TYPES_FIELD_NUMBER = 502633807;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList endpointTypes_;
   /**
    * <pre>
@@ -836,7 +662,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ICMP_IDLE_TIMEOUT_SEC_FIELD_NUMBER = 3647562;
-  private int icmpIdleTimeoutSec_;
+  private int icmpIdleTimeoutSec_ = 0;
   /**
    * <pre>
    * Timeout (in seconds) for ICMP connections. Defaults to 30s if not set.
@@ -901,7 +727,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_PORTS_PER_VM_FIELD_NUMBER = 250062049;
-  private int maxPortsPerVm_;
+  private int maxPortsPerVm_ = 0;
   /**
    * <pre>
    * Maximum number of ports allocated to a VM from this NAT config when Dynamic Port Allocation is enabled. If Dynamic Port Allocation is not enabled, this field has no effect. If Dynamic Port Allocation is enabled, and this field is set, it must be set to a power of two greater than minPortsPerVm, or 64 if minPortsPerVm is not set. If Dynamic Port Allocation is enabled and this field is not set, a maximum of 65536 ports will be allocated to a VM from this NAT config.
@@ -928,7 +754,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_PORTS_PER_VM_FIELD_NUMBER = 186193587;
-  private int minPortsPerVm_;
+  private int minPortsPerVm_ = 0;
   /**
    * <pre>
    * Minimum number of ports allocated to a VM from this NAT config. If not set, a default number of ports is allocated to a VM. This is rounded up to the nearest power of 2. For example, if the value of this field is 50, at least 64 ports are allocated to a VM.
@@ -955,7 +781,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Unique name of this Nat service. The name must be 1-63 characters long and comply with RFC1035.
@@ -1013,7 +840,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAT_IP_ALLOCATE_OPTION_FIELD_NUMBER = 429726845;
-  private volatile java.lang.Object natIpAllocateOption_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object natIpAllocateOption_ = "";
   /**
    * <pre>
    * Specify the NatIpAllocateOption, which can take one of the following values: - MANUAL_ONLY: Uses only Nat IP addresses provided by customers. When there are not enough specified Nat IPs, the Nat service fails for new VMs. - AUTO_ONLY: Nat IPs are allocated by Google Cloud Platform; customers can't specify any Nat IPs. When choosing AUTO_ONLY, then nat_ip should be empty.
@@ -1074,6 +902,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAT_IPS_FIELD_NUMBER = 117635086;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList natIps_;
   /**
    * <pre>
@@ -1125,6 +954,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RULES_FIELD_NUMBER = 108873975;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.RouterNatRule> rules_;
   /**
    * <pre>
@@ -1185,7 +1015,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_SUBNETWORK_IP_RANGES_TO_NAT_FIELD_NUMBER = 252213211;
-  private volatile java.lang.Object sourceSubnetworkIpRangesToNat_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceSubnetworkIpRangesToNat_ = "";
   /**
    * <pre>
    * Specify the Nat option, which can take one of the following values: - ALL_SUBNETWORKS_ALL_IP_RANGES: All of the IP ranges in every Subnetwork are allowed to Nat. - ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES: All of the primary IP ranges in every Subnetwork are allowed to Nat. - LIST_OF_SUBNETWORKS: A list of Subnetworks are allowed to Nat (specified in the field subnetwork below) The default is SUBNETWORK_IP_RANGE_TO_NAT_OPTION_UNSPECIFIED. Note that if this field contains ALL_SUBNETWORKS_ALL_IP_RANGES or ALL_SUBNETWORKS_ALL_PRIMARY_IP_RANGES, then there should not be any other Router.Nat section in any Router for this network in this region.
@@ -1246,6 +1077,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNETWORKS_FIELD_NUMBER = 415853125;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.RouterNatSubnetworkToNat> subnetworks_;
   /**
    * <pre>
@@ -1306,7 +1138,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TCP_ESTABLISHED_IDLE_TIMEOUT_SEC_FIELD_NUMBER = 223098349;
-  private int tcpEstablishedIdleTimeoutSec_;
+  private int tcpEstablishedIdleTimeoutSec_ = 0;
   /**
    * <pre>
    * Timeout (in seconds) for TCP established connections. Defaults to 1200s if not set.
@@ -1333,7 +1165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TCP_TIME_WAIT_TIMEOUT_SEC_FIELD_NUMBER = 513596925;
-  private int tcpTimeWaitTimeoutSec_;
+  private int tcpTimeWaitTimeoutSec_ = 0;
   /**
    * <pre>
    * Timeout (in seconds) for TCP connections that are in TIME_WAIT state. Defaults to 120s if not set.
@@ -1360,7 +1192,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TCP_TRANSITORY_IDLE_TIMEOUT_SEC_FIELD_NUMBER = 205028774;
-  private int tcpTransitoryIdleTimeoutSec_;
+  private int tcpTransitoryIdleTimeoutSec_ = 0;
   /**
    * <pre>
    * Timeout (in seconds) for TCP transitory connections. Defaults to 30s if not set.
@@ -1387,7 +1219,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UDP_IDLE_TIMEOUT_SEC_FIELD_NUMBER = 64919878;
-  private int udpIdleTimeoutSec_;
+  private int udpIdleTimeoutSec_ = 0;
   /**
    * <pre>
    * Timeout (in seconds) for UDP connections. Defaults to 30s if not set.
@@ -1481,7 +1313,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeBool(532106402, enableDynamicPortAllocation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1571,7 +1403,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(532106402, enableDynamicPortAllocation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1661,7 +1493,7 @@ private static final long serialVersionUID = 0L;
       if (getUdpIdleTimeoutSec()
           != other.getUdpIdleTimeoutSec()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1746,7 +1578,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UDP_IDLE_TIMEOUT_SEC_FIELD_NUMBER;
       hash = (53 * hash) + getUdpIdleTimeoutSec();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1886,54 +1718,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       drainNatIps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       enableDynamicPortAllocation_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       enableEndpointIndependentMapping_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       endpointTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
       icmpIdleTimeoutSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (logConfigBuilder_ == null) {
-        logConfig_ = null;
-      } else {
-        logConfigBuilder_.clear();
+      logConfig_ = null;
+      if (logConfigBuilder_ != null) {
+        logConfigBuilder_.dispose();
+        logConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000020);
       maxPortsPerVm_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000040);
       minPortsPerVm_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000080);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       natIpAllocateOption_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       natIps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000400);
       if (rulesBuilder_ == null) {
         rules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000800);
       } else {
+        rules_ = null;
         rulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000800);
       sourceSubnetworkIpRangesToNat_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       if (subnetworksBuilder_ == null) {
         subnetworks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00002000);
       } else {
+        subnetworks_ = null;
         subnetworksBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00002000);
       tcpEstablishedIdleTimeoutSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00004000);
       tcpTimeWaitTimeoutSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00008000);
       tcpTransitoryIdleTimeoutSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00010000);
       udpIdleTimeoutSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00020000);
       return this;
     }
 
@@ -1960,54 +1782,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.RouterNat buildPartial() {
       com.google.cloud.compute.v1.RouterNat result = new com.google.cloud.compute.v1.RouterNat(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.RouterNat result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         drainNatIps_ = drainNatIps_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.drainNatIps_ = drainNatIps_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.enableDynamicPortAllocation_ = enableDynamicPortAllocation_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.enableEndpointIndependentMapping_ = enableEndpointIndependentMapping_;
-        to_bitField0_ |= 0x00000002;
-      }
       if (((bitField0_ & 0x00000008) != 0)) {
         endpointTypes_ = endpointTypes_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.endpointTypes_ = endpointTypes_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.icmpIdleTimeoutSec_ = icmpIdleTimeoutSec_;
-        to_bitField0_ |= 0x00000004;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        if (logConfigBuilder_ == null) {
-          result.logConfig_ = logConfig_;
-        } else {
-          result.logConfig_ = logConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.maxPortsPerVm_ = maxPortsPerVm_;
-        to_bitField0_ |= 0x00000010;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.minPortsPerVm_ = minPortsPerVm_;
-        to_bitField0_ |= 0x00000020;
-      }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000040;
-      }
-      result.name_ = name_;
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        to_bitField0_ |= 0x00000080;
-      }
-      result.natIpAllocateOption_ = natIpAllocateOption_;
       if (((bitField0_ & 0x00000400) != 0)) {
         natIps_ = natIps_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000400);
@@ -2022,10 +1813,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.rules_ = rulesBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00001000) != 0)) {
-        to_bitField0_ |= 0x00000100;
-      }
-      result.sourceSubnetworkIpRangesToNat_ = sourceSubnetworkIpRangesToNat_;
       if (subnetworksBuilder_ == null) {
         if (((bitField0_ & 0x00002000) != 0)) {
           subnetworks_ = java.util.Collections.unmodifiableList(subnetworks_);
@@ -2034,6 +1821,49 @@ private static final long serialVersionUID = 0L;
         result.subnetworks_ = subnetworks_;
       } else {
         result.subnetworks_ = subnetworksBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.RouterNat result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enableDynamicPortAllocation_ = enableDynamicPortAllocation_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.enableEndpointIndependentMapping_ = enableEndpointIndependentMapping_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.icmpIdleTimeoutSec_ = icmpIdleTimeoutSec_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.logConfig_ = logConfigBuilder_ == null
+            ? logConfig_
+            : logConfigBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.maxPortsPerVm_ = maxPortsPerVm_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.minPortsPerVm_ = minPortsPerVm_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.natIpAllocateOption_ = natIpAllocateOption_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.sourceSubnetworkIpRangesToNat_ = sourceSubnetworkIpRangesToNat_;
+        to_bitField0_ |= 0x00000100;
       }
       if (((from_bitField0_ & 0x00004000) != 0)) {
         result.tcpEstablishedIdleTimeoutSec_ = tcpEstablishedIdleTimeoutSec_;
@@ -2051,9 +1881,7 @@ private static final long serialVersionUID = 0L;
         result.udpIdleTimeoutSec_ = udpIdleTimeoutSec_;
         to_bitField0_ |= 0x00001000;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2139,13 +1967,13 @@ private static final long serialVersionUID = 0L;
         setMinPortsPerVm(other.getMinPortsPerVm());
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000100;
         name_ = other.name_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasNatIpAllocateOption()) {
-        bitField0_ |= 0x00000200;
         natIpAllocateOption_ = other.natIpAllocateOption_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.natIps_.isEmpty()) {
@@ -2185,8 +2013,8 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasSourceSubnetworkIpRangesToNat()) {
-        bitField0_ |= 0x00001000;
         sourceSubnetworkIpRangesToNat_ = other.sourceSubnetworkIpRangesToNat_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (subnetworksBuilder_ == null) {
@@ -2227,7 +2055,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUdpIdleTimeoutSec()) {
         setUdpIdleTimeoutSec(other.getUdpIdleTimeoutSec());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2242,17 +2070,141 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.RouterNat parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 26989658
+            case 29180496: {
+              icmpIdleTimeoutSec_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 29180496
+            case 519359024: {
+              udpIdleTimeoutSec_ = input.readInt32();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 519359024
+            case 870991802: {
+              com.google.cloud.compute.v1.RouterNatRule m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouterNatRule.parser(),
+                      extensionRegistry);
+              if (rulesBuilder_ == null) {
+                ensureRulesIsMutable();
+                rules_.add(m);
+              } else {
+                rulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 870991802
+            case 941080690: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureNatIpsIsMutable();
+              natIps_.add(s);
+              break;
+            } // case 941080690
+            case 1489548696: {
+              minPortsPerVm_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 1489548696
+            case 1640230192: {
+              tcpTransitoryIdleTimeoutSec_ = input.readInt32();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 1640230192
+            case 1784786792: {
+              tcpEstablishedIdleTimeoutSec_ = input.readInt32();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 1784786792
+            case 2000496392: {
+              maxPortsPerVm_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 2000496392
+            case 2017705690: {
+              sourceSubnetworkIpRangesToNat_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 2017705690
+            case 2075534552: {
+              enableEndpointIndependentMapping_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 2075534552
+            case -1484569366: {
+              input.readMessage(
+                  getLogConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -1484569366
+            case -968142294: {
+              com.google.cloud.compute.v1.RouterNatSubnetworkToNat m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouterNatSubnetworkToNat.parser(),
+                      extensionRegistry);
+              if (subnetworksBuilder_ == null) {
+                ensureSubnetworksIsMutable();
+                subnetworks_.add(m);
+              } else {
+                subnetworksBuilder_.addMessage(m);
+              }
+              break;
+            } // case -968142294
+            case -857152534: {
+              natIpAllocateOption_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case -857152534
+            case -273896838: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEndpointTypesIsMutable();
+              endpointTypes_.add(s);
+              break;
+            } // case -273896838
+            case -262339014: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDrainNatIpsIsMutable();
+              drainNatIps_.add(s);
+              break;
+            } // case -262339014
+            case -186191896: {
+              tcpTimeWaitTimeoutSec_ = input.readInt32();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case -186191896
+            case -38116080: {
+              enableDynamicPortAllocation_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -38116080
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.RouterNat) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2324,10 +2276,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDrainNatIps(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDrainNatIpsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDrainNatIpsIsMutable();
       drainNatIps_.set(index, value);
       onChanged();
       return this;
@@ -2343,10 +2293,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDrainNatIps(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDrainNatIpsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDrainNatIpsIsMutable();
       drainNatIps_.add(value);
       onChanged();
       return this;
@@ -2393,10 +2341,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDrainNatIpsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDrainNatIpsIsMutable();
       drainNatIps_.add(value);
       onChanged();
@@ -2438,8 +2384,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableDynamicPortAllocation(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       enableDynamicPortAllocation_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2481,8 +2428,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableEndpointIndependentMapping(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       enableEndpointIndependentMapping_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2569,10 +2517,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEndpointTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEndpointTypesIsMutable();
       endpointTypes_.set(index, value);
       onChanged();
       return this;
@@ -2589,10 +2535,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEndpointTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEndpointTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEndpointTypesIsMutable();
       endpointTypes_.add(value);
       onChanged();
       return this;
@@ -2642,10 +2586,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEndpointTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEndpointTypesIsMutable();
       endpointTypes_.add(value);
       onChanged();
@@ -2687,8 +2629,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIcmpIdleTimeoutSec(int value) {
-      bitField0_ |= 0x00000010;
+      
       icmpIdleTimeoutSec_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2749,11 +2692,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         logConfig_ = value;
-        onChanged();
       } else {
         logConfigBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2767,11 +2710,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.RouterNatLogConfig.Builder builderForValue) {
       if (logConfigBuilder_ == null) {
         logConfig_ = builderForValue.build();
-        onChanged();
       } else {
         logConfigBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2784,18 +2727,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeLogConfig(com.google.cloud.compute.v1.RouterNatLogConfig value) {
       if (logConfigBuilder_ == null) {
         if (((bitField0_ & 0x00000020) != 0) &&
-            logConfig_ != null &&
-            logConfig_ != com.google.cloud.compute.v1.RouterNatLogConfig.getDefaultInstance()) {
-          logConfig_ =
-            com.google.cloud.compute.v1.RouterNatLogConfig.newBuilder(logConfig_).mergeFrom(value).buildPartial();
+          logConfig_ != null &&
+          logConfig_ != com.google.cloud.compute.v1.RouterNatLogConfig.getDefaultInstance()) {
+          getLogConfigBuilder().mergeFrom(value);
         } else {
           logConfig_ = value;
         }
-        onChanged();
       } else {
         logConfigBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2806,13 +2748,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.RouterNatLogConfig log_config = 351299741;</code>
      */
     public Builder clearLogConfig() {
-      if (logConfigBuilder_ == null) {
-        logConfig_ = null;
-        onChanged();
-      } else {
-        logConfigBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000020);
+      logConfig_ = null;
+      if (logConfigBuilder_ != null) {
+        logConfigBuilder_.dispose();
+        logConfigBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2898,8 +2840,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxPortsPerVm(int value) {
-      bitField0_ |= 0x00000040;
+      
       maxPortsPerVm_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2953,8 +2896,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinPortsPerVm(int value) {
-      bitField0_ |= 0x00000080;
+      
       minPortsPerVm_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3037,11 +2981,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3054,8 +2996,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3070,12 +3012,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3148,11 +3088,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNatIpAllocateOption(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       natIpAllocateOption_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3166,8 +3104,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNatIpAllocateOption() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       natIpAllocateOption_ = getDefaultInstance().getNatIpAllocateOption();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3183,12 +3121,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNatIpAllocateOptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       natIpAllocateOption_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3260,10 +3196,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNatIps(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNatIpsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNatIpsIsMutable();
       natIps_.set(index, value);
       onChanged();
       return this;
@@ -3279,10 +3213,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNatIps(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNatIpsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNatIpsIsMutable();
       natIps_.add(value);
       onChanged();
       return this;
@@ -3329,10 +3261,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNatIpsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureNatIpsIsMutable();
       natIps_.add(value);
       onChanged();
@@ -3719,11 +3649,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceSubnetworkIpRangesToNat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       sourceSubnetworkIpRangesToNat_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3737,8 +3665,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceSubnetworkIpRangesToNat() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       sourceSubnetworkIpRangesToNat_ = getDefaultInstance().getSourceSubnetworkIpRangesToNat();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3754,12 +3682,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceSubnetworkIpRangesToNatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceSubnetworkIpRangesToNat_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -4111,8 +4037,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTcpEstablishedIdleTimeoutSec(int value) {
-      bitField0_ |= 0x00004000;
+      
       tcpEstablishedIdleTimeoutSec_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4166,8 +4093,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTcpTimeWaitTimeoutSec(int value) {
-      bitField0_ |= 0x00008000;
+      
       tcpTimeWaitTimeoutSec_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4221,8 +4149,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTcpTransitoryIdleTimeoutSec(int value) {
-      bitField0_ |= 0x00010000;
+      
       tcpTransitoryIdleTimeoutSec_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4276,8 +4205,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUdpIdleTimeoutSec(int value) {
-      bitField0_ |= 0x00020000;
+      
       udpIdleTimeoutSec_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -4328,7 +4258,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RouterNat(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

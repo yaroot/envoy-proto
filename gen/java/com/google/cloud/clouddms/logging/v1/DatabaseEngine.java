@@ -44,6 +44,22 @@ public enum DatabaseEngine
    * <code>SQLSERVER = 3;</code>
    */
   SQLSERVER(3),
+  /**
+   * <pre>
+   * The source engine is Oracle (for heterogeneous migrations).
+   * </pre>
+   *
+   * <code>ORACLE = 4;</code>
+   */
+  ORACLE(4),
+  /**
+   * <pre>
+   * The engine is Spanner (for heterogeneous migrations).
+   * </pre>
+   *
+   * <code>SPANNER = 5;</code>
+   */
+  SPANNER(5),
   UNRECOGNIZED(-1),
   ;
 
@@ -79,6 +95,22 @@ public enum DatabaseEngine
    * <code>SQLSERVER = 3;</code>
    */
   public static final int SQLSERVER_VALUE = 3;
+  /**
+   * <pre>
+   * The source engine is Oracle (for heterogeneous migrations).
+   * </pre>
+   *
+   * <code>ORACLE = 4;</code>
+   */
+  public static final int ORACLE_VALUE = 4;
+  /**
+   * <pre>
+   * The engine is Spanner (for heterogeneous migrations).
+   * </pre>
+   *
+   * <code>SPANNER = 5;</code>
+   */
+  public static final int SPANNER_VALUE = 5;
 
 
   public final int getNumber() {
@@ -109,6 +141,8 @@ public enum DatabaseEngine
       case 1: return MYSQL;
       case 2: return POSTGRESQL;
       case 3: return SQLSERVER;
+      case 4: return ORACLE;
+      case 5: return SPANNER;
       default: return null;
     }
   }

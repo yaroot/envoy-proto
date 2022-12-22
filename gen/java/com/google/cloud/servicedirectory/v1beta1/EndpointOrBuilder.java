@@ -190,7 +190,6 @@ public interface EndpointOrBuilder extends
    *
    * <code>map&lt;string, string&gt; metadata = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -223,7 +222,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 

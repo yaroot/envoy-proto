@@ -36,67 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DiskConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            bootDiskSizeGb_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            numLocalSsds_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bootDiskType_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            localSsdInterface_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_DiskConfig_descriptor;
@@ -111,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOT_DISK_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object bootDiskType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bootDiskType_ = "";
   /**
    * <pre>
    * Optional. Type of the boot disk (default is "pd-standard").
@@ -165,7 +105,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOT_DISK_SIZE_GB_FIELD_NUMBER = 1;
-  private int bootDiskSizeGb_;
+  private int bootDiskSizeGb_ = 0;
   /**
    * <pre>
    * Optional. Size in GB of the boot disk (default is 500GB).
@@ -180,10 +120,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUM_LOCAL_SSDS_FIELD_NUMBER = 2;
-  private int numLocalSsds_;
+  private int numLocalSsds_ = 0;
   /**
    * <pre>
-   * Optional. Number of attached SSDs, from 0 to 4 (default is 0).
+   * Optional. Number of attached SSDs, from 0 to 8 (default is 0).
    * If SSDs are not attached, the boot disk is used to store runtime logs and
    * [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data.
    * If one or more SSDs are attached, this runtime bulk
@@ -200,7 +140,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_SSD_INTERFACE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object localSsdInterface_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object localSsdInterface_ = "";
   /**
    * <pre>
    * Optional. Interface type of local SSDs (default is "scsi").
@@ -279,7 +220,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(localSsdInterface_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, localSsdInterface_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -302,7 +243,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(localSsdInterface_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, localSsdInterface_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -325,7 +266,7 @@ private static final long serialVersionUID = 0L;
         != other.getNumLocalSsds()) return false;
     if (!getLocalSsdInterface()
         .equals(other.getLocalSsdInterface())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -344,7 +285,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getNumLocalSsds();
     hash = (37 * hash) + LOCAL_SSD_INTERFACE_FIELD_NUMBER;
     hash = (53 * hash) + getLocalSsdInterface().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -465,30 +406,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.DiskConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       bootDiskType_ = "";
-
       bootDiskSizeGb_ = 0;
-
       numLocalSsds_ = 0;
-
       localSsdInterface_ = "";
-
       return this;
     }
 
@@ -515,12 +448,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.DiskConfig buildPartial() {
       com.google.cloud.dataproc.v1.DiskConfig result = new com.google.cloud.dataproc.v1.DiskConfig(this);
-      result.bootDiskType_ = bootDiskType_;
-      result.bootDiskSizeGb_ = bootDiskSizeGb_;
-      result.numLocalSsds_ = numLocalSsds_;
-      result.localSsdInterface_ = localSsdInterface_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.DiskConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bootDiskType_ = bootDiskType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bootDiskSizeGb_ = bootDiskSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.numLocalSsds_ = numLocalSsds_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.localSsdInterface_ = localSsdInterface_;
+      }
     }
 
     @java.lang.Override
@@ -569,6 +515,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.DiskConfig.getDefaultInstance()) return this;
       if (!other.getBootDiskType().isEmpty()) {
         bootDiskType_ = other.bootDiskType_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getBootDiskSizeGb() != 0) {
@@ -579,9 +526,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLocalSsdInterface().isEmpty()) {
         localSsdInterface_ = other.localSsdInterface_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -596,19 +544,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.DiskConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              bootDiskSizeGb_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 8
+            case 16: {
+              numLocalSsds_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 16
+            case 26: {
+              bootDiskType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 26
+            case 34: {
+              localSsdInterface_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.DiskConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object bootDiskType_ = "";
     /**
@@ -675,11 +657,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBootDiskType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bootDiskType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -696,8 +676,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBootDiskType() {
-      
       bootDiskType_ = getDefaultInstance().getBootDiskType();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -716,12 +696,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBootDiskTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bootDiskType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -751,6 +729,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBootDiskSizeGb(int value) {
       
       bootDiskSizeGb_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -763,7 +742,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBootDiskSizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       bootDiskSizeGb_ = 0;
       onChanged();
       return this;
@@ -772,7 +751,7 @@ private static final long serialVersionUID = 0L;
     private int numLocalSsds_ ;
     /**
      * <pre>
-     * Optional. Number of attached SSDs, from 0 to 4 (default is 0).
+     * Optional. Number of attached SSDs, from 0 to 8 (default is 0).
      * If SSDs are not attached, the boot disk is used to store runtime logs and
      * [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data.
      * If one or more SSDs are attached, this runtime bulk
@@ -789,7 +768,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Number of attached SSDs, from 0 to 4 (default is 0).
+     * Optional. Number of attached SSDs, from 0 to 8 (default is 0).
      * If SSDs are not attached, the boot disk is used to store runtime logs and
      * [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data.
      * If one or more SSDs are attached, this runtime bulk
@@ -804,12 +783,13 @@ private static final long serialVersionUID = 0L;
     public Builder setNumLocalSsds(int value) {
       
       numLocalSsds_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Number of attached SSDs, from 0 to 4 (default is 0).
+     * Optional. Number of attached SSDs, from 0 to 8 (default is 0).
      * If SSDs are not attached, the boot disk is used to store runtime logs and
      * [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html) data.
      * If one or more SSDs are attached, this runtime bulk
@@ -821,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumLocalSsds() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       numLocalSsds_ = 0;
       onChanged();
       return this;
@@ -892,11 +872,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalSsdInterface(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       localSsdInterface_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -913,8 +891,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalSsdInterface() {
-      
       localSsdInterface_ = getDefaultInstance().getLocalSsdInterface();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -933,12 +911,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalSsdInterfaceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       localSsdInterface_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -975,7 +951,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DiskConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

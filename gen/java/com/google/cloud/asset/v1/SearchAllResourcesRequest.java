@@ -39,100 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchAllResourcesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            scope_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            query_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              assetTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            assetTypes_.add(s);
-            break;
-          }
-          case 32: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderBy_ = s;
-            break;
-          }
-          case 66: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (readMask_ != null) {
-              subBuilder = readMask_.toBuilder();
-            }
-            readMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(readMask_);
-              readMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        assetTypes_ = assetTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1.AssetServiceProto.internal_static_google_cloud_asset_v1_SearchAllResourcesRequest_descriptor;
@@ -147,12 +53,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCOPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object scope_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object scope_ = "";
   /**
    * <pre>
-   * Required. A scope can be a project, a folder, or an organization. The
-   * search is limited to the resources within the `scope`. The caller must be
-   * granted the
+   * Required. A scope can be a project, a folder, or an organization. The search is
+   * limited to the resources within the `scope`. The caller must be granted the
    * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
    * permission on the desired scope.
    * The allowed values are:
@@ -180,9 +86,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. A scope can be a project, a folder, or an organization. The
-   * search is limited to the resources within the `scope`. The caller must be
-   * granted the
+   * Required. A scope can be a project, a folder, or an organization. The search is
+   * limited to the resources within the `scope`. The caller must be granted the
    * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
    * permission on the desired scope.
    * The allowed values are:
@@ -211,7 +116,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object query_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object query_ = "";
   /**
    * <pre>
    * Optional. The query statement. See [how to construct a
@@ -233,7 +139,19 @@ private static final long serialVersionUID = 0L;
    *   and its value is "prod".
    * * `labels.env:*` to find Cloud resources that have a label "env".
    * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-   *   encryption key whose name contains the word "key".
+   *   encryption key whose name contains "key" as a word. This field is
+   *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+   *   information.
+   * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+   *   encryption keys whose name contains the word "key".
+   * * `relationships:instance-group-1` to find Cloud resources that have
+   *   relationships with "instance-group-1" in the related resource name.
+   * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+   *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+   * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+   *   compute instances that have relationships with "instance-group-1" in the
+   *   compute instance group resource name, for relationship type
+   *   "INSTANCE_TO_INSTANCEGROUP".
    * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
    *   word.
    * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -291,7 +209,19 @@ private static final long serialVersionUID = 0L;
    *   and its value is "prod".
    * * `labels.env:*` to find Cloud resources that have a label "env".
    * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-   *   encryption key whose name contains the word "key".
+   *   encryption key whose name contains "key" as a word. This field is
+   *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+   *   information.
+   * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+   *   encryption keys whose name contains the word "key".
+   * * `relationships:instance-group-1` to find Cloud resources that have
+   *   relationships with "instance-group-1" in the related resource name.
+   * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+   *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+   * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+   *   compute instances that have relationships with "instance-group-1" in the
+   *   compute instance group resource name, for relationship type
+   *   "INSTANCE_TO_INSTANCEGROUP".
    * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
    *   word.
    * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -331,11 +261,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ASSET_TYPES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList assetTypes_;
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -356,8 +287,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -377,8 +308,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -399,8 +330,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -422,14 +353,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 4;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * Optional. The page size for search result pagination. Page size is capped
-   * at 500 even if a larger value is given. If set to zero, server will pick an
-   * appropriate default. Returned results may be fewer than requested. When
-   * this happens, there could be more results as long as `next_page_token` is
-   * returned.
+   * Optional. The page size for search result pagination. Page size is capped at 500 even
+   * if a larger value is given. If set to zero, server will pick an appropriate
+   * default. Returned results may be fewer than requested. When this happens,
+   * there could be more results as long as `next_page_token` is returned.
    * </pre>
    *
    * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -441,13 +371,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 5;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
-   * Optional. If present, then retrieve the next batch of results from the
-   * preceding call to this method. `page_token` must be the value of
-   * `next_page_token` from the previous response. The values of all other
-   * method parameters, must be identical to those in the previous call.
+   * Optional. If present, then retrieve the next batch of results from the preceding call
+   * to this method. `page_token` must be the value of `next_page_token` from
+   * the previous response. The values of all other method parameters, must be
+   * identical to those in the previous call.
    * </pre>
    *
    * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -468,10 +399,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If present, then retrieve the next batch of results from the
-   * preceding call to this method. `page_token` must be the value of
-   * `next_page_token` from the previous response. The values of all other
-   * method parameters, must be identical to those in the previous call.
+   * Optional. If present, then retrieve the next batch of results from the preceding call
+   * to this method. `page_token` must be the value of `next_page_token` from
+   * the previous response. The values of all other method parameters, must be
+   * identical to those in the previous call.
    * </pre>
    *
    * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -493,12 +424,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 6;
-  private volatile java.lang.Object orderBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying the sorting order of
-   * the results. The default order is ascending. Add " DESC" after the field
-   * name to indicate descending order. Redundant space characters are ignored.
+   * Optional. A comma-separated list of fields specifying the sorting order of the
+   * results. The default order is ascending. Add " DESC" after the field name
+   * to indicate descending order. Redundant space characters are ignored.
    * Example: "location DESC, name".
    * Only singular primitive fields in the response are sortable:
    *   * name
@@ -507,15 +439,14 @@ private static final long serialVersionUID = 0L;
    *   * displayName
    *   * description
    *   * location
-   *   * kmsKey
    *   * createTime
    *   * updateTime
    *   * state
    *   * parentFullResourceName
    *   * parentAssetType
-   * All the other fields such as repeated fields (e.g., `networkTags`), map
-   * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-   * are not supported.
+   * All the other fields such as repeated fields (e.g., `networkTags`,
+   * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+   * `additionalAttributes`) are not supported.
    * </pre>
    *
    * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -536,9 +467,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying the sorting order of
-   * the results. The default order is ascending. Add " DESC" after the field
-   * name to indicate descending order. Redundant space characters are ignored.
+   * Optional. A comma-separated list of fields specifying the sorting order of the
+   * results. The default order is ascending. Add " DESC" after the field name
+   * to indicate descending order. Redundant space characters are ignored.
    * Example: "location DESC, name".
    * Only singular primitive fields in the response are sortable:
    *   * name
@@ -547,15 +478,14 @@ private static final long serialVersionUID = 0L;
    *   * displayName
    *   * description
    *   * location
-   *   * kmsKey
    *   * createTime
    *   * updateTime
    *   * state
    *   * parentFullResourceName
    *   * parentAssetType
-   * All the other fields such as repeated fields (e.g., `networkTags`), map
-   * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-   * are not supported.
+   * All the other fields such as repeated fields (e.g., `networkTags`,
+   * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+   * `additionalAttributes`) are not supported.
    * </pre>
    *
    * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -580,10 +510,10 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.FieldMask readMask_;
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying which fields to be
-   * returned in ResourceSearchResult. Only '*' or combination of top level
-   * fields can be specified. Field names of both snake_case and camelCase are
-   * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+   * Optional. A comma-separated list of fields specifying which fields to be returned in
+   * ResourceSearchResult. Only '*' or combination of top level fields can be
+   * specified. Field names of both snake_case and camelCase are supported.
+   * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
    * The read_mask paths must be valid field paths listed but not limited to
    * (both snake_case and camelCase are supported):
    *   * name
@@ -597,7 +527,9 @@ private static final long serialVersionUID = 0L;
    *   * tagValueIds
    *   * labels
    *   * networkTags
-   *   * kmsKey
+   *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+   *     retrieve KMS key information.)
+   *   * kmsKeys
    *   * createTime
    *   * updateTime
    *   * state
@@ -619,10 +551,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying which fields to be
-   * returned in ResourceSearchResult. Only '*' or combination of top level
-   * fields can be specified. Field names of both snake_case and camelCase are
-   * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+   * Optional. A comma-separated list of fields specifying which fields to be returned in
+   * ResourceSearchResult. Only '*' or combination of top level fields can be
+   * specified. Field names of both snake_case and camelCase are supported.
+   * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
    * The read_mask paths must be valid field paths listed but not limited to
    * (both snake_case and camelCase are supported):
    *   * name
@@ -636,7 +568,9 @@ private static final long serialVersionUID = 0L;
    *   * tagValueIds
    *   * labels
    *   * networkTags
-   *   * kmsKey
+   *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+   *     retrieve KMS key information.)
+   *   * kmsKeys
    *   * createTime
    *   * updateTime
    *   * state
@@ -658,10 +592,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying which fields to be
-   * returned in ResourceSearchResult. Only '*' or combination of top level
-   * fields can be specified. Field names of both snake_case and camelCase are
-   * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+   * Optional. A comma-separated list of fields specifying which fields to be returned in
+   * ResourceSearchResult. Only '*' or combination of top level fields can be
+   * specified. Field names of both snake_case and camelCase are supported.
+   * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
    * The read_mask paths must be valid field paths listed but not limited to
    * (both snake_case and camelCase are supported):
    *   * name
@@ -675,7 +609,9 @@ private static final long serialVersionUID = 0L;
    *   * tagValueIds
    *   * labels
    *   * networkTags
-   *   * kmsKey
+   *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+   *     retrieve KMS key information.)
+   *   * kmsKeys
    *   * createTime
    *   * updateTime
    *   * state
@@ -692,7 +628,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getReadMaskOrBuilder() {
-    return getReadMask();
+    return readMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : readMask_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -730,7 +666,7 @@ private static final long serialVersionUID = 0L;
     if (readMask_ != null) {
       output.writeMessage(8, getReadMask());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -767,7 +703,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getReadMask());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -799,7 +735,7 @@ private static final long serialVersionUID = 0L;
       if (!getReadMask()
           .equals(other.getReadMask())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -828,7 +764,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + READ_MASK_FIELD_NUMBER;
       hash = (53 * hash) + getReadMask().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -949,38 +885,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.SearchAllResourcesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       scope_ = "";
-
       query_ = "";
-
       assetTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageSize_ = 0;
-
       pageToken_ = "";
-
       orderBy_ = "";
-
-      if (readMaskBuilder_ == null) {
-        readMask_ = null;
-      } else {
-        readMask_ = null;
+      readMask_ = null;
+      if (readMaskBuilder_ != null) {
+        readMaskBuilder_.dispose();
         readMaskBuilder_ = null;
       }
       return this;
@@ -1009,24 +935,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.SearchAllResourcesRequest buildPartial() {
       com.google.cloud.asset.v1.SearchAllResourcesRequest result = new com.google.cloud.asset.v1.SearchAllResourcesRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.scope_ = scope_;
-      result.query_ = query_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        assetTypes_ = assetTypes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.assetTypes_ = assetTypes_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.orderBy_ = orderBy_;
-      if (readMaskBuilder_ == null) {
-        result.readMask_ = readMask_;
-      } else {
-        result.readMask_ = readMaskBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.asset.v1.SearchAllResourcesRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        assetTypes_ = assetTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.assetTypes_ = assetTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.SearchAllResourcesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scope_ = scope_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.query_ = query_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.readMask_ = readMaskBuilder_ == null
+            ? readMask_
+            : readMaskBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1075,16 +1019,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.asset.v1.SearchAllResourcesRequest.getDefaultInstance()) return this;
       if (!other.getScope().isEmpty()) {
         scope_ = other.scope_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getQuery().isEmpty()) {
         query_ = other.query_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.assetTypes_.isEmpty()) {
         if (assetTypes_.isEmpty()) {
           assetTypes_ = other.assetTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureAssetTypesIsMutable();
           assetTypes_.addAll(other.assetTypes_);
@@ -1096,16 +1042,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getOrderBy().isEmpty()) {
         orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasReadMask()) {
         mergeReadMask(other.getReadMask());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1120,17 +1068,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.SearchAllResourcesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              scope_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              query_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAssetTypesIsMutable();
+              assetTypes_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getReadMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.SearchAllResourcesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1138,9 +1137,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object scope_ = "";
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the resources within the `scope`. The caller must be
-     * granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the resources within the `scope`. The caller must be granted the
      * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1167,9 +1165,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the resources within the `scope`. The caller must be
-     * granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the resources within the `scope`. The caller must be granted the
      * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1197,9 +1194,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the resources within the `scope`. The caller must be
-     * granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the resources within the `scope`. The caller must be granted the
      * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1215,19 +1211,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScope(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       scope_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the resources within the `scope`. The caller must be
-     * granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the resources within the `scope`. The caller must be granted the
      * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1241,16 +1234,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScope() {
-      
       scope_ = getDefaultInstance().getScope();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the resources within the `scope`. The caller must be
-     * granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the resources within the `scope`. The caller must be granted the
      * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1266,12 +1258,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScopeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       scope_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1298,7 +1288,19 @@ private static final long serialVersionUID = 0L;
      *   and its value is "prod".
      * * `labels.env:*` to find Cloud resources that have a label "env".
      * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-     *   encryption key whose name contains the word "key".
+     *   encryption key whose name contains "key" as a word. This field is
+     *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+     *   information.
+     * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+     *   encryption keys whose name contains the word "key".
+     * * `relationships:instance-group-1` to find Cloud resources that have
+     *   relationships with "instance-group-1" in the related resource name.
+     * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+     *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+     * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+     *   compute instances that have relationships with "instance-group-1" in the
+     *   compute instance group resource name, for relationship type
+     *   "INSTANCE_TO_INSTANCEGROUP".
      * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
      *   word.
      * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -1355,7 +1357,19 @@ private static final long serialVersionUID = 0L;
      *   and its value is "prod".
      * * `labels.env:*` to find Cloud resources that have a label "env".
      * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-     *   encryption key whose name contains the word "key".
+     *   encryption key whose name contains "key" as a word. This field is
+     *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+     *   information.
+     * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+     *   encryption keys whose name contains the word "key".
+     * * `relationships:instance-group-1` to find Cloud resources that have
+     *   relationships with "instance-group-1" in the related resource name.
+     * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+     *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+     * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+     *   compute instances that have relationships with "instance-group-1" in the
+     *   compute instance group resource name, for relationship type
+     *   "INSTANCE_TO_INSTANCEGROUP".
      * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
      *   word.
      * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -1413,7 +1427,19 @@ private static final long serialVersionUID = 0L;
      *   and its value is "prod".
      * * `labels.env:*` to find Cloud resources that have a label "env".
      * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-     *   encryption key whose name contains the word "key".
+     *   encryption key whose name contains "key" as a word. This field is
+     *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+     *   information.
+     * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+     *   encryption keys whose name contains the word "key".
+     * * `relationships:instance-group-1` to find Cloud resources that have
+     *   relationships with "instance-group-1" in the related resource name.
+     * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+     *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+     * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+     *   compute instances that have relationships with "instance-group-1" in the
+     *   compute instance group resource name, for relationship type
+     *   "INSTANCE_TO_INSTANCEGROUP".
      * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
      *   word.
      * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -1440,11 +1466,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1469,7 +1493,19 @@ private static final long serialVersionUID = 0L;
      *   and its value is "prod".
      * * `labels.env:*` to find Cloud resources that have a label "env".
      * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-     *   encryption key whose name contains the word "key".
+     *   encryption key whose name contains "key" as a word. This field is
+     *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+     *   information.
+     * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+     *   encryption keys whose name contains the word "key".
+     * * `relationships:instance-group-1` to find Cloud resources that have
+     *   relationships with "instance-group-1" in the related resource name.
+     * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+     *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+     * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+     *   compute instances that have relationships with "instance-group-1" in the
+     *   compute instance group resource name, for relationship type
+     *   "INSTANCE_TO_INSTANCEGROUP".
      * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
      *   word.
      * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -1494,8 +1530,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
-      
       query_ = getDefaultInstance().getQuery();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1520,7 +1556,19 @@ private static final long serialVersionUID = 0L;
      *   and its value is "prod".
      * * `labels.env:*` to find Cloud resources that have a label "env".
      * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-     *   encryption key whose name contains the word "key".
+     *   encryption key whose name contains "key" as a word. This field is
+     *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+     *   information.
+     * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+     *   encryption keys whose name contains the word "key".
+     * * `relationships:instance-group-1` to find Cloud resources that have
+     *   relationships with "instance-group-1" in the related resource name.
+     * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+     *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+     * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+     *   compute instances that have relationships with "instance-group-1" in the
+     *   compute instance group resource name, for relationship type
+     *   "INSTANCE_TO_INSTANCEGROUP".
      * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
      *   word.
      * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -1547,27 +1595,25 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList assetTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAssetTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         assetTypes_ = new com.google.protobuf.LazyStringArrayList(assetTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1588,8 +1634,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1609,8 +1655,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1631,8 +1677,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1654,8 +1700,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1674,18 +1720,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssetTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssetTypesIsMutable();
       assetTypes_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1703,18 +1747,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssetTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssetTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssetTypesIsMutable();
       assetTypes_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1740,8 +1782,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1758,14 +1800,14 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAssetTypes() {
       assetTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that this request searches for. If empty,
-     * it will search all the [searchable asset
+     * Optional. A list of asset types that this request searches for. If empty, it will
+     * search all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -1783,10 +1825,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssetTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAssetTypesIsMutable();
       assetTypes_.add(value);
       onChanged();
@@ -1796,11 +1836,10 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * Optional. The page size for search result pagination. Page size is capped
-     * at 500 even if a larger value is given. If set to zero, server will pick an
-     * appropriate default. Returned results may be fewer than requested. When
-     * this happens, there could be more results as long as `next_page_token` is
-     * returned.
+     * Optional. The page size for search result pagination. Page size is capped at 500 even
+     * if a larger value is given. If set to zero, server will pick an appropriate
+     * default. Returned results may be fewer than requested. When this happens,
+     * there could be more results as long as `next_page_token` is returned.
      * </pre>
      *
      * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1812,11 +1851,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The page size for search result pagination. Page size is capped
-     * at 500 even if a larger value is given. If set to zero, server will pick an
-     * appropriate default. Returned results may be fewer than requested. When
-     * this happens, there could be more results as long as `next_page_token` is
-     * returned.
+     * Optional. The page size for search result pagination. Page size is capped at 500 even
+     * if a larger value is given. If set to zero, server will pick an appropriate
+     * default. Returned results may be fewer than requested. When this happens,
+     * there could be more results as long as `next_page_token` is returned.
      * </pre>
      *
      * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1826,23 +1864,23 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The page size for search result pagination. Page size is capped
-     * at 500 even if a larger value is given. If set to zero, server will pick an
-     * appropriate default. Returned results may be fewer than requested. When
-     * this happens, there could be more results as long as `next_page_token` is
-     * returned.
+     * Optional. The page size for search result pagination. Page size is capped at 500 even
+     * if a larger value is given. If set to zero, server will pick an appropriate
+     * default. Returned results may be fewer than requested. When this happens,
+     * there could be more results as long as `next_page_token` is returned.
      * </pre>
      *
      * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1851,10 +1889,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     * Optional. If present, then retrieve the next batch of results from the
-     * preceding call to this method. `page_token` must be the value of
-     * `next_page_token` from the previous response. The values of all other
-     * method parameters, must be identical to those in the previous call.
+     * Optional. If present, then retrieve the next batch of results from the preceding call
+     * to this method. `page_token` must be the value of `next_page_token` from
+     * the previous response. The values of all other method parameters, must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1874,10 +1912,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, then retrieve the next batch of results from the
-     * preceding call to this method. `page_token` must be the value of
-     * `next_page_token` from the previous response. The values of all other
-     * method parameters, must be identical to those in the previous call.
+     * Optional. If present, then retrieve the next batch of results from the preceding call
+     * to this method. `page_token` must be the value of `next_page_token` from
+     * the previous response. The values of all other method parameters, must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1898,10 +1936,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, then retrieve the next batch of results from the
-     * preceding call to this method. `page_token` must be the value of
-     * `next_page_token` from the previous response. The values of all other
-     * method parameters, must be identical to those in the previous call.
+     * Optional. If present, then retrieve the next batch of results from the preceding call
+     * to this method. `page_token` must be the value of `next_page_token` from
+     * the previous response. The values of all other method parameters, must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1910,37 +1948,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, then retrieve the next batch of results from the
-     * preceding call to this method. `page_token` must be the value of
-     * `next_page_token` from the previous response. The values of all other
-     * method parameters, must be identical to those in the previous call.
+     * Optional. If present, then retrieve the next batch of results from the preceding call
+     * to this method. `page_token` must be the value of `next_page_token` from
+     * the previous response. The values of all other method parameters, must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, then retrieve the next batch of results from the
-     * preceding call to this method. `page_token` must be the value of
-     * `next_page_token` from the previous response. The values of all other
-     * method parameters, must be identical to those in the previous call.
+     * Optional. If present, then retrieve the next batch of results from the preceding call
+     * to this method. `page_token` must be the value of `next_page_token` from
+     * the previous response. The values of all other method parameters, must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1949,12 +1985,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1962,9 +1996,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object orderBy_ = "";
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "location DESC, name".
      * Only singular primitive fields in the response are sortable:
      *   * name
@@ -1973,15 +2007,14 @@ private static final long serialVersionUID = 0L;
      *   * displayName
      *   * description
      *   * location
-     *   * kmsKey
      *   * createTime
      *   * updateTime
      *   * state
      *   * parentFullResourceName
      *   * parentAssetType
-     * All the other fields such as repeated fields (e.g., `networkTags`), map
-     * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-     * are not supported.
+     * All the other fields such as repeated fields (e.g., `networkTags`,
+     * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+     * `additionalAttributes`) are not supported.
      * </pre>
      *
      * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2001,9 +2034,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "location DESC, name".
      * Only singular primitive fields in the response are sortable:
      *   * name
@@ -2012,15 +2045,14 @@ private static final long serialVersionUID = 0L;
      *   * displayName
      *   * description
      *   * location
-     *   * kmsKey
      *   * createTime
      *   * updateTime
      *   * state
      *   * parentFullResourceName
      *   * parentAssetType
-     * All the other fields such as repeated fields (e.g., `networkTags`), map
-     * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-     * are not supported.
+     * All the other fields such as repeated fields (e.g., `networkTags`,
+     * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+     * `additionalAttributes`) are not supported.
      * </pre>
      *
      * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2041,9 +2073,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "location DESC, name".
      * Only singular primitive fields in the response are sortable:
      *   * name
@@ -2052,15 +2084,14 @@ private static final long serialVersionUID = 0L;
      *   * displayName
      *   * description
      *   * location
-     *   * kmsKey
      *   * createTime
      *   * updateTime
      *   * state
      *   * parentFullResourceName
      *   * parentAssetType
-     * All the other fields such as repeated fields (e.g., `networkTags`), map
-     * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-     * are not supported.
+     * All the other fields such as repeated fields (e.g., `networkTags`,
+     * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+     * `additionalAttributes`) are not supported.
      * </pre>
      *
      * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2069,19 +2100,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       orderBy_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "location DESC, name".
      * Only singular primitive fields in the response are sortable:
      *   * name
@@ -2090,31 +2119,30 @@ private static final long serialVersionUID = 0L;
      *   * displayName
      *   * description
      *   * location
-     *   * kmsKey
      *   * createTime
      *   * updateTime
      *   * state
      *   * parentFullResourceName
      *   * parentAssetType
-     * All the other fields such as repeated fields (e.g., `networkTags`), map
-     * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-     * are not supported.
+     * All the other fields such as repeated fields (e.g., `networkTags`,
+     * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+     * `additionalAttributes`) are not supported.
      * </pre>
      *
      * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      
       orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "location DESC, name".
      * Only singular primitive fields in the response are sortable:
      *   * name
@@ -2123,15 +2151,14 @@ private static final long serialVersionUID = 0L;
      *   * displayName
      *   * description
      *   * location
-     *   * kmsKey
      *   * createTime
      *   * updateTime
      *   * state
      *   * parentFullResourceName
      *   * parentAssetType
-     * All the other fields such as repeated fields (e.g., `networkTags`), map
-     * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-     * are not supported.
+     * All the other fields such as repeated fields (e.g., `networkTags`,
+     * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+     * `additionalAttributes`) are not supported.
      * </pre>
      *
      * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2140,12 +2167,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderBy_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2155,10 +2180,10 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> readMaskBuilder_;
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2172,7 +2197,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2189,14 +2216,14 @@ private static final long serialVersionUID = 0L;
      * @return Whether the readMask field is set.
      */
     public boolean hasReadMask() {
-      return readMaskBuilder_ != null || readMask_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2210,7 +2237,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2235,10 +2264,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2252,7 +2281,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2273,19 +2304,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         readMask_ = value;
-        onChanged();
       } else {
         readMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2299,7 +2330,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2318,19 +2351,19 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (readMaskBuilder_ == null) {
         readMask_ = builderForValue.build();
-        onChanged();
       } else {
         readMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2344,7 +2377,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2361,25 +2396,26 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReadMask(com.google.protobuf.FieldMask value) {
       if (readMaskBuilder_ == null) {
-        if (readMask_ != null) {
-          readMask_ =
-            com.google.protobuf.FieldMask.newBuilder(readMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          readMask_ != null &&
+          readMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getReadMaskBuilder().mergeFrom(value);
         } else {
           readMask_ = value;
         }
-        onChanged();
       } else {
         readMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2393,7 +2429,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2409,22 +2447,21 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask read_mask = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearReadMask() {
-      if (readMaskBuilder_ == null) {
-        readMask_ = null;
-        onChanged();
-      } else {
-        readMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      readMask_ = null;
+      if (readMaskBuilder_ != null) {
+        readMaskBuilder_.dispose();
         readMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2438,7 +2475,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2454,16 +2493,16 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask read_mask = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.FieldMask.Builder getReadMaskBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getReadMaskFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2477,7 +2516,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2502,10 +2543,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying which fields to be
-     * returned in ResourceSearchResult. Only '*' or combination of top level
-     * fields can be specified. Field names of both snake_case and camelCase are
-     * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+     * Optional. A comma-separated list of fields specifying which fields to be returned in
+     * ResourceSearchResult. Only '*' or combination of top level fields can be
+     * specified. Field names of both snake_case and camelCase are supported.
+     * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
      * The read_mask paths must be valid field paths listed but not limited to
      * (both snake_case and camelCase are supported):
      *   * name
@@ -2519,7 +2560,9 @@ private static final long serialVersionUID = 0L;
      *   * tagValueIds
      *   * labels
      *   * networkTags
-     *   * kmsKey
+     *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+     *     retrieve KMS key information.)
+     *   * kmsKeys
      *   * createTime
      *   * updateTime
      *   * state
@@ -2580,7 +2623,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchAllResourcesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

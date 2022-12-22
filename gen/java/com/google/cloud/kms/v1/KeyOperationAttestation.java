@@ -38,69 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KeyOperationAttestation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 32: {
-            int rawValue = input.readEnum();
-
-            format_ = rawValue;
-            break;
-          }
-          case 42: {
-
-            content_ = input.readBytes();
-            break;
-          }
-          case 50: {
-            com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.Builder subBuilder = null;
-            if (certChains_ != null) {
-              subBuilder = certChains_.toBuilder();
-            }
-            certChains_ = input.readMessage(com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(certChains_);
-              certChains_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsResourcesProto.internal_static_google_cloud_kms_v1_KeyOperationAttestation_descriptor;
@@ -135,6 +72,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cavium HSM attestation compressed with gzip. Note that this format is
      * defined by Cavium and subject to change at any time.
+     * See
+     * https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/software-key-attestation.html.
      * </pre>
      *
      * <code>CAVIUM_V1_COMPRESSED = 3;</code>
@@ -164,6 +103,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Cavium HSM attestation compressed with gzip. Note that this format is
      * defined by Cavium and subject to change at any time.
+     * See
+     * https://www.marvell.com/products/security-solutions/nitrox-hs-adapters/software-key-attestation.html.
      * </pre>
      *
      * <code>CAVIUM_V1_COMPRESSED = 3;</code>
@@ -426,82 +367,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CertificateChains(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                caviumCerts_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              caviumCerts_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                googleCardCerts_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              googleCardCerts_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                googlePartitionCerts_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              googlePartitionCerts_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          caviumCerts_ = caviumCerts_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          googleCardCerts_ = googleCardCerts_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          googlePartitionCerts_ = googlePartitionCerts_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.kms.v1.KmsResourcesProto.internal_static_google_cloud_kms_v1_KeyOperationAttestation_CertificateChains_descriptor;
@@ -516,6 +381,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CAVIUM_CERTS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList caviumCerts_;
     /**
      * <pre>
@@ -567,6 +433,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int GOOGLE_CARD_CERTS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList googleCardCerts_;
     /**
      * <pre>
@@ -618,6 +485,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int GOOGLE_PARTITION_CERTS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList googlePartitionCerts_;
     /**
      * <pre>
@@ -691,7 +559,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < googlePartitionCerts_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, googlePartitionCerts_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -724,7 +592,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getGooglePartitionCertsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -745,7 +613,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getGoogleCardCertsList())) return false;
       if (!getGooglePartitionCertsList()
           .equals(other.getGooglePartitionCertsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -768,7 +636,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + GOOGLE_PARTITION_CERTS_FIELD_NUMBER;
         hash = (53 * hash) + getGooglePartitionCertsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -891,22 +759,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         caviumCerts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         googleCardCerts_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -939,7 +803,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains buildPartial() {
         com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains result = new com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           caviumCerts_ = caviumCerts_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -955,8 +825,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.googlePartitionCerts_ = googlePartitionCerts_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -1033,7 +905,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1048,17 +920,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureCaviumCertsIsMutable();
+                caviumCerts_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureGoogleCardCertsIsMutable();
+                googleCardCerts_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureGooglePartitionCertsIsMutable();
+                googlePartitionCerts_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1130,10 +1033,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCaviumCerts(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCaviumCertsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureCaviumCertsIsMutable();
         caviumCerts_.set(index, value);
         onChanged();
         return this;
@@ -1149,10 +1050,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addCaviumCerts(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCaviumCertsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureCaviumCertsIsMutable();
         caviumCerts_.add(value);
         onChanged();
         return this;
@@ -1199,10 +1098,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addCaviumCertsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureCaviumCertsIsMutable();
         caviumCerts_.add(value);
         onChanged();
@@ -1276,10 +1173,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGoogleCardCerts(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGoogleCardCertsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGoogleCardCertsIsMutable();
         googleCardCerts_.set(index, value);
         onChanged();
         return this;
@@ -1295,10 +1190,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addGoogleCardCerts(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGoogleCardCertsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGoogleCardCertsIsMutable();
         googleCardCerts_.add(value);
         onChanged();
         return this;
@@ -1345,10 +1238,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addGoogleCardCertsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureGoogleCardCertsIsMutable();
         googleCardCerts_.add(value);
         onChanged();
@@ -1422,10 +1313,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGooglePartitionCerts(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGooglePartitionCertsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGooglePartitionCertsIsMutable();
         googlePartitionCerts_.set(index, value);
         onChanged();
         return this;
@@ -1441,10 +1330,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addGooglePartitionCerts(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGooglePartitionCertsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureGooglePartitionCertsIsMutable();
         googlePartitionCerts_.add(value);
         onChanged();
         return this;
@@ -1491,10 +1378,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addGooglePartitionCertsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureGooglePartitionCertsIsMutable();
         googlePartitionCerts_.add(value);
         onChanged();
@@ -1533,7 +1418,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CertificateChains(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1554,7 +1450,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 4;
-  private int format_;
+  private int format_ = 0;
   /**
    * <pre>
    * Output only. The format of the attestation data.
@@ -1575,13 +1471,12 @@ private static final long serialVersionUID = 0L;
    * @return The format.
    */
   @java.lang.Override public com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat getFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat result = com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat.valueOf(format_);
+    com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat result = com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat.forNumber(format_);
     return result == null ? com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat.UNRECOGNIZED : result;
   }
 
   public static final int CONTENT_FIELD_NUMBER = 5;
-  private com.google.protobuf.ByteString content_;
+  private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Output only. The attestation data provided by the HSM when the key
@@ -1631,7 +1526,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChainsOrBuilder getCertChainsOrBuilder() {
-    return getCertChains();
+    return certChains_ == null ? com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.getDefaultInstance() : certChains_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1657,7 +1552,7 @@ private static final long serialVersionUID = 0L;
     if (certChains_ != null) {
       output.writeMessage(6, getCertChains());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1678,7 +1573,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getCertChains());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1701,7 +1596,7 @@ private static final long serialVersionUID = 0L;
       if (!getCertChains()
           .equals(other.getCertChains())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1720,7 +1615,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CERT_CHAINS_FIELD_NUMBER;
       hash = (53 * hash) + getCertChains().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1843,30 +1738,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.KeyOperationAttestation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       format_ = 0;
-
       content_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (certChainsBuilder_ == null) {
-        certChains_ = null;
-      } else {
-        certChains_ = null;
+      certChains_ = null;
+      if (certChainsBuilder_ != null) {
+        certChainsBuilder_.dispose();
         certChainsBuilder_ = null;
       }
       return this;
@@ -1895,15 +1783,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.KeyOperationAttestation buildPartial() {
       com.google.cloud.kms.v1.KeyOperationAttestation result = new com.google.cloud.kms.v1.KeyOperationAttestation(this);
-      result.format_ = format_;
-      result.content_ = content_;
-      if (certChainsBuilder_ == null) {
-        result.certChains_ = certChains_;
-      } else {
-        result.certChains_ = certChainsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.KeyOperationAttestation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.content_ = content_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.certChains_ = certChainsBuilder_ == null
+            ? certChains_
+            : certChainsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1959,7 +1856,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCertChains()) {
         mergeCertChains(other.getCertChains());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1974,19 +1871,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.KeyOperationAttestation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 32: {
+              format_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 32
+            case 42: {
+              content_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCertChainsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.KeyOperationAttestation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int format_ = 0;
     /**
@@ -2010,8 +1938,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormatValue(int value) {
-      
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2025,8 +1953,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat getFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat result = com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat.valueOf(format_);
+      com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat result = com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat.forNumber(format_);
       return result == null ? com.google.cloud.kms.v1.KeyOperationAttestation.AttestationFormat.UNRECOGNIZED : result;
     }
     /**
@@ -2042,7 +1969,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       format_ = value.getNumber();
       onChanged();
       return this;
@@ -2056,7 +1983,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       format_ = 0;
       onChanged();
       return this;
@@ -2087,11 +2014,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setContent(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       content_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2105,7 +2030,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       content_ = getDefaultInstance().getContent();
       onChanged();
       return this;
@@ -2123,7 +2048,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the certChains field is set.
      */
     public boolean hasCertChains() {
-      return certChainsBuilder_ != null || certChains_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2153,11 +2078,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         certChains_ = value;
-        onChanged();
       } else {
         certChainsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2171,11 +2096,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.Builder builderForValue) {
       if (certChainsBuilder_ == null) {
         certChains_ = builderForValue.build();
-        onChanged();
       } else {
         certChainsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2187,17 +2112,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCertChains(com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains value) {
       if (certChainsBuilder_ == null) {
-        if (certChains_ != null) {
-          certChains_ =
-            com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.newBuilder(certChains_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          certChains_ != null &&
+          certChains_ != com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.getDefaultInstance()) {
+          getCertChainsBuilder().mergeFrom(value);
         } else {
           certChains_ = value;
         }
-        onChanged();
       } else {
         certChainsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2208,14 +2134,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains cert_chains = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCertChains() {
-      if (certChainsBuilder_ == null) {
-        certChains_ = null;
-        onChanged();
-      } else {
-        certChains_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      certChains_ = null;
+      if (certChainsBuilder_ != null) {
+        certChainsBuilder_.dispose();
         certChainsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2226,7 +2151,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains cert_chains = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.kms.v1.KeyOperationAttestation.CertificateChains.Builder getCertChainsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCertChainsFieldBuilder().getBuilder();
     }
@@ -2298,7 +2223,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KeyOperationAttestation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

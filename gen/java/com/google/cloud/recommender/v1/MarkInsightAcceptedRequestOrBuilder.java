@@ -70,7 +70,6 @@ public interface MarkInsightAcceptedRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; state_metadata = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getStateMetadataOrDefault(
       java.lang.String key,
@@ -84,7 +83,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; state_metadata = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getStateMetadataOrThrow(
       java.lang.String key);
 

@@ -39,87 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchAllIamPoliciesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            scope_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            query_ = s;
-            break;
-          }
-          case 24: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              assetTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            assetTypes_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderBy_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        assetTypes_ = assetTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1.AssetServiceProto.internal_static_google_cloud_asset_v1_SearchAllIamPoliciesRequest_descriptor;
@@ -134,12 +53,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCOPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object scope_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object scope_ = "";
   /**
    * <pre>
-   * Required. A scope can be a project, a folder, or an organization. The
-   * search is limited to the IAM policies within the `scope`. The caller must
-   * be granted the
+   * Required. A scope can be a project, a folder, or an organization. The search is
+   * limited to the IAM policies within the `scope`. The caller must be granted
+   * the
    * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
    * permission on the desired scope.
    * The allowed values are:
@@ -167,9 +87,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. A scope can be a project, a folder, or an organization. The
-   * search is limited to the IAM policies within the `scope`. The caller must
-   * be granted the
+   * Required. A scope can be a project, a folder, or an organization. The search is
+   * limited to the IAM policies within the `scope`. The caller must be granted
+   * the
    * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
    * permission on the desired scope.
    * The allowed values are:
@@ -198,7 +118,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object query_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object query_ = "";
   /**
    * <pre>
    * Optional. The query statement. See [how to construct a
@@ -208,8 +129,8 @@ private static final long serialVersionUID = 0L;
    * compared against each Cloud IAM policy binding, including its principals,
    * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
    * contain the bindings that match your query. To learn more about the IAM
-   * policy structure, see [IAM policy
-   * doc](https://cloud.google.com/iam/docs/policies#structure).
+   * policy structure, see the [IAM policy
+   * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
    * Examples:
    * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
    *   "amy&#64;gmail.com".
@@ -268,8 +189,8 @@ private static final long serialVersionUID = 0L;
    * compared against each Cloud IAM policy binding, including its principals,
    * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
    * contain the bindings that match your query. To learn more about the IAM
-   * policy structure, see [IAM policy
-   * doc](https://cloud.google.com/iam/docs/policies#structure).
+   * policy structure, see the [IAM policy
+   * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
    * Examples:
    * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
    *   "amy&#64;gmail.com".
@@ -322,14 +243,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 3;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * Optional. The page size for search result pagination. Page size is capped
-   * at 500 even if a larger value is given. If set to zero, server will pick an
-   * appropriate default. Returned results may be fewer than requested. When
-   * this happens, there could be more results as long as `next_page_token` is
-   * returned.
+   * Optional. The page size for search result pagination. Page size is capped at 500 even
+   * if a larger value is given. If set to zero, server will pick an appropriate
+   * default. Returned results may be fewer than requested. When this happens,
+   * there could be more results as long as `next_page_token` is returned.
    * </pre>
    *
    * <code>int32 page_size = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -341,13 +261,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
-   * Optional. If present, retrieve the next batch of results from the preceding
-   * call to this method. `page_token` must be the value of `next_page_token`
-   * from the previous response. The values of all other method parameters must
-   * be identical to those in the previous call.
+   * Optional. If present, retrieve the next batch of results from the preceding call to
+   * this method. `page_token` must be the value of `next_page_token` from the
+   * previous response. The values of all other method parameters must be
+   * identical to those in the previous call.
    * </pre>
    *
    * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -368,10 +289,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If present, retrieve the next batch of results from the preceding
-   * call to this method. `page_token` must be the value of `next_page_token`
-   * from the previous response. The values of all other method parameters must
-   * be identical to those in the previous call.
+   * Optional. If present, retrieve the next batch of results from the preceding call to
+   * this method. `page_token` must be the value of `next_page_token` from the
+   * previous response. The values of all other method parameters must be
+   * identical to those in the previous call.
    * </pre>
    *
    * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -393,12 +314,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ASSET_TYPES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList assetTypes_;
   /**
    * <pre>
-   * Optional. A list of asset types that the IAM policies are attached to. If
-   * empty, it will search the IAM policies that are attached to all the
-   * [searchable asset
+   * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+   * will search the IAM policies that are attached to all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -421,9 +342,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of asset types that the IAM policies are attached to. If
-   * empty, it will search the IAM policies that are attached to all the
-   * [searchable asset
+   * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+   * will search the IAM policies that are attached to all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -445,9 +365,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of asset types that the IAM policies are attached to. If
-   * empty, it will search the IAM policies that are attached to all the
-   * [searchable asset
+   * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+   * will search the IAM policies that are attached to all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -470,9 +389,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A list of asset types that the IAM policies are attached to. If
-   * empty, it will search the IAM policies that are attached to all the
-   * [searchable asset
+   * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+   * will search the IAM policies that are attached to all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -496,12 +414,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object orderBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying the sorting order of
-   * the results. The default order is ascending. Add " DESC" after the field
-   * name to indicate descending order. Redundant space characters are ignored.
+   * Optional. A comma-separated list of fields specifying the sorting order of the
+   * results. The default order is ascending. Add " DESC" after the field name
+   * to indicate descending order. Redundant space characters are ignored.
    * Example: "assetType DESC, resource".
    * Only singular primitive fields in the response are sortable:
    *   * resource
@@ -529,9 +448,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying the sorting order of
-   * the results. The default order is ascending. Add " DESC" after the field
-   * name to indicate descending order. Redundant space characters are ignored.
+   * Optional. A comma-separated list of fields specifying the sorting order of the
+   * results. The default order is ascending. Add " DESC" after the field name
+   * to indicate descending order. Redundant space characters are ignored.
    * Example: "assetType DESC, resource".
    * Only singular primitive fields in the response are sortable:
    *   * resource
@@ -591,7 +510,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderBy_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, orderBy_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -624,7 +543,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(orderBy_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, orderBy_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -651,7 +570,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAssetTypesList())) return false;
     if (!getOrderBy()
         .equals(other.getOrderBy())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -676,7 +595,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ORDER_BY_FIELD_NUMBER;
     hash = (53 * hash) + getOrderBy().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -797,34 +716,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.SearchAllIamPoliciesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       scope_ = "";
-
       query_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       assetTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       orderBy_ = "";
-
       return this;
     }
 
@@ -851,19 +761,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.SearchAllIamPoliciesRequest buildPartial() {
       com.google.cloud.asset.v1.SearchAllIamPoliciesRequest result = new com.google.cloud.asset.v1.SearchAllIamPoliciesRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.scope_ = scope_;
-      result.query_ = query_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        assetTypes_ = assetTypes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.assetTypes_ = assetTypes_;
-      result.orderBy_ = orderBy_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.asset.v1.SearchAllIamPoliciesRequest result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        assetTypes_ = assetTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.assetTypes_ = assetTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.SearchAllIamPoliciesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scope_ = scope_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.query_ = query_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
     }
 
     @java.lang.Override
@@ -912,10 +840,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.asset.v1.SearchAllIamPoliciesRequest.getDefaultInstance()) return this;
       if (!other.getScope().isEmpty()) {
         scope_ = other.scope_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getQuery().isEmpty()) {
         query_ = other.query_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -923,12 +853,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.assetTypes_.isEmpty()) {
         if (assetTypes_.isEmpty()) {
           assetTypes_ = other.assetTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureAssetTypesIsMutable();
           assetTypes_.addAll(other.assetTypes_);
@@ -937,9 +868,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOrderBy().isEmpty()) {
         orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -954,17 +886,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.SearchAllIamPoliciesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              scope_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              query_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAssetTypesIsMutable();
+              assetTypes_.add(s);
+              break;
+            } // case 42
+            case 58: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.SearchAllIamPoliciesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -972,9 +948,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object scope_ = "";
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the IAM policies within the `scope`. The caller must
-     * be granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the IAM policies within the `scope`. The caller must be granted
+     * the
      * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1001,9 +977,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the IAM policies within the `scope`. The caller must
-     * be granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the IAM policies within the `scope`. The caller must be granted
+     * the
      * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1031,9 +1007,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the IAM policies within the `scope`. The caller must
-     * be granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the IAM policies within the `scope`. The caller must be granted
+     * the
      * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1049,19 +1025,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScope(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       scope_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the IAM policies within the `scope`. The caller must
-     * be granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the IAM policies within the `scope`. The caller must be granted
+     * the
      * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1075,16 +1049,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScope() {
-      
       scope_ = getDefaultInstance().getScope();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. A scope can be a project, a folder, or an organization. The
-     * search is limited to the IAM policies within the `scope`. The caller must
-     * be granted the
+     * Required. A scope can be a project, a folder, or an organization. The search is
+     * limited to the IAM policies within the `scope`. The caller must be granted
+     * the
      * [`cloudasset.assets.searchAllIamPolicies`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
      * permission on the desired scope.
      * The allowed values are:
@@ -1100,12 +1074,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScopeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       scope_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1120,8 +1092,8 @@ private static final long serialVersionUID = 0L;
      * compared against each Cloud IAM policy binding, including its principals,
      * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
      * contain the bindings that match your query. To learn more about the IAM
-     * policy structure, see [IAM policy
-     * doc](https://cloud.google.com/iam/docs/policies#structure).
+     * policy structure, see the [IAM policy
+     * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
      * Examples:
      * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
      *   "amy&#64;gmail.com".
@@ -1179,8 +1151,8 @@ private static final long serialVersionUID = 0L;
      * compared against each Cloud IAM policy binding, including its principals,
      * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
      * contain the bindings that match your query. To learn more about the IAM
-     * policy structure, see [IAM policy
-     * doc](https://cloud.google.com/iam/docs/policies#structure).
+     * policy structure, see the [IAM policy
+     * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
      * Examples:
      * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
      *   "amy&#64;gmail.com".
@@ -1239,8 +1211,8 @@ private static final long serialVersionUID = 0L;
      * compared against each Cloud IAM policy binding, including its principals,
      * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
      * contain the bindings that match your query. To learn more about the IAM
-     * policy structure, see [IAM policy
-     * doc](https://cloud.google.com/iam/docs/policies#structure).
+     * policy structure, see the [IAM policy
+     * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
      * Examples:
      * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
      *   "amy&#64;gmail.com".
@@ -1280,11 +1252,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1297,8 +1267,8 @@ private static final long serialVersionUID = 0L;
      * compared against each Cloud IAM policy binding, including its principals,
      * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
      * contain the bindings that match your query. To learn more about the IAM
-     * policy structure, see [IAM policy
-     * doc](https://cloud.google.com/iam/docs/policies#structure).
+     * policy structure, see the [IAM policy
+     * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
      * Examples:
      * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
      *   "amy&#64;gmail.com".
@@ -1336,8 +1306,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
-      
       query_ = getDefaultInstance().getQuery();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1350,8 +1320,8 @@ private static final long serialVersionUID = 0L;
      * compared against each Cloud IAM policy binding, including its principals,
      * roles, and Cloud IAM conditions. The returned Cloud IAM policies will only
      * contain the bindings that match your query. To learn more about the IAM
-     * policy structure, see [IAM policy
-     * doc](https://cloud.google.com/iam/docs/policies#structure).
+     * policy structure, see the [IAM policy
+     * documentation](https://cloud.google.com/iam/help/allow-policies/structure).
      * Examples:
      * * `policy:amy&#64;gmail.com` to find IAM policy bindings that specify user
      *   "amy&#64;gmail.com".
@@ -1391,12 +1361,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1404,11 +1372,10 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * Optional. The page size for search result pagination. Page size is capped
-     * at 500 even if a larger value is given. If set to zero, server will pick an
-     * appropriate default. Returned results may be fewer than requested. When
-     * this happens, there could be more results as long as `next_page_token` is
-     * returned.
+     * Optional. The page size for search result pagination. Page size is capped at 500 even
+     * if a larger value is given. If set to zero, server will pick an appropriate
+     * default. Returned results may be fewer than requested. When this happens,
+     * there could be more results as long as `next_page_token` is returned.
      * </pre>
      *
      * <code>int32 page_size = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1420,11 +1387,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The page size for search result pagination. Page size is capped
-     * at 500 even if a larger value is given. If set to zero, server will pick an
-     * appropriate default. Returned results may be fewer than requested. When
-     * this happens, there could be more results as long as `next_page_token` is
-     * returned.
+     * Optional. The page size for search result pagination. Page size is capped at 500 even
+     * if a larger value is given. If set to zero, server will pick an appropriate
+     * default. Returned results may be fewer than requested. When this happens,
+     * there could be more results as long as `next_page_token` is returned.
      * </pre>
      *
      * <code>int32 page_size = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1434,23 +1400,23 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The page size for search result pagination. Page size is capped
-     * at 500 even if a larger value is given. If set to zero, server will pick an
-     * appropriate default. Returned results may be fewer than requested. When
-     * this happens, there could be more results as long as `next_page_token` is
-     * returned.
+     * Optional. The page size for search result pagination. Page size is capped at 500 even
+     * if a larger value is given. If set to zero, server will pick an appropriate
+     * default. Returned results may be fewer than requested. When this happens,
+     * there could be more results as long as `next_page_token` is returned.
      * </pre>
      *
      * <code>int32 page_size = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1459,10 +1425,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     * Optional. If present, retrieve the next batch of results from the preceding
-     * call to this method. `page_token` must be the value of `next_page_token`
-     * from the previous response. The values of all other method parameters must
-     * be identical to those in the previous call.
+     * Optional. If present, retrieve the next batch of results from the preceding call to
+     * this method. `page_token` must be the value of `next_page_token` from the
+     * previous response. The values of all other method parameters must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1482,10 +1448,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, retrieve the next batch of results from the preceding
-     * call to this method. `page_token` must be the value of `next_page_token`
-     * from the previous response. The values of all other method parameters must
-     * be identical to those in the previous call.
+     * Optional. If present, retrieve the next batch of results from the preceding call to
+     * this method. `page_token` must be the value of `next_page_token` from the
+     * previous response. The values of all other method parameters must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1506,10 +1472,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If present, retrieve the next batch of results from the preceding
-     * call to this method. `page_token` must be the value of `next_page_token`
-     * from the previous response. The values of all other method parameters must
-     * be identical to those in the previous call.
+     * Optional. If present, retrieve the next batch of results from the preceding call to
+     * this method. `page_token` must be the value of `next_page_token` from the
+     * previous response. The values of all other method parameters must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1518,37 +1484,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, retrieve the next batch of results from the preceding
-     * call to this method. `page_token` must be the value of `next_page_token`
-     * from the previous response. The values of all other method parameters must
-     * be identical to those in the previous call.
+     * Optional. If present, retrieve the next batch of results from the preceding call to
+     * this method. `page_token` must be the value of `next_page_token` from the
+     * previous response. The values of all other method parameters must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If present, retrieve the next batch of results from the preceding
-     * call to this method. `page_token` must be the value of `next_page_token`
-     * from the previous response. The values of all other method parameters must
-     * be identical to those in the previous call.
+     * Optional. If present, retrieve the next batch of results from the preceding call to
+     * this method. `page_token` must be the value of `next_page_token` from the
+     * previous response. The values of all other method parameters must be
+     * identical to those in the previous call.
      * </pre>
      *
      * <code>string page_token = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1557,28 +1521,25 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList assetTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAssetTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         assetTypes_ = new com.google.protobuf.LazyStringArrayList(assetTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1601,9 +1562,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1625,9 +1585,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1650,9 +1609,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1676,9 +1634,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1699,19 +1656,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssetTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssetTypesIsMutable();
       assetTypes_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1731,19 +1685,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssetTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAssetTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAssetTypesIsMutable();
       assetTypes_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1771,9 +1722,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1792,15 +1742,14 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAssetTypes() {
       assetTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A list of asset types that the IAM policies are attached to. If
-     * empty, it will search the IAM policies that are attached to all the
-     * [searchable asset
+     * Optional. A list of asset types that the IAM policies are attached to. If empty, it
+     * will search the IAM policies that are attached to all the [searchable asset
      * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
      * Regular expressions are also supported. For example:
      * * "compute.googleapis.com.*" snapshots IAM policies attached to asset type
@@ -1820,10 +1769,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAssetTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAssetTypesIsMutable();
       assetTypes_.add(value);
       onChanged();
@@ -1833,9 +1780,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object orderBy_ = "";
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "assetType DESC, resource".
      * Only singular primitive fields in the response are sortable:
      *   * resource
@@ -1862,9 +1809,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "assetType DESC, resource".
      * Only singular primitive fields in the response are sortable:
      *   * resource
@@ -1892,9 +1839,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "assetType DESC, resource".
      * Only singular primitive fields in the response are sortable:
      *   * resource
@@ -1910,19 +1857,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       orderBy_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "assetType DESC, resource".
      * Only singular primitive fields in the response are sortable:
      *   * resource
@@ -1936,16 +1881,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      
       orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A comma-separated list of fields specifying the sorting order of
-     * the results. The default order is ascending. Add " DESC" after the field
-     * name to indicate descending order. Redundant space characters are ignored.
+     * Optional. A comma-separated list of fields specifying the sorting order of the
+     * results. The default order is ascending. Add " DESC" after the field name
+     * to indicate descending order. Redundant space characters are ignored.
      * Example: "assetType DESC, resource".
      * Only singular primitive fields in the response are sortable:
      *   * resource
@@ -1961,12 +1906,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderBy_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2003,7 +1946,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchAllIamPoliciesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,90 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RunFunnelReportResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.analytics.data.v1alpha.FunnelSubReport.Builder subBuilder = null;
-            if (funnelTable_ != null) {
-              subBuilder = funnelTable_.toBuilder();
-            }
-            funnelTable_ = input.readMessage(com.google.analytics.data.v1alpha.FunnelSubReport.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(funnelTable_);
-              funnelTable_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1alpha.FunnelSubReport.Builder subBuilder = null;
-            if (funnelVisualization_ != null) {
-              subBuilder = funnelVisualization_.toBuilder();
-            }
-            funnelVisualization_ = input.readMessage(com.google.analytics.data.v1alpha.FunnelSubReport.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(funnelVisualization_);
-              funnelVisualization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.analytics.data.v1alpha.PropertyQuota.Builder subBuilder = null;
-            if (propertyQuota_ != null) {
-              subBuilder = propertyQuota_.toBuilder();
-            }
-            propertyQuota_ = input.readMessage(com.google.analytics.data.v1alpha.PropertyQuota.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(propertyQuota_);
-              propertyQuota_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.AnalyticsDataApiProto.internal_static_google_analytics_data_v1alpha_RunFunnelReportResponse_descriptor;
@@ -183,7 +99,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.FunnelSubReportOrBuilder getFunnelTableOrBuilder() {
-    return getFunnelTable();
+    return funnelTable_ == null ? com.google.analytics.data.v1alpha.FunnelSubReport.getDefaultInstance() : funnelTable_;
   }
 
   public static final int FUNNEL_VISUALIZATION_FIELD_NUMBER = 2;
@@ -236,7 +152,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.FunnelSubReportOrBuilder getFunnelVisualizationOrBuilder() {
-    return getFunnelVisualization();
+    return funnelVisualization_ == null ? com.google.analytics.data.v1alpha.FunnelSubReport.getDefaultInstance() : funnelVisualization_;
   }
 
   public static final int PROPERTY_QUOTA_FIELD_NUMBER = 3;
@@ -274,11 +190,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.PropertyQuotaOrBuilder getPropertyQuotaOrBuilder() {
-    return getPropertyQuota();
+    return propertyQuota_ == null ? com.google.analytics.data.v1alpha.PropertyQuota.getDefaultInstance() : propertyQuota_;
   }
 
   public static final int KIND_FIELD_NUMBER = 4;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * Identifies what kind of resource this message is. This `kind` is always the
@@ -353,7 +270,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kind_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, kind_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -377,7 +294,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kind_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, kind_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -409,7 +326,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getKind()
         .equals(other.getKind())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -434,7 +351,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + KIND_FIELD_NUMBER;
     hash = (53 * hash) + getKind().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -556,42 +473,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.RunFunnelReportResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (funnelTableBuilder_ == null) {
-        funnelTable_ = null;
-      } else {
-        funnelTable_ = null;
+      bitField0_ = 0;
+      funnelTable_ = null;
+      if (funnelTableBuilder_ != null) {
+        funnelTableBuilder_.dispose();
         funnelTableBuilder_ = null;
       }
-      if (funnelVisualizationBuilder_ == null) {
-        funnelVisualization_ = null;
-      } else {
-        funnelVisualization_ = null;
+      funnelVisualization_ = null;
+      if (funnelVisualizationBuilder_ != null) {
+        funnelVisualizationBuilder_.dispose();
         funnelVisualizationBuilder_ = null;
       }
-      if (propertyQuotaBuilder_ == null) {
-        propertyQuota_ = null;
-      } else {
-        propertyQuota_ = null;
+      propertyQuota_ = null;
+      if (propertyQuotaBuilder_ != null) {
+        propertyQuotaBuilder_.dispose();
         propertyQuotaBuilder_ = null;
       }
       kind_ = "";
-
       return this;
     }
 
@@ -618,24 +527,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.RunFunnelReportResponse buildPartial() {
       com.google.analytics.data.v1alpha.RunFunnelReportResponse result = new com.google.analytics.data.v1alpha.RunFunnelReportResponse(this);
-      if (funnelTableBuilder_ == null) {
-        result.funnelTable_ = funnelTable_;
-      } else {
-        result.funnelTable_ = funnelTableBuilder_.build();
-      }
-      if (funnelVisualizationBuilder_ == null) {
-        result.funnelVisualization_ = funnelVisualization_;
-      } else {
-        result.funnelVisualization_ = funnelVisualizationBuilder_.build();
-      }
-      if (propertyQuotaBuilder_ == null) {
-        result.propertyQuota_ = propertyQuota_;
-      } else {
-        result.propertyQuota_ = propertyQuotaBuilder_.build();
-      }
-      result.kind_ = kind_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.RunFunnelReportResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.funnelTable_ = funnelTableBuilder_ == null
+            ? funnelTable_
+            : funnelTableBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.funnelVisualization_ = funnelVisualizationBuilder_ == null
+            ? funnelVisualization_
+            : funnelVisualizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.propertyQuota_ = propertyQuotaBuilder_ == null
+            ? propertyQuota_
+            : propertyQuotaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.kind_ = kind_;
+      }
     }
 
     @java.lang.Override
@@ -693,9 +609,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -710,19 +627,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.RunFunnelReportResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getFunnelTableFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getFunnelVisualizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPropertyQuotaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.RunFunnelReportResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.analytics.data.v1alpha.FunnelSubReport funnelTable_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -741,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the funnelTable field is set.
      */
     public boolean hasFunnelTable() {
-      return funnelTableBuilder_ != null || funnelTable_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -781,11 +738,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         funnelTable_ = value;
-        onChanged();
       } else {
         funnelTableBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -804,11 +761,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.FunnelSubReport.Builder builderForValue) {
       if (funnelTableBuilder_ == null) {
         funnelTable_ = builderForValue.build();
-        onChanged();
       } else {
         funnelTableBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -825,17 +782,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFunnelTable(com.google.analytics.data.v1alpha.FunnelSubReport value) {
       if (funnelTableBuilder_ == null) {
-        if (funnelTable_ != null) {
-          funnelTable_ =
-            com.google.analytics.data.v1alpha.FunnelSubReport.newBuilder(funnelTable_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          funnelTable_ != null &&
+          funnelTable_ != com.google.analytics.data.v1alpha.FunnelSubReport.getDefaultInstance()) {
+          getFunnelTableBuilder().mergeFrom(value);
         } else {
           funnelTable_ = value;
         }
-        onChanged();
       } else {
         funnelTableBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -851,14 +809,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.FunnelSubReport funnel_table = 1;</code>
      */
     public Builder clearFunnelTable() {
-      if (funnelTableBuilder_ == null) {
-        funnelTable_ = null;
-        onChanged();
-      } else {
-        funnelTable_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      funnelTable_ = null;
+      if (funnelTableBuilder_ != null) {
+        funnelTableBuilder_.dispose();
         funnelTableBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -874,7 +831,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.FunnelSubReport funnel_table = 1;</code>
      */
     public com.google.analytics.data.v1alpha.FunnelSubReport.Builder getFunnelTableBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getFunnelTableFieldBuilder().getBuilder();
     }
@@ -941,7 +898,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the funnelVisualization field is set.
      */
     public boolean hasFunnelVisualization() {
-      return funnelVisualizationBuilder_ != null || funnelVisualization_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -981,11 +938,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         funnelVisualization_ = value;
-        onChanged();
       } else {
         funnelVisualizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1004,11 +961,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.FunnelSubReport.Builder builderForValue) {
       if (funnelVisualizationBuilder_ == null) {
         funnelVisualization_ = builderForValue.build();
-        onChanged();
       } else {
         funnelVisualizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1025,17 +982,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFunnelVisualization(com.google.analytics.data.v1alpha.FunnelSubReport value) {
       if (funnelVisualizationBuilder_ == null) {
-        if (funnelVisualization_ != null) {
-          funnelVisualization_ =
-            com.google.analytics.data.v1alpha.FunnelSubReport.newBuilder(funnelVisualization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          funnelVisualization_ != null &&
+          funnelVisualization_ != com.google.analytics.data.v1alpha.FunnelSubReport.getDefaultInstance()) {
+          getFunnelVisualizationBuilder().mergeFrom(value);
         } else {
           funnelVisualization_ = value;
         }
-        onChanged();
       } else {
         funnelVisualizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1051,14 +1009,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.FunnelSubReport funnel_visualization = 2;</code>
      */
     public Builder clearFunnelVisualization() {
-      if (funnelVisualizationBuilder_ == null) {
-        funnelVisualization_ = null;
-        onChanged();
-      } else {
-        funnelVisualization_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      funnelVisualization_ = null;
+      if (funnelVisualizationBuilder_ != null) {
+        funnelVisualizationBuilder_.dispose();
         funnelVisualizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1074,7 +1031,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.FunnelSubReport funnel_visualization = 2;</code>
      */
     public com.google.analytics.data.v1alpha.FunnelSubReport.Builder getFunnelVisualizationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getFunnelVisualizationFieldBuilder().getBuilder();
     }
@@ -1136,7 +1093,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the propertyQuota field is set.
      */
     public boolean hasPropertyQuota() {
-      return propertyQuotaBuilder_ != null || propertyQuota_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1166,11 +1123,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         propertyQuota_ = value;
-        onChanged();
       } else {
         propertyQuotaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1184,11 +1141,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.PropertyQuota.Builder builderForValue) {
       if (propertyQuotaBuilder_ == null) {
         propertyQuota_ = builderForValue.build();
-        onChanged();
       } else {
         propertyQuotaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1200,17 +1157,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePropertyQuota(com.google.analytics.data.v1alpha.PropertyQuota value) {
       if (propertyQuotaBuilder_ == null) {
-        if (propertyQuota_ != null) {
-          propertyQuota_ =
-            com.google.analytics.data.v1alpha.PropertyQuota.newBuilder(propertyQuota_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          propertyQuota_ != null &&
+          propertyQuota_ != com.google.analytics.data.v1alpha.PropertyQuota.getDefaultInstance()) {
+          getPropertyQuotaBuilder().mergeFrom(value);
         } else {
           propertyQuota_ = value;
         }
-        onChanged();
       } else {
         propertyQuotaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1221,14 +1179,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.PropertyQuota property_quota = 3;</code>
      */
     public Builder clearPropertyQuota() {
-      if (propertyQuotaBuilder_ == null) {
-        propertyQuota_ = null;
-        onChanged();
-      } else {
-        propertyQuota_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      propertyQuota_ = null;
+      if (propertyQuotaBuilder_ != null) {
+        propertyQuotaBuilder_.dispose();
         propertyQuotaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1239,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.PropertyQuota property_quota = 3;</code>
      */
     public com.google.analytics.data.v1alpha.PropertyQuota.Builder getPropertyQuotaBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getPropertyQuotaFieldBuilder().getBuilder();
     }
@@ -1338,11 +1295,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1357,8 +1312,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1375,12 +1330,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1417,7 +1370,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RunFunnelReportResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

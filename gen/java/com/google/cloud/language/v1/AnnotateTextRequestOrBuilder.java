@@ -9,7 +9,7 @@ public interface AnnotateTextRequestOrBuilder extends
 
   /**
    * <pre>
-   * Input document.
+   * Required. Input document.
    * </pre>
    *
    * <code>.google.cloud.language.v1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +18,7 @@ public interface AnnotateTextRequestOrBuilder extends
   boolean hasDocument();
   /**
    * <pre>
-   * Input document.
+   * Required. Input document.
    * </pre>
    *
    * <code>.google.cloud.language.v1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -27,7 +27,7 @@ public interface AnnotateTextRequestOrBuilder extends
   com.google.cloud.language.v1.Document getDocument();
   /**
    * <pre>
-   * Input document.
+   * Required. Input document.
    * </pre>
    *
    * <code>.google.cloud.language.v1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -36,7 +36,7 @@ public interface AnnotateTextRequestOrBuilder extends
 
   /**
    * <pre>
-   * The enabled features.
+   * Required. The enabled features.
    * </pre>
    *
    * <code>.google.cloud.language.v1.AnnotateTextRequest.Features features = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -45,7 +45,7 @@ public interface AnnotateTextRequestOrBuilder extends
   boolean hasFeatures();
   /**
    * <pre>
-   * The enabled features.
+   * Required. The enabled features.
    * </pre>
    *
    * <code>.google.cloud.language.v1.AnnotateTextRequest.Features features = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -54,7 +54,7 @@ public interface AnnotateTextRequestOrBuilder extends
   com.google.cloud.language.v1.AnnotateTextRequest.Features getFeatures();
   /**
    * <pre>
-   * The enabled features.
+   * Required. The enabled features.
    * </pre>
    *
    * <code>.google.cloud.language.v1.AnnotateTextRequest.Features features = 2 [(.google.api.field_behavior) = REQUIRED];</code>

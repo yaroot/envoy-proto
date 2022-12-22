@@ -14,10 +14,9 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/servicedirectory/v1beta1/endpoint.proto\x12%google.cloud.servicedirectory.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\x94\x04\n\x08\x45ndpoint\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x07\x61\x64\x64ress\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x04port\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12T\n\x08metadata\x18\x04 \x03(\x0b\x32=.google.cloud.servicedirectory.v1beta1.Endpoint.MetadataEntryB\x03\xe0\x41\x01\x12@\n\x07network\x18\x05 \x01(\tB/\xe0\x41\x05\xfa\x41)\n\'servicedirectory.googleapis.com/Network\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x96\x01\xea\x41\x92\x01\n(servicedirectory.googleapis.com/Endpoint\x12\x66projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}/endpoints/{endpoint}B\xf5\x02\n)com.google.cloud.servicedirectory.v1beta1B\rEndpointProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\xf8\x01\x01\xaa\x02%Google.Cloud.ServiceDirectory.V1Beta1\xca\x02%Google\\Cloud\\ServiceDirectory\\V1beta1\xea\x02(Google::Cloud::ServiceDirectory::V1beta1\xea\x41\x61\n\'servicedirectory.googleapis.com/Network\x12\x36projects/{project}/locations/global/networks/{network}b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/servicedirectory/v1beta1/endpoint.proto\x12%google.cloud.servicedirectory.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x94\x04\n\x08\x45ndpoint\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x05\x12\x14\n\x07\x61\x64\x64ress\x18\x02 \x01(\tB\x03\xe0\x41\x01\x12\x11\n\x04port\x18\x03 \x01(\x05\x42\x03\xe0\x41\x01\x12T\n\x08metadata\x18\x04 \x03(\x0b\x32=.google.cloud.servicedirectory.v1beta1.Endpoint.MetadataEntryB\x03\xe0\x41\x01\x12@\n\x07network\x18\x05 \x01(\tB/\xe0\x41\x05\xfa\x41)\n\'servicedirectory.googleapis.com/Network\x12\x34\n\x0b\x63reate_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x07 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a/\n\rMetadataEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x96\x01\xea\x41\x92\x01\n(servicedirectory.googleapis.com/Endpoint\x12\x66projects/{project}/locations/{location}/namespaces/{namespace}/services/{service}/endpoints/{endpoint}B\xf5\x02\n)com.google.cloud.servicedirectory.v1beta1B\rEndpointProtoP\x01ZUgoogle.golang.org/genproto/googleapis/cloud/servicedirectory/v1beta1;servicedirectory\xf8\x01\x01\xaa\x02%Google.Cloud.ServiceDirectory.V1Beta1\xca\x02%Google\\Cloud\\ServiceDirectory\\V1beta1\xea\x02(Google::Cloud::ServiceDirectory::V1beta1\xea\x41\x61\n\'servicedirectory.googleapis.com/Network\x12\x36projects/{project}/locations/global/networks/{network}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.servicedirectory.v1beta1.endpoint_pb2', globals())
@@ -43,8 +42,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ENDPOINT.fields_by_name['update_time']._serialized_options = b'\340A\003'
   _ENDPOINT._options = None
   _ENDPOINT._serialized_options = b'\352A\222\001\n(servicedirectory.googleapis.com/Endpoint\022fprojects/{project}/locations/{location}/namespaces/{namespace}/services/{service}/endpoints/{endpoint}'
-  _ENDPOINT._serialized_start=219
-  _ENDPOINT._serialized_end=751
-  _ENDPOINT_METADATAENTRY._serialized_start=551
-  _ENDPOINT_METADATAENTRY._serialized_end=598
+  _ENDPOINT._serialized_start=189
+  _ENDPOINT._serialized_end=721
+  _ENDPOINT_METADATAENTRY._serialized_start=521
+  _ENDPOINT_METADATAENTRY._serialized_end=568
 # @@protoc_insertion_point(module_scope)

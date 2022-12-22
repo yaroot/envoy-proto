@@ -142,9 +142,9 @@ public interface SearchVehiclesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Specifies the number of passengers being considered for a trip. The
-   * value must be greater than or equal to one. The driver is not considered in
-   * the capacity value.
+   * Required. Specifies the number of passengers being considered for a trip.
+   * The value must be greater than or equal to one. The driver is not
+   * considered in the capacity value.
    * </pre>
    *
    * <code>int32 minimum_capacity = 8 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -321,9 +321,9 @@ public interface SearchVehiclesRequestOrBuilder extends
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -348,9 +348,9 @@ public interface SearchVehiclesRequestOrBuilder extends
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -374,9 +374,9 @@ public interface SearchVehiclesRequestOrBuilder extends
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -400,9 +400,9 @@ public interface SearchVehiclesRequestOrBuilder extends
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -427,9 +427,9 @@ public interface SearchVehiclesRequestOrBuilder extends
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>

@@ -34,97 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Job(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.bigquery.logging.v1.JobName.Builder subBuilder = null;
-            if (jobName_ != null) {
-              subBuilder = jobName_.toBuilder();
-            }
-            jobName_ = input.readMessage(com.google.cloud.bigquery.logging.v1.JobName.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobName_);
-              jobName_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.logging.v1.JobConfiguration.Builder subBuilder = null;
-            if (jobConfiguration_ != null) {
-              subBuilder = jobConfiguration_.toBuilder();
-            }
-            jobConfiguration_ = input.readMessage(com.google.cloud.bigquery.logging.v1.JobConfiguration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobConfiguration_);
-              jobConfiguration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.bigquery.logging.v1.JobStatus.Builder subBuilder = null;
-            if (jobStatus_ != null) {
-              subBuilder = jobStatus_.toBuilder();
-            }
-            jobStatus_ = input.readMessage(com.google.cloud.bigquery.logging.v1.JobStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobStatus_);
-              jobStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.bigquery.logging.v1.JobStatistics.Builder subBuilder = null;
-            if (jobStatistics_ != null) {
-              subBuilder = jobStatistics_.toBuilder();
-            }
-            jobStatistics_ = input.readMessage(com.google.cloud.bigquery.logging.v1.JobStatistics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobStatistics_);
-              jobStatistics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.logging.v1.AuditDataProto.internal_static_google_cloud_bigquery_logging_v1_Job_descriptor;
@@ -173,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.JobNameOrBuilder getJobNameOrBuilder() {
-    return getJobName();
+    return jobName_ == null ? com.google.cloud.bigquery.logging.v1.JobName.getDefaultInstance() : jobName_;
   }
 
   public static final int JOB_CONFIGURATION_FIELD_NUMBER = 2;
@@ -211,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.JobConfigurationOrBuilder getJobConfigurationOrBuilder() {
-    return getJobConfiguration();
+    return jobConfiguration_ == null ? com.google.cloud.bigquery.logging.v1.JobConfiguration.getDefaultInstance() : jobConfiguration_;
   }
 
   public static final int JOB_STATUS_FIELD_NUMBER = 3;
@@ -249,7 +158,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.JobStatusOrBuilder getJobStatusOrBuilder() {
-    return getJobStatus();
+    return jobStatus_ == null ? com.google.cloud.bigquery.logging.v1.JobStatus.getDefaultInstance() : jobStatus_;
   }
 
   public static final int JOB_STATISTICS_FIELD_NUMBER = 4;
@@ -287,7 +196,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.JobStatisticsOrBuilder getJobStatisticsOrBuilder() {
-    return getJobStatistics();
+    return jobStatistics_ == null ? com.google.cloud.bigquery.logging.v1.JobStatistics.getDefaultInstance() : jobStatistics_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -316,7 +225,7 @@ private static final long serialVersionUID = 0L;
     if (jobStatistics_ != null) {
       output.writeMessage(4, getJobStatistics());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -341,7 +250,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getJobStatistics());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -376,7 +285,7 @@ private static final long serialVersionUID = 0L;
       if (!getJobStatistics()
           .equals(other.getJobStatistics())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +312,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JOB_STATISTICS_FIELD_NUMBER;
       hash = (53 * hash) + getJobStatistics().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,44 +433,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.logging.v1.Job.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (jobNameBuilder_ == null) {
-        jobName_ = null;
-      } else {
-        jobName_ = null;
+      bitField0_ = 0;
+      jobName_ = null;
+      if (jobNameBuilder_ != null) {
+        jobNameBuilder_.dispose();
         jobNameBuilder_ = null;
       }
-      if (jobConfigurationBuilder_ == null) {
-        jobConfiguration_ = null;
-      } else {
-        jobConfiguration_ = null;
+      jobConfiguration_ = null;
+      if (jobConfigurationBuilder_ != null) {
+        jobConfigurationBuilder_.dispose();
         jobConfigurationBuilder_ = null;
       }
-      if (jobStatusBuilder_ == null) {
-        jobStatus_ = null;
-      } else {
-        jobStatus_ = null;
+      jobStatus_ = null;
+      if (jobStatusBuilder_ != null) {
+        jobStatusBuilder_.dispose();
         jobStatusBuilder_ = null;
       }
-      if (jobStatisticsBuilder_ == null) {
-        jobStatistics_ = null;
-      } else {
-        jobStatistics_ = null;
+      jobStatistics_ = null;
+      if (jobStatisticsBuilder_ != null) {
+        jobStatisticsBuilder_.dispose();
         jobStatisticsBuilder_ = null;
       }
       return this;
@@ -590,28 +491,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.logging.v1.Job buildPartial() {
       com.google.cloud.bigquery.logging.v1.Job result = new com.google.cloud.bigquery.logging.v1.Job(this);
-      if (jobNameBuilder_ == null) {
-        result.jobName_ = jobName_;
-      } else {
-        result.jobName_ = jobNameBuilder_.build();
-      }
-      if (jobConfigurationBuilder_ == null) {
-        result.jobConfiguration_ = jobConfiguration_;
-      } else {
-        result.jobConfiguration_ = jobConfigurationBuilder_.build();
-      }
-      if (jobStatusBuilder_ == null) {
-        result.jobStatus_ = jobStatus_;
-      } else {
-        result.jobStatus_ = jobStatusBuilder_.build();
-      }
-      if (jobStatisticsBuilder_ == null) {
-        result.jobStatistics_ = jobStatistics_;
-      } else {
-        result.jobStatistics_ = jobStatisticsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.logging.v1.Job result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.jobName_ = jobNameBuilder_ == null
+            ? jobName_
+            : jobNameBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.jobConfiguration_ = jobConfigurationBuilder_ == null
+            ? jobConfiguration_
+            : jobConfigurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.jobStatus_ = jobStatusBuilder_ == null
+            ? jobStatus_
+            : jobStatusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.jobStatistics_ = jobStatisticsBuilder_ == null
+            ? jobStatistics_
+            : jobStatisticsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -670,7 +576,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasJobStatistics()) {
         mergeJobStatistics(other.getJobStatistics());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -685,19 +591,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.logging.v1.Job parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getJobNameFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getJobConfigurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getJobStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getJobStatisticsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.logging.v1.Job) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.bigquery.logging.v1.JobName jobName_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -711,7 +659,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobName field is set.
      */
     public boolean hasJobName() {
-      return jobNameBuilder_ != null || jobName_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -741,11 +689,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobName_ = value;
-        onChanged();
       } else {
         jobNameBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -759,11 +707,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.JobName.Builder builderForValue) {
       if (jobNameBuilder_ == null) {
         jobName_ = builderForValue.build();
-        onChanged();
       } else {
         jobNameBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -775,17 +723,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobName(com.google.cloud.bigquery.logging.v1.JobName value) {
       if (jobNameBuilder_ == null) {
-        if (jobName_ != null) {
-          jobName_ =
-            com.google.cloud.bigquery.logging.v1.JobName.newBuilder(jobName_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          jobName_ != null &&
+          jobName_ != com.google.cloud.bigquery.logging.v1.JobName.getDefaultInstance()) {
+          getJobNameBuilder().mergeFrom(value);
         } else {
           jobName_ = value;
         }
-        onChanged();
       } else {
         jobNameBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -796,14 +745,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobName job_name = 1;</code>
      */
     public Builder clearJobName() {
-      if (jobNameBuilder_ == null) {
-        jobName_ = null;
-        onChanged();
-      } else {
-        jobName_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      jobName_ = null;
+      if (jobNameBuilder_ != null) {
+        jobNameBuilder_.dispose();
         jobNameBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -814,7 +762,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobName job_name = 1;</code>
      */
     public com.google.cloud.bigquery.logging.v1.JobName.Builder getJobNameBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getJobNameFieldBuilder().getBuilder();
     }
@@ -866,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobConfiguration field is set.
      */
     public boolean hasJobConfiguration() {
-      return jobConfigurationBuilder_ != null || jobConfiguration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -896,11 +844,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobConfiguration_ = value;
-        onChanged();
       } else {
         jobConfigurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -914,11 +862,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.JobConfiguration.Builder builderForValue) {
       if (jobConfigurationBuilder_ == null) {
         jobConfiguration_ = builderForValue.build();
-        onChanged();
       } else {
         jobConfigurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -930,17 +878,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobConfiguration(com.google.cloud.bigquery.logging.v1.JobConfiguration value) {
       if (jobConfigurationBuilder_ == null) {
-        if (jobConfiguration_ != null) {
-          jobConfiguration_ =
-            com.google.cloud.bigquery.logging.v1.JobConfiguration.newBuilder(jobConfiguration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          jobConfiguration_ != null &&
+          jobConfiguration_ != com.google.cloud.bigquery.logging.v1.JobConfiguration.getDefaultInstance()) {
+          getJobConfigurationBuilder().mergeFrom(value);
         } else {
           jobConfiguration_ = value;
         }
-        onChanged();
       } else {
         jobConfigurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -951,14 +900,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobConfiguration job_configuration = 2;</code>
      */
     public Builder clearJobConfiguration() {
-      if (jobConfigurationBuilder_ == null) {
-        jobConfiguration_ = null;
-        onChanged();
-      } else {
-        jobConfiguration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      jobConfiguration_ = null;
+      if (jobConfigurationBuilder_ != null) {
+        jobConfigurationBuilder_.dispose();
         jobConfigurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -969,7 +917,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobConfiguration job_configuration = 2;</code>
      */
     public com.google.cloud.bigquery.logging.v1.JobConfiguration.Builder getJobConfigurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getJobConfigurationFieldBuilder().getBuilder();
     }
@@ -1021,7 +969,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobStatus field is set.
      */
     public boolean hasJobStatus() {
-      return jobStatusBuilder_ != null || jobStatus_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1051,11 +999,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobStatus_ = value;
-        onChanged();
       } else {
         jobStatusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1069,11 +1017,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.JobStatus.Builder builderForValue) {
       if (jobStatusBuilder_ == null) {
         jobStatus_ = builderForValue.build();
-        onChanged();
       } else {
         jobStatusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1085,17 +1033,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobStatus(com.google.cloud.bigquery.logging.v1.JobStatus value) {
       if (jobStatusBuilder_ == null) {
-        if (jobStatus_ != null) {
-          jobStatus_ =
-            com.google.cloud.bigquery.logging.v1.JobStatus.newBuilder(jobStatus_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          jobStatus_ != null &&
+          jobStatus_ != com.google.cloud.bigquery.logging.v1.JobStatus.getDefaultInstance()) {
+          getJobStatusBuilder().mergeFrom(value);
         } else {
           jobStatus_ = value;
         }
-        onChanged();
       } else {
         jobStatusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1106,14 +1055,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobStatus job_status = 3;</code>
      */
     public Builder clearJobStatus() {
-      if (jobStatusBuilder_ == null) {
-        jobStatus_ = null;
-        onChanged();
-      } else {
-        jobStatus_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      jobStatus_ = null;
+      if (jobStatusBuilder_ != null) {
+        jobStatusBuilder_.dispose();
         jobStatusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1124,7 +1072,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobStatus job_status = 3;</code>
      */
     public com.google.cloud.bigquery.logging.v1.JobStatus.Builder getJobStatusBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getJobStatusFieldBuilder().getBuilder();
     }
@@ -1176,7 +1124,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobStatistics field is set.
      */
     public boolean hasJobStatistics() {
-      return jobStatisticsBuilder_ != null || jobStatistics_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1206,11 +1154,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobStatistics_ = value;
-        onChanged();
       } else {
         jobStatisticsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1224,11 +1172,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.JobStatistics.Builder builderForValue) {
       if (jobStatisticsBuilder_ == null) {
         jobStatistics_ = builderForValue.build();
-        onChanged();
       } else {
         jobStatisticsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1240,17 +1188,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobStatistics(com.google.cloud.bigquery.logging.v1.JobStatistics value) {
       if (jobStatisticsBuilder_ == null) {
-        if (jobStatistics_ != null) {
-          jobStatistics_ =
-            com.google.cloud.bigquery.logging.v1.JobStatistics.newBuilder(jobStatistics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          jobStatistics_ != null &&
+          jobStatistics_ != com.google.cloud.bigquery.logging.v1.JobStatistics.getDefaultInstance()) {
+          getJobStatisticsBuilder().mergeFrom(value);
         } else {
           jobStatistics_ = value;
         }
-        onChanged();
       } else {
         jobStatisticsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1261,14 +1210,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobStatistics job_statistics = 4;</code>
      */
     public Builder clearJobStatistics() {
-      if (jobStatisticsBuilder_ == null) {
-        jobStatistics_ = null;
-        onChanged();
-      } else {
-        jobStatistics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      jobStatistics_ = null;
+      if (jobStatisticsBuilder_ != null) {
+        jobStatisticsBuilder_.dispose();
         jobStatisticsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1279,7 +1227,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.JobStatistics job_statistics = 4;</code>
      */
     public com.google.cloud.bigquery.logging.v1.JobStatistics.Builder getJobStatisticsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getJobStatisticsFieldBuilder().getBuilder();
     }
@@ -1351,7 +1299,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Job(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

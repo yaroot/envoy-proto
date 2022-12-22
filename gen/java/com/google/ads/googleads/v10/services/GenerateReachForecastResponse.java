@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateReachForecastResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.Builder subBuilder = null;
-            if (onTargetAudienceMetrics_ != null) {
-              subBuilder = onTargetAudienceMetrics_.toBuilder();
-            }
-            onTargetAudienceMetrics_ = input.readMessage(com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(onTargetAudienceMetrics_);
-              onTargetAudienceMetrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v10.services.ReachCurve.Builder subBuilder = null;
-            if (reachCurve_ != null) {
-              subBuilder = reachCurve_.toBuilder();
-            }
-            reachCurve_ = input.readMessage(com.google.ads.googleads.v10.services.ReachCurve.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reachCurve_);
-              reachCurve_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.ReachPlanServiceProto.internal_static_google_ads_googleads_v10_services_GenerateReachForecastResponse_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.services.OnTargetAudienceMetricsOrBuilder getOnTargetAudienceMetricsOrBuilder() {
-    return getOnTargetAudienceMetrics();
+    return onTargetAudienceMetrics_ == null ? com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.getDefaultInstance() : onTargetAudienceMetrics_;
   }
 
   public static final int REACH_CURVE_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.services.ReachCurveOrBuilder getReachCurveOrBuilder() {
-    return getReachCurve();
+    return reachCurve_ == null ? com.google.ads.googleads.v10.services.ReachCurve.getDefaultInstance() : reachCurve_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (reachCurve_ != null) {
       output.writeMessage(2, getReachCurve());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getReachCurve());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getReachCurve()
           .equals(other.getReachCurve())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REACH_CURVE_FIELD_NUMBER;
       hash = (53 * hash) + getReachCurve().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.GenerateReachForecastResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (onTargetAudienceMetricsBuilder_ == null) {
-        onTargetAudienceMetrics_ = null;
-      } else {
-        onTargetAudienceMetrics_ = null;
+      bitField0_ = 0;
+      onTargetAudienceMetrics_ = null;
+      if (onTargetAudienceMetricsBuilder_ != null) {
+        onTargetAudienceMetricsBuilder_.dispose();
         onTargetAudienceMetricsBuilder_ = null;
       }
-      if (reachCurveBuilder_ == null) {
-        reachCurve_ = null;
-      } else {
-        reachCurve_ = null;
+      reachCurve_ = null;
+      if (reachCurveBuilder_ != null) {
+        reachCurveBuilder_.dispose();
         reachCurveBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.GenerateReachForecastResponse buildPartial() {
       com.google.ads.googleads.v10.services.GenerateReachForecastResponse result = new com.google.ads.googleads.v10.services.GenerateReachForecastResponse(this);
-      if (onTargetAudienceMetricsBuilder_ == null) {
-        result.onTargetAudienceMetrics_ = onTargetAudienceMetrics_;
-      } else {
-        result.onTargetAudienceMetrics_ = onTargetAudienceMetricsBuilder_.build();
-      }
-      if (reachCurveBuilder_ == null) {
-        result.reachCurve_ = reachCurve_;
-      } else {
-        result.reachCurve_ = reachCurveBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.GenerateReachForecastResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.onTargetAudienceMetrics_ = onTargetAudienceMetricsBuilder_ == null
+            ? onTargetAudienceMetrics_
+            : onTargetAudienceMetricsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.reachCurve_ = reachCurveBuilder_ == null
+            ? reachCurve_
+            : reachCurveBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasReachCurve()) {
         mergeReachCurve(other.getReachCurve());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.GenerateReachForecastResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOnTargetAudienceMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getReachCurveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.GenerateReachForecastResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.ads.googleads.v10.services.OnTargetAudienceMetrics onTargetAudienceMetrics_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the onTargetAudienceMetrics field is set.
      */
     public boolean hasOnTargetAudienceMetrics() {
-      return onTargetAudienceMetricsBuilder_ != null || onTargetAudienceMetrics_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         onTargetAudienceMetrics_ = value;
-        onChanged();
       } else {
         onTargetAudienceMetricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.Builder builderForValue) {
       if (onTargetAudienceMetricsBuilder_ == null) {
         onTargetAudienceMetrics_ = builderForValue.build();
-        onChanged();
       } else {
         onTargetAudienceMetricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOnTargetAudienceMetrics(com.google.ads.googleads.v10.services.OnTargetAudienceMetrics value) {
       if (onTargetAudienceMetricsBuilder_ == null) {
-        if (onTargetAudienceMetrics_ != null) {
-          onTargetAudienceMetrics_ =
-            com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.newBuilder(onTargetAudienceMetrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          onTargetAudienceMetrics_ != null &&
+          onTargetAudienceMetrics_ != com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.getDefaultInstance()) {
+          getOnTargetAudienceMetricsBuilder().mergeFrom(value);
         } else {
           onTargetAudienceMetrics_ = value;
         }
-        onChanged();
       } else {
         onTargetAudienceMetricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.OnTargetAudienceMetrics on_target_audience_metrics = 1;</code>
      */
     public Builder clearOnTargetAudienceMetrics() {
-      if (onTargetAudienceMetricsBuilder_ == null) {
-        onTargetAudienceMetrics_ = null;
-        onChanged();
-      } else {
-        onTargetAudienceMetrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      onTargetAudienceMetrics_ = null;
+      if (onTargetAudienceMetricsBuilder_ != null) {
+        onTargetAudienceMetricsBuilder_.dispose();
         onTargetAudienceMetricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.OnTargetAudienceMetrics on_target_audience_metrics = 1;</code>
      */
     public com.google.ads.googleads.v10.services.OnTargetAudienceMetrics.Builder getOnTargetAudienceMetricsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOnTargetAudienceMetricsFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reachCurve field is set.
      */
     public boolean hasReachCurve() {
-      return reachCurveBuilder_ != null || reachCurve_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reachCurve_ = value;
-        onChanged();
       } else {
         reachCurveBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.services.ReachCurve.Builder builderForValue) {
       if (reachCurveBuilder_ == null) {
         reachCurve_ = builderForValue.build();
-        onChanged();
       } else {
         reachCurveBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReachCurve(com.google.ads.googleads.v10.services.ReachCurve value) {
       if (reachCurveBuilder_ == null) {
-        if (reachCurve_ != null) {
-          reachCurve_ =
-            com.google.ads.googleads.v10.services.ReachCurve.newBuilder(reachCurve_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          reachCurve_ != null &&
+          reachCurve_ != com.google.ads.googleads.v10.services.ReachCurve.getDefaultInstance()) {
+          getReachCurveBuilder().mergeFrom(value);
         } else {
           reachCurve_ = value;
         }
-        onChanged();
       } else {
         reachCurveBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.ReachCurve reach_curve = 2;</code>
      */
     public Builder clearReachCurve() {
-      if (reachCurveBuilder_ == null) {
-        reachCurve_ = null;
-        onChanged();
-      } else {
-        reachCurve_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      reachCurve_ = null;
+      if (reachCurveBuilder_ != null) {
+        reachCurveBuilder_.dispose();
         reachCurveBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.ReachCurve reach_curve = 2;</code>
      */
     public com.google.ads.googleads.v10.services.ReachCurve.Builder getReachCurveBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getReachCurveFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateReachForecastResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

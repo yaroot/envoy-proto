@@ -92,7 +92,6 @@ public interface EventOrBuilder extends
    *
    * <code>map&lt;string, string&gt; details = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getDetailsOrDefault(
       java.lang.String key,
@@ -105,7 +104,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; details = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getDetailsOrThrow(
       java.lang.String key);
 }

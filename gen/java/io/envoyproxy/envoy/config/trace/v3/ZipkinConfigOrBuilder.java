@@ -130,4 +130,23 @@ public interface ZipkinConfigOrBuilder extends
    */
   com.google.protobuf.ByteString
       getCollectorHostnameBytes();
+
+  /**
+   * <pre>
+   * If this is set to true, then Envoy will be treated as an independent hop in trace chain. A complete span pair will be created for a single
+   * request. Server span will be created for the downstream request and client span will be created for the related upstream request.
+   * This should be set to true in the following cases:
+   * * The Envoy Proxy is used as gateway or ingress.
+   * * The Envoy Proxy is used as sidecar but inbound traffic capturing or outbound traffic capturing is disabled.
+   * * Any case that the `start_child_span of router &lt;envoy_v3_api_field_extensions.filters.http.router.v3.Router.start_child_span&gt;` is set to true.
+   * .. attention::
+   *   If this is set to true, then the
+   *   :ref:`start_child_span of router &lt;envoy_v3_api_field_extensions.filters.http.router.v3.Router.start_child_span&gt;`
+   *   SHOULD be set to true also to ensure the correctness of trace chain.
+   * </pre>
+   *
+   * <code>bool split_spans_for_request = 7;</code>
+   * @return The splitSpansForRequest.
+   */
+  boolean getSplitSpansForRequest();
 }

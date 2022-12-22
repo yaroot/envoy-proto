@@ -39,201 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CertificateValidationContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (trustedCa_ != null) {
-              subBuilder = trustedCa_.toBuilder();
-            }
-            trustedCa_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trustedCa_);
-              trustedCa_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            verifyCertificateHash_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            verifyCertificateSpki_.add(s);
-            break;
-          }
-          case 50: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (requireSignedCertificateTimestamp_ != null) {
-              subBuilder = requireSignedCertificateTimestamp_.toBuilder();
-            }
-            requireSignedCertificateTimestamp_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requireSignedCertificateTimestamp_);
-              requireSignedCertificateTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-            if (crl_ != null) {
-              subBuilder = crl_.toBuilder();
-            }
-            crl_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(crl_);
-              crl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-
-            allowExpiredCertificate_ = input.readBool();
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              matchSubjectAltNames_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.v3.StringMatcher>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            matchSubjectAltNames_.add(
-                input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(), extensionRegistry));
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            trustChainVerification_ = rawValue;
-            break;
-          }
-          case 90: {
-            io.envoyproxy.envoy.config.core.v3.WatchedDirectory.Builder subBuilder = null;
-            if (watchedDirectory_ != null) {
-              subBuilder = watchedDirectory_.toBuilder();
-            }
-            watchedDirectory_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.WatchedDirectory.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(watchedDirectory_);
-              watchedDirectory_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder subBuilder = null;
-            if (customValidatorConfig_ != null) {
-              subBuilder = customValidatorConfig_.toBuilder();
-            }
-            customValidatorConfig_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(customValidatorConfig_);
-              customValidatorConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.Builder subBuilder = null;
-            if (caCertificateProviderInstance_ != null) {
-              subBuilder = caCertificateProviderInstance_.toBuilder();
-            }
-            caCertificateProviderInstance_ = input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(caCertificateProviderInstance_);
-              caCertificateProviderInstance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 112: {
-
-            onlyVerifyLeafCertCrl_ = input.readBool();
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              matchTypedSubjectAltNames_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            matchTypedSubjectAltNames_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.parser(), extensionRegistry));
-            break;
-          }
-          case 130: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxVerifyDepth_ != null) {
-              subBuilder = maxVerifyDepth_.toBuilder();
-            }
-            maxVerifyDepth_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxVerifyDepth_);
-              maxVerifyDepth_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        matchSubjectAltNames_ = java.util.Collections.unmodifiableList(matchSubjectAltNames_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        matchTypedSubjectAltNames_ = java.util.Collections.unmodifiableList(matchTypedSubjectAltNames_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonProto.internal_static_envoy_extensions_transport_sockets_tls_v3_CertificateValidationContext_descriptor;
@@ -410,6 +215,9 @@ private static final long serialVersionUID = 0L;
    * directory for any file moves to support rotation. This currently only
    * applies to dynamic secrets, when the ``CertificateValidationContext`` is
    * delivered via SDS.
+   * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+   * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+   * of a full chain.
    * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
    * [#next-major-version: This field and watched_directory below should ideally be moved into a
    * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -451,6 +259,9 @@ private static final long serialVersionUID = 0L;
    * directory for any file moves to support rotation. This currently only
    * applies to dynamic secrets, when the ``CertificateValidationContext`` is
    * delivered via SDS.
+   * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+   * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+   * of a full chain.
    * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
    * [#next-major-version: This field and watched_directory below should ideally be moved into a
    * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -492,6 +303,9 @@ private static final long serialVersionUID = 0L;
    * directory for any file moves to support rotation. This currently only
    * applies to dynamic secrets, when the ``CertificateValidationContext`` is
    * delivered via SDS.
+   * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+   * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+   * of a full chain.
    * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
    * [#next-major-version: This field and watched_directory below should ideally be moved into a
    * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -501,7 +315,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getTrustedCaOrBuilder() {
-    return getTrustedCa();
+    return trustedCa_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : trustedCa_;
   }
 
   public static final int CA_CERTIFICATE_PROVIDER_INSTANCE_FIELD_NUMBER = 13;
@@ -545,7 +359,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstanceOrBuilder getCaCertificateProviderInstanceOrBuilder() {
-    return getCaCertificateProviderInstance();
+    return caCertificateProviderInstance_ == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.getDefaultInstance() : caCertificateProviderInstance_;
   }
 
   public static final int WATCHED_DIRECTORY_FIELD_NUMBER = 11;
@@ -601,10 +415,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.WatchedDirectoryOrBuilder getWatchedDirectoryOrBuilder() {
-    return getWatchedDirectory();
+    return watchedDirectory_ == null ? io.envoyproxy.envoy.config.core.v3.WatchedDirectory.getDefaultInstance() : watchedDirectory_;
   }
 
   public static final int VERIFY_CERTIFICATE_SPKI_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList verifyCertificateSpki_;
   /**
    * <pre>
@@ -744,6 +559,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERIFY_CERTIFICATE_HASH_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList verifyCertificateHash_;
   /**
    * <pre>
@@ -863,6 +679,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCH_TYPED_SUBJECT_ALT_NAMES_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher> matchTypedSubjectAltNames_;
   /**
    * <pre>
@@ -1003,6 +820,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCH_SUBJECT_ALT_NAMES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.matcher.v3.StringMatcher> matchSubjectAltNames_;
   /**
    * <pre>
@@ -1122,7 +940,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getRequireSignedCertificateTimestampOrBuilder() {
-    return getRequireSignedCertificateTimestamp();
+    return requireSignedCertificateTimestamp_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : requireSignedCertificateTimestamp_;
   }
 
   public static final int CRL_FIELD_NUMBER = 7;
@@ -1190,11 +1008,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getCrlOrBuilder() {
-    return getCrl();
+    return crl_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : crl_;
   }
 
   public static final int ALLOW_EXPIRED_CERTIFICATE_FIELD_NUMBER = 8;
-  private boolean allowExpiredCertificate_;
+  private boolean allowExpiredCertificate_ = false;
   /**
    * <pre>
    * If specified, Envoy will not reject expired certificates.
@@ -1209,7 +1027,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUST_CHAIN_VERIFICATION_FIELD_NUMBER = 10;
-  private int trustChainVerification_;
+  private int trustChainVerification_ = 0;
   /**
    * <pre>
    * Certificate trust chain verification mode.
@@ -1230,8 +1048,7 @@ private static final long serialVersionUID = 0L;
    * @return The trustChainVerification.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification getTrustChainVerification() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification.valueOf(trustChainVerification_);
+    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification.forNumber(trustChainVerification_);
     return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification.UNRECOGNIZED : result;
   }
 
@@ -1282,11 +1099,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getCustomValidatorConfigOrBuilder() {
-    return getCustomValidatorConfig();
+    return customValidatorConfig_ == null ? io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance() : customValidatorConfig_;
   }
 
   public static final int ONLY_VERIFY_LEAF_CERT_CRL_FIELD_NUMBER = 14;
-  private boolean onlyVerifyLeafCertCrl_;
+  private boolean onlyVerifyLeafCertCrl_ = false;
   /**
    * <pre>
    * If this option is set to true, only the certificate at the end of the
@@ -1305,11 +1122,14 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.UInt32Value maxVerifyDepth_;
   /**
    * <pre>
-   * Config for the max number of intermediate certificates in chain that are parsed during verification.
-   * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-   * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-   * though this can be system-dependent.
-   * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+   * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+   * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+   * but in a depth larger than configured, the certificate validation will fail.
+   * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+   * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+   * Neither the end-entity nor the trust-anchor certificates count against depth.
+   * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+   * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -1321,11 +1141,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Config for the max number of intermediate certificates in chain that are parsed during verification.
-   * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-   * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-   * though this can be system-dependent.
-   * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+   * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+   * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+   * but in a depth larger than configured, the certificate validation will fail.
+   * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+   * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+   * Neither the end-entity nor the trust-anchor certificates count against depth.
+   * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+   * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -1337,18 +1160,21 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Config for the max number of intermediate certificates in chain that are parsed during verification.
-   * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-   * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-   * though this can be system-dependent.
-   * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+   * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+   * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+   * but in a depth larger than configured, the certificate validation will fail.
+   * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+   * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+   * Neither the end-entity nor the trust-anchor certificates count against depth.
+   * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+   * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxVerifyDepthOrBuilder() {
-    return getMaxVerifyDepth();
+    return maxVerifyDepth_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxVerifyDepth_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1407,7 +1233,7 @@ private static final long serialVersionUID = 0L;
     if (maxVerifyDepth_ != null) {
       output.writeMessage(16, getMaxVerifyDepth());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1480,7 +1306,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getMaxVerifyDepth());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1543,7 +1369,7 @@ private static final long serialVersionUID = 0L;
       if (!getMaxVerifyDepth()
           .equals(other.getMaxVerifyDepth())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1606,7 +1432,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_VERIFY_DEPTH_FIELD_NUMBER;
       hash = (53 * hash) + getMaxVerifyDepth().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1727,86 +1553,72 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMatchTypedSubjectAltNamesFieldBuilder();
-        getMatchSubjectAltNamesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (trustedCaBuilder_ == null) {
-        trustedCa_ = null;
-      } else {
-        trustedCa_ = null;
+      bitField0_ = 0;
+      trustedCa_ = null;
+      if (trustedCaBuilder_ != null) {
+        trustedCaBuilder_.dispose();
         trustedCaBuilder_ = null;
       }
-      if (caCertificateProviderInstanceBuilder_ == null) {
-        caCertificateProviderInstance_ = null;
-      } else {
-        caCertificateProviderInstance_ = null;
+      caCertificateProviderInstance_ = null;
+      if (caCertificateProviderInstanceBuilder_ != null) {
+        caCertificateProviderInstanceBuilder_.dispose();
         caCertificateProviderInstanceBuilder_ = null;
       }
-      if (watchedDirectoryBuilder_ == null) {
-        watchedDirectory_ = null;
-      } else {
-        watchedDirectory_ = null;
+      watchedDirectory_ = null;
+      if (watchedDirectoryBuilder_ != null) {
+        watchedDirectoryBuilder_.dispose();
         watchedDirectoryBuilder_ = null;
       }
       verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (matchTypedSubjectAltNamesBuilder_ == null) {
         matchTypedSubjectAltNames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        matchTypedSubjectAltNames_ = null;
         matchTypedSubjectAltNamesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       if (matchSubjectAltNamesBuilder_ == null) {
         matchSubjectAltNames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        matchSubjectAltNames_ = null;
         matchSubjectAltNamesBuilder_.clear();
       }
-      if (requireSignedCertificateTimestampBuilder_ == null) {
-        requireSignedCertificateTimestamp_ = null;
-      } else {
-        requireSignedCertificateTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      requireSignedCertificateTimestamp_ = null;
+      if (requireSignedCertificateTimestampBuilder_ != null) {
+        requireSignedCertificateTimestampBuilder_.dispose();
         requireSignedCertificateTimestampBuilder_ = null;
       }
-      if (crlBuilder_ == null) {
-        crl_ = null;
-      } else {
-        crl_ = null;
+      crl_ = null;
+      if (crlBuilder_ != null) {
+        crlBuilder_.dispose();
         crlBuilder_ = null;
       }
       allowExpiredCertificate_ = false;
-
       trustChainVerification_ = 0;
-
-      if (customValidatorConfigBuilder_ == null) {
-        customValidatorConfig_ = null;
-      } else {
-        customValidatorConfig_ = null;
+      customValidatorConfig_ = null;
+      if (customValidatorConfigBuilder_ != null) {
+        customValidatorConfigBuilder_.dispose();
         customValidatorConfigBuilder_ = null;
       }
       onlyVerifyLeafCertCrl_ = false;
-
-      if (maxVerifyDepthBuilder_ == null) {
-        maxVerifyDepth_ = null;
-      } else {
-        maxVerifyDepth_ = null;
+      maxVerifyDepth_ = null;
+      if (maxVerifyDepthBuilder_ != null) {
+        maxVerifyDepthBuilder_.dispose();
         maxVerifyDepthBuilder_ = null;
       }
       return this;
@@ -1835,75 +1647,89 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext(this);
-      int from_bitField0_ = bitField0_;
-      if (trustedCaBuilder_ == null) {
-        result.trustedCa_ = trustedCa_;
-      } else {
-        result.trustedCa_ = trustedCaBuilder_.build();
-      }
-      if (caCertificateProviderInstanceBuilder_ == null) {
-        result.caCertificateProviderInstance_ = caCertificateProviderInstance_;
-      } else {
-        result.caCertificateProviderInstance_ = caCertificateProviderInstanceBuilder_.build();
-      }
-      if (watchedDirectoryBuilder_ == null) {
-        result.watchedDirectory_ = watchedDirectory_;
-      } else {
-        result.watchedDirectory_ = watchedDirectoryBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         verifyCertificateSpki_ = verifyCertificateSpki_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.verifyCertificateSpki_ = verifyCertificateSpki_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         verifyCertificateHash_ = verifyCertificateHash_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.verifyCertificateHash_ = verifyCertificateHash_;
       if (matchTypedSubjectAltNamesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           matchTypedSubjectAltNames_ = java.util.Collections.unmodifiableList(matchTypedSubjectAltNames_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.matchTypedSubjectAltNames_ = matchTypedSubjectAltNames_;
       } else {
         result.matchTypedSubjectAltNames_ = matchTypedSubjectAltNamesBuilder_.build();
       }
       if (matchSubjectAltNamesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           matchSubjectAltNames_ = java.util.Collections.unmodifiableList(matchSubjectAltNames_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.matchSubjectAltNames_ = matchSubjectAltNames_;
       } else {
         result.matchSubjectAltNames_ = matchSubjectAltNamesBuilder_.build();
       }
-      if (requireSignedCertificateTimestampBuilder_ == null) {
-        result.requireSignedCertificateTimestamp_ = requireSignedCertificateTimestamp_;
-      } else {
-        result.requireSignedCertificateTimestamp_ = requireSignedCertificateTimestampBuilder_.build();
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.trustedCa_ = trustedCaBuilder_ == null
+            ? trustedCa_
+            : trustedCaBuilder_.build();
       }
-      if (crlBuilder_ == null) {
-        result.crl_ = crl_;
-      } else {
-        result.crl_ = crlBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.caCertificateProviderInstance_ = caCertificateProviderInstanceBuilder_ == null
+            ? caCertificateProviderInstance_
+            : caCertificateProviderInstanceBuilder_.build();
       }
-      result.allowExpiredCertificate_ = allowExpiredCertificate_;
-      result.trustChainVerification_ = trustChainVerification_;
-      if (customValidatorConfigBuilder_ == null) {
-        result.customValidatorConfig_ = customValidatorConfig_;
-      } else {
-        result.customValidatorConfig_ = customValidatorConfigBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.watchedDirectory_ = watchedDirectoryBuilder_ == null
+            ? watchedDirectory_
+            : watchedDirectoryBuilder_.build();
       }
-      result.onlyVerifyLeafCertCrl_ = onlyVerifyLeafCertCrl_;
-      if (maxVerifyDepthBuilder_ == null) {
-        result.maxVerifyDepth_ = maxVerifyDepth_;
-      } else {
-        result.maxVerifyDepth_ = maxVerifyDepthBuilder_.build();
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.requireSignedCertificateTimestamp_ = requireSignedCertificateTimestampBuilder_ == null
+            ? requireSignedCertificateTimestamp_
+            : requireSignedCertificateTimestampBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.crl_ = crlBuilder_ == null
+            ? crl_
+            : crlBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.allowExpiredCertificate_ = allowExpiredCertificate_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.trustChainVerification_ = trustChainVerification_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.customValidatorConfig_ = customValidatorConfigBuilder_ == null
+            ? customValidatorConfig_
+            : customValidatorConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.onlyVerifyLeafCertCrl_ = onlyVerifyLeafCertCrl_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.maxVerifyDepth_ = maxVerifyDepthBuilder_ == null
+            ? maxVerifyDepth_
+            : maxVerifyDepthBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1962,7 +1788,7 @@ private static final long serialVersionUID = 0L;
       if (!other.verifyCertificateSpki_.isEmpty()) {
         if (verifyCertificateSpki_.isEmpty()) {
           verifyCertificateSpki_ = other.verifyCertificateSpki_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureVerifyCertificateSpkiIsMutable();
           verifyCertificateSpki_.addAll(other.verifyCertificateSpki_);
@@ -1972,7 +1798,7 @@ private static final long serialVersionUID = 0L;
       if (!other.verifyCertificateHash_.isEmpty()) {
         if (verifyCertificateHash_.isEmpty()) {
           verifyCertificateHash_ = other.verifyCertificateHash_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureVerifyCertificateHashIsMutable();
           verifyCertificateHash_.addAll(other.verifyCertificateHash_);
@@ -1983,7 +1809,7 @@ private static final long serialVersionUID = 0L;
         if (!other.matchTypedSubjectAltNames_.isEmpty()) {
           if (matchTypedSubjectAltNames_.isEmpty()) {
             matchTypedSubjectAltNames_ = other.matchTypedSubjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureMatchTypedSubjectAltNamesIsMutable();
             matchTypedSubjectAltNames_.addAll(other.matchTypedSubjectAltNames_);
@@ -1996,7 +1822,7 @@ private static final long serialVersionUID = 0L;
             matchTypedSubjectAltNamesBuilder_.dispose();
             matchTypedSubjectAltNamesBuilder_ = null;
             matchTypedSubjectAltNames_ = other.matchTypedSubjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000020);
             matchTypedSubjectAltNamesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMatchTypedSubjectAltNamesFieldBuilder() : null;
@@ -2009,7 +1835,7 @@ private static final long serialVersionUID = 0L;
         if (!other.matchSubjectAltNames_.isEmpty()) {
           if (matchSubjectAltNames_.isEmpty()) {
             matchSubjectAltNames_ = other.matchSubjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureMatchSubjectAltNamesIsMutable();
             matchSubjectAltNames_.addAll(other.matchSubjectAltNames_);
@@ -2022,7 +1848,7 @@ private static final long serialVersionUID = 0L;
             matchSubjectAltNamesBuilder_.dispose();
             matchSubjectAltNamesBuilder_ = null;
             matchSubjectAltNames_ = other.matchSubjectAltNames_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000040);
             matchSubjectAltNamesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMatchSubjectAltNamesFieldBuilder() : null;
@@ -2052,7 +1878,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxVerifyDepth()) {
         mergeMaxVerifyDepth(other.getMaxVerifyDepth());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2067,17 +1893,132 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTrustedCaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureVerifyCertificateHashIsMutable();
+              verifyCertificateHash_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureVerifyCertificateSpkiIsMutable();
+              verifyCertificateSpki_.add(s);
+              break;
+            } // case 26
+            case 50: {
+              input.readMessage(
+                  getRequireSignedCertificateTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCrlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 58
+            case 64: {
+              allowExpiredCertificate_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 64
+            case 74: {
+              io.envoyproxy.envoy.type.matcher.v3.StringMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(),
+                      extensionRegistry);
+              if (matchSubjectAltNamesBuilder_ == null) {
+                ensureMatchSubjectAltNamesIsMutable();
+                matchSubjectAltNames_.add(m);
+              } else {
+                matchSubjectAltNamesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 80: {
+              trustChainVerification_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getWatchedDirectoryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getCustomValidatorConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getCaCertificateProviderInstanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 106
+            case 112: {
+              onlyVerifyLeafCertCrl_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 112
+            case 122: {
+              io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.parser(),
+                      extensionRegistry);
+              if (matchTypedSubjectAltNamesBuilder_ == null) {
+                ensureMatchTypedSubjectAltNamesIsMutable();
+                matchTypedSubjectAltNames_.add(m);
+              } else {
+                matchTypedSubjectAltNamesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getMaxVerifyDepthFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 130
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2114,6 +2055,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2123,7 +2067,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trustedCa field is set.
      */
     public boolean hasTrustedCa() {
-      return trustedCaBuilder_ != null || trustedCa_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2154,6 +2098,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2198,6 +2145,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2211,11 +2161,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trustedCa_ = value;
-        onChanged();
       } else {
         trustedCaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2247,6 +2197,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2258,11 +2211,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (trustedCaBuilder_ == null) {
         trustedCa_ = builderForValue.build();
-        onChanged();
       } else {
         trustedCaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2294,6 +2247,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2303,17 +2259,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrustedCa(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (trustedCaBuilder_ == null) {
-        if (trustedCa_ != null) {
-          trustedCa_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(trustedCa_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          trustedCa_ != null &&
+          trustedCa_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getTrustedCaBuilder().mergeFrom(value);
         } else {
           trustedCa_ = value;
         }
-        onChanged();
       } else {
         trustedCaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2345,6 +2302,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2353,14 +2313,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource trusted_ca = 1 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearTrustedCa() {
-      if (trustedCaBuilder_ == null) {
-        trustedCa_ = null;
-        onChanged();
-      } else {
-        trustedCa_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      trustedCa_ = null;
+      if (trustedCaBuilder_ != null) {
+        trustedCaBuilder_.dispose();
         trustedCaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2392,6 +2351,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2400,7 +2362,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource trusted_ca = 1 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getTrustedCaBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTrustedCaFieldBuilder().getBuilder();
     }
@@ -2433,6 +2395,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2477,6 +2442,9 @@ private static final long serialVersionUID = 0L;
      * directory for any file moves to support rotation. This currently only
      * applies to dynamic secrets, when the ``CertificateValidationContext`` is
      * delivered via SDS.
+     * X509_V_FLAG_PARTIAL_CHAIN is set by default, so non-root/intermediate ca certificate in ``trusted_ca``
+     * can be treated as trust anchor as well. It allows verification with building valid partial chain instead
+     * of a full chain.
      * Only one of ``trusted_ca`` and ``ca_certificate_provider_instance`` may be specified.
      * [#next-major-version: This field and watched_directory below should ideally be moved into a
      * separate sub-message, since there's no point in specifying the latter field without this one.]
@@ -2512,7 +2480,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the caCertificateProviderInstance field is set.
      */
     public boolean hasCaCertificateProviderInstance() {
-      return caCertificateProviderInstanceBuilder_ != null || caCertificateProviderInstance_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2546,11 +2514,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         caCertificateProviderInstance_ = value;
-        onChanged();
       } else {
         caCertificateProviderInstanceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2566,11 +2534,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.Builder builderForValue) {
       if (caCertificateProviderInstanceBuilder_ == null) {
         caCertificateProviderInstance_ = builderForValue.build();
-        onChanged();
       } else {
         caCertificateProviderInstanceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2584,17 +2552,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCaCertificateProviderInstance(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance value) {
       if (caCertificateProviderInstanceBuilder_ == null) {
-        if (caCertificateProviderInstance_ != null) {
-          caCertificateProviderInstance_ =
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.newBuilder(caCertificateProviderInstance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          caCertificateProviderInstance_ != null &&
+          caCertificateProviderInstance_ != io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.getDefaultInstance()) {
+          getCaCertificateProviderInstanceBuilder().mergeFrom(value);
         } else {
           caCertificateProviderInstance_ = value;
         }
-        onChanged();
       } else {
         caCertificateProviderInstanceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2607,14 +2576,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance ca_certificate_provider_instance = 13 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearCaCertificateProviderInstance() {
-      if (caCertificateProviderInstanceBuilder_ == null) {
-        caCertificateProviderInstance_ = null;
-        onChanged();
-      } else {
-        caCertificateProviderInstance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      caCertificateProviderInstance_ = null;
+      if (caCertificateProviderInstanceBuilder_ != null) {
+        caCertificateProviderInstanceBuilder_.dispose();
         caCertificateProviderInstanceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2627,7 +2595,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance ca_certificate_provider_instance = 13 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateProviderPluginInstance.Builder getCaCertificateProviderInstanceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCaCertificateProviderInstanceFieldBuilder().getBuilder();
     }
@@ -2689,7 +2657,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the watchedDirectory field is set.
      */
     public boolean hasWatchedDirectory() {
-      return watchedDirectoryBuilder_ != null || watchedDirectory_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2731,11 +2699,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         watchedDirectory_ = value;
-        onChanged();
       } else {
         watchedDirectoryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2755,11 +2723,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.WatchedDirectory.Builder builderForValue) {
       if (watchedDirectoryBuilder_ == null) {
         watchedDirectory_ = builderForValue.build();
-        onChanged();
       } else {
         watchedDirectoryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2777,17 +2745,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWatchedDirectory(io.envoyproxy.envoy.config.core.v3.WatchedDirectory value) {
       if (watchedDirectoryBuilder_ == null) {
-        if (watchedDirectory_ != null) {
-          watchedDirectory_ =
-            io.envoyproxy.envoy.config.core.v3.WatchedDirectory.newBuilder(watchedDirectory_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          watchedDirectory_ != null &&
+          watchedDirectory_ != io.envoyproxy.envoy.config.core.v3.WatchedDirectory.getDefaultInstance()) {
+          getWatchedDirectoryBuilder().mergeFrom(value);
         } else {
           watchedDirectory_ = value;
         }
-        onChanged();
       } else {
         watchedDirectoryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2804,14 +2773,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.WatchedDirectory watched_directory = 11;</code>
      */
     public Builder clearWatchedDirectory() {
-      if (watchedDirectoryBuilder_ == null) {
-        watchedDirectory_ = null;
-        onChanged();
-      } else {
-        watchedDirectory_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      watchedDirectory_ = null;
+      if (watchedDirectoryBuilder_ != null) {
+        watchedDirectoryBuilder_.dispose();
         watchedDirectoryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2828,7 +2796,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.WatchedDirectory watched_directory = 11;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.WatchedDirectory.Builder getWatchedDirectoryBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getWatchedDirectoryFieldBuilder().getBuilder();
     }
@@ -2882,9 +2850,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureVerifyCertificateSpkiIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         verifyCertificateSpki_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateSpki_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -3057,10 +3025,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVerifyCertificateSpki(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateSpkiIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateSpkiIsMutable();
       verifyCertificateSpki_.set(index, value);
       onChanged();
       return this;
@@ -3098,10 +3064,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateSpki(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateSpkiIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateSpkiIsMutable();
       verifyCertificateSpki_.add(value);
       onChanged();
       return this;
@@ -3177,7 +3141,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearVerifyCertificateSpki() {
       verifyCertificateSpki_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3214,10 +3178,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateSpkiBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureVerifyCertificateSpkiIsMutable();
       verifyCertificateSpki_.add(value);
       onChanged();
@@ -3226,9 +3188,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureVerifyCertificateHashIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         verifyCertificateHash_ = new com.google.protobuf.LazyStringArrayList(verifyCertificateHash_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -3376,10 +3338,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVerifyCertificateHash(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateHashIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateHashIsMutable();
       verifyCertificateHash_.set(index, value);
       onChanged();
       return this;
@@ -3412,10 +3372,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateHash(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVerifyCertificateHashIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureVerifyCertificateHashIsMutable();
       verifyCertificateHash_.add(value);
       onChanged();
       return this;
@@ -3481,7 +3439,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearVerifyCertificateHash() {
       verifyCertificateHash_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3513,10 +3471,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addVerifyCertificateHashBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureVerifyCertificateHashIsMutable();
       verifyCertificateHash_.add(value);
       onChanged();
@@ -3526,9 +3482,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher> matchTypedSubjectAltNames_ =
       java.util.Collections.emptyList();
     private void ensureMatchTypedSubjectAltNamesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         matchTypedSubjectAltNames_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher>(matchTypedSubjectAltNames_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -3898,7 +3854,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMatchTypedSubjectAltNames() {
       if (matchTypedSubjectAltNamesBuilder_ == null) {
         matchTypedSubjectAltNames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         matchTypedSubjectAltNamesBuilder_.clear();
@@ -4115,7 +4071,7 @@ private static final long serialVersionUID = 0L;
         matchTypedSubjectAltNamesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher, io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcher.Builder, io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SubjectAltNameMatcherOrBuilder>(
                 matchTypedSubjectAltNames_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         matchTypedSubjectAltNames_ = null;
@@ -4126,9 +4082,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.matcher.v3.StringMatcher> matchSubjectAltNames_ =
       java.util.Collections.emptyList();
     private void ensureMatchSubjectAltNamesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         matchSubjectAltNames_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.v3.StringMatcher>(matchSubjectAltNames_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -4377,7 +4333,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearMatchSubjectAltNames() {
       if (matchSubjectAltNamesBuilder_ == null) {
         matchSubjectAltNames_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         matchSubjectAltNamesBuilder_.clear();
@@ -4517,7 +4473,7 @@ private static final long serialVersionUID = 0L;
         matchSubjectAltNamesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.matcher.v3.StringMatcher, io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.StringMatcherOrBuilder>(
                 matchSubjectAltNames_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         matchSubjectAltNames_ = null;
@@ -4537,7 +4493,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requireSignedCertificateTimestamp field is set.
      */
     public boolean hasRequireSignedCertificateTimestamp() {
-      return requireSignedCertificateTimestampBuilder_ != null || requireSignedCertificateTimestamp_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -4567,11 +4523,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requireSignedCertificateTimestamp_ = value;
-        onChanged();
       } else {
         requireSignedCertificateTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4585,11 +4541,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (requireSignedCertificateTimestampBuilder_ == null) {
         requireSignedCertificateTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         requireSignedCertificateTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4601,17 +4557,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequireSignedCertificateTimestamp(com.google.protobuf.BoolValue value) {
       if (requireSignedCertificateTimestampBuilder_ == null) {
-        if (requireSignedCertificateTimestamp_ != null) {
-          requireSignedCertificateTimestamp_ =
-            com.google.protobuf.BoolValue.newBuilder(requireSignedCertificateTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          requireSignedCertificateTimestamp_ != null &&
+          requireSignedCertificateTimestamp_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getRequireSignedCertificateTimestampBuilder().mergeFrom(value);
         } else {
           requireSignedCertificateTimestamp_ = value;
         }
-        onChanged();
       } else {
         requireSignedCertificateTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4622,14 +4579,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue require_signed_certificate_timestamp = 6;</code>
      */
     public Builder clearRequireSignedCertificateTimestamp() {
-      if (requireSignedCertificateTimestampBuilder_ == null) {
-        requireSignedCertificateTimestamp_ = null;
-        onChanged();
-      } else {
-        requireSignedCertificateTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      requireSignedCertificateTimestamp_ = null;
+      if (requireSignedCertificateTimestampBuilder_ != null) {
+        requireSignedCertificateTimestampBuilder_.dispose();
         requireSignedCertificateTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4640,7 +4596,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue require_signed_certificate_timestamp = 6;</code>
      */
     public com.google.protobuf.BoolValue.Builder getRequireSignedCertificateTimestampBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getRequireSignedCertificateTimestampFieldBuilder().getBuilder();
     }
@@ -4702,7 +4658,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the crl field is set.
      */
     public boolean hasCrl() {
-      return crlBuilder_ != null || crl_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4752,11 +4708,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         crl_ = value;
-        onChanged();
       } else {
         crlBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4780,11 +4736,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
       if (crlBuilder_ == null) {
         crl_ = builderForValue.build();
-        onChanged();
       } else {
         crlBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4806,17 +4762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCrl(io.envoyproxy.envoy.config.core.v3.DataSource value) {
       if (crlBuilder_ == null) {
-        if (crl_ != null) {
-          crl_ =
-            io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(crl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          crl_ != null &&
+          crl_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+          getCrlBuilder().mergeFrom(value);
         } else {
           crl_ = value;
         }
-        onChanged();
       } else {
         crlBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4837,14 +4794,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource crl = 7;</code>
      */
     public Builder clearCrl() {
-      if (crlBuilder_ == null) {
-        crl_ = null;
-        onChanged();
-      } else {
-        crl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      crl_ = null;
+      if (crlBuilder_ != null) {
+        crlBuilder_.dispose();
         crlBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4865,7 +4821,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.DataSource crl = 7;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getCrlBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getCrlFieldBuilder().getBuilder();
     }
@@ -4950,6 +4906,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowExpiredCertificate(boolean value) {
       
       allowExpiredCertificate_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -4962,7 +4919,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowExpiredCertificate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       allowExpiredCertificate_ = false;
       onChanged();
       return this;
@@ -4990,8 +4947,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTrustChainVerificationValue(int value) {
-      
       trustChainVerification_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -5005,8 +4962,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification getTrustChainVerification() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification.valueOf(trustChainVerification_);
+      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification.forNumber(trustChainVerification_);
       return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CertificateValidationContext.TrustChainVerification.UNRECOGNIZED : result;
     }
     /**
@@ -5022,7 +4978,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       trustChainVerification_ = value.getNumber();
       onChanged();
       return this;
@@ -5036,7 +4992,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrustChainVerification() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       trustChainVerification_ = 0;
       onChanged();
       return this;
@@ -5058,7 +5014,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customValidatorConfig field is set.
      */
     public boolean hasCustomValidatorConfig() {
-      return customValidatorConfigBuilder_ != null || customValidatorConfig_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -5096,11 +5052,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         customValidatorConfig_ = value;
-        onChanged();
       } else {
         customValidatorConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5118,11 +5074,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder builderForValue) {
       if (customValidatorConfigBuilder_ == null) {
         customValidatorConfig_ = builderForValue.build();
-        onChanged();
       } else {
         customValidatorConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5138,17 +5094,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCustomValidatorConfig(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig value) {
       if (customValidatorConfigBuilder_ == null) {
-        if (customValidatorConfig_ != null) {
-          customValidatorConfig_ =
-            io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.newBuilder(customValidatorConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          customValidatorConfig_ != null &&
+          customValidatorConfig_ != io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.getDefaultInstance()) {
+          getCustomValidatorConfigBuilder().mergeFrom(value);
         } else {
           customValidatorConfig_ = value;
         }
-        onChanged();
       } else {
         customValidatorConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -5163,14 +5120,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig custom_validator_config = 12;</code>
      */
     public Builder clearCustomValidatorConfig() {
-      if (customValidatorConfigBuilder_ == null) {
-        customValidatorConfig_ = null;
-        onChanged();
-      } else {
-        customValidatorConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      customValidatorConfig_ = null;
+      if (customValidatorConfigBuilder_ != null) {
+        customValidatorConfigBuilder_.dispose();
         customValidatorConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5185,7 +5141,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.TypedExtensionConfig custom_validator_config = 12;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder getCustomValidatorConfigBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getCustomValidatorConfigFieldBuilder().getBuilder();
     }
@@ -5260,6 +5216,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOnlyVerifyLeafCertCrl(boolean value) {
       
       onlyVerifyLeafCertCrl_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -5273,7 +5230,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOnlyVerifyLeafCertCrl() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       onlyVerifyLeafCertCrl_ = false;
       onChanged();
       return this;
@@ -5284,26 +5241,32 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> maxVerifyDepthBuilder_;
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
      * @return Whether the maxVerifyDepth field is set.
      */
     public boolean hasMaxVerifyDepth() {
-      return maxVerifyDepthBuilder_ != null || maxVerifyDepth_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -5318,11 +5281,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -5333,20 +5299,23 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxVerifyDepth_ = value;
-        onChanged();
       } else {
         maxVerifyDepthBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -5355,84 +5324,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxVerifyDepthBuilder_ == null) {
         maxVerifyDepth_ = builderForValue.build();
-        onChanged();
       } else {
         maxVerifyDepthBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
      */
     public Builder mergeMaxVerifyDepth(com.google.protobuf.UInt32Value value) {
       if (maxVerifyDepthBuilder_ == null) {
-        if (maxVerifyDepth_ != null) {
-          maxVerifyDepth_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxVerifyDepth_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          maxVerifyDepth_ != null &&
+          maxVerifyDepth_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxVerifyDepthBuilder().mergeFrom(value);
         } else {
           maxVerifyDepth_ = value;
         }
-        onChanged();
       } else {
         maxVerifyDepthBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaxVerifyDepth() {
-      if (maxVerifyDepthBuilder_ == null) {
-        maxVerifyDepth_ = null;
-        onChanged();
-      } else {
-        maxVerifyDepth_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      maxVerifyDepth_ = null;
+      if (maxVerifyDepthBuilder_ != null) {
+        maxVerifyDepthBuilder_.dispose();
         maxVerifyDepthBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxVerifyDepthBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getMaxVerifyDepthFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -5447,11 +5428,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Config for the max number of intermediate certificates in chain that are parsed during verification.
-     * This does not include the leaf certificate. If configured, and the certificate chain is longer than allowed, the certificates
-     * above the limit are ignored, and certificate validation will fail. The default limit is 100,
-     * though this can be system-dependent.
-     * https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html
+     * Defines maximum depth of a certificate chain accepted in verification, the default limit is 100, though this can be system-dependent.
+     * This number does not include the leaf, so a depth of 1 allows the leaf and one CA certificate. If a trusted issuer appears in the chain,
+     * but in a depth larger than configured, the certificate validation will fail.
+     * See `BoringSSL SSL_CTX_set_verify_depth &lt;https://commondatastorage.googleapis.com/chromium-boringssl-docs/ssl.h.html#SSL_CTX_set_verify_depth&gt;`
+     * If you use OpenSSL, its behavior is different from BoringSSL, this will define a limit on the number of certificates between the end-entity and trust-anchor certificates.
+     * Neither the end-entity nor the trust-anchor certificates count against depth.
+     * See `OpenSSL SSL set_verify_depth &lt;https://www.openssl.org/docs/man1.1.1/man3/SSL_CTX_set_verify_depth.html&gt;`_.
+     * Trusted issues are specified by setting :ref:`trusted_ca &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.trusted_ca&gt;`
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value max_verify_depth = 16 [(.validate.rules) = { ... }</code>
@@ -5502,7 +5486,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CertificateValidationContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

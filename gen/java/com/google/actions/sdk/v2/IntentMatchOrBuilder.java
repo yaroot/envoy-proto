@@ -66,7 +66,6 @@ public interface IntentMatchOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrDefault(
       java.lang.String key,
@@ -79,7 +78,6 @@ com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue);
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; intent_parameters = 5;</code>
    */
-
   com.google.actions.sdk.v2.conversation.IntentParameterValue getIntentParametersOrThrow(
       java.lang.String key);
 

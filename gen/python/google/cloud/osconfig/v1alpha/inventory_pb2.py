@@ -11,14 +11,13 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 from google.type import date_pb2 as google_dot_type_dot_date__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/osconfig/v1alpha/inventory.proto\x12\x1dgoogle.cloud.osconfig.v1alpha\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\"\xb7\x16\n\tInventory\x12\x11\n\x04name\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x45\n\x07os_info\x18\x01 \x01(\x0b\x32/.google.cloud.osconfig.v1alpha.Inventory.OsInfoB\x03\xe0\x41\x03\x12G\n\x05items\x18\x02 \x03(\x0b\x32\x33.google.cloud.osconfig.v1alpha.Inventory.ItemsEntryB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a\xb8\x01\n\x06OsInfo\x12\x10\n\x08hostname\x18\t \x01(\t\x12\x11\n\tlong_name\x18\x02 \x01(\t\x12\x12\n\nshort_name\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x05 \x01(\t\x12\x16\n\x0ekernel_version\x18\x06 \x01(\t\x12\x16\n\x0ekernel_release\x18\x07 \x01(\t\x12\x1e\n\x16osconfig_agent_version\x18\x08 \x01(\t\x1a\xcb\x04\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12M\n\x0borigin_type\x18\x02 \x01(\x0e\x32\x38.google.cloud.osconfig.v1alpha.Inventory.Item.OriginType\x12/\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x04type\x18\x05 \x01(\x0e\x32\x32.google.cloud.osconfig.v1alpha.Inventory.Item.Type\x12U\n\x11installed_package\x18\x06 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\x12U\n\x11\x61vailable_package\x18\x07 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\"?\n\nOriginType\x12\x1b\n\x17ORIGIN_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10INVENTORY_REPORT\x10\x01\"J\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11INSTALLED_PACKAGE\x10\x01\x12\x15\n\x11\x41VAILABLE_PACKAGE\x10\x02\x42\t\n\x07\x64\x65tails\x1a\x9f\x06\n\x0fSoftwarePackage\x12P\n\x0byum_package\x18\x01 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12P\n\x0b\x61pt_package\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0ezypper_package\x18\x03 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0egooget_package\x18\x04 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12L\n\x0czypper_patch\x18\x05 \x01(\x0b\x32\x34.google.cloud.osconfig.v1alpha.Inventory.ZypperPatchH\x00\x12T\n\x0bwua_package\x18\x06 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackageH\x00\x12\x61\n\x0bqfe_package\x18\x07 \x01(\x0b\x32J.google.cloud.osconfig.v1alpha.Inventory.WindowsQuickFixEngineeringPackageH\x00\x12P\n\x0b\x63os_package\x18\x08 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12Z\n\x13windows_application\x18\t \x01(\x0b\x32;.google.cloud.osconfig.v1alpha.Inventory.WindowsApplicationH\x00\x42\t\n\x07\x64\x65tails\x1aO\n\x10VersionedPackage\x12\x14\n\x0cpackage_name\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x1aV\n\x0bZypperPatch\x12\x12\n\npatch_name\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x10\n\x08severity\x18\x03 \x01(\t\x12\x0f\n\x07summary\x18\x04 \x01(\t\x1a\x88\x03\n\x14WindowsUpdatePackage\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12g\n\ncategories\x18\x03 \x03(\x0b\x32S.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackage.WindowsUpdateCategory\x12\x16\n\x0ekb_article_ids\x18\x04 \x03(\t\x12\x13\n\x0bsupport_url\x18\x0b \x01(\t\x12\x16\n\x0emore_info_urls\x18\x05 \x03(\t\x12\x11\n\tupdate_id\x18\x06 \x01(\t\x12\x17\n\x0frevision_number\x18\x07 \x01(\x05\x12?\n\x1blast_deployment_change_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x31\n\x15WindowsUpdateCategory\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\x8f\x01\n!WindowsQuickFixEngineeringPackage\x12\x0f\n\x07\x63\x61ption\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\nhot_fix_id\x18\x03 \x01(\t\x12\x30\n\x0cinstall_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x92\x01\n\x12WindowsApplication\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64isplay_version\x18\x02 \x01(\t\x12\x11\n\tpublisher\x18\x03 \x01(\t\x12\'\n\x0cinstall_date\x18\x04 \x01(\x0b\x32\x11.google.type.Date\x12\x11\n\thelp_link\x18\x05 \x01(\t\x1a[\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.osconfig.v1alpha.Inventory.Item:\x02\x38\x01:n\xea\x41k\n!osconfig.googleapis.com/Inventory\x12\x46projects/{project}/locations/{location}/instances/{instance}/inventory\"\x8a\x01\n\x13GetInventoryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!osconfig.googleapis.com/Inventory\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\"\xc4\x01\n\x16ListInventoriesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x63ompute.googleapis.com/Instance\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"q\n\x17ListInventoriesResponse\x12=\n\x0binventories\x18\x01 \x03(\x0b\x32(.google.cloud.osconfig.v1alpha.Inventory\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t*D\n\rInventoryView\x12\x1e\n\x1aINVENTORY_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x42\xdc\x01\n!com.google.cloud.osconfig.v1alphaB\x0bInventoriesP\x01ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\xaa\x02\x1dGoogle.Cloud.OsConfig.V1Alpha\xca\x02\x1dGoogle\\Cloud\\OsConfig\\V1alpha\xea\x02 Google::Cloud::OsConfig::V1alphab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/osconfig/v1alpha/inventory.proto\x12\x1dgoogle.cloud.osconfig.v1alpha\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x16google/type/date.proto\"\xb7\x16\n\tInventory\x12\x11\n\x04name\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x45\n\x07os_info\x18\x01 \x01(\x0b\x32/.google.cloud.osconfig.v1alpha.Inventory.OsInfoB\x03\xe0\x41\x03\x12G\n\x05items\x18\x02 \x03(\x0b\x32\x33.google.cloud.osconfig.v1alpha.Inventory.ItemsEntryB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x1a\xb8\x01\n\x06OsInfo\x12\x10\n\x08hostname\x18\t \x01(\t\x12\x11\n\tlong_name\x18\x02 \x01(\t\x12\x12\n\nshort_name\x18\x03 \x01(\t\x12\x0f\n\x07version\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x05 \x01(\t\x12\x16\n\x0ekernel_version\x18\x06 \x01(\t\x12\x16\n\x0ekernel_release\x18\x07 \x01(\t\x12\x1e\n\x16osconfig_agent_version\x18\x08 \x01(\t\x1a\xcb\x04\n\x04Item\x12\n\n\x02id\x18\x01 \x01(\t\x12M\n\x0borigin_type\x18\x02 \x01(\x0e\x32\x38.google.cloud.osconfig.v1alpha.Inventory.Item.OriginType\x12/\n\x0b\x63reate_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0bupdate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12@\n\x04type\x18\x05 \x01(\x0e\x32\x32.google.cloud.osconfig.v1alpha.Inventory.Item.Type\x12U\n\x11installed_package\x18\x06 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\x12U\n\x11\x61vailable_package\x18\x07 \x01(\x0b\x32\x38.google.cloud.osconfig.v1alpha.Inventory.SoftwarePackageH\x00\"?\n\nOriginType\x12\x1b\n\x17ORIGIN_TYPE_UNSPECIFIED\x10\x00\x12\x14\n\x10INVENTORY_REPORT\x10\x01\"J\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11INSTALLED_PACKAGE\x10\x01\x12\x15\n\x11\x41VAILABLE_PACKAGE\x10\x02\x42\t\n\x07\x64\x65tails\x1a\x9f\x06\n\x0fSoftwarePackage\x12P\n\x0byum_package\x18\x01 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12P\n\x0b\x61pt_package\x18\x02 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0ezypper_package\x18\x03 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12S\n\x0egooget_package\x18\x04 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12L\n\x0czypper_patch\x18\x05 \x01(\x0b\x32\x34.google.cloud.osconfig.v1alpha.Inventory.ZypperPatchH\x00\x12T\n\x0bwua_package\x18\x06 \x01(\x0b\x32=.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackageH\x00\x12\x61\n\x0bqfe_package\x18\x07 \x01(\x0b\x32J.google.cloud.osconfig.v1alpha.Inventory.WindowsQuickFixEngineeringPackageH\x00\x12P\n\x0b\x63os_package\x18\x08 \x01(\x0b\x32\x39.google.cloud.osconfig.v1alpha.Inventory.VersionedPackageH\x00\x12Z\n\x13windows_application\x18\t \x01(\x0b\x32;.google.cloud.osconfig.v1alpha.Inventory.WindowsApplicationH\x00\x42\t\n\x07\x64\x65tails\x1aO\n\x10VersionedPackage\x12\x14\n\x0cpackage_name\x18\x04 \x01(\t\x12\x14\n\x0c\x61rchitecture\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x1aV\n\x0bZypperPatch\x12\x12\n\npatch_name\x18\x05 \x01(\t\x12\x10\n\x08\x63\x61tegory\x18\x02 \x01(\t\x12\x10\n\x08severity\x18\x03 \x01(\t\x12\x0f\n\x07summary\x18\x04 \x01(\t\x1a\x88\x03\n\x14WindowsUpdatePackage\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12g\n\ncategories\x18\x03 \x03(\x0b\x32S.google.cloud.osconfig.v1alpha.Inventory.WindowsUpdatePackage.WindowsUpdateCategory\x12\x16\n\x0ekb_article_ids\x18\x04 \x03(\t\x12\x13\n\x0bsupport_url\x18\x0b \x01(\t\x12\x16\n\x0emore_info_urls\x18\x05 \x03(\t\x12\x11\n\tupdate_id\x18\x06 \x01(\t\x12\x17\n\x0frevision_number\x18\x07 \x01(\x05\x12?\n\x1blast_deployment_change_time\x18\n \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x31\n\x15WindowsUpdateCategory\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x1a\x8f\x01\n!WindowsQuickFixEngineeringPackage\x12\x0f\n\x07\x63\x61ption\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x12\n\nhot_fix_id\x18\x03 \x01(\t\x12\x30\n\x0cinstall_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\x92\x01\n\x12WindowsApplication\x12\x14\n\x0c\x64isplay_name\x18\x01 \x01(\t\x12\x17\n\x0f\x64isplay_version\x18\x02 \x01(\t\x12\x11\n\tpublisher\x18\x03 \x01(\t\x12\'\n\x0cinstall_date\x18\x04 \x01(\x0b\x32\x11.google.type.Date\x12\x11\n\thelp_link\x18\x05 \x01(\t\x1a[\n\nItemsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.cloud.osconfig.v1alpha.Inventory.Item:\x02\x38\x01:n\xea\x41k\n!osconfig.googleapis.com/Inventory\x12\x46projects/{project}/locations/{location}/instances/{instance}/inventory\"\x8a\x01\n\x13GetInventoryRequest\x12\x37\n\x04name\x18\x01 \x01(\tB)\xe0\x41\x02\xfa\x41#\n!osconfig.googleapis.com/Inventory\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\"\xc4\x01\n\x16ListInventoriesRequest\x12\x37\n\x06parent\x18\x01 \x01(\tB\'\xe0\x41\x02\xfa\x41!\n\x1f\x63ompute.googleapis.com/Instance\x12:\n\x04view\x18\x02 \x01(\x0e\x32,.google.cloud.osconfig.v1alpha.InventoryView\x12\x11\n\tpage_size\x18\x03 \x01(\x05\x12\x12\n\npage_token\x18\x04 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x05 \x01(\t\"q\n\x17ListInventoriesResponse\x12=\n\x0binventories\x18\x01 \x03(\x0b\x32(.google.cloud.osconfig.v1alpha.Inventory\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t*D\n\rInventoryView\x12\x1e\n\x1aINVENTORY_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x42\xdc\x01\n!com.google.cloud.osconfig.v1alphaB\x0bInventoriesP\x01ZEgoogle.golang.org/genproto/googleapis/cloud/osconfig/v1alpha;osconfig\xaa\x02\x1dGoogle.Cloud.OsConfig.V1Alpha\xca\x02\x1dGoogle\\Cloud\\OsConfig\\V1alpha\xea\x02 Google::Cloud::OsConfig::V1alphab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.osconfig.v1alpha.inventory_pb2', globals())
@@ -42,38 +41,38 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GETINVENTORYREQUEST.fields_by_name['name']._serialized_options = b'\340A\002\372A#\n!osconfig.googleapis.com/Inventory'
   _LISTINVENTORIESREQUEST.fields_by_name['parent']._options = None
   _LISTINVENTORIESREQUEST.fields_by_name['parent']._serialized_options = b'\340A\002\372A!\n\037compute.googleapis.com/Instance'
-  _INVENTORYVIEW._serialized_start=3556
-  _INVENTORYVIEW._serialized_end=3624
-  _INVENTORY._serialized_start=228
-  _INVENTORY._serialized_end=3099
-  _INVENTORY_OSINFO._serialized_start=459
-  _INVENTORY_OSINFO._serialized_end=643
-  _INVENTORY_ITEM._serialized_start=646
-  _INVENTORY_ITEM._serialized_end=1233
-  _INVENTORY_ITEM_ORIGINTYPE._serialized_start=1083
-  _INVENTORY_ITEM_ORIGINTYPE._serialized_end=1146
-  _INVENTORY_ITEM_TYPE._serialized_start=1148
-  _INVENTORY_ITEM_TYPE._serialized_end=1222
-  _INVENTORY_SOFTWAREPACKAGE._serialized_start=1236
-  _INVENTORY_SOFTWAREPACKAGE._serialized_end=2035
-  _INVENTORY_VERSIONEDPACKAGE._serialized_start=2037
-  _INVENTORY_VERSIONEDPACKAGE._serialized_end=2116
-  _INVENTORY_ZYPPERPATCH._serialized_start=2118
-  _INVENTORY_ZYPPERPATCH._serialized_end=2204
-  _INVENTORY_WINDOWSUPDATEPACKAGE._serialized_start=2207
-  _INVENTORY_WINDOWSUPDATEPACKAGE._serialized_end=2599
-  _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY._serialized_start=2550
-  _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY._serialized_end=2599
-  _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE._serialized_start=2602
-  _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE._serialized_end=2745
-  _INVENTORY_WINDOWSAPPLICATION._serialized_start=2748
-  _INVENTORY_WINDOWSAPPLICATION._serialized_end=2894
-  _INVENTORY_ITEMSENTRY._serialized_start=2896
-  _INVENTORY_ITEMSENTRY._serialized_end=2987
-  _GETINVENTORYREQUEST._serialized_start=3102
-  _GETINVENTORYREQUEST._serialized_end=3240
-  _LISTINVENTORIESREQUEST._serialized_start=3243
-  _LISTINVENTORIESREQUEST._serialized_end=3439
-  _LISTINVENTORIESRESPONSE._serialized_start=3441
-  _LISTINVENTORIESRESPONSE._serialized_end=3554
+  _INVENTORYVIEW._serialized_start=3526
+  _INVENTORYVIEW._serialized_end=3594
+  _INVENTORY._serialized_start=198
+  _INVENTORY._serialized_end=3069
+  _INVENTORY_OSINFO._serialized_start=429
+  _INVENTORY_OSINFO._serialized_end=613
+  _INVENTORY_ITEM._serialized_start=616
+  _INVENTORY_ITEM._serialized_end=1203
+  _INVENTORY_ITEM_ORIGINTYPE._serialized_start=1053
+  _INVENTORY_ITEM_ORIGINTYPE._serialized_end=1116
+  _INVENTORY_ITEM_TYPE._serialized_start=1118
+  _INVENTORY_ITEM_TYPE._serialized_end=1192
+  _INVENTORY_SOFTWAREPACKAGE._serialized_start=1206
+  _INVENTORY_SOFTWAREPACKAGE._serialized_end=2005
+  _INVENTORY_VERSIONEDPACKAGE._serialized_start=2007
+  _INVENTORY_VERSIONEDPACKAGE._serialized_end=2086
+  _INVENTORY_ZYPPERPATCH._serialized_start=2088
+  _INVENTORY_ZYPPERPATCH._serialized_end=2174
+  _INVENTORY_WINDOWSUPDATEPACKAGE._serialized_start=2177
+  _INVENTORY_WINDOWSUPDATEPACKAGE._serialized_end=2569
+  _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY._serialized_start=2520
+  _INVENTORY_WINDOWSUPDATEPACKAGE_WINDOWSUPDATECATEGORY._serialized_end=2569
+  _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE._serialized_start=2572
+  _INVENTORY_WINDOWSQUICKFIXENGINEERINGPACKAGE._serialized_end=2715
+  _INVENTORY_WINDOWSAPPLICATION._serialized_start=2718
+  _INVENTORY_WINDOWSAPPLICATION._serialized_end=2864
+  _INVENTORY_ITEMSENTRY._serialized_start=2866
+  _INVENTORY_ITEMSENTRY._serialized_end=2957
+  _GETINVENTORYREQUEST._serialized_start=3072
+  _GETINVENTORYREQUEST._serialized_end=3210
+  _LISTINVENTORIESREQUEST._serialized_start=3213
+  _LISTINVENTORIESREQUEST._serialized_end=3409
+  _LISTINVENTORIESRESPONSE._serialized_start=3411
+  _LISTINVENTORIESRESPONSE._serialized_end=3524
 # @@protoc_insertion_point(module_scope)

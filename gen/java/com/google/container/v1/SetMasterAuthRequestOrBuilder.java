@@ -16,7 +16,7 @@ public interface SetMasterAuthRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.SetMasterAuthRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2423
+   *     See google/container/v1/cluster_service.proto;l=2518
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface SetMasterAuthRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.SetMasterAuthRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2423
+   *     See google/container/v1/cluster_service.proto;l=2518
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface SetMasterAuthRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.SetMasterAuthRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2429
+   *     See google/container/v1/cluster_service.proto;l=2524
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface SetMasterAuthRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.SetMasterAuthRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2429
+   *     See google/container/v1/cluster_service.proto;l=2524
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface SetMasterAuthRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.SetMasterAuthRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2433
+   *     See google/container/v1/cluster_service.proto;l=2528
    * @return The clusterId.
    */
   @java.lang.Deprecated java.lang.String getClusterId();
@@ -85,7 +85,7 @@ public interface SetMasterAuthRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.SetMasterAuthRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2433
+   *     See google/container/v1/cluster_service.proto;l=2528
    * @return The bytes for clusterId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

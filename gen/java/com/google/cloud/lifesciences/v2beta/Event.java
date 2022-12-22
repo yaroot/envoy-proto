@@ -35,204 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Event(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (timestamp_ != null) {
-              subBuilder = timestamp_.toBuilder();
-            }
-            timestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timestamp_);
-              timestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 138: {
-            com.google.cloud.lifesciences.v2beta.DelayedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 17) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.DelayedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.DelayedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.DelayedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 17;
-            break;
-          }
-          case 146: {
-            com.google.cloud.lifesciences.v2beta.WorkerAssignedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 18) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.WorkerAssignedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.WorkerAssignedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.WorkerAssignedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 18;
-            break;
-          }
-          case 154: {
-            com.google.cloud.lifesciences.v2beta.WorkerReleasedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 19) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.WorkerReleasedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.WorkerReleasedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.WorkerReleasedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 19;
-            break;
-          }
-          case 162: {
-            com.google.cloud.lifesciences.v2beta.PullStartedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 20) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.PullStartedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.PullStartedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.PullStartedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 20;
-            break;
-          }
-          case 170: {
-            com.google.cloud.lifesciences.v2beta.PullStoppedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 21) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.PullStoppedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.PullStoppedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.PullStoppedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 21;
-            break;
-          }
-          case 178: {
-            com.google.cloud.lifesciences.v2beta.ContainerStartedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 22) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.ContainerStartedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.ContainerStartedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.ContainerStartedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 22;
-            break;
-          }
-          case 186: {
-            com.google.cloud.lifesciences.v2beta.ContainerStoppedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 23) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.ContainerStoppedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.ContainerStoppedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.ContainerStoppedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 23;
-            break;
-          }
-          case 194: {
-            com.google.cloud.lifesciences.v2beta.ContainerKilledEvent.Builder subBuilder = null;
-            if (detailsCase_ == 24) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.ContainerKilledEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.ContainerKilledEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.ContainerKilledEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 24;
-            break;
-          }
-          case 202: {
-            com.google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent.Builder subBuilder = null;
-            if (detailsCase_ == 25) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.UnexpectedExitStatusEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 25;
-            break;
-          }
-          case 210: {
-            com.google.cloud.lifesciences.v2beta.FailedEvent.Builder subBuilder = null;
-            if (detailsCase_ == 26) {
-              subBuilder = ((com.google.cloud.lifesciences.v2beta.FailedEvent) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.lifesciences.v2beta.FailedEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.lifesciences.v2beta.FailedEvent) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 26;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.lifesciences.v2beta.WorkflowsProto.internal_static_google_cloud_lifesciences_v2beta_Event_descriptor;
@@ -338,11 +140,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getTimestampOrBuilder() {
-    return getTimestamp();
+    return timestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : timestamp_;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A human-readable description of the event. Note that these strings can
@@ -871,7 +674,7 @@ private static final long serialVersionUID = 0L;
     if (detailsCase_ == 26) {
       output.writeMessage(26, (com.google.cloud.lifesciences.v2beta.FailedEvent) details_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -927,7 +730,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(26, (com.google.cloud.lifesciences.v2beta.FailedEvent) details_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -994,7 +797,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1055,7 +858,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1176,30 +979,54 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.lifesciences.v2beta.Event.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-      } else {
-        timestamp_ = null;
+      bitField0_ = 0;
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
       description_ = "";
-
+      if (delayedBuilder_ != null) {
+        delayedBuilder_.clear();
+      }
+      if (workerAssignedBuilder_ != null) {
+        workerAssignedBuilder_.clear();
+      }
+      if (workerReleasedBuilder_ != null) {
+        workerReleasedBuilder_.clear();
+      }
+      if (pullStartedBuilder_ != null) {
+        pullStartedBuilder_.clear();
+      }
+      if (pullStoppedBuilder_ != null) {
+        pullStoppedBuilder_.clear();
+      }
+      if (containerStartedBuilder_ != null) {
+        containerStartedBuilder_.clear();
+      }
+      if (containerStoppedBuilder_ != null) {
+        containerStoppedBuilder_.clear();
+      }
+      if (containerKilledBuilder_ != null) {
+        containerKilledBuilder_.clear();
+      }
+      if (unexpectedExitStatusBuilder_ != null) {
+        unexpectedExitStatusBuilder_.clear();
+      }
+      if (failedBuilder_ != null) {
+        failedBuilder_.clear();
+      }
       detailsCase_ = 0;
       details_ = null;
       return this;
@@ -1228,85 +1055,67 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.lifesciences.v2beta.Event buildPartial() {
       com.google.cloud.lifesciences.v2beta.Event result = new com.google.cloud.lifesciences.v2beta.Event(this);
-      if (timestampBuilder_ == null) {
-        result.timestamp_ = timestamp_;
-      } else {
-        result.timestamp_ = timestampBuilder_.build();
-      }
-      result.description_ = description_;
-      if (detailsCase_ == 17) {
-        if (delayedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = delayedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 18) {
-        if (workerAssignedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = workerAssignedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 19) {
-        if (workerReleasedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = workerReleasedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 20) {
-        if (pullStartedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = pullStartedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 21) {
-        if (pullStoppedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = pullStoppedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 22) {
-        if (containerStartedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = containerStartedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 23) {
-        if (containerStoppedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = containerStoppedBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 24) {
-        if (containerKilledBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = containerKilledBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 25) {
-        if (unexpectedExitStatusBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = unexpectedExitStatusBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 26) {
-        if (failedBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = failedBuilder_.build();
-        }
-      }
-      result.detailsCase_ = detailsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.lifesciences.v2beta.Event result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.timestamp_ = timestampBuilder_ == null
+            ? timestamp_
+            : timestampBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.lifesciences.v2beta.Event result) {
+      result.detailsCase_ = detailsCase_;
+      result.details_ = this.details_;
+      if (detailsCase_ == 17 &&
+          delayedBuilder_ != null) {
+        result.details_ = delayedBuilder_.build();
+      }
+      if (detailsCase_ == 18 &&
+          workerAssignedBuilder_ != null) {
+        result.details_ = workerAssignedBuilder_.build();
+      }
+      if (detailsCase_ == 19 &&
+          workerReleasedBuilder_ != null) {
+        result.details_ = workerReleasedBuilder_.build();
+      }
+      if (detailsCase_ == 20 &&
+          pullStartedBuilder_ != null) {
+        result.details_ = pullStartedBuilder_.build();
+      }
+      if (detailsCase_ == 21 &&
+          pullStoppedBuilder_ != null) {
+        result.details_ = pullStoppedBuilder_.build();
+      }
+      if (detailsCase_ == 22 &&
+          containerStartedBuilder_ != null) {
+        result.details_ = containerStartedBuilder_.build();
+      }
+      if (detailsCase_ == 23 &&
+          containerStoppedBuilder_ != null) {
+        result.details_ = containerStoppedBuilder_.build();
+      }
+      if (detailsCase_ == 24 &&
+          containerKilledBuilder_ != null) {
+        result.details_ = containerKilledBuilder_.build();
+      }
+      if (detailsCase_ == 25 &&
+          unexpectedExitStatusBuilder_ != null) {
+        result.details_ = unexpectedExitStatusBuilder_.build();
+      }
+      if (detailsCase_ == 26 &&
+          failedBuilder_ != null) {
+        result.details_ = failedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1358,6 +1167,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       switch (other.getDetailsCase()) {
@@ -1405,7 +1215,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1420,17 +1230,112 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.lifesciences.v2beta.Event parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 138: {
+              input.readMessage(
+                  getDelayedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 17;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getWorkerAssignedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 18;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getWorkerReleasedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 19;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getPullStartedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 20;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getPullStoppedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 21;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getContainerStartedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 22;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getContainerStoppedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 23;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getContainerKilledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 24;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getUnexpectedExitStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 25;
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getFailedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 26;
+              break;
+            } // case 210
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.lifesciences.v2beta.Event) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int detailsCase_ = 0;
@@ -1448,6 +1353,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.Timestamp timestamp_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1461,7 +1367,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timestamp field is set.
      */
     public boolean hasTimestamp() {
-      return timestampBuilder_ != null || timestamp_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1491,11 +1397,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timestamp_ = value;
-        onChanged();
       } else {
         timestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1509,11 +1415,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (timestampBuilder_ == null) {
         timestamp_ = builderForValue.build();
-        onChanged();
       } else {
         timestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1525,17 +1431,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimestamp(com.google.protobuf.Timestamp value) {
       if (timestampBuilder_ == null) {
-        if (timestamp_ != null) {
-          timestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(timestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          timestamp_ != null &&
+          timestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getTimestampBuilder().mergeFrom(value);
         } else {
           timestamp_ = value;
         }
-        onChanged();
       } else {
         timestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1546,14 +1453,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 1;</code>
      */
     public Builder clearTimestamp() {
-      if (timestampBuilder_ == null) {
-        timestamp_ = null;
-        onChanged();
-      } else {
-        timestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      timestamp_ = null;
+      if (timestampBuilder_ != null) {
+        timestampBuilder_.dispose();
         timestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1564,7 +1470,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp timestamp = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getTimestampBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTimestampFieldBuilder().getBuilder();
     }
@@ -1663,11 +1569,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1682,8 +1586,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1700,12 +1604,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1884,7 +1786,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 17;
-      onChanged();;
+      onChanged();
       return delayedBuilder_;
     }
 
@@ -2062,7 +1964,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 18;
-      onChanged();;
+      onChanged();
       return workerAssignedBuilder_;
     }
 
@@ -2240,7 +2142,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 19;
-      onChanged();;
+      onChanged();
       return workerReleasedBuilder_;
     }
 
@@ -2418,7 +2320,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 20;
-      onChanged();;
+      onChanged();
       return pullStartedBuilder_;
     }
 
@@ -2596,7 +2498,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 21;
-      onChanged();;
+      onChanged();
       return pullStoppedBuilder_;
     }
 
@@ -2774,7 +2676,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 22;
-      onChanged();;
+      onChanged();
       return containerStartedBuilder_;
     }
 
@@ -2952,7 +2854,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 23;
-      onChanged();;
+      onChanged();
       return containerStoppedBuilder_;
     }
 
@@ -3130,7 +3032,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 24;
-      onChanged();;
+      onChanged();
       return containerKilledBuilder_;
     }
 
@@ -3308,7 +3210,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 25;
-      onChanged();;
+      onChanged();
       return unexpectedExitStatusBuilder_;
     }
 
@@ -3486,7 +3388,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 26;
-      onChanged();;
+      onChanged();
       return failedBuilder_;
     }
     @java.lang.Override
@@ -3522,7 +3424,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Event(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

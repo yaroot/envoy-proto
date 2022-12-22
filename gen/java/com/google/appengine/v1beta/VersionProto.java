@@ -124,134 +124,133 @@ public final class VersionProto {
       "ne/v1beta/deploy.proto\032.google/appengine" +
       "/v1beta/network_settings.proto\032\036google/p" +
       "rotobuf/duration.proto\032\037google/protobuf/" +
-      "timestamp.proto\032\034google/api/annotations." +
-      "proto\"\343\017\n\007Version\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 " +
-      "\001(\t\022F\n\021automatic_scaling\030\003 \001(\0132).google." +
-      "appengine.v1beta.AutomaticScalingH\000\022>\n\rb" +
-      "asic_scaling\030\004 \001(\0132%.google.appengine.v1" +
-      "beta.BasicScalingH\000\022@\n\016manual_scaling\030\005 " +
-      "\001(\0132&.google.appengine.v1beta.ManualScal" +
-      "ingH\000\022E\n\020inbound_services\030\006 \003(\0162+.google" +
-      ".appengine.v1beta.InboundServiceType\022\026\n\016" +
-      "instance_class\030\007 \001(\t\0221\n\007network\030\010 \001(\0132 ." +
-      "google.appengine.v1beta.Network\022\r\n\005zones" +
-      "\030v \003(\t\0225\n\tresources\030\t \001(\0132\".google.appen" +
-      "gine.v1beta.Resources\022\017\n\007runtime\030\n \001(\t\022\027" +
-      "\n\017runtime_channel\030u \001(\t\022\022\n\nthreadsafe\030\013 " +
-      "\001(\010\022\n\n\002vm\030\014 \001(\010\022\030\n\017app_engine_apis\030\200\001 \001(" +
-      "\010\022I\n\rbeta_settings\030\r \003(\01322.google.appeng" +
-      "ine.v1beta.Version.BetaSettingsEntry\022\013\n\003" +
-      "env\030\016 \001(\t\022>\n\016serving_status\030\017 \001(\0162&.goog" +
-      "le.appengine.v1beta.ServingStatus\022\022\n\ncre" +
-      "ated_by\030\020 \001(\t\022/\n\013create_time\030\021 \001(\0132\032.goo" +
-      "gle.protobuf.Timestamp\022\030\n\020disk_usage_byt" +
-      "es\030\022 \001(\003\022\033\n\023runtime_api_version\030\025 \001(\t\022$\n" +
-      "\034runtime_main_executable_path\030\026 \001(\t\022\027\n\017s" +
-      "ervice_account\030\177 \001(\t\0221\n\010handlers\030d \003(\0132\037" +
-      ".google.appengine.v1beta.UrlMap\022=\n\016error" +
-      "_handlers\030e \003(\0132%.google.appengine.v1bet" +
-      "a.ErrorHandler\0223\n\tlibraries\030f \003(\0132 .goog" +
-      "le.appengine.v1beta.Library\022=\n\napi_confi" +
-      "g\030g \001(\0132).google.appengine.v1beta.ApiCon" +
-      "figHandler\022I\n\renv_variables\030h \003(\01322.goog" +
-      "le.appengine.v1beta.Version.EnvVariables" +
-      "Entry\022T\n\023build_env_variables\030} \003(\01327.goo" +
-      "gle.appengine.v1beta.Version.BuildEnvVar" +
-      "iablesEntry\0225\n\022default_expiration\030i \001(\0132" +
-      "\031.google.protobuf.Duration\022:\n\014health_che" +
-      "ck\030j \001(\0132$.google.appengine.v1beta.Healt" +
-      "hCheck\022@\n\017readiness_check\030p \001(\0132\'.google" +
-      ".appengine.v1beta.ReadinessCheck\022>\n\016live" +
-      "ness_check\030q \001(\0132&.google.appengine.v1be" +
-      "ta.LivenessCheck\022\033\n\023nobuild_files_regex\030" +
-      "k \001(\t\0227\n\ndeployment\030l \001(\0132#.google.appen" +
-      "gine.v1beta.Deployment\022\023\n\013version_url\030m " +
-      "\001(\t\022K\n\025endpoints_api_service\030n \001(\0132,.goo" +
-      "gle.appengine.v1beta.EndpointsApiService" +
-      "\0227\n\nentrypoint\030z \001(\0132#.google.appengine." +
-      "v1beta.Entrypoint\022I\n\024vpc_access_connecto" +
-      "r\030y \001(\0132+.google.appengine.v1beta.VpcAcc" +
-      "essConnector\0323\n\021BetaSettingsEntry\022\013\n\003key" +
-      "\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0323\n\021EnvVariable" +
-      "sEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0328" +
-      "\n\026BuildEnvVariablesEntry\022\013\n\003key\030\001 \001(\t\022\r\n" +
-      "\005value\030\002 \001(\t:\0028\001B\t\n\007scaling\"\373\001\n\023Endpoint" +
-      "sApiService\022\014\n\004name\030\001 \001(\t\022\021\n\tconfig_id\030\002" +
-      " \001(\t\022V\n\020rollout_strategy\030\003 \001(\0162<.google." +
-      "appengine.v1beta.EndpointsApiService.Rol" +
-      "loutStrategy\022\036\n\026disable_trace_sampling\030\004" +
-      " \001(\010\"K\n\017RolloutStrategy\022 \n\034UNSPECIFIED_R" +
-      "OLLOUT_STRATEGY\020\000\022\t\n\005FIXED\020\001\022\013\n\007MANAGED\020" +
-      "\002\"\374\005\n\020AutomaticScaling\0223\n\020cool_down_peri" +
-      "od\030\001 \001(\0132\031.google.protobuf.Duration\022@\n\017c" +
-      "pu_utilization\030\002 \001(\0132\'.google.appengine." +
-      "v1beta.CpuUtilization\022\037\n\027max_concurrent_" +
-      "requests\030\003 \001(\005\022\032\n\022max_idle_instances\030\004 \001" +
-      "(\005\022\033\n\023max_total_instances\030\005 \001(\005\0226\n\023max_p" +
-      "ending_latency\030\006 \001(\0132\031.google.protobuf.D" +
-      "uration\022\032\n\022min_idle_instances\030\007 \001(\005\022\033\n\023m" +
-      "in_total_instances\030\010 \001(\005\0226\n\023min_pending_" +
-      "latency\030\t \001(\0132\031.google.protobuf.Duration" +
-      "\022H\n\023request_utilization\030\n \001(\0132+.google.a" +
-      "ppengine.v1beta.RequestUtilization\022B\n\020di" +
-      "sk_utilization\030\013 \001(\0132(.google.appengine." +
-      "v1beta.DiskUtilization\022H\n\023network_utiliz" +
-      "ation\030\014 \001(\0132+.google.appengine.v1beta.Ne" +
-      "tworkUtilization\022=\n\016custom_metrics\030\025 \003(\013" +
-      "2%.google.appengine.v1beta.CustomMetric\022" +
-      "W\n\033standard_scheduler_settings\030\024 \001(\01322.g" +
-      "oogle.appengine.v1beta.StandardScheduler" +
-      "Settings\"V\n\014BasicScaling\022/\n\014idle_timeout" +
-      "\030\001 \001(\0132\031.google.protobuf.Duration\022\025\n\rmax" +
-      "_instances\030\002 \001(\005\"\"\n\rManualScaling\022\021\n\tins" +
-      "tances\030\001 \001(\005\"j\n\016CpuUtilization\022<\n\031aggreg" +
-      "ation_window_length\030\001 \001(\0132\031.google.proto" +
-      "buf.Duration\022\032\n\022target_utilization\030\002 \001(\001" +
-      "\"a\n\022RequestUtilization\022\'\n\037target_request" +
-      "_count_per_second\030\001 \001(\005\022\"\n\032target_concur" +
-      "rent_requests\030\002 \001(\005\"\247\001\n\017DiskUtilization\022" +
-      "%\n\035target_write_bytes_per_second\030\016 \001(\005\022#" +
-      "\n\033target_write_ops_per_second\030\017 \001(\005\022$\n\034t" +
-      "arget_read_bytes_per_second\030\020 \001(\005\022\"\n\032tar" +
-      "get_read_ops_per_second\030\021 \001(\005\"\270\001\n\022Networ" +
-      "kUtilization\022$\n\034target_sent_bytes_per_se" +
-      "cond\030\001 \001(\005\022&\n\036target_sent_packets_per_se" +
-      "cond\030\013 \001(\005\022(\n target_received_bytes_per_" +
-      "second\030\014 \001(\005\022*\n\"target_received_packets_" +
-      "per_second\030\r \001(\005\"\233\001\n\014CustomMetric\022\023\n\013met" +
-      "ric_name\030\001 \001(\t\022\023\n\013target_type\030\002 \001(\t\022\034\n\022t" +
-      "arget_utilization\030\003 \001(\001H\000\022$\n\032single_inst" +
-      "ance_assignment\030\004 \001(\001H\000\022\016\n\006filter\030\005 \001(\tB" +
-      "\r\n\013target_spec\"\220\001\n\031StandardSchedulerSett" +
-      "ings\022\036\n\026target_cpu_utilization\030\001 \001(\001\022%\n\035" +
-      "target_throughput_utilization\030\002 \001(\001\022\025\n\rm" +
-      "in_instances\030\003 \001(\005\022\025\n\rmax_instances\030\004 \001(" +
-      "\005\"y\n\007Network\022\027\n\017forwarded_ports\030\001 \003(\t\022\024\n" +
-      "\014instance_tag\030\002 \001(\t\022\014\n\004name\030\003 \001(\t\022\027\n\017sub" +
-      "network_name\030\004 \001(\t\022\030\n\020session_affinity\030\005" +
-      " \001(\010\"<\n\006Volume\022\014\n\004name\030\001 \001(\t\022\023\n\013volume_t" +
-      "ype\030\002 \001(\t\022\017\n\007size_gb\030\003 \001(\001\"\211\001\n\tResources" +
-      "\022\013\n\003cpu\030\001 \001(\001\022\017\n\007disk_gb\030\002 \001(\001\022\021\n\tmemory" +
-      "_gb\030\003 \001(\001\0220\n\007volumes\030\004 \003(\0132\037.google.appe" +
-      "ngine.v1beta.Volume\022\031\n\021kms_key_reference" +
-      "\030\005 \001(\t\"\"\n\022VpcAccessConnector\022\014\n\004name\030\001 \001" +
-      "(\t\"(\n\nEntrypoint\022\017\n\005shell\030\001 \001(\tH\000B\t\n\007com" +
-      "mand*\273\002\n\022InboundServiceType\022\037\n\033INBOUND_S" +
-      "ERVICE_UNSPECIFIED\020\000\022\030\n\024INBOUND_SERVICE_" +
-      "MAIL\020\001\022\037\n\033INBOUND_SERVICE_MAIL_BOUNCE\020\002\022" +
-      "\036\n\032INBOUND_SERVICE_XMPP_ERROR\020\003\022 \n\034INBOU" +
-      "ND_SERVICE_XMPP_MESSAGE\020\004\022\"\n\036INBOUND_SER" +
-      "VICE_XMPP_SUBSCRIBE\020\005\022!\n\035INBOUND_SERVICE" +
-      "_XMPP_PRESENCE\020\006\022$\n INBOUND_SERVICE_CHAN" +
-      "NEL_PRESENCE\020\007\022\032\n\026INBOUND_SERVICE_WARMUP" +
-      "\020\t*I\n\rServingStatus\022\036\n\032SERVING_STATUS_UN" +
-      "SPECIFIED\020\000\022\013\n\007SERVING\020\001\022\013\n\007STOPPED\020\002B\322\001" +
-      "\n\033com.google.appengine.v1betaB\014VersionPr" +
-      "otoP\001Z@google.golang.org/genproto/google" +
-      "apis/appengine/v1beta;appengine\252\002\035Google" +
-      ".Cloud.AppEngine.V1Beta\312\002\035Google\\Cloud\\A" +
-      "ppEngine\\V1beta\352\002 Google::Cloud::AppEngi" +
-      "ne::V1betab\006proto3"
+      "timestamp.proto\"\343\017\n\007Version\022\014\n\004name\030\001 \001(" +
+      "\t\022\n\n\002id\030\002 \001(\t\022F\n\021automatic_scaling\030\003 \001(\013" +
+      "2).google.appengine.v1beta.AutomaticScal" +
+      "ingH\000\022>\n\rbasic_scaling\030\004 \001(\0132%.google.ap" +
+      "pengine.v1beta.BasicScalingH\000\022@\n\016manual_" +
+      "scaling\030\005 \001(\0132&.google.appengine.v1beta." +
+      "ManualScalingH\000\022E\n\020inbound_services\030\006 \003(" +
+      "\0162+.google.appengine.v1beta.InboundServi" +
+      "ceType\022\026\n\016instance_class\030\007 \001(\t\0221\n\007networ" +
+      "k\030\010 \001(\0132 .google.appengine.v1beta.Networ" +
+      "k\022\r\n\005zones\030v \003(\t\0225\n\tresources\030\t \001(\0132\".go" +
+      "ogle.appengine.v1beta.Resources\022\017\n\007runti" +
+      "me\030\n \001(\t\022\027\n\017runtime_channel\030u \001(\t\022\022\n\nthr" +
+      "eadsafe\030\013 \001(\010\022\n\n\002vm\030\014 \001(\010\022\030\n\017app_engine_" +
+      "apis\030\200\001 \001(\010\022I\n\rbeta_settings\030\r \003(\01322.goo" +
+      "gle.appengine.v1beta.Version.BetaSetting" +
+      "sEntry\022\013\n\003env\030\016 \001(\t\022>\n\016serving_status\030\017 " +
+      "\001(\0162&.google.appengine.v1beta.ServingSta" +
+      "tus\022\022\n\ncreated_by\030\020 \001(\t\022/\n\013create_time\030\021" +
+      " \001(\0132\032.google.protobuf.Timestamp\022\030\n\020disk" +
+      "_usage_bytes\030\022 \001(\003\022\033\n\023runtime_api_versio" +
+      "n\030\025 \001(\t\022$\n\034runtime_main_executable_path\030" +
+      "\026 \001(\t\022\027\n\017service_account\030\177 \001(\t\0221\n\010handle" +
+      "rs\030d \003(\0132\037.google.appengine.v1beta.UrlMa" +
+      "p\022=\n\016error_handlers\030e \003(\0132%.google.appen" +
+      "gine.v1beta.ErrorHandler\0223\n\tlibraries\030f " +
+      "\003(\0132 .google.appengine.v1beta.Library\022=\n" +
+      "\napi_config\030g \001(\0132).google.appengine.v1b" +
+      "eta.ApiConfigHandler\022I\n\renv_variables\030h " +
+      "\003(\01322.google.appengine.v1beta.Version.En" +
+      "vVariablesEntry\022T\n\023build_env_variables\030}" +
+      " \003(\01327.google.appengine.v1beta.Version.B" +
+      "uildEnvVariablesEntry\0225\n\022default_expirat" +
+      "ion\030i \001(\0132\031.google.protobuf.Duration\022:\n\014" +
+      "health_check\030j \001(\0132$.google.appengine.v1" +
+      "beta.HealthCheck\022@\n\017readiness_check\030p \001(" +
+      "\0132\'.google.appengine.v1beta.ReadinessChe" +
+      "ck\022>\n\016liveness_check\030q \001(\0132&.google.appe" +
+      "ngine.v1beta.LivenessCheck\022\033\n\023nobuild_fi" +
+      "les_regex\030k \001(\t\0227\n\ndeployment\030l \001(\0132#.go" +
+      "ogle.appengine.v1beta.Deployment\022\023\n\013vers" +
+      "ion_url\030m \001(\t\022K\n\025endpoints_api_service\030n" +
+      " \001(\0132,.google.appengine.v1beta.Endpoints" +
+      "ApiService\0227\n\nentrypoint\030z \001(\0132#.google." +
+      "appengine.v1beta.Entrypoint\022I\n\024vpc_acces" +
+      "s_connector\030y \001(\0132+.google.appengine.v1b" +
+      "eta.VpcAccessConnector\0323\n\021BetaSettingsEn" +
+      "try\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0323\n\021E" +
+      "nvVariablesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002" +
+      " \001(\t:\0028\001\0328\n\026BuildEnvVariablesEntry\022\013\n\003ke" +
+      "y\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001B\t\n\007scaling\"\373\001" +
+      "\n\023EndpointsApiService\022\014\n\004name\030\001 \001(\t\022\021\n\tc" +
+      "onfig_id\030\002 \001(\t\022V\n\020rollout_strategy\030\003 \001(\016" +
+      "2<.google.appengine.v1beta.EndpointsApiS" +
+      "ervice.RolloutStrategy\022\036\n\026disable_trace_" +
+      "sampling\030\004 \001(\010\"K\n\017RolloutStrategy\022 \n\034UNS" +
+      "PECIFIED_ROLLOUT_STRATEGY\020\000\022\t\n\005FIXED\020\001\022\013" +
+      "\n\007MANAGED\020\002\"\374\005\n\020AutomaticScaling\0223\n\020cool" +
+      "_down_period\030\001 \001(\0132\031.google.protobuf.Dur" +
+      "ation\022@\n\017cpu_utilization\030\002 \001(\0132\'.google." +
+      "appengine.v1beta.CpuUtilization\022\037\n\027max_c" +
+      "oncurrent_requests\030\003 \001(\005\022\032\n\022max_idle_ins" +
+      "tances\030\004 \001(\005\022\033\n\023max_total_instances\030\005 \001(" +
+      "\005\0226\n\023max_pending_latency\030\006 \001(\0132\031.google." +
+      "protobuf.Duration\022\032\n\022min_idle_instances\030" +
+      "\007 \001(\005\022\033\n\023min_total_instances\030\010 \001(\005\0226\n\023mi" +
+      "n_pending_latency\030\t \001(\0132\031.google.protobu" +
+      "f.Duration\022H\n\023request_utilization\030\n \001(\0132" +
+      "+.google.appengine.v1beta.RequestUtiliza" +
+      "tion\022B\n\020disk_utilization\030\013 \001(\0132(.google." +
+      "appengine.v1beta.DiskUtilization\022H\n\023netw" +
+      "ork_utilization\030\014 \001(\0132+.google.appengine" +
+      ".v1beta.NetworkUtilization\022=\n\016custom_met" +
+      "rics\030\025 \003(\0132%.google.appengine.v1beta.Cus" +
+      "tomMetric\022W\n\033standard_scheduler_settings" +
+      "\030\024 \001(\01322.google.appengine.v1beta.Standar" +
+      "dSchedulerSettings\"V\n\014BasicScaling\022/\n\014id" +
+      "le_timeout\030\001 \001(\0132\031.google.protobuf.Durat" +
+      "ion\022\025\n\rmax_instances\030\002 \001(\005\"\"\n\rManualScal" +
+      "ing\022\021\n\tinstances\030\001 \001(\005\"j\n\016CpuUtilization" +
+      "\022<\n\031aggregation_window_length\030\001 \001(\0132\031.go" +
+      "ogle.protobuf.Duration\022\032\n\022target_utiliza" +
+      "tion\030\002 \001(\001\"a\n\022RequestUtilization\022\'\n\037targ" +
+      "et_request_count_per_second\030\001 \001(\005\022\"\n\032tar" +
+      "get_concurrent_requests\030\002 \001(\005\"\247\001\n\017DiskUt" +
+      "ilization\022%\n\035target_write_bytes_per_seco" +
+      "nd\030\016 \001(\005\022#\n\033target_write_ops_per_second\030" +
+      "\017 \001(\005\022$\n\034target_read_bytes_per_second\030\020 " +
+      "\001(\005\022\"\n\032target_read_ops_per_second\030\021 \001(\005\"" +
+      "\270\001\n\022NetworkUtilization\022$\n\034target_sent_by" +
+      "tes_per_second\030\001 \001(\005\022&\n\036target_sent_pack" +
+      "ets_per_second\030\013 \001(\005\022(\n target_received_" +
+      "bytes_per_second\030\014 \001(\005\022*\n\"target_receive" +
+      "d_packets_per_second\030\r \001(\005\"\233\001\n\014CustomMet" +
+      "ric\022\023\n\013metric_name\030\001 \001(\t\022\023\n\013target_type\030" +
+      "\002 \001(\t\022\034\n\022target_utilization\030\003 \001(\001H\000\022$\n\032s" +
+      "ingle_instance_assignment\030\004 \001(\001H\000\022\016\n\006fil" +
+      "ter\030\005 \001(\tB\r\n\013target_spec\"\220\001\n\031StandardSch" +
+      "edulerSettings\022\036\n\026target_cpu_utilization" +
+      "\030\001 \001(\001\022%\n\035target_throughput_utilization\030" +
+      "\002 \001(\001\022\025\n\rmin_instances\030\003 \001(\005\022\025\n\rmax_inst" +
+      "ances\030\004 \001(\005\"y\n\007Network\022\027\n\017forwarded_port" +
+      "s\030\001 \003(\t\022\024\n\014instance_tag\030\002 \001(\t\022\014\n\004name\030\003 " +
+      "\001(\t\022\027\n\017subnetwork_name\030\004 \001(\t\022\030\n\020session_" +
+      "affinity\030\005 \001(\010\"<\n\006Volume\022\014\n\004name\030\001 \001(\t\022\023" +
+      "\n\013volume_type\030\002 \001(\t\022\017\n\007size_gb\030\003 \001(\001\"\211\001\n" +
+      "\tResources\022\013\n\003cpu\030\001 \001(\001\022\017\n\007disk_gb\030\002 \001(\001" +
+      "\022\021\n\tmemory_gb\030\003 \001(\001\0220\n\007volumes\030\004 \003(\0132\037.g" +
+      "oogle.appengine.v1beta.Volume\022\031\n\021kms_key" +
+      "_reference\030\005 \001(\t\"\"\n\022VpcAccessConnector\022\014" +
+      "\n\004name\030\001 \001(\t\"(\n\nEntrypoint\022\017\n\005shell\030\001 \001(" +
+      "\tH\000B\t\n\007command*\273\002\n\022InboundServiceType\022\037\n" +
+      "\033INBOUND_SERVICE_UNSPECIFIED\020\000\022\030\n\024INBOUN" +
+      "D_SERVICE_MAIL\020\001\022\037\n\033INBOUND_SERVICE_MAIL" +
+      "_BOUNCE\020\002\022\036\n\032INBOUND_SERVICE_XMPP_ERROR\020" +
+      "\003\022 \n\034INBOUND_SERVICE_XMPP_MESSAGE\020\004\022\"\n\036I" +
+      "NBOUND_SERVICE_XMPP_SUBSCRIBE\020\005\022!\n\035INBOU" +
+      "ND_SERVICE_XMPP_PRESENCE\020\006\022$\n INBOUND_SE" +
+      "RVICE_CHANNEL_PRESENCE\020\007\022\032\n\026INBOUND_SERV" +
+      "ICE_WARMUP\020\t*I\n\rServingStatus\022\036\n\032SERVING" +
+      "_STATUS_UNSPECIFIED\020\000\022\013\n\007SERVING\020\001\022\013\n\007ST" +
+      "OPPED\020\002B\322\001\n\033com.google.appengine.v1betaB" +
+      "\014VersionProtoP\001Z@google.golang.org/genpr" +
+      "oto/googleapis/appengine/v1beta;appengin" +
+      "e\252\002\035Google.Cloud.AppEngine.V1Beta\312\002\035Goog" +
+      "le\\Cloud\\AppEngine\\V1beta\352\002 Google::Clou" +
+      "d::AppEngine::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -261,7 +260,6 @@ public final class VersionProto {
           com.google.appengine.v1beta.NetworkSettingsProto.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_Version_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -382,7 +380,6 @@ public final class VersionProto {
     com.google.appengine.v1beta.NetworkSettingsProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

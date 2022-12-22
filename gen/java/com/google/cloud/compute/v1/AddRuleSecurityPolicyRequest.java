@@ -36,76 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AddRuleSecurityPolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1368660106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            securityPolicy_ = s;
-            break;
-          }
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 1941957032: {
-            bitField0_ |= 0x00000001;
-            validateOnly_ = input.readBool();
-            break;
-          }
-          case -1073419750: {
-            com.google.cloud.compute.v1.SecurityPolicyRule.Builder subBuilder = null;
-            if (securityPolicyRuleResource_ != null) {
-              subBuilder = securityPolicyRuleResource_.toBuilder();
-            }
-            securityPolicyRuleResource_ = input.readMessage(com.google.cloud.compute.v1.SecurityPolicyRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(securityPolicyRuleResource_);
-              securityPolicyRuleResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AddRuleSecurityPolicyRequest_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -167,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECURITY_POLICY_FIELD_NUMBER = 171082513;
-  private volatile java.lang.Object securityPolicy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object securityPolicy_ = "";
   /**
    * <pre>
    * Name of the security policy to update.
@@ -247,11 +179,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.SecurityPolicyRuleOrBuilder getSecurityPolicyRuleResourceOrBuilder() {
-    return getSecurityPolicyRuleResource();
+    return securityPolicyRuleResource_ == null ? com.google.cloud.compute.v1.SecurityPolicyRule.getDefaultInstance() : securityPolicyRuleResource_;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 242744629;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If true, the request will not be committed.
@@ -303,7 +235,7 @@ private static final long serialVersionUID = 0L;
     if (securityPolicyRuleResource_ != null) {
       output.writeMessage(402693443, getSecurityPolicyRuleResource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -326,7 +258,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(402693443, getSecurityPolicyRuleResource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -355,7 +287,7 @@ private static final long serialVersionUID = 0L;
       if (getValidateOnly()
           != other.getValidateOnly()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -379,7 +311,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getValidateOnly());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -500,34 +432,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
       securityPolicy_ = "";
-
-      if (securityPolicyRuleResourceBuilder_ == null) {
-        securityPolicyRuleResource_ = null;
-      } else {
-        securityPolicyRuleResource_ = null;
+      securityPolicyRuleResource_ = null;
+      if (securityPolicyRuleResourceBuilder_ != null) {
+        securityPolicyRuleResourceBuilder_.dispose();
         securityPolicyRuleResourceBuilder_ = null;
       }
       validateOnly_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -554,22 +478,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest buildPartial() {
       com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest result = new com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.project_ = project_;
-      result.securityPolicy_ = securityPolicy_;
-      if (securityPolicyRuleResourceBuilder_ == null) {
-        result.securityPolicyRuleResource_ = securityPolicyRuleResource_;
-      } else {
-        result.securityPolicyRuleResource_ = securityPolicyRuleResourceBuilder_.build();
-      }
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.securityPolicy_ = securityPolicy_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.securityPolicyRuleResource_ = securityPolicyRuleResourceBuilder_ == null
+            ? securityPolicyRuleResource_
+            : securityPolicyRuleResourceBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.validateOnly_ = validateOnly_;
         to_bitField0_ |= 0x00000001;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -618,10 +550,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSecurityPolicy().isEmpty()) {
         securityPolicy_ = other.securityPolicy_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasSecurityPolicyRuleResource()) {
@@ -630,7 +564,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasValidateOnly()) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -645,17 +579,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1368660106: {
+              securityPolicy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1368660106
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1820481738
+            case 1941957032: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1941957032
+            case -1073419750: {
+              input.readMessage(
+                  getSecurityPolicyRuleResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1073419750
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AddRuleSecurityPolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -713,11 +682,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -730,8 +697,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -746,12 +713,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -809,11 +774,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecurityPolicy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       securityPolicy_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -826,8 +789,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecurityPolicy() {
-      
       securityPolicy_ = getDefaultInstance().getSecurityPolicy();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -842,12 +805,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSecurityPolicyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       securityPolicy_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -864,7 +825,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the securityPolicyRuleResource field is set.
      */
     public boolean hasSecurityPolicyRuleResource() {
-      return securityPolicyRuleResourceBuilder_ != null || securityPolicyRuleResource_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -894,11 +855,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         securityPolicyRuleResource_ = value;
-        onChanged();
       } else {
         securityPolicyRuleResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -912,11 +873,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.SecurityPolicyRule.Builder builderForValue) {
       if (securityPolicyRuleResourceBuilder_ == null) {
         securityPolicyRuleResource_ = builderForValue.build();
-        onChanged();
       } else {
         securityPolicyRuleResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -928,17 +889,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecurityPolicyRuleResource(com.google.cloud.compute.v1.SecurityPolicyRule value) {
       if (securityPolicyRuleResourceBuilder_ == null) {
-        if (securityPolicyRuleResource_ != null) {
-          securityPolicyRuleResource_ =
-            com.google.cloud.compute.v1.SecurityPolicyRule.newBuilder(securityPolicyRuleResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          securityPolicyRuleResource_ != null &&
+          securityPolicyRuleResource_ != com.google.cloud.compute.v1.SecurityPolicyRule.getDefaultInstance()) {
+          getSecurityPolicyRuleResourceBuilder().mergeFrom(value);
         } else {
           securityPolicyRuleResource_ = value;
         }
-        onChanged();
       } else {
         securityPolicyRuleResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -949,14 +911,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.SecurityPolicyRule security_policy_rule_resource = 402693443 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearSecurityPolicyRuleResource() {
-      if (securityPolicyRuleResourceBuilder_ == null) {
-        securityPolicyRuleResource_ = null;
-        onChanged();
-      } else {
-        securityPolicyRuleResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      securityPolicyRuleResource_ = null;
+      if (securityPolicyRuleResourceBuilder_ != null) {
+        securityPolicyRuleResourceBuilder_.dispose();
         securityPolicyRuleResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -967,7 +928,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.SecurityPolicyRule security_policy_rule_resource = 402693443 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.SecurityPolicyRule.Builder getSecurityPolicyRuleResourceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSecurityPolicyRuleResourceFieldBuilder().getBuilder();
     }
@@ -1018,7 +979,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasValidateOnly() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1042,8 +1003,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setValidateOnly(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       validateOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1056,7 +1018,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1094,7 +1056,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddRuleSecurityPolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

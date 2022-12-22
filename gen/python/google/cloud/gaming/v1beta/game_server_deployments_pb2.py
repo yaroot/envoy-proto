@@ -16,10 +16,9 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.gaming.v1beta import common_pb2 as google_dot_cloud_dot_gaming_dot_v1beta_dot_common__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8google/cloud/gaming/v1beta/game_server_deployments.proto\x12\x1agoogle.cloud.gaming.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/gaming/v1beta/common.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xc9\x01\n ListGameServerDeploymentsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\x12\x30gameservices.googleapis.com/GameServerDeployment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xa4\x01\n!ListGameServerDeploymentsResponse\x12Q\n\x17game_server_deployments\x18\x01 \x03(\x0b\x32\x30.google.cloud.gaming.v1beta.GameServerDeployment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x04 \x03(\t\"h\n\x1eGetGameServerDeploymentRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0gameservices.googleapis.com/GameServerDeployment\"o\n%GetGameServerDeploymentRolloutRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0gameservices.googleapis.com/GameServerDeployment\"\xe0\x01\n!CreateGameServerDeploymentRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\x12\x30gameservices.googleapis.com/GameServerDeployment\x12\x1a\n\rdeployment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12U\n\x16game_server_deployment\x18\x03 \x01(\x0b\x32\x30.google.cloud.gaming.v1beta.GameServerDeploymentB\x03\xe0\x41\x02\"k\n!DeleteGameServerDeploymentRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0gameservices.googleapis.com/GameServerDeployment\"\xb0\x01\n!UpdateGameServerDeploymentRequest\x12U\n\x16game_server_deployment\x18\x01 \x01(\x0b\x32\x30.google.cloud.gaming.v1beta.GameServerDeploymentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xaf\x01\n(UpdateGameServerDeploymentRolloutRequest\x12M\n\x07rollout\x18\x01 \x01(\x0b\x32\x37.google.cloud.gaming.v1beta.GameServerDeploymentRolloutB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"0\n\x1b\x46\x65tchDeploymentStateRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x8b\x02\n\x1c\x46\x65tchDeploymentStateResponse\x12\x64\n\rcluster_state\x18\x01 \x03(\x0b\x32M.google.cloud.gaming.v1beta.FetchDeploymentStateResponse.DeployedClusterState\x12\x13\n\x0bunavailable\x18\x02 \x03(\t\x1ap\n\x14\x44\x65ployedClusterState\x12\x0f\n\x07\x63luster\x18\x01 \x01(\t\x12G\n\rfleet_details\x18\x02 \x03(\x0b\x32\x30.google.cloud.gaming.v1beta.DeployedFleetDetails\"\xb4\x03\n\x14GameServerDeployment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12L\n\x06labels\x18\x04 \x03(\x0b\x32<.google.cloud.gaming.v1beta.GameServerDeployment.LabelsEntry\x12\x0c\n\x04\x65tag\x18\x07 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x08 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x81\x01\xea\x41~\n0gameservices.googleapis.com/GameServerDeployment\x12Jprojects/{project}/locations/{location}/gameServerDeployments/{deployment}\"\x90\x01\n\x18GameServerConfigOverride\x12\x44\n\x0frealms_selector\x18\x01 \x01(\x0b\x32).google.cloud.gaming.v1beta.RealmSelectorH\x00\x12\x18\n\x0e\x63onfig_version\x18\x64 \x01(\tH\x01\x42\n\n\x08selectorB\x08\n\x06\x63hange\"\xb9\x03\n\x1bGameServerDeploymentRollout\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\"\n\x1a\x64\x65\x66\x61ult_game_server_config\x18\x04 \x01(\t\x12Z\n\x1cgame_server_config_overrides\x18\x05 \x03(\x0b\x32\x34.google.cloud.gaming.v1beta.GameServerConfigOverride\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t:\x91\x01\xea\x41\x8d\x01\n7gameservices.googleapis.com/GameServerDeploymentRollout\x12Rprojects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout\"\xe7\x01\n)PreviewGameServerDeploymentRolloutRequest\x12M\n\x07rollout\x18\x01 \x01(\x0b\x32\x37.google.cloud.gaming.v1beta.GameServerDeploymentRolloutB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12\x35\n\x0cpreview_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"\x8e\x01\n*PreviewGameServerDeploymentRolloutResponse\x12\x13\n\x0bunavailable\x18\x02 \x03(\t\x12\x0c\n\x04\x65tag\x18\x03 \x01(\t\x12=\n\x0ctarget_state\x18\x04 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetStateB\x81\x01\n\x1e\x63om.google.cloud.gaming.v1betaP\x01Z@google.golang.org/genproto/googleapis/cloud/gaming/v1beta;gaming\xca\x02\x1aGoogle\\Cloud\\Gaming\\V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8google/cloud/gaming/v1beta/game_server_deployments.proto\x12\x1agoogle.cloud.gaming.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/gaming/v1beta/common.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc9\x01\n ListGameServerDeploymentsRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\x12\x30gameservices.googleapis.com/GameServerDeployment\x12\x16\n\tpage_size\x18\x02 \x01(\x05\x42\x03\xe0\x41\x01\x12\x17\n\npage_token\x18\x03 \x01(\tB\x03\xe0\x41\x01\x12\x13\n\x06\x66ilter\x18\x04 \x01(\tB\x03\xe0\x41\x01\x12\x15\n\x08order_by\x18\x05 \x01(\tB\x03\xe0\x41\x01\"\xa4\x01\n!ListGameServerDeploymentsResponse\x12Q\n\x17game_server_deployments\x18\x01 \x03(\x0b\x32\x30.google.cloud.gaming.v1beta.GameServerDeployment\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\x12\x13\n\x0bunreachable\x18\x04 \x03(\t\"h\n\x1eGetGameServerDeploymentRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0gameservices.googleapis.com/GameServerDeployment\"o\n%GetGameServerDeploymentRolloutRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0gameservices.googleapis.com/GameServerDeployment\"\xe0\x01\n!CreateGameServerDeploymentRequest\x12H\n\x06parent\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\x12\x30gameservices.googleapis.com/GameServerDeployment\x12\x1a\n\rdeployment_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12U\n\x16game_server_deployment\x18\x03 \x01(\x0b\x32\x30.google.cloud.gaming.v1beta.GameServerDeploymentB\x03\xe0\x41\x02\"k\n!DeleteGameServerDeploymentRequest\x12\x46\n\x04name\x18\x01 \x01(\tB8\xe0\x41\x02\xfa\x41\x32\n0gameservices.googleapis.com/GameServerDeployment\"\xb0\x01\n!UpdateGameServerDeploymentRequest\x12U\n\x16game_server_deployment\x18\x01 \x01(\x0b\x32\x30.google.cloud.gaming.v1beta.GameServerDeploymentB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"\xaf\x01\n(UpdateGameServerDeploymentRolloutRequest\x12M\n\x07rollout\x18\x01 \x01(\x0b\x32\x37.google.cloud.gaming.v1beta.GameServerDeploymentRolloutB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"0\n\x1b\x46\x65tchDeploymentStateRequest\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\"\x8b\x02\n\x1c\x46\x65tchDeploymentStateResponse\x12\x64\n\rcluster_state\x18\x01 \x03(\x0b\x32M.google.cloud.gaming.v1beta.FetchDeploymentStateResponse.DeployedClusterState\x12\x13\n\x0bunavailable\x18\x02 \x03(\t\x1ap\n\x14\x44\x65ployedClusterState\x12\x0f\n\x07\x63luster\x18\x01 \x01(\t\x12G\n\rfleet_details\x18\x02 \x03(\x0b\x32\x30.google.cloud.gaming.v1beta.DeployedFleetDetails\"\xb4\x03\n\x14GameServerDeployment\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12L\n\x06labels\x18\x04 \x03(\x0b\x32<.google.cloud.gaming.v1beta.GameServerDeployment.LabelsEntry\x12\x0c\n\x04\x65tag\x18\x07 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x08 \x01(\t\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01:\x81\x01\xea\x41~\n0gameservices.googleapis.com/GameServerDeployment\x12Jprojects/{project}/locations/{location}/gameServerDeployments/{deployment}\"\x90\x01\n\x18GameServerConfigOverride\x12\x44\n\x0frealms_selector\x18\x01 \x01(\x0b\x32).google.cloud.gaming.v1beta.RealmSelectorH\x00\x12\x18\n\x0e\x63onfig_version\x18\x64 \x01(\tH\x01\x42\n\n\x08selectorB\x08\n\x06\x63hange\"\xb9\x03\n\x1bGameServerDeploymentRollout\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0bupdate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\"\n\x1a\x64\x65\x66\x61ult_game_server_config\x18\x04 \x01(\t\x12Z\n\x1cgame_server_config_overrides\x18\x05 \x03(\x0b\x32\x34.google.cloud.gaming.v1beta.GameServerConfigOverride\x12\x0c\n\x04\x65tag\x18\x06 \x01(\t:\x91\x01\xea\x41\x8d\x01\n7gameservices.googleapis.com/GameServerDeploymentRollout\x12Rprojects/{project}/locations/{location}/gameServerDeployments/{deployment}/rollout\"\xe7\x01\n)PreviewGameServerDeploymentRolloutRequest\x12M\n\x07rollout\x18\x01 \x01(\x0b\x32\x37.google.cloud.gaming.v1beta.GameServerDeploymentRolloutB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x01\x12\x35\n\x0cpreview_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x01\"\x8e\x01\n*PreviewGameServerDeploymentRolloutResponse\x12\x13\n\x0bunavailable\x18\x02 \x03(\t\x12\x0c\n\x04\x65tag\x18\x03 \x01(\t\x12=\n\x0ctarget_state\x18\x04 \x01(\x0b\x32\'.google.cloud.gaming.v1beta.TargetStateB\x81\x01\n\x1e\x63om.google.cloud.gaming.v1betaP\x01Z@google.golang.org/genproto/googleapis/cloud/gaming/v1beta;gaming\xca\x02\x1aGoogle\\Cloud\\Gaming\\V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gaming.v1beta.game_server_deployments_pb2', globals())
@@ -79,38 +78,38 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST.fields_by_name['update_mask']._serialized_options = b'\340A\001'
   _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST.fields_by_name['preview_time']._options = None
   _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST.fields_by_name['preview_time']._serialized_options = b'\340A\001'
-  _LISTGAMESERVERDEPLOYMENTSREQUEST._serialized_start=287
-  _LISTGAMESERVERDEPLOYMENTSREQUEST._serialized_end=488
-  _LISTGAMESERVERDEPLOYMENTSRESPONSE._serialized_start=491
-  _LISTGAMESERVERDEPLOYMENTSRESPONSE._serialized_end=655
-  _GETGAMESERVERDEPLOYMENTREQUEST._serialized_start=657
-  _GETGAMESERVERDEPLOYMENTREQUEST._serialized_end=761
-  _GETGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_start=763
-  _GETGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_end=874
-  _CREATEGAMESERVERDEPLOYMENTREQUEST._serialized_start=877
-  _CREATEGAMESERVERDEPLOYMENTREQUEST._serialized_end=1101
-  _DELETEGAMESERVERDEPLOYMENTREQUEST._serialized_start=1103
-  _DELETEGAMESERVERDEPLOYMENTREQUEST._serialized_end=1210
-  _UPDATEGAMESERVERDEPLOYMENTREQUEST._serialized_start=1213
-  _UPDATEGAMESERVERDEPLOYMENTREQUEST._serialized_end=1389
-  _UPDATEGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_start=1392
-  _UPDATEGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_end=1567
-  _FETCHDEPLOYMENTSTATEREQUEST._serialized_start=1569
-  _FETCHDEPLOYMENTSTATEREQUEST._serialized_end=1617
-  _FETCHDEPLOYMENTSTATERESPONSE._serialized_start=1620
-  _FETCHDEPLOYMENTSTATERESPONSE._serialized_end=1887
-  _FETCHDEPLOYMENTSTATERESPONSE_DEPLOYEDCLUSTERSTATE._serialized_start=1775
-  _FETCHDEPLOYMENTSTATERESPONSE_DEPLOYEDCLUSTERSTATE._serialized_end=1887
-  _GAMESERVERDEPLOYMENT._serialized_start=1890
-  _GAMESERVERDEPLOYMENT._serialized_end=2326
-  _GAMESERVERDEPLOYMENT_LABELSENTRY._serialized_start=2149
-  _GAMESERVERDEPLOYMENT_LABELSENTRY._serialized_end=2194
-  _GAMESERVERCONFIGOVERRIDE._serialized_start=2329
-  _GAMESERVERCONFIGOVERRIDE._serialized_end=2473
-  _GAMESERVERDEPLOYMENTROLLOUT._serialized_start=2476
-  _GAMESERVERDEPLOYMENTROLLOUT._serialized_end=2917
-  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_start=2920
-  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_end=3151
-  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTRESPONSE._serialized_start=3154
-  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTRESPONSE._serialized_end=3296
+  _LISTGAMESERVERDEPLOYMENTSREQUEST._serialized_start=257
+  _LISTGAMESERVERDEPLOYMENTSREQUEST._serialized_end=458
+  _LISTGAMESERVERDEPLOYMENTSRESPONSE._serialized_start=461
+  _LISTGAMESERVERDEPLOYMENTSRESPONSE._serialized_end=625
+  _GETGAMESERVERDEPLOYMENTREQUEST._serialized_start=627
+  _GETGAMESERVERDEPLOYMENTREQUEST._serialized_end=731
+  _GETGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_start=733
+  _GETGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_end=844
+  _CREATEGAMESERVERDEPLOYMENTREQUEST._serialized_start=847
+  _CREATEGAMESERVERDEPLOYMENTREQUEST._serialized_end=1071
+  _DELETEGAMESERVERDEPLOYMENTREQUEST._serialized_start=1073
+  _DELETEGAMESERVERDEPLOYMENTREQUEST._serialized_end=1180
+  _UPDATEGAMESERVERDEPLOYMENTREQUEST._serialized_start=1183
+  _UPDATEGAMESERVERDEPLOYMENTREQUEST._serialized_end=1359
+  _UPDATEGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_start=1362
+  _UPDATEGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_end=1537
+  _FETCHDEPLOYMENTSTATEREQUEST._serialized_start=1539
+  _FETCHDEPLOYMENTSTATEREQUEST._serialized_end=1587
+  _FETCHDEPLOYMENTSTATERESPONSE._serialized_start=1590
+  _FETCHDEPLOYMENTSTATERESPONSE._serialized_end=1857
+  _FETCHDEPLOYMENTSTATERESPONSE_DEPLOYEDCLUSTERSTATE._serialized_start=1745
+  _FETCHDEPLOYMENTSTATERESPONSE_DEPLOYEDCLUSTERSTATE._serialized_end=1857
+  _GAMESERVERDEPLOYMENT._serialized_start=1860
+  _GAMESERVERDEPLOYMENT._serialized_end=2296
+  _GAMESERVERDEPLOYMENT_LABELSENTRY._serialized_start=2119
+  _GAMESERVERDEPLOYMENT_LABELSENTRY._serialized_end=2164
+  _GAMESERVERCONFIGOVERRIDE._serialized_start=2299
+  _GAMESERVERCONFIGOVERRIDE._serialized_end=2443
+  _GAMESERVERDEPLOYMENTROLLOUT._serialized_start=2446
+  _GAMESERVERDEPLOYMENTROLLOUT._serialized_end=2887
+  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_start=2890
+  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTREQUEST._serialized_end=3121
+  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTRESPONSE._serialized_start=3124
+  _PREVIEWGAMESERVERDEPLOYMENTROLLOUTRESPONSE._serialized_end=3266
 # @@protoc_insertion_point(module_scope)

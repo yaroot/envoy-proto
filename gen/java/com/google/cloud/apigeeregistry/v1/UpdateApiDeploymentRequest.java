@@ -34,76 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateApiDeploymentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.apigeeregistry.v1.ApiDeployment.Builder subBuilder = null;
-            if (apiDeployment_ != null) {
-              subBuilder = apiDeployment_.toBuilder();
-            }
-            apiDeployment_ = input.readMessage(com.google.cloud.apigeeregistry.v1.ApiDeployment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(apiDeployment_);
-              apiDeployment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            allowMissing_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.apigeeregistry.v1.RegistryServiceProto.internal_static_google_cloud_apigeeregistry_v1_UpdateApiDeploymentRequest_descriptor;
@@ -123,7 +53,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The deployment to update.
    * The `name` field is used to identify the deployment to update.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
    * </pre>
    *
    * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -137,7 +67,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The deployment to update.
    * The `name` field is used to identify the deployment to update.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
    * </pre>
    *
    * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -151,14 +81,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The deployment to update.
    * The `name` field is used to identify the deployment to update.
-   * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
    * </pre>
    *
    * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.apigeeregistry.v1.ApiDeploymentOrBuilder getApiDeploymentOrBuilder() {
-    return getApiDeployment();
+    return apiDeployment_ == null ? com.google.cloud.apigeeregistry.v1.ApiDeployment.getDefaultInstance() : apiDeployment_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 2;
@@ -167,8 +97,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The list of fields to be updated. If omitted, all fields are updated that
    * are set in the request message (fields set to default values are ignored).
-   * If a "*" is specified, all fields are updated, including fields that are
-   * unspecified/default in the request.
+   * If an asterisk "*" is specified, all fields are updated, including fields
+   * that are unspecified/default in the request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -182,8 +112,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The list of fields to be updated. If omitted, all fields are updated that
    * are set in the request message (fields set to default values are ignored).
-   * If a "*" is specified, all fields are updated, including fields that are
-   * unspecified/default in the request.
+   * If an asterisk "*" is specified, all fields are updated, including fields
+   * that are unspecified/default in the request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -197,19 +127,19 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * The list of fields to be updated. If omitted, all fields are updated that
    * are set in the request message (fields set to default values are ignored).
-   * If a "*" is specified, all fields are updated, including fields that are
-   * unspecified/default in the request.
+   * If an asterisk "*" is specified, all fields are updated, including fields
+   * that are unspecified/default in the request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 2;</code>
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int ALLOW_MISSING_FIELD_NUMBER = 3;
-  private boolean allowMissing_;
+  private boolean allowMissing_ = false;
   /**
    * <pre>
    * If set to true, and the deployment is not found, a new deployment will be
@@ -247,7 +177,7 @@ private static final long serialVersionUID = 0L;
     if (allowMissing_ != false) {
       output.writeBool(3, allowMissing_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -268,7 +198,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, allowMissing_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -295,7 +225,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getAllowMissing()
         != other.getAllowMissing()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -317,7 +247,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ALLOW_MISSING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAllowMissing());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -438,36 +368,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (apiDeploymentBuilder_ == null) {
-        apiDeployment_ = null;
-      } else {
-        apiDeployment_ = null;
+      bitField0_ = 0;
+      apiDeployment_ = null;
+      if (apiDeploymentBuilder_ != null) {
+        apiDeploymentBuilder_.dispose();
         apiDeploymentBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       allowMissing_ = false;
-
       return this;
     }
 
@@ -494,19 +417,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest buildPartial() {
       com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest result = new com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest(this);
-      if (apiDeploymentBuilder_ == null) {
-        result.apiDeployment_ = apiDeployment_;
-      } else {
-        result.apiDeployment_ = apiDeploymentBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
-      result.allowMissing_ = allowMissing_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.apiDeployment_ = apiDeploymentBuilder_ == null
+            ? apiDeployment_
+            : apiDeploymentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.allowMissing_ = allowMissing_;
+      }
     }
 
     @java.lang.Override
@@ -562,7 +492,7 @@ private static final long serialVersionUID = 0L;
       if (other.getAllowMissing() != false) {
         setAllowMissing(other.getAllowMissing());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,19 +507,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getApiDeploymentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              allowMissing_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.apigeeregistry.v1.UpdateApiDeploymentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.apigeeregistry.v1.ApiDeployment apiDeployment_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -598,20 +561,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the apiDeployment field is set.
      */
     public boolean hasApiDeployment() {
-      return apiDeploymentBuilder_ != null || apiDeployment_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -628,7 +591,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -639,18 +602,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         apiDeployment_ = value;
-        onChanged();
       } else {
         apiDeploymentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -659,68 +622,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.apigeeregistry.v1.ApiDeployment.Builder builderForValue) {
       if (apiDeploymentBuilder_ == null) {
         apiDeployment_ = builderForValue.build();
-        onChanged();
       } else {
         apiDeploymentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeApiDeployment(com.google.cloud.apigeeregistry.v1.ApiDeployment value) {
       if (apiDeploymentBuilder_ == null) {
-        if (apiDeployment_ != null) {
-          apiDeployment_ =
-            com.google.cloud.apigeeregistry.v1.ApiDeployment.newBuilder(apiDeployment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          apiDeployment_ != null &&
+          apiDeployment_ != com.google.cloud.apigeeregistry.v1.ApiDeployment.getDefaultInstance()) {
+          getApiDeploymentBuilder().mergeFrom(value);
         } else {
           apiDeployment_ = value;
         }
-        onChanged();
       } else {
         apiDeploymentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearApiDeployment() {
-      if (apiDeploymentBuilder_ == null) {
-        apiDeployment_ = null;
-        onChanged();
-      } else {
-        apiDeployment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      apiDeployment_ = null;
+      if (apiDeploymentBuilder_ != null) {
+        apiDeploymentBuilder_.dispose();
         apiDeploymentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.apigeeregistry.v1.ApiDeployment.Builder getApiDeploymentBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getApiDeploymentFieldBuilder().getBuilder();
     }
@@ -728,7 +691,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -745,7 +708,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The deployment to update.
      * The `name` field is used to identify the deployment to update.
-     * Format: projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;
+     * Format: `projects/&#42;&#47;locations/&#42;&#47;apis/&#42;&#47;deployments/&#42;`
      * </pre>
      *
      * <code>.google.cloud.apigeeregistry.v1.ApiDeployment api_deployment = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -771,22 +734,22 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -803,8 +766,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -815,19 +778,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -836,71 +799,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -908,8 +871,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -926,8 +889,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * The list of fields to be updated. If omitted, all fields are updated that
      * are set in the request message (fields set to default values are ignored).
-     * If a "*" is specified, all fields are updated, including fields that are
-     * unspecified/default in the request.
+     * If an asterisk "*" is specified, all fields are updated, including fields
+     * that are unspecified/default in the request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 2;</code>
@@ -973,6 +936,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowMissing(boolean value) {
       
       allowMissing_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -986,7 +950,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowMissing() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       allowMissing_ = false;
       onChanged();
       return this;
@@ -1024,7 +988,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateApiDeploymentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

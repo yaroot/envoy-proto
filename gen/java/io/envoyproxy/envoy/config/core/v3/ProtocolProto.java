@@ -132,7 +132,7 @@ public final class ProtocolProto {
       "i\030\001 \001(\010\022\033\n\023auto_san_validation\030\002 \001(\010\022-\n\030" +
       "override_auto_sni_header\030\003 \001(\tB\013\372B\010r\006\300\001\001" +
       "\320\001\001:4\232\305\210\036/\n-envoy.api.v2.core.UpstreamHt" +
-      "tpProtocolOptions\"\212\003\n\036AlternateProtocols" +
+      "tpProtocolOptions\"\246\003\n\036AlternateProtocols" +
       "CacheOptions\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022:\n\013m" +
       "ax_entries\030\002 \001(\0132\034.google.protobuf.UInt3" +
       "2ValueB\007\372B\004*\002 \000\022J\n\026key_value_store_confi" +
@@ -140,99 +140,100 @@ public final class ProtocolProto {
       "nsionConfig\022o\n\024prepopulated_entries\030\004 \003(" +
       "\0132Q.envoy.config.core.v3.AlternateProtoc" +
       "olsCacheOptions.AlternateProtocolsCacheE" +
-      "ntry\032X\n\034AlternateProtocolsCacheEntry\022\035\n\010" +
-      "hostname\030\001 \001(\tB\013\372B\010r\006\300\001\001\320\001\001\022\031\n\004port\030\002 \001(" +
-      "\rB\013\372B\010*\006\020\377\377\003 \000\"\256\004\n\023HttpProtocolOptions\022/" +
-      "\n\014idle_timeout\030\001 \001(\0132\031.google.protobuf.D" +
-      "uration\022:\n\027max_connection_duration\030\003 \001(\013" +
-      "2\031.google.protobuf.Duration\022@\n\021max_heade" +
-      "rs_count\030\002 \001(\0132\034.google.protobuf.UInt32V" +
-      "alueB\007\372B\004*\002(\001\0226\n\023max_stream_duration\030\004 \001" +
-      "(\0132\031.google.protobuf.Duration\022o\n\037headers" +
-      "_with_underscores_action\030\005 \001(\0162F.envoy.c" +
-      "onfig.core.v3.HttpProtocolOptions.Header" +
-      "sWithUnderscoresAction\022A\n\033max_requests_p" +
-      "er_connection\030\006 \001(\0132\034.google.protobuf.UI" +
-      "nt32Value\"N\n\034HeadersWithUnderscoresActio" +
-      "n\022\t\n\005ALLOW\020\000\022\022\n\016REJECT_REQUEST\020\001\022\017\n\013DROP" +
-      "_HEADER\020\002:,\232\305\210\036\'\n%envoy.api.v2.core.Http" +
-      "ProtocolOptions\"\270\006\n\024Http1ProtocolOptions" +
-      "\0226\n\022allow_absolute_url\030\001 \001(\0132\032.google.pr" +
-      "otobuf.BoolValue\022\026\n\016accept_http_10\030\002 \001(\010" +
-      "\022 \n\030default_host_for_http_10\030\003 \001(\t\022U\n\021he" +
-      "ader_key_format\030\004 \001(\0132:.envoy.config.cor" +
-      "e.v3.Http1ProtocolOptions.HeaderKeyForma" +
-      "t\022\027\n\017enable_trailers\030\005 \001(\010\022\034\n\024allow_chun" +
-      "ked_length\030\006 \001(\010\022Q\n-override_stream_erro" +
-      "r_on_invalid_http_message\030\007 \001(\0132\032.google" +
-      ".protobuf.BoolValue\022 \n\030send_fully_qualif" +
-      "ied_url\030\010 \001(\010\032\373\002\n\017HeaderKeyFormat\022g\n\021pro" +
-      "per_case_words\030\001 \001(\0132J.envoy.config.core" +
-      ".v3.Http1ProtocolOptions.HeaderKeyFormat" +
-      ".ProperCaseWordsH\000\022H\n\022stateful_formatter" +
-      "\030\010 \001(\0132*.envoy.config.core.v3.TypedExten" +
-      "sionConfigH\000\032`\n\017ProperCaseWords:M\232\305\210\036H\nF" +
-      "envoy.api.v2.core.Http1ProtocolOptions.H" +
-      "eaderKeyFormat.ProperCaseWords:=\232\305\210\0368\n6e" +
-      "nvoy.api.v2.core.Http1ProtocolOptions.He" +
-      "aderKeyFormatB\024\n\rheader_format\022\003\370B\001:-\232\305\210" +
-      "\036(\n&envoy.api.v2.core.Http1ProtocolOptio" +
-      "ns\"\206\002\n\021KeepaliveSettings\0229\n\010interval\030\001 \001" +
-      "(\0132\031.google.protobuf.DurationB\014\372B\t\252\001\0062\004\020" +
-      "\300\204=\022:\n\007timeout\030\002 \001(\0132\031.google.protobuf.D" +
-      "urationB\016\372B\013\252\001\010\010\0012\004\020\300\204=\022/\n\017interval_jitt" +
-      "er\030\003 \001(\0132\026.envoy.type.v3.Percent\022I\n\030conn" +
-      "ection_idle_interval\030\004 \001(\0132\031.google.prot" +
-      "obuf.DurationB\014\372B\t\252\001\0062\004\020\300\204=\"\315\n\n\024Http2Pro" +
-      "tocolOptions\0226\n\020hpack_table_size\030\001 \001(\0132\034" +
-      ".google.protobuf.UInt32Value\022K\n\026max_conc" +
-      "urrent_streams\030\002 \001(\0132\034.google.protobuf.U" +
-      "Int32ValueB\r\372B\n*\010\030\377\377\377\377\007(\001\022Q\n\032initial_str" +
-      "eam_window_size\030\003 \001(\0132\034.google.protobuf." +
-      "UInt32ValueB\017\372B\014*\n\030\377\377\377\377\007(\377\377\003\022U\n\036initial_" +
-      "connection_window_size\030\004 \001(\0132\034.google.pr" +
-      "otobuf.UInt32ValueB\017\372B\014*\n\030\377\377\377\377\007(\377\377\003\022\025\n\ra" +
-      "llow_connect\030\005 \001(\010\022\026\n\016allow_metadata\030\006 \001" +
-      "(\010\022B\n\023max_outbound_frames\030\007 \001(\0132\034.google" +
-      ".protobuf.UInt32ValueB\007\372B\004*\002(\001\022J\n\033max_ou" +
-      "tbound_control_frames\030\010 \001(\0132\034.google.pro" +
-      "tobuf.UInt32ValueB\007\372B\004*\002(\001\022W\n1max_consec" +
-      "utive_inbound_frames_with_empty_payload\030" +
-      "\t \001(\0132\034.google.protobuf.UInt32Value\022L\n&m" +
-      "ax_inbound_priority_frames_per_stream\030\n " +
-      "\001(\0132\034.google.protobuf.UInt32Value\022c\n4max" +
-      "_inbound_window_update_frames_per_data_f" +
-      "rame_sent\030\013 \001(\0132\034.google.protobuf.UInt32" +
-      "ValueB\007\372B\004*\002(\001\022;\n&stream_error_on_invali" +
-      "d_http_messaging\030\014 \001(\010B\013\030\001\222\307\206\330\004\0033.0\022Q\n-o" +
-      "verride_stream_error_on_invalid_http_mes" +
-      "sage\030\016 \001(\0132\032.google.protobuf.BoolValue\022`" +
-      "\n\032custom_settings_parameters\030\r \003(\0132<.env" +
-      "oy.config.core.v3.Http2ProtocolOptions.S" +
-      "ettingsParameter\022E\n\024connection_keepalive" +
-      "\030\017 \001(\0132\'.envoy.config.core.v3.KeepaliveS" +
-      "ettings\032\322\001\n\021SettingsParameter\022E\n\nidentif" +
-      "ier\030\001 \001(\0132\034.google.protobuf.UInt32ValueB" +
-      "\023\372B\010*\006\030\377\377\003(\000\372B\005\212\001\002\020\001\0225\n\005value\030\002 \001(\0132\034.go" +
-      "ogle.protobuf.UInt32ValueB\010\372B\005\212\001\002\020\001:?\232\305\210" +
-      "\036:\n8envoy.api.v2.core.Http2ProtocolOptio" +
-      "ns.SettingsParameter:-\232\305\210\036(\n&envoy.api.v" +
-      "2.core.Http2ProtocolOptions\"\217\001\n\023GrpcProt" +
-      "ocolOptions\022J\n\026http2_protocol_options\030\001 " +
-      "\001(\0132*.envoy.config.core.v3.Http2Protocol" +
-      "Options:,\232\305\210\036\'\n%envoy.api.v2.core.GrpcPr" +
-      "otocolOptions\"\335\001\n\024Http3ProtocolOptions\022H" +
-      "\n\025quic_protocol_options\030\001 \001(\0132).envoy.co" +
-      "nfig.core.v3.QuicProtocolOptions\022Q\n-over" +
-      "ride_stream_error_on_invalid_http_messag" +
-      "e\030\002 \001(\0132\032.google.protobuf.BoolValue\022(\n\026a" +
-      "llow_extended_connect\030\005 \001(\010B\010\322\306\244\341\006\002\010\001\"a\n" +
-      "\032SchemeHeaderTransformation\0221\n\023scheme_to" +
-      "_overwrite\030\001 \001(\tB\022\372B\017r\rR\004httpR\005httpsH\000B\020" +
-      "\n\016transformationB\201\001\n\"io.envoyproxy.envoy" +
-      ".config.core.v3B\rProtocolProtoP\001ZBgithub" +
-      ".com/envoyproxy/go-control-plane/envoy/c" +
-      "onfig/core/v3;corev3\272\200\310\321\006\002\020\002b\006proto3"
+      "ntry\022\032\n\022canonical_suffixes\030\005 \003(\t\032X\n\034Alte" +
+      "rnateProtocolsCacheEntry\022\035\n\010hostname\030\001 \001" +
+      "(\tB\013\372B\010r\006\300\001\001\320\001\001\022\031\n\004port\030\002 \001(\rB\013\372B\010*\006\020\377\377\003" +
+      " \000\"\256\004\n\023HttpProtocolOptions\022/\n\014idle_timeo" +
+      "ut\030\001 \001(\0132\031.google.protobuf.Duration\022:\n\027m" +
+      "ax_connection_duration\030\003 \001(\0132\031.google.pr" +
+      "otobuf.Duration\022@\n\021max_headers_count\030\002 \001" +
+      "(\0132\034.google.protobuf.UInt32ValueB\007\372B\004*\002(" +
+      "\001\0226\n\023max_stream_duration\030\004 \001(\0132\031.google." +
+      "protobuf.Duration\022o\n\037headers_with_unders" +
+      "cores_action\030\005 \001(\0162F.envoy.config.core.v" +
+      "3.HttpProtocolOptions.HeadersWithUndersc" +
+      "oresAction\022A\n\033max_requests_per_connectio" +
+      "n\030\006 \001(\0132\034.google.protobuf.UInt32Value\"N\n" +
+      "\034HeadersWithUnderscoresAction\022\t\n\005ALLOW\020\000" +
+      "\022\022\n\016REJECT_REQUEST\020\001\022\017\n\013DROP_HEADER\020\002:,\232" +
+      "\305\210\036\'\n%envoy.api.v2.core.HttpProtocolOpti" +
+      "ons\"\270\006\n\024Http1ProtocolOptions\0226\n\022allow_ab" +
+      "solute_url\030\001 \001(\0132\032.google.protobuf.BoolV" +
+      "alue\022\026\n\016accept_http_10\030\002 \001(\010\022 \n\030default_" +
+      "host_for_http_10\030\003 \001(\t\022U\n\021header_key_for" +
+      "mat\030\004 \001(\0132:.envoy.config.core.v3.Http1Pr" +
+      "otocolOptions.HeaderKeyFormat\022\027\n\017enable_" +
+      "trailers\030\005 \001(\010\022\034\n\024allow_chunked_length\030\006" +
+      " \001(\010\022Q\n-override_stream_error_on_invalid" +
+      "_http_message\030\007 \001(\0132\032.google.protobuf.Bo" +
+      "olValue\022 \n\030send_fully_qualified_url\030\010 \001(" +
+      "\010\032\373\002\n\017HeaderKeyFormat\022g\n\021proper_case_wor" +
+      "ds\030\001 \001(\0132J.envoy.config.core.v3.Http1Pro" +
+      "tocolOptions.HeaderKeyFormat.ProperCaseW" +
+      "ordsH\000\022H\n\022stateful_formatter\030\010 \001(\0132*.env" +
+      "oy.config.core.v3.TypedExtensionConfigH\000" +
+      "\032`\n\017ProperCaseWords:M\232\305\210\036H\nFenvoy.api.v2" +
+      ".core.Http1ProtocolOptions.HeaderKeyForm" +
+      "at.ProperCaseWords:=\232\305\210\0368\n6envoy.api.v2." +
+      "core.Http1ProtocolOptions.HeaderKeyForma" +
+      "tB\024\n\rheader_format\022\003\370B\001:-\232\305\210\036(\n&envoy.ap" +
+      "i.v2.core.Http1ProtocolOptions\"\206\002\n\021Keepa" +
+      "liveSettings\0229\n\010interval\030\001 \001(\0132\031.google." +
+      "protobuf.DurationB\014\372B\t\252\001\0062\004\020\300\204=\022:\n\007timeo" +
+      "ut\030\002 \001(\0132\031.google.protobuf.DurationB\016\372B\013" +
+      "\252\001\010\010\0012\004\020\300\204=\022/\n\017interval_jitter\030\003 \001(\0132\026.e" +
+      "nvoy.type.v3.Percent\022I\n\030connection_idle_" +
+      "interval\030\004 \001(\0132\031.google.protobuf.Duratio" +
+      "nB\014\372B\t\252\001\0062\004\020\300\204=\"\315\n\n\024Http2ProtocolOptions" +
+      "\0226\n\020hpack_table_size\030\001 \001(\0132\034.google.prot" +
+      "obuf.UInt32Value\022K\n\026max_concurrent_strea" +
+      "ms\030\002 \001(\0132\034.google.protobuf.UInt32ValueB\r" +
+      "\372B\n*\010\030\377\377\377\377\007(\001\022Q\n\032initial_stream_window_s" +
+      "ize\030\003 \001(\0132\034.google.protobuf.UInt32ValueB" +
+      "\017\372B\014*\n\030\377\377\377\377\007(\377\377\003\022U\n\036initial_connection_w" +
+      "indow_size\030\004 \001(\0132\034.google.protobuf.UInt3" +
+      "2ValueB\017\372B\014*\n\030\377\377\377\377\007(\377\377\003\022\025\n\rallow_connect" +
+      "\030\005 \001(\010\022\026\n\016allow_metadata\030\006 \001(\010\022B\n\023max_ou" +
+      "tbound_frames\030\007 \001(\0132\034.google.protobuf.UI" +
+      "nt32ValueB\007\372B\004*\002(\001\022J\n\033max_outbound_contr" +
+      "ol_frames\030\010 \001(\0132\034.google.protobuf.UInt32" +
+      "ValueB\007\372B\004*\002(\001\022W\n1max_consecutive_inboun" +
+      "d_frames_with_empty_payload\030\t \001(\0132\034.goog" +
+      "le.protobuf.UInt32Value\022L\n&max_inbound_p" +
+      "riority_frames_per_stream\030\n \001(\0132\034.google" +
+      ".protobuf.UInt32Value\022c\n4max_inbound_win" +
+      "dow_update_frames_per_data_frame_sent\030\013 " +
+      "\001(\0132\034.google.protobuf.UInt32ValueB\007\372B\004*\002" +
+      "(\001\022;\n&stream_error_on_invalid_http_messa" +
+      "ging\030\014 \001(\010B\013\030\001\222\307\206\330\004\0033.0\022Q\n-override_stre" +
+      "am_error_on_invalid_http_message\030\016 \001(\0132\032" +
+      ".google.protobuf.BoolValue\022`\n\032custom_set" +
+      "tings_parameters\030\r \003(\0132<.envoy.config.co" +
+      "re.v3.Http2ProtocolOptions.SettingsParam" +
+      "eter\022E\n\024connection_keepalive\030\017 \001(\0132\'.env" +
+      "oy.config.core.v3.KeepaliveSettings\032\322\001\n\021" +
+      "SettingsParameter\022E\n\nidentifier\030\001 \001(\0132\034." +
+      "google.protobuf.UInt32ValueB\023\372B\010*\006\030\377\377\003(\000" +
+      "\372B\005\212\001\002\020\001\0225\n\005value\030\002 \001(\0132\034.google.protobu" +
+      "f.UInt32ValueB\010\372B\005\212\001\002\020\001:?\232\305\210\036:\n8envoy.ap" +
+      "i.v2.core.Http2ProtocolOptions.SettingsP" +
+      "arameter:-\232\305\210\036(\n&envoy.api.v2.core.Http2" +
+      "ProtocolOptions\"\217\001\n\023GrpcProtocolOptions\022" +
+      "J\n\026http2_protocol_options\030\001 \001(\0132*.envoy." +
+      "config.core.v3.Http2ProtocolOptions:,\232\305\210" +
+      "\036\'\n%envoy.api.v2.core.GrpcProtocolOption" +
+      "s\"\335\001\n\024Http3ProtocolOptions\022H\n\025quic_proto" +
+      "col_options\030\001 \001(\0132).envoy.config.core.v3" +
+      ".QuicProtocolOptions\022Q\n-override_stream_" +
+      "error_on_invalid_http_message\030\002 \001(\0132\032.go" +
+      "ogle.protobuf.BoolValue\022(\n\026allow_extende" +
+      "d_connect\030\005 \001(\010B\010\322\306\244\341\006\002\010\001\"a\n\032SchemeHeade" +
+      "rTransformation\0221\n\023scheme_to_overwrite\030\001" +
+      " \001(\tB\022\372B\017r\rR\004httpR\005httpsH\000B\020\n\016transforma" +
+      "tionB\201\001\n\"io.envoyproxy.envoy.config.core" +
+      ".v3B\rProtocolProtoP\001ZBgithub.com/envoypr" +
+      "oxy/go-control-plane/envoy/config/core/v" +
+      "3;corev3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -276,7 +277,7 @@ public final class ProtocolProto {
     internal_static_envoy_config_core_v3_AlternateProtocolsCacheOptions_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_core_v3_AlternateProtocolsCacheOptions_descriptor,
-        new java.lang.String[] { "Name", "MaxEntries", "KeyValueStoreConfig", "PrepopulatedEntries", });
+        new java.lang.String[] { "Name", "MaxEntries", "KeyValueStoreConfig", "PrepopulatedEntries", "CanonicalSuffixes", });
     internal_static_envoy_config_core_v3_AlternateProtocolsCacheOptions_AlternateProtocolsCacheEntry_descriptor =
       internal_static_envoy_config_core_v3_AlternateProtocolsCacheOptions_descriptor.getNestedTypes().get(0);
     internal_static_envoy_config_core_v3_AlternateProtocolsCacheOptions_AlternateProtocolsCacheEntry_fieldAccessorTable = new

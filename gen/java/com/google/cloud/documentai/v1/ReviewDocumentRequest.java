@@ -36,76 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReviewDocumentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            humanReviewConfig_ = s;
-            break;
-          }
-          case 24: {
-
-            enableSchemaValidation_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.cloud.documentai.v1.Document.Builder subBuilder = null;
-            if (sourceCase_ == 4) {
-              subBuilder = ((com.google.cloud.documentai.v1.Document) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.documentai.v1.Document.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.documentai.v1.Document) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 4;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            priority_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1.DocumentAiProcessorService.internal_static_google_cloud_documentai_v1_ReviewDocumentRequest_descriptor;
@@ -332,11 +262,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HUMAN_REVIEW_CONFIG_FIELD_NUMBER = 1;
-  private volatile java.lang.Object humanReviewConfig_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object humanReviewConfig_ = "";
   /**
    * <pre>
-   * Required. The resource name of the HumanReviewConfig that the document will be
-   * reviewed with.
+   * Required. The resource name of the HumanReviewConfig that the document will
+   * be reviewed with.
    * </pre>
    *
    * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -357,8 +288,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The resource name of the HumanReviewConfig that the document will be
-   * reviewed with.
+   * Required. The resource name of the HumanReviewConfig that the document will
+   * be reviewed with.
    * </pre>
    *
    * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -380,7 +311,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_SCHEMA_VALIDATION_FIELD_NUMBER = 3;
-  private boolean enableSchemaValidation_;
+  private boolean enableSchemaValidation_ = false;
   /**
    * <pre>
    * Whether the validation should be performed on the ad-hoc review request.
@@ -395,7 +326,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 5;
-  private int priority_;
+  private int priority_ = 0;
   /**
    * <pre>
    * The priority of the human review task.
@@ -416,9 +347,46 @@ private static final long serialVersionUID = 0L;
    * @return The priority.
    */
   @java.lang.Override public com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority getPriority() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority result = com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.valueOf(priority_);
+    com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority result = com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.forNumber(priority_);
     return result == null ? com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.UNRECOGNIZED : result;
+  }
+
+  public static final int DOCUMENT_SCHEMA_FIELD_NUMBER = 6;
+  private com.google.cloud.documentai.v1.DocumentSchema documentSchema_;
+  /**
+   * <pre>
+   * The document schema of the human review task.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+   * @return Whether the documentSchema field is set.
+   */
+  @java.lang.Override
+  public boolean hasDocumentSchema() {
+    return documentSchema_ != null;
+  }
+  /**
+   * <pre>
+   * The document schema of the human review task.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+   * @return The documentSchema.
+   */
+  @java.lang.Override
+  public com.google.cloud.documentai.v1.DocumentSchema getDocumentSchema() {
+    return documentSchema_ == null ? com.google.cloud.documentai.v1.DocumentSchema.getDefaultInstance() : documentSchema_;
+  }
+  /**
+   * <pre>
+   * The document schema of the human review task.
+   * </pre>
+   *
+   * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.documentai.v1.DocumentSchemaOrBuilder getDocumentSchemaOrBuilder() {
+    return documentSchema_ == null ? com.google.cloud.documentai.v1.DocumentSchema.getDefaultInstance() : documentSchema_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -447,7 +415,10 @@ private static final long serialVersionUID = 0L;
     if (priority_ != com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.DEFAULT.getNumber()) {
       output.writeEnum(5, priority_);
     }
-    unknownFields.writeTo(output);
+    if (documentSchema_ != null) {
+      output.writeMessage(6, getDocumentSchema());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -471,7 +442,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, priority_);
     }
-    size += unknownFields.getSerializedSize();
+    if (documentSchema_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getDocumentSchema());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -491,6 +466,11 @@ private static final long serialVersionUID = 0L;
     if (getEnableSchemaValidation()
         != other.getEnableSchemaValidation()) return false;
     if (priority_ != other.priority_) return false;
+    if (hasDocumentSchema() != other.hasDocumentSchema()) return false;
+    if (hasDocumentSchema()) {
+      if (!getDocumentSchema()
+          .equals(other.getDocumentSchema())) return false;
+    }
     if (!getSourceCase().equals(other.getSourceCase())) return false;
     switch (sourceCase_) {
       case 4:
@@ -500,7 +480,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -518,6 +498,10 @@ private static final long serialVersionUID = 0L;
         getEnableSchemaValidation());
     hash = (37 * hash) + PRIORITY_FIELD_NUMBER;
     hash = (53 * hash) + priority_;
+    if (hasDocumentSchema()) {
+      hash = (37 * hash) + DOCUMENT_SCHEMA_FIELD_NUMBER;
+      hash = (53 * hash) + getDocumentSchema().hashCode();
+    }
     switch (sourceCase_) {
       case 4:
         hash = (37 * hash) + INLINE_DOCUMENT_FIELD_NUMBER;
@@ -526,7 +510,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -647,28 +631,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1.ReviewDocumentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (inlineDocumentBuilder_ != null) {
+        inlineDocumentBuilder_.clear();
+      }
       humanReviewConfig_ = "";
-
       enableSchemaValidation_ = false;
-
       priority_ = 0;
-
+      documentSchema_ = null;
+      if (documentSchemaBuilder_ != null) {
+        documentSchemaBuilder_.dispose();
+        documentSchemaBuilder_ = null;
+      }
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -697,19 +682,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1.ReviewDocumentRequest buildPartial() {
       com.google.cloud.documentai.v1.ReviewDocumentRequest result = new com.google.cloud.documentai.v1.ReviewDocumentRequest(this);
-      if (sourceCase_ == 4) {
-        if (inlineDocumentBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = inlineDocumentBuilder_.build();
-        }
-      }
-      result.humanReviewConfig_ = humanReviewConfig_;
-      result.enableSchemaValidation_ = enableSchemaValidation_;
-      result.priority_ = priority_;
-      result.sourceCase_ = sourceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1.ReviewDocumentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.humanReviewConfig_ = humanReviewConfig_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.enableSchemaValidation_ = enableSchemaValidation_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.priority_ = priority_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.documentSchema_ = documentSchemaBuilder_ == null
+            ? documentSchema_
+            : documentSchemaBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.documentai.v1.ReviewDocumentRequest result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 4 &&
+          inlineDocumentBuilder_ != null) {
+        result.source_ = inlineDocumentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -758,6 +761,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.documentai.v1.ReviewDocumentRequest.getDefaultInstance()) return this;
       if (!other.getHumanReviewConfig().isEmpty()) {
         humanReviewConfig_ = other.humanReviewConfig_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getEnableSchemaValidation() != false) {
@@ -765,6 +769,9 @@ private static final long serialVersionUID = 0L;
       }
       if (other.priority_ != 0) {
         setPriorityValue(other.getPriorityValue());
+      }
+      if (other.hasDocumentSchema()) {
+        mergeDocumentSchema(other.getDocumentSchema());
       }
       switch (other.getSourceCase()) {
         case INLINE_DOCUMENT: {
@@ -775,7 +782,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -790,17 +797,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1.ReviewDocumentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              humanReviewConfig_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 24: {
+              enableSchemaValidation_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getInlineDocumentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 4;
+              break;
+            } // case 34
+            case 40: {
+              priority_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getDocumentSchemaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1.ReviewDocumentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -818,6 +867,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.documentai.v1.Document, com.google.cloud.documentai.v1.Document.Builder, com.google.cloud.documentai.v1.DocumentOrBuilder> inlineDocumentBuilder_;
@@ -993,15 +1043,15 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 4;
-      onChanged();;
+      onChanged();
       return inlineDocumentBuilder_;
     }
 
     private java.lang.Object humanReviewConfig_ = "";
     /**
      * <pre>
-     * Required. The resource name of the HumanReviewConfig that the document will be
-     * reviewed with.
+     * Required. The resource name of the HumanReviewConfig that the document will
+     * be reviewed with.
      * </pre>
      *
      * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -1021,8 +1071,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the HumanReviewConfig that the document will be
-     * reviewed with.
+     * Required. The resource name of the HumanReviewConfig that the document will
+     * be reviewed with.
      * </pre>
      *
      * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -1043,8 +1093,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The resource name of the HumanReviewConfig that the document will be
-     * reviewed with.
+     * Required. The resource name of the HumanReviewConfig that the document will
+     * be reviewed with.
      * </pre>
      *
      * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -1053,33 +1103,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHumanReviewConfig(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       humanReviewConfig_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the HumanReviewConfig that the document will be
-     * reviewed with.
+     * Required. The resource name of the HumanReviewConfig that the document will
+     * be reviewed with.
      * </pre>
      *
      * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearHumanReviewConfig() {
-      
       humanReviewConfig_ = getDefaultInstance().getHumanReviewConfig();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The resource name of the HumanReviewConfig that the document will be
-     * reviewed with.
+     * Required. The resource name of the HumanReviewConfig that the document will
+     * be reviewed with.
      * </pre>
      *
      * <code>string human_review_config = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -1088,12 +1136,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHumanReviewConfigBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       humanReviewConfig_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1123,6 +1169,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableSchemaValidation(boolean value) {
       
       enableSchemaValidation_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1135,7 +1182,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableSchemaValidation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       enableSchemaValidation_ = false;
       onChanged();
       return this;
@@ -1163,8 +1210,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPriorityValue(int value) {
-      
       priority_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1178,8 +1225,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority getPriority() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority result = com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.valueOf(priority_);
+      com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority result = com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.forNumber(priority_);
       return result == null ? com.google.cloud.documentai.v1.ReviewDocumentRequest.Priority.UNRECOGNIZED : result;
     }
     /**
@@ -1195,7 +1241,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       priority_ = value.getNumber();
       onChanged();
       return this;
@@ -1209,10 +1255,165 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPriority() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       priority_ = 0;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.documentai.v1.DocumentSchema documentSchema_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.documentai.v1.DocumentSchema, com.google.cloud.documentai.v1.DocumentSchema.Builder, com.google.cloud.documentai.v1.DocumentSchemaOrBuilder> documentSchemaBuilder_;
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     * @return Whether the documentSchema field is set.
+     */
+    public boolean hasDocumentSchema() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     * @return The documentSchema.
+     */
+    public com.google.cloud.documentai.v1.DocumentSchema getDocumentSchema() {
+      if (documentSchemaBuilder_ == null) {
+        return documentSchema_ == null ? com.google.cloud.documentai.v1.DocumentSchema.getDefaultInstance() : documentSchema_;
+      } else {
+        return documentSchemaBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    public Builder setDocumentSchema(com.google.cloud.documentai.v1.DocumentSchema value) {
+      if (documentSchemaBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        documentSchema_ = value;
+      } else {
+        documentSchemaBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    public Builder setDocumentSchema(
+        com.google.cloud.documentai.v1.DocumentSchema.Builder builderForValue) {
+      if (documentSchemaBuilder_ == null) {
+        documentSchema_ = builderForValue.build();
+      } else {
+        documentSchemaBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    public Builder mergeDocumentSchema(com.google.cloud.documentai.v1.DocumentSchema value) {
+      if (documentSchemaBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          documentSchema_ != null &&
+          documentSchema_ != com.google.cloud.documentai.v1.DocumentSchema.getDefaultInstance()) {
+          getDocumentSchemaBuilder().mergeFrom(value);
+        } else {
+          documentSchema_ = value;
+        }
+      } else {
+        documentSchemaBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    public Builder clearDocumentSchema() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      documentSchema_ = null;
+      if (documentSchemaBuilder_ != null) {
+        documentSchemaBuilder_.dispose();
+        documentSchemaBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    public com.google.cloud.documentai.v1.DocumentSchema.Builder getDocumentSchemaBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getDocumentSchemaFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    public com.google.cloud.documentai.v1.DocumentSchemaOrBuilder getDocumentSchemaOrBuilder() {
+      if (documentSchemaBuilder_ != null) {
+        return documentSchemaBuilder_.getMessageOrBuilder();
+      } else {
+        return documentSchema_ == null ?
+            com.google.cloud.documentai.v1.DocumentSchema.getDefaultInstance() : documentSchema_;
+      }
+    }
+    /**
+     * <pre>
+     * The document schema of the human review task.
+     * </pre>
+     *
+     * <code>.google.cloud.documentai.v1.DocumentSchema document_schema = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.documentai.v1.DocumentSchema, com.google.cloud.documentai.v1.DocumentSchema.Builder, com.google.cloud.documentai.v1.DocumentSchemaOrBuilder> 
+        getDocumentSchemaFieldBuilder() {
+      if (documentSchemaBuilder_ == null) {
+        documentSchemaBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.documentai.v1.DocumentSchema, com.google.cloud.documentai.v1.DocumentSchema.Builder, com.google.cloud.documentai.v1.DocumentSchemaOrBuilder>(
+                getDocumentSchema(),
+                getParentForChildren(),
+                isClean());
+        documentSchema_ = null;
+      }
+      return documentSchemaBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1247,7 +1448,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReviewDocumentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,79 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExamplesOverride(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            neighborCount_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            crowdingCount_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              restrictions_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            restrictions_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-
-            returnEmbeddings_ = input.readBool();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            dataFormat_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        restrictions_ = java.util.Collections.unmodifiableList(restrictions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ExplanationProto.internal_static_google_cloud_aiplatform_v1beta1_ExamplesOverride_descriptor;
@@ -268,7 +195,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEIGHBOR_COUNT_FIELD_NUMBER = 1;
-  private int neighborCount_;
+  private int neighborCount_ = 0;
   /**
    * <pre>
    * The number of neighbors to return.
@@ -283,7 +210,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CROWDING_COUNT_FIELD_NUMBER = 2;
-  private int crowdingCount_;
+  private int crowdingCount_ = 0;
   /**
    * <pre>
    * The number of neighbors to return that have the same crowding tag.
@@ -298,6 +225,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESTRICTIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace> restrictions_;
   /**
    * <pre>
@@ -358,7 +286,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RETURN_EMBEDDINGS_FIELD_NUMBER = 4;
-  private boolean returnEmbeddings_;
+  private boolean returnEmbeddings_ = false;
   /**
    * <pre>
    * If true, return the embeddings instead of neighbors.
@@ -373,7 +301,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_FORMAT_FIELD_NUMBER = 5;
-  private int dataFormat_;
+  private int dataFormat_ = 0;
   /**
    * <pre>
    * The format of the data being provided with each call.
@@ -394,8 +322,7 @@ private static final long serialVersionUID = 0L;
    * @return The dataFormat.
    */
   @java.lang.Override public com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat getDataFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat result = com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.valueOf(dataFormat_);
+    com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat result = com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.forNumber(dataFormat_);
     return result == null ? com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.UNRECOGNIZED : result;
   }
 
@@ -428,7 +355,7 @@ private static final long serialVersionUID = 0L;
     if (dataFormat_ != com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.DATA_FORMAT_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, dataFormat_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -457,7 +384,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, dataFormat_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -481,7 +408,7 @@ private static final long serialVersionUID = 0L;
     if (getReturnEmbeddings()
         != other.getReturnEmbeddings()) return false;
     if (dataFormat_ != other.dataFormat_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -505,7 +432,7 @@ private static final long serialVersionUID = 0L;
         getReturnEmbeddings());
     hash = (37 * hash) + DATA_FORMAT_FIELD_NUMBER;
     hash = (53 * hash) + dataFormat_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -626,37 +553,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.ExamplesOverride.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRestrictionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       neighborCount_ = 0;
-
       crowdingCount_ = 0;
-
       if (restrictionsBuilder_ == null) {
         restrictions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        restrictions_ = null;
         restrictionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       returnEmbeddings_ = false;
-
       dataFormat_ = 0;
-
       return this;
     }
 
@@ -683,22 +602,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExamplesOverride buildPartial() {
       com.google.cloud.aiplatform.v1beta1.ExamplesOverride result = new com.google.cloud.aiplatform.v1beta1.ExamplesOverride(this);
-      int from_bitField0_ = bitField0_;
-      result.neighborCount_ = neighborCount_;
-      result.crowdingCount_ = crowdingCount_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.ExamplesOverride result) {
       if (restrictionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           restrictions_ = java.util.Collections.unmodifiableList(restrictions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.restrictions_ = restrictions_;
       } else {
         result.restrictions_ = restrictionsBuilder_.build();
       }
-      result.returnEmbeddings_ = returnEmbeddings_;
-      result.dataFormat_ = dataFormat_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExamplesOverride result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.neighborCount_ = neighborCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.crowdingCount_ = crowdingCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.returnEmbeddings_ = returnEmbeddings_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dataFormat_ = dataFormat_;
+      }
     }
 
     @java.lang.Override
@@ -755,7 +690,7 @@ private static final long serialVersionUID = 0L;
         if (!other.restrictions_.isEmpty()) {
           if (restrictions_.isEmpty()) {
             restrictions_ = other.restrictions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureRestrictionsIsMutable();
             restrictions_.addAll(other.restrictions_);
@@ -768,7 +703,7 @@ private static final long serialVersionUID = 0L;
             restrictionsBuilder_.dispose();
             restrictionsBuilder_ = null;
             restrictions_ = other.restrictions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             restrictionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRestrictionsFieldBuilder() : null;
@@ -783,7 +718,7 @@ private static final long serialVersionUID = 0L;
       if (other.dataFormat_ != 0) {
         setDataFormatValue(other.getDataFormatValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -798,17 +733,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.ExamplesOverride parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              neighborCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              crowdingCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace.parser(),
+                      extensionRegistry);
+              if (restrictionsBuilder_ == null) {
+                ensureRestrictionsIsMutable();
+                restrictions_.add(m);
+              } else {
+                restrictionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              returnEmbeddings_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              dataFormat_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExamplesOverride) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -838,6 +819,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNeighborCount(int value) {
       
       neighborCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -850,7 +832,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNeighborCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       neighborCount_ = 0;
       onChanged();
       return this;
@@ -881,6 +863,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCrowdingCount(int value) {
       
       crowdingCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -893,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCrowdingCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       crowdingCount_ = 0;
       onChanged();
       return this;
@@ -902,9 +885,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace> restrictions_ =
       java.util.Collections.emptyList();
     private void ensureRestrictionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         restrictions_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace>(restrictions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1098,7 +1081,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRestrictions() {
       if (restrictionsBuilder_ == null) {
         restrictions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         restrictionsBuilder_.clear();
@@ -1203,7 +1186,7 @@ private static final long serialVersionUID = 0L;
         restrictionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace, com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespace.Builder, com.google.cloud.aiplatform.v1beta1.ExamplesRestrictionsNamespaceOrBuilder>(
                 restrictions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         restrictions_ = null;
@@ -1236,6 +1219,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReturnEmbeddings(boolean value) {
       
       returnEmbeddings_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1248,7 +1232,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReturnEmbeddings() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       returnEmbeddings_ = false;
       onChanged();
       return this;
@@ -1276,8 +1260,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDataFormatValue(int value) {
-      
       dataFormat_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1291,8 +1275,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat getDataFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat result = com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.valueOf(dataFormat_);
+      com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat result = com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.forNumber(dataFormat_);
       return result == null ? com.google.cloud.aiplatform.v1beta1.ExamplesOverride.DataFormat.UNRECOGNIZED : result;
     }
     /**
@@ -1308,7 +1291,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       dataFormat_ = value.getNumber();
       onChanged();
       return this;
@@ -1322,7 +1305,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       dataFormat_ = 0;
       onChanged();
       return this;
@@ -1360,7 +1343,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExamplesOverride(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

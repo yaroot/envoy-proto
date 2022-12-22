@@ -9,9 +9,8 @@ public interface SearchAllResourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. A scope can be a project, a folder, or an organization. The
-   * search is limited to the resources within the `scope`. The caller must be
-   * granted the
+   * Required. A scope can be a project, a folder, or an organization. The search is
+   * limited to the resources within the `scope`. The caller must be granted the
    * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
    * permission on the desired scope.
    * The allowed values are:
@@ -27,9 +26,8 @@ public interface SearchAllResourcesRequestOrBuilder extends
   java.lang.String getScope();
   /**
    * <pre>
-   * Required. A scope can be a project, a folder, or an organization. The
-   * search is limited to the resources within the `scope`. The caller must be
-   * granted the
+   * Required. A scope can be a project, a folder, or an organization. The search is
+   * limited to the resources within the `scope`. The caller must be granted the
    * [`cloudasset.assets.searchAllResources`](https://cloud.google.com/asset-inventory/docs/access-control#required_permissions)
    * permission on the desired scope.
    * The allowed values are:
@@ -66,7 +64,19 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   and its value is "prod".
    * * `labels.env:*` to find Cloud resources that have a label "env".
    * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-   *   encryption key whose name contains the word "key".
+   *   encryption key whose name contains "key" as a word. This field is
+   *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+   *   information.
+   * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+   *   encryption keys whose name contains the word "key".
+   * * `relationships:instance-group-1` to find Cloud resources that have
+   *   relationships with "instance-group-1" in the related resource name.
+   * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+   *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+   * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+   *   compute instances that have relationships with "instance-group-1" in the
+   *   compute instance group resource name, for relationship type
+   *   "INSTANCE_TO_INSTANCEGROUP".
    * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
    *   word.
    * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -112,7 +122,19 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   and its value is "prod".
    * * `labels.env:*` to find Cloud resources that have a label "env".
    * * `kmsKey:key` to find Cloud resources encrypted with a customer-managed
-   *   encryption key whose name contains the word "key".
+   *   encryption key whose name contains "key" as a word. This field is
+   *   deprecated. Please use the `kmsKeys` field to retrieve KMS key
+   *   information.
+   * * `kmsKeys:key` to find Cloud resources encrypted with customer-managed
+   *   encryption keys whose name contains the word "key".
+   * * `relationships:instance-group-1` to find Cloud resources that have
+   *   relationships with "instance-group-1" in the related resource name.
+   * * `relationships:INSTANCE_TO_INSTANCEGROUP` to find compute instances that
+   *   have relationships of type "INSTANCE_TO_INSTANCEGROUP".
+   * * `relationships.INSTANCE_TO_INSTANCEGROUP:instance-group-1` to find
+   *   compute instances that have relationships with "instance-group-1" in the
+   *   compute instance group resource name, for relationship type
+   *   "INSTANCE_TO_INSTANCEGROUP".
    * * `state:ACTIVE` to find Cloud resources whose state contains "ACTIVE" as a
    *   word.
    * * `NOT state:ACTIVE` to find Cloud resources whose state doesn't contain
@@ -141,8 +163,8 @@ public interface SearchAllResourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -161,8 +183,8 @@ public interface SearchAllResourcesRequestOrBuilder extends
       getAssetTypesList();
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -180,8 +202,8 @@ public interface SearchAllResourcesRequestOrBuilder extends
   int getAssetTypesCount();
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -200,8 +222,8 @@ public interface SearchAllResourcesRequestOrBuilder extends
   java.lang.String getAssetTypes(int index);
   /**
    * <pre>
-   * Optional. A list of asset types that this request searches for. If empty,
-   * it will search all the [searchable asset
+   * Optional. A list of asset types that this request searches for. If empty, it will
+   * search all the [searchable asset
    * types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
    * Regular expressions are also supported. For example:
    * * "compute.googleapis.com.*" snapshots resources whose asset type starts
@@ -222,11 +244,10 @@ public interface SearchAllResourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. The page size for search result pagination. Page size is capped
-   * at 500 even if a larger value is given. If set to zero, server will pick an
-   * appropriate default. Returned results may be fewer than requested. When
-   * this happens, there could be more results as long as `next_page_token` is
-   * returned.
+   * Optional. The page size for search result pagination. Page size is capped at 500 even
+   * if a larger value is given. If set to zero, server will pick an appropriate
+   * default. Returned results may be fewer than requested. When this happens,
+   * there could be more results as long as `next_page_token` is returned.
    * </pre>
    *
    * <code>int32 page_size = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -236,10 +257,10 @@ public interface SearchAllResourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. If present, then retrieve the next batch of results from the
-   * preceding call to this method. `page_token` must be the value of
-   * `next_page_token` from the previous response. The values of all other
-   * method parameters, must be identical to those in the previous call.
+   * Optional. If present, then retrieve the next batch of results from the preceding call
+   * to this method. `page_token` must be the value of `next_page_token` from
+   * the previous response. The values of all other method parameters, must be
+   * identical to those in the previous call.
    * </pre>
    *
    * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -248,10 +269,10 @@ public interface SearchAllResourcesRequestOrBuilder extends
   java.lang.String getPageToken();
   /**
    * <pre>
-   * Optional. If present, then retrieve the next batch of results from the
-   * preceding call to this method. `page_token` must be the value of
-   * `next_page_token` from the previous response. The values of all other
-   * method parameters, must be identical to those in the previous call.
+   * Optional. If present, then retrieve the next batch of results from the preceding call
+   * to this method. `page_token` must be the value of `next_page_token` from
+   * the previous response. The values of all other method parameters, must be
+   * identical to those in the previous call.
    * </pre>
    *
    * <code>string page_token = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -262,9 +283,9 @@ public interface SearchAllResourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying the sorting order of
-   * the results. The default order is ascending. Add " DESC" after the field
-   * name to indicate descending order. Redundant space characters are ignored.
+   * Optional. A comma-separated list of fields specifying the sorting order of the
+   * results. The default order is ascending. Add " DESC" after the field name
+   * to indicate descending order. Redundant space characters are ignored.
    * Example: "location DESC, name".
    * Only singular primitive fields in the response are sortable:
    *   * name
@@ -273,15 +294,14 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   * displayName
    *   * description
    *   * location
-   *   * kmsKey
    *   * createTime
    *   * updateTime
    *   * state
    *   * parentFullResourceName
    *   * parentAssetType
-   * All the other fields such as repeated fields (e.g., `networkTags`), map
-   * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-   * are not supported.
+   * All the other fields such as repeated fields (e.g., `networkTags`,
+   * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+   * `additionalAttributes`) are not supported.
    * </pre>
    *
    * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -290,9 +310,9 @@ public interface SearchAllResourcesRequestOrBuilder extends
   java.lang.String getOrderBy();
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying the sorting order of
-   * the results. The default order is ascending. Add " DESC" after the field
-   * name to indicate descending order. Redundant space characters are ignored.
+   * Optional. A comma-separated list of fields specifying the sorting order of the
+   * results. The default order is ascending. Add " DESC" after the field name
+   * to indicate descending order. Redundant space characters are ignored.
    * Example: "location DESC, name".
    * Only singular primitive fields in the response are sortable:
    *   * name
@@ -301,15 +321,14 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   * displayName
    *   * description
    *   * location
-   *   * kmsKey
    *   * createTime
    *   * updateTime
    *   * state
    *   * parentFullResourceName
    *   * parentAssetType
-   * All the other fields such as repeated fields (e.g., `networkTags`), map
-   * fields (e.g., `labels`) and struct fields (e.g., `additionalAttributes`)
-   * are not supported.
+   * All the other fields such as repeated fields (e.g., `networkTags`,
+   * `kmsKeys`), map fields (e.g., `labels`) and struct fields (e.g.,
+   * `additionalAttributes`) are not supported.
    * </pre>
    *
    * <code>string order_by = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -320,10 +339,10 @@ public interface SearchAllResourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying which fields to be
-   * returned in ResourceSearchResult. Only '*' or combination of top level
-   * fields can be specified. Field names of both snake_case and camelCase are
-   * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+   * Optional. A comma-separated list of fields specifying which fields to be returned in
+   * ResourceSearchResult. Only '*' or combination of top level fields can be
+   * specified. Field names of both snake_case and camelCase are supported.
+   * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
    * The read_mask paths must be valid field paths listed but not limited to
    * (both snake_case and camelCase are supported):
    *   * name
@@ -337,7 +356,9 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   * tagValueIds
    *   * labels
    *   * networkTags
-   *   * kmsKey
+   *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+   *     retrieve KMS key information.)
+   *   * kmsKeys
    *   * createTime
    *   * updateTime
    *   * state
@@ -356,10 +377,10 @@ public interface SearchAllResourcesRequestOrBuilder extends
   boolean hasReadMask();
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying which fields to be
-   * returned in ResourceSearchResult. Only '*' or combination of top level
-   * fields can be specified. Field names of both snake_case and camelCase are
-   * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+   * Optional. A comma-separated list of fields specifying which fields to be returned in
+   * ResourceSearchResult. Only '*' or combination of top level fields can be
+   * specified. Field names of both snake_case and camelCase are supported.
+   * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
    * The read_mask paths must be valid field paths listed but not limited to
    * (both snake_case and camelCase are supported):
    *   * name
@@ -373,7 +394,9 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   * tagValueIds
    *   * labels
    *   * networkTags
-   *   * kmsKey
+   *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+   *     retrieve KMS key information.)
+   *   * kmsKeys
    *   * createTime
    *   * updateTime
    *   * state
@@ -392,10 +415,10 @@ public interface SearchAllResourcesRequestOrBuilder extends
   com.google.protobuf.FieldMask getReadMask();
   /**
    * <pre>
-   * Optional. A comma-separated list of fields specifying which fields to be
-   * returned in ResourceSearchResult. Only '*' or combination of top level
-   * fields can be specified. Field names of both snake_case and camelCase are
-   * supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+   * Optional. A comma-separated list of fields specifying which fields to be returned in
+   * ResourceSearchResult. Only '*' or combination of top level fields can be
+   * specified. Field names of both snake_case and camelCase are supported.
+   * Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
    * The read_mask paths must be valid field paths listed but not limited to
    * (both snake_case and camelCase are supported):
    *   * name
@@ -409,7 +432,9 @@ public interface SearchAllResourcesRequestOrBuilder extends
    *   * tagValueIds
    *   * labels
    *   * networkTags
-   *   * kmsKey
+   *   * kmsKey (This field is deprecated. Please use the `kmsKeys` field to
+   *     retrieve KMS key information.)
+   *   * kmsKeys
    *   * createTime
    *   * updateTime
    *   * state

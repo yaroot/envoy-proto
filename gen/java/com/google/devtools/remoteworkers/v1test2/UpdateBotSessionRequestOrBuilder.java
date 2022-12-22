@@ -56,8 +56,8 @@ public interface UpdateBotSessionRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The fields on the bot that should be updated. See the BotSession resource
-   * for which fields are updatable by which caller.
+   * Required. The fields on the bot that should be updated. See the BotSession
+   * resource for which fields are updatable by which caller.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -66,8 +66,8 @@ public interface UpdateBotSessionRequestOrBuilder extends
   boolean hasUpdateMask();
   /**
    * <pre>
-   * Required. The fields on the bot that should be updated. See the BotSession resource
-   * for which fields are updatable by which caller.
+   * Required. The fields on the bot that should be updated. See the BotSession
+   * resource for which fields are updatable by which caller.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -76,8 +76,8 @@ public interface UpdateBotSessionRequestOrBuilder extends
   com.google.protobuf.FieldMask getUpdateMask();
   /**
    * <pre>
-   * Required. The fields on the bot that should be updated. See the BotSession resource
-   * for which fields are updatable by which caller.
+   * Required. The fields on the bot that should be updated. See the BotSession
+   * resource for which fields are updatable by which caller.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>

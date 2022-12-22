@@ -54,7 +54,6 @@ public interface LocationMetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.memcache.v1beta2.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.memcache.v1beta2.ZoneMetadata getAvailableZonesOrDefault(
       java.lang.String key,
@@ -69,7 +68,6 @@ com.google.cloud.memcache.v1beta2.ZoneMetadata defaultValue);
    *
    * <code>map&lt;string, .google.cloud.memcache.v1beta2.ZoneMetadata&gt; available_zones = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.memcache.v1beta2.ZoneMetadata getAvailableZonesOrThrow(
       java.lang.String key);
 }

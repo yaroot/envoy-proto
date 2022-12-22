@@ -36,76 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClientConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            backendTokenSpecifierCase_ = 3;
-            backendTokenSpecifier_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxCacheSize_ != null) {
-              subBuilder = maxCacheSize_.toBuilder();
-            }
-            maxCacheSize_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxCacheSize_);
-              maxCacheSize_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.trace.v3.SkywalkingProto.internal_static_envoy_config_trace_v3_ClientConfig_descriptor;
@@ -159,7 +89,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object serviceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceName_ = "";
   /**
    * <pre>
    * Service name for SkyWalking tracer. If this field is empty, then local service cluster name
@@ -213,7 +144,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object instanceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceName_ = "";
   /**
    * <pre>
    * Service instance name for SkyWalking tracer. If this field is empty, then local service node
@@ -371,7 +303,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxCacheSizeOrBuilder() {
-    return getMaxCacheSize();
+    return maxCacheSize_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxCacheSize_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -400,7 +332,7 @@ private static final long serialVersionUID = 0L;
     if (maxCacheSize_ != null) {
       output.writeMessage(4, getMaxCacheSize());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -422,7 +354,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getMaxCacheSize());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -455,7 +387,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -482,7 +414,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -603,30 +535,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.trace.v3.ClientConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       serviceName_ = "";
-
       instanceName_ = "";
-
-      if (maxCacheSizeBuilder_ == null) {
-        maxCacheSize_ = null;
-      } else {
-        maxCacheSize_ = null;
+      maxCacheSize_ = null;
+      if (maxCacheSizeBuilder_ != null) {
+        maxCacheSizeBuilder_.dispose();
         maxCacheSizeBuilder_ = null;
       }
       backendTokenSpecifierCase_ = 0;
@@ -657,19 +582,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.trace.v3.ClientConfig buildPartial() {
       io.envoyproxy.envoy.config.trace.v3.ClientConfig result = new io.envoyproxy.envoy.config.trace.v3.ClientConfig(this);
-      result.serviceName_ = serviceName_;
-      result.instanceName_ = instanceName_;
-      if (backendTokenSpecifierCase_ == 3) {
-        result.backendTokenSpecifier_ = backendTokenSpecifier_;
-      }
-      if (maxCacheSizeBuilder_ == null) {
-        result.maxCacheSize_ = maxCacheSize_;
-      } else {
-        result.maxCacheSize_ = maxCacheSizeBuilder_.build();
-      }
-      result.backendTokenSpecifierCase_ = backendTokenSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.trace.v3.ClientConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.serviceName_ = serviceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instanceName_ = instanceName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxCacheSize_ = maxCacheSizeBuilder_ == null
+            ? maxCacheSize_
+            : maxCacheSizeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.trace.v3.ClientConfig result) {
+      result.backendTokenSpecifierCase_ = backendTokenSpecifierCase_;
+      result.backendTokenSpecifier_ = this.backendTokenSpecifier_;
     }
 
     @java.lang.Override
@@ -718,10 +654,12 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.trace.v3.ClientConfig.getDefaultInstance()) return this;
       if (!other.getServiceName().isEmpty()) {
         serviceName_ = other.serviceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getInstanceName().isEmpty()) {
         instanceName_ = other.instanceName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasMaxCacheSize()) {
@@ -738,7 +676,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -753,17 +691,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.trace.v3.ClientConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              serviceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instanceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              backendTokenSpecifierCase_ = 3;
+              backendTokenSpecifier_ = s;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMaxCacheSizeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.trace.v3.ClientConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int backendTokenSpecifierCase_ = 0;
@@ -781,6 +755,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object serviceName_ = "";
     /**
@@ -847,11 +822,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -868,8 +841,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceName() {
-      
       serviceName_ = getDefaultInstance().getServiceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -888,12 +861,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -963,11 +934,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instanceName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -984,8 +953,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceName() {
-      
       instanceName_ = getDefaultInstance().getInstanceName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1004,12 +973,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1090,10 +1057,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackendToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  backendTokenSpecifierCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      backendTokenSpecifierCase_ = 3;
       backendTokenSpecifier_ = value;
       onChanged();
       return this;
@@ -1125,10 +1090,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackendTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       backendTokenSpecifierCase_ = 3;
       backendTokenSpecifier_ = value;
       onChanged();
@@ -1149,7 +1112,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxCacheSize field is set.
      */
     public boolean hasMaxCacheSize() {
-      return maxCacheSizeBuilder_ != null || maxCacheSize_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1183,11 +1146,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxCacheSize_ = value;
-        onChanged();
       } else {
         maxCacheSizeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1203,11 +1166,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxCacheSizeBuilder_ == null) {
         maxCacheSize_ = builderForValue.build();
-        onChanged();
       } else {
         maxCacheSizeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1221,17 +1184,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxCacheSize(com.google.protobuf.UInt32Value value) {
       if (maxCacheSizeBuilder_ == null) {
-        if (maxCacheSize_ != null) {
-          maxCacheSize_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxCacheSize_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          maxCacheSize_ != null &&
+          maxCacheSize_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxCacheSizeBuilder().mergeFrom(value);
         } else {
           maxCacheSize_ = value;
         }
-        onChanged();
       } else {
         maxCacheSizeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1244,14 +1208,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_cache_size = 4;</code>
      */
     public Builder clearMaxCacheSize() {
-      if (maxCacheSizeBuilder_ == null) {
-        maxCacheSize_ = null;
-        onChanged();
-      } else {
-        maxCacheSize_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      maxCacheSize_ = null;
+      if (maxCacheSizeBuilder_ != null) {
+        maxCacheSizeBuilder_.dispose();
         maxCacheSizeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1264,7 +1227,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_cache_size = 4;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxCacheSizeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMaxCacheSizeFieldBuilder().getBuilder();
     }
@@ -1340,7 +1303,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClientConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

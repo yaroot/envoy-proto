@@ -35,80 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Rating(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            ratingCount_ = input.readInt32();
-            break;
-          }
-          case 21: {
-
-            averageRating_ = input.readFloat();
-            break;
-          }
-          case 24: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ratingHistogram_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ratingHistogram_.addInt(input.readInt32());
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              ratingHistogram_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              ratingHistogram_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ratingHistogram_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2beta.CommonProto.internal_static_google_cloud_retail_v2beta_Rating_descriptor;
@@ -123,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RATING_COUNT_FIELD_NUMBER = 1;
-  private int ratingCount_;
+  private int ratingCount_ = 0;
   /**
    * <pre>
    * The total number of ratings. This value is independent of the value of
@@ -141,7 +67,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVERAGE_RATING_FIELD_NUMBER = 2;
-  private float averageRating_;
+  private float averageRating_ = 0F;
   /**
    * <pre>
    * The average rating of the [Product][google.cloud.retail.v2beta.Product].
@@ -158,6 +84,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RATING_HISTOGRAM_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList ratingHistogram_;
   /**
    * <pre>
@@ -240,7 +167,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < ratingHistogram_.size(); i++) {
       output.writeInt32NoTag(ratingHistogram_.getInt(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -271,7 +198,7 @@ private static final long serialVersionUID = 0L;
       }
       ratingHistogramMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -293,7 +220,7 @@ private static final long serialVersionUID = 0L;
             other.getAverageRating())) return false;
     if (!getRatingHistogramList()
         .equals(other.getRatingHistogramList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -313,7 +240,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RATING_HISTOGRAM_FIELD_NUMBER;
       hash = (53 * hash) + getRatingHistogramList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -434,28 +361,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.Rating.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ratingCount_ = 0;
-
       averageRating_ = 0F;
-
       ratingHistogram_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -482,16 +402,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.Rating buildPartial() {
       com.google.cloud.retail.v2beta.Rating result = new com.google.cloud.retail.v2beta.Rating(this);
-      int from_bitField0_ = bitField0_;
-      result.ratingCount_ = ratingCount_;
-      result.averageRating_ = averageRating_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        ratingHistogram_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.ratingHistogram_ = ratingHistogram_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2beta.Rating result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        ratingHistogram_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.ratingHistogram_ = ratingHistogram_;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.Rating result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.ratingCount_ = ratingCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.averageRating_ = averageRating_;
+      }
     }
 
     @java.lang.Override
@@ -547,14 +479,14 @@ private static final long serialVersionUID = 0L;
       if (!other.ratingHistogram_.isEmpty()) {
         if (ratingHistogram_.isEmpty()) {
           ratingHistogram_ = other.ratingHistogram_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureRatingHistogramIsMutable();
           ratingHistogram_.addAll(other.ratingHistogram_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -569,17 +501,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.Rating parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              ratingCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 21: {
+              averageRating_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            case 24: {
+              int v = input.readInt32();
+              ensureRatingHistogramIsMutable();
+              ratingHistogram_.addInt(v);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureRatingHistogramIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                ratingHistogram_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.Rating) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -615,6 +586,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRatingCount(int value) {
       
       ratingCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -630,7 +602,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRatingCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       ratingCount_ = 0;
       onChanged();
       return this;
@@ -665,6 +637,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAverageRating(float value) {
       
       averageRating_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -679,7 +652,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAverageRating() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       averageRating_ = 0F;
       onChanged();
       return this;
@@ -687,10 +660,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.IntList ratingHistogram_ = emptyIntList();
     private void ensureRatingHistogramIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         ratingHistogram_ = mutableCopy(ratingHistogram_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000004;
+      }
     }
     /**
      * <pre>
@@ -707,7 +680,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getRatingHistogramList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000004) != 0) ?
                java.util.Collections.unmodifiableList(ratingHistogram_) : ratingHistogram_;
     }
     /**
@@ -760,6 +733,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRatingHistogram(
         int index, int value) {
+      
       ensureRatingHistogramIsMutable();
       ratingHistogram_.setInt(index, value);
       onChanged();
@@ -780,6 +754,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addRatingHistogram(int value) {
+      
       ensureRatingHistogramIsMutable();
       ratingHistogram_.addInt(value);
       onChanged();
@@ -822,7 +797,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRatingHistogram() {
       ratingHistogram_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -859,7 +834,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Rating(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

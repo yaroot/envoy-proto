@@ -36,61 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SampleConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            initialBatchSampleSize_ = input.readInt32();
-            initialBatchSampleSizeCase_ = 1;
-            break;
-          }
-          case 24: {
-            followingBatchSampleSize_ = input.readInt32();
-            followingBatchSampleSizeCase_ = 3;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            sampleStrategy_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.DataLabelingJobProto.internal_static_google_cloud_aiplatform_v1_SampleConfig_descriptor;
@@ -372,7 +317,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLE_STRATEGY_FIELD_NUMBER = 5;
-  private int sampleStrategy_;
+  private int sampleStrategy_ = 0;
   /**
    * <pre>
    * Field to choose sampling strategy. Sampling strategy will decide which data
@@ -395,8 +340,7 @@ private static final long serialVersionUID = 0L;
    * @return The sampleStrategy.
    */
   @java.lang.Override public com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy getSampleStrategy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy result = com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.valueOf(sampleStrategy_);
+    com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy result = com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.forNumber(sampleStrategy_);
     return result == null ? com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.UNRECOGNIZED : result;
   }
 
@@ -425,7 +369,7 @@ private static final long serialVersionUID = 0L;
     if (sampleStrategy_ != com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.SAMPLE_STRATEGY_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, sampleStrategy_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -448,7 +392,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, sampleStrategy_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -482,7 +426,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -511,7 +455,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -633,24 +577,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.SampleConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sampleStrategy_ = 0;
-
       initialBatchSampleSizeCase_ = 0;
       initialBatchSampleSize_ = null;
       followingBatchSampleSizeCase_ = 0;
@@ -681,17 +620,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.SampleConfig buildPartial() {
       com.google.cloud.aiplatform.v1.SampleConfig result = new com.google.cloud.aiplatform.v1.SampleConfig(this);
-      if (initialBatchSampleSizeCase_ == 1) {
-        result.initialBatchSampleSize_ = initialBatchSampleSize_;
-      }
-      if (followingBatchSampleSizeCase_ == 3) {
-        result.followingBatchSampleSize_ = followingBatchSampleSize_;
-      }
-      result.sampleStrategy_ = sampleStrategy_;
-      result.initialBatchSampleSizeCase_ = initialBatchSampleSizeCase_;
-      result.followingBatchSampleSizeCase_ = followingBatchSampleSizeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.SampleConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sampleStrategy_ = sampleStrategy_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1.SampleConfig result) {
+      result.initialBatchSampleSizeCase_ = initialBatchSampleSizeCase_;
+      result.initialBatchSampleSize_ = this.initialBatchSampleSize_;
+      result.followingBatchSampleSizeCase_ = followingBatchSampleSizeCase_;
+      result.followingBatchSampleSize_ = this.followingBatchSampleSize_;
     }
 
     @java.lang.Override
@@ -759,7 +705,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -774,17 +720,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.SampleConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              initialBatchSampleSize_ = input.readInt32();
+              initialBatchSampleSizeCase_ = 1;
+              break;
+            } // case 8
+            case 24: {
+              followingBatchSampleSize_ = input.readInt32();
+              followingBatchSampleSizeCase_ = 3;
+              break;
+            } // case 24
+            case 40: {
+              sampleStrategy_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.SampleConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int initialBatchSampleSizeCase_ = 0;
@@ -817,6 +791,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -853,6 +828,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInitialBatchSamplePercentage(int value) {
+      
       initialBatchSampleSizeCase_ = 1;
       initialBatchSampleSize_ = value;
       onChanged();
@@ -913,6 +889,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFollowingBatchSamplePercentage(int value) {
+      
       followingBatchSampleSizeCase_ = 3;
       followingBatchSampleSize_ = value;
       onChanged();
@@ -960,8 +937,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSampleStrategyValue(int value) {
-      
       sampleStrategy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -976,8 +953,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy getSampleStrategy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy result = com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.valueOf(sampleStrategy_);
+      com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy result = com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.forNumber(sampleStrategy_);
       return result == null ? com.google.cloud.aiplatform.v1.SampleConfig.SampleStrategy.UNRECOGNIZED : result;
     }
     /**
@@ -994,7 +970,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       sampleStrategy_ = value.getNumber();
       onChanged();
       return this;
@@ -1009,7 +985,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSampleStrategy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       sampleStrategy_ = 0;
       onChanged();
       return this;
@@ -1047,7 +1023,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SampleConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

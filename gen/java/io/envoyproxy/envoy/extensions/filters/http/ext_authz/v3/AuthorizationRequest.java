@@ -31,71 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuthorizationRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder subBuilder = null;
-            if (allowedHeaders_ != null) {
-              subBuilder = allowedHeaders_.toBuilder();
-            }
-            allowedHeaders_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowedHeaders_);
-              allowedHeaders_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              headersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValue>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            headersToAdd_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.HeaderValue.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        headersToAdd_ = java.util.Collections.unmodifiableList(headersToAdd_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.ExtAuthzProto.internal_static_envoy_extensions_filters_http_ext_authz_v3_AuthorizationRequest_descriptor;
@@ -124,13 +59,17 @@ private static final long serialVersionUID = 0L;
    *   client request body (controlled by :ref:`with_request_body
    *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
    *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+   *   This field has been deprecated in favor of :ref:`allowed_headers
+   *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
    * </pre>
    *
-   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.allowed_headers is deprecated.
+   *     See envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto;l=272
    * @return Whether the allowedHeaders field is set.
    */
   @java.lang.Override
-  public boolean hasAllowedHeaders() {
+  @java.lang.Deprecated public boolean hasAllowedHeaders() {
     return allowedHeaders_ != null;
   }
   /**
@@ -146,13 +85,17 @@ private static final long serialVersionUID = 0L;
    *   client request body (controlled by :ref:`with_request_body
    *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
    *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+   *   This field has been deprecated in favor of :ref:`allowed_headers
+   *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
    * </pre>
    *
-   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.allowed_headers is deprecated.
+   *     See envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto;l=272
    * @return The allowedHeaders.
    */
   @java.lang.Override
-  public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders() {
+  @java.lang.Deprecated public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders() {
     return allowedHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
   }
   /**
@@ -168,16 +111,19 @@ private static final long serialVersionUID = 0L;
    *   client request body (controlled by :ref:`with_request_body
    *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
    *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+   *   This field has been deprecated in favor of :ref:`allowed_headers
+   *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
    * </pre>
    *
-   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
   @java.lang.Override
-  public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder() {
-    return getAllowedHeaders();
+  @java.lang.Deprecated public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder() {
+    return allowedHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
   }
 
   public static final int HEADERS_TO_ADD_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValue> headersToAdd_;
   /**
    * <pre>
@@ -262,7 +208,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < headersToAdd_.size(); i++) {
       output.writeMessage(2, headersToAdd_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -279,7 +225,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, headersToAdd_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -301,7 +247,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getHeadersToAddList()
         .equals(other.getHeadersToAddList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -320,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HEADERS_TO_ADD_FIELD_NUMBER;
       hash = (53 * hash) + getHeadersToAddList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -437,35 +383,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHeadersToAddFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (allowedHeadersBuilder_ == null) {
-        allowedHeaders_ = null;
-      } else {
-        allowedHeaders_ = null;
+      bitField0_ = 0;
+      allowedHeaders_ = null;
+      if (allowedHeadersBuilder_ != null) {
+        allowedHeadersBuilder_.dispose();
         allowedHeadersBuilder_ = null;
       }
       if (headersToAddBuilder_ == null) {
         headersToAdd_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        headersToAdd_ = null;
         headersToAddBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -492,23 +433,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest result = new io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (allowedHeadersBuilder_ == null) {
-        result.allowedHeaders_ = allowedHeaders_;
-      } else {
-        result.allowedHeaders_ = allowedHeadersBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest result) {
       if (headersToAddBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           headersToAdd_ = java.util.Collections.unmodifiableList(headersToAdd_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.headersToAdd_ = headersToAdd_;
       } else {
         result.headersToAdd_ = headersToAddBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allowedHeaders_ = allowedHeadersBuilder_ == null
+            ? allowedHeaders_
+            : allowedHeadersBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -562,7 +511,7 @@ private static final long serialVersionUID = 0L;
         if (!other.headersToAdd_.isEmpty()) {
           if (headersToAdd_.isEmpty()) {
             headersToAdd_ = other.headersToAdd_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureHeadersToAddIsMutable();
             headersToAdd_.addAll(other.headersToAdd_);
@@ -575,7 +524,7 @@ private static final long serialVersionUID = 0L;
             headersToAddBuilder_.dispose();
             headersToAddBuilder_ = null;
             headersToAdd_ = other.headersToAdd_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             headersToAddBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHeadersToAddFieldBuilder() : null;
@@ -584,7 +533,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -599,17 +548,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAllowedHeadersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.config.core.v3.HeaderValue m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.HeaderValue.parser(),
+                      extensionRegistry);
+              if (headersToAddBuilder_ == null) {
+                ensureHeadersToAddIsMutable();
+                headersToAdd_.add(m);
+              } else {
+                headersToAddBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -630,13 +612,17 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.allowed_headers is deprecated.
+     *     See envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto;l=272
      * @return Whether the allowedHeaders field is set.
      */
-    public boolean hasAllowedHeaders() {
-      return allowedHeadersBuilder_ != null || allowedHeaders_ != null;
+    @java.lang.Deprecated public boolean hasAllowedHeaders() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -651,12 +637,16 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.allowed_headers is deprecated.
+     *     See envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto;l=272
      * @return The allowedHeaders.
      */
-    public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders() {
+    @java.lang.Deprecated public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders() {
       if (allowedHeadersBuilder_ == null) {
         return allowedHeaders_ == null ? io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance() : allowedHeaders_;
       } else {
@@ -676,21 +666,23 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder setAllowedHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
+    @java.lang.Deprecated public Builder setAllowedHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (allowedHeadersBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         allowedHeaders_ = value;
-        onChanged();
       } else {
         allowedHeadersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -706,19 +698,21 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder setAllowedHeaders(
+    @java.lang.Deprecated public Builder setAllowedHeaders(
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder builderForValue) {
       if (allowedHeadersBuilder_ == null) {
         allowedHeaders_ = builderForValue.build();
-        onChanged();
       } else {
         allowedHeadersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -734,23 +728,26 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder mergeAllowedHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
+    @java.lang.Deprecated public Builder mergeAllowedHeaders(io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher value) {
       if (allowedHeadersBuilder_ == null) {
-        if (allowedHeaders_ != null) {
-          allowedHeaders_ =
-            io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.newBuilder(allowedHeaders_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          allowedHeaders_ != null &&
+          allowedHeaders_ != io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.getDefaultInstance()) {
+          getAllowedHeadersBuilder().mergeFrom(value);
         } else {
           allowedHeaders_ = value;
         }
-        onChanged();
       } else {
         allowedHeadersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -766,19 +763,20 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public Builder clearAllowedHeaders() {
-      if (allowedHeadersBuilder_ == null) {
-        allowedHeaders_ = null;
-        onChanged();
-      } else {
-        allowedHeaders_ = null;
+    @java.lang.Deprecated public Builder clearAllowedHeaders() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      allowedHeaders_ = null;
+      if (allowedHeadersBuilder_ != null) {
+        allowedHeadersBuilder_.dispose();
         allowedHeadersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -794,12 +792,14 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedHeadersBuilder() {
-      
+    @java.lang.Deprecated public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder getAllowedHeadersBuilder() {
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAllowedHeadersFieldBuilder().getBuilder();
     }
@@ -816,11 +816,13 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
-    public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder() {
+    @java.lang.Deprecated public io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder() {
       if (allowedHeadersBuilder_ != null) {
         return allowedHeadersBuilder_.getMessageOrBuilder();
       } else {
@@ -841,9 +843,11 @@ private static final long serialVersionUID = 0L;
      *   client request body (controlled by :ref:`with_request_body
      *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
      *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+     *   This field has been deprecated in favor of :ref:`allowed_headers
+     *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
      * </pre>
      *
-     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+     * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder> 
@@ -862,9 +866,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValue> headersToAdd_ =
       java.util.Collections.emptyList();
     private void ensureHeadersToAddIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         headersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValue>(headersToAdd_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1069,7 +1073,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHeadersToAdd() {
       if (headersToAddBuilder_ == null) {
         headersToAdd_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         headersToAddBuilder_.clear();
@@ -1181,7 +1185,7 @@ private static final long serialVersionUID = 0L;
         headersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.HeaderValue, io.envoyproxy.envoy.config.core.v3.HeaderValue.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOrBuilder>(
                 headersToAdd_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         headersToAdd_ = null;
@@ -1221,7 +1225,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuthorizationRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

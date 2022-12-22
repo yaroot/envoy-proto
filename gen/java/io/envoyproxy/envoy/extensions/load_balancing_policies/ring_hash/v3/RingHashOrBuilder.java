@@ -101,12 +101,17 @@ public interface RingHashOrBuilder extends
    * <pre>
    * If set to `true`, the cluster will use hostname instead of the resolved
    * address as the key to consistently hash to an upstream host. Only valid for StrictDNS clusters with hostnames which resolve to a single IP address.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>bool use_hostname_for_hashing = 4;</code>
+   * <code>bool use_hostname_for_hashing = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.use_hostname_for_hashing is deprecated.
+   *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=61
    * @return The useHostnameForHashing.
    */
-  boolean getUseHostnameForHashing();
+  @java.lang.Deprecated boolean getUseHostnameForHashing();
 
   /**
    * <pre>
@@ -123,12 +128,17 @@ public interface RingHashOrBuilder extends
    * If weights are specified on the hosts, they are respected.
    * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
    * being probed, so use a higher value if you require better performance.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
+   * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.hash_balance_factor is deprecated.
+   *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=84
    * @return Whether the hashBalanceFactor field is set.
    */
-  boolean hasHashBalanceFactor();
+  @java.lang.Deprecated boolean hasHashBalanceFactor();
   /**
    * <pre>
    * Configures percentage of average cluster load to bound per upstream host. For example, with a value of 150
@@ -144,12 +154,17 @@ public interface RingHashOrBuilder extends
    * If weights are specified on the hosts, they are respected.
    * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
    * being probed, so use a higher value if you require better performance.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
+   * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.hash_balance_factor is deprecated.
+   *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=84
    * @return The hashBalanceFactor.
    */
-  com.google.protobuf.UInt32Value getHashBalanceFactor();
+  @java.lang.Deprecated com.google.protobuf.UInt32Value getHashBalanceFactor();
   /**
    * <pre>
    * Configures percentage of average cluster load to bound per upstream host. For example, with a value of 150
@@ -165,9 +180,39 @@ public interface RingHashOrBuilder extends
    * If weights are specified on the hosts, they are respected.
    * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
    * being probed, so use a higher value if you require better performance.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    */
-  com.google.protobuf.UInt32ValueOrBuilder getHashBalanceFactorOrBuilder();
+  @java.lang.Deprecated com.google.protobuf.UInt32ValueOrBuilder getHashBalanceFactorOrBuilder();
+
+  /**
+   * <pre>
+   * Common configuration for hashing-based load balancing policies.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+   * @return Whether the consistentHashingLbConfig field is set.
+   */
+  boolean hasConsistentHashingLbConfig();
+  /**
+   * <pre>
+   * Common configuration for hashing-based load balancing policies.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+   * @return The consistentHashingLbConfig.
+   */
+  io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig getConsistentHashingLbConfig();
+  /**
+   * <pre>
+   * Common configuration for hashing-based load balancing policies.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+   */
+  io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfigOrBuilder getConsistentHashingLbConfigOrBuilder();
 }

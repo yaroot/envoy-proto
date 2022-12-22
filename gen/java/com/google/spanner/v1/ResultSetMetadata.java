@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResultSetMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.spanner.v1.StructType.Builder subBuilder = null;
-            if (rowType_ != null) {
-              subBuilder = rowType_.toBuilder();
-            }
-            rowType_ = input.readMessage(com.google.spanner.v1.StructType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rowType_);
-              rowType_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.spanner.v1.Transaction.Builder subBuilder = null;
-            if (transaction_ != null) {
-              subBuilder = transaction_.toBuilder();
-            }
-            transaction_ = input.readMessage(com.google.spanner.v1.Transaction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transaction_);
-              transaction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.v1.ResultSetProto.internal_static_google_spanner_v1_ResultSetMetadata_descriptor;
@@ -165,7 +100,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.v1.StructTypeOrBuilder getRowTypeOrBuilder() {
-    return getRowType();
+    return rowType_ == null ? com.google.spanner.v1.StructType.getDefaultInstance() : rowType_;
   }
 
   public static final int TRANSACTION_FIELD_NUMBER = 2;
@@ -206,7 +141,69 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.spanner.v1.TransactionOrBuilder getTransactionOrBuilder() {
-    return getTransaction();
+    return transaction_ == null ? com.google.spanner.v1.Transaction.getDefaultInstance() : transaction_;
+  }
+
+  public static final int UNDECLARED_PARAMETERS_FIELD_NUMBER = 3;
+  private com.google.spanner.v1.StructType undeclaredParameters_;
+  /**
+   * <pre>
+   * A SQL query can be parameterized. In PLAN mode, these parameters can be
+   * undeclared. This indicates the field names and types for those undeclared
+   * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+   * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+   * `undeclared_parameters` value like:
+   *     "fields": [
+   *       { "name": "UserId", "type": { "code": "INT64" } },
+   *       { "name": "UserName", "type": { "code": "STRING" } },
+   *     ]
+   * </pre>
+   *
+   * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+   * @return Whether the undeclaredParameters field is set.
+   */
+  @java.lang.Override
+  public boolean hasUndeclaredParameters() {
+    return undeclaredParameters_ != null;
+  }
+  /**
+   * <pre>
+   * A SQL query can be parameterized. In PLAN mode, these parameters can be
+   * undeclared. This indicates the field names and types for those undeclared
+   * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+   * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+   * `undeclared_parameters` value like:
+   *     "fields": [
+   *       { "name": "UserId", "type": { "code": "INT64" } },
+   *       { "name": "UserName", "type": { "code": "STRING" } },
+   *     ]
+   * </pre>
+   *
+   * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+   * @return The undeclaredParameters.
+   */
+  @java.lang.Override
+  public com.google.spanner.v1.StructType getUndeclaredParameters() {
+    return undeclaredParameters_ == null ? com.google.spanner.v1.StructType.getDefaultInstance() : undeclaredParameters_;
+  }
+  /**
+   * <pre>
+   * A SQL query can be parameterized. In PLAN mode, these parameters can be
+   * undeclared. This indicates the field names and types for those undeclared
+   * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+   * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+   * `undeclared_parameters` value like:
+   *     "fields": [
+   *       { "name": "UserId", "type": { "code": "INT64" } },
+   *       { "name": "UserName", "type": { "code": "STRING" } },
+   *     ]
+   * </pre>
+   *
+   * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+   */
+  @java.lang.Override
+  public com.google.spanner.v1.StructTypeOrBuilder getUndeclaredParametersOrBuilder() {
+    return undeclaredParameters_ == null ? com.google.spanner.v1.StructType.getDefaultInstance() : undeclaredParameters_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -229,7 +226,10 @@ private static final long serialVersionUID = 0L;
     if (transaction_ != null) {
       output.writeMessage(2, getTransaction());
     }
-    unknownFields.writeTo(output);
+    if (undeclaredParameters_ != null) {
+      output.writeMessage(3, getUndeclaredParameters());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -246,7 +246,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getTransaction());
     }
-    size += unknownFields.getSerializedSize();
+    if (undeclaredParameters_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getUndeclaredParameters());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -271,7 +275,12 @@ private static final long serialVersionUID = 0L;
       if (!getTransaction()
           .equals(other.getTransaction())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasUndeclaredParameters() != other.hasUndeclaredParameters()) return false;
+    if (hasUndeclaredParameters()) {
+      if (!getUndeclaredParameters()
+          .equals(other.getUndeclaredParameters())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -290,7 +299,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRANSACTION_FIELD_NUMBER;
       hash = (53 * hash) + getTransaction().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasUndeclaredParameters()) {
+      hash = (37 * hash) + UNDECLARED_PARAMETERS_FIELD_NUMBER;
+      hash = (53 * hash) + getUndeclaredParameters().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -411,33 +424,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.v1.ResultSetMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rowTypeBuilder_ == null) {
-        rowType_ = null;
-      } else {
-        rowType_ = null;
+      bitField0_ = 0;
+      rowType_ = null;
+      if (rowTypeBuilder_ != null) {
+        rowTypeBuilder_.dispose();
         rowTypeBuilder_ = null;
       }
-      if (transactionBuilder_ == null) {
-        transaction_ = null;
-      } else {
-        transaction_ = null;
+      transaction_ = null;
+      if (transactionBuilder_ != null) {
+        transactionBuilder_.dispose();
         transactionBuilder_ = null;
+      }
+      undeclaredParameters_ = null;
+      if (undeclaredParametersBuilder_ != null) {
+        undeclaredParametersBuilder_.dispose();
+        undeclaredParametersBuilder_ = null;
       }
       return this;
     }
@@ -465,18 +477,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.v1.ResultSetMetadata buildPartial() {
       com.google.spanner.v1.ResultSetMetadata result = new com.google.spanner.v1.ResultSetMetadata(this);
-      if (rowTypeBuilder_ == null) {
-        result.rowType_ = rowType_;
-      } else {
-        result.rowType_ = rowTypeBuilder_.build();
-      }
-      if (transactionBuilder_ == null) {
-        result.transaction_ = transaction_;
-      } else {
-        result.transaction_ = transactionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.spanner.v1.ResultSetMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rowType_ = rowTypeBuilder_ == null
+            ? rowType_
+            : rowTypeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transaction_ = transactionBuilder_ == null
+            ? transaction_
+            : transactionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.undeclaredParameters_ = undeclaredParametersBuilder_ == null
+            ? undeclaredParameters_
+            : undeclaredParametersBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -529,7 +551,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasTransaction()) {
         mergeTransaction(other.getTransaction());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasUndeclaredParameters()) {
+        mergeUndeclaredParameters(other.getUndeclaredParameters());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -544,19 +569,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.v1.ResultSetMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRowTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTransactionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUndeclaredParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.v1.ResultSetMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.spanner.v1.StructType rowType_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -576,7 +636,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rowType field is set.
      */
     public boolean hasRowType() {
-      return rowTypeBuilder_ != null || rowType_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -618,11 +678,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rowType_ = value;
-        onChanged();
       } else {
         rowTypeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -642,11 +702,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.v1.StructType.Builder builderForValue) {
       if (rowTypeBuilder_ == null) {
         rowType_ = builderForValue.build();
-        onChanged();
       } else {
         rowTypeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -664,17 +724,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRowType(com.google.spanner.v1.StructType value) {
       if (rowTypeBuilder_ == null) {
-        if (rowType_ != null) {
-          rowType_ =
-            com.google.spanner.v1.StructType.newBuilder(rowType_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          rowType_ != null &&
+          rowType_ != com.google.spanner.v1.StructType.getDefaultInstance()) {
+          getRowTypeBuilder().mergeFrom(value);
         } else {
           rowType_ = value;
         }
-        onChanged();
       } else {
         rowTypeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -691,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.StructType row_type = 1;</code>
      */
     public Builder clearRowType() {
-      if (rowTypeBuilder_ == null) {
-        rowType_ = null;
-        onChanged();
-      } else {
-        rowType_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      rowType_ = null;
+      if (rowTypeBuilder_ != null) {
+        rowTypeBuilder_.dispose();
         rowTypeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -715,7 +775,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.StructType row_type = 1;</code>
      */
     public com.google.spanner.v1.StructType.Builder getRowTypeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRowTypeFieldBuilder().getBuilder();
     }
@@ -780,7 +840,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transaction field is set.
      */
     public boolean hasTransaction() {
-      return transactionBuilder_ != null || transaction_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -812,11 +872,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transaction_ = value;
-        onChanged();
       } else {
         transactionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -831,11 +891,11 @@ private static final long serialVersionUID = 0L;
         com.google.spanner.v1.Transaction.Builder builderForValue) {
       if (transactionBuilder_ == null) {
         transaction_ = builderForValue.build();
-        onChanged();
       } else {
         transactionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -848,17 +908,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransaction(com.google.spanner.v1.Transaction value) {
       if (transactionBuilder_ == null) {
-        if (transaction_ != null) {
-          transaction_ =
-            com.google.spanner.v1.Transaction.newBuilder(transaction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          transaction_ != null &&
+          transaction_ != com.google.spanner.v1.Transaction.getDefaultInstance()) {
+          getTransactionBuilder().mergeFrom(value);
         } else {
           transaction_ = value;
         }
-        onChanged();
       } else {
         transactionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -870,14 +931,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.Transaction transaction = 2;</code>
      */
     public Builder clearTransaction() {
-      if (transactionBuilder_ == null) {
-        transaction_ = null;
-        onChanged();
-      } else {
-        transaction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      transaction_ = null;
+      if (transactionBuilder_ != null) {
+        transactionBuilder_.dispose();
         transactionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -889,7 +949,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.spanner.v1.Transaction transaction = 2;</code>
      */
     public com.google.spanner.v1.Transaction.Builder getTransactionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTransactionFieldBuilder().getBuilder();
     }
@@ -930,6 +990,233 @@ private static final long serialVersionUID = 0L;
       }
       return transactionBuilder_;
     }
+
+    private com.google.spanner.v1.StructType undeclaredParameters_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.spanner.v1.StructType, com.google.spanner.v1.StructType.Builder, com.google.spanner.v1.StructTypeOrBuilder> undeclaredParametersBuilder_;
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     * @return Whether the undeclaredParameters field is set.
+     */
+    public boolean hasUndeclaredParameters() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     * @return The undeclaredParameters.
+     */
+    public com.google.spanner.v1.StructType getUndeclaredParameters() {
+      if (undeclaredParametersBuilder_ == null) {
+        return undeclaredParameters_ == null ? com.google.spanner.v1.StructType.getDefaultInstance() : undeclaredParameters_;
+      } else {
+        return undeclaredParametersBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    public Builder setUndeclaredParameters(com.google.spanner.v1.StructType value) {
+      if (undeclaredParametersBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        undeclaredParameters_ = value;
+      } else {
+        undeclaredParametersBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    public Builder setUndeclaredParameters(
+        com.google.spanner.v1.StructType.Builder builderForValue) {
+      if (undeclaredParametersBuilder_ == null) {
+        undeclaredParameters_ = builderForValue.build();
+      } else {
+        undeclaredParametersBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    public Builder mergeUndeclaredParameters(com.google.spanner.v1.StructType value) {
+      if (undeclaredParametersBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          undeclaredParameters_ != null &&
+          undeclaredParameters_ != com.google.spanner.v1.StructType.getDefaultInstance()) {
+          getUndeclaredParametersBuilder().mergeFrom(value);
+        } else {
+          undeclaredParameters_ = value;
+        }
+      } else {
+        undeclaredParametersBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    public Builder clearUndeclaredParameters() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      undeclaredParameters_ = null;
+      if (undeclaredParametersBuilder_ != null) {
+        undeclaredParametersBuilder_.dispose();
+        undeclaredParametersBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    public com.google.spanner.v1.StructType.Builder getUndeclaredParametersBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getUndeclaredParametersFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    public com.google.spanner.v1.StructTypeOrBuilder getUndeclaredParametersOrBuilder() {
+      if (undeclaredParametersBuilder_ != null) {
+        return undeclaredParametersBuilder_.getMessageOrBuilder();
+      } else {
+        return undeclaredParameters_ == null ?
+            com.google.spanner.v1.StructType.getDefaultInstance() : undeclaredParameters_;
+      }
+    }
+    /**
+     * <pre>
+     * A SQL query can be parameterized. In PLAN mode, these parameters can be
+     * undeclared. This indicates the field names and types for those undeclared
+     * parameters in the SQL query. For example, a SQL query like `"SELECT * FROM
+     * Users where UserId = &#64;userId and UserName = &#64;userName "` could return a
+     * `undeclared_parameters` value like:
+     *     "fields": [
+     *       { "name": "UserId", "type": { "code": "INT64" } },
+     *       { "name": "UserName", "type": { "code": "STRING" } },
+     *     ]
+     * </pre>
+     *
+     * <code>.google.spanner.v1.StructType undeclared_parameters = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.spanner.v1.StructType, com.google.spanner.v1.StructType.Builder, com.google.spanner.v1.StructTypeOrBuilder> 
+        getUndeclaredParametersFieldBuilder() {
+      if (undeclaredParametersBuilder_ == null) {
+        undeclaredParametersBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.spanner.v1.StructType, com.google.spanner.v1.StructType.Builder, com.google.spanner.v1.StructTypeOrBuilder>(
+                getUndeclaredParameters(),
+                getParentForChildren(),
+                isClean());
+        undeclaredParameters_ = null;
+      }
+      return undeclaredParametersBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -963,7 +1250,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResultSetMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -139,10 +139,8 @@ public interface ComputeRoutesRequestOrBuilder extends
    * Optional. Specifies how to compute the route. The server
    * attempts to use the selected routing preference to compute the route. If
    *  the routing preference results in an error or an extra long latency, then
-   * an error is returned. In the future, we might implement a fallback
-   * mechanism to use a different option when the preferred option does not give
-   * a valid result. You can specify this option only when the `travel_mode` is
-   * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
+   * an error is returned. You can specify this option only when the
+   * `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
    * </pre>
    *
    * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -154,10 +152,8 @@ public interface ComputeRoutesRequestOrBuilder extends
    * Optional. Specifies how to compute the route. The server
    * attempts to use the selected routing preference to compute the route. If
    *  the routing preference results in an error or an extra long latency, then
-   * an error is returned. In the future, we might implement a fallback
-   * mechanism to use a different option when the preferred option does not give
-   * a valid result. You can specify this option only when the `travel_mode` is
-   * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
+   * an error is returned. You can specify this option only when the
+   * `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
    * </pre>
    *
    * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -238,7 +234,8 @@ public interface ComputeRoutesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Specifies whether to calculate alternate routes in addition to the route.
+   * Optional. Specifies whether to calculate alternate routes in addition to
+   * the route.
    * </pre>
    *
    * <code>bool compute_alternative_routes = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -332,4 +329,73 @@ public interface ComputeRoutesRequestOrBuilder extends
    * @return The units.
    */
   com.google.maps.routing.v2.Units getUnits();
+
+  /**
+   * <pre>
+   * Optional. Specifies what reference routes to calculate as part of the
+   * request in addition to the default route. A reference route is a route with
+   * a different route calculation objective than the default route. For example
+   * an FUEL_EFFICIENT reference route calculation takes into account various
+   * parameters that would generate an optimal fuel efficient route.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute requested_reference_routes = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return A list containing the requestedReferenceRoutes.
+   */
+  java.util.List<com.google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute> getRequestedReferenceRoutesList();
+  /**
+   * <pre>
+   * Optional. Specifies what reference routes to calculate as part of the
+   * request in addition to the default route. A reference route is a route with
+   * a different route calculation objective than the default route. For example
+   * an FUEL_EFFICIENT reference route calculation takes into account various
+   * parameters that would generate an optimal fuel efficient route.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute requested_reference_routes = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The count of requestedReferenceRoutes.
+   */
+  int getRequestedReferenceRoutesCount();
+  /**
+   * <pre>
+   * Optional. Specifies what reference routes to calculate as part of the
+   * request in addition to the default route. A reference route is a route with
+   * a different route calculation objective than the default route. For example
+   * an FUEL_EFFICIENT reference route calculation takes into account various
+   * parameters that would generate an optimal fuel efficient route.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute requested_reference_routes = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @param index The index of the element to return.
+   * @return The requestedReferenceRoutes at the given index.
+   */
+  com.google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute getRequestedReferenceRoutes(int index);
+  /**
+   * <pre>
+   * Optional. Specifies what reference routes to calculate as part of the
+   * request in addition to the default route. A reference route is a route with
+   * a different route calculation objective than the default route. For example
+   * an FUEL_EFFICIENT reference route calculation takes into account various
+   * parameters that would generate an optimal fuel efficient route.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute requested_reference_routes = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return A list containing the enum numeric values on the wire for requestedReferenceRoutes.
+   */
+  java.util.List<java.lang.Integer>
+  getRequestedReferenceRoutesValueList();
+  /**
+   * <pre>
+   * Optional. Specifies what reference routes to calculate as part of the
+   * request in addition to the default route. A reference route is a route with
+   * a different route calculation objective than the default route. For example
+   * an FUEL_EFFICIENT reference route calculation takes into account various
+   * parameters that would generate an optimal fuel efficient route.
+   * </pre>
+   *
+   * <code>repeated .google.maps.routing.v2.ComputeRoutesRequest.ReferenceRoute requested_reference_routes = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @param index The index of the value to return.
+   * @return The enum numeric value on the wire of requestedReferenceRoutes at the given index.
+   */
+  int getRequestedReferenceRoutesValue(int index);
 }

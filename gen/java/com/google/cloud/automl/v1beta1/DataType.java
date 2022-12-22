@@ -36,90 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            typeCode_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.automl.v1beta1.DataType.Builder subBuilder = null;
-            if (detailsCase_ == 2) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.DataType) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.DataType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.DataType) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.automl.v1beta1.StructType.Builder subBuilder = null;
-            if (detailsCase_ == 3) {
-              subBuilder = ((com.google.cloud.automl.v1beta1.StructType) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.automl.v1beta1.StructType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.automl.v1beta1.StructType) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 3;
-            break;
-          }
-          case 32: {
-
-            nullable_ = input.readBool();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            detailsCase_ = 5;
-            details_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.DataTypes.internal_static_google_cloud_automl_v1beta1_DataType_descriptor;
@@ -363,7 +279,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_CODE_FIELD_NUMBER = 1;
-  private int typeCode_;
+  private int typeCode_ = 0;
   /**
    * <pre>
    * Required. The [TypeCode][google.cloud.automl.v1beta1.TypeCode] for this type.
@@ -384,13 +300,12 @@ private static final long serialVersionUID = 0L;
    * @return The typeCode.
    */
   @java.lang.Override public com.google.cloud.automl.v1beta1.TypeCode getTypeCode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.automl.v1beta1.TypeCode result = com.google.cloud.automl.v1beta1.TypeCode.valueOf(typeCode_);
+    com.google.cloud.automl.v1beta1.TypeCode result = com.google.cloud.automl.v1beta1.TypeCode.forNumber(typeCode_);
     return result == null ? com.google.cloud.automl.v1beta1.TypeCode.UNRECOGNIZED : result;
   }
 
   public static final int NULLABLE_FIELD_NUMBER = 4;
-  private boolean nullable_;
+  private boolean nullable_ = false;
   /**
    * <pre>
    * If true, this DataType can also be `NULL`. In .CSV files `NULL` value is
@@ -434,7 +349,7 @@ private static final long serialVersionUID = 0L;
     if (detailsCase_ == 5) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, details_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -462,7 +377,7 @@ private static final long serialVersionUID = 0L;
     if (detailsCase_ == 5) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, details_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -497,7 +412,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -529,7 +444,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -651,26 +566,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.DataType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (listElementTypeBuilder_ != null) {
+        listElementTypeBuilder_.clear();
+      }
+      if (structTypeBuilder_ != null) {
+        structTypeBuilder_.clear();
+      }
       typeCode_ = 0;
-
       nullable_ = false;
-
       detailsCase_ = 0;
       details_ = null;
       return this;
@@ -699,28 +614,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.DataType buildPartial() {
       com.google.cloud.automl.v1beta1.DataType result = new com.google.cloud.automl.v1beta1.DataType(this);
-      if (detailsCase_ == 2) {
-        if (listElementTypeBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = listElementTypeBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 3) {
-        if (structTypeBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = structTypeBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 5) {
-        result.details_ = details_;
-      }
-      result.typeCode_ = typeCode_;
-      result.nullable_ = nullable_;
-      result.detailsCase_ = detailsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.DataType result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.typeCode_ = typeCode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.nullable_ = nullable_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.automl.v1beta1.DataType result) {
+      result.detailsCase_ = detailsCase_;
+      result.details_ = this.details_;
+      if (detailsCase_ == 2 &&
+          listElementTypeBuilder_ != null) {
+        result.details_ = listElementTypeBuilder_.build();
+      }
+      if (detailsCase_ == 3 &&
+          structTypeBuilder_ != null) {
+        result.details_ = structTypeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -792,7 +712,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -807,17 +727,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.DataType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              typeCode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getListElementTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getStructTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              nullable_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              detailsCase_ = 5;
+              details_ = s;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.DataType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int detailsCase_ = 0;
@@ -835,6 +798,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.automl.v1beta1.DataType, com.google.cloud.automl.v1beta1.DataType.Builder, com.google.cloud.automl.v1beta1.DataTypeOrBuilder> listElementTypeBuilder_;
@@ -1019,7 +983,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 2;
-      onChanged();;
+      onChanged();
       return listElementTypeBuilder_;
     }
 
@@ -1206,7 +1170,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 3;
-      onChanged();;
+      onChanged();
       return structTypeBuilder_;
     }
 
@@ -1326,10 +1290,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeFormat(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  detailsCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      detailsCase_ = 5;
       details_ = value;
       onChanged();
       return this;
@@ -1381,10 +1343,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeFormatBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       detailsCase_ = 5;
       details_ = value;
       onChanged();
@@ -1413,8 +1373,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeCodeValue(int value) {
-      
       typeCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1428,8 +1388,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.TypeCode getTypeCode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.automl.v1beta1.TypeCode result = com.google.cloud.automl.v1beta1.TypeCode.valueOf(typeCode_);
+      com.google.cloud.automl.v1beta1.TypeCode result = com.google.cloud.automl.v1beta1.TypeCode.forNumber(typeCode_);
       return result == null ? com.google.cloud.automl.v1beta1.TypeCode.UNRECOGNIZED : result;
     }
     /**
@@ -1445,7 +1404,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       typeCode_ = value.getNumber();
       onChanged();
       return this;
@@ -1459,7 +1418,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTypeCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       typeCode_ = 0;
       onChanged();
       return this;
@@ -1492,6 +1451,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNullable(boolean value) {
       
       nullable_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1505,7 +1465,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNullable() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       nullable_ = false;
       onChanged();
       return this;
@@ -1543,7 +1503,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

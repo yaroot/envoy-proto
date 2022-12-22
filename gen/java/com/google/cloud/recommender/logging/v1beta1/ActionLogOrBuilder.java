@@ -85,7 +85,6 @@ public interface ActionLogOrBuilder extends
    *
    * <code>map&lt;string, string&gt; state_metadata = 3;</code>
    */
-
   /* nullable */
 java.lang.String getStateMetadataOrDefault(
       java.lang.String key,
@@ -98,7 +97,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; state_metadata = 3;</code>
    */
-
   java.lang.String getStateMetadataOrThrow(
       java.lang.String key);
 

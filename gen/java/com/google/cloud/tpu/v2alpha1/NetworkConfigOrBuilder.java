@@ -64,4 +64,16 @@ public interface NetworkConfigOrBuilder extends
    * @return The enableExternalIps.
    */
   boolean getEnableExternalIps();
+
+  /**
+   * <pre>
+   * Allows the TPU node to send and receive packets with non-matching
+   * destination or source IPs. This is required if you plan to use the TPU
+   * workers to forward routes.
+   * </pre>
+   *
+   * <code>bool can_ip_forward = 4;</code>
+   * @return The canIpForward.
+   */
+  boolean getCanIpForward();
 }

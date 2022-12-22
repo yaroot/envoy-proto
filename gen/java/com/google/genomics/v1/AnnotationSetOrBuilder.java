@@ -173,7 +173,6 @@ public interface AnnotationSetOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
    */
-
   /* nullable */
 com.google.protobuf.ListValue getInfoOrDefault(
       java.lang.String key,
@@ -187,7 +186,6 @@ com.google.protobuf.ListValue defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 17;</code>
    */
-
   com.google.protobuf.ListValue getInfoOrThrow(
       java.lang.String key);
 }

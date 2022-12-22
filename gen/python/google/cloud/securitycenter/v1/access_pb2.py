@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/securitycenter/v1/access.proto\x12\x1egoogle.cloud.securitycenter.v1\"\xbe\x01\n\x06\x41\x63\x63\x65ss\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x11\n\tcaller_ip\x18\x02 \x01(\t\x12\x42\n\rcaller_ip_geo\x18\x03 \x01(\x0b\x32+.google.cloud.securitycenter.v1.Geolocation\x12\x19\n\x11user_agent_family\x18\x04 \x01(\t\x12\x14\n\x0cservice_name\x18\x05 \x01(\t\x12\x13\n\x0bmethod_name\x18\x06 \x01(\t\"\"\n\x0bGeolocation\x12\x13\n\x0bregion_code\x18\x01 \x01(\tB\xe7\x01\n\"com.google.cloud.securitycenter.v1B\x0b\x41\x63\x63\x65ssProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/securitycenter/v1/access.proto\x12\x1egoogle.cloud.securitycenter.v1\"\xf5\x02\n\x06\x41\x63\x63\x65ss\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x11\n\tcaller_ip\x18\x02 \x01(\t\x12\x42\n\rcaller_ip_geo\x18\x03 \x01(\x0b\x32+.google.cloud.securitycenter.v1.Geolocation\x12\x19\n\x11user_agent_family\x18\x04 \x01(\t\x12\x14\n\x0cservice_name\x18\x05 \x01(\t\x12\x13\n\x0bmethod_name\x18\x06 \x01(\t\x12\x19\n\x11principal_subject\x18\x07 \x01(\t\x12 \n\x18service_account_key_name\x18\x08 \x01(\t\x12\x65\n\x1fservice_account_delegation_info\x18\t \x03(\x0b\x32<.google.cloud.securitycenter.v1.ServiceAccountDelegationInfo\x12\x11\n\tuser_name\x18\x0b \x01(\t\"R\n\x1cServiceAccountDelegationInfo\x12\x17\n\x0fprincipal_email\x18\x01 \x01(\t\x12\x19\n\x11principal_subject\x18\x02 \x01(\t\"\"\n\x0bGeolocation\x12\x13\n\x0bregion_code\x18\x01 \x01(\tB\xe7\x01\n\"com.google.cloud.securitycenter.v1B\x0b\x41\x63\x63\x65ssProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.v1.access_pb2', globals())
@@ -22,7 +22,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\"com.google.cloud.securitycenter.v1B\013AccessProtoP\001ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\252\002\036Google.Cloud.SecurityCenter.V1\312\002\036Google\\Cloud\\SecurityCenter\\V1\352\002!Google::Cloud::SecurityCenter::V1'
   _ACCESS._serialized_start=80
-  _ACCESS._serialized_end=270
-  _GEOLOCATION._serialized_start=272
-  _GEOLOCATION._serialized_end=306
+  _ACCESS._serialized_end=453
+  _SERVICEACCOUNTDELEGATIONINFO._serialized_start=455
+  _SERVICEACCOUNTDELEGATIONINFO._serialized_end=537
+  _GEOLOCATION._serialized_start=539
+  _GEOLOCATION._serialized_end=573
 # @@protoc_insertion_point(module_scope)

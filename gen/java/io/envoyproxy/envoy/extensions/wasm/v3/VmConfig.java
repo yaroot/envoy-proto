@@ -37,106 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VmConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vmId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            runtime_ = s;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.AsyncDataSource.Builder subBuilder = null;
-            if (code_ != null) {
-              subBuilder = code_.toBuilder();
-            }
-            code_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.AsyncDataSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(code_);
-              code_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Any.Builder subBuilder = null;
-            if (configuration_ != null) {
-              subBuilder = configuration_.toBuilder();
-            }
-            configuration_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(configuration_);
-              configuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            allowPrecompiled_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            nackOnCodeCacheMiss_ = input.readBool();
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.Builder subBuilder = null;
-            if (environmentVariables_ != null) {
-              subBuilder = environmentVariables_.toBuilder();
-            }
-            environmentVariables_ = input.readMessage(io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(environmentVariables_);
-              environmentVariables_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.wasm.v3.WasmProto.internal_static_envoy_extensions_wasm_v3_VmConfig_descriptor;
@@ -151,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vmId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmId_ = "";
   /**
    * <pre>
    * An ID which will be used along with a hash of the wasm code (or the name of the registered Null
@@ -205,10 +106,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RUNTIME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object runtime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object runtime_ = "";
   /**
    * <pre>
-   * The Wasm runtime type.
+   * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+   * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
    * Available Wasm runtime types are registered as extensions. The following runtimes are included
    * in Envoy code base:
    * .. _extension_envoy.wasm.runtime.null:
@@ -228,7 +131,7 @@ private static final long serialVersionUID = 0L;
    * [#extension-category: envoy.wasm.runtime]
    * </pre>
    *
-   * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+   * <code>string runtime = 2;</code>
    * @return The runtime.
    */
   @java.lang.Override
@@ -246,7 +149,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The Wasm runtime type.
+   * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+   * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
    * Available Wasm runtime types are registered as extensions. The following runtimes are included
    * in Envoy code base:
    * .. _extension_envoy.wasm.runtime.null:
@@ -266,7 +170,7 @@ private static final long serialVersionUID = 0L;
    * [#extension-category: envoy.wasm.runtime]
    * </pre>
    *
-   * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+   * <code>string runtime = 2;</code>
    * @return The bytes for runtime.
    */
   @java.lang.Override
@@ -319,7 +223,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.AsyncDataSourceOrBuilder getCodeOrBuilder() {
-    return getCode();
+    return code_ == null ? io.envoyproxy.envoy.config.core.v3.AsyncDataSource.getDefaultInstance() : code_;
   }
 
   public static final int CONFIGURATION_FIELD_NUMBER = 4;
@@ -366,11 +270,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.AnyOrBuilder getConfigurationOrBuilder() {
-    return getConfiguration();
+    return configuration_ == null ? com.google.protobuf.Any.getDefaultInstance() : configuration_;
   }
 
   public static final int ALLOW_PRECOMPILED_FIELD_NUMBER = 5;
-  private boolean allowPrecompiled_;
+  private boolean allowPrecompiled_ = false;
   /**
    * <pre>
    * Allow the wasm file to include pre-compiled code on VMs which support it.
@@ -387,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NACK_ON_CODE_CACHE_MISS_FIELD_NUMBER = 6;
-  private boolean nackOnCodeCacheMiss_;
+  private boolean nackOnCodeCacheMiss_ = false;
   /**
    * <pre>
    * If true and the code needs to be remotely fetched and it is not in the cache then NACK the configuration
@@ -450,7 +354,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariablesOrBuilder getEnvironmentVariablesOrBuilder() {
-    return getEnvironmentVariables();
+    return environmentVariables_ == null ? io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.getDefaultInstance() : environmentVariables_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -488,7 +392,7 @@ private static final long serialVersionUID = 0L;
     if (environmentVariables_ != null) {
       output.writeMessage(7, getEnvironmentVariables());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -523,7 +427,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getEnvironmentVariables());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -561,7 +465,7 @@ private static final long serialVersionUID = 0L;
       if (!getEnvironmentVariables()
           .equals(other.getEnvironmentVariables())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -594,7 +498,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENVIRONMENT_VARIABLES_FIELD_NUMBER;
       hash = (53 * hash) + getEnvironmentVariables().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -716,46 +620,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.wasm.v3.VmConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vmId_ = "";
-
       runtime_ = "";
-
-      if (codeBuilder_ == null) {
-        code_ = null;
-      } else {
-        code_ = null;
+      code_ = null;
+      if (codeBuilder_ != null) {
+        codeBuilder_.dispose();
         codeBuilder_ = null;
       }
-      if (configurationBuilder_ == null) {
-        configuration_ = null;
-      } else {
-        configuration_ = null;
+      configuration_ = null;
+      if (configurationBuilder_ != null) {
+        configurationBuilder_.dispose();
         configurationBuilder_ = null;
       }
       allowPrecompiled_ = false;
-
       nackOnCodeCacheMiss_ = false;
-
-      if (environmentVariablesBuilder_ == null) {
-        environmentVariables_ = null;
-      } else {
-        environmentVariables_ = null;
+      environmentVariables_ = null;
+      if (environmentVariablesBuilder_ != null) {
+        environmentVariablesBuilder_.dispose();
         environmentVariablesBuilder_ = null;
       }
       return this;
@@ -784,27 +677,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.wasm.v3.VmConfig buildPartial() {
       io.envoyproxy.envoy.extensions.wasm.v3.VmConfig result = new io.envoyproxy.envoy.extensions.wasm.v3.VmConfig(this);
-      result.vmId_ = vmId_;
-      result.runtime_ = runtime_;
-      if (codeBuilder_ == null) {
-        result.code_ = code_;
-      } else {
-        result.code_ = codeBuilder_.build();
-      }
-      if (configurationBuilder_ == null) {
-        result.configuration_ = configuration_;
-      } else {
-        result.configuration_ = configurationBuilder_.build();
-      }
-      result.allowPrecompiled_ = allowPrecompiled_;
-      result.nackOnCodeCacheMiss_ = nackOnCodeCacheMiss_;
-      if (environmentVariablesBuilder_ == null) {
-        result.environmentVariables_ = environmentVariables_;
-      } else {
-        result.environmentVariables_ = environmentVariablesBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.wasm.v3.VmConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vmId_ = vmId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.runtime_ = runtime_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.code_ = codeBuilder_ == null
+            ? code_
+            : codeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.configuration_ = configurationBuilder_ == null
+            ? configuration_
+            : configurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.allowPrecompiled_ = allowPrecompiled_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.nackOnCodeCacheMiss_ = nackOnCodeCacheMiss_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.environmentVariables_ = environmentVariablesBuilder_ == null
+            ? environmentVariables_
+            : environmentVariablesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -853,10 +759,12 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.wasm.v3.VmConfig.getDefaultInstance()) return this;
       if (!other.getVmId().isEmpty()) {
         vmId_ = other.vmId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRuntime().isEmpty()) {
         runtime_ = other.runtime_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCode()) {
@@ -874,7 +782,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnvironmentVariables()) {
         mergeEnvironmentVariables(other.getEnvironmentVariables());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -889,19 +797,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.wasm.v3.VmConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              vmId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              runtime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCodeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getConfigurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              allowPrecompiled_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              nackOnCodeCacheMiss_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getEnvironmentVariablesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.wasm.v3.VmConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object vmId_ = "";
     /**
@@ -968,11 +931,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vmId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -989,8 +950,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmId() {
-      
       vmId_ = getDefaultInstance().getVmId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1009,12 +970,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vmId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1022,7 +981,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object runtime_ = "";
     /**
      * <pre>
-     * The Wasm runtime type.
+     * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+     * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
      * Available Wasm runtime types are registered as extensions. The following runtimes are included
      * in Envoy code base:
      * .. _extension_envoy.wasm.runtime.null:
@@ -1042,7 +1002,7 @@ private static final long serialVersionUID = 0L;
      * [#extension-category: envoy.wasm.runtime]
      * </pre>
      *
-     * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+     * <code>string runtime = 2;</code>
      * @return The runtime.
      */
     public java.lang.String getRuntime() {
@@ -1059,7 +1019,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Wasm runtime type.
+     * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+     * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
      * Available Wasm runtime types are registered as extensions. The following runtimes are included
      * in Envoy code base:
      * .. _extension_envoy.wasm.runtime.null:
@@ -1079,7 +1040,7 @@ private static final long serialVersionUID = 0L;
      * [#extension-category: envoy.wasm.runtime]
      * </pre>
      *
-     * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+     * <code>string runtime = 2;</code>
      * @return The bytes for runtime.
      */
     public com.google.protobuf.ByteString
@@ -1097,7 +1058,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The Wasm runtime type.
+     * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+     * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
      * Available Wasm runtime types are registered as extensions. The following runtimes are included
      * in Envoy code base:
      * .. _extension_envoy.wasm.runtime.null:
@@ -1117,23 +1079,22 @@ private static final long serialVersionUID = 0L;
      * [#extension-category: envoy.wasm.runtime]
      * </pre>
      *
-     * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+     * <code>string runtime = 2;</code>
      * @param value The runtime to set.
      * @return This builder for chaining.
      */
     public Builder setRuntime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       runtime_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The Wasm runtime type.
+     * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+     * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
      * Available Wasm runtime types are registered as extensions. The following runtimes are included
      * in Envoy code base:
      * .. _extension_envoy.wasm.runtime.null:
@@ -1153,18 +1114,19 @@ private static final long serialVersionUID = 0L;
      * [#extension-category: envoy.wasm.runtime]
      * </pre>
      *
-     * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+     * <code>string runtime = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearRuntime() {
-      
       runtime_ = getDefaultInstance().getRuntime();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The Wasm runtime type.
+     * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+     * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
      * Available Wasm runtime types are registered as extensions. The following runtimes are included
      * in Envoy code base:
      * .. _extension_envoy.wasm.runtime.null:
@@ -1184,18 +1146,16 @@ private static final long serialVersionUID = 0L;
      * [#extension-category: envoy.wasm.runtime]
      * </pre>
      *
-     * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+     * <code>string runtime = 2;</code>
      * @param value The bytes for runtime to set.
      * @return This builder for chaining.
      */
     public Builder setRuntimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       runtime_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1212,7 +1172,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the code field is set.
      */
     public boolean hasCode() {
-      return codeBuilder_ != null || code_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1242,11 +1202,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         code_ = value;
-        onChanged();
       } else {
         codeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1260,11 +1220,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.AsyncDataSource.Builder builderForValue) {
       if (codeBuilder_ == null) {
         code_ = builderForValue.build();
-        onChanged();
       } else {
         codeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1276,17 +1236,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCode(io.envoyproxy.envoy.config.core.v3.AsyncDataSource value) {
       if (codeBuilder_ == null) {
-        if (code_ != null) {
-          code_ =
-            io.envoyproxy.envoy.config.core.v3.AsyncDataSource.newBuilder(code_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          code_ != null &&
+          code_ != io.envoyproxy.envoy.config.core.v3.AsyncDataSource.getDefaultInstance()) {
+          getCodeBuilder().mergeFrom(value);
         } else {
           code_ = value;
         }
-        onChanged();
       } else {
         codeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1297,14 +1258,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.AsyncDataSource code = 3;</code>
      */
     public Builder clearCode() {
-      if (codeBuilder_ == null) {
-        code_ = null;
-        onChanged();
-      } else {
-        code_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      code_ = null;
+      if (codeBuilder_ != null) {
+        codeBuilder_.dispose();
         codeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1315,7 +1275,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.AsyncDataSource code = 3;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.AsyncDataSource.Builder getCodeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCodeFieldBuilder().getBuilder();
     }
@@ -1370,7 +1330,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the configuration field is set.
      */
     public boolean hasConfiguration() {
-      return configurationBuilder_ != null || configuration_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1406,11 +1366,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         configuration_ = value;
-        onChanged();
       } else {
         configurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1427,11 +1387,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Any.Builder builderForValue) {
       if (configurationBuilder_ == null) {
         configuration_ = builderForValue.build();
-        onChanged();
       } else {
         configurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1446,17 +1406,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfiguration(com.google.protobuf.Any value) {
       if (configurationBuilder_ == null) {
-        if (configuration_ != null) {
-          configuration_ =
-            com.google.protobuf.Any.newBuilder(configuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          configuration_ != null &&
+          configuration_ != com.google.protobuf.Any.getDefaultInstance()) {
+          getConfigurationBuilder().mergeFrom(value);
         } else {
           configuration_ = value;
         }
-        onChanged();
       } else {
         configurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1470,14 +1431,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any configuration = 4;</code>
      */
     public Builder clearConfiguration() {
-      if (configurationBuilder_ == null) {
-        configuration_ = null;
-        onChanged();
-      } else {
-        configuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      configuration_ = null;
+      if (configurationBuilder_ != null) {
+        configurationBuilder_.dispose();
         configurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1491,7 +1451,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Any configuration = 4;</code>
      */
     public com.google.protobuf.Any.Builder getConfigurationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getConfigurationFieldBuilder().getBuilder();
     }
@@ -1566,6 +1526,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowPrecompiled(boolean value) {
       
       allowPrecompiled_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1580,7 +1541,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowPrecompiled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       allowPrecompiled_ = false;
       onChanged();
       return this;
@@ -1615,6 +1576,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNackOnCodeCacheMiss(boolean value) {
       
       nackOnCodeCacheMiss_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1629,7 +1591,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNackOnCodeCacheMiss() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       nackOnCodeCacheMiss_ = false;
       onChanged();
       return this;
@@ -1651,7 +1613,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the environmentVariables field is set.
      */
     public boolean hasEnvironmentVariables() {
-      return environmentVariablesBuilder_ != null || environmentVariables_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1689,11 +1651,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         environmentVariables_ = value;
-        onChanged();
       } else {
         environmentVariablesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1711,11 +1673,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.Builder builderForValue) {
       if (environmentVariablesBuilder_ == null) {
         environmentVariables_ = builderForValue.build();
-        onChanged();
       } else {
         environmentVariablesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1731,17 +1693,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnvironmentVariables(io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables value) {
       if (environmentVariablesBuilder_ == null) {
-        if (environmentVariables_ != null) {
-          environmentVariables_ =
-            io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.newBuilder(environmentVariables_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          environmentVariables_ != null &&
+          environmentVariables_ != io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.getDefaultInstance()) {
+          getEnvironmentVariablesBuilder().mergeFrom(value);
         } else {
           environmentVariables_ = value;
         }
-        onChanged();
       } else {
         environmentVariablesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1756,14 +1719,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.wasm.v3.EnvironmentVariables environment_variables = 7;</code>
      */
     public Builder clearEnvironmentVariables() {
-      if (environmentVariablesBuilder_ == null) {
-        environmentVariables_ = null;
-        onChanged();
-      } else {
-        environmentVariables_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      environmentVariables_ = null;
+      if (environmentVariablesBuilder_ != null) {
+        environmentVariablesBuilder_.dispose();
         environmentVariablesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1778,7 +1740,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.wasm.v3.EnvironmentVariables environment_variables = 7;</code>
      */
     public io.envoyproxy.envoy.extensions.wasm.v3.EnvironmentVariables.Builder getEnvironmentVariablesBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getEnvironmentVariablesFieldBuilder().getBuilder();
     }
@@ -1858,7 +1820,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VmConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

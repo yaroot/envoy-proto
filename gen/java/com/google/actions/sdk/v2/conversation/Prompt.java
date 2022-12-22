@@ -35,133 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Prompt(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            append_ = input.readBool();
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.conversation.Simple.Builder subBuilder = null;
-            if (firstSimple_ != null) {
-              subBuilder = firstSimple_.toBuilder();
-            }
-            firstSimple_ = input.readMessage(com.google.actions.sdk.v2.conversation.Simple.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstSimple_);
-              firstSimple_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.actions.sdk.v2.conversation.Content.Builder subBuilder = null;
-            if (content_ != null) {
-              subBuilder = content_.toBuilder();
-            }
-            content_ = input.readMessage(com.google.actions.sdk.v2.conversation.Content.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(content_);
-              content_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.actions.sdk.v2.conversation.Simple.Builder subBuilder = null;
-            if (lastSimple_ != null) {
-              subBuilder = lastSimple_.toBuilder();
-            }
-            lastSimple_ = input.readMessage(com.google.actions.sdk.v2.conversation.Simple.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastSimple_);
-              lastSimple_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              suggestions_ = new java.util.ArrayList<com.google.actions.sdk.v2.conversation.Suggestion>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            suggestions_.add(
-                input.readMessage(com.google.actions.sdk.v2.conversation.Suggestion.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.actions.sdk.v2.conversation.Link.Builder subBuilder = null;
-            if (link_ != null) {
-              subBuilder = link_.toBuilder();
-            }
-            link_ = input.readMessage(com.google.actions.sdk.v2.conversation.Link.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(link_);
-              link_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-
-            override_ = input.readBool();
-            break;
-          }
-          case 74: {
-            com.google.actions.sdk.v2.conversation.Canvas.Builder subBuilder = null;
-            if (canvas_ != null) {
-              subBuilder = canvas_.toBuilder();
-            }
-            canvas_ = input.readMessage(com.google.actions.sdk.v2.conversation.Canvas.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(canvas_);
-              canvas_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        suggestions_ = java.util.Collections.unmodifiableList(suggestions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.conversation.PromptProto.internal_static_google_actions_sdk_v2_conversation_Prompt_descriptor;
@@ -176,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPEND_FIELD_NUMBER = 1;
-  private boolean append_;
+  private boolean append_ = false;
   /**
    * <pre>
    * Optional. Mode for how this messages should be merged with previously
@@ -203,7 +76,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OVERRIDE_FIELD_NUMBER = 8;
-  private boolean override_;
+  private boolean override_ = false;
   /**
    * <pre>
    * Optional. Mode for how this messages should be merged with previously
@@ -262,7 +135,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.conversation.SimpleOrBuilder getFirstSimpleOrBuilder() {
-    return getFirstSimple();
+    return firstSimple_ == null ? com.google.actions.sdk.v2.conversation.Simple.getDefaultInstance() : firstSimple_;
   }
 
   public static final int CONTENT_FIELD_NUMBER = 3;
@@ -300,7 +173,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.conversation.ContentOrBuilder getContentOrBuilder() {
-    return getContent();
+    return content_ == null ? com.google.actions.sdk.v2.conversation.Content.getDefaultInstance() : content_;
   }
 
   public static final int LAST_SIMPLE_FIELD_NUMBER = 4;
@@ -338,10 +211,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.conversation.SimpleOrBuilder getLastSimpleOrBuilder() {
-    return getLastSimple();
+    return lastSimple_ == null ? com.google.actions.sdk.v2.conversation.Simple.getDefaultInstance() : lastSimple_;
   }
 
   public static final int SUGGESTIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.conversation.Suggestion> suggestions_;
   /**
    * <pre>
@@ -462,7 +336,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.conversation.LinkOrBuilder getLinkOrBuilder() {
-    return getLink();
+    return link_ == null ? com.google.actions.sdk.v2.conversation.Link.getDefaultInstance() : link_;
   }
 
   public static final int CANVAS_FIELD_NUMBER = 9;
@@ -500,7 +374,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.conversation.CanvasOrBuilder getCanvasOrBuilder() {
-    return getCanvas();
+    return canvas_ == null ? com.google.actions.sdk.v2.conversation.Canvas.getDefaultInstance() : canvas_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -541,7 +415,7 @@ private static final long serialVersionUID = 0L;
     if (canvas_ != null) {
       output.writeMessage(9, getCanvas());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -582,7 +456,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getCanvas());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -628,7 +502,7 @@ private static final long serialVersionUID = 0L;
       if (!getCanvas()
           .equals(other.getCanvas())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -669,7 +543,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CANVAS_FIELD_NUMBER;
       hash = (53 * hash) + getCanvas().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -790,61 +664,50 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.conversation.Prompt.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSuggestionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       append_ = false;
-
       override_ = false;
-
-      if (firstSimpleBuilder_ == null) {
-        firstSimple_ = null;
-      } else {
-        firstSimple_ = null;
+      firstSimple_ = null;
+      if (firstSimpleBuilder_ != null) {
+        firstSimpleBuilder_.dispose();
         firstSimpleBuilder_ = null;
       }
-      if (contentBuilder_ == null) {
-        content_ = null;
-      } else {
-        content_ = null;
+      content_ = null;
+      if (contentBuilder_ != null) {
+        contentBuilder_.dispose();
         contentBuilder_ = null;
       }
-      if (lastSimpleBuilder_ == null) {
-        lastSimple_ = null;
-      } else {
-        lastSimple_ = null;
+      lastSimple_ = null;
+      if (lastSimpleBuilder_ != null) {
+        lastSimpleBuilder_.dispose();
         lastSimpleBuilder_ = null;
       }
       if (suggestionsBuilder_ == null) {
         suggestions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        suggestions_ = null;
         suggestionsBuilder_.clear();
       }
-      if (linkBuilder_ == null) {
-        link_ = null;
-      } else {
-        link_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      link_ = null;
+      if (linkBuilder_ != null) {
+        linkBuilder_.dispose();
         linkBuilder_ = null;
       }
-      if (canvasBuilder_ == null) {
-        canvas_ = null;
-      } else {
-        canvas_ = null;
+      canvas_ = null;
+      if (canvasBuilder_ != null) {
+        canvasBuilder_.dispose();
         canvasBuilder_ = null;
       }
       return this;
@@ -873,45 +736,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.conversation.Prompt buildPartial() {
       com.google.actions.sdk.v2.conversation.Prompt result = new com.google.actions.sdk.v2.conversation.Prompt(this);
-      int from_bitField0_ = bitField0_;
-      result.append_ = append_;
-      result.override_ = override_;
-      if (firstSimpleBuilder_ == null) {
-        result.firstSimple_ = firstSimple_;
-      } else {
-        result.firstSimple_ = firstSimpleBuilder_.build();
-      }
-      if (contentBuilder_ == null) {
-        result.content_ = content_;
-      } else {
-        result.content_ = contentBuilder_.build();
-      }
-      if (lastSimpleBuilder_ == null) {
-        result.lastSimple_ = lastSimple_;
-      } else {
-        result.lastSimple_ = lastSimpleBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.conversation.Prompt result) {
       if (suggestionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           suggestions_ = java.util.Collections.unmodifiableList(suggestions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.suggestions_ = suggestions_;
       } else {
         result.suggestions_ = suggestionsBuilder_.build();
       }
-      if (linkBuilder_ == null) {
-        result.link_ = link_;
-      } else {
-        result.link_ = linkBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.conversation.Prompt result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.append_ = append_;
       }
-      if (canvasBuilder_ == null) {
-        result.canvas_ = canvas_;
-      } else {
-        result.canvas_ = canvasBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.override_ = override_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.firstSimple_ = firstSimpleBuilder_ == null
+            ? firstSimple_
+            : firstSimpleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.content_ = contentBuilder_ == null
+            ? content_
+            : contentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.lastSimple_ = lastSimpleBuilder_ == null
+            ? lastSimple_
+            : lastSimpleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.link_ = linkBuilder_ == null
+            ? link_
+            : linkBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.canvas_ = canvasBuilder_ == null
+            ? canvas_
+            : canvasBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -977,7 +852,7 @@ private static final long serialVersionUID = 0L;
         if (!other.suggestions_.isEmpty()) {
           if (suggestions_.isEmpty()) {
             suggestions_ = other.suggestions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureSuggestionsIsMutable();
             suggestions_.addAll(other.suggestions_);
@@ -990,7 +865,7 @@ private static final long serialVersionUID = 0L;
             suggestionsBuilder_.dispose();
             suggestionsBuilder_ = null;
             suggestions_ = other.suggestions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             suggestionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSuggestionsFieldBuilder() : null;
@@ -1005,7 +880,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCanvas()) {
         mergeCanvas(other.getCanvas());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1020,17 +895,88 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.conversation.Prompt parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              append_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getFirstSimpleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getContentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLastSimpleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              com.google.actions.sdk.v2.conversation.Suggestion m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.conversation.Suggestion.parser(),
+                      extensionRegistry);
+              if (suggestionsBuilder_ == null) {
+                ensureSuggestionsIsMutable();
+                suggestions_.add(m);
+              } else {
+                suggestionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getLinkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 64: {
+              override_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getCanvasFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.conversation.Prompt) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1084,6 +1030,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder setAppend(boolean value) {
       
       append_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1108,7 +1055,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearAppend() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       append_ = false;
       onChanged();
       return this;
@@ -1159,6 +1106,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOverride(boolean value) {
       
       override_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1181,7 +1129,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOverride() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       override_ = false;
       onChanged();
       return this;
@@ -1199,7 +1147,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the firstSimple field is set.
      */
     public boolean hasFirstSimple() {
-      return firstSimpleBuilder_ != null || firstSimple_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1229,11 +1177,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         firstSimple_ = value;
-        onChanged();
       } else {
         firstSimpleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1247,11 +1195,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.conversation.Simple.Builder builderForValue) {
       if (firstSimpleBuilder_ == null) {
         firstSimple_ = builderForValue.build();
-        onChanged();
       } else {
         firstSimpleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1263,17 +1211,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFirstSimple(com.google.actions.sdk.v2.conversation.Simple value) {
       if (firstSimpleBuilder_ == null) {
-        if (firstSimple_ != null) {
-          firstSimple_ =
-            com.google.actions.sdk.v2.conversation.Simple.newBuilder(firstSimple_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          firstSimple_ != null &&
+          firstSimple_ != com.google.actions.sdk.v2.conversation.Simple.getDefaultInstance()) {
+          getFirstSimpleBuilder().mergeFrom(value);
         } else {
           firstSimple_ = value;
         }
-        onChanged();
       } else {
         firstSimpleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1284,14 +1233,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Simple first_simple = 2;</code>
      */
     public Builder clearFirstSimple() {
-      if (firstSimpleBuilder_ == null) {
-        firstSimple_ = null;
-        onChanged();
-      } else {
-        firstSimple_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      firstSimple_ = null;
+      if (firstSimpleBuilder_ != null) {
+        firstSimpleBuilder_.dispose();
         firstSimpleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1302,7 +1250,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Simple first_simple = 2;</code>
      */
     public com.google.actions.sdk.v2.conversation.Simple.Builder getFirstSimpleBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFirstSimpleFieldBuilder().getBuilder();
     }
@@ -1354,7 +1302,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the content field is set.
      */
     public boolean hasContent() {
-      return contentBuilder_ != null || content_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1384,11 +1332,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         content_ = value;
-        onChanged();
       } else {
         contentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1402,11 +1350,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.conversation.Content.Builder builderForValue) {
       if (contentBuilder_ == null) {
         content_ = builderForValue.build();
-        onChanged();
       } else {
         contentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1418,17 +1366,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeContent(com.google.actions.sdk.v2.conversation.Content value) {
       if (contentBuilder_ == null) {
-        if (content_ != null) {
-          content_ =
-            com.google.actions.sdk.v2.conversation.Content.newBuilder(content_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          content_ != null &&
+          content_ != com.google.actions.sdk.v2.conversation.Content.getDefaultInstance()) {
+          getContentBuilder().mergeFrom(value);
         } else {
           content_ = value;
         }
-        onChanged();
       } else {
         contentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1439,14 +1388,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Content content = 3;</code>
      */
     public Builder clearContent() {
-      if (contentBuilder_ == null) {
-        content_ = null;
-        onChanged();
-      } else {
-        content_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      content_ = null;
+      if (contentBuilder_ != null) {
+        contentBuilder_.dispose();
         contentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1457,7 +1405,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Content content = 3;</code>
      */
     public com.google.actions.sdk.v2.conversation.Content.Builder getContentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getContentFieldBuilder().getBuilder();
     }
@@ -1509,7 +1457,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastSimple field is set.
      */
     public boolean hasLastSimple() {
-      return lastSimpleBuilder_ != null || lastSimple_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1539,11 +1487,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastSimple_ = value;
-        onChanged();
       } else {
         lastSimpleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1557,11 +1505,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.conversation.Simple.Builder builderForValue) {
       if (lastSimpleBuilder_ == null) {
         lastSimple_ = builderForValue.build();
-        onChanged();
       } else {
         lastSimpleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1573,17 +1521,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastSimple(com.google.actions.sdk.v2.conversation.Simple value) {
       if (lastSimpleBuilder_ == null) {
-        if (lastSimple_ != null) {
-          lastSimple_ =
-            com.google.actions.sdk.v2.conversation.Simple.newBuilder(lastSimple_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          lastSimple_ != null &&
+          lastSimple_ != com.google.actions.sdk.v2.conversation.Simple.getDefaultInstance()) {
+          getLastSimpleBuilder().mergeFrom(value);
         } else {
           lastSimple_ = value;
         }
-        onChanged();
       } else {
         lastSimpleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1594,14 +1543,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Simple last_simple = 4;</code>
      */
     public Builder clearLastSimple() {
-      if (lastSimpleBuilder_ == null) {
-        lastSimple_ = null;
-        onChanged();
-      } else {
-        lastSimple_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      lastSimple_ = null;
+      if (lastSimpleBuilder_ != null) {
+        lastSimpleBuilder_.dispose();
         lastSimpleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1612,7 +1560,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Simple last_simple = 4;</code>
      */
     public com.google.actions.sdk.v2.conversation.Simple.Builder getLastSimpleBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getLastSimpleFieldBuilder().getBuilder();
     }
@@ -1655,9 +1603,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.conversation.Suggestion> suggestions_ =
       java.util.Collections.emptyList();
     private void ensureSuggestionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         suggestions_ = new java.util.ArrayList<com.google.actions.sdk.v2.conversation.Suggestion>(suggestions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1895,7 +1843,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSuggestions() {
       if (suggestionsBuilder_ == null) {
         suggestions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         suggestionsBuilder_.clear();
@@ -2028,7 +1976,7 @@ private static final long serialVersionUID = 0L;
         suggestionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.conversation.Suggestion, com.google.actions.sdk.v2.conversation.Suggestion.Builder, com.google.actions.sdk.v2.conversation.SuggestionOrBuilder>(
                 suggestions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         suggestions_ = null;
@@ -2050,7 +1998,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the link field is set.
      */
     public boolean hasLink() {
-      return linkBuilder_ != null || link_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2084,11 +2032,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         link_ = value;
-        onChanged();
       } else {
         linkBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2104,11 +2052,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.conversation.Link.Builder builderForValue) {
       if (linkBuilder_ == null) {
         link_ = builderForValue.build();
-        onChanged();
       } else {
         linkBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2122,17 +2070,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLink(com.google.actions.sdk.v2.conversation.Link value) {
       if (linkBuilder_ == null) {
-        if (link_ != null) {
-          link_ =
-            com.google.actions.sdk.v2.conversation.Link.newBuilder(link_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          link_ != null &&
+          link_ != com.google.actions.sdk.v2.conversation.Link.getDefaultInstance()) {
+          getLinkBuilder().mergeFrom(value);
         } else {
           link_ = value;
         }
-        onChanged();
       } else {
         linkBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2145,14 +2094,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Link link = 6;</code>
      */
     public Builder clearLink() {
-      if (linkBuilder_ == null) {
-        link_ = null;
-        onChanged();
-      } else {
-        link_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      link_ = null;
+      if (linkBuilder_ != null) {
+        linkBuilder_.dispose();
         linkBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2165,7 +2113,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Link link = 6;</code>
      */
     public com.google.actions.sdk.v2.conversation.Link.Builder getLinkBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getLinkFieldBuilder().getBuilder();
     }
@@ -2221,7 +2169,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the canvas field is set.
      */
     public boolean hasCanvas() {
-      return canvasBuilder_ != null || canvas_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2251,11 +2199,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         canvas_ = value;
-        onChanged();
       } else {
         canvasBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2269,11 +2217,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.conversation.Canvas.Builder builderForValue) {
       if (canvasBuilder_ == null) {
         canvas_ = builderForValue.build();
-        onChanged();
       } else {
         canvasBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2285,17 +2233,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCanvas(com.google.actions.sdk.v2.conversation.Canvas value) {
       if (canvasBuilder_ == null) {
-        if (canvas_ != null) {
-          canvas_ =
-            com.google.actions.sdk.v2.conversation.Canvas.newBuilder(canvas_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          canvas_ != null &&
+          canvas_ != com.google.actions.sdk.v2.conversation.Canvas.getDefaultInstance()) {
+          getCanvasBuilder().mergeFrom(value);
         } else {
           canvas_ = value;
         }
-        onChanged();
       } else {
         canvasBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2306,14 +2255,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Canvas canvas = 9;</code>
      */
     public Builder clearCanvas() {
-      if (canvasBuilder_ == null) {
-        canvas_ = null;
-        onChanged();
-      } else {
-        canvas_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      canvas_ = null;
+      if (canvasBuilder_ != null) {
+        canvasBuilder_.dispose();
         canvasBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2324,7 +2272,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.conversation.Canvas canvas = 9;</code>
      */
     public com.google.actions.sdk.v2.conversation.Canvas.Builder getCanvasBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCanvasFieldBuilder().getBuilder();
     }
@@ -2396,7 +2344,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Prompt(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

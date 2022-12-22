@@ -32,15 +32,16 @@ public final class DatadogProto {
       "nvoy.config.trace.v3\032\036udpa/annotations/m" +
       "igrate.proto\032\035udpa/annotations/status.pr" +
       "oto\032!udpa/annotations/versioning.proto\032\027" +
-      "validate/validate.proto\"~\n\rDatadogConfig" +
-      "\022\"\n\021collector_cluster\030\001 \001(\tB\007\372B\004r\002\020\001\022\035\n\014" +
-      "service_name\030\002 \001(\tB\007\372B\004r\002\020\001:*\232\305\210\036%\n#envo" +
-      "y.config.trace.v2.DatadogConfigB\263\001\n#io.e" +
-      "nvoyproxy.envoy.config.trace.v3B\014Datadog" +
-      "ProtoP\001ZDgithub.com/envoyproxy/go-contro" +
-      "l-plane/envoy/config/trace/v3;tracev3\362\230\376" +
-      "\217\005*\022(envoy.extensions.tracers.datadog.v4" +
-      "alpha\272\200\310\321\006\002\020\002b\006proto3"
+      "validate/validate.proto\"\232\001\n\rDatadogConfi" +
+      "g\022\"\n\021collector_cluster\030\001 \001(\tB\007\372B\004r\002\020\001\022\035\n" +
+      "\014service_name\030\002 \001(\tB\007\372B\004r\002\020\001\022\032\n\022collecto" +
+      "r_hostname\030\003 \001(\t:*\232\305\210\036%\n#envoy.config.tr" +
+      "ace.v2.DatadogConfigB\263\001\n#io.envoyproxy.e" +
+      "nvoy.config.trace.v3B\014DatadogProtoP\001ZDgi" +
+      "thub.com/envoyproxy/go-control-plane/env" +
+      "oy/config/trace/v3;tracev3\362\230\376\217\005*\022(envoy." +
+      "extensions.tracers.datadog.v4alpha\272\200\310\321\006\002" +
+      "\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -55,7 +56,7 @@ public final class DatadogProto {
     internal_static_envoy_config_trace_v3_DatadogConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_trace_v3_DatadogConfig_descriptor,
-        new java.lang.String[] { "CollectorCluster", "ServiceName", });
+        new java.lang.String[] { "CollectorCluster", "ServiceName", "CollectorHostname", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Migrate.fileMigrate);

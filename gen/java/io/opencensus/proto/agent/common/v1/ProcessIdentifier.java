@@ -35,69 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProcessIdentifier(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostName_ = s;
-            break;
-          }
-          case 16: {
-
-            pid_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTimestamp_ != null) {
-              subBuilder = startTimestamp_.toBuilder();
-            }
-            startTimestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTimestamp_);
-              startTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opencensus.proto.agent.common.v1.CommonProto.internal_static_opencensus_proto_agent_common_v1_ProcessIdentifier_descriptor;
@@ -112,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOST_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object hostName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostName_ = "";
   /**
    * <pre>
    * The host name. Usually refers to the machine/container name.
@@ -160,7 +98,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PID_FIELD_NUMBER = 2;
-  private int pid_;
+  private int pid_ = 0;
   /**
    * <pre>
    * Process id.
@@ -209,7 +147,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimestampOrBuilder() {
-    return getStartTimestamp();
+    return startTimestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTimestamp_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -235,7 +173,7 @@ private static final long serialVersionUID = 0L;
     if (startTimestamp_ != null) {
       output.writeMessage(3, getStartTimestamp());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -255,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getStartTimestamp());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -279,7 +217,7 @@ private static final long serialVersionUID = 0L;
       if (!getStartTimestamp()
           .equals(other.getStartTimestamp())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -298,7 +236,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + START_TIMESTAMP_FIELD_NUMBER;
       hash = (53 * hash) + getStartTimestamp().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -419,30 +357,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opencensus.proto.agent.common.v1.ProcessIdentifier.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       hostName_ = "";
-
       pid_ = 0;
-
-      if (startTimestampBuilder_ == null) {
-        startTimestamp_ = null;
-      } else {
-        startTimestamp_ = null;
+      startTimestamp_ = null;
+      if (startTimestampBuilder_ != null) {
+        startTimestampBuilder_.dispose();
         startTimestampBuilder_ = null;
       }
       return this;
@@ -471,15 +402,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opencensus.proto.agent.common.v1.ProcessIdentifier buildPartial() {
       io.opencensus.proto.agent.common.v1.ProcessIdentifier result = new io.opencensus.proto.agent.common.v1.ProcessIdentifier(this);
-      result.hostName_ = hostName_;
-      result.pid_ = pid_;
-      if (startTimestampBuilder_ == null) {
-        result.startTimestamp_ = startTimestamp_;
-      } else {
-        result.startTimestamp_ = startTimestampBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.opencensus.proto.agent.common.v1.ProcessIdentifier result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hostName_ = hostName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pid_ = pid_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.startTimestamp_ = startTimestampBuilder_ == null
+            ? startTimestamp_
+            : startTimestampBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -528,6 +468,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.opencensus.proto.agent.common.v1.ProcessIdentifier.getDefaultInstance()) return this;
       if (!other.getHostName().isEmpty()) {
         hostName_ = other.hostName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPid() != 0) {
@@ -536,7 +477,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasStartTimestamp()) {
         mergeStartTimestamp(other.getStartTimestamp());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -551,19 +492,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opencensus.proto.agent.common.v1.ProcessIdentifier parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              hostName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              pid_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getStartTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opencensus.proto.agent.common.v1.ProcessIdentifier) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object hostName_ = "";
     /**
@@ -621,11 +593,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -639,8 +609,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostName() {
-      
       hostName_ = getDefaultInstance().getHostName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -656,12 +626,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -691,6 +659,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPid(int value) {
       
       pid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -703,7 +672,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPid() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       pid_ = 0;
       onChanged();
       return this;
@@ -721,7 +690,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTimestamp field is set.
      */
     public boolean hasStartTimestamp() {
-      return startTimestampBuilder_ != null || startTimestamp_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -751,11 +720,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTimestamp_ = value;
-        onChanged();
       } else {
         startTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -769,11 +738,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimestampBuilder_ == null) {
         startTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         startTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -785,17 +754,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTimestamp(com.google.protobuf.Timestamp value) {
       if (startTimestampBuilder_ == null) {
-        if (startTimestamp_ != null) {
-          startTimestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(startTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          startTimestamp_ != null &&
+          startTimestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimestampBuilder().mergeFrom(value);
         } else {
           startTimestamp_ = value;
         }
-        onChanged();
       } else {
         startTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -806,14 +776,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_timestamp = 3;</code>
      */
     public Builder clearStartTimestamp() {
-      if (startTimestampBuilder_ == null) {
-        startTimestamp_ = null;
-        onChanged();
-      } else {
-        startTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      startTimestamp_ = null;
+      if (startTimestampBuilder_ != null) {
+        startTimestampBuilder_.dispose();
         startTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -824,7 +793,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_timestamp = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimestampBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getStartTimestampFieldBuilder().getBuilder();
     }
@@ -896,7 +865,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProcessIdentifier(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

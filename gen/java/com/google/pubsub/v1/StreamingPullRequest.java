@@ -41,121 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StreamingPullRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subscription_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ackIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ackIds_.add(s);
-            break;
-          }
-          case 24: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              modifyDeadlineSeconds_ = newIntList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            modifyDeadlineSeconds_.addInt(input.readInt32());
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000002) != 0) && input.getBytesUntilLimit() > 0) {
-              modifyDeadlineSeconds_ = newIntList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              modifyDeadlineSeconds_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              modifyDeadlineAckIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            modifyDeadlineAckIds_.add(s);
-            break;
-          }
-          case 40: {
-
-            streamAckDeadlineSeconds_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientId_ = s;
-            break;
-          }
-          case 56: {
-
-            maxOutstandingMessages_ = input.readInt64();
-            break;
-          }
-          case 64: {
-
-            maxOutstandingBytes_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ackIds_ = ackIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        modifyDeadlineSeconds_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        modifyDeadlineAckIds_ = modifyDeadlineAckIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_StreamingPullRequest_descriptor;
@@ -170,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBSCRIPTION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object subscription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subscription_ = "";
   /**
    * <pre>
    * Required. The subscription for which to initialize the new stream. This
@@ -222,6 +108,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACK_IDS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ackIds_;
   /**
    * <pre>
@@ -289,6 +176,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODIFY_DEADLINE_SECONDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList modifyDeadlineSeconds_;
   /**
    * <pre>
@@ -359,6 +247,7 @@ private static final long serialVersionUID = 0L;
   private int modifyDeadlineSecondsMemoizedSerializedSize = -1;
 
   public static final int MODIFY_DEADLINE_ACK_IDS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList modifyDeadlineAckIds_;
   /**
    * <pre>
@@ -426,7 +315,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STREAM_ACK_DEADLINE_SECONDS_FIELD_NUMBER = 5;
-  private int streamAckDeadlineSeconds_;
+  private int streamAckDeadlineSeconds_ = 0;
   /**
    * <pre>
    * Required. The ack deadline to use for the stream. This must be provided in
@@ -444,7 +333,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object clientId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientId_ = "";
   /**
    * <pre>
    * A unique identifier that is used to distinguish client instances from each
@@ -500,7 +390,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_OUTSTANDING_MESSAGES_FIELD_NUMBER = 7;
-  private long maxOutstandingMessages_;
+  private long maxOutstandingMessages_ = 0L;
   /**
    * <pre>
    * Flow control settings for the maximum number of outstanding messages. When
@@ -523,7 +413,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_OUTSTANDING_BYTES_FIELD_NUMBER = 8;
-  private long maxOutstandingBytes_;
+  private long maxOutstandingBytes_ = 0L;
   /**
    * <pre>
    * Flow control settings for the maximum number of outstanding bytes. When
@@ -588,7 +478,7 @@ private static final long serialVersionUID = 0L;
     if (maxOutstandingBytes_ != 0L) {
       output.writeInt64(8, maxOutstandingBytes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -645,7 +535,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(8, maxOutstandingBytes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -676,7 +566,7 @@ private static final long serialVersionUID = 0L;
         != other.getMaxOutstandingMessages()) return false;
     if (getMaxOutstandingBytes()
         != other.getMaxOutstandingBytes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -711,7 +601,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MAX_OUTSTANDING_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getMaxOutstandingBytes());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -834,38 +724,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.pubsub.v1.StreamingPullRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       subscription_ = "";
-
       ackIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      modifyDeadlineSeconds_ = emptyIntList();
       bitField0_ = (bitField0_ & ~0x00000002);
+      modifyDeadlineSeconds_ = emptyIntList();
       modifyDeadlineAckIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       streamAckDeadlineSeconds_ = 0;
-
       clientId_ = "";
-
       maxOutstandingMessages_ = 0L;
-
       maxOutstandingBytes_ = 0L;
-
       return this;
     }
 
@@ -892,29 +772,47 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.pubsub.v1.StreamingPullRequest buildPartial() {
       com.google.pubsub.v1.StreamingPullRequest result = new com.google.pubsub.v1.StreamingPullRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.subscription_ = subscription_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        ackIds_ = ackIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.ackIds_ = ackIds_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        modifyDeadlineSeconds_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.modifyDeadlineSeconds_ = modifyDeadlineSeconds_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        modifyDeadlineAckIds_ = modifyDeadlineAckIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.modifyDeadlineAckIds_ = modifyDeadlineAckIds_;
-      result.streamAckDeadlineSeconds_ = streamAckDeadlineSeconds_;
-      result.clientId_ = clientId_;
-      result.maxOutstandingMessages_ = maxOutstandingMessages_;
-      result.maxOutstandingBytes_ = maxOutstandingBytes_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.pubsub.v1.StreamingPullRequest result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        ackIds_ = ackIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.ackIds_ = ackIds_;
+      if (((bitField0_ & 0x00000004) != 0)) {
+        modifyDeadlineSeconds_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.modifyDeadlineSeconds_ = modifyDeadlineSeconds_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        modifyDeadlineAckIds_ = modifyDeadlineAckIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.modifyDeadlineAckIds_ = modifyDeadlineAckIds_;
+    }
+
+    private void buildPartial0(com.google.pubsub.v1.StreamingPullRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.subscription_ = subscription_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.streamAckDeadlineSeconds_ = streamAckDeadlineSeconds_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.clientId_ = clientId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.maxOutstandingMessages_ = maxOutstandingMessages_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.maxOutstandingBytes_ = maxOutstandingBytes_;
+      }
     }
 
     @java.lang.Override
@@ -963,12 +861,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.pubsub.v1.StreamingPullRequest.getDefaultInstance()) return this;
       if (!other.getSubscription().isEmpty()) {
         subscription_ = other.subscription_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.ackIds_.isEmpty()) {
         if (ackIds_.isEmpty()) {
           ackIds_ = other.ackIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureAckIdsIsMutable();
           ackIds_.addAll(other.ackIds_);
@@ -978,7 +877,7 @@ private static final long serialVersionUID = 0L;
       if (!other.modifyDeadlineSeconds_.isEmpty()) {
         if (modifyDeadlineSeconds_.isEmpty()) {
           modifyDeadlineSeconds_ = other.modifyDeadlineSeconds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureModifyDeadlineSecondsIsMutable();
           modifyDeadlineSeconds_.addAll(other.modifyDeadlineSeconds_);
@@ -988,7 +887,7 @@ private static final long serialVersionUID = 0L;
       if (!other.modifyDeadlineAckIds_.isEmpty()) {
         if (modifyDeadlineAckIds_.isEmpty()) {
           modifyDeadlineAckIds_ = other.modifyDeadlineAckIds_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureModifyDeadlineAckIdsIsMutable();
           modifyDeadlineAckIds_.addAll(other.modifyDeadlineAckIds_);
@@ -1000,6 +899,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getClientId().isEmpty()) {
         clientId_ = other.clientId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.getMaxOutstandingMessages() != 0L) {
@@ -1008,7 +908,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxOutstandingBytes() != 0L) {
         setMaxOutstandingBytes(other.getMaxOutstandingBytes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1023,17 +923,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.pubsub.v1.StreamingPullRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              subscription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAckIdsIsMutable();
+              ackIds_.add(s);
+              break;
+            } // case 18
+            case 24: {
+              int v = input.readInt32();
+              ensureModifyDeadlineSecondsIsMutable();
+              modifyDeadlineSeconds_.addInt(v);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureModifyDeadlineSecondsIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                modifyDeadlineSeconds_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureModifyDeadlineAckIdsIsMutable();
+              modifyDeadlineAckIds_.add(s);
+              break;
+            } // case 34
+            case 40: {
+              streamAckDeadlineSeconds_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              clientId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              maxOutstandingMessages_ = input.readInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              maxOutstandingBytes_ = input.readInt64();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.pubsub.v1.StreamingPullRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1100,11 +1066,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubscription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subscription_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1120,8 +1084,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubscription() {
-      
       subscription_ = getDefaultInstance().getSubscription();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1139,21 +1103,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubscriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subscription_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList ackIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAckIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         ackIds_ = new com.google.protobuf.LazyStringArrayList(ackIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1236,10 +1198,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAckIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAckIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAckIdsIsMutable();
       ackIds_.set(index, value);
       onChanged();
       return this;
@@ -1259,10 +1219,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAckIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAckIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAckIdsIsMutable();
       ackIds_.add(value);
       onChanged();
       return this;
@@ -1302,7 +1260,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAckIds() {
       ackIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1321,10 +1279,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAckIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAckIdsIsMutable();
       ackIds_.add(value);
       onChanged();
@@ -1333,10 +1289,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.IntList modifyDeadlineSeconds_ = emptyIntList();
     private void ensureModifyDeadlineSecondsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         modifyDeadlineSeconds_ = mutableCopy(modifyDeadlineSeconds_);
-        bitField0_ |= 0x00000002;
-       }
+        bitField0_ |= 0x00000004;
+      }
     }
     /**
      * <pre>
@@ -1358,7 +1314,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getModifyDeadlineSecondsList() {
-      return ((bitField0_ & 0x00000002) != 0) ?
+      return ((bitField0_ & 0x00000004) != 0) ?
                java.util.Collections.unmodifiableList(modifyDeadlineSeconds_) : modifyDeadlineSeconds_;
     }
     /**
@@ -1426,6 +1382,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModifyDeadlineSeconds(
         int index, int value) {
+      
       ensureModifyDeadlineSecondsIsMutable();
       modifyDeadlineSeconds_.setInt(index, value);
       onChanged();
@@ -1451,6 +1408,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addModifyDeadlineSeconds(int value) {
+      
       ensureModifyDeadlineSecondsIsMutable();
       modifyDeadlineSeconds_.addInt(value);
       onChanged();
@@ -1503,16 +1461,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearModifyDeadlineSeconds() {
       modifyDeadlineSeconds_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList modifyDeadlineAckIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureModifyDeadlineAckIdsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         modifyDeadlineAckIds_ = new com.google.protobuf.LazyStringArrayList(modifyDeadlineAckIds_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1595,10 +1553,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModifyDeadlineAckIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureModifyDeadlineAckIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureModifyDeadlineAckIdsIsMutable();
       modifyDeadlineAckIds_.set(index, value);
       onChanged();
       return this;
@@ -1618,10 +1574,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addModifyDeadlineAckIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureModifyDeadlineAckIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureModifyDeadlineAckIdsIsMutable();
       modifyDeadlineAckIds_.add(value);
       onChanged();
       return this;
@@ -1661,7 +1615,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearModifyDeadlineAckIds() {
       modifyDeadlineAckIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1680,10 +1634,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addModifyDeadlineAckIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureModifyDeadlineAckIdsIsMutable();
       modifyDeadlineAckIds_.add(value);
       onChanged();
@@ -1721,6 +1673,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStreamAckDeadlineSeconds(int value) {
       
       streamAckDeadlineSeconds_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1736,7 +1689,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStreamAckDeadlineSeconds() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       streamAckDeadlineSeconds_ = 0;
       onChanged();
       return this;
@@ -1810,11 +1763,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1832,8 +1783,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientId() {
-      
       clientId_ = getDefaultInstance().getClientId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1853,12 +1804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1904,6 +1853,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxOutstandingMessages(long value) {
       
       maxOutstandingMessages_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1924,7 +1874,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxOutstandingMessages() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       maxOutstandingMessages_ = 0L;
       onChanged();
       return this;
@@ -1971,6 +1921,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxOutstandingBytes(long value) {
       
       maxOutstandingBytes_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1991,7 +1942,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxOutstandingBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       maxOutstandingBytes_ = 0L;
       onChanged();
       return this;
@@ -2029,7 +1980,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamingPullRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

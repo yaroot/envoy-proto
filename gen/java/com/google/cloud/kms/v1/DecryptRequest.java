@@ -38,87 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DecryptRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-
-            ciphertext_ = input.readBytes();
-            break;
-          }
-          case 26: {
-
-            additionalAuthenticatedData_ = input.readBytes();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (ciphertextCrc32C_ != null) {
-              subBuilder = ciphertextCrc32C_.toBuilder();
-            }
-            ciphertextCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ciphertextCrc32C_);
-              ciphertextCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (additionalAuthenticatedDataCrc32C_ != null) {
-              subBuilder = additionalAuthenticatedDataCrc32C_.toBuilder();
-            }
-            additionalAuthenticatedDataCrc32C_ = input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(additionalAuthenticatedDataCrc32C_);
-              additionalAuthenticatedDataCrc32C_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.KmsProto.internal_static_google_cloud_kms_v1_DecryptRequest_descriptor;
@@ -133,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the
@@ -183,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIPHERTEXT_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString ciphertext_;
+  private com.google.protobuf.ByteString ciphertext_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The encrypted data originally returned in
@@ -199,7 +119,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDITIONAL_AUTHENTICATED_DATA_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString additionalAuthenticatedData_;
+  private com.google.protobuf.ByteString additionalAuthenticatedData_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Optional. Optional data that must match the data originally supplied in
@@ -303,7 +223,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getCiphertextCrc32COrBuilder() {
-    return getCiphertextCrc32C();
+    return ciphertextCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : ciphertextCrc32C_;
   }
 
   public static final int ADDITIONAL_AUTHENTICATED_DATA_CRC32C_FIELD_NUMBER = 6;
@@ -395,7 +315,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int64ValueOrBuilder getAdditionalAuthenticatedDataCrc32COrBuilder() {
-    return getAdditionalAuthenticatedDataCrc32C();
+    return additionalAuthenticatedDataCrc32C_ == null ? com.google.protobuf.Int64Value.getDefaultInstance() : additionalAuthenticatedDataCrc32C_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -427,7 +347,7 @@ private static final long serialVersionUID = 0L;
     if (additionalAuthenticatedDataCrc32C_ != null) {
       output.writeMessage(6, getAdditionalAuthenticatedDataCrc32C());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -455,7 +375,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getAdditionalAuthenticatedDataCrc32C());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -486,7 +406,7 @@ private static final long serialVersionUID = 0L;
       if (!getAdditionalAuthenticatedDataCrc32C()
           .equals(other.getAdditionalAuthenticatedDataCrc32C())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -511,7 +431,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDITIONAL_AUTHENTICATED_DATA_CRC32C_FIELD_NUMBER;
       hash = (53 * hash) + getAdditionalAuthenticatedDataCrc32C().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -633,38 +553,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.DecryptRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       ciphertext_ = com.google.protobuf.ByteString.EMPTY;
-
       additionalAuthenticatedData_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (ciphertextCrc32CBuilder_ == null) {
-        ciphertextCrc32C_ = null;
-      } else {
-        ciphertextCrc32C_ = null;
+      ciphertextCrc32C_ = null;
+      if (ciphertextCrc32CBuilder_ != null) {
+        ciphertextCrc32CBuilder_.dispose();
         ciphertextCrc32CBuilder_ = null;
       }
-      if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        additionalAuthenticatedDataCrc32C_ = null;
-      } else {
-        additionalAuthenticatedDataCrc32C_ = null;
+      additionalAuthenticatedDataCrc32C_ = null;
+      if (additionalAuthenticatedDataCrc32CBuilder_ != null) {
+        additionalAuthenticatedDataCrc32CBuilder_.dispose();
         additionalAuthenticatedDataCrc32CBuilder_ = null;
       }
       return this;
@@ -693,21 +604,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.DecryptRequest buildPartial() {
       com.google.cloud.kms.v1.DecryptRequest result = new com.google.cloud.kms.v1.DecryptRequest(this);
-      result.name_ = name_;
-      result.ciphertext_ = ciphertext_;
-      result.additionalAuthenticatedData_ = additionalAuthenticatedData_;
-      if (ciphertextCrc32CBuilder_ == null) {
-        result.ciphertextCrc32C_ = ciphertextCrc32C_;
-      } else {
-        result.ciphertextCrc32C_ = ciphertextCrc32CBuilder_.build();
-      }
-      if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        result.additionalAuthenticatedDataCrc32C_ = additionalAuthenticatedDataCrc32C_;
-      } else {
-        result.additionalAuthenticatedDataCrc32C_ = additionalAuthenticatedDataCrc32CBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.DecryptRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.ciphertext_ = ciphertext_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.additionalAuthenticatedData_ = additionalAuthenticatedData_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.ciphertextCrc32C_ = ciphertextCrc32CBuilder_ == null
+            ? ciphertextCrc32C_
+            : ciphertextCrc32CBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.additionalAuthenticatedDataCrc32C_ = additionalAuthenticatedDataCrc32CBuilder_ == null
+            ? additionalAuthenticatedDataCrc32C_
+            : additionalAuthenticatedDataCrc32CBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -756,6 +678,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.DecryptRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getCiphertext() != com.google.protobuf.ByteString.EMPTY) {
@@ -770,7 +693,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAdditionalAuthenticatedDataCrc32C()) {
         mergeAdditionalAuthenticatedDataCrc32C(other.getAdditionalAuthenticatedDataCrc32C());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -785,19 +708,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.DecryptRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              ciphertext_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              additionalAuthenticatedData_ = input.readBytes();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getCiphertextCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAdditionalAuthenticatedDataCrc32CFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.DecryptRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -858,11 +824,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -877,8 +841,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -895,12 +859,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -930,11 +892,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCiphertext(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ciphertext_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -948,7 +908,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCiphertext() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       ciphertext_ = getDefaultInstance().getCiphertext();
       onChanged();
       return this;
@@ -979,11 +939,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAdditionalAuthenticatedData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       additionalAuthenticatedData_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -997,7 +955,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdditionalAuthenticatedData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       additionalAuthenticatedData_ = getDefaultInstance().getAdditionalAuthenticatedData();
       onChanged();
       return this;
@@ -1033,7 +991,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ciphertextCrc32c field is set.
      */
     public boolean hasCiphertextCrc32C() {
-      return ciphertextCrc32CBuilder_ != null || ciphertextCrc32C_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1099,11 +1057,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ciphertextCrc32C_ = value;
-        onChanged();
       } else {
         ciphertextCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1135,11 +1093,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (ciphertextCrc32CBuilder_ == null) {
         ciphertextCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         ciphertextCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1169,17 +1127,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCiphertextCrc32C(com.google.protobuf.Int64Value value) {
       if (ciphertextCrc32CBuilder_ == null) {
-        if (ciphertextCrc32C_ != null) {
-          ciphertextCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(ciphertextCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          ciphertextCrc32C_ != null &&
+          ciphertextCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getCiphertextCrc32CBuilder().mergeFrom(value);
         } else {
           ciphertextCrc32C_ = value;
         }
-        onChanged();
       } else {
         ciphertextCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1208,14 +1167,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value ciphertext_crc32c = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearCiphertextCrc32C() {
-      if (ciphertextCrc32CBuilder_ == null) {
-        ciphertextCrc32C_ = null;
-        onChanged();
-      } else {
-        ciphertextCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      ciphertextCrc32C_ = null;
+      if (ciphertextCrc32CBuilder_ != null) {
+        ciphertextCrc32CBuilder_.dispose();
         ciphertextCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1244,7 +1202,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value ciphertext_crc32c = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Int64Value.Builder getCiphertextCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCiphertextCrc32CFieldBuilder().getBuilder();
     }
@@ -1350,7 +1308,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the additionalAuthenticatedDataCrc32c field is set.
      */
     public boolean hasAdditionalAuthenticatedDataCrc32C() {
-      return additionalAuthenticatedDataCrc32CBuilder_ != null || additionalAuthenticatedDataCrc32C_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1416,11 +1374,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         additionalAuthenticatedDataCrc32C_ = value;
-        onChanged();
       } else {
         additionalAuthenticatedDataCrc32CBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1452,11 +1410,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int64Value.Builder builderForValue) {
       if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
         additionalAuthenticatedDataCrc32C_ = builderForValue.build();
-        onChanged();
       } else {
         additionalAuthenticatedDataCrc32CBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1486,17 +1444,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdditionalAuthenticatedDataCrc32C(com.google.protobuf.Int64Value value) {
       if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        if (additionalAuthenticatedDataCrc32C_ != null) {
-          additionalAuthenticatedDataCrc32C_ =
-            com.google.protobuf.Int64Value.newBuilder(additionalAuthenticatedDataCrc32C_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          additionalAuthenticatedDataCrc32C_ != null &&
+          additionalAuthenticatedDataCrc32C_ != com.google.protobuf.Int64Value.getDefaultInstance()) {
+          getAdditionalAuthenticatedDataCrc32CBuilder().mergeFrom(value);
         } else {
           additionalAuthenticatedDataCrc32C_ = value;
         }
-        onChanged();
       } else {
         additionalAuthenticatedDataCrc32CBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1525,14 +1484,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value additional_authenticated_data_crc32c = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearAdditionalAuthenticatedDataCrc32C() {
-      if (additionalAuthenticatedDataCrc32CBuilder_ == null) {
-        additionalAuthenticatedDataCrc32C_ = null;
-        onChanged();
-      } else {
-        additionalAuthenticatedDataCrc32C_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      additionalAuthenticatedDataCrc32C_ = null;
+      if (additionalAuthenticatedDataCrc32CBuilder_ != null) {
+        additionalAuthenticatedDataCrc32CBuilder_.dispose();
         additionalAuthenticatedDataCrc32CBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1561,7 +1519,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int64Value additional_authenticated_data_crc32c = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Int64Value.Builder getAdditionalAuthenticatedDataCrc32CBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getAdditionalAuthenticatedDataCrc32CFieldBuilder().getBuilder();
     }
@@ -1669,7 +1627,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DecryptRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

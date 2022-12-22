@@ -29,6 +29,11 @@ public final class GcpAuthnProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenCacheConfig_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenHeader_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenHeader_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -44,20 +49,24 @@ public final class GcpAuthnProto {
       "ore/v3/base.proto\032#envoy/config/core/v3/" +
       "http_uri.proto\032\036google/protobuf/wrappers" +
       ".proto\032\035udpa/annotations/status.proto\032\027v" +
-      "alidate/validate.proto\"\336\001\n\024GcpAuthnFilte" +
+      "alidate/validate.proto\"\255\002\n\024GcpAuthnFilte" +
       "rConfig\0229\n\010http_uri\030\001 \001(\0132\035.envoy.config" +
       ".core.v3.HttpUriB\010\372B\005\212\001\002\020\001\0227\n\014retry_poli" +
       "cy\030\002 \001(\0132!.envoy.config.core.v3.RetryPol" +
       "icy\022R\n\014cache_config\030\003 \001(\0132<.envoy.extens" +
       "ions.filters.http.gcp_authn.v3.TokenCach" +
-      "eConfig\" \n\010Audience\022\024\n\003url\030\001 \001(\tB\007\372B\004r\002\020" +
-      "\001\"U\n\020TokenCacheConfig\022A\n\ncache_size\030\001 \001(" +
-      "\0132\034.google.protobuf.UInt64ValueB\017\372B\0142\n\030\377" +
-      "\377\377\377\377\377\377\377\177B\262\001\n8io.envoyproxy.envoy.extensi" +
-      "ons.filters.http.gcp_authn.v3B\rGcpAuthnP" +
-      "rotoP\001Z]github.com/envoyproxy/go-control" +
-      "-plane/envoy/extensions/filters/http/gcp" +
-      "_authn/v3;gcp_authnv3\272\200\310\321\006\002\020\002b\006proto3"
+      "eConfig\022M\n\014token_header\030\004 \001(\01327.envoy.ex" +
+      "tensions.filters.http.gcp_authn.v3.Token" +
+      "Header\" \n\010Audience\022\024\n\003url\030\001 \001(\tB\007\372B\004r\002\020\001" +
+      "\"U\n\020TokenCacheConfig\022A\n\ncache_size\030\001 \001(\013" +
+      "2\034.google.protobuf.UInt64ValueB\017\372B\0142\n\030\377\377" +
+      "\377\377\377\377\377\377\177\"M\n\013TokenHeader\022\033\n\004name\030\001 \001(\tB\r\372B" +
+      "\nr\010\020\001\300\001\001\310\001\000\022!\n\014value_prefix\030\002 \001(\tB\013\372B\010r\006" +
+      "\300\001\002\310\001\000B\262\001\n8io.envoyproxy.envoy.extension" +
+      "s.filters.http.gcp_authn.v3B\rGcpAuthnPro" +
+      "toP\001Z]github.com/envoyproxy/go-control-p" +
+      "lane/envoy/extensions/filters/http/gcp_a" +
+      "uthn/v3;gcp_authnv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -73,7 +82,7 @@ public final class GcpAuthnProto {
     internal_static_envoy_extensions_filters_http_gcp_authn_v3_GcpAuthnFilterConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_gcp_authn_v3_GcpAuthnFilterConfig_descriptor,
-        new java.lang.String[] { "HttpUri", "RetryPolicy", "CacheConfig", });
+        new java.lang.String[] { "HttpUri", "RetryPolicy", "CacheConfig", "TokenHeader", });
     internal_static_envoy_extensions_filters_http_gcp_authn_v3_Audience_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_envoy_extensions_filters_http_gcp_authn_v3_Audience_fieldAccessorTable = new
@@ -86,6 +95,12 @@ public final class GcpAuthnProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenCacheConfig_descriptor,
         new java.lang.String[] { "CacheSize", });
+    internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenHeader_descriptor =
+      getDescriptor().getMessageTypes().get(3);
+    internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenHeader_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_extensions_filters_http_gcp_authn_v3_TokenHeader_descriptor,
+        new java.lang.String[] { "Name", "ValuePrefix", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);

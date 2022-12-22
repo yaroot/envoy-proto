@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MaintenanceWindow(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (hourOfDay_ != null) {
-              subBuilder = hourOfDay_.toBuilder();
-            }
-            hourOfDay_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(hourOfDay_);
-              hourOfDay_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            dayOfWeek_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1beta.MetastoreProto.internal_static_google_cloud_metastore_v1beta_MaintenanceWindow_descriptor;
@@ -142,11 +84,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getHourOfDayOrBuilder() {
-    return getHourOfDay();
+    return hourOfDay_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : hourOfDay_;
   }
 
   public static final int DAY_OF_WEEK_FIELD_NUMBER = 2;
-  private int dayOfWeek_;
+  private int dayOfWeek_ = 0;
   /**
    * <pre>
    * The day of week, when the window starts.
@@ -167,8 +109,7 @@ private static final long serialVersionUID = 0L;
    * @return The dayOfWeek.
    */
   @java.lang.Override public com.google.type.DayOfWeek getDayOfWeek() {
-    @SuppressWarnings("deprecation")
-    com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+    com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
     return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
   }
 
@@ -192,7 +133,7 @@ private static final long serialVersionUID = 0L;
     if (dayOfWeek_ != com.google.type.DayOfWeek.DAY_OF_WEEK_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, dayOfWeek_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -209,7 +150,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, dayOfWeek_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -230,7 +171,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getHourOfDay())) return false;
     }
     if (dayOfWeek_ != other.dayOfWeek_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -247,7 +188,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DAY_OF_WEEK_FIELD_NUMBER;
     hash = (53 * hash) + dayOfWeek_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -369,30 +310,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1beta.MaintenanceWindow.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (hourOfDayBuilder_ == null) {
-        hourOfDay_ = null;
-      } else {
-        hourOfDay_ = null;
+      bitField0_ = 0;
+      hourOfDay_ = null;
+      if (hourOfDayBuilder_ != null) {
+        hourOfDayBuilder_.dispose();
         hourOfDayBuilder_ = null;
       }
       dayOfWeek_ = 0;
-
       return this;
     }
 
@@ -419,14 +354,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.MaintenanceWindow buildPartial() {
       com.google.cloud.metastore.v1beta.MaintenanceWindow result = new com.google.cloud.metastore.v1beta.MaintenanceWindow(this);
-      if (hourOfDayBuilder_ == null) {
-        result.hourOfDay_ = hourOfDay_;
-      } else {
-        result.hourOfDay_ = hourOfDayBuilder_.build();
-      }
-      result.dayOfWeek_ = dayOfWeek_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1beta.MaintenanceWindow result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hourOfDay_ = hourOfDayBuilder_ == null
+            ? hourOfDay_
+            : hourOfDayBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dayOfWeek_ = dayOfWeek_;
+      }
     }
 
     @java.lang.Override
@@ -479,7 +421,7 @@ private static final long serialVersionUID = 0L;
       if (other.dayOfWeek_ != 0) {
         setDayOfWeekValue(other.getDayOfWeekValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -494,19 +436,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1beta.MaintenanceWindow parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHourOfDayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              dayOfWeek_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1beta.MaintenanceWindow) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Int32Value hourOfDay_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -520,7 +488,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the hourOfDay field is set.
      */
     public boolean hasHourOfDay() {
-      return hourOfDayBuilder_ != null || hourOfDay_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -550,11 +518,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         hourOfDay_ = value;
-        onChanged();
       } else {
         hourOfDayBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -568,11 +536,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (hourOfDayBuilder_ == null) {
         hourOfDay_ = builderForValue.build();
-        onChanged();
       } else {
         hourOfDayBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -584,17 +552,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHourOfDay(com.google.protobuf.Int32Value value) {
       if (hourOfDayBuilder_ == null) {
-        if (hourOfDay_ != null) {
-          hourOfDay_ =
-            com.google.protobuf.Int32Value.newBuilder(hourOfDay_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          hourOfDay_ != null &&
+          hourOfDay_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getHourOfDayBuilder().mergeFrom(value);
         } else {
           hourOfDay_ = value;
         }
-        onChanged();
       } else {
         hourOfDayBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -605,14 +574,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value hour_of_day = 1;</code>
      */
     public Builder clearHourOfDay() {
-      if (hourOfDayBuilder_ == null) {
-        hourOfDay_ = null;
-        onChanged();
-      } else {
-        hourOfDay_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      hourOfDay_ = null;
+      if (hourOfDayBuilder_ != null) {
+        hourOfDayBuilder_.dispose();
         hourOfDayBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -623,7 +591,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value hour_of_day = 1;</code>
      */
     public com.google.protobuf.Int32Value.Builder getHourOfDayBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHourOfDayFieldBuilder().getBuilder();
     }
@@ -685,8 +653,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDayOfWeekValue(int value) {
-      
       dayOfWeek_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -700,8 +668,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.DayOfWeek getDayOfWeek() {
-      @SuppressWarnings("deprecation")
-      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
       return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
     }
     /**
@@ -717,7 +684,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       dayOfWeek_ = value.getNumber();
       onChanged();
       return this;
@@ -731,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDayOfWeek() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       dayOfWeek_ = 0;
       onChanged();
       return this;
@@ -769,7 +736,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MaintenanceWindow(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

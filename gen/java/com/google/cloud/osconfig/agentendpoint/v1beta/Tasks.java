@@ -471,7 +471,6 @@ public final class Tasks {
      *
      * <code>map&lt;string, string&gt; service_labels = 6;</code>
      */
-
     /* nullable */
 java.lang.String getServiceLabelsOrDefault(
         java.lang.String key,
@@ -484,7 +483,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; service_labels = 6;</code>
      */
-
     java.lang.String getServiceLabelsOrThrow(
         java.lang.String key);
 
@@ -523,105 +521,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Task(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              taskId_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              taskType_ = rawValue;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              taskDirective_ = rawValue;
-              break;
-            }
-            case 34: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask.Builder subBuilder = null;
-              if (taskDetailsCase_ == 4) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask) taskDetails_).toBuilder();
-              }
-              taskDetails_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask) taskDetails_);
-                taskDetails_ = subBuilder.buildPartial();
-              }
-              taskDetailsCase_ = 4;
-              break;
-            }
-            case 42: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask.Builder subBuilder = null;
-              if (taskDetailsCase_ == 5) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask) taskDetails_).toBuilder();
-              }
-              taskDetails_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask) taskDetails_);
-                taskDetails_ = subBuilder.buildPartial();
-              }
-              taskDetailsCase_ = 5;
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                serviceLabels_ = com.google.protobuf.MapField.newMapField(
-                    ServiceLabelsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              serviceLabels__ = input.readMessage(
-                  ServiceLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              serviceLabels_.getMutableMap().put(
-                  serviceLabels__.getKey(), serviceLabels__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -690,7 +589,8 @@ java.lang.String defaultValue);
     }
 
     public static final int TASK_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object taskId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object taskId_ = "";
     /**
      * <pre>
      * Unique task id.
@@ -736,7 +636,7 @@ java.lang.String defaultValue);
     }
 
     public static final int TASK_TYPE_FIELD_NUMBER = 2;
-    private int taskType_;
+    private int taskType_ = 0;
     /**
      * <pre>
      * The type of task to perform.
@@ -765,13 +665,12 @@ java.lang.String defaultValue);
      * @return The taskType.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType getTaskType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType.valueOf(taskType_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType.forNumber(taskType_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType.UNRECOGNIZED : result;
     }
 
     public static final int TASK_DIRECTIVE_FIELD_NUMBER = 3;
-    private int taskDirective_;
+    private int taskDirective_ = 0;
     /**
      * <pre>
      * Current directive to the agent.
@@ -792,8 +691,7 @@ java.lang.String defaultValue);
      * @return The taskDirective.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective getTaskDirective() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective.valueOf(taskDirective_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective.forNumber(taskDirective_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective.UNRECOGNIZED : result;
     }
 
@@ -895,6 +793,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> serviceLabels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -905,7 +804,6 @@ java.lang.String defaultValue);
       }
       return serviceLabels_;
     }
-
     public int getServiceLabelsCount() {
       return internalGetServiceLabels().getMap().size();
     }
@@ -916,7 +814,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; service_labels = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsServiceLabels(
         java.lang.String key) {
@@ -939,7 +836,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; service_labels = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getServiceLabelsMap() {
       return internalGetServiceLabels().getMap();
     }
@@ -951,10 +847,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; service_labels = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getServiceLabelsOrDefault(
+    public /* nullable */
+java.lang.String getServiceLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetServiceLabels().getMap();
@@ -968,7 +865,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; service_labels = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getServiceLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1015,7 +911,7 @@ java.lang.String defaultValue);
           internalGetServiceLabels(),
           ServiceLabelsDefaultEntryHolder.defaultEntry,
           6);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1053,7 +949,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(6, serviceLabels__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1087,7 +983,7 @@ java.lang.String defaultValue);
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1120,7 +1016,7 @@ java.lang.String defaultValue);
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1263,28 +1159,27 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         taskId_ = "";
-
         taskType_ = 0;
-
         taskDirective_ = 0;
-
+        if (applyPatchesTaskBuilder_ != null) {
+          applyPatchesTaskBuilder_.clear();
+        }
+        if (execStepTaskBuilder_ != null) {
+          execStepTaskBuilder_.clear();
+        }
         internalGetMutableServiceLabels().clear();
         taskDetailsCase_ = 0;
         taskDetails_ = null;
@@ -1314,29 +1209,40 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task(this);
-        int from_bitField0_ = bitField0_;
-        result.taskId_ = taskId_;
-        result.taskType_ = taskType_;
-        result.taskDirective_ = taskDirective_;
-        if (taskDetailsCase_ == 4) {
-          if (applyPatchesTaskBuilder_ == null) {
-            result.taskDetails_ = taskDetails_;
-          } else {
-            result.taskDetails_ = applyPatchesTaskBuilder_.build();
-          }
-        }
-        if (taskDetailsCase_ == 5) {
-          if (execStepTaskBuilder_ == null) {
-            result.taskDetails_ = taskDetails_;
-          } else {
-            result.taskDetails_ = execStepTaskBuilder_.build();
-          }
-        }
-        result.serviceLabels_ = internalGetServiceLabels();
-        result.serviceLabels_.makeImmutable();
-        result.taskDetailsCase_ = taskDetailsCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.taskId_ = taskId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.taskType_ = taskType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.taskDirective_ = taskDirective_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.serviceLabels_ = internalGetServiceLabels();
+          result.serviceLabels_.makeImmutable();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task result) {
+        result.taskDetailsCase_ = taskDetailsCase_;
+        result.taskDetails_ = this.taskDetails_;
+        if (taskDetailsCase_ == 4 &&
+            applyPatchesTaskBuilder_ != null) {
+          result.taskDetails_ = applyPatchesTaskBuilder_.build();
+        }
+        if (taskDetailsCase_ == 5 &&
+            execStepTaskBuilder_ != null) {
+          result.taskDetails_ = execStepTaskBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1385,6 +1291,7 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task.getDefaultInstance()) return this;
         if (!other.getTaskId().isEmpty()) {
           taskId_ = other.taskId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.taskType_ != 0) {
@@ -1395,6 +1302,7 @@ java.lang.String defaultValue);
         }
         internalGetMutableServiceLabels().mergeFrom(
             other.internalGetServiceLabels());
+        bitField0_ |= 0x00000020;
         switch (other.getTaskDetailsCase()) {
           case APPLY_PATCHES_TASK: {
             mergeApplyPatchesTask(other.getApplyPatchesTask());
@@ -1408,7 +1316,7 @@ java.lang.String defaultValue);
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1423,17 +1331,68 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                taskId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                taskType_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                taskDirective_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getApplyPatchesTaskFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                taskDetailsCase_ = 4;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getExecStepTaskFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                taskDetailsCase_ = 5;
+                break;
+              } // case 42
+              case 50: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                serviceLabels__ = input.readMessage(
+                    ServiceLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableServiceLabels().getMutableMap().put(
+                    serviceLabels__.getKey(), serviceLabels__.getValue());
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.Task) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int taskDetailsCase_ = 0;
@@ -1506,11 +1465,9 @@ java.lang.String defaultValue);
        */
       public Builder setTaskId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         taskId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1523,8 +1480,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTaskId() {
-        
         taskId_ = getDefaultInstance().getTaskId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1539,12 +1496,10 @@ java.lang.String defaultValue);
        */
       public Builder setTaskIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         taskId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1579,8 +1534,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setTaskTypeValue(int value) {
-        
         taskType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1598,8 +1553,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType getTaskType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType.valueOf(taskType_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType.forNumber(taskType_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskType.UNRECOGNIZED : result;
       }
       /**
@@ -1619,7 +1573,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         taskType_ = value.getNumber();
         onChanged();
         return this;
@@ -1637,7 +1591,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTaskType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         taskType_ = 0;
         onChanged();
         return this;
@@ -1665,8 +1619,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setTaskDirectiveValue(int value) {
-        
         taskDirective_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1680,8 +1634,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective getTaskDirective() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective.valueOf(taskDirective_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective.forNumber(taskDirective_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.TaskDirective.UNRECOGNIZED : result;
       }
       /**
@@ -1697,7 +1650,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         taskDirective_ = value.getNumber();
         onChanged();
         return this;
@@ -1711,7 +1664,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTaskDirective() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         taskDirective_ = 0;
         onChanged();
         return this;
@@ -1891,7 +1844,7 @@ java.lang.String defaultValue);
           taskDetails_ = null;
         }
         taskDetailsCase_ = 4;
-        onChanged();;
+        onChanged();
         return applyPatchesTaskBuilder_;
       }
 
@@ -2069,14 +2022,14 @@ java.lang.String defaultValue);
           taskDetails_ = null;
         }
         taskDetailsCase_ = 5;
-        onChanged();;
+        onChanged();
         return execStepTaskBuilder_;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> serviceLabels_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetServiceLabels() {
+          internalGetServiceLabels() {
         if (serviceLabels_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ServiceLabelsDefaultEntryHolder.defaultEntry);
@@ -2084,8 +2037,7 @@ java.lang.String defaultValue);
         return serviceLabels_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableServiceLabels() {
-        onChanged();;
+          internalGetMutableServiceLabels() {
         if (serviceLabels_ == null) {
           serviceLabels_ = com.google.protobuf.MapField.newMapField(
               ServiceLabelsDefaultEntryHolder.defaultEntry);
@@ -2093,9 +2045,10 @@ java.lang.String defaultValue);
         if (!serviceLabels_.isMutable()) {
           serviceLabels_ = serviceLabels_.copy();
         }
+        bitField0_ |= 0x00000020;
+        onChanged();
         return serviceLabels_;
       }
-
       public int getServiceLabelsCount() {
         return internalGetServiceLabels().getMap().size();
       }
@@ -2106,7 +2059,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; service_labels = 6;</code>
        */
-
       @java.lang.Override
       public boolean containsServiceLabels(
           java.lang.String key) {
@@ -2129,7 +2081,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; service_labels = 6;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getServiceLabelsMap() {
         return internalGetServiceLabels().getMap();
       }
@@ -2141,10 +2092,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; service_labels = 6;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getServiceLabelsOrDefault(
+      public /* nullable */
+java.lang.String getServiceLabelsOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetServiceLabels().getMap();
@@ -2158,7 +2110,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; service_labels = 6;</code>
        */
       @java.lang.Override
-
       public java.lang.String getServiceLabelsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2169,8 +2120,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearServiceLabels() {
+        bitField0_ = (bitField0_ & ~0x00000020);
         internalGetMutableServiceLabels().getMutableMap()
             .clear();
         return this;
@@ -2182,7 +2133,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; service_labels = 6;</code>
        */
-
       public Builder removeServiceLabels(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2195,7 +2145,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableServiceLabels() {
+          getMutableServiceLabels() {
+        bitField0_ |= 0x00000020;
         return internalGetMutableServiceLabels().getMutableMap();
       }
       /**
@@ -2209,12 +2160,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableServiceLabels().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -2224,11 +2173,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; service_labels = 6;</code>
        */
-
       public Builder putAllServiceLabels(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableServiceLabels().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000020;
         return this;
       }
       @java.lang.Override
@@ -2264,7 +2213,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Task(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2357,63 +2317,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ApplyPatchesTask(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.Builder subBuilder = null;
-              if (patchConfig_ != null) {
-                subBuilder = patchConfig_.toBuilder();
-              }
-              patchConfig_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(patchConfig_);
-                patchConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-
-              dryRun_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.internal_static_google_cloud_osconfig_agentendpoint_v1beta_ApplyPatchesTask_descriptor;
@@ -2462,11 +2365,11 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfigOrBuilder getPatchConfigOrBuilder() {
-      return getPatchConfig();
+      return patchConfig_ == null ? com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.getDefaultInstance() : patchConfig_;
     }
 
     public static final int DRY_RUN_FIELD_NUMBER = 3;
-    private boolean dryRun_;
+    private boolean dryRun_ = false;
     /**
      * <pre>
      * If true, the agent will report its status as it goes through the motions
@@ -2501,7 +2404,7 @@ java.lang.String defaultValue);
       if (dryRun_ != false) {
         output.writeBool(3, dryRun_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2518,7 +2421,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, dryRun_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2540,7 +2443,7 @@ java.lang.String defaultValue);
       }
       if (getDryRun()
           != other.getDryRun()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2558,7 +2461,7 @@ java.lang.String defaultValue);
       hash = (37 * hash) + DRY_RUN_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getDryRun());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2679,30 +2582,24 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (patchConfigBuilder_ == null) {
-          patchConfig_ = null;
-        } else {
-          patchConfig_ = null;
+        bitField0_ = 0;
+        patchConfig_ = null;
+        if (patchConfigBuilder_ != null) {
+          patchConfigBuilder_.dispose();
           patchConfigBuilder_ = null;
         }
         dryRun_ = false;
-
         return this;
       }
 
@@ -2729,14 +2626,21 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask(this);
-        if (patchConfigBuilder_ == null) {
-          result.patchConfig_ = patchConfig_;
-        } else {
-          result.patchConfig_ = patchConfigBuilder_.build();
-        }
-        result.dryRun_ = dryRun_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.patchConfig_ = patchConfigBuilder_ == null
+              ? patchConfig_
+              : patchConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.dryRun_ = dryRun_;
+        }
       }
 
       @java.lang.Override
@@ -2789,7 +2693,7 @@ java.lang.String defaultValue);
         if (other.getDryRun() != false) {
           setDryRun(other.getDryRun());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2804,19 +2708,45 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPatchConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 24: {
+                dryRun_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTask) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig patchConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2830,7 +2760,7 @@ java.lang.String defaultValue);
        * @return Whether the patchConfig field is set.
        */
       public boolean hasPatchConfig() {
-        return patchConfigBuilder_ != null || patchConfig_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2860,11 +2790,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           patchConfig_ = value;
-          onChanged();
         } else {
           patchConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2878,11 +2808,11 @@ java.lang.String defaultValue);
           com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.Builder builderForValue) {
         if (patchConfigBuilder_ == null) {
           patchConfig_ = builderForValue.build();
-          onChanged();
         } else {
           patchConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2894,17 +2824,18 @@ java.lang.String defaultValue);
        */
       public Builder mergePatchConfig(com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig value) {
         if (patchConfigBuilder_ == null) {
-          if (patchConfig_ != null) {
-            patchConfig_ =
-              com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.newBuilder(patchConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            patchConfig_ != null &&
+            patchConfig_ != com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.getDefaultInstance()) {
+            getPatchConfigBuilder().mergeFrom(value);
           } else {
             patchConfig_ = value;
           }
-          onChanged();
         } else {
           patchConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2915,14 +2846,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.osconfig.agentendpoint.v1beta.PatchConfig patch_config = 1;</code>
        */
       public Builder clearPatchConfig() {
-        if (patchConfigBuilder_ == null) {
-          patchConfig_ = null;
-          onChanged();
-        } else {
-          patchConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        patchConfig_ = null;
+        if (patchConfigBuilder_ != null) {
+          patchConfigBuilder_.dispose();
           patchConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2933,7 +2863,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.osconfig.agentendpoint.v1beta.PatchConfig patch_config = 1;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.PatchConfig.Builder getPatchConfigBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPatchConfigFieldBuilder().getBuilder();
       }
@@ -3000,6 +2930,7 @@ java.lang.String defaultValue);
       public Builder setDryRun(boolean value) {
         
         dryRun_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3013,7 +2944,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDryRun() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         dryRun_ = false;
         onChanged();
         return this;
@@ -3051,7 +2982,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ApplyPatchesTask(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3125,51 +3067,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ApplyPatchesTaskProgress(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3364,7 +3261,7 @@ java.lang.String defaultValue);
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Required. The current state of this patch execution.
@@ -3385,8 +3282,7 @@ java.lang.String defaultValue);
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.valueOf(state_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.forNumber(state_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.UNRECOGNIZED : result;
     }
 
@@ -3407,7 +3303,7 @@ java.lang.String defaultValue);
       if (state_ != com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, state_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3420,7 +3316,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, state_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3436,7 +3332,7 @@ java.lang.String defaultValue);
       com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress other = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress) obj;
 
       if (state_ != other.state_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3449,7 +3345,7 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3570,24 +3466,19 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         state_ = 0;
-
         return this;
       }
 
@@ -3614,9 +3505,16 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress(this);
-        result.state_ = state_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.state_ = state_;
+        }
       }
 
       @java.lang.Override
@@ -3666,7 +3564,7 @@ java.lang.String defaultValue);
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3681,19 +3579,38 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int state_ = 0;
       /**
@@ -3717,8 +3634,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3732,8 +3649,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.valueOf(state_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.forNumber(state_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskProgress.State.UNRECOGNIZED : result;
       }
       /**
@@ -3749,7 +3665,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -3763,7 +3679,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         state_ = 0;
         onChanged();
         return this;
@@ -3801,7 +3717,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ApplyPatchesTaskProgress(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3875,51 +3802,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ApplyPatchesTaskOutput(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4097,7 +3979,7 @@ java.lang.String defaultValue);
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Required. The final state of this task.
@@ -4118,8 +4000,7 @@ java.lang.String defaultValue);
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.valueOf(state_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.forNumber(state_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.UNRECOGNIZED : result;
     }
 
@@ -4140,7 +4021,7 @@ java.lang.String defaultValue);
       if (state_ != com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, state_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4153,7 +4034,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, state_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4169,7 +4050,7 @@ java.lang.String defaultValue);
       com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput other = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput) obj;
 
       if (state_ != other.state_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4182,7 +4063,7 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4303,24 +4184,19 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         state_ = 0;
-
         return this;
       }
 
@@ -4347,9 +4223,16 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput(this);
-        result.state_ = state_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.state_ = state_;
+        }
       }
 
       @java.lang.Override
@@ -4399,7 +4282,7 @@ java.lang.String defaultValue);
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4414,19 +4297,38 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int state_ = 0;
       /**
@@ -4450,8 +4352,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4465,8 +4367,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.valueOf(state_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.forNumber(state_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ApplyPatchesTaskOutput.State.UNRECOGNIZED : result;
       }
       /**
@@ -4482,7 +4383,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -4496,7 +4397,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         state_ = 0;
         onChanged();
         return this;
@@ -4534,7 +4435,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ApplyPatchesTaskOutput(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4616,58 +4528,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ExecStepTask(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.Builder subBuilder = null;
-              if (execStep_ != null) {
-                subBuilder = execStep_.toBuilder();
-              }
-              execStep_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(execStep_);
-                execStep_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.internal_static_google_cloud_osconfig_agentendpoint_v1beta_ExecStepTask_descriptor;
@@ -4716,7 +4576,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStepOrBuilder getExecStepOrBuilder() {
-      return getExecStep();
+      return execStep_ == null ? com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.getDefaultInstance() : execStep_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4736,7 +4596,7 @@ java.lang.String defaultValue);
       if (execStep_ != null) {
         output.writeMessage(1, getExecStep());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4749,7 +4609,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getExecStep());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4769,7 +4629,7 @@ java.lang.String defaultValue);
         if (!getExecStep()
             .equals(other.getExecStep())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4784,7 +4644,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + EXEC_STEP_FIELD_NUMBER;
         hash = (53 * hash) + getExecStep().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4905,26 +4765,21 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (execStepBuilder_ == null) {
-          execStep_ = null;
-        } else {
-          execStep_ = null;
+        bitField0_ = 0;
+        execStep_ = null;
+        if (execStepBuilder_ != null) {
+          execStepBuilder_.dispose();
           execStepBuilder_ = null;
         }
         return this;
@@ -4953,13 +4808,18 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask(this);
-        if (execStepBuilder_ == null) {
-          result.execStep_ = execStep_;
-        } else {
-          result.execStep_ = execStepBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.execStep_ = execStepBuilder_ == null
+              ? execStep_
+              : execStepBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5009,7 +4869,7 @@ java.lang.String defaultValue);
         if (other.hasExecStep()) {
           mergeExecStep(other.getExecStep());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5024,19 +4884,40 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getExecStepFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTask) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep execStep_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -5050,7 +4931,7 @@ java.lang.String defaultValue);
        * @return Whether the execStep field is set.
        */
       public boolean hasExecStep() {
-        return execStepBuilder_ != null || execStep_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -5080,11 +4961,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           execStep_ = value;
-          onChanged();
         } else {
           execStepBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5098,11 +4979,11 @@ java.lang.String defaultValue);
           com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.Builder builderForValue) {
         if (execStepBuilder_ == null) {
           execStep_ = builderForValue.build();
-          onChanged();
         } else {
           execStepBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5114,17 +4995,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeExecStep(com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep value) {
         if (execStepBuilder_ == null) {
-          if (execStep_ != null) {
-            execStep_ =
-              com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.newBuilder(execStep_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            execStep_ != null &&
+            execStep_ != com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.getDefaultInstance()) {
+            getExecStepBuilder().mergeFrom(value);
           } else {
             execStep_ = value;
           }
-          onChanged();
         } else {
           execStepBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5135,14 +5017,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.osconfig.agentendpoint.v1beta.ExecStep exec_step = 1;</code>
        */
       public Builder clearExecStep() {
-        if (execStepBuilder_ == null) {
-          execStep_ = null;
-          onChanged();
-        } else {
-          execStep_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        execStep_ = null;
+        if (execStepBuilder_ != null) {
+          execStepBuilder_.dispose();
           execStepBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5153,7 +5034,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.osconfig.agentendpoint.v1beta.ExecStep exec_step = 1;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.ExecStep.Builder getExecStepBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getExecStepFieldBuilder().getBuilder();
       }
@@ -5225,7 +5106,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExecStepTask(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5299,51 +5191,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ExecStepTaskProgress(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5487,7 +5334,7 @@ java.lang.String defaultValue);
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Required. The current state of this exec step.
@@ -5508,8 +5355,7 @@ java.lang.String defaultValue);
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.valueOf(state_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.forNumber(state_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.UNRECOGNIZED : result;
     }
 
@@ -5530,7 +5376,7 @@ java.lang.String defaultValue);
       if (state_ != com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, state_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5543,7 +5389,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, state_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5559,7 +5405,7 @@ java.lang.String defaultValue);
       com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress other = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress) obj;
 
       if (state_ != other.state_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5572,7 +5418,7 @@ java.lang.String defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + STATE_FIELD_NUMBER;
       hash = (53 * hash) + state_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5693,24 +5539,19 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         state_ = 0;
-
         return this;
       }
 
@@ -5737,9 +5578,16 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress(this);
-        result.state_ = state_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.state_ = state_;
+        }
       }
 
       @java.lang.Override
@@ -5789,7 +5637,7 @@ java.lang.String defaultValue);
         if (other.state_ != 0) {
           setStateValue(other.getStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5804,19 +5652,38 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int state_ = 0;
       /**
@@ -5840,8 +5707,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5855,8 +5722,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.valueOf(state_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.forNumber(state_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskProgress.State.UNRECOGNIZED : result;
       }
       /**
@@ -5872,7 +5738,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -5886,7 +5752,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         state_ = 0;
         onChanged();
         return this;
@@ -5924,7 +5790,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExecStepTaskProgress(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6008,56 +5885,6 @@ java.lang.String defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ExecStepTaskOutput(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              exitCode_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6235,7 +6062,7 @@ java.lang.String defaultValue);
     }
 
     public static final int STATE_FIELD_NUMBER = 1;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Required. The final state of the exec step.
@@ -6256,13 +6083,12 @@ java.lang.String defaultValue);
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State.valueOf(state_);
+      com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State.forNumber(state_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State.UNRECOGNIZED : result;
     }
 
     public static final int EXIT_CODE_FIELD_NUMBER = 2;
-    private int exitCode_;
+    private int exitCode_ = 0;
     /**
      * <pre>
      * Required. The exit code received from the script which ran as part of the exec step.
@@ -6296,7 +6122,7 @@ java.lang.String defaultValue);
       if (exitCode_ != 0) {
         output.writeInt32(2, exitCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6313,7 +6139,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, exitCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6331,7 +6157,7 @@ java.lang.String defaultValue);
       if (state_ != other.state_) return false;
       if (getExitCode()
           != other.getExitCode()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6346,7 +6172,7 @@ java.lang.String defaultValue);
       hash = (53 * hash) + state_;
       hash = (37 * hash) + EXIT_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getExitCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6467,26 +6293,20 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         state_ = 0;
-
         exitCode_ = 0;
-
         return this;
       }
 
@@ -6513,10 +6333,19 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput result = new com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput(this);
-        result.state_ = state_;
-        result.exitCode_ = exitCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.exitCode_ = exitCode_;
+        }
       }
 
       @java.lang.Override
@@ -6569,7 +6398,7 @@ java.lang.String defaultValue);
         if (other.getExitCode() != 0) {
           setExitCode(other.getExitCode());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6584,19 +6413,43 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                exitCode_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int state_ = 0;
       /**
@@ -6620,8 +6473,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6635,8 +6488,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State.valueOf(state_);
+        com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State result = com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State.forNumber(state_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1beta.Tasks.ExecStepTaskOutput.State.UNRECOGNIZED : result;
       }
       /**
@@ -6652,7 +6504,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -6666,7 +6518,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         state_ = 0;
         onChanged();
         return this;
@@ -6697,6 +6549,7 @@ java.lang.String defaultValue);
       public Builder setExitCode(int value) {
         
         exitCode_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6709,7 +6562,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearExitCode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         exitCode_ = 0;
         onChanged();
         return this;
@@ -6747,7 +6600,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExecStepTaskOutput(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6818,62 +6682,60 @@ java.lang.String defaultValue);
     java.lang.String[] descriptorData = {
       "\n6google/cloud/osconfig/agentendpoint/v1" +
       "beta/tasks.proto\022*google.cloud.osconfig." +
-      "agentendpoint.v1beta\032\034google/api/annotat" +
-      "ions.proto\032\037google/api/field_behavior.pr" +
-      "oto\032;google/cloud/osconfig/agentendpoint" +
-      "/v1beta/patch_jobs.proto\"\206\004\n\004Task\022\017\n\007tas" +
-      "k_id\030\001 \001(\t\022G\n\ttask_type\030\002 \001(\01624.google.c" +
-      "loud.osconfig.agentendpoint.v1beta.TaskT" +
-      "ype\022Q\n\016task_directive\030\003 \001(\01629.google.clo" +
-      "ud.osconfig.agentendpoint.v1beta.TaskDir" +
-      "ective\022Z\n\022apply_patches_task\030\004 \001(\0132<.goo" +
-      "gle.cloud.osconfig.agentendpoint.v1beta." +
-      "ApplyPatchesTaskH\000\022R\n\016exec_step_task\030\005 \001" +
-      "(\01328.google.cloud.osconfig.agentendpoint" +
-      ".v1beta.ExecStepTaskH\000\022[\n\016service_labels" +
-      "\030\006 \003(\0132C.google.cloud.osconfig.agentendp" +
-      "oint.v1beta.Task.ServiceLabelsEntry\0324\n\022S" +
-      "erviceLabelsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
-      "\002 \001(\t:\0028\001B\016\n\014task_details\"r\n\020ApplyPatche" +
-      "sTask\022M\n\014patch_config\030\001 \001(\01327.google.clo" +
-      "ud.osconfig.agentendpoint.v1beta.PatchCo" +
-      "nfig\022\017\n\007dry_run\030\003 \001(\010\"\345\001\n\030ApplyPatchesTa" +
-      "skProgress\022^\n\005state\030\001 \001(\0162J.google.cloud" +
+      "agentendpoint.v1beta\032\037google/api/field_b" +
+      "ehavior.proto\032;google/cloud/osconfig/age" +
+      "ntendpoint/v1beta/patch_jobs.proto\"\206\004\n\004T" +
+      "ask\022\017\n\007task_id\030\001 \001(\t\022G\n\ttask_type\030\002 \001(\0162" +
+      "4.google.cloud.osconfig.agentendpoint.v1" +
+      "beta.TaskType\022Q\n\016task_directive\030\003 \001(\01629." +
+      "google.cloud.osconfig.agentendpoint.v1be" +
+      "ta.TaskDirective\022Z\n\022apply_patches_task\030\004" +
+      " \001(\0132<.google.cloud.osconfig.agentendpoi" +
+      "nt.v1beta.ApplyPatchesTaskH\000\022R\n\016exec_ste" +
+      "p_task\030\005 \001(\01328.google.cloud.osconfig.age" +
+      "ntendpoint.v1beta.ExecStepTaskH\000\022[\n\016serv" +
+      "ice_labels\030\006 \003(\0132C.google.cloud.osconfig" +
+      ".agentendpoint.v1beta.Task.ServiceLabels" +
+      "Entry\0324\n\022ServiceLabelsEntry\022\013\n\003key\030\001 \001(\t" +
+      "\022\r\n\005value\030\002 \001(\t:\0028\001B\016\n\014task_details\"r\n\020A" +
+      "pplyPatchesTask\022M\n\014patch_config\030\001 \001(\01327." +
+      "google.cloud.osconfig.agentendpoint.v1be" +
+      "ta.PatchConfig\022\017\n\007dry_run\030\003 \001(\010\"\345\001\n\030Appl" +
+      "yPatchesTaskProgress\022^\n\005state\030\001 \001(\0162J.go" +
+      "ogle.cloud.osconfig.agentendpoint.v1beta" +
+      ".ApplyPatchesTaskProgress.StateB\003\340A\002\"i\n\005" +
+      "State\022\025\n\021STATE_UNSPECIFIED\020\000\022\013\n\007STARTED\020" +
+      "\004\022\027\n\023DOWNLOADING_PATCHES\020\001\022\024\n\020APPLYING_P" +
+      "ATCHES\020\002\022\r\n\tREBOOTING\020\003\"\320\001\n\026ApplyPatches" +
+      "TaskOutput\022\\\n\005state\030\001 \001(\0162H.google.cloud" +
       ".osconfig.agentendpoint.v1beta.ApplyPatc" +
-      "hesTaskProgress.StateB\003\340A\002\"i\n\005State\022\025\n\021S" +
-      "TATE_UNSPECIFIED\020\000\022\013\n\007STARTED\020\004\022\027\n\023DOWNL" +
-      "OADING_PATCHES\020\001\022\024\n\020APPLYING_PATCHES\020\002\022\r" +
-      "\n\tREBOOTING\020\003\"\320\001\n\026ApplyPatchesTaskOutput" +
-      "\022\\\n\005state\030\001 \001(\0162H.google.cloud.osconfig." +
-      "agentendpoint.v1beta.ApplyPatchesTaskOut" +
-      "put.StateB\003\340A\002\"X\n\005State\022\025\n\021STATE_UNSPECI" +
-      "FIED\020\000\022\r\n\tSUCCEEDED\020\001\022\035\n\031SUCCEEDED_REBOO" +
-      "T_REQUIRED\020\002\022\n\n\006FAILED\020\003\"W\n\014ExecStepTask" +
-      "\022G\n\texec_step\030\001 \001(\01324.google.cloud.oscon" +
-      "fig.agentendpoint.v1beta.ExecStep\"\237\001\n\024Ex" +
-      "ecStepTaskProgress\022Z\n\005state\030\001 \001(\0162F.goog" +
-      "le.cloud.osconfig.agentendpoint.v1beta.E" +
-      "xecStepTaskProgress.StateB\003\340A\002\"+\n\005State\022" +
-      "\025\n\021STATE_UNSPECIFIED\020\000\022\013\n\007STARTED\020\001\"\323\001\n\022" +
-      "ExecStepTaskOutput\022X\n\005state\030\001 \001(\0162D.goog" +
-      "le.cloud.osconfig.agentendpoint.v1beta.E" +
-      "xecStepTaskOutput.StateB\003\340A\002\022\026\n\texit_cod" +
-      "e\030\002 \001(\005B\003\340A\002\"K\n\005State\022\025\n\021STATE_UNSPECIFI" +
-      "ED\020\000\022\r\n\tCOMPLETED\020\001\022\r\n\tTIMED_OUT\020\002\022\r\n\tCA" +
-      "NCELLED\020\003*G\n\rTaskDirective\022\036\n\032TASK_DIREC" +
-      "TIVE_UNSPECIFIED\020\000\022\014\n\010CONTINUE\020\001\022\010\n\004STOP" +
-      "\020\002*L\n\010TaskType\022\031\n\025TASK_TYPE_UNSPECIFIED\020" +
-      "\000\022\021\n\rAPPLY_PATCHES\020\001\022\022\n\016EXEC_STEP_TASK\020\002" +
-      "B\257\001\n.com.google.cloud.osconfig.agentendp" +
-      "oint.v1betaB\005TasksZWgoogle.golang.org/ge" +
-      "nproto/googleapis/cloud/osconfig/agenten" +
-      "dpoint/v1beta;agentendpoint\312\002\034Google\\Clo" +
-      "ud\\OsConfig\\V1betab\006proto3"
+      "hesTaskOutput.StateB\003\340A\002\"X\n\005State\022\025\n\021STA" +
+      "TE_UNSPECIFIED\020\000\022\r\n\tSUCCEEDED\020\001\022\035\n\031SUCCE" +
+      "EDED_REBOOT_REQUIRED\020\002\022\n\n\006FAILED\020\003\"W\n\014Ex" +
+      "ecStepTask\022G\n\texec_step\030\001 \001(\01324.google.c" +
+      "loud.osconfig.agentendpoint.v1beta.ExecS" +
+      "tep\"\237\001\n\024ExecStepTaskProgress\022Z\n\005state\030\001 " +
+      "\001(\0162F.google.cloud.osconfig.agentendpoin" +
+      "t.v1beta.ExecStepTaskProgress.StateB\003\340A\002" +
+      "\"+\n\005State\022\025\n\021STATE_UNSPECIFIED\020\000\022\013\n\007STAR" +
+      "TED\020\001\"\323\001\n\022ExecStepTaskOutput\022X\n\005state\030\001 " +
+      "\001(\0162D.google.cloud.osconfig.agentendpoin" +
+      "t.v1beta.ExecStepTaskOutput.StateB\003\340A\002\022\026" +
+      "\n\texit_code\030\002 \001(\005B\003\340A\002\"K\n\005State\022\025\n\021STATE" +
+      "_UNSPECIFIED\020\000\022\r\n\tCOMPLETED\020\001\022\r\n\tTIMED_O" +
+      "UT\020\002\022\r\n\tCANCELLED\020\003*G\n\rTaskDirective\022\036\n\032" +
+      "TASK_DIRECTIVE_UNSPECIFIED\020\000\022\014\n\010CONTINUE" +
+      "\020\001\022\010\n\004STOP\020\002*L\n\010TaskType\022\031\n\025TASK_TYPE_UN" +
+      "SPECIFIED\020\000\022\021\n\rAPPLY_PATCHES\020\001\022\022\n\016EXEC_S" +
+      "TEP_TASK\020\002B\257\001\n.com.google.cloud.osconfig" +
+      ".agentendpoint.v1betaB\005TasksZWgoogle.gol" +
+      "ang.org/genproto/googleapis/cloud/osconf" +
+      "ig/agentendpoint/v1beta;agentendpoint\312\002\034" +
+      "Google\\Cloud\\OsConfig\\V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.getDescriptor(),
         });
@@ -6930,7 +6792,6 @@ java.lang.String defaultValue);
     registry.add(com.google.api.FieldBehaviorProto.fieldBehavior);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.cloud.osconfig.agentendpoint.v1beta.PatchJobs.getDescriptor();
   }

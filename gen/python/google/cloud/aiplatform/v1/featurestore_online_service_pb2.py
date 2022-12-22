@@ -20,7 +20,7 @@ from google.cloud.aiplatform.v1 import types_pb2 as google_dot_cloud_dot_aiplatf
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<google/cloud/aiplatform/v1/featurestore_online_service.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x31google/cloud/aiplatform/v1/feature_selector.proto\x1a&google/cloud/aiplatform/v1/types.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc1\x01\n\x18ReadFeatureValuesRequest\x12\x41\n\x0b\x65ntity_type\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12\x16\n\tentity_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12J\n\x10\x66\x65\x61ture_selector\x18\x03 \x01(\x0b\x32+.google.cloud.aiplatform.v1.FeatureSelectorB\x03\xe0\x41\x02\"\x95\x05\n\x19ReadFeatureValuesResponse\x12L\n\x06header\x18\x01 \x01(\x0b\x32<.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.Header\x12U\n\x0b\x65ntity_view\x18\x02 \x01(\x0b\x32@.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.EntityView\x1a\x1f\n\x11\x46\x65\x61tureDescriptor\x12\n\n\x02id\x18\x01 \x01(\t\x1a\xae\x01\n\x06Header\x12>\n\x0b\x65ntity_type\x18\x01 \x01(\tB)\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12\x64\n\x13\x66\x65\x61ture_descriptors\x18\x02 \x03(\x0b\x32G.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.FeatureDescriptor\x1a\x80\x02\n\nEntityView\x12\x11\n\tentity_id\x18\x01 \x01(\t\x12S\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x45.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.EntityView.Data\x1a\x89\x01\n\x04\x44\x61ta\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32(.google.cloud.aiplatform.v1.FeatureValueH\x00\x12>\n\x06values\x18\x02 \x01(\x0b\x32,.google.cloud.aiplatform.v1.FeatureValueListH\x00\x42\x06\n\x04\x64\x61ta\"\xcb\x01\n!StreamingReadFeatureValuesRequest\x12\x41\n\x0b\x65ntity_type\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12\x17\n\nentity_ids\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12J\n\x10\x66\x65\x61ture_selector\x18\x03 \x01(\x0b\x32+.google.cloud.aiplatform.v1.FeatureSelectorB\x03\xe0\x41\x02\"\xa5\x04\n\x0c\x46\x65\x61tureValue\x12\x14\n\nbool_value\x18\x01 \x01(\x08H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x15\n\x0bint64_value\x18\x05 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x06 \x01(\tH\x00\x12\x41\n\x10\x62ool_array_value\x18\x07 \x01(\x0b\x32%.google.cloud.aiplatform.v1.BoolArrayH\x00\x12\x45\n\x12\x64ouble_array_value\x18\x08 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.DoubleArrayH\x00\x12\x43\n\x11int64_array_value\x18\x0b \x01(\x0b\x32&.google.cloud.aiplatform.v1.Int64ArrayH\x00\x12\x45\n\x12string_array_value\x18\x0c \x01(\x0b\x32\'.google.cloud.aiplatform.v1.StringArrayH\x00\x12\x15\n\x0b\x62ytes_value\x18\r \x01(\x0cH\x00\x12\x43\n\x08metadata\x18\x0e \x01(\x0b\x32\x31.google.cloud.aiplatform.v1.FeatureValue.Metadata\x1a=\n\x08Metadata\x12\x31\n\rgenerate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x07\n\x05value\"L\n\x10\x46\x65\x61tureValueList\x12\x38\n\x06values\x18\x01 \x03(\x0b\x32(.google.cloud.aiplatform.v1.FeatureValue2\xfa\x04\n FeaturestoreOnlineServingService\x12\xf3\x01\n\x11ReadFeatureValues\x12\x34.google.cloud.aiplatform.v1.ReadFeatureValuesRequest\x1a\x35.google.cloud.aiplatform.v1.ReadFeatureValuesResponse\"q\x82\xd3\xe4\x93\x02]\"X/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:readFeatureValues:\x01*\xda\x41\x0b\x65ntity_type\x12\x90\x02\n\x1aStreamingReadFeatureValues\x12=.google.cloud.aiplatform.v1.StreamingReadFeatureValuesRequest\x1a\x35.google.cloud.aiplatform.v1.ReadFeatureValuesResponse\"z\x82\xd3\xe4\x93\x02\x66\"a/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:streamingReadFeatureValues:\x01*\xda\x41\x0b\x65ntity_type0\x01\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe2\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x1e\x46\x65\x61turestoreOnlineServiceProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n<google/cloud/aiplatform/v1/featurestore_online_service.proto\x12\x1agoogle.cloud.aiplatform.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x31google/cloud/aiplatform/v1/feature_selector.proto\x1a&google/cloud/aiplatform/v1/types.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xac\x01\n\x19WriteFeatureValuesRequest\x12\x41\n\x0b\x65ntity_type\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12L\n\x08payloads\x18\x02 \x03(\x0b\x32\x35.google.cloud.aiplatform.v1.WriteFeatureValuesPayloadB\x03\xe0\x41\x02\"\xfa\x01\n\x19WriteFeatureValuesPayload\x12\x16\n\tentity_id\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x65\n\x0e\x66\x65\x61ture_values\x18\x02 \x03(\x0b\x32H.google.cloud.aiplatform.v1.WriteFeatureValuesPayload.FeatureValuesEntryB\x03\xe0\x41\x02\x1a^\n\x12\x46\x65\x61tureValuesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32(.google.cloud.aiplatform.v1.FeatureValue:\x02\x38\x01\"\x1c\n\x1aWriteFeatureValuesResponse\"\xc1\x01\n\x18ReadFeatureValuesRequest\x12\x41\n\x0b\x65ntity_type\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12\x16\n\tentity_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12J\n\x10\x66\x65\x61ture_selector\x18\x03 \x01(\x0b\x32+.google.cloud.aiplatform.v1.FeatureSelectorB\x03\xe0\x41\x02\"\x95\x05\n\x19ReadFeatureValuesResponse\x12L\n\x06header\x18\x01 \x01(\x0b\x32<.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.Header\x12U\n\x0b\x65ntity_view\x18\x02 \x01(\x0b\x32@.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.EntityView\x1a\x1f\n\x11\x46\x65\x61tureDescriptor\x12\n\n\x02id\x18\x01 \x01(\t\x1a\xae\x01\n\x06Header\x12>\n\x0b\x65ntity_type\x18\x01 \x01(\tB)\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12\x64\n\x13\x66\x65\x61ture_descriptors\x18\x02 \x03(\x0b\x32G.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.FeatureDescriptor\x1a\x80\x02\n\nEntityView\x12\x11\n\tentity_id\x18\x01 \x01(\t\x12S\n\x04\x64\x61ta\x18\x02 \x03(\x0b\x32\x45.google.cloud.aiplatform.v1.ReadFeatureValuesResponse.EntityView.Data\x1a\x89\x01\n\x04\x44\x61ta\x12\x39\n\x05value\x18\x01 \x01(\x0b\x32(.google.cloud.aiplatform.v1.FeatureValueH\x00\x12>\n\x06values\x18\x02 \x01(\x0b\x32,.google.cloud.aiplatform.v1.FeatureValueListH\x00\x42\x06\n\x04\x64\x61ta\"\xcb\x01\n!StreamingReadFeatureValuesRequest\x12\x41\n\x0b\x65ntity_type\x18\x01 \x01(\tB,\xe0\x41\x02\xfa\x41&\n$aiplatform.googleapis.com/EntityType\x12\x17\n\nentity_ids\x18\x02 \x03(\tB\x03\xe0\x41\x02\x12J\n\x10\x66\x65\x61ture_selector\x18\x03 \x01(\x0b\x32+.google.cloud.aiplatform.v1.FeatureSelectorB\x03\xe0\x41\x02\"\xa5\x04\n\x0c\x46\x65\x61tureValue\x12\x14\n\nbool_value\x18\x01 \x01(\x08H\x00\x12\x16\n\x0c\x64ouble_value\x18\x02 \x01(\x01H\x00\x12\x15\n\x0bint64_value\x18\x05 \x01(\x03H\x00\x12\x16\n\x0cstring_value\x18\x06 \x01(\tH\x00\x12\x41\n\x10\x62ool_array_value\x18\x07 \x01(\x0b\x32%.google.cloud.aiplatform.v1.BoolArrayH\x00\x12\x45\n\x12\x64ouble_array_value\x18\x08 \x01(\x0b\x32\'.google.cloud.aiplatform.v1.DoubleArrayH\x00\x12\x43\n\x11int64_array_value\x18\x0b \x01(\x0b\x32&.google.cloud.aiplatform.v1.Int64ArrayH\x00\x12\x45\n\x12string_array_value\x18\x0c \x01(\x0b\x32\'.google.cloud.aiplatform.v1.StringArrayH\x00\x12\x15\n\x0b\x62ytes_value\x18\r \x01(\x0cH\x00\x12\x43\n\x08metadata\x18\x0e \x01(\x0b\x32\x31.google.cloud.aiplatform.v1.FeatureValue.Metadata\x1a=\n\x08Metadata\x12\x31\n\rgenerate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x07\n\x05value\"L\n\x10\x46\x65\x61tureValueList\x12\x38\n\x06values\x18\x01 \x03(\x0b\x32(.google.cloud.aiplatform.v1.FeatureValue2\xfd\x06\n FeaturestoreOnlineServingService\x12\xf3\x01\n\x11ReadFeatureValues\x12\x34.google.cloud.aiplatform.v1.ReadFeatureValuesRequest\x1a\x35.google.cloud.aiplatform.v1.ReadFeatureValuesResponse\"q\x82\xd3\xe4\x93\x02]\"X/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:readFeatureValues:\x01*\xda\x41\x0b\x65ntity_type\x12\x90\x02\n\x1aStreamingReadFeatureValues\x12=.google.cloud.aiplatform.v1.StreamingReadFeatureValuesRequest\x1a\x35.google.cloud.aiplatform.v1.ReadFeatureValuesResponse\"z\x82\xd3\xe4\x93\x02\x66\"a/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:streamingReadFeatureValues:\x01*\xda\x41\x0b\x65ntity_type0\x01\x12\x80\x02\n\x12WriteFeatureValues\x12\x35.google.cloud.aiplatform.v1.WriteFeatureValuesRequest\x1a\x36.google.cloud.aiplatform.v1.WriteFeatureValuesResponse\"{\x82\xd3\xe4\x93\x02^\"Y/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:writeFeatureValues:\x01*\xda\x41\x14\x65ntity_type,payloads\x1aM\xca\x41\x19\x61iplatform.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xe2\x01\n\x1e\x63om.google.cloud.aiplatform.v1B\x1e\x46\x65\x61turestoreOnlineServiceProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\xaa\x02\x1aGoogle.Cloud.AIPlatform.V1\xca\x02\x1aGoogle\\Cloud\\AIPlatform\\V1\xea\x02\x1dGoogle::Cloud::AIPlatform::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1.featurestore_online_service_pb2', globals())
@@ -28,6 +28,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\036com.google.cloud.aiplatform.v1B\036FeaturestoreOnlineServiceProtoP\001ZDgoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1;aiplatform\252\002\032Google.Cloud.AIPlatform.V1\312\002\032Google\\Cloud\\AIPlatform\\V1\352\002\035Google::Cloud::AIPlatform::V1'
+  _WRITEFEATUREVALUESREQUEST.fields_by_name['entity_type']._options = None
+  _WRITEFEATUREVALUESREQUEST.fields_by_name['entity_type']._serialized_options = b'\340A\002\372A&\n$aiplatform.googleapis.com/EntityType'
+  _WRITEFEATUREVALUESREQUEST.fields_by_name['payloads']._options = None
+  _WRITEFEATUREVALUESREQUEST.fields_by_name['payloads']._serialized_options = b'\340A\002'
+  _WRITEFEATUREVALUESPAYLOAD_FEATUREVALUESENTRY._options = None
+  _WRITEFEATUREVALUESPAYLOAD_FEATUREVALUESENTRY._serialized_options = b'8\001'
+  _WRITEFEATUREVALUESPAYLOAD.fields_by_name['entity_id']._options = None
+  _WRITEFEATUREVALUESPAYLOAD.fields_by_name['entity_id']._serialized_options = b'\340A\002'
+  _WRITEFEATUREVALUESPAYLOAD.fields_by_name['feature_values']._options = None
+  _WRITEFEATUREVALUESPAYLOAD.fields_by_name['feature_values']._serialized_options = b'\340A\002'
   _READFEATUREVALUESREQUEST.fields_by_name['entity_type']._options = None
   _READFEATUREVALUESREQUEST.fields_by_name['entity_type']._serialized_options = b'\340A\002\372A&\n$aiplatform.googleapis.com/EntityType'
   _READFEATUREVALUESREQUEST.fields_by_name['entity_id']._options = None
@@ -48,26 +58,36 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _FEATURESTOREONLINESERVINGSERVICE.methods_by_name['ReadFeatureValues']._serialized_options = b'\202\323\344\223\002]\"X/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:readFeatureValues:\001*\332A\013entity_type'
   _FEATURESTOREONLINESERVINGSERVICE.methods_by_name['StreamingReadFeatureValues']._options = None
   _FEATURESTOREONLINESERVINGSERVICE.methods_by_name['StreamingReadFeatureValues']._serialized_options = b'\202\323\344\223\002f\"a/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:streamingReadFeatureValues:\001*\332A\013entity_type'
-  _READFEATUREVALUESREQUEST._serialized_start=332
-  _READFEATUREVALUESREQUEST._serialized_end=525
-  _READFEATUREVALUESRESPONSE._serialized_start=528
-  _READFEATUREVALUESRESPONSE._serialized_end=1189
-  _READFEATUREVALUESRESPONSE_FEATUREDESCRIPTOR._serialized_start=722
-  _READFEATUREVALUESRESPONSE_FEATUREDESCRIPTOR._serialized_end=753
-  _READFEATUREVALUESRESPONSE_HEADER._serialized_start=756
-  _READFEATUREVALUESRESPONSE_HEADER._serialized_end=930
-  _READFEATUREVALUESRESPONSE_ENTITYVIEW._serialized_start=933
-  _READFEATUREVALUESRESPONSE_ENTITYVIEW._serialized_end=1189
-  _READFEATUREVALUESRESPONSE_ENTITYVIEW_DATA._serialized_start=1052
-  _READFEATUREVALUESRESPONSE_ENTITYVIEW_DATA._serialized_end=1189
-  _STREAMINGREADFEATUREVALUESREQUEST._serialized_start=1192
-  _STREAMINGREADFEATUREVALUESREQUEST._serialized_end=1395
-  _FEATUREVALUE._serialized_start=1398
-  _FEATUREVALUE._serialized_end=1947
-  _FEATUREVALUE_METADATA._serialized_start=1877
-  _FEATUREVALUE_METADATA._serialized_end=1938
-  _FEATUREVALUELIST._serialized_start=1949
-  _FEATUREVALUELIST._serialized_end=2025
-  _FEATURESTOREONLINESERVINGSERVICE._serialized_start=2028
-  _FEATURESTOREONLINESERVINGSERVICE._serialized_end=2662
+  _FEATURESTOREONLINESERVINGSERVICE.methods_by_name['WriteFeatureValues']._options = None
+  _FEATURESTOREONLINESERVINGSERVICE.methods_by_name['WriteFeatureValues']._serialized_options = b'\202\323\344\223\002^\"Y/v1/{entity_type=projects/*/locations/*/featurestores/*/entityTypes/*}:writeFeatureValues:\001*\332A\024entity_type,payloads'
+  _WRITEFEATUREVALUESREQUEST._serialized_start=332
+  _WRITEFEATUREVALUESREQUEST._serialized_end=504
+  _WRITEFEATUREVALUESPAYLOAD._serialized_start=507
+  _WRITEFEATUREVALUESPAYLOAD._serialized_end=757
+  _WRITEFEATUREVALUESPAYLOAD_FEATUREVALUESENTRY._serialized_start=663
+  _WRITEFEATUREVALUESPAYLOAD_FEATUREVALUESENTRY._serialized_end=757
+  _WRITEFEATUREVALUESRESPONSE._serialized_start=759
+  _WRITEFEATUREVALUESRESPONSE._serialized_end=787
+  _READFEATUREVALUESREQUEST._serialized_start=790
+  _READFEATUREVALUESREQUEST._serialized_end=983
+  _READFEATUREVALUESRESPONSE._serialized_start=986
+  _READFEATUREVALUESRESPONSE._serialized_end=1647
+  _READFEATUREVALUESRESPONSE_FEATUREDESCRIPTOR._serialized_start=1180
+  _READFEATUREVALUESRESPONSE_FEATUREDESCRIPTOR._serialized_end=1211
+  _READFEATUREVALUESRESPONSE_HEADER._serialized_start=1214
+  _READFEATUREVALUESRESPONSE_HEADER._serialized_end=1388
+  _READFEATUREVALUESRESPONSE_ENTITYVIEW._serialized_start=1391
+  _READFEATUREVALUESRESPONSE_ENTITYVIEW._serialized_end=1647
+  _READFEATUREVALUESRESPONSE_ENTITYVIEW_DATA._serialized_start=1510
+  _READFEATUREVALUESRESPONSE_ENTITYVIEW_DATA._serialized_end=1647
+  _STREAMINGREADFEATUREVALUESREQUEST._serialized_start=1650
+  _STREAMINGREADFEATUREVALUESREQUEST._serialized_end=1853
+  _FEATUREVALUE._serialized_start=1856
+  _FEATUREVALUE._serialized_end=2405
+  _FEATUREVALUE_METADATA._serialized_start=2335
+  _FEATUREVALUE_METADATA._serialized_end=2396
+  _FEATUREVALUELIST._serialized_start=2407
+  _FEATUREVALUELIST._serialized_end=2483
+  _FEATURESTOREONLINESERVINGSERVICE._serialized_start=2486
+  _FEATURESTOREONLINESERVINGSERVICE._serialized_end=3379
 # @@protoc_insertion_point(module_scope)

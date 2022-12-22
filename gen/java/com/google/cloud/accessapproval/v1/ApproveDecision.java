@@ -34,102 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ApproveDecision(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (approveTime_ != null) {
-              subBuilder = approveTime_.toBuilder();
-            }
-            approveTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(approveTime_);
-              approveTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (expireTime_ != null) {
-              subBuilder = expireTime_.toBuilder();
-            }
-            expireTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(expireTime_);
-              expireTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (invalidateTime_ != null) {
-              subBuilder = invalidateTime_.toBuilder();
-            }
-            invalidateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(invalidateTime_);
-              invalidateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.accessapproval.v1.SignatureInfo.Builder subBuilder = null;
-            if (signatureInfo_ != null) {
-              subBuilder = signatureInfo_.toBuilder();
-            }
-            signatureInfo_ = input.readMessage(com.google.cloud.accessapproval.v1.SignatureInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(signatureInfo_);
-              signatureInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            autoApproved_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.accessapproval.v1.AccessApprovalProto.internal_static_google_cloud_accessapproval_v1_ApproveDecision_descriptor;
@@ -178,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getApproveTimeOrBuilder() {
-    return getApproveTime();
+    return approveTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : approveTime_;
   }
 
   public static final int EXPIRE_TIME_FIELD_NUMBER = 2;
@@ -216,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getExpireTimeOrBuilder() {
-    return getExpireTime();
+    return expireTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : expireTime_;
   }
 
   public static final int INVALIDATE_TIME_FIELD_NUMBER = 3;
@@ -254,7 +158,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getInvalidateTimeOrBuilder() {
-    return getInvalidateTime();
+    return invalidateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : invalidateTime_;
   }
 
   public static final int SIGNATURE_INFO_FIELD_NUMBER = 4;
@@ -292,11 +196,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.accessapproval.v1.SignatureInfoOrBuilder getSignatureInfoOrBuilder() {
-    return getSignatureInfo();
+    return signatureInfo_ == null ? com.google.cloud.accessapproval.v1.SignatureInfo.getDefaultInstance() : signatureInfo_;
   }
 
   public static final int AUTO_APPROVED_FIELD_NUMBER = 5;
-  private boolean autoApproved_;
+  private boolean autoApproved_ = false;
   /**
    * <pre>
    * True when the request has been auto-approved.
@@ -339,7 +243,7 @@ private static final long serialVersionUID = 0L;
     if (autoApproved_ != false) {
       output.writeBool(5, autoApproved_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -368,7 +272,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, autoApproved_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -405,7 +309,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getAutoApproved()
         != other.getAutoApproved()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -435,7 +339,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + AUTO_APPROVED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAutoApproved());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -556,48 +460,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.accessapproval.v1.ApproveDecision.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (approveTimeBuilder_ == null) {
-        approveTime_ = null;
-      } else {
-        approveTime_ = null;
+      bitField0_ = 0;
+      approveTime_ = null;
+      if (approveTimeBuilder_ != null) {
+        approveTimeBuilder_.dispose();
         approveTimeBuilder_ = null;
       }
-      if (expireTimeBuilder_ == null) {
-        expireTime_ = null;
-      } else {
-        expireTime_ = null;
+      expireTime_ = null;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.dispose();
         expireTimeBuilder_ = null;
       }
-      if (invalidateTimeBuilder_ == null) {
-        invalidateTime_ = null;
-      } else {
-        invalidateTime_ = null;
+      invalidateTime_ = null;
+      if (invalidateTimeBuilder_ != null) {
+        invalidateTimeBuilder_.dispose();
         invalidateTimeBuilder_ = null;
       }
-      if (signatureInfoBuilder_ == null) {
-        signatureInfo_ = null;
-      } else {
-        signatureInfo_ = null;
+      signatureInfo_ = null;
+      if (signatureInfoBuilder_ != null) {
+        signatureInfoBuilder_.dispose();
         signatureInfoBuilder_ = null;
       }
       autoApproved_ = false;
-
       return this;
     }
 
@@ -624,29 +519,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.accessapproval.v1.ApproveDecision buildPartial() {
       com.google.cloud.accessapproval.v1.ApproveDecision result = new com.google.cloud.accessapproval.v1.ApproveDecision(this);
-      if (approveTimeBuilder_ == null) {
-        result.approveTime_ = approveTime_;
-      } else {
-        result.approveTime_ = approveTimeBuilder_.build();
-      }
-      if (expireTimeBuilder_ == null) {
-        result.expireTime_ = expireTime_;
-      } else {
-        result.expireTime_ = expireTimeBuilder_.build();
-      }
-      if (invalidateTimeBuilder_ == null) {
-        result.invalidateTime_ = invalidateTime_;
-      } else {
-        result.invalidateTime_ = invalidateTimeBuilder_.build();
-      }
-      if (signatureInfoBuilder_ == null) {
-        result.signatureInfo_ = signatureInfo_;
-      } else {
-        result.signatureInfo_ = signatureInfoBuilder_.build();
-      }
-      result.autoApproved_ = autoApproved_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.accessapproval.v1.ApproveDecision result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.approveTime_ = approveTimeBuilder_ == null
+            ? approveTime_
+            : approveTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.expireTime_ = expireTimeBuilder_ == null
+            ? expireTime_
+            : expireTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.invalidateTime_ = invalidateTimeBuilder_ == null
+            ? invalidateTime_
+            : invalidateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.signatureInfo_ = signatureInfoBuilder_ == null
+            ? signatureInfo_
+            : signatureInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.autoApproved_ = autoApproved_;
+      }
     }
 
     @java.lang.Override
@@ -708,7 +610,7 @@ private static final long serialVersionUID = 0L;
       if (other.getAutoApproved() != false) {
         setAutoApproved(other.getAutoApproved());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -723,19 +625,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.accessapproval.v1.ApproveDecision parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getApproveTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getExpireTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getInvalidateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getSignatureInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              autoApproved_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.accessapproval.v1.ApproveDecision) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Timestamp approveTime_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -749,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the approveTime field is set.
      */
     public boolean hasApproveTime() {
-      return approveTimeBuilder_ != null || approveTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -779,11 +728,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         approveTime_ = value;
-        onChanged();
       } else {
         approveTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -797,11 +746,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (approveTimeBuilder_ == null) {
         approveTime_ = builderForValue.build();
-        onChanged();
       } else {
         approveTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -813,17 +762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeApproveTime(com.google.protobuf.Timestamp value) {
       if (approveTimeBuilder_ == null) {
-        if (approveTime_ != null) {
-          approveTime_ =
-            com.google.protobuf.Timestamp.newBuilder(approveTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          approveTime_ != null &&
+          approveTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getApproveTimeBuilder().mergeFrom(value);
         } else {
           approveTime_ = value;
         }
-        onChanged();
       } else {
         approveTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -834,14 +784,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp approve_time = 1;</code>
      */
     public Builder clearApproveTime() {
-      if (approveTimeBuilder_ == null) {
-        approveTime_ = null;
-        onChanged();
-      } else {
-        approveTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      approveTime_ = null;
+      if (approveTimeBuilder_ != null) {
+        approveTimeBuilder_.dispose();
         approveTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -852,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp approve_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getApproveTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getApproveTimeFieldBuilder().getBuilder();
     }
@@ -904,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the expireTime field is set.
      */
     public boolean hasExpireTime() {
-      return expireTimeBuilder_ != null || expireTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -934,11 +883,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         expireTime_ = value;
-        onChanged();
       } else {
         expireTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -952,11 +901,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (expireTimeBuilder_ == null) {
         expireTime_ = builderForValue.build();
-        onChanged();
       } else {
         expireTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -968,17 +917,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExpireTime(com.google.protobuf.Timestamp value) {
       if (expireTimeBuilder_ == null) {
-        if (expireTime_ != null) {
-          expireTime_ =
-            com.google.protobuf.Timestamp.newBuilder(expireTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          expireTime_ != null &&
+          expireTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getExpireTimeBuilder().mergeFrom(value);
         } else {
           expireTime_ = value;
         }
-        onChanged();
       } else {
         expireTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -989,14 +939,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp expire_time = 2;</code>
      */
     public Builder clearExpireTime() {
-      if (expireTimeBuilder_ == null) {
-        expireTime_ = null;
-        onChanged();
-      } else {
-        expireTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      expireTime_ = null;
+      if (expireTimeBuilder_ != null) {
+        expireTimeBuilder_.dispose();
         expireTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1007,7 +956,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp expire_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getExpireTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getExpireTimeFieldBuilder().getBuilder();
     }
@@ -1059,7 +1008,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the invalidateTime field is set.
      */
     public boolean hasInvalidateTime() {
-      return invalidateTimeBuilder_ != null || invalidateTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1089,11 +1038,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         invalidateTime_ = value;
-        onChanged();
       } else {
         invalidateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1107,11 +1056,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (invalidateTimeBuilder_ == null) {
         invalidateTime_ = builderForValue.build();
-        onChanged();
       } else {
         invalidateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1123,17 +1072,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInvalidateTime(com.google.protobuf.Timestamp value) {
       if (invalidateTimeBuilder_ == null) {
-        if (invalidateTime_ != null) {
-          invalidateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(invalidateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          invalidateTime_ != null &&
+          invalidateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getInvalidateTimeBuilder().mergeFrom(value);
         } else {
           invalidateTime_ = value;
         }
-        onChanged();
       } else {
         invalidateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1144,14 +1094,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp invalidate_time = 3;</code>
      */
     public Builder clearInvalidateTime() {
-      if (invalidateTimeBuilder_ == null) {
-        invalidateTime_ = null;
-        onChanged();
-      } else {
-        invalidateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      invalidateTime_ = null;
+      if (invalidateTimeBuilder_ != null) {
+        invalidateTimeBuilder_.dispose();
         invalidateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1162,7 +1111,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp invalidate_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getInvalidateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getInvalidateTimeFieldBuilder().getBuilder();
     }
@@ -1214,7 +1163,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the signatureInfo field is set.
      */
     public boolean hasSignatureInfo() {
-      return signatureInfoBuilder_ != null || signatureInfo_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1244,11 +1193,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         signatureInfo_ = value;
-        onChanged();
       } else {
         signatureInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1262,11 +1211,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.accessapproval.v1.SignatureInfo.Builder builderForValue) {
       if (signatureInfoBuilder_ == null) {
         signatureInfo_ = builderForValue.build();
-        onChanged();
       } else {
         signatureInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1278,17 +1227,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSignatureInfo(com.google.cloud.accessapproval.v1.SignatureInfo value) {
       if (signatureInfoBuilder_ == null) {
-        if (signatureInfo_ != null) {
-          signatureInfo_ =
-            com.google.cloud.accessapproval.v1.SignatureInfo.newBuilder(signatureInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          signatureInfo_ != null &&
+          signatureInfo_ != com.google.cloud.accessapproval.v1.SignatureInfo.getDefaultInstance()) {
+          getSignatureInfoBuilder().mergeFrom(value);
         } else {
           signatureInfo_ = value;
         }
-        onChanged();
       } else {
         signatureInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1299,14 +1249,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.accessapproval.v1.SignatureInfo signature_info = 4;</code>
      */
     public Builder clearSignatureInfo() {
-      if (signatureInfoBuilder_ == null) {
-        signatureInfo_ = null;
-        onChanged();
-      } else {
-        signatureInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      signatureInfo_ = null;
+      if (signatureInfoBuilder_ != null) {
+        signatureInfoBuilder_.dispose();
         signatureInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1317,7 +1266,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.accessapproval.v1.SignatureInfo signature_info = 4;</code>
      */
     public com.google.cloud.accessapproval.v1.SignatureInfo.Builder getSignatureInfoBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSignatureInfoFieldBuilder().getBuilder();
     }
@@ -1382,6 +1331,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAutoApproved(boolean value) {
       
       autoApproved_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1394,7 +1344,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAutoApproved() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       autoApproved_ = false;
       onChanged();
       return this;
@@ -1432,7 +1382,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ApproveDecision(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

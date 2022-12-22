@@ -35,116 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Assessment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.recaptchaenterprise.v1.Event.Builder subBuilder = null;
-            if (event_ != null) {
-              subBuilder = event_.toBuilder();
-            }
-            event_ = input.readMessage(com.google.recaptchaenterprise.v1.Event.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(event_);
-              event_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.recaptchaenterprise.v1.RiskAnalysis.Builder subBuilder = null;
-            if (riskAnalysis_ != null) {
-              subBuilder = riskAnalysis_.toBuilder();
-            }
-            riskAnalysis_ = input.readMessage(com.google.recaptchaenterprise.v1.RiskAnalysis.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(riskAnalysis_);
-              riskAnalysis_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.recaptchaenterprise.v1.TokenProperties.Builder subBuilder = null;
-            if (tokenProperties_ != null) {
-              subBuilder = tokenProperties_.toBuilder();
-            }
-            tokenProperties_ = input.readMessage(com.google.recaptchaenterprise.v1.TokenProperties.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tokenProperties_);
-              tokenProperties_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.recaptchaenterprise.v1.AccountDefenderAssessment.Builder subBuilder = null;
-            if (accountDefenderAssessment_ != null) {
-              subBuilder = accountDefenderAssessment_.toBuilder();
-            }
-            accountDefenderAssessment_ = input.readMessage(com.google.recaptchaenterprise.v1.AccountDefenderAssessment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accountDefenderAssessment_);
-              accountDefenderAssessment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.Builder subBuilder = null;
-            if (privatePasswordLeakVerification_ != null) {
-              subBuilder = privatePasswordLeakVerification_.toBuilder();
-            }
-            privatePasswordLeakVerification_ = input.readMessage(com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(privatePasswordLeakVerification_);
-              privatePasswordLeakVerification_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_Assessment_descriptor;
@@ -159,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name for the Assessment in the format
@@ -241,7 +132,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1.EventOrBuilder getEventOrBuilder() {
-    return getEvent();
+    return event_ == null ? com.google.recaptchaenterprise.v1.Event.getDefaultInstance() : event_;
   }
 
   public static final int RISK_ANALYSIS_FIELD_NUMBER = 3;
@@ -279,7 +170,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1.RiskAnalysisOrBuilder getRiskAnalysisOrBuilder() {
-    return getRiskAnalysis();
+    return riskAnalysis_ == null ? com.google.recaptchaenterprise.v1.RiskAnalysis.getDefaultInstance() : riskAnalysis_;
   }
 
   public static final int TOKEN_PROPERTIES_FIELD_NUMBER = 4;
@@ -317,14 +208,55 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1.TokenPropertiesOrBuilder getTokenPropertiesOrBuilder() {
-    return getTokenProperties();
+    return tokenProperties_ == null ? com.google.recaptchaenterprise.v1.TokenProperties.getDefaultInstance() : tokenProperties_;
+  }
+
+  public static final int ACCOUNT_VERIFICATION_FIELD_NUMBER = 5;
+  private com.google.recaptchaenterprise.v1.AccountVerificationInfo accountVerification_;
+  /**
+   * <pre>
+   * Account verification information for identity verification. The assessment
+   * event must include a token and site key to use this feature.
+   * </pre>
+   *
+   * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+   * @return Whether the accountVerification field is set.
+   */
+  @java.lang.Override
+  public boolean hasAccountVerification() {
+    return accountVerification_ != null;
+  }
+  /**
+   * <pre>
+   * Account verification information for identity verification. The assessment
+   * event must include a token and site key to use this feature.
+   * </pre>
+   *
+   * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+   * @return The accountVerification.
+   */
+  @java.lang.Override
+  public com.google.recaptchaenterprise.v1.AccountVerificationInfo getAccountVerification() {
+    return accountVerification_ == null ? com.google.recaptchaenterprise.v1.AccountVerificationInfo.getDefaultInstance() : accountVerification_;
+  }
+  /**
+   * <pre>
+   * Account verification information for identity verification. The assessment
+   * event must include a token and site key to use this feature.
+   * </pre>
+   *
+   * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.recaptchaenterprise.v1.AccountVerificationInfoOrBuilder getAccountVerificationOrBuilder() {
+    return accountVerification_ == null ? com.google.recaptchaenterprise.v1.AccountVerificationInfo.getDefaultInstance() : accountVerification_;
   }
 
   public static final int ACCOUNT_DEFENDER_ASSESSMENT_FIELD_NUMBER = 6;
   private com.google.recaptchaenterprise.v1.AccountDefenderAssessment accountDefenderAssessment_;
   /**
    * <pre>
-   * Assessment returned by Account Defender when a hashed_account_id is
+   * Assessment returned by account defender when a hashed_account_id is
    * provided.
    * </pre>
    *
@@ -337,7 +269,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Assessment returned by Account Defender when a hashed_account_id is
+   * Assessment returned by account defender when a hashed_account_id is
    * provided.
    * </pre>
    *
@@ -350,7 +282,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Assessment returned by Account Defender when a hashed_account_id is
+   * Assessment returned by account defender when a hashed_account_id is
    * provided.
    * </pre>
    *
@@ -358,14 +290,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1.AccountDefenderAssessmentOrBuilder getAccountDefenderAssessmentOrBuilder() {
-    return getAccountDefenderAssessment();
+    return accountDefenderAssessment_ == null ? com.google.recaptchaenterprise.v1.AccountDefenderAssessment.getDefaultInstance() : accountDefenderAssessment_;
   }
 
   public static final int PRIVATE_PASSWORD_LEAK_VERIFICATION_FIELD_NUMBER = 8;
   private com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification privatePasswordLeakVerification_;
   /**
    * <pre>
-   * Password leak verification info.
+   * The private password leak verification field contains the parameters that
+   * are used to to check for leaks privately without sharing user credentials.
    * </pre>
    *
    * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -377,7 +310,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Password leak verification info.
+   * The private password leak verification field contains the parameters that
+   * are used to to check for leaks privately without sharing user credentials.
    * </pre>
    *
    * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -389,14 +323,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Password leak verification info.
+   * The private password leak verification field contains the parameters that
+   * are used to to check for leaks privately without sharing user credentials.
    * </pre>
    *
    * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerificationOrBuilder getPrivatePasswordLeakVerificationOrBuilder() {
-    return getPrivatePasswordLeakVerification();
+    return privatePasswordLeakVerification_ == null ? com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.getDefaultInstance() : privatePasswordLeakVerification_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -425,13 +360,16 @@ private static final long serialVersionUID = 0L;
     if (tokenProperties_ != null) {
       output.writeMessage(4, getTokenProperties());
     }
+    if (accountVerification_ != null) {
+      output.writeMessage(5, getAccountVerification());
+    }
     if (accountDefenderAssessment_ != null) {
       output.writeMessage(6, getAccountDefenderAssessment());
     }
     if (privatePasswordLeakVerification_ != null) {
       output.writeMessage(8, getPrivatePasswordLeakVerification());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -455,6 +393,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getTokenProperties());
     }
+    if (accountVerification_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, getAccountVerification());
+    }
     if (accountDefenderAssessment_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getAccountDefenderAssessment());
@@ -463,7 +405,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getPrivatePasswordLeakVerification());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -495,6 +437,11 @@ private static final long serialVersionUID = 0L;
       if (!getTokenProperties()
           .equals(other.getTokenProperties())) return false;
     }
+    if (hasAccountVerification() != other.hasAccountVerification()) return false;
+    if (hasAccountVerification()) {
+      if (!getAccountVerification()
+          .equals(other.getAccountVerification())) return false;
+    }
     if (hasAccountDefenderAssessment() != other.hasAccountDefenderAssessment()) return false;
     if (hasAccountDefenderAssessment()) {
       if (!getAccountDefenderAssessment()
@@ -505,7 +452,7 @@ private static final long serialVersionUID = 0L;
       if (!getPrivatePasswordLeakVerification()
           .equals(other.getPrivatePasswordLeakVerification())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -530,6 +477,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TOKEN_PROPERTIES_FIELD_NUMBER;
       hash = (53 * hash) + getTokenProperties().hashCode();
     }
+    if (hasAccountVerification()) {
+      hash = (37 * hash) + ACCOUNT_VERIFICATION_FIELD_NUMBER;
+      hash = (53 * hash) + getAccountVerification().hashCode();
+    }
     if (hasAccountDefenderAssessment()) {
       hash = (37 * hash) + ACCOUNT_DEFENDER_ASSESSMENT_FIELD_NUMBER;
       hash = (53 * hash) + getAccountDefenderAssessment().hashCode();
@@ -538,7 +489,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PRIVATE_PASSWORD_LEAK_VERIFICATION_FIELD_NUMBER;
       hash = (53 * hash) + getPrivatePasswordLeakVerification().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -659,52 +610,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.Assessment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (eventBuilder_ == null) {
-        event_ = null;
-      } else {
-        event_ = null;
+      event_ = null;
+      if (eventBuilder_ != null) {
+        eventBuilder_.dispose();
         eventBuilder_ = null;
       }
-      if (riskAnalysisBuilder_ == null) {
-        riskAnalysis_ = null;
-      } else {
-        riskAnalysis_ = null;
+      riskAnalysis_ = null;
+      if (riskAnalysisBuilder_ != null) {
+        riskAnalysisBuilder_.dispose();
         riskAnalysisBuilder_ = null;
       }
-      if (tokenPropertiesBuilder_ == null) {
-        tokenProperties_ = null;
-      } else {
-        tokenProperties_ = null;
+      tokenProperties_ = null;
+      if (tokenPropertiesBuilder_ != null) {
+        tokenPropertiesBuilder_.dispose();
         tokenPropertiesBuilder_ = null;
       }
-      if (accountDefenderAssessmentBuilder_ == null) {
-        accountDefenderAssessment_ = null;
-      } else {
-        accountDefenderAssessment_ = null;
+      accountVerification_ = null;
+      if (accountVerificationBuilder_ != null) {
+        accountVerificationBuilder_.dispose();
+        accountVerificationBuilder_ = null;
+      }
+      accountDefenderAssessment_ = null;
+      if (accountDefenderAssessmentBuilder_ != null) {
+        accountDefenderAssessmentBuilder_.dispose();
         accountDefenderAssessmentBuilder_ = null;
       }
-      if (privatePasswordLeakVerificationBuilder_ == null) {
-        privatePasswordLeakVerification_ = null;
-      } else {
-        privatePasswordLeakVerification_ = null;
+      privatePasswordLeakVerification_ = null;
+      if (privatePasswordLeakVerificationBuilder_ != null) {
+        privatePasswordLeakVerificationBuilder_.dispose();
         privatePasswordLeakVerificationBuilder_ = null;
       }
       return this;
@@ -733,34 +679,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.Assessment buildPartial() {
       com.google.recaptchaenterprise.v1.Assessment result = new com.google.recaptchaenterprise.v1.Assessment(this);
-      result.name_ = name_;
-      if (eventBuilder_ == null) {
-        result.event_ = event_;
-      } else {
-        result.event_ = eventBuilder_.build();
-      }
-      if (riskAnalysisBuilder_ == null) {
-        result.riskAnalysis_ = riskAnalysis_;
-      } else {
-        result.riskAnalysis_ = riskAnalysisBuilder_.build();
-      }
-      if (tokenPropertiesBuilder_ == null) {
-        result.tokenProperties_ = tokenProperties_;
-      } else {
-        result.tokenProperties_ = tokenPropertiesBuilder_.build();
-      }
-      if (accountDefenderAssessmentBuilder_ == null) {
-        result.accountDefenderAssessment_ = accountDefenderAssessment_;
-      } else {
-        result.accountDefenderAssessment_ = accountDefenderAssessmentBuilder_.build();
-      }
-      if (privatePasswordLeakVerificationBuilder_ == null) {
-        result.privatePasswordLeakVerification_ = privatePasswordLeakVerification_;
-      } else {
-        result.privatePasswordLeakVerification_ = privatePasswordLeakVerificationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.Assessment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.event_ = eventBuilder_ == null
+            ? event_
+            : eventBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.riskAnalysis_ = riskAnalysisBuilder_ == null
+            ? riskAnalysis_
+            : riskAnalysisBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tokenProperties_ = tokenPropertiesBuilder_ == null
+            ? tokenProperties_
+            : tokenPropertiesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.accountVerification_ = accountVerificationBuilder_ == null
+            ? accountVerification_
+            : accountVerificationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.accountDefenderAssessment_ = accountDefenderAssessmentBuilder_ == null
+            ? accountDefenderAssessment_
+            : accountDefenderAssessmentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.privatePasswordLeakVerification_ = privatePasswordLeakVerificationBuilder_ == null
+            ? privatePasswordLeakVerification_
+            : privatePasswordLeakVerificationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -809,6 +767,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.recaptchaenterprise.v1.Assessment.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEvent()) {
@@ -820,13 +779,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasTokenProperties()) {
         mergeTokenProperties(other.getTokenProperties());
       }
+      if (other.hasAccountVerification()) {
+        mergeAccountVerification(other.getAccountVerification());
+      }
       if (other.hasAccountDefenderAssessment()) {
         mergeAccountDefenderAssessment(other.getAccountDefenderAssessment());
       }
       if (other.hasPrivatePasswordLeakVerification()) {
         mergePrivatePasswordLeakVerification(other.getPrivatePasswordLeakVerification());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -841,19 +803,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.Assessment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRiskAnalysisFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTokenPropertiesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAccountVerificationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAccountDefenderAssessmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getPrivatePasswordLeakVerificationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.Assessment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -911,11 +934,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -929,8 +950,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -946,12 +967,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -968,7 +987,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the event field is set.
      */
     public boolean hasEvent() {
-      return eventBuilder_ != null || event_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -998,11 +1017,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         event_ = value;
-        onChanged();
       } else {
         eventBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1016,11 +1035,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.Event.Builder builderForValue) {
       if (eventBuilder_ == null) {
         event_ = builderForValue.build();
-        onChanged();
       } else {
         eventBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1032,17 +1051,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEvent(com.google.recaptchaenterprise.v1.Event value) {
       if (eventBuilder_ == null) {
-        if (event_ != null) {
-          event_ =
-            com.google.recaptchaenterprise.v1.Event.newBuilder(event_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          event_ != null &&
+          event_ != com.google.recaptchaenterprise.v1.Event.getDefaultInstance()) {
+          getEventBuilder().mergeFrom(value);
         } else {
           event_ = value;
         }
-        onChanged();
       } else {
         eventBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1053,14 +1073,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.Event event = 2;</code>
      */
     public Builder clearEvent() {
-      if (eventBuilder_ == null) {
-        event_ = null;
-        onChanged();
-      } else {
-        event_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      event_ = null;
+      if (eventBuilder_ != null) {
+        eventBuilder_.dispose();
         eventBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1071,7 +1090,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.Event event = 2;</code>
      */
     public com.google.recaptchaenterprise.v1.Event.Builder getEventBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEventFieldBuilder().getBuilder();
     }
@@ -1123,7 +1142,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the riskAnalysis field is set.
      */
     public boolean hasRiskAnalysis() {
-      return riskAnalysisBuilder_ != null || riskAnalysis_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1153,11 +1172,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         riskAnalysis_ = value;
-        onChanged();
       } else {
         riskAnalysisBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1171,11 +1190,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.RiskAnalysis.Builder builderForValue) {
       if (riskAnalysisBuilder_ == null) {
         riskAnalysis_ = builderForValue.build();
-        onChanged();
       } else {
         riskAnalysisBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1187,17 +1206,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRiskAnalysis(com.google.recaptchaenterprise.v1.RiskAnalysis value) {
       if (riskAnalysisBuilder_ == null) {
-        if (riskAnalysis_ != null) {
-          riskAnalysis_ =
-            com.google.recaptchaenterprise.v1.RiskAnalysis.newBuilder(riskAnalysis_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          riskAnalysis_ != null &&
+          riskAnalysis_ != com.google.recaptchaenterprise.v1.RiskAnalysis.getDefaultInstance()) {
+          getRiskAnalysisBuilder().mergeFrom(value);
         } else {
           riskAnalysis_ = value;
         }
-        onChanged();
       } else {
         riskAnalysisBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1208,14 +1228,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.RiskAnalysis risk_analysis = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearRiskAnalysis() {
-      if (riskAnalysisBuilder_ == null) {
-        riskAnalysis_ = null;
-        onChanged();
-      } else {
-        riskAnalysis_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      riskAnalysis_ = null;
+      if (riskAnalysisBuilder_ != null) {
+        riskAnalysisBuilder_.dispose();
         riskAnalysisBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1226,7 +1245,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.RiskAnalysis risk_analysis = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.recaptchaenterprise.v1.RiskAnalysis.Builder getRiskAnalysisBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRiskAnalysisFieldBuilder().getBuilder();
     }
@@ -1278,7 +1297,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tokenProperties field is set.
      */
     public boolean hasTokenProperties() {
-      return tokenPropertiesBuilder_ != null || tokenProperties_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1308,11 +1327,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tokenProperties_ = value;
-        onChanged();
       } else {
         tokenPropertiesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1326,11 +1345,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.TokenProperties.Builder builderForValue) {
       if (tokenPropertiesBuilder_ == null) {
         tokenProperties_ = builderForValue.build();
-        onChanged();
       } else {
         tokenPropertiesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1342,17 +1361,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTokenProperties(com.google.recaptchaenterprise.v1.TokenProperties value) {
       if (tokenPropertiesBuilder_ == null) {
-        if (tokenProperties_ != null) {
-          tokenProperties_ =
-            com.google.recaptchaenterprise.v1.TokenProperties.newBuilder(tokenProperties_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          tokenProperties_ != null &&
+          tokenProperties_ != com.google.recaptchaenterprise.v1.TokenProperties.getDefaultInstance()) {
+          getTokenPropertiesBuilder().mergeFrom(value);
         } else {
           tokenProperties_ = value;
         }
-        onChanged();
       } else {
         tokenPropertiesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1363,14 +1383,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.TokenProperties token_properties = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearTokenProperties() {
-      if (tokenPropertiesBuilder_ == null) {
-        tokenProperties_ = null;
-        onChanged();
-      } else {
-        tokenProperties_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      tokenProperties_ = null;
+      if (tokenPropertiesBuilder_ != null) {
+        tokenPropertiesBuilder_.dispose();
         tokenPropertiesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1381,7 +1400,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.TokenProperties token_properties = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.recaptchaenterprise.v1.TokenProperties.Builder getTokenPropertiesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTokenPropertiesFieldBuilder().getBuilder();
     }
@@ -1421,12 +1440,176 @@ private static final long serialVersionUID = 0L;
       return tokenPropertiesBuilder_;
     }
 
+    private com.google.recaptchaenterprise.v1.AccountVerificationInfo accountVerification_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.recaptchaenterprise.v1.AccountVerificationInfo, com.google.recaptchaenterprise.v1.AccountVerificationInfo.Builder, com.google.recaptchaenterprise.v1.AccountVerificationInfoOrBuilder> accountVerificationBuilder_;
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     * @return Whether the accountVerification field is set.
+     */
+    public boolean hasAccountVerification() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     * @return The accountVerification.
+     */
+    public com.google.recaptchaenterprise.v1.AccountVerificationInfo getAccountVerification() {
+      if (accountVerificationBuilder_ == null) {
+        return accountVerification_ == null ? com.google.recaptchaenterprise.v1.AccountVerificationInfo.getDefaultInstance() : accountVerification_;
+      } else {
+        return accountVerificationBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    public Builder setAccountVerification(com.google.recaptchaenterprise.v1.AccountVerificationInfo value) {
+      if (accountVerificationBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        accountVerification_ = value;
+      } else {
+        accountVerificationBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    public Builder setAccountVerification(
+        com.google.recaptchaenterprise.v1.AccountVerificationInfo.Builder builderForValue) {
+      if (accountVerificationBuilder_ == null) {
+        accountVerification_ = builderForValue.build();
+      } else {
+        accountVerificationBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    public Builder mergeAccountVerification(com.google.recaptchaenterprise.v1.AccountVerificationInfo value) {
+      if (accountVerificationBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          accountVerification_ != null &&
+          accountVerification_ != com.google.recaptchaenterprise.v1.AccountVerificationInfo.getDefaultInstance()) {
+          getAccountVerificationBuilder().mergeFrom(value);
+        } else {
+          accountVerification_ = value;
+        }
+      } else {
+        accountVerificationBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    public Builder clearAccountVerification() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      accountVerification_ = null;
+      if (accountVerificationBuilder_ != null) {
+        accountVerificationBuilder_.dispose();
+        accountVerificationBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    public com.google.recaptchaenterprise.v1.AccountVerificationInfo.Builder getAccountVerificationBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getAccountVerificationFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    public com.google.recaptchaenterprise.v1.AccountVerificationInfoOrBuilder getAccountVerificationOrBuilder() {
+      if (accountVerificationBuilder_ != null) {
+        return accountVerificationBuilder_.getMessageOrBuilder();
+      } else {
+        return accountVerification_ == null ?
+            com.google.recaptchaenterprise.v1.AccountVerificationInfo.getDefaultInstance() : accountVerification_;
+      }
+    }
+    /**
+     * <pre>
+     * Account verification information for identity verification. The assessment
+     * event must include a token and site key to use this feature.
+     * </pre>
+     *
+     * <code>.google.cloud.recaptchaenterprise.v1.AccountVerificationInfo account_verification = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.recaptchaenterprise.v1.AccountVerificationInfo, com.google.recaptchaenterprise.v1.AccountVerificationInfo.Builder, com.google.recaptchaenterprise.v1.AccountVerificationInfoOrBuilder> 
+        getAccountVerificationFieldBuilder() {
+      if (accountVerificationBuilder_ == null) {
+        accountVerificationBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.recaptchaenterprise.v1.AccountVerificationInfo, com.google.recaptchaenterprise.v1.AccountVerificationInfo.Builder, com.google.recaptchaenterprise.v1.AccountVerificationInfoOrBuilder>(
+                getAccountVerification(),
+                getParentForChildren(),
+                isClean());
+        accountVerification_ = null;
+      }
+      return accountVerificationBuilder_;
+    }
+
     private com.google.recaptchaenterprise.v1.AccountDefenderAssessment accountDefenderAssessment_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.recaptchaenterprise.v1.AccountDefenderAssessment, com.google.recaptchaenterprise.v1.AccountDefenderAssessment.Builder, com.google.recaptchaenterprise.v1.AccountDefenderAssessmentOrBuilder> accountDefenderAssessmentBuilder_;
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1434,11 +1617,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accountDefenderAssessment field is set.
      */
     public boolean hasAccountDefenderAssessment() {
-      return accountDefenderAssessmentBuilder_ != null || accountDefenderAssessment_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1454,7 +1637,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1466,16 +1649,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accountDefenderAssessment_ = value;
-        onChanged();
       } else {
         accountDefenderAssessmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1485,16 +1668,16 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.AccountDefenderAssessment.Builder builderForValue) {
       if (accountDefenderAssessmentBuilder_ == null) {
         accountDefenderAssessment_ = builderForValue.build();
-        onChanged();
       } else {
         accountDefenderAssessmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1502,54 +1685,54 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccountDefenderAssessment(com.google.recaptchaenterprise.v1.AccountDefenderAssessment value) {
       if (accountDefenderAssessmentBuilder_ == null) {
-        if (accountDefenderAssessment_ != null) {
-          accountDefenderAssessment_ =
-            com.google.recaptchaenterprise.v1.AccountDefenderAssessment.newBuilder(accountDefenderAssessment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          accountDefenderAssessment_ != null &&
+          accountDefenderAssessment_ != com.google.recaptchaenterprise.v1.AccountDefenderAssessment.getDefaultInstance()) {
+          getAccountDefenderAssessmentBuilder().mergeFrom(value);
         } else {
           accountDefenderAssessment_ = value;
         }
-        onChanged();
       } else {
         accountDefenderAssessmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.AccountDefenderAssessment account_defender_assessment = 6;</code>
      */
     public Builder clearAccountDefenderAssessment() {
-      if (accountDefenderAssessmentBuilder_ == null) {
-        accountDefenderAssessment_ = null;
-        onChanged();
-      } else {
-        accountDefenderAssessment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      accountDefenderAssessment_ = null;
+      if (accountDefenderAssessmentBuilder_ != null) {
+        accountDefenderAssessmentBuilder_.dispose();
         accountDefenderAssessmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.AccountDefenderAssessment account_defender_assessment = 6;</code>
      */
     public com.google.recaptchaenterprise.v1.AccountDefenderAssessment.Builder getAccountDefenderAssessmentBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getAccountDefenderAssessmentFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1565,7 +1748,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Assessment returned by Account Defender when a hashed_account_id is
+     * Assessment returned by account defender when a hashed_account_id is
      * provided.
      * </pre>
      *
@@ -1590,18 +1773,20 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification, com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.Builder, com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerificationOrBuilder> privatePasswordLeakVerificationBuilder_;
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
      * @return Whether the privatePasswordLeakVerification field is set.
      */
     public boolean hasPrivatePasswordLeakVerification() {
-      return privatePasswordLeakVerificationBuilder_ != null || privatePasswordLeakVerification_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -1616,7 +1801,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -1627,16 +1813,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         privatePasswordLeakVerification_ = value;
-        onChanged();
       } else {
         privatePasswordLeakVerificationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -1645,68 +1832,72 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.Builder builderForValue) {
       if (privatePasswordLeakVerificationBuilder_ == null) {
         privatePasswordLeakVerification_ = builderForValue.build();
-        onChanged();
       } else {
         privatePasswordLeakVerificationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
      */
     public Builder mergePrivatePasswordLeakVerification(com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification value) {
       if (privatePasswordLeakVerificationBuilder_ == null) {
-        if (privatePasswordLeakVerification_ != null) {
-          privatePasswordLeakVerification_ =
-            com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.newBuilder(privatePasswordLeakVerification_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          privatePasswordLeakVerification_ != null &&
+          privatePasswordLeakVerification_ != com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.getDefaultInstance()) {
+          getPrivatePasswordLeakVerificationBuilder().mergeFrom(value);
         } else {
           privatePasswordLeakVerification_ = value;
         }
-        onChanged();
       } else {
         privatePasswordLeakVerificationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
      */
     public Builder clearPrivatePasswordLeakVerification() {
-      if (privatePasswordLeakVerificationBuilder_ == null) {
-        privatePasswordLeakVerification_ = null;
-        onChanged();
-      } else {
-        privatePasswordLeakVerification_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      privatePasswordLeakVerification_ = null;
+      if (privatePasswordLeakVerificationBuilder_ != null) {
+        privatePasswordLeakVerificationBuilder_.dispose();
         privatePasswordLeakVerificationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
      */
     public com.google.recaptchaenterprise.v1.PrivatePasswordLeakVerification.Builder getPrivatePasswordLeakVerificationBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getPrivatePasswordLeakVerificationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -1721,7 +1912,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Password leak verification info.
+     * The private password leak verification field contains the parameters that
+     * are used to to check for leaks privately without sharing user credentials.
      * </pre>
      *
      * <code>.google.cloud.recaptchaenterprise.v1.PrivatePasswordLeakVerification private_password_leak_verification = 8;</code>
@@ -1772,7 +1964,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Assessment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

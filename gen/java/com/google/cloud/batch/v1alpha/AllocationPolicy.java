@@ -39,167 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AllocationPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.Builder subBuilder = null;
-            if (location_ != null) {
-              subBuilder = location_.toBuilder();
-            }
-            location_ = input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(location_);
-              location_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.Builder subBuilder = null;
-            if (instance_ != null) {
-              subBuilder = instance_.toBuilder();
-            }
-            instance_ = input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(instance_);
-              instance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              instanceTemplates_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            instanceTemplates_.add(s);
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              provisioningModels_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            provisioningModels_.add(rawValue);
-            break;
-          }
-          case 34: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                provisioningModels_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              provisioningModels_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccountEmail_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 58: {
-            com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.Builder subBuilder = null;
-            if (network_ != null) {
-              subBuilder = network_.toBuilder();
-            }
-            network_ = input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(network_);
-              network_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              instances_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            instances_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            com.google.cloud.batch.v1alpha.ServiceAccount.Builder subBuilder = null;
-            if (serviceAccount_ != null) {
-              subBuilder = serviceAccount_.toBuilder();
-            }
-            serviceAccount_ = input.readMessage(com.google.cloud.batch.v1alpha.ServiceAccount.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serviceAccount_);
-              serviceAccount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        instanceTemplates_ = instanceTemplates_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        provisioningModels_ = java.util.Collections.unmodifiableList(provisioningModels_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        instances_ = java.util.Collections.unmodifiableList(instances_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_AllocationPolicy_descriptor;
@@ -401,12 +240,18 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -416,12 +261,18 @@ private static final long serialVersionUID = 0L;
         getAllowedLocationsList();
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -430,12 +281,18 @@ private static final long serialVersionUID = 0L;
     int getAllowedLocationsCount();
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -445,12 +302,18 @@ private static final long serialVersionUID = 0L;
     java.lang.String getAllowedLocations(int index);
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -534,70 +397,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LocationPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                allowedLocations_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowedLocations_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                deniedLocations_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              deniedLocations_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          allowedLocations_ = allowedLocations_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          deniedLocations_ = deniedLocations_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_AllocationPolicy_LocationPolicy_descriptor;
@@ -612,15 +411,22 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOWED_LOCATIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList allowedLocations_;
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -632,12 +438,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -648,12 +460,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -665,12 +483,18 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of allowed location names represented by internal URLs,
-     * First location in the list must be a region.
-     * for example,
-     * ["regions/us-central1"] allow VMs in region us-central1,
-     * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-     * us-central1-a.
+     * A list of allowed location names represented by internal URLs.
+     * Each location can be a region or a zone.
+     * Only one region or multiple zones in one region is supported now.
+     * For example,
+     * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+     * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+     * in zones us-central1-a and us-central1-c.
+     * All locations end up in different regions would cause errors.
+     * For example,
+     * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+     * "zones/us-west1-a"] contains 2 regions "us-central1" and
+     * "us-west1". An error is expected in this case.
      * </pre>
      *
      * <code>repeated string allowed_locations = 1;</code>
@@ -683,6 +507,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DENIED_LOCATIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList deniedLocations_;
     /**
      * <pre>
@@ -757,7 +582,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < deniedLocations_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, deniedLocations_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -782,7 +607,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getDeniedLocationsList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -801,7 +626,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAllowedLocationsList())) return false;
       if (!getDeniedLocationsList()
           .equals(other.getDeniedLocationsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -820,7 +645,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DENIED_LOCATIONS_FIELD_NUMBER;
         hash = (53 * hash) + getDeniedLocationsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -937,22 +762,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         allowedLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         deniedLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -983,7 +804,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy result = new com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           allowedLocations_ = allowedLocations_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -994,8 +821,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.deniedLocations_ = deniedLocations_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -1062,7 +891,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1077,17 +906,42 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAllowedLocationsIsMutable();
+                allowedLocations_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureDeniedLocationsIsMutable();
+                deniedLocations_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1101,12 +955,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1118,12 +978,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1134,12 +1000,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1151,12 +1023,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1169,12 +1047,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1184,22 +1068,26 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAllowedLocations(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedLocationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedLocationsIsMutable();
         allowedLocations_.set(index, value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1208,22 +1096,26 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAllowedLocations(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedLocationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedLocationsIsMutable();
         allowedLocations_.add(value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1240,12 +1132,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1259,12 +1157,18 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * A list of allowed location names represented by internal URLs,
-       * First location in the list must be a region.
-       * for example,
-       * ["regions/us-central1"] allow VMs in region us-central1,
-       * ["regions/us-central1", "zones/us-central1-a"] only allow VMs in zone
-       * us-central1-a.
+       * A list of allowed location names represented by internal URLs.
+       * Each location can be a region or a zone.
+       * Only one region or multiple zones in one region is supported now.
+       * For example,
+       * ["regions/us-central1"] allow VMs in any zones in region us-central1.
+       * ["zones/us-central1-a", "zones/us-central1-c"] only allow VMs
+       * in zones us-central1-a and us-central1-c.
+       * All locations end up in different regions would cause errors.
+       * For example,
+       * ["regions/us-central1", "zones/us-central1-a", "zones/us-central1-b",
+       * "zones/us-west1-a"] contains 2 regions "us-central1" and
+       * "us-west1". An error is expected in this case.
        * </pre>
        *
        * <code>repeated string allowed_locations = 1;</code>
@@ -1273,10 +1177,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAllowedLocationsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAllowedLocationsIsMutable();
         allowedLocations_.add(value);
         onChanged();
@@ -1355,10 +1257,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDeniedLocations(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeniedLocationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDeniedLocationsIsMutable();
         deniedLocations_.set(index, value);
         onChanged();
         return this;
@@ -1375,10 +1275,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDeniedLocations(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDeniedLocationsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureDeniedLocationsIsMutable();
         deniedLocations_.add(value);
         onChanged();
         return this;
@@ -1428,10 +1326,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addDeniedLocationsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureDeniedLocationsIsMutable();
         deniedLocations_.add(value);
         onChanged();
@@ -1470,7 +1366,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocationPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1555,7 +1462,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Disk type as shown in `gcloud compute disk-types list`
-     * For example, "pd-ssd", "pd-standard", "pd-balanced".
+     * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -1565,7 +1472,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Disk type as shown in `gcloud compute disk-types list`
-     * For example, "pd-ssd", "pd-standard", "pd-balanced".
+     * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -1578,6 +1485,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Disk size in GB.
      * This field is ignored if `data_source` is `disk` or `image`.
+     * If `type` is `local-ssd`, size_gb should be a multiple of 375GB,
+     * otherwise, the final size will be the next greater multiple of 375 GB.
      * </pre>
      *
      * <code>int64 size_gb = 2;</code>
@@ -1585,11 +1494,38 @@ private static final long serialVersionUID = 0L;
      */
     long getSizeGb();
 
+    /**
+     * <pre>
+     * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+     * If not indicated, "NVMe" will be the default one for local ssds.
+     * We only support "SCSI" for persistent disks now.
+     * </pre>
+     *
+     * <code>string disk_interface = 6;</code>
+     * @return The diskInterface.
+     */
+    java.lang.String getDiskInterface();
+    /**
+     * <pre>
+     * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+     * If not indicated, "NVMe" will be the default one for local ssds.
+     * We only support "SCSI" for persistent disks now.
+     * </pre>
+     *
+     * <code>string disk_interface = 6;</code>
+     * @return The bytes for diskInterface.
+     */
+    com.google.protobuf.ByteString
+        getDiskInterfaceBytes();
+
     public com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.DataSourceCase getDataSourceCase();
   }
   /**
    * <pre>
-   * A new persistent disk.
+   * A new persistent disk or a local ssd.
+   * A VM can only have one local SSD setting but multiple local SSD partitions.
+   * https://cloud.google.com/compute/docs/disks#pdspecs.
+   * https://cloud.google.com/compute/docs/disks#localssds.
    * </pre>
    *
    * Protobuf type {@code google.cloud.batch.v1alpha.AllocationPolicy.Disk}
@@ -1605,6 +1541,7 @@ private static final long serialVersionUID = 0L;
     }
     private Disk() {
       type_ = "";
+      diskInterface_ = "";
     }
 
     @java.lang.Override
@@ -1618,68 +1555,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Disk(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              type_ = s;
-              break;
-            }
-            case 16: {
-
-              sizeGb_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              dataSourceCase_ = 4;
-              dataSource_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              dataSourceCase_ = 5;
-              dataSource_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1864,11 +1739,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object type_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object type_ = "";
     /**
      * <pre>
      * Disk type as shown in `gcloud compute disk-types list`
-     * For example, "pd-ssd", "pd-standard", "pd-balanced".
+     * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -1890,7 +1766,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Disk type as shown in `gcloud compute disk-types list`
-     * For example, "pd-ssd", "pd-standard", "pd-balanced".
+     * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
      * </pre>
      *
      * <code>string type = 1;</code>
@@ -1912,11 +1788,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SIZE_GB_FIELD_NUMBER = 2;
-    private long sizeGb_;
+    private long sizeGb_ = 0L;
     /**
      * <pre>
      * Disk size in GB.
      * This field is ignored if `data_source` is `disk` or `image`.
+     * If `type` is `local-ssd`, size_gb should be a multiple of 375GB,
+     * otherwise, the final size will be the next greater multiple of 375 GB.
      * </pre>
      *
      * <code>int64 size_gb = 2;</code>
@@ -1925,6 +1803,57 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public long getSizeGb() {
       return sizeGb_;
+    }
+
+    public static final int DISK_INTERFACE_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object diskInterface_ = "";
+    /**
+     * <pre>
+     * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+     * If not indicated, "NVMe" will be the default one for local ssds.
+     * We only support "SCSI" for persistent disks now.
+     * </pre>
+     *
+     * <code>string disk_interface = 6;</code>
+     * @return The diskInterface.
+     */
+    @java.lang.Override
+    public java.lang.String getDiskInterface() {
+      java.lang.Object ref = diskInterface_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        diskInterface_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+     * If not indicated, "NVMe" will be the default one for local ssds.
+     * We only support "SCSI" for persistent disks now.
+     * </pre>
+     *
+     * <code>string disk_interface = 6;</code>
+     * @return The bytes for diskInterface.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDiskInterfaceBytes() {
+      java.lang.Object ref = diskInterface_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        diskInterface_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1953,7 +1882,10 @@ private static final long serialVersionUID = 0L;
       if (dataSourceCase_ == 5) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, dataSource_);
       }
-      unknownFields.writeTo(output);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diskInterface_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, diskInterface_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1975,7 +1907,10 @@ private static final long serialVersionUID = 0L;
       if (dataSourceCase_ == 5) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, dataSource_);
       }
-      size += unknownFields.getSerializedSize();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(diskInterface_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, diskInterface_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1994,6 +1929,8 @@ private static final long serialVersionUID = 0L;
           .equals(other.getType())) return false;
       if (getSizeGb()
           != other.getSizeGb()) return false;
+      if (!getDiskInterface()
+          .equals(other.getDiskInterface())) return false;
       if (!getDataSourceCase().equals(other.getDataSourceCase())) return false;
       switch (dataSourceCase_) {
         case 4:
@@ -2007,7 +1944,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2023,6 +1960,8 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIZE_GB_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getSizeGb());
+      hash = (37 * hash) + DISK_INTERFACE_FIELD_NUMBER;
+      hash = (53 * hash) + getDiskInterface().hashCode();
       switch (dataSourceCase_) {
         case 4:
           hash = (37 * hash) + IMAGE_FIELD_NUMBER;
@@ -2035,7 +1974,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2132,7 +2071,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A new persistent disk.
+     * A new persistent disk or a local ssd.
+     * A VM can only have one local SSD setting but multiple local SSD partitions.
+     * https://cloud.google.com/compute/docs/disks#pdspecs.
+     * https://cloud.google.com/compute/docs/disks#localssds.
      * </pre>
      *
      * Protobuf type {@code google.cloud.batch.v1alpha.AllocationPolicy.Disk}
@@ -2156,26 +2098,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = "";
-
         sizeGb_ = 0L;
-
+        diskInterface_ = "";
         dataSourceCase_ = 0;
         dataSource_ = null;
         return this;
@@ -2204,17 +2141,28 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.Disk buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.Disk result = new com.google.cloud.batch.v1alpha.AllocationPolicy.Disk(this);
-        if (dataSourceCase_ == 4) {
-          result.dataSource_ = dataSource_;
-        }
-        if (dataSourceCase_ == 5) {
-          result.dataSource_ = dataSource_;
-        }
-        result.type_ = type_;
-        result.sizeGb_ = sizeGb_;
-        result.dataSourceCase_ = dataSourceCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.Disk result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.sizeGb_ = sizeGb_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.diskInterface_ = diskInterface_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.batch.v1alpha.AllocationPolicy.Disk result) {
+        result.dataSourceCase_ = dataSourceCase_;
+        result.dataSource_ = this.dataSource_;
       }
 
       @java.lang.Override
@@ -2263,10 +2211,16 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.getDefaultInstance()) return this;
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.getSizeGb() != 0L) {
           setSizeGb(other.getSizeGb());
+        }
+        if (!other.getDiskInterface().isEmpty()) {
+          diskInterface_ = other.diskInterface_;
+          bitField0_ |= 0x00000010;
+          onChanged();
         }
         switch (other.getDataSourceCase()) {
           case IMAGE: {
@@ -2285,7 +2239,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2300,17 +2254,57 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.Disk parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                type_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 10
+              case 16: {
+                sizeGb_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 16
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                dataSourceCase_ = 4;
+                dataSource_ = s;
+                break;
+              } // case 34
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+                dataSourceCase_ = 5;
+                dataSource_ = s;
+                break;
+              } // case 42
+              case 50: {
+                diskInterface_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.Disk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int dataSourceCase_ = 0;
@@ -2328,6 +2322,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       /**
        * <pre>
@@ -2405,10 +2400,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setImage(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  dataSourceCase_ = 4;
+        if (value == null) { throw new NullPointerException(); }
+        dataSourceCase_ = 4;
         dataSource_ = value;
         onChanged();
         return this;
@@ -2440,10 +2433,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setImageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dataSourceCase_ = 4;
         dataSource_ = value;
         onChanged();
@@ -2526,10 +2517,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSnapshot(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  dataSourceCase_ = 5;
+        if (value == null) { throw new NullPointerException(); }
+        dataSourceCase_ = 5;
         dataSource_ = value;
         onChanged();
         return this;
@@ -2561,10 +2550,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSnapshotBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dataSourceCase_ = 5;
         dataSource_ = value;
         onChanged();
@@ -2575,7 +2562,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Disk type as shown in `gcloud compute disk-types list`
-       * For example, "pd-ssd", "pd-standard", "pd-balanced".
+       * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
        * </pre>
        *
        * <code>string type = 1;</code>
@@ -2596,7 +2583,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Disk type as shown in `gcloud compute disk-types list`
-       * For example, "pd-ssd", "pd-standard", "pd-balanced".
+       * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
        * </pre>
        *
        * <code>string type = 1;</code>
@@ -2618,7 +2605,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Disk type as shown in `gcloud compute disk-types list`
-       * For example, "pd-ssd", "pd-standard", "pd-balanced".
+       * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
        * </pre>
        *
        * <code>string type = 1;</code>
@@ -2627,33 +2614,31 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         type_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Disk type as shown in `gcloud compute disk-types list`
-       * For example, "pd-ssd", "pd-standard", "pd-balanced".
+       * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
        * </pre>
        *
        * <code>string type = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
         type_ = getDefaultInstance().getType();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Disk type as shown in `gcloud compute disk-types list`
-       * For example, "pd-ssd", "pd-standard", "pd-balanced".
+       * For example, "pd-ssd", "pd-standard", "pd-balanced", "local-ssd".
        * </pre>
        *
        * <code>string type = 1;</code>
@@ -2662,12 +2647,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         type_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2677,6 +2660,8 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Disk size in GB.
        * This field is ignored if `data_source` is `disk` or `image`.
+       * If `type` is `local-ssd`, size_gb should be a multiple of 375GB,
+       * otherwise, the final size will be the next greater multiple of 375 GB.
        * </pre>
        *
        * <code>int64 size_gb = 2;</code>
@@ -2690,6 +2675,8 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Disk size in GB.
        * This field is ignored if `data_source` is `disk` or `image`.
+       * If `type` is `local-ssd`, size_gb should be a multiple of 375GB,
+       * otherwise, the final size will be the next greater multiple of 375 GB.
        * </pre>
        *
        * <code>int64 size_gb = 2;</code>
@@ -2699,6 +2686,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSizeGb(long value) {
         
         sizeGb_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -2706,14 +2694,118 @@ private static final long serialVersionUID = 0L;
        * <pre>
        * Disk size in GB.
        * This field is ignored if `data_source` is `disk` or `image`.
+       * If `type` is `local-ssd`, size_gb should be a multiple of 375GB,
+       * otherwise, the final size will be the next greater multiple of 375 GB.
        * </pre>
        *
        * <code>int64 size_gb = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSizeGb() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         sizeGb_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object diskInterface_ = "";
+      /**
+       * <pre>
+       * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+       * If not indicated, "NVMe" will be the default one for local ssds.
+       * We only support "SCSI" for persistent disks now.
+       * </pre>
+       *
+       * <code>string disk_interface = 6;</code>
+       * @return The diskInterface.
+       */
+      public java.lang.String getDiskInterface() {
+        java.lang.Object ref = diskInterface_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          diskInterface_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+       * If not indicated, "NVMe" will be the default one for local ssds.
+       * We only support "SCSI" for persistent disks now.
+       * </pre>
+       *
+       * <code>string disk_interface = 6;</code>
+       * @return The bytes for diskInterface.
+       */
+      public com.google.protobuf.ByteString
+          getDiskInterfaceBytes() {
+        java.lang.Object ref = diskInterface_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          diskInterface_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+       * If not indicated, "NVMe" will be the default one for local ssds.
+       * We only support "SCSI" for persistent disks now.
+       * </pre>
+       *
+       * <code>string disk_interface = 6;</code>
+       * @param value The diskInterface to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDiskInterface(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        diskInterface_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+       * If not indicated, "NVMe" will be the default one for local ssds.
+       * We only support "SCSI" for persistent disks now.
+       * </pre>
+       *
+       * <code>string disk_interface = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDiskInterface() {
+        diskInterface_ = getDefaultInstance().getDiskInterface();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Local SSDs are available through both "SCSI" and "NVMe" interfaces.
+       * If not indicated, "NVMe" will be the default one for local ssds.
+       * We only support "SCSI" for persistent disks now.
+       * </pre>
+       *
+       * <code>string disk_interface = 6;</code>
+       * @param value The bytes for diskInterface to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDiskInterfaceBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        diskInterface_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -2750,7 +2842,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Disk(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2821,7 +2924,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device name that the guest operating system will see.
-     * If not specified, this is default to the disk name.
+     * It is used by Runnable.volumes field to mount disks. So please specify
+     * the device_name if you want Batch to help mount the disk, and it should
+     * match the device_name field in volumes.
      * </pre>
      *
      * <code>string device_name = 3;</code>
@@ -2831,7 +2936,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device name that the guest operating system will see.
-     * If not specified, this is default to the disk name.
+     * It is used by Runnable.volumes field to mount disks. So please specify
+     * the device_name if you want Batch to help mount the disk, and it should
+     * match the device_name field in volumes.
      * </pre>
      *
      * <code>string device_name = 3;</code>
@@ -2844,7 +2951,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A new or an existing persistent disk attached to a VM instance.
+   * A new or an existing persistent disk (PD) or a local ssd attached to a VM
+   * instance.
    * </pre>
    *
    * Protobuf type {@code google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk}
@@ -2873,71 +2981,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private AttachedDisk(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder subBuilder = null;
-              if (attachedCase_ == 1) {
-                subBuilder = ((com.google.cloud.batch.v1alpha.AllocationPolicy.Disk) attached_).toBuilder();
-              }
-              attached_ =
-                  input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.batch.v1alpha.AllocationPolicy.Disk) attached_);
-                attached_ = subBuilder.buildPartial();
-              }
-              attachedCase_ = 1;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              attachedCase_ = 2;
-              attached_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              deviceName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3089,11 +3132,14 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DEVICE_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object deviceName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object deviceName_ = "";
     /**
      * <pre>
      * Device name that the guest operating system will see.
-     * If not specified, this is default to the disk name.
+     * It is used by Runnable.volumes field to mount disks. So please specify
+     * the device_name if you want Batch to help mount the disk, and it should
+     * match the device_name field in volumes.
      * </pre>
      *
      * <code>string device_name = 3;</code>
@@ -3115,7 +3161,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Device name that the guest operating system will see.
-     * If not specified, this is default to the disk name.
+     * It is used by Runnable.volumes field to mount disks. So please specify
+     * the device_name if you want Batch to help mount the disk, and it should
+     * match the device_name field in volumes.
      * </pre>
      *
      * <code>string device_name = 3;</code>
@@ -3159,7 +3207,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, deviceName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3178,7 +3226,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, deviceName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3208,7 +3256,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3233,7 +3281,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3330,7 +3378,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A new or an existing persistent disk attached to a VM instance.
+     * A new or an existing persistent disk (PD) or a local ssd attached to a VM
+     * instance.
      * </pre>
      *
      * Protobuf type {@code google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk}
@@ -3354,24 +3403,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (newDiskBuilder_ != null) {
+          newDiskBuilder_.clear();
+        }
         deviceName_ = "";
-
         attachedCase_ = 0;
         attached_ = null;
         return this;
@@ -3400,20 +3447,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk result = new com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk(this);
-        if (attachedCase_ == 1) {
-          if (newDiskBuilder_ == null) {
-            result.attached_ = attached_;
-          } else {
-            result.attached_ = newDiskBuilder_.build();
-          }
-        }
-        if (attachedCase_ == 2) {
-          result.attached_ = attached_;
-        }
-        result.deviceName_ = deviceName_;
-        result.attachedCase_ = attachedCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.deviceName_ = deviceName_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk result) {
+        result.attachedCase_ = attachedCase_;
+        result.attached_ = this.attached_;
+        if (attachedCase_ == 1 &&
+            newDiskBuilder_ != null) {
+          result.attached_ = newDiskBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3462,6 +3515,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk.getDefaultInstance()) return this;
         if (!other.getDeviceName().isEmpty()) {
           deviceName_ = other.deviceName_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         switch (other.getAttachedCase()) {
@@ -3479,7 +3533,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3494,17 +3548,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getNewDiskFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                attachedCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                attachedCase_ = 2;
+                attached_ = s;
+                break;
+              } // case 18
+              case 26: {
+                deviceName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int attachedCase_ = 0;
@@ -3522,6 +3607,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.batch.v1alpha.AllocationPolicy.Disk, com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder> newDiskBuilder_;
@@ -3661,7 +3747,7 @@ private static final long serialVersionUID = 0L;
           attached_ = null;
         }
         attachedCase_ = 1;
-        onChanged();;
+        onChanged();
         return newDiskBuilder_;
       }
 
@@ -3741,10 +3827,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setExistingDisk(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  attachedCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        attachedCase_ = 2;
         attached_ = value;
         onChanged();
         return this;
@@ -3776,10 +3860,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setExistingDiskBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         attachedCase_ = 2;
         attached_ = value;
         onChanged();
@@ -3790,7 +3872,9 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Device name that the guest operating system will see.
-       * If not specified, this is default to the disk name.
+       * It is used by Runnable.volumes field to mount disks. So please specify
+       * the device_name if you want Batch to help mount the disk, and it should
+       * match the device_name field in volumes.
        * </pre>
        *
        * <code>string device_name = 3;</code>
@@ -3811,7 +3895,9 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Device name that the guest operating system will see.
-       * If not specified, this is default to the disk name.
+       * It is used by Runnable.volumes field to mount disks. So please specify
+       * the device_name if you want Batch to help mount the disk, and it should
+       * match the device_name field in volumes.
        * </pre>
        *
        * <code>string device_name = 3;</code>
@@ -3833,7 +3919,9 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Device name that the guest operating system will see.
-       * If not specified, this is default to the disk name.
+       * It is used by Runnable.volumes field to mount disks. So please specify
+       * the device_name if you want Batch to help mount the disk, and it should
+       * match the device_name field in volumes.
        * </pre>
        *
        * <code>string device_name = 3;</code>
@@ -3842,33 +3930,35 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDeviceName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         deviceName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Device name that the guest operating system will see.
-       * If not specified, this is default to the disk name.
+       * It is used by Runnable.volumes field to mount disks. So please specify
+       * the device_name if you want Batch to help mount the disk, and it should
+       * match the device_name field in volumes.
        * </pre>
        *
        * <code>string device_name = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearDeviceName() {
-        
         deviceName_ = getDefaultInstance().getDeviceName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Device name that the guest operating system will see.
-       * If not specified, this is default to the disk name.
+       * It is used by Runnable.volumes field to mount disks. So please specify
+       * the device_name if you want Batch to help mount the disk, and it should
+       * match the device_name field in volumes.
        * </pre>
        *
        * <code>string device_name = 3;</code>
@@ -3877,12 +3967,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDeviceNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         deviceName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3919,7 +4007,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AttachedDisk(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3974,10 +4073,22 @@ private static final long serialVersionUID = 0L;
      * @return The count.
      */
     long getCount();
+
+    /**
+     * <pre>
+     * Deprecated: please use instances[0].install_gpu_drivers instead.
+     * </pre>
+     *
+     * <code>bool install_gpu_drivers = 3 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.install_gpu_drivers is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=347
+     * @return The installGpuDrivers.
+     */
+    @java.lang.Deprecated boolean getInstallGpuDrivers();
   }
   /**
    * <pre>
-   * Accelerator describes Compute Engine accelerators to be attached to VMs.
+   * Accelerator describes Compute Engine accelerators to be attached to the VM.
    * </pre>
    *
    * Protobuf type {@code google.cloud.batch.v1alpha.AllocationPolicy.Accelerator}
@@ -4007,56 +4118,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Accelerator(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              type_ = s;
-              break;
-            }
-            case 16: {
-
-              count_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_AllocationPolicy_Accelerator_descriptor;
@@ -4071,7 +4132,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object type_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object type_ = "";
     /**
      * <pre>
      * The accelerator type. For example, "nvidia-tesla-t4".
@@ -4119,7 +4181,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COUNT_FIELD_NUMBER = 2;
-    private long count_;
+    private long count_ = 0L;
     /**
      * <pre>
      * The number of accelerators of this type.
@@ -4131,6 +4193,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public long getCount() {
       return count_;
+    }
+
+    public static final int INSTALL_GPU_DRIVERS_FIELD_NUMBER = 3;
+    private boolean installGpuDrivers_ = false;
+    /**
+     * <pre>
+     * Deprecated: please use instances[0].install_gpu_drivers instead.
+     * </pre>
+     *
+     * <code>bool install_gpu_drivers = 3 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.install_gpu_drivers is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=347
+     * @return The installGpuDrivers.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated public boolean getInstallGpuDrivers() {
+      return installGpuDrivers_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4153,7 +4232,10 @@ private static final long serialVersionUID = 0L;
       if (count_ != 0L) {
         output.writeInt64(2, count_);
       }
-      unknownFields.writeTo(output);
+      if (installGpuDrivers_ != false) {
+        output.writeBool(3, installGpuDrivers_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4169,7 +4251,11 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, count_);
       }
-      size += unknownFields.getSerializedSize();
+      if (installGpuDrivers_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, installGpuDrivers_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4188,7 +4274,9 @@ private static final long serialVersionUID = 0L;
           .equals(other.getType())) return false;
       if (getCount()
           != other.getCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (getInstallGpuDrivers()
+          != other.getInstallGpuDrivers()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4204,7 +4292,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (37 * hash) + INSTALL_GPU_DRIVERS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getInstallGpuDrivers());
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4301,7 +4392,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Accelerator describes Compute Engine accelerators to be attached to VMs.
+     * Accelerator describes Compute Engine accelerators to be attached to the VM.
      * </pre>
      *
      * Protobuf type {@code google.cloud.batch.v1alpha.AllocationPolicy.Accelerator}
@@ -4325,26 +4416,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = "";
-
         count_ = 0L;
-
+        installGpuDrivers_ = false;
         return this;
       }
 
@@ -4371,10 +4457,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator result = new com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator(this);
-        result.type_ = type_;
-        result.count_ = count_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.count_ = count_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.installGpuDrivers_ = installGpuDrivers_;
+        }
       }
 
       @java.lang.Override
@@ -4423,12 +4521,16 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.getDefaultInstance()) return this;
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getCount() != 0L) {
           setCount(other.getCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (other.getInstallGpuDrivers() != false) {
+          setInstallGpuDrivers(other.getInstallGpuDrivers());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4443,19 +4545,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                type_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                count_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                installGpuDrivers_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object type_ = "";
       /**
@@ -4513,11 +4644,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4531,8 +4660,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
         type_ = getDefaultInstance().getType();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4548,12 +4677,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4583,6 +4710,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCount(long value) {
         
         count_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4595,8 +4723,58 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         count_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean installGpuDrivers_ ;
+      /**
+       * <pre>
+       * Deprecated: please use instances[0].install_gpu_drivers instead.
+       * </pre>
+       *
+       * <code>bool install_gpu_drivers = 3 [deprecated = true];</code>
+       * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.install_gpu_drivers is deprecated.
+       *     See google/cloud/batch/v1alpha/job.proto;l=347
+       * @return The installGpuDrivers.
+       */
+      @java.lang.Override
+      @java.lang.Deprecated public boolean getInstallGpuDrivers() {
+        return installGpuDrivers_;
+      }
+      /**
+       * <pre>
+       * Deprecated: please use instances[0].install_gpu_drivers instead.
+       * </pre>
+       *
+       * <code>bool install_gpu_drivers = 3 [deprecated = true];</code>
+       * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.install_gpu_drivers is deprecated.
+       *     See google/cloud/batch/v1alpha/job.proto;l=347
+       * @param value The installGpuDrivers to set.
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder setInstallGpuDrivers(boolean value) {
+        
+        installGpuDrivers_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Deprecated: please use instances[0].install_gpu_drivers instead.
+       * </pre>
+       *
+       * <code>bool install_gpu_drivers = 3 [deprecated = true];</code>
+       * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.install_gpu_drivers is deprecated.
+       *     See google/cloud/batch/v1alpha/job.proto;l=347
+       * @return This builder for chaining.
+       */
+      @java.lang.Deprecated public Builder clearInstallGpuDrivers() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        installGpuDrivers_ = false;
         onChanged();
         return this;
       }
@@ -4633,7 +4811,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Accelerator(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4658,32 +4847,48 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @return A list containing the allowedMachineTypes.
      */
     @java.lang.Deprecated java.util.List<java.lang.String>
         getAllowedMachineTypesList();
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @return The count of allowedMachineTypes.
      */
     @java.lang.Deprecated int getAllowedMachineTypesCount();
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @param index The index of the element to return.
      * @return The allowedMachineTypes at the given index.
      */
     @java.lang.Deprecated java.lang.String getAllowedMachineTypes(int index);
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @param index The index of the value to return.
      * @return The bytes of the allowedMachineTypes at the given index.
      */
@@ -4758,7 +4963,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -4768,7 +4972,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -4777,7 +4980,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -4786,7 +4988,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -4796,7 +4997,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -4806,8 +5006,38 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
+     * Book disk to be created and attached to each VM by this InstancePolicy.
+     * Boot disk will be deleted when the VM is deleted.
+     * </pre>
+     *
+     * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+     * @return Whether the bootDisk field is set.
+     */
+    boolean hasBootDisk();
+    /**
+     * <pre>
+     * Book disk to be created and attached to each VM by this InstancePolicy.
+     * Boot disk will be deleted when the VM is deleted.
+     * </pre>
+     *
+     * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+     * @return The bootDisk.
+     */
+    com.google.cloud.batch.v1alpha.AllocationPolicy.Disk getBootDisk();
+    /**
+     * <pre>
+     * Book disk to be created and attached to each VM by this InstancePolicy.
+     * Boot disk will be deleted when the VM is deleted.
+     * </pre>
+     *
+     * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+     */
+    com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder getBootDiskOrBuilder();
+
+    /**
+     * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -4817,7 +5047,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -4826,7 +5056,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -4835,7 +5065,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -4845,13 +5075,33 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
      */
     com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDiskOrBuilder getDisksOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * If specified, VMs will be allocated only inside the matching reservation.
+     * </pre>
+     *
+     * <code>string reservation = 7;</code>
+     * @return The reservation.
+     */
+    java.lang.String getReservation();
+    /**
+     * <pre>
+     * If specified, VMs will be allocated only inside the matching reservation.
+     * </pre>
+     *
+     * <code>string reservation = 7;</code>
+     * @return The bytes for reservation.
+     */
+    com.google.protobuf.ByteString
+        getReservationBytes();
   }
   /**
    * <pre>
@@ -4877,6 +5127,7 @@ private static final long serialVersionUID = 0L;
       provisioningModel_ = 0;
       accelerators_ = java.util.Collections.emptyList();
       disks_ = java.util.Collections.emptyList();
+      reservation_ = "";
     }
 
     @java.lang.Override
@@ -4890,100 +5141,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private InstancePolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                allowedMachineTypes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowedMachineTypes_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              machineType_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              minCpuPlatform_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              provisioningModel_ = rawValue;
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                accelerators_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              accelerators_.add(
-                  input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                disks_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              disks_.add(
-                  input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          allowedMachineTypes_ = allowedMachineTypes_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          accelerators_ = java.util.Collections.unmodifiableList(accelerators_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          disks_ = java.util.Collections.unmodifiableList(disks_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -4999,11 +5156,16 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOWED_MACHINE_TYPES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList allowedMachineTypes_;
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @return A list containing the allowedMachineTypes.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -5011,18 +5173,26 @@ private static final long serialVersionUID = 0L;
       return allowedMachineTypes_;
     }
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @return The count of allowedMachineTypes.
      */
     @java.lang.Deprecated public int getAllowedMachineTypesCount() {
       return allowedMachineTypes_.size();
     }
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @param index The index of the element to return.
      * @return The allowedMachineTypes at the given index.
      */
@@ -5030,9 +5200,13 @@ private static final long serialVersionUID = 0L;
       return allowedMachineTypes_.get(index);
     }
     /**
+     * <pre>
+     * Deprecated: please use machine_type instead.
+     * </pre>
+     *
      * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=331
+     *     See google/cloud/batch/v1alpha/job.proto;l=354
      * @param index The index of the value to return.
      * @return The bytes of the allowedMachineTypes at the given index.
      */
@@ -5042,7 +5216,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MACHINE_TYPE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object machineType_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object machineType_ = "";
     /**
      * <pre>
      * The Compute Engine machine type.
@@ -5088,7 +5263,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MIN_CPU_PLATFORM_FIELD_NUMBER = 3;
-    private volatile java.lang.Object minCpuPlatform_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object minCpuPlatform_ = "";
     /**
      * <pre>
      * The minimum CPU platform.
@@ -5140,7 +5316,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PROVISIONING_MODEL_FIELD_NUMBER = 4;
-    private int provisioningModel_;
+    private int provisioningModel_ = 0;
     /**
      * <pre>
      * The provisioning model.
@@ -5161,17 +5337,16 @@ private static final long serialVersionUID = 0L;
      * @return The provisioningModel.
      */
     @java.lang.Override public com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel getProvisioningModel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel result = com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.valueOf(provisioningModel_);
+      com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel result = com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.forNumber(provisioningModel_);
       return result == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.UNRECOGNIZED : result;
     }
 
     public static final int ACCELERATORS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator> accelerators_;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -5183,7 +5358,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -5196,7 +5370,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -5208,7 +5381,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -5220,7 +5392,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The accelerators attached to each VM instance.
-     * Not yet implemented.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -5231,12 +5402,54 @@ private static final long serialVersionUID = 0L;
       return accelerators_.get(index);
     }
 
+    public static final int BOOT_DISK_FIELD_NUMBER = 8;
+    private com.google.cloud.batch.v1alpha.AllocationPolicy.Disk bootDisk_;
+    /**
+     * <pre>
+     * Book disk to be created and attached to each VM by this InstancePolicy.
+     * Boot disk will be deleted when the VM is deleted.
+     * </pre>
+     *
+     * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+     * @return Whether the bootDisk field is set.
+     */
+    @java.lang.Override
+    public boolean hasBootDisk() {
+      return bootDisk_ != null;
+    }
+    /**
+     * <pre>
+     * Book disk to be created and attached to each VM by this InstancePolicy.
+     * Boot disk will be deleted when the VM is deleted.
+     * </pre>
+     *
+     * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+     * @return The bootDisk.
+     */
+    @java.lang.Override
+    public com.google.cloud.batch.v1alpha.AllocationPolicy.Disk getBootDisk() {
+      return bootDisk_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.getDefaultInstance() : bootDisk_;
+    }
+    /**
+     * <pre>
+     * Book disk to be created and attached to each VM by this InstancePolicy.
+     * Boot disk will be deleted when the VM is deleted.
+     * </pre>
+     *
+     * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder getBootDiskOrBuilder() {
+      return bootDisk_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.getDefaultInstance() : bootDisk_;
+    }
+
     public static final int DISKS_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk> disks_;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -5248,7 +5461,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -5261,7 +5474,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -5273,7 +5486,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -5285,7 +5498,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Non-boot disks to be attached for each VM created by this InstancePolicy.
-     * New disks will be deleted when the attached VM is deleted.
+     * New disks will be deleted when the VM is deleted.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -5294,6 +5507,53 @@ private static final long serialVersionUID = 0L;
     public com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDiskOrBuilder getDisksOrBuilder(
         int index) {
       return disks_.get(index);
+    }
+
+    public static final int RESERVATION_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object reservation_ = "";
+    /**
+     * <pre>
+     * If specified, VMs will be allocated only inside the matching reservation.
+     * </pre>
+     *
+     * <code>string reservation = 7;</code>
+     * @return The reservation.
+     */
+    @java.lang.Override
+    public java.lang.String getReservation() {
+      java.lang.Object ref = reservation_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        reservation_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * If specified, VMs will be allocated only inside the matching reservation.
+     * </pre>
+     *
+     * <code>string reservation = 7;</code>
+     * @return The bytes for reservation.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getReservationBytes() {
+      java.lang.Object ref = reservation_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        reservation_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5328,7 +5588,13 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < disks_.size(); i++) {
         output.writeMessage(6, disks_.get(i));
       }
-      unknownFields.writeTo(output);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reservation_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, reservation_);
+      }
+      if (bootDisk_ != null) {
+        output.writeMessage(8, getBootDisk());
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5363,7 +5629,14 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, disks_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reservation_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, reservation_);
+      }
+      if (bootDisk_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getBootDisk());
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5387,9 +5660,16 @@ private static final long serialVersionUID = 0L;
       if (provisioningModel_ != other.provisioningModel_) return false;
       if (!getAcceleratorsList()
           .equals(other.getAcceleratorsList())) return false;
+      if (hasBootDisk() != other.hasBootDisk()) return false;
+      if (hasBootDisk()) {
+        if (!getBootDisk()
+            .equals(other.getBootDisk())) return false;
+      }
       if (!getDisksList()
           .equals(other.getDisksList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getReservation()
+          .equals(other.getReservation())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5414,11 +5694,17 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ACCELERATORS_FIELD_NUMBER;
         hash = (53 * hash) + getAcceleratorsList().hashCode();
       }
+      if (hasBootDisk()) {
+        hash = (37 * hash) + BOOT_DISK_FIELD_NUMBER;
+        hash = (53 * hash) + getBootDisk().hashCode();
+      }
       if (getDisksCount() > 0) {
         hash = (37 * hash) + DISKS_FIELD_NUMBER;
         hash = (53 * hash) + getDisksList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (37 * hash) + RESERVATION_FIELD_NUMBER;
+      hash = (53 * hash) + getReservation().hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5540,44 +5826,43 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAcceleratorsFieldBuilder();
-          getDisksFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         allowedMachineTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         machineType_ = "";
-
         minCpuPlatform_ = "";
-
         provisioningModel_ = 0;
-
         if (acceleratorsBuilder_ == null) {
           accelerators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          accelerators_ = null;
           acceleratorsBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000010);
+        bootDisk_ = null;
+        if (bootDiskBuilder_ != null) {
+          bootDiskBuilder_.dispose();
+          bootDiskBuilder_ = null;
         }
         if (disksBuilder_ == null) {
           disks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          disks_ = null;
           disksBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000040);
+        reservation_ = "";
         return this;
       }
 
@@ -5604,35 +5889,57 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy result = new com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           allowedMachineTypes_ = allowedMachineTypes_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.allowedMachineTypes_ = allowedMachineTypes_;
-        result.machineType_ = machineType_;
-        result.minCpuPlatform_ = minCpuPlatform_;
-        result.provisioningModel_ = provisioningModel_;
         if (acceleratorsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             accelerators_ = java.util.Collections.unmodifiableList(accelerators_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.accelerators_ = accelerators_;
         } else {
           result.accelerators_ = acceleratorsBuilder_.build();
         }
         if (disksBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000040) != 0)) {
             disks_ = java.util.Collections.unmodifiableList(disks_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000040);
           }
           result.disks_ = disks_;
         } else {
           result.disks_ = disksBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.machineType_ = machineType_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.minCpuPlatform_ = minCpuPlatform_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.provisioningModel_ = provisioningModel_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.bootDisk_ = bootDiskBuilder_ == null
+              ? bootDisk_
+              : bootDiskBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.reservation_ = reservation_;
+        }
       }
 
       @java.lang.Override
@@ -5691,10 +5998,12 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getMachineType().isEmpty()) {
           machineType_ = other.machineType_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getMinCpuPlatform().isEmpty()) {
           minCpuPlatform_ = other.minCpuPlatform_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.provisioningModel_ != 0) {
@@ -5704,7 +6013,7 @@ private static final long serialVersionUID = 0L;
           if (!other.accelerators_.isEmpty()) {
             if (accelerators_.isEmpty()) {
               accelerators_ = other.accelerators_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureAcceleratorsIsMutable();
               accelerators_.addAll(other.accelerators_);
@@ -5717,7 +6026,7 @@ private static final long serialVersionUID = 0L;
               acceleratorsBuilder_.dispose();
               acceleratorsBuilder_ = null;
               accelerators_ = other.accelerators_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000010);
               acceleratorsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAcceleratorsFieldBuilder() : null;
@@ -5726,11 +6035,14 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
+        if (other.hasBootDisk()) {
+          mergeBootDisk(other.getBootDisk());
+        }
         if (disksBuilder_ == null) {
           if (!other.disks_.isEmpty()) {
             if (disks_.isEmpty()) {
               disks_ = other.disks_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000040);
             } else {
               ensureDisksIsMutable();
               disks_.addAll(other.disks_);
@@ -5743,7 +6055,7 @@ private static final long serialVersionUID = 0L;
               disksBuilder_.dispose();
               disksBuilder_ = null;
               disks_ = other.disks_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000040);
               disksBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDisksFieldBuilder() : null;
@@ -5752,7 +6064,12 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (!other.getReservation().isEmpty()) {
+          reservation_ = other.reservation_;
+          bitField0_ |= 0x00000080;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5767,17 +6084,89 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAllowedMachineTypesIsMutable();
+                allowedMachineTypes_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                machineType_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                minCpuPlatform_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                provisioningModel_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator m =
+                    input.readMessage(
+                        com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.parser(),
+                        extensionRegistry);
+                if (acceleratorsBuilder_ == null) {
+                  ensureAcceleratorsIsMutable();
+                  accelerators_.add(m);
+                } else {
+                  acceleratorsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk m =
+                    input.readMessage(
+                        com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk.parser(),
+                        extensionRegistry);
+                if (disksBuilder_ == null) {
+                  ensureDisksIsMutable();
+                  disks_.add(m);
+                } else {
+                  disksBuilder_.addMessage(m);
+                }
+                break;
+              } // case 50
+              case 58: {
+                reservation_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getBootDiskFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5790,9 +6179,13 @@ private static final long serialVersionUID = 0L;
          }
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @return A list containing the allowedMachineTypes.
        */
       @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -5800,18 +6193,26 @@ private static final long serialVersionUID = 0L;
         return allowedMachineTypes_.getUnmodifiableView();
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @return The count of allowedMachineTypes.
        */
       @java.lang.Deprecated public int getAllowedMachineTypesCount() {
         return allowedMachineTypes_.size();
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @param index The index of the element to return.
        * @return The allowedMachineTypes at the given index.
        */
@@ -5819,9 +6220,13 @@ private static final long serialVersionUID = 0L;
         return allowedMachineTypes_.get(index);
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @param index The index of the value to return.
        * @return The bytes of the allowedMachineTypes at the given index.
        */
@@ -5830,44 +6235,52 @@ private static final long serialVersionUID = 0L;
         return allowedMachineTypes_.getByteString(index);
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @param index The index to set the value at.
        * @param value The allowedMachineTypes to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setAllowedMachineTypes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedMachineTypesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedMachineTypesIsMutable();
         allowedMachineTypes_.set(index, value);
         onChanged();
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @param value The allowedMachineTypes to add.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder addAllowedMachineTypes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedMachineTypesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedMachineTypesIsMutable();
         allowedMachineTypes_.add(value);
         onChanged();
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @param values The allowedMachineTypes to add.
        * @return This builder for chaining.
        */
@@ -5880,9 +6293,13 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearAllowedMachineTypes() {
@@ -5892,18 +6309,20 @@ private static final long serialVersionUID = 0L;
         return this;
       }
       /**
+       * <pre>
+       * Deprecated: please use machine_type instead.
+       * </pre>
+       *
        * <code>repeated string allowed_machine_types = 1 [deprecated = true];</code>
        * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.allowed_machine_types is deprecated.
-       *     See google/cloud/batch/v1alpha/job.proto;l=331
+       *     See google/cloud/batch/v1alpha/job.proto;l=354
        * @param value The bytes of the allowedMachineTypes to add.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder addAllowedMachineTypesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAllowedMachineTypesIsMutable();
         allowedMachineTypes_.add(value);
         onChanged();
@@ -5963,11 +6382,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMachineType(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         machineType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5980,8 +6397,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMachineType() {
-        
         machineType_ = getDefaultInstance().getMachineType();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5996,12 +6413,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMachineTypeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         machineType_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6068,11 +6483,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMinCpuPlatform(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         minCpuPlatform_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6088,8 +6501,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMinCpuPlatform() {
-        
         minCpuPlatform_ = getDefaultInstance().getMinCpuPlatform();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -6107,12 +6520,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMinCpuPlatformBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         minCpuPlatform_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -6139,8 +6550,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setProvisioningModelValue(int value) {
-        
         provisioningModel_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6154,8 +6565,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel getProvisioningModel() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel result = com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.valueOf(provisioningModel_);
+        com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel result = com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.forNumber(provisioningModel_);
         return result == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.UNRECOGNIZED : result;
       }
       /**
@@ -6171,7 +6581,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         provisioningModel_ = value.getNumber();
         onChanged();
         return this;
@@ -6185,7 +6595,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearProvisioningModel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         provisioningModel_ = 0;
         onChanged();
         return this;
@@ -6194,9 +6604,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator> accelerators_ =
         java.util.Collections.emptyList();
       private void ensureAcceleratorsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           accelerators_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator>(accelerators_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -6206,7 +6616,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6221,7 +6630,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6236,7 +6644,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6251,7 +6658,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6273,7 +6679,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6292,7 +6697,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6313,7 +6717,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6335,7 +6738,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6354,7 +6756,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6373,7 +6774,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6393,7 +6793,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6401,7 +6800,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearAccelerators() {
         if (acceleratorsBuilder_ == null) {
           accelerators_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           acceleratorsBuilder_.clear();
@@ -6411,7 +6810,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6429,7 +6827,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6441,7 +6838,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6456,7 +6852,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6472,7 +6867,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6484,7 +6878,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6497,7 +6890,6 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * The accelerators attached to each VM instance.
-       * Not yet implemented.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.Accelerator accelerators = 5;</code>
@@ -6513,7 +6905,7 @@ private static final long serialVersionUID = 0L;
           acceleratorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator, com.google.cloud.batch.v1alpha.AllocationPolicy.Accelerator.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.AcceleratorOrBuilder>(
                   accelerators_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           accelerators_ = null;
@@ -6521,12 +6913,176 @@ private static final long serialVersionUID = 0L;
         return acceleratorsBuilder_;
       }
 
+      private com.google.cloud.batch.v1alpha.AllocationPolicy.Disk bootDisk_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.cloud.batch.v1alpha.AllocationPolicy.Disk, com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder> bootDiskBuilder_;
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       * @return Whether the bootDisk field is set.
+       */
+      public boolean hasBootDisk() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       * @return The bootDisk.
+       */
+      public com.google.cloud.batch.v1alpha.AllocationPolicy.Disk getBootDisk() {
+        if (bootDiskBuilder_ == null) {
+          return bootDisk_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.getDefaultInstance() : bootDisk_;
+        } else {
+          return bootDiskBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      public Builder setBootDisk(com.google.cloud.batch.v1alpha.AllocationPolicy.Disk value) {
+        if (bootDiskBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          bootDisk_ = value;
+        } else {
+          bootDiskBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      public Builder setBootDisk(
+          com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder builderForValue) {
+        if (bootDiskBuilder_ == null) {
+          bootDisk_ = builderForValue.build();
+        } else {
+          bootDiskBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      public Builder mergeBootDisk(com.google.cloud.batch.v1alpha.AllocationPolicy.Disk value) {
+        if (bootDiskBuilder_ == null) {
+          if (((bitField0_ & 0x00000020) != 0) &&
+            bootDisk_ != null &&
+            bootDisk_ != com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.getDefaultInstance()) {
+            getBootDiskBuilder().mergeFrom(value);
+          } else {
+            bootDisk_ = value;
+          }
+        } else {
+          bootDiskBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      public Builder clearBootDisk() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        bootDisk_ = null;
+        if (bootDiskBuilder_ != null) {
+          bootDiskBuilder_.dispose();
+          bootDiskBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      public com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder getBootDiskBuilder() {
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return getBootDiskFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      public com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder getBootDiskOrBuilder() {
+        if (bootDiskBuilder_ != null) {
+          return bootDiskBuilder_.getMessageOrBuilder();
+        } else {
+          return bootDisk_ == null ?
+              com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.getDefaultInstance() : bootDisk_;
+        }
+      }
+      /**
+       * <pre>
+       * Book disk to be created and attached to each VM by this InstancePolicy.
+       * Boot disk will be deleted when the VM is deleted.
+       * </pre>
+       *
+       * <code>.google.cloud.batch.v1alpha.AllocationPolicy.Disk boot_disk = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.cloud.batch.v1alpha.AllocationPolicy.Disk, com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder> 
+          getBootDiskFieldBuilder() {
+        if (bootDiskBuilder_ == null) {
+          bootDiskBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.cloud.batch.v1alpha.AllocationPolicy.Disk, com.google.cloud.batch.v1alpha.AllocationPolicy.Disk.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.DiskOrBuilder>(
+                  getBootDisk(),
+                  getParentForChildren(),
+                  isClean());
+          bootDisk_ = null;
+        }
+        return bootDiskBuilder_;
+      }
+
       private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk> disks_ =
         java.util.Collections.emptyList();
       private void ensureDisksIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           disks_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk>(disks_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000040;
          }
       }
 
@@ -6536,7 +7092,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6551,7 +7107,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6566,7 +7122,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6581,7 +7137,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6603,7 +7159,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6622,7 +7178,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6643,7 +7199,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6665,7 +7221,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6684,7 +7240,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6703,7 +7259,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6723,7 +7279,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6731,7 +7287,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearDisks() {
         if (disksBuilder_ == null) {
           disks_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
           onChanged();
         } else {
           disksBuilder_.clear();
@@ -6741,7 +7297,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6759,7 +7315,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6771,7 +7327,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6786,7 +7342,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6802,7 +7358,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6814,7 +7370,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6827,7 +7383,7 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Non-boot disks to be attached for each VM created by this InstancePolicy.
-       * New disks will be deleted when the attached VM is deleted.
+       * New disks will be deleted when the VM is deleted.
        * </pre>
        *
        * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk disks = 6;</code>
@@ -6843,12 +7399,104 @@ private static final long serialVersionUID = 0L;
           disksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk, com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDisk.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.AttachedDiskOrBuilder>(
                   disks_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000040) != 0),
                   getParentForChildren(),
                   isClean());
           disks_ = null;
         }
         return disksBuilder_;
+      }
+
+      private java.lang.Object reservation_ = "";
+      /**
+       * <pre>
+       * If specified, VMs will be allocated only inside the matching reservation.
+       * </pre>
+       *
+       * <code>string reservation = 7;</code>
+       * @return The reservation.
+       */
+      public java.lang.String getReservation() {
+        java.lang.Object ref = reservation_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          reservation_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * If specified, VMs will be allocated only inside the matching reservation.
+       * </pre>
+       *
+       * <code>string reservation = 7;</code>
+       * @return The bytes for reservation.
+       */
+      public com.google.protobuf.ByteString
+          getReservationBytes() {
+        java.lang.Object ref = reservation_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          reservation_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * If specified, VMs will be allocated only inside the matching reservation.
+       * </pre>
+       *
+       * <code>string reservation = 7;</code>
+       * @param value The reservation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReservation(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        reservation_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * If specified, VMs will be allocated only inside the matching reservation.
+       * </pre>
+       *
+       * <code>string reservation = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReservation() {
+        reservation_ = getDefaultInstance().getReservation();
+        bitField0_ = (bitField0_ & ~0x00000080);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * If specified, VMs will be allocated only inside the matching reservation.
+       * </pre>
+       *
+       * <code>string reservation = 7;</code>
+       * @param value The bytes for reservation to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReservationBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        reservation_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -6883,7 +7531,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InstancePolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6969,6 +7628,19 @@ private static final long serialVersionUID = 0L;
     com.google.protobuf.ByteString
         getInstanceTemplateBytes();
 
+    /**
+     * <pre>
+     * Set this field true if users want Batch to help fetch drivers from a
+     * third party location and install them for GPUs specified in
+     * policy.accelerators or instance_template on their behalf. Default is
+     * false.
+     * </pre>
+     *
+     * <code>bool install_gpu_drivers = 3;</code>
+     * @return The installGpuDrivers.
+     */
+    boolean getInstallGpuDrivers();
+
     public com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate.PolicyTemplateCase getPolicyTemplateCase();
   }
   /**
@@ -7001,65 +7673,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private InstancePolicyOrTemplate(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.Builder subBuilder = null;
-              if (policyTemplateCase_ == 1) {
-                subBuilder = ((com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy) policyTemplate_).toBuilder();
-              }
-              policyTemplate_ =
-                  input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy) policyTemplate_);
-                policyTemplate_ = subBuilder.buildPartial();
-              }
-              policyTemplateCase_ = 1;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              policyTemplateCase_ = 2;
-              policyTemplate_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7228,6 +7841,24 @@ private static final long serialVersionUID = 0L;
       }
     }
 
+    public static final int INSTALL_GPU_DRIVERS_FIELD_NUMBER = 3;
+    private boolean installGpuDrivers_ = false;
+    /**
+     * <pre>
+     * Set this field true if users want Batch to help fetch drivers from a
+     * third party location and install them for GPUs specified in
+     * policy.accelerators or instance_template on their behalf. Default is
+     * false.
+     * </pre>
+     *
+     * <code>bool install_gpu_drivers = 3;</code>
+     * @return The installGpuDrivers.
+     */
+    @java.lang.Override
+    public boolean getInstallGpuDrivers() {
+      return installGpuDrivers_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -7248,7 +7879,10 @@ private static final long serialVersionUID = 0L;
       if (policyTemplateCase_ == 2) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, policyTemplate_);
       }
-      unknownFields.writeTo(output);
+      if (installGpuDrivers_ != false) {
+        output.writeBool(3, installGpuDrivers_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7264,7 +7898,11 @@ private static final long serialVersionUID = 0L;
       if (policyTemplateCase_ == 2) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, policyTemplate_);
       }
-      size += unknownFields.getSerializedSize();
+      if (installGpuDrivers_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(3, installGpuDrivers_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7279,6 +7917,8 @@ private static final long serialVersionUID = 0L;
       }
       com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate other = (com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate) obj;
 
+      if (getInstallGpuDrivers()
+          != other.getInstallGpuDrivers()) return false;
       if (!getPolicyTemplateCase().equals(other.getPolicyTemplateCase())) return false;
       switch (policyTemplateCase_) {
         case 1:
@@ -7292,7 +7932,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7303,6 +7943,9 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + INSTALL_GPU_DRIVERS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getInstallGpuDrivers());
       switch (policyTemplateCase_) {
         case 1:
           hash = (37 * hash) + POLICY_FIELD_NUMBER;
@@ -7315,7 +7958,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7436,22 +8079,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (policyBuilder_ != null) {
+          policyBuilder_.clear();
+        }
+        installGpuDrivers_ = false;
         policyTemplateCase_ = 0;
         policyTemplate_ = null;
         return this;
@@ -7480,19 +8123,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate result = new com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate(this);
-        if (policyTemplateCase_ == 1) {
-          if (policyBuilder_ == null) {
-            result.policyTemplate_ = policyTemplate_;
-          } else {
-            result.policyTemplate_ = policyBuilder_.build();
-          }
-        }
-        if (policyTemplateCase_ == 2) {
-          result.policyTemplate_ = policyTemplate_;
-        }
-        result.policyTemplateCase_ = policyTemplateCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.installGpuDrivers_ = installGpuDrivers_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate result) {
+        result.policyTemplateCase_ = policyTemplateCase_;
+        result.policyTemplate_ = this.policyTemplate_;
+        if (policyTemplateCase_ == 1 &&
+            policyBuilder_ != null) {
+          result.policyTemplate_ = policyBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -7539,6 +8189,9 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate other) {
         if (other == com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate.getDefaultInstance()) return this;
+        if (other.getInstallGpuDrivers() != false) {
+          setInstallGpuDrivers(other.getInstallGpuDrivers());
+        }
         switch (other.getPolicyTemplateCase()) {
           case POLICY: {
             mergePolicy(other.getPolicy());
@@ -7554,7 +8207,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7569,17 +8222,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPolicyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                policyTemplateCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                policyTemplateCase_ = 2;
+                policyTemplate_ = s;
+                break;
+              } // case 18
+              case 24: {
+                installGpuDrivers_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int policyTemplateCase_ = 0;
@@ -7597,6 +8281,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy, com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrBuilder> policyBuilder_;
@@ -7772,7 +8457,7 @@ private static final long serialVersionUID = 0L;
           policyTemplate_ = null;
         }
         policyTemplateCase_ = 1;
-        onChanged();;
+        onChanged();
         return policyBuilder_;
       }
 
@@ -7860,10 +8545,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInstanceTemplate(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  policyTemplateCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        policyTemplateCase_ = 2;
         policyTemplate_ = value;
         onChanged();
         return this;
@@ -7899,12 +8582,63 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInstanceTemplateBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         policyTemplateCase_ = 2;
         policyTemplate_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean installGpuDrivers_ ;
+      /**
+       * <pre>
+       * Set this field true if users want Batch to help fetch drivers from a
+       * third party location and install them for GPUs specified in
+       * policy.accelerators or instance_template on their behalf. Default is
+       * false.
+       * </pre>
+       *
+       * <code>bool install_gpu_drivers = 3;</code>
+       * @return The installGpuDrivers.
+       */
+      @java.lang.Override
+      public boolean getInstallGpuDrivers() {
+        return installGpuDrivers_;
+      }
+      /**
+       * <pre>
+       * Set this field true if users want Batch to help fetch drivers from a
+       * third party location and install them for GPUs specified in
+       * policy.accelerators or instance_template on their behalf. Default is
+       * false.
+       * </pre>
+       *
+       * <code>bool install_gpu_drivers = 3;</code>
+       * @param value The installGpuDrivers to set.
+       * @return This builder for chaining.
+       */
+      public Builder setInstallGpuDrivers(boolean value) {
+        
+        installGpuDrivers_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Set this field true if users want Batch to help fetch drivers from a
+       * third party location and install them for GPUs specified in
+       * policy.accelerators or instance_template on their behalf. Default is
+       * false.
+       * </pre>
+       *
+       * <code>bool install_gpu_drivers = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearInstallGpuDrivers() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        installGpuDrivers_ = false;
         onChanged();
         return this;
       }
@@ -7941,7 +8675,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InstancePolicyOrTemplate(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7967,7 +8712,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * The URL of the network resource.
+     * The URL of an existing network resource.
+     * You can specify the network as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+     * projects/{project}/global/networks/{network}
+     * global/networks/{network}
      * </pre>
      *
      * <code>string network = 1;</code>
@@ -7976,7 +8726,12 @@ private static final long serialVersionUID = 0L;
     java.lang.String getNetwork();
     /**
      * <pre>
-     * The URL of the network resource.
+     * The URL of an existing network resource.
+     * You can specify the network as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+     * projects/{project}/global/networks/{network}
+     * global/networks/{network}
      * </pre>
      *
      * <code>string network = 1;</code>
@@ -7987,7 +8742,12 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * The URL of the Subnetwork resource.
+     * The URL of an existing subnetwork resource in the network.
+     * You can specify the subnetwork as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * regions/{region}/subnetworks/{subnetwork}
      * </pre>
      *
      * <code>string subnetwork = 2;</code>
@@ -7996,7 +8756,12 @@ private static final long serialVersionUID = 0L;
     java.lang.String getSubnetwork();
     /**
      * <pre>
-     * The URL of the Subnetwork resource.
+     * The URL of an existing subnetwork resource in the network.
+     * You can specify the subnetwork as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * regions/{region}/subnetworks/{subnetwork}
      * </pre>
      *
      * <code>string subnetwork = 2;</code>
@@ -8054,62 +8819,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private NetworkInterface(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              network_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              subnetwork_ = s;
-              break;
-            }
-            case 24: {
-
-              noExternalIpAddress_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_AllocationPolicy_NetworkInterface_descriptor;
@@ -8124,10 +8833,16 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NETWORK_FIELD_NUMBER = 1;
-    private volatile java.lang.Object network_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object network_ = "";
     /**
      * <pre>
-     * The URL of the network resource.
+     * The URL of an existing network resource.
+     * You can specify the network as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+     * projects/{project}/global/networks/{network}
+     * global/networks/{network}
      * </pre>
      *
      * <code>string network = 1;</code>
@@ -8148,7 +8863,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The URL of the network resource.
+     * The URL of an existing network resource.
+     * You can specify the network as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+     * projects/{project}/global/networks/{network}
+     * global/networks/{network}
      * </pre>
      *
      * <code>string network = 1;</code>
@@ -8170,10 +8890,16 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SUBNETWORK_FIELD_NUMBER = 2;
-    private volatile java.lang.Object subnetwork_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object subnetwork_ = "";
     /**
      * <pre>
-     * The URL of the Subnetwork resource.
+     * The URL of an existing subnetwork resource in the network.
+     * You can specify the subnetwork as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * regions/{region}/subnetworks/{subnetwork}
      * </pre>
      *
      * <code>string subnetwork = 2;</code>
@@ -8194,7 +8920,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The URL of the Subnetwork resource.
+     * The URL of an existing subnetwork resource in the network.
+     * You can specify the subnetwork as a full or partial URL.
+     * For example, the following are all valid URLs:
+     * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+     * regions/{region}/subnetworks/{subnetwork}
      * </pre>
      *
      * <code>string subnetwork = 2;</code>
@@ -8216,7 +8947,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NO_EXTERNAL_IP_ADDRESS_FIELD_NUMBER = 3;
-    private boolean noExternalIpAddress_;
+    private boolean noExternalIpAddress_ = false;
     /**
      * <pre>
      * Default is false (with an external IP address). Required if
@@ -8259,7 +8990,7 @@ private static final long serialVersionUID = 0L;
       if (noExternalIpAddress_ != false) {
         output.writeBool(3, noExternalIpAddress_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8278,7 +9009,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, noExternalIpAddress_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8299,7 +9030,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getSubnetwork())) return false;
       if (getNoExternalIpAddress()
           != other.getNoExternalIpAddress()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8317,7 +9048,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NO_EXTERNAL_IP_ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNoExternalIpAddress());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8438,28 +9169,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         network_ = "";
-
         subnetwork_ = "";
-
         noExternalIpAddress_ = false;
-
         return this;
       }
 
@@ -8486,11 +9210,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface result = new com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface(this);
-        result.network_ = network_;
-        result.subnetwork_ = subnetwork_;
-        result.noExternalIpAddress_ = noExternalIpAddress_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.network_ = network_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.subnetwork_ = subnetwork_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.noExternalIpAddress_ = noExternalIpAddress_;
+        }
       }
 
       @java.lang.Override
@@ -8539,16 +9274,18 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface.getDefaultInstance()) return this;
         if (!other.getNetwork().isEmpty()) {
           network_ = other.network_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getSubnetwork().isEmpty()) {
           subnetwork_ = other.subnetwork_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getNoExternalIpAddress() != false) {
           setNoExternalIpAddress(other.getNoExternalIpAddress());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8563,24 +9300,58 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                network_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                subnetwork_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                noExternalIpAddress_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object network_ = "";
       /**
        * <pre>
-       * The URL of the network resource.
+       * The URL of an existing network resource.
+       * You can specify the network as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+       * projects/{project}/global/networks/{network}
+       * global/networks/{network}
        * </pre>
        *
        * <code>string network = 1;</code>
@@ -8600,7 +9371,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The URL of the network resource.
+       * The URL of an existing network resource.
+       * You can specify the network as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+       * projects/{project}/global/networks/{network}
+       * global/networks/{network}
        * </pre>
        *
        * <code>string network = 1;</code>
@@ -8621,7 +9397,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The URL of the network resource.
+       * The URL of an existing network resource.
+       * You can specify the network as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+       * projects/{project}/global/networks/{network}
+       * global/networks/{network}
        * </pre>
        *
        * <code>string network = 1;</code>
@@ -8630,31 +9411,39 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNetwork(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         network_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The URL of the network resource.
+       * The URL of an existing network resource.
+       * You can specify the network as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+       * projects/{project}/global/networks/{network}
+       * global/networks/{network}
        * </pre>
        *
        * <code>string network = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearNetwork() {
-        
         network_ = getDefaultInstance().getNetwork();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The URL of the network resource.
+       * The URL of an existing network resource.
+       * You can specify the network as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
+       * projects/{project}/global/networks/{network}
+       * global/networks/{network}
        * </pre>
        *
        * <code>string network = 1;</code>
@@ -8663,12 +9452,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNetworkBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         network_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8676,7 +9463,12 @@ private static final long serialVersionUID = 0L;
       private java.lang.Object subnetwork_ = "";
       /**
        * <pre>
-       * The URL of the Subnetwork resource.
+       * The URL of an existing subnetwork resource in the network.
+       * You can specify the subnetwork as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * regions/{region}/subnetworks/{subnetwork}
        * </pre>
        *
        * <code>string subnetwork = 2;</code>
@@ -8696,7 +9488,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The URL of the Subnetwork resource.
+       * The URL of an existing subnetwork resource in the network.
+       * You can specify the subnetwork as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * regions/{region}/subnetworks/{subnetwork}
        * </pre>
        *
        * <code>string subnetwork = 2;</code>
@@ -8717,7 +9514,12 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The URL of the Subnetwork resource.
+       * The URL of an existing subnetwork resource in the network.
+       * You can specify the subnetwork as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * regions/{region}/subnetworks/{subnetwork}
        * </pre>
        *
        * <code>string subnetwork = 2;</code>
@@ -8726,31 +9528,39 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubnetwork(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         subnetwork_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The URL of the Subnetwork resource.
+       * The URL of an existing subnetwork resource in the network.
+       * You can specify the subnetwork as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * regions/{region}/subnetworks/{subnetwork}
        * </pre>
        *
        * <code>string subnetwork = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearSubnetwork() {
-        
         subnetwork_ = getDefaultInstance().getSubnetwork();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The URL of the Subnetwork resource.
+       * The URL of an existing subnetwork resource in the network.
+       * You can specify the subnetwork as a full or partial URL.
+       * For example, the following are all valid URLs:
+       * https://www.googleapis.com/compute/v1/projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * projects/{project}/regions/{region}/subnetworks/{subnetwork}
+       * regions/{region}/subnetworks/{subnetwork}
        * </pre>
        *
        * <code>string subnetwork = 2;</code>
@@ -8759,12 +9569,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSubnetworkBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         subnetwork_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -8806,6 +9614,7 @@ private static final long serialVersionUID = 0L;
       public Builder setNoExternalIpAddress(boolean value) {
         
         noExternalIpAddress_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8824,7 +9633,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNoExternalIpAddress() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         noExternalIpAddress_ = false;
         onChanged();
         return this;
@@ -8862,7 +9671,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NetworkInterface(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8962,58 +9782,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private NetworkPolicy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                networkInterfaces_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              networkInterfaces_.add(
-                  input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          networkInterfaces_ = java.util.Collections.unmodifiableList(networkInterfaces_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_AllocationPolicy_NetworkPolicy_descriptor;
@@ -9028,6 +9796,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NETWORK_INTERFACES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface> networkInterfaces_;
     /**
      * <pre>
@@ -9104,7 +9873,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < networkInterfaces_.size(); i++) {
         output.writeMessage(1, networkInterfaces_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9117,7 +9886,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, networkInterfaces_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9134,7 +9903,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getNetworkInterfacesList()
           .equals(other.getNetworkInterfacesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9149,7 +9918,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + NETWORK_INTERFACES_FIELD_NUMBER;
         hash = (53 * hash) + getNetworkInterfacesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9270,29 +10039,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getNetworkInterfacesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (networkInterfacesBuilder_ == null) {
           networkInterfaces_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          networkInterfaces_ = null;
           networkInterfacesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -9319,7 +10084,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy buildPartial() {
         com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy result = new com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy result) {
         if (networkInterfacesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             networkInterfaces_ = java.util.Collections.unmodifiableList(networkInterfaces_);
@@ -9329,8 +10100,10 @@ private static final long serialVersionUID = 0L;
         } else {
           result.networkInterfaces_ = networkInterfacesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -9403,7 +10176,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9418,17 +10191,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface m =
+                    input.readMessage(
+                        com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkInterface.parser(),
+                        extensionRegistry);
+                if (networkInterfacesBuilder_ == null) {
+                  ensureNetworkInterfacesIsMutable();
+                  networkInterfaces_.add(m);
+                } else {
+                  networkInterfacesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9777,7 +10576,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NetworkPolicy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9832,19 +10642,19 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicyOrBuilder getLocationOrBuilder() {
-    return getLocation();
+    return location_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.getDefaultInstance() : location_;
   }
 
   public static final int INSTANCE_FIELD_NUMBER = 2;
   private com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance_;
   /**
    * <pre>
-   * Create only instances allowed by this policy.
+   * Deprecated: please use instances[0].policy instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=415
+   *     See google/cloud/batch/v1alpha/job.proto;l=460
    * @return Whether the instance field is set.
    */
   @java.lang.Override
@@ -9853,12 +10663,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Create only instances allowed by this policy.
+   * Deprecated: please use instances[0].policy instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=415
+   *     See google/cloud/batch/v1alpha/job.proto;l=460
    * @return The instance.
    */
   @java.lang.Override
@@ -9867,17 +10677,18 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Create only instances allowed by this policy.
+   * Deprecated: please use instances[0].policy instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrBuilder getInstanceOrBuilder() {
-    return getInstance();
+    return instance_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.getDefaultInstance() : instance_;
   }
 
   public static final int INSTANCES_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate> instances_;
   /**
    * <pre>
@@ -9943,16 +10754,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_TEMPLATES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList instanceTemplates_;
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @return A list containing the instanceTemplates.
    */
   @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -9961,13 +10772,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @return The count of instanceTemplates.
    */
   @java.lang.Deprecated public int getInstanceTemplatesCount() {
@@ -9975,13 +10785,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @param index The index of the element to return.
    * @return The instanceTemplates at the given index.
    */
@@ -9990,13 +10799,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Instance templates that are used to VMs.
-   * If specified, only instance_templates[0] is used.
+   * Deprecated: please use instances[0].template instead.
    * </pre>
    *
    * <code>repeated string instance_templates = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=423
+   *     See google/cloud/batch/v1alpha/job.proto;l=467
    * @param index The index of the value to return.
    * @return The bytes of the instanceTemplates at the given index.
    */
@@ -10006,28 +10814,25 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROVISIONING_MODELS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> provisioningModels_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel> provisioningModels_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel>() {
             public com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel result = com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.valueOf(from);
+              com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel result = com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.forNumber(from);
               return result == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel.UNRECOGNIZED : result;
             }
           };
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @return A list containing the provisioningModels.
    */
   @java.lang.Override
@@ -10037,15 +10842,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @return The count of provisioningModels.
    */
   @java.lang.Override
@@ -10054,15 +10856,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @param index The index of the element to return.
    * @return The provisioningModels at the given index.
    */
@@ -10072,15 +10871,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @return A list containing the enum numeric values on the wire for provisioningModels.
    */
   @java.lang.Override
@@ -10090,15 +10886,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Create only instances in the listed provisiong models.
-   * Default to allow all.
-   * Currently only the first model of the provisioning_models list will be
-   * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+   * Deprecated: please use instances[0].policy.provisioning_model instead.
    * </pre>
    *
    * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-   *     See google/cloud/batch/v1alpha/job.proto;l=430
+   *     See google/cloud/batch/v1alpha/job.proto;l=470
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of provisioningModels at the given index.
    */
@@ -10109,17 +10902,20 @@ private static final long serialVersionUID = 0L;
   private int provisioningModelsMemoizedSerializedSize;
 
   public static final int SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object serviceAccountEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccountEmail_ = "";
   /**
    * <pre>
-   * Email of the service account that VMs will run as.
+   * Deprecated: please use service_account instead.
    * </pre>
    *
-   * <code>string service_account_email = 5;</code>
+   * <code>string service_account_email = 5 [deprecated = true];</code>
+   * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+   *     See google/cloud/batch/v1alpha/job.proto;l=473
    * @return The serviceAccountEmail.
    */
   @java.lang.Override
-  public java.lang.String getServiceAccountEmail() {
+  @java.lang.Deprecated public java.lang.String getServiceAccountEmail() {
     java.lang.Object ref = serviceAccountEmail_;
     if (ref instanceof java.lang.String) {
       return (java.lang.String) ref;
@@ -10133,14 +10929,16 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Email of the service account that VMs will run as.
+   * Deprecated: please use service_account instead.
    * </pre>
    *
-   * <code>string service_account_email = 5;</code>
+   * <code>string service_account_email = 5 [deprecated = true];</code>
+   * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+   *     See google/cloud/batch/v1alpha/job.proto;l=473
    * @return The bytes for serviceAccountEmail.
    */
   @java.lang.Override
-  public com.google.protobuf.ByteString
+  @java.lang.Deprecated public com.google.protobuf.ByteString
       getServiceAccountEmailBytes() {
     java.lang.Object ref = serviceAccountEmail_;
     if (ref instanceof java.lang.String) {
@@ -10159,7 +10957,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Service account that VMs will run as.
-   * Not yet implemented.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -10172,7 +10969,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Service account that VMs will run as.
-   * Not yet implemented.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -10185,14 +10981,13 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Service account that VMs will run as.
-   * Not yet implemented.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.ServiceAccountOrBuilder getServiceAccountOrBuilder() {
-    return getServiceAccount();
+    return serviceAccount_ == null ? com.google.cloud.batch.v1alpha.ServiceAccount.getDefaultInstance() : serviceAccount_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 6;
@@ -10207,6 +11002,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -10217,7 +11013,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -10234,7 +11029,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -10263,7 +11057,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -10281,10 +11074,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -10304,7 +11098,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -10351,7 +11144,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicyOrBuilder getNetworkOrBuilder() {
-    return getNetwork();
+    return network_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.getDefaultInstance() : network_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -10403,7 +11196,7 @@ private static final long serialVersionUID = 0L;
     if (serviceAccount_ != null) {
       output.writeMessage(9, getServiceAccount());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -10465,7 +11258,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getServiceAccount());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -10509,7 +11302,7 @@ private static final long serialVersionUID = 0L;
       if (!getNetwork()
           .equals(other.getNetwork())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -10554,7 +11347,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORK_FIELD_NUMBER;
       hash = (53 * hash) + getNetwork().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -10698,58 +11491,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1alpha.AllocationPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInstancesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (locationBuilder_ == null) {
-        location_ = null;
-      } else {
-        location_ = null;
+      bitField0_ = 0;
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-      if (instanceBuilder_ == null) {
-        instance_ = null;
-      } else {
-        instance_ = null;
+      instance_ = null;
+      if (instanceBuilder_ != null) {
+        instanceBuilder_.dispose();
         instanceBuilder_ = null;
       }
       if (instancesBuilder_ == null) {
         instances_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        instances_ = null;
         instancesBuilder_.clear();
       }
-      instanceTemplates_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      provisioningModels_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000004);
+      instanceTemplates_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      provisioningModels_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000010);
       serviceAccountEmail_ = "";
-
-      if (serviceAccountBuilder_ == null) {
-        serviceAccount_ = null;
-      } else {
-        serviceAccount_ = null;
+      serviceAccount_ = null;
+      if (serviceAccountBuilder_ != null) {
+        serviceAccountBuilder_.dispose();
         serviceAccountBuilder_ = null;
       }
       internalGetMutableLabels().clear();
-      if (networkBuilder_ == null) {
-        network_ = null;
-      } else {
-        network_ = null;
+      network_ = null;
+      if (networkBuilder_ != null) {
+        networkBuilder_.dispose();
         networkBuilder_ = null;
       }
       return this;
@@ -10778,51 +11562,63 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.AllocationPolicy buildPartial() {
       com.google.cloud.batch.v1alpha.AllocationPolicy result = new com.google.cloud.batch.v1alpha.AllocationPolicy(this);
-      int from_bitField0_ = bitField0_;
-      if (locationBuilder_ == null) {
-        result.location_ = location_;
-      } else {
-        result.location_ = locationBuilder_.build();
-      }
-      if (instanceBuilder_ == null) {
-        result.instance_ = instance_;
-      } else {
-        result.instance_ = instanceBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.AllocationPolicy result) {
       if (instancesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           instances_ = java.util.Collections.unmodifiableList(instances_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.instances_ = instances_;
       } else {
         result.instances_ = instancesBuilder_.build();
       }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         instanceTemplates_ = instanceTemplates_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.instanceTemplates_ = instanceTemplates_;
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         provisioningModels_ = java.util.Collections.unmodifiableList(provisioningModels_);
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.provisioningModels_ = provisioningModels_;
-      result.serviceAccountEmail_ = serviceAccountEmail_;
-      if (serviceAccountBuilder_ == null) {
-        result.serviceAccount_ = serviceAccount_;
-      } else {
-        result.serviceAccount_ = serviceAccountBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.AllocationPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.location_ = locationBuilder_ == null
+            ? location_
+            : locationBuilder_.build();
       }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (networkBuilder_ == null) {
-        result.network_ = network_;
-      } else {
-        result.network_ = networkBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instance_ = instanceBuilder_ == null
+            ? instance_
+            : instanceBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.serviceAccountEmail_ = serviceAccountEmail_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.serviceAccount_ = serviceAccountBuilder_ == null
+            ? serviceAccount_
+            : serviceAccountBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.network_ = networkBuilder_ == null
+            ? network_
+            : networkBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -10879,7 +11675,7 @@ private static final long serialVersionUID = 0L;
         if (!other.instances_.isEmpty()) {
           if (instances_.isEmpty()) {
             instances_ = other.instances_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureInstancesIsMutable();
             instances_.addAll(other.instances_);
@@ -10892,7 +11688,7 @@ private static final long serialVersionUID = 0L;
             instancesBuilder_.dispose();
             instancesBuilder_ = null;
             instances_ = other.instances_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             instancesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInstancesFieldBuilder() : null;
@@ -10904,7 +11700,7 @@ private static final long serialVersionUID = 0L;
       if (!other.instanceTemplates_.isEmpty()) {
         if (instanceTemplates_.isEmpty()) {
           instanceTemplates_ = other.instanceTemplates_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureInstanceTemplatesIsMutable();
           instanceTemplates_.addAll(other.instanceTemplates_);
@@ -10914,7 +11710,7 @@ private static final long serialVersionUID = 0L;
       if (!other.provisioningModels_.isEmpty()) {
         if (provisioningModels_.isEmpty()) {
           provisioningModels_ = other.provisioningModels_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureProvisioningModelsIsMutable();
           provisioningModels_.addAll(other.provisioningModels_);
@@ -10923,6 +11719,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccountEmail().isEmpty()) {
         serviceAccountEmail_ = other.serviceAccountEmail_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasServiceAccount()) {
@@ -10930,10 +11727,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000080;
       if (other.hasNetwork()) {
         mergeNetwork(other.getNetwork());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -10948,17 +11746,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.AllocationPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getInstanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInstanceTemplatesIsMutable();
+              instanceTemplates_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensureProvisioningModelsIsMutable();
+              provisioningModels_.add(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureProvisioningModelsIsMutable();
+                provisioningModels_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 34
+            case 42: {
+              serviceAccountEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getNetworkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate.parser(),
+                      extensionRegistry);
+              if (instancesBuilder_ == null) {
+                ensureInstancesIsMutable();
+                instances_.add(m);
+              } else {
+                instancesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getServiceAccountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.AllocationPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -10975,7 +11864,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the location field is set.
      */
     public boolean hasLocation() {
-      return locationBuilder_ != null || location_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -11005,11 +11894,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         location_ = value;
-        onChanged();
       } else {
         locationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -11023,11 +11912,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.Builder builderForValue) {
       if (locationBuilder_ == null) {
         location_ = builderForValue.build();
-        onChanged();
       } else {
         locationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -11039,17 +11928,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocation(com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy value) {
       if (locationBuilder_ == null) {
-        if (location_ != null) {
-          location_ =
-            com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.newBuilder(location_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          location_ != null &&
+          location_ != com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.getDefaultInstance()) {
+          getLocationBuilder().mergeFrom(value);
         } else {
           location_ = value;
         }
-        onChanged();
       } else {
         locationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -11060,14 +11950,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy location = 1;</code>
      */
     public Builder clearLocation() {
-      if (locationBuilder_ == null) {
-        location_ = null;
-        onChanged();
-      } else {
-        location_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -11078,7 +11967,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy location = 1;</code>
      */
     public com.google.cloud.batch.v1alpha.AllocationPolicy.LocationPolicy.Builder getLocationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLocationFieldBuilder().getBuilder();
     }
@@ -11123,25 +12012,25 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy, com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrBuilder> instanceBuilder_;
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=415
+     *     See google/cloud/batch/v1alpha/job.proto;l=460
      * @return Whether the instance field is set.
      */
     @java.lang.Deprecated public boolean hasInstance() {
-      return instanceBuilder_ != null || instance_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=415
+     *     See google/cloud/batch/v1alpha/job.proto;l=460
      * @return The instance.
      */
     @java.lang.Deprecated public com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy getInstance() {
@@ -11153,7 +12042,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
@@ -11164,16 +12053,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         instance_ = value;
-        onChanged();
       } else {
         instanceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
@@ -11182,68 +12071,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.Builder builderForValue) {
       if (instanceBuilder_ == null) {
         instance_ = builderForValue.build();
-        onChanged();
       } else {
         instanceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder mergeInstance(com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy value) {
       if (instanceBuilder_ == null) {
-        if (instance_ != null) {
-          instance_ =
-            com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.newBuilder(instance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          instance_ != null &&
+          instance_ != com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.getDefaultInstance()) {
+          getInstanceBuilder().mergeFrom(value);
         } else {
           instance_ = value;
         }
-        onChanged();
       } else {
         instanceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearInstance() {
-      if (instanceBuilder_ == null) {
-        instance_ = null;
-        onChanged();
-      } else {
-        instance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      instance_ = null;
+      if (instanceBuilder_ != null) {
+        instanceBuilder_.dispose();
         instanceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy.Builder getInstanceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInstanceFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
@@ -11258,7 +12147,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances allowed by this policy.
+     * Deprecated: please use instances[0].policy instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicy instance = 2 [deprecated = true];</code>
@@ -11280,9 +12169,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate> instances_ =
       java.util.Collections.emptyList();
     private void ensureInstancesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         instances_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate>(instances_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -11487,7 +12376,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInstances() {
       if (instancesBuilder_ == null) {
         instances_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         instancesBuilder_.clear();
@@ -11599,7 +12488,7 @@ private static final long serialVersionUID = 0L;
         instancesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate, com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplate.Builder, com.google.cloud.batch.v1alpha.AllocationPolicy.InstancePolicyOrTemplateOrBuilder>(
                 instances_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         instances_ = null;
@@ -11609,20 +12498,19 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList instanceTemplates_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureInstanceTemplatesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         instanceTemplates_ = new com.google.protobuf.LazyStringArrayList(instanceTemplates_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @return A list containing the instanceTemplates.
      */
     @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
@@ -11631,13 +12519,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @return The count of instanceTemplates.
      */
     @java.lang.Deprecated public int getInstanceTemplatesCount() {
@@ -11645,13 +12532,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @param index The index of the element to return.
      * @return The instanceTemplates at the given index.
      */
@@ -11660,13 +12546,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @param index The index of the value to return.
      * @return The bytes of the instanceTemplates at the given index.
      */
@@ -11676,58 +12561,51 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @param index The index to set the value at.
      * @param value The instanceTemplates to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setInstanceTemplates(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstanceTemplatesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstanceTemplatesIsMutable();
       instanceTemplates_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @param value The instanceTemplates to add.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addInstanceTemplates(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstanceTemplatesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstanceTemplatesIsMutable();
       instanceTemplates_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @param values The instanceTemplates to add.
      * @return This builder for chaining.
      */
@@ -11741,39 +12619,35 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearInstanceTemplates() {
       instanceTemplates_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Instance templates that are used to VMs.
-     * If specified, only instance_templates[0] is used.
+     * Deprecated: please use instances[0].template instead.
      * </pre>
      *
      * <code>repeated string instance_templates = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.instance_templates is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=423
+     *     See google/cloud/batch/v1alpha/job.proto;l=467
      * @param value The bytes of the instanceTemplates to add.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder addInstanceTemplatesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInstanceTemplatesIsMutable();
       instanceTemplates_.add(value);
       onChanged();
@@ -11783,22 +12657,19 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> provisioningModels_ =
       java.util.Collections.emptyList();
     private void ensureProvisioningModelsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         provisioningModels_ = new java.util.ArrayList<java.lang.Integer>(provisioningModels_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
       }
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @return A list containing the provisioningModels.
      */
     @java.lang.Deprecated public java.util.List<com.google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel> getProvisioningModelsList() {
@@ -11807,15 +12678,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @return The count of provisioningModels.
      */
     @java.lang.Deprecated public int getProvisioningModelsCount() {
@@ -11823,15 +12691,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param index The index of the element to return.
      * @return The provisioningModels at the given index.
      */
@@ -11840,15 +12705,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param index The index to set the value at.
      * @param value The provisioningModels to set.
      * @return This builder for chaining.
@@ -11865,15 +12727,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param value The provisioningModels to add.
      * @return This builder for chaining.
      */
@@ -11888,15 +12747,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param values The provisioningModels to add.
      * @return This builder for chaining.
      */
@@ -11911,34 +12767,28 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearProvisioningModels() {
       provisioningModels_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @return A list containing the enum numeric values on the wire for provisioningModels.
      */
     @java.lang.Deprecated public java.util.List<java.lang.Integer>
@@ -11947,15 +12797,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of provisioningModels at the given index.
      */
@@ -11964,15 +12811,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param index The index to set the value at.
      * @param value The enum numeric value on the wire for provisioningModels to set.
      * @return This builder for chaining.
@@ -11986,15 +12830,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param value The enum numeric value on the wire for provisioningModels to add.
      * @return This builder for chaining.
      */
@@ -12006,15 +12847,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Create only instances in the listed provisiong models.
-     * Default to allow all.
-     * Currently only the first model of the provisioning_models list will be
-     * considered; specifying additional models (e.g., 2nd, 3rd, etc.) is a no-op.
+     * Deprecated: please use instances[0].policy.provisioning_model instead.
      * </pre>
      *
      * <code>repeated .google.cloud.batch.v1alpha.AllocationPolicy.ProvisioningModel provisioning_models = 4 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.provisioning_models is deprecated.
-     *     See google/cloud/batch/v1alpha/job.proto;l=430
+     *     See google/cloud/batch/v1alpha/job.proto;l=470
      * @param values The enum numeric values on the wire for provisioningModels to add.
      * @return This builder for chaining.
      */
@@ -12031,13 +12869,15 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object serviceAccountEmail_ = "";
     /**
      * <pre>
-     * Email of the service account that VMs will run as.
+     * Deprecated: please use service_account instead.
      * </pre>
      *
-     * <code>string service_account_email = 5;</code>
+     * <code>string service_account_email = 5 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=473
      * @return The serviceAccountEmail.
      */
-    public java.lang.String getServiceAccountEmail() {
+    @java.lang.Deprecated public java.lang.String getServiceAccountEmail() {
       java.lang.Object ref = serviceAccountEmail_;
       if (!(ref instanceof java.lang.String)) {
         com.google.protobuf.ByteString bs =
@@ -12051,13 +12891,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Email of the service account that VMs will run as.
+     * Deprecated: please use service_account instead.
      * </pre>
      *
-     * <code>string service_account_email = 5;</code>
+     * <code>string service_account_email = 5 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=473
      * @return The bytes for serviceAccountEmail.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getServiceAccountEmailBytes() {
       java.lang.Object ref = serviceAccountEmail_;
       if (ref instanceof String) {
@@ -12072,54 +12914,56 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Email of the service account that VMs will run as.
+     * Deprecated: please use service_account instead.
      * </pre>
      *
-     * <code>string service_account_email = 5;</code>
+     * <code>string service_account_email = 5 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=473
      * @param value The serviceAccountEmail to set.
      * @return This builder for chaining.
      */
-    public Builder setServiceAccountEmail(
+    @java.lang.Deprecated public Builder setServiceAccountEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccountEmail_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Email of the service account that VMs will run as.
+     * Deprecated: please use service_account instead.
      * </pre>
      *
-     * <code>string service_account_email = 5;</code>
+     * <code>string service_account_email = 5 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=473
      * @return This builder for chaining.
      */
-    public Builder clearServiceAccountEmail() {
-      
+    @java.lang.Deprecated public Builder clearServiceAccountEmail() {
       serviceAccountEmail_ = getDefaultInstance().getServiceAccountEmail();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Email of the service account that VMs will run as.
+     * Deprecated: please use service_account instead.
      * </pre>
      *
-     * <code>string service_account_email = 5;</code>
+     * <code>string service_account_email = 5 [deprecated = true];</code>
+     * @deprecated google.cloud.batch.v1alpha.AllocationPolicy.service_account_email is deprecated.
+     *     See google/cloud/batch/v1alpha/job.proto;l=473
      * @param value The bytes for serviceAccountEmail to set.
      * @return This builder for chaining.
      */
-    public Builder setServiceAccountEmailBytes(
+    @java.lang.Deprecated public Builder setServiceAccountEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccountEmail_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -12130,19 +12974,17 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
      * @return Whether the serviceAccount field is set.
      */
     public boolean hasServiceAccount() {
-      return serviceAccountBuilder_ != null || serviceAccount_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -12158,7 +13000,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -12169,17 +13010,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serviceAccount_ = value;
-        onChanged();
       } else {
         serviceAccountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -12188,72 +13028,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.ServiceAccount.Builder builderForValue) {
       if (serviceAccountBuilder_ == null) {
         serviceAccount_ = builderForValue.build();
-        onChanged();
       } else {
         serviceAccountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
      */
     public Builder mergeServiceAccount(com.google.cloud.batch.v1alpha.ServiceAccount value) {
       if (serviceAccountBuilder_ == null) {
-        if (serviceAccount_ != null) {
-          serviceAccount_ =
-            com.google.cloud.batch.v1alpha.ServiceAccount.newBuilder(serviceAccount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          serviceAccount_ != null &&
+          serviceAccount_ != com.google.cloud.batch.v1alpha.ServiceAccount.getDefaultInstance()) {
+          getServiceAccountBuilder().mergeFrom(value);
         } else {
           serviceAccount_ = value;
         }
-        onChanged();
       } else {
         serviceAccountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
      */
     public Builder clearServiceAccount() {
-      if (serviceAccountBuilder_ == null) {
-        serviceAccount_ = null;
-        onChanged();
-      } else {
-        serviceAccount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      serviceAccount_ = null;
+      if (serviceAccountBuilder_ != null) {
+        serviceAccountBuilder_.dispose();
         serviceAccountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
      */
     public com.google.cloud.batch.v1alpha.ServiceAccount.Builder getServiceAccountBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getServiceAccountFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -12269,7 +13105,6 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Service account that VMs will run as.
-     * Not yet implemented.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.ServiceAccount service_account = 9;</code>
@@ -12291,7 +13126,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -12299,8 +13134,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -12308,9 +13142,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000080;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -12327,7 +13162,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -12356,7 +13190,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -12374,10 +13207,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -12397,7 +13231,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -12408,8 +13241,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -12427,7 +13260,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -12440,7 +13272,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000080;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -12460,12 +13293,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000080;
       return this;
     }
     /**
@@ -12481,11 +13312,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000080;
       return this;
     }
 
@@ -12501,7 +13332,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the network field is set.
      */
     public boolean hasNetwork() {
-      return networkBuilder_ != null || network_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -12531,11 +13362,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         network_ = value;
-        onChanged();
       } else {
         networkBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -12549,11 +13380,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.Builder builderForValue) {
       if (networkBuilder_ == null) {
         network_ = builderForValue.build();
-        onChanged();
       } else {
         networkBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -12565,17 +13396,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNetwork(com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy value) {
       if (networkBuilder_ == null) {
-        if (network_ != null) {
-          network_ =
-            com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.newBuilder(network_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          network_ != null &&
+          network_ != com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.getDefaultInstance()) {
+          getNetworkBuilder().mergeFrom(value);
         } else {
           network_ = value;
         }
-        onChanged();
       } else {
         networkBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -12586,14 +13418,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy network = 7;</code>
      */
     public Builder clearNetwork() {
-      if (networkBuilder_ == null) {
-        network_ = null;
-        onChanged();
-      } else {
-        network_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      network_ = null;
+      if (networkBuilder_ != null) {
+        networkBuilder_.dispose();
         networkBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -12604,7 +13435,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy network = 7;</code>
      */
     public com.google.cloud.batch.v1alpha.AllocationPolicy.NetworkPolicy.Builder getNetworkBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getNetworkFieldBuilder().getBuilder();
     }
@@ -12676,7 +13507,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AllocationPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

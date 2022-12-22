@@ -38,75 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComputeScheduling(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            onHostMaintenance_ = rawValue;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nodeAffinities_ = new java.util.ArrayList<com.google.cloud.vmmigration.v1.SchedulingNodeAffinity>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            nodeAffinities_.add(
-                input.readMessage(com.google.cloud.vmmigration.v1.SchedulingNodeAffinity.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-
-            minNodeCpus_ = input.readInt32();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            restartType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        nodeAffinities_ = java.util.Collections.unmodifiableList(nodeAffinities_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vmmigration.v1.VmMigrationProto.internal_static_google_cloud_vmmigration_v1_ComputeScheduling_descriptor;
@@ -412,7 +343,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ON_HOST_MAINTENANCE_FIELD_NUMBER = 1;
-  private int onHostMaintenance_;
+  private int onHostMaintenance_ = 0;
   /**
    * <pre>
    * How the instance should behave when the host machine undergoes
@@ -435,13 +366,12 @@ private static final long serialVersionUID = 0L;
    * @return The onHostMaintenance.
    */
   @java.lang.Override public com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance getOnHostMaintenance() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance result = com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance.valueOf(onHostMaintenance_);
+    com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance result = com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance.forNumber(onHostMaintenance_);
     return result == null ? com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance.UNRECOGNIZED : result;
   }
 
   public static final int RESTART_TYPE_FIELD_NUMBER = 5;
-  private int restartType_;
+  private int restartType_ = 0;
   /**
    * <pre>
    * Whether the Instance should be automatically restarted whenever it is
@@ -472,12 +402,12 @@ private static final long serialVersionUID = 0L;
    * @return The restartType.
    */
   @java.lang.Override public com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType getRestartType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType result = com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.valueOf(restartType_);
+    com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType result = com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.forNumber(restartType_);
     return result == null ? com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.UNRECOGNIZED : result;
   }
 
   public static final int NODE_AFFINITIES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.vmmigration.v1.SchedulingNodeAffinity> nodeAffinities_;
   /**
    * <pre>
@@ -543,7 +473,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_NODE_CPUS_FIELD_NUMBER = 4;
-  private int minNodeCpus_;
+  private int minNodeCpus_ = 0;
   /**
    * <pre>
    * The minimum number of virtual CPUs this instance will consume when
@@ -585,7 +515,7 @@ private static final long serialVersionUID = 0L;
     if (restartType_ != com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.RESTART_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, restartType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -610,7 +540,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, restartType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -631,7 +561,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getNodeAffinitiesList())) return false;
     if (getMinNodeCpus()
         != other.getMinNodeCpus()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -652,7 +582,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MIN_NODE_CPUS_FIELD_NUMBER;
     hash = (53 * hash) + getMinNodeCpus();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -774,35 +704,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vmmigration.v1.ComputeScheduling.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getNodeAffinitiesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       onHostMaintenance_ = 0;
-
       restartType_ = 0;
-
       if (nodeAffinitiesBuilder_ == null) {
         nodeAffinities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        nodeAffinities_ = null;
         nodeAffinitiesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       minNodeCpus_ = 0;
-
       return this;
     }
 
@@ -829,21 +752,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.ComputeScheduling buildPartial() {
       com.google.cloud.vmmigration.v1.ComputeScheduling result = new com.google.cloud.vmmigration.v1.ComputeScheduling(this);
-      int from_bitField0_ = bitField0_;
-      result.onHostMaintenance_ = onHostMaintenance_;
-      result.restartType_ = restartType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.vmmigration.v1.ComputeScheduling result) {
       if (nodeAffinitiesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           nodeAffinities_ = java.util.Collections.unmodifiableList(nodeAffinities_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.nodeAffinities_ = nodeAffinities_;
       } else {
         result.nodeAffinities_ = nodeAffinitiesBuilder_.build();
       }
-      result.minNodeCpus_ = minNodeCpus_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vmmigration.v1.ComputeScheduling result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.onHostMaintenance_ = onHostMaintenance_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.restartType_ = restartType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.minNodeCpus_ = minNodeCpus_;
+      }
     }
 
     @java.lang.Override
@@ -900,7 +837,7 @@ private static final long serialVersionUID = 0L;
         if (!other.nodeAffinities_.isEmpty()) {
           if (nodeAffinities_.isEmpty()) {
             nodeAffinities_ = other.nodeAffinities_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureNodeAffinitiesIsMutable();
             nodeAffinities_.addAll(other.nodeAffinities_);
@@ -913,7 +850,7 @@ private static final long serialVersionUID = 0L;
             nodeAffinitiesBuilder_.dispose();
             nodeAffinitiesBuilder_ = null;
             nodeAffinities_ = other.nodeAffinities_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             nodeAffinitiesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNodeAffinitiesFieldBuilder() : null;
@@ -925,7 +862,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMinNodeCpus() != 0) {
         setMinNodeCpus(other.getMinNodeCpus());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -940,17 +877,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vmmigration.v1.ComputeScheduling parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              onHostMaintenance_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 26: {
+              com.google.cloud.vmmigration.v1.SchedulingNodeAffinity m =
+                  input.readMessage(
+                      com.google.cloud.vmmigration.v1.SchedulingNodeAffinity.parser(),
+                      extensionRegistry);
+              if (nodeAffinitiesBuilder_ == null) {
+                ensureNodeAffinitiesIsMutable();
+                nodeAffinities_.add(m);
+              } else {
+                nodeAffinitiesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              minNodeCpus_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              restartType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vmmigration.v1.ComputeScheduling) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -979,8 +957,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOnHostMaintenanceValue(int value) {
-      
       onHostMaintenance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -995,8 +973,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance getOnHostMaintenance() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance result = com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance.valueOf(onHostMaintenance_);
+      com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance result = com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance.forNumber(onHostMaintenance_);
       return result == null ? com.google.cloud.vmmigration.v1.ComputeScheduling.OnHostMaintenance.UNRECOGNIZED : result;
     }
     /**
@@ -1013,7 +990,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       onHostMaintenance_ = value.getNumber();
       onChanged();
       return this;
@@ -1028,7 +1005,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOnHostMaintenance() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       onHostMaintenance_ = 0;
       onChanged();
       return this;
@@ -1066,8 +1043,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRestartTypeValue(int value) {
-      
       restartType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1086,8 +1063,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType getRestartType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType result = com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.valueOf(restartType_);
+      com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType result = com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.forNumber(restartType_);
       return result == null ? com.google.cloud.vmmigration.v1.ComputeScheduling.RestartType.UNRECOGNIZED : result;
     }
     /**
@@ -1108,7 +1084,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       restartType_ = value.getNumber();
       onChanged();
       return this;
@@ -1127,7 +1103,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRestartType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       restartType_ = 0;
       onChanged();
       return this;
@@ -1136,9 +1112,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.vmmigration.v1.SchedulingNodeAffinity> nodeAffinities_ =
       java.util.Collections.emptyList();
     private void ensureNodeAffinitiesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         nodeAffinities_ = new java.util.ArrayList<com.google.cloud.vmmigration.v1.SchedulingNodeAffinity>(nodeAffinities_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1343,7 +1319,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNodeAffinities() {
       if (nodeAffinitiesBuilder_ == null) {
         nodeAffinities_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         nodeAffinitiesBuilder_.clear();
@@ -1455,7 +1431,7 @@ private static final long serialVersionUID = 0L;
         nodeAffinitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.vmmigration.v1.SchedulingNodeAffinity, com.google.cloud.vmmigration.v1.SchedulingNodeAffinity.Builder, com.google.cloud.vmmigration.v1.SchedulingNodeAffinityOrBuilder>(
                 nodeAffinities_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         nodeAffinities_ = null;
@@ -1492,6 +1468,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinNodeCpus(int value) {
       
       minNodeCpus_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1506,7 +1483,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinNodeCpus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       minNodeCpus_ = 0;
       onChanged();
       return this;
@@ -1544,7 +1521,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComputeScheduling(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

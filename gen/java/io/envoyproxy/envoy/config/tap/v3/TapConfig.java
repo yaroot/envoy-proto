@@ -34,97 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TapConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.tap.v3.MatchPredicate.Builder subBuilder = null;
-            if (matchConfig_ != null) {
-              subBuilder = matchConfig_.toBuilder();
-            }
-            matchConfig_ = input.readMessage(io.envoyproxy.envoy.config.tap.v3.MatchPredicate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(matchConfig_);
-              matchConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.tap.v3.OutputConfig.Builder subBuilder = null;
-            if (outputConfig_ != null) {
-              subBuilder = outputConfig_.toBuilder();
-            }
-            outputConfig_ = input.readMessage(io.envoyproxy.envoy.config.tap.v3.OutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputConfig_);
-              outputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder subBuilder = null;
-            if (tapEnabled_ != null) {
-              subBuilder = tapEnabled_.toBuilder();
-            }
-            tapEnabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tapEnabled_);
-              tapEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.Builder subBuilder = null;
-            if (match_ != null) {
-              subBuilder = match_.toBuilder();
-            }
-            match_ = input.readMessage(io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(match_);
-              match_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.tap.v3.CommonProto.internal_static_envoy_config_tap_v3_TapConfig_descriptor;
@@ -189,7 +98,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public io.envoyproxy.envoy.config.tap.v3.MatchPredicateOrBuilder getMatchConfigOrBuilder() {
-    return getMatchConfig();
+    return matchConfig_ == null ? io.envoyproxy.envoy.config.tap.v3.MatchPredicate.getDefaultInstance() : matchConfig_;
   }
 
   public static final int MATCH_FIELD_NUMBER = 4;
@@ -239,7 +148,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicateOrBuilder getMatchOrBuilder() {
-    return getMatch();
+    return match_ == null ? io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.getDefaultInstance() : match_;
   }
 
   public static final int OUTPUT_CONFIG_FIELD_NUMBER = 2;
@@ -280,7 +189,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.tap.v3.OutputConfigOrBuilder getOutputConfigOrBuilder() {
-    return getOutputConfig();
+    return outputConfig_ == null ? io.envoyproxy.envoy.config.tap.v3.OutputConfig.getDefaultInstance() : outputConfig_;
   }
 
   public static final int TAP_ENABLED_FIELD_NUMBER = 3;
@@ -333,7 +242,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercentOrBuilder getTapEnabledOrBuilder() {
-    return getTapEnabled();
+    return tapEnabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance() : tapEnabled_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -362,7 +271,7 @@ private static final long serialVersionUID = 0L;
     if (match_ != null) {
       output.writeMessage(4, getMatch());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -387,7 +296,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getMatch());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -422,7 +331,7 @@ private static final long serialVersionUID = 0L;
       if (!getTapEnabled()
           .equals(other.getTapEnabled())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -449,7 +358,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TAP_ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + getTapEnabled().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -570,44 +479,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.tap.v3.TapConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (matchConfigBuilder_ == null) {
-        matchConfig_ = null;
-      } else {
-        matchConfig_ = null;
+      bitField0_ = 0;
+      matchConfig_ = null;
+      if (matchConfigBuilder_ != null) {
+        matchConfigBuilder_.dispose();
         matchConfigBuilder_ = null;
       }
-      if (matchBuilder_ == null) {
-        match_ = null;
-      } else {
-        match_ = null;
+      match_ = null;
+      if (matchBuilder_ != null) {
+        matchBuilder_.dispose();
         matchBuilder_ = null;
       }
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-      } else {
-        outputConfig_ = null;
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-      if (tapEnabledBuilder_ == null) {
-        tapEnabled_ = null;
-      } else {
-        tapEnabled_ = null;
+      tapEnabled_ = null;
+      if (tapEnabledBuilder_ != null) {
+        tapEnabledBuilder_.dispose();
         tapEnabledBuilder_ = null;
       }
       return this;
@@ -636,28 +537,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.tap.v3.TapConfig buildPartial() {
       io.envoyproxy.envoy.config.tap.v3.TapConfig result = new io.envoyproxy.envoy.config.tap.v3.TapConfig(this);
-      if (matchConfigBuilder_ == null) {
-        result.matchConfig_ = matchConfig_;
-      } else {
-        result.matchConfig_ = matchConfigBuilder_.build();
-      }
-      if (matchBuilder_ == null) {
-        result.match_ = match_;
-      } else {
-        result.match_ = matchBuilder_.build();
-      }
-      if (outputConfigBuilder_ == null) {
-        result.outputConfig_ = outputConfig_;
-      } else {
-        result.outputConfig_ = outputConfigBuilder_.build();
-      }
-      if (tapEnabledBuilder_ == null) {
-        result.tapEnabled_ = tapEnabled_;
-      } else {
-        result.tapEnabled_ = tapEnabledBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.tap.v3.TapConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.matchConfig_ = matchConfigBuilder_ == null
+            ? matchConfig_
+            : matchConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.match_ = matchBuilder_ == null
+            ? match_
+            : matchBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.outputConfig_ = outputConfigBuilder_ == null
+            ? outputConfig_
+            : outputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tapEnabled_ = tapEnabledBuilder_ == null
+            ? tapEnabled_
+            : tapEnabledBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -716,7 +622,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTapEnabled()) {
         mergeTapEnabled(other.getTapEnabled());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -731,19 +637,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.tap.v3.TapConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMatchConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTapEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.tap.v3.TapConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.tap.v3.MatchPredicate matchConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -763,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the matchConfig field is set.
      */
     @java.lang.Deprecated public boolean hasMatchConfig() {
-      return matchConfigBuilder_ != null || matchConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -803,11 +751,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         matchConfig_ = value;
-        onChanged();
       } else {
         matchConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -825,11 +773,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.tap.v3.MatchPredicate.Builder builderForValue) {
       if (matchConfigBuilder_ == null) {
         matchConfig_ = builderForValue.build();
-        onChanged();
       } else {
         matchConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -845,17 +793,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeMatchConfig(io.envoyproxy.envoy.config.tap.v3.MatchPredicate value) {
       if (matchConfigBuilder_ == null) {
-        if (matchConfig_ != null) {
-          matchConfig_ =
-            io.envoyproxy.envoy.config.tap.v3.MatchPredicate.newBuilder(matchConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          matchConfig_ != null &&
+          matchConfig_ != io.envoyproxy.envoy.config.tap.v3.MatchPredicate.getDefaultInstance()) {
+          getMatchConfigBuilder().mergeFrom(value);
         } else {
           matchConfig_ = value;
         }
-        onChanged();
       } else {
         matchConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -870,14 +819,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.tap.v3.MatchPredicate match_config = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public Builder clearMatchConfig() {
-      if (matchConfigBuilder_ == null) {
-        matchConfig_ = null;
-        onChanged();
-      } else {
-        matchConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      matchConfig_ = null;
+      if (matchConfigBuilder_ != null) {
+        matchConfigBuilder_.dispose();
         matchConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -892,7 +840,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.tap.v3.MatchPredicate match_config = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      */
     @java.lang.Deprecated public io.envoyproxy.envoy.config.tap.v3.MatchPredicate.Builder getMatchConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMatchConfigFieldBuilder().getBuilder();
     }
@@ -956,7 +904,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the match field is set.
      */
     public boolean hasMatch() {
-      return matchBuilder_ != null || match_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -994,11 +942,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         match_ = value;
-        onChanged();
       } else {
         matchBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1016,11 +964,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.Builder builderForValue) {
       if (matchBuilder_ == null) {
         match_ = builderForValue.build();
-        onChanged();
       } else {
         matchBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1036,17 +984,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMatch(io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate value) {
       if (matchBuilder_ == null) {
-        if (match_ != null) {
-          match_ =
-            io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.newBuilder(match_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          match_ != null &&
+          match_ != io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.getDefaultInstance()) {
+          getMatchBuilder().mergeFrom(value);
         } else {
           match_ = value;
         }
-        onChanged();
       } else {
         matchBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1061,14 +1010,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.common.matcher.v3.MatchPredicate match = 4;</code>
      */
     public Builder clearMatch() {
-      if (matchBuilder_ == null) {
-        match_ = null;
-        onChanged();
-      } else {
-        match_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      match_ = null;
+      if (matchBuilder_ != null) {
+        matchBuilder_.dispose();
         matchBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1083,7 +1031,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.common.matcher.v3.MatchPredicate match = 4;</code>
      */
     public io.envoyproxy.envoy.config.common.matcher.v3.MatchPredicate.Builder getMatchBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMatchFieldBuilder().getBuilder();
     }
@@ -1144,7 +1092,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputConfig field is set.
      */
     public boolean hasOutputConfig() {
-      return outputConfigBuilder_ != null || outputConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1176,11 +1124,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputConfig_ = value;
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1195,11 +1143,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.tap.v3.OutputConfig.Builder builderForValue) {
       if (outputConfigBuilder_ == null) {
         outputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1212,17 +1160,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputConfig(io.envoyproxy.envoy.config.tap.v3.OutputConfig value) {
       if (outputConfigBuilder_ == null) {
-        if (outputConfig_ != null) {
-          outputConfig_ =
-            io.envoyproxy.envoy.config.tap.v3.OutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          outputConfig_ != null &&
+          outputConfig_ != io.envoyproxy.envoy.config.tap.v3.OutputConfig.getDefaultInstance()) {
+          getOutputConfigBuilder().mergeFrom(value);
         } else {
           outputConfig_ = value;
         }
-        onChanged();
       } else {
         outputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1234,14 +1183,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.tap.v3.OutputConfig output_config = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearOutputConfig() {
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-        onChanged();
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1253,7 +1201,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.tap.v3.OutputConfig output_config = 2 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.tap.v3.OutputConfig.Builder getOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getOutputConfigFieldBuilder().getBuilder();
     }
@@ -1312,7 +1260,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tapEnabled field is set.
      */
     public boolean hasTapEnabled() {
-      return tapEnabledBuilder_ != null || tapEnabled_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1352,11 +1300,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tapEnabled_ = value;
-        onChanged();
       } else {
         tapEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1375,11 +1323,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder builderForValue) {
       if (tapEnabledBuilder_ == null) {
         tapEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         tapEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1396,17 +1344,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTapEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent value) {
       if (tapEnabledBuilder_ == null) {
-        if (tapEnabled_ != null) {
-          tapEnabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.newBuilder(tapEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          tapEnabled_ != null &&
+          tapEnabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance()) {
+          getTapEnabledBuilder().mergeFrom(value);
         } else {
           tapEnabled_ = value;
         }
-        onChanged();
       } else {
         tapEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1422,14 +1371,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent tap_enabled = 3;</code>
      */
     public Builder clearTapEnabled() {
-      if (tapEnabledBuilder_ == null) {
-        tapEnabled_ = null;
-        onChanged();
-      } else {
-        tapEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      tapEnabled_ = null;
+      if (tapEnabledBuilder_ != null) {
+        tapEnabledBuilder_.dispose();
         tapEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1445,7 +1393,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent tap_enabled = 3;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder getTapEnabledBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTapEnabledFieldBuilder().getBuilder();
     }
@@ -1527,7 +1475,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TapConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

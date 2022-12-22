@@ -50,8 +50,8 @@ public interface WriteStreamOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Create time of the stream. For the _default stream, this is the
-   * creation_time of the table.
+   * Output only. Create time of the stream. For the _default stream, this is
+   * the creation_time of the table.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -60,8 +60,8 @@ public interface WriteStreamOrBuilder extends
   boolean hasCreateTime();
   /**
    * <pre>
-   * Output only. Create time of the stream. For the _default stream, this is the
-   * creation_time of the table.
+   * Output only. Create time of the stream. For the _default stream, this is
+   * the creation_time of the table.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -70,8 +70,8 @@ public interface WriteStreamOrBuilder extends
   com.google.protobuf.Timestamp getCreateTime();
   /**
    * <pre>
-   * Output only. Create time of the stream. For the _default stream, this is the
-   * creation_time of the table.
+   * Output only. Create time of the stream. For the _default stream, this is
+   * the creation_time of the table.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp create_time = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -168,4 +168,28 @@ public interface WriteStreamOrBuilder extends
    * @return The writeMode.
    */
   com.google.cloud.bigquery.storage.v1.WriteStream.WriteMode getWriteMode();
+
+  /**
+   * <pre>
+   * Immutable. The geographic location where the stream's dataset resides. See
+   * https://cloud.google.com/bigquery/docs/locations for supported
+   * locations.
+   * </pre>
+   *
+   * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The location.
+   */
+  java.lang.String getLocation();
+  /**
+   * <pre>
+   * Immutable. The geographic location where the stream's dataset resides. See
+   * https://cloud.google.com/bigquery/docs/locations for supported
+   * locations.
+   * </pre>
+   *
+   * <code>string location = 8 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The bytes for location.
+   */
+  com.google.protobuf.ByteString
+      getLocationBytes();
 }

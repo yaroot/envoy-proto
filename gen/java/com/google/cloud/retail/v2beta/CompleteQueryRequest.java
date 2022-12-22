@@ -40,93 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompleteQueryRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            catalog_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            query_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              languageCodes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            languageCodes_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deviceType_ = s;
-            break;
-          }
-          case 40: {
-
-            maxSuggestions_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dataset_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            visitorId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        languageCodes_ = languageCodes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2beta.CompletionServiceProto.internal_static_google_cloud_retail_v2beta_CompleteQueryRequest_descriptor;
@@ -141,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CATALOG_FIELD_NUMBER = 1;
-  private volatile java.lang.Object catalog_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object catalog_ = "";
   /**
    * <pre>
    * Required. Catalog for which the completion is performed.
@@ -191,7 +105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object query_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object query_ = "";
   /**
    * <pre>
    * Required. The query used to generate suggestions.
@@ -239,7 +154,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VISITOR_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object visitorId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object visitorId_ = "";
   /**
    * <pre>
    * Required field. A unique identifier for tracking visitors. For example,
@@ -295,6 +211,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList languageCodes_;
   /**
    * <pre>
@@ -374,11 +291,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_TYPE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object deviceType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deviceType_ = "";
   /**
    * <pre>
-   * The device type context for completion suggestions.
-   * It is useful to apply different suggestions on different device types, e.g.
+   * The device type context for completion suggestions. We recommend that you
+   * leave this field empty.
+   * It can apply different suggestions on different device types, e.g.
    * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
    * types.
    * Supported formats:
@@ -406,8 +325,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The device type context for completion suggestions.
-   * It is useful to apply different suggestions on different device types, e.g.
+   * The device type context for completion suggestions. We recommend that you
+   * leave this field empty.
+   * It can apply different suggestions on different device types, e.g.
    * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
    * types.
    * Supported formats:
@@ -436,7 +356,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATASET_FIELD_NUMBER = 6;
-  private volatile java.lang.Object dataset_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dataset_ = "";
   /**
    * <pre>
    * Determines which dataset to use for fetching completion. "user-data" will
@@ -500,7 +421,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_SUGGESTIONS_FIELD_NUMBER = 5;
-  private int maxSuggestions_;
+  private int maxSuggestions_ = 0;
   /**
    * <pre>
    * Completion max suggestions. If left unset or set to 0, then will fallback
@@ -553,7 +474,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(visitorId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, visitorId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -589,7 +510,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(visitorId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, visitorId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -618,7 +539,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDataset())) return false;
     if (getMaxSuggestions()
         != other.getMaxSuggestions()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -645,7 +566,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDataset().hashCode();
     hash = (37 * hash) + MAX_SUGGESTIONS_FIELD_NUMBER;
     hash = (53 * hash) + getMaxSuggestions();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -766,36 +687,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.CompleteQueryRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       catalog_ = "";
-
       query_ = "";
-
       visitorId_ = "";
-
       languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       deviceType_ = "";
-
       dataset_ = "";
-
       maxSuggestions_ = 0;
-
       return this;
     }
 
@@ -822,20 +733,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.CompleteQueryRequest buildPartial() {
       com.google.cloud.retail.v2beta.CompleteQueryRequest result = new com.google.cloud.retail.v2beta.CompleteQueryRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.catalog_ = catalog_;
-      result.query_ = query_;
-      result.visitorId_ = visitorId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        languageCodes_ = languageCodes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.languageCodes_ = languageCodes_;
-      result.deviceType_ = deviceType_;
-      result.dataset_ = dataset_;
-      result.maxSuggestions_ = maxSuggestions_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2beta.CompleteQueryRequest result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        languageCodes_ = languageCodes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.languageCodes_ = languageCodes_;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.CompleteQueryRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.catalog_ = catalog_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.query_ = query_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.visitorId_ = visitorId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.deviceType_ = deviceType_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.dataset_ = dataset_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.maxSuggestions_ = maxSuggestions_;
+      }
     }
 
     @java.lang.Override
@@ -884,20 +815,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2beta.CompleteQueryRequest.getDefaultInstance()) return this;
       if (!other.getCatalog().isEmpty()) {
         catalog_ = other.catalog_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getQuery().isEmpty()) {
         query_ = other.query_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getVisitorId().isEmpty()) {
         visitorId_ = other.visitorId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.languageCodes_.isEmpty()) {
         if (languageCodes_.isEmpty()) {
           languageCodes_ = other.languageCodes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureLanguageCodesIsMutable();
           languageCodes_.addAll(other.languageCodes_);
@@ -906,16 +840,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDeviceType().isEmpty()) {
         deviceType_ = other.deviceType_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDataset().isEmpty()) {
         dataset_ = other.dataset_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.getMaxSuggestions() != 0) {
         setMaxSuggestions(other.getMaxSuggestions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -930,17 +866,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.CompleteQueryRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              catalog_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              query_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLanguageCodesIsMutable();
+              languageCodes_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              deviceType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 40: {
+              maxSuggestions_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 40
+            case 50: {
+              dataset_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              visitorId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.CompleteQueryRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1004,11 +989,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCatalog(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       catalog_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1023,8 +1006,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCatalog() {
-      
       catalog_ = getDefaultInstance().getCatalog();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1041,12 +1024,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCatalogBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       catalog_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1107,11 +1088,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1125,8 +1104,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
-      
       query_ = getDefaultInstance().getQuery();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1142,12 +1121,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1220,11 +1197,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVisitorId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       visitorId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1242,8 +1217,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVisitorId() {
-      
       visitorId_ = getDefaultInstance().getVisitorId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1263,21 +1238,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVisitorIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       visitorId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLanguageCodesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         languageCodes_ = new com.google.protobuf.LazyStringArrayList(languageCodes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1375,10 +1348,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLanguageCodesIsMutable();
       languageCodes_.set(index, value);
       onChanged();
       return this;
@@ -1401,10 +1372,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLanguageCodes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLanguageCodesIsMutable();
       languageCodes_.add(value);
       onChanged();
       return this;
@@ -1450,7 +1419,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLanguageCodes() {
       languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1472,10 +1441,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLanguageCodesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLanguageCodesIsMutable();
       languageCodes_.add(value);
       onChanged();
@@ -1485,8 +1452,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object deviceType_ = "";
     /**
      * <pre>
-     * The device type context for completion suggestions.
-     * It is useful to apply different suggestions on different device types, e.g.
+     * The device type context for completion suggestions. We recommend that you
+     * leave this field empty.
+     * It can apply different suggestions on different device types, e.g.
      * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
      * types.
      * Supported formats:
@@ -1513,8 +1481,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The device type context for completion suggestions.
-     * It is useful to apply different suggestions on different device types, e.g.
+     * The device type context for completion suggestions. We recommend that you
+     * leave this field empty.
+     * It can apply different suggestions on different device types, e.g.
      * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
      * types.
      * Supported formats:
@@ -1542,8 +1511,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The device type context for completion suggestions.
-     * It is useful to apply different suggestions on different device types, e.g.
+     * The device type context for completion suggestions. We recommend that you
+     * leave this field empty.
+     * It can apply different suggestions on different device types, e.g.
      * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
      * types.
      * Supported formats:
@@ -1559,18 +1529,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deviceType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The device type context for completion suggestions.
-     * It is useful to apply different suggestions on different device types, e.g.
+     * The device type context for completion suggestions. We recommend that you
+     * leave this field empty.
+     * It can apply different suggestions on different device types, e.g.
      * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
      * types.
      * Supported formats:
@@ -1584,15 +1553,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeviceType() {
-      
       deviceType_ = getDefaultInstance().getDeviceType();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The device type context for completion suggestions.
-     * It is useful to apply different suggestions on different device types, e.g.
+     * The device type context for completion suggestions. We recommend that you
+     * leave this field empty.
+     * It can apply different suggestions on different device types, e.g.
      * `DESKTOP`, `MOBILE`. If it is empty, the suggestions are across all device
      * types.
      * Supported formats:
@@ -1608,12 +1578,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deviceType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1698,11 +1666,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataset(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dataset_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1724,8 +1690,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataset() {
-      
       dataset_ = getDefaultInstance().getDataset();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1749,12 +1715,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatasetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dataset_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1792,6 +1756,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxSuggestions(int value) {
       
       maxSuggestions_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1808,7 +1773,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxSuggestions() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       maxSuggestions_ = 0;
       onChanged();
       return this;
@@ -1846,7 +1811,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompleteQueryRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

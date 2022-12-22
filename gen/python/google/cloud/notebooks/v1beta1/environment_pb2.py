@@ -14,10 +14,9 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/notebooks/v1beta1/environment.proto\x12\x1egoogle.cloud.notebooks.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\x8e\x03\n\x0b\x45nvironment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12;\n\x08vm_image\x18\x06 \x01(\x0b\x32\'.google.cloud.notebooks.v1beta1.VmImageH\x00\x12I\n\x0f\x63ontainer_image\x18\x07 \x01(\x0b\x32..google.cloud.notebooks.v1beta1.ContainerImageH\x00\x12\x1b\n\x13post_startup_script\x18\x08 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:X\xea\x41U\n$notebooks.googleapis.com/Environment\x12-projects/{project}/environments/{environment}B\x0c\n\nimage_type\"V\n\x07VmImage\x12\x14\n\x07project\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\nimage_name\x18\x02 \x01(\tH\x00\x12\x16\n\x0cimage_family\x18\x03 \x01(\tH\x00\x42\x07\n\x05image\"6\n\x0e\x43ontainerImage\x12\x17\n\nrepository\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0b\n\x03tag\x18\x02 \x01(\tB\xe7\x01\n\"com.google.cloud.notebooks.v1beta1B\x10\x45nvironmentProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\xaa\x02\x1eGoogle.Cloud.Notebooks.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Notebooks\\V1beta1\xea\x02!Google::Cloud::Notebooks::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/notebooks/v1beta1/environment.proto\x12\x1egoogle.cloud.notebooks.v1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x8e\x03\n\x0b\x45nvironment\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x14\n\x0c\x64isplay_name\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12;\n\x08vm_image\x18\x06 \x01(\x0b\x32\'.google.cloud.notebooks.v1beta1.VmImageH\x00\x12I\n\x0f\x63ontainer_image\x18\x07 \x01(\x0b\x32..google.cloud.notebooks.v1beta1.ContainerImageH\x00\x12\x1b\n\x13post_startup_script\x18\x08 \x01(\t\x12\x34\n\x0b\x63reate_time\x18\t \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03:X\xea\x41U\n$notebooks.googleapis.com/Environment\x12-projects/{project}/environments/{environment}B\x0c\n\nimage_type\"V\n\x07VmImage\x12\x14\n\x07project\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\nimage_name\x18\x02 \x01(\tH\x00\x12\x16\n\x0cimage_family\x18\x03 \x01(\tH\x00\x42\x07\n\x05image\"6\n\x0e\x43ontainerImage\x12\x17\n\nrepository\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0b\n\x03tag\x18\x02 \x01(\tB\xe7\x01\n\"com.google.cloud.notebooks.v1beta1B\x10\x45nvironmentProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/notebooks/v1beta1;notebooks\xaa\x02\x1eGoogle.Cloud.Notebooks.V1Beta1\xca\x02\x1eGoogle\\Cloud\\Notebooks\\V1beta1\xea\x02!Google::Cloud::Notebooks::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.notebooks.v1beta1.environment_pb2', globals())
@@ -35,10 +34,10 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _VMIMAGE.fields_by_name['project']._serialized_options = b'\340A\002'
   _CONTAINERIMAGE.fields_by_name['repository']._options = None
   _CONTAINERIMAGE.fields_by_name['repository']._serialized_options = b'\340A\002'
-  _ENVIRONMENT._serialized_start=208
-  _ENVIRONMENT._serialized_end=606
-  _VMIMAGE._serialized_start=608
-  _VMIMAGE._serialized_end=694
-  _CONTAINERIMAGE._serialized_start=696
-  _CONTAINERIMAGE._serialized_end=750
+  _ENVIRONMENT._serialized_start=178
+  _ENVIRONMENT._serialized_end=576
+  _VMIMAGE._serialized_start=578
+  _VMIMAGE._serialized_end=664
+  _CONTAINERIMAGE._serialized_start=666
+  _CONTAINERIMAGE._serialized_end=720
 # @@protoc_insertion_point(module_scope)

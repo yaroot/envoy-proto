@@ -38,51 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LogConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            logSeverity_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.ResourcesProto.internal_static_google_cloud_video_livestream_v1_LogConfig_descriptor;
@@ -300,7 +255,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOG_SEVERITY_FIELD_NUMBER = 1;
-  private int logSeverity_;
+  private int logSeverity_ = 0;
   /**
    * <pre>
    * The severity level of platform logging for this resource.
@@ -321,8 +276,7 @@ private static final long serialVersionUID = 0L;
    * @return The logSeverity.
    */
   @java.lang.Override public com.google.cloud.video.livestream.v1.LogConfig.LogSeverity getLogSeverity() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.video.livestream.v1.LogConfig.LogSeverity result = com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.valueOf(logSeverity_);
+    com.google.cloud.video.livestream.v1.LogConfig.LogSeverity result = com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.forNumber(logSeverity_);
     return result == null ? com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.UNRECOGNIZED : result;
   }
 
@@ -343,7 +297,7 @@ private static final long serialVersionUID = 0L;
     if (logSeverity_ != com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.LOG_SEVERITY_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, logSeverity_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -356,7 +310,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, logSeverity_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -372,7 +326,7 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.video.livestream.v1.LogConfig other = (com.google.cloud.video.livestream.v1.LogConfig) obj;
 
     if (logSeverity_ != other.logSeverity_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -385,7 +339,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + LOG_SEVERITY_FIELD_NUMBER;
     hash = (53 * hash) + logSeverity_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -509,24 +463,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.LogConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       logSeverity_ = 0;
-
       return this;
     }
 
@@ -553,9 +502,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.LogConfig buildPartial() {
       com.google.cloud.video.livestream.v1.LogConfig result = new com.google.cloud.video.livestream.v1.LogConfig(this);
-      result.logSeverity_ = logSeverity_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.LogConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.logSeverity_ = logSeverity_;
+      }
     }
 
     @java.lang.Override
@@ -605,7 +561,7 @@ private static final long serialVersionUID = 0L;
       if (other.logSeverity_ != 0) {
         setLogSeverityValue(other.getLogSeverityValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -620,19 +576,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.LogConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              logSeverity_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.LogConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int logSeverity_ = 0;
     /**
@@ -656,8 +631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLogSeverityValue(int value) {
-      
       logSeverity_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -671,8 +646,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.LogConfig.LogSeverity getLogSeverity() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.video.livestream.v1.LogConfig.LogSeverity result = com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.valueOf(logSeverity_);
+      com.google.cloud.video.livestream.v1.LogConfig.LogSeverity result = com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.forNumber(logSeverity_);
       return result == null ? com.google.cloud.video.livestream.v1.LogConfig.LogSeverity.UNRECOGNIZED : result;
     }
     /**
@@ -688,7 +662,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       logSeverity_ = value.getNumber();
       onChanged();
       return this;
@@ -702,7 +676,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogSeverity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       logSeverity_ = 0;
       onChanged();
       return this;
@@ -740,7 +714,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LogConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

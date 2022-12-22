@@ -46,7 +46,6 @@ public interface SlotMatchOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.actions.sdk.v2.conversation.IntentParameterValue defaultValue);
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.IntentParameterValue&gt; nlu_parameters = 2;</code>
    */
-
   com.google.actions.sdk.v2.conversation.IntentParameterValue getNluParametersOrThrow(
       java.lang.String key);
 }

@@ -37,90 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AdStitchDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adBreakId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (adTimeOffset_ != null) {
-              subBuilder = adTimeOffset_.toBuilder();
-            }
-            adTimeOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adTimeOffset_);
-              adTimeOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            skipReason_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              media_ = com.google.protobuf.MapField.newMapField(
-                  MediaDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-            media__ = input.readMessage(
-                MediaDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            media_.getMutableMap().put(
-                media__.getKey(), media__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.stitcher.v1.StitchDetailsProto.internal_static_google_cloud_video_stitcher_v1_AdStitchDetail_descriptor;
@@ -147,7 +63,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_BREAK_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object adBreakId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adBreakId_ = "";
   /**
    * <pre>
    * Required. The ad break ID of the processed ad.
@@ -193,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AD_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object adId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adId_ = "";
   /**
    * <pre>
    * Required. The ad ID of the processed ad.
@@ -273,11 +191,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAdTimeOffsetOrBuilder() {
-    return getAdTimeOffset();
+    return adTimeOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : adTimeOffset_;
   }
 
   public static final int SKIP_REASON_FIELD_NUMBER = 4;
-  private volatile java.lang.Object skipReason_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object skipReason_ = "";
   /**
    * <pre>
    * Optional. Indicates the reason why the ad has been skipped.
@@ -334,6 +253,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.Value> media_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -344,7 +264,6 @@ private static final long serialVersionUID = 0L;
     }
     return media_;
   }
-
   public int getMediaCount() {
     return internalGetMedia().getMap().size();
   }
@@ -355,7 +274,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsMedia(
       java.lang.String key) {
@@ -378,7 +296,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.Value> getMediaMap() {
     return internalGetMedia().getMap();
   }
@@ -390,10 +307,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Value getMediaOrDefault(
+  public /* nullable */
+com.google.protobuf.Value getMediaOrDefault(
       java.lang.String key,
-      com.google.protobuf.Value defaultValue) {
+      /* nullable */
+com.google.protobuf.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Value> map =
         internalGetMedia().getMap();
@@ -407,7 +325,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Value getMediaOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -451,7 +368,7 @@ private static final long serialVersionUID = 0L;
         internalGetMedia(),
         MediaDefaultEntryHolder.defaultEntry,
         5);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -483,7 +400,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, media__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -511,7 +428,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSkipReason())) return false;
     if (!internalGetMedia().equals(
         other.internalGetMedia())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -536,7 +453,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MEDIA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMedia().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -679,34 +596,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.stitcher.v1.AdStitchDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       adBreakId_ = "";
-
       adId_ = "";
-
-      if (adTimeOffsetBuilder_ == null) {
-        adTimeOffset_ = null;
-      } else {
-        adTimeOffset_ = null;
+      adTimeOffset_ = null;
+      if (adTimeOffsetBuilder_ != null) {
+        adTimeOffsetBuilder_.dispose();
         adTimeOffsetBuilder_ = null;
       }
       skipReason_ = "";
-
       internalGetMutableMedia().clear();
       return this;
     }
@@ -734,19 +643,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.stitcher.v1.AdStitchDetail buildPartial() {
       com.google.cloud.video.stitcher.v1.AdStitchDetail result = new com.google.cloud.video.stitcher.v1.AdStitchDetail(this);
-      int from_bitField0_ = bitField0_;
-      result.adBreakId_ = adBreakId_;
-      result.adId_ = adId_;
-      if (adTimeOffsetBuilder_ == null) {
-        result.adTimeOffset_ = adTimeOffset_;
-      } else {
-        result.adTimeOffset_ = adTimeOffsetBuilder_.build();
-      }
-      result.skipReason_ = skipReason_;
-      result.media_ = internalGetMedia();
-      result.media_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.stitcher.v1.AdStitchDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.adBreakId_ = adBreakId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.adId_ = adId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.adTimeOffset_ = adTimeOffsetBuilder_ == null
+            ? adTimeOffset_
+            : adTimeOffsetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.skipReason_ = skipReason_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.media_ = internalGetMedia();
+        result.media_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -795,10 +716,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.stitcher.v1.AdStitchDetail.getDefaultInstance()) return this;
       if (!other.getAdBreakId().isEmpty()) {
         adBreakId_ = other.adBreakId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAdId().isEmpty()) {
         adId_ = other.adId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasAdTimeOffset()) {
@@ -806,11 +729,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSkipReason().isEmpty()) {
         skipReason_ = other.skipReason_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       internalGetMutableMedia().mergeFrom(
           other.internalGetMedia());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -825,17 +750,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.stitcher.v1.AdStitchDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              adBreakId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              adId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAdTimeOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              skipReason_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+              media__ = input.readMessage(
+                  MediaDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMedia().getMutableMap().put(
+                  media__.getKey(), media__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.stitcher.v1.AdStitchDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -893,11 +862,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdBreakId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adBreakId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -910,8 +877,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdBreakId() {
-      
       adBreakId_ = getDefaultInstance().getAdBreakId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -926,12 +893,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdBreakIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adBreakId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -989,11 +954,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1006,8 +969,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdId() {
-      
       adId_ = getDefaultInstance().getAdId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1022,12 +985,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1044,7 +1005,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the adTimeOffset field is set.
      */
     public boolean hasAdTimeOffset() {
-      return adTimeOffsetBuilder_ != null || adTimeOffset_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1074,11 +1035,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adTimeOffset_ = value;
-        onChanged();
       } else {
         adTimeOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1092,11 +1053,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (adTimeOffsetBuilder_ == null) {
         adTimeOffset_ = builderForValue.build();
-        onChanged();
       } else {
         adTimeOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1108,17 +1069,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdTimeOffset(com.google.protobuf.Duration value) {
       if (adTimeOffsetBuilder_ == null) {
-        if (adTimeOffset_ != null) {
-          adTimeOffset_ =
-            com.google.protobuf.Duration.newBuilder(adTimeOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          adTimeOffset_ != null &&
+          adTimeOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAdTimeOffsetBuilder().mergeFrom(value);
         } else {
           adTimeOffset_ = value;
         }
-        onChanged();
       } else {
         adTimeOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1129,14 +1091,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration ad_time_offset = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAdTimeOffset() {
-      if (adTimeOffsetBuilder_ == null) {
-        adTimeOffset_ = null;
-        onChanged();
-      } else {
-        adTimeOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      adTimeOffset_ = null;
+      if (adTimeOffsetBuilder_ != null) {
+        adTimeOffsetBuilder_.dispose();
         adTimeOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1147,7 +1108,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration ad_time_offset = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.Duration.Builder getAdTimeOffsetBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAdTimeOffsetFieldBuilder().getBuilder();
     }
@@ -1240,11 +1201,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkipReason(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       skipReason_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1257,8 +1216,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSkipReason() {
-      
       skipReason_ = getDefaultInstance().getSkipReason();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1273,12 +1232,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSkipReasonBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       skipReason_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1286,7 +1243,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> media_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetMedia() {
+        internalGetMedia() {
       if (media_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MediaDefaultEntryHolder.defaultEntry);
@@ -1294,8 +1251,7 @@ private static final long serialVersionUID = 0L;
       return media_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetMutableMedia() {
-      onChanged();;
+        internalGetMutableMedia() {
       if (media_ == null) {
         media_ = com.google.protobuf.MapField.newMapField(
             MediaDefaultEntryHolder.defaultEntry);
@@ -1303,9 +1259,10 @@ private static final long serialVersionUID = 0L;
       if (!media_.isMutable()) {
         media_ = media_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return media_;
     }
-
     public int getMediaCount() {
       return internalGetMedia().getMap().size();
     }
@@ -1316,7 +1273,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsMedia(
         java.lang.String key) {
@@ -1339,7 +1295,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getMediaMap() {
       return internalGetMedia().getMap();
     }
@@ -1351,10 +1306,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getMediaOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getMediaOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetMedia().getMap();
@@ -1368,7 +1324,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getMediaOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1379,8 +1334,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMedia() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableMedia().getMutableMap()
           .clear();
       return this;
@@ -1392,7 +1347,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeMedia(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1405,7 +1359,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.Value>
-    getMutableMedia() {
+        getMutableMedia() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableMedia().getMutableMap();
     }
     /**
@@ -1419,12 +1374,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMedia().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1434,11 +1387,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; media = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllMedia(
         java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
       internalGetMutableMedia().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1474,7 +1427,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AdStitchDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

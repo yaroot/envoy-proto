@@ -34,188 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttributeFieldMapping(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 24: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 3;
-            field_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 4;
-            field_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 5;
-            field_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 6;
-            field_ = rawValue;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 7;
-            field_ = rawValue;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 8;
-            field_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 9;
-            field_ = rawValue;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 10;
-            field_ = rawValue;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 11;
-            field_ = rawValue;
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 12;
-            field_ = rawValue;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 13;
-            field_ = rawValue;
-            break;
-          }
-          case 112: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 14;
-            field_ = rawValue;
-            break;
-          }
-          case 120: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 15;
-            field_ = rawValue;
-            break;
-          }
-          case 128: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 16;
-            field_ = rawValue;
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 17;
-            field_ = rawValue;
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 18;
-            field_ = rawValue;
-            break;
-          }
-          case 152: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 19;
-            field_ = rawValue;
-            break;
-          }
-          case 160: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 20;
-            field_ = rawValue;
-            break;
-          }
-          case 168: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 21;
-            field_ = rawValue;
-            break;
-          }
-          case 176: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 22;
-            field_ = rawValue;
-            break;
-          }
-          case 184: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 23;
-            field_ = rawValue;
-            break;
-          }
-          case 192: {
-            bitField0_ |= 0x00000001;
-            feedAttributeId_ = input.readInt64();
-            break;
-          }
-          case 200: {
-            bitField0_ |= 0x00000002;
-            fieldId_ = input.readInt64();
-            break;
-          }
-          case 208: {
-            int rawValue = input.readEnum();
-            fieldCase_ = 26;
-            field_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.FeedMappingProto.internal_static_google_ads_googleads_v11_resources_AttributeFieldMapping_descriptor;
@@ -312,7 +130,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEED_ATTRIBUTE_ID_FIELD_NUMBER = 24;
-  private long feedAttributeId_;
+  private long feedAttributeId_ = 0L;
   /**
    * <pre>
    * Immutable. Feed attribute from which to map.
@@ -339,7 +157,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FIELD_ID_FIELD_NUMBER = 25;
-  private long fieldId_;
+  private long fieldId_ = 0L;
   /**
    * <pre>
    * Output only. The placeholder field ID. If a placeholder field enum is not published in
@@ -407,8 +225,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField getSitelinkField() {
     if (fieldCase_ == 3) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField result = com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField result = com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField.UNRECOGNIZED : result;
     }
@@ -451,8 +268,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField getCallField() {
     if (fieldCase_ == 4) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField result = com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField result = com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField.UNRECOGNIZED : result;
     }
@@ -495,8 +311,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField getAppField() {
     if (fieldCase_ == 5) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField result = com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField result = com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField.UNRECOGNIZED : result;
     }
@@ -539,8 +354,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField getLocationField() {
     if (fieldCase_ == 6) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField result = com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField result = com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField.UNRECOGNIZED : result;
     }
@@ -583,8 +397,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField getAffiliateLocationField() {
     if (fieldCase_ == 7) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField result = com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField result = com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField.UNRECOGNIZED : result;
     }
@@ -627,8 +440,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField getCalloutField() {
     if (fieldCase_ == 8) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField result = com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField result = com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField.UNRECOGNIZED : result;
     }
@@ -671,8 +483,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField getStructuredSnippetField() {
     if (fieldCase_ == 9) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField result = com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField result = com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField.UNRECOGNIZED : result;
     }
@@ -715,8 +526,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField getMessageField() {
     if (fieldCase_ == 10) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField result = com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField result = com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField.UNRECOGNIZED : result;
     }
@@ -759,8 +569,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField getPriceField() {
     if (fieldCase_ == 11) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField result = com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField result = com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField.UNRECOGNIZED : result;
     }
@@ -803,8 +612,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField getPromotionField() {
     if (fieldCase_ == 12) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField result = com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField result = com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField.UNRECOGNIZED : result;
     }
@@ -847,8 +655,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField getAdCustomizerField() {
     if (fieldCase_ == 13) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField result = com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField result = com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField.UNRECOGNIZED : result;
     }
@@ -891,8 +698,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField getDsaPageFeedField() {
     if (fieldCase_ == 14) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField result = com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField.valueOf(
+      com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField result = com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField.UNRECOGNIZED : result;
     }
@@ -935,8 +741,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField getLocationExtensionTargetingField() {
     if (fieldCase_ == 15) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField result = com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField.valueOf(
+      com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField result = com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField.UNRECOGNIZED : result;
     }
@@ -979,8 +784,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField getEducationField() {
     if (fieldCase_ == 16) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField result = com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField result = com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1023,8 +827,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField getFlightField() {
     if (fieldCase_ == 17) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField result = com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField result = com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1067,8 +870,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField getCustomField() {
     if (fieldCase_ == 18) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField result = com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField result = com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1111,8 +913,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField getHotelField() {
     if (fieldCase_ == 19) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField result = com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField result = com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1155,8 +956,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField getRealEstateField() {
     if (fieldCase_ == 20) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField result = com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField result = com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField.UNRECOGNIZED : result;
     }
@@ -1199,8 +999,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField getTravelField() {
     if (fieldCase_ == 21) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField result = com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField result = com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1243,8 +1042,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField getLocalField() {
     if (fieldCase_ == 22) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField result = com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField result = com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1287,8 +1085,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField getJobField() {
     if (fieldCase_ == 23) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField result = com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField result = com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField.UNRECOGNIZED : result;
     }
@@ -1331,8 +1128,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField getImageField() {
     if (fieldCase_ == 26) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField result = com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField.valueOf(
+      com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField result = com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField.forNumber(
           (java.lang.Integer) field_);
       return result == null ? com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField.UNRECOGNIZED : result;
     }
@@ -1425,7 +1221,7 @@ private static final long serialVersionUID = 0L;
     if (fieldCase_ == 26) {
       output.writeEnum(26, ((java.lang.Integer) field_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1530,7 +1326,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(26, ((java.lang.Integer) field_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1648,7 +1444,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1761,7 +1557,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1882,26 +1678,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.AttributeFieldMapping.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       feedAttributeId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       fieldId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       fieldCase_ = 0;
       field_ = null;
       return this;
@@ -1930,6 +1720,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.AttributeFieldMapping buildPartial() {
       com.google.ads.googleads.v11.resources.AttributeFieldMapping result = new com.google.ads.googleads.v11.resources.AttributeFieldMapping(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.AttributeFieldMapping result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1940,76 +1737,12 @@ private static final long serialVersionUID = 0L;
         result.fieldId_ = fieldId_;
         to_bitField0_ |= 0x00000002;
       }
-      if (fieldCase_ == 3) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 4) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 5) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 6) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 7) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 8) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 9) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 10) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 11) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 12) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 13) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 14) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 15) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 16) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 17) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 18) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 19) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 20) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 21) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 22) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 23) {
-        result.field_ = field_;
-      }
-      if (fieldCase_ == 26) {
-        result.field_ = field_;
-      }
-      result.bitField0_ = to_bitField0_;
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.resources.AttributeFieldMapping result) {
       result.fieldCase_ = fieldCase_;
-      onBuilt();
-      return result;
+      result.field_ = this.field_;
     }
 
     @java.lang.Override
@@ -2155,7 +1888,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2170,17 +1903,172 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.AttributeFieldMapping parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 24: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 3;
+              field_ = rawValue;
+              break;
+            } // case 24
+            case 32: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 4;
+              field_ = rawValue;
+              break;
+            } // case 32
+            case 40: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 5;
+              field_ = rawValue;
+              break;
+            } // case 40
+            case 48: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 6;
+              field_ = rawValue;
+              break;
+            } // case 48
+            case 56: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 7;
+              field_ = rawValue;
+              break;
+            } // case 56
+            case 64: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 8;
+              field_ = rawValue;
+              break;
+            } // case 64
+            case 72: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 9;
+              field_ = rawValue;
+              break;
+            } // case 72
+            case 80: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 10;
+              field_ = rawValue;
+              break;
+            } // case 80
+            case 88: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 11;
+              field_ = rawValue;
+              break;
+            } // case 88
+            case 96: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 12;
+              field_ = rawValue;
+              break;
+            } // case 96
+            case 104: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 13;
+              field_ = rawValue;
+              break;
+            } // case 104
+            case 112: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 14;
+              field_ = rawValue;
+              break;
+            } // case 112
+            case 120: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 15;
+              field_ = rawValue;
+              break;
+            } // case 120
+            case 128: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 16;
+              field_ = rawValue;
+              break;
+            } // case 128
+            case 136: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 17;
+              field_ = rawValue;
+              break;
+            } // case 136
+            case 144: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 18;
+              field_ = rawValue;
+              break;
+            } // case 144
+            case 152: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 19;
+              field_ = rawValue;
+              break;
+            } // case 152
+            case 160: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 20;
+              field_ = rawValue;
+              break;
+            } // case 160
+            case 168: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 21;
+              field_ = rawValue;
+              break;
+            } // case 168
+            case 176: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 22;
+              field_ = rawValue;
+              break;
+            } // case 176
+            case 184: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 23;
+              field_ = rawValue;
+              break;
+            } // case 184
+            case 192: {
+              feedAttributeId_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 192
+            case 200: {
+              fieldId_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 200
+            case 208: {
+              int rawValue = input.readEnum();
+              fieldCase_ = 26;
+              field_ = rawValue;
+              break;
+            } // case 208
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.AttributeFieldMapping) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int fieldCase_ = 0;
@@ -2235,8 +2123,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFeedAttributeId(long value) {
-      bitField0_ |= 0x00000001;
+      
       feedAttributeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2299,8 +2188,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFieldId(long value) {
-      bitField0_ |= 0x00000002;
+      
       fieldId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2375,8 +2265,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField getSitelinkField() {
       if (fieldCase_ == 3) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField result = com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField result = com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.SitelinkPlaceholderFieldEnum.SitelinkPlaceholderField.UNRECOGNIZED : result;
       }
@@ -2470,8 +2359,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField getCallField() {
       if (fieldCase_ == 4) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField result = com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField result = com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.CallPlaceholderFieldEnum.CallPlaceholderField.UNRECOGNIZED : result;
       }
@@ -2565,8 +2453,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField getAppField() {
       if (fieldCase_ == 5) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField result = com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField result = com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.AppPlaceholderFieldEnum.AppPlaceholderField.UNRECOGNIZED : result;
       }
@@ -2660,8 +2547,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField getLocationField() {
       if (fieldCase_ == 6) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField result = com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField result = com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.LocationPlaceholderFieldEnum.LocationPlaceholderField.UNRECOGNIZED : result;
       }
@@ -2755,8 +2641,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField getAffiliateLocationField() {
       if (fieldCase_ == 7) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField result = com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField result = com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.AffiliateLocationPlaceholderFieldEnum.AffiliateLocationPlaceholderField.UNRECOGNIZED : result;
       }
@@ -2850,8 +2735,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField getCalloutField() {
       if (fieldCase_ == 8) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField result = com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField result = com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.CalloutPlaceholderFieldEnum.CalloutPlaceholderField.UNRECOGNIZED : result;
       }
@@ -2945,8 +2829,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField getStructuredSnippetField() {
       if (fieldCase_ == 9) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField result = com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField result = com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.StructuredSnippetPlaceholderFieldEnum.StructuredSnippetPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3040,8 +2923,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField getMessageField() {
       if (fieldCase_ == 10) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField result = com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField result = com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.MessagePlaceholderFieldEnum.MessagePlaceholderField.UNRECOGNIZED : result;
       }
@@ -3135,8 +3017,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField getPriceField() {
       if (fieldCase_ == 11) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField result = com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField result = com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.PricePlaceholderFieldEnum.PricePlaceholderField.UNRECOGNIZED : result;
       }
@@ -3230,8 +3111,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField getPromotionField() {
       if (fieldCase_ == 12) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField result = com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField result = com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.PromotionPlaceholderFieldEnum.PromotionPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3325,8 +3205,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField getAdCustomizerField() {
       if (fieldCase_ == 13) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField result = com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField result = com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.AdCustomizerPlaceholderFieldEnum.AdCustomizerPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3420,8 +3299,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField getDsaPageFeedField() {
       if (fieldCase_ == 14) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField result = com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField.valueOf(
+        com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField result = com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.DsaPageFeedCriterionFieldEnum.DsaPageFeedCriterionField.UNRECOGNIZED : result;
       }
@@ -3515,8 +3393,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField getLocationExtensionTargetingField() {
       if (fieldCase_ == 15) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField result = com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField.valueOf(
+        com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField result = com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.LocationExtensionTargetingCriterionFieldEnum.LocationExtensionTargetingCriterionField.UNRECOGNIZED : result;
       }
@@ -3610,8 +3487,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField getEducationField() {
       if (fieldCase_ == 16) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField result = com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField result = com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.EducationPlaceholderFieldEnum.EducationPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3705,8 +3581,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField getFlightField() {
       if (fieldCase_ == 17) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField result = com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField result = com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.FlightPlaceholderFieldEnum.FlightPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3800,8 +3675,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField getCustomField() {
       if (fieldCase_ == 18) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField result = com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField result = com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.CustomPlaceholderFieldEnum.CustomPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3895,8 +3769,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField getHotelField() {
       if (fieldCase_ == 19) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField result = com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField result = com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.HotelPlaceholderFieldEnum.HotelPlaceholderField.UNRECOGNIZED : result;
       }
@@ -3990,8 +3863,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField getRealEstateField() {
       if (fieldCase_ == 20) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField result = com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField result = com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.RealEstatePlaceholderFieldEnum.RealEstatePlaceholderField.UNRECOGNIZED : result;
       }
@@ -4085,8 +3957,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField getTravelField() {
       if (fieldCase_ == 21) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField result = com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField result = com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.TravelPlaceholderFieldEnum.TravelPlaceholderField.UNRECOGNIZED : result;
       }
@@ -4180,8 +4051,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField getLocalField() {
       if (fieldCase_ == 22) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField result = com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField result = com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.LocalPlaceholderFieldEnum.LocalPlaceholderField.UNRECOGNIZED : result;
       }
@@ -4275,8 +4145,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField getJobField() {
       if (fieldCase_ == 23) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField result = com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField result = com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.JobPlaceholderFieldEnum.JobPlaceholderField.UNRECOGNIZED : result;
       }
@@ -4370,8 +4239,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField getImageField() {
       if (fieldCase_ == 26) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField result = com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField.valueOf(
+        com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField result = com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField.forNumber(
             (java.lang.Integer) field_);
         return result == null ? com.google.ads.googleads.v11.enums.ImagePlaceholderFieldEnum.ImagePlaceholderField.UNRECOGNIZED : result;
       }
@@ -4444,7 +4312,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttributeFieldMapping(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AwsServicesAuthentication(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            roleArn_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            roleSessionName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AwsResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AwsServicesAuthentication_descriptor;
@@ -101,11 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLE_ARN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object roleArn_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object roleArn_ = "";
   /**
    * <pre>
-   * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-   * will assume when managing AWS resources on your account.
+   * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+   * Multi-Cloud API will assume when managing AWS resources on your account.
    * </pre>
    *
    * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -126,8 +76,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-   * will assume when managing AWS resources on your account.
+   * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+   * Multi-Cloud API will assume when managing AWS resources on your account.
    * </pre>
    *
    * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -149,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLE_SESSION_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object roleSessionName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object roleSessionName_ = "";
   /**
    * <pre>
    * Optional. An identifier for the assumed role session.
@@ -216,7 +167,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roleSessionName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, roleSessionName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -231,7 +182,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(roleSessionName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, roleSessionName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +201,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRoleArn())) return false;
     if (!getRoleSessionName()
         .equals(other.getRoleSessionName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -265,7 +216,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getRoleArn().hashCode();
     hash = (37 * hash) + ROLE_SESSION_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getRoleSessionName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -386,26 +337,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       roleArn_ = "";
-
       roleSessionName_ = "";
-
       return this;
     }
 
@@ -432,10 +377,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication buildPartial() {
       com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication result = new com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication(this);
-      result.roleArn_ = roleArn_;
-      result.roleSessionName_ = roleSessionName_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.roleArn_ = roleArn_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.roleSessionName_ = roleSessionName_;
+      }
     }
 
     @java.lang.Override
@@ -484,13 +438,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication.getDefaultInstance()) return this;
       if (!other.getRoleArn().isEmpty()) {
         roleArn_ = other.roleArn_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRoleSessionName().isEmpty()) {
         roleSessionName_ = other.roleSessionName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -505,25 +461,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              roleArn_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              roleSessionName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AwsServicesAuthentication) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object roleArn_ = "";
     /**
      * <pre>
-     * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-     * will assume when managing AWS resources on your account.
+     * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+     * Multi-Cloud API will assume when managing AWS resources on your account.
      * </pre>
      *
      * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -543,8 +523,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-     * will assume when managing AWS resources on your account.
+     * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+     * Multi-Cloud API will assume when managing AWS resources on your account.
      * </pre>
      *
      * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -565,8 +545,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-     * will assume when managing AWS resources on your account.
+     * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+     * Multi-Cloud API will assume when managing AWS resources on your account.
      * </pre>
      *
      * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -575,33 +555,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleArn(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       roleArn_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-     * will assume when managing AWS resources on your account.
+     * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+     * Multi-Cloud API will assume when managing AWS resources on your account.
      * </pre>
      *
      * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearRoleArn() {
-      
       roleArn_ = getDefaultInstance().getRoleArn();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The Amazon Resource Name (ARN) of the role that the Anthos Multi-Cloud API
-     * will assume when managing AWS resources on your account.
+     * Required. The Amazon Resource Name (ARN) of the role that the Anthos
+     * Multi-Cloud API will assume when managing AWS resources on your account.
      * </pre>
      *
      * <code>string role_arn = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -610,12 +588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleArnBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       roleArn_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -676,11 +652,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleSessionName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       roleSessionName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -694,8 +668,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRoleSessionName() {
-      
       roleSessionName_ = getDefaultInstance().getRoleSessionName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -711,12 +685,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRoleSessionNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       roleSessionName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -753,7 +725,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AwsServicesAuthentication(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

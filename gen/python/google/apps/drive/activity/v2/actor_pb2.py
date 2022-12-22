@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.apps.drive.activity.v2 import common_pb2 as google_dot_apps_dot_drive_dot_activity_dot_v2_dot_common__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)google/apps/drive/activity/v2/actor.proto\x12\x1dgoogle.apps.drive.activity.v2\x1a*google/apps/drive/activity/v2/common.proto\"\xd3\x02\n\x05\x41\x63tor\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32#.google.apps.drive.activity.v2.UserH\x00\x12\x41\n\tanonymous\x18\x02 \x01(\x0b\x32,.google.apps.drive.activity.v2.AnonymousUserH\x00\x12\x45\n\rimpersonation\x18\x03 \x01(\x0b\x32,.google.apps.drive.activity.v2.ImpersonationH\x00\x12<\n\x06system\x18\x04 \x01(\x0b\x32*.google.apps.drive.activity.v2.SystemEventH\x00\x12\x45\n\radministrator\x18\x05 \x01(\x0b\x32,.google.apps.drive.activity.v2.AdministratorH\x00\x42\x06\n\x04type\"\xbe\x02\n\x04User\x12\x43\n\nknown_user\x18\x02 \x01(\x0b\x32-.google.apps.drive.activity.v2.User.KnownUserH\x00\x12G\n\x0c\x64\x65leted_user\x18\x03 \x01(\x0b\x32/.google.apps.drive.activity.v2.User.DeletedUserH\x00\x12G\n\x0cunknown_user\x18\x04 \x01(\x0b\x32/.google.apps.drive.activity.v2.User.UnknownUserH\x00\x1a\x39\n\tKnownUser\x12\x13\n\x0bperson_name\x18\x01 \x01(\t\x12\x17\n\x0fis_current_user\x18\x02 \x01(\x08\x1a\r\n\x0b\x44\x65letedUser\x1a\r\n\x0bUnknownUserB\x06\n\x04type\"\x0f\n\rAnonymousUser\"O\n\rImpersonation\x12>\n\x11impersonated_user\x18\x01 \x01(\x0b\x32#.google.apps.drive.activity.v2.User\"\x93\x01\n\x0bSystemEvent\x12=\n\x04type\x18\x01 \x01(\x0e\x32/.google.apps.drive.activity.v2.SystemEvent.Type\"E\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x11\n\rUSER_DELETION\x10\x01\x12\x14\n\x10TRASH_AUTO_PURGE\x10\x02\"\x0f\n\rAdministratorB\xbf\x01\n!com.google.apps.drive.activity.v2B\nActorProtoP\x01ZEgoogle.golang.org/genproto/googleapis/apps/drive/activity/v2;activity\xa2\x02\x04GADA\xaa\x02\x1dGoogle.Apps.Drive.Activity.V2\xca\x02\x1dGoogle\\Apps\\Drive\\Activity\\V2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n)google/apps/drive/activity/v2/actor.proto\x12\x1dgoogle.apps.drive.activity.v2\"\xd3\x02\n\x05\x41\x63tor\x12\x33\n\x04user\x18\x01 \x01(\x0b\x32#.google.apps.drive.activity.v2.UserH\x00\x12\x41\n\tanonymous\x18\x02 \x01(\x0b\x32,.google.apps.drive.activity.v2.AnonymousUserH\x00\x12\x45\n\rimpersonation\x18\x03 \x01(\x0b\x32,.google.apps.drive.activity.v2.ImpersonationH\x00\x12<\n\x06system\x18\x04 \x01(\x0b\x32*.google.apps.drive.activity.v2.SystemEventH\x00\x12\x45\n\radministrator\x18\x05 \x01(\x0b\x32,.google.apps.drive.activity.v2.AdministratorH\x00\x42\x06\n\x04type\"\xbe\x02\n\x04User\x12\x43\n\nknown_user\x18\x02 \x01(\x0b\x32-.google.apps.drive.activity.v2.User.KnownUserH\x00\x12G\n\x0c\x64\x65leted_user\x18\x03 \x01(\x0b\x32/.google.apps.drive.activity.v2.User.DeletedUserH\x00\x12G\n\x0cunknown_user\x18\x04 \x01(\x0b\x32/.google.apps.drive.activity.v2.User.UnknownUserH\x00\x1a\x39\n\tKnownUser\x12\x13\n\x0bperson_name\x18\x01 \x01(\t\x12\x17\n\x0fis_current_user\x18\x02 \x01(\x08\x1a\r\n\x0b\x44\x65letedUser\x1a\r\n\x0bUnknownUserB\x06\n\x04type\"\x0f\n\rAnonymousUser\"O\n\rImpersonation\x12>\n\x11impersonated_user\x18\x01 \x01(\x0b\x32#.google.apps.drive.activity.v2.User\"\x93\x01\n\x0bSystemEvent\x12=\n\x04type\x18\x01 \x01(\x0e\x32/.google.apps.drive.activity.v2.SystemEvent.Type\"E\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x11\n\rUSER_DELETION\x10\x01\x12\x14\n\x10TRASH_AUTO_PURGE\x10\x02\"\x0f\n\rAdministratorB\xbf\x01\n!com.google.apps.drive.activity.v2B\nActorProtoP\x01ZEgoogle.golang.org/genproto/googleapis/apps/drive/activity/v2;activity\xa2\x02\x04GADA\xaa\x02\x1dGoogle.Apps.Drive.Activity.V2\xca\x02\x1dGoogle\\Apps\\Drive\\Activity\\V2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.apps.drive.activity.v2.actor_pb2', globals())
@@ -22,24 +21,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n!com.google.apps.drive.activity.v2B\nActorProtoP\001ZEgoogle.golang.org/genproto/googleapis/apps/drive/activity/v2;activity\242\002\004GADA\252\002\035Google.Apps.Drive.Activity.V2\312\002\035Google\\Apps\\Drive\\Activity\\V2'
-  _ACTOR._serialized_start=121
-  _ACTOR._serialized_end=460
-  _USER._serialized_start=463
-  _USER._serialized_end=781
-  _USER_KNOWNUSER._serialized_start=686
-  _USER_KNOWNUSER._serialized_end=743
-  _USER_DELETEDUSER._serialized_start=745
-  _USER_DELETEDUSER._serialized_end=758
-  _USER_UNKNOWNUSER._serialized_start=760
-  _USER_UNKNOWNUSER._serialized_end=773
-  _ANONYMOUSUSER._serialized_start=783
-  _ANONYMOUSUSER._serialized_end=798
-  _IMPERSONATION._serialized_start=800
-  _IMPERSONATION._serialized_end=879
-  _SYSTEMEVENT._serialized_start=882
-  _SYSTEMEVENT._serialized_end=1029
-  _SYSTEMEVENT_TYPE._serialized_start=960
-  _SYSTEMEVENT_TYPE._serialized_end=1029
-  _ADMINISTRATOR._serialized_start=1031
-  _ADMINISTRATOR._serialized_end=1046
+  _ACTOR._serialized_start=77
+  _ACTOR._serialized_end=416
+  _USER._serialized_start=419
+  _USER._serialized_end=737
+  _USER_KNOWNUSER._serialized_start=642
+  _USER_KNOWNUSER._serialized_end=699
+  _USER_DELETEDUSER._serialized_start=701
+  _USER_DELETEDUSER._serialized_end=714
+  _USER_UNKNOWNUSER._serialized_start=716
+  _USER_UNKNOWNUSER._serialized_end=729
+  _ANONYMOUSUSER._serialized_start=739
+  _ANONYMOUSUSER._serialized_end=754
+  _IMPERSONATION._serialized_start=756
+  _IMPERSONATION._serialized_end=835
+  _SYSTEMEVENT._serialized_start=838
+  _SYSTEMEVENT._serialized_end=985
+  _SYSTEMEVENT_TYPE._serialized_start=916
+  _SYSTEMEVENT_TYPE._serialized_end=985
+  _ADMINISTRATOR._serialized_start=987
+  _ADMINISTRATOR._serialized_end=1002
 # @@protoc_insertion_point(module_scope)

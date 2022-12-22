@@ -215,6 +215,11 @@ public final class FeaturestoreServiceProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesOperationMetadata_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesOperationMetadata_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesOperationMetadata_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
     internal_static_google_cloud_aiplatform_v1beta1_CreateEntityTypeOperationMetadata_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -229,6 +234,31 @@ public final class FeaturestoreServiceProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_google_cloud_aiplatform_v1beta1_BatchCreateFeaturesOperationMetadata_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectEntity_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectEntity_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectTimeRangeAndFeature_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectTimeRangeAndFeature_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesResponse_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesResponse_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_google_cloud_aiplatform_v1beta1_EntityIdSelector_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_google_cloud_aiplatform_v1beta1_EntityIdSelector_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -253,321 +283,357 @@ public final class FeaturestoreServiceProto {
       "m/v1beta1/operation.proto\032#google/longru" +
       "nning/operations.proto\032 google/protobuf/" +
       "field_mask.proto\032\037google/protobuf/timest" +
-      "amp.proto\"\303\001\n\031CreateFeaturestoreRequest\022" +
-      ">\n\006parent\030\001 \001(\tB.\340A\002\372A(\022&aiplatform.goog" +
-      "leapis.com/Featurestore\022H\n\014featurestore\030" +
-      "\002 \001(\0132-.google.cloud.aiplatform.v1beta1." +
-      "FeaturestoreB\003\340A\002\022\034\n\017featurestore_id\030\003 \001" +
-      "(\tB\003\340A\002\"V\n\026GetFeaturestoreRequest\022<\n\004nam" +
-      "e\030\001 \001(\tB.\340A\002\372A(\n&aiplatform.googleapis.c" +
-      "om/Featurestore\"\322\001\n\030ListFeaturestoresReq" +
-      "uest\022>\n\006parent\030\001 \001(\tB.\340A\002\372A(\022&aiplatform" +
-      ".googleapis.com/Featurestore\022\016\n\006filter\030\002" +
-      " \001(\t\022\021\n\tpage_size\030\003 \001(\005\022\022\n\npage_token\030\004 " +
-      "\001(\t\022\020\n\010order_by\030\005 \001(\t\022-\n\tread_mask\030\006 \001(\013" +
-      "2\032.google.protobuf.FieldMask\"z\n\031ListFeat" +
-      "urestoresResponse\022D\n\rfeaturestores\030\001 \003(\013" +
-      "2-.google.cloud.aiplatform.v1beta1.Featu" +
-      "restore\022\027\n\017next_page_token\030\002 \001(\t\"\226\001\n\031Upd" +
-      "ateFeaturestoreRequest\022H\n\014featurestore\030\001" +
-      " \001(\0132-.google.cloud.aiplatform.v1beta1.F" +
-      "eaturestoreB\003\340A\002\022/\n\013update_mask\030\002 \001(\0132\032." +
-      "google.protobuf.FieldMask\"h\n\031DeleteFeatu" +
-      "restoreRequest\022<\n\004name\030\001 \001(\tB.\340A\002\372A(\n&ai" +
-      "platform.googleapis.com/Featurestore\022\r\n\005" +
-      "force\030\002 \001(\010\"\262\005\n\032ImportFeatureValuesReque" +
-      "st\022B\n\013avro_source\030\002 \001(\0132+.google.cloud.a" +
-      "iplatform.v1beta1.AvroSourceH\000\022J\n\017bigque" +
-      "ry_source\030\003 \001(\0132/.google.cloud.aiplatfor" +
-      "m.v1beta1.BigQuerySourceH\000\022@\n\ncsv_source" +
-      "\030\004 \001(\0132*.google.cloud.aiplatform.v1beta1" +
-      ".CsvSourceH\000\022\034\n\022feature_time_field\030\006 \001(\t" +
-      "H\001\0222\n\014feature_time\030\007 \001(\0132\032.google.protob" +
-      "uf.TimestampH\001\022A\n\013entity_type\030\001 \001(\tB,\340A\002" +
-      "\372A&\n$aiplatform.googleapis.com/EntityTyp" +
-      "e\022\027\n\017entity_id_field\030\005 \001(\t\022c\n\rfeature_sp" +
-      "ecs\030\010 \003(\0132G.google.cloud.aiplatform.v1be" +
-      "ta1.ImportFeatureValuesRequest.FeatureSp" +
-      "ecB\003\340A\002\022\036\n\026disable_online_serving\030\t \001(\010\022" +
-      "\024\n\014worker_count\030\013 \001(\005\022\"\n\032disable_ingesti" +
-      "on_analysis\030\014 \001(\010\0324\n\013FeatureSpec\022\017\n\002id\030\001" +
-      " \001(\tB\003\340A\002\022\024\n\014source_field\030\002 \001(\tB\010\n\006sourc" +
-      "eB\025\n\023feature_time_source\"}\n\033ImportFeatur" +
-      "eValuesResponse\022\035\n\025imported_entity_count" +
-      "\030\001 \001(\003\022$\n\034imported_feature_value_count\030\002" +
-      " \001(\003\022\031\n\021invalid_row_count\030\006 \001(\003\"\277\006\n\035Batc" +
-      "hReadFeatureValuesRequest\022H\n\022csv_read_in" +
-      "stances\030\003 \001(\0132*.google.cloud.aiplatform." +
-      "v1beta1.CsvSourceH\000\022R\n\027bigquery_read_ins" +
-      "tances\030\005 \001(\0132/.google.cloud.aiplatform.v" +
-      "1beta1.BigQuerySourceH\000\022D\n\014featurestore\030" +
-      "\001 \001(\tB.\340A\002\372A(\n&aiplatform.googleapis.com" +
-      "/Featurestore\022R\n\013destination\030\004 \001(\01328.goo" +
-      "gle.cloud.aiplatform.v1beta1.FeatureValu" +
-      "eDestinationB\003\340A\002\022l\n\023pass_through_fields" +
-      "\030\010 \003(\0132O.google.cloud.aiplatform.v1beta1" +
-      ".BatchReadFeatureValuesRequest.PassThrou" +
-      "ghField\022m\n\021entity_type_specs\030\007 \003(\0132M.goo" +
-      "gle.cloud.aiplatform.v1beta1.BatchReadFe" +
-      "atureValuesRequest.EntityTypeSpecB\003\340A\002\032+" +
-      "\n\020PassThroughField\022\027\n\nfield_name\030\001 \001(\tB\003" +
-      "\340A\002\032\314\001\n\016EntityTypeSpec\022\033\n\016entity_type_id" +
-      "\030\001 \001(\tB\003\340A\002\022O\n\020feature_selector\030\002 \001(\01320." +
-      "google.cloud.aiplatform.v1beta1.FeatureS" +
-      "electorB\003\340A\002\022L\n\010settings\030\003 \003(\0132:.google." +
-      "cloud.aiplatform.v1beta1.DestinationFeat" +
-      "ureSettingB\r\n\013read_option\"\201\006\n\032ExportFeat" +
-      "ureValuesRequest\022e\n\017snapshot_export\030\003 \001(" +
-      "\0132J.google.cloud.aiplatform.v1beta1.Expo" +
-      "rtFeatureValuesRequest.SnapshotExportH\000\022" +
-      "]\n\013full_export\030\007 \001(\0132F.google.cloud.aipl" +
-      "atform.v1beta1.ExportFeatureValuesReques" +
-      "t.FullExportH\000\022A\n\013entity_type\030\001 \001(\tB,\340A\002" +
-      "\372A&\n$aiplatform.googleapis.com/EntityTyp" +
-      "e\022R\n\013destination\030\004 \001(\01328.google.cloud.ai" +
-      "platform.v1beta1.FeatureValueDestination" +
-      "B\003\340A\002\022O\n\020feature_selector\030\005 \001(\01320.google" +
-      ".cloud.aiplatform.v1beta1.FeatureSelecto" +
-      "rB\003\340A\002\022L\n\010settings\030\006 \003(\0132:.google.cloud." +
-      "aiplatform.v1beta1.DestinationFeatureSet" +
-      "ting\032s\n\016SnapshotExport\0221\n\rsnapshot_time\030" +
-      "\001 \001(\0132\032.google.protobuf.Timestamp\022.\n\nsta" +
-      "rt_time\030\002 \001(\0132\032.google.protobuf.Timestam" +
-      "p\032j\n\nFullExport\022.\n\nstart_time\030\002 \001(\0132\032.go" +
-      "ogle.protobuf.Timestamp\022,\n\010end_time\030\001 \001(" +
-      "\0132\032.google.protobuf.TimestampB\006\n\004mode\"O\n" +
-      "\031DestinationFeatureSetting\022\027\n\nfeature_id" +
-      "\030\001 \001(\tB\003\340A\002\022\031\n\021destination_field\030\002 \001(\t\"\240" +
-      "\002\n\027FeatureValueDestination\022T\n\024bigquery_d" +
-      "estination\030\001 \001(\01324.google.cloud.aiplatfo" +
-      "rm.v1beta1.BigQueryDestinationH\000\022T\n\024tfre" +
-      "cord_destination\030\002 \001(\01324.google.cloud.ai" +
-      "platform.v1beta1.TFRecordDestinationH\000\022J" +
-      "\n\017csv_destination\030\003 \001(\0132/.google.cloud.a" +
-      "iplatform.v1beta1.CsvDestinationH\000B\r\n\013de" +
-      "stination\"\035\n\033ExportFeatureValuesResponse" +
-      "\" \n\036BatchReadFeatureValuesResponse\"\270\001\n\027C" +
-      "reateEntityTypeRequest\022>\n\006parent\030\001 \001(\tB." +
-      "\340A\002\372A(\n&aiplatform.googleapis.com/Featur" +
-      "estore\022@\n\013entity_type\030\002 \001(\0132+.google.clo" +
-      "ud.aiplatform.v1beta1.EntityType\022\033\n\016enti" +
-      "ty_type_id\030\003 \001(\tB\003\340A\002\"R\n\024GetEntityTypeRe" +
-      "quest\022:\n\004name\030\001 \001(\tB,\340A\002\372A&\n$aiplatform." +
-      "googleapis.com/EntityType\"\316\001\n\026ListEntity" +
-      "TypesRequest\022<\n\006parent\030\001 \001(\tB,\340A\002\372A&\022$ai" +
-      "platform.googleapis.com/EntityType\022\016\n\006fi" +
-      "lter\030\002 \001(\t\022\021\n\tpage_size\030\003 \001(\005\022\022\n\npage_to" +
-      "ken\030\004 \001(\t\022\020\n\010order_by\030\005 \001(\t\022-\n\tread_mask" +
-      "\030\006 \001(\0132\032.google.protobuf.FieldMask\"u\n\027Li" +
-      "stEntityTypesResponse\022A\n\014entity_types\030\001 " +
-      "\003(\0132+.google.cloud.aiplatform.v1beta1.En" +
-      "tityType\022\027\n\017next_page_token\030\002 \001(\t\"\221\001\n\027Up" +
-      "dateEntityTypeRequest\022E\n\013entity_type\030\001 \001" +
-      "(\0132+.google.cloud.aiplatform.v1beta1.Ent" +
-      "ityTypeB\003\340A\002\022/\n\013update_mask\030\002 \001(\0132\032.goog" +
-      "le.protobuf.FieldMask\"d\n\027DeleteEntityTyp" +
-      "eRequest\022:\n\004name\030\001 \001(\tB,\340A\002\372A&\n$aiplatfo" +
-      "rm.googleapis.com/EntityType\022\r\n\005force\030\002 " +
-      "\001(\010\"\255\001\n\024CreateFeatureRequest\022<\n\006parent\030\001" +
-      " \001(\tB,\340A\002\372A&\n$aiplatform.googleapis.com/" +
-      "EntityType\022>\n\007feature\030\002 \001(\0132(.google.clo" +
-      "ud.aiplatform.v1beta1.FeatureB\003\340A\002\022\027\n\nfe" +
-      "ature_id\030\003 \001(\tB\003\340A\002\"\250\001\n\032BatchCreateFeatu" +
-      "resRequest\022<\n\006parent\030\001 \001(\tB,\340A\002\372A&\n$aipl" +
-      "atform.googleapis.com/EntityType\022L\n\010requ" +
-      "ests\030\002 \003(\01325.google.cloud.aiplatform.v1b" +
-      "eta1.CreateFeatureRequestB\003\340A\002\"Y\n\033BatchC" +
-      "reateFeaturesResponse\022:\n\010features\030\001 \003(\0132" +
-      "(.google.cloud.aiplatform.v1beta1.Featur" +
-      "e\"L\n\021GetFeatureRequest\0227\n\004name\030\001 \001(\tB)\340A" +
-      "\002\372A#\n!aiplatform.googleapis.com/Feature\"" +
-      "\344\001\n\023ListFeaturesRequest\0229\n\006parent\030\001 \001(\tB" +
-      ")\340A\002\372A#\022!aiplatform.googleapis.com/Featu" +
-      "re\022\016\n\006filter\030\002 \001(\t\022\021\n\tpage_size\030\003 \001(\005\022\022\n" +
-      "\npage_token\030\004 \001(\t\022\020\n\010order_by\030\005 \001(\t\022-\n\tr" +
-      "ead_mask\030\006 \001(\0132\032.google.protobuf.FieldMa" +
-      "sk\022\032\n\022latest_stats_count\030\007 \001(\005\"k\n\024ListFe" +
-      "aturesResponse\022:\n\010features\030\001 \003(\0132(.googl" +
-      "e.cloud.aiplatform.v1beta1.Feature\022\027\n\017ne" +
-      "xt_page_token\030\002 \001(\t\"\212\001\n\025SearchFeaturesRe" +
-      "quest\022;\n\010location\030\001 \001(\tB)\340A\002\372A#\n!locatio" +
-      "ns.googleapis.com/Location\022\r\n\005query\030\003 \001(" +
-      "\t\022\021\n\tpage_size\030\004 \001(\005\022\022\n\npage_token\030\005 \001(\t" +
-      "\"m\n\026SearchFeaturesResponse\022:\n\010features\030\001" +
-      " \003(\0132(.google.cloud.aiplatform.v1beta1.F" +
-      "eature\022\027\n\017next_page_token\030\002 \001(\t\"\207\001\n\024Upda" +
-      "teFeatureRequest\022>\n\007feature\030\001 \001(\0132(.goog" +
-      "le.cloud.aiplatform.v1beta1.FeatureB\003\340A\002" +
-      "\022/\n\013update_mask\030\002 \001(\0132\032.google.protobuf." +
-      "FieldMask\"O\n\024DeleteFeatureRequest\0227\n\004nam" +
-      "e\030\001 \001(\tB)\340A\002\372A#\n!aiplatform.googleapis.c" +
-      "om/Feature\"z\n#CreateFeaturestoreOperatio" +
-      "nMetadata\022S\n\020generic_metadata\030\001 \001(\01329.go" +
-      "ogle.cloud.aiplatform.v1beta1.GenericOpe" +
-      "rationMetadata\"z\n#UpdateFeaturestoreOper" +
-      "ationMetadata\022S\n\020generic_metadata\030\001 \001(\0132" +
-      "9.google.cloud.aiplatform.v1beta1.Generi" +
-      "cOperationMetadata\"\333\001\n$ImportFeatureValu" +
-      "esOperationMetadata\022S\n\020generic_metadata\030" +
+      "amp.proto\032\032google/type/interval.proto\"\303\001" +
+      "\n\031CreateFeaturestoreRequest\022>\n\006parent\030\001 " +
+      "\001(\tB.\340A\002\372A(\022&aiplatform.googleapis.com/F" +
+      "eaturestore\022H\n\014featurestore\030\002 \001(\0132-.goog" +
+      "le.cloud.aiplatform.v1beta1.Featurestore" +
+      "B\003\340A\002\022\034\n\017featurestore_id\030\003 \001(\tB\003\340A\002\"V\n\026G" +
+      "etFeaturestoreRequest\022<\n\004name\030\001 \001(\tB.\340A\002" +
+      "\372A(\n&aiplatform.googleapis.com/Featurest" +
+      "ore\"\322\001\n\030ListFeaturestoresRequest\022>\n\006pare" +
+      "nt\030\001 \001(\tB.\340A\002\372A(\022&aiplatform.googleapis." +
+      "com/Featurestore\022\016\n\006filter\030\002 \001(\t\022\021\n\tpage" +
+      "_size\030\003 \001(\005\022\022\n\npage_token\030\004 \001(\t\022\020\n\010order" +
+      "_by\030\005 \001(\t\022-\n\tread_mask\030\006 \001(\0132\032.google.pr" +
+      "otobuf.FieldMask\"z\n\031ListFeaturestoresRes" +
+      "ponse\022D\n\rfeaturestores\030\001 \003(\0132-.google.cl" +
+      "oud.aiplatform.v1beta1.Featurestore\022\027\n\017n" +
+      "ext_page_token\030\002 \001(\t\"\226\001\n\031UpdateFeaturest" +
+      "oreRequest\022H\n\014featurestore\030\001 \001(\0132-.googl" +
+      "e.cloud.aiplatform.v1beta1.FeaturestoreB" +
+      "\003\340A\002\022/\n\013update_mask\030\002 \001(\0132\032.google.proto" +
+      "buf.FieldMask\"h\n\031DeleteFeaturestoreReque" +
+      "st\022<\n\004name\030\001 \001(\tB.\340A\002\372A(\n&aiplatform.goo" +
+      "gleapis.com/Featurestore\022\r\n\005force\030\002 \001(\010\"" +
+      "\262\005\n\032ImportFeatureValuesRequest\022B\n\013avro_s" +
+      "ource\030\002 \001(\0132+.google.cloud.aiplatform.v1" +
+      "beta1.AvroSourceH\000\022J\n\017bigquery_source\030\003 " +
+      "\001(\0132/.google.cloud.aiplatform.v1beta1.Bi" +
+      "gQuerySourceH\000\022@\n\ncsv_source\030\004 \001(\0132*.goo" +
+      "gle.cloud.aiplatform.v1beta1.CsvSourceH\000" +
+      "\022\034\n\022feature_time_field\030\006 \001(\tH\001\0222\n\014featur" +
+      "e_time\030\007 \001(\0132\032.google.protobuf.Timestamp" +
+      "H\001\022A\n\013entity_type\030\001 \001(\tB,\340A\002\372A&\n$aiplatf" +
+      "orm.googleapis.com/EntityType\022\027\n\017entity_" +
+      "id_field\030\005 \001(\t\022c\n\rfeature_specs\030\010 \003(\0132G." +
+      "google.cloud.aiplatform.v1beta1.ImportFe" +
+      "atureValuesRequest.FeatureSpecB\003\340A\002\022\036\n\026d" +
+      "isable_online_serving\030\t \001(\010\022\024\n\014worker_co" +
+      "unt\030\013 \001(\005\022\"\n\032disable_ingestion_analysis\030" +
+      "\014 \001(\010\0324\n\013FeatureSpec\022\017\n\002id\030\001 \001(\tB\003\340A\002\022\024\n" +
+      "\014source_field\030\002 \001(\tB\010\n\006sourceB\025\n\023feature" +
+      "_time_source\"\255\001\n\033ImportFeatureValuesResp" +
+      "onse\022\035\n\025imported_entity_count\030\001 \001(\003\022$\n\034i" +
+      "mported_feature_value_count\030\002 \001(\003\022\031\n\021inv" +
+      "alid_row_count\030\006 \001(\003\022.\n&timestamp_outsid" +
+      "e_retention_rows_count\030\004 \001(\003\"\364\006\n\035BatchRe" +
+      "adFeatureValuesRequest\022H\n\022csv_read_insta" +
+      "nces\030\003 \001(\0132*.google.cloud.aiplatform.v1b" +
+      "eta1.CsvSourceH\000\022R\n\027bigquery_read_instan" +
+      "ces\030\005 \001(\0132/.google.cloud.aiplatform.v1be" +
+      "ta1.BigQuerySourceH\000\022D\n\014featurestore\030\001 \001" +
+      "(\tB.\340A\002\372A(\n&aiplatform.googleapis.com/Fe" +
+      "aturestore\022R\n\013destination\030\004 \001(\01328.google" +
+      ".cloud.aiplatform.v1beta1.FeatureValueDe" +
+      "stinationB\003\340A\002\022l\n\023pass_through_fields\030\010 " +
+      "\003(\0132O.google.cloud.aiplatform.v1beta1.Ba" +
+      "tchReadFeatureValuesRequest.PassThroughF" +
+      "ield\022m\n\021entity_type_specs\030\007 \003(\0132M.google" +
+      ".cloud.aiplatform.v1beta1.BatchReadFeatu" +
+      "reValuesRequest.EntityTypeSpecB\003\340A\002\0223\n\ns" +
+      "tart_time\030\013 \001(\0132\032.google.protobuf.Timest" +
+      "ampB\003\340A\001\032+\n\020PassThroughField\022\027\n\nfield_na" +
+      "me\030\001 \001(\tB\003\340A\002\032\314\001\n\016EntityTypeSpec\022\033\n\016enti" +
+      "ty_type_id\030\001 \001(\tB\003\340A\002\022O\n\020feature_selecto" +
+      "r\030\002 \001(\01320.google.cloud.aiplatform.v1beta" +
+      "1.FeatureSelectorB\003\340A\002\022L\n\010settings\030\003 \003(\013" +
+      "2:.google.cloud.aiplatform.v1beta1.Desti" +
+      "nationFeatureSettingB\r\n\013read_option\"\201\006\n\032" +
+      "ExportFeatureValuesRequest\022e\n\017snapshot_e" +
+      "xport\030\003 \001(\0132J.google.cloud.aiplatform.v1" +
+      "beta1.ExportFeatureValuesRequest.Snapsho" +
+      "tExportH\000\022]\n\013full_export\030\007 \001(\0132F.google." +
+      "cloud.aiplatform.v1beta1.ExportFeatureVa" +
+      "luesRequest.FullExportH\000\022A\n\013entity_type\030" +
+      "\001 \001(\tB,\340A\002\372A&\n$aiplatform.googleapis.com" +
+      "/EntityType\022R\n\013destination\030\004 \001(\01328.googl" +
+      "e.cloud.aiplatform.v1beta1.FeatureValueD" +
+      "estinationB\003\340A\002\022O\n\020feature_selector\030\005 \001(" +
+      "\01320.google.cloud.aiplatform.v1beta1.Feat" +
+      "ureSelectorB\003\340A\002\022L\n\010settings\030\006 \003(\0132:.goo" +
+      "gle.cloud.aiplatform.v1beta1.Destination" +
+      "FeatureSetting\032s\n\016SnapshotExport\0221\n\rsnap" +
+      "shot_time\030\001 \001(\0132\032.google.protobuf.Timest" +
+      "amp\022.\n\nstart_time\030\002 \001(\0132\032.google.protobu" +
+      "f.Timestamp\032j\n\nFullExport\022.\n\nstart_time\030" +
+      "\002 \001(\0132\032.google.protobuf.Timestamp\022,\n\010end" +
+      "_time\030\001 \001(\0132\032.google.protobuf.TimestampB" +
+      "\006\n\004mode\"O\n\031DestinationFeatureSetting\022\027\n\n" +
+      "feature_id\030\001 \001(\tB\003\340A\002\022\031\n\021destination_fie" +
+      "ld\030\002 \001(\t\"\240\002\n\027FeatureValueDestination\022T\n\024" +
+      "bigquery_destination\030\001 \001(\01324.google.clou" +
+      "d.aiplatform.v1beta1.BigQueryDestination" +
+      "H\000\022T\n\024tfrecord_destination\030\002 \001(\01324.googl" +
+      "e.cloud.aiplatform.v1beta1.TFRecordDesti" +
+      "nationH\000\022J\n\017csv_destination\030\003 \001(\0132/.goog" +
+      "le.cloud.aiplatform.v1beta1.CsvDestinati" +
+      "onH\000B\r\n\013destination\"\035\n\033ExportFeatureValu" +
+      "esResponse\" \n\036BatchReadFeatureValuesResp" +
+      "onse\"\270\001\n\027CreateEntityTypeRequest\022>\n\006pare" +
+      "nt\030\001 \001(\tB.\340A\002\372A(\n&aiplatform.googleapis." +
+      "com/Featurestore\022@\n\013entity_type\030\002 \001(\0132+." +
+      "google.cloud.aiplatform.v1beta1.EntityTy" +
+      "pe\022\033\n\016entity_type_id\030\003 \001(\tB\003\340A\002\"R\n\024GetEn" +
+      "tityTypeRequest\022:\n\004name\030\001 \001(\tB,\340A\002\372A&\n$a" +
+      "iplatform.googleapis.com/EntityType\"\316\001\n\026" +
+      "ListEntityTypesRequest\022<\n\006parent\030\001 \001(\tB," +
+      "\340A\002\372A&\022$aiplatform.googleapis.com/Entity" +
+      "Type\022\016\n\006filter\030\002 \001(\t\022\021\n\tpage_size\030\003 \001(\005\022" +
+      "\022\n\npage_token\030\004 \001(\t\022\020\n\010order_by\030\005 \001(\t\022-\n" +
+      "\tread_mask\030\006 \001(\0132\032.google.protobuf.Field" +
+      "Mask\"u\n\027ListEntityTypesResponse\022A\n\014entit" +
+      "y_types\030\001 \003(\0132+.google.cloud.aiplatform." +
+      "v1beta1.EntityType\022\027\n\017next_page_token\030\002 " +
+      "\001(\t\"\221\001\n\027UpdateEntityTypeRequest\022E\n\013entit" +
+      "y_type\030\001 \001(\0132+.google.cloud.aiplatform.v" +
+      "1beta1.EntityTypeB\003\340A\002\022/\n\013update_mask\030\002 " +
+      "\001(\0132\032.google.protobuf.FieldMask\"d\n\027Delet" +
+      "eEntityTypeRequest\022:\n\004name\030\001 \001(\tB,\340A\002\372A&" +
+      "\n$aiplatform.googleapis.com/EntityType\022\r" +
+      "\n\005force\030\002 \001(\010\"\255\001\n\024CreateFeatureRequest\022<" +
+      "\n\006parent\030\001 \001(\tB,\340A\002\372A&\n$aiplatform.googl" +
+      "eapis.com/EntityType\022>\n\007feature\030\002 \001(\0132(." +
+      "google.cloud.aiplatform.v1beta1.FeatureB" +
+      "\003\340A\002\022\027\n\nfeature_id\030\003 \001(\tB\003\340A\002\"\250\001\n\032BatchC" +
+      "reateFeaturesRequest\022<\n\006parent\030\001 \001(\tB,\340A" +
+      "\002\372A&\n$aiplatform.googleapis.com/EntityTy" +
+      "pe\022L\n\010requests\030\002 \003(\01325.google.cloud.aipl" +
+      "atform.v1beta1.CreateFeatureRequestB\003\340A\002" +
+      "\"Y\n\033BatchCreateFeaturesResponse\022:\n\010featu" +
+      "res\030\001 \003(\0132(.google.cloud.aiplatform.v1be" +
+      "ta1.Feature\"L\n\021GetFeatureRequest\0227\n\004name" +
+      "\030\001 \001(\tB)\340A\002\372A#\n!aiplatform.googleapis.co" +
+      "m/Feature\"\344\001\n\023ListFeaturesRequest\0229\n\006par" +
+      "ent\030\001 \001(\tB)\340A\002\372A#\022!aiplatform.googleapis" +
+      ".com/Feature\022\016\n\006filter\030\002 \001(\t\022\021\n\tpage_siz" +
+      "e\030\003 \001(\005\022\022\n\npage_token\030\004 \001(\t\022\020\n\010order_by\030" +
+      "\005 \001(\t\022-\n\tread_mask\030\006 \001(\0132\032.google.protob" +
+      "uf.FieldMask\022\032\n\022latest_stats_count\030\007 \001(\005" +
+      "\"k\n\024ListFeaturesResponse\022:\n\010features\030\001 \003" +
+      "(\0132(.google.cloud.aiplatform.v1beta1.Fea" +
+      "ture\022\027\n\017next_page_token\030\002 \001(\t\"\212\001\n\025Search" +
+      "FeaturesRequest\022;\n\010location\030\001 \001(\tB)\340A\002\372A" +
+      "#\n!locations.googleapis.com/Location\022\r\n\005" +
+      "query\030\003 \001(\t\022\021\n\tpage_size\030\004 \001(\005\022\022\n\npage_t" +
+      "oken\030\005 \001(\t\"m\n\026SearchFeaturesResponse\022:\n\010" +
+      "features\030\001 \003(\0132(.google.cloud.aiplatform" +
+      ".v1beta1.Feature\022\027\n\017next_page_token\030\002 \001(" +
+      "\t\"\207\001\n\024UpdateFeatureRequest\022>\n\007feature\030\001 " +
+      "\001(\0132(.google.cloud.aiplatform.v1beta1.Fe" +
+      "atureB\003\340A\002\022/\n\013update_mask\030\002 \001(\0132\032.google" +
+      ".protobuf.FieldMask\"O\n\024DeleteFeatureRequ" +
+      "est\0227\n\004name\030\001 \001(\tB)\340A\002\372A#\n!aiplatform.go" +
+      "ogleapis.com/Feature\"z\n#CreateFeaturesto" +
+      "reOperationMetadata\022S\n\020generic_metadata\030" +
       "\001 \001(\01329.google.cloud.aiplatform.v1beta1." +
-      "GenericOperationMetadata\022\035\n\025imported_ent" +
-      "ity_count\030\002 \001(\003\022$\n\034imported_feature_valu" +
-      "e_count\030\003 \001(\003\022\031\n\021invalid_row_count\030\006 \001(\003" +
-      "\"{\n$ExportFeatureValuesOperationMetadata" +
-      "\022S\n\020generic_metadata\030\001 \001(\01329.google.clou" +
-      "d.aiplatform.v1beta1.GenericOperationMet" +
-      "adata\"~\n\'BatchReadFeatureValuesOperation" +
-      "Metadata\022S\n\020generic_metadata\030\001 \001(\01329.goo" +
-      "gle.cloud.aiplatform.v1beta1.GenericOper" +
-      "ationMetadata\"x\n!CreateEntityTypeOperati" +
-      "onMetadata\022S\n\020generic_metadata\030\001 \001(\01329.g" +
-      "oogle.cloud.aiplatform.v1beta1.GenericOp" +
-      "erationMetadata\"u\n\036CreateFeatureOperatio" +
-      "nMetadata\022S\n\020generic_metadata\030\001 \001(\01329.go" +
-      "ogle.cloud.aiplatform.v1beta1.GenericOpe" +
-      "rationMetadata\"{\n$BatchCreateFeaturesOpe" +
+      "GenericOperationMetadata\"z\n#UpdateFeatur" +
+      "estoreOperationMetadata\022S\n\020generic_metad" +
+      "ata\030\001 \001(\01329.google.cloud.aiplatform.v1be" +
+      "ta1.GenericOperationMetadata\"\240\002\n$ImportF" +
+      "eatureValuesOperationMetadata\022S\n\020generic" +
+      "_metadata\030\001 \001(\01329.google.cloud.aiplatfor" +
+      "m.v1beta1.GenericOperationMetadata\022\035\n\025im" +
+      "ported_entity_count\030\002 \001(\003\022$\n\034imported_fe" +
+      "ature_value_count\030\003 \001(\003\022\023\n\013source_uris\030\004" +
+      " \003(\t\022\031\n\021invalid_row_count\030\006 \001(\003\022.\n&times" +
+      "tamp_outside_retention_rows_count\030\007 \001(\003\"" +
+      "{\n$ExportFeatureValuesOperationMetadata\022" +
+      "S\n\020generic_metadata\030\001 \001(\01329.google.cloud" +
+      ".aiplatform.v1beta1.GenericOperationMeta" +
+      "data\"~\n\'BatchReadFeatureValuesOperationM" +
+      "etadata\022S\n\020generic_metadata\030\001 \001(\01329.goog" +
+      "le.cloud.aiplatform.v1beta1.GenericOpera" +
+      "tionMetadata\"{\n$DeleteFeatureValuesOpera" +
+      "tionMetadata\022S\n\020generic_metadata\030\001 \001(\01329" +
+      ".google.cloud.aiplatform.v1beta1.Generic" +
+      "OperationMetadata\"x\n!CreateEntityTypeOpe" +
       "rationMetadata\022S\n\020generic_metadata\030\001 \001(\013" +
       "29.google.cloud.aiplatform.v1beta1.Gener" +
-      "icOperationMetadata2\260)\n\023FeaturestoreServ" +
-      "ice\022\260\002\n\022CreateFeaturestore\022:.google.clou" +
-      "d.aiplatform.v1beta1.CreateFeaturestoreR" +
-      "equest\032\035.google.longrunning.Operation\"\276\001" +
-      "\202\323\344\223\002F\"6/v1beta1/{parent=projects/*/loca" +
-      "tions/*}/featurestores:\014featurestore\332A\023p" +
-      "arent,featurestore\332A#parent,featurestore" +
-      ",featurestore_id\312A3\n\014Featurestore\022#Creat" +
-      "eFeaturestoreOperationMetadata\022\300\001\n\017GetFe" +
-      "aturestore\0227.google.cloud.aiplatform.v1b" +
-      "eta1.GetFeaturestoreRequest\032-.google.clo" +
-      "ud.aiplatform.v1beta1.Featurestore\"E\202\323\344\223" +
-      "\0028\0226/v1beta1/{name=projects/*/locations/" +
-      "*/featurestores/*}\332A\004name\022\323\001\n\021ListFeatur" +
-      "estores\0229.google.cloud.aiplatform.v1beta" +
-      "1.ListFeaturestoresRequest\032:.google.clou" +
-      "d.aiplatform.v1beta1.ListFeaturestoresRe" +
-      "sponse\"G\202\323\344\223\0028\0226/v1beta1/{parent=project" +
-      "s/*/locations/*}/featurestores\332A\006parent\022" +
-      "\234\002\n\022UpdateFeaturestore\022:.google.cloud.ai" +
-      "platform.v1beta1.UpdateFeaturestoreReque" +
-      "st\032\035.google.longrunning.Operation\"\252\001\202\323\344\223" +
-      "\002S2C/v1beta1/{featurestore.name=projects" +
-      "/*/locations/*/featurestores/*}:\014feature" +
-      "store\332A\030featurestore,update_mask\312A3\n\014Fea" +
-      "turestore\022#UpdateFeaturestoreOperationMe" +
-      "tadata\022\367\001\n\022DeleteFeaturestore\022:.google.c" +
-      "loud.aiplatform.v1beta1.DeleteFeaturesto" +
-      "reRequest\032\035.google.longrunning.Operation" +
-      "\"\205\001\202\323\344\223\0028*6/v1beta1/{name=projects/*/loc" +
-      "ations/*/featurestores/*}\332A\004name\332A\nname," +
-      "force\312A0\n\025google.protobuf.Empty\022\027DeleteO" +
-      "perationMetadata\022\262\002\n\020CreateEntityType\0228." +
-      "google.cloud.aiplatform.v1beta1.CreateEn" +
-      "tityTypeRequest\032\035.google.longrunning.Ope" +
-      "ration\"\304\001\202\323\344\223\002S\"D/v1beta1/{parent=projec" +
-      "ts/*/locations/*/featurestores/*}/entity" +
-      "Types:\013entity_type\332A\022parent,entity_type\332" +
-      "A!parent,entity_type,entity_type_id\312A/\n\n" +
-      "EntityType\022!CreateEntityTypeOperationMet" +
-      "adata\022\310\001\n\rGetEntityType\0225.google.cloud.a" +
-      "iplatform.v1beta1.GetEntityTypeRequest\032+" +
-      ".google.cloud.aiplatform.v1beta1.EntityT" +
-      "ype\"S\202\323\344\223\002F\022D/v1beta1/{name=projects/*/l" +
+      "icOperationMetadata\"u\n\036CreateFeatureOper" +
+      "ationMetadata\022S\n\020generic_metadata\030\001 \001(\0132" +
+      "9.google.cloud.aiplatform.v1beta1.Generi" +
+      "cOperationMetadata\"{\n$BatchCreateFeature" +
+      "sOperationMetadata\022S\n\020generic_metadata\030\001" +
+      " \001(\01329.google.cloud.aiplatform.v1beta1.G" +
+      "enericOperationMetadata\"\371\004\n\032DeleteFeatur" +
+      "eValuesRequest\022a\n\rselect_entity\030\002 \001(\0132H." +
+      "google.cloud.aiplatform.v1beta1.DeleteFe" +
+      "atureValuesRequest.SelectEntityH\000\022~\n\035sel" +
+      "ect_time_range_and_feature\030\003 \001(\0132U.googl" +
+      "e.cloud.aiplatform.v1beta1.DeleteFeature" +
+      "ValuesRequest.SelectTimeRangeAndFeatureH" +
+      "\000\022A\n\013entity_type\030\001 \001(\tB,\340A\002\372A&\n$aiplatfo" +
+      "rm.googleapis.com/EntityType\032b\n\014SelectEn" +
+      "tity\022R\n\022entity_id_selector\030\001 \001(\01321.googl" +
+      "e.cloud.aiplatform.v1beta1.EntityIdSelec" +
+      "torB\003\340A\002\032\300\001\n\031SelectTimeRangeAndFeature\022." +
+      "\n\ntime_range\030\001 \001(\0132\025.google.type.Interva" +
+      "lB\003\340A\002\022O\n\020feature_selector\030\002 \001(\01320.googl" +
+      "e.cloud.aiplatform.v1beta1.FeatureSelect" +
+      "orB\003\340A\002\022\"\n\032skip_online_storage_delete\030\003 " +
+      "\001(\010B\016\n\014DeleteOption\"\035\n\033DeleteFeatureValu" +
+      "esResponse\"\200\001\n\020EntityIdSelector\022@\n\ncsv_s" +
+      "ource\030\003 \001(\0132*.google.cloud.aiplatform.v1" +
+      "beta1.CsvSourceH\000\022\027\n\017entity_id_field\030\005 \001" +
+      "(\tB\021\n\017EntityIdsSource2\345+\n\023FeaturestoreSe" +
+      "rvice\022\260\002\n\022CreateFeaturestore\022:.google.cl" +
+      "oud.aiplatform.v1beta1.CreateFeaturestor" +
+      "eRequest\032\035.google.longrunning.Operation\"" +
+      "\276\001\202\323\344\223\002F\"6/v1beta1/{parent=projects/*/lo" +
+      "cations/*}/featurestores:\014featurestore\332A" +
+      "\023parent,featurestore\332A#parent,featuresto" +
+      "re,featurestore_id\312A3\n\014Featurestore\022#Cre" +
+      "ateFeaturestoreOperationMetadata\022\300\001\n\017Get" +
+      "Featurestore\0227.google.cloud.aiplatform.v" +
+      "1beta1.GetFeaturestoreRequest\032-.google.c" +
+      "loud.aiplatform.v1beta1.Featurestore\"E\202\323" +
+      "\344\223\0028\0226/v1beta1/{name=projects/*/location" +
+      "s/*/featurestores/*}\332A\004name\022\323\001\n\021ListFeat" +
+      "urestores\0229.google.cloud.aiplatform.v1be" +
+      "ta1.ListFeaturestoresRequest\032:.google.cl" +
+      "oud.aiplatform.v1beta1.ListFeaturestores" +
+      "Response\"G\202\323\344\223\0028\0226/v1beta1/{parent=proje" +
+      "cts/*/locations/*}/featurestores\332A\006paren" +
+      "t\022\234\002\n\022UpdateFeaturestore\022:.google.cloud." +
+      "aiplatform.v1beta1.UpdateFeaturestoreReq" +
+      "uest\032\035.google.longrunning.Operation\"\252\001\202\323" +
+      "\344\223\002S2C/v1beta1/{featurestore.name=projec" +
+      "ts/*/locations/*/featurestores/*}:\014featu" +
+      "restore\332A\030featurestore,update_mask\312A3\n\014F" +
+      "eaturestore\022#UpdateFeaturestoreOperation" +
+      "Metadata\022\367\001\n\022DeleteFeaturestore\022:.google" +
+      ".cloud.aiplatform.v1beta1.DeleteFeatures" +
+      "toreRequest\032\035.google.longrunning.Operati" +
+      "on\"\205\001\202\323\344\223\0028*6/v1beta1/{name=projects/*/l" +
+      "ocations/*/featurestores/*}\332A\004name\332A\nnam" +
+      "e,force\312A0\n\025google.protobuf.Empty\022\027Delet" +
+      "eOperationMetadata\022\262\002\n\020CreateEntityType\022" +
+      "8.google.cloud.aiplatform.v1beta1.Create" +
+      "EntityTypeRequest\032\035.google.longrunning.O" +
+      "peration\"\304\001\202\323\344\223\002S\"D/v1beta1/{parent=proj" +
+      "ects/*/locations/*/featurestores/*}/enti" +
+      "tyTypes:\013entity_type\332A\022parent,entity_typ" +
+      "e\332A!parent,entity_type,entity_type_id\312A/" +
+      "\n\nEntityType\022!CreateEntityTypeOperationM" +
+      "etadata\022\310\001\n\rGetEntityType\0225.google.cloud" +
+      ".aiplatform.v1beta1.GetEntityTypeRequest" +
+      "\032+.google.cloud.aiplatform.v1beta1.Entit" +
+      "yType\"S\202\323\344\223\002F\022D/v1beta1/{name=projects/*" +
+      "/locations/*/featurestores/*/entityTypes" +
+      "/*}\332A\004name\022\333\001\n\017ListEntityTypes\0227.google." +
+      "cloud.aiplatform.v1beta1.ListEntityTypes" +
+      "Request\0328.google.cloud.aiplatform.v1beta" +
+      "1.ListEntityTypesResponse\"U\202\323\344\223\002F\022D/v1be" +
+      "ta1/{parent=projects/*/locations/*/featu" +
+      "restores/*}/entityTypes\332A\006parent\022\372\001\n\020Upd" +
+      "ateEntityType\0228.google.cloud.aiplatform." +
+      "v1beta1.UpdateEntityTypeRequest\032+.google" +
+      ".cloud.aiplatform.v1beta1.EntityType\"\177\202\323" +
+      "\344\223\002_2P/v1beta1/{entity_type.name=project" +
+      "s/*/locations/*/featurestores/*/entityTy" +
+      "pes/*}:\013entity_type\332A\027entity_type,update" +
+      "_mask\022\201\002\n\020DeleteEntityType\0228.google.clou" +
+      "d.aiplatform.v1beta1.DeleteEntityTypeReq" +
+      "uest\032\035.google.longrunning.Operation\"\223\001\202\323" +
+      "\344\223\002F*D/v1beta1/{name=projects/*/location" +
+      "s/*/featurestores/*/entityTypes/*}\332A\004nam" +
+      "e\332A\nname,force\312A0\n\025google.protobuf.Empty" +
+      "\022\027DeleteOperationMetadata\022\241\002\n\rCreateFeat" +
+      "ure\0225.google.cloud.aiplatform.v1beta1.Cr" +
+      "eateFeatureRequest\032\035.google.longrunning." +
+      "Operation\"\271\001\202\323\344\223\002Z\"O/v1beta1/{parent=pro" +
+      "jects/*/locations/*/featurestores/*/enti" +
+      "tyTypes/*}/features:\007feature\332A\016parent,fe" +
+      "ature\332A\031parent,feature,feature_id\312A)\n\007Fe" +
+      "ature\022\036CreateFeatureOperationMetadata\022\262\002" +
+      "\n\023BatchCreateFeatures\022;.google.cloud.aip" +
+      "latform.v1beta1.BatchCreateFeaturesReque" +
+      "st\032\035.google.longrunning.Operation\"\276\001\202\323\344\223" +
+      "\002`\"[/v1beta1/{parent=projects/*/location" +
+      "s/*/featurestores/*/entityTypes/*}/featu" +
+      "res:batchCreate:\001*\332A\017parent,requests\312AC\n" +
+      "\033BatchCreateFeaturesResponse\022$BatchCreat" +
+      "eFeaturesOperationMetadata\022\312\001\n\nGetFeatur" +
+      "e\0222.google.cloud.aiplatform.v1beta1.GetF" +
+      "eatureRequest\032(.google.cloud.aiplatform." +
+      "v1beta1.Feature\"^\202\323\344\223\002Q\022O/v1beta1/{name=" +
+      "projects/*/locations/*/featurestores/*/e" +
+      "ntityTypes/*/features/*}\332A\004name\022\335\001\n\014List" +
+      "Features\0224.google.cloud.aiplatform.v1bet" +
+      "a1.ListFeaturesRequest\0325.google.cloud.ai" +
+      "platform.v1beta1.ListFeaturesResponse\"`\202" +
+      "\323\344\223\002Q\022O/v1beta1/{parent=projects/*/locat" +
+      "ions/*/featurestores/*/entityTypes/*}/fe" +
+      "atures\332A\006parent\022\360\001\n\rUpdateFeature\0225.goog" +
+      "le.cloud.aiplatform.v1beta1.UpdateFeatur" +
+      "eRequest\032(.google.cloud.aiplatform.v1bet" +
+      "a1.Feature\"~\202\323\344\223\002b2W/v1beta1/{feature.na" +
+      "me=projects/*/locations/*/featurestores/" +
+      "*/entityTypes/*/features/*}:\007feature\332A\023f" +
+      "eature,update_mask\022\371\001\n\rDeleteFeature\0225.g" +
+      "oogle.cloud.aiplatform.v1beta1.DeleteFea" +
+      "tureRequest\032\035.google.longrunning.Operati" +
+      "on\"\221\001\202\323\344\223\002Q*O/v1beta1/{name=projects/*/l" +
       "ocations/*/featurestores/*/entityTypes/*" +
-      "}\332A\004name\022\333\001\n\017ListEntityTypes\0227.google.cl" +
-      "oud.aiplatform.v1beta1.ListEntityTypesRe" +
-      "quest\0328.google.cloud.aiplatform.v1beta1." +
-      "ListEntityTypesResponse\"U\202\323\344\223\002F\022D/v1beta" +
-      "1/{parent=projects/*/locations/*/feature" +
-      "stores/*}/entityTypes\332A\006parent\022\372\001\n\020Updat" +
-      "eEntityType\0228.google.cloud.aiplatform.v1" +
-      "beta1.UpdateEntityTypeRequest\032+.google.c" +
-      "loud.aiplatform.v1beta1.EntityType\"\177\202\323\344\223" +
-      "\002_2P/v1beta1/{entity_type.name=projects/" +
-      "*/locations/*/featurestores/*/entityType" +
-      "s/*}:\013entity_type\332A\027entity_type,update_m" +
-      "ask\022\201\002\n\020DeleteEntityType\0228.google.cloud." +
-      "aiplatform.v1beta1.DeleteEntityTypeReque" +
-      "st\032\035.google.longrunning.Operation\"\223\001\202\323\344\223" +
-      "\002F*D/v1beta1/{name=projects/*/locations/" +
-      "*/featurestores/*/entityTypes/*}\332A\004name\332" +
-      "A\nname,force\312A0\n\025google.protobuf.Empty\022\027" +
-      "DeleteOperationMetadata\022\241\002\n\rCreateFeatur" +
-      "e\0225.google.cloud.aiplatform.v1beta1.Crea" +
-      "teFeatureRequest\032\035.google.longrunning.Op" +
-      "eration\"\271\001\202\323\344\223\002Z\"O/v1beta1/{parent=proje" +
-      "cts/*/locations/*/featurestores/*/entity" +
-      "Types/*}/features:\007feature\332A\016parent,feat" +
-      "ure\332A\031parent,feature,feature_id\312A)\n\007Feat" +
-      "ure\022\036CreateFeatureOperationMetadata\022\262\002\n\023" +
-      "BatchCreateFeatures\022;.google.cloud.aipla" +
-      "tform.v1beta1.BatchCreateFeaturesRequest" +
-      "\032\035.google.longrunning.Operation\"\276\001\202\323\344\223\002`" +
-      "\"[/v1beta1/{parent=projects/*/locations/" +
-      "*/featurestores/*/entityTypes/*}/feature" +
-      "s:batchCreate:\001*\332A\017parent,requests\312AC\n\033B" +
-      "atchCreateFeaturesResponse\022$BatchCreateF" +
-      "eaturesOperationMetadata\022\312\001\n\nGetFeature\022" +
-      "2.google.cloud.aiplatform.v1beta1.GetFea" +
-      "tureRequest\032(.google.cloud.aiplatform.v1" +
-      "beta1.Feature\"^\202\323\344\223\002Q\022O/v1beta1/{name=pr" +
-      "ojects/*/locations/*/featurestores/*/ent" +
-      "ityTypes/*/features/*}\332A\004name\022\335\001\n\014ListFe" +
-      "atures\0224.google.cloud.aiplatform.v1beta1" +
-      ".ListFeaturesRequest\0325.google.cloud.aipl" +
-      "atform.v1beta1.ListFeaturesResponse\"`\202\323\344" +
-      "\223\002Q\022O/v1beta1/{parent=projects/*/locatio" +
-      "ns/*/featurestores/*/entityTypes/*}/feat" +
-      "ures\332A\006parent\022\360\001\n\rUpdateFeature\0225.google" +
-      ".cloud.aiplatform.v1beta1.UpdateFeatureR" +
-      "equest\032(.google.cloud.aiplatform.v1beta1" +
-      ".Feature\"~\202\323\344\223\002b2W/v1beta1/{feature.name" +
-      "=projects/*/locations/*/featurestores/*/" +
-      "entityTypes/*/features/*}:\007feature\332A\023fea" +
-      "ture,update_mask\022\371\001\n\rDeleteFeature\0225.goo" +
-      "gle.cloud.aiplatform.v1beta1.DeleteFeatu" +
-      "reRequest\032\035.google.longrunning.Operation" +
-      "\"\221\001\202\323\344\223\002Q*O/v1beta1/{name=projects/*/loc" +
-      "ations/*/featurestores/*/entityTypes/*/f" +
-      "eatures/*}\332A\004name\312A0\n\025google.protobuf.Em" +
-      "pty\022\027DeleteOperationMetadata\022\262\002\n\023ImportF" +
-      "eatureValues\022;.google.cloud.aiplatform.v" +
-      "1beta1.ImportFeatureValuesRequest\032\035.goog" +
-      "le.longrunning.Operation\"\276\001\202\323\344\223\002d\"_/v1be" +
-      "ta1/{entity_type=projects/*/locations/*/" +
-      "featurestores/*/entityTypes/*}:importFea" +
-      "tureValues:\001*\332A\013entity_type\312AC\n\033ImportFe" +
-      "atureValuesResponse\022$ImportFeatureValues" +
-      "OperationMetadata\022\265\002\n\026BatchReadFeatureVa" +
-      "lues\022>.google.cloud.aiplatform.v1beta1.B" +
-      "atchReadFeatureValuesRequest\032\035.google.lo" +
-      "ngrunning.Operation\"\273\001\202\323\344\223\002Z\"U/v1beta1/{" +
-      "featurestore=projects/*/locations/*/feat" +
-      "urestores/*}:batchReadFeatureValues:\001*\332A" +
-      "\014featurestore\312AI\n\036BatchReadFeatureValues" +
-      "Response\022\'BatchReadFeatureValuesOperatio" +
-      "nMetadata\022\262\002\n\023ExportFeatureValues\022;.goog" +
-      "le.cloud.aiplatform.v1beta1.ExportFeatur" +
-      "eValuesRequest\032\035.google.longrunning.Oper" +
-      "ation\"\276\001\202\323\344\223\002d\"_/v1beta1/{entity_type=pr" +
-      "ojects/*/locations/*/featurestores/*/ent" +
-      "ityTypes/*}:exportFeatureValues:\001*\332A\013ent" +
-      "ity_type\312AC\n\033ExportFeatureValuesResponse" +
-      "\022$ExportFeatureValuesOperationMetadata\022\356" +
-      "\001\n\016SearchFeatures\0226.google.cloud.aiplatf" +
-      "orm.v1beta1.SearchFeaturesRequest\0327.goog" +
-      "le.cloud.aiplatform.v1beta1.SearchFeatur" +
-      "esResponse\"k\202\323\344\223\002I\022G/v1beta1/{location=p" +
-      "rojects/*/locations/*}/featurestores:sea" +
-      "rchFeatures\332A\010location\332A\016location,query\032" +
-      "M\312A\031aiplatform.googleapis.com\322A.https://" +
-      "www.googleapis.com/auth/cloud-platformB\365" +
-      "\001\n#com.google.cloud.aiplatform.v1beta1B\030" +
-      "FeaturestoreServiceProtoP\001ZIgoogle.golan" +
-      "g.org/genproto/googleapis/cloud/aiplatfo" +
-      "rm/v1beta1;aiplatform\252\002\037Google.Cloud.AIP" +
-      "latform.V1Beta1\312\002\037Google\\Cloud\\AIPlatfor" +
-      "m\\V1beta1\352\002\"Google::Cloud::AIPlatform::V" +
-      "1beta1b\006proto3"
+      "/features/*}\332A\004name\312A0\n\025google.protobuf." +
+      "Empty\022\027DeleteOperationMetadata\022\262\002\n\023Impor" +
+      "tFeatureValues\022;.google.cloud.aiplatform" +
+      ".v1beta1.ImportFeatureValuesRequest\032\035.go" +
+      "ogle.longrunning.Operation\"\276\001\202\323\344\223\002d\"_/v1" +
+      "beta1/{entity_type=projects/*/locations/" +
+      "*/featurestores/*/entityTypes/*}:importF" +
+      "eatureValues:\001*\332A\013entity_type\312AC\n\033Import" +
+      "FeatureValuesResponse\022$ImportFeatureValu" +
+      "esOperationMetadata\022\265\002\n\026BatchReadFeature" +
+      "Values\022>.google.cloud.aiplatform.v1beta1" +
+      ".BatchReadFeatureValuesRequest\032\035.google." +
+      "longrunning.Operation\"\273\001\202\323\344\223\002Z\"U/v1beta1" +
+      "/{featurestore=projects/*/locations/*/fe" +
+      "aturestores/*}:batchReadFeatureValues:\001*" +
+      "\332A\014featurestore\312AI\n\036BatchReadFeatureValu" +
+      "esResponse\022\'BatchReadFeatureValuesOperat" +
+      "ionMetadata\022\262\002\n\023ExportFeatureValues\022;.go" +
+      "ogle.cloud.aiplatform.v1beta1.ExportFeat" +
+      "ureValuesRequest\032\035.google.longrunning.Op" +
+      "eration\"\276\001\202\323\344\223\002d\"_/v1beta1/{entity_type=" +
+      "projects/*/locations/*/featurestores/*/e" +
+      "ntityTypes/*}:exportFeatureValues:\001*\332A\013e" +
+      "ntity_type\312AC\n\033ExportFeatureValuesRespon" +
+      "se\022$ExportFeatureValuesOperationMetadata" +
+      "\022\262\002\n\023DeleteFeatureValues\022;.google.cloud." +
+      "aiplatform.v1beta1.DeleteFeatureValuesRe" +
+      "quest\032\035.google.longrunning.Operation\"\276\001\202" +
+      "\323\344\223\002d\"_/v1beta1/{entity_type=projects/*/" +
+      "locations/*/featurestores/*/entityTypes/" +
+      "*}:deleteFeatureValues:\001*\332A\013entity_type\312" +
+      "AC\n\033DeleteFeatureValuesResponse\022$DeleteF" +
+      "eatureValuesOperationMetadata\022\356\001\n\016Search" +
+      "Features\0226.google.cloud.aiplatform.v1bet" +
+      "a1.SearchFeaturesRequest\0327.google.cloud." +
+      "aiplatform.v1beta1.SearchFeaturesRespons" +
+      "e\"k\202\323\344\223\002I\022G/v1beta1/{location=projects/*" +
+      "/locations/*}/featurestores:searchFeatur" +
+      "es\332A\010location\332A\016location,query\032M\312A\031aipla" +
+      "tform.googleapis.com\322A.https://www.googl" +
+      "eapis.com/auth/cloud-platformB\365\001\n#com.go" +
+      "ogle.cloud.aiplatform.v1beta1B\030Featurest" +
+      "oreServiceProtoP\001ZIgoogle.golang.org/gen" +
+      "proto/googleapis/cloud/aiplatform/v1beta" +
+      "1;aiplatform\252\002\037Google.Cloud.AIPlatform.V" +
+      "1Beta1\312\002\037Google\\Cloud\\AIPlatform\\V1beta1" +
+      "\352\002\"Google::Cloud::AIPlatform::V1beta1b\006p" +
+      "roto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -585,6 +651,7 @@ public final class FeaturestoreServiceProto {
           com.google.longrunning.OperationsProto.getDescriptor(),
           com.google.protobuf.FieldMaskProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
+          com.google.type.IntervalProto.getDescriptor(),
         });
     internal_static_google_cloud_aiplatform_v1beta1_CreateFeaturestoreRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -639,13 +706,13 @@ public final class FeaturestoreServiceProto {
     internal_static_google_cloud_aiplatform_v1beta1_ImportFeatureValuesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_ImportFeatureValuesResponse_descriptor,
-        new java.lang.String[] { "ImportedEntityCount", "ImportedFeatureValueCount", "InvalidRowCount", });
+        new java.lang.String[] { "ImportedEntityCount", "ImportedFeatureValueCount", "InvalidRowCount", "TimestampOutsideRetentionRowsCount", });
     internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesRequest_descriptor =
       getDescriptor().getMessageTypes().get(8);
     internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesRequest_descriptor,
-        new java.lang.String[] { "CsvReadInstances", "BigqueryReadInstances", "Featurestore", "Destination", "PassThroughFields", "EntityTypeSpecs", "ReadOption", });
+        new java.lang.String[] { "CsvReadInstances", "BigqueryReadInstances", "Featurestore", "Destination", "PassThroughFields", "EntityTypeSpecs", "StartTime", "ReadOption", });
     internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesRequest_PassThroughField_descriptor =
       internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesRequest_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesRequest_PassThroughField_fieldAccessorTable = new
@@ -813,7 +880,7 @@ public final class FeaturestoreServiceProto {
     internal_static_google_cloud_aiplatform_v1beta1_ImportFeatureValuesOperationMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_ImportFeatureValuesOperationMetadata_descriptor,
-        new java.lang.String[] { "GenericMetadata", "ImportedEntityCount", "ImportedFeatureValueCount", "InvalidRowCount", });
+        new java.lang.String[] { "GenericMetadata", "ImportedEntityCount", "ImportedFeatureValueCount", "SourceUris", "InvalidRowCount", "TimestampOutsideRetentionRowsCount", });
     internal_static_google_cloud_aiplatform_v1beta1_ExportFeatureValuesOperationMetadata_descriptor =
       getDescriptor().getMessageTypes().get(33);
     internal_static_google_cloud_aiplatform_v1beta1_ExportFeatureValuesOperationMetadata_fieldAccessorTable = new
@@ -826,24 +893,60 @@ public final class FeaturestoreServiceProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_BatchReadFeatureValuesOperationMetadata_descriptor,
         new java.lang.String[] { "GenericMetadata", });
-    internal_static_google_cloud_aiplatform_v1beta1_CreateEntityTypeOperationMetadata_descriptor =
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesOperationMetadata_descriptor =
       getDescriptor().getMessageTypes().get(35);
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesOperationMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesOperationMetadata_descriptor,
+        new java.lang.String[] { "GenericMetadata", });
+    internal_static_google_cloud_aiplatform_v1beta1_CreateEntityTypeOperationMetadata_descriptor =
+      getDescriptor().getMessageTypes().get(36);
     internal_static_google_cloud_aiplatform_v1beta1_CreateEntityTypeOperationMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_CreateEntityTypeOperationMetadata_descriptor,
         new java.lang.String[] { "GenericMetadata", });
     internal_static_google_cloud_aiplatform_v1beta1_CreateFeatureOperationMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(36);
+      getDescriptor().getMessageTypes().get(37);
     internal_static_google_cloud_aiplatform_v1beta1_CreateFeatureOperationMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_CreateFeatureOperationMetadata_descriptor,
         new java.lang.String[] { "GenericMetadata", });
     internal_static_google_cloud_aiplatform_v1beta1_BatchCreateFeaturesOperationMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(37);
+      getDescriptor().getMessageTypes().get(38);
     internal_static_google_cloud_aiplatform_v1beta1_BatchCreateFeaturesOperationMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_aiplatform_v1beta1_BatchCreateFeaturesOperationMetadata_descriptor,
         new java.lang.String[] { "GenericMetadata", });
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_descriptor =
+      getDescriptor().getMessageTypes().get(39);
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_descriptor,
+        new java.lang.String[] { "SelectEntity", "SelectTimeRangeAndFeature", "EntityType", "DeleteOption", });
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectEntity_descriptor =
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_descriptor.getNestedTypes().get(0);
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectEntity_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectEntity_descriptor,
+        new java.lang.String[] { "EntityIdSelector", });
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectTimeRangeAndFeature_descriptor =
+      internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_descriptor.getNestedTypes().get(1);
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectTimeRangeAndFeature_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesRequest_SelectTimeRangeAndFeature_descriptor,
+        new java.lang.String[] { "TimeRange", "FeatureSelector", "SkipOnlineStorageDelete", });
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesResponse_descriptor =
+      getDescriptor().getMessageTypes().get(40);
+    internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_aiplatform_v1beta1_DeleteFeatureValuesResponse_descriptor,
+        new java.lang.String[] { });
+    internal_static_google_cloud_aiplatform_v1beta1_EntityIdSelector_descriptor =
+      getDescriptor().getMessageTypes().get(41);
+    internal_static_google_cloud_aiplatform_v1beta1_EntityIdSelector_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_google_cloud_aiplatform_v1beta1_EntityIdSelector_descriptor,
+        new java.lang.String[] { "CsvSource", "EntityIdField", "EntityIdsSource", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.ClientProto.defaultHost);
@@ -868,6 +971,7 @@ public final class FeaturestoreServiceProto {
     com.google.longrunning.OperationsProto.getDescriptor();
     com.google.protobuf.FieldMaskProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
+    com.google.type.IntervalProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

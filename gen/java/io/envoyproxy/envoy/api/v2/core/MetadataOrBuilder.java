@@ -50,7 +50,6 @@ public interface MetadataOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; filter_metadata = 1;</code>
    */
-
   /* nullable */
 com.google.protobuf.Struct getFilterMetadataOrDefault(
       java.lang.String key,
@@ -64,7 +63,6 @@ com.google.protobuf.Struct defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; filter_metadata = 1;</code>
    */
-
   com.google.protobuf.Struct getFilterMetadataOrThrow(
       java.lang.String key);
 }

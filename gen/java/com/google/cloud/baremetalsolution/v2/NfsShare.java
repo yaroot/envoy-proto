@@ -39,95 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NfsShare(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nfsShareId_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            volume_ = s;
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedClients_ = new java.util.ArrayList<com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            allowedClients_.add(
-                input.readMessage(com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        allowedClients_ = java.util.Collections.unmodifiableList(allowedClients_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.baremetalsolution.v2.NfsShareProto.internal_static_google_cloud_baremetalsolution_v2_NfsShare_descriptor;
@@ -576,84 +487,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AllowedClient(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              network_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              shareIp_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              allowedClientsCidr_ = s;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              mountPermissions_ = rawValue;
-              break;
-            }
-            case 40: {
-
-              allowDev_ = input.readBool();
-              break;
-            }
-            case 48: {
-
-              allowSuid_ = input.readBool();
-              break;
-            }
-            case 56: {
-
-              noRootSquash_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.baremetalsolution.v2.NfsShareProto.internal_static_google_cloud_baremetalsolution_v2_NfsShare_AllowedClient_descriptor;
@@ -668,7 +501,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NETWORK_FIELD_NUMBER = 1;
-    private volatile java.lang.Object network_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object network_ = "";
     /**
      * <pre>
      * The network the access point sits on.
@@ -714,7 +548,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SHARE_IP_FIELD_NUMBER = 2;
-    private volatile java.lang.Object shareIp_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object shareIp_ = "";
     /**
      * <pre>
      * The IP address of the share on this network.
@@ -760,7 +595,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOWED_CLIENTS_CIDR_FIELD_NUMBER = 3;
-    private volatile java.lang.Object allowedClientsCidr_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object allowedClientsCidr_ = "";
     /**
      * <pre>
      * The subnet of IP addresses permitted to access the share.
@@ -806,7 +642,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MOUNT_PERMISSIONS_FIELD_NUMBER = 4;
-    private int mountPermissions_;
+    private int mountPermissions_ = 0;
     /**
      * <pre>
      * Mount permissions.
@@ -827,13 +663,12 @@ private static final long serialVersionUID = 0L;
      * @return The mountPermissions.
      */
     @java.lang.Override public com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions getMountPermissions() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions result = com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions.valueOf(mountPermissions_);
+      com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions result = com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions.forNumber(mountPermissions_);
       return result == null ? com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions.UNRECOGNIZED : result;
     }
 
     public static final int ALLOW_DEV_FIELD_NUMBER = 5;
-    private boolean allowDev_;
+    private boolean allowDev_ = false;
     /**
      * <pre>
      * Allow dev flag.  Which controls whether to allow creation of devices.
@@ -848,7 +683,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOW_SUID_FIELD_NUMBER = 6;
-    private boolean allowSuid_;
+    private boolean allowSuid_ = false;
     /**
      * <pre>
      * Allow the setuid flag.
@@ -863,7 +698,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NO_ROOT_SQUASH_FIELD_NUMBER = 7;
-    private boolean noRootSquash_;
+    private boolean noRootSquash_ = false;
     /**
      * <pre>
      * Disable root squashing, which is a feature of NFS.
@@ -914,7 +749,7 @@ private static final long serialVersionUID = 0L;
       if (noRootSquash_ != false) {
         output.writeBool(7, noRootSquash_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -948,7 +783,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(7, noRootSquash_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -976,7 +811,7 @@ private static final long serialVersionUID = 0L;
           != other.getAllowSuid()) return false;
       if (getNoRootSquash()
           != other.getNoRootSquash()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1004,7 +839,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NO_ROOT_SQUASH_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getNoRootSquash());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1125,36 +960,25 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         network_ = "";
-
         shareIp_ = "";
-
         allowedClientsCidr_ = "";
-
         mountPermissions_ = 0;
-
         allowDev_ = false;
-
         allowSuid_ = false;
-
         noRootSquash_ = false;
-
         return this;
       }
 
@@ -1181,15 +1005,34 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient buildPartial() {
         com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient result = new com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient(this);
-        result.network_ = network_;
-        result.shareIp_ = shareIp_;
-        result.allowedClientsCidr_ = allowedClientsCidr_;
-        result.mountPermissions_ = mountPermissions_;
-        result.allowDev_ = allowDev_;
-        result.allowSuid_ = allowSuid_;
-        result.noRootSquash_ = noRootSquash_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.network_ = network_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.shareIp_ = shareIp_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.allowedClientsCidr_ = allowedClientsCidr_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.mountPermissions_ = mountPermissions_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.allowDev_ = allowDev_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.allowSuid_ = allowSuid_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.noRootSquash_ = noRootSquash_;
+        }
       }
 
       @java.lang.Override
@@ -1238,14 +1081,17 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient.getDefaultInstance()) return this;
         if (!other.getNetwork().isEmpty()) {
           network_ = other.network_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getShareIp().isEmpty()) {
           shareIp_ = other.shareIp_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getAllowedClientsCidr().isEmpty()) {
           allowedClientsCidr_ = other.allowedClientsCidr_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (other.mountPermissions_ != 0) {
@@ -1260,7 +1106,7 @@ private static final long serialVersionUID = 0L;
         if (other.getNoRootSquash() != false) {
           setNoRootSquash(other.getNoRootSquash());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1275,19 +1121,68 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                network_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                shareIp_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                allowedClientsCidr_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                mountPermissions_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                allowDev_ = input.readBool();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                allowSuid_ = input.readBool();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                noRootSquash_ = input.readBool();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object network_ = "";
       /**
@@ -1342,11 +1237,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNetwork(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         network_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1359,8 +1252,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNetwork() {
-        
         network_ = getDefaultInstance().getNetwork();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1375,12 +1268,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNetworkBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         network_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1438,11 +1329,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setShareIp(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         shareIp_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1455,8 +1344,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearShareIp() {
-        
         shareIp_ = getDefaultInstance().getShareIp();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1471,12 +1360,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setShareIpBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         shareIp_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1534,11 +1421,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAllowedClientsCidr(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         allowedClientsCidr_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1551,8 +1436,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowedClientsCidr() {
-        
         allowedClientsCidr_ = getDefaultInstance().getAllowedClientsCidr();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1567,12 +1452,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAllowedClientsCidrBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         allowedClientsCidr_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1599,8 +1482,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setMountPermissionsValue(int value) {
-        
         mountPermissions_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1614,8 +1497,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions getMountPermissions() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions result = com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions.valueOf(mountPermissions_);
+        com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions result = com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions.forNumber(mountPermissions_);
         return result == null ? com.google.cloud.baremetalsolution.v2.NfsShare.MountPermissions.UNRECOGNIZED : result;
       }
       /**
@@ -1631,7 +1513,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         mountPermissions_ = value.getNumber();
         onChanged();
         return this;
@@ -1645,7 +1527,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMountPermissions() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         mountPermissions_ = 0;
         onChanged();
         return this;
@@ -1676,6 +1558,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowDev(boolean value) {
         
         allowDev_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1688,7 +1571,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowDev() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         allowDev_ = false;
         onChanged();
         return this;
@@ -1719,6 +1602,7 @@ private static final long serialVersionUID = 0L;
       public Builder setAllowSuid(boolean value) {
         
         allowSuid_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1731,7 +1615,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAllowSuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         allowSuid_ = false;
         onChanged();
         return this;
@@ -1766,6 +1650,7 @@ private static final long serialVersionUID = 0L;
       public Builder setNoRootSquash(boolean value) {
         
         noRootSquash_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1780,7 +1665,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNoRootSquash() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         noRootSquash_ = false;
         onChanged();
         return this;
@@ -1818,7 +1703,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AllowedClient(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1839,7 +1735,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The name of the NFS share.
@@ -1885,7 +1782,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NFS_SHARE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object nfsShareId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nfsShareId_ = "";
   /**
    * <pre>
    * Output only. An identifier for the NFS share, generated by the backend.
@@ -1931,7 +1829,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * The state of the NFS share.
@@ -1952,13 +1850,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.baremetalsolution.v2.NfsShare.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.baremetalsolution.v2.NfsShare.State result = com.google.cloud.baremetalsolution.v2.NfsShare.State.valueOf(state_);
+    com.google.cloud.baremetalsolution.v2.NfsShare.State result = com.google.cloud.baremetalsolution.v2.NfsShare.State.forNumber(state_);
     return result == null ? com.google.cloud.baremetalsolution.v2.NfsShare.State.UNRECOGNIZED : result;
   }
 
   public static final int VOLUME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object volume_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object volume_ = "";
   /**
    * <pre>
    * The volume containing the share.
@@ -2004,6 +1902,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOWED_CLIENTS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient> allowedClients_;
   /**
    * <pre>
@@ -2075,6 +1974,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2085,7 +1985,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -2096,7 +1995,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -2119,7 +2017,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -2131,10 +2028,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -2148,7 +2046,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2195,7 +2092,7 @@ private static final long serialVersionUID = 0L;
         internalGetLabels(),
         LabelsDefaultEntryHolder.defaultEntry,
         6);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2231,7 +2128,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, labels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2257,7 +2154,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAllowedClientsList())) return false;
     if (!internalGetLabels().equals(
         other.internalGetLabels())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2284,7 +2181,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LABELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLabels().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2427,37 +2324,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.baremetalsolution.v2.NfsShare.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAllowedClientsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       nfsShareId_ = "";
-
       state_ = 0;
-
       volume_ = "";
-
       if (allowedClientsBuilder_ == null) {
         allowedClients_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        allowedClients_ = null;
         allowedClientsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableLabels().clear();
       return this;
     }
@@ -2485,24 +2374,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.NfsShare buildPartial() {
       com.google.cloud.baremetalsolution.v2.NfsShare result = new com.google.cloud.baremetalsolution.v2.NfsShare(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.nfsShareId_ = nfsShareId_;
-      result.state_ = state_;
-      result.volume_ = volume_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.baremetalsolution.v2.NfsShare result) {
       if (allowedClientsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           allowedClients_ = java.util.Collections.unmodifiableList(allowedClients_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.allowedClients_ = allowedClients_;
       } else {
         result.allowedClients_ = allowedClientsBuilder_.build();
       }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.baremetalsolution.v2.NfsShare result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.nfsShareId_ = nfsShareId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.volume_ = volume_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -2551,10 +2458,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.baremetalsolution.v2.NfsShare.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getNfsShareId().isEmpty()) {
         nfsShareId_ = other.nfsShareId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2562,13 +2471,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVolume().isEmpty()) {
         volume_ = other.volume_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (allowedClientsBuilder_ == null) {
         if (!other.allowedClients_.isEmpty()) {
           if (allowedClients_.isEmpty()) {
             allowedClients_ = other.allowedClients_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureAllowedClientsIsMutable();
             allowedClients_.addAll(other.allowedClients_);
@@ -2581,7 +2491,7 @@ private static final long serialVersionUID = 0L;
             allowedClientsBuilder_.dispose();
             allowedClientsBuilder_ = null;
             allowedClients_ = other.allowedClients_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             allowedClientsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAllowedClientsFieldBuilder() : null;
@@ -2592,7 +2502,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000020;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2607,17 +2518,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.baremetalsolution.v2.NfsShare parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              nfsShareId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              volume_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient m =
+                  input.readMessage(
+                      com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient.parser(),
+                      extensionRegistry);
+              if (allowedClientsBuilder_ == null) {
+                ensureAllowedClientsIsMutable();
+                allowedClients_.add(m);
+              } else {
+                allowedClientsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.baremetalsolution.v2.NfsShare) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2675,11 +2641,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2692,8 +2656,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2708,12 +2672,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2771,11 +2733,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNfsShareId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nfsShareId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2788,8 +2748,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNfsShareId() {
-      
       nfsShareId_ = getDefaultInstance().getNfsShareId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2804,12 +2764,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNfsShareIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nfsShareId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2836,8 +2794,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2851,8 +2809,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.baremetalsolution.v2.NfsShare.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.baremetalsolution.v2.NfsShare.State result = com.google.cloud.baremetalsolution.v2.NfsShare.State.valueOf(state_);
+      com.google.cloud.baremetalsolution.v2.NfsShare.State result = com.google.cloud.baremetalsolution.v2.NfsShare.State.forNumber(state_);
       return result == null ? com.google.cloud.baremetalsolution.v2.NfsShare.State.UNRECOGNIZED : result;
     }
     /**
@@ -2868,7 +2825,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -2882,7 +2839,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -2941,11 +2898,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVolume(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       volume_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2958,8 +2913,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVolume() {
-      
       volume_ = getDefaultInstance().getVolume();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2974,12 +2929,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVolumeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       volume_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2987,9 +2940,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient> allowedClients_ =
       java.util.Collections.emptyList();
     private void ensureAllowedClientsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         allowedClients_ = new java.util.ArrayList<com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient>(allowedClients_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -3183,7 +3136,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAllowedClients() {
       if (allowedClientsBuilder_ == null) {
         allowedClients_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         allowedClientsBuilder_.clear();
@@ -3288,7 +3241,7 @@ private static final long serialVersionUID = 0L;
         allowedClientsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient, com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClient.Builder, com.google.cloud.baremetalsolution.v2.NfsShare.AllowedClientOrBuilder>(
                 allowedClients_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         allowedClients_ = null;
@@ -3299,7 +3252,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3307,8 +3260,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3316,9 +3268,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -3329,7 +3282,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -3352,7 +3304,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -3364,10 +3315,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -3381,7 +3333,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3392,8 +3343,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -3405,7 +3356,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3418,7 +3368,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -3432,12 +3383,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -3447,11 +3396,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
     @java.lang.Override
@@ -3487,7 +3436,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NfsShare(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

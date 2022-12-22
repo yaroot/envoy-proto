@@ -248,7 +248,6 @@ public interface AutoscalingPolicyOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrDefault(
       java.lang.String key,
@@ -261,7 +260,6 @@ com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
    */
-
   com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrThrow(
       java.lang.String key);
 }

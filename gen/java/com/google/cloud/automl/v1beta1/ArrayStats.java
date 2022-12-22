@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ArrayStats(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.cloud.automl.v1beta1.DataStats.Builder subBuilder = null;
-            if (memberStats_ != null) {
-              subBuilder = memberStats_.toBuilder();
-            }
-            memberStats_ = input.readMessage(com.google.cloud.automl.v1beta1.DataStats.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(memberStats_);
-              memberStats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.DataStatsOuterClass.internal_static_google_cloud_automl_v1beta1_ArrayStats_descriptor;
@@ -137,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1beta1.DataStatsOrBuilder getMemberStatsOrBuilder() {
-    return getMemberStats();
+    return memberStats_ == null ? com.google.cloud.automl.v1beta1.DataStats.getDefaultInstance() : memberStats_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -157,7 +105,7 @@ private static final long serialVersionUID = 0L;
     if (memberStats_ != null) {
       output.writeMessage(2, getMemberStats());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -170,7 +118,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMemberStats());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -190,7 +138,7 @@ private static final long serialVersionUID = 0L;
       if (!getMemberStats()
           .equals(other.getMemberStats())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -205,7 +153,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MEMBER_STATS_FIELD_NUMBER;
       hash = (53 * hash) + getMemberStats().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -326,26 +274,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.ArrayStats.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (memberStatsBuilder_ == null) {
-        memberStats_ = null;
-      } else {
-        memberStats_ = null;
+      bitField0_ = 0;
+      memberStats_ = null;
+      if (memberStatsBuilder_ != null) {
+        memberStatsBuilder_.dispose();
         memberStatsBuilder_ = null;
       }
       return this;
@@ -374,13 +317,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.ArrayStats buildPartial() {
       com.google.cloud.automl.v1beta1.ArrayStats result = new com.google.cloud.automl.v1beta1.ArrayStats(this);
-      if (memberStatsBuilder_ == null) {
-        result.memberStats_ = memberStats_;
-      } else {
-        result.memberStats_ = memberStatsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.ArrayStats result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.memberStats_ = memberStatsBuilder_ == null
+            ? memberStats_
+            : memberStatsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -430,7 +378,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMemberStats()) {
         mergeMemberStats(other.getMemberStats());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -445,19 +393,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.ArrayStats parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getMemberStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.ArrayStats) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.automl.v1beta1.DataStats memberStats_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the memberStats field is set.
      */
     public boolean hasMemberStats() {
-      return memberStatsBuilder_ != null || memberStats_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -504,11 +473,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         memberStats_ = value;
-        onChanged();
       } else {
         memberStatsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -523,11 +492,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1beta1.DataStats.Builder builderForValue) {
       if (memberStatsBuilder_ == null) {
         memberStats_ = builderForValue.build();
-        onChanged();
       } else {
         memberStatsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -540,17 +509,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMemberStats(com.google.cloud.automl.v1beta1.DataStats value) {
       if (memberStatsBuilder_ == null) {
-        if (memberStats_ != null) {
-          memberStats_ =
-            com.google.cloud.automl.v1beta1.DataStats.newBuilder(memberStats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          memberStats_ != null &&
+          memberStats_ != com.google.cloud.automl.v1beta1.DataStats.getDefaultInstance()) {
+          getMemberStatsBuilder().mergeFrom(value);
         } else {
           memberStats_ = value;
         }
-        onChanged();
       } else {
         memberStatsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -562,14 +532,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1beta1.DataStats member_stats = 2;</code>
      */
     public Builder clearMemberStats() {
-      if (memberStatsBuilder_ == null) {
-        memberStats_ = null;
-        onChanged();
-      } else {
-        memberStats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      memberStats_ = null;
+      if (memberStatsBuilder_ != null) {
+        memberStatsBuilder_.dispose();
         memberStatsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -581,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1beta1.DataStats member_stats = 2;</code>
      */
     public com.google.cloud.automl.v1beta1.DataStats.Builder getMemberStatsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMemberStatsFieldBuilder().getBuilder();
     }
@@ -655,7 +624,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ArrayStats(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

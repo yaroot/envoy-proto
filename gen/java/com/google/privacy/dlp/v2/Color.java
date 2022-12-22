@@ -34,60 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Color(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-
-            red_ = input.readFloat();
-            break;
-          }
-          case 21: {
-
-            green_ = input.readFloat();
-            break;
-          }
-          case 29: {
-
-            blue_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_Color_descriptor;
@@ -102,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RED_FIELD_NUMBER = 1;
-  private float red_;
+  private float red_ = 0F;
   /**
    * <pre>
    * The amount of red in the color as a value in the interval [0, 1].
@@ -117,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GREEN_FIELD_NUMBER = 2;
-  private float green_;
+  private float green_ = 0F;
   /**
    * <pre>
    * The amount of green in the color as a value in the interval [0, 1].
@@ -132,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BLUE_FIELD_NUMBER = 3;
-  private float blue_;
+  private float blue_ = 0F;
   /**
    * <pre>
    * The amount of blue in the color as a value in the interval [0, 1].
@@ -169,7 +115,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(blue_) != 0) {
       output.writeFloat(3, blue_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -190,7 +136,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(3, blue_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -214,7 +160,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getBlue())
         != java.lang.Float.floatToIntBits(
             other.getBlue())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -234,7 +180,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + BLUE_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getBlue());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -355,28 +301,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.Color.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       red_ = 0F;
-
       green_ = 0F;
-
       blue_ = 0F;
-
       return this;
     }
 
@@ -403,11 +342,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.Color buildPartial() {
       com.google.privacy.dlp.v2.Color result = new com.google.privacy.dlp.v2.Color(this);
-      result.red_ = red_;
-      result.green_ = green_;
-      result.blue_ = blue_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.Color result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.red_ = red_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.green_ = green_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.blue_ = blue_;
+      }
     }
 
     @java.lang.Override
@@ -463,7 +413,7 @@ private static final long serialVersionUID = 0L;
       if (other.getBlue() != 0F) {
         setBlue(other.getBlue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -478,19 +428,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.Color parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              red_ = input.readFloat();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 13
+            case 21: {
+              green_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            case 29: {
+              blue_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 29
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.Color) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private float red_ ;
     /**
@@ -517,6 +496,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRed(float value) {
       
       red_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -529,7 +509,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRed() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       red_ = 0F;
       onChanged();
       return this;
@@ -560,6 +540,7 @@ private static final long serialVersionUID = 0L;
     public Builder setGreen(float value) {
       
       green_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -572,7 +553,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGreen() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       green_ = 0F;
       onChanged();
       return this;
@@ -603,6 +584,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBlue(float value) {
       
       blue_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -615,7 +597,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBlue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       blue_ = 0F;
       onChanged();
       return this;
@@ -653,7 +635,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Color(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

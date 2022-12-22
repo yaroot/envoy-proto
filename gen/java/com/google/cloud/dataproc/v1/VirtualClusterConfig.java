@@ -5,9 +5,9 @@ package com.google.cloud.dataproc.v1;
 
 /**
  * <pre>
- * Dataproc cluster config for a cluster that does not directly control the
+ * The Dataproc cluster config for a cluster that does not directly control the
  * underlying compute resources, such as a [Dataproc-on-GKE
- * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
+ * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
  * </pre>
  *
  * Protobuf type {@code google.cloud.dataproc.v1.VirtualClusterConfig}
@@ -36,78 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private VirtualClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            stagingBucket_ = s;
-            break;
-          }
-          case 50: {
-            com.google.cloud.dataproc.v1.KubernetesClusterConfig.Builder subBuilder = null;
-            if (infrastructureConfigCase_ == 6) {
-              subBuilder = ((com.google.cloud.dataproc.v1.KubernetesClusterConfig) infrastructureConfig_).toBuilder();
-            }
-            infrastructureConfig_ =
-                input.readMessage(com.google.cloud.dataproc.v1.KubernetesClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataproc.v1.KubernetesClusterConfig) infrastructureConfig_);
-              infrastructureConfig_ = subBuilder.buildPartial();
-            }
-            infrastructureConfigCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.Builder subBuilder = null;
-            if (auxiliaryServicesConfig_ != null) {
-              subBuilder = auxiliaryServicesConfig_.toBuilder();
-            }
-            auxiliaryServicesConfig_ = input.readMessage(com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(auxiliaryServicesConfig_);
-              auxiliaryServicesConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -162,10 +90,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAGING_BUCKET_FIELD_NUMBER = 1;
-  private volatile java.lang.Object stagingBucket_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stagingBucket_ = "";
   /**
    * <pre>
-   * Optional. A Storage bucket used to stage job
+   * Optional. A Cloud Storage bucket used to stage job
    * dependencies, config files, and job driver console output.
    * If you do not specify a staging bucket, Cloud
    * Dataproc will determine a Cloud Storage location (US,
@@ -196,7 +125,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A Storage bucket used to stage job
+   * Optional. A Cloud Storage bucket used to stage job
    * dependencies, config files, and job driver console output.
    * If you do not specify a staging bucket, Cloud
    * Dataproc will determine a Cloud Storage location (US,
@@ -230,7 +159,8 @@ private static final long serialVersionUID = 0L;
   public static final int KUBERNETES_CLUSTER_CONFIG_FIELD_NUMBER = 6;
   /**
    * <pre>
-   * Required. The configuration for running the Dataproc cluster on Kubernetes.
+   * Required. The configuration for running the Dataproc cluster on
+   * Kubernetes.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -242,7 +172,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The configuration for running the Dataproc cluster on Kubernetes.
+   * Required. The configuration for running the Dataproc cluster on
+   * Kubernetes.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -257,7 +188,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The configuration for running the Dataproc cluster on Kubernetes.
+   * Required. The configuration for running the Dataproc cluster on
+   * Kubernetes.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -305,7 +237,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.AuxiliaryServicesConfigOrBuilder getAuxiliaryServicesConfigOrBuilder() {
-    return getAuxiliaryServicesConfig();
+    return auxiliaryServicesConfig_ == null ? com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.getDefaultInstance() : auxiliaryServicesConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -331,7 +263,7 @@ private static final long serialVersionUID = 0L;
     if (auxiliaryServicesConfig_ != null) {
       output.writeMessage(7, getAuxiliaryServicesConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -351,7 +283,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getAuxiliaryServicesConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -382,7 +314,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -407,7 +339,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -504,9 +436,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Dataproc cluster config for a cluster that does not directly control the
+   * The Dataproc cluster config for a cluster that does not directly control the
    * underlying compute resources, such as a [Dataproc-on-GKE
-   * cluster](https://cloud.google.com/dataproc/docs/concepts/jobs/dataproc-gke#create-a-dataproc-on-gke-cluster).
+   * cluster](https://cloud.google.com/dataproc/docs/guides/dpgke/dataproc-gke).
    * </pre>
    *
    * Protobuf type {@code google.cloud.dataproc.v1.VirtualClusterConfig}
@@ -530,28 +462,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.VirtualClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       stagingBucket_ = "";
-
-      if (auxiliaryServicesConfigBuilder_ == null) {
-        auxiliaryServicesConfig_ = null;
-      } else {
-        auxiliaryServicesConfig_ = null;
+      if (kubernetesClusterConfigBuilder_ != null) {
+        kubernetesClusterConfigBuilder_.clear();
+      }
+      auxiliaryServicesConfig_ = null;
+      if (auxiliaryServicesConfigBuilder_ != null) {
+        auxiliaryServicesConfigBuilder_.dispose();
         auxiliaryServicesConfigBuilder_ = null;
       }
       infrastructureConfigCase_ = 0;
@@ -582,22 +511,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.VirtualClusterConfig buildPartial() {
       com.google.cloud.dataproc.v1.VirtualClusterConfig result = new com.google.cloud.dataproc.v1.VirtualClusterConfig(this);
-      result.stagingBucket_ = stagingBucket_;
-      if (infrastructureConfigCase_ == 6) {
-        if (kubernetesClusterConfigBuilder_ == null) {
-          result.infrastructureConfig_ = infrastructureConfig_;
-        } else {
-          result.infrastructureConfig_ = kubernetesClusterConfigBuilder_.build();
-        }
-      }
-      if (auxiliaryServicesConfigBuilder_ == null) {
-        result.auxiliaryServicesConfig_ = auxiliaryServicesConfig_;
-      } else {
-        result.auxiliaryServicesConfig_ = auxiliaryServicesConfigBuilder_.build();
-      }
-      result.infrastructureConfigCase_ = infrastructureConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.VirtualClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.stagingBucket_ = stagingBucket_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.auxiliaryServicesConfig_ = auxiliaryServicesConfigBuilder_ == null
+            ? auxiliaryServicesConfig_
+            : auxiliaryServicesConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataproc.v1.VirtualClusterConfig result) {
+      result.infrastructureConfigCase_ = infrastructureConfigCase_;
+      result.infrastructureConfig_ = this.infrastructureConfig_;
+      if (infrastructureConfigCase_ == 6 &&
+          kubernetesClusterConfigBuilder_ != null) {
+        result.infrastructureConfig_ = kubernetesClusterConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -646,6 +584,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.VirtualClusterConfig.getDefaultInstance()) return this;
       if (!other.getStagingBucket().isEmpty()) {
         stagingBucket_ = other.stagingBucket_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAuxiliaryServicesConfig()) {
@@ -660,7 +599,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -675,17 +614,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.VirtualClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              stagingBucket_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 50: {
+              input.readMessage(
+                  getKubernetesClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              infrastructureConfigCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getAuxiliaryServicesConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.VirtualClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int infrastructureConfigCase_ = 0;
@@ -703,11 +674,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object stagingBucket_ = "";
     /**
      * <pre>
-     * Optional. A Storage bucket used to stage job
+     * Optional. A Cloud Storage bucket used to stage job
      * dependencies, config files, and job driver console output.
      * If you do not specify a staging bucket, Cloud
      * Dataproc will determine a Cloud Storage location (US,
@@ -737,7 +709,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A Storage bucket used to stage job
+     * Optional. A Cloud Storage bucket used to stage job
      * dependencies, config files, and job driver console output.
      * If you do not specify a staging bucket, Cloud
      * Dataproc will determine a Cloud Storage location (US,
@@ -768,7 +740,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A Storage bucket used to stage job
+     * Optional. A Cloud Storage bucket used to stage job
      * dependencies, config files, and job driver console output.
      * If you do not specify a staging bucket, Cloud
      * Dataproc will determine a Cloud Storage location (US,
@@ -787,17 +759,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStagingBucket(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       stagingBucket_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A Storage bucket used to stage job
+     * Optional. A Cloud Storage bucket used to stage job
      * dependencies, config files, and job driver console output.
      * If you do not specify a staging bucket, Cloud
      * Dataproc will determine a Cloud Storage location (US,
@@ -814,14 +784,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStagingBucket() {
-      
       stagingBucket_ = getDefaultInstance().getStagingBucket();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A Storage bucket used to stage job
+     * Optional. A Cloud Storage bucket used to stage job
      * dependencies, config files, and job driver console output.
      * If you do not specify a staging bucket, Cloud
      * Dataproc will determine a Cloud Storage location (US,
@@ -840,12 +810,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStagingBucketBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stagingBucket_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -854,7 +822,8 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.KubernetesClusterConfig, com.google.cloud.dataproc.v1.KubernetesClusterConfig.Builder, com.google.cloud.dataproc.v1.KubernetesClusterConfigOrBuilder> kubernetesClusterConfigBuilder_;
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -866,7 +835,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -888,7 +858,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -908,7 +879,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -926,7 +898,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -953,7 +926,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -976,7 +950,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -986,7 +961,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1004,7 +980,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The configuration for running the Dataproc cluster on Kubernetes.
+     * Required. The configuration for running the Dataproc cluster on
+     * Kubernetes.
      * </pre>
      *
      * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1024,7 +1001,7 @@ private static final long serialVersionUID = 0L;
         infrastructureConfig_ = null;
       }
       infrastructureConfigCase_ = 6;
-      onChanged();;
+      onChanged();
       return kubernetesClusterConfigBuilder_;
     }
 
@@ -1040,7 +1017,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the auxiliaryServicesConfig field is set.
      */
     public boolean hasAuxiliaryServicesConfig() {
-      return auxiliaryServicesConfigBuilder_ != null || auxiliaryServicesConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1070,11 +1047,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         auxiliaryServicesConfig_ = value;
-        onChanged();
       } else {
         auxiliaryServicesConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1088,11 +1065,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.Builder builderForValue) {
       if (auxiliaryServicesConfigBuilder_ == null) {
         auxiliaryServicesConfig_ = builderForValue.build();
-        onChanged();
       } else {
         auxiliaryServicesConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1104,17 +1081,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuxiliaryServicesConfig(com.google.cloud.dataproc.v1.AuxiliaryServicesConfig value) {
       if (auxiliaryServicesConfigBuilder_ == null) {
-        if (auxiliaryServicesConfig_ != null) {
-          auxiliaryServicesConfig_ =
-            com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.newBuilder(auxiliaryServicesConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          auxiliaryServicesConfig_ != null &&
+          auxiliaryServicesConfig_ != com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.getDefaultInstance()) {
+          getAuxiliaryServicesConfigBuilder().mergeFrom(value);
         } else {
           auxiliaryServicesConfig_ = value;
         }
-        onChanged();
       } else {
         auxiliaryServicesConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1125,14 +1103,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.AuxiliaryServicesConfig auxiliary_services_config = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearAuxiliaryServicesConfig() {
-      if (auxiliaryServicesConfigBuilder_ == null) {
-        auxiliaryServicesConfig_ = null;
-        onChanged();
-      } else {
-        auxiliaryServicesConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      auxiliaryServicesConfig_ = null;
+      if (auxiliaryServicesConfigBuilder_ != null) {
+        auxiliaryServicesConfigBuilder_.dispose();
         auxiliaryServicesConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1143,7 +1120,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.AuxiliaryServicesConfig auxiliary_services_config = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.AuxiliaryServicesConfig.Builder getAuxiliaryServicesConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAuxiliaryServicesConfigFieldBuilder().getBuilder();
     }
@@ -1215,7 +1192,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VirtualClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

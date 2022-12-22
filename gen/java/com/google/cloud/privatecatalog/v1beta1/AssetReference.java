@@ -38,160 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AssetReference(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 50: {
-            com.google.cloud.privatecatalog.v1beta1.Inputs.Builder subBuilder = null;
-            if (inputs_ != null) {
-              subBuilder = inputs_.toBuilder();
-            }
-            inputs_ = input.readMessage(com.google.cloud.privatecatalog.v1beta1.Inputs.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputs_);
-              inputs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            validationStatus_ = rawValue;
-            break;
-          }
-          case 66: {
-            com.google.longrunning.Operation.Builder subBuilder = null;
-            if (validationOperation_ != null) {
-              subBuilder = validationOperation_.toBuilder();
-            }
-            validationOperation_ = input.readMessage(com.google.longrunning.Operation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(validationOperation_);
-              validationOperation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 10;
-            source_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 11;
-            source_ = s;
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 122: {
-            com.google.cloud.privatecatalog.v1beta1.GitSource.Builder subBuilder = null;
-            if (sourceCase_ == 15) {
-              subBuilder = ((com.google.cloud.privatecatalog.v1beta1.GitSource) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.privatecatalog.v1beta1.GitSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.privatecatalog.v1beta1.GitSource) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 15;
-            break;
-          }
-          case 130: {
-            com.google.cloud.privatecatalog.v1beta1.GcsSource.Builder subBuilder = null;
-            if (gcsSource_ != null) {
-              subBuilder = gcsSource_.toBuilder();
-            }
-            gcsSource_ = input.readMessage(com.google.cloud.privatecatalog.v1beta1.GcsSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gcsSource_);
-              gcsSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.privatecatalog.v1beta1.PrivateCatalogProto.internal_static_google_cloud_privatecatalog_v1beta1_AssetReference_descriptor;
@@ -411,7 +257,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Output only. A unique identifier among asset references in a product.
@@ -457,7 +304,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Output only. The human-readable description of the referenced asset. Maximum 256
@@ -539,11 +387,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.privatecatalog.v1beta1.InputsOrBuilder getInputsOrBuilder() {
-    return getInputs();
+    return inputs_ == null ? com.google.cloud.privatecatalog.v1beta1.Inputs.getDefaultInstance() : inputs_;
   }
 
   public static final int VALIDATION_STATUS_FIELD_NUMBER = 7;
-  private int validationStatus_;
+  private int validationStatus_ = 0;
   /**
    * <pre>
    * Output only. The current state of the asset reference.
@@ -564,8 +412,7 @@ private static final long serialVersionUID = 0L;
    * @return The validationStatus.
    */
   @java.lang.Override public com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState getValidationStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState result = com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState.valueOf(validationStatus_);
+    com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState result = com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState.forNumber(validationStatus_);
     return result == null ? com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState.UNRECOGNIZED : result;
   }
 
@@ -604,7 +451,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.longrunning.OperationOrBuilder getValidationOperationOrBuilder() {
-    return getValidationOperation();
+    return validationOperation_ == null ? com.google.longrunning.Operation.getDefaultInstance() : validationOperation_;
   }
 
   public static final int ASSET_FIELD_NUMBER = 10;
@@ -679,7 +526,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
    * @return Whether the gcsPath field is set.
    */
   @java.lang.Deprecated public boolean hasGcsPath() {
@@ -692,7 +539,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
    * @return The gcsPath.
    */
   @java.lang.Deprecated public java.lang.String getGcsPath() {
@@ -719,7 +566,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
    * @return The bytes for gcsPath.
    */
   @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -819,7 +666,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.privatecatalog.v1beta1.GcsSourceOrBuilder getGcsSourceOrBuilder() {
-    return getGcsSource();
+    return gcsSource_ == null ? com.google.cloud.privatecatalog.v1beta1.GcsSource.getDefaultInstance() : gcsSource_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 12;
@@ -857,7 +704,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 13;
@@ -895,11 +742,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int VERSION_FIELD_NUMBER = 14;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * The version of the source used for this asset reference.
@@ -907,7 +755,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string version = 14 [deprecated = true];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
    * @return The version.
    */
   @java.lang.Override
@@ -930,7 +778,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string version = 14 [deprecated = true];</code>
    * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+   *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
    * @return The bytes for version.
    */
   @java.lang.Override
@@ -998,7 +846,7 @@ private static final long serialVersionUID = 0L;
     if (gcsSource_ != null) {
       output.writeMessage(16, getGcsSource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1050,7 +898,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, getGcsSource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1114,7 +962,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1169,7 +1017,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1290,60 +1138,50 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.privatecatalog.v1beta1.AssetReference.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       description_ = "";
-
-      if (inputsBuilder_ == null) {
-        inputs_ = null;
-      } else {
-        inputs_ = null;
+      inputs_ = null;
+      if (inputsBuilder_ != null) {
+        inputsBuilder_.dispose();
         inputsBuilder_ = null;
       }
       validationStatus_ = 0;
-
-      if (validationOperationBuilder_ == null) {
-        validationOperation_ = null;
-      } else {
-        validationOperation_ = null;
+      validationOperation_ = null;
+      if (validationOperationBuilder_ != null) {
+        validationOperationBuilder_.dispose();
         validationOperationBuilder_ = null;
       }
-      if (gcsSourceBuilder_ == null) {
-        gcsSource_ = null;
-      } else {
-        gcsSource_ = null;
+      if (gitSourceBuilder_ != null) {
+        gitSourceBuilder_.clear();
+      }
+      gcsSource_ = null;
+      if (gcsSourceBuilder_ != null) {
+        gcsSourceBuilder_.dispose();
         gcsSourceBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       version_ = "";
-
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -1372,51 +1210,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.privatecatalog.v1beta1.AssetReference buildPartial() {
       com.google.cloud.privatecatalog.v1beta1.AssetReference result = new com.google.cloud.privatecatalog.v1beta1.AssetReference(this);
-      result.id_ = id_;
-      result.description_ = description_;
-      if (inputsBuilder_ == null) {
-        result.inputs_ = inputs_;
-      } else {
-        result.inputs_ = inputsBuilder_.build();
-      }
-      result.validationStatus_ = validationStatus_;
-      if (validationOperationBuilder_ == null) {
-        result.validationOperation_ = validationOperation_;
-      } else {
-        result.validationOperation_ = validationOperationBuilder_.build();
-      }
-      if (sourceCase_ == 10) {
-        result.source_ = source_;
-      }
-      if (sourceCase_ == 11) {
-        result.source_ = source_;
-      }
-      if (sourceCase_ == 15) {
-        if (gitSourceBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = gitSourceBuilder_.build();
-        }
-      }
-      if (gcsSourceBuilder_ == null) {
-        result.gcsSource_ = gcsSource_;
-      } else {
-        result.gcsSource_ = gcsSourceBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.version_ = version_;
-      result.sourceCase_ = sourceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.privatecatalog.v1beta1.AssetReference result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.inputs_ = inputsBuilder_ == null
+            ? inputs_
+            : inputsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.validationStatus_ = validationStatus_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.validationOperation_ = validationOperationBuilder_ == null
+            ? validationOperation_
+            : validationOperationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.gcsSource_ = gcsSourceBuilder_ == null
+            ? gcsSource_
+            : gcsSourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.version_ = version_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.privatecatalog.v1beta1.AssetReference result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 15 &&
+          gitSourceBuilder_ != null) {
+        result.source_ = gitSourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1465,10 +1312,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.privatecatalog.v1beta1.AssetReference.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasInputs()) {
@@ -1491,6 +1340,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       switch (other.getSourceCase()) {
@@ -1514,7 +1364,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1529,17 +1379,104 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.privatecatalog.v1beta1.AssetReference parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 50: {
+              input.readMessage(
+                  getInputsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 56: {
+              validationStatus_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 56
+            case 66: {
+              input.readMessage(
+                  getValidationOperationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 10;
+              source_ = s;
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 11;
+              source_ = s;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 106
+            case 114: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getGitSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getGcsSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 130
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.privatecatalog.v1beta1.AssetReference) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -1557,6 +1494,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object id_ = "";
     /**
@@ -1611,11 +1549,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1628,8 +1564,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1644,12 +1580,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1710,11 +1644,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1728,8 +1660,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1745,12 +1677,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1767,7 +1697,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputs field is set.
      */
     public boolean hasInputs() {
-      return inputsBuilder_ != null || inputs_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1797,11 +1727,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputs_ = value;
-        onChanged();
       } else {
         inputsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1815,11 +1745,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.privatecatalog.v1beta1.Inputs.Builder builderForValue) {
       if (inputsBuilder_ == null) {
         inputs_ = builderForValue.build();
-        onChanged();
       } else {
         inputsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1831,17 +1761,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputs(com.google.cloud.privatecatalog.v1beta1.Inputs value) {
       if (inputsBuilder_ == null) {
-        if (inputs_ != null) {
-          inputs_ =
-            com.google.cloud.privatecatalog.v1beta1.Inputs.newBuilder(inputs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          inputs_ != null &&
+          inputs_ != com.google.cloud.privatecatalog.v1beta1.Inputs.getDefaultInstance()) {
+          getInputsBuilder().mergeFrom(value);
         } else {
           inputs_ = value;
         }
-        onChanged();
       } else {
         inputsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1852,14 +1783,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.privatecatalog.v1beta1.Inputs inputs = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearInputs() {
-      if (inputsBuilder_ == null) {
-        inputs_ = null;
-        onChanged();
-      } else {
-        inputs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      inputs_ = null;
+      if (inputsBuilder_ != null) {
+        inputsBuilder_.dispose();
         inputsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1870,7 +1800,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.privatecatalog.v1beta1.Inputs inputs = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.privatecatalog.v1beta1.Inputs.Builder getInputsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getInputsFieldBuilder().getBuilder();
     }
@@ -1932,8 +1862,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setValidationStatusValue(int value) {
-      
       validationStatus_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1947,8 +1877,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState getValidationStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState result = com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState.valueOf(validationStatus_);
+      com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState result = com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState.forNumber(validationStatus_);
       return result == null ? com.google.cloud.privatecatalog.v1beta1.AssetReference.AssetValidationState.UNRECOGNIZED : result;
     }
     /**
@@ -1964,7 +1893,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       validationStatus_ = value.getNumber();
       onChanged();
       return this;
@@ -1978,7 +1907,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       validationStatus_ = 0;
       onChanged();
       return this;
@@ -1996,7 +1925,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the validationOperation field is set.
      */
     public boolean hasValidationOperation() {
-      return validationOperationBuilder_ != null || validationOperation_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2026,11 +1955,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         validationOperation_ = value;
-        onChanged();
       } else {
         validationOperationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2044,11 +1973,11 @@ private static final long serialVersionUID = 0L;
         com.google.longrunning.Operation.Builder builderForValue) {
       if (validationOperationBuilder_ == null) {
         validationOperation_ = builderForValue.build();
-        onChanged();
       } else {
         validationOperationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2060,17 +1989,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeValidationOperation(com.google.longrunning.Operation value) {
       if (validationOperationBuilder_ == null) {
-        if (validationOperation_ != null) {
-          validationOperation_ =
-            com.google.longrunning.Operation.newBuilder(validationOperation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          validationOperation_ != null &&
+          validationOperation_ != com.google.longrunning.Operation.getDefaultInstance()) {
+          getValidationOperationBuilder().mergeFrom(value);
         } else {
           validationOperation_ = value;
         }
-        onChanged();
       } else {
         validationOperationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2081,14 +2011,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.longrunning.Operation validation_operation = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearValidationOperation() {
-      if (validationOperationBuilder_ == null) {
-        validationOperation_ = null;
-        onChanged();
-      } else {
-        validationOperation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      validationOperation_ = null;
+      if (validationOperationBuilder_ != null) {
+        validationOperationBuilder_.dispose();
         validationOperationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2099,7 +2028,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.longrunning.Operation validation_operation = 8 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.longrunning.Operation.Builder getValidationOperationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getValidationOperationFieldBuilder().getBuilder();
     }
@@ -2215,10 +2144,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAsset(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 10;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 10;
       source_ = value;
       onChanged();
       return this;
@@ -2250,10 +2177,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAssetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 10;
       source_ = value;
       onChanged();
@@ -2267,7 +2192,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
      * @return Whether the gcsPath field is set.
      */
     @java.lang.Override
@@ -2281,7 +2206,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
      * @return The gcsPath.
      */
     @java.lang.Override
@@ -2309,7 +2234,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
      * @return The bytes for gcsPath.
      */
     @java.lang.Override
@@ -2338,16 +2263,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
      * @param value The gcsPath to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setGcsPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 11;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 11;
       source_ = value;
       onChanged();
       return this;
@@ -2359,7 +2282,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearGcsPath() {
@@ -2377,16 +2300,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string gcs_path = 11 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.gcs_path is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=464
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=461
      * @param value The bytes for gcsPath to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setGcsPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 11;
       source_ = value;
       onChanged();
@@ -2567,7 +2488,7 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 15;
-      onChanged();;
+      onChanged();
       return gitSourceBuilder_;
     }
 
@@ -2583,7 +2504,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gcsSource field is set.
      */
     public boolean hasGcsSource() {
-      return gcsSourceBuilder_ != null || gcsSource_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2613,11 +2534,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gcsSource_ = value;
-        onChanged();
       } else {
         gcsSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2631,11 +2552,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.privatecatalog.v1beta1.GcsSource.Builder builderForValue) {
       if (gcsSourceBuilder_ == null) {
         gcsSource_ = builderForValue.build();
-        onChanged();
       } else {
         gcsSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2647,17 +2568,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGcsSource(com.google.cloud.privatecatalog.v1beta1.GcsSource value) {
       if (gcsSourceBuilder_ == null) {
-        if (gcsSource_ != null) {
-          gcsSource_ =
-            com.google.cloud.privatecatalog.v1beta1.GcsSource.newBuilder(gcsSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          gcsSource_ != null &&
+          gcsSource_ != com.google.cloud.privatecatalog.v1beta1.GcsSource.getDefaultInstance()) {
+          getGcsSourceBuilder().mergeFrom(value);
         } else {
           gcsSource_ = value;
         }
-        onChanged();
       } else {
         gcsSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2668,14 +2590,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.privatecatalog.v1beta1.GcsSource gcs_source = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearGcsSource() {
-      if (gcsSourceBuilder_ == null) {
-        gcsSource_ = null;
-        onChanged();
-      } else {
-        gcsSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      gcsSource_ = null;
+      if (gcsSourceBuilder_ != null) {
+        gcsSourceBuilder_.dispose();
         gcsSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2686,7 +2607,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.privatecatalog.v1beta1.GcsSource gcs_source = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.privatecatalog.v1beta1.GcsSource.Builder getGcsSourceBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getGcsSourceFieldBuilder().getBuilder();
     }
@@ -2738,7 +2659,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2768,11 +2689,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2786,11 +2707,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2802,17 +2723,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2823,14 +2745,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2841,7 +2762,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2893,7 +2814,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2923,11 +2844,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2941,11 +2862,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2957,17 +2878,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2978,14 +2900,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2996,7 +2917,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -3044,7 +2965,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string version = 14 [deprecated = true];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
      * @return The version.
      */
     @java.lang.Deprecated public java.lang.String getVersion() {
@@ -3066,7 +2987,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string version = 14 [deprecated = true];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
      * @return The bytes for version.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -3089,17 +3010,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string version = 14 [deprecated = true];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
      * @param value The version to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3110,12 +3029,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string version = 14 [deprecated = true];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3126,18 +3045,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string version = 14 [deprecated = true];</code>
      * @deprecated google.cloud.privatecatalog.v1beta1.AssetReference.version is deprecated.
-     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=483
+     *     See google/cloud/privatecatalog/v1beta1/private_catalog.proto;l=480
      * @param value The bytes for version to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3174,7 +3091,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AssetReference(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

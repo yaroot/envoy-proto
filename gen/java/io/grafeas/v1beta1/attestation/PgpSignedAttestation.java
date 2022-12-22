@@ -38,63 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PgpSignedAttestation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            signature_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            keyIdCase_ = 2;
-            keyId_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            contentType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1beta1.attestation.AttestationOuterClass.internal_static_grafeas_v1beta1_attestation_PgpSignedAttestation_descriptor;
@@ -282,7 +225,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIGNATURE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object signature_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object signature_ = "";
   /**
    * <pre>
    * Required. The raw content of the signature, as output by GNU Privacy Guard
@@ -344,7 +288,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTENT_TYPE_FIELD_NUMBER = 3;
-  private int contentType_;
+  private int contentType_ = 0;
   /**
    * <pre>
    * Type (for example schema) of the attestation payload that was signed.
@@ -371,8 +315,7 @@ private static final long serialVersionUID = 0L;
    * @return The contentType.
    */
   @java.lang.Override public io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType getContentType() {
-    @SuppressWarnings("deprecation")
-    io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType result = io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.valueOf(contentType_);
+    io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType result = io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.forNumber(contentType_);
     return result == null ? io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.UNRECOGNIZED : result;
   }
 
@@ -508,7 +451,7 @@ private static final long serialVersionUID = 0L;
     if (contentType_ != io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.CONTENT_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, contentType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -527,7 +470,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, contentType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -554,7 +497,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -577,7 +520,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -700,26 +643,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1beta1.attestation.PgpSignedAttestation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       signature_ = "";
-
       contentType_ = 0;
-
       keyIdCase_ = 0;
       keyId_ = null;
       return this;
@@ -748,14 +685,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1beta1.attestation.PgpSignedAttestation buildPartial() {
       io.grafeas.v1beta1.attestation.PgpSignedAttestation result = new io.grafeas.v1beta1.attestation.PgpSignedAttestation(this);
-      result.signature_ = signature_;
-      result.contentType_ = contentType_;
-      if (keyIdCase_ == 2) {
-        result.keyId_ = keyId_;
-      }
-      result.keyIdCase_ = keyIdCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1beta1.attestation.PgpSignedAttestation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.signature_ = signature_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.contentType_ = contentType_;
+      }
+    }
+
+    private void buildPartialOneofs(io.grafeas.v1beta1.attestation.PgpSignedAttestation result) {
+      result.keyIdCase_ = keyIdCase_;
+      result.keyId_ = this.keyId_;
     }
 
     @java.lang.Override
@@ -804,6 +752,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.grafeas.v1beta1.attestation.PgpSignedAttestation.getDefaultInstance()) return this;
       if (!other.getSignature().isEmpty()) {
         signature_ = other.signature_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.contentType_ != 0) {
@@ -820,7 +769,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -835,17 +784,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1beta1.attestation.PgpSignedAttestation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              signature_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              keyIdCase_ = 2;
+              keyId_ = s;
+              break;
+            } // case 18
+            case 24: {
+              contentType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1beta1.attestation.PgpSignedAttestation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int keyIdCase_ = 0;
@@ -863,6 +841,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object signature_ = "";
     /**
@@ -941,11 +920,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSignature(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       signature_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -966,8 +943,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSignature() {
-      
       signature_ = getDefaultInstance().getSignature();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -990,12 +967,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSignatureBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       signature_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1028,8 +1003,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setContentTypeValue(int value) {
-      
       contentType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1046,8 +1021,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType getContentType() {
-      @SuppressWarnings("deprecation")
-      io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType result = io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.valueOf(contentType_);
+      io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType result = io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.forNumber(contentType_);
       return result == null ? io.grafeas.v1beta1.attestation.PgpSignedAttestation.ContentType.UNRECOGNIZED : result;
     }
     /**
@@ -1066,7 +1040,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       contentType_ = value.getNumber();
       onChanged();
       return this;
@@ -1083,7 +1057,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContentType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       contentType_ = 0;
       onChanged();
       return this;
@@ -1225,10 +1199,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPgpKeyId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  keyIdCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      keyIdCase_ = 2;
       keyId_ = value;
       onChanged();
       return this;
@@ -1290,10 +1262,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPgpKeyIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keyIdCase_ = 2;
       keyId_ = value;
       onChanged();
@@ -1332,7 +1302,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PgpSignedAttestation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

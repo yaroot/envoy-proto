@@ -104,82 +104,6 @@ public final class TestAnyProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TestAny(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              int32Value_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Any.Builder subBuilder = null;
-              if (anyValue_ != null) {
-                subBuilder = anyValue_.toBuilder();
-              }
-              anyValue_ = input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(anyValue_);
-                anyValue_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                repeatedAnyValue_ = new java.util.ArrayList<com.google.protobuf.Any>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              repeatedAnyValue_.add(
-                  input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              text_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          repeatedAnyValue_ = java.util.Collections.unmodifiableList(repeatedAnyValue_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.TestAnyProto.internal_static_protobuf_unittest_TestAny_descriptor;
@@ -194,7 +118,7 @@ public final class TestAnyProto {
     }
 
     public static final int INT32_VALUE_FIELD_NUMBER = 1;
-    private int int32Value_;
+    private int int32Value_ = 0;
     /**
      * <code>int32 int32_value = 1;</code>
      * @return The int32Value.
@@ -227,10 +151,11 @@ public final class TestAnyProto {
      */
     @java.lang.Override
     public com.google.protobuf.AnyOrBuilder getAnyValueOrBuilder() {
-      return getAnyValue();
+      return anyValue_ == null ? com.google.protobuf.Any.getDefaultInstance() : anyValue_;
     }
 
     public static final int REPEATED_ANY_VALUE_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.Any> repeatedAnyValue_;
     /**
      * <code>repeated .google.protobuf.Any repeated_any_value = 3;</code>
@@ -271,7 +196,8 @@ public final class TestAnyProto {
     }
 
     public static final int TEXT_FIELD_NUMBER = 4;
-    private volatile java.lang.Object text_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object text_ = "";
     /**
      * <code>string text = 4;</code>
      * @return The text.
@@ -334,7 +260,7 @@ public final class TestAnyProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, text_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -358,7 +284,7 @@ public final class TestAnyProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(text_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, text_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -384,7 +310,7 @@ public final class TestAnyProto {
           .equals(other.getRepeatedAnyValueList())) return false;
       if (!getText()
           .equals(other.getText())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -407,7 +333,7 @@ public final class TestAnyProto {
       }
       hash = (37 * hash) + TEXT_FIELD_NUMBER;
       hash = (53 * hash) + getText().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -524,39 +450,32 @@ public final class TestAnyProto {
 
       // Construct using protobuf_unittest.TestAnyProto.TestAny.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRepeatedAnyValueFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         int32Value_ = 0;
-
-        if (anyValueBuilder_ == null) {
-          anyValue_ = null;
-        } else {
-          anyValue_ = null;
+        anyValue_ = null;
+        if (anyValueBuilder_ != null) {
+          anyValueBuilder_.dispose();
           anyValueBuilder_ = null;
         }
         if (repeatedAnyValueBuilder_ == null) {
           repeatedAnyValue_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          repeatedAnyValue_ = null;
           repeatedAnyValueBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         text_ = "";
-
         return this;
       }
 
@@ -583,25 +502,37 @@ public final class TestAnyProto {
       @java.lang.Override
       public protobuf_unittest.TestAnyProto.TestAny buildPartial() {
         protobuf_unittest.TestAnyProto.TestAny result = new protobuf_unittest.TestAnyProto.TestAny(this);
-        int from_bitField0_ = bitField0_;
-        result.int32Value_ = int32Value_;
-        if (anyValueBuilder_ == null) {
-          result.anyValue_ = anyValue_;
-        } else {
-          result.anyValue_ = anyValueBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(protobuf_unittest.TestAnyProto.TestAny result) {
         if (repeatedAnyValueBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             repeatedAnyValue_ = java.util.Collections.unmodifiableList(repeatedAnyValue_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.repeatedAnyValue_ = repeatedAnyValue_;
         } else {
           result.repeatedAnyValue_ = repeatedAnyValueBuilder_.build();
         }
-        result.text_ = text_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.TestAnyProto.TestAny result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.int32Value_ = int32Value_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.anyValue_ = anyValueBuilder_ == null
+              ? anyValue_
+              : anyValueBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.text_ = text_;
+        }
       }
 
       @java.lang.Override
@@ -658,7 +589,7 @@ public final class TestAnyProto {
           if (!other.repeatedAnyValue_.isEmpty()) {
             if (repeatedAnyValue_.isEmpty()) {
               repeatedAnyValue_ = other.repeatedAnyValue_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureRepeatedAnyValueIsMutable();
               repeatedAnyValue_.addAll(other.repeatedAnyValue_);
@@ -671,7 +602,7 @@ public final class TestAnyProto {
               repeatedAnyValueBuilder_.dispose();
               repeatedAnyValueBuilder_ = null;
               repeatedAnyValue_ = other.repeatedAnyValue_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               repeatedAnyValueBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getRepeatedAnyValueFieldBuilder() : null;
@@ -682,9 +613,10 @@ public final class TestAnyProto {
         }
         if (!other.getText().isEmpty()) {
           text_ = other.text_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -699,17 +631,60 @@ public final class TestAnyProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.TestAnyProto.TestAny parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int32Value_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getAnyValueFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.Any m =
+                    input.readMessage(
+                        com.google.protobuf.Any.parser(),
+                        extensionRegistry);
+                if (repeatedAnyValueBuilder_ == null) {
+                  ensureRepeatedAnyValueIsMutable();
+                  repeatedAnyValue_.add(m);
+                } else {
+                  repeatedAnyValueBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 34: {
+                text_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.TestAnyProto.TestAny) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -731,6 +706,7 @@ public final class TestAnyProto {
       public Builder setInt32Value(int value) {
         
         int32Value_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -739,7 +715,7 @@ public final class TestAnyProto {
        * @return This builder for chaining.
        */
       public Builder clearInt32Value() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         int32Value_ = 0;
         onChanged();
         return this;
@@ -753,7 +729,7 @@ public final class TestAnyProto {
        * @return Whether the anyValue field is set.
        */
       public boolean hasAnyValue() {
-        return anyValueBuilder_ != null || anyValue_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.google.protobuf.Any any_value = 2;</code>
@@ -775,11 +751,11 @@ public final class TestAnyProto {
             throw new NullPointerException();
           }
           anyValue_ = value;
-          onChanged();
         } else {
           anyValueBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -789,11 +765,11 @@ public final class TestAnyProto {
           com.google.protobuf.Any.Builder builderForValue) {
         if (anyValueBuilder_ == null) {
           anyValue_ = builderForValue.build();
-          onChanged();
         } else {
           anyValueBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -801,38 +777,38 @@ public final class TestAnyProto {
        */
       public Builder mergeAnyValue(com.google.protobuf.Any value) {
         if (anyValueBuilder_ == null) {
-          if (anyValue_ != null) {
-            anyValue_ =
-              com.google.protobuf.Any.newBuilder(anyValue_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            anyValue_ != null &&
+            anyValue_ != com.google.protobuf.Any.getDefaultInstance()) {
+            getAnyValueBuilder().mergeFrom(value);
           } else {
             anyValue_ = value;
           }
-          onChanged();
         } else {
           anyValueBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Any any_value = 2;</code>
        */
       public Builder clearAnyValue() {
-        if (anyValueBuilder_ == null) {
-          anyValue_ = null;
-          onChanged();
-        } else {
-          anyValue_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        anyValue_ = null;
+        if (anyValueBuilder_ != null) {
+          anyValueBuilder_.dispose();
           anyValueBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.google.protobuf.Any any_value = 2;</code>
        */
       public com.google.protobuf.Any.Builder getAnyValueBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAnyValueFieldBuilder().getBuilder();
       }
@@ -867,9 +843,9 @@ public final class TestAnyProto {
       private java.util.List<com.google.protobuf.Any> repeatedAnyValue_ =
         java.util.Collections.emptyList();
       private void ensureRepeatedAnyValueIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           repeatedAnyValue_ = new java.util.ArrayList<com.google.protobuf.Any>(repeatedAnyValue_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -1019,7 +995,7 @@ public final class TestAnyProto {
       public Builder clearRepeatedAnyValue() {
         if (repeatedAnyValueBuilder_ == null) {
           repeatedAnyValue_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           repeatedAnyValueBuilder_.clear();
@@ -1096,7 +1072,7 @@ public final class TestAnyProto {
           repeatedAnyValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                   repeatedAnyValue_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           repeatedAnyValue_ = null;
@@ -1145,11 +1121,9 @@ public final class TestAnyProto {
        */
       public Builder setText(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         text_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1158,8 +1132,8 @@ public final class TestAnyProto {
        * @return This builder for chaining.
        */
       public Builder clearText() {
-        
         text_ = getDefaultInstance().getText();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1170,12 +1144,10 @@ public final class TestAnyProto {
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         text_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1212,7 +1184,18 @@ public final class TestAnyProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestAny(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

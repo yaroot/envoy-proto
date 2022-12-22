@@ -40,160 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VehicleMatch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.v1.Vehicle.Builder subBuilder = null;
-            if (vehicle_ != null) {
-              subBuilder = vehicle_.toBuilder();
-            }
-            vehicle_ = input.readMessage(google.maps.fleetengine.v1.Vehicle.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehicle_);
-              vehicle_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (vehiclePickupEta_ != null) {
-              subBuilder = vehiclePickupEta_.toBuilder();
-            }
-            vehiclePickupEta_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehiclePickupEta_);
-              vehiclePickupEta_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (vehiclePickupDistanceMeters_ != null) {
-              subBuilder = vehiclePickupDistanceMeters_.toBuilder();
-            }
-            vehiclePickupDistanceMeters_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehiclePickupDistanceMeters_);
-              vehiclePickupDistanceMeters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (vehicleDropoffEta_ != null) {
-              subBuilder = vehicleDropoffEta_.toBuilder();
-            }
-            vehicleDropoffEta_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehicleDropoffEta_);
-              vehicleDropoffEta_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (vehiclePickupToDropoffDistanceMeters_ != null) {
-              subBuilder = vehiclePickupToDropoffDistanceMeters_.toBuilder();
-            }
-            vehiclePickupToDropoffDistanceMeters_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehiclePickupToDropoffDistanceMeters_);
-              vehiclePickupToDropoffDistanceMeters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            tripType_ = rawValue;
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              vehicleTripsWaypoints_ = new java.util.ArrayList<google.maps.fleetengine.v1.Waypoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            vehicleTripsWaypoints_.add(
-                input.readMessage(google.maps.fleetengine.v1.Waypoint.parser(), extensionRegistry));
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            vehicleMatchType_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            requestedOrderedBy_ = rawValue;
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            orderedBy_ = rawValue;
-            break;
-          }
-          case 90: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (vehiclePickupStraightLineDistanceMeters_ != null) {
-              subBuilder = vehiclePickupStraightLineDistanceMeters_.toBuilder();
-            }
-            vehiclePickupStraightLineDistanceMeters_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehiclePickupStraightLineDistanceMeters_);
-              vehiclePickupStraightLineDistanceMeters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        vehicleTripsWaypoints_ = java.util.Collections.unmodifiableList(vehicleTripsWaypoints_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.VehicleApi.internal_static_maps_fleetengine_v1_VehicleMatch_descriptor;
@@ -431,7 +277,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.VehicleOrBuilder getVehicleOrBuilder() {
-    return getVehicle();
+    return vehicle_ == null ? google.maps.fleetengine.v1.Vehicle.getDefaultInstance() : vehicle_;
   }
 
   public static final int VEHICLE_PICKUP_ETA_FIELD_NUMBER = 2;
@@ -481,7 +327,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getVehiclePickupEtaOrBuilder() {
-    return getVehiclePickupEta();
+    return vehiclePickupEta_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : vehiclePickupEta_;
   }
 
   public static final int VEHICLE_PICKUP_DISTANCE_METERS_FIELD_NUMBER = 3;
@@ -537,15 +383,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getVehiclePickupDistanceMetersOrBuilder() {
-    return getVehiclePickupDistanceMeters();
+    return vehiclePickupDistanceMeters_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : vehiclePickupDistanceMeters_;
   }
 
   public static final int VEHICLE_PICKUP_STRAIGHT_LINE_DISTANCE_METERS_FIELD_NUMBER = 11;
   private com.google.protobuf.Int32Value vehiclePickupStraightLineDistanceMeters_;
   /**
    * <pre>
-   * Required. The straight-line distance between the vehicle and the pickup point
-   * specified in the request.
+   * Required. The straight-line distance between the vehicle and the pickup
+   * point specified in the request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -557,8 +403,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The straight-line distance between the vehicle and the pickup point
-   * specified in the request.
+   * Required. The straight-line distance between the vehicle and the pickup
+   * point specified in the request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -570,15 +416,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The straight-line distance between the vehicle and the pickup point
-   * specified in the request.
+   * Required. The straight-line distance between the vehicle and the pickup
+   * point specified in the request.
    * </pre>
    *
    * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getVehiclePickupStraightLineDistanceMetersOrBuilder() {
-    return getVehiclePickupStraightLineDistanceMeters();
+    return vehiclePickupStraightLineDistanceMeters_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : vehiclePickupStraightLineDistanceMeters_;
   }
 
   public static final int VEHICLE_DROPOFF_ETA_FIELD_NUMBER = 4;
@@ -628,7 +474,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getVehicleDropoffEtaOrBuilder() {
-    return getVehicleDropoffEta();
+    return vehicleDropoffEta_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : vehicleDropoffEta_;
   }
 
   public static final int VEHICLE_PICKUP_TO_DROPOFF_DISTANCE_METERS_FIELD_NUMBER = 5;
@@ -687,11 +533,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getVehiclePickupToDropoffDistanceMetersOrBuilder() {
-    return getVehiclePickupToDropoffDistanceMeters();
+    return vehiclePickupToDropoffDistanceMeters_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : vehiclePickupToDropoffDistanceMeters_;
   }
 
   public static final int TRIP_TYPE_FIELD_NUMBER = 6;
-  private int tripType_;
+  private int tripType_ = 0;
   /**
    * <pre>
    * Required. The trip type of the request that was used to calculate the ETA
@@ -714,18 +560,18 @@ private static final long serialVersionUID = 0L;
    * @return The tripType.
    */
   @java.lang.Override public google.maps.fleetengine.v1.TripType getTripType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.valueOf(tripType_);
+    google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.forNumber(tripType_);
     return result == null ? google.maps.fleetengine.v1.TripType.UNRECOGNIZED : result;
   }
 
   public static final int VEHICLE_TRIPS_WAYPOINTS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.Waypoint> vehicleTripsWaypoints_;
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -739,8 +585,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -755,8 +601,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -770,8 +616,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -785,8 +631,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The ordered list of waypoints used to calculate the ETA. The list
-   * includes vehicle location, the pickup/drop off points of active
-   * trips for the vehicle, and the pickup/drop off points provided in the
+   * includes vehicle location, the pickup points of active
+   * trips for the vehicle, and the pickup points provided in the
    * request. An empty list indicates a failure in calculating ETA for the
    * vehicle.
    * </pre>
@@ -800,7 +646,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VEHICLE_MATCH_TYPE_FIELD_NUMBER = 8;
-  private int vehicleMatchType_;
+  private int vehicleMatchType_ = 0;
   /**
    * <pre>
    * Type of the vehicle match.
@@ -821,13 +667,12 @@ private static final long serialVersionUID = 0L;
    * @return The vehicleMatchType.
    */
   @java.lang.Override public google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType getVehicleMatchType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType result = google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType.valueOf(vehicleMatchType_);
+    google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType result = google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType.forNumber(vehicleMatchType_);
     return result == null ? google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType.UNRECOGNIZED : result;
   }
 
   public static final int REQUESTED_ORDERED_BY_FIELD_NUMBER = 9;
-  private int requestedOrderedBy_;
+  private int requestedOrderedBy_ = 0;
   /**
    * <pre>
    * The order requested for sorting vehicle matches.
@@ -848,13 +693,12 @@ private static final long serialVersionUID = 0L;
    * @return The requestedOrderedBy.
    */
   @java.lang.Override public google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder getRequestedOrderedBy() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.valueOf(requestedOrderedBy_);
+    google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.forNumber(requestedOrderedBy_);
     return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.UNRECOGNIZED : result;
   }
 
   public static final int ORDERED_BY_FIELD_NUMBER = 10;
-  private int orderedBy_;
+  private int orderedBy_ = 0;
   /**
    * <pre>
    * The actual order that was used for this vehicle. Normally this
@@ -881,8 +725,7 @@ private static final long serialVersionUID = 0L;
    * @return The orderedBy.
    */
   @java.lang.Override public google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder getOrderedBy() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.valueOf(orderedBy_);
+    google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.forNumber(orderedBy_);
     return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.UNRECOGNIZED : result;
   }
 
@@ -933,7 +776,7 @@ private static final long serialVersionUID = 0L;
     if (vehiclePickupStraightLineDistanceMeters_ != null) {
       output.writeMessage(11, getVehiclePickupStraightLineDistanceMeters());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -986,7 +829,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getVehiclePickupStraightLineDistanceMeters());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1037,7 +880,7 @@ private static final long serialVersionUID = 0L;
     if (vehicleMatchType_ != other.vehicleMatchType_) return false;
     if (requestedOrderedBy_ != other.requestedOrderedBy_) return false;
     if (orderedBy_ != other.orderedBy_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1084,7 +927,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + requestedOrderedBy_;
     hash = (37 * hash) + ORDERED_BY_FIELD_NUMBER;
     hash = (53 * hash) + orderedBy_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1206,73 +1049,59 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.VehicleMatch.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getVehicleTripsWaypointsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (vehicleBuilder_ == null) {
-        vehicle_ = null;
-      } else {
-        vehicle_ = null;
+      bitField0_ = 0;
+      vehicle_ = null;
+      if (vehicleBuilder_ != null) {
+        vehicleBuilder_.dispose();
         vehicleBuilder_ = null;
       }
-      if (vehiclePickupEtaBuilder_ == null) {
-        vehiclePickupEta_ = null;
-      } else {
-        vehiclePickupEta_ = null;
+      vehiclePickupEta_ = null;
+      if (vehiclePickupEtaBuilder_ != null) {
+        vehiclePickupEtaBuilder_.dispose();
         vehiclePickupEtaBuilder_ = null;
       }
-      if (vehiclePickupDistanceMetersBuilder_ == null) {
-        vehiclePickupDistanceMeters_ = null;
-      } else {
-        vehiclePickupDistanceMeters_ = null;
+      vehiclePickupDistanceMeters_ = null;
+      if (vehiclePickupDistanceMetersBuilder_ != null) {
+        vehiclePickupDistanceMetersBuilder_.dispose();
         vehiclePickupDistanceMetersBuilder_ = null;
       }
-      if (vehiclePickupStraightLineDistanceMetersBuilder_ == null) {
-        vehiclePickupStraightLineDistanceMeters_ = null;
-      } else {
-        vehiclePickupStraightLineDistanceMeters_ = null;
+      vehiclePickupStraightLineDistanceMeters_ = null;
+      if (vehiclePickupStraightLineDistanceMetersBuilder_ != null) {
+        vehiclePickupStraightLineDistanceMetersBuilder_.dispose();
         vehiclePickupStraightLineDistanceMetersBuilder_ = null;
       }
-      if (vehicleDropoffEtaBuilder_ == null) {
-        vehicleDropoffEta_ = null;
-      } else {
-        vehicleDropoffEta_ = null;
+      vehicleDropoffEta_ = null;
+      if (vehicleDropoffEtaBuilder_ != null) {
+        vehicleDropoffEtaBuilder_.dispose();
         vehicleDropoffEtaBuilder_ = null;
       }
-      if (vehiclePickupToDropoffDistanceMetersBuilder_ == null) {
-        vehiclePickupToDropoffDistanceMeters_ = null;
-      } else {
-        vehiclePickupToDropoffDistanceMeters_ = null;
+      vehiclePickupToDropoffDistanceMeters_ = null;
+      if (vehiclePickupToDropoffDistanceMetersBuilder_ != null) {
+        vehiclePickupToDropoffDistanceMetersBuilder_.dispose();
         vehiclePickupToDropoffDistanceMetersBuilder_ = null;
       }
       tripType_ = 0;
-
       if (vehicleTripsWaypointsBuilder_ == null) {
         vehicleTripsWaypoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        vehicleTripsWaypoints_ = null;
         vehicleTripsWaypointsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       vehicleMatchType_ = 0;
-
       requestedOrderedBy_ = 0;
-
       orderedBy_ = 0;
-
       return this;
     }
 
@@ -1299,52 +1128,68 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.VehicleMatch buildPartial() {
       google.maps.fleetengine.v1.VehicleMatch result = new google.maps.fleetengine.v1.VehicleMatch(this);
-      int from_bitField0_ = bitField0_;
-      if (vehicleBuilder_ == null) {
-        result.vehicle_ = vehicle_;
-      } else {
-        result.vehicle_ = vehicleBuilder_.build();
-      }
-      if (vehiclePickupEtaBuilder_ == null) {
-        result.vehiclePickupEta_ = vehiclePickupEta_;
-      } else {
-        result.vehiclePickupEta_ = vehiclePickupEtaBuilder_.build();
-      }
-      if (vehiclePickupDistanceMetersBuilder_ == null) {
-        result.vehiclePickupDistanceMeters_ = vehiclePickupDistanceMeters_;
-      } else {
-        result.vehiclePickupDistanceMeters_ = vehiclePickupDistanceMetersBuilder_.build();
-      }
-      if (vehiclePickupStraightLineDistanceMetersBuilder_ == null) {
-        result.vehiclePickupStraightLineDistanceMeters_ = vehiclePickupStraightLineDistanceMeters_;
-      } else {
-        result.vehiclePickupStraightLineDistanceMeters_ = vehiclePickupStraightLineDistanceMetersBuilder_.build();
-      }
-      if (vehicleDropoffEtaBuilder_ == null) {
-        result.vehicleDropoffEta_ = vehicleDropoffEta_;
-      } else {
-        result.vehicleDropoffEta_ = vehicleDropoffEtaBuilder_.build();
-      }
-      if (vehiclePickupToDropoffDistanceMetersBuilder_ == null) {
-        result.vehiclePickupToDropoffDistanceMeters_ = vehiclePickupToDropoffDistanceMeters_;
-      } else {
-        result.vehiclePickupToDropoffDistanceMeters_ = vehiclePickupToDropoffDistanceMetersBuilder_.build();
-      }
-      result.tripType_ = tripType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.VehicleMatch result) {
       if (vehicleTripsWaypointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           vehicleTripsWaypoints_ = java.util.Collections.unmodifiableList(vehicleTripsWaypoints_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.vehicleTripsWaypoints_ = vehicleTripsWaypoints_;
       } else {
         result.vehicleTripsWaypoints_ = vehicleTripsWaypointsBuilder_.build();
       }
-      result.vehicleMatchType_ = vehicleMatchType_;
-      result.requestedOrderedBy_ = requestedOrderedBy_;
-      result.orderedBy_ = orderedBy_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.VehicleMatch result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vehicle_ = vehicleBuilder_ == null
+            ? vehicle_
+            : vehicleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.vehiclePickupEta_ = vehiclePickupEtaBuilder_ == null
+            ? vehiclePickupEta_
+            : vehiclePickupEtaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vehiclePickupDistanceMeters_ = vehiclePickupDistanceMetersBuilder_ == null
+            ? vehiclePickupDistanceMeters_
+            : vehiclePickupDistanceMetersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.vehiclePickupStraightLineDistanceMeters_ = vehiclePickupStraightLineDistanceMetersBuilder_ == null
+            ? vehiclePickupStraightLineDistanceMeters_
+            : vehiclePickupStraightLineDistanceMetersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.vehicleDropoffEta_ = vehicleDropoffEtaBuilder_ == null
+            ? vehicleDropoffEta_
+            : vehicleDropoffEtaBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.vehiclePickupToDropoffDistanceMeters_ = vehiclePickupToDropoffDistanceMetersBuilder_ == null
+            ? vehiclePickupToDropoffDistanceMeters_
+            : vehiclePickupToDropoffDistanceMetersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.tripType_ = tripType_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.vehicleMatchType_ = vehicleMatchType_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.requestedOrderedBy_ = requestedOrderedBy_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.orderedBy_ = orderedBy_;
+      }
     }
 
     @java.lang.Override
@@ -1416,7 +1261,7 @@ private static final long serialVersionUID = 0L;
         if (!other.vehicleTripsWaypoints_.isEmpty()) {
           if (vehicleTripsWaypoints_.isEmpty()) {
             vehicleTripsWaypoints_ = other.vehicleTripsWaypoints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureVehicleTripsWaypointsIsMutable();
             vehicleTripsWaypoints_.addAll(other.vehicleTripsWaypoints_);
@@ -1429,7 +1274,7 @@ private static final long serialVersionUID = 0L;
             vehicleTripsWaypointsBuilder_.dispose();
             vehicleTripsWaypointsBuilder_ = null;
             vehicleTripsWaypoints_ = other.vehicleTripsWaypoints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             vehicleTripsWaypointsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVehicleTripsWaypointsFieldBuilder() : null;
@@ -1447,7 +1292,7 @@ private static final long serialVersionUID = 0L;
       if (other.orderedBy_ != 0) {
         setOrderedByValue(other.getOrderedByValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1462,17 +1307,105 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.VehicleMatch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getVehicleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getVehiclePickupEtaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getVehiclePickupDistanceMetersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getVehicleDropoffEtaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getVehiclePickupToDropoffDistanceMetersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 48: {
+              tripType_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 48
+            case 58: {
+              google.maps.fleetengine.v1.Waypoint m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.Waypoint.parser(),
+                      extensionRegistry);
+              if (vehicleTripsWaypointsBuilder_ == null) {
+                ensureVehicleTripsWaypointsIsMutable();
+                vehicleTripsWaypoints_.add(m);
+              } else {
+                vehicleTripsWaypointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 64: {
+              vehicleMatchType_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 64
+            case 72: {
+              requestedOrderedBy_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 72
+            case 80: {
+              orderedBy_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getVehiclePickupStraightLineDistanceMetersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.VehicleMatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1489,7 +1422,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vehicle field is set.
      */
     public boolean hasVehicle() {
-      return vehicleBuilder_ != null || vehicle_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1519,11 +1452,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehicle_ = value;
-        onChanged();
       } else {
         vehicleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1537,11 +1470,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.Vehicle.Builder builderForValue) {
       if (vehicleBuilder_ == null) {
         vehicle_ = builderForValue.build();
-        onChanged();
       } else {
         vehicleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1553,17 +1486,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVehicle(google.maps.fleetengine.v1.Vehicle value) {
       if (vehicleBuilder_ == null) {
-        if (vehicle_ != null) {
-          vehicle_ =
-            google.maps.fleetengine.v1.Vehicle.newBuilder(vehicle_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          vehicle_ != null &&
+          vehicle_ != google.maps.fleetengine.v1.Vehicle.getDefaultInstance()) {
+          getVehicleBuilder().mergeFrom(value);
         } else {
           vehicle_ = value;
         }
-        onChanged();
       } else {
         vehicleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1574,14 +1508,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.Vehicle vehicle = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearVehicle() {
-      if (vehicleBuilder_ == null) {
-        vehicle_ = null;
-        onChanged();
-      } else {
-        vehicle_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      vehicle_ = null;
+      if (vehicleBuilder_ != null) {
+        vehicleBuilder_.dispose();
         vehicleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1592,7 +1525,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.Vehicle vehicle = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public google.maps.fleetengine.v1.Vehicle.Builder getVehicleBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getVehicleFieldBuilder().getBuilder();
     }
@@ -1648,7 +1581,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vehiclePickupEta field is set.
      */
     public boolean hasVehiclePickupEta() {
-      return vehiclePickupEtaBuilder_ != null || vehiclePickupEta_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1686,11 +1619,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehiclePickupEta_ = value;
-        onChanged();
       } else {
         vehiclePickupEtaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1708,11 +1641,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (vehiclePickupEtaBuilder_ == null) {
         vehiclePickupEta_ = builderForValue.build();
-        onChanged();
       } else {
         vehiclePickupEtaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1728,17 +1661,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVehiclePickupEta(com.google.protobuf.Timestamp value) {
       if (vehiclePickupEtaBuilder_ == null) {
-        if (vehiclePickupEta_ != null) {
-          vehiclePickupEta_ =
-            com.google.protobuf.Timestamp.newBuilder(vehiclePickupEta_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          vehiclePickupEta_ != null &&
+          vehiclePickupEta_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getVehiclePickupEtaBuilder().mergeFrom(value);
         } else {
           vehiclePickupEta_ = value;
         }
-        onChanged();
       } else {
         vehiclePickupEtaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1753,14 +1687,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp vehicle_pickup_eta = 2;</code>
      */
     public Builder clearVehiclePickupEta() {
-      if (vehiclePickupEtaBuilder_ == null) {
-        vehiclePickupEta_ = null;
-        onChanged();
-      } else {
-        vehiclePickupEta_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      vehiclePickupEta_ = null;
+      if (vehiclePickupEtaBuilder_ != null) {
+        vehiclePickupEtaBuilder_.dispose();
         vehiclePickupEtaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1775,7 +1708,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp vehicle_pickup_eta = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getVehiclePickupEtaBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getVehiclePickupEtaFieldBuilder().getBuilder();
     }
@@ -1841,7 +1774,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vehiclePickupDistanceMeters field is set.
      */
     public boolean hasVehiclePickupDistanceMeters() {
-      return vehiclePickupDistanceMetersBuilder_ != null || vehiclePickupDistanceMeters_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1883,11 +1816,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehiclePickupDistanceMeters_ = value;
-        onChanged();
       } else {
         vehiclePickupDistanceMetersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1907,11 +1840,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (vehiclePickupDistanceMetersBuilder_ == null) {
         vehiclePickupDistanceMeters_ = builderForValue.build();
-        onChanged();
       } else {
         vehiclePickupDistanceMetersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1929,17 +1862,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVehiclePickupDistanceMeters(com.google.protobuf.Int32Value value) {
       if (vehiclePickupDistanceMetersBuilder_ == null) {
-        if (vehiclePickupDistanceMeters_ != null) {
-          vehiclePickupDistanceMeters_ =
-            com.google.protobuf.Int32Value.newBuilder(vehiclePickupDistanceMeters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          vehiclePickupDistanceMeters_ != null &&
+          vehiclePickupDistanceMeters_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getVehiclePickupDistanceMetersBuilder().mergeFrom(value);
         } else {
           vehiclePickupDistanceMeters_ = value;
         }
-        onChanged();
       } else {
         vehiclePickupDistanceMetersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1956,14 +1890,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value vehicle_pickup_distance_meters = 3;</code>
      */
     public Builder clearVehiclePickupDistanceMeters() {
-      if (vehiclePickupDistanceMetersBuilder_ == null) {
-        vehiclePickupDistanceMeters_ = null;
-        onChanged();
-      } else {
-        vehiclePickupDistanceMeters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      vehiclePickupDistanceMeters_ = null;
+      if (vehiclePickupDistanceMetersBuilder_ != null) {
+        vehiclePickupDistanceMetersBuilder_.dispose();
         vehiclePickupDistanceMetersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1980,7 +1913,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value vehicle_pickup_distance_meters = 3;</code>
      */
     public com.google.protobuf.Int32Value.Builder getVehiclePickupDistanceMetersBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getVehiclePickupDistanceMetersFieldBuilder().getBuilder();
     }
@@ -2037,20 +1970,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> vehiclePickupStraightLineDistanceMetersBuilder_;
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the vehiclePickupStraightLineDistanceMeters field is set.
      */
     public boolean hasVehiclePickupStraightLineDistanceMeters() {
-      return vehiclePickupStraightLineDistanceMetersBuilder_ != null || vehiclePickupStraightLineDistanceMeters_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2065,8 +1998,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2077,17 +2010,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehiclePickupStraightLineDistanceMeters_ = value;
-        onChanged();
       } else {
         vehiclePickupStraightLineDistanceMetersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2096,72 +2029,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (vehiclePickupStraightLineDistanceMetersBuilder_ == null) {
         vehiclePickupStraightLineDistanceMeters_ = builderForValue.build();
-        onChanged();
       } else {
         vehiclePickupStraightLineDistanceMetersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeVehiclePickupStraightLineDistanceMeters(com.google.protobuf.Int32Value value) {
       if (vehiclePickupStraightLineDistanceMetersBuilder_ == null) {
-        if (vehiclePickupStraightLineDistanceMeters_ != null) {
-          vehiclePickupStraightLineDistanceMeters_ =
-            com.google.protobuf.Int32Value.newBuilder(vehiclePickupStraightLineDistanceMeters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          vehiclePickupStraightLineDistanceMeters_ != null &&
+          vehiclePickupStraightLineDistanceMeters_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getVehiclePickupStraightLineDistanceMetersBuilder().mergeFrom(value);
         } else {
           vehiclePickupStraightLineDistanceMeters_ = value;
         }
-        onChanged();
       } else {
         vehiclePickupStraightLineDistanceMetersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearVehiclePickupStraightLineDistanceMeters() {
-      if (vehiclePickupStraightLineDistanceMetersBuilder_ == null) {
-        vehiclePickupStraightLineDistanceMeters_ = null;
-        onChanged();
-      } else {
-        vehiclePickupStraightLineDistanceMeters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      vehiclePickupStraightLineDistanceMeters_ = null;
+      if (vehiclePickupStraightLineDistanceMetersBuilder_ != null) {
+        vehiclePickupStraightLineDistanceMetersBuilder_.dispose();
         vehiclePickupStraightLineDistanceMetersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.Int32Value.Builder getVehiclePickupStraightLineDistanceMetersBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getVehiclePickupStraightLineDistanceMetersFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2176,8 +2109,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The straight-line distance between the vehicle and the pickup point
-     * specified in the request.
+     * Required. The straight-line distance between the vehicle and the pickup
+     * point specified in the request.
      * </pre>
      *
      * <code>.google.protobuf.Int32Value vehicle_pickup_straight_line_distance_meters = 11 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2212,7 +2145,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vehicleDropoffEta field is set.
      */
     public boolean hasVehicleDropoffEta() {
-      return vehicleDropoffEtaBuilder_ != null || vehicleDropoffEta_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2250,11 +2183,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehicleDropoffEta_ = value;
-        onChanged();
       } else {
         vehicleDropoffEtaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2272,11 +2205,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (vehicleDropoffEtaBuilder_ == null) {
         vehicleDropoffEta_ = builderForValue.build();
-        onChanged();
       } else {
         vehicleDropoffEtaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2292,17 +2225,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVehicleDropoffEta(com.google.protobuf.Timestamp value) {
       if (vehicleDropoffEtaBuilder_ == null) {
-        if (vehicleDropoffEta_ != null) {
-          vehicleDropoffEta_ =
-            com.google.protobuf.Timestamp.newBuilder(vehicleDropoffEta_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          vehicleDropoffEta_ != null &&
+          vehicleDropoffEta_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getVehicleDropoffEtaBuilder().mergeFrom(value);
         } else {
           vehicleDropoffEta_ = value;
         }
-        onChanged();
       } else {
         vehicleDropoffEtaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2317,14 +2251,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp vehicle_dropoff_eta = 4;</code>
      */
     public Builder clearVehicleDropoffEta() {
-      if (vehicleDropoffEtaBuilder_ == null) {
-        vehicleDropoffEta_ = null;
-        onChanged();
-      } else {
-        vehicleDropoffEta_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      vehicleDropoffEta_ = null;
+      if (vehicleDropoffEtaBuilder_ != null) {
+        vehicleDropoffEtaBuilder_.dispose();
         vehicleDropoffEtaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2339,7 +2272,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp vehicle_dropoff_eta = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getVehicleDropoffEtaBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getVehicleDropoffEtaFieldBuilder().getBuilder();
     }
@@ -2406,7 +2339,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vehiclePickupToDropoffDistanceMeters field is set.
      */
     public boolean hasVehiclePickupToDropoffDistanceMeters() {
-      return vehiclePickupToDropoffDistanceMetersBuilder_ != null || vehiclePickupToDropoffDistanceMeters_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2450,11 +2383,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehiclePickupToDropoffDistanceMeters_ = value;
-        onChanged();
       } else {
         vehiclePickupToDropoffDistanceMetersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2475,11 +2408,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (vehiclePickupToDropoffDistanceMetersBuilder_ == null) {
         vehiclePickupToDropoffDistanceMeters_ = builderForValue.build();
-        onChanged();
       } else {
         vehiclePickupToDropoffDistanceMetersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2498,17 +2431,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVehiclePickupToDropoffDistanceMeters(com.google.protobuf.Int32Value value) {
       if (vehiclePickupToDropoffDistanceMetersBuilder_ == null) {
-        if (vehiclePickupToDropoffDistanceMeters_ != null) {
-          vehiclePickupToDropoffDistanceMeters_ =
-            com.google.protobuf.Int32Value.newBuilder(vehiclePickupToDropoffDistanceMeters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          vehiclePickupToDropoffDistanceMeters_ != null &&
+          vehiclePickupToDropoffDistanceMeters_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getVehiclePickupToDropoffDistanceMetersBuilder().mergeFrom(value);
         } else {
           vehiclePickupToDropoffDistanceMeters_ = value;
         }
-        onChanged();
       } else {
         vehiclePickupToDropoffDistanceMetersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2526,14 +2460,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value vehicle_pickup_to_dropoff_distance_meters = 5;</code>
      */
     public Builder clearVehiclePickupToDropoffDistanceMeters() {
-      if (vehiclePickupToDropoffDistanceMetersBuilder_ == null) {
-        vehiclePickupToDropoffDistanceMeters_ = null;
-        onChanged();
-      } else {
-        vehiclePickupToDropoffDistanceMeters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      vehiclePickupToDropoffDistanceMeters_ = null;
+      if (vehiclePickupToDropoffDistanceMetersBuilder_ != null) {
+        vehiclePickupToDropoffDistanceMetersBuilder_.dispose();
         vehiclePickupToDropoffDistanceMetersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2551,7 +2484,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value vehicle_pickup_to_dropoff_distance_meters = 5;</code>
      */
     public com.google.protobuf.Int32Value.Builder getVehiclePickupToDropoffDistanceMetersBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getVehiclePickupToDropoffDistanceMetersFieldBuilder().getBuilder();
     }
@@ -2629,8 +2562,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTripTypeValue(int value) {
-      
       tripType_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2645,8 +2578,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.TripType getTripType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.valueOf(tripType_);
+      google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.forNumber(tripType_);
       return result == null ? google.maps.fleetengine.v1.TripType.UNRECOGNIZED : result;
     }
     /**
@@ -2663,7 +2595,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       tripType_ = value.getNumber();
       onChanged();
       return this;
@@ -2678,7 +2610,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTripType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       tripType_ = 0;
       onChanged();
       return this;
@@ -2687,9 +2619,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.v1.Waypoint> vehicleTripsWaypoints_ =
       java.util.Collections.emptyList();
     private void ensureVehicleTripsWaypointsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         vehicleTripsWaypoints_ = new java.util.ArrayList<google.maps.fleetengine.v1.Waypoint>(vehicleTripsWaypoints_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2699,8 +2631,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2717,8 +2649,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2735,8 +2667,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2753,8 +2685,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2778,8 +2710,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2800,8 +2732,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2824,8 +2756,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2849,8 +2781,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2871,8 +2803,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2893,8 +2825,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2916,8 +2848,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2927,7 +2859,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVehicleTripsWaypoints() {
       if (vehicleTripsWaypointsBuilder_ == null) {
         vehicleTripsWaypoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         vehicleTripsWaypointsBuilder_.clear();
@@ -2937,8 +2869,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2958,8 +2890,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2973,8 +2905,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -2991,8 +2923,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -3010,8 +2942,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -3025,8 +2957,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -3041,8 +2973,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The ordered list of waypoints used to calculate the ETA. The list
-     * includes vehicle location, the pickup/drop off points of active
-     * trips for the vehicle, and the pickup/drop off points provided in the
+     * includes vehicle location, the pickup points of active
+     * trips for the vehicle, and the pickup points provided in the
      * request. An empty list indicates a failure in calculating ETA for the
      * vehicle.
      * </pre>
@@ -3060,7 +2992,7 @@ private static final long serialVersionUID = 0L;
         vehicleTripsWaypointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.v1.Waypoint, google.maps.fleetengine.v1.Waypoint.Builder, google.maps.fleetengine.v1.WaypointOrBuilder>(
                 vehicleTripsWaypoints_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         vehicleTripsWaypoints_ = null;
@@ -3090,8 +3022,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setVehicleMatchTypeValue(int value) {
-      
       vehicleMatchType_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3105,8 +3037,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType getVehicleMatchType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType result = google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType.valueOf(vehicleMatchType_);
+      google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType result = google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType.forNumber(vehicleMatchType_);
       return result == null ? google.maps.fleetengine.v1.VehicleMatch.VehicleMatchType.UNRECOGNIZED : result;
     }
     /**
@@ -3122,7 +3053,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       vehicleMatchType_ = value.getNumber();
       onChanged();
       return this;
@@ -3136,7 +3067,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVehicleMatchType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       vehicleMatchType_ = 0;
       onChanged();
       return this;
@@ -3164,8 +3095,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequestedOrderedByValue(int value) {
-      
       requestedOrderedBy_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3179,8 +3110,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder getRequestedOrderedBy() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.valueOf(requestedOrderedBy_);
+      google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.forNumber(requestedOrderedBy_);
       return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.UNRECOGNIZED : result;
     }
     /**
@@ -3196,7 +3126,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       requestedOrderedBy_ = value.getNumber();
       onChanged();
       return this;
@@ -3210,7 +3140,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestedOrderedBy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       requestedOrderedBy_ = 0;
       onChanged();
       return this;
@@ -3244,8 +3174,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOrderedByValue(int value) {
-      
       orderedBy_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3262,8 +3192,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder getOrderedBy() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.valueOf(orderedBy_);
+      google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.forNumber(orderedBy_);
       return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.UNRECOGNIZED : result;
     }
     /**
@@ -3282,7 +3211,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       orderedBy_ = value.getNumber();
       onChanged();
       return this;
@@ -3299,7 +3228,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderedBy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       orderedBy_ = 0;
       onChanged();
       return this;
@@ -3337,7 +3266,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VehicleMatch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

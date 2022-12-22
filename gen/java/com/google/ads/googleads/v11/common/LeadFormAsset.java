@@ -49,154 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LeadFormAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              fields_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LeadFormField>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            fields_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.LeadFormField.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              deliveryMethods_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LeadFormDeliveryMethod>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            deliveryMethods_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.LeadFormDeliveryMethod.parser(), extensionRegistry));
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            businessName_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            headline_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            privacyPolicyUrl_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            postSubmitHeadline_ = s;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            postSubmitDescription_ = s;
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-
-            callToActionType_ = rawValue;
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            callToActionDescription_ = s;
-            break;
-          }
-          case 152: {
-            int rawValue = input.readEnum();
-
-            postSubmitCallToActionType_ = rawValue;
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            backgroundImageAsset_ = s;
-            break;
-          }
-          case 168: {
-            int rawValue = input.readEnum();
-
-            desiredIntent_ = rawValue;
-            break;
-          }
-          case 178: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            customDisclosure_ = s;
-            break;
-          }
-          case 186: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              customQuestionFields_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LeadFormCustomQuestionField>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            customQuestionFields_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.LeadFormCustomQuestionField.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        fields_ = java.util.Collections.unmodifiableList(fields_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        deliveryMethods_ = java.util.Collections.unmodifiableList(deliveryMethods_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        customQuestionFields_ = java.util.Collections.unmodifiableList(customQuestionFields_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.AssetTypesProto.internal_static_google_ads_googleads_v11_common_LeadFormAsset_descriptor;
@@ -212,7 +64,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int BUSINESS_NAME_FIELD_NUMBER = 10;
-  private volatile java.lang.Object businessName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object businessName_ = "";
   /**
    * <pre>
    * Required. The name of the business being advertised.
@@ -258,7 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALL_TO_ACTION_TYPE_FIELD_NUMBER = 17;
-  private int callToActionType_;
+  private int callToActionType_ = 0;
   /**
    * <pre>
    * Required. Pre-defined display text that encourages user to expand the form.
@@ -279,13 +132,13 @@ private static final long serialVersionUID = 0L;
    * @return The callToActionType.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType getCallToActionType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType.valueOf(callToActionType_);
+    com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType.forNumber(callToActionType_);
     return result == null ? com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType.UNRECOGNIZED : result;
   }
 
   public static final int CALL_TO_ACTION_DESCRIPTION_FIELD_NUMBER = 18;
-  private volatile java.lang.Object callToActionDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callToActionDescription_ = "";
   /**
    * <pre>
    * Required. Text giving a clear value proposition of what users expect once they expand
@@ -333,7 +186,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADLINE_FIELD_NUMBER = 12;
-  private volatile java.lang.Object headline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object headline_ = "";
   /**
    * <pre>
    * Required. Headline of the expanded form to describe what the form is asking for or
@@ -381,7 +235,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 13;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Required. Detailed description of the expanded form to describe what the form is
@@ -429,7 +284,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIVACY_POLICY_URL_FIELD_NUMBER = 14;
-  private volatile java.lang.Object privacyPolicyUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object privacyPolicyUrl_ = "";
   /**
    * <pre>
    * Required. Link to a page describing the policy on how the collected data is handled
@@ -477,7 +333,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_SUBMIT_HEADLINE_FIELD_NUMBER = 15;
-  private volatile java.lang.Object postSubmitHeadline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object postSubmitHeadline_ = "";
   /**
    * <pre>
    * Headline of text shown after form submission that describes how the
@@ -538,7 +395,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_SUBMIT_DESCRIPTION_FIELD_NUMBER = 16;
-  private volatile java.lang.Object postSubmitDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object postSubmitDescription_ = "";
   /**
    * <pre>
    * Detailed description shown after form submission that describes how the
@@ -599,6 +457,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FIELDS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.LeadFormField> fields_;
   /**
    * <pre>
@@ -659,6 +518,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_QUESTION_FIELDS_FIELD_NUMBER = 23;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.LeadFormCustomQuestionField> customQuestionFields_;
   /**
    * <pre>
@@ -719,6 +579,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELIVERY_METHODS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.LeadFormDeliveryMethod> deliveryMethods_;
   /**
    * <pre>
@@ -784,7 +645,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_SUBMIT_CALL_TO_ACTION_TYPE_FIELD_NUMBER = 19;
-  private int postSubmitCallToActionType_;
+  private int postSubmitCallToActionType_ = 0;
   /**
    * <pre>
    * Pre-defined display text that encourages user action after the form is
@@ -807,13 +668,13 @@ private static final long serialVersionUID = 0L;
    * @return The postSubmitCallToActionType.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType getPostSubmitCallToActionType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType.valueOf(postSubmitCallToActionType_);
+    com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType.forNumber(postSubmitCallToActionType_);
     return result == null ? com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType.UNRECOGNIZED : result;
   }
 
   public static final int BACKGROUND_IMAGE_ASSET_FIELD_NUMBER = 20;
-  private volatile java.lang.Object backgroundImageAsset_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object backgroundImageAsset_ = "";
   /**
    * <pre>
    * Asset resource name of the background image. The minimum size is 600x314
@@ -874,10 +735,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESIRED_INTENT_FIELD_NUMBER = 21;
-  private int desiredIntent_;
+  private int desiredIntent_ = 0;
   /**
    * <pre>
-   * Desired intent for the lead form, e.g. more volume or more qualified.
+   * Chosen intent for the lead form, for example, more volume or more
+   * qualified.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
@@ -888,20 +750,21 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Desired intent for the lead form, e.g. more volume or more qualified.
+   * Chosen intent for the lead form, for example, more volume or more
+   * qualified.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
    * @return The desiredIntent.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent getDesiredIntent() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent result = com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent.valueOf(desiredIntent_);
+    com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent result = com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent.forNumber(desiredIntent_);
     return result == null ? com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent.UNRECOGNIZED : result;
   }
 
   public static final int CUSTOM_DISCLOSURE_FIELD_NUMBER = 22;
-  private volatile java.lang.Object customDisclosure_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customDisclosure_ = "";
   /**
    * <pre>
    * Custom disclosure shown along with Google disclaimer on the lead form.
@@ -1020,7 +883,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < customQuestionFields_.size(); i++) {
       output.writeMessage(23, customQuestionFields_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1080,7 +943,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(23, customQuestionFields_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1134,7 +997,7 @@ private static final long serialVersionUID = 0L;
       if (!getCustomDisclosure()
           .equals(other.getCustomDisclosure())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1189,7 +1052,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOM_DISCLOSURE_FIELD_NUMBER;
       hash = (53 * hash) + getCustomDisclosure().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1310,67 +1173,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.LeadFormAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFieldsFieldBuilder();
-        getCustomQuestionFieldsFieldBuilder();
-        getDeliveryMethodsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       businessName_ = "";
-
       callToActionType_ = 0;
-
       callToActionDescription_ = "";
-
       headline_ = "";
-
       description_ = "";
-
       privacyPolicyUrl_ = "";
-
       postSubmitHeadline_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       postSubmitDescription_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        fields_ = null;
         fieldsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       if (customQuestionFieldsBuilder_ == null) {
         customQuestionFields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        customQuestionFields_ = null;
         customQuestionFieldsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       if (deliveryMethodsBuilder_ == null) {
         deliveryMethods_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        deliveryMethods_ = null;
         deliveryMethodsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       postSubmitCallToActionType_ = 0;
-
       backgroundImageAsset_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       desiredIntent_ = 0;
-
       customDisclosure_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -1397,62 +1244,86 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.LeadFormAsset buildPartial() {
       com.google.ads.googleads.v11.common.LeadFormAsset result = new com.google.ads.googleads.v11.common.LeadFormAsset(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.businessName_ = businessName_;
-      result.callToActionType_ = callToActionType_;
-      result.callToActionDescription_ = callToActionDescription_;
-      result.headline_ = headline_;
-      result.description_ = description_;
-      result.privacyPolicyUrl_ = privacyPolicyUrl_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.postSubmitHeadline_ = postSubmitHeadline_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.postSubmitDescription_ = postSubmitDescription_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.LeadFormAsset result) {
       if (fieldsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           fields_ = java.util.Collections.unmodifiableList(fields_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.fields_ = fields_;
       } else {
         result.fields_ = fieldsBuilder_.build();
       }
       if (customQuestionFieldsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           customQuestionFields_ = java.util.Collections.unmodifiableList(customQuestionFields_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.customQuestionFields_ = customQuestionFields_;
       } else {
         result.customQuestionFields_ = customQuestionFieldsBuilder_.build();
       }
       if (deliveryMethodsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           deliveryMethods_ = java.util.Collections.unmodifiableList(deliveryMethods_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.deliveryMethods_ = deliveryMethods_;
       } else {
         result.deliveryMethods_ = deliveryMethodsBuilder_.build();
       }
-      result.postSubmitCallToActionType_ = postSubmitCallToActionType_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.LeadFormAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.businessName_ = businessName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.callToActionType_ = callToActionType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.callToActionDescription_ = callToActionDescription_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.headline_ = headline_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description_ = description_;
+      }
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.privacyPolicyUrl_ = privacyPolicyUrl_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.postSubmitHeadline_ = postSubmitHeadline_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.postSubmitDescription_ = postSubmitDescription_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.postSubmitCallToActionType_ = postSubmitCallToActionType_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.backgroundImageAsset_ = backgroundImageAsset_;
         to_bitField0_ |= 0x00000004;
       }
-      result.backgroundImageAsset_ = backgroundImageAsset_;
-      result.desiredIntent_ = desiredIntent_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.desiredIntent_ = desiredIntent_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.customDisclosure_ = customDisclosure_;
         to_bitField0_ |= 0x00000008;
       }
-      result.customDisclosure_ = customDisclosure_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1501,6 +1372,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.common.LeadFormAsset.getDefaultInstance()) return this;
       if (!other.getBusinessName().isEmpty()) {
         businessName_ = other.businessName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.callToActionType_ != 0) {
@@ -1508,35 +1380,39 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCallToActionDescription().isEmpty()) {
         callToActionDescription_ = other.callToActionDescription_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getHeadline().isEmpty()) {
         headline_ = other.headline_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getPrivacyPolicyUrl().isEmpty()) {
         privacyPolicyUrl_ = other.privacyPolicyUrl_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasPostSubmitHeadline()) {
-        bitField0_ |= 0x00000001;
         postSubmitHeadline_ = other.postSubmitHeadline_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasPostSubmitDescription()) {
-        bitField0_ |= 0x00000002;
         postSubmitDescription_ = other.postSubmitDescription_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (fieldsBuilder_ == null) {
         if (!other.fields_.isEmpty()) {
           if (fields_.isEmpty()) {
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureFieldsIsMutable();
             fields_.addAll(other.fields_);
@@ -1549,7 +1425,7 @@ private static final long serialVersionUID = 0L;
             fieldsBuilder_.dispose();
             fieldsBuilder_ = null;
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
             fieldsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFieldsFieldBuilder() : null;
@@ -1562,7 +1438,7 @@ private static final long serialVersionUID = 0L;
         if (!other.customQuestionFields_.isEmpty()) {
           if (customQuestionFields_.isEmpty()) {
             customQuestionFields_ = other.customQuestionFields_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureCustomQuestionFieldsIsMutable();
             customQuestionFields_.addAll(other.customQuestionFields_);
@@ -1575,7 +1451,7 @@ private static final long serialVersionUID = 0L;
             customQuestionFieldsBuilder_.dispose();
             customQuestionFieldsBuilder_ = null;
             customQuestionFields_ = other.customQuestionFields_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000200);
             customQuestionFieldsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getCustomQuestionFieldsFieldBuilder() : null;
@@ -1588,7 +1464,7 @@ private static final long serialVersionUID = 0L;
         if (!other.deliveryMethods_.isEmpty()) {
           if (deliveryMethods_.isEmpty()) {
             deliveryMethods_ = other.deliveryMethods_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureDeliveryMethodsIsMutable();
             deliveryMethods_.addAll(other.deliveryMethods_);
@@ -1601,7 +1477,7 @@ private static final long serialVersionUID = 0L;
             deliveryMethodsBuilder_.dispose();
             deliveryMethodsBuilder_ = null;
             deliveryMethods_ = other.deliveryMethods_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000400);
             deliveryMethodsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDeliveryMethodsFieldBuilder() : null;
@@ -1614,19 +1490,19 @@ private static final long serialVersionUID = 0L;
         setPostSubmitCallToActionTypeValue(other.getPostSubmitCallToActionTypeValue());
       }
       if (other.hasBackgroundImageAsset()) {
-        bitField0_ |= 0x00000020;
         backgroundImageAsset_ = other.backgroundImageAsset_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.desiredIntent_ != 0) {
         setDesiredIntentValue(other.getDesiredIntentValue());
       }
       if (other.hasCustomDisclosure()) {
-        bitField0_ |= 0x00000040;
         customDisclosure_ = other.customDisclosure_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1641,17 +1517,129 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.LeadFormAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 66: {
+              com.google.ads.googleads.v11.common.LeadFormField m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.LeadFormField.parser(),
+                      extensionRegistry);
+              if (fieldsBuilder_ == null) {
+                ensureFieldsIsMutable();
+                fields_.add(m);
+              } else {
+                fieldsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              com.google.ads.googleads.v11.common.LeadFormDeliveryMethod m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.LeadFormDeliveryMethod.parser(),
+                      extensionRegistry);
+              if (deliveryMethodsBuilder_ == null) {
+                ensureDeliveryMethodsIsMutable();
+                deliveryMethods_.add(m);
+              } else {
+                deliveryMethodsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 82: {
+              businessName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 82
+            case 98: {
+              headline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 98
+            case 106: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 106
+            case 114: {
+              privacyPolicyUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 114
+            case 122: {
+              postSubmitHeadline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 122
+            case 130: {
+              postSubmitDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 130
+            case 136: {
+              callToActionType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 136
+            case 146: {
+              callToActionDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 146
+            case 152: {
+              postSubmitCallToActionType_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 152
+            case 162: {
+              backgroundImageAsset_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 162
+            case 168: {
+              desiredIntent_ = input.readEnum();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 168
+            case 178: {
+              customDisclosure_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 178
+            case 186: {
+              com.google.ads.googleads.v11.common.LeadFormCustomQuestionField m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.LeadFormCustomQuestionField.parser(),
+                      extensionRegistry);
+              if (customQuestionFieldsBuilder_ == null) {
+                ensureCustomQuestionFieldsIsMutable();
+                customQuestionFields_.add(m);
+              } else {
+                customQuestionFieldsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 186
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.LeadFormAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1709,11 +1697,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       businessName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1726,8 +1712,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBusinessName() {
-      
       businessName_ = getDefaultInstance().getBusinessName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1742,12 +1728,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       businessName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1774,8 +1758,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCallToActionTypeValue(int value) {
-      
       callToActionType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1789,8 +1773,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType getCallToActionType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType.valueOf(callToActionType_);
+      com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType.forNumber(callToActionType_);
       return result == null ? com.google.ads.googleads.v11.enums.LeadFormCallToActionTypeEnum.LeadFormCallToActionType.UNRECOGNIZED : result;
     }
     /**
@@ -1806,7 +1789,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       callToActionType_ = value.getNumber();
       onChanged();
       return this;
@@ -1820,7 +1803,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallToActionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       callToActionType_ = 0;
       onChanged();
       return this;
@@ -1882,11 +1865,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallToActionDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       callToActionDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1900,8 +1881,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallToActionDescription() {
-      
       callToActionDescription_ = getDefaultInstance().getCallToActionDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1917,12 +1898,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallToActionDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callToActionDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1983,11 +1962,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       headline_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2001,8 +1978,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeadline() {
-      
       headline_ = getDefaultInstance().getHeadline();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2018,12 +1995,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headline_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2084,11 +2059,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2102,8 +2075,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2119,12 +2092,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2185,11 +2156,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrivacyPolicyUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       privacyPolicyUrl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2203,8 +2172,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrivacyPolicyUrl() {
-      
       privacyPolicyUrl_ = getDefaultInstance().getPrivacyPolicyUrl();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2220,12 +2189,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrivacyPolicyUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       privacyPolicyUrl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2241,7 +2208,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postSubmitHeadline field is set.
      */
     public boolean hasPostSubmitHeadline() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2298,11 +2265,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostSubmitHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       postSubmitHeadline_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2316,8 +2281,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPostSubmitHeadline() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       postSubmitHeadline_ = getDefaultInstance().getPostSubmitHeadline();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2333,12 +2298,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostSubmitHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       postSubmitHeadline_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2354,7 +2317,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the postSubmitDescription field is set.
      */
     public boolean hasPostSubmitDescription() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2411,11 +2374,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostSubmitDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       postSubmitDescription_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2429,8 +2390,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPostSubmitDescription() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       postSubmitDescription_ = getDefaultInstance().getPostSubmitDescription();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2446,12 +2407,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostSubmitDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       postSubmitDescription_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2459,9 +2418,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.LeadFormField> fields_ =
       java.util.Collections.emptyList();
     private void ensureFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         fields_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LeadFormField>(fields_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -2655,7 +2614,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFields() {
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         fieldsBuilder_.clear();
@@ -2760,7 +2719,7 @@ private static final long serialVersionUID = 0L;
         fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.LeadFormField, com.google.ads.googleads.v11.common.LeadFormField.Builder, com.google.ads.googleads.v11.common.LeadFormFieldOrBuilder>(
                 fields_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         fields_ = null;
@@ -2771,9 +2730,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.LeadFormCustomQuestionField> customQuestionFields_ =
       java.util.Collections.emptyList();
     private void ensureCustomQuestionFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         customQuestionFields_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LeadFormCustomQuestionField>(customQuestionFields_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -2967,7 +2926,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearCustomQuestionFields() {
       if (customQuestionFieldsBuilder_ == null) {
         customQuestionFields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         customQuestionFieldsBuilder_.clear();
@@ -3072,7 +3031,7 @@ private static final long serialVersionUID = 0L;
         customQuestionFieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.LeadFormCustomQuestionField, com.google.ads.googleads.v11.common.LeadFormCustomQuestionField.Builder, com.google.ads.googleads.v11.common.LeadFormCustomQuestionFieldOrBuilder>(
                 customQuestionFields_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         customQuestionFields_ = null;
@@ -3083,9 +3042,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v11.common.LeadFormDeliveryMethod> deliveryMethods_ =
       java.util.Collections.emptyList();
     private void ensureDeliveryMethodsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         deliveryMethods_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.LeadFormDeliveryMethod>(deliveryMethods_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -3290,7 +3249,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDeliveryMethods() {
       if (deliveryMethodsBuilder_ == null) {
         deliveryMethods_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         deliveryMethodsBuilder_.clear();
@@ -3402,7 +3361,7 @@ private static final long serialVersionUID = 0L;
         deliveryMethodsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v11.common.LeadFormDeliveryMethod, com.google.ads.googleads.v11.common.LeadFormDeliveryMethod.Builder, com.google.ads.googleads.v11.common.LeadFormDeliveryMethodOrBuilder>(
                 deliveryMethods_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         deliveryMethods_ = null;
@@ -3434,8 +3393,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPostSubmitCallToActionTypeValue(int value) {
-      
       postSubmitCallToActionType_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3450,8 +3409,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType getPostSubmitCallToActionType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType.valueOf(postSubmitCallToActionType_);
+      com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType result = com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType.forNumber(postSubmitCallToActionType_);
       return result == null ? com.google.ads.googleads.v11.enums.LeadFormPostSubmitCallToActionTypeEnum.LeadFormPostSubmitCallToActionType.UNRECOGNIZED : result;
     }
     /**
@@ -3468,7 +3426,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       postSubmitCallToActionType_ = value.getNumber();
       onChanged();
       return this;
@@ -3483,7 +3441,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPostSubmitCallToActionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       postSubmitCallToActionType_ = 0;
       onChanged();
       return this;
@@ -3500,7 +3458,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the backgroundImageAsset field is set.
      */
     public boolean hasBackgroundImageAsset() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3557,11 +3515,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackgroundImageAsset(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       backgroundImageAsset_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3575,8 +3531,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBackgroundImageAsset() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       backgroundImageAsset_ = getDefaultInstance().getBackgroundImageAsset();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3592,12 +3548,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBackgroundImageAssetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       backgroundImageAsset_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3605,7 +3559,8 @@ private static final long serialVersionUID = 0L;
     private int desiredIntent_ = 0;
     /**
      * <pre>
-     * Desired intent for the lead form, e.g. more volume or more qualified.
+     * Chosen intent for the lead form, for example, more volume or more
+     * qualified.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
@@ -3616,7 +3571,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Desired intent for the lead form, e.g. more volume or more qualified.
+     * Chosen intent for the lead form, for example, more volume or more
+     * qualified.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
@@ -3624,14 +3580,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDesiredIntentValue(int value) {
-      
       desiredIntent_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Desired intent for the lead form, e.g. more volume or more qualified.
+     * Chosen intent for the lead form, for example, more volume or more
+     * qualified.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
@@ -3639,13 +3596,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent getDesiredIntent() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent result = com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent.valueOf(desiredIntent_);
+      com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent result = com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent.forNumber(desiredIntent_);
       return result == null ? com.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Desired intent for the lead form, e.g. more volume or more qualified.
+     * Chosen intent for the lead form, for example, more volume or more
+     * qualified.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
@@ -3656,21 +3613,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00002000;
       desiredIntent_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Desired intent for the lead form, e.g. more volume or more qualified.
+     * Chosen intent for the lead form, for example, more volume or more
+     * qualified.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.LeadFormDesiredIntentEnum.LeadFormDesiredIntent desired_intent = 21;</code>
      * @return This builder for chaining.
      */
     public Builder clearDesiredIntent() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       desiredIntent_ = 0;
       onChanged();
       return this;
@@ -3687,7 +3645,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customDisclosure field is set.
      */
     public boolean hasCustomDisclosure() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3744,11 +3702,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomDisclosure(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       customDisclosure_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3762,8 +3718,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomDisclosure() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       customDisclosure_ = getDefaultInstance().getCustomDisclosure();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -3779,12 +3735,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomDisclosureBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customDisclosure_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3821,7 +3775,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LeadFormAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,65 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpeakerDiarizationConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enableSpeakerDiarization_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            minSpeakerCount_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            maxSpeakerCount_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            speakerTag_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.speech.v1.SpeechProto.internal_static_google_cloud_speech_v1_SpeakerDiarizationConfig_descriptor;
@@ -107,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_SPEAKER_DIARIZATION_FIELD_NUMBER = 1;
-  private boolean enableSpeakerDiarization_;
+  private boolean enableSpeakerDiarization_ = false;
   /**
    * <pre>
    * If 'true', enables speaker detection for each recognized word in
@@ -124,7 +65,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_SPEAKER_COUNT_FIELD_NUMBER = 2;
-  private int minSpeakerCount_;
+  private int minSpeakerCount_ = 0;
   /**
    * <pre>
    * Minimum number of speakers in the conversation. This range gives you more
@@ -141,7 +82,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_SPEAKER_COUNT_FIELD_NUMBER = 3;
-  private int maxSpeakerCount_;
+  private int maxSpeakerCount_ = 0;
   /**
    * <pre>
    * Maximum number of speakers in the conversation. This range gives you more
@@ -158,7 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPEAKER_TAG_FIELD_NUMBER = 5;
-  private int speakerTag_;
+  private int speakerTag_ = 0;
   /**
    * <pre>
    * Output only. Unused.
@@ -166,7 +107,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>int32 speaker_tag = 5 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.speech.v1.SpeakerDiarizationConfig.speaker_tag is deprecated.
-   *     See google/cloud/speech/v1/cloud_speech.proto;l=457
+   *     See google/cloud/speech/v1/cloud_speech.proto;l=456
    * @return The speakerTag.
    */
   @java.lang.Override
@@ -200,7 +141,7 @@ private static final long serialVersionUID = 0L;
     if (speakerTag_ != 0) {
       output.writeInt32(5, speakerTag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +166,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, speakerTag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -248,7 +189,7 @@ private static final long serialVersionUID = 0L;
         != other.getMaxSpeakerCount()) return false;
     if (getSpeakerTag()
         != other.getSpeakerTag()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -268,7 +209,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMaxSpeakerCount();
     hash = (37 * hash) + SPEAKER_TAG_FIELD_NUMBER;
     hash = (53 * hash) + getSpeakerTag();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -389,30 +330,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.speech.v1.SpeakerDiarizationConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enableSpeakerDiarization_ = false;
-
       minSpeakerCount_ = 0;
-
       maxSpeakerCount_ = 0;
-
       speakerTag_ = 0;
-
       return this;
     }
 
@@ -439,12 +372,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.speech.v1.SpeakerDiarizationConfig buildPartial() {
       com.google.cloud.speech.v1.SpeakerDiarizationConfig result = new com.google.cloud.speech.v1.SpeakerDiarizationConfig(this);
-      result.enableSpeakerDiarization_ = enableSpeakerDiarization_;
-      result.minSpeakerCount_ = minSpeakerCount_;
-      result.maxSpeakerCount_ = maxSpeakerCount_;
-      result.speakerTag_ = speakerTag_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.speech.v1.SpeakerDiarizationConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableSpeakerDiarization_ = enableSpeakerDiarization_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.minSpeakerCount_ = minSpeakerCount_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxSpeakerCount_ = maxSpeakerCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.speakerTag_ = speakerTag_;
+      }
     }
 
     @java.lang.Override
@@ -503,7 +449,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSpeakerTag() != 0) {
         setSpeakerTag(other.getSpeakerTag());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +464,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.speech.v1.SpeakerDiarizationConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enableSpeakerDiarization_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              minSpeakerCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              maxSpeakerCount_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 40: {
+              speakerTag_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.speech.v1.SpeakerDiarizationConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enableSpeakerDiarization_ ;
     /**
@@ -561,6 +541,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableSpeakerDiarization(boolean value) {
       
       enableSpeakerDiarization_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -575,7 +556,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableSpeakerDiarization() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enableSpeakerDiarization_ = false;
       onChanged();
       return this;
@@ -610,6 +591,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinSpeakerCount(int value) {
       
       minSpeakerCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -624,7 +606,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinSpeakerCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       minSpeakerCount_ = 0;
       onChanged();
       return this;
@@ -659,6 +641,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxSpeakerCount(int value) {
       
       maxSpeakerCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -673,7 +656,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxSpeakerCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       maxSpeakerCount_ = 0;
       onChanged();
       return this;
@@ -687,7 +670,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 speaker_tag = 5 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.speech.v1.SpeakerDiarizationConfig.speaker_tag is deprecated.
-     *     See google/cloud/speech/v1/cloud_speech.proto;l=457
+     *     See google/cloud/speech/v1/cloud_speech.proto;l=456
      * @return The speakerTag.
      */
     @java.lang.Override
@@ -701,13 +684,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 speaker_tag = 5 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.speech.v1.SpeakerDiarizationConfig.speaker_tag is deprecated.
-     *     See google/cloud/speech/v1/cloud_speech.proto;l=457
+     *     See google/cloud/speech/v1/cloud_speech.proto;l=456
      * @param value The speakerTag to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setSpeakerTag(int value) {
       
       speakerTag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -718,11 +702,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 speaker_tag = 5 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.speech.v1.SpeakerDiarizationConfig.speaker_tag is deprecated.
-     *     See google/cloud/speech/v1/cloud_speech.proto;l=457
+     *     See google/cloud/speech/v1/cloud_speech.proto;l=456
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearSpeakerTag() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       speakerTag_ = 0;
       onChanged();
       return this;
@@ -760,7 +744,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpeakerDiarizationConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

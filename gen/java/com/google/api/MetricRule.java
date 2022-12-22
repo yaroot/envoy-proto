@@ -36,65 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MetricRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            selector_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              metricCosts_ = com.google.protobuf.MapField.newMapField(
-                  MetricCostsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
-            metricCosts__ = input.readMessage(
-                MetricCostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            metricCosts_.getMutableMap().put(
-                metricCosts__.getKey(), metricCosts__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.QuotaProto.internal_static_google_api_MetricRule_descriptor;
@@ -121,7 +62,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELECTOR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object selector_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selector_ = "";
   /**
    * <pre>
    * Selects the methods to which this rule applies.
@@ -180,6 +122,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Long> metricCosts_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
@@ -190,7 +133,6 @@ private static final long serialVersionUID = 0L;
     }
     return metricCosts_;
   }
-
   public int getMetricCostsCount() {
     return internalGetMetricCosts().getMap().size();
   }
@@ -205,7 +147,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsMetricCosts(
       java.lang.String key) {
@@ -232,7 +173,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Long> getMetricCostsMap() {
     return internalGetMetricCosts().getMap();
   }
@@ -248,7 +188,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
    */
   @java.lang.Override
-
   public long getMetricCostsOrDefault(
       java.lang.String key,
       long defaultValue) {
@@ -269,7 +208,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
    */
   @java.lang.Override
-
   public long getMetricCostsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -304,7 +242,7 @@ private static final long serialVersionUID = 0L;
         internalGetMetricCosts(),
         MetricCostsDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -326,7 +264,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, metricCosts__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -345,7 +283,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSelector())) return false;
     if (!internalGetMetricCosts().equals(
         other.internalGetMetricCosts())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -362,7 +300,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METRIC_COSTS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMetricCosts().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -506,24 +444,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.MetricRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       selector_ = "";
-
       internalGetMutableMetricCosts().clear();
       return this;
     }
@@ -551,12 +484,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.MetricRule buildPartial() {
       com.google.api.MetricRule result = new com.google.api.MetricRule(this);
-      int from_bitField0_ = bitField0_;
-      result.selector_ = selector_;
-      result.metricCosts_ = internalGetMetricCosts();
-      result.metricCosts_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.MetricRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.selector_ = selector_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.metricCosts_ = internalGetMetricCosts();
+        result.metricCosts_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -605,11 +546,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.MetricRule.getDefaultInstance()) return this;
       if (!other.getSelector().isEmpty()) {
         selector_ = other.selector_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableMetricCosts().mergeFrom(
           other.internalGetMetricCosts());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -624,17 +567,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.MetricRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              selector_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              metricCosts__ = input.readMessage(
+                  MetricCostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMetricCosts().getMutableMap().put(
+                  metricCosts__.getKey(), metricCosts__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.MetricRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -695,11 +665,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelector(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       selector_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -713,8 +681,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelector() {
-      
       selector_ = getDefaultInstance().getSelector();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -730,12 +698,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelectorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selector_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -743,7 +709,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Long> metricCosts_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMetricCosts() {
+        internalGetMetricCosts() {
       if (metricCosts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MetricCostsDefaultEntryHolder.defaultEntry);
@@ -751,8 +717,7 @@ private static final long serialVersionUID = 0L;
       return metricCosts_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMutableMetricCosts() {
-      onChanged();;
+        internalGetMutableMetricCosts() {
       if (metricCosts_ == null) {
         metricCosts_ = com.google.protobuf.MapField.newMapField(
             MetricCostsDefaultEntryHolder.defaultEntry);
@@ -760,9 +725,10 @@ private static final long serialVersionUID = 0L;
       if (!metricCosts_.isMutable()) {
         metricCosts_ = metricCosts_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return metricCosts_;
     }
-
     public int getMetricCostsCount() {
       return internalGetMetricCosts().getMap().size();
     }
@@ -777,7 +743,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsMetricCosts(
         java.lang.String key) {
@@ -804,7 +769,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Long> getMetricCostsMap() {
       return internalGetMetricCosts().getMap();
     }
@@ -820,7 +784,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
      */
     @java.lang.Override
-
     public long getMetricCostsOrDefault(
         java.lang.String key,
         long defaultValue) {
@@ -841,7 +804,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
      */
     @java.lang.Override
-
     public long getMetricCostsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -852,8 +814,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMetricCosts() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableMetricCosts().getMutableMap()
           .clear();
       return this;
@@ -869,7 +831,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
      */
-
     public Builder removeMetricCosts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -882,7 +843,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
-    getMutableMetricCosts() {
+        getMutableMetricCosts() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableMetricCosts().getMutableMap();
     }
     /**
@@ -903,6 +865,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableMetricCosts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -916,11 +879,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; metric_costs = 2;</code>
      */
-
     public Builder putAllMetricCosts(
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableMetricCosts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -956,7 +919,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MetricRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

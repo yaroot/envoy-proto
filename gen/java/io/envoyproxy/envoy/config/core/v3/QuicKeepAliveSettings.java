@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QuicKeepAliveSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxInterval_ != null) {
-              subBuilder = maxInterval_.toBuilder();
-            }
-            maxInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxInterval_);
-              maxInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (initialInterval_ != null) {
-              subBuilder = initialInterval_.toBuilder();
-            }
-            initialInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(initialInterval_);
-              initialInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.ProtocolProto.internal_static_envoy_config_core_v3_QuicKeepAliveSettings_descriptor;
@@ -158,7 +93,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxIntervalOrBuilder() {
-    return getMaxInterval();
+    return maxInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxInterval_;
   }
 
   public static final int INITIAL_INTERVAL_FIELD_NUMBER = 2;
@@ -202,7 +137,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getInitialIntervalOrBuilder() {
-    return getInitialInterval();
+    return initialInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : initialInterval_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
     if (initialInterval_ != null) {
       output.writeMessage(2, getInitialInterval());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -242,7 +177,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getInitialInterval());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -267,7 +202,7 @@ private static final long serialVersionUID = 0L;
       if (!getInitialInterval()
           .equals(other.getInitialInterval())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -286,7 +221,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INITIAL_INTERVAL_FIELD_NUMBER;
       hash = (53 * hash) + getInitialInterval().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -409,32 +344,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (maxIntervalBuilder_ == null) {
-        maxInterval_ = null;
-      } else {
-        maxInterval_ = null;
+      bitField0_ = 0;
+      maxInterval_ = null;
+      if (maxIntervalBuilder_ != null) {
+        maxIntervalBuilder_.dispose();
         maxIntervalBuilder_ = null;
       }
-      if (initialIntervalBuilder_ == null) {
-        initialInterval_ = null;
-      } else {
-        initialInterval_ = null;
+      initialInterval_ = null;
+      if (initialIntervalBuilder_ != null) {
+        initialIntervalBuilder_.dispose();
         initialIntervalBuilder_ = null;
       }
       return this;
@@ -463,18 +392,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings buildPartial() {
       io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings result = new io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings(this);
-      if (maxIntervalBuilder_ == null) {
-        result.maxInterval_ = maxInterval_;
-      } else {
-        result.maxInterval_ = maxIntervalBuilder_.build();
-      }
-      if (initialIntervalBuilder_ == null) {
-        result.initialInterval_ = initialInterval_;
-      } else {
-        result.initialInterval_ = initialIntervalBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxInterval_ = maxIntervalBuilder_ == null
+            ? maxInterval_
+            : maxIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.initialInterval_ = initialIntervalBuilder_ == null
+            ? initialInterval_
+            : initialIntervalBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -527,7 +461,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasInitialInterval()) {
         mergeInitialInterval(other.getInitialInterval());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -542,19 +476,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMaxIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getInitialIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.QuicKeepAliveSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration maxInterval_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -571,7 +533,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxInterval field is set.
      */
     public boolean hasMaxInterval() {
-      return maxIntervalBuilder_ != null || maxInterval_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -607,11 +569,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxInterval_ = value;
-        onChanged();
       } else {
         maxIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -628,11 +590,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxIntervalBuilder_ == null) {
         maxInterval_ = builderForValue.build();
-        onChanged();
       } else {
         maxIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -647,17 +609,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxInterval(com.google.protobuf.Duration value) {
       if (maxIntervalBuilder_ == null) {
-        if (maxInterval_ != null) {
-          maxInterval_ =
-            com.google.protobuf.Duration.newBuilder(maxInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          maxInterval_ != null &&
+          maxInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxIntervalBuilder().mergeFrom(value);
         } else {
           maxInterval_ = value;
         }
-        onChanged();
       } else {
         maxIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -671,14 +634,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_interval = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaxInterval() {
-      if (maxIntervalBuilder_ == null) {
-        maxInterval_ = null;
-        onChanged();
-      } else {
-        maxInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      maxInterval_ = null;
+      if (maxIntervalBuilder_ != null) {
+        maxIntervalBuilder_.dispose();
         maxIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -692,7 +654,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_interval = 1 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getMaxIntervalBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMaxIntervalFieldBuilder().getBuilder();
     }
@@ -752,7 +714,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the initialInterval field is set.
      */
     public boolean hasInitialInterval() {
-      return initialIntervalBuilder_ != null || initialInterval_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -786,11 +748,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         initialInterval_ = value;
-        onChanged();
       } else {
         initialIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -806,11 +768,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (initialIntervalBuilder_ == null) {
         initialInterval_ = builderForValue.build();
-        onChanged();
       } else {
         initialIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -824,17 +786,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInitialInterval(com.google.protobuf.Duration value) {
       if (initialIntervalBuilder_ == null) {
-        if (initialInterval_ != null) {
-          initialInterval_ =
-            com.google.protobuf.Duration.newBuilder(initialInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          initialInterval_ != null &&
+          initialInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getInitialIntervalBuilder().mergeFrom(value);
         } else {
           initialInterval_ = value;
         }
-        onChanged();
       } else {
         initialIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -847,14 +810,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration initial_interval = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearInitialInterval() {
-      if (initialIntervalBuilder_ == null) {
-        initialInterval_ = null;
-        onChanged();
-      } else {
-        initialInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      initialInterval_ = null;
+      if (initialIntervalBuilder_ != null) {
+        initialIntervalBuilder_.dispose();
         initialIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -867,7 +829,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration initial_interval = 2 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getInitialIntervalBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInitialIntervalFieldBuilder().getBuilder();
     }
@@ -943,7 +905,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QuicKeepAliveSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

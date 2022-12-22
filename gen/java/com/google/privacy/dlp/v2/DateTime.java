@@ -36,90 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DateTime(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (date_ != null) {
-              subBuilder = date_.toBuilder();
-            }
-            date_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(date_);
-              date_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            dayOfWeek_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.type.TimeOfDay.Builder subBuilder = null;
-            if (time_ != null) {
-              subBuilder = time_.toBuilder();
-            }
-            time_ = input.readMessage(com.google.type.TimeOfDay.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(time_);
-              time_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.privacy.dlp.v2.DateTime.TimeZone.Builder subBuilder = null;
-            if (timeZone_ != null) {
-              subBuilder = timeZone_.toBuilder();
-            }
-            timeZone_ = input.readMessage(com.google.privacy.dlp.v2.DateTime.TimeZone.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeZone_);
-              timeZone_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_DateTime_descriptor;
@@ -179,50 +95,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TimeZone(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              offsetMinutes_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_DateTime_TimeZone_descriptor;
@@ -237,7 +109,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OFFSET_MINUTES_FIELD_NUMBER = 1;
-    private int offsetMinutes_;
+    private int offsetMinutes_ = 0;
     /**
      * <pre>
      * Set only if the offset can be determined. Positive for time ahead of UTC.
@@ -269,7 +141,7 @@ private static final long serialVersionUID = 0L;
       if (offsetMinutes_ != 0) {
         output.writeInt32(1, offsetMinutes_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -282,7 +154,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, offsetMinutes_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -299,7 +171,7 @@ private static final long serialVersionUID = 0L;
 
       if (getOffsetMinutes()
           != other.getOffsetMinutes()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -312,7 +184,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + OFFSET_MINUTES_FIELD_NUMBER;
       hash = (53 * hash) + getOffsetMinutes();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -433,24 +305,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.privacy.dlp.v2.DateTime.TimeZone.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         offsetMinutes_ = 0;
-
         return this;
       }
 
@@ -477,9 +344,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.privacy.dlp.v2.DateTime.TimeZone buildPartial() {
         com.google.privacy.dlp.v2.DateTime.TimeZone result = new com.google.privacy.dlp.v2.DateTime.TimeZone(this);
-        result.offsetMinutes_ = offsetMinutes_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.privacy.dlp.v2.DateTime.TimeZone result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.offsetMinutes_ = offsetMinutes_;
+        }
       }
 
       @java.lang.Override
@@ -529,7 +403,7 @@ private static final long serialVersionUID = 0L;
         if (other.getOffsetMinutes() != 0) {
           setOffsetMinutes(other.getOffsetMinutes());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -544,19 +418,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.privacy.dlp.v2.DateTime.TimeZone parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                offsetMinutes_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.privacy.dlp.v2.DateTime.TimeZone) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int offsetMinutes_ ;
       /**
@@ -585,6 +478,7 @@ private static final long serialVersionUID = 0L;
       public Builder setOffsetMinutes(int value) {
         
         offsetMinutes_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -598,7 +492,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOffsetMinutes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         offsetMinutes_ = 0;
         onChanged();
         return this;
@@ -636,7 +530,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TimeZone(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -694,11 +599,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.DateOrBuilder getDateOrBuilder() {
-    return getDate();
+    return date_ == null ? com.google.type.Date.getDefaultInstance() : date_;
   }
 
   public static final int DAY_OF_WEEK_FIELD_NUMBER = 2;
-  private int dayOfWeek_;
+  private int dayOfWeek_ = 0;
   /**
    * <pre>
    * Day of week
@@ -719,8 +624,7 @@ private static final long serialVersionUID = 0L;
    * @return The dayOfWeek.
    */
   @java.lang.Override public com.google.type.DayOfWeek getDayOfWeek() {
-    @SuppressWarnings("deprecation")
-    com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+    com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
     return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
   }
 
@@ -759,7 +663,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.TimeOfDayOrBuilder getTimeOrBuilder() {
-    return getTime();
+    return time_ == null ? com.google.type.TimeOfDay.getDefaultInstance() : time_;
   }
 
   public static final int TIME_ZONE_FIELD_NUMBER = 4;
@@ -797,7 +701,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.DateTime.TimeZoneOrBuilder getTimeZoneOrBuilder() {
-    return getTimeZone();
+    return timeZone_ == null ? com.google.privacy.dlp.v2.DateTime.TimeZone.getDefaultInstance() : timeZone_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -826,7 +730,7 @@ private static final long serialVersionUID = 0L;
     if (timeZone_ != null) {
       output.writeMessage(4, getTimeZone());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -851,7 +755,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getTimeZone());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -882,7 +786,7 @@ private static final long serialVersionUID = 0L;
       if (!getTimeZone()
           .equals(other.getTimeZone())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -907,7 +811,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getTimeZone().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1029,40 +933,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.DateTime.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (dateBuilder_ == null) {
-        date_ = null;
-      } else {
-        date_ = null;
+      bitField0_ = 0;
+      date_ = null;
+      if (dateBuilder_ != null) {
+        dateBuilder_.dispose();
         dateBuilder_ = null;
       }
       dayOfWeek_ = 0;
-
-      if (timeBuilder_ == null) {
-        time_ = null;
-      } else {
-        time_ = null;
+      time_ = null;
+      if (timeBuilder_ != null) {
+        timeBuilder_.dispose();
         timeBuilder_ = null;
       }
-      if (timeZoneBuilder_ == null) {
-        timeZone_ = null;
-      } else {
-        timeZone_ = null;
+      timeZone_ = null;
+      if (timeZoneBuilder_ != null) {
+        timeZoneBuilder_.dispose();
         timeZoneBuilder_ = null;
       }
       return this;
@@ -1091,24 +987,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.DateTime buildPartial() {
       com.google.privacy.dlp.v2.DateTime result = new com.google.privacy.dlp.v2.DateTime(this);
-      if (dateBuilder_ == null) {
-        result.date_ = date_;
-      } else {
-        result.date_ = dateBuilder_.build();
-      }
-      result.dayOfWeek_ = dayOfWeek_;
-      if (timeBuilder_ == null) {
-        result.time_ = time_;
-      } else {
-        result.time_ = timeBuilder_.build();
-      }
-      if (timeZoneBuilder_ == null) {
-        result.timeZone_ = timeZone_;
-      } else {
-        result.timeZone_ = timeZoneBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.DateTime result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.date_ = dateBuilder_ == null
+            ? date_
+            : dateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dayOfWeek_ = dayOfWeek_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.time_ = timeBuilder_ == null
+            ? time_
+            : timeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.timeZone_ = timeZoneBuilder_ == null
+            ? timeZone_
+            : timeZoneBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1167,7 +1070,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTimeZone()) {
         mergeTimeZone(other.getTimeZone());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1182,19 +1085,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.DateTime parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              dayOfWeek_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTimeZoneFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.DateTime) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.type.Date date_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1209,7 +1152,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the date field is set.
      */
     public boolean hasDate() {
-      return dateBuilder_ != null || date_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1241,11 +1184,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         date_ = value;
-        onChanged();
       } else {
         dateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1260,11 +1203,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Date.Builder builderForValue) {
       if (dateBuilder_ == null) {
         date_ = builderForValue.build();
-        onChanged();
       } else {
         dateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1277,17 +1220,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDate(com.google.type.Date value) {
       if (dateBuilder_ == null) {
-        if (date_ != null) {
-          date_ =
-            com.google.type.Date.newBuilder(date_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          date_ != null &&
+          date_ != com.google.type.Date.getDefaultInstance()) {
+          getDateBuilder().mergeFrom(value);
         } else {
           date_ = value;
         }
-        onChanged();
       } else {
         dateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1299,14 +1243,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date date = 1;</code>
      */
     public Builder clearDate() {
-      if (dateBuilder_ == null) {
-        date_ = null;
-        onChanged();
-      } else {
-        date_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      date_ = null;
+      if (dateBuilder_ != null) {
+        dateBuilder_.dispose();
         dateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1318,7 +1261,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date date = 1;</code>
      */
     public com.google.type.Date.Builder getDateBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDateFieldBuilder().getBuilder();
     }
@@ -1382,8 +1325,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDayOfWeekValue(int value) {
-      
       dayOfWeek_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1397,8 +1340,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.DayOfWeek getDayOfWeek() {
-      @SuppressWarnings("deprecation")
-      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.valueOf(dayOfWeek_);
+      com.google.type.DayOfWeek result = com.google.type.DayOfWeek.forNumber(dayOfWeek_);
       return result == null ? com.google.type.DayOfWeek.UNRECOGNIZED : result;
     }
     /**
@@ -1414,7 +1356,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       dayOfWeek_ = value.getNumber();
       onChanged();
       return this;
@@ -1428,7 +1370,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDayOfWeek() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       dayOfWeek_ = 0;
       onChanged();
       return this;
@@ -1446,7 +1388,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the time field is set.
      */
     public boolean hasTime() {
-      return timeBuilder_ != null || time_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1476,11 +1418,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         time_ = value;
-        onChanged();
       } else {
         timeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1494,11 +1436,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.TimeOfDay.Builder builderForValue) {
       if (timeBuilder_ == null) {
         time_ = builderForValue.build();
-        onChanged();
       } else {
         timeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1510,17 +1452,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTime(com.google.type.TimeOfDay value) {
       if (timeBuilder_ == null) {
-        if (time_ != null) {
-          time_ =
-            com.google.type.TimeOfDay.newBuilder(time_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          time_ != null &&
+          time_ != com.google.type.TimeOfDay.getDefaultInstance()) {
+          getTimeBuilder().mergeFrom(value);
         } else {
           time_ = value;
         }
-        onChanged();
       } else {
         timeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1531,14 +1474,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.TimeOfDay time = 3;</code>
      */
     public Builder clearTime() {
-      if (timeBuilder_ == null) {
-        time_ = null;
-        onChanged();
-      } else {
-        time_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      time_ = null;
+      if (timeBuilder_ != null) {
+        timeBuilder_.dispose();
         timeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1549,7 +1491,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.TimeOfDay time = 3;</code>
      */
     public com.google.type.TimeOfDay.Builder getTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTimeFieldBuilder().getBuilder();
     }
@@ -1601,7 +1543,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeZone field is set.
      */
     public boolean hasTimeZone() {
-      return timeZoneBuilder_ != null || timeZone_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1631,11 +1573,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeZone_ = value;
-        onChanged();
       } else {
         timeZoneBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1649,11 +1591,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.DateTime.TimeZone.Builder builderForValue) {
       if (timeZoneBuilder_ == null) {
         timeZone_ = builderForValue.build();
-        onChanged();
       } else {
         timeZoneBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1665,17 +1607,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeZone(com.google.privacy.dlp.v2.DateTime.TimeZone value) {
       if (timeZoneBuilder_ == null) {
-        if (timeZone_ != null) {
-          timeZone_ =
-            com.google.privacy.dlp.v2.DateTime.TimeZone.newBuilder(timeZone_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          timeZone_ != null &&
+          timeZone_ != com.google.privacy.dlp.v2.DateTime.TimeZone.getDefaultInstance()) {
+          getTimeZoneBuilder().mergeFrom(value);
         } else {
           timeZone_ = value;
         }
-        onChanged();
       } else {
         timeZoneBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1686,14 +1629,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.DateTime.TimeZone time_zone = 4;</code>
      */
     public Builder clearTimeZone() {
-      if (timeZoneBuilder_ == null) {
-        timeZone_ = null;
-        onChanged();
-      } else {
-        timeZone_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      timeZone_ = null;
+      if (timeZoneBuilder_ != null) {
+        timeZoneBuilder_.dispose();
         timeZoneBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1704,7 +1646,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.DateTime.TimeZone time_zone = 4;</code>
      */
     public com.google.privacy.dlp.v2.DateTime.TimeZone.Builder getTimeZoneBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTimeZoneFieldBuilder().getBuilder();
     }
@@ -1776,7 +1718,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DateTime(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

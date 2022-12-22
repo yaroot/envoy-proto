@@ -158,14 +158,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
-
     int getMapInt32Int32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
-
     int getMapInt32Int32OrThrow(
         int key);
 
@@ -192,14 +190,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
-
     long getMapInt64Int64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
-
     long getMapInt64Int64OrThrow(
         long key);
 
@@ -226,14 +222,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
-
     int getMapUint32Uint32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
-
     int getMapUint32Uint32OrThrow(
         int key);
 
@@ -260,14 +254,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
-
     long getMapUint64Uint64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
-
     long getMapUint64Uint64OrThrow(
         long key);
 
@@ -294,14 +286,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
-
     int getMapSint32Sint32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
-
     int getMapSint32Sint32OrThrow(
         int key);
 
@@ -328,14 +318,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
-
     long getMapSint64Sint64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
-
     long getMapSint64Sint64OrThrow(
         long key);
 
@@ -362,14 +350,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
-
     int getMapFixed32Fixed32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
-
     int getMapFixed32Fixed32OrThrow(
         int key);
 
@@ -396,14 +382,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
-
     long getMapFixed64Fixed64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
-
     long getMapFixed64Fixed64OrThrow(
         long key);
 
@@ -430,14 +414,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
-
     int getMapSfixed32Sfixed32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
-
     int getMapSfixed32Sfixed32OrThrow(
         int key);
 
@@ -464,14 +446,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
-
     long getMapSfixed64Sfixed64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
-
     long getMapSfixed64Sfixed64OrThrow(
         long key);
 
@@ -498,14 +478,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
-
     float getMapInt32FloatOrDefault(
         int key,
         float defaultValue);
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
-
     float getMapInt32FloatOrThrow(
         int key);
 
@@ -532,14 +510,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
-
     double getMapInt32DoubleOrDefault(
         int key,
         double defaultValue);
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
-
     double getMapInt32DoubleOrThrow(
         int key);
 
@@ -566,14 +542,12 @@ public final class MapUnittest {
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
-
     boolean getMapBoolBoolOrDefault(
         boolean key,
         boolean defaultValue);
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
-
     boolean getMapBoolBoolOrThrow(
         boolean key);
 
@@ -600,7 +574,6 @@ public final class MapUnittest {
     /**
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
-
     /* nullable */
 java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
@@ -609,7 +582,6 @@ java.lang.String defaultValue);
     /**
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
-
     java.lang.String getMapStringStringOrThrow(
         java.lang.String key);
 
@@ -636,7 +608,6 @@ java.lang.String defaultValue);
     /**
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
-
     /* nullable */
 com.google.protobuf.ByteString getMapInt32BytesOrDefault(
         int key,
@@ -645,7 +616,6 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
-
     com.google.protobuf.ByteString getMapInt32BytesOrThrow(
         int key);
 
@@ -696,14 +666,12 @@ protobuf_unittest.MapUnittest.MapEnum         defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
-
     int getMapInt32EnumValueOrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
-
     int getMapInt32EnumValueOrThrow(
         int key);
 
@@ -730,7 +698,6 @@ protobuf_unittest.MapUnittest.MapEnum         defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
-
     /* nullable */
 protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
         int key,
@@ -739,7 +706,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
-
     protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrThrow(
         int key);
 
@@ -766,7 +732,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
     /**
      * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
      */
-
     /* nullable */
 protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrDefault(
         java.lang.String key,
@@ -775,7 +740,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
     /**
      * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
      */
-
     protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrThrow(
         java.lang.String key);
 
@@ -802,7 +766,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
      */
-
     /* nullable */
 protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrDefault(
         int key,
@@ -811,7 +774,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
      */
-
     protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrThrow(
         int key);
   }
@@ -845,293 +807,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TestMap(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32Int32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapInt32Int32__ = input.readMessage(
-                  MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Int32_.getMutableMap().put(
-                  mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
-                    MapInt64Int64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapInt64Int64__ = input.readMessage(
-                  MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt64Int64_.getMutableMap().put(
-                  mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
-                    MapUint32Uint32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000004;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapUint32Uint32__ = input.readMessage(
-                  MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapUint32Uint32_.getMutableMap().put(
-                  mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
-                    MapUint64Uint64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapUint64Uint64__ = input.readMessage(
-                  MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapUint64Uint64_.getMutableMap().put(
-                  mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
-                    MapSint32Sint32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapSint32Sint32__ = input.readMessage(
-                  MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSint32Sint32_.getMutableMap().put(
-                  mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
-                    MapSint64Sint64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapSint64Sint64__ = input.readMessage(
-                  MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSint64Sint64_.getMutableMap().put(
-                  mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-                mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
-                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000040;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapFixed32Fixed32__ = input.readMessage(
-                  MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapFixed32Fixed32_.getMutableMap().put(
-                  mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
-              break;
-            }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-                mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
-                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapFixed64Fixed64__ = input.readMessage(
-                  MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapFixed64Fixed64_.getMutableMap().put(
-                  mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
-              break;
-            }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-                mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
-                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000100;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapSfixed32Sfixed32__ = input.readMessage(
-                  MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSfixed32Sfixed32_.getMutableMap().put(
-                  mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-                mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
-                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000200;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapSfixed64Sfixed64__ = input.readMessage(
-                  MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSfixed64Sfixed64_.getMutableMap().put(
-                  mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
-              break;
-            }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-                mapInt32Float_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32FloatDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000400;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
-              mapInt32Float__ = input.readMessage(
-                  MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Float_.getMutableMap().put(
-                  mapInt32Float__.getKey(), mapInt32Float__.getValue());
-              break;
-            }
-            case 98: {
-              if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-                mapInt32Double_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32DoubleDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000800;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
-              mapInt32Double__ = input.readMessage(
-                  MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Double_.getMutableMap().put(
-                  mapInt32Double__.getKey(), mapInt32Double__.getValue());
-              break;
-            }
-            case 106: {
-              if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-                mapBoolBool_ = com.google.protobuf.MapField.newMapField(
-                    MapBoolBoolDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00001000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
-              mapBoolBool__ = input.readMessage(
-                  MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapBoolBool_.getMutableMap().put(
-                  mapBoolBool__.getKey(), mapBoolBool__.getValue());
-              break;
-            }
-            case 114: {
-              if (!((mutable_bitField0_ & 0x00002000) != 0)) {
-                mapStringString_ = com.google.protobuf.MapField.newMapField(
-                    MapStringStringDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00002000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              mapStringString__ = input.readMessage(
-                  MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringString_.getMutableMap().put(
-                  mapStringString__.getKey(), mapStringString__.getValue());
-              break;
-            }
-            case 122: {
-              if (!((mutable_bitField0_ & 0x00004000) != 0)) {
-                mapInt32Bytes_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32BytesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00004000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.ByteString>
-              mapInt32Bytes__ = input.readMessage(
-                  MapInt32BytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Bytes_.getMutableMap().put(
-                  mapInt32Bytes__.getKey(), mapInt32Bytes__.getValue());
-              break;
-            }
-            case 130: {
-              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
-                mapInt32Enum_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32EnumDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00008000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapInt32Enum__ = input.readMessage(
-                  MapInt32EnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Enum_.getMutableMap().put(
-                  mapInt32Enum__.getKey(), mapInt32Enum__.getValue());
-              break;
-            }
-            case 138: {
-              if (!((mutable_bitField0_ & 0x00010000) != 0)) {
-                mapInt32ForeignMessage_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00010000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-              mapInt32ForeignMessage__ = input.readMessage(
-                  MapInt32ForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32ForeignMessage_.getMutableMap().put(
-                  mapInt32ForeignMessage__.getKey(), mapInt32ForeignMessage__.getValue());
-              break;
-            }
-            case 146: {
-              if (!((mutable_bitField0_ & 0x00020000) != 0)) {
-                mapStringForeignMessage_ = com.google.protobuf.MapField.newMapField(
-                    MapStringForeignMessageDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00020000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage>
-              mapStringForeignMessage__ = input.readMessage(
-                  MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringForeignMessage_.getMutableMap().put(
-                  mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
-              break;
-            }
-            case 154: {
-              if (!((mutable_bitField0_ & 0x00040000) != 0)) {
-                mapInt32AllTypes_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32AllTypesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00040000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-              mapInt32AllTypes__ = input.readMessage(
-                  MapInt32AllTypesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32AllTypes_.getMutableMap().put(
-                  mapInt32AllTypes__.getKey(), mapInt32AllTypes__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -1206,6 +881,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapInt32Int32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -1216,14 +892,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapInt32Int32_;
     }
-
     public int getMapInt32Int32Count() {
       return internalGetMapInt32Int32().getMap().size();
     }
     /**
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Int32(
         int key) {
@@ -1242,7 +916,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
       return internalGetMapInt32Int32().getMap();
     }
@@ -1250,7 +923,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
     @java.lang.Override
-
     public int getMapInt32Int32OrDefault(
         int key,
         int defaultValue) {
@@ -1263,7 +935,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
     @java.lang.Override
-
     public int getMapInt32Int32OrThrow(
         int key) {
       
@@ -1287,6 +958,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapInt64Int64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -1297,14 +969,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapInt64Int64_;
     }
-
     public int getMapInt64Int64Count() {
       return internalGetMapInt64Int64().getMap().size();
     }
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt64Int64(
         long key) {
@@ -1323,7 +993,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
       return internalGetMapInt64Int64().getMap();
     }
@@ -1331,7 +1000,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
     @java.lang.Override
-
     public long getMapInt64Int64OrDefault(
         long key,
         long defaultValue) {
@@ -1344,7 +1012,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
     @java.lang.Override
-
     public long getMapInt64Int64OrThrow(
         long key) {
       
@@ -1368,6 +1035,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.UINT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapUint32Uint32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -1378,14 +1046,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapUint32Uint32_;
     }
-
     public int getMapUint32Uint32Count() {
       return internalGetMapUint32Uint32().getMap().size();
     }
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsMapUint32Uint32(
         int key) {
@@ -1404,7 +1070,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
       return internalGetMapUint32Uint32().getMap();
     }
@@ -1412,7 +1077,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
     @java.lang.Override
-
     public int getMapUint32Uint32OrDefault(
         int key,
         int defaultValue) {
@@ -1425,7 +1089,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
     @java.lang.Override
-
     public int getMapUint32Uint32OrThrow(
         int key) {
       
@@ -1449,6 +1112,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapUint64Uint64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -1459,14 +1123,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapUint64Uint64_;
     }
-
     public int getMapUint64Uint64Count() {
       return internalGetMapUint64Uint64().getMap().size();
     }
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsMapUint64Uint64(
         long key) {
@@ -1485,7 +1147,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
       return internalGetMapUint64Uint64().getMap();
     }
@@ -1493,7 +1154,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
     @java.lang.Override
-
     public long getMapUint64Uint64OrDefault(
         long key,
         long defaultValue) {
@@ -1506,7 +1166,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
     @java.lang.Override
-
     public long getMapUint64Uint64OrThrow(
         long key) {
       
@@ -1530,6 +1189,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SINT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapSint32Sint32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -1540,14 +1200,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapSint32Sint32_;
     }
-
     public int getMapSint32Sint32Count() {
       return internalGetMapSint32Sint32().getMap().size();
     }
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSint32Sint32(
         int key) {
@@ -1566,7 +1224,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
       return internalGetMapSint32Sint32().getMap();
     }
@@ -1574,7 +1231,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
     @java.lang.Override
-
     public int getMapSint32Sint32OrDefault(
         int key,
         int defaultValue) {
@@ -1587,7 +1243,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
     @java.lang.Override
-
     public int getMapSint32Sint32OrThrow(
         int key) {
       
@@ -1611,6 +1266,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SINT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapSint64Sint64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -1621,14 +1277,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapSint64Sint64_;
     }
-
     public int getMapSint64Sint64Count() {
       return internalGetMapSint64Sint64().getMap().size();
     }
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSint64Sint64(
         long key) {
@@ -1647,7 +1301,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
       return internalGetMapSint64Sint64().getMap();
     }
@@ -1655,7 +1308,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
     @java.lang.Override
-
     public long getMapSint64Sint64OrDefault(
         long key,
         long defaultValue) {
@@ -1668,7 +1320,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
     @java.lang.Override
-
     public long getMapSint64Sint64OrThrow(
         long key) {
       
@@ -1692,6 +1343,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.FIXED32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapFixed32Fixed32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -1702,14 +1354,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapFixed32Fixed32_;
     }
-
     public int getMapFixed32Fixed32Count() {
       return internalGetMapFixed32Fixed32().getMap().size();
     }
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsMapFixed32Fixed32(
         int key) {
@@ -1728,7 +1378,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
       return internalGetMapFixed32Fixed32().getMap();
     }
@@ -1736,7 +1385,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
     @java.lang.Override
-
     public int getMapFixed32Fixed32OrDefault(
         int key,
         int defaultValue) {
@@ -1749,7 +1397,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
     @java.lang.Override
-
     public int getMapFixed32Fixed32OrThrow(
         int key) {
       
@@ -1773,6 +1420,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.FIXED64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapFixed64Fixed64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -1783,14 +1431,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapFixed64Fixed64_;
     }
-
     public int getMapFixed64Fixed64Count() {
       return internalGetMapFixed64Fixed64().getMap().size();
     }
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsMapFixed64Fixed64(
         long key) {
@@ -1809,7 +1455,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
       return internalGetMapFixed64Fixed64().getMap();
     }
@@ -1817,7 +1462,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
     @java.lang.Override
-
     public long getMapFixed64Fixed64OrDefault(
         long key,
         long defaultValue) {
@@ -1830,7 +1474,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
     @java.lang.Override
-
     public long getMapFixed64Fixed64OrThrow(
         long key) {
       
@@ -1854,6 +1497,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SFIXED32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapSfixed32Sfixed32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -1864,14 +1508,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapSfixed32Sfixed32_;
     }
-
     public int getMapSfixed32Sfixed32Count() {
       return internalGetMapSfixed32Sfixed32().getMap().size();
     }
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSfixed32Sfixed32(
         int key) {
@@ -1890,7 +1532,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
       return internalGetMapSfixed32Sfixed32().getMap();
     }
@@ -1898,7 +1539,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
     @java.lang.Override
-
     public int getMapSfixed32Sfixed32OrDefault(
         int key,
         int defaultValue) {
@@ -1911,7 +1551,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
     @java.lang.Override
-
     public int getMapSfixed32Sfixed32OrThrow(
         int key) {
       
@@ -1935,6 +1574,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SFIXED64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapSfixed64Sfixed64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -1945,14 +1585,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapSfixed64Sfixed64_;
     }
-
     public int getMapSfixed64Sfixed64Count() {
       return internalGetMapSfixed64Sfixed64().getMap().size();
     }
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSfixed64Sfixed64(
         long key) {
@@ -1971,7 +1609,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
       return internalGetMapSfixed64Sfixed64().getMap();
     }
@@ -1979,7 +1616,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
     @java.lang.Override
-
     public long getMapSfixed64Sfixed64OrDefault(
         long key,
         long defaultValue) {
@@ -1992,7 +1628,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
     @java.lang.Override
-
     public long getMapSfixed64Sfixed64OrThrow(
         long key) {
       
@@ -2016,6 +1651,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.FLOAT,
                   0F);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Float> mapInt32Float_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
@@ -2026,14 +1662,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapInt32Float_;
     }
-
     public int getMapInt32FloatCount() {
       return internalGetMapInt32Float().getMap().size();
     }
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Float(
         int key) {
@@ -2052,7 +1686,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
       return internalGetMapInt32Float().getMap();
     }
@@ -2060,7 +1693,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
     @java.lang.Override
-
     public float getMapInt32FloatOrDefault(
         int key,
         float defaultValue) {
@@ -2073,7 +1705,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
     @java.lang.Override
-
     public float getMapInt32FloatOrThrow(
         int key) {
       
@@ -2097,6 +1728,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.DOUBLE,
                   0D);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Double> mapInt32Double_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
@@ -2107,14 +1739,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapInt32Double_;
     }
-
     public int getMapInt32DoubleCount() {
       return internalGetMapInt32Double().getMap().size();
     }
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Double(
         int key) {
@@ -2133,7 +1763,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
       return internalGetMapInt32Double().getMap();
     }
@@ -2141,7 +1770,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
     @java.lang.Override
-
     public double getMapInt32DoubleOrDefault(
         int key,
         double defaultValue) {
@@ -2154,7 +1782,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
     @java.lang.Override
-
     public double getMapInt32DoubleOrThrow(
         int key) {
       
@@ -2178,6 +1805,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.BOOL,
                   false);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Boolean, java.lang.Boolean> mapBoolBool_;
     private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
@@ -2188,14 +1816,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapBoolBool_;
     }
-
     public int getMapBoolBoolCount() {
       return internalGetMapBoolBool().getMap().size();
     }
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
-
     @java.lang.Override
     public boolean containsMapBoolBool(
         boolean key) {
@@ -2214,7 +1840,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
       return internalGetMapBoolBool().getMap();
     }
@@ -2222,7 +1847,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
     @java.lang.Override
-
     public boolean getMapBoolBoolOrDefault(
         boolean key,
         boolean defaultValue) {
@@ -2235,7 +1859,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
     @java.lang.Override
-
     public boolean getMapBoolBoolOrThrow(
         boolean key) {
       
@@ -2259,6 +1882,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> mapStringString_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2269,14 +1893,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapStringString_;
     }
-
     public int getMapStringStringCount() {
       return internalGetMapStringString().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringString(
         java.lang.String key) {
@@ -2295,7 +1917,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
       return internalGetMapStringString().getMap();
     }
@@ -2303,10 +1924,11 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getMapStringStringOrDefault(
+    public /* nullable */
+java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMapStringString().getMap();
@@ -2316,7 +1938,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
     @java.lang.Override
-
     public java.lang.String getMapStringStringOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2340,6 +1961,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.BYTES,
                   com.google.protobuf.ByteString.EMPTY);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.ByteString> mapInt32Bytes_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
@@ -2350,14 +1972,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapInt32Bytes_;
     }
-
     public int getMapInt32BytesCount() {
       return internalGetMapInt32Bytes().getMap().size();
     }
     /**
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Bytes(
         int key) {
@@ -2376,7 +1996,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> getMapInt32BytesMap() {
       return internalGetMapInt32Bytes().getMap();
     }
@@ -2384,10 +2003,11 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ByteString getMapInt32BytesOrDefault(
+    public /* nullable */
+com.google.protobuf.ByteString getMapInt32BytesOrDefault(
         int key,
-        com.google.protobuf.ByteString defaultValue) {
+        /* nullable */
+com.google.protobuf.ByteString defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> map =
           internalGetMapInt32Bytes().getMap();
@@ -2397,7 +2017,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ByteString getMapInt32BytesOrThrow(
         int key) {
       
@@ -2421,6 +2040,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.ENUM,
                   protobuf_unittest.MapUnittest.MapEnum.MAP_ENUM_FOO.getNumber());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapInt32Enum_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -2444,14 +2064,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum, java.lang.Integer>(
               map, mapInt32EnumValueConverter);
     }
-
     public int getMapInt32EnumCount() {
       return internalGetMapInt32Enum().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Enum(
         int key) {
@@ -2471,7 +2089,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum>
     getMapInt32EnumMap() {
       return internalGetAdaptedMapInt32EnumMap(
@@ -2480,7 +2097,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrDefault(
         int key,
@@ -2497,7 +2113,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrThrow(
         int key) {
       
@@ -2521,7 +2136,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer>
     getMapInt32EnumValueMap() {
       return internalGetMapInt32Enum().getMap();
@@ -2530,7 +2144,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public int getMapInt32EnumValueOrDefault(
         int key,
         int defaultValue) {
@@ -2543,7 +2156,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public int getMapInt32EnumValueOrThrow(
         int key) {
       
@@ -2567,6 +2179,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.UnittestProto.ForeignMessage.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> mapInt32ForeignMessage_;
     private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
@@ -2577,14 +2190,12 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       }
       return mapInt32ForeignMessage_;
     }
-
     public int getMapInt32ForeignMessageCount() {
       return internalGetMapInt32ForeignMessage().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32ForeignMessage(
         int key) {
@@ -2603,7 +2214,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> getMapInt32ForeignMessageMap() {
       return internalGetMapInt32ForeignMessage().getMap();
     }
@@ -2611,10 +2221,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
+    public /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
         int key,
-        protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
+        /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
       
       java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> map =
           internalGetMapInt32ForeignMessage().getMap();
@@ -2624,7 +2235,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrThrow(
         int key) {
       
@@ -2648,6 +2258,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.UnittestProto.ForeignMessage.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> mapStringForeignMessage_;
     private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage>
@@ -2658,14 +2269,12 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       }
       return mapStringForeignMessage_;
     }
-
     public int getMapStringForeignMessageCount() {
       return internalGetMapStringForeignMessage().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringForeignMessage(
         java.lang.String key) {
@@ -2684,7 +2293,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> getMapStringForeignMessageMap() {
       return internalGetMapStringForeignMessage().getMap();
     }
@@ -2692,10 +2300,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrDefault(
+    public /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrDefault(
         java.lang.String key,
-        protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
+        /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> map =
           internalGetMapStringForeignMessage().getMap();
@@ -2705,7 +2314,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2729,6 +2337,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.UnittestProto.TestAllTypes.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> mapInt32AllTypes_;
     private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
@@ -2739,14 +2348,12 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       }
       return mapInt32AllTypes_;
     }
-
     public int getMapInt32AllTypesCount() {
       return internalGetMapInt32AllTypes().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32AllTypes(
         int key) {
@@ -2765,7 +2372,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> getMapInt32AllTypesMap() {
       return internalGetMapInt32AllTypes().getMap();
     }
@@ -2773,10 +2379,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrDefault(
+    public /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrDefault(
         int key,
-        protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
+        /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
       
       java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> map =
           internalGetMapInt32AllTypes().getMap();
@@ -2786,7 +2393,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrThrow(
         int key) {
       
@@ -2926,7 +2532,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           internalGetMapInt32AllTypes(),
           MapInt32AllTypesDefaultEntryHolder.defaultEntry,
           19);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3125,7 +2731,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(19, mapInt32AllTypes__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3178,7 +2784,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           other.internalGetMapStringForeignMessage())) return false;
       if (!internalGetMapInt32AllTypes().equals(
           other.internalGetMapInt32AllTypes())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3265,7 +2871,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         hash = (37 * hash) + MAP_INT32_ALL_TYPES_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMapInt32AllTypes().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3480,22 +3086,18 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
 
       // Construct using protobuf_unittest.MapUnittest.TestMap.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableMapInt32Int32().clear();
         internalGetMutableMapInt64Int64().clear();
         internalGetMutableMapUint32Uint32().clear();
@@ -3541,47 +3143,89 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestMap buildPartial() {
         protobuf_unittest.MapUnittest.TestMap result = new protobuf_unittest.MapUnittest.TestMap(this);
-        int from_bitField0_ = bitField0_;
-        result.mapInt32Int32_ = internalGetMapInt32Int32();
-        result.mapInt32Int32_.makeImmutable();
-        result.mapInt64Int64_ = internalGetMapInt64Int64();
-        result.mapInt64Int64_.makeImmutable();
-        result.mapUint32Uint32_ = internalGetMapUint32Uint32();
-        result.mapUint32Uint32_.makeImmutable();
-        result.mapUint64Uint64_ = internalGetMapUint64Uint64();
-        result.mapUint64Uint64_.makeImmutable();
-        result.mapSint32Sint32_ = internalGetMapSint32Sint32();
-        result.mapSint32Sint32_.makeImmutable();
-        result.mapSint64Sint64_ = internalGetMapSint64Sint64();
-        result.mapSint64Sint64_.makeImmutable();
-        result.mapFixed32Fixed32_ = internalGetMapFixed32Fixed32();
-        result.mapFixed32Fixed32_.makeImmutable();
-        result.mapFixed64Fixed64_ = internalGetMapFixed64Fixed64();
-        result.mapFixed64Fixed64_.makeImmutable();
-        result.mapSfixed32Sfixed32_ = internalGetMapSfixed32Sfixed32();
-        result.mapSfixed32Sfixed32_.makeImmutable();
-        result.mapSfixed64Sfixed64_ = internalGetMapSfixed64Sfixed64();
-        result.mapSfixed64Sfixed64_.makeImmutable();
-        result.mapInt32Float_ = internalGetMapInt32Float();
-        result.mapInt32Float_.makeImmutable();
-        result.mapInt32Double_ = internalGetMapInt32Double();
-        result.mapInt32Double_.makeImmutable();
-        result.mapBoolBool_ = internalGetMapBoolBool();
-        result.mapBoolBool_.makeImmutable();
-        result.mapStringString_ = internalGetMapStringString();
-        result.mapStringString_.makeImmutable();
-        result.mapInt32Bytes_ = internalGetMapInt32Bytes();
-        result.mapInt32Bytes_.makeImmutable();
-        result.mapInt32Enum_ = internalGetMapInt32Enum();
-        result.mapInt32Enum_.makeImmutable();
-        result.mapInt32ForeignMessage_ = internalGetMapInt32ForeignMessage();
-        result.mapInt32ForeignMessage_.makeImmutable();
-        result.mapStringForeignMessage_ = internalGetMapStringForeignMessage();
-        result.mapStringForeignMessage_.makeImmutable();
-        result.mapInt32AllTypes_ = internalGetMapInt32AllTypes();
-        result.mapInt32AllTypes_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestMap result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.mapInt32Int32_ = internalGetMapInt32Int32();
+          result.mapInt32Int32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.mapInt64Int64_ = internalGetMapInt64Int64();
+          result.mapInt64Int64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.mapUint32Uint32_ = internalGetMapUint32Uint32();
+          result.mapUint32Uint32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.mapUint64Uint64_ = internalGetMapUint64Uint64();
+          result.mapUint64Uint64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.mapSint32Sint32_ = internalGetMapSint32Sint32();
+          result.mapSint32Sint32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.mapSint64Sint64_ = internalGetMapSint64Sint64();
+          result.mapSint64Sint64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.mapFixed32Fixed32_ = internalGetMapFixed32Fixed32();
+          result.mapFixed32Fixed32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.mapFixed64Fixed64_ = internalGetMapFixed64Fixed64();
+          result.mapFixed64Fixed64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.mapSfixed32Sfixed32_ = internalGetMapSfixed32Sfixed32();
+          result.mapSfixed32Sfixed32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.mapSfixed64Sfixed64_ = internalGetMapSfixed64Sfixed64();
+          result.mapSfixed64Sfixed64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.mapInt32Float_ = internalGetMapInt32Float();
+          result.mapInt32Float_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.mapInt32Double_ = internalGetMapInt32Double();
+          result.mapInt32Double_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.mapBoolBool_ = internalGetMapBoolBool();
+          result.mapBoolBool_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.mapStringString_ = internalGetMapStringString();
+          result.mapStringString_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.mapInt32Bytes_ = internalGetMapInt32Bytes();
+          result.mapInt32Bytes_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.mapInt32Enum_ = internalGetMapInt32Enum();
+          result.mapInt32Enum_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.mapInt32ForeignMessage_ = internalGetMapInt32ForeignMessage();
+          result.mapInt32ForeignMessage_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          result.mapStringForeignMessage_ = internalGetMapStringForeignMessage();
+          result.mapStringForeignMessage_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          result.mapInt32AllTypes_ = internalGetMapInt32AllTypes();
+          result.mapInt32AllTypes_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -3630,43 +3274,62 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (other == protobuf_unittest.MapUnittest.TestMap.getDefaultInstance()) return this;
         internalGetMutableMapInt32Int32().mergeFrom(
             other.internalGetMapInt32Int32());
+        bitField0_ |= 0x00000001;
         internalGetMutableMapInt64Int64().mergeFrom(
             other.internalGetMapInt64Int64());
+        bitField0_ |= 0x00000002;
         internalGetMutableMapUint32Uint32().mergeFrom(
             other.internalGetMapUint32Uint32());
+        bitField0_ |= 0x00000004;
         internalGetMutableMapUint64Uint64().mergeFrom(
             other.internalGetMapUint64Uint64());
+        bitField0_ |= 0x00000008;
         internalGetMutableMapSint32Sint32().mergeFrom(
             other.internalGetMapSint32Sint32());
+        bitField0_ |= 0x00000010;
         internalGetMutableMapSint64Sint64().mergeFrom(
             other.internalGetMapSint64Sint64());
+        bitField0_ |= 0x00000020;
         internalGetMutableMapFixed32Fixed32().mergeFrom(
             other.internalGetMapFixed32Fixed32());
+        bitField0_ |= 0x00000040;
         internalGetMutableMapFixed64Fixed64().mergeFrom(
             other.internalGetMapFixed64Fixed64());
+        bitField0_ |= 0x00000080;
         internalGetMutableMapSfixed32Sfixed32().mergeFrom(
             other.internalGetMapSfixed32Sfixed32());
+        bitField0_ |= 0x00000100;
         internalGetMutableMapSfixed64Sfixed64().mergeFrom(
             other.internalGetMapSfixed64Sfixed64());
+        bitField0_ |= 0x00000200;
         internalGetMutableMapInt32Float().mergeFrom(
             other.internalGetMapInt32Float());
+        bitField0_ |= 0x00000400;
         internalGetMutableMapInt32Double().mergeFrom(
             other.internalGetMapInt32Double());
+        bitField0_ |= 0x00000800;
         internalGetMutableMapBoolBool().mergeFrom(
             other.internalGetMapBoolBool());
+        bitField0_ |= 0x00001000;
         internalGetMutableMapStringString().mergeFrom(
             other.internalGetMapStringString());
+        bitField0_ |= 0x00002000;
         internalGetMutableMapInt32Bytes().mergeFrom(
             other.internalGetMapInt32Bytes());
+        bitField0_ |= 0x00004000;
         internalGetMutableMapInt32Enum().mergeFrom(
             other.internalGetMapInt32Enum());
+        bitField0_ |= 0x00008000;
         internalGetMutableMapInt32ForeignMessage().mergeFrom(
             other.internalGetMapInt32ForeignMessage());
+        bitField0_ |= 0x00010000;
         internalGetMutableMapStringForeignMessage().mergeFrom(
             other.internalGetMapStringForeignMessage());
+        bitField0_ |= 0x00020000;
         internalGetMutableMapInt32AllTypes().mergeFrom(
             other.internalGetMapInt32AllTypes());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00040000;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3681,17 +3344,201 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestMap parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapInt32Int32__ = input.readMessage(
+                    MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Int32().getMutableMap().put(
+                    mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapInt64Int64__ = input.readMessage(
+                    MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt64Int64().getMutableMap().put(
+                    mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapUint32Uint32__ = input.readMessage(
+                    MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint32Uint32().getMutableMap().put(
+                    mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapUint64Uint64__ = input.readMessage(
+                    MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint64Uint64().getMutableMap().put(
+                    mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSint32Sint32__ = input.readMessage(
+                    MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint32Sint32().getMutableMap().put(
+                    mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSint64Sint64__ = input.readMessage(
+                    MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint64Sint64().getMutableMap().put(
+                    mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapFixed32Fixed32__ = input.readMessage(
+                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed32Fixed32().getMutableMap().put(
+                    mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapFixed64Fixed64__ = input.readMessage(
+                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed64Fixed64().getMutableMap().put(
+                    mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSfixed32Sfixed32__ = input.readMessage(
+                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed32Sfixed32().getMutableMap().put(
+                    mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSfixed64Sfixed64__ = input.readMessage(
+                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed64Sfixed64().getMutableMap().put(
+                    mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+                mapInt32Float__ = input.readMessage(
+                    MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Float().getMutableMap().put(
+                    mapInt32Float__.getKey(), mapInt32Float__.getValue());
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+                mapInt32Double__ = input.readMessage(
+                    MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Double().getMutableMap().put(
+                    mapInt32Double__.getKey(), mapInt32Double__.getValue());
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 106: {
+                com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+                mapBoolBool__ = input.readMessage(
+                    MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapBoolBool().getMutableMap().put(
+                    mapBoolBool__.getKey(), mapBoolBool__.getValue());
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 106
+              case 114: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                mapStringString__ = input.readMessage(
+                    MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringString().getMutableMap().put(
+                    mapStringString__.getKey(), mapStringString__.getValue());
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
+              case 122: {
+                com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.ByteString>
+                mapInt32Bytes__ = input.readMessage(
+                    MapInt32BytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Bytes().getMutableMap().put(
+                    mapInt32Bytes__.getKey(), mapInt32Bytes__.getValue());
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 122
+              case 130: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapInt32Enum__ = input.readMessage(
+                    MapInt32EnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Enum().getMutableMap().put(
+                    mapInt32Enum__.getKey(), mapInt32Enum__.getValue());
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 130
+              case 138: {
+                com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
+                mapInt32ForeignMessage__ = input.readMessage(
+                    MapInt32ForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32ForeignMessage().getMutableMap().put(
+                    mapInt32ForeignMessage__.getKey(), mapInt32ForeignMessage__.getValue());
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 138
+              case 146: {
+                com.google.protobuf.MapEntry<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage>
+                mapStringForeignMessage__ = input.readMessage(
+                    MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringForeignMessage().getMutableMap().put(
+                    mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
+                bitField0_ |= 0x00020000;
+                break;
+              } // case 146
+              case 154: {
+                com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
+                mapInt32AllTypes__ = input.readMessage(
+                    MapInt32AllTypesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32AllTypes().getMutableMap().put(
+                    mapInt32AllTypes__.getKey(), mapInt32AllTypes__.getValue());
+                bitField0_ |= 0x00040000;
+                break;
+              } // case 154
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestMap) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3699,7 +3546,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapInt32Int32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapInt32Int32() {
+          internalGetMapInt32Int32() {
         if (mapInt32Int32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32Int32DefaultEntryHolder.defaultEntry);
@@ -3707,8 +3554,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Int32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapInt32Int32() {
-        onChanged();;
+          internalGetMutableMapInt32Int32() {
         if (mapInt32Int32_ == null) {
           mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
               MapInt32Int32DefaultEntryHolder.defaultEntry);
@@ -3716,16 +3562,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Int32_.isMutable()) {
           mapInt32Int32_ = mapInt32Int32_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return mapInt32Int32_;
       }
-
       public int getMapInt32Int32Count() {
         return internalGetMapInt32Int32().getMap().size();
       }
       /**
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Int32(
           int key) {
@@ -3744,7 +3590,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
         return internalGetMapInt32Int32().getMap();
       }
@@ -3752,7 +3597,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
       @java.lang.Override
-
       public int getMapInt32Int32OrDefault(
           int key,
           int defaultValue) {
@@ -3765,7 +3609,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
       @java.lang.Override
-
       public int getMapInt32Int32OrThrow(
           int key) {
         
@@ -3776,8 +3619,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Int32() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableMapInt32Int32().getMutableMap()
             .clear();
         return this;
@@ -3785,7 +3628,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
-
       public Builder removeMapInt32Int32(
           int key) {
         
@@ -3798,7 +3640,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapInt32Int32() {
+          getMutableMapInt32Int32() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableMapInt32Int32().getMutableMap();
       }
       /**
@@ -3811,23 +3654,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Int32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
-
       public Builder putAllMapInt32Int32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapInt32Int32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapInt64Int64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapInt64Int64() {
+          internalGetMapInt64Int64() {
         if (mapInt64Int64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt64Int64DefaultEntryHolder.defaultEntry);
@@ -3835,8 +3679,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt64Int64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapInt64Int64() {
-        onChanged();;
+          internalGetMutableMapInt64Int64() {
         if (mapInt64Int64_ == null) {
           mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
               MapInt64Int64DefaultEntryHolder.defaultEntry);
@@ -3844,16 +3687,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt64Int64_.isMutable()) {
           mapInt64Int64_ = mapInt64Int64_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return mapInt64Int64_;
       }
-
       public int getMapInt64Int64Count() {
         return internalGetMapInt64Int64().getMap().size();
       }
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt64Int64(
           long key) {
@@ -3872,7 +3715,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
         return internalGetMapInt64Int64().getMap();
       }
@@ -3880,7 +3722,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
       @java.lang.Override
-
       public long getMapInt64Int64OrDefault(
           long key,
           long defaultValue) {
@@ -3893,7 +3734,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
       @java.lang.Override
-
       public long getMapInt64Int64OrThrow(
           long key) {
         
@@ -3904,8 +3744,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt64Int64() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableMapInt64Int64().getMutableMap()
             .clear();
         return this;
@@ -3913,7 +3753,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
-
       public Builder removeMapInt64Int64(
           long key) {
         
@@ -3926,7 +3765,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapInt64Int64() {
+          getMutableMapInt64Int64() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableMapInt64Int64().getMutableMap();
       }
       /**
@@ -3939,23 +3779,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt64Int64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
-
       public Builder putAllMapInt64Int64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapInt64Int64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapUint32Uint32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapUint32Uint32() {
+          internalGetMapUint32Uint32() {
         if (mapUint32Uint32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapUint32Uint32DefaultEntryHolder.defaultEntry);
@@ -3963,8 +3804,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapUint32Uint32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapUint32Uint32() {
-        onChanged();;
+          internalGetMutableMapUint32Uint32() {
         if (mapUint32Uint32_ == null) {
           mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
               MapUint32Uint32DefaultEntryHolder.defaultEntry);
@@ -3972,16 +3812,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapUint32Uint32_.isMutable()) {
           mapUint32Uint32_ = mapUint32Uint32_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return mapUint32Uint32_;
       }
-
       public int getMapUint32Uint32Count() {
         return internalGetMapUint32Uint32().getMap().size();
       }
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsMapUint32Uint32(
           int key) {
@@ -4000,7 +3840,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
         return internalGetMapUint32Uint32().getMap();
       }
@@ -4008,7 +3847,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
       @java.lang.Override
-
       public int getMapUint32Uint32OrDefault(
           int key,
           int defaultValue) {
@@ -4021,7 +3859,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
       @java.lang.Override
-
       public int getMapUint32Uint32OrThrow(
           int key) {
         
@@ -4032,8 +3869,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapUint32Uint32() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableMapUint32Uint32().getMutableMap()
             .clear();
         return this;
@@ -4041,7 +3878,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
-
       public Builder removeMapUint32Uint32(
           int key) {
         
@@ -4054,7 +3890,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapUint32Uint32() {
+          getMutableMapUint32Uint32() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableMapUint32Uint32().getMutableMap();
       }
       /**
@@ -4067,23 +3904,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapUint32Uint32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
-
       public Builder putAllMapUint32Uint32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapUint32Uint32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapUint64Uint64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapUint64Uint64() {
+          internalGetMapUint64Uint64() {
         if (mapUint64Uint64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapUint64Uint64DefaultEntryHolder.defaultEntry);
@@ -4091,8 +3929,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapUint64Uint64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapUint64Uint64() {
-        onChanged();;
+          internalGetMutableMapUint64Uint64() {
         if (mapUint64Uint64_ == null) {
           mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
               MapUint64Uint64DefaultEntryHolder.defaultEntry);
@@ -4100,16 +3937,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapUint64Uint64_.isMutable()) {
           mapUint64Uint64_ = mapUint64Uint64_.copy();
         }
+        bitField0_ |= 0x00000008;
+        onChanged();
         return mapUint64Uint64_;
       }
-
       public int getMapUint64Uint64Count() {
         return internalGetMapUint64Uint64().getMap().size();
       }
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
-
       @java.lang.Override
       public boolean containsMapUint64Uint64(
           long key) {
@@ -4128,7 +3965,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
         return internalGetMapUint64Uint64().getMap();
       }
@@ -4136,7 +3972,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
       @java.lang.Override
-
       public long getMapUint64Uint64OrDefault(
           long key,
           long defaultValue) {
@@ -4149,7 +3984,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
       @java.lang.Override
-
       public long getMapUint64Uint64OrThrow(
           long key) {
         
@@ -4160,8 +3994,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapUint64Uint64() {
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableMapUint64Uint64().getMutableMap()
             .clear();
         return this;
@@ -4169,7 +4003,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
-
       public Builder removeMapUint64Uint64(
           long key) {
         
@@ -4182,7 +4015,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapUint64Uint64() {
+          getMutableMapUint64Uint64() {
+        bitField0_ |= 0x00000008;
         return internalGetMutableMapUint64Uint64().getMutableMap();
       }
       /**
@@ -4195,23 +4029,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapUint64Uint64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
-
       public Builder putAllMapUint64Uint64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapUint64Uint64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000008;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapSint32Sint32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapSint32Sint32() {
+          internalGetMapSint32Sint32() {
         if (mapSint32Sint32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSint32Sint32DefaultEntryHolder.defaultEntry);
@@ -4219,8 +4054,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSint32Sint32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapSint32Sint32() {
-        onChanged();;
+          internalGetMutableMapSint32Sint32() {
         if (mapSint32Sint32_ == null) {
           mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
               MapSint32Sint32DefaultEntryHolder.defaultEntry);
@@ -4228,16 +4062,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSint32Sint32_.isMutable()) {
           mapSint32Sint32_ = mapSint32Sint32_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return mapSint32Sint32_;
       }
-
       public int getMapSint32Sint32Count() {
         return internalGetMapSint32Sint32().getMap().size();
       }
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSint32Sint32(
           int key) {
@@ -4256,7 +4090,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
         return internalGetMapSint32Sint32().getMap();
       }
@@ -4264,7 +4097,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
       @java.lang.Override
-
       public int getMapSint32Sint32OrDefault(
           int key,
           int defaultValue) {
@@ -4277,7 +4109,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
       @java.lang.Override
-
       public int getMapSint32Sint32OrThrow(
           int key) {
         
@@ -4288,8 +4119,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSint32Sint32() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableMapSint32Sint32().getMutableMap()
             .clear();
         return this;
@@ -4297,7 +4128,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
-
       public Builder removeMapSint32Sint32(
           int key) {
         
@@ -4310,7 +4140,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapSint32Sint32() {
+          getMutableMapSint32Sint32() {
+        bitField0_ |= 0x00000010;
         return internalGetMutableMapSint32Sint32().getMutableMap();
       }
       /**
@@ -4323,23 +4154,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSint32Sint32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
-
       public Builder putAllMapSint32Sint32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapSint32Sint32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapSint64Sint64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapSint64Sint64() {
+          internalGetMapSint64Sint64() {
         if (mapSint64Sint64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSint64Sint64DefaultEntryHolder.defaultEntry);
@@ -4347,8 +4179,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSint64Sint64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapSint64Sint64() {
-        onChanged();;
+          internalGetMutableMapSint64Sint64() {
         if (mapSint64Sint64_ == null) {
           mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
               MapSint64Sint64DefaultEntryHolder.defaultEntry);
@@ -4356,16 +4187,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSint64Sint64_.isMutable()) {
           mapSint64Sint64_ = mapSint64Sint64_.copy();
         }
+        bitField0_ |= 0x00000020;
+        onChanged();
         return mapSint64Sint64_;
       }
-
       public int getMapSint64Sint64Count() {
         return internalGetMapSint64Sint64().getMap().size();
       }
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSint64Sint64(
           long key) {
@@ -4384,7 +4215,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
         return internalGetMapSint64Sint64().getMap();
       }
@@ -4392,7 +4222,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
       @java.lang.Override
-
       public long getMapSint64Sint64OrDefault(
           long key,
           long defaultValue) {
@@ -4405,7 +4234,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
       @java.lang.Override
-
       public long getMapSint64Sint64OrThrow(
           long key) {
         
@@ -4416,8 +4244,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSint64Sint64() {
+        bitField0_ = (bitField0_ & ~0x00000020);
         internalGetMutableMapSint64Sint64().getMutableMap()
             .clear();
         return this;
@@ -4425,7 +4253,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
-
       public Builder removeMapSint64Sint64(
           long key) {
         
@@ -4438,7 +4265,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapSint64Sint64() {
+          getMutableMapSint64Sint64() {
+        bitField0_ |= 0x00000020;
         return internalGetMutableMapSint64Sint64().getMutableMap();
       }
       /**
@@ -4451,23 +4279,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSint64Sint64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
-
       public Builder putAllMapSint64Sint64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapSint64Sint64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000020;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapFixed32Fixed32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapFixed32Fixed32() {
+          internalGetMapFixed32Fixed32() {
         if (mapFixed32Fixed32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
@@ -4475,8 +4304,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapFixed32Fixed32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapFixed32Fixed32() {
-        onChanged();;
+          internalGetMutableMapFixed32Fixed32() {
         if (mapFixed32Fixed32_ == null) {
           mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
               MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
@@ -4484,16 +4312,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapFixed32Fixed32_.isMutable()) {
           mapFixed32Fixed32_ = mapFixed32Fixed32_.copy();
         }
+        bitField0_ |= 0x00000040;
+        onChanged();
         return mapFixed32Fixed32_;
       }
-
       public int getMapFixed32Fixed32Count() {
         return internalGetMapFixed32Fixed32().getMap().size();
       }
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
-
       @java.lang.Override
       public boolean containsMapFixed32Fixed32(
           int key) {
@@ -4512,7 +4340,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
         return internalGetMapFixed32Fixed32().getMap();
       }
@@ -4520,7 +4347,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
       @java.lang.Override
-
       public int getMapFixed32Fixed32OrDefault(
           int key,
           int defaultValue) {
@@ -4533,7 +4359,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
       @java.lang.Override
-
       public int getMapFixed32Fixed32OrThrow(
           int key) {
         
@@ -4544,8 +4369,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapFixed32Fixed32() {
+        bitField0_ = (bitField0_ & ~0x00000040);
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .clear();
         return this;
@@ -4553,7 +4378,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
-
       public Builder removeMapFixed32Fixed32(
           int key) {
         
@@ -4566,7 +4390,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapFixed32Fixed32() {
+          getMutableMapFixed32Fixed32() {
+        bitField0_ |= 0x00000040;
         return internalGetMutableMapFixed32Fixed32().getMutableMap();
       }
       /**
@@ -4579,23 +4404,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
-
       public Builder putAllMapFixed32Fixed32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000040;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapFixed64Fixed64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapFixed64Fixed64() {
+          internalGetMapFixed64Fixed64() {
         if (mapFixed64Fixed64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
@@ -4603,8 +4429,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapFixed64Fixed64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapFixed64Fixed64() {
-        onChanged();;
+          internalGetMutableMapFixed64Fixed64() {
         if (mapFixed64Fixed64_ == null) {
           mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
               MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
@@ -4612,16 +4437,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapFixed64Fixed64_.isMutable()) {
           mapFixed64Fixed64_ = mapFixed64Fixed64_.copy();
         }
+        bitField0_ |= 0x00000080;
+        onChanged();
         return mapFixed64Fixed64_;
       }
-
       public int getMapFixed64Fixed64Count() {
         return internalGetMapFixed64Fixed64().getMap().size();
       }
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
-
       @java.lang.Override
       public boolean containsMapFixed64Fixed64(
           long key) {
@@ -4640,7 +4465,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
         return internalGetMapFixed64Fixed64().getMap();
       }
@@ -4648,7 +4472,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
       @java.lang.Override
-
       public long getMapFixed64Fixed64OrDefault(
           long key,
           long defaultValue) {
@@ -4661,7 +4484,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
       @java.lang.Override
-
       public long getMapFixed64Fixed64OrThrow(
           long key) {
         
@@ -4672,8 +4494,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapFixed64Fixed64() {
+        bitField0_ = (bitField0_ & ~0x00000080);
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .clear();
         return this;
@@ -4681,7 +4503,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
-
       public Builder removeMapFixed64Fixed64(
           long key) {
         
@@ -4694,7 +4515,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapFixed64Fixed64() {
+          getMutableMapFixed64Fixed64() {
+        bitField0_ |= 0x00000080;
         return internalGetMutableMapFixed64Fixed64().getMutableMap();
       }
       /**
@@ -4707,23 +4529,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
-
       public Builder putAllMapFixed64Fixed64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000080;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapSfixed32Sfixed32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapSfixed32Sfixed32() {
+          internalGetMapSfixed32Sfixed32() {
         if (mapSfixed32Sfixed32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
@@ -4731,8 +4554,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSfixed32Sfixed32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapSfixed32Sfixed32() {
-        onChanged();;
+          internalGetMutableMapSfixed32Sfixed32() {
         if (mapSfixed32Sfixed32_ == null) {
           mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
               MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
@@ -4740,16 +4562,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSfixed32Sfixed32_.isMutable()) {
           mapSfixed32Sfixed32_ = mapSfixed32Sfixed32_.copy();
         }
+        bitField0_ |= 0x00000100;
+        onChanged();
         return mapSfixed32Sfixed32_;
       }
-
       public int getMapSfixed32Sfixed32Count() {
         return internalGetMapSfixed32Sfixed32().getMap().size();
       }
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSfixed32Sfixed32(
           int key) {
@@ -4768,7 +4590,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
         return internalGetMapSfixed32Sfixed32().getMap();
       }
@@ -4776,7 +4597,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
       @java.lang.Override
-
       public int getMapSfixed32Sfixed32OrDefault(
           int key,
           int defaultValue) {
@@ -4789,7 +4609,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
       @java.lang.Override
-
       public int getMapSfixed32Sfixed32OrThrow(
           int key) {
         
@@ -4800,8 +4619,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSfixed32Sfixed32() {
+        bitField0_ = (bitField0_ & ~0x00000100);
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .clear();
         return this;
@@ -4809,7 +4628,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
-
       public Builder removeMapSfixed32Sfixed32(
           int key) {
         
@@ -4822,7 +4640,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapSfixed32Sfixed32() {
+          getMutableMapSfixed32Sfixed32() {
+        bitField0_ |= 0x00000100;
         return internalGetMutableMapSfixed32Sfixed32().getMutableMap();
       }
       /**
@@ -4835,23 +4654,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
-
       public Builder putAllMapSfixed32Sfixed32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000100;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapSfixed64Sfixed64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapSfixed64Sfixed64() {
+          internalGetMapSfixed64Sfixed64() {
         if (mapSfixed64Sfixed64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
@@ -4859,8 +4679,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSfixed64Sfixed64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapSfixed64Sfixed64() {
-        onChanged();;
+          internalGetMutableMapSfixed64Sfixed64() {
         if (mapSfixed64Sfixed64_ == null) {
           mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
               MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
@@ -4868,16 +4687,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSfixed64Sfixed64_.isMutable()) {
           mapSfixed64Sfixed64_ = mapSfixed64Sfixed64_.copy();
         }
+        bitField0_ |= 0x00000200;
+        onChanged();
         return mapSfixed64Sfixed64_;
       }
-
       public int getMapSfixed64Sfixed64Count() {
         return internalGetMapSfixed64Sfixed64().getMap().size();
       }
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSfixed64Sfixed64(
           long key) {
@@ -4896,7 +4715,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
         return internalGetMapSfixed64Sfixed64().getMap();
       }
@@ -4904,7 +4722,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
       @java.lang.Override
-
       public long getMapSfixed64Sfixed64OrDefault(
           long key,
           long defaultValue) {
@@ -4917,7 +4734,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
       @java.lang.Override
-
       public long getMapSfixed64Sfixed64OrThrow(
           long key) {
         
@@ -4928,8 +4744,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSfixed64Sfixed64() {
+        bitField0_ = (bitField0_ & ~0x00000200);
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .clear();
         return this;
@@ -4937,7 +4753,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
-
       public Builder removeMapSfixed64Sfixed64(
           long key) {
         
@@ -4950,7 +4765,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapSfixed64Sfixed64() {
+          getMutableMapSfixed64Sfixed64() {
+        bitField0_ |= 0x00000200;
         return internalGetMutableMapSfixed64Sfixed64().getMutableMap();
       }
       /**
@@ -4963,23 +4779,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
-
       public Builder putAllMapSfixed64Sfixed64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000200;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Float> mapInt32Float_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-      internalGetMapInt32Float() {
+          internalGetMapInt32Float() {
         if (mapInt32Float_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32FloatDefaultEntryHolder.defaultEntry);
@@ -4987,8 +4804,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Float_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-      internalGetMutableMapInt32Float() {
-        onChanged();;
+          internalGetMutableMapInt32Float() {
         if (mapInt32Float_ == null) {
           mapInt32Float_ = com.google.protobuf.MapField.newMapField(
               MapInt32FloatDefaultEntryHolder.defaultEntry);
@@ -4996,16 +4812,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Float_.isMutable()) {
           mapInt32Float_ = mapInt32Float_.copy();
         }
+        bitField0_ |= 0x00000400;
+        onChanged();
         return mapInt32Float_;
       }
-
       public int getMapInt32FloatCount() {
         return internalGetMapInt32Float().getMap().size();
       }
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Float(
           int key) {
@@ -5024,7 +4840,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
         return internalGetMapInt32Float().getMap();
       }
@@ -5032,7 +4847,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
       @java.lang.Override
-
       public float getMapInt32FloatOrDefault(
           int key,
           float defaultValue) {
@@ -5045,7 +4859,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
       @java.lang.Override
-
       public float getMapInt32FloatOrThrow(
           int key) {
         
@@ -5056,8 +4869,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Float() {
+        bitField0_ = (bitField0_ & ~0x00000400);
         internalGetMutableMapInt32Float().getMutableMap()
             .clear();
         return this;
@@ -5065,7 +4878,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
-
       public Builder removeMapInt32Float(
           int key) {
         
@@ -5078,7 +4890,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Float>
-      getMutableMapInt32Float() {
+          getMutableMapInt32Float() {
+        bitField0_ |= 0x00000400;
         return internalGetMutableMapInt32Float().getMutableMap();
       }
       /**
@@ -5091,23 +4904,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Float().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
-
       public Builder putAllMapInt32Float(
           java.util.Map<java.lang.Integer, java.lang.Float> values) {
         internalGetMutableMapInt32Float().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000400;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Double> mapInt32Double_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
-      internalGetMapInt32Double() {
+          internalGetMapInt32Double() {
         if (mapInt32Double_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32DoubleDefaultEntryHolder.defaultEntry);
@@ -5115,8 +4929,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Double_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
-      internalGetMutableMapInt32Double() {
-        onChanged();;
+          internalGetMutableMapInt32Double() {
         if (mapInt32Double_ == null) {
           mapInt32Double_ = com.google.protobuf.MapField.newMapField(
               MapInt32DoubleDefaultEntryHolder.defaultEntry);
@@ -5124,16 +4937,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Double_.isMutable()) {
           mapInt32Double_ = mapInt32Double_.copy();
         }
+        bitField0_ |= 0x00000800;
+        onChanged();
         return mapInt32Double_;
       }
-
       public int getMapInt32DoubleCount() {
         return internalGetMapInt32Double().getMap().size();
       }
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Double(
           int key) {
@@ -5152,7 +4965,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
         return internalGetMapInt32Double().getMap();
       }
@@ -5160,7 +4972,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
       @java.lang.Override
-
       public double getMapInt32DoubleOrDefault(
           int key,
           double defaultValue) {
@@ -5173,7 +4984,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
       @java.lang.Override
-
       public double getMapInt32DoubleOrThrow(
           int key) {
         
@@ -5184,8 +4994,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Double() {
+        bitField0_ = (bitField0_ & ~0x00000800);
         internalGetMutableMapInt32Double().getMutableMap()
             .clear();
         return this;
@@ -5193,7 +5003,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
-
       public Builder removeMapInt32Double(
           int key) {
         
@@ -5206,7 +5015,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Double>
-      getMutableMapInt32Double() {
+          getMutableMapInt32Double() {
+        bitField0_ |= 0x00000800;
         return internalGetMutableMapInt32Double().getMutableMap();
       }
       /**
@@ -5219,23 +5029,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Double().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
-
       public Builder putAllMapInt32Double(
           java.util.Map<java.lang.Integer, java.lang.Double> values) {
         internalGetMutableMapInt32Double().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000800;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Boolean, java.lang.Boolean> mapBoolBool_;
       private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
-      internalGetMapBoolBool() {
+          internalGetMapBoolBool() {
         if (mapBoolBool_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapBoolBoolDefaultEntryHolder.defaultEntry);
@@ -5243,8 +5054,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapBoolBool_;
       }
       private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
-      internalGetMutableMapBoolBool() {
-        onChanged();;
+          internalGetMutableMapBoolBool() {
         if (mapBoolBool_ == null) {
           mapBoolBool_ = com.google.protobuf.MapField.newMapField(
               MapBoolBoolDefaultEntryHolder.defaultEntry);
@@ -5252,16 +5062,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapBoolBool_.isMutable()) {
           mapBoolBool_ = mapBoolBool_.copy();
         }
+        bitField0_ |= 0x00001000;
+        onChanged();
         return mapBoolBool_;
       }
-
       public int getMapBoolBoolCount() {
         return internalGetMapBoolBool().getMap().size();
       }
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
-
       @java.lang.Override
       public boolean containsMapBoolBool(
           boolean key) {
@@ -5280,7 +5090,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
         return internalGetMapBoolBool().getMap();
       }
@@ -5288,7 +5097,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
       @java.lang.Override
-
       public boolean getMapBoolBoolOrDefault(
           boolean key,
           boolean defaultValue) {
@@ -5301,7 +5109,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
       @java.lang.Override
-
       public boolean getMapBoolBoolOrThrow(
           boolean key) {
         
@@ -5312,8 +5119,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapBoolBool() {
+        bitField0_ = (bitField0_ & ~0x00001000);
         internalGetMutableMapBoolBool().getMutableMap()
             .clear();
         return this;
@@ -5321,7 +5128,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
-
       public Builder removeMapBoolBool(
           boolean key) {
         
@@ -5334,7 +5140,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Boolean, java.lang.Boolean>
-      getMutableMapBoolBool() {
+          getMutableMapBoolBool() {
+        bitField0_ |= 0x00001000;
         return internalGetMutableMapBoolBool().getMutableMap();
       }
       /**
@@ -5347,23 +5154,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapBoolBool().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
-
       public Builder putAllMapBoolBool(
           java.util.Map<java.lang.Boolean, java.lang.Boolean> values) {
         internalGetMutableMapBoolBool().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00001000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> mapStringString_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMapStringString() {
+          internalGetMapStringString() {
         if (mapStringString_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringStringDefaultEntryHolder.defaultEntry);
@@ -5371,8 +5179,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapStringString_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableMapStringString() {
-        onChanged();;
+          internalGetMutableMapStringString() {
         if (mapStringString_ == null) {
           mapStringString_ = com.google.protobuf.MapField.newMapField(
               MapStringStringDefaultEntryHolder.defaultEntry);
@@ -5380,16 +5187,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapStringString_.isMutable()) {
           mapStringString_ = mapStringString_.copy();
         }
+        bitField0_ |= 0x00002000;
+        onChanged();
         return mapStringString_;
       }
-
       public int getMapStringStringCount() {
         return internalGetMapStringString().getMap().size();
       }
       /**
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringString(
           java.lang.String key) {
@@ -5408,7 +5215,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
         return internalGetMapStringString().getMap();
       }
@@ -5416,10 +5222,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getMapStringStringOrDefault(
+      public /* nullable */
+java.lang.String getMapStringStringOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMapStringString().getMap();
@@ -5429,7 +5236,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
       @java.lang.Override
-
       public java.lang.String getMapStringStringOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5440,8 +5246,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapStringString() {
+        bitField0_ = (bitField0_ & ~0x00002000);
         internalGetMutableMapStringString().getMutableMap()
             .clear();
         return this;
@@ -5449,7 +5255,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
-
       public Builder removeMapStringString(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -5462,7 +5267,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableMapStringString() {
+          getMutableMapStringString() {
+        bitField0_ |= 0x00002000;
         return internalGetMutableMapStringString().getMutableMap();
       }
       /**
@@ -5472,29 +5278,27 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringString().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
-
       public Builder putAllMapStringString(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableMapStringString().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00002000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, com.google.protobuf.ByteString> mapInt32Bytes_;
       private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
-      internalGetMapInt32Bytes() {
+          internalGetMapInt32Bytes() {
         if (mapInt32Bytes_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32BytesDefaultEntryHolder.defaultEntry);
@@ -5502,8 +5306,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Bytes_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
-      internalGetMutableMapInt32Bytes() {
-        onChanged();;
+          internalGetMutableMapInt32Bytes() {
         if (mapInt32Bytes_ == null) {
           mapInt32Bytes_ = com.google.protobuf.MapField.newMapField(
               MapInt32BytesDefaultEntryHolder.defaultEntry);
@@ -5511,16 +5314,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Bytes_.isMutable()) {
           mapInt32Bytes_ = mapInt32Bytes_.copy();
         }
+        bitField0_ |= 0x00004000;
+        onChanged();
         return mapInt32Bytes_;
       }
-
       public int getMapInt32BytesCount() {
         return internalGetMapInt32Bytes().getMap().size();
       }
       /**
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Bytes(
           int key) {
@@ -5539,7 +5342,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> getMapInt32BytesMap() {
         return internalGetMapInt32Bytes().getMap();
       }
@@ -5547,10 +5349,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.ByteString getMapInt32BytesOrDefault(
+      public /* nullable */
+com.google.protobuf.ByteString getMapInt32BytesOrDefault(
           int key,
-          com.google.protobuf.ByteString defaultValue) {
+          /* nullable */
+com.google.protobuf.ByteString defaultValue) {
         
         java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> map =
             internalGetMapInt32Bytes().getMap();
@@ -5560,7 +5363,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.ByteString getMapInt32BytesOrThrow(
           int key) {
         
@@ -5571,8 +5373,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Bytes() {
+        bitField0_ = (bitField0_ & ~0x00004000);
         internalGetMutableMapInt32Bytes().getMutableMap()
             .clear();
         return this;
@@ -5580,7 +5382,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
-
       public Builder removeMapInt32Bytes(
           int key) {
         
@@ -5593,7 +5394,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, com.google.protobuf.ByteString>
-      getMutableMapInt32Bytes() {
+          getMutableMapInt32Bytes() {
+        bitField0_ |= 0x00004000;
         return internalGetMutableMapInt32Bytes().getMutableMap();
       }
       /**
@@ -5603,29 +5405,27 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           int key,
           com.google.protobuf.ByteString value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapInt32Bytes().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00004000;
         return this;
       }
       /**
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
-
       public Builder putAllMapInt32Bytes(
           java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> values) {
         internalGetMutableMapInt32Bytes().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00004000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapInt32Enum_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapInt32Enum() {
+          internalGetMapInt32Enum() {
         if (mapInt32Enum_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32EnumDefaultEntryHolder.defaultEntry);
@@ -5633,8 +5433,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Enum_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapInt32Enum() {
-        onChanged();;
+          internalGetMutableMapInt32Enum() {
         if (mapInt32Enum_ == null) {
           mapInt32Enum_ = com.google.protobuf.MapField.newMapField(
               MapInt32EnumDefaultEntryHolder.defaultEntry);
@@ -5642,16 +5441,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Enum_.isMutable()) {
           mapInt32Enum_ = mapInt32Enum_.copy();
         }
+        bitField0_ |= 0x00008000;
+        onChanged();
         return mapInt32Enum_;
       }
-
       public int getMapInt32EnumCount() {
         return internalGetMapInt32Enum().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Enum(
           int key) {
@@ -5671,7 +5470,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum>
       getMapInt32EnumMap() {
         return internalGetAdaptedMapInt32EnumMap(
@@ -5680,7 +5478,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public /* nullable */
 protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrDefault(
           int key,
@@ -5697,7 +5494,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrThrow(
           int key) {
         
@@ -5721,7 +5517,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer>
       getMapInt32EnumValueMap() {
         return internalGetMapInt32Enum().getMap();
@@ -5730,7 +5525,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public int getMapInt32EnumValueOrDefault(
           int key,
           int defaultValue) {
@@ -5743,7 +5537,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public int getMapInt32EnumValueOrThrow(
           int key) {
         
@@ -5754,8 +5547,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Enum() {
+        bitField0_ = (bitField0_ & ~0x00008000);
         internalGetMutableMapInt32Enum().getMutableMap()
             .clear();
         return this;
@@ -5763,7 +5556,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
-
       public Builder removeMapInt32Enum(
           int key) {
         
@@ -5776,7 +5568,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum>
-      getMutableMapInt32Enum() {
+          getMutableMapInt32Enum() {
+        bitField0_ |= 0x00008000;
         return internalGetAdaptedMapInt32EnumMap(
              internalGetMutableMapInt32Enum().getMutableMap());
       }
@@ -5790,6 +5583,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Enum().getMutableMap()
             .put(key, mapInt32EnumValueConverter.doBackward(value));
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -5800,6 +5594,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         internalGetAdaptedMapInt32EnumMap(
             internalGetMutableMapInt32Enum().getMutableMap())
                 .putAll(values);
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -5808,6 +5603,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
       getMutableMapInt32EnumValue() {
+        bitField0_ |= 0x00008000;
         return internalGetMutableMapInt32Enum().getMutableMap();
       }
       /**
@@ -5820,6 +5616,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Enum().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -5829,13 +5626,14 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapInt32Enum().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00008000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> mapInt32ForeignMessage_;
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-      internalGetMapInt32ForeignMessage() {
+          internalGetMapInt32ForeignMessage() {
         if (mapInt32ForeignMessage_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
@@ -5843,8 +5641,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32ForeignMessage_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-      internalGetMutableMapInt32ForeignMessage() {
-        onChanged();;
+          internalGetMutableMapInt32ForeignMessage() {
         if (mapInt32ForeignMessage_ == null) {
           mapInt32ForeignMessage_ = com.google.protobuf.MapField.newMapField(
               MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
@@ -5852,16 +5649,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32ForeignMessage_.isMutable()) {
           mapInt32ForeignMessage_ = mapInt32ForeignMessage_.copy();
         }
+        bitField0_ |= 0x00010000;
+        onChanged();
         return mapInt32ForeignMessage_;
       }
-
       public int getMapInt32ForeignMessageCount() {
         return internalGetMapInt32ForeignMessage().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32ForeignMessage(
           int key) {
@@ -5880,7 +5677,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> getMapInt32ForeignMessageMap() {
         return internalGetMapInt32ForeignMessage().getMap();
       }
@@ -5888,10 +5684,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
+      public /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
           int key,
-          protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
+          /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
         
         java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> map =
             internalGetMapInt32ForeignMessage().getMap();
@@ -5901,7 +5698,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrThrow(
           int key) {
         
@@ -5912,8 +5708,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32ForeignMessage() {
+        bitField0_ = (bitField0_ & ~0x00010000);
         internalGetMutableMapInt32ForeignMessage().getMutableMap()
             .clear();
         return this;
@@ -5921,7 +5717,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
-
       public Builder removeMapInt32ForeignMessage(
           int key) {
         
@@ -5934,7 +5729,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-      getMutableMapInt32ForeignMessage() {
+          getMutableMapInt32ForeignMessage() {
+        bitField0_ |= 0x00010000;
         return internalGetMutableMapInt32ForeignMessage().getMutableMap();
       }
       /**
@@ -5944,29 +5740,27 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           int key,
           protobuf_unittest.UnittestProto.ForeignMessage value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapInt32ForeignMessage().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00010000;
         return this;
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
-
       public Builder putAllMapInt32ForeignMessage(
           java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> values) {
         internalGetMutableMapInt32ForeignMessage().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00010000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> mapStringForeignMessage_;
       private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage>
-      internalGetMapStringForeignMessage() {
+          internalGetMapStringForeignMessage() {
         if (mapStringForeignMessage_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringForeignMessageDefaultEntryHolder.defaultEntry);
@@ -5974,8 +5768,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapStringForeignMessage_;
       }
       private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage>
-      internalGetMutableMapStringForeignMessage() {
-        onChanged();;
+          internalGetMutableMapStringForeignMessage() {
         if (mapStringForeignMessage_ == null) {
           mapStringForeignMessage_ = com.google.protobuf.MapField.newMapField(
               MapStringForeignMessageDefaultEntryHolder.defaultEntry);
@@ -5983,16 +5776,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapStringForeignMessage_.isMutable()) {
           mapStringForeignMessage_ = mapStringForeignMessage_.copy();
         }
+        bitField0_ |= 0x00020000;
+        onChanged();
         return mapStringForeignMessage_;
       }
-
       public int getMapStringForeignMessageCount() {
         return internalGetMapStringForeignMessage().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringForeignMessage(
           java.lang.String key) {
@@ -6011,7 +5804,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> getMapStringForeignMessageMap() {
         return internalGetMapStringForeignMessage().getMap();
       }
@@ -6019,10 +5811,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrDefault(
+      public /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrDefault(
           java.lang.String key,
-          protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
+          /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> map =
             internalGetMapStringForeignMessage().getMap();
@@ -6032,7 +5825,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.UnittestProto.ForeignMessage getMapStringForeignMessageOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -6043,8 +5835,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapStringForeignMessage() {
+        bitField0_ = (bitField0_ & ~0x00020000);
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .clear();
         return this;
@@ -6052,7 +5844,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
        */
-
       public Builder removeMapStringForeignMessage(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -6065,7 +5856,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage>
-      getMutableMapStringForeignMessage() {
+          getMutableMapStringForeignMessage() {
+        bitField0_ |= 0x00020000;
         return internalGetMutableMapStringForeignMessage().getMutableMap();
       }
       /**
@@ -6075,29 +5867,27 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           java.lang.String key,
           protobuf_unittest.UnittestProto.ForeignMessage value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00020000;
         return this;
       }
       /**
        * <code>map&lt;string, .protobuf_unittest.ForeignMessage&gt; map_string_foreign_message = 18;</code>
        */
-
       public Builder putAllMapStringForeignMessage(
           java.util.Map<java.lang.String, protobuf_unittest.UnittestProto.ForeignMessage> values) {
         internalGetMutableMapStringForeignMessage().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00020000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> mapInt32AllTypes_;
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-      internalGetMapInt32AllTypes() {
+          internalGetMapInt32AllTypes() {
         if (mapInt32AllTypes_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32AllTypesDefaultEntryHolder.defaultEntry);
@@ -6105,8 +5895,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32AllTypes_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-      internalGetMutableMapInt32AllTypes() {
-        onChanged();;
+          internalGetMutableMapInt32AllTypes() {
         if (mapInt32AllTypes_ == null) {
           mapInt32AllTypes_ = com.google.protobuf.MapField.newMapField(
               MapInt32AllTypesDefaultEntryHolder.defaultEntry);
@@ -6114,16 +5903,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32AllTypes_.isMutable()) {
           mapInt32AllTypes_ = mapInt32AllTypes_.copy();
         }
+        bitField0_ |= 0x00040000;
+        onChanged();
         return mapInt32AllTypes_;
       }
-
       public int getMapInt32AllTypesCount() {
         return internalGetMapInt32AllTypes().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32AllTypes(
           int key) {
@@ -6142,7 +5931,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> getMapInt32AllTypesMap() {
         return internalGetMapInt32AllTypes().getMap();
       }
@@ -6150,10 +5938,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrDefault(
+      public /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrDefault(
           int key,
-          protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
+          /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
         
         java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> map =
             internalGetMapInt32AllTypes().getMap();
@@ -6163,7 +5952,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32AllTypesOrThrow(
           int key) {
         
@@ -6174,8 +5962,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32AllTypes() {
+        bitField0_ = (bitField0_ & ~0x00040000);
         internalGetMutableMapInt32AllTypes().getMutableMap()
             .clear();
         return this;
@@ -6183,7 +5971,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
        */
-
       public Builder removeMapInt32AllTypes(
           int key) {
         
@@ -6196,7 +5983,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-      getMutableMapInt32AllTypes() {
+          getMutableMapInt32AllTypes() {
+        bitField0_ |= 0x00040000;
         return internalGetMutableMapInt32AllTypes().getMutableMap();
       }
       /**
@@ -6206,22 +5994,20 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           int key,
           protobuf_unittest.UnittestProto.TestAllTypes value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapInt32AllTypes().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00040000;
         return this;
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_all_types = 19;</code>
        */
-
       public Builder putAllMapInt32AllTypes(
           java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> values) {
         internalGetMutableMapInt32AllTypes().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00040000;
         return this;
       }
       @java.lang.Override
@@ -6257,7 +6043,18 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestMap(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6323,58 +6120,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TestMapSubmessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              protobuf_unittest.MapUnittest.TestMap.Builder subBuilder = null;
-              if (testMap_ != null) {
-                subBuilder = testMap_.toBuilder();
-              }
-              testMap_ = input.readMessage(protobuf_unittest.MapUnittest.TestMap.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(testMap_);
-                testMap_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.MapUnittest.internal_static_protobuf_unittest_TestMapSubmessage_descriptor;
@@ -6411,7 +6156,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      */
     @java.lang.Override
     public protobuf_unittest.MapUnittest.TestMapOrBuilder getTestMapOrBuilder() {
-      return getTestMap();
+      return testMap_ == null ? protobuf_unittest.MapUnittest.TestMap.getDefaultInstance() : testMap_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6431,7 +6176,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       if (testMap_ != null) {
         output.writeMessage(1, getTestMap());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6444,7 +6189,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getTestMap());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6464,7 +6209,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!getTestMap()
             .equals(other.getTestMap())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6479,7 +6224,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         hash = (37 * hash) + TEST_MAP_FIELD_NUMBER;
         hash = (53 * hash) + getTestMap().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6596,26 +6341,21 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
 
       // Construct using protobuf_unittest.MapUnittest.TestMapSubmessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (testMapBuilder_ == null) {
-          testMap_ = null;
-        } else {
-          testMap_ = null;
+        bitField0_ = 0;
+        testMap_ = null;
+        if (testMapBuilder_ != null) {
+          testMapBuilder_.dispose();
           testMapBuilder_ = null;
         }
         return this;
@@ -6644,13 +6384,18 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestMapSubmessage buildPartial() {
         protobuf_unittest.MapUnittest.TestMapSubmessage result = new protobuf_unittest.MapUnittest.TestMapSubmessage(this);
-        if (testMapBuilder_ == null) {
-          result.testMap_ = testMap_;
-        } else {
-          result.testMap_ = testMapBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestMapSubmessage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.testMap_ = testMapBuilder_ == null
+              ? testMap_
+              : testMapBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -6700,7 +6445,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (other.hasTestMap()) {
           mergeTestMap(other.getTestMap());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6715,19 +6460,40 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestMapSubmessage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTestMapFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestMapSubmessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private protobuf_unittest.MapUnittest.TestMap testMap_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -6737,7 +6503,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * @return Whether the testMap field is set.
        */
       public boolean hasTestMap() {
-        return testMapBuilder_ != null || testMap_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.protobuf_unittest.TestMap test_map = 1;</code>
@@ -6759,11 +6525,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
             throw new NullPointerException();
           }
           testMap_ = value;
-          onChanged();
         } else {
           testMapBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6773,11 +6539,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           protobuf_unittest.MapUnittest.TestMap.Builder builderForValue) {
         if (testMapBuilder_ == null) {
           testMap_ = builderForValue.build();
-          onChanged();
         } else {
           testMapBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6785,38 +6551,38 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       public Builder mergeTestMap(protobuf_unittest.MapUnittest.TestMap value) {
         if (testMapBuilder_ == null) {
-          if (testMap_ != null) {
-            testMap_ =
-              protobuf_unittest.MapUnittest.TestMap.newBuilder(testMap_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            testMap_ != null &&
+            testMap_ != protobuf_unittest.MapUnittest.TestMap.getDefaultInstance()) {
+            getTestMapBuilder().mergeFrom(value);
           } else {
             testMap_ = value;
           }
-          onChanged();
         } else {
           testMapBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.protobuf_unittest.TestMap test_map = 1;</code>
        */
       public Builder clearTestMap() {
-        if (testMapBuilder_ == null) {
-          testMap_ = null;
-          onChanged();
-        } else {
-          testMap_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        testMap_ = null;
+        if (testMapBuilder_ != null) {
+          testMapBuilder_.dispose();
           testMapBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.protobuf_unittest.TestMap test_map = 1;</code>
        */
       public protobuf_unittest.MapUnittest.TestMap.Builder getTestMapBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTestMapFieldBuilder().getBuilder();
       }
@@ -6880,7 +6646,18 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestMapSubmessage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6927,7 +6704,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
      */
-
     /* nullable */
 protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrDefault(
         int key,
@@ -6936,7 +6712,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
      */
-
     protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrThrow(
         int key);
   }
@@ -6966,59 +6741,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TestMessageMap(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                mapInt32Message_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32MessageDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-              mapInt32Message__ = input.readMessage(
-                  MapInt32MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Message_.getMutableMap().put(
-                  mapInt32Message__.getKey(), mapInt32Message__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7057,6 +6779,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.UnittestProto.TestAllTypes.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> mapInt32Message_;
     private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
@@ -7067,14 +6790,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return mapInt32Message_;
     }
-
     public int getMapInt32MessageCount() {
       return internalGetMapInt32Message().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Message(
         int key) {
@@ -7093,7 +6814,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> getMapInt32MessageMap() {
       return internalGetMapInt32Message().getMap();
     }
@@ -7101,10 +6821,11 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrDefault(
+    public /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrDefault(
         int key,
-        protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
+        /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
       
       java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> map =
           internalGetMapInt32Message().getMap();
@@ -7114,7 +6835,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrThrow(
         int key) {
       
@@ -7146,7 +6866,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           internalGetMapInt32Message(),
           MapInt32MessageDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7165,7 +6885,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, mapInt32Message__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7182,7 +6902,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
 
       if (!internalGetMapInt32Message().equals(
           other.internalGetMapInt32Message())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7197,7 +6917,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         hash = (37 * hash) + MAP_INT32_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMapInt32Message().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7336,22 +7056,18 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
 
       // Construct using protobuf_unittest.MapUnittest.TestMessageMap.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableMapInt32Message().clear();
         return this;
       }
@@ -7379,11 +7095,17 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestMessageMap buildPartial() {
         protobuf_unittest.MapUnittest.TestMessageMap result = new protobuf_unittest.MapUnittest.TestMessageMap(this);
-        int from_bitField0_ = bitField0_;
-        result.mapInt32Message_ = internalGetMapInt32Message();
-        result.mapInt32Message_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestMessageMap result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.mapInt32Message_ = internalGetMapInt32Message();
+          result.mapInt32Message_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -7432,7 +7154,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         if (other == protobuf_unittest.MapUnittest.TestMessageMap.getDefaultInstance()) return this;
         internalGetMutableMapInt32Message().mergeFrom(
             other.internalGetMapInt32Message());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7447,17 +7170,39 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestMessageMap parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
+                mapInt32Message__ = input.readMessage(
+                    MapInt32MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Message().getMutableMap().put(
+                    mapInt32Message__.getKey(), mapInt32Message__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestMessageMap) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7465,7 +7210,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       private com.google.protobuf.MapField<
           java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> mapInt32Message_;
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-      internalGetMapInt32Message() {
+          internalGetMapInt32Message() {
         if (mapInt32Message_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32MessageDefaultEntryHolder.defaultEntry);
@@ -7473,8 +7218,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         return mapInt32Message_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-      internalGetMutableMapInt32Message() {
-        onChanged();;
+          internalGetMutableMapInt32Message() {
         if (mapInt32Message_ == null) {
           mapInt32Message_ = com.google.protobuf.MapField.newMapField(
               MapInt32MessageDefaultEntryHolder.defaultEntry);
@@ -7482,16 +7226,16 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         if (!mapInt32Message_.isMutable()) {
           mapInt32Message_ = mapInt32Message_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return mapInt32Message_;
       }
-
       public int getMapInt32MessageCount() {
         return internalGetMapInt32Message().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Message(
           int key) {
@@ -7510,7 +7254,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> getMapInt32MessageMap() {
         return internalGetMapInt32Message().getMap();
       }
@@ -7518,10 +7261,11 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrDefault(
+      public /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrDefault(
           int key,
-          protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
+          /* nullable */
+protobuf_unittest.UnittestProto.TestAllTypes defaultValue) {
         
         java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> map =
             internalGetMapInt32Message().getMap();
@@ -7531,7 +7275,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.UnittestProto.TestAllTypes getMapInt32MessageOrThrow(
           int key) {
         
@@ -7542,8 +7285,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Message() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableMapInt32Message().getMutableMap()
             .clear();
         return this;
@@ -7551,7 +7294,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
        */
-
       public Builder removeMapInt32Message(
           int key) {
         
@@ -7564,7 +7306,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes>
-      getMutableMapInt32Message() {
+          getMutableMapInt32Message() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableMapInt32Message().getMutableMap();
       }
       /**
@@ -7574,22 +7317,20 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           int key,
           protobuf_unittest.UnittestProto.TestAllTypes value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapInt32Message().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestAllTypes&gt; map_int32_message = 1;</code>
        */
-
       public Builder putAllMapInt32Message(
           java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestAllTypes> values) {
         internalGetMutableMapInt32Message().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -7625,7 +7366,18 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestMessageMap(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7672,14 +7424,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map1 = 1;</code>
      */
-
     int getMap1OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map1 = 1;</code>
      */
-
     int getMap1OrThrow(
         int key);
 
@@ -7706,14 +7456,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map2 = 2;</code>
      */
-
     int getMap2OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map2 = 2;</code>
      */
-
     int getMap2OrThrow(
         int key);
   }
@@ -7747,72 +7495,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TestSameTypeMap(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                map1_ = com.google.protobuf.MapField.newMapField(
-                    Map1DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              map1__ = input.readMessage(
-                  Map1DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              map1_.getMutableMap().put(
-                  map1__.getKey(), map1__.getValue());
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                map2_ = com.google.protobuf.MapField.newMapField(
-                    Map2DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              map2__ = input.readMessage(
-                  Map2DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              map2_.getMutableMap().put(
-                  map2__.getKey(), map2__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7853,6 +7535,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> map1_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -7863,14 +7546,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return map1_;
     }
-
     public int getMap1Count() {
       return internalGetMap1().getMap().size();
     }
     /**
      * <code>map&lt;int32, int32&gt; map1 = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsMap1(
         int key) {
@@ -7889,7 +7570,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map1 = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMap1Map() {
       return internalGetMap1().getMap();
     }
@@ -7897,7 +7577,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map1 = 1;</code>
      */
     @java.lang.Override
-
     public int getMap1OrDefault(
         int key,
         int defaultValue) {
@@ -7910,7 +7589,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map1 = 1;</code>
      */
     @java.lang.Override
-
     public int getMap1OrThrow(
         int key) {
       
@@ -7934,6 +7612,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> map2_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -7944,14 +7623,12 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       }
       return map2_;
     }
-
     public int getMap2Count() {
       return internalGetMap2().getMap().size();
     }
     /**
      * <code>map&lt;int32, int32&gt; map2 = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsMap2(
         int key) {
@@ -7970,7 +7647,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map2 = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMap2Map() {
       return internalGetMap2().getMap();
     }
@@ -7978,7 +7654,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map2 = 2;</code>
      */
     @java.lang.Override
-
     public int getMap2OrDefault(
         int key,
         int defaultValue) {
@@ -7991,7 +7666,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
      * <code>map&lt;int32, int32&gt; map2 = 2;</code>
      */
     @java.lang.Override
-
     public int getMap2OrThrow(
         int key) {
       
@@ -8029,7 +7703,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           internalGetMap2(),
           Map2DefaultEntryHolder.defaultEntry,
           2);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8058,7 +7732,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, map2__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8077,7 +7751,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           other.internalGetMap1())) return false;
       if (!internalGetMap2().equals(
           other.internalGetMap2())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8096,7 +7770,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         hash = (37 * hash) + MAP2_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMap2().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8243,22 +7917,18 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
 
       // Construct using protobuf_unittest.MapUnittest.TestSameTypeMap.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableMap1().clear();
         internalGetMutableMap2().clear();
         return this;
@@ -8287,13 +7957,21 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestSameTypeMap buildPartial() {
         protobuf_unittest.MapUnittest.TestSameTypeMap result = new protobuf_unittest.MapUnittest.TestSameTypeMap(this);
-        int from_bitField0_ = bitField0_;
-        result.map1_ = internalGetMap1();
-        result.map1_.makeImmutable();
-        result.map2_ = internalGetMap2();
-        result.map2_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestSameTypeMap result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.map1_ = internalGetMap1();
+          result.map1_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.map2_ = internalGetMap2();
+          result.map2_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -8342,9 +8020,11 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         if (other == protobuf_unittest.MapUnittest.TestSameTypeMap.getDefaultInstance()) return this;
         internalGetMutableMap1().mergeFrom(
             other.internalGetMap1());
+        bitField0_ |= 0x00000001;
         internalGetMutableMap2().mergeFrom(
             other.internalGetMap2());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000002;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8359,17 +8039,48 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestSameTypeMap parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                map1__ = input.readMessage(
+                    Map1DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMap1().getMutableMap().put(
+                    map1__.getKey(), map1__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                map2__ = input.readMessage(
+                    Map2DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMap2().getMutableMap().put(
+                    map2__.getKey(), map2__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestSameTypeMap) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -8377,7 +8088,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> map1_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMap1() {
+          internalGetMap1() {
         if (map1_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               Map1DefaultEntryHolder.defaultEntry);
@@ -8385,8 +8096,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         return map1_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMap1() {
-        onChanged();;
+          internalGetMutableMap1() {
         if (map1_ == null) {
           map1_ = com.google.protobuf.MapField.newMapField(
               Map1DefaultEntryHolder.defaultEntry);
@@ -8394,16 +8104,16 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         if (!map1_.isMutable()) {
           map1_ = map1_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return map1_;
       }
-
       public int getMap1Count() {
         return internalGetMap1().getMap().size();
       }
       /**
        * <code>map&lt;int32, int32&gt; map1 = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsMap1(
           int key) {
@@ -8422,7 +8132,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, int32&gt; map1 = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMap1Map() {
         return internalGetMap1().getMap();
       }
@@ -8430,7 +8139,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, int32&gt; map1 = 1;</code>
        */
       @java.lang.Override
-
       public int getMap1OrDefault(
           int key,
           int defaultValue) {
@@ -8443,7 +8151,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, int32&gt; map1 = 1;</code>
        */
       @java.lang.Override
-
       public int getMap1OrThrow(
           int key) {
         
@@ -8454,8 +8161,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearMap1() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableMap1().getMutableMap()
             .clear();
         return this;
@@ -8463,7 +8170,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       /**
        * <code>map&lt;int32, int32&gt; map1 = 1;</code>
        */
-
       public Builder removeMap1(
           int key) {
         
@@ -8476,7 +8182,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMap1() {
+          getMutableMap1() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableMap1().getMutableMap();
       }
       /**
@@ -8489,23 +8196,24 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         
         internalGetMutableMap1().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;int32, int32&gt; map1 = 1;</code>
        */
-
       public Builder putAllMap1(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMap1().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> map2_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMap2() {
+          internalGetMap2() {
         if (map2_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               Map2DefaultEntryHolder.defaultEntry);
@@ -8513,8 +8221,7 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         return map2_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMap2() {
-        onChanged();;
+          internalGetMutableMap2() {
         if (map2_ == null) {
           map2_ = com.google.protobuf.MapField.newMapField(
               Map2DefaultEntryHolder.defaultEntry);
@@ -8522,16 +8229,16 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         if (!map2_.isMutable()) {
           map2_ = map2_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return map2_;
       }
-
       public int getMap2Count() {
         return internalGetMap2().getMap().size();
       }
       /**
        * <code>map&lt;int32, int32&gt; map2 = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsMap2(
           int key) {
@@ -8550,7 +8257,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, int32&gt; map2 = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMap2Map() {
         return internalGetMap2().getMap();
       }
@@ -8558,7 +8264,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, int32&gt; map2 = 2;</code>
        */
       @java.lang.Override
-
       public int getMap2OrDefault(
           int key,
           int defaultValue) {
@@ -8571,7 +8276,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        * <code>map&lt;int32, int32&gt; map2 = 2;</code>
        */
       @java.lang.Override
-
       public int getMap2OrThrow(
           int key) {
         
@@ -8582,8 +8286,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearMap2() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableMap2().getMutableMap()
             .clear();
         return this;
@@ -8591,7 +8295,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
       /**
        * <code>map&lt;int32, int32&gt; map2 = 2;</code>
        */
-
       public Builder removeMap2(
           int key) {
         
@@ -8604,7 +8307,8 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMap2() {
+          getMutableMap2() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableMap2().getMutableMap();
       }
       /**
@@ -8617,16 +8321,17 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
         
         internalGetMutableMap2().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
        * <code>map&lt;int32, int32&gt; map2 = 2;</code>
        */
-
       public Builder putAllMap2(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMap2().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
       @java.lang.Override
@@ -8662,7 +8367,18 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestSameTypeMap(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8709,7 +8425,6 @@ protobuf_unittest.UnittestProto.TestAllTypes defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
      */
-
     /* nullable */
 protobuf_unittest.UnittestProto.TestRequired getMapFieldOrDefault(
         int key,
@@ -8718,7 +8433,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
      */
-
     protobuf_unittest.UnittestProto.TestRequired getMapFieldOrThrow(
         int key);
   }
@@ -8752,59 +8466,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TestRequiredMessageMap(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                mapField_ = com.google.protobuf.MapField.newMapField(
-                    MapFieldDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired>
-              mapField__ = input.readMessage(
-                  MapFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapField_.getMutableMap().put(
-                  mapField__.getKey(), mapField__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -8843,6 +8504,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.UnittestProto.TestRequired.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> mapField_;
     private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired>
@@ -8853,14 +8515,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
       }
       return mapField_;
     }
-
     public int getMapFieldCount() {
       return internalGetMapField().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsMapField(
         int key) {
@@ -8879,7 +8539,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> getMapFieldMap() {
       return internalGetMapField().getMap();
     }
@@ -8887,10 +8546,11 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.UnittestProto.TestRequired getMapFieldOrDefault(
+    public /* nullable */
+protobuf_unittest.UnittestProto.TestRequired getMapFieldOrDefault(
         int key,
-        protobuf_unittest.UnittestProto.TestRequired defaultValue) {
+        /* nullable */
+protobuf_unittest.UnittestProto.TestRequired defaultValue) {
       
       java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> map =
           internalGetMapField().getMap();
@@ -8900,7 +8560,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.UnittestProto.TestRequired getMapFieldOrThrow(
         int key) {
       
@@ -8938,7 +8597,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
           internalGetMapField(),
           MapFieldDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8957,7 +8616,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, mapField__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8974,7 +8633,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
 
       if (!internalGetMapField().equals(
           other.internalGetMapField())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8989,7 +8648,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
         hash = (37 * hash) + MAP_FIELD_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMapField().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9132,22 +8791,18 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
 
       // Construct using protobuf_unittest.MapUnittest.TestRequiredMessageMap.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableMapField().clear();
         return this;
       }
@@ -9175,11 +8830,17 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestRequiredMessageMap buildPartial() {
         protobuf_unittest.MapUnittest.TestRequiredMessageMap result = new protobuf_unittest.MapUnittest.TestRequiredMessageMap(this);
-        int from_bitField0_ = bitField0_;
-        result.mapField_ = internalGetMapField();
-        result.mapField_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestRequiredMessageMap result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.mapField_ = internalGetMapField();
+          result.mapField_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -9228,7 +8889,8 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
         if (other == protobuf_unittest.MapUnittest.TestRequiredMessageMap.getDefaultInstance()) return this;
         internalGetMutableMapField().mergeFrom(
             other.internalGetMapField());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9248,17 +8910,39 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestRequiredMessageMap parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired>
+                mapField__ = input.readMessage(
+                    MapFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapField().getMutableMap().put(
+                    mapField__.getKey(), mapField__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestRequiredMessageMap) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9266,7 +8950,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
       private com.google.protobuf.MapField<
           java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> mapField_;
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired>
-      internalGetMapField() {
+          internalGetMapField() {
         if (mapField_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFieldDefaultEntryHolder.defaultEntry);
@@ -9274,8 +8958,7 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
         return mapField_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired>
-      internalGetMutableMapField() {
-        onChanged();;
+          internalGetMutableMapField() {
         if (mapField_ == null) {
           mapField_ = com.google.protobuf.MapField.newMapField(
               MapFieldDefaultEntryHolder.defaultEntry);
@@ -9283,16 +8966,16 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
         if (!mapField_.isMutable()) {
           mapField_ = mapField_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return mapField_;
       }
-
       public int getMapFieldCount() {
         return internalGetMapField().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsMapField(
           int key) {
@@ -9311,7 +8994,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
        * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> getMapFieldMap() {
         return internalGetMapField().getMap();
       }
@@ -9319,10 +9001,11 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
        * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.UnittestProto.TestRequired getMapFieldOrDefault(
+      public /* nullable */
+protobuf_unittest.UnittestProto.TestRequired getMapFieldOrDefault(
           int key,
-          protobuf_unittest.UnittestProto.TestRequired defaultValue) {
+          /* nullable */
+protobuf_unittest.UnittestProto.TestRequired defaultValue) {
         
         java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> map =
             internalGetMapField().getMap();
@@ -9332,7 +9015,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
        * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.UnittestProto.TestRequired getMapFieldOrThrow(
           int key) {
         
@@ -9343,8 +9025,8 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearMapField() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableMapField().getMutableMap()
             .clear();
         return this;
@@ -9352,7 +9034,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
        */
-
       public Builder removeMapField(
           int key) {
         
@@ -9365,7 +9046,8 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired>
-      getMutableMapField() {
+          getMutableMapField() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableMapField().getMutableMap();
       }
       /**
@@ -9375,22 +9057,20 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
           int key,
           protobuf_unittest.UnittestProto.TestRequired value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapField().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.TestRequired&gt; map_field = 1;</code>
        */
-
       public Builder putAllMapField(
           java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.TestRequired> values) {
         internalGetMutableMapField().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -9426,7 +9106,18 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestRequiredMessageMap(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9473,14 +9164,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
-
     int getMapInt32Int32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
-
     int getMapInt32Int32OrThrow(
         int key);
 
@@ -9507,14 +9196,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
-
     long getMapInt64Int64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
-
     long getMapInt64Int64OrThrow(
         long key);
 
@@ -9541,14 +9228,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
-
     int getMapUint32Uint32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
-
     int getMapUint32Uint32OrThrow(
         int key);
 
@@ -9575,14 +9260,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
-
     long getMapUint64Uint64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
-
     long getMapUint64Uint64OrThrow(
         long key);
 
@@ -9609,14 +9292,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
-
     int getMapSint32Sint32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
-
     int getMapSint32Sint32OrThrow(
         int key);
 
@@ -9643,14 +9324,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
-
     long getMapSint64Sint64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
-
     long getMapSint64Sint64OrThrow(
         long key);
 
@@ -9677,14 +9356,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
-
     int getMapFixed32Fixed32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
-
     int getMapFixed32Fixed32OrThrow(
         int key);
 
@@ -9711,14 +9388,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
-
     long getMapFixed64Fixed64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
-
     long getMapFixed64Fixed64OrThrow(
         long key);
 
@@ -9745,14 +9420,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
-
     int getMapSfixed32Sfixed32OrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
-
     int getMapSfixed32Sfixed32OrThrow(
         int key);
 
@@ -9779,14 +9452,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
-
     long getMapSfixed64Sfixed64OrDefault(
         long key,
         long defaultValue);
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
-
     long getMapSfixed64Sfixed64OrThrow(
         long key);
 
@@ -9813,14 +9484,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
-
     float getMapInt32FloatOrDefault(
         int key,
         float defaultValue);
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
-
     float getMapInt32FloatOrThrow(
         int key);
 
@@ -9847,14 +9516,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
-
     double getMapInt32DoubleOrDefault(
         int key,
         double defaultValue);
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
-
     double getMapInt32DoubleOrThrow(
         int key);
 
@@ -9881,14 +9548,12 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
-
     boolean getMapBoolBoolOrDefault(
         boolean key,
         boolean defaultValue);
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
-
     boolean getMapBoolBoolOrThrow(
         boolean key);
 
@@ -9915,7 +9580,6 @@ protobuf_unittest.UnittestProto.TestRequired defaultValue);
     /**
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
-
     /* nullable */
 java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
@@ -9924,7 +9588,6 @@ java.lang.String defaultValue);
     /**
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
-
     java.lang.String getMapStringStringOrThrow(
         java.lang.String key);
 
@@ -9951,7 +9614,6 @@ java.lang.String defaultValue);
     /**
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
-
     /* nullable */
 com.google.protobuf.ByteString getMapInt32BytesOrDefault(
         int key,
@@ -9960,7 +9622,6 @@ com.google.protobuf.ByteString defaultValue);
     /**
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
-
     com.google.protobuf.ByteString getMapInt32BytesOrThrow(
         int key);
 
@@ -10011,14 +9672,12 @@ protobuf_unittest.MapUnittest.MapEnum         defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
-
     int getMapInt32EnumValueOrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
-
     int getMapInt32EnumValueOrThrow(
         int key);
 
@@ -10045,7 +9704,6 @@ protobuf_unittest.MapUnittest.MapEnum         defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
-
     /* nullable */
 protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
         int key,
@@ -10054,7 +9712,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
     /**
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
-
     protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrThrow(
         int key);
   }
@@ -10084,267 +9741,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TestArenaMap(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32Int32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapInt32Int32__ = input.readMessage(
-                  MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Int32_.getMutableMap().put(
-                  mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
-                    MapInt64Int64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapInt64Int64__ = input.readMessage(
-                  MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt64Int64_.getMutableMap().put(
-                  mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
-                    MapUint32Uint32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000004;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapUint32Uint32__ = input.readMessage(
-                  MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapUint32Uint32_.getMutableMap().put(
-                  mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
-                    MapUint64Uint64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapUint64Uint64__ = input.readMessage(
-                  MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapUint64Uint64_.getMutableMap().put(
-                  mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
-                    MapSint32Sint32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapSint32Sint32__ = input.readMessage(
-                  MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSint32Sint32_.getMutableMap().put(
-                  mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-                mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
-                    MapSint64Sint64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000020;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapSint64Sint64__ = input.readMessage(
-                  MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSint64Sint64_.getMutableMap().put(
-                  mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-                mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
-                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000040;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapFixed32Fixed32__ = input.readMessage(
-                  MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapFixed32Fixed32_.getMutableMap().put(
-                  mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
-              break;
-            }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-                mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
-                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000080;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapFixed64Fixed64__ = input.readMessage(
-                  MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapFixed64Fixed64_.getMutableMap().put(
-                  mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
-              break;
-            }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-                mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
-                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000100;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapSfixed32Sfixed32__ = input.readMessage(
-                  MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSfixed32Sfixed32_.getMutableMap().put(
-                  mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-                mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
-                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000200;
-              }
-              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
-              mapSfixed64Sfixed64__ = input.readMessage(
-                  MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapSfixed64Sfixed64_.getMutableMap().put(
-                  mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
-              break;
-            }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000400) != 0)) {
-                mapInt32Float_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32FloatDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000400;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
-              mapInt32Float__ = input.readMessage(
-                  MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Float_.getMutableMap().put(
-                  mapInt32Float__.getKey(), mapInt32Float__.getValue());
-              break;
-            }
-            case 98: {
-              if (!((mutable_bitField0_ & 0x00000800) != 0)) {
-                mapInt32Double_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32DoubleDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000800;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
-              mapInt32Double__ = input.readMessage(
-                  MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Double_.getMutableMap().put(
-                  mapInt32Double__.getKey(), mapInt32Double__.getValue());
-              break;
-            }
-            case 106: {
-              if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-                mapBoolBool_ = com.google.protobuf.MapField.newMapField(
-                    MapBoolBoolDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00001000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
-              mapBoolBool__ = input.readMessage(
-                  MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapBoolBool_.getMutableMap().put(
-                  mapBoolBool__.getKey(), mapBoolBool__.getValue());
-              break;
-            }
-            case 114: {
-              if (!((mutable_bitField0_ & 0x00002000) != 0)) {
-                mapStringString_ = com.google.protobuf.MapField.newMapField(
-                    MapStringStringDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00002000;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              mapStringString__ = input.readMessage(
-                  MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapStringString_.getMutableMap().put(
-                  mapStringString__.getKey(), mapStringString__.getValue());
-              break;
-            }
-            case 122: {
-              if (!((mutable_bitField0_ & 0x00004000) != 0)) {
-                mapInt32Bytes_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32BytesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00004000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.ByteString>
-              mapInt32Bytes__ = input.readMessage(
-                  MapInt32BytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Bytes_.getMutableMap().put(
-                  mapInt32Bytes__.getKey(), mapInt32Bytes__.getValue());
-              break;
-            }
-            case 130: {
-              if (!((mutable_bitField0_ & 0x00008000) != 0)) {
-                mapInt32Enum_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32EnumDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00008000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              mapInt32Enum__ = input.readMessage(
-                  MapInt32EnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32Enum_.getMutableMap().put(
-                  mapInt32Enum__.getKey(), mapInt32Enum__.getValue());
-              break;
-            }
-            case 138: {
-              if (!((mutable_bitField0_ & 0x00010000) != 0)) {
-                mapInt32ForeignMessage_ = com.google.protobuf.MapField.newMapField(
-                    MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00010000;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-              mapInt32ForeignMessage__ = input.readMessage(
-                  MapInt32ForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              mapInt32ForeignMessage_.getMutableMap().put(
-                  mapInt32ForeignMessage__.getKey(), mapInt32ForeignMessage__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -10415,6 +9811,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapInt32Int32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10425,14 +9822,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapInt32Int32_;
     }
-
     public int getMapInt32Int32Count() {
       return internalGetMapInt32Int32().getMap().size();
     }
     /**
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Int32(
         int key) {
@@ -10451,7 +9846,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
       return internalGetMapInt32Int32().getMap();
     }
@@ -10459,7 +9853,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
     @java.lang.Override
-
     public int getMapInt32Int32OrDefault(
         int key,
         int defaultValue) {
@@ -10472,7 +9865,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
      */
     @java.lang.Override
-
     public int getMapInt32Int32OrThrow(
         int key) {
       
@@ -10496,6 +9888,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapInt64Int64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10506,14 +9899,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapInt64Int64_;
     }
-
     public int getMapInt64Int64Count() {
       return internalGetMapInt64Int64().getMap().size();
     }
     /**
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt64Int64(
         long key) {
@@ -10532,7 +9923,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
       return internalGetMapInt64Int64().getMap();
     }
@@ -10540,7 +9930,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
     @java.lang.Override
-
     public long getMapInt64Int64OrDefault(
         long key,
         long defaultValue) {
@@ -10553,7 +9942,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
      */
     @java.lang.Override
-
     public long getMapInt64Int64OrThrow(
         long key) {
       
@@ -10577,6 +9965,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.UINT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapUint32Uint32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10587,14 +9976,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapUint32Uint32_;
     }
-
     public int getMapUint32Uint32Count() {
       return internalGetMapUint32Uint32().getMap().size();
     }
     /**
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsMapUint32Uint32(
         int key) {
@@ -10613,7 +10000,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
       return internalGetMapUint32Uint32().getMap();
     }
@@ -10621,7 +10007,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
     @java.lang.Override
-
     public int getMapUint32Uint32OrDefault(
         int key,
         int defaultValue) {
@@ -10634,7 +10019,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
      */
     @java.lang.Override
-
     public int getMapUint32Uint32OrThrow(
         int key) {
       
@@ -10658,6 +10042,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.UINT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapUint64Uint64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10668,14 +10053,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapUint64Uint64_;
     }
-
     public int getMapUint64Uint64Count() {
       return internalGetMapUint64Uint64().getMap().size();
     }
     /**
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsMapUint64Uint64(
         long key) {
@@ -10694,7 +10077,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
       return internalGetMapUint64Uint64().getMap();
     }
@@ -10702,7 +10084,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
     @java.lang.Override
-
     public long getMapUint64Uint64OrDefault(
         long key,
         long defaultValue) {
@@ -10715,7 +10096,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
      */
     @java.lang.Override
-
     public long getMapUint64Uint64OrThrow(
         long key) {
       
@@ -10739,6 +10119,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SINT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapSint32Sint32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10749,14 +10130,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapSint32Sint32_;
     }
-
     public int getMapSint32Sint32Count() {
       return internalGetMapSint32Sint32().getMap().size();
     }
     /**
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSint32Sint32(
         int key) {
@@ -10775,7 +10154,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
       return internalGetMapSint32Sint32().getMap();
     }
@@ -10783,7 +10161,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
     @java.lang.Override
-
     public int getMapSint32Sint32OrDefault(
         int key,
         int defaultValue) {
@@ -10796,7 +10173,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
      */
     @java.lang.Override
-
     public int getMapSint32Sint32OrThrow(
         int key) {
       
@@ -10820,6 +10196,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SINT64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapSint64Sint64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10830,14 +10207,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapSint64Sint64_;
     }
-
     public int getMapSint64Sint64Count() {
       return internalGetMapSint64Sint64().getMap().size();
     }
     /**
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSint64Sint64(
         long key) {
@@ -10856,7 +10231,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
       return internalGetMapSint64Sint64().getMap();
     }
@@ -10864,7 +10238,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
     @java.lang.Override
-
     public long getMapSint64Sint64OrDefault(
         long key,
         long defaultValue) {
@@ -10877,7 +10250,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
      */
     @java.lang.Override
-
     public long getMapSint64Sint64OrThrow(
         long key) {
       
@@ -10901,6 +10273,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.FIXED32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapFixed32Fixed32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -10911,14 +10284,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapFixed32Fixed32_;
     }
-
     public int getMapFixed32Fixed32Count() {
       return internalGetMapFixed32Fixed32().getMap().size();
     }
     /**
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsMapFixed32Fixed32(
         int key) {
@@ -10937,7 +10308,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
       return internalGetMapFixed32Fixed32().getMap();
     }
@@ -10945,7 +10315,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
     @java.lang.Override
-
     public int getMapFixed32Fixed32OrDefault(
         int key,
         int defaultValue) {
@@ -10958,7 +10327,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
      */
     @java.lang.Override
-
     public int getMapFixed32Fixed32OrThrow(
         int key) {
       
@@ -10982,6 +10350,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.FIXED64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapFixed64Fixed64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -10992,14 +10361,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapFixed64Fixed64_;
     }
-
     public int getMapFixed64Fixed64Count() {
       return internalGetMapFixed64Fixed64().getMap().size();
     }
     /**
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsMapFixed64Fixed64(
         long key) {
@@ -11018,7 +10385,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
       return internalGetMapFixed64Fixed64().getMap();
     }
@@ -11026,7 +10392,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
     @java.lang.Override
-
     public long getMapFixed64Fixed64OrDefault(
         long key,
         long defaultValue) {
@@ -11039,7 +10404,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
      */
     @java.lang.Override
-
     public long getMapFixed64Fixed64OrThrow(
         long key) {
       
@@ -11063,6 +10427,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SFIXED32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapSfixed32Sfixed32_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -11073,14 +10438,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapSfixed32Sfixed32_;
     }
-
     public int getMapSfixed32Sfixed32Count() {
       return internalGetMapSfixed32Sfixed32().getMap().size();
     }
     /**
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSfixed32Sfixed32(
         int key) {
@@ -11099,7 +10462,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
       return internalGetMapSfixed32Sfixed32().getMap();
     }
@@ -11107,7 +10469,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
     @java.lang.Override
-
     public int getMapSfixed32Sfixed32OrDefault(
         int key,
         int defaultValue) {
@@ -11120,7 +10481,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
      */
     @java.lang.Override
-
     public int getMapSfixed32Sfixed32OrThrow(
         int key) {
       
@@ -11144,6 +10504,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.SFIXED64,
                   0L);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Long, java.lang.Long> mapSfixed64Sfixed64_;
     private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
@@ -11154,14 +10515,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapSfixed64Sfixed64_;
     }
-
     public int getMapSfixed64Sfixed64Count() {
       return internalGetMapSfixed64Sfixed64().getMap().size();
     }
     /**
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
-
     @java.lang.Override
     public boolean containsMapSfixed64Sfixed64(
         long key) {
@@ -11180,7 +10539,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
       return internalGetMapSfixed64Sfixed64().getMap();
     }
@@ -11188,7 +10546,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
     @java.lang.Override
-
     public long getMapSfixed64Sfixed64OrDefault(
         long key,
         long defaultValue) {
@@ -11201,7 +10558,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
      */
     @java.lang.Override
-
     public long getMapSfixed64Sfixed64OrThrow(
         long key) {
       
@@ -11225,6 +10581,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.FLOAT,
                   0F);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Float> mapInt32Float_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
@@ -11235,14 +10592,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapInt32Float_;
     }
-
     public int getMapInt32FloatCount() {
       return internalGetMapInt32Float().getMap().size();
     }
     /**
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Float(
         int key) {
@@ -11261,7 +10616,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
       return internalGetMapInt32Float().getMap();
     }
@@ -11269,7 +10623,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
     @java.lang.Override
-
     public float getMapInt32FloatOrDefault(
         int key,
         float defaultValue) {
@@ -11282,7 +10635,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
      */
     @java.lang.Override
-
     public float getMapInt32FloatOrThrow(
         int key) {
       
@@ -11306,6 +10658,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.DOUBLE,
                   0D);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Double> mapInt32Double_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
@@ -11316,14 +10669,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapInt32Double_;
     }
-
     public int getMapInt32DoubleCount() {
       return internalGetMapInt32Double().getMap().size();
     }
     /**
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Double(
         int key) {
@@ -11342,7 +10693,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
       return internalGetMapInt32Double().getMap();
     }
@@ -11350,7 +10700,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
     @java.lang.Override
-
     public double getMapInt32DoubleOrDefault(
         int key,
         double defaultValue) {
@@ -11363,7 +10712,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
      */
     @java.lang.Override
-
     public double getMapInt32DoubleOrThrow(
         int key) {
       
@@ -11387,6 +10735,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.BOOL,
                   false);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Boolean, java.lang.Boolean> mapBoolBool_;
     private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
@@ -11397,14 +10746,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapBoolBool_;
     }
-
     public int getMapBoolBoolCount() {
       return internalGetMapBoolBool().getMap().size();
     }
     /**
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
-
     @java.lang.Override
     public boolean containsMapBoolBool(
         boolean key) {
@@ -11423,7 +10770,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
       return internalGetMapBoolBool().getMap();
     }
@@ -11431,7 +10777,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
     @java.lang.Override
-
     public boolean getMapBoolBoolOrDefault(
         boolean key,
         boolean defaultValue) {
@@ -11444,7 +10789,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
      */
     @java.lang.Override
-
     public boolean getMapBoolBoolOrThrow(
         boolean key) {
       
@@ -11468,6 +10812,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> mapStringString_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -11478,14 +10823,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapStringString_;
     }
-
     public int getMapStringStringCount() {
       return internalGetMapStringString().getMap().size();
     }
     /**
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsMapStringString(
         java.lang.String key) {
@@ -11504,7 +10847,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
       return internalGetMapStringString().getMap();
     }
@@ -11512,10 +10854,11 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getMapStringStringOrDefault(
+    public /* nullable */
+java.lang.String getMapStringStringOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMapStringString().getMap();
@@ -11525,7 +10868,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;string, string&gt; map_string_string = 14;</code>
      */
     @java.lang.Override
-
     public java.lang.String getMapStringStringOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -11549,6 +10891,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.BYTES,
                   com.google.protobuf.ByteString.EMPTY);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.protobuf.ByteString> mapInt32Bytes_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
@@ -11559,14 +10902,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
       }
       return mapInt32Bytes_;
     }
-
     public int getMapInt32BytesCount() {
       return internalGetMapInt32Bytes().getMap().size();
     }
     /**
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Bytes(
         int key) {
@@ -11585,7 +10926,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> getMapInt32BytesMap() {
       return internalGetMapInt32Bytes().getMap();
     }
@@ -11593,10 +10933,11 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ByteString getMapInt32BytesOrDefault(
+    public /* nullable */
+com.google.protobuf.ByteString getMapInt32BytesOrDefault(
         int key,
-        com.google.protobuf.ByteString defaultValue) {
+        /* nullable */
+com.google.protobuf.ByteString defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> map =
           internalGetMapInt32Bytes().getMap();
@@ -11606,7 +10947,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ByteString getMapInt32BytesOrThrow(
         int key) {
       
@@ -11630,6 +10970,7 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.ENUM,
                   protobuf_unittest.MapUnittest.MapEnum.MAP_ENUM_FOO.getNumber());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> mapInt32Enum_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -11653,14 +10994,12 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
           java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum, java.lang.Integer>(
               map, mapInt32EnumValueConverter);
     }
-
     public int getMapInt32EnumCount() {
       return internalGetMapInt32Enum().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32Enum(
         int key) {
@@ -11680,7 +11019,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum>
     getMapInt32EnumMap() {
       return internalGetAdaptedMapInt32EnumMap(
@@ -11689,7 +11027,6 @@ protobuf_unittest.UnittestProto.ForeignMessage defaultValue);
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrDefault(
         int key,
@@ -11706,7 +11043,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrThrow(
         int key) {
       
@@ -11730,7 +11066,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer>
     getMapInt32EnumValueMap() {
       return internalGetMapInt32Enum().getMap();
@@ -11739,7 +11074,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public int getMapInt32EnumValueOrDefault(
         int key,
         int defaultValue) {
@@ -11752,7 +11086,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
      */
     @java.lang.Override
-
     public int getMapInt32EnumValueOrThrow(
         int key) {
       
@@ -11776,6 +11109,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.UnittestProto.ForeignMessage.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> mapInt32ForeignMessage_;
     private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
@@ -11786,14 +11120,12 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       }
       return mapInt32ForeignMessage_;
     }
-
     public int getMapInt32ForeignMessageCount() {
       return internalGetMapInt32ForeignMessage().getMap().size();
     }
     /**
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
-
     @java.lang.Override
     public boolean containsMapInt32ForeignMessage(
         int key) {
@@ -11812,7 +11144,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> getMapInt32ForeignMessageMap() {
       return internalGetMapInt32ForeignMessage().getMap();
     }
@@ -11820,10 +11151,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
+    public /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
         int key,
-        protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
+        /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
       
       java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> map =
           internalGetMapInt32ForeignMessage().getMap();
@@ -11833,7 +11165,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
      * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrThrow(
         int key) {
       
@@ -11961,7 +11292,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           internalGetMapInt32ForeignMessage(),
           MapInt32ForeignMessageDefaultEntryHolder.defaultEntry,
           17);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -12140,7 +11471,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(17, mapInt32ForeignMessage__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -12189,7 +11520,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           other.internalGetMapInt32Enum())) return false;
       if (!internalGetMapInt32ForeignMessage().equals(
           other.internalGetMapInt32ForeignMessage())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -12268,7 +11599,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         hash = (37 * hash) + MAP_INT32_FOREIGN_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMapInt32ForeignMessage().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -12471,22 +11802,18 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
 
       // Construct using protobuf_unittest.MapUnittest.TestArenaMap.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableMapInt32Int32().clear();
         internalGetMutableMapInt64Int64().clear();
         internalGetMutableMapUint32Uint32().clear();
@@ -12530,43 +11857,81 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestArenaMap buildPartial() {
         protobuf_unittest.MapUnittest.TestArenaMap result = new protobuf_unittest.MapUnittest.TestArenaMap(this);
-        int from_bitField0_ = bitField0_;
-        result.mapInt32Int32_ = internalGetMapInt32Int32();
-        result.mapInt32Int32_.makeImmutable();
-        result.mapInt64Int64_ = internalGetMapInt64Int64();
-        result.mapInt64Int64_.makeImmutable();
-        result.mapUint32Uint32_ = internalGetMapUint32Uint32();
-        result.mapUint32Uint32_.makeImmutable();
-        result.mapUint64Uint64_ = internalGetMapUint64Uint64();
-        result.mapUint64Uint64_.makeImmutable();
-        result.mapSint32Sint32_ = internalGetMapSint32Sint32();
-        result.mapSint32Sint32_.makeImmutable();
-        result.mapSint64Sint64_ = internalGetMapSint64Sint64();
-        result.mapSint64Sint64_.makeImmutable();
-        result.mapFixed32Fixed32_ = internalGetMapFixed32Fixed32();
-        result.mapFixed32Fixed32_.makeImmutable();
-        result.mapFixed64Fixed64_ = internalGetMapFixed64Fixed64();
-        result.mapFixed64Fixed64_.makeImmutable();
-        result.mapSfixed32Sfixed32_ = internalGetMapSfixed32Sfixed32();
-        result.mapSfixed32Sfixed32_.makeImmutable();
-        result.mapSfixed64Sfixed64_ = internalGetMapSfixed64Sfixed64();
-        result.mapSfixed64Sfixed64_.makeImmutable();
-        result.mapInt32Float_ = internalGetMapInt32Float();
-        result.mapInt32Float_.makeImmutable();
-        result.mapInt32Double_ = internalGetMapInt32Double();
-        result.mapInt32Double_.makeImmutable();
-        result.mapBoolBool_ = internalGetMapBoolBool();
-        result.mapBoolBool_.makeImmutable();
-        result.mapStringString_ = internalGetMapStringString();
-        result.mapStringString_.makeImmutable();
-        result.mapInt32Bytes_ = internalGetMapInt32Bytes();
-        result.mapInt32Bytes_.makeImmutable();
-        result.mapInt32Enum_ = internalGetMapInt32Enum();
-        result.mapInt32Enum_.makeImmutable();
-        result.mapInt32ForeignMessage_ = internalGetMapInt32ForeignMessage();
-        result.mapInt32ForeignMessage_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestArenaMap result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.mapInt32Int32_ = internalGetMapInt32Int32();
+          result.mapInt32Int32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.mapInt64Int64_ = internalGetMapInt64Int64();
+          result.mapInt64Int64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.mapUint32Uint32_ = internalGetMapUint32Uint32();
+          result.mapUint32Uint32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.mapUint64Uint64_ = internalGetMapUint64Uint64();
+          result.mapUint64Uint64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.mapSint32Sint32_ = internalGetMapSint32Sint32();
+          result.mapSint32Sint32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.mapSint64Sint64_ = internalGetMapSint64Sint64();
+          result.mapSint64Sint64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.mapFixed32Fixed32_ = internalGetMapFixed32Fixed32();
+          result.mapFixed32Fixed32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.mapFixed64Fixed64_ = internalGetMapFixed64Fixed64();
+          result.mapFixed64Fixed64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.mapSfixed32Sfixed32_ = internalGetMapSfixed32Sfixed32();
+          result.mapSfixed32Sfixed32_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.mapSfixed64Sfixed64_ = internalGetMapSfixed64Sfixed64();
+          result.mapSfixed64Sfixed64_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.mapInt32Float_ = internalGetMapInt32Float();
+          result.mapInt32Float_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.mapInt32Double_ = internalGetMapInt32Double();
+          result.mapInt32Double_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.mapBoolBool_ = internalGetMapBoolBool();
+          result.mapBoolBool_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.mapStringString_ = internalGetMapStringString();
+          result.mapStringString_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.mapInt32Bytes_ = internalGetMapInt32Bytes();
+          result.mapInt32Bytes_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.mapInt32Enum_ = internalGetMapInt32Enum();
+          result.mapInt32Enum_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.mapInt32ForeignMessage_ = internalGetMapInt32ForeignMessage();
+          result.mapInt32ForeignMessage_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -12615,39 +11980,56 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (other == protobuf_unittest.MapUnittest.TestArenaMap.getDefaultInstance()) return this;
         internalGetMutableMapInt32Int32().mergeFrom(
             other.internalGetMapInt32Int32());
+        bitField0_ |= 0x00000001;
         internalGetMutableMapInt64Int64().mergeFrom(
             other.internalGetMapInt64Int64());
+        bitField0_ |= 0x00000002;
         internalGetMutableMapUint32Uint32().mergeFrom(
             other.internalGetMapUint32Uint32());
+        bitField0_ |= 0x00000004;
         internalGetMutableMapUint64Uint64().mergeFrom(
             other.internalGetMapUint64Uint64());
+        bitField0_ |= 0x00000008;
         internalGetMutableMapSint32Sint32().mergeFrom(
             other.internalGetMapSint32Sint32());
+        bitField0_ |= 0x00000010;
         internalGetMutableMapSint64Sint64().mergeFrom(
             other.internalGetMapSint64Sint64());
+        bitField0_ |= 0x00000020;
         internalGetMutableMapFixed32Fixed32().mergeFrom(
             other.internalGetMapFixed32Fixed32());
+        bitField0_ |= 0x00000040;
         internalGetMutableMapFixed64Fixed64().mergeFrom(
             other.internalGetMapFixed64Fixed64());
+        bitField0_ |= 0x00000080;
         internalGetMutableMapSfixed32Sfixed32().mergeFrom(
             other.internalGetMapSfixed32Sfixed32());
+        bitField0_ |= 0x00000100;
         internalGetMutableMapSfixed64Sfixed64().mergeFrom(
             other.internalGetMapSfixed64Sfixed64());
+        bitField0_ |= 0x00000200;
         internalGetMutableMapInt32Float().mergeFrom(
             other.internalGetMapInt32Float());
+        bitField0_ |= 0x00000400;
         internalGetMutableMapInt32Double().mergeFrom(
             other.internalGetMapInt32Double());
+        bitField0_ |= 0x00000800;
         internalGetMutableMapBoolBool().mergeFrom(
             other.internalGetMapBoolBool());
+        bitField0_ |= 0x00001000;
         internalGetMutableMapStringString().mergeFrom(
             other.internalGetMapStringString());
+        bitField0_ |= 0x00002000;
         internalGetMutableMapInt32Bytes().mergeFrom(
             other.internalGetMapInt32Bytes());
+        bitField0_ |= 0x00004000;
         internalGetMutableMapInt32Enum().mergeFrom(
             other.internalGetMapInt32Enum());
+        bitField0_ |= 0x00008000;
         internalGetMutableMapInt32ForeignMessage().mergeFrom(
             other.internalGetMapInt32ForeignMessage());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00010000;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -12662,17 +12044,183 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestArenaMap parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapInt32Int32__ = input.readMessage(
+                    MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Int32().getMutableMap().put(
+                    mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapInt64Int64__ = input.readMessage(
+                    MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt64Int64().getMutableMap().put(
+                    mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapUint32Uint32__ = input.readMessage(
+                    MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint32Uint32().getMutableMap().put(
+                    mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapUint64Uint64__ = input.readMessage(
+                    MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint64Uint64().getMutableMap().put(
+                    mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSint32Sint32__ = input.readMessage(
+                    MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint32Sint32().getMutableMap().put(
+                    mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSint64Sint64__ = input.readMessage(
+                    MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint64Sint64().getMutableMap().put(
+                    mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapFixed32Fixed32__ = input.readMessage(
+                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed32Fixed32().getMutableMap().put(
+                    mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapFixed64Fixed64__ = input.readMessage(
+                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed64Fixed64().getMutableMap().put(
+                    mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSfixed32Sfixed32__ = input.readMessage(
+                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed32Sfixed32().getMutableMap().put(
+                    mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSfixed64Sfixed64__ = input.readMessage(
+                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed64Sfixed64().getMutableMap().put(
+                    mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+                mapInt32Float__ = input.readMessage(
+                    MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Float().getMutableMap().put(
+                    mapInt32Float__.getKey(), mapInt32Float__.getValue());
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+                mapInt32Double__ = input.readMessage(
+                    MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Double().getMutableMap().put(
+                    mapInt32Double__.getKey(), mapInt32Double__.getValue());
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              case 106: {
+                com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+                mapBoolBool__ = input.readMessage(
+                    MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapBoolBool().getMutableMap().put(
+                    mapBoolBool__.getKey(), mapBoolBool__.getValue());
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 106
+              case 114: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                mapStringString__ = input.readMessage(
+                    MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringString().getMutableMap().put(
+                    mapStringString__.getKey(), mapStringString__.getValue());
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 114
+              case 122: {
+                com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.ByteString>
+                mapInt32Bytes__ = input.readMessage(
+                    MapInt32BytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Bytes().getMutableMap().put(
+                    mapInt32Bytes__.getKey(), mapInt32Bytes__.getValue());
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 122
+              case 130: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapInt32Enum__ = input.readMessage(
+                    MapInt32EnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Enum().getMutableMap().put(
+                    mapInt32Enum__.getKey(), mapInt32Enum__.getValue());
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 130
+              case 138: {
+                com.google.protobuf.MapEntry<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
+                mapInt32ForeignMessage__ = input.readMessage(
+                    MapInt32ForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32ForeignMessage().getMutableMap().put(
+                    mapInt32ForeignMessage__.getKey(), mapInt32ForeignMessage__.getValue());
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 138
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestArenaMap) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -12680,7 +12228,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapInt32Int32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapInt32Int32() {
+          internalGetMapInt32Int32() {
         if (mapInt32Int32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32Int32DefaultEntryHolder.defaultEntry);
@@ -12688,8 +12236,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Int32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapInt32Int32() {
-        onChanged();;
+          internalGetMutableMapInt32Int32() {
         if (mapInt32Int32_ == null) {
           mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
               MapInt32Int32DefaultEntryHolder.defaultEntry);
@@ -12697,16 +12244,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Int32_.isMutable()) {
           mapInt32Int32_ = mapInt32Int32_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return mapInt32Int32_;
       }
-
       public int getMapInt32Int32Count() {
         return internalGetMapInt32Int32().getMap().size();
       }
       /**
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Int32(
           int key) {
@@ -12725,7 +12272,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapInt32Int32Map() {
         return internalGetMapInt32Int32().getMap();
       }
@@ -12733,7 +12279,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
       @java.lang.Override
-
       public int getMapInt32Int32OrDefault(
           int key,
           int defaultValue) {
@@ -12746,7 +12291,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
       @java.lang.Override
-
       public int getMapInt32Int32OrThrow(
           int key) {
         
@@ -12757,8 +12301,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Int32() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableMapInt32Int32().getMutableMap()
             .clear();
         return this;
@@ -12766,7 +12310,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
-
       public Builder removeMapInt32Int32(
           int key) {
         
@@ -12779,7 +12322,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapInt32Int32() {
+          getMutableMapInt32Int32() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableMapInt32Int32().getMutableMap();
       }
       /**
@@ -12792,23 +12336,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Int32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;int32, int32&gt; map_int32_int32 = 1;</code>
        */
-
       public Builder putAllMapInt32Int32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapInt32Int32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapInt64Int64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapInt64Int64() {
+          internalGetMapInt64Int64() {
         if (mapInt64Int64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt64Int64DefaultEntryHolder.defaultEntry);
@@ -12816,8 +12361,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt64Int64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapInt64Int64() {
-        onChanged();;
+          internalGetMutableMapInt64Int64() {
         if (mapInt64Int64_ == null) {
           mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
               MapInt64Int64DefaultEntryHolder.defaultEntry);
@@ -12825,16 +12369,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt64Int64_.isMutable()) {
           mapInt64Int64_ = mapInt64Int64_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return mapInt64Int64_;
       }
-
       public int getMapInt64Int64Count() {
         return internalGetMapInt64Int64().getMap().size();
       }
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt64Int64(
           long key) {
@@ -12853,7 +12397,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapInt64Int64Map() {
         return internalGetMapInt64Int64().getMap();
       }
@@ -12861,7 +12404,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
       @java.lang.Override
-
       public long getMapInt64Int64OrDefault(
           long key,
           long defaultValue) {
@@ -12874,7 +12416,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
       @java.lang.Override
-
       public long getMapInt64Int64OrThrow(
           long key) {
         
@@ -12885,8 +12426,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt64Int64() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableMapInt64Int64().getMutableMap()
             .clear();
         return this;
@@ -12894,7 +12435,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
-
       public Builder removeMapInt64Int64(
           long key) {
         
@@ -12907,7 +12447,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapInt64Int64() {
+          getMutableMapInt64Int64() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableMapInt64Int64().getMutableMap();
       }
       /**
@@ -12920,23 +12461,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt64Int64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
        * <code>map&lt;int64, int64&gt; map_int64_int64 = 2;</code>
        */
-
       public Builder putAllMapInt64Int64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapInt64Int64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapUint32Uint32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapUint32Uint32() {
+          internalGetMapUint32Uint32() {
         if (mapUint32Uint32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapUint32Uint32DefaultEntryHolder.defaultEntry);
@@ -12944,8 +12486,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapUint32Uint32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapUint32Uint32() {
-        onChanged();;
+          internalGetMutableMapUint32Uint32() {
         if (mapUint32Uint32_ == null) {
           mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
               MapUint32Uint32DefaultEntryHolder.defaultEntry);
@@ -12953,16 +12494,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapUint32Uint32_.isMutable()) {
           mapUint32Uint32_ = mapUint32Uint32_.copy();
         }
+        bitField0_ |= 0x00000004;
+        onChanged();
         return mapUint32Uint32_;
       }
-
       public int getMapUint32Uint32Count() {
         return internalGetMapUint32Uint32().getMap().size();
       }
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsMapUint32Uint32(
           int key) {
@@ -12981,7 +12522,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapUint32Uint32Map() {
         return internalGetMapUint32Uint32().getMap();
       }
@@ -12989,7 +12529,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
       @java.lang.Override
-
       public int getMapUint32Uint32OrDefault(
           int key,
           int defaultValue) {
@@ -13002,7 +12541,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
       @java.lang.Override
-
       public int getMapUint32Uint32OrThrow(
           int key) {
         
@@ -13013,8 +12551,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapUint32Uint32() {
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableMapUint32Uint32().getMutableMap()
             .clear();
         return this;
@@ -13022,7 +12560,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
-
       public Builder removeMapUint32Uint32(
           int key) {
         
@@ -13035,7 +12572,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapUint32Uint32() {
+          getMutableMapUint32Uint32() {
+        bitField0_ |= 0x00000004;
         return internalGetMutableMapUint32Uint32().getMutableMap();
       }
       /**
@@ -13048,23 +12586,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapUint32Uint32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000004;
         return this;
       }
       /**
        * <code>map&lt;uint32, uint32&gt; map_uint32_uint32 = 3;</code>
        */
-
       public Builder putAllMapUint32Uint32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapUint32Uint32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000004;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapUint64Uint64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapUint64Uint64() {
+          internalGetMapUint64Uint64() {
         if (mapUint64Uint64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapUint64Uint64DefaultEntryHolder.defaultEntry);
@@ -13072,8 +12611,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapUint64Uint64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapUint64Uint64() {
-        onChanged();;
+          internalGetMutableMapUint64Uint64() {
         if (mapUint64Uint64_ == null) {
           mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
               MapUint64Uint64DefaultEntryHolder.defaultEntry);
@@ -13081,16 +12619,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapUint64Uint64_.isMutable()) {
           mapUint64Uint64_ = mapUint64Uint64_.copy();
         }
+        bitField0_ |= 0x00000008;
+        onChanged();
         return mapUint64Uint64_;
       }
-
       public int getMapUint64Uint64Count() {
         return internalGetMapUint64Uint64().getMap().size();
       }
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
-
       @java.lang.Override
       public boolean containsMapUint64Uint64(
           long key) {
@@ -13109,7 +12647,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapUint64Uint64Map() {
         return internalGetMapUint64Uint64().getMap();
       }
@@ -13117,7 +12654,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
       @java.lang.Override
-
       public long getMapUint64Uint64OrDefault(
           long key,
           long defaultValue) {
@@ -13130,7 +12666,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
       @java.lang.Override
-
       public long getMapUint64Uint64OrThrow(
           long key) {
         
@@ -13141,8 +12676,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapUint64Uint64() {
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableMapUint64Uint64().getMutableMap()
             .clear();
         return this;
@@ -13150,7 +12685,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
-
       public Builder removeMapUint64Uint64(
           long key) {
         
@@ -13163,7 +12697,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapUint64Uint64() {
+          getMutableMapUint64Uint64() {
+        bitField0_ |= 0x00000008;
         return internalGetMutableMapUint64Uint64().getMutableMap();
       }
       /**
@@ -13176,23 +12711,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapUint64Uint64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
        * <code>map&lt;uint64, uint64&gt; map_uint64_uint64 = 4;</code>
        */
-
       public Builder putAllMapUint64Uint64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapUint64Uint64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000008;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapSint32Sint32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapSint32Sint32() {
+          internalGetMapSint32Sint32() {
         if (mapSint32Sint32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSint32Sint32DefaultEntryHolder.defaultEntry);
@@ -13200,8 +12736,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSint32Sint32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapSint32Sint32() {
-        onChanged();;
+          internalGetMutableMapSint32Sint32() {
         if (mapSint32Sint32_ == null) {
           mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
               MapSint32Sint32DefaultEntryHolder.defaultEntry);
@@ -13209,16 +12744,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSint32Sint32_.isMutable()) {
           mapSint32Sint32_ = mapSint32Sint32_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return mapSint32Sint32_;
       }
-
       public int getMapSint32Sint32Count() {
         return internalGetMapSint32Sint32().getMap().size();
       }
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSint32Sint32(
           int key) {
@@ -13237,7 +12772,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSint32Sint32Map() {
         return internalGetMapSint32Sint32().getMap();
       }
@@ -13245,7 +12779,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
       @java.lang.Override
-
       public int getMapSint32Sint32OrDefault(
           int key,
           int defaultValue) {
@@ -13258,7 +12791,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
       @java.lang.Override
-
       public int getMapSint32Sint32OrThrow(
           int key) {
         
@@ -13269,8 +12801,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSint32Sint32() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableMapSint32Sint32().getMutableMap()
             .clear();
         return this;
@@ -13278,7 +12810,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
-
       public Builder removeMapSint32Sint32(
           int key) {
         
@@ -13291,7 +12822,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapSint32Sint32() {
+          getMutableMapSint32Sint32() {
+        bitField0_ |= 0x00000010;
         return internalGetMutableMapSint32Sint32().getMutableMap();
       }
       /**
@@ -13304,23 +12836,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSint32Sint32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
        * <code>map&lt;sint32, sint32&gt; map_sint32_sint32 = 5;</code>
        */
-
       public Builder putAllMapSint32Sint32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapSint32Sint32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapSint64Sint64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapSint64Sint64() {
+          internalGetMapSint64Sint64() {
         if (mapSint64Sint64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSint64Sint64DefaultEntryHolder.defaultEntry);
@@ -13328,8 +12861,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSint64Sint64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapSint64Sint64() {
-        onChanged();;
+          internalGetMutableMapSint64Sint64() {
         if (mapSint64Sint64_ == null) {
           mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
               MapSint64Sint64DefaultEntryHolder.defaultEntry);
@@ -13337,16 +12869,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSint64Sint64_.isMutable()) {
           mapSint64Sint64_ = mapSint64Sint64_.copy();
         }
+        bitField0_ |= 0x00000020;
+        onChanged();
         return mapSint64Sint64_;
       }
-
       public int getMapSint64Sint64Count() {
         return internalGetMapSint64Sint64().getMap().size();
       }
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSint64Sint64(
           long key) {
@@ -13365,7 +12897,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSint64Sint64Map() {
         return internalGetMapSint64Sint64().getMap();
       }
@@ -13373,7 +12904,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
       @java.lang.Override
-
       public long getMapSint64Sint64OrDefault(
           long key,
           long defaultValue) {
@@ -13386,7 +12916,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
       @java.lang.Override
-
       public long getMapSint64Sint64OrThrow(
           long key) {
         
@@ -13397,8 +12926,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSint64Sint64() {
+        bitField0_ = (bitField0_ & ~0x00000020);
         internalGetMutableMapSint64Sint64().getMutableMap()
             .clear();
         return this;
@@ -13406,7 +12935,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
-
       public Builder removeMapSint64Sint64(
           long key) {
         
@@ -13419,7 +12947,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapSint64Sint64() {
+          getMutableMapSint64Sint64() {
+        bitField0_ |= 0x00000020;
         return internalGetMutableMapSint64Sint64().getMutableMap();
       }
       /**
@@ -13432,23 +12961,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSint64Sint64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
        * <code>map&lt;sint64, sint64&gt; map_sint64_sint64 = 6;</code>
        */
-
       public Builder putAllMapSint64Sint64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapSint64Sint64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000020;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapFixed32Fixed32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapFixed32Fixed32() {
+          internalGetMapFixed32Fixed32() {
         if (mapFixed32Fixed32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
@@ -13456,8 +12986,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapFixed32Fixed32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapFixed32Fixed32() {
-        onChanged();;
+          internalGetMutableMapFixed32Fixed32() {
         if (mapFixed32Fixed32_ == null) {
           mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
               MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
@@ -13465,16 +12994,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapFixed32Fixed32_.isMutable()) {
           mapFixed32Fixed32_ = mapFixed32Fixed32_.copy();
         }
+        bitField0_ |= 0x00000040;
+        onChanged();
         return mapFixed32Fixed32_;
       }
-
       public int getMapFixed32Fixed32Count() {
         return internalGetMapFixed32Fixed32().getMap().size();
       }
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
-
       @java.lang.Override
       public boolean containsMapFixed32Fixed32(
           int key) {
@@ -13493,7 +13022,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapFixed32Fixed32Map() {
         return internalGetMapFixed32Fixed32().getMap();
       }
@@ -13501,7 +13029,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
       @java.lang.Override
-
       public int getMapFixed32Fixed32OrDefault(
           int key,
           int defaultValue) {
@@ -13514,7 +13041,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
       @java.lang.Override
-
       public int getMapFixed32Fixed32OrThrow(
           int key) {
         
@@ -13525,8 +13051,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapFixed32Fixed32() {
+        bitField0_ = (bitField0_ & ~0x00000040);
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .clear();
         return this;
@@ -13534,7 +13060,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
-
       public Builder removeMapFixed32Fixed32(
           int key) {
         
@@ -13547,7 +13072,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapFixed32Fixed32() {
+          getMutableMapFixed32Fixed32() {
+        bitField0_ |= 0x00000040;
         return internalGetMutableMapFixed32Fixed32().getMutableMap();
       }
       /**
@@ -13560,23 +13086,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
        * <code>map&lt;fixed32, fixed32&gt; map_fixed32_fixed32 = 7;</code>
        */
-
       public Builder putAllMapFixed32Fixed32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapFixed32Fixed32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000040;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapFixed64Fixed64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapFixed64Fixed64() {
+          internalGetMapFixed64Fixed64() {
         if (mapFixed64Fixed64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
@@ -13584,8 +13111,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapFixed64Fixed64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapFixed64Fixed64() {
-        onChanged();;
+          internalGetMutableMapFixed64Fixed64() {
         if (mapFixed64Fixed64_ == null) {
           mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
               MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
@@ -13593,16 +13119,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapFixed64Fixed64_.isMutable()) {
           mapFixed64Fixed64_ = mapFixed64Fixed64_.copy();
         }
+        bitField0_ |= 0x00000080;
+        onChanged();
         return mapFixed64Fixed64_;
       }
-
       public int getMapFixed64Fixed64Count() {
         return internalGetMapFixed64Fixed64().getMap().size();
       }
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
-
       @java.lang.Override
       public boolean containsMapFixed64Fixed64(
           long key) {
@@ -13621,7 +13147,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapFixed64Fixed64Map() {
         return internalGetMapFixed64Fixed64().getMap();
       }
@@ -13629,7 +13154,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
       @java.lang.Override
-
       public long getMapFixed64Fixed64OrDefault(
           long key,
           long defaultValue) {
@@ -13642,7 +13166,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
       @java.lang.Override
-
       public long getMapFixed64Fixed64OrThrow(
           long key) {
         
@@ -13653,8 +13176,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapFixed64Fixed64() {
+        bitField0_ = (bitField0_ & ~0x00000080);
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .clear();
         return this;
@@ -13662,7 +13185,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
-
       public Builder removeMapFixed64Fixed64(
           long key) {
         
@@ -13675,7 +13197,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapFixed64Fixed64() {
+          getMutableMapFixed64Fixed64() {
+        bitField0_ |= 0x00000080;
         return internalGetMutableMapFixed64Fixed64().getMutableMap();
       }
       /**
@@ -13688,23 +13211,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
        * <code>map&lt;fixed64, fixed64&gt; map_fixed64_fixed64 = 8;</code>
        */
-
       public Builder putAllMapFixed64Fixed64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapFixed64Fixed64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000080;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapSfixed32Sfixed32_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapSfixed32Sfixed32() {
+          internalGetMapSfixed32Sfixed32() {
         if (mapSfixed32Sfixed32_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
@@ -13712,8 +13236,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSfixed32Sfixed32_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapSfixed32Sfixed32() {
-        onChanged();;
+          internalGetMutableMapSfixed32Sfixed32() {
         if (mapSfixed32Sfixed32_ == null) {
           mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
               MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
@@ -13721,16 +13244,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSfixed32Sfixed32_.isMutable()) {
           mapSfixed32Sfixed32_ = mapSfixed32Sfixed32_.copy();
         }
+        bitField0_ |= 0x00000100;
+        onChanged();
         return mapSfixed32Sfixed32_;
       }
-
       public int getMapSfixed32Sfixed32Count() {
         return internalGetMapSfixed32Sfixed32().getMap().size();
       }
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSfixed32Sfixed32(
           int key) {
@@ -13749,7 +13272,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getMapSfixed32Sfixed32Map() {
         return internalGetMapSfixed32Sfixed32().getMap();
       }
@@ -13757,7 +13279,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
       @java.lang.Override
-
       public int getMapSfixed32Sfixed32OrDefault(
           int key,
           int defaultValue) {
@@ -13770,7 +13291,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
       @java.lang.Override
-
       public int getMapSfixed32Sfixed32OrThrow(
           int key) {
         
@@ -13781,8 +13301,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSfixed32Sfixed32() {
+        bitField0_ = (bitField0_ & ~0x00000100);
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .clear();
         return this;
@@ -13790,7 +13310,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
-
       public Builder removeMapSfixed32Sfixed32(
           int key) {
         
@@ -13803,7 +13322,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableMapSfixed32Sfixed32() {
+          getMutableMapSfixed32Sfixed32() {
+        bitField0_ |= 0x00000100;
         return internalGetMutableMapSfixed32Sfixed32().getMutableMap();
       }
       /**
@@ -13816,23 +13336,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
        * <code>map&lt;sfixed32, sfixed32&gt; map_sfixed32_sfixed32 = 9;</code>
        */
-
       public Builder putAllMapSfixed32Sfixed32(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapSfixed32Sfixed32().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000100;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Long, java.lang.Long> mapSfixed64Sfixed64_;
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMapSfixed64Sfixed64() {
+          internalGetMapSfixed64Sfixed64() {
         if (mapSfixed64Sfixed64_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
@@ -13840,8 +13361,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapSfixed64Sfixed64_;
       }
       private com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
-      internalGetMutableMapSfixed64Sfixed64() {
-        onChanged();;
+          internalGetMutableMapSfixed64Sfixed64() {
         if (mapSfixed64Sfixed64_ == null) {
           mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
               MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
@@ -13849,16 +13369,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapSfixed64Sfixed64_.isMutable()) {
           mapSfixed64Sfixed64_ = mapSfixed64Sfixed64_.copy();
         }
+        bitField0_ |= 0x00000200;
+        onChanged();
         return mapSfixed64Sfixed64_;
       }
-
       public int getMapSfixed64Sfixed64Count() {
         return internalGetMapSfixed64Sfixed64().getMap().size();
       }
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
-
       @java.lang.Override
       public boolean containsMapSfixed64Sfixed64(
           long key) {
@@ -13877,7 +13397,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Long, java.lang.Long> getMapSfixed64Sfixed64Map() {
         return internalGetMapSfixed64Sfixed64().getMap();
       }
@@ -13885,7 +13404,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
       @java.lang.Override
-
       public long getMapSfixed64Sfixed64OrDefault(
           long key,
           long defaultValue) {
@@ -13898,7 +13416,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
       @java.lang.Override
-
       public long getMapSfixed64Sfixed64OrThrow(
           long key) {
         
@@ -13909,8 +13426,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapSfixed64Sfixed64() {
+        bitField0_ = (bitField0_ & ~0x00000200);
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .clear();
         return this;
@@ -13918,7 +13435,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
-
       public Builder removeMapSfixed64Sfixed64(
           long key) {
         
@@ -13931,7 +13447,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Long, java.lang.Long>
-      getMutableMapSfixed64Sfixed64() {
+          getMutableMapSfixed64Sfixed64() {
+        bitField0_ |= 0x00000200;
         return internalGetMutableMapSfixed64Sfixed64().getMutableMap();
       }
       /**
@@ -13944,23 +13461,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
        * <code>map&lt;sfixed64, sfixed64&gt; map_sfixed64_sfixed64 = 10;</code>
        */
-
       public Builder putAllMapSfixed64Sfixed64(
           java.util.Map<java.lang.Long, java.lang.Long> values) {
         internalGetMutableMapSfixed64Sfixed64().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000200;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Float> mapInt32Float_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-      internalGetMapInt32Float() {
+          internalGetMapInt32Float() {
         if (mapInt32Float_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32FloatDefaultEntryHolder.defaultEntry);
@@ -13968,8 +13486,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Float_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
-      internalGetMutableMapInt32Float() {
-        onChanged();;
+          internalGetMutableMapInt32Float() {
         if (mapInt32Float_ == null) {
           mapInt32Float_ = com.google.protobuf.MapField.newMapField(
               MapInt32FloatDefaultEntryHolder.defaultEntry);
@@ -13977,16 +13494,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Float_.isMutable()) {
           mapInt32Float_ = mapInt32Float_.copy();
         }
+        bitField0_ |= 0x00000400;
+        onChanged();
         return mapInt32Float_;
       }
-
       public int getMapInt32FloatCount() {
         return internalGetMapInt32Float().getMap().size();
       }
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Float(
           int key) {
@@ -14005,7 +13522,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Float> getMapInt32FloatMap() {
         return internalGetMapInt32Float().getMap();
       }
@@ -14013,7 +13529,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
       @java.lang.Override
-
       public float getMapInt32FloatOrDefault(
           int key,
           float defaultValue) {
@@ -14026,7 +13541,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
       @java.lang.Override
-
       public float getMapInt32FloatOrThrow(
           int key) {
         
@@ -14037,8 +13551,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Float() {
+        bitField0_ = (bitField0_ & ~0x00000400);
         internalGetMutableMapInt32Float().getMutableMap()
             .clear();
         return this;
@@ -14046,7 +13560,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
-
       public Builder removeMapInt32Float(
           int key) {
         
@@ -14059,7 +13572,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Float>
-      getMutableMapInt32Float() {
+          getMutableMapInt32Float() {
+        bitField0_ |= 0x00000400;
         return internalGetMutableMapInt32Float().getMutableMap();
       }
       /**
@@ -14072,23 +13586,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Float().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000400;
         return this;
       }
       /**
        * <code>map&lt;int32, float&gt; map_int32_float = 11;</code>
        */
-
       public Builder putAllMapInt32Float(
           java.util.Map<java.lang.Integer, java.lang.Float> values) {
         internalGetMutableMapInt32Float().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000400;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Double> mapInt32Double_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
-      internalGetMapInt32Double() {
+          internalGetMapInt32Double() {
         if (mapInt32Double_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32DoubleDefaultEntryHolder.defaultEntry);
@@ -14096,8 +13611,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Double_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
-      internalGetMutableMapInt32Double() {
-        onChanged();;
+          internalGetMutableMapInt32Double() {
         if (mapInt32Double_ == null) {
           mapInt32Double_ = com.google.protobuf.MapField.newMapField(
               MapInt32DoubleDefaultEntryHolder.defaultEntry);
@@ -14105,16 +13619,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Double_.isMutable()) {
           mapInt32Double_ = mapInt32Double_.copy();
         }
+        bitField0_ |= 0x00000800;
+        onChanged();
         return mapInt32Double_;
       }
-
       public int getMapInt32DoubleCount() {
         return internalGetMapInt32Double().getMap().size();
       }
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Double(
           int key) {
@@ -14133,7 +13647,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Double> getMapInt32DoubleMap() {
         return internalGetMapInt32Double().getMap();
       }
@@ -14141,7 +13654,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
       @java.lang.Override
-
       public double getMapInt32DoubleOrDefault(
           int key,
           double defaultValue) {
@@ -14154,7 +13666,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
       @java.lang.Override
-
       public double getMapInt32DoubleOrThrow(
           int key) {
         
@@ -14165,8 +13676,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Double() {
+        bitField0_ = (bitField0_ & ~0x00000800);
         internalGetMutableMapInt32Double().getMutableMap()
             .clear();
         return this;
@@ -14174,7 +13685,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
-
       public Builder removeMapInt32Double(
           int key) {
         
@@ -14187,7 +13697,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Double>
-      getMutableMapInt32Double() {
+          getMutableMapInt32Double() {
+        bitField0_ |= 0x00000800;
         return internalGetMutableMapInt32Double().getMutableMap();
       }
       /**
@@ -14200,23 +13711,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Double().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000800;
         return this;
       }
       /**
        * <code>map&lt;int32, double&gt; map_int32_double = 12;</code>
        */
-
       public Builder putAllMapInt32Double(
           java.util.Map<java.lang.Integer, java.lang.Double> values) {
         internalGetMutableMapInt32Double().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000800;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Boolean, java.lang.Boolean> mapBoolBool_;
       private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
-      internalGetMapBoolBool() {
+          internalGetMapBoolBool() {
         if (mapBoolBool_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapBoolBoolDefaultEntryHolder.defaultEntry);
@@ -14224,8 +13736,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapBoolBool_;
       }
       private com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
-      internalGetMutableMapBoolBool() {
-        onChanged();;
+          internalGetMutableMapBoolBool() {
         if (mapBoolBool_ == null) {
           mapBoolBool_ = com.google.protobuf.MapField.newMapField(
               MapBoolBoolDefaultEntryHolder.defaultEntry);
@@ -14233,16 +13744,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapBoolBool_.isMutable()) {
           mapBoolBool_ = mapBoolBool_.copy();
         }
+        bitField0_ |= 0x00001000;
+        onChanged();
         return mapBoolBool_;
       }
-
       public int getMapBoolBoolCount() {
         return internalGetMapBoolBool().getMap().size();
       }
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
-
       @java.lang.Override
       public boolean containsMapBoolBool(
           boolean key) {
@@ -14261,7 +13772,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Boolean, java.lang.Boolean> getMapBoolBoolMap() {
         return internalGetMapBoolBool().getMap();
       }
@@ -14269,7 +13779,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
       @java.lang.Override
-
       public boolean getMapBoolBoolOrDefault(
           boolean key,
           boolean defaultValue) {
@@ -14282,7 +13791,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
       @java.lang.Override
-
       public boolean getMapBoolBoolOrThrow(
           boolean key) {
         
@@ -14293,8 +13801,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapBoolBool() {
+        bitField0_ = (bitField0_ & ~0x00001000);
         internalGetMutableMapBoolBool().getMutableMap()
             .clear();
         return this;
@@ -14302,7 +13810,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
-
       public Builder removeMapBoolBool(
           boolean key) {
         
@@ -14315,7 +13822,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Boolean, java.lang.Boolean>
-      getMutableMapBoolBool() {
+          getMutableMapBoolBool() {
+        bitField0_ |= 0x00001000;
         return internalGetMutableMapBoolBool().getMutableMap();
       }
       /**
@@ -14328,23 +13836,24 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapBoolBool().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00001000;
         return this;
       }
       /**
        * <code>map&lt;bool, bool&gt; map_bool_bool = 13;</code>
        */
-
       public Builder putAllMapBoolBool(
           java.util.Map<java.lang.Boolean, java.lang.Boolean> values) {
         internalGetMutableMapBoolBool().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00001000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> mapStringString_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMapStringString() {
+          internalGetMapStringString() {
         if (mapStringString_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapStringStringDefaultEntryHolder.defaultEntry);
@@ -14352,8 +13861,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapStringString_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableMapStringString() {
-        onChanged();;
+          internalGetMutableMapStringString() {
         if (mapStringString_ == null) {
           mapStringString_ = com.google.protobuf.MapField.newMapField(
               MapStringStringDefaultEntryHolder.defaultEntry);
@@ -14361,16 +13869,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapStringString_.isMutable()) {
           mapStringString_ = mapStringString_.copy();
         }
+        bitField0_ |= 0x00002000;
+        onChanged();
         return mapStringString_;
       }
-
       public int getMapStringStringCount() {
         return internalGetMapStringString().getMap().size();
       }
       /**
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
-
       @java.lang.Override
       public boolean containsMapStringString(
           java.lang.String key) {
@@ -14389,7 +13897,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getMapStringStringMap() {
         return internalGetMapStringString().getMap();
       }
@@ -14397,10 +13904,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getMapStringStringOrDefault(
+      public /* nullable */
+java.lang.String getMapStringStringOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetMapStringString().getMap();
@@ -14410,7 +13918,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
       @java.lang.Override
-
       public java.lang.String getMapStringStringOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -14421,8 +13928,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapStringString() {
+        bitField0_ = (bitField0_ & ~0x00002000);
         internalGetMutableMapStringString().getMutableMap()
             .clear();
         return this;
@@ -14430,7 +13937,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
-
       public Builder removeMapStringString(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -14443,7 +13949,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableMapStringString() {
+          getMutableMapStringString() {
+        bitField0_ |= 0x00002000;
         return internalGetMutableMapStringString().getMutableMap();
       }
       /**
@@ -14453,29 +13960,27 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapStringString().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00002000;
         return this;
       }
       /**
        * <code>map&lt;string, string&gt; map_string_string = 14;</code>
        */
-
       public Builder putAllMapStringString(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableMapStringString().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00002000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, com.google.protobuf.ByteString> mapInt32Bytes_;
       private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
-      internalGetMapInt32Bytes() {
+          internalGetMapInt32Bytes() {
         if (mapInt32Bytes_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32BytesDefaultEntryHolder.defaultEntry);
@@ -14483,8 +13988,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Bytes_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
-      internalGetMutableMapInt32Bytes() {
-        onChanged();;
+          internalGetMutableMapInt32Bytes() {
         if (mapInt32Bytes_ == null) {
           mapInt32Bytes_ = com.google.protobuf.MapField.newMapField(
               MapInt32BytesDefaultEntryHolder.defaultEntry);
@@ -14492,16 +13996,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Bytes_.isMutable()) {
           mapInt32Bytes_ = mapInt32Bytes_.copy();
         }
+        bitField0_ |= 0x00004000;
+        onChanged();
         return mapInt32Bytes_;
       }
-
       public int getMapInt32BytesCount() {
         return internalGetMapInt32Bytes().getMap().size();
       }
       /**
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Bytes(
           int key) {
@@ -14520,7 +14024,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> getMapInt32BytesMap() {
         return internalGetMapInt32Bytes().getMap();
       }
@@ -14528,10 +14031,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.ByteString getMapInt32BytesOrDefault(
+      public /* nullable */
+com.google.protobuf.ByteString getMapInt32BytesOrDefault(
           int key,
-          com.google.protobuf.ByteString defaultValue) {
+          /* nullable */
+com.google.protobuf.ByteString defaultValue) {
         
         java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> map =
             internalGetMapInt32Bytes().getMap();
@@ -14541,7 +14045,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.ByteString getMapInt32BytesOrThrow(
           int key) {
         
@@ -14552,8 +14055,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Bytes() {
+        bitField0_ = (bitField0_ & ~0x00004000);
         internalGetMutableMapInt32Bytes().getMutableMap()
             .clear();
         return this;
@@ -14561,7 +14064,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
-
       public Builder removeMapInt32Bytes(
           int key) {
         
@@ -14574,7 +14076,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, com.google.protobuf.ByteString>
-      getMutableMapInt32Bytes() {
+          getMutableMapInt32Bytes() {
+        bitField0_ |= 0x00004000;
         return internalGetMutableMapInt32Bytes().getMutableMap();
       }
       /**
@@ -14584,29 +14087,27 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           int key,
           com.google.protobuf.ByteString value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapInt32Bytes().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00004000;
         return this;
       }
       /**
        * <code>map&lt;int32, bytes&gt; map_int32_bytes = 15;</code>
        */
-
       public Builder putAllMapInt32Bytes(
           java.util.Map<java.lang.Integer, com.google.protobuf.ByteString> values) {
         internalGetMutableMapInt32Bytes().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00004000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> mapInt32Enum_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMapInt32Enum() {
+          internalGetMapInt32Enum() {
         if (mapInt32Enum_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32EnumDefaultEntryHolder.defaultEntry);
@@ -14614,8 +14115,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32Enum_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableMapInt32Enum() {
-        onChanged();;
+          internalGetMutableMapInt32Enum() {
         if (mapInt32Enum_ == null) {
           mapInt32Enum_ = com.google.protobuf.MapField.newMapField(
               MapInt32EnumDefaultEntryHolder.defaultEntry);
@@ -14623,16 +14123,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32Enum_.isMutable()) {
           mapInt32Enum_ = mapInt32Enum_.copy();
         }
+        bitField0_ |= 0x00008000;
+        onChanged();
         return mapInt32Enum_;
       }
-
       public int getMapInt32EnumCount() {
         return internalGetMapInt32Enum().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32Enum(
           int key) {
@@ -14652,7 +14152,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum>
       getMapInt32EnumMap() {
         return internalGetAdaptedMapInt32EnumMap(
@@ -14661,7 +14160,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public /* nullable */
 protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrDefault(
           int key,
@@ -14678,7 +14176,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.MapUnittest.MapEnum getMapInt32EnumOrThrow(
           int key) {
         
@@ -14702,7 +14199,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer>
       getMapInt32EnumValueMap() {
         return internalGetMapInt32Enum().getMap();
@@ -14711,7 +14207,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public int getMapInt32EnumValueOrDefault(
           int key,
           int defaultValue) {
@@ -14724,7 +14219,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
       @java.lang.Override
-
       public int getMapInt32EnumValueOrThrow(
           int key) {
         
@@ -14735,8 +14229,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32Enum() {
+        bitField0_ = (bitField0_ & ~0x00008000);
         internalGetMutableMapInt32Enum().getMutableMap()
             .clear();
         return this;
@@ -14744,7 +14238,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, .protobuf_unittest.MapEnum&gt; map_int32_enum = 16;</code>
        */
-
       public Builder removeMapInt32Enum(
           int key) {
         
@@ -14757,7 +14250,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.MapUnittest.MapEnum>
-      getMutableMapInt32Enum() {
+          getMutableMapInt32Enum() {
+        bitField0_ |= 0x00008000;
         return internalGetAdaptedMapInt32EnumMap(
              internalGetMutableMapInt32Enum().getMutableMap());
       }
@@ -14771,6 +14265,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Enum().getMutableMap()
             .put(key, mapInt32EnumValueConverter.doBackward(value));
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -14781,6 +14276,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         internalGetAdaptedMapInt32EnumMap(
             internalGetMutableMapInt32Enum().getMutableMap())
                 .putAll(values);
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -14789,6 +14285,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
       getMutableMapInt32EnumValue() {
+        bitField0_ |= 0x00008000;
         return internalGetMutableMapInt32Enum().getMutableMap();
       }
       /**
@@ -14801,6 +14298,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         
         internalGetMutableMapInt32Enum().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00008000;
         return this;
       }
       /**
@@ -14810,13 +14308,14 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableMapInt32Enum().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00008000;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> mapInt32ForeignMessage_;
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-      internalGetMapInt32ForeignMessage() {
+          internalGetMapInt32ForeignMessage() {
         if (mapInt32ForeignMessage_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
@@ -14824,8 +14323,7 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         return mapInt32ForeignMessage_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-      internalGetMutableMapInt32ForeignMessage() {
-        onChanged();;
+          internalGetMutableMapInt32ForeignMessage() {
         if (mapInt32ForeignMessage_ == null) {
           mapInt32ForeignMessage_ = com.google.protobuf.MapField.newMapField(
               MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
@@ -14833,16 +14331,16 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         if (!mapInt32ForeignMessage_.isMutable()) {
           mapInt32ForeignMessage_ = mapInt32ForeignMessage_.copy();
         }
+        bitField0_ |= 0x00010000;
+        onChanged();
         return mapInt32ForeignMessage_;
       }
-
       public int getMapInt32ForeignMessageCount() {
         return internalGetMapInt32ForeignMessage().getMap().size();
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
-
       @java.lang.Override
       public boolean containsMapInt32ForeignMessage(
           int key) {
@@ -14861,7 +14359,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> getMapInt32ForeignMessageMap() {
         return internalGetMapInt32ForeignMessage().getMap();
       }
@@ -14869,10 +14366,11 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
+      public /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrDefault(
           int key,
-          protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
+          /* nullable */
+protobuf_unittest.UnittestProto.ForeignMessage defaultValue) {
         
         java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> map =
             internalGetMapInt32ForeignMessage().getMap();
@@ -14882,7 +14380,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.UnittestProto.ForeignMessage getMapInt32ForeignMessageOrThrow(
           int key) {
         
@@ -14893,8 +14390,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
         }
         return map.get(key);
       }
-
       public Builder clearMapInt32ForeignMessage() {
+        bitField0_ = (bitField0_ & ~0x00010000);
         internalGetMutableMapInt32ForeignMessage().getMutableMap()
             .clear();
         return this;
@@ -14902,7 +14399,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
       /**
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
-
       public Builder removeMapInt32ForeignMessage(
           int key) {
         
@@ -14915,7 +14411,8 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage>
-      getMutableMapInt32ForeignMessage() {
+          getMutableMapInt32ForeignMessage() {
+        bitField0_ |= 0x00010000;
         return internalGetMutableMapInt32ForeignMessage().getMutableMap();
       }
       /**
@@ -14925,22 +14422,20 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           int key,
           protobuf_unittest.UnittestProto.ForeignMessage value) {
         
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMapInt32ForeignMessage().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00010000;
         return this;
       }
       /**
        * <code>map&lt;int32, .protobuf_unittest.ForeignMessage&gt; map_int32_foreign_message = 17;</code>
        */
-
       public Builder putAllMapInt32ForeignMessage(
           java.util.Map<java.lang.Integer, protobuf_unittest.UnittestProto.ForeignMessage> values) {
         internalGetMutableMapInt32ForeignMessage().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00010000;
         return this;
       }
       @java.lang.Override
@@ -14976,7 +14471,18 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestArenaMap(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -15023,7 +14529,6 @@ protobuf_unittest.MapUnittest.MapEnum defaultValue) {
     /**
      * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
      */
-
     /* nullable */
 protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrDefault(
         java.lang.String key,
@@ -15032,7 +14537,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
     /**
      * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
      */
-
     protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrThrow(
         java.lang.String key);
   }
@@ -15067,59 +14571,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MessageContainingEnumCalledType(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                type_ = com.google.protobuf.MapField.newMapField(
-                    TypeDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType>
-              type__ = input.readMessage(
-                  TypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              type_.getMutableMap().put(
-                  type__.getKey(), type__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -15257,6 +14708,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.MapUnittest.MessageContainingEnumCalledType.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> type_;
     private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType>
@@ -15267,14 +14719,12 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       }
       return type_;
     }
-
     public int getTypeCount() {
       return internalGetType().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsType(
         java.lang.String key) {
@@ -15293,7 +14743,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
      * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> getTypeMap() {
       return internalGetType().getMap();
     }
@@ -15301,10 +14750,11 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
      * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrDefault(
+    public /* nullable */
+protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrDefault(
         java.lang.String key,
-        protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue) {
+        /* nullable */
+protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> map =
           internalGetType().getMap();
@@ -15314,7 +14764,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
      * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -15346,7 +14795,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           internalGetType(),
           TypeDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -15365,7 +14814,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, type__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15382,7 +14831,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
 
       if (!internalGetType().equals(
           other.internalGetType())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -15397,7 +14846,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
         hash = (53 * hash) + internalGetType().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15541,22 +14990,18 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
 
       // Construct using protobuf_unittest.MapUnittest.MessageContainingEnumCalledType.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableType().clear();
         return this;
       }
@@ -15584,11 +15029,17 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       @java.lang.Override
       public protobuf_unittest.MapUnittest.MessageContainingEnumCalledType buildPartial() {
         protobuf_unittest.MapUnittest.MessageContainingEnumCalledType result = new protobuf_unittest.MapUnittest.MessageContainingEnumCalledType(this);
-        int from_bitField0_ = bitField0_;
-        result.type_ = internalGetType();
-        result.type_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.MessageContainingEnumCalledType result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = internalGetType();
+          result.type_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -15637,7 +15088,8 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         if (other == protobuf_unittest.MapUnittest.MessageContainingEnumCalledType.getDefaultInstance()) return this;
         internalGetMutableType().mergeFrom(
             other.internalGetType());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -15652,17 +15104,39 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.MessageContainingEnumCalledType parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType>
+                type__ = input.readMessage(
+                    TypeDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableType().getMutableMap().put(
+                    type__.getKey(), type__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.MessageContainingEnumCalledType) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -15670,7 +15144,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> type_;
       private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType>
-      internalGetType() {
+          internalGetType() {
         if (type_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               TypeDefaultEntryHolder.defaultEntry);
@@ -15678,8 +15152,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         return type_;
       }
       private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType>
-      internalGetMutableType() {
-        onChanged();;
+          internalGetMutableType() {
         if (type_ == null) {
           type_ = com.google.protobuf.MapField.newMapField(
               TypeDefaultEntryHolder.defaultEntry);
@@ -15687,16 +15160,16 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         if (!type_.isMutable()) {
           type_ = type_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return type_;
       }
-
       public int getTypeCount() {
         return internalGetType().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsType(
           java.lang.String key) {
@@ -15715,7 +15188,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> getTypeMap() {
         return internalGetType().getMap();
       }
@@ -15723,10 +15195,11 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrDefault(
+      public /* nullable */
+protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrDefault(
           java.lang.String key,
-          protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue) {
+          /* nullable */
+protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> map =
             internalGetType().getMap();
@@ -15736,7 +15209,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.MapUnittest.MessageContainingEnumCalledType getTypeOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -15747,8 +15219,8 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableType().getMutableMap()
             .clear();
         return this;
@@ -15756,7 +15228,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       /**
        * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
        */
-
       public Builder removeType(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -15769,7 +15240,8 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType>
-      getMutableType() {
+          getMutableType() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableType().getMutableMap();
       }
       /**
@@ -15779,22 +15251,20 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           java.lang.String key,
           protobuf_unittest.MapUnittest.MessageContainingEnumCalledType value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableType().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;string, .protobuf_unittest.MessageContainingEnumCalledType&gt; type = 1;</code>
        */
-
       public Builder putAllType(
           java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.MessageContainingEnumCalledType> values) {
         internalGetMutableType().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -15830,7 +15300,18 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageContainingEnumCalledType(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -15877,14 +15358,12 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; entry = 1;</code>
      */
-
     int getEntryOrDefault(
         int key,
         int defaultValue);
     /**
      * <code>map&lt;int32, int32&gt; entry = 1;</code>
      */
-
     int getEntryOrThrow(
         int key);
   }
@@ -15918,59 +15397,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MessageContainingMapCalledEntry(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                entry_ = com.google.protobuf.MapField.newMapField(
-                    EntryDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
-              entry__ = input.readMessage(
-                  EntryDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              entry_.getMutableMap().put(
-                  entry__.getKey(), entry__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -16009,6 +15435,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
                   com.google.protobuf.WireFormat.FieldType.INT32,
                   0);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.Integer, java.lang.Integer> entry_;
     private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
@@ -16019,14 +15446,12 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       }
       return entry_;
     }
-
     public int getEntryCount() {
       return internalGetEntry().getMap().size();
     }
     /**
      * <code>map&lt;int32, int32&gt; entry = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsEntry(
         int key) {
@@ -16045,7 +15470,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
      * <code>map&lt;int32, int32&gt; entry = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, java.lang.Integer> getEntryMap() {
       return internalGetEntry().getMap();
     }
@@ -16053,7 +15477,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
      * <code>map&lt;int32, int32&gt; entry = 1;</code>
      */
     @java.lang.Override
-
     public int getEntryOrDefault(
         int key,
         int defaultValue) {
@@ -16066,7 +15489,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
      * <code>map&lt;int32, int32&gt; entry = 1;</code>
      */
     @java.lang.Override
-
     public int getEntryOrThrow(
         int key) {
       
@@ -16098,7 +15520,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           internalGetEntry(),
           EntryDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -16117,7 +15539,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, entry__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -16134,7 +15556,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
 
       if (!internalGetEntry().equals(
           other.internalGetEntry())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -16149,7 +15571,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         hash = (37 * hash) + ENTRY_FIELD_NUMBER;
         hash = (53 * hash) + internalGetEntry().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -16292,22 +15714,18 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
 
       // Construct using protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableEntry().clear();
         return this;
       }
@@ -16335,11 +15753,17 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       @java.lang.Override
       public protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry buildPartial() {
         protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry result = new protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry(this);
-        int from_bitField0_ = bitField0_;
-        result.entry_ = internalGetEntry();
-        result.entry_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.entry_ = internalGetEntry();
+          result.entry_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -16388,7 +15812,8 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         if (other == protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry.getDefaultInstance()) return this;
         internalGetMutableEntry().mergeFrom(
             other.internalGetEntry());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -16403,17 +15828,39 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                entry__ = input.readMessage(
+                    EntryDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableEntry().getMutableMap().put(
+                    entry__.getKey(), entry__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.MessageContainingMapCalledEntry) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -16421,7 +15868,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       private com.google.protobuf.MapField<
           java.lang.Integer, java.lang.Integer> entry_;
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetEntry() {
+          internalGetEntry() {
         if (entry_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               EntryDefaultEntryHolder.defaultEntry);
@@ -16429,8 +15876,7 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         return entry_;
       }
       private com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
-      internalGetMutableEntry() {
-        onChanged();;
+          internalGetMutableEntry() {
         if (entry_ == null) {
           entry_ = com.google.protobuf.MapField.newMapField(
               EntryDefaultEntryHolder.defaultEntry);
@@ -16438,16 +15884,16 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         if (!entry_.isMutable()) {
           entry_ = entry_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return entry_;
       }
-
       public int getEntryCount() {
         return internalGetEntry().getMap().size();
       }
       /**
        * <code>map&lt;int32, int32&gt; entry = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsEntry(
           int key) {
@@ -16466,7 +15912,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        * <code>map&lt;int32, int32&gt; entry = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.Integer, java.lang.Integer> getEntryMap() {
         return internalGetEntry().getMap();
       }
@@ -16474,7 +15919,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        * <code>map&lt;int32, int32&gt; entry = 1;</code>
        */
       @java.lang.Override
-
       public int getEntryOrDefault(
           int key,
           int defaultValue) {
@@ -16487,7 +15931,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        * <code>map&lt;int32, int32&gt; entry = 1;</code>
        */
       @java.lang.Override
-
       public int getEntryOrThrow(
           int key) {
         
@@ -16498,8 +15941,8 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearEntry() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableEntry().getMutableMap()
             .clear();
         return this;
@@ -16507,7 +15950,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
       /**
        * <code>map&lt;int32, int32&gt; entry = 1;</code>
        */
-
       public Builder removeEntry(
           int key) {
         
@@ -16520,7 +15962,8 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.Integer, java.lang.Integer>
-      getMutableEntry() {
+          getMutableEntry() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableEntry().getMutableMap();
       }
       /**
@@ -16533,16 +15976,17 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
         
         internalGetMutableEntry().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;int32, int32&gt; entry = 1;</code>
        */
-
       public Builder putAllEntry(
           java.util.Map<java.lang.Integer, java.lang.Integer> values) {
         internalGetMutableEntry().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -16578,7 +16022,18 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MessageContainingMapCalledEntry(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -16625,7 +16080,6 @@ protobuf_unittest.MapUnittest.MessageContainingEnumCalledType defaultValue);
     /**
      * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
      */
-
     /* nullable */
 protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrDefault(
         java.lang.String key,
@@ -16634,7 +16088,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
     /**
      * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
      */
-
     protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrThrow(
         java.lang.String key);
   }
@@ -16664,59 +16117,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private TestRecursiveMapMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                a_ = com.google.protobuf.MapField.newMapField(
-                    ADefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage>
-              a__ = input.readMessage(
-                  ADefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              a_.getMutableMap().put(
-                  a__.getKey(), a__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -16755,6 +16155,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   protobuf_unittest.MapUnittest.TestRecursiveMapMessage.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> a_;
     private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage>
@@ -16765,14 +16166,12 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
       }
       return a_;
     }
-
     public int getACount() {
       return internalGetA().getMap().size();
     }
     /**
      * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsA(
         java.lang.String key) {
@@ -16791,7 +16190,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
      * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> getAMap() {
       return internalGetA().getMap();
     }
@@ -16799,10 +16197,11 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
      * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
      */
     @java.lang.Override
-
-    public protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrDefault(
+    public /* nullable */
+protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrDefault(
         java.lang.String key,
-        protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue) {
+        /* nullable */
+protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> map =
           internalGetA().getMap();
@@ -16812,7 +16211,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
      * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
      */
     @java.lang.Override
-
     public protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -16844,7 +16242,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
           internalGetA(),
           ADefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -16863,7 +16261,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, a__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -16880,7 +16278,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
 
       if (!internalGetA().equals(
           other.internalGetA())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -16895,7 +16293,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
         hash = (37 * hash) + A_FIELD_NUMBER;
         hash = (53 * hash) + internalGetA().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -17034,22 +16432,18 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
 
       // Construct using protobuf_unittest.MapUnittest.TestRecursiveMapMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableA().clear();
         return this;
       }
@@ -17077,11 +16471,17 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
       @java.lang.Override
       public protobuf_unittest.MapUnittest.TestRecursiveMapMessage buildPartial() {
         protobuf_unittest.MapUnittest.TestRecursiveMapMessage result = new protobuf_unittest.MapUnittest.TestRecursiveMapMessage(this);
-        int from_bitField0_ = bitField0_;
-        result.a_ = internalGetA();
-        result.a_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.MapUnittest.TestRecursiveMapMessage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.a_ = internalGetA();
+          result.a_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -17130,7 +16530,8 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
         if (other == protobuf_unittest.MapUnittest.TestRecursiveMapMessage.getDefaultInstance()) return this;
         internalGetMutableA().mergeFrom(
             other.internalGetA());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -17145,17 +16546,39 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.MapUnittest.TestRecursiveMapMessage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage>
+                a__ = input.readMessage(
+                    ADefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableA().getMutableMap().put(
+                    a__.getKey(), a__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.MapUnittest.TestRecursiveMapMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -17163,7 +16586,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> a_;
       private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage>
-      internalGetA() {
+          internalGetA() {
         if (a_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ADefaultEntryHolder.defaultEntry);
@@ -17171,8 +16594,7 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
         return a_;
       }
       private com.google.protobuf.MapField<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage>
-      internalGetMutableA() {
-        onChanged();;
+          internalGetMutableA() {
         if (a_ == null) {
           a_ = com.google.protobuf.MapField.newMapField(
               ADefaultEntryHolder.defaultEntry);
@@ -17180,16 +16602,16 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
         if (!a_.isMutable()) {
           a_ = a_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return a_;
       }
-
       public int getACount() {
         return internalGetA().getMap().size();
       }
       /**
        * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsA(
           java.lang.String key) {
@@ -17208,7 +16630,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
        * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> getAMap() {
         return internalGetA().getMap();
       }
@@ -17216,10 +16637,11 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
        * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
        */
       @java.lang.Override
-
-      public protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrDefault(
+      public /* nullable */
+protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrDefault(
           java.lang.String key,
-          protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue) {
+          /* nullable */
+protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> map =
             internalGetA().getMap();
@@ -17229,7 +16651,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
        * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
        */
       @java.lang.Override
-
       public protobuf_unittest.MapUnittest.TestRecursiveMapMessage getAOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -17240,8 +16661,8 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearA() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableA().getMutableMap()
             .clear();
         return this;
@@ -17249,7 +16670,6 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
       /**
        * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
        */
-
       public Builder removeA(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -17262,7 +16682,8 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage>
-      getMutableA() {
+          getMutableA() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableA().getMutableMap();
       }
       /**
@@ -17272,22 +16693,20 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
           java.lang.String key,
           protobuf_unittest.MapUnittest.TestRecursiveMapMessage value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableA().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
        * <code>map&lt;string, .protobuf_unittest.TestRecursiveMapMessage&gt; a = 1;</code>
        */
-
       public Builder putAllA(
           java.util.Map<java.lang.String, protobuf_unittest.MapUnittest.TestRecursiveMapMessage> values) {
         internalGetMutableA().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -17323,7 +16742,18 @@ protobuf_unittest.MapUnittest.TestRecursiveMapMessage defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestRecursiveMapMessage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

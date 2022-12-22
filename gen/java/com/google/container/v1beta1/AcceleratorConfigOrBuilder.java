@@ -70,7 +70,7 @@ public interface AcceleratorConfigOrBuilder extends
    *
    * <code>int64 max_time_shared_clients_per_gpu = 4 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.AcceleratorConfig.max_time_shared_clients_per_gpu is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=4106
+   *     See google/container/v1beta1/cluster_service.proto;l=4177
    * @return The maxTimeSharedClientsPerGpu.
    */
   @java.lang.Deprecated long getMaxTimeSharedClientsPerGpu();

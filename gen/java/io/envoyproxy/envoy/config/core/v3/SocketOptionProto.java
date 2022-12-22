@@ -19,6 +19,11 @@ public final class SocketOptionProto {
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_envoy_config_core_v3_SocketOption_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_envoy_config_core_v3_SocketOptionsOverride_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_envoy_config_core_v3_SocketOptionsOverride_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -39,11 +44,13 @@ public final class SocketOptionProto {
       "etStateB\010\372B\005\202\001\002\020\001\"F\n\013SocketState\022\021\n\rSTAT" +
       "E_PREBIND\020\000\022\017\n\013STATE_BOUND\020\001\022\023\n\017STATE_LI" +
       "STENING\020\002:%\232\305\210\036 \n\036envoy.api.v2.core.Sock" +
-      "etOptionB\014\n\005value\022\003\370B\001B\205\001\n\"io.envoyproxy" +
-      ".envoy.config.core.v3B\021SocketOptionProto" +
-      "P\001ZBgithub.com/envoyproxy/go-control-pla" +
-      "ne/envoy/config/core/v3;corev3\272\200\310\321\006\002\020\002b\006" +
-      "proto3"
+      "etOptionB\014\n\005value\022\003\370B\001\"S\n\025SocketOptionsO" +
+      "verride\022:\n\016socket_options\030\001 \003(\0132\".envoy." +
+      "config.core.v3.SocketOptionB\205\001\n\"io.envoy" +
+      "proxy.envoy.config.core.v3B\021SocketOption" +
+      "ProtoP\001ZBgithub.com/envoyproxy/go-contro" +
+      "l-plane/envoy/config/core/v3;corev3\272\200\310\321\006" +
+      "\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -58,6 +65,12 @@ public final class SocketOptionProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_core_v3_SocketOption_descriptor,
         new java.lang.String[] { "Description", "Level", "Name", "IntValue", "BufValue", "State", "Value", });
+    internal_static_envoy_config_core_v3_SocketOptionsOverride_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_envoy_config_core_v3_SocketOptionsOverride_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_envoy_config_core_v3_SocketOptionsOverride_descriptor,
+        new java.lang.String[] { "SocketOptions", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);

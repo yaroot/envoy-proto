@@ -174,9 +174,9 @@ public interface ApiDeploymentOrBuilder extends
 
   /**
    * <pre>
-   * The full resource name (including revision id) of the spec of the API being
+   * The full resource name (including revision ID) of the spec of the API being
    * served by the deployment. Changes to this value will update the revision.
-   * Format: apis/{api}/deployments/{deployment}
+   * Format: `apis/{api}/deployments/{deployment}`
    * </pre>
    *
    * <code>string api_spec_revision = 8 [(.google.api.resource_reference) = { ... }</code>
@@ -185,9 +185,9 @@ public interface ApiDeploymentOrBuilder extends
   java.lang.String getApiSpecRevision();
   /**
    * <pre>
-   * The full resource name (including revision id) of the spec of the API being
+   * The full resource name (including revision ID) of the spec of the API being
    * served by the deployment. Changes to this value will update the revision.
-   * Format: apis/{api}/deployments/{deployment}
+   * Format: `apis/{api}/deployments/{deployment}`
    * </pre>
    *
    * <code>string api_spec_revision = 8 [(.google.api.resource_reference) = { ... }</code>
@@ -220,7 +220,7 @@ public interface ApiDeploymentOrBuilder extends
 
   /**
    * <pre>
-   * The address of the external channel of the API (e.g. the Developer
+   * The address of the external channel of the API (e.g., the Developer
    * Portal). Changes to this value will not affect the revision.
    * </pre>
    *
@@ -230,7 +230,7 @@ public interface ApiDeploymentOrBuilder extends
   java.lang.String getExternalChannelUri();
   /**
    * <pre>
-   * The address of the external channel of the API (e.g. the Developer
+   * The address of the external channel of the API (e.g., the Developer
    * Portal). Changes to this value will not affect the revision.
    * </pre>
    *
@@ -295,7 +295,7 @@ public interface ApiDeploymentOrBuilder extends
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 14;</code>
@@ -312,7 +312,7 @@ public interface ApiDeploymentOrBuilder extends
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 14;</code>
@@ -336,7 +336,7 @@ public interface ApiDeploymentOrBuilder extends
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 14;</code>
@@ -354,12 +354,11 @@ public interface ApiDeploymentOrBuilder extends
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 14;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -376,12 +375,11 @@ java.lang.String defaultValue);
    * labels are excluded).
    * See https://goo.gl/xmQnxf for more information and examples of labels.
    * System reserved label keys are prefixed with
-   * "apigeeregistry.googleapis.com/" and cannot be changed.
+   * `apigeeregistry.googleapis.com/` and cannot be changed.
    * </pre>
    *
    * <code>map&lt;string, string&gt; labels = 14;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -436,7 +434,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 15;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -452,7 +449,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 15;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 }

@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     description_ = "";
     interfaces_ = java.util.Collections.emptyList();
     kind_ = "";
+    md5AuthenticationKeys_ = java.util.Collections.emptyList();
     name_ = "";
     nats_ = java.util.Collections.emptyList();
     network_ = "";
@@ -43,147 +44,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Router(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000010;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 779866: {
-            com.google.cloud.compute.v1.RouterBgp.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = bgp_.toBuilder();
-            }
-            bgp_ = input.readMessage(com.google.cloud.compute.v1.RouterBgp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bgp_);
-              bgp_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            name_ = s;
-            break;
-          }
-          case 26991506: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              nats_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterNat>();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            nats_.add(
-                input.readMessage(com.google.cloud.compute.v1.RouterNat.parser(), extensionRegistry));
-            break;
-          }
-          case 96588498: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              interfaces_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterInterface>();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            interfaces_.add(
-                input.readMessage(com.google.cloud.compute.v1.RouterInterface.parser(), extensionRegistry));
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 1111570338: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            region_ = s;
-            break;
-          }
-          case 1862979954: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            network_ = s;
-            break;
-          }
-          case -1910994696: {
-            bitField0_ |= 0x00000008;
-            encryptedInterconnectRouter_ = input.readBool();
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            description_ = s;
-            break;
-          }
-          case -673401110: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              bgpPeers_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterBgpPeer>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            bgpPeers_.add(
-                input.readMessage(com.google.cloud.compute.v1.RouterBgpPeer.parser(), extensionRegistry));
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            selfLink_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        nats_ = java.util.Collections.unmodifiableList(nats_);
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        interfaces_ = java.util.Collections.unmodifiableList(interfaces_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        bgpPeers_ = java.util.Collections.unmodifiableList(bgpPeers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -238,6 +98,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BGP_PEERS_FIELD_NUMBER = 452695773;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.RouterBgpPeer> bgpPeers_;
   /**
    * <pre>
@@ -298,7 +159,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -356,7 +218,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -414,10 +277,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTED_INTERCONNECT_ROUTER_FIELD_NUMBER = 297996575;
-  private boolean encryptedInterconnectRouter_;
+  private boolean encryptedInterconnectRouter_ = false;
   /**
    * <pre>
-   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
    * </pre>
    *
    * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -429,7 +292,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+   * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
    * </pre>
    *
    * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -441,7 +304,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server.
@@ -468,6 +331,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTERFACES_FIELD_NUMBER = 12073562;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.RouterInterface> interfaces_;
   /**
    * <pre>
@@ -528,7 +392,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of resource. Always compute#router for routers.
@@ -585,8 +450,70 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int MD5_AUTHENTICATION_KEYS_FIELD_NUMBER = 71063322;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.compute.v1.RouterMd5AuthenticationKey> md5AuthenticationKeys_;
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.compute.v1.RouterMd5AuthenticationKey> getMd5AuthenticationKeysList() {
+    return md5AuthenticationKeys_;
+  }
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder> 
+      getMd5AuthenticationKeysOrBuilderList() {
+    return md5AuthenticationKeys_;
+  }
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  @java.lang.Override
+  public int getMd5AuthenticationKeysCount() {
+    return md5AuthenticationKeys_.size();
+  }
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.RouterMd5AuthenticationKey getMd5AuthenticationKeys(int index) {
+    return md5AuthenticationKeys_.get(index);
+  }
+  /**
+   * <pre>
+   * Keys used for MD5 authentication.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder getMd5AuthenticationKeysOrBuilder(
+      int index) {
+    return md5AuthenticationKeys_.get(index);
+  }
+
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -644,6 +571,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NATS_FIELD_NUMBER = 3373938;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.RouterNat> nats_;
   /**
    * <pre>
@@ -704,7 +632,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 232872494;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * URI of the network to which this router belongs.
@@ -762,7 +691,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 138946292;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * [Output Only] URI of the region where the router resides. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -820,7 +750,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -912,6 +843,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 30525366, creationTimestamp_);
     }
+    for (int i = 0; i < md5AuthenticationKeys_.size(); i++) {
+      output.writeMessage(71063322, md5AuthenticationKeys_.get(i));
+    }
     if (((bitField0_ & 0x00000100) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 138946292, region_);
     }
@@ -930,7 +864,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 456214797, selfLink_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -964,6 +898,10 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30525366, creationTimestamp_);
     }
+    for (int i = 0; i < md5AuthenticationKeys_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(71063322, md5AuthenticationKeys_.get(i));
+    }
     if (((bitField0_ & 0x00000100) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(138946292, region_);
     }
@@ -984,7 +922,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(456214797, selfLink_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1033,6 +971,8 @@ private static final long serialVersionUID = 0L;
       if (!getKind()
           .equals(other.getKind())) return false;
     }
+    if (!getMd5AuthenticationKeysList()
+        .equals(other.getMd5AuthenticationKeysList())) return false;
     if (hasName() != other.hasName()) return false;
     if (hasName()) {
       if (!getName()
@@ -1055,7 +995,7 @@ private static final long serialVersionUID = 0L;
       if (!getSelfLink()
           .equals(other.getSelfLink())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1100,6 +1040,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + KIND_FIELD_NUMBER;
       hash = (53 * hash) + getKind().hashCode();
     }
+    if (getMd5AuthenticationKeysCount() > 0) {
+      hash = (37 * hash) + MD5_AUTHENTICATION_KEYS_FIELD_NUMBER;
+      hash = (53 * hash) + getMd5AuthenticationKeysList().hashCode();
+    }
     if (hasName()) {
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
@@ -1120,7 +1064,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SELF_LINK_FIELD_NUMBER;
       hash = (53 * hash) + getSelfLink().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1255,54 +1199,56 @@ private static final long serialVersionUID = 0L;
         getBgpFieldBuilder();
         getBgpPeersFieldBuilder();
         getInterfacesFieldBuilder();
+        getMd5AuthenticationKeysFieldBuilder();
         getNatsFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (bgpBuilder_ == null) {
-        bgp_ = null;
-      } else {
-        bgpBuilder_.clear();
+      bitField0_ = 0;
+      bgp_ = null;
+      if (bgpBuilder_ != null) {
+        bgpBuilder_.dispose();
+        bgpBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (bgpPeersBuilder_ == null) {
         bgpPeers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        bgpPeers_ = null;
         bgpPeersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       encryptedInterconnectRouter_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000020);
       if (interfacesBuilder_ == null) {
         interfaces_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000040);
       } else {
+        interfaces_ = null;
         interfacesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
-      name_ = "";
+      if (md5AuthenticationKeysBuilder_ == null) {
+        md5AuthenticationKeys_ = java.util.Collections.emptyList();
+      } else {
+        md5AuthenticationKeys_ = null;
+        md5AuthenticationKeysBuilder_.clear();
+      }
       bitField0_ = (bitField0_ & ~0x00000100);
+      name_ = "";
       if (natsBuilder_ == null) {
         nats_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
       } else {
+        nats_ = null;
         natsBuilder_.clear();
       }
-      network_ = "";
       bitField0_ = (bitField0_ & ~0x00000400);
+      network_ = "";
       region_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -1329,16 +1275,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Router buildPartial() {
       com.google.cloud.compute.v1.Router result = new com.google.cloud.compute.v1.Router(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (bgpBuilder_ == null) {
-          result.bgp_ = bgp_;
-        } else {
-          result.bgp_ = bgpBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.Router result) {
       if (bgpPeersBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           bgpPeers_ = java.util.Collections.unmodifiableList(bgpPeers_);
@@ -1347,22 +1290,6 @@ private static final long serialVersionUID = 0L;
         result.bgpPeers_ = bgpPeers_;
       } else {
         result.bgpPeers_ = bgpPeersBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.description_ = description_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        result.encryptedInterconnectRouter_ = encryptedInterconnectRouter_;
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000010;
       }
       if (interfacesBuilder_ == null) {
         if (((bitField0_ & 0x00000040) != 0)) {
@@ -1373,38 +1300,72 @@ private static final long serialVersionUID = 0L;
       } else {
         result.interfaces_ = interfacesBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        to_bitField0_ |= 0x00000020;
+      if (md5AuthenticationKeysBuilder_ == null) {
+        if (((bitField0_ & 0x00000100) != 0)) {
+          md5AuthenticationKeys_ = java.util.Collections.unmodifiableList(md5AuthenticationKeys_);
+          bitField0_ = (bitField0_ & ~0x00000100);
+        }
+        result.md5AuthenticationKeys_ = md5AuthenticationKeys_;
+      } else {
+        result.md5AuthenticationKeys_ = md5AuthenticationKeysBuilder_.build();
       }
-      result.kind_ = kind_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000040;
-      }
-      result.name_ = name_;
       if (natsBuilder_ == null) {
-        if (((bitField0_ & 0x00000200) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           nats_ = java.util.Collections.unmodifiableList(nats_);
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.nats_ = nats_;
       } else {
         result.nats_ = natsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Router result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bgp_ = bgpBuilder_ == null
+            ? bgp_
+            : bgpBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.encryptedInterconnectRouter_ = encryptedInterconnectRouter_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.kind_ = kind_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.network_ = network_;
         to_bitField0_ |= 0x00000080;
       }
-      result.network_ = network_;
-      if (((from_bitField0_ & 0x00000800) != 0)) {
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.region_ = region_;
         to_bitField0_ |= 0x00000100;
       }
-      result.region_ = region_;
-      if (((from_bitField0_ & 0x00001000) != 0)) {
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00000200;
       }
-      result.selfLink_ = selfLink_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1481,13 +1442,13 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000004;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000008;
         description_ = other.description_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasEncryptedInterconnectRouter()) {
@@ -1523,20 +1484,46 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000080;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
+      if (md5AuthenticationKeysBuilder_ == null) {
+        if (!other.md5AuthenticationKeys_.isEmpty()) {
+          if (md5AuthenticationKeys_.isEmpty()) {
+            md5AuthenticationKeys_ = other.md5AuthenticationKeys_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+          } else {
+            ensureMd5AuthenticationKeysIsMutable();
+            md5AuthenticationKeys_.addAll(other.md5AuthenticationKeys_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.md5AuthenticationKeys_.isEmpty()) {
+          if (md5AuthenticationKeysBuilder_.isEmpty()) {
+            md5AuthenticationKeysBuilder_.dispose();
+            md5AuthenticationKeysBuilder_ = null;
+            md5AuthenticationKeys_ = other.md5AuthenticationKeys_;
+            bitField0_ = (bitField0_ & ~0x00000100);
+            md5AuthenticationKeysBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getMd5AuthenticationKeysFieldBuilder() : null;
+          } else {
+            md5AuthenticationKeysBuilder_.addAllMessages(other.md5AuthenticationKeys_);
+          }
+        }
+      }
       if (other.hasName()) {
-        bitField0_ |= 0x00000100;
         name_ = other.name_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (natsBuilder_ == null) {
         if (!other.nats_.isEmpty()) {
           if (nats_.isEmpty()) {
             nats_ = other.nats_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureNatsIsMutable();
             nats_.addAll(other.nats_);
@@ -1549,7 +1536,7 @@ private static final long serialVersionUID = 0L;
             natsBuilder_.dispose();
             natsBuilder_ = null;
             nats_ = other.nats_;
-            bitField0_ = (bitField0_ & ~0x00000200);
+            bitField0_ = (bitField0_ & ~0x00000400);
             natsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNatsFieldBuilder() : null;
@@ -1559,21 +1546,21 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasNetwork()) {
-        bitField0_ |= 0x00000400;
         network_ = other.network_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.hasRegion()) {
-        bitField0_ |= 0x00000800;
         region_ = other.region_;
+        bitField0_ |= 0x00001000;
         onChanged();
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00001000;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1588,17 +1575,134 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Router parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 26840
+            case 779866: {
+              input.readMessage(
+                  getBgpFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 779866
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 26989658
+            case 26991506: {
+              com.google.cloud.compute.v1.RouterNat m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouterNat.parser(),
+                      extensionRegistry);
+              if (natsBuilder_ == null) {
+                ensureNatsIsMutable();
+                nats_.add(m);
+              } else {
+                natsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26991506
+            case 96588498: {
+              com.google.cloud.compute.v1.RouterInterface m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouterInterface.parser(),
+                      extensionRegistry);
+              if (interfacesBuilder_ == null) {
+                ensureInterfacesIsMutable();
+                interfaces_.add(m);
+              } else {
+                interfacesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 96588498
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 244202930
+            case 568506578: {
+              com.google.cloud.compute.v1.RouterMd5AuthenticationKey m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouterMd5AuthenticationKey.parser(),
+                      extensionRegistry);
+              if (md5AuthenticationKeysBuilder_ == null) {
+                ensureMd5AuthenticationKeysIsMutable();
+                md5AuthenticationKeys_.add(m);
+              } else {
+                md5AuthenticationKeysBuilder_.addMessage(m);
+              }
+              break;
+            } // case 568506578
+            case 1111570338: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 1111570338
+            case 1862979954: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 1862979954
+            case -1910994696: {
+              encryptedInterconnectRouter_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -1910994696
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -911466526
+            case -673401110: {
+              com.google.cloud.compute.v1.RouterBgpPeer m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.RouterBgpPeer.parser(),
+                      extensionRegistry);
+              if (bgpPeersBuilder_ == null) {
+                ensureBgpPeersIsMutable();
+                bgpPeers_.add(m);
+              } else {
+                bgpPeersBuilder_.addMessage(m);
+              }
+              break;
+            } // case -673401110
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case -645248918
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Router) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1645,11 +1749,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bgp_ = value;
-        onChanged();
       } else {
         bgpBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1663,11 +1767,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.RouterBgp.Builder builderForValue) {
       if (bgpBuilder_ == null) {
         bgp_ = builderForValue.build();
-        onChanged();
       } else {
         bgpBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1680,18 +1784,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeBgp(com.google.cloud.compute.v1.RouterBgp value) {
       if (bgpBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            bgp_ != null &&
-            bgp_ != com.google.cloud.compute.v1.RouterBgp.getDefaultInstance()) {
-          bgp_ =
-            com.google.cloud.compute.v1.RouterBgp.newBuilder(bgp_).mergeFrom(value).buildPartial();
+          bgp_ != null &&
+          bgp_ != com.google.cloud.compute.v1.RouterBgp.getDefaultInstance()) {
+          getBgpBuilder().mergeFrom(value);
         } else {
           bgp_ = value;
         }
-        onChanged();
       } else {
         bgpBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1702,13 +1805,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.RouterBgp bgp = 97483;</code>
      */
     public Builder clearBgp() {
-      if (bgpBuilder_ == null) {
-        bgp_ = null;
-        onChanged();
-      } else {
-        bgpBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      bgp_ = null;
+      if (bgpBuilder_ != null) {
+        bgpBuilder_.dispose();
+        bgpBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2135,11 +2238,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2152,8 +2253,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2168,12 +2269,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2242,11 +2341,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2259,8 +2356,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2275,12 +2372,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2288,7 +2383,7 @@ private static final long serialVersionUID = 0L;
     private boolean encryptedInterconnectRouter_ ;
     /**
      * <pre>
-     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
      * </pre>
      *
      * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -2300,7 +2395,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
      * </pre>
      *
      * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -2312,7 +2407,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
      * </pre>
      *
      * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -2320,14 +2415,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEncryptedInterconnectRouter(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       encryptedInterconnectRouter_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments). Not currently available publicly. 
+     * Indicates if a router is dedicated for use with encrypted VLAN attachments (interconnectAttachments).
      * </pre>
      *
      * <code>optional bool encrypted_interconnect_router = 297996575;</code>
@@ -2375,8 +2471,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000020;
+      
       id_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2771,11 +2868,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2788,8 +2883,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2804,14 +2899,324 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
+    }
+
+    private java.util.List<com.google.cloud.compute.v1.RouterMd5AuthenticationKey> md5AuthenticationKeys_ =
+      java.util.Collections.emptyList();
+    private void ensureMd5AuthenticationKeysIsMutable() {
+      if (!((bitField0_ & 0x00000100) != 0)) {
+        md5AuthenticationKeys_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterMd5AuthenticationKey>(md5AuthenticationKeys_);
+        bitField0_ |= 0x00000100;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.compute.v1.RouterMd5AuthenticationKey, com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder, com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder> md5AuthenticationKeysBuilder_;
+
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public java.util.List<com.google.cloud.compute.v1.RouterMd5AuthenticationKey> getMd5AuthenticationKeysList() {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(md5AuthenticationKeys_);
+      } else {
+        return md5AuthenticationKeysBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public int getMd5AuthenticationKeysCount() {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        return md5AuthenticationKeys_.size();
+      } else {
+        return md5AuthenticationKeysBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public com.google.cloud.compute.v1.RouterMd5AuthenticationKey getMd5AuthenticationKeys(int index) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        return md5AuthenticationKeys_.get(index);
+      } else {
+        return md5AuthenticationKeysBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder setMd5AuthenticationKeys(
+        int index, com.google.cloud.compute.v1.RouterMd5AuthenticationKey value) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.set(index, value);
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder setMd5AuthenticationKeys(
+        int index, com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder builderForValue) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder addMd5AuthenticationKeys(com.google.cloud.compute.v1.RouterMd5AuthenticationKey value) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.add(value);
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder addMd5AuthenticationKeys(
+        int index, com.google.cloud.compute.v1.RouterMd5AuthenticationKey value) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.add(index, value);
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder addMd5AuthenticationKeys(
+        com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder builderForValue) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.add(builderForValue.build());
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder addMd5AuthenticationKeys(
+        int index, com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder builderForValue) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder addAllMd5AuthenticationKeys(
+        java.lang.Iterable<? extends com.google.cloud.compute.v1.RouterMd5AuthenticationKey> values) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        ensureMd5AuthenticationKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, md5AuthenticationKeys_);
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder clearMd5AuthenticationKeys() {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        md5AuthenticationKeys_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000100);
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public Builder removeMd5AuthenticationKeys(int index) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        ensureMd5AuthenticationKeysIsMutable();
+        md5AuthenticationKeys_.remove(index);
+        onChanged();
+      } else {
+        md5AuthenticationKeysBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder getMd5AuthenticationKeysBuilder(
+        int index) {
+      return getMd5AuthenticationKeysFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder getMd5AuthenticationKeysOrBuilder(
+        int index) {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        return md5AuthenticationKeys_.get(index);  } else {
+        return md5AuthenticationKeysBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public java.util.List<? extends com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder> 
+         getMd5AuthenticationKeysOrBuilderList() {
+      if (md5AuthenticationKeysBuilder_ != null) {
+        return md5AuthenticationKeysBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(md5AuthenticationKeys_);
+      }
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder addMd5AuthenticationKeysBuilder() {
+      return getMd5AuthenticationKeysFieldBuilder().addBuilder(
+          com.google.cloud.compute.v1.RouterMd5AuthenticationKey.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder addMd5AuthenticationKeysBuilder(
+        int index) {
+      return getMd5AuthenticationKeysFieldBuilder().addBuilder(
+          index, com.google.cloud.compute.v1.RouterMd5AuthenticationKey.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Keys used for MD5 authentication.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.RouterMd5AuthenticationKey md5_authentication_keys = 71063322;</code>
+     */
+    public java.util.List<com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder> 
+         getMd5AuthenticationKeysBuilderList() {
+      return getMd5AuthenticationKeysFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.compute.v1.RouterMd5AuthenticationKey, com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder, com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder> 
+        getMd5AuthenticationKeysFieldBuilder() {
+      if (md5AuthenticationKeysBuilder_ == null) {
+        md5AuthenticationKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.compute.v1.RouterMd5AuthenticationKey, com.google.cloud.compute.v1.RouterMd5AuthenticationKey.Builder, com.google.cloud.compute.v1.RouterMd5AuthenticationKeyOrBuilder>(
+                md5AuthenticationKeys_,
+                ((bitField0_ & 0x00000100) != 0),
+                getParentForChildren(),
+                isClean());
+        md5AuthenticationKeys_ = null;
+      }
+      return md5AuthenticationKeysBuilder_;
     }
 
     private java.lang.Object name_ = "";
@@ -2824,7 +3229,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2878,11 +3283,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2895,8 +3298,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2911,12 +3314,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2924,9 +3325,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.compute.v1.RouterNat> nats_ =
       java.util.Collections.emptyList();
     private void ensureNatsIsMutable() {
-      if (!((bitField0_ & 0x00000200) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         nats_ = new java.util.ArrayList<com.google.cloud.compute.v1.RouterNat>(nats_);
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -3120,7 +3521,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNats() {
       if (natsBuilder_ == null) {
         nats_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         natsBuilder_.clear();
@@ -3225,7 +3626,7 @@ private static final long serialVersionUID = 0L;
         natsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.compute.v1.RouterNat, com.google.cloud.compute.v1.RouterNat.Builder, com.google.cloud.compute.v1.RouterNatOrBuilder>(
                 nats_,
-                ((bitField0_ & 0x00000200) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         nats_ = null;
@@ -3243,7 +3644,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the network field is set.
      */
     public boolean hasNetwork() {
-      return ((bitField0_ & 0x00000400) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3297,11 +3698,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3314,8 +3713,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3330,12 +3729,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3350,7 +3747,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the region field is set.
      */
     public boolean hasRegion() {
-      return ((bitField0_ & 0x00000800) != 0);
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3404,11 +3801,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3421,8 +3816,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -3437,12 +3832,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3457,7 +3850,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the selfLink field is set.
      */
     public boolean hasSelfLink() {
-      return ((bitField0_ & 0x00001000) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3511,11 +3904,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3528,8 +3919,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3544,12 +3935,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3586,7 +3975,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Router(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

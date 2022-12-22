@@ -9,8 +9,8 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the channel. Must be unique within the location
-   * on the project and must be in
+   * Required. The resource name of the channel. Must be unique within the
+   * location on the project and must be in
    * `projects/{project}/locations/{location}/channels/{channel_id}` format.
    * </pre>
    *
@@ -20,8 +20,8 @@ public interface ChannelOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The resource name of the channel. Must be unique within the location
-   * on the project and must be in
+   * Required. The resource name of the channel. Must be unique within the
+   * location on the project and must be in
    * `projects/{project}/locations/{location}/channels/{channel_id}` format.
    * </pre>
    *
@@ -33,8 +33,9 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-   * string and guaranteed to remain unchanged until the resource is deleted.
+   * Output only. Server assigned unique identifier for the channel. The value
+   * is a UUID4 string and guaranteed to remain unchanged until the resource is
+   * deleted.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -43,8 +44,9 @@ public interface ChannelOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. Server assigned unique identifier for the channel. The value is a UUID4
-   * string and guaranteed to remain unchanged until the resource is deleted.
+   * Output only. Server assigned unique identifier for the channel. The value
+   * is a UUID4 string and guaranteed to remain unchanged until the resource is
+   * deleted.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -109,25 +111,25 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+   * The name of the event provider (e.g. Eventarc SaaS partner) associated
    * with the channel. This provider will be granted permissions to publish
    * events to the channel. Format:
    * `projects/{project}/locations/{location}/providers/{provider_id}`.
    * </pre>
    *
-   * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string provider = 7;</code>
    * @return The provider.
    */
   java.lang.String getProvider();
   /**
    * <pre>
-   * Required. The name of the event provider (e.g. Eventarc SaaS partner) associated
+   * The name of the event provider (e.g. Eventarc SaaS partner) associated
    * with the channel. This provider will be granted permissions to publish
    * events to the channel. Format:
    * `projects/{project}/locations/{location}/providers/{provider_id}`.
    * </pre>
    *
-   * <code>string provider = 7 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>string provider = 7;</code>
    * @return The bytes for provider.
    */
   com.google.protobuf.ByteString
@@ -135,8 +137,8 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-   * a transport for the event delivery. Format:
+   * Output only. The name of the Pub/Sub topic created and managed by
+   * Eventarc system as a transport for the event delivery. Format:
    * `projects/{project}/topics/{topic_id}`.
    * </pre>
    *
@@ -146,8 +148,8 @@ public interface ChannelOrBuilder extends
   boolean hasPubsubTopic();
   /**
    * <pre>
-   * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-   * a transport for the event delivery. Format:
+   * Output only. The name of the Pub/Sub topic created and managed by
+   * Eventarc system as a transport for the event delivery. Format:
    * `projects/{project}/topics/{topic_id}`.
    * </pre>
    *
@@ -157,8 +159,8 @@ public interface ChannelOrBuilder extends
   java.lang.String getPubsubTopic();
   /**
    * <pre>
-   * Output only. The name of the Pub/Sub topic created and managed by Eventarc system as
-   * a transport for the event delivery. Format:
+   * Output only. The name of the Pub/Sub topic created and managed by
+   * Eventarc system as a transport for the event delivery. Format:
    * `projects/{project}/topics/{topic_id}`.
    * </pre>
    *
@@ -189,8 +191,8 @@ public interface ChannelOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The activation token for the channel. The token must be used by the
-   * provider to register the channel for publishing.
+   * Output only. The activation token for the channel. The token must be used
+   * by the provider to register the channel for publishing.
    * </pre>
    *
    * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -199,8 +201,8 @@ public interface ChannelOrBuilder extends
   java.lang.String getActivationToken();
   /**
    * <pre>
-   * Output only. The activation token for the channel. The token must be used by the
-   * provider to register the channel for publishing.
+   * Output only. The activation token for the channel. The token must be used
+   * by the provider to register the channel for publishing.
    * </pre>
    *
    * <code>string activation_token = 10 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -208,6 +210,32 @@ public interface ChannelOrBuilder extends
    */
   com.google.protobuf.ByteString
       getActivationTokenBytes();
+
+  /**
+   * <pre>
+   * Optional. Resource name of a KMS crypto key (managed by the user) used to
+   * encrypt/decrypt their event data.
+   * It must match the pattern
+   * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+   * </pre>
+   *
+   * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+   * @return The cryptoKeyName.
+   */
+  java.lang.String getCryptoKeyName();
+  /**
+   * <pre>
+   * Optional. Resource name of a KMS crypto key (managed by the user) used to
+   * encrypt/decrypt their event data.
+   * It must match the pattern
+   * `projects/&#42;&#47;locations/&#42;&#47;keyRings/&#42;&#47;cryptoKeys/&#42;`.
+   * </pre>
+   *
+   * <code>string crypto_key_name = 11 [(.google.api.field_behavior) = OPTIONAL, (.google.api.resource_reference) = { ... }</code>
+   * @return The bytes for cryptoKeyName.
+   */
+  com.google.protobuf.ByteString
+      getCryptoKeyNameBytes();
 
   public com.google.cloud.eventarc.v1.Channel.TransportCase getTransportCase();
 }

@@ -39,88 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AllocationSpecificSKUAllocationReservedInstanceProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1821688210: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            machineType_ = s;
-            break;
-          }
-          case 1839610394: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              localSsds_ = new java.util.ArrayList<com.google.cloud.compute.v1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            localSsds_.add(
-                input.readMessage(com.google.cloud.compute.v1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.parser(), extensionRegistry));
-            break;
-          }
-          case 1943302074: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            minCpuPlatform_ = s;
-            break;
-          }
-          case -1490811254: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            locationHint_ = s;
-            break;
-          }
-          case -586206342: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              guestAccelerators_ = new java.util.ArrayList<com.google.cloud.compute.v1.AcceleratorConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            guestAccelerators_.add(
-                input.readMessage(com.google.cloud.compute.v1.AcceleratorConfig.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        localSsds_ = java.util.Collections.unmodifiableList(localSsds_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        guestAccelerators_ = java.util.Collections.unmodifiableList(guestAccelerators_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AllocationSpecificSKUAllocationReservedInstanceProperties_descriptor;
@@ -136,6 +54,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int GUEST_ACCELERATORS_FIELD_NUMBER = 463595119;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.AcceleratorConfig> guestAccelerators_;
   /**
    * <pre>
@@ -196,6 +115,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_SSDS_FIELD_NUMBER = 229951299;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk> localSsds_;
   /**
    * <pre>
@@ -256,7 +176,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_HINT_FIELD_NUMBER = 350519505;
-  private volatile java.lang.Object locationHint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object locationHint_ = "";
   /**
    * <pre>
    * An opaque location hint used to place the allocation close to other resources. This field is for use by internal tools that use the public API.
@@ -314,7 +235,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MACHINE_TYPE_FIELD_NUMBER = 227711026;
-  private volatile java.lang.Object machineType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object machineType_ = "";
   /**
    * <pre>
    * Specifies type of machine (name only) which has fixed number of vCPUs and fixed amount of memory. This also includes specifying custom machine type following custom-NUMBER_OF_CPUS-AMOUNT_OF_MEMORY pattern.
@@ -372,7 +294,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_CPU_PLATFORM_FIELD_NUMBER = 242912759;
-  private volatile java.lang.Object minCpuPlatform_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object minCpuPlatform_ = "";
   /**
    * <pre>
    * Minimum cpu platform the reservation.
@@ -458,7 +381,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < guestAccelerators_.size(); i++) {
       output.writeMessage(463595119, guestAccelerators_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -484,7 +407,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(463595119, guestAccelerators_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -518,7 +441,7 @@ private static final long serialVersionUID = 0L;
       if (!getMinCpuPlatform()
           .equals(other.getMinCpuPlatform())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -549,7 +472,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MIN_CPU_PLATFORM_FIELD_NUMBER;
       hash = (53 * hash) + getMinCpuPlatform().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -670,42 +593,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getGuestAcceleratorsFieldBuilder();
-        getLocalSsdsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (guestAcceleratorsBuilder_ == null) {
         guestAccelerators_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        guestAccelerators_ = null;
         guestAcceleratorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (localSsdsBuilder_ == null) {
         localSsds_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        localSsds_ = null;
         localSsdsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       locationHint_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       machineType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       minCpuPlatform_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -732,8 +648,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties buildPartial() {
       com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties result = new com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties result) {
       if (guestAcceleratorsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           guestAccelerators_ = java.util.Collections.unmodifiableList(guestAccelerators_);
@@ -752,21 +673,24 @@ private static final long serialVersionUID = 0L;
       } else {
         result.localSsds_ = localSsdsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.locationHint_ = locationHint_;
         to_bitField0_ |= 0x00000001;
       }
-      result.locationHint_ = locationHint_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.machineType_ = machineType_;
         to_bitField0_ |= 0x00000002;
       }
-      result.machineType_ = machineType_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.minCpuPlatform_ = minCpuPlatform_;
         to_bitField0_ |= 0x00000004;
       }
-      result.minCpuPlatform_ = minCpuPlatform_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -866,21 +790,21 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasLocationHint()) {
-        bitField0_ |= 0x00000004;
         locationHint_ = other.locationHint_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasMachineType()) {
-        bitField0_ |= 0x00000008;
         machineType_ = other.machineType_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasMinCpuPlatform()) {
-        bitField0_ |= 0x00000010;
         minCpuPlatform_ = other.minCpuPlatform_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -895,17 +819,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1821688210: {
+              machineType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1821688210
+            case 1839610394: {
+              com.google.cloud.compute.v1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.parser(),
+                      extensionRegistry);
+              if (localSsdsBuilder_ == null) {
+                ensureLocalSsdsIsMutable();
+                localSsds_.add(m);
+              } else {
+                localSsdsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 1839610394
+            case 1943302074: {
+              minCpuPlatform_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1943302074
+            case -1490811254: {
+              locationHint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1490811254
+            case -586206342: {
+              com.google.cloud.compute.v1.AcceleratorConfig m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.AcceleratorConfig.parser(),
+                      extensionRegistry);
+              if (guestAcceleratorsBuilder_ == null) {
+                ensureGuestAcceleratorsIsMutable();
+                guestAccelerators_.add(m);
+              } else {
+                guestAcceleratorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case -586206342
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AllocationSpecificSKUAllocationReservedInstanceProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1598,11 +1576,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationHint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       locationHint_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1615,8 +1591,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationHint() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       locationHint_ = getDefaultInstance().getLocationHint();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1631,12 +1607,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationHintBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locationHint_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1705,11 +1679,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       machineType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1722,8 +1694,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMachineType() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       machineType_ = getDefaultInstance().getMachineType();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1738,12 +1710,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       machineType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1812,11 +1782,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMinCpuPlatform(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       minCpuPlatform_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1829,8 +1797,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinCpuPlatform() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       minCpuPlatform_ = getDefaultInstance().getMinCpuPlatform();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1845,12 +1813,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMinCpuPlatformBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       minCpuPlatform_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1887,7 +1853,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AllocationSpecificSKUAllocationReservedInstanceProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

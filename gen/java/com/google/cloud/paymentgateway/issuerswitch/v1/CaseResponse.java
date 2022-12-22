@@ -41,141 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CaseResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            complaintReferenceNumber_ = s;
-            break;
-          }
-          case 18: {
-            com.google.type.Money.Builder subBuilder = null;
-            if (amount_ != null) {
-              subBuilder = amount_.toBuilder();
-            }
-            amount_ = input.readMessage(com.google.type.Money.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(amount_);
-              amount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adjustmentFlag_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adjustmentCode_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adjustmentReferenceId_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            adjustmentRemarks_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            approvalNumber_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            processStatus_ = s;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (adjustmentTime_ != null) {
-              subBuilder = adjustmentTime_.toBuilder();
-            }
-            adjustmentTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adjustmentTime_);
-              adjustmentTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant.Builder subBuilder = null;
-            if (participantCase_ == 10) {
-              subBuilder = ((com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) participant_).toBuilder();
-            }
-            participant_ =
-                input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) participant_);
-              participant_ = subBuilder.buildPartial();
-            }
-            participantCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant.Builder subBuilder = null;
-            if (participantCase_ == 11) {
-              subBuilder = ((com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) participant_).toBuilder();
-            }
-            participant_ =
-                input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) participant_);
-              participant_ = subBuilder.buildPartial();
-            }
-            participantCase_ = 11;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.ResolutionsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_CaseResponse_descriptor;
@@ -231,7 +96,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMPLAINT_REFERENCE_NUMBER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object complaintReferenceNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object complaintReferenceNumber_ = "";
   /**
    * <pre>
    * Complaint Reference Number(CRN) sent by UPI as a reference against the
@@ -316,11 +182,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.MoneyOrBuilder getAmountOrBuilder() {
-    return getAmount();
+    return amount_ == null ? com.google.type.Money.getDefaultInstance() : amount_;
   }
 
   public static final int ADJUSTMENT_FLAG_FIELD_NUMBER = 3;
-  private volatile java.lang.Object adjustmentFlag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adjustmentFlag_ = "";
   /**
    * <pre>
    * The adjustment flag in response to the complaint. This maps adjustment flag
@@ -370,7 +237,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADJUSTMENT_CODE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object adjustmentCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adjustmentCode_ = "";
   /**
    * <pre>
    * The adjustment code in response to the complaint. This maps reason code in
@@ -420,7 +288,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADJUSTMENT_REFERENCE_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object adjustmentReferenceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adjustmentReferenceId_ = "";
   /**
    * <pre>
    * It defines the Adjustment Reference ID which has been updated in the
@@ -468,7 +337,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADJUSTMENT_REMARKS_FIELD_NUMBER = 6;
-  private volatile java.lang.Object adjustmentRemarks_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object adjustmentRemarks_ = "";
   /**
    * <pre>
    * Adjustment Remarks. This maps to `adjRemarks` in complaint response.
@@ -514,7 +384,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APPROVAL_NUMBER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object approvalNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object approvalNumber_ = "";
   /**
    * <pre>
    * The Approval Reference Number. This maps to `approvalNum` in complaint
@@ -562,7 +433,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROCESS_STATUS_FIELD_NUMBER = 8;
-  private volatile java.lang.Object processStatus_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object processStatus_ = "";
   /**
    * <pre>
    * Process Status of the transaction. This maps to `procStatus` in complaint
@@ -647,7 +519,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getAdjustmentTimeOrBuilder() {
-    return getAdjustmentTime();
+    return adjustmentTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : adjustmentTime_;
   }
 
   public static final int PAYER_FIELD_NUMBER = 10;
@@ -783,7 +655,7 @@ private static final long serialVersionUID = 0L;
     if (participantCase_ == 11) {
       output.writeMessage(11, (com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) participant_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -829,7 +701,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, (com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) participant_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -881,7 +753,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -926,7 +798,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1047,47 +919,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       complaintReferenceNumber_ = "";
-
-      if (amountBuilder_ == null) {
-        amount_ = null;
-      } else {
-        amount_ = null;
+      amount_ = null;
+      if (amountBuilder_ != null) {
+        amountBuilder_.dispose();
         amountBuilder_ = null;
       }
       adjustmentFlag_ = "";
-
       adjustmentCode_ = "";
-
       adjustmentReferenceId_ = "";
-
       adjustmentRemarks_ = "";
-
       approvalNumber_ = "";
-
       processStatus_ = "";
-
-      if (adjustmentTimeBuilder_ == null) {
-        adjustmentTime_ = null;
-      } else {
-        adjustmentTime_ = null;
+      adjustmentTime_ = null;
+      if (adjustmentTimeBuilder_ != null) {
+        adjustmentTimeBuilder_.dispose();
         adjustmentTimeBuilder_ = null;
+      }
+      if (payerBuilder_ != null) {
+        payerBuilder_.clear();
+      }
+      if (payeeBuilder_ != null) {
+        payeeBuilder_.clear();
       }
       participantCase_ = 0;
       participant_ = null;
@@ -1117,40 +982,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse result = new com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse(this);
-      result.complaintReferenceNumber_ = complaintReferenceNumber_;
-      if (amountBuilder_ == null) {
-        result.amount_ = amount_;
-      } else {
-        result.amount_ = amountBuilder_.build();
-      }
-      result.adjustmentFlag_ = adjustmentFlag_;
-      result.adjustmentCode_ = adjustmentCode_;
-      result.adjustmentReferenceId_ = adjustmentReferenceId_;
-      result.adjustmentRemarks_ = adjustmentRemarks_;
-      result.approvalNumber_ = approvalNumber_;
-      result.processStatus_ = processStatus_;
-      if (adjustmentTimeBuilder_ == null) {
-        result.adjustmentTime_ = adjustmentTime_;
-      } else {
-        result.adjustmentTime_ = adjustmentTimeBuilder_.build();
-      }
-      if (participantCase_ == 10) {
-        if (payerBuilder_ == null) {
-          result.participant_ = participant_;
-        } else {
-          result.participant_ = payerBuilder_.build();
-        }
-      }
-      if (participantCase_ == 11) {
-        if (payeeBuilder_ == null) {
-          result.participant_ = participant_;
-        } else {
-          result.participant_ = payeeBuilder_.build();
-        }
-      }
-      result.participantCase_ = participantCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.complaintReferenceNumber_ = complaintReferenceNumber_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.amount_ = amountBuilder_ == null
+            ? amount_
+            : amountBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.adjustmentFlag_ = adjustmentFlag_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.adjustmentCode_ = adjustmentCode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.adjustmentReferenceId_ = adjustmentReferenceId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.adjustmentRemarks_ = adjustmentRemarks_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.approvalNumber_ = approvalNumber_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.processStatus_ = processStatus_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.adjustmentTime_ = adjustmentTimeBuilder_ == null
+            ? adjustmentTime_
+            : adjustmentTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse result) {
+      result.participantCase_ = participantCase_;
+      result.participant_ = this.participant_;
+      if (participantCase_ == 10 &&
+          payerBuilder_ != null) {
+        result.participant_ = payerBuilder_.build();
+      }
+      if (participantCase_ == 11 &&
+          payeeBuilder_ != null) {
+        result.participant_ = payeeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1199,6 +1082,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.getDefaultInstance()) return this;
       if (!other.getComplaintReferenceNumber().isEmpty()) {
         complaintReferenceNumber_ = other.complaintReferenceNumber_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasAmount()) {
@@ -1206,26 +1090,32 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAdjustmentFlag().isEmpty()) {
         adjustmentFlag_ = other.adjustmentFlag_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getAdjustmentCode().isEmpty()) {
         adjustmentCode_ = other.adjustmentCode_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getAdjustmentReferenceId().isEmpty()) {
         adjustmentReferenceId_ = other.adjustmentReferenceId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getAdjustmentRemarks().isEmpty()) {
         adjustmentRemarks_ = other.adjustmentRemarks_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getApprovalNumber().isEmpty()) {
         approvalNumber_ = other.approvalNumber_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getProcessStatus().isEmpty()) {
         processStatus_ = other.processStatus_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasAdjustmentTime()) {
@@ -1244,7 +1134,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1259,17 +1149,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              complaintReferenceNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAmountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              adjustmentFlag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              adjustmentCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              adjustmentReferenceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              adjustmentRemarks_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              approvalNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              processStatus_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getAdjustmentTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getPayerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              participantCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getPayeeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              participantCase_ = 11;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int participantCase_ = 0;
@@ -1287,6 +1253,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object complaintReferenceNumber_ = "";
     /**
@@ -1344,11 +1311,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setComplaintReferenceNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       complaintReferenceNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1362,8 +1327,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearComplaintReferenceNumber() {
-      
       complaintReferenceNumber_ = getDefaultInstance().getComplaintReferenceNumber();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1379,12 +1344,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setComplaintReferenceNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       complaintReferenceNumber_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1402,7 +1365,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the amount field is set.
      */
     public boolean hasAmount() {
-      return amountBuilder_ != null || amount_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1434,11 +1397,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         amount_ = value;
-        onChanged();
       } else {
         amountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1453,11 +1416,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Money.Builder builderForValue) {
       if (amountBuilder_ == null) {
         amount_ = builderForValue.build();
-        onChanged();
       } else {
         amountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1470,17 +1433,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAmount(com.google.type.Money value) {
       if (amountBuilder_ == null) {
-        if (amount_ != null) {
-          amount_ =
-            com.google.type.Money.newBuilder(amount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          amount_ != null &&
+          amount_ != com.google.type.Money.getDefaultInstance()) {
+          getAmountBuilder().mergeFrom(value);
         } else {
           amount_ = value;
         }
-        onChanged();
       } else {
         amountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1492,14 +1456,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Money amount = 2;</code>
      */
     public Builder clearAmount() {
-      if (amountBuilder_ == null) {
-        amount_ = null;
-        onChanged();
-      } else {
-        amount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      amount_ = null;
+      if (amountBuilder_ != null) {
+        amountBuilder_.dispose();
         amountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1511,7 +1474,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Money amount = 2;</code>
      */
     public com.google.type.Money.Builder getAmountBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAmountFieldBuilder().getBuilder();
     }
@@ -1612,11 +1575,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentFlag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adjustmentFlag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1631,8 +1592,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdjustmentFlag() {
-      
       adjustmentFlag_ = getDefaultInstance().getAdjustmentFlag();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1649,12 +1610,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentFlagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adjustmentFlag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1718,11 +1677,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adjustmentCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1737,8 +1694,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdjustmentCode() {
-      
       adjustmentCode_ = getDefaultInstance().getAdjustmentCode();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1755,12 +1712,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adjustmentCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1821,11 +1776,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentReferenceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adjustmentReferenceId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1839,8 +1792,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdjustmentReferenceId() {
-      
       adjustmentReferenceId_ = getDefaultInstance().getAdjustmentReferenceId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1856,12 +1809,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentReferenceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adjustmentReferenceId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1919,11 +1870,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentRemarks(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       adjustmentRemarks_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1936,8 +1885,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdjustmentRemarks() {
-      
       adjustmentRemarks_ = getDefaultInstance().getAdjustmentRemarks();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1952,12 +1901,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdjustmentRemarksBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       adjustmentRemarks_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2018,11 +1965,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovalNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       approvalNumber_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2036,8 +1981,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApprovalNumber() {
-      
       approvalNumber_ = getDefaultInstance().getApprovalNumber();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2053,12 +1998,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setApprovalNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       approvalNumber_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2119,11 +2062,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProcessStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       processStatus_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2137,8 +2078,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProcessStatus() {
-      
       processStatus_ = getDefaultInstance().getProcessStatus();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2154,12 +2095,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProcessStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       processStatus_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2177,7 +2116,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the adjustmentTime field is set.
      */
     public boolean hasAdjustmentTime() {
-      return adjustmentTimeBuilder_ != null || adjustmentTime_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2209,11 +2148,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adjustmentTime_ = value;
-        onChanged();
       } else {
         adjustmentTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2228,11 +2167,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (adjustmentTimeBuilder_ == null) {
         adjustmentTime_ = builderForValue.build();
-        onChanged();
       } else {
         adjustmentTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2245,17 +2184,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdjustmentTime(com.google.protobuf.Timestamp value) {
       if (adjustmentTimeBuilder_ == null) {
-        if (adjustmentTime_ != null) {
-          adjustmentTime_ =
-            com.google.protobuf.Timestamp.newBuilder(adjustmentTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          adjustmentTime_ != null &&
+          adjustmentTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getAdjustmentTimeBuilder().mergeFrom(value);
         } else {
           adjustmentTime_ = value;
         }
-        onChanged();
       } else {
         adjustmentTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2267,14 +2207,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp adjustment_time = 9;</code>
      */
     public Builder clearAdjustmentTime() {
-      if (adjustmentTimeBuilder_ == null) {
-        adjustmentTime_ = null;
-        onChanged();
-      } else {
-        adjustmentTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      adjustmentTime_ = null;
+      if (adjustmentTimeBuilder_ != null) {
+        adjustmentTimeBuilder_.dispose();
         adjustmentTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2286,7 +2225,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp adjustment_time = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getAdjustmentTimeBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getAdjustmentTimeFieldBuilder().getBuilder();
     }
@@ -2502,7 +2441,7 @@ private static final long serialVersionUID = 0L;
         participant_ = null;
       }
       participantCase_ = 10;
-      onChanged();;
+      onChanged();
       return payerBuilder_;
     }
 
@@ -2680,7 +2619,7 @@ private static final long serialVersionUID = 0L;
         participant_ = null;
       }
       participantCase_ = 11;
-      onChanged();;
+      onChanged();
       return payeeBuilder_;
     }
     @java.lang.Override
@@ -2716,7 +2655,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CaseResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

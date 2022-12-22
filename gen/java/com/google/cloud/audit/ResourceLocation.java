@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourceLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              currentLocations_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            currentLocations_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              originalLocations_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            originalLocations_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        currentLocations_ = currentLocations_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        originalLocations_ = originalLocations_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.audit.AuditLogProto.internal_static_google_cloud_audit_ResourceLocation_descriptor;
@@ -114,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENT_LOCATIONS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList currentLocations_;
   /**
    * <pre>
@@ -189,6 +126,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORIGINAL_LOCATIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList originalLocations_;
   /**
    * <pre>
@@ -283,7 +221,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < originalLocations_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, originalLocations_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -308,7 +246,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getOriginalLocationsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -327,7 +265,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCurrentLocationsList())) return false;
     if (!getOriginalLocationsList()
         .equals(other.getOriginalLocationsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -346,7 +284,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ORIGINAL_LOCATIONS_FIELD_NUMBER;
       hash = (53 * hash) + getOriginalLocationsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -467,22 +405,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.audit.ResourceLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       currentLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       originalLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -513,7 +447,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.audit.ResourceLocation buildPartial() {
       com.google.cloud.audit.ResourceLocation result = new com.google.cloud.audit.ResourceLocation(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.audit.ResourceLocation result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         currentLocations_ = currentLocations_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -524,8 +464,10 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.originalLocations_ = originalLocations_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.audit.ResourceLocation result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -592,7 +534,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -607,17 +549,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.audit.ResourceLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCurrentLocationsIsMutable();
+              currentLocations_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureOriginalLocationsIsMutable();
+              originalLocations_.add(s);
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.audit.ResourceLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -719,10 +686,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentLocations(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCurrentLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCurrentLocationsIsMutable();
       currentLocations_.set(index, value);
       onChanged();
       return this;
@@ -744,10 +709,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCurrentLocations(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCurrentLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCurrentLocationsIsMutable();
       currentLocations_.add(value);
       onChanged();
       return this;
@@ -812,10 +775,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCurrentLocationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCurrentLocationsIsMutable();
       currentLocations_.add(value);
       onChanged();
@@ -919,10 +880,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginalLocations(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOriginalLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOriginalLocationsIsMutable();
       originalLocations_.set(index, value);
       onChanged();
       return this;
@@ -944,10 +903,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOriginalLocations(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOriginalLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOriginalLocationsIsMutable();
       originalLocations_.add(value);
       onChanged();
       return this;
@@ -1012,10 +969,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOriginalLocationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureOriginalLocationsIsMutable();
       originalLocations_.add(value);
       onChanged();
@@ -1054,7 +1009,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -40,100 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Admin(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            accessLogPath_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            profilePath_ = s;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.Address.Builder subBuilder = null;
-            if (address_ != null) {
-              subBuilder = address_.toBuilder();
-            }
-            address_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Address.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(address_);
-              address_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              socketOptions_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.SocketOption>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            socketOptions_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.SocketOption.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              accessLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            accessLog_.add(
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-
-            ignoreGlobalConnLimit_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        socketOptions_ = java.util.Collections.unmodifiableList(socketOptions_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        accessLog_ = java.util.Collections.unmodifiableList(accessLog_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.bootstrap.v3.BootstrapProto.internal_static_envoy_config_bootstrap_v3_Admin_descriptor;
@@ -148,6 +54,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_LOG_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> accessLog_;
   /**
    * <pre>
@@ -213,7 +120,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_LOG_PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object accessLogPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object accessLogPath_ = "";
   /**
    * <pre>
    * The path to write the access log for the administration server. If no
@@ -224,7 +132,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
    * @return The accessLogPath.
    */
   @java.lang.Override
@@ -250,7 +158,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+   *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
    * @return The bytes for accessLogPath.
    */
   @java.lang.Override
@@ -269,7 +177,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROFILE_PATH_FIELD_NUMBER = 2;
-  private volatile java.lang.Object profilePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object profilePath_ = "";
   /**
    * <pre>
    * The cpu profiler output path for the administration server. If no profile
@@ -354,10 +263,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder() {
-    return getAddress();
+    return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
   }
 
   public static final int SOCKET_OPTIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.SocketOption> socketOptions_;
   /**
    * <pre>
@@ -423,7 +333,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IGNORE_GLOBAL_CONN_LIMIT_FIELD_NUMBER = 6;
-  private boolean ignoreGlobalConnLimit_;
+  private boolean ignoreGlobalConnLimit_ = false;
   /**
    * <pre>
    * Indicates whether :ref:`global_downstream_max_connections &lt;config_overload_manager_limiting_connections&gt;`
@@ -470,7 +380,7 @@ private static final long serialVersionUID = 0L;
     if (ignoreGlobalConnLimit_ != false) {
       output.writeBool(6, ignoreGlobalConnLimit_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -501,7 +411,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, ignoreGlobalConnLimit_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -531,7 +441,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getSocketOptionsList())) return false;
     if (getIgnoreGlobalConnLimit()
         != other.getIgnoreGlobalConnLimit()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -561,7 +471,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + IGNORE_GLOBAL_CONN_LIMIT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIgnoreGlobalConnLimit());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -684,48 +594,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.bootstrap.v3.Admin.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAccessLogFieldBuilder();
-        getSocketOptionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (accessLogBuilder_ == null) {
         accessLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        accessLog_ = null;
         accessLogBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       accessLogPath_ = "";
-
       profilePath_ = "";
-
-      if (addressBuilder_ == null) {
-        address_ = null;
-      } else {
-        address_ = null;
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
       if (socketOptionsBuilder_ == null) {
         socketOptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        socketOptions_ = null;
         socketOptionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       ignoreGlobalConnLimit_ = false;
-
       return this;
     }
 
@@ -752,7 +654,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.bootstrap.v3.Admin buildPartial() {
       io.envoyproxy.envoy.config.bootstrap.v3.Admin result = new io.envoyproxy.envoy.config.bootstrap.v3.Admin(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.bootstrap.v3.Admin result) {
       if (accessLogBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           accessLog_ = java.util.Collections.unmodifiableList(accessLog_);
@@ -762,25 +670,33 @@ private static final long serialVersionUID = 0L;
       } else {
         result.accessLog_ = accessLogBuilder_.build();
       }
-      result.accessLogPath_ = accessLogPath_;
-      result.profilePath_ = profilePath_;
-      if (addressBuilder_ == null) {
-        result.address_ = address_;
-      } else {
-        result.address_ = addressBuilder_.build();
-      }
       if (socketOptionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           socketOptions_ = java.util.Collections.unmodifiableList(socketOptions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.socketOptions_ = socketOptions_;
       } else {
         result.socketOptions_ = socketOptionsBuilder_.build();
       }
-      result.ignoreGlobalConnLimit_ = ignoreGlobalConnLimit_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.bootstrap.v3.Admin result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accessLogPath_ = accessLogPath_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.profilePath_ = profilePath_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.address_ = addressBuilder_ == null
+            ? address_
+            : addressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.ignoreGlobalConnLimit_ = ignoreGlobalConnLimit_;
+      }
     }
 
     @java.lang.Override
@@ -855,10 +771,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAccessLogPath().isEmpty()) {
         accessLogPath_ = other.accessLogPath_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getProfilePath().isEmpty()) {
         profilePath_ = other.profilePath_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasAddress()) {
@@ -868,7 +786,7 @@ private static final long serialVersionUID = 0L;
         if (!other.socketOptions_.isEmpty()) {
           if (socketOptions_.isEmpty()) {
             socketOptions_ = other.socketOptions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureSocketOptionsIsMutable();
             socketOptions_.addAll(other.socketOptions_);
@@ -881,7 +799,7 @@ private static final long serialVersionUID = 0L;
             socketOptionsBuilder_.dispose();
             socketOptionsBuilder_ = null;
             socketOptions_ = other.socketOptions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             socketOptionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSocketOptionsFieldBuilder() : null;
@@ -893,7 +811,7 @@ private static final long serialVersionUID = 0L;
       if (other.getIgnoreGlobalConnLimit() != false) {
         setIgnoreGlobalConnLimit(other.getIgnoreGlobalConnLimit());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -908,17 +826,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.bootstrap.v3.Admin parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              accessLogPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              profilePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              io.envoyproxy.envoy.config.core.v3.SocketOption m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.SocketOption.parser(),
+                      extensionRegistry);
+              if (socketOptionsBuilder_ == null) {
+                ensureSocketOptionsIsMutable();
+                socketOptions_.add(m);
+              } else {
+                socketOptionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              io.envoyproxy.envoy.config.accesslog.v3.AccessLog m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(),
+                      extensionRegistry);
+              if (accessLogBuilder_ == null) {
+                ensureAccessLogIsMutable();
+                accessLog_.add(m);
+              } else {
+                accessLogBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 48: {
+              ignoreGlobalConnLimit_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.bootstrap.v3.Admin) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1264,7 +1243,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
      * @return The accessLogPath.
      */
     @java.lang.Deprecated public java.lang.String getAccessLogPath() {
@@ -1289,7 +1268,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
      * @return The bytes for accessLogPath.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1315,17 +1294,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
      * @param value The accessLogPath to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setAccessLogPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       accessLogPath_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1339,12 +1316,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearAccessLogPath() {
-      
       accessLogPath_ = getDefaultInstance().getAccessLogPath();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1358,18 +1335,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string access_log_path = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
      * @deprecated envoy.config.bootstrap.v3.Admin.access_log_path is deprecated.
-     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=353
+     *     See envoy/config/bootstrap/v3/bootstrap.proto;l=372
      * @param value The bytes for accessLogPath to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setAccessLogPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       accessLogPath_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1430,11 +1405,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProfilePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       profilePath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1448,8 +1421,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProfilePath() {
-      
       profilePath_ = getDefaultInstance().getProfilePath();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1465,12 +1438,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProfilePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       profilePath_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1488,7 +1459,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the address field is set.
      */
     public boolean hasAddress() {
-      return addressBuilder_ != null || address_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1520,11 +1491,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         address_ = value;
-        onChanged();
       } else {
         addressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1539,11 +1510,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.Address.Builder builderForValue) {
       if (addressBuilder_ == null) {
         address_ = builderForValue.build();
-        onChanged();
       } else {
         addressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1556,17 +1527,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAddress(io.envoyproxy.envoy.config.core.v3.Address value) {
       if (addressBuilder_ == null) {
-        if (address_ != null) {
-          address_ =
-            io.envoyproxy.envoy.config.core.v3.Address.newBuilder(address_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          address_ != null &&
+          address_ != io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance()) {
+          getAddressBuilder().mergeFrom(value);
         } else {
           address_ = value;
         }
-        onChanged();
       } else {
         addressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1578,14 +1550,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.Address address = 3;</code>
      */
     public Builder clearAddress() {
-      if (addressBuilder_ == null) {
-        address_ = null;
-        onChanged();
-      } else {
-        address_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1597,7 +1568,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.Address address = 3;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.Address.Builder getAddressBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAddressFieldBuilder().getBuilder();
     }
@@ -1642,9 +1613,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.SocketOption> socketOptions_ =
       java.util.Collections.emptyList();
     private void ensureSocketOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         socketOptions_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.SocketOption>(socketOptions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1849,7 +1820,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSocketOptions() {
       if (socketOptionsBuilder_ == null) {
         socketOptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         socketOptionsBuilder_.clear();
@@ -1961,7 +1932,7 @@ private static final long serialVersionUID = 0L;
         socketOptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.SocketOption, io.envoyproxy.envoy.config.core.v3.SocketOption.Builder, io.envoyproxy.envoy.config.core.v3.SocketOptionOrBuilder>(
                 socketOptions_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         socketOptions_ = null;
@@ -1996,6 +1967,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIgnoreGlobalConnLimit(boolean value) {
       
       ignoreGlobalConnLimit_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2009,7 +1981,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIgnoreGlobalConnLimit() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       ignoreGlobalConnLimit_ = false;
       onChanged();
       return this;
@@ -2047,7 +2019,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Admin(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

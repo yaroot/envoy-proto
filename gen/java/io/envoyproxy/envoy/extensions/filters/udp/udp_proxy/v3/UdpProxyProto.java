@@ -43,7 +43,7 @@ public final class UdpProxyProto {
       "tcher.proto\032#envoy/annotations/deprecati" +
       "on.proto\032\035udpa/annotations/status.proto\032" +
       "!udpa/annotations/versioning.proto\032\027vali" +
-      "date/validate.proto\"\243\005\n\016UdpProxyConfig\022\034" +
+      "date/validate.proto\"\343\005\n\016UdpProxyConfig\022\034" +
       "\n\013stat_prefix\030\001 \001(\tB\007\372B\004r\002\020\001\022%\n\007cluster\030" +
       "\002 \001(\tB\022\030\001\372B\004r\002\020\001\222\307\206\330\004\0033.0H\000\0229\n\007matcher\030\t" +
       " \001(\0132\034.xds.type.matcher.v3.MatcherB\010\322\306\244\341" +
@@ -55,17 +55,18 @@ public final class UdpProxyProto {
       "socket_config\030\006 \001(\0132%.envoy.config.core." +
       "v3.UdpSocketConfig\022%\n\035use_per_packet_loa" +
       "d_balancing\030\007 \001(\010\0228\n\naccess_log\030\010 \003(\0132$." +
-      "envoy.config.accesslog.v3.AccessLog\032[\n\nH" +
-      "ashPolicy\022\034\n\tsource_ip\030\001 \001(\010B\007\372B\004j\002\010\001H\000\022" +
-      "\026\n\003key\030\002 \001(\tB\007\372B\004r\002\020\001H\000B\027\n\020policy_specif" +
-      "ier\022\003\370B\001:?\232\305\210\036:\n8envoy.config.filter.udp" +
-      ".udp_proxy.v2alpha.UdpProxyConfigB\026\n\017rou" +
-      "te_specifier\022\003\370B\001B\260\001\n7io.envoyproxy.envo" +
-      "y.extensions.filters.udp.udp_proxy.v3B\rU" +
-      "dpProxyProtoP\001Z\\github.com/envoyproxy/go" +
-      "-control-plane/envoy/extensions/filters/" +
-      "udp/udp_proxy/v3;udp_proxyv3\272\200\310\321\006\002\020\002b\006pr" +
-      "oto3"
+      "envoy.config.accesslog.v3.AccessLog\022>\n\020p" +
+      "roxy_access_log\030\n \003(\0132$.envoy.config.acc" +
+      "esslog.v3.AccessLog\032[\n\nHashPolicy\022\034\n\tsou" +
+      "rce_ip\030\001 \001(\010B\007\372B\004j\002\010\001H\000\022\026\n\003key\030\002 \001(\tB\007\372B" +
+      "\004r\002\020\001H\000B\027\n\020policy_specifier\022\003\370B\001:?\232\305\210\036:\n" +
+      "8envoy.config.filter.udp.udp_proxy.v2alp" +
+      "ha.UdpProxyConfigB\026\n\017route_specifier\022\003\370B" +
+      "\001B\260\001\n7io.envoyproxy.envoy.extensions.fil" +
+      "ters.udp.udp_proxy.v3B\rUdpProxyProtoP\001Z\\" +
+      "github.com/envoyproxy/go-control-plane/e" +
+      "nvoy/extensions/filters/udp/udp_proxy/v3" +
+      ";udp_proxyv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -85,7 +86,7 @@ public final class UdpProxyProto {
     internal_static_envoy_extensions_filters_udp_udp_proxy_v3_UdpProxyConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_udp_udp_proxy_v3_UdpProxyConfig_descriptor,
-        new java.lang.String[] { "StatPrefix", "Cluster", "Matcher", "IdleTimeout", "UseOriginalSrcIp", "HashPolicies", "UpstreamSocketConfig", "UsePerPacketLoadBalancing", "AccessLog", "RouteSpecifier", });
+        new java.lang.String[] { "StatPrefix", "Cluster", "Matcher", "IdleTimeout", "UseOriginalSrcIp", "HashPolicies", "UpstreamSocketConfig", "UsePerPacketLoadBalancing", "AccessLog", "ProxyAccessLog", "RouteSpecifier", });
     internal_static_envoy_extensions_filters_udp_udp_proxy_v3_UdpProxyConfig_HashPolicy_descriptor =
       internal_static_envoy_extensions_filters_udp_udp_proxy_v3_UdpProxyConfig_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_filters_udp_udp_proxy_v3_UdpProxyConfig_HashPolicy_fieldAccessorTable = new

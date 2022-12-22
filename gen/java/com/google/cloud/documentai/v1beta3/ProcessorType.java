@@ -25,6 +25,8 @@ private static final long serialVersionUID = 0L;
     type_ = "";
     category_ = "";
     availableLocations_ = java.util.Collections.emptyList();
+    launchStage_ = 0;
+    sampleDocumentUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -38,81 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ProcessorType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            category_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              availableLocations_ = new java.util.ArrayList<com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            availableLocations_.add(
-                input.readMessage(com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-
-            allowCreation_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        availableLocations_ = java.util.Collections.unmodifiableList(availableLocations_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -133,7 +60,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * The location id.
+     * The location id, currently must be one of [us, eu].
      * </pre>
      *
      * <code>string location_id = 1;</code>
@@ -142,7 +69,7 @@ private static final long serialVersionUID = 0L;
     java.lang.String getLocationId();
     /**
      * <pre>
-     * The location id.
+     * The location id, currently must be one of [us, eu].
      * </pre>
      *
      * <code>string location_id = 1;</code>
@@ -183,51 +110,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LocationInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              locationId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.documentai.v1beta3.DocumentAiProcessorType.internal_static_google_cloud_documentai_v1beta3_ProcessorType_LocationInfo_descriptor;
@@ -242,10 +124,11 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOCATION_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object locationId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object locationId_ = "";
     /**
      * <pre>
-     * The location id.
+     * The location id, currently must be one of [us, eu].
      * </pre>
      *
      * <code>string location_id = 1;</code>
@@ -266,7 +149,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The location id.
+     * The location id, currently must be one of [us, eu].
      * </pre>
      *
      * <code>string location_id = 1;</code>
@@ -304,7 +187,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(locationId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, locationId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -316,7 +199,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(locationId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, locationId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -333,7 +216,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getLocationId()
           .equals(other.getLocationId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -346,7 +229,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + LOCATION_ID_FIELD_NUMBER;
       hash = (53 * hash) + getLocationId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -467,24 +350,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         locationId_ = "";
-
         return this;
       }
 
@@ -511,9 +389,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo buildPartial() {
         com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo result = new com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo(this);
-        result.locationId_ = locationId_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.locationId_ = locationId_;
+        }
       }
 
       @java.lang.Override
@@ -562,9 +447,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo.getDefaultInstance()) return this;
         if (!other.getLocationId().isEmpty()) {
           locationId_ = other.locationId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -579,24 +465,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                locationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object locationId_ = "";
       /**
        * <pre>
-       * The location id.
+       * The location id, currently must be one of [us, eu].
        * </pre>
        *
        * <code>string location_id = 1;</code>
@@ -616,7 +521,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The location id.
+       * The location id, currently must be one of [us, eu].
        * </pre>
        *
        * <code>string location_id = 1;</code>
@@ -637,7 +542,7 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * The location id.
+       * The location id, currently must be one of [us, eu].
        * </pre>
        *
        * <code>string location_id = 1;</code>
@@ -646,31 +551,29 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLocationId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         locationId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The location id.
+       * The location id, currently must be one of [us, eu].
        * </pre>
        *
        * <code>string location_id = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearLocationId() {
-        
         locationId_ = getDefaultInstance().getLocationId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * The location id.
+       * The location id, currently must be one of [us, eu].
        * </pre>
        *
        * <code>string location_id = 1;</code>
@@ -679,12 +582,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setLocationIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         locationId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -721,7 +622,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocationInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -742,10 +654,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The resource name of the processor type.
+   * Format: `projects/{project}/processorTypes/{processor_type}`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -767,6 +681,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The resource name of the processor type.
+   * Format: `projects/{project}/processorTypes/{processor_type}`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -788,10 +703,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
-   * The type of the processor.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -812,7 +728,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The type of the processor.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -834,10 +750,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CATEGORY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object category_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object category_ = "";
   /**
    * <pre>
-   * The processor category.
+   * The processor category, used by UI to group processor types.
    * </pre>
    *
    * <code>string category = 3;</code>
@@ -858,7 +775,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The processor category.
+   * The processor category, used by UI to group processor types.
    * </pre>
    *
    * <code>string category = 3;</code>
@@ -880,6 +797,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVAILABLE_LOCATIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo> availableLocations_;
   /**
    * <pre>
@@ -940,12 +858,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_CREATION_FIELD_NUMBER = 6;
-  private boolean allowCreation_;
+  private boolean allowCreation_ = false;
   /**
    * <pre>
-   * Whether the processor type allows creation. If yes, user can create a
-   * processor of this processor type. Otherwise, user needs to require for
-   * whitelisting.
+   * Whether the processor type allows creation. If true, users can create a
+   * processor of this processor type. Otherwise, users need to request access.
    * </pre>
    *
    * <code>bool allow_creation = 6;</code>
@@ -954,6 +871,84 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getAllowCreation() {
     return allowCreation_;
+  }
+
+  public static final int LAUNCH_STAGE_FIELD_NUMBER = 8;
+  private int launchStage_ = 0;
+  /**
+   * <pre>
+   * Launch stage of the processor type
+   * </pre>
+   *
+   * <code>.google.api.LaunchStage launch_stage = 8;</code>
+   * @return The enum numeric value on the wire for launchStage.
+   */
+  @java.lang.Override public int getLaunchStageValue() {
+    return launchStage_;
+  }
+  /**
+   * <pre>
+   * Launch stage of the processor type
+   * </pre>
+   *
+   * <code>.google.api.LaunchStage launch_stage = 8;</code>
+   * @return The launchStage.
+   */
+  @java.lang.Override public com.google.api.LaunchStage getLaunchStage() {
+    com.google.api.LaunchStage result = com.google.api.LaunchStage.forNumber(launchStage_);
+    return result == null ? com.google.api.LaunchStage.UNRECOGNIZED : result;
+  }
+
+  public static final int SAMPLE_DOCUMENT_URIS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringList sampleDocumentUris_;
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @return A list containing the sampleDocumentUris.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getSampleDocumentUrisList() {
+    return sampleDocumentUris_;
+  }
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @return The count of sampleDocumentUris.
+   */
+  public int getSampleDocumentUrisCount() {
+    return sampleDocumentUris_.size();
+  }
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @param index The index of the element to return.
+   * @return The sampleDocumentUris at the given index.
+   */
+  public java.lang.String getSampleDocumentUris(int index) {
+    return sampleDocumentUris_.get(index);
+  }
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the sampleDocumentUris at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getSampleDocumentUrisBytes(int index) {
+    return sampleDocumentUris_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -985,7 +980,13 @@ private static final long serialVersionUID = 0L;
     if (allowCreation_ != false) {
       output.writeBool(6, allowCreation_);
     }
-    unknownFields.writeTo(output);
+    if (launchStage_ != com.google.api.LaunchStage.LAUNCH_STAGE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(8, launchStage_);
+    }
+    for (int i = 0; i < sampleDocumentUris_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, sampleDocumentUris_.getRaw(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1011,7 +1012,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, allowCreation_);
     }
-    size += unknownFields.getSerializedSize();
+    if (launchStage_ != com.google.api.LaunchStage.LAUNCH_STAGE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(8, launchStage_);
+    }
+    {
+      int dataSize = 0;
+      for (int i = 0; i < sampleDocumentUris_.size(); i++) {
+        dataSize += computeStringSizeNoTag(sampleDocumentUris_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getSampleDocumentUrisList().size();
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1036,7 +1049,10 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAvailableLocationsList())) return false;
     if (getAllowCreation()
         != other.getAllowCreation()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (launchStage_ != other.launchStage_) return false;
+    if (!getSampleDocumentUrisList()
+        .equals(other.getSampleDocumentUrisList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1060,7 +1076,13 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ALLOW_CREATION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAllowCreation());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + LAUNCH_STAGE_FIELD_NUMBER;
+    hash = (53 * hash) + launchStage_;
+    if (getSampleDocumentUrisCount() > 0) {
+      hash = (37 * hash) + SAMPLE_DOCUMENT_URIS_FIELD_NUMBER;
+      hash = (53 * hash) + getSampleDocumentUrisList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1182,37 +1204,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1beta3.ProcessorType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAvailableLocationsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       type_ = "";
-
       category_ = "";
-
       if (availableLocationsBuilder_ == null) {
         availableLocations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        availableLocations_ = null;
         availableLocationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       allowCreation_ = false;
-
+      launchStage_ = 0;
+      sampleDocumentUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -1239,22 +1256,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1beta3.ProcessorType buildPartial() {
       com.google.cloud.documentai.v1beta3.ProcessorType result = new com.google.cloud.documentai.v1beta3.ProcessorType(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.type_ = type_;
-      result.category_ = category_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.documentai.v1beta3.ProcessorType result) {
       if (availableLocationsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           availableLocations_ = java.util.Collections.unmodifiableList(availableLocations_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.availableLocations_ = availableLocations_;
       } else {
         result.availableLocations_ = availableLocationsBuilder_.build();
       }
-      result.allowCreation_ = allowCreation_;
-      onBuilt();
-      return result;
+      if (((bitField0_ & 0x00000040) != 0)) {
+        sampleDocumentUris_ = sampleDocumentUris_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.sampleDocumentUris_ = sampleDocumentUris_;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1beta3.ProcessorType result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.category_ = category_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.allowCreation_ = allowCreation_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.launchStage_ = launchStage_;
+      }
     }
 
     @java.lang.Override
@@ -1303,21 +1344,24 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.documentai.v1beta3.ProcessorType.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getCategory().isEmpty()) {
         category_ = other.category_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (availableLocationsBuilder_ == null) {
         if (!other.availableLocations_.isEmpty()) {
           if (availableLocations_.isEmpty()) {
             availableLocations_ = other.availableLocations_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureAvailableLocationsIsMutable();
             availableLocations_.addAll(other.availableLocations_);
@@ -1330,7 +1374,7 @@ private static final long serialVersionUID = 0L;
             availableLocationsBuilder_.dispose();
             availableLocationsBuilder_ = null;
             availableLocations_ = other.availableLocations_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             availableLocationsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAvailableLocationsFieldBuilder() : null;
@@ -1342,7 +1386,20 @@ private static final long serialVersionUID = 0L;
       if (other.getAllowCreation() != false) {
         setAllowCreation(other.getAllowCreation());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.launchStage_ != 0) {
+        setLaunchStageValue(other.getLaunchStageValue());
+      }
+      if (!other.sampleDocumentUris_.isEmpty()) {
+        if (sampleDocumentUris_.isEmpty()) {
+          sampleDocumentUris_ = other.sampleDocumentUris_;
+          bitField0_ = (bitField0_ & ~0x00000040);
+        } else {
+          ensureSampleDocumentUrisIsMutable();
+          sampleDocumentUris_.addAll(other.sampleDocumentUris_);
+        }
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1357,17 +1414,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1beta3.ProcessorType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              category_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo m =
+                  input.readMessage(
+                      com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo.parser(),
+                      extensionRegistry);
+              if (availableLocationsBuilder_ == null) {
+                ensureAvailableLocationsIsMutable();
+                availableLocations_.add(m);
+              } else {
+                availableLocationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 48: {
+              allowCreation_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 64: {
+              launchStage_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 64
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSampleDocumentUrisIsMutable();
+              sampleDocumentUris_.add(s);
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1beta3.ProcessorType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1376,6 +1490,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The resource name of the processor type.
+     * Format: `projects/{project}/processorTypes/{processor_type}`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -1396,6 +1511,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The resource name of the processor type.
+     * Format: `projects/{project}/processorTypes/{processor_type}`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -1417,6 +1533,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The resource name of the processor type.
+     * Format: `projects/{project}/processorTypes/{processor_type}`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -1425,31 +1542,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The resource name of the processor type.
+     * Format: `projects/{project}/processorTypes/{processor_type}`
      * </pre>
      *
      * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The resource name of the processor type.
+     * Format: `projects/{project}/processorTypes/{processor_type}`
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -1458,12 +1575,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1471,7 +1586,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object type_ = "";
     /**
      * <pre>
-     * The type of the processor.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1491,7 +1606,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The type of the processor.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1512,7 +1627,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The type of the processor.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1521,31 +1636,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The type of the processor.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
      * </pre>
      *
      * <code>string type = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The type of the processor.
+     * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
      * </pre>
      *
      * <code>string type = 2;</code>
@@ -1554,12 +1667,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1567,7 +1678,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object category_ = "";
     /**
      * <pre>
-     * The processor category.
+     * The processor category, used by UI to group processor types.
      * </pre>
      *
      * <code>string category = 3;</code>
@@ -1587,7 +1698,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The processor category.
+     * The processor category, used by UI to group processor types.
      * </pre>
      *
      * <code>string category = 3;</code>
@@ -1608,7 +1719,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The processor category.
+     * The processor category, used by UI to group processor types.
      * </pre>
      *
      * <code>string category = 3;</code>
@@ -1617,31 +1728,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCategory(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       category_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The processor category.
+     * The processor category, used by UI to group processor types.
      * </pre>
      *
      * <code>string category = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearCategory() {
-      
       category_ = getDefaultInstance().getCategory();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The processor category.
+     * The processor category, used by UI to group processor types.
      * </pre>
      *
      * <code>string category = 3;</code>
@@ -1650,12 +1759,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCategoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       category_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1663,9 +1770,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo> availableLocations_ =
       java.util.Collections.emptyList();
     private void ensureAvailableLocationsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         availableLocations_ = new java.util.ArrayList<com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo>(availableLocations_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1859,7 +1966,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAvailableLocations() {
       if (availableLocationsBuilder_ == null) {
         availableLocations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         availableLocationsBuilder_.clear();
@@ -1964,7 +2071,7 @@ private static final long serialVersionUID = 0L;
         availableLocationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo, com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfo.Builder, com.google.cloud.documentai.v1beta3.ProcessorType.LocationInfoOrBuilder>(
                 availableLocations_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         availableLocations_ = null;
@@ -1975,9 +2082,8 @@ private static final long serialVersionUID = 0L;
     private boolean allowCreation_ ;
     /**
      * <pre>
-     * Whether the processor type allows creation. If yes, user can create a
-     * processor of this processor type. Otherwise, user needs to require for
-     * whitelisting.
+     * Whether the processor type allows creation. If true, users can create a
+     * processor of this processor type. Otherwise, users need to request access.
      * </pre>
      *
      * <code>bool allow_creation = 6;</code>
@@ -1989,9 +2095,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether the processor type allows creation. If yes, user can create a
-     * processor of this processor type. Otherwise, user needs to require for
-     * whitelisting.
+     * Whether the processor type allows creation. If true, users can create a
+     * processor of this processor type. Otherwise, users need to request access.
      * </pre>
      *
      * <code>bool allow_creation = 6;</code>
@@ -2001,22 +2106,235 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowCreation(boolean value) {
       
       allowCreation_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether the processor type allows creation. If yes, user can create a
-     * processor of this processor type. Otherwise, user needs to require for
-     * whitelisting.
+     * Whether the processor type allows creation. If true, users can create a
+     * processor of this processor type. Otherwise, users need to request access.
      * </pre>
      *
      * <code>bool allow_creation = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearAllowCreation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       allowCreation_ = false;
+      onChanged();
+      return this;
+    }
+
+    private int launchStage_ = 0;
+    /**
+     * <pre>
+     * Launch stage of the processor type
+     * </pre>
+     *
+     * <code>.google.api.LaunchStage launch_stage = 8;</code>
+     * @return The enum numeric value on the wire for launchStage.
+     */
+    @java.lang.Override public int getLaunchStageValue() {
+      return launchStage_;
+    }
+    /**
+     * <pre>
+     * Launch stage of the processor type
+     * </pre>
+     *
+     * <code>.google.api.LaunchStage launch_stage = 8;</code>
+     * @param value The enum numeric value on the wire for launchStage to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLaunchStageValue(int value) {
+      launchStage_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Launch stage of the processor type
+     * </pre>
+     *
+     * <code>.google.api.LaunchStage launch_stage = 8;</code>
+     * @return The launchStage.
+     */
+    @java.lang.Override
+    public com.google.api.LaunchStage getLaunchStage() {
+      com.google.api.LaunchStage result = com.google.api.LaunchStage.forNumber(launchStage_);
+      return result == null ? com.google.api.LaunchStage.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Launch stage of the processor type
+     * </pre>
+     *
+     * <code>.google.api.LaunchStage launch_stage = 8;</code>
+     * @param value The launchStage to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLaunchStage(com.google.api.LaunchStage value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000020;
+      launchStage_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Launch stage of the processor type
+     * </pre>
+     *
+     * <code>.google.api.LaunchStage launch_stage = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLaunchStage() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      launchStage_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.LazyStringList sampleDocumentUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureSampleDocumentUrisIsMutable() {
+      if (!((bitField0_ & 0x00000040) != 0)) {
+        sampleDocumentUris_ = new com.google.protobuf.LazyStringArrayList(sampleDocumentUris_);
+        bitField0_ |= 0x00000040;
+       }
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @return A list containing the sampleDocumentUris.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getSampleDocumentUrisList() {
+      return sampleDocumentUris_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @return The count of sampleDocumentUris.
+     */
+    public int getSampleDocumentUrisCount() {
+      return sampleDocumentUris_.size();
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @param index The index of the element to return.
+     * @return The sampleDocumentUris at the given index.
+     */
+    public java.lang.String getSampleDocumentUris(int index) {
+      return sampleDocumentUris_.get(index);
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the sampleDocumentUris at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getSampleDocumentUrisBytes(int index) {
+      return sampleDocumentUris_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @param index The index to set the value at.
+     * @param value The sampleDocumentUris to set.
+     * @return This builder for chaining.
+     */
+    public Builder setSampleDocumentUris(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSampleDocumentUrisIsMutable();
+      sampleDocumentUris_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @param value The sampleDocumentUris to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSampleDocumentUris(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureSampleDocumentUrisIsMutable();
+      sampleDocumentUris_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @param values The sampleDocumentUris to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllSampleDocumentUris(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureSampleDocumentUrisIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, sampleDocumentUris_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearSampleDocumentUris() {
+      sampleDocumentUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * A set of Cloud Storage URIs of sample documents for this processor.
+     * </pre>
+     *
+     * <code>repeated string sample_document_uris = 9;</code>
+     * @param value The bytes of the sampleDocumentUris to add.
+     * @return This builder for chaining.
+     */
+    public Builder addSampleDocumentUrisBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureSampleDocumentUrisIsMutable();
+      sampleDocumentUris_.add(value);
       onChanged();
       return this;
     }
@@ -2053,7 +2371,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProcessorType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

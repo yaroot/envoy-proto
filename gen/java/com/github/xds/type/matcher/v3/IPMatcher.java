@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IPMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              rangeMatchers_ = new java.util.ArrayList<com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            rangeMatchers_.add(
-                input.readMessage(com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        rangeMatchers_ = java.util.Collections.unmodifiableList(rangeMatchers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.github.xds.type.matcher.v3.IPMatcherProto.internal_static_xds_type_matcher_v3_IPMatcher_descriptor;
@@ -232,76 +180,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private IPRangeMatcher(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                ranges_ = new java.util.ArrayList<com.github.xds.core.v3.CidrRange>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              ranges_.add(
-                  input.readMessage(com.github.xds.core.v3.CidrRange.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              com.github.xds.type.matcher.v3.Matcher.OnMatch.Builder subBuilder = null;
-              if (onMatch_ != null) {
-                subBuilder = onMatch_.toBuilder();
-              }
-              onMatch_ = input.readMessage(com.github.xds.type.matcher.v3.Matcher.OnMatch.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(onMatch_);
-                onMatch_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 24: {
-
-              exclusive_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          ranges_ = java.util.Collections.unmodifiableList(ranges_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.github.xds.type.matcher.v3.IPMatcherProto.internal_static_xds_type_matcher_v3_IPMatcher_IPRangeMatcher_descriptor;
@@ -316,6 +194,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RANGES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.github.xds.core.v3.CidrRange> ranges_;
     /**
      * <pre>
@@ -410,11 +289,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.github.xds.type.matcher.v3.Matcher.OnMatchOrBuilder getOnMatchOrBuilder() {
-      return getOnMatch();
+      return onMatch_ == null ? com.github.xds.type.matcher.v3.Matcher.OnMatch.getDefaultInstance() : onMatch_;
     }
 
     public static final int EXCLUSIVE_FIELD_NUMBER = 3;
-    private boolean exclusive_;
+    private boolean exclusive_ = false;
     /**
      * <pre>
      * Indicates whether this match option should be considered if there is a
@@ -466,7 +345,7 @@ private static final long serialVersionUID = 0L;
       if (exclusive_ != false) {
         output.writeBool(3, exclusive_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -487,7 +366,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, exclusive_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -511,7 +390,7 @@ private static final long serialVersionUID = 0L;
       }
       if (getExclusive()
           != other.getExclusive()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -533,7 +412,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXCLUSIVE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getExclusive());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -654,37 +533,31 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getRangesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (rangesBuilder_ == null) {
           ranges_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          ranges_ = null;
           rangesBuilder_.clear();
         }
-        if (onMatchBuilder_ == null) {
-          onMatch_ = null;
-        } else {
-          onMatch_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onMatch_ = null;
+        if (onMatchBuilder_ != null) {
+          onMatchBuilder_.dispose();
           onMatchBuilder_ = null;
         }
         exclusive_ = false;
-
         return this;
       }
 
@@ -711,7 +584,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher buildPartial() {
         com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher result = new com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher result) {
         if (rangesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             ranges_ = java.util.Collections.unmodifiableList(ranges_);
@@ -721,14 +600,18 @@ private static final long serialVersionUID = 0L;
         } else {
           result.ranges_ = rangesBuilder_.build();
         }
-        if (onMatchBuilder_ == null) {
-          result.onMatch_ = onMatch_;
-        } else {
-          result.onMatch_ = onMatchBuilder_.build();
+      }
+
+      private void buildPartial0(com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.onMatch_ = onMatchBuilder_ == null
+              ? onMatch_
+              : onMatchBuilder_.build();
         }
-        result.exclusive_ = exclusive_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.exclusive_ = exclusive_;
+        }
       }
 
       @java.lang.Override
@@ -807,7 +690,7 @@ private static final long serialVersionUID = 0L;
         if (other.getExclusive() != false) {
           setExclusive(other.getExclusive());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -822,17 +705,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.github.xds.core.v3.CidrRange m =
+                    input.readMessage(
+                        com.github.xds.core.v3.CidrRange.parser(),
+                        extensionRegistry);
+                if (rangesBuilder_ == null) {
+                  ensureRangesIsMutable();
+                  ranges_.add(m);
+                } else {
+                  rangesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getOnMatchFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                exclusive_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1161,7 +1082,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the onMatch field is set.
        */
       public boolean hasOnMatch() {
-        return onMatchBuilder_ != null || onMatch_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1191,11 +1112,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           onMatch_ = value;
-          onChanged();
         } else {
           onMatchBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1209,11 +1130,11 @@ private static final long serialVersionUID = 0L;
           com.github.xds.type.matcher.v3.Matcher.OnMatch.Builder builderForValue) {
         if (onMatchBuilder_ == null) {
           onMatch_ = builderForValue.build();
-          onChanged();
         } else {
           onMatchBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1225,17 +1146,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeOnMatch(com.github.xds.type.matcher.v3.Matcher.OnMatch value) {
         if (onMatchBuilder_ == null) {
-          if (onMatch_ != null) {
-            onMatch_ =
-              com.github.xds.type.matcher.v3.Matcher.OnMatch.newBuilder(onMatch_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            onMatch_ != null &&
+            onMatch_ != com.github.xds.type.matcher.v3.Matcher.OnMatch.getDefaultInstance()) {
+            getOnMatchBuilder().mergeFrom(value);
           } else {
             onMatch_ = value;
           }
-          onChanged();
         } else {
           onMatchBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1246,14 +1168,13 @@ private static final long serialVersionUID = 0L;
        * <code>.xds.type.matcher.v3.Matcher.OnMatch on_match = 2;</code>
        */
       public Builder clearOnMatch() {
-        if (onMatchBuilder_ == null) {
-          onMatch_ = null;
-          onChanged();
-        } else {
-          onMatch_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onMatch_ = null;
+        if (onMatchBuilder_ != null) {
+          onMatchBuilder_.dispose();
           onMatchBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1264,7 +1185,7 @@ private static final long serialVersionUID = 0L;
        * <code>.xds.type.matcher.v3.Matcher.OnMatch on_match = 2;</code>
        */
       public com.github.xds.type.matcher.v3.Matcher.OnMatch.Builder getOnMatchBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getOnMatchFieldBuilder().getBuilder();
       }
@@ -1359,6 +1280,7 @@ private static final long serialVersionUID = 0L;
       public Builder setExclusive(boolean value) {
         
         exclusive_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1386,7 +1308,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearExclusive() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         exclusive_ = false;
         onChanged();
         return this;
@@ -1424,7 +1346,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IPRangeMatcher(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1445,6 +1378,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RANGE_MATCHERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher> rangeMatchers_;
   /**
    * <pre>
@@ -1521,7 +1455,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < rangeMatchers_.size(); i++) {
       output.writeMessage(1, rangeMatchers_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1534,7 +1468,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, rangeMatchers_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1551,7 +1485,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getRangeMatchersList()
         .equals(other.getRangeMatchersList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1566,7 +1500,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RANGE_MATCHERS_FIELD_NUMBER;
       hash = (53 * hash) + getRangeMatchersList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1687,29 +1621,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.xds.type.matcher.v3.IPMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRangeMatchersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (rangeMatchersBuilder_ == null) {
         rangeMatchers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        rangeMatchers_ = null;
         rangeMatchersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1736,7 +1666,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.xds.type.matcher.v3.IPMatcher buildPartial() {
       com.github.xds.type.matcher.v3.IPMatcher result = new com.github.xds.type.matcher.v3.IPMatcher(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.github.xds.type.matcher.v3.IPMatcher result) {
       if (rangeMatchersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           rangeMatchers_ = java.util.Collections.unmodifiableList(rangeMatchers_);
@@ -1746,8 +1682,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.rangeMatchers_ = rangeMatchersBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.github.xds.type.matcher.v3.IPMatcher result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1820,7 +1758,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1835,17 +1773,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.xds.type.matcher.v3.IPMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher m =
+                  input.readMessage(
+                      com.github.xds.type.matcher.v3.IPMatcher.IPRangeMatcher.parser(),
+                      extensionRegistry);
+              if (rangeMatchersBuilder_ == null) {
+                ensureRangeMatchersIsMutable();
+                rangeMatchers_.add(m);
+              } else {
+                rangeMatchersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.xds.type.matcher.v3.IPMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2194,7 +2158,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IPMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

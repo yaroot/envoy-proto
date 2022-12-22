@@ -44,83 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EkmConnection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              serviceResolvers_ = new java.util.ArrayList<com.google.cloud.kms.v1.EkmConnection.ServiceResolver>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            serviceResolvers_.add(
-                input.readMessage(com.google.cloud.kms.v1.EkmConnection.ServiceResolver.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        serviceResolvers_ = java.util.Collections.unmodifiableList(serviceResolvers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.kms.v1.EkmServiceProto.internal_static_google_cloud_kms_v1_EkmConnection_descriptor;
@@ -213,7 +136,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -223,7 +147,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -232,7 +157,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -241,7 +167,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -251,7 +178,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -296,76 +224,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ServiceResolver(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              serviceDirectoryService_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              endpointFilter_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              hostname_ = s;
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                serverCertificates_ = new java.util.ArrayList<com.google.cloud.kms.v1.Certificate>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              serverCertificates_.add(
-                  input.readMessage(com.google.cloud.kms.v1.Certificate.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          serverCertificates_ = java.util.Collections.unmodifiableList(serverCertificates_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.kms.v1.EkmServiceProto.internal_static_google_cloud_kms_v1_EkmConnection_ServiceResolver_descriptor;
@@ -380,7 +238,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SERVICE_DIRECTORY_SERVICE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object serviceDirectoryService_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object serviceDirectoryService_ = "";
     /**
      * <pre>
      * Required. The resource name of the Service Directory service pointing to
@@ -430,7 +289,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENDPOINT_FILTER_FIELD_NUMBER = 2;
-    private volatile java.lang.Object endpointFilter_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object endpointFilter_ = "";
     /**
      * <pre>
      * Optional. The filter applied to the endpoints of the resolved service. If
@@ -484,7 +344,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HOSTNAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object hostname_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object hostname_ = "";
     /**
      * <pre>
      * Required. The hostname of the EKM replica used at TLS and HTTP layers.
@@ -530,11 +391,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SERVER_CERTIFICATES_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.kms.v1.Certificate> serverCertificates_;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -546,7 +409,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -559,7 +423,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -571,7 +436,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -583,7 +449,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. A list of leaf server certificates used to authenticate HTTPS
-     * connections to the EKM replica.
+     * connections to the EKM replica. Currently, a maximum of 10
+     * [Certificate][google.cloud.kms.v1.Certificate] is supported.
      * </pre>
      *
      * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -620,7 +487,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < serverCertificates_.size(); i++) {
         output.writeMessage(4, serverCertificates_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -642,7 +509,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, serverCertificates_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -665,7 +532,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getHostname())) return false;
       if (!getServerCertificatesList()
           .equals(other.getServerCertificatesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -686,7 +553,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + SERVER_CERTIFICATES_FIELD_NUMBER;
         hash = (53 * hash) + getServerCertificatesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -809,35 +676,28 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.kms.v1.EkmConnection.ServiceResolver.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getServerCertificatesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         serviceDirectoryService_ = "";
-
         endpointFilter_ = "";
-
         hostname_ = "";
-
         if (serverCertificatesBuilder_ == null) {
           serverCertificates_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          serverCertificates_ = null;
           serverCertificatesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -864,21 +724,35 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.kms.v1.EkmConnection.ServiceResolver buildPartial() {
         com.google.cloud.kms.v1.EkmConnection.ServiceResolver result = new com.google.cloud.kms.v1.EkmConnection.ServiceResolver(this);
-        int from_bitField0_ = bitField0_;
-        result.serviceDirectoryService_ = serviceDirectoryService_;
-        result.endpointFilter_ = endpointFilter_;
-        result.hostname_ = hostname_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.kms.v1.EkmConnection.ServiceResolver result) {
         if (serverCertificatesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             serverCertificates_ = java.util.Collections.unmodifiableList(serverCertificates_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.serverCertificates_ = serverCertificates_;
         } else {
           result.serverCertificates_ = serverCertificatesBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.kms.v1.EkmConnection.ServiceResolver result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.serviceDirectoryService_ = serviceDirectoryService_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.endpointFilter_ = endpointFilter_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.hostname_ = hostname_;
+        }
       }
 
       @java.lang.Override
@@ -927,21 +801,24 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.kms.v1.EkmConnection.ServiceResolver.getDefaultInstance()) return this;
         if (!other.getServiceDirectoryService().isEmpty()) {
           serviceDirectoryService_ = other.serviceDirectoryService_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getEndpointFilter().isEmpty()) {
           endpointFilter_ = other.endpointFilter_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getHostname().isEmpty()) {
           hostname_ = other.hostname_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (serverCertificatesBuilder_ == null) {
           if (!other.serverCertificates_.isEmpty()) {
             if (serverCertificates_.isEmpty()) {
               serverCertificates_ = other.serverCertificates_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureServerCertificatesIsMutable();
               serverCertificates_.addAll(other.serverCertificates_);
@@ -954,7 +831,7 @@ private static final long serialVersionUID = 0L;
               serverCertificatesBuilder_.dispose();
               serverCertificatesBuilder_ = null;
               serverCertificates_ = other.serverCertificates_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
               serverCertificatesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getServerCertificatesFieldBuilder() : null;
@@ -963,7 +840,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -978,17 +855,58 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.kms.v1.EkmConnection.ServiceResolver parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                serviceDirectoryService_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                endpointFilter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                hostname_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                com.google.cloud.kms.v1.Certificate m =
+                    input.readMessage(
+                        com.google.cloud.kms.v1.Certificate.parser(),
+                        extensionRegistry);
+                if (serverCertificatesBuilder_ == null) {
+                  ensureServerCertificatesIsMutable();
+                  serverCertificates_.add(m);
+                } else {
+                  serverCertificatesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.kms.v1.EkmConnection.ServiceResolver) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1052,11 +970,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setServiceDirectoryService(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         serviceDirectoryService_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1071,8 +987,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearServiceDirectoryService() {
-        
         serviceDirectoryService_ = getDefaultInstance().getServiceDirectoryService();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1089,12 +1005,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setServiceDirectoryServiceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         serviceDirectoryService_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1164,11 +1078,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndpointFilter(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         endpointFilter_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1185,8 +1097,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEndpointFilter() {
-        
         endpointFilter_ = getDefaultInstance().getEndpointFilter();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1205,12 +1117,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEndpointFilterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         endpointFilter_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1268,11 +1178,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostname(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         hostname_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1285,8 +1193,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHostname() {
-        
         hostname_ = getDefaultInstance().getHostname();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1301,12 +1209,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostnameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         hostname_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1314,9 +1220,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.kms.v1.Certificate> serverCertificates_ =
         java.util.Collections.emptyList();
       private void ensureServerCertificatesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           serverCertificates_ = new java.util.ArrayList<com.google.cloud.kms.v1.Certificate>(serverCertificates_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -1326,7 +1232,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1341,7 +1248,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1356,7 +1264,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1371,7 +1280,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1393,7 +1303,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1412,7 +1323,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1433,7 +1345,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1455,7 +1368,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1474,7 +1388,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1493,7 +1408,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1513,7 +1429,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1521,7 +1438,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearServerCertificates() {
         if (serverCertificatesBuilder_ == null) {
           serverCertificates_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           serverCertificatesBuilder_.clear();
@@ -1531,7 +1448,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1549,7 +1467,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1561,7 +1480,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1576,7 +1496,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1592,7 +1513,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1604,7 +1526,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1617,7 +1540,8 @@ private static final long serialVersionUID = 0L;
       /**
        * <pre>
        * Required. A list of leaf server certificates used to authenticate HTTPS
-       * connections to the EKM replica.
+       * connections to the EKM replica. Currently, a maximum of 10
+       * [Certificate][google.cloud.kms.v1.Certificate] is supported.
        * </pre>
        *
        * <code>repeated .google.cloud.kms.v1.Certificate server_certificates = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1633,7 +1557,7 @@ private static final long serialVersionUID = 0L;
           serverCertificatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.kms.v1.Certificate, com.google.cloud.kms.v1.Certificate.Builder, com.google.cloud.kms.v1.CertificateOrBuilder>(
                   serverCertificates_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           serverCertificates_ = null;
@@ -1673,7 +1597,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ServiceResolver(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1694,7 +1629,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name for the
@@ -1781,10 +1717,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int SERVICE_RESOLVERS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.kms.v1.EkmConnection.ServiceResolver> serviceResolvers_;
   /**
    * <pre>
@@ -1870,15 +1807,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 5;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
-   * This checksum is computed by the server based on the value of other fields,
-   * and may be sent on update requests to ensure the client has an up-to-date
-   * value before proceeding.
+   * Optional. Etag of the currently stored
+   * [EkmConnection][google.cloud.kms.v1.EkmConnection].
    * </pre>
    *
-   * <code>string etag = 5;</code>
+   * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The etag.
    */
   @java.lang.Override
@@ -1896,12 +1833,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * This checksum is computed by the server based on the value of other fields,
-   * and may be sent on update requests to ensure the client has an up-to-date
-   * value before proceeding.
+   * Optional. Etag of the currently stored
+   * [EkmConnection][google.cloud.kms.v1.EkmConnection].
    * </pre>
    *
-   * <code>string etag = 5;</code>
+   * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for etag.
    */
   @java.lang.Override
@@ -1945,7 +1881,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, etag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1968,7 +1904,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1994,7 +1930,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceResolversList())) return false;
     if (!getEtag()
         .equals(other.getEtag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2017,7 +1953,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ETAG_FIELD_NUMBER;
     hash = (53 * hash) + getEtag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2145,39 +2081,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.kms.v1.EkmConnection.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getServiceResolversFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       if (serviceResolversBuilder_ == null) {
         serviceResolvers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        serviceResolvers_ = null;
         serviceResolversBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       etag_ = "";
-
       return this;
     }
 
@@ -2204,25 +2133,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.kms.v1.EkmConnection buildPartial() {
       com.google.cloud.kms.v1.EkmConnection result = new com.google.cloud.kms.v1.EkmConnection(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.kms.v1.EkmConnection result) {
       if (serviceResolversBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           serviceResolvers_ = java.util.Collections.unmodifiableList(serviceResolvers_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.serviceResolvers_ = serviceResolvers_;
       } else {
         result.serviceResolvers_ = serviceResolversBuilder_.build();
       }
-      result.etag_ = etag_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.kms.v1.EkmConnection result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.etag_ = etag_;
+      }
     }
 
     @java.lang.Override
@@ -2271,6 +2212,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.kms.v1.EkmConnection.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -2280,7 +2222,7 @@ private static final long serialVersionUID = 0L;
         if (!other.serviceResolvers_.isEmpty()) {
           if (serviceResolvers_.isEmpty()) {
             serviceResolvers_ = other.serviceResolvers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureServiceResolversIsMutable();
             serviceResolvers_.addAll(other.serviceResolvers_);
@@ -2293,7 +2235,7 @@ private static final long serialVersionUID = 0L;
             serviceResolversBuilder_.dispose();
             serviceResolversBuilder_ = null;
             serviceResolvers_ = other.serviceResolvers_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             serviceResolversBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getServiceResolversFieldBuilder() : null;
@@ -2304,9 +2246,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2321,17 +2264,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.kms.v1.EkmConnection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.kms.v1.EkmConnection.ServiceResolver m =
+                  input.readMessage(
+                      com.google.cloud.kms.v1.EkmConnection.ServiceResolver.parser(),
+                      extensionRegistry);
+              if (serviceResolversBuilder_ == null) {
+                ensureServiceResolversIsMutable();
+                serviceResolvers_.add(m);
+              } else {
+                serviceResolversBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 42: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.kms.v1.EkmConnection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2395,11 +2381,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2414,8 +2398,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2432,12 +2416,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2455,7 +2437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2487,11 +2469,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2506,11 +2488,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2523,17 +2505,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2545,14 +2528,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2564,7 +2546,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2609,9 +2591,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.kms.v1.EkmConnection.ServiceResolver> serviceResolvers_ =
       java.util.Collections.emptyList();
     private void ensureServiceResolversIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         serviceResolvers_ = new java.util.ArrayList<com.google.cloud.kms.v1.EkmConnection.ServiceResolver>(serviceResolvers_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -2860,7 +2842,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearServiceResolvers() {
       if (serviceResolversBuilder_ == null) {
         serviceResolvers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         serviceResolversBuilder_.clear();
@@ -3000,7 +2982,7 @@ private static final long serialVersionUID = 0L;
         serviceResolversBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.kms.v1.EkmConnection.ServiceResolver, com.google.cloud.kms.v1.EkmConnection.ServiceResolver.Builder, com.google.cloud.kms.v1.EkmConnection.ServiceResolverOrBuilder>(
                 serviceResolvers_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         serviceResolvers_ = null;
@@ -3011,12 +2993,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object etag_ = "";
     /**
      * <pre>
-     * This checksum is computed by the server based on the value of other fields,
-     * and may be sent on update requests to ensure the client has an up-to-date
-     * value before proceeding.
+     * Optional. Etag of the currently stored
+     * [EkmConnection][google.cloud.kms.v1.EkmConnection].
      * </pre>
      *
-     * <code>string etag = 5;</code>
+     * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The etag.
      */
     public java.lang.String getEtag() {
@@ -3033,12 +3014,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This checksum is computed by the server based on the value of other fields,
-     * and may be sent on update requests to ensure the client has an up-to-date
-     * value before proceeding.
+     * Optional. Etag of the currently stored
+     * [EkmConnection][google.cloud.kms.v1.EkmConnection].
      * </pre>
      *
-     * <code>string etag = 5;</code>
+     * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The bytes for etag.
      */
     public com.google.protobuf.ByteString
@@ -3056,60 +3036,53 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This checksum is computed by the server based on the value of other fields,
-     * and may be sent on update requests to ensure the client has an up-to-date
-     * value before proceeding.
+     * Optional. Etag of the currently stored
+     * [EkmConnection][google.cloud.kms.v1.EkmConnection].
      * </pre>
      *
-     * <code>string etag = 5;</code>
+     * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The etag to set.
      * @return This builder for chaining.
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * This checksum is computed by the server based on the value of other fields,
-     * and may be sent on update requests to ensure the client has an up-to-date
-     * value before proceeding.
+     * Optional. Etag of the currently stored
+     * [EkmConnection][google.cloud.kms.v1.EkmConnection].
      * </pre>
      *
-     * <code>string etag = 5;</code>
+     * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * This checksum is computed by the server based on the value of other fields,
-     * and may be sent on update requests to ensure the client has an up-to-date
-     * value before proceeding.
+     * Optional. Etag of the currently stored
+     * [EkmConnection][google.cloud.kms.v1.EkmConnection].
      * </pre>
      *
-     * <code>string etag = 5;</code>
+     * <code>string etag = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The bytes for etag to set.
      * @return This builder for chaining.
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3146,7 +3119,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EkmConnection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

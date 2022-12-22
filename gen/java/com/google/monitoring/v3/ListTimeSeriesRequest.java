@@ -39,119 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListTimeSeriesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          case 34: {
-            com.google.monitoring.v3.TimeInterval.Builder subBuilder = null;
-            if (interval_ != null) {
-              subBuilder = interval_.toBuilder();
-            }
-            interval_ = input.readMessage(com.google.monitoring.v3.TimeInterval.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(interval_);
-              interval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.monitoring.v3.Aggregation.Builder subBuilder = null;
-            if (aggregation_ != null) {
-              subBuilder = aggregation_.toBuilder();
-            }
-            aggregation_ = input.readMessage(com.google.monitoring.v3.Aggregation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(aggregation_);
-              aggregation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderBy_ = s;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            view_ = rawValue;
-            break;
-          }
-          case 64: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 90: {
-            com.google.monitoring.v3.Aggregation.Builder subBuilder = null;
-            if (secondaryAggregation_ != null) {
-              subBuilder = secondaryAggregation_.toBuilder();
-            }
-            secondaryAggregation_ = input.readMessage(com.google.monitoring.v3.Aggregation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(secondaryAggregation_);
-              secondaryAggregation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.MetricServiceProto.internal_static_google_monitoring_v3_ListTimeSeriesRequest_descriptor;
@@ -298,7 +185,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 10;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The [project](https://cloud.google.com/monitoring/api/v3#project_name),
@@ -352,7 +240,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * Required. A [monitoring filter](https://cloud.google.com/monitoring/api/v3/filters)
@@ -448,7 +337,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.TimeIntervalOrBuilder getIntervalOrBuilder() {
-    return getInterval();
+    return interval_ == null ? com.google.monitoring.v3.TimeInterval.getDefaultInstance() : interval_;
   }
 
   public static final int AGGREGATION_FIELD_NUMBER = 5;
@@ -495,7 +384,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.AggregationOrBuilder getAggregationOrBuilder() {
-    return getAggregation();
+    return aggregation_ == null ? com.google.monitoring.v3.Aggregation.getDefaultInstance() : aggregation_;
   }
 
   public static final int SECONDARY_AGGREGATION_FIELD_NUMBER = 11;
@@ -536,11 +425,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.AggregationOrBuilder getSecondaryAggregationOrBuilder() {
-    return getSecondaryAggregation();
+    return secondaryAggregation_ == null ? com.google.monitoring.v3.Aggregation.getDefaultInstance() : secondaryAggregation_;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 6;
-  private volatile java.lang.Object orderBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
   /**
    * <pre>
    * Unsupported: must be left blank. The points in each time series are
@@ -588,7 +478,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VIEW_FIELD_NUMBER = 7;
-  private int view_;
+  private int view_ = 0;
   /**
    * <pre>
    * Required. Specifies which information is returned about the time series.
@@ -609,13 +499,12 @@ private static final long serialVersionUID = 0L;
    * @return The view.
    */
   @java.lang.Override public com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView getView() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView result = com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView.valueOf(view_);
+    com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView result = com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView.forNumber(view_);
     return result == null ? com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView.UNRECOGNIZED : result;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 8;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * A positive number that is the maximum number of results to return. If
@@ -634,7 +523,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 9;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * If this field is not empty then it must contain the `nextPageToken` value
@@ -724,7 +614,7 @@ private static final long serialVersionUID = 0L;
     if (secondaryAggregation_ != null) {
       output.writeMessage(11, getSecondaryAggregation());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -765,7 +655,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getSecondaryAggregation());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -806,7 +696,7 @@ private static final long serialVersionUID = 0L;
         != other.getPageSize()) return false;
     if (!getPageToken()
         .equals(other.getPageToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -841,7 +731,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPageSize();
     hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getPageToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -962,52 +852,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.ListTimeSeriesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       filter_ = "";
-
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-      } else {
-        interval_ = null;
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
         intervalBuilder_ = null;
       }
-      if (aggregationBuilder_ == null) {
-        aggregation_ = null;
-      } else {
-        aggregation_ = null;
+      aggregation_ = null;
+      if (aggregationBuilder_ != null) {
+        aggregationBuilder_.dispose();
         aggregationBuilder_ = null;
       }
-      if (secondaryAggregationBuilder_ == null) {
-        secondaryAggregation_ = null;
-      } else {
-        secondaryAggregation_ = null;
+      secondaryAggregation_ = null;
+      if (secondaryAggregationBuilder_ != null) {
+        secondaryAggregationBuilder_.dispose();
         secondaryAggregationBuilder_ = null;
       }
       orderBy_ = "";
-
       view_ = 0;
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       return this;
     }
 
@@ -1034,29 +911,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.ListTimeSeriesRequest buildPartial() {
       com.google.monitoring.v3.ListTimeSeriesRequest result = new com.google.monitoring.v3.ListTimeSeriesRequest(this);
-      result.name_ = name_;
-      result.filter_ = filter_;
-      if (intervalBuilder_ == null) {
-        result.interval_ = interval_;
-      } else {
-        result.interval_ = intervalBuilder_.build();
-      }
-      if (aggregationBuilder_ == null) {
-        result.aggregation_ = aggregation_;
-      } else {
-        result.aggregation_ = aggregationBuilder_.build();
-      }
-      if (secondaryAggregationBuilder_ == null) {
-        result.secondaryAggregation_ = secondaryAggregation_;
-      } else {
-        result.secondaryAggregation_ = secondaryAggregationBuilder_.build();
-      }
-      result.orderBy_ = orderBy_;
-      result.view_ = view_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.ListTimeSeriesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.filter_ = filter_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.interval_ = intervalBuilder_ == null
+            ? interval_
+            : intervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.aggregation_ = aggregationBuilder_ == null
+            ? aggregation_
+            : aggregationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.secondaryAggregation_ = secondaryAggregationBuilder_ == null
+            ? secondaryAggregation_
+            : secondaryAggregationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.view_ = view_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
     }
 
     @java.lang.Override
@@ -1105,10 +999,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.v3.ListTimeSeriesRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasInterval()) {
@@ -1122,6 +1018,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getOrderBy().isEmpty()) {
         orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.view_ != 0) {
@@ -1132,9 +1029,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1149,19 +1047,84 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.ListTimeSeriesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAggregationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              view_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getSecondaryAggregationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.ListTimeSeriesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1228,11 +1191,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1249,8 +1210,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1269,12 +1230,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1347,11 +1306,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1369,8 +1326,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1390,12 +1347,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1414,7 +1369,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the interval field is set.
      */
     public boolean hasInterval() {
-      return intervalBuilder_ != null || interval_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1448,11 +1403,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         interval_ = value;
-        onChanged();
       } else {
         intervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1468,11 +1423,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.TimeInterval.Builder builderForValue) {
       if (intervalBuilder_ == null) {
         interval_ = builderForValue.build();
-        onChanged();
       } else {
         intervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1486,17 +1441,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInterval(com.google.monitoring.v3.TimeInterval value) {
       if (intervalBuilder_ == null) {
-        if (interval_ != null) {
-          interval_ =
-            com.google.monitoring.v3.TimeInterval.newBuilder(interval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          interval_ != null &&
+          interval_ != com.google.monitoring.v3.TimeInterval.getDefaultInstance()) {
+          getIntervalBuilder().mergeFrom(value);
         } else {
           interval_ = value;
         }
-        onChanged();
       } else {
         intervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1509,14 +1465,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.TimeInterval interval = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInterval() {
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-        onChanged();
-      } else {
-        interval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
         intervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1529,7 +1484,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.TimeInterval interval = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.monitoring.v3.TimeInterval.Builder getIntervalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getIntervalFieldBuilder().getBuilder();
     }
@@ -1588,7 +1543,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the aggregation field is set.
      */
     public boolean hasAggregation() {
-      return aggregationBuilder_ != null || aggregation_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1624,11 +1579,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         aggregation_ = value;
-        onChanged();
       } else {
         aggregationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1645,11 +1600,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.Aggregation.Builder builderForValue) {
       if (aggregationBuilder_ == null) {
         aggregation_ = builderForValue.build();
-        onChanged();
       } else {
         aggregationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1664,17 +1619,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAggregation(com.google.monitoring.v3.Aggregation value) {
       if (aggregationBuilder_ == null) {
-        if (aggregation_ != null) {
-          aggregation_ =
-            com.google.monitoring.v3.Aggregation.newBuilder(aggregation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          aggregation_ != null &&
+          aggregation_ != com.google.monitoring.v3.Aggregation.getDefaultInstance()) {
+          getAggregationBuilder().mergeFrom(value);
         } else {
           aggregation_ = value;
         }
-        onChanged();
       } else {
         aggregationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1688,14 +1644,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.Aggregation aggregation = 5;</code>
      */
     public Builder clearAggregation() {
-      if (aggregationBuilder_ == null) {
-        aggregation_ = null;
-        onChanged();
-      } else {
-        aggregation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      aggregation_ = null;
+      if (aggregationBuilder_ != null) {
+        aggregationBuilder_.dispose();
         aggregationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1709,7 +1664,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.Aggregation aggregation = 5;</code>
      */
     public com.google.monitoring.v3.Aggregation.Builder getAggregationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAggregationFieldBuilder().getBuilder();
     }
@@ -1768,7 +1723,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the secondaryAggregation field is set.
      */
     public boolean hasSecondaryAggregation() {
-      return secondaryAggregationBuilder_ != null || secondaryAggregation_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1800,11 +1755,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         secondaryAggregation_ = value;
-        onChanged();
       } else {
         secondaryAggregationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1819,11 +1774,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.Aggregation.Builder builderForValue) {
       if (secondaryAggregationBuilder_ == null) {
         secondaryAggregation_ = builderForValue.build();
-        onChanged();
       } else {
         secondaryAggregationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1836,17 +1791,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecondaryAggregation(com.google.monitoring.v3.Aggregation value) {
       if (secondaryAggregationBuilder_ == null) {
-        if (secondaryAggregation_ != null) {
-          secondaryAggregation_ =
-            com.google.monitoring.v3.Aggregation.newBuilder(secondaryAggregation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          secondaryAggregation_ != null &&
+          secondaryAggregation_ != com.google.monitoring.v3.Aggregation.getDefaultInstance()) {
+          getSecondaryAggregationBuilder().mergeFrom(value);
         } else {
           secondaryAggregation_ = value;
         }
-        onChanged();
       } else {
         secondaryAggregationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1858,14 +1814,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.Aggregation secondary_aggregation = 11;</code>
      */
     public Builder clearSecondaryAggregation() {
-      if (secondaryAggregationBuilder_ == null) {
-        secondaryAggregation_ = null;
-        onChanged();
-      } else {
-        secondaryAggregation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      secondaryAggregation_ = null;
+      if (secondaryAggregationBuilder_ != null) {
+        secondaryAggregationBuilder_.dispose();
         secondaryAggregationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1877,7 +1832,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.Aggregation secondary_aggregation = 11;</code>
      */
     public com.google.monitoring.v3.Aggregation.Builder getSecondaryAggregationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getSecondaryAggregationFieldBuilder().getBuilder();
     }
@@ -1975,11 +1930,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       orderBy_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1993,8 +1946,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      
       orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2010,12 +1963,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderBy_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2042,8 +1993,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setViewValue(int value) {
-      
       view_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2057,8 +2008,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView getView() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView result = com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView.valueOf(view_);
+      com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView result = com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView.forNumber(view_);
       return result == null ? com.google.monitoring.v3.ListTimeSeriesRequest.TimeSeriesView.UNRECOGNIZED : result;
     }
     /**
@@ -2074,7 +2024,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       view_ = value.getNumber();
       onChanged();
       return this;
@@ -2088,7 +2038,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearView() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       view_ = 0;
       onChanged();
       return this;
@@ -2127,6 +2077,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2143,7 +2094,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -2208,11 +2159,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2227,8 +2176,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2245,12 +2194,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2287,7 +2234,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListTimeSeriesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

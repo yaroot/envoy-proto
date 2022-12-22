@@ -121,7 +121,7 @@ public interface PrincipalOrBuilder extends
    *
    * <code>.envoy.config.core.v3.CidrRange source_ip = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.rbac.v3.Principal.source_ip is deprecated.
-   *     See envoy/config/rbac/v3/rbac.proto;l=276
+   *     See envoy/config/rbac/v3/rbac.proto;l=277
    * @return Whether the sourceIp field is set.
    */
   @java.lang.Deprecated boolean hasSourceIp();
@@ -133,7 +133,7 @@ public interface PrincipalOrBuilder extends
    *
    * <code>.envoy.config.core.v3.CidrRange source_ip = 5 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.rbac.v3.Principal.source_ip is deprecated.
-   *     See envoy/config/rbac/v3/rbac.proto;l=276
+   *     See envoy/config/rbac/v3/rbac.proto;l=277
    * @return The sourceIp.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.core.v3.CidrRange getSourceIp();
@@ -317,6 +317,33 @@ public interface PrincipalOrBuilder extends
    * <code>.envoy.type.matcher.v3.MetadataMatcher metadata = 7;</code>
    */
   io.envoyproxy.envoy.type.matcher.v3.MetadataMatcherOrBuilder getMetadataOrBuilder();
+
+  /**
+   * <pre>
+   * Identifies the principal using a filter state object.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.FilterStateMatcher filter_state = 12;</code>
+   * @return Whether the filterState field is set.
+   */
+  boolean hasFilterState();
+  /**
+   * <pre>
+   * Identifies the principal using a filter state object.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.FilterStateMatcher filter_state = 12;</code>
+   * @return The filterState.
+   */
+  io.envoyproxy.envoy.type.matcher.v3.FilterStateMatcher getFilterState();
+  /**
+   * <pre>
+   * Identifies the principal using a filter state object.
+   * </pre>
+   *
+   * <code>.envoy.type.matcher.v3.FilterStateMatcher filter_state = 12;</code>
+   */
+  io.envoyproxy.envoy.type.matcher.v3.FilterStateMatcherOrBuilder getFilterStateOrBuilder();
 
   /**
    * <pre>

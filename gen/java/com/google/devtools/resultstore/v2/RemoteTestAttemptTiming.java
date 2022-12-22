@@ -34,110 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RemoteTestAttemptTiming(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (queueDuration_ != null) {
-              subBuilder = queueDuration_.toBuilder();
-            }
-            queueDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queueDuration_);
-              queueDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (uploadDuration_ != null) {
-              subBuilder = uploadDuration_.toBuilder();
-            }
-            uploadDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(uploadDuration_);
-              uploadDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (machineSetupDuration_ != null) {
-              subBuilder = machineSetupDuration_.toBuilder();
-            }
-            machineSetupDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(machineSetupDuration_);
-              machineSetupDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (testProcessDuration_ != null) {
-              subBuilder = testProcessDuration_.toBuilder();
-            }
-            testProcessDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(testProcessDuration_);
-              testProcessDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (downloadDuration_ != null) {
-              subBuilder = downloadDuration_.toBuilder();
-            }
-            downloadDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(downloadDuration_);
-              downloadDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.resultstore.v2.ActionProto.internal_static_google_devtools_resultstore_v2_RemoteTestAttemptTiming_descriptor;
@@ -186,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getQueueDurationOrBuilder() {
-    return getQueueDuration();
+    return queueDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : queueDuration_;
   }
 
   public static final int UPLOAD_DURATION_FIELD_NUMBER = 2;
@@ -227,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getUploadDurationOrBuilder() {
-    return getUploadDuration();
+    return uploadDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : uploadDuration_;
   }
 
   public static final int MACHINE_SETUP_DURATION_FIELD_NUMBER = 3;
@@ -271,7 +167,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMachineSetupDurationOrBuilder() {
-    return getMachineSetupDuration();
+    return machineSetupDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : machineSetupDuration_;
   }
 
   public static final int TEST_PROCESS_DURATION_FIELD_NUMBER = 4;
@@ -324,7 +220,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTestProcessDurationOrBuilder() {
-    return getTestProcessDuration();
+    return testProcessDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : testProcessDuration_;
   }
 
   public static final int DOWNLOAD_DURATION_FIELD_NUMBER = 5;
@@ -365,7 +261,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDownloadDurationOrBuilder() {
-    return getDownloadDuration();
+    return downloadDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : downloadDuration_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -397,7 +293,7 @@ private static final long serialVersionUID = 0L;
     if (downloadDuration_ != null) {
       output.writeMessage(5, getDownloadDuration());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -426,7 +322,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getDownloadDuration());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -466,7 +362,7 @@ private static final long serialVersionUID = 0L;
       if (!getDownloadDuration()
           .equals(other.getDownloadDuration())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -497,7 +393,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOWNLOAD_DURATION_FIELD_NUMBER;
       hash = (53 * hash) + getDownloadDuration().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -618,50 +514,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.resultstore.v2.RemoteTestAttemptTiming.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (queueDurationBuilder_ == null) {
-        queueDuration_ = null;
-      } else {
-        queueDuration_ = null;
+      bitField0_ = 0;
+      queueDuration_ = null;
+      if (queueDurationBuilder_ != null) {
+        queueDurationBuilder_.dispose();
         queueDurationBuilder_ = null;
       }
-      if (uploadDurationBuilder_ == null) {
-        uploadDuration_ = null;
-      } else {
-        uploadDuration_ = null;
+      uploadDuration_ = null;
+      if (uploadDurationBuilder_ != null) {
+        uploadDurationBuilder_.dispose();
         uploadDurationBuilder_ = null;
       }
-      if (machineSetupDurationBuilder_ == null) {
-        machineSetupDuration_ = null;
-      } else {
-        machineSetupDuration_ = null;
+      machineSetupDuration_ = null;
+      if (machineSetupDurationBuilder_ != null) {
+        machineSetupDurationBuilder_.dispose();
         machineSetupDurationBuilder_ = null;
       }
-      if (testProcessDurationBuilder_ == null) {
-        testProcessDuration_ = null;
-      } else {
-        testProcessDuration_ = null;
+      testProcessDuration_ = null;
+      if (testProcessDurationBuilder_ != null) {
+        testProcessDurationBuilder_.dispose();
         testProcessDurationBuilder_ = null;
       }
-      if (downloadDurationBuilder_ == null) {
-        downloadDuration_ = null;
-      } else {
-        downloadDuration_ = null;
+      downloadDuration_ = null;
+      if (downloadDurationBuilder_ != null) {
+        downloadDurationBuilder_.dispose();
         downloadDurationBuilder_ = null;
       }
       return this;
@@ -690,33 +577,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.resultstore.v2.RemoteTestAttemptTiming buildPartial() {
       com.google.devtools.resultstore.v2.RemoteTestAttemptTiming result = new com.google.devtools.resultstore.v2.RemoteTestAttemptTiming(this);
-      if (queueDurationBuilder_ == null) {
-        result.queueDuration_ = queueDuration_;
-      } else {
-        result.queueDuration_ = queueDurationBuilder_.build();
-      }
-      if (uploadDurationBuilder_ == null) {
-        result.uploadDuration_ = uploadDuration_;
-      } else {
-        result.uploadDuration_ = uploadDurationBuilder_.build();
-      }
-      if (machineSetupDurationBuilder_ == null) {
-        result.machineSetupDuration_ = machineSetupDuration_;
-      } else {
-        result.machineSetupDuration_ = machineSetupDurationBuilder_.build();
-      }
-      if (testProcessDurationBuilder_ == null) {
-        result.testProcessDuration_ = testProcessDuration_;
-      } else {
-        result.testProcessDuration_ = testProcessDurationBuilder_.build();
-      }
-      if (downloadDurationBuilder_ == null) {
-        result.downloadDuration_ = downloadDuration_;
-      } else {
-        result.downloadDuration_ = downloadDurationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.resultstore.v2.RemoteTestAttemptTiming result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.queueDuration_ = queueDurationBuilder_ == null
+            ? queueDuration_
+            : queueDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uploadDuration_ = uploadDurationBuilder_ == null
+            ? uploadDuration_
+            : uploadDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.machineSetupDuration_ = machineSetupDurationBuilder_ == null
+            ? machineSetupDuration_
+            : machineSetupDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.testProcessDuration_ = testProcessDurationBuilder_ == null
+            ? testProcessDuration_
+            : testProcessDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.downloadDuration_ = downloadDurationBuilder_ == null
+            ? downloadDuration_
+            : downloadDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -778,7 +670,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDownloadDuration()) {
         mergeDownloadDuration(other.getDownloadDuration());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -793,19 +685,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.resultstore.v2.RemoteTestAttemptTiming parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getQueueDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUploadDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMachineSetupDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTestProcessDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDownloadDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.resultstore.v2.RemoteTestAttemptTiming) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration queueDuration_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -819,7 +760,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queueDuration field is set.
      */
     public boolean hasQueueDuration() {
-      return queueDurationBuilder_ != null || queueDuration_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -849,11 +790,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queueDuration_ = value;
-        onChanged();
       } else {
         queueDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -867,11 +808,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (queueDurationBuilder_ == null) {
         queueDuration_ = builderForValue.build();
-        onChanged();
       } else {
         queueDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -883,17 +824,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueueDuration(com.google.protobuf.Duration value) {
       if (queueDurationBuilder_ == null) {
-        if (queueDuration_ != null) {
-          queueDuration_ =
-            com.google.protobuf.Duration.newBuilder(queueDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          queueDuration_ != null &&
+          queueDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getQueueDurationBuilder().mergeFrom(value);
         } else {
           queueDuration_ = value;
         }
-        onChanged();
       } else {
         queueDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -904,14 +846,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration queue_duration = 1;</code>
      */
     public Builder clearQueueDuration() {
-      if (queueDurationBuilder_ == null) {
-        queueDuration_ = null;
-        onChanged();
-      } else {
-        queueDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      queueDuration_ = null;
+      if (queueDurationBuilder_ != null) {
+        queueDurationBuilder_.dispose();
         queueDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -922,7 +863,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration queue_duration = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getQueueDurationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getQueueDurationFieldBuilder().getBuilder();
     }
@@ -975,7 +916,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the uploadDuration field is set.
      */
     public boolean hasUploadDuration() {
-      return uploadDurationBuilder_ != null || uploadDuration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1007,11 +948,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         uploadDuration_ = value;
-        onChanged();
       } else {
         uploadDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1026,11 +967,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (uploadDurationBuilder_ == null) {
         uploadDuration_ = builderForValue.build();
-        onChanged();
       } else {
         uploadDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1043,17 +984,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUploadDuration(com.google.protobuf.Duration value) {
       if (uploadDurationBuilder_ == null) {
-        if (uploadDuration_ != null) {
-          uploadDuration_ =
-            com.google.protobuf.Duration.newBuilder(uploadDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          uploadDuration_ != null &&
+          uploadDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getUploadDurationBuilder().mergeFrom(value);
         } else {
           uploadDuration_ = value;
         }
-        onChanged();
       } else {
         uploadDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1065,14 +1007,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration upload_duration = 2;</code>
      */
     public Builder clearUploadDuration() {
-      if (uploadDurationBuilder_ == null) {
-        uploadDuration_ = null;
-        onChanged();
-      } else {
-        uploadDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      uploadDuration_ = null;
+      if (uploadDurationBuilder_ != null) {
+        uploadDurationBuilder_.dispose();
         uploadDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1084,7 +1025,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration upload_duration = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getUploadDurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUploadDurationFieldBuilder().getBuilder();
     }
@@ -1140,7 +1081,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the machineSetupDuration field is set.
      */
     public boolean hasMachineSetupDuration() {
-      return machineSetupDurationBuilder_ != null || machineSetupDuration_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1174,11 +1115,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         machineSetupDuration_ = value;
-        onChanged();
       } else {
         machineSetupDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1194,11 +1135,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (machineSetupDurationBuilder_ == null) {
         machineSetupDuration_ = builderForValue.build();
-        onChanged();
       } else {
         machineSetupDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1212,17 +1153,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMachineSetupDuration(com.google.protobuf.Duration value) {
       if (machineSetupDurationBuilder_ == null) {
-        if (machineSetupDuration_ != null) {
-          machineSetupDuration_ =
-            com.google.protobuf.Duration.newBuilder(machineSetupDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          machineSetupDuration_ != null &&
+          machineSetupDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMachineSetupDurationBuilder().mergeFrom(value);
         } else {
           machineSetupDuration_ = value;
         }
-        onChanged();
       } else {
         machineSetupDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1235,14 +1177,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration machine_setup_duration = 3;</code>
      */
     public Builder clearMachineSetupDuration() {
-      if (machineSetupDurationBuilder_ == null) {
-        machineSetupDuration_ = null;
-        onChanged();
-      } else {
-        machineSetupDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      machineSetupDuration_ = null;
+      if (machineSetupDurationBuilder_ != null) {
+        machineSetupDurationBuilder_.dispose();
         machineSetupDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1255,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration machine_setup_duration = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getMachineSetupDurationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMachineSetupDurationFieldBuilder().getBuilder();
     }
@@ -1316,7 +1257,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the testProcessDuration field is set.
      */
     public boolean hasTestProcessDuration() {
-      return testProcessDurationBuilder_ != null || testProcessDuration_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1356,11 +1297,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         testProcessDuration_ = value;
-        onChanged();
       } else {
         testProcessDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1379,11 +1320,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (testProcessDurationBuilder_ == null) {
         testProcessDuration_ = builderForValue.build();
-        onChanged();
       } else {
         testProcessDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1400,17 +1341,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTestProcessDuration(com.google.protobuf.Duration value) {
       if (testProcessDurationBuilder_ == null) {
-        if (testProcessDuration_ != null) {
-          testProcessDuration_ =
-            com.google.protobuf.Duration.newBuilder(testProcessDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          testProcessDuration_ != null &&
+          testProcessDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTestProcessDurationBuilder().mergeFrom(value);
         } else {
           testProcessDuration_ = value;
         }
-        onChanged();
       } else {
         testProcessDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1426,14 +1368,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration test_process_duration = 4;</code>
      */
     public Builder clearTestProcessDuration() {
-      if (testProcessDurationBuilder_ == null) {
-        testProcessDuration_ = null;
-        onChanged();
-      } else {
-        testProcessDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      testProcessDuration_ = null;
+      if (testProcessDurationBuilder_ != null) {
+        testProcessDurationBuilder_.dispose();
         testProcessDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1449,7 +1390,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration test_process_duration = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getTestProcessDurationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTestProcessDurationFieldBuilder().getBuilder();
     }
@@ -1512,7 +1453,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the downloadDuration field is set.
      */
     public boolean hasDownloadDuration() {
-      return downloadDurationBuilder_ != null || downloadDuration_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1544,11 +1485,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         downloadDuration_ = value;
-        onChanged();
       } else {
         downloadDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1563,11 +1504,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (downloadDurationBuilder_ == null) {
         downloadDuration_ = builderForValue.build();
-        onChanged();
       } else {
         downloadDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1580,17 +1521,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDownloadDuration(com.google.protobuf.Duration value) {
       if (downloadDurationBuilder_ == null) {
-        if (downloadDuration_ != null) {
-          downloadDuration_ =
-            com.google.protobuf.Duration.newBuilder(downloadDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          downloadDuration_ != null &&
+          downloadDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDownloadDurationBuilder().mergeFrom(value);
         } else {
           downloadDuration_ = value;
         }
-        onChanged();
       } else {
         downloadDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1602,14 +1544,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration download_duration = 5;</code>
      */
     public Builder clearDownloadDuration() {
-      if (downloadDurationBuilder_ == null) {
-        downloadDuration_ = null;
-        onChanged();
-      } else {
-        downloadDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      downloadDuration_ = null;
+      if (downloadDurationBuilder_ != null) {
+        downloadDurationBuilder_.dispose();
         downloadDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1621,7 +1562,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration download_duration = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getDownloadDurationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDownloadDurationFieldBuilder().getBuilder();
     }
@@ -1695,7 +1636,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RemoteTestAttemptTiming(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

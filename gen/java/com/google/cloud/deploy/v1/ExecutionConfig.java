@@ -38,118 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecutionConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              usages_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            usages_.add(rawValue);
-            break;
-          }
-          case 10: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                usages_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              usages_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 18: {
-            com.google.cloud.deploy.v1.DefaultPool.Builder subBuilder = null;
-            if (executionEnvironmentCase_ == 2) {
-              subBuilder = ((com.google.cloud.deploy.v1.DefaultPool) executionEnvironment_).toBuilder();
-            }
-            executionEnvironment_ =
-                input.readMessage(com.google.cloud.deploy.v1.DefaultPool.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.deploy.v1.DefaultPool) executionEnvironment_);
-              executionEnvironment_ = subBuilder.buildPartial();
-            }
-            executionEnvironmentCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.deploy.v1.PrivatePool.Builder subBuilder = null;
-            if (executionEnvironmentCase_ == 3) {
-              subBuilder = ((com.google.cloud.deploy.v1.PrivatePool) executionEnvironment_).toBuilder();
-            }
-            executionEnvironment_ =
-                input.readMessage(com.google.cloud.deploy.v1.PrivatePool.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.deploy.v1.PrivatePool) executionEnvironment_);
-              executionEnvironment_ = subBuilder.buildPartial();
-            }
-            executionEnvironmentCase_ = 3;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            workerPool_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            artifactStorage_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        usages_ = java.util.Collections.unmodifiableList(usages_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.deploy.v1.CloudDeployProto.internal_static_google_cloud_deploy_v1_ExecutionConfig_descriptor;
@@ -196,6 +84,14 @@ private static final long serialVersionUID = 0L;
      * <code>DEPLOY = 2;</code>
      */
     DEPLOY(2),
+    /**
+     * <pre>
+     * Use for deployment verification.
+     * </pre>
+     *
+     * <code>VERIFY = 3;</code>
+     */
+    VERIFY(3),
     UNRECOGNIZED(-1),
     ;
 
@@ -223,6 +119,14 @@ private static final long serialVersionUID = 0L;
      * <code>DEPLOY = 2;</code>
      */
     public static final int DEPLOY_VALUE = 2;
+    /**
+     * <pre>
+     * Use for deployment verification.
+     * </pre>
+     *
+     * <code>VERIFY = 3;</code>
+     */
+    public static final int VERIFY_VALUE = 3;
 
 
     public final int getNumber() {
@@ -252,6 +156,7 @@ private static final long serialVersionUID = 0L;
         case 0: return EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED;
         case 1: return RENDER;
         case 2: return DEPLOY;
+        case 3: return VERIFY;
         default: return null;
       }
     }
@@ -350,14 +255,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USAGES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> usages_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage> usages_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage>() {
             public com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage result = com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage.valueOf(from);
+              com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage result = com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage.forNumber(from);
               return result == null ? com.google.cloud.deploy.v1.ExecutionConfig.ExecutionEnvironmentUsage.UNRECOGNIZED : result;
             }
           };
@@ -514,7 +419,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WORKER_POOL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object workerPool_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object workerPool_ = "";
   /**
    * <pre>
    * Optional. The resource name of the `WorkerPool`, with the format
@@ -566,7 +472,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 5;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * Optional. Google service account to use for execution. If unspecified,
@@ -616,7 +523,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ARTIFACT_STORAGE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object artifactStorage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object artifactStorage_ = "";
   /**
    * <pre>
    * Optional. Cloud Storage location in which to store execution outputs. This can
@@ -667,6 +575,50 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int EXECUTION_TIMEOUT_FIELD_NUMBER = 7;
+  private com.google.protobuf.Duration executionTimeout_;
+  /**
+   * <pre>
+   * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+   * 24h in seconds format.
+   * If unspecified, a default timeout of 1h is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the executionTimeout field is set.
+   */
+  @java.lang.Override
+  public boolean hasExecutionTimeout() {
+    return executionTimeout_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+   * 24h in seconds format.
+   * If unspecified, a default timeout of 1h is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The executionTimeout.
+   */
+  @java.lang.Override
+  public com.google.protobuf.Duration getExecutionTimeout() {
+    return executionTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : executionTimeout_;
+  }
+  /**
+   * <pre>
+   * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+   * 24h in seconds format.
+   * If unspecified, a default timeout of 1h is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.protobuf.DurationOrBuilder getExecutionTimeoutOrBuilder() {
+    return executionTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : executionTimeout_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -704,7 +656,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactStorage_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, artifactStorage_);
     }
-    unknownFields.writeTo(output);
+    if (executionTimeout_ != null) {
+      output.writeMessage(7, getExecutionTimeout());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -742,7 +697,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(artifactStorage_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, artifactStorage_);
     }
-    size += unknownFields.getSerializedSize();
+    if (executionTimeout_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getExecutionTimeout());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -764,6 +723,11 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceAccount())) return false;
     if (!getArtifactStorage()
         .equals(other.getArtifactStorage())) return false;
+    if (hasExecutionTimeout() != other.hasExecutionTimeout()) return false;
+    if (hasExecutionTimeout()) {
+      if (!getExecutionTimeout()
+          .equals(other.getExecutionTimeout())) return false;
+    }
     if (!getExecutionEnvironmentCase().equals(other.getExecutionEnvironmentCase())) return false;
     switch (executionEnvironmentCase_) {
       case 2:
@@ -777,7 +741,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -798,6 +762,10 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getServiceAccount().hashCode();
     hash = (37 * hash) + ARTIFACT_STORAGE_FIELD_NUMBER;
     hash = (53 * hash) + getArtifactStorage().hashCode();
+    if (hasExecutionTimeout()) {
+      hash = (37 * hash) + EXECUTION_TIMEOUT_FIELD_NUMBER;
+      hash = (53 * hash) + getExecutionTimeout().hashCode();
+    }
     switch (executionEnvironmentCase_) {
       case 2:
         hash = (37 * hash) + DEFAULT_POOL_FIELD_NUMBER;
@@ -810,7 +778,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -931,30 +899,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.deploy.v1.ExecutionConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       usages_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);
+      if (defaultPoolBuilder_ != null) {
+        defaultPoolBuilder_.clear();
+      }
+      if (privatePoolBuilder_ != null) {
+        privatePoolBuilder_.clear();
+      }
       workerPool_ = "";
-
       serviceAccount_ = "";
-
       artifactStorage_ = "";
-
+      executionTimeout_ = null;
+      if (executionTimeoutBuilder_ != null) {
+        executionTimeoutBuilder_.dispose();
+        executionTimeoutBuilder_ = null;
+      }
       executionEnvironmentCase_ = 0;
       executionEnvironment_ = null;
       return this;
@@ -983,32 +955,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.deploy.v1.ExecutionConfig buildPartial() {
       com.google.cloud.deploy.v1.ExecutionConfig result = new com.google.cloud.deploy.v1.ExecutionConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.deploy.v1.ExecutionConfig result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         usages_ = java.util.Collections.unmodifiableList(usages_);
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.usages_ = usages_;
-      if (executionEnvironmentCase_ == 2) {
-        if (defaultPoolBuilder_ == null) {
-          result.executionEnvironment_ = executionEnvironment_;
-        } else {
-          result.executionEnvironment_ = defaultPoolBuilder_.build();
-        }
+    }
+
+    private void buildPartial0(com.google.cloud.deploy.v1.ExecutionConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.workerPool_ = workerPool_;
       }
-      if (executionEnvironmentCase_ == 3) {
-        if (privatePoolBuilder_ == null) {
-          result.executionEnvironment_ = executionEnvironment_;
-        } else {
-          result.executionEnvironment_ = privatePoolBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
       }
-      result.workerPool_ = workerPool_;
-      result.serviceAccount_ = serviceAccount_;
-      result.artifactStorage_ = artifactStorage_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.artifactStorage_ = artifactStorage_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.executionTimeout_ = executionTimeoutBuilder_ == null
+            ? executionTimeout_
+            : executionTimeoutBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.deploy.v1.ExecutionConfig result) {
       result.executionEnvironmentCase_ = executionEnvironmentCase_;
-      onBuilt();
-      return result;
+      result.executionEnvironment_ = this.executionEnvironment_;
+      if (executionEnvironmentCase_ == 2 &&
+          defaultPoolBuilder_ != null) {
+        result.executionEnvironment_ = defaultPoolBuilder_.build();
+      }
+      if (executionEnvironmentCase_ == 3 &&
+          privatePoolBuilder_ != null) {
+        result.executionEnvironment_ = privatePoolBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1067,15 +1057,21 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWorkerPool().isEmpty()) {
         workerPool_ = other.workerPool_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getArtifactStorage().isEmpty()) {
         artifactStorage_ = other.artifactStorage_;
+        bitField0_ |= 0x00000020;
         onChanged();
+      }
+      if (other.hasExecutionTimeout()) {
+        mergeExecutionTimeout(other.getExecutionTimeout());
       }
       switch (other.getExecutionEnvironmentCase()) {
         case DEFAULT_POOL: {
@@ -1090,7 +1086,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1105,17 +1101,83 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.deploy.v1.ExecutionConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              ensureUsagesIsMutable();
+              usages_.add(tmpRaw);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureUsagesIsMutable();
+                usages_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDefaultPoolFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              executionEnvironmentCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getPrivatePoolFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              executionEnvironmentCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              workerPool_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              artifactStorage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getExecutionTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.deploy.v1.ExecutionConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int executionEnvironmentCase_ = 0;
@@ -1497,7 +1559,7 @@ private static final long serialVersionUID = 0L;
         executionEnvironment_ = null;
       }
       executionEnvironmentCase_ = 2;
-      onChanged();;
+      onChanged();
       return defaultPoolBuilder_;
     }
 
@@ -1675,7 +1737,7 @@ private static final long serialVersionUID = 0L;
         executionEnvironment_ = null;
       }
       executionEnvironmentCase_ = 3;
-      onChanged();;
+      onChanged();
       return privatePoolBuilder_;
     }
 
@@ -1741,11 +1803,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerPool(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       workerPool_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1761,8 +1821,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWorkerPool() {
-      
       workerPool_ = getDefaultInstance().getWorkerPool();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1780,12 +1840,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWorkerPoolBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       workerPool_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1849,11 +1907,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1868,8 +1924,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1886,12 +1942,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1958,11 +2012,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArtifactStorage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       artifactStorage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1978,8 +2030,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArtifactStorage() {
-      
       artifactStorage_ = getDefaultInstance().getArtifactStorage();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1997,14 +2049,185 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArtifactStorageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       artifactStorage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
+    }
+
+    private com.google.protobuf.Duration executionTimeout_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> executionTimeoutBuilder_;
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the executionTimeout field is set.
+     */
+    public boolean hasExecutionTimeout() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The executionTimeout.
+     */
+    public com.google.protobuf.Duration getExecutionTimeout() {
+      if (executionTimeoutBuilder_ == null) {
+        return executionTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : executionTimeout_;
+      } else {
+        return executionTimeoutBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setExecutionTimeout(com.google.protobuf.Duration value) {
+      if (executionTimeoutBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        executionTimeout_ = value;
+      } else {
+        executionTimeoutBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setExecutionTimeout(
+        com.google.protobuf.Duration.Builder builderForValue) {
+      if (executionTimeoutBuilder_ == null) {
+        executionTimeout_ = builderForValue.build();
+      } else {
+        executionTimeoutBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeExecutionTimeout(com.google.protobuf.Duration value) {
+      if (executionTimeoutBuilder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0) &&
+          executionTimeout_ != null &&
+          executionTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getExecutionTimeoutBuilder().mergeFrom(value);
+        } else {
+          executionTimeout_ = value;
+        }
+      } else {
+        executionTimeoutBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearExecutionTimeout() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      executionTimeout_ = null;
+      if (executionTimeoutBuilder_ != null) {
+        executionTimeoutBuilder_.dispose();
+        executionTimeoutBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.protobuf.Duration.Builder getExecutionTimeoutBuilder() {
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return getExecutionTimeoutFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.protobuf.DurationOrBuilder getExecutionTimeoutOrBuilder() {
+      if (executionTimeoutBuilder_ != null) {
+        return executionTimeoutBuilder_.getMessageOrBuilder();
+      } else {
+        return executionTimeout_ == null ?
+            com.google.protobuf.Duration.getDefaultInstance() : executionTimeout_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Execution timeout for a Cloud Build Execution. This must be between 10m and
+     * 24h in seconds format.
+     * If unspecified, a default timeout of 1h is used.
+     * </pre>
+     *
+     * <code>.google.protobuf.Duration execution_timeout = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        getExecutionTimeoutFieldBuilder() {
+      if (executionTimeoutBuilder_ == null) {
+        executionTimeoutBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                getExecutionTimeout(),
+                getParentForChildren(),
+                isClean());
+        executionTimeout_ = null;
+      }
+      return executionTimeoutBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -2039,7 +2262,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecutionConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,116 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecutionState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currentSceneId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (sessionStorage_ != null) {
-              subBuilder = sessionStorage_.toBuilder();
-            }
-            sessionStorage_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sessionStorage_);
-              sessionStorage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.actions.sdk.v2.Slots.Builder subBuilder = null;
-            if (slots_ != null) {
-              subBuilder = slots_.toBuilder();
-            }
-            slots_ = input.readMessage(com.google.actions.sdk.v2.Slots.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(slots_);
-              slots_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (userStorage_ != null) {
-              subBuilder = userStorage_.toBuilder();
-            }
-            userStorage_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userStorage_);
-              userStorage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              promptQueue_ = new java.util.ArrayList<com.google.actions.sdk.v2.conversation.Prompt>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            promptQueue_.add(
-                input.readMessage(com.google.actions.sdk.v2.conversation.Prompt.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (householdStorage_ != null) {
-              subBuilder = householdStorage_.toBuilder();
-            }
-            householdStorage_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(householdStorage_);
-              householdStorage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        promptQueue_ = java.util.Collections.unmodifiableList(promptQueue_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.EventLogsProto.internal_static_google_actions_sdk_v2_ExecutionState_descriptor;
@@ -160,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENT_SCENE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object currentSceneId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object currentSceneId_ = "";
   /**
    * <pre>
    * ID of the scene which is currently  active.
@@ -243,7 +134,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getSessionStorageOrBuilder() {
-    return getSessionStorage();
+    return sessionStorage_ == null ? com.google.protobuf.Struct.getDefaultInstance() : sessionStorage_;
   }
 
   public static final int SLOTS_FIELD_NUMBER = 5;
@@ -284,10 +175,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.SlotsOrBuilder getSlotsOrBuilder() {
-    return getSlots();
+    return slots_ == null ? com.google.actions.sdk.v2.Slots.getDefaultInstance() : slots_;
   }
 
   public static final int PROMPT_QUEUE_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.actions.sdk.v2.conversation.Prompt> promptQueue_;
   /**
    * <pre>
@@ -390,7 +282,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getUserStorageOrBuilder() {
-    return getUserStorage();
+    return userStorage_ == null ? com.google.protobuf.Struct.getDefaultInstance() : userStorage_;
   }
 
   public static final int HOUSEHOLD_STORAGE_FIELD_NUMBER = 8;
@@ -431,7 +323,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getHouseholdStorageOrBuilder() {
-    return getHouseholdStorage();
+    return householdStorage_ == null ? com.google.protobuf.Struct.getDefaultInstance() : householdStorage_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -466,7 +358,7 @@ private static final long serialVersionUID = 0L;
     if (householdStorage_ != null) {
       output.writeMessage(8, getHouseholdStorage());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -498,7 +390,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getHouseholdStorage());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -537,7 +429,7 @@ private static final long serialVersionUID = 0L;
       if (!getHouseholdStorage()
           .equals(other.getHouseholdStorage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -570,7 +462,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HOUSEHOLD_STORAGE_FIELD_NUMBER;
       hash = (53 * hash) + getHouseholdStorage().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -691,53 +583,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.ExecutionState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPromptQueueFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       currentSceneId_ = "";
-
-      if (sessionStorageBuilder_ == null) {
-        sessionStorage_ = null;
-      } else {
-        sessionStorage_ = null;
+      sessionStorage_ = null;
+      if (sessionStorageBuilder_ != null) {
+        sessionStorageBuilder_.dispose();
         sessionStorageBuilder_ = null;
       }
-      if (slotsBuilder_ == null) {
-        slots_ = null;
-      } else {
-        slots_ = null;
+      slots_ = null;
+      if (slotsBuilder_ != null) {
+        slotsBuilder_.dispose();
         slotsBuilder_ = null;
       }
       if (promptQueueBuilder_ == null) {
         promptQueue_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        promptQueue_ = null;
         promptQueueBuilder_.clear();
       }
-      if (userStorageBuilder_ == null) {
-        userStorage_ = null;
-      } else {
-        userStorage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      userStorage_ = null;
+      if (userStorageBuilder_ != null) {
+        userStorageBuilder_.dispose();
         userStorageBuilder_ = null;
       }
-      if (householdStorageBuilder_ == null) {
-        householdStorage_ = null;
-      } else {
-        householdStorage_ = null;
+      householdStorage_ = null;
+      if (householdStorageBuilder_ != null) {
+        householdStorageBuilder_.dispose();
         householdStorageBuilder_ = null;
       }
       return this;
@@ -766,39 +649,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.ExecutionState buildPartial() {
       com.google.actions.sdk.v2.ExecutionState result = new com.google.actions.sdk.v2.ExecutionState(this);
-      int from_bitField0_ = bitField0_;
-      result.currentSceneId_ = currentSceneId_;
-      if (sessionStorageBuilder_ == null) {
-        result.sessionStorage_ = sessionStorage_;
-      } else {
-        result.sessionStorage_ = sessionStorageBuilder_.build();
-      }
-      if (slotsBuilder_ == null) {
-        result.slots_ = slots_;
-      } else {
-        result.slots_ = slotsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.ExecutionState result) {
       if (promptQueueBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           promptQueue_ = java.util.Collections.unmodifiableList(promptQueue_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.promptQueue_ = promptQueue_;
       } else {
         result.promptQueue_ = promptQueueBuilder_.build();
       }
-      if (userStorageBuilder_ == null) {
-        result.userStorage_ = userStorage_;
-      } else {
-        result.userStorage_ = userStorageBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.ExecutionState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.currentSceneId_ = currentSceneId_;
       }
-      if (householdStorageBuilder_ == null) {
-        result.householdStorage_ = householdStorage_;
-      } else {
-        result.householdStorage_ = householdStorageBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sessionStorage_ = sessionStorageBuilder_ == null
+            ? sessionStorage_
+            : sessionStorageBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.slots_ = slotsBuilder_ == null
+            ? slots_
+            : slotsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.userStorage_ = userStorageBuilder_ == null
+            ? userStorage_
+            : userStorageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.householdStorage_ = householdStorageBuilder_ == null
+            ? householdStorage_
+            : householdStorageBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -847,6 +740,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.ExecutionState.getDefaultInstance()) return this;
       if (!other.getCurrentSceneId().isEmpty()) {
         currentSceneId_ = other.currentSceneId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasSessionStorage()) {
@@ -859,7 +753,7 @@ private static final long serialVersionUID = 0L;
         if (!other.promptQueue_.isEmpty()) {
           if (promptQueue_.isEmpty()) {
             promptQueue_ = other.promptQueue_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePromptQueueIsMutable();
             promptQueue_.addAll(other.promptQueue_);
@@ -872,7 +766,7 @@ private static final long serialVersionUID = 0L;
             promptQueueBuilder_.dispose();
             promptQueueBuilder_ = null;
             promptQueue_ = other.promptQueue_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             promptQueueBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPromptQueueFieldBuilder() : null;
@@ -887,7 +781,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasHouseholdStorage()) {
         mergeHouseholdStorage(other.getHouseholdStorage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -902,17 +796,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.ExecutionState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              currentSceneId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSessionStorageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getSlotsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUserStorageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              com.google.actions.sdk.v2.conversation.Prompt m =
+                  input.readMessage(
+                      com.google.actions.sdk.v2.conversation.Prompt.parser(),
+                      extensionRegistry);
+              if (promptQueueBuilder_ == null) {
+                ensurePromptQueueIsMutable();
+                promptQueue_.add(m);
+              } else {
+                promptQueueBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getHouseholdStorageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.ExecutionState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -970,11 +923,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentSceneId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       currentSceneId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -987,8 +938,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentSceneId() {
-      
       currentSceneId_ = getDefaultInstance().getCurrentSceneId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1003,12 +954,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrentSceneIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       currentSceneId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1026,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sessionStorage field is set.
      */
     public boolean hasSessionStorage() {
-      return sessionStorageBuilder_ != null || sessionStorage_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1058,11 +1007,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sessionStorage_ = value;
-        onChanged();
       } else {
         sessionStorageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1077,11 +1026,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (sessionStorageBuilder_ == null) {
         sessionStorage_ = builderForValue.build();
-        onChanged();
       } else {
         sessionStorageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1094,17 +1043,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSessionStorage(com.google.protobuf.Struct value) {
       if (sessionStorageBuilder_ == null) {
-        if (sessionStorage_ != null) {
-          sessionStorage_ =
-            com.google.protobuf.Struct.newBuilder(sessionStorage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          sessionStorage_ != null &&
+          sessionStorage_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getSessionStorageBuilder().mergeFrom(value);
         } else {
           sessionStorage_ = value;
         }
-        onChanged();
       } else {
         sessionStorageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1116,14 +1066,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct session_storage = 2;</code>
      */
     public Builder clearSessionStorage() {
-      if (sessionStorageBuilder_ == null) {
-        sessionStorage_ = null;
-        onChanged();
-      } else {
-        sessionStorage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sessionStorage_ = null;
+      if (sessionStorageBuilder_ != null) {
+        sessionStorageBuilder_.dispose();
         sessionStorageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1135,7 +1084,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct session_storage = 2;</code>
      */
     public com.google.protobuf.Struct.Builder getSessionStorageBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSessionStorageFieldBuilder().getBuilder();
     }
@@ -1190,7 +1139,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the slots field is set.
      */
     public boolean hasSlots() {
-      return slotsBuilder_ != null || slots_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1222,11 +1171,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         slots_ = value;
-        onChanged();
       } else {
         slotsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1241,11 +1190,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.Slots.Builder builderForValue) {
       if (slotsBuilder_ == null) {
         slots_ = builderForValue.build();
-        onChanged();
       } else {
         slotsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1258,17 +1207,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSlots(com.google.actions.sdk.v2.Slots value) {
       if (slotsBuilder_ == null) {
-        if (slots_ != null) {
-          slots_ =
-            com.google.actions.sdk.v2.Slots.newBuilder(slots_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          slots_ != null &&
+          slots_ != com.google.actions.sdk.v2.Slots.getDefaultInstance()) {
+          getSlotsBuilder().mergeFrom(value);
         } else {
           slots_ = value;
         }
-        onChanged();
       } else {
         slotsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1280,14 +1230,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.Slots slots = 5;</code>
      */
     public Builder clearSlots() {
-      if (slotsBuilder_ == null) {
-        slots_ = null;
-        onChanged();
-      } else {
-        slots_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      slots_ = null;
+      if (slotsBuilder_ != null) {
+        slotsBuilder_.dispose();
         slotsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1299,7 +1248,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.Slots slots = 5;</code>
      */
     public com.google.actions.sdk.v2.Slots.Builder getSlotsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSlotsFieldBuilder().getBuilder();
     }
@@ -1344,9 +1293,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.actions.sdk.v2.conversation.Prompt> promptQueue_ =
       java.util.Collections.emptyList();
     private void ensurePromptQueueIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         promptQueue_ = new java.util.ArrayList<com.google.actions.sdk.v2.conversation.Prompt>(promptQueue_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1551,7 +1500,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPromptQueue() {
       if (promptQueueBuilder_ == null) {
         promptQueue_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         promptQueueBuilder_.clear();
@@ -1663,7 +1612,7 @@ private static final long serialVersionUID = 0L;
         promptQueueBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.actions.sdk.v2.conversation.Prompt, com.google.actions.sdk.v2.conversation.Prompt.Builder, com.google.actions.sdk.v2.conversation.PromptOrBuilder>(
                 promptQueue_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         promptQueue_ = null;
@@ -1684,7 +1633,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the userStorage field is set.
      */
     public boolean hasUserStorage() {
-      return userStorageBuilder_ != null || userStorage_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1716,11 +1665,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         userStorage_ = value;
-        onChanged();
       } else {
         userStorageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1735,11 +1684,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (userStorageBuilder_ == null) {
         userStorage_ = builderForValue.build();
-        onChanged();
       } else {
         userStorageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1752,17 +1701,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUserStorage(com.google.protobuf.Struct value) {
       if (userStorageBuilder_ == null) {
-        if (userStorage_ != null) {
-          userStorage_ =
-            com.google.protobuf.Struct.newBuilder(userStorage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          userStorage_ != null &&
+          userStorage_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getUserStorageBuilder().mergeFrom(value);
         } else {
           userStorage_ = value;
         }
-        onChanged();
       } else {
         userStorageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1774,14 +1724,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct user_storage = 6;</code>
      */
     public Builder clearUserStorage() {
-      if (userStorageBuilder_ == null) {
-        userStorage_ = null;
-        onChanged();
-      } else {
-        userStorage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      userStorage_ = null;
+      if (userStorageBuilder_ != null) {
+        userStorageBuilder_.dispose();
         userStorageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1793,7 +1742,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct user_storage = 6;</code>
      */
     public com.google.protobuf.Struct.Builder getUserStorageBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getUserStorageFieldBuilder().getBuilder();
     }
@@ -1848,7 +1797,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the householdStorage field is set.
      */
     public boolean hasHouseholdStorage() {
-      return householdStorageBuilder_ != null || householdStorage_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1880,11 +1829,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         householdStorage_ = value;
-        onChanged();
       } else {
         householdStorageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1899,11 +1848,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (householdStorageBuilder_ == null) {
         householdStorage_ = builderForValue.build();
-        onChanged();
       } else {
         householdStorageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1916,17 +1865,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHouseholdStorage(com.google.protobuf.Struct value) {
       if (householdStorageBuilder_ == null) {
-        if (householdStorage_ != null) {
-          householdStorage_ =
-            com.google.protobuf.Struct.newBuilder(householdStorage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          householdStorage_ != null &&
+          householdStorage_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getHouseholdStorageBuilder().mergeFrom(value);
         } else {
           householdStorage_ = value;
         }
-        onChanged();
       } else {
         householdStorageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1938,14 +1888,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct household_storage = 8;</code>
      */
     public Builder clearHouseholdStorage() {
-      if (householdStorageBuilder_ == null) {
-        householdStorage_ = null;
-        onChanged();
-      } else {
-        householdStorage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      householdStorage_ = null;
+      if (householdStorageBuilder_ != null) {
+        householdStorageBuilder_.dispose();
         householdStorageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1957,7 +1906,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct household_storage = 8;</code>
      */
     public com.google.protobuf.Struct.Builder getHouseholdStorageBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getHouseholdStorageFieldBuilder().getBuilder();
     }
@@ -2031,7 +1980,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecutionState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

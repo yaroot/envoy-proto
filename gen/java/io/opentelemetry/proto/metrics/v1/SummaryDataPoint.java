@@ -37,95 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SummaryDataPoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 17: {
-
-            startTimeUnixNano_ = input.readFixed64();
-            break;
-          }
-          case 25: {
-
-            timeUnixNano_ = input.readFixed64();
-            break;
-          }
-          case 33: {
-
-            count_ = input.readFixed64();
-            break;
-          }
-          case 41: {
-
-            sum_ = input.readDouble();
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              quantileValues_ = new java.util.ArrayList<io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            quantileValues_.add(
-                input.readMessage(io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              attributes_ = new java.util.ArrayList<io.opentelemetry.proto.common.v1.KeyValue>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            attributes_.add(
-                input.readMessage(io.opentelemetry.proto.common.v1.KeyValue.parser(), extensionRegistry));
-            break;
-          }
-          case 64: {
-
-            flags_ = input.readUInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        quantileValues_ = java.util.Collections.unmodifiableList(quantileValues_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        attributes_ = java.util.Collections.unmodifiableList(attributes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opentelemetry.proto.metrics.v1.MetricsProto.internal_static_opentelemetry_proto_metrics_v1_SummaryDataPoint_descriptor;
@@ -201,55 +112,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ValueAtQuantile(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              quantile_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              value_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.opentelemetry.proto.metrics.v1.MetricsProto.internal_static_opentelemetry_proto_metrics_v1_SummaryDataPoint_ValueAtQuantile_descriptor;
@@ -264,7 +126,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int QUANTILE_FIELD_NUMBER = 1;
-    private double quantile_;
+    private double quantile_ = 0D;
     /**
      * <pre>
      * The quantile of a distribution. Must be in the interval
@@ -280,7 +142,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
-    private double value_;
+    private double value_ = 0D;
     /**
      * <pre>
      * The value at the given quantile of a distribution.
@@ -315,7 +177,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToRawLongBits(value_) != 0) {
         output.writeDouble(2, value_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -332,7 +194,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(2, value_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -353,7 +215,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getValue())
           != java.lang.Double.doubleToLongBits(
               other.getValue())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -370,7 +232,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getValue()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -496,26 +358,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         quantile_ = 0D;
-
         value_ = 0D;
-
         return this;
       }
 
@@ -542,10 +398,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile buildPartial() {
         io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile result = new io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile(this);
-        result.quantile_ = quantile_;
-        result.value_ = value_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.quantile_ = quantile_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.value_ = value_;
+        }
       }
 
       @java.lang.Override
@@ -598,7 +463,7 @@ private static final long serialVersionUID = 0L;
         if (other.getValue() != 0D) {
           setValue(other.getValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -613,19 +478,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                quantile_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                value_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double quantile_ ;
       /**
@@ -654,6 +543,7 @@ private static final long serialVersionUID = 0L;
       public Builder setQuantile(double value) {
         
         quantile_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -667,7 +557,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearQuantile() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         quantile_ = 0D;
         onChanged();
         return this;
@@ -700,6 +590,7 @@ private static final long serialVersionUID = 0L;
       public Builder setValue(double value) {
         
         value_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -713,7 +604,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         value_ = 0D;
         onChanged();
         return this;
@@ -751,7 +642,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ValueAtQuantile(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -772,6 +674,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<io.opentelemetry.proto.common.v1.KeyValue> attributes_;
   /**
    * <pre>
@@ -847,7 +750,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_TIME_UNIX_NANO_FIELD_NUMBER = 2;
-  private long startTimeUnixNano_;
+  private long startTimeUnixNano_ = 0L;
   /**
    * <pre>
    * StartTimeUnixNano is optional but strongly encouraged, see the
@@ -865,7 +768,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_UNIX_NANO_FIELD_NUMBER = 3;
-  private long timeUnixNano_;
+  private long timeUnixNano_ = 0L;
   /**
    * <pre>
    * TimeUnixNano is required, see the detailed comments above Metric.
@@ -882,7 +785,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNT_FIELD_NUMBER = 4;
-  private long count_;
+  private long count_ = 0L;
   /**
    * <pre>
    * count is the number of values in the population. Must be non-negative.
@@ -897,7 +800,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUM_FIELD_NUMBER = 5;
-  private double sum_;
+  private double sum_ = 0D;
   /**
    * <pre>
    * sum of the values in the population. If count is zero then this field
@@ -918,6 +821,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUANTILE_VALUES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile> quantileValues_;
   /**
    * <pre>
@@ -983,7 +887,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FLAGS_FIELD_NUMBER = 8;
-  private int flags_;
+  private int flags_ = 0;
   /**
    * <pre>
    * Flags that apply to this specific data point.  See DataPointFlags
@@ -1033,7 +937,7 @@ private static final long serialVersionUID = 0L;
     if (flags_ != 0) {
       output.writeUInt32(8, flags_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1070,7 +974,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt32Size(8, flags_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1100,7 +1004,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getQuantileValuesList())) return false;
     if (getFlags()
         != other.getFlags()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1133,7 +1037,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + FLAGS_FIELD_NUMBER;
     hash = (53 * hash) + getFlags();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1255,46 +1159,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opentelemetry.proto.metrics.v1.SummaryDataPoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAttributesFieldBuilder();
-        getQuantileValuesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (attributesBuilder_ == null) {
         attributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        attributes_ = null;
         attributesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       startTimeUnixNano_ = 0L;
-
       timeUnixNano_ = 0L;
-
       count_ = 0L;
-
       sum_ = 0D;
-
       if (quantileValuesBuilder_ == null) {
         quantileValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        quantileValues_ = null;
         quantileValuesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       flags_ = 0;
-
       return this;
     }
 
@@ -1321,7 +1216,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opentelemetry.proto.metrics.v1.SummaryDataPoint buildPartial() {
       io.opentelemetry.proto.metrics.v1.SummaryDataPoint result = new io.opentelemetry.proto.metrics.v1.SummaryDataPoint(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.opentelemetry.proto.metrics.v1.SummaryDataPoint result) {
       if (attributesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           attributes_ = java.util.Collections.unmodifiableList(attributes_);
@@ -1331,22 +1232,34 @@ private static final long serialVersionUID = 0L;
       } else {
         result.attributes_ = attributesBuilder_.build();
       }
-      result.startTimeUnixNano_ = startTimeUnixNano_;
-      result.timeUnixNano_ = timeUnixNano_;
-      result.count_ = count_;
-      result.sum_ = sum_;
       if (quantileValuesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           quantileValues_ = java.util.Collections.unmodifiableList(quantileValues_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.quantileValues_ = quantileValues_;
       } else {
         result.quantileValues_ = quantileValuesBuilder_.build();
       }
-      result.flags_ = flags_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.opentelemetry.proto.metrics.v1.SummaryDataPoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startTimeUnixNano_ = startTimeUnixNano_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timeUnixNano_ = timeUnixNano_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.count_ = count_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sum_ = sum_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.flags_ = flags_;
+      }
     }
 
     @java.lang.Override
@@ -1435,7 +1348,7 @@ private static final long serialVersionUID = 0L;
         if (!other.quantileValues_.isEmpty()) {
           if (quantileValues_.isEmpty()) {
             quantileValues_ = other.quantileValues_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureQuantileValuesIsMutable();
             quantileValues_.addAll(other.quantileValues_);
@@ -1448,7 +1361,7 @@ private static final long serialVersionUID = 0L;
             quantileValuesBuilder_.dispose();
             quantileValuesBuilder_ = null;
             quantileValues_ = other.quantileValues_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             quantileValuesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getQuantileValuesFieldBuilder() : null;
@@ -1460,7 +1373,7 @@ private static final long serialVersionUID = 0L;
       if (other.getFlags() != 0) {
         setFlags(other.getFlags());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1475,17 +1388,81 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opentelemetry.proto.metrics.v1.SummaryDataPoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 17: {
+              startTimeUnixNano_ = input.readFixed64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 25: {
+              timeUnixNano_ = input.readFixed64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 25
+            case 33: {
+              count_ = input.readFixed64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 41: {
+              sum_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 41
+            case 50: {
+              io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile m =
+                  input.readMessage(
+                      io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.parser(),
+                      extensionRegistry);
+              if (quantileValuesBuilder_ == null) {
+                ensureQuantileValuesIsMutable();
+                quantileValues_.add(m);
+              } else {
+                quantileValuesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              io.opentelemetry.proto.common.v1.KeyValue m =
+                  input.readMessage(
+                      io.opentelemetry.proto.common.v1.KeyValue.parser(),
+                      extensionRegistry);
+              if (attributesBuilder_ == null) {
+                ensureAttributesIsMutable();
+                attributes_.add(m);
+              } else {
+                attributesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 64: {
+              flags_ = input.readUInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opentelemetry.proto.metrics.v1.SummaryDataPoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1887,6 +1864,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStartTimeUnixNano(long value) {
       
       startTimeUnixNano_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1902,7 +1880,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartTimeUnixNano() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       startTimeUnixNano_ = 0L;
       onChanged();
       return this;
@@ -1937,6 +1915,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTimeUnixNano(long value) {
       
       timeUnixNano_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1951,7 +1930,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeUnixNano() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       timeUnixNano_ = 0L;
       onChanged();
       return this;
@@ -1982,6 +1961,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCount(long value) {
       
       count_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1994,7 +1974,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       count_ = 0L;
       onChanged();
       return this;
@@ -2037,6 +2017,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSum(double value) {
       
       sum_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2055,7 +2036,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSum() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       sum_ = 0D;
       onChanged();
       return this;
@@ -2064,9 +2045,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile> quantileValues_ =
       java.util.Collections.emptyList();
     private void ensureQuantileValuesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         quantileValues_ = new java.util.ArrayList<io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile>(quantileValues_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2271,7 +2252,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearQuantileValues() {
       if (quantileValuesBuilder_ == null) {
         quantileValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         quantileValuesBuilder_.clear();
@@ -2383,7 +2364,7 @@ private static final long serialVersionUID = 0L;
         quantileValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile, io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantile.Builder, io.opentelemetry.proto.metrics.v1.SummaryDataPoint.ValueAtQuantileOrBuilder>(
                 quantileValues_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         quantileValues_ = null;
@@ -2418,6 +2399,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFlags(int value) {
       
       flags_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2431,7 +2413,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFlags() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       flags_ = 0;
       onChanged();
       return this;
@@ -2469,7 +2451,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SummaryDataPoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

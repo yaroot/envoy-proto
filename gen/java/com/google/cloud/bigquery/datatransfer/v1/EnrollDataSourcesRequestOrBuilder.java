@@ -9,8 +9,7 @@ public interface EnrollDataSourcesRequestOrBuilder extends
 
   /**
    * <pre>
-   * The name of the project resource in the form:
-   * `projects/{project_id}`
+   * The name of the project resource in the form: `projects/{project_id}`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -19,8 +18,7 @@ public interface EnrollDataSourcesRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * The name of the project resource in the form:
-   * `projects/{project_id}`
+   * The name of the project resource in the form: `projects/{project_id}`
    * </pre>
    *
    * <code>string name = 1;</code>

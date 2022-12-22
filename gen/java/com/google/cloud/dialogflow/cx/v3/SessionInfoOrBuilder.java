@@ -98,7 +98,6 @@ public interface SessionInfoOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; parameters = 2;</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getParametersOrDefault(
       java.lang.String key,
@@ -116,7 +115,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; parameters = 2;</code>
    */
-
   com.google.protobuf.Value getParametersOrThrow(
       java.lang.String key);
 }

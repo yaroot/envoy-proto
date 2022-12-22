@@ -16,7 +16,7 @@ public interface SignBlobResponseOrBuilder extends
    *
    * <code>string key_id = 1 [deprecated = true];</code>
    * @deprecated google.iam.admin.v1.SignBlobResponse.key_id is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=883
+   *     See google/iam/admin/v1/iam.proto;l=1001
    * @return The keyId.
    */
   @java.lang.Deprecated java.lang.String getKeyId();
@@ -29,7 +29,7 @@ public interface SignBlobResponseOrBuilder extends
    *
    * <code>string key_id = 1 [deprecated = true];</code>
    * @deprecated google.iam.admin.v1.SignBlobResponse.key_id is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=883
+   *     See google/iam/admin/v1/iam.proto;l=1001
    * @return The bytes for keyId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -44,7 +44,7 @@ public interface SignBlobResponseOrBuilder extends
    *
    * <code>bytes signature = 2 [deprecated = true];</code>
    * @deprecated google.iam.admin.v1.SignBlobResponse.signature is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=889
+   *     See google/iam/admin/v1/iam.proto;l=1007
    * @return The signature.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString getSignature();

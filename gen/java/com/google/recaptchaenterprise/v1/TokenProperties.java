@@ -18,6 +18,8 @@ private static final long serialVersionUID = 0L;
   private TokenProperties() {
     invalidReason_ = 0;
     hostname_ = "";
+    androidPackageName_ = "";
+    iosBundleId_ = "";
     action_ = "";
   }
 
@@ -32,81 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private TokenProperties(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            valid_ = input.readBool();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            invalidReason_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostname_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            action_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -337,7 +264,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALID_FIELD_NUMBER = 1;
-  private boolean valid_;
+  private boolean valid_ = false;
   /**
    * <pre>
    * Whether the provided user response token is valid. When valid = false, the
@@ -356,7 +283,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVALID_REASON_FIELD_NUMBER = 2;
-  private int invalidReason_;
+  private int invalidReason_ = 0;
   /**
    * <pre>
    * Reason associated with the response when valid = false.
@@ -377,8 +304,7 @@ private static final long serialVersionUID = 0L;
    * @return The invalidReason.
    */
   @java.lang.Override public com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason getInvalidReason() {
-    @SuppressWarnings("deprecation")
-    com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason result = com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason.valueOf(invalidReason_);
+    com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason result = com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason.forNumber(invalidReason_);
     return result == null ? com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason.UNRECOGNIZED : result;
   }
 
@@ -417,14 +343,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int HOSTNAME_FIELD_NUMBER = 4;
-  private volatile java.lang.Object hostname_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostname_ = "";
   /**
    * <pre>
-   * The hostname of the page on which the token was generated.
+   * The hostname of the page on which the token was generated (Web keys only).
    * </pre>
    *
    * <code>string hostname = 4;</code>
@@ -445,7 +372,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The hostname of the page on which the token was generated.
+   * The hostname of the page on which the token was generated (Web keys only).
    * </pre>
    *
    * <code>string hostname = 4;</code>
@@ -466,8 +393,107 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ANDROID_PACKAGE_NAME_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object androidPackageName_ = "";
+  /**
+   * <pre>
+   * The name of the Android package with which the token was generated (Android
+   * keys only).
+   * </pre>
+   *
+   * <code>string android_package_name = 8;</code>
+   * @return The androidPackageName.
+   */
+  @java.lang.Override
+  public java.lang.String getAndroidPackageName() {
+    java.lang.Object ref = androidPackageName_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      androidPackageName_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The name of the Android package with which the token was generated (Android
+   * keys only).
+   * </pre>
+   *
+   * <code>string android_package_name = 8;</code>
+   * @return The bytes for androidPackageName.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getAndroidPackageNameBytes() {
+    java.lang.Object ref = androidPackageName_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      androidPackageName_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
+  public static final int IOS_BUNDLE_ID_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object iosBundleId_ = "";
+  /**
+   * <pre>
+   * The ID of the iOS bundle with which the token was generated (iOS keys
+   * only).
+   * </pre>
+   *
+   * <code>string ios_bundle_id = 9;</code>
+   * @return The iosBundleId.
+   */
+  @java.lang.Override
+  public java.lang.String getIosBundleId() {
+    java.lang.Object ref = iosBundleId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      iosBundleId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The ID of the iOS bundle with which the token was generated (iOS keys
+   * only).
+   * </pre>
+   *
+   * <code>string ios_bundle_id = 9;</code>
+   * @return The bytes for iosBundleId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getIosBundleIdBytes() {
+    java.lang.Object ref = iosBundleId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      iosBundleId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int ACTION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object action_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object action_ = "";
   /**
    * <pre>
    * Action name provided at token generation.
@@ -541,7 +567,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(action_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, action_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(androidPackageName_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 8, androidPackageName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iosBundleId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 9, iosBundleId_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -568,7 +600,13 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(action_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, action_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(androidPackageName_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, androidPackageName_);
+    }
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iosBundleId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, iosBundleId_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -593,9 +631,13 @@ private static final long serialVersionUID = 0L;
     }
     if (!getHostname()
         .equals(other.getHostname())) return false;
+    if (!getAndroidPackageName()
+        .equals(other.getAndroidPackageName())) return false;
+    if (!getIosBundleId()
+        .equals(other.getIosBundleId())) return false;
     if (!getAction()
         .equals(other.getAction())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -617,9 +659,13 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + HOSTNAME_FIELD_NUMBER;
     hash = (53 * hash) + getHostname().hashCode();
+    hash = (37 * hash) + ANDROID_PACKAGE_NAME_FIELD_NUMBER;
+    hash = (53 * hash) + getAndroidPackageName().hashCode();
+    hash = (37 * hash) + IOS_BUNDLE_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getIosBundleId().hashCode();
     hash = (37 * hash) + ACTION_FIELD_NUMBER;
     hash = (53 * hash) + getAction().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -736,36 +782,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.TokenProperties.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       valid_ = false;
-
       invalidReason_ = 0;
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       hostname_ = "";
-
+      androidPackageName_ = "";
+      iosBundleId_ = "";
       action_ = "";
-
       return this;
     }
 
@@ -792,17 +831,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.TokenProperties buildPartial() {
       com.google.recaptchaenterprise.v1.TokenProperties result = new com.google.recaptchaenterprise.v1.TokenProperties(this);
-      result.valid_ = valid_;
-      result.invalidReason_ = invalidReason_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.hostname_ = hostname_;
-      result.action_ = action_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.TokenProperties result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.valid_ = valid_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.invalidReason_ = invalidReason_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.hostname_ = hostname_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.androidPackageName_ = androidPackageName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.iosBundleId_ = iosBundleId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.action_ = action_;
+      }
     }
 
     @java.lang.Override
@@ -860,13 +918,25 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHostname().isEmpty()) {
         hostname_ = other.hostname_;
+        bitField0_ |= 0x00000008;
+        onChanged();
+      }
+      if (!other.getAndroidPackageName().isEmpty()) {
+        androidPackageName_ = other.androidPackageName_;
+        bitField0_ |= 0x00000010;
+        onChanged();
+      }
+      if (!other.getIosBundleId().isEmpty()) {
+        iosBundleId_ = other.iosBundleId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getAction().isEmpty()) {
         action_ = other.action_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -881,19 +951,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.TokenProperties parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              valid_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              invalidReason_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              hostname_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              action_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 42
+            case 66: {
+              androidPackageName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 74: {
+              iosBundleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.TokenProperties) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean valid_ ;
     /**
@@ -928,6 +1049,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValid(boolean value) {
       
       valid_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -944,7 +1066,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValid() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       valid_ = false;
       onChanged();
       return this;
@@ -972,8 +1094,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInvalidReasonValue(int value) {
-      
       invalidReason_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -987,8 +1109,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason getInvalidReason() {
-      @SuppressWarnings("deprecation")
-      com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason result = com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason.valueOf(invalidReason_);
+      com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason result = com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason.forNumber(invalidReason_);
       return result == null ? com.google.recaptchaenterprise.v1.TokenProperties.InvalidReason.UNRECOGNIZED : result;
     }
     /**
@@ -1004,7 +1125,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       invalidReason_ = value.getNumber();
       onChanged();
       return this;
@@ -1018,7 +1139,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvalidReason() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       invalidReason_ = 0;
       onChanged();
       return this;
@@ -1036,7 +1157,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1066,11 +1187,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1084,11 +1205,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1100,17 +1221,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1121,14 +1243,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1139,7 +1260,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1182,7 +1303,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object hostname_ = "";
     /**
      * <pre>
-     * The hostname of the page on which the token was generated.
+     * The hostname of the page on which the token was generated (Web keys only).
      * </pre>
      *
      * <code>string hostname = 4;</code>
@@ -1202,7 +1323,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The hostname of the page on which the token was generated.
+     * The hostname of the page on which the token was generated (Web keys only).
      * </pre>
      *
      * <code>string hostname = 4;</code>
@@ -1223,7 +1344,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The hostname of the page on which the token was generated.
+     * The hostname of the page on which the token was generated (Web keys only).
      * </pre>
      *
      * <code>string hostname = 4;</code>
@@ -1232,31 +1353,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostname(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostname_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The hostname of the page on which the token was generated.
+     * The hostname of the page on which the token was generated (Web keys only).
      * </pre>
      *
      * <code>string hostname = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearHostname() {
-      
       hostname_ = getDefaultInstance().getHostname();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The hostname of the page on which the token was generated.
+     * The hostname of the page on which the token was generated (Web keys only).
      * </pre>
      *
      * <code>string hostname = 4;</code>
@@ -1265,12 +1384,204 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostnameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostname_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object androidPackageName_ = "";
+    /**
+     * <pre>
+     * The name of the Android package with which the token was generated (Android
+     * keys only).
+     * </pre>
+     *
+     * <code>string android_package_name = 8;</code>
+     * @return The androidPackageName.
+     */
+    public java.lang.String getAndroidPackageName() {
+      java.lang.Object ref = androidPackageName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        androidPackageName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The name of the Android package with which the token was generated (Android
+     * keys only).
+     * </pre>
+     *
+     * <code>string android_package_name = 8;</code>
+     * @return The bytes for androidPackageName.
+     */
+    public com.google.protobuf.ByteString
+        getAndroidPackageNameBytes() {
+      java.lang.Object ref = androidPackageName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        androidPackageName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The name of the Android package with which the token was generated (Android
+     * keys only).
+     * </pre>
+     *
+     * <code>string android_package_name = 8;</code>
+     * @param value The androidPackageName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAndroidPackageName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      androidPackageName_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The name of the Android package with which the token was generated (Android
+     * keys only).
+     * </pre>
+     *
+     * <code>string android_package_name = 8;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearAndroidPackageName() {
+      androidPackageName_ = getDefaultInstance().getAndroidPackageName();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The name of the Android package with which the token was generated (Android
+     * keys only).
+     * </pre>
+     *
+     * <code>string android_package_name = 8;</code>
+     * @param value The bytes for androidPackageName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setAndroidPackageNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      androidPackageName_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object iosBundleId_ = "";
+    /**
+     * <pre>
+     * The ID of the iOS bundle with which the token was generated (iOS keys
+     * only).
+     * </pre>
+     *
+     * <code>string ios_bundle_id = 9;</code>
+     * @return The iosBundleId.
+     */
+    public java.lang.String getIosBundleId() {
+      java.lang.Object ref = iosBundleId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        iosBundleId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The ID of the iOS bundle with which the token was generated (iOS keys
+     * only).
+     * </pre>
+     *
+     * <code>string ios_bundle_id = 9;</code>
+     * @return The bytes for iosBundleId.
+     */
+    public com.google.protobuf.ByteString
+        getIosBundleIdBytes() {
+      java.lang.Object ref = iosBundleId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        iosBundleId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The ID of the iOS bundle with which the token was generated (iOS keys
+     * only).
+     * </pre>
+     *
+     * <code>string ios_bundle_id = 9;</code>
+     * @param value The iosBundleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIosBundleId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      iosBundleId_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The ID of the iOS bundle with which the token was generated (iOS keys
+     * only).
+     * </pre>
+     *
+     * <code>string ios_bundle_id = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearIosBundleId() {
+      iosBundleId_ = getDefaultInstance().getIosBundleId();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The ID of the iOS bundle with which the token was generated (iOS keys
+     * only).
+     * </pre>
+     *
+     * <code>string ios_bundle_id = 9;</code>
+     * @param value The bytes for iosBundleId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setIosBundleIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      iosBundleId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1328,11 +1639,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       action_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1345,8 +1654,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAction() {
-      
       action_ = getDefaultInstance().getAction();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1361,12 +1670,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       action_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1403,7 +1710,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TokenProperties(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

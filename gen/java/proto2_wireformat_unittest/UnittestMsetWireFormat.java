@@ -51,45 +51,6 @@ public final class UnittestMsetWireFormat {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TestMessageSet(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return proto2_wireformat_unittest.UnittestMsetWireFormat.internal_static_proto2_wireformat_unittest_TestMessageSet_descriptor;
@@ -125,7 +86,7 @@ public final class UnittestMsetWireFormat {
         .ExtendableMessage<proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet>.ExtensionWriter
           extensionWriter = newMessageSetExtensionWriter();
       extensionWriter.writeUntil(2147483647, output);
-      unknownFields.writeAsMessageSetTo(output);
+      getUnknownFields().writeAsMessageSetTo(output);
     }
 
     @java.lang.Override
@@ -135,7 +96,7 @@ public final class UnittestMsetWireFormat {
 
       size = 0;
       size += extensionsSerializedSizeAsMessageSet();
-      size += unknownFields.getSerializedSizeAsMessageSet();
+      size += getUnknownFields().getSerializedSizeAsMessageSet();
       memoizedSize = size;
       return size;
     }
@@ -150,7 +111,7 @@ public final class UnittestMsetWireFormat {
       }
       proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet other = (proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       if (!getExtensionFields().equals(other.getExtensionFields()))
         return false;
       return true;
@@ -164,7 +125,7 @@ public final class UnittestMsetWireFormat {
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = hashFields(hash, getExtensionFields());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -286,18 +247,13 @@ public final class UnittestMsetWireFormat {
 
       // Construct using proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -404,7 +360,7 @@ public final class UnittestMsetWireFormat {
       public Builder mergeFrom(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet other) {
         if (other == proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.getDefaultInstance()) return this;
         this.mergeExtensionFields(other);
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -422,17 +378,30 @@ public final class UnittestMsetWireFormat {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -468,7 +437,18 @@ public final class UnittestMsetWireFormat {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestMessageSet(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -534,59 +514,6 @@ public final class UnittestMsetWireFormat {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TestMessageSetWireFormatContainer(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = messageSet_.toBuilder();
-              }
-              messageSet_ = input.readMessage(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(messageSet_);
-                messageSet_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return proto2_wireformat_unittest.UnittestMsetWireFormat.internal_static_proto2_wireformat_unittest_TestMessageSetWireFormatContainer_descriptor;
@@ -650,7 +577,7 @@ public final class UnittestMsetWireFormat {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeMessage(1, getMessageSet());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -663,7 +590,7 @@ public final class UnittestMsetWireFormat {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getMessageSet());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -683,7 +610,7 @@ public final class UnittestMsetWireFormat {
         if (!getMessageSet()
             .equals(other.getMessageSet())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -698,7 +625,7 @@ public final class UnittestMsetWireFormat {
         hash = (37 * hash) + MESSAGE_SET_FIELD_NUMBER;
         hash = (53 * hash) + getMessageSet().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -832,12 +759,12 @@ public final class UnittestMsetWireFormat {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (messageSetBuilder_ == null) {
-          messageSet_ = null;
-        } else {
-          messageSetBuilder_.clear();
+        bitField0_ = 0;
+        messageSet_ = null;
+        if (messageSetBuilder_ != null) {
+          messageSetBuilder_.dispose();
+          messageSetBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -864,19 +791,21 @@ public final class UnittestMsetWireFormat {
       @java.lang.Override
       public proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer buildPartial() {
         proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer result = new proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (messageSetBuilder_ == null) {
-            result.messageSet_ = messageSet_;
-          } else {
-            result.messageSet_ = messageSetBuilder_.build();
-          }
+          result.messageSet_ = messageSetBuilder_ == null
+              ? messageSet_
+              : messageSetBuilder_.build();
           to_bitField0_ |= 0x00000001;
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -926,7 +855,7 @@ public final class UnittestMsetWireFormat {
         if (other.hasMessageSet()) {
           mergeMessageSet(other.getMessageSet());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -946,17 +875,37 @@ public final class UnittestMsetWireFormat {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getMessageSetFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -991,11 +940,11 @@ public final class UnittestMsetWireFormat {
             throw new NullPointerException();
           }
           messageSet_ = value;
-          onChanged();
         } else {
           messageSetBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1005,11 +954,11 @@ public final class UnittestMsetWireFormat {
           proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.Builder builderForValue) {
         if (messageSetBuilder_ == null) {
           messageSet_ = builderForValue.build();
-          onChanged();
         } else {
           messageSetBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1018,31 +967,30 @@ public final class UnittestMsetWireFormat {
       public Builder mergeMessageSet(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet value) {
         if (messageSetBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              messageSet_ != null &&
-              messageSet_ != proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.getDefaultInstance()) {
-            messageSet_ =
-              proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.newBuilder(messageSet_).mergeFrom(value).buildPartial();
+            messageSet_ != null &&
+            messageSet_ != proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.getDefaultInstance()) {
+            getMessageSetBuilder().mergeFrom(value);
           } else {
             messageSet_ = value;
           }
-          onChanged();
         } else {
           messageSetBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>optional .proto2_wireformat_unittest.TestMessageSet message_set = 1;</code>
        */
       public Builder clearMessageSet() {
-        if (messageSetBuilder_ == null) {
-          messageSet_ = null;
-          onChanged();
-        } else {
-          messageSetBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000001);
+        messageSet_ = null;
+        if (messageSetBuilder_ != null) {
+          messageSetBuilder_.dispose();
+          messageSetBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -1113,7 +1061,18 @@ public final class UnittestMsetWireFormat {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestMessageSetWireFormatContainer(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

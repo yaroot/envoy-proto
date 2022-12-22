@@ -35,90 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Topic(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Builder subBuilder = null;
-            if (partitionConfig_ != null) {
-              subBuilder = partitionConfig_.toBuilder();
-            }
-            partitionConfig_ = input.readMessage(com.google.cloud.pubsublite.proto.Topic.PartitionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(partitionConfig_);
-              partitionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.pubsublite.proto.Topic.RetentionConfig.Builder subBuilder = null;
-            if (retentionConfig_ != null) {
-              subBuilder = retentionConfig_.toBuilder();
-            }
-            retentionConfig_ = input.readMessage(com.google.cloud.pubsublite.proto.Topic.RetentionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retentionConfig_);
-              retentionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.pubsublite.proto.Topic.ReservationConfig.Builder subBuilder = null;
-            if (reservationConfig_ != null) {
-              subBuilder = reservationConfig_.toBuilder();
-            }
-            reservationConfig_ = input.readMessage(com.google.cloud.pubsublite.proto.Topic.ReservationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reservationConfig_);
-              reservationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.pubsublite.proto.CommonProto.internal_static_google_cloud_pubsublite_v1_Topic_descriptor;
@@ -163,7 +79,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 scale = 2 [deprecated = true];</code>
      * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-     *     See google/cloud/pubsublite/v1/common.proto;l=137
+     *     See google/cloud/pubsublite/v1/common.proto;l=138
      * @return Whether the scale field is set.
      */
     @java.lang.Deprecated boolean hasScale();
@@ -180,7 +96,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 scale = 2 [deprecated = true];</code>
      * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-     *     See google/cloud/pubsublite/v1/common.proto;l=137
+     *     See google/cloud/pubsublite/v1/common.proto;l=138
      * @return The scale.
      */
     @java.lang.Deprecated int getScale();
@@ -244,69 +160,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private PartitionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              count_ = input.readInt64();
-              break;
-            }
-            case 16: {
-              dimension_ = input.readInt32();
-              dimensionCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity.Builder subBuilder = null;
-              if (dimensionCase_ == 3) {
-                subBuilder = ((com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity) dimension_).toBuilder();
-              }
-              dimension_ =
-                  input.readMessage(com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity) dimension_);
-                dimension_ = subBuilder.buildPartial();
-              }
-              dimensionCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -378,55 +231,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Capacity(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                publishMibPerSec_ = input.readInt32();
-                break;
-              }
-              case 16: {
-
-                subscribeMibPerSec_ = input.readInt32();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.pubsublite.proto.CommonProto.internal_static_google_cloud_pubsublite_v1_Topic_PartitionConfig_Capacity_descriptor;
@@ -441,7 +245,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int PUBLISH_MIB_PER_SEC_FIELD_NUMBER = 1;
-      private int publishMibPerSec_;
+      private int publishMibPerSec_ = 0;
       /**
        * <pre>
        * Publish throughput capacity per partition in MiB/s.
@@ -457,7 +261,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int SUBSCRIBE_MIB_PER_SEC_FIELD_NUMBER = 2;
-      private int subscribeMibPerSec_;
+      private int subscribeMibPerSec_ = 0;
       /**
        * <pre>
        * Subscribe throughput capacity per partition in MiB/s.
@@ -492,7 +296,7 @@ private static final long serialVersionUID = 0L;
         if (subscribeMibPerSec_ != 0) {
           output.writeInt32(2, subscribeMibPerSec_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -509,7 +313,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, subscribeMibPerSec_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -528,7 +332,7 @@ private static final long serialVersionUID = 0L;
             != other.getPublishMibPerSec()) return false;
         if (getSubscribeMibPerSec()
             != other.getSubscribeMibPerSec()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -543,7 +347,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getPublishMibPerSec();
         hash = (37 * hash) + SUBSCRIBE_MIB_PER_SEC_FIELD_NUMBER;
         hash = (53 * hash) + getSubscribeMibPerSec();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -664,26 +468,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           publishMibPerSec_ = 0;
-
           subscribeMibPerSec_ = 0;
-
           return this;
         }
 
@@ -710,10 +508,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity buildPartial() {
           com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity result = new com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity(this);
-          result.publishMibPerSec_ = publishMibPerSec_;
-          result.subscribeMibPerSec_ = subscribeMibPerSec_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.publishMibPerSec_ = publishMibPerSec_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.subscribeMibPerSec_ = subscribeMibPerSec_;
+          }
         }
 
         @java.lang.Override
@@ -766,7 +573,7 @@ private static final long serialVersionUID = 0L;
           if (other.getSubscribeMibPerSec() != 0) {
             setSubscribeMibPerSec(other.getSubscribeMibPerSec());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -781,19 +588,43 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  publishMibPerSec_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 16: {
+                  subscribeMibPerSec_ = input.readInt32();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private int publishMibPerSec_ ;
         /**
@@ -822,6 +653,7 @@ private static final long serialVersionUID = 0L;
         public Builder setPublishMibPerSec(int value) {
           
           publishMibPerSec_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -835,7 +667,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearPublishMibPerSec() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           publishMibPerSec_ = 0;
           onChanged();
           return this;
@@ -868,6 +700,7 @@ private static final long serialVersionUID = 0L;
         public Builder setSubscribeMibPerSec(int value) {
           
           subscribeMibPerSec_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -881,7 +714,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearSubscribeMibPerSec() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           subscribeMibPerSec_ = 0;
           onChanged();
           return this;
@@ -919,7 +752,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Capacity(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -981,7 +825,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COUNT_FIELD_NUMBER = 1;
-    private long count_;
+    private long count_ = 0L;
     /**
      * <pre>
      * The number of partitions in the topic. Must be at least 1.
@@ -1013,7 +857,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 scale = 2 [deprecated = true];</code>
      * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-     *     See google/cloud/pubsublite/v1/common.proto;l=137
+     *     See google/cloud/pubsublite/v1/common.proto;l=138
      * @return Whether the scale field is set.
      */
     @java.lang.Override
@@ -1033,7 +877,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 scale = 2 [deprecated = true];</code>
      * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-     *     See google/cloud/pubsublite/v1/common.proto;l=137
+     *     See google/cloud/pubsublite/v1/common.proto;l=138
      * @return The scale.
      */
     @java.lang.Override
@@ -1111,7 +955,7 @@ private static final long serialVersionUID = 0L;
       if (dimensionCase_ == 3) {
         output.writeMessage(3, (com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity) dimension_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1133,7 +977,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Capacity) dimension_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1163,7 +1007,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1189,7 +1033,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1310,24 +1154,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.pubsublite.proto.Topic.PartitionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         count_ = 0L;
-
+        if (capacityBuilder_ != null) {
+          capacityBuilder_.clear();
+        }
         dimensionCase_ = 0;
         dimension_ = null;
         return this;
@@ -1356,20 +1198,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.pubsublite.proto.Topic.PartitionConfig buildPartial() {
         com.google.cloud.pubsublite.proto.Topic.PartitionConfig result = new com.google.cloud.pubsublite.proto.Topic.PartitionConfig(this);
-        result.count_ = count_;
-        if (dimensionCase_ == 2) {
-          result.dimension_ = dimension_;
-        }
-        if (dimensionCase_ == 3) {
-          if (capacityBuilder_ == null) {
-            result.dimension_ = dimension_;
-          } else {
-            result.dimension_ = capacityBuilder_.build();
-          }
-        }
-        result.dimensionCase_ = dimensionCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.pubsublite.proto.Topic.PartitionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.count_ = count_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.pubsublite.proto.Topic.PartitionConfig result) {
+        result.dimensionCase_ = dimensionCase_;
+        result.dimension_ = this.dimension_;
+        if (dimensionCase_ == 3 &&
+            capacityBuilder_ != null) {
+          result.dimension_ = capacityBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1432,7 +1280,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1447,17 +1295,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.pubsublite.proto.Topic.PartitionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                count_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                dimension_ = input.readInt32();
+                dimensionCase_ = 2;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getCapacityFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                dimensionCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.pubsublite.proto.Topic.PartitionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int dimensionCase_ = 0;
@@ -1475,6 +1353,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private long count_ ;
       /**
@@ -1509,6 +1388,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCount(long value) {
         
         count_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1525,7 +1405,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         count_ = 0L;
         onChanged();
         return this;
@@ -1544,7 +1424,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 scale = 2 [deprecated = true];</code>
        * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-       *     See google/cloud/pubsublite/v1/common.proto;l=137
+       *     See google/cloud/pubsublite/v1/common.proto;l=138
        * @return Whether the scale field is set.
        */
       @java.lang.Deprecated public boolean hasScale() {
@@ -1563,7 +1443,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 scale = 2 [deprecated = true];</code>
        * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-       *     See google/cloud/pubsublite/v1/common.proto;l=137
+       *     See google/cloud/pubsublite/v1/common.proto;l=138
        * @return The scale.
        */
       @java.lang.Deprecated public int getScale() {
@@ -1585,11 +1465,12 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 scale = 2 [deprecated = true];</code>
        * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-       *     See google/cloud/pubsublite/v1/common.proto;l=137
+       *     See google/cloud/pubsublite/v1/common.proto;l=138
        * @param value The scale to set.
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder setScale(int value) {
+        
         dimensionCase_ = 2;
         dimension_ = value;
         onChanged();
@@ -1608,7 +1489,7 @@ private static final long serialVersionUID = 0L;
        *
        * <code>int32 scale = 2 [deprecated = true];</code>
        * @deprecated google.cloud.pubsublite.v1.Topic.PartitionConfig.scale is deprecated.
-       *     See google/cloud/pubsublite/v1/common.proto;l=137
+       *     See google/cloud/pubsublite/v1/common.proto;l=138
        * @return This builder for chaining.
        */
       @java.lang.Deprecated public Builder clearScale() {
@@ -1794,7 +1675,7 @@ private static final long serialVersionUID = 0L;
           dimension_ = null;
         }
         dimensionCase_ = 3;
-        onChanged();;
+        onChanged();
         return capacityBuilder_;
       }
       @java.lang.Override
@@ -1830,7 +1711,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PartitionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1931,63 +1823,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RetentionConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              perPartitionBytes_ = input.readInt64();
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (period_ != null) {
-                subBuilder = period_.toBuilder();
-              }
-              period_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(period_);
-                period_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.pubsublite.proto.CommonProto.internal_static_google_cloud_pubsublite_v1_Topic_RetentionConfig_descriptor;
@@ -2002,7 +1837,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PER_PARTITION_BYTES_FIELD_NUMBER = 1;
-    private long perPartitionBytes_;
+    private long perPartitionBytes_ = 0L;
     /**
      * <pre>
      * The provisioned storage, in bytes, per partition. If the number of bytes
@@ -2060,7 +1895,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getPeriodOrBuilder() {
-      return getPeriod();
+      return period_ == null ? com.google.protobuf.Duration.getDefaultInstance() : period_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2083,7 +1918,7 @@ private static final long serialVersionUID = 0L;
       if (period_ != null) {
         output.writeMessage(2, getPeriod());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2100,7 +1935,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getPeriod());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2122,7 +1957,7 @@ private static final long serialVersionUID = 0L;
         if (!getPeriod()
             .equals(other.getPeriod())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2140,7 +1975,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + PERIOD_FIELD_NUMBER;
         hash = (53 * hash) + getPeriod().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2261,28 +2096,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.pubsublite.proto.Topic.RetentionConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         perPartitionBytes_ = 0L;
-
-        if (periodBuilder_ == null) {
-          period_ = null;
-        } else {
-          period_ = null;
+        period_ = null;
+        if (periodBuilder_ != null) {
+          periodBuilder_.dispose();
           periodBuilder_ = null;
         }
         return this;
@@ -2311,14 +2140,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.pubsublite.proto.Topic.RetentionConfig buildPartial() {
         com.google.cloud.pubsublite.proto.Topic.RetentionConfig result = new com.google.cloud.pubsublite.proto.Topic.RetentionConfig(this);
-        result.perPartitionBytes_ = perPartitionBytes_;
-        if (periodBuilder_ == null) {
-          result.period_ = period_;
-        } else {
-          result.period_ = periodBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.pubsublite.proto.Topic.RetentionConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.perPartitionBytes_ = perPartitionBytes_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.period_ = periodBuilder_ == null
+              ? period_
+              : periodBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2371,7 +2207,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasPeriod()) {
           mergePeriod(other.getPeriod());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2386,19 +2222,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.pubsublite.proto.Topic.RetentionConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                perPartitionBytes_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getPeriodFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.pubsublite.proto.Topic.RetentionConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long perPartitionBytes_ ;
       /**
@@ -2431,6 +2293,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPerPartitionBytes(long value) {
         
         perPartitionBytes_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2446,7 +2309,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPerPartitionBytes() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         perPartitionBytes_ = 0L;
         onChanged();
         return this;
@@ -2466,7 +2329,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the period field is set.
        */
       public boolean hasPeriod() {
-        return periodBuilder_ != null || period_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2500,11 +2363,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           period_ = value;
-          onChanged();
         } else {
           periodBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2520,11 +2383,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (periodBuilder_ == null) {
           period_ = builderForValue.build();
-          onChanged();
         } else {
           periodBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2538,17 +2401,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergePeriod(com.google.protobuf.Duration value) {
         if (periodBuilder_ == null) {
-          if (period_ != null) {
-            period_ =
-              com.google.protobuf.Duration.newBuilder(period_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            period_ != null &&
+            period_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getPeriodBuilder().mergeFrom(value);
           } else {
             period_ = value;
           }
-          onChanged();
         } else {
           periodBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2561,14 +2425,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration period = 2;</code>
        */
       public Builder clearPeriod() {
-        if (periodBuilder_ == null) {
-          period_ = null;
-          onChanged();
-        } else {
-          period_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        period_ = null;
+        if (periodBuilder_ != null) {
+          periodBuilder_.dispose();
           periodBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2581,7 +2444,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration period = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getPeriodBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getPeriodFieldBuilder().getBuilder();
       }
@@ -2657,7 +2520,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RetentionConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2737,51 +2611,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReservationConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              throughputReservation_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.pubsublite.proto.CommonProto.internal_static_google_cloud_pubsublite_v1_Topic_ReservationConfig_descriptor;
@@ -2796,7 +2625,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int THROUGHPUT_RESERVATION_FIELD_NUMBER = 1;
-    private volatile java.lang.Object throughputReservation_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object throughputReservation_ = "";
     /**
      * <pre>
      * The Reservation to use for this topic's throughput capacity.
@@ -2862,7 +2692,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(throughputReservation_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, throughputReservation_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2874,7 +2704,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(throughputReservation_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, throughputReservation_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2891,7 +2721,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getThroughputReservation()
           .equals(other.getThroughputReservation())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2904,7 +2734,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + THROUGHPUT_RESERVATION_FIELD_NUMBER;
       hash = (53 * hash) + getThroughputReservation().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3025,24 +2855,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.pubsublite.proto.Topic.ReservationConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         throughputReservation_ = "";
-
         return this;
       }
 
@@ -3069,9 +2894,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.pubsublite.proto.Topic.ReservationConfig buildPartial() {
         com.google.cloud.pubsublite.proto.Topic.ReservationConfig result = new com.google.cloud.pubsublite.proto.Topic.ReservationConfig(this);
-        result.throughputReservation_ = throughputReservation_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.pubsublite.proto.Topic.ReservationConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.throughputReservation_ = throughputReservation_;
+        }
       }
 
       @java.lang.Override
@@ -3120,9 +2952,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.pubsublite.proto.Topic.ReservationConfig.getDefaultInstance()) return this;
         if (!other.getThroughputReservation().isEmpty()) {
           throughputReservation_ = other.throughputReservation_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3137,19 +2970,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.pubsublite.proto.Topic.ReservationConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                throughputReservation_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.pubsublite.proto.Topic.ReservationConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object throughputReservation_ = "";
       /**
@@ -3210,11 +3062,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setThroughputReservation(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         throughputReservation_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3229,8 +3079,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearThroughputReservation() {
-        
         throughputReservation_ = getDefaultInstance().getThroughputReservation();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3247,12 +3097,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setThroughputReservationBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         throughputReservation_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3289,7 +3137,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReservationConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3310,7 +3169,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the topic.
@@ -3394,7 +3254,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.pubsublite.proto.Topic.PartitionConfigOrBuilder getPartitionConfigOrBuilder() {
-    return getPartitionConfig();
+    return partitionConfig_ == null ? com.google.cloud.pubsublite.proto.Topic.PartitionConfig.getDefaultInstance() : partitionConfig_;
   }
 
   public static final int RETENTION_CONFIG_FIELD_NUMBER = 3;
@@ -3432,7 +3292,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.pubsublite.proto.Topic.RetentionConfigOrBuilder getRetentionConfigOrBuilder() {
-    return getRetentionConfig();
+    return retentionConfig_ == null ? com.google.cloud.pubsublite.proto.Topic.RetentionConfig.getDefaultInstance() : retentionConfig_;
   }
 
   public static final int RESERVATION_CONFIG_FIELD_NUMBER = 4;
@@ -3470,7 +3330,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.pubsublite.proto.Topic.ReservationConfigOrBuilder getReservationConfigOrBuilder() {
-    return getReservationConfig();
+    return reservationConfig_ == null ? com.google.cloud.pubsublite.proto.Topic.ReservationConfig.getDefaultInstance() : reservationConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3499,7 +3359,7 @@ private static final long serialVersionUID = 0L;
     if (reservationConfig_ != null) {
       output.writeMessage(4, getReservationConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3523,7 +3383,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getReservationConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3555,7 +3415,7 @@ private static final long serialVersionUID = 0L;
       if (!getReservationConfig()
           .equals(other.getReservationConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3580,7 +3440,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESERVATION_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getReservationConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3701,40 +3561,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.pubsublite.proto.Topic.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (partitionConfigBuilder_ == null) {
-        partitionConfig_ = null;
-      } else {
-        partitionConfig_ = null;
+      partitionConfig_ = null;
+      if (partitionConfigBuilder_ != null) {
+        partitionConfigBuilder_.dispose();
         partitionConfigBuilder_ = null;
       }
-      if (retentionConfigBuilder_ == null) {
-        retentionConfig_ = null;
-      } else {
-        retentionConfig_ = null;
+      retentionConfig_ = null;
+      if (retentionConfigBuilder_ != null) {
+        retentionConfigBuilder_.dispose();
         retentionConfigBuilder_ = null;
       }
-      if (reservationConfigBuilder_ == null) {
-        reservationConfig_ = null;
-      } else {
-        reservationConfig_ = null;
+      reservationConfig_ = null;
+      if (reservationConfigBuilder_ != null) {
+        reservationConfigBuilder_.dispose();
         reservationConfigBuilder_ = null;
       }
       return this;
@@ -3763,24 +3615,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.pubsublite.proto.Topic buildPartial() {
       com.google.cloud.pubsublite.proto.Topic result = new com.google.cloud.pubsublite.proto.Topic(this);
-      result.name_ = name_;
-      if (partitionConfigBuilder_ == null) {
-        result.partitionConfig_ = partitionConfig_;
-      } else {
-        result.partitionConfig_ = partitionConfigBuilder_.build();
-      }
-      if (retentionConfigBuilder_ == null) {
-        result.retentionConfig_ = retentionConfig_;
-      } else {
-        result.retentionConfig_ = retentionConfigBuilder_.build();
-      }
-      if (reservationConfigBuilder_ == null) {
-        result.reservationConfig_ = reservationConfig_;
-      } else {
-        result.reservationConfig_ = reservationConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.pubsublite.proto.Topic result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.partitionConfig_ = partitionConfigBuilder_ == null
+            ? partitionConfig_
+            : partitionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.retentionConfig_ = retentionConfigBuilder_ == null
+            ? retentionConfig_
+            : retentionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.reservationConfig_ = reservationConfigBuilder_ == null
+            ? reservationConfig_
+            : reservationConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3829,6 +3688,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.pubsublite.proto.Topic.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasPartitionConfig()) {
@@ -3840,7 +3700,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasReservationConfig()) {
         mergeReservationConfig(other.getReservationConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3855,19 +3715,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.pubsublite.proto.Topic parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPartitionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getRetentionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getReservationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.pubsublite.proto.Topic) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -3928,11 +3828,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3947,8 +3845,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3965,12 +3863,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3987,7 +3883,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the partitionConfig field is set.
      */
     public boolean hasPartitionConfig() {
-      return partitionConfigBuilder_ != null || partitionConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -4017,11 +3913,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         partitionConfig_ = value;
-        onChanged();
       } else {
         partitionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4035,11 +3931,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Builder builderForValue) {
       if (partitionConfigBuilder_ == null) {
         partitionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         partitionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4051,17 +3947,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePartitionConfig(com.google.cloud.pubsublite.proto.Topic.PartitionConfig value) {
       if (partitionConfigBuilder_ == null) {
-        if (partitionConfig_ != null) {
-          partitionConfig_ =
-            com.google.cloud.pubsublite.proto.Topic.PartitionConfig.newBuilder(partitionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          partitionConfig_ != null &&
+          partitionConfig_ != com.google.cloud.pubsublite.proto.Topic.PartitionConfig.getDefaultInstance()) {
+          getPartitionConfigBuilder().mergeFrom(value);
         } else {
           partitionConfig_ = value;
         }
-        onChanged();
       } else {
         partitionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4072,14 +3969,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Topic.PartitionConfig partition_config = 2;</code>
      */
     public Builder clearPartitionConfig() {
-      if (partitionConfigBuilder_ == null) {
-        partitionConfig_ = null;
-        onChanged();
-      } else {
-        partitionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      partitionConfig_ = null;
+      if (partitionConfigBuilder_ != null) {
+        partitionConfigBuilder_.dispose();
         partitionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4090,7 +3986,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Topic.PartitionConfig partition_config = 2;</code>
      */
     public com.google.cloud.pubsublite.proto.Topic.PartitionConfig.Builder getPartitionConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPartitionConfigFieldBuilder().getBuilder();
     }
@@ -4142,7 +4038,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retentionConfig field is set.
      */
     public boolean hasRetentionConfig() {
-      return retentionConfigBuilder_ != null || retentionConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -4172,11 +4068,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retentionConfig_ = value;
-        onChanged();
       } else {
         retentionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4190,11 +4086,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.pubsublite.proto.Topic.RetentionConfig.Builder builderForValue) {
       if (retentionConfigBuilder_ == null) {
         retentionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         retentionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4206,17 +4102,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetentionConfig(com.google.cloud.pubsublite.proto.Topic.RetentionConfig value) {
       if (retentionConfigBuilder_ == null) {
-        if (retentionConfig_ != null) {
-          retentionConfig_ =
-            com.google.cloud.pubsublite.proto.Topic.RetentionConfig.newBuilder(retentionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          retentionConfig_ != null &&
+          retentionConfig_ != com.google.cloud.pubsublite.proto.Topic.RetentionConfig.getDefaultInstance()) {
+          getRetentionConfigBuilder().mergeFrom(value);
         } else {
           retentionConfig_ = value;
         }
-        onChanged();
       } else {
         retentionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -4227,14 +4124,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Topic.RetentionConfig retention_config = 3;</code>
      */
     public Builder clearRetentionConfig() {
-      if (retentionConfigBuilder_ == null) {
-        retentionConfig_ = null;
-        onChanged();
-      } else {
-        retentionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      retentionConfig_ = null;
+      if (retentionConfigBuilder_ != null) {
+        retentionConfigBuilder_.dispose();
         retentionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4245,7 +4141,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Topic.RetentionConfig retention_config = 3;</code>
      */
     public com.google.cloud.pubsublite.proto.Topic.RetentionConfig.Builder getRetentionConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRetentionConfigFieldBuilder().getBuilder();
     }
@@ -4297,7 +4193,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reservationConfig field is set.
      */
     public boolean hasReservationConfig() {
-      return reservationConfigBuilder_ != null || reservationConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4327,11 +4223,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reservationConfig_ = value;
-        onChanged();
       } else {
         reservationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4345,11 +4241,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.pubsublite.proto.Topic.ReservationConfig.Builder builderForValue) {
       if (reservationConfigBuilder_ == null) {
         reservationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         reservationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4361,17 +4257,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReservationConfig(com.google.cloud.pubsublite.proto.Topic.ReservationConfig value) {
       if (reservationConfigBuilder_ == null) {
-        if (reservationConfig_ != null) {
-          reservationConfig_ =
-            com.google.cloud.pubsublite.proto.Topic.ReservationConfig.newBuilder(reservationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          reservationConfig_ != null &&
+          reservationConfig_ != com.google.cloud.pubsublite.proto.Topic.ReservationConfig.getDefaultInstance()) {
+          getReservationConfigBuilder().mergeFrom(value);
         } else {
           reservationConfig_ = value;
         }
-        onChanged();
       } else {
         reservationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4382,14 +4279,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Topic.ReservationConfig reservation_config = 4;</code>
      */
     public Builder clearReservationConfig() {
-      if (reservationConfigBuilder_ == null) {
-        reservationConfig_ = null;
-        onChanged();
-      } else {
-        reservationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      reservationConfig_ = null;
+      if (reservationConfigBuilder_ != null) {
+        reservationConfigBuilder_.dispose();
         reservationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4400,7 +4296,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Topic.ReservationConfig reservation_config = 4;</code>
      */
     public com.google.cloud.pubsublite.proto.Topic.ReservationConfig.Builder getReservationConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getReservationConfigFieldBuilder().getBuilder();
     }
@@ -4472,7 +4368,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Topic(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

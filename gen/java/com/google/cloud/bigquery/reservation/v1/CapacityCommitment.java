@@ -45,118 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CapacityCommitment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            slotCount_ = input.readInt64();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            plan_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (commitmentEndTime_ != null) {
-              subBuilder = commitmentEndTime_.toBuilder();
-            }
-            commitmentEndTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commitmentEndTime_);
-              commitmentEndTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (failureStatus_ != null) {
-              subBuilder = failureStatus_.toBuilder();
-            }
-            failureStatus_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(failureStatus_);
-              failureStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            renewalPlan_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (commitmentStartTime_ != null) {
-              subBuilder = commitmentStartTime_.toBuilder();
-            }
-            commitmentStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commitmentStartTime_);
-              commitmentStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-
-            multiRegionAuxiliary_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.reservation.v1.ReservationProto.internal_static_google_cloud_bigquery_reservation_v1_CapacityCommitment_descriptor;
@@ -538,7 +426,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the capacity commitment, e.g.,
@@ -592,7 +481,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SLOT_COUNT_FIELD_NUMBER = 2;
-  private long slotCount_;
+  private long slotCount_ = 0L;
   /**
    * <pre>
    * Number of slots in this commitment.
@@ -607,7 +496,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLAN_FIELD_NUMBER = 3;
-  private int plan_;
+  private int plan_ = 0;
   /**
    * <pre>
    * Capacity commitment commitment plan.
@@ -628,13 +517,12 @@ private static final long serialVersionUID = 0L;
    * @return The plan.
    */
   @java.lang.Override public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan getPlan() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.valueOf(plan_);
+    com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.forNumber(plan_);
     return result == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.UNRECOGNIZED : result;
   }
 
   public static final int STATE_FIELD_NUMBER = 4;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. State of the commitment.
@@ -655,8 +543,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State.valueOf(state_);
+    com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State.forNumber(state_);
     return result == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State.UNRECOGNIZED : result;
   }
 
@@ -698,7 +585,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCommitmentStartTimeOrBuilder() {
-    return getCommitmentStartTime();
+    return commitmentStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : commitmentStartTime_;
   }
 
   public static final int COMMITMENT_END_TIME_FIELD_NUMBER = 5;
@@ -739,7 +626,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCommitmentEndTimeOrBuilder() {
-    return getCommitmentEndTime();
+    return commitmentEndTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : commitmentEndTime_;
   }
 
   public static final int FAILURE_STATUS_FIELD_NUMBER = 7;
@@ -777,11 +664,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getFailureStatusOrBuilder() {
-    return getFailureStatus();
+    return failureStatus_ == null ? com.google.rpc.Status.getDefaultInstance() : failureStatus_;
   }
 
   public static final int RENEWAL_PLAN_FIELD_NUMBER = 8;
-  private int renewalPlan_;
+  private int renewalPlan_ = 0;
   /**
    * <pre>
    * The plan this capacity commitment is converted to after commitment_end_time
@@ -806,13 +693,12 @@ private static final long serialVersionUID = 0L;
    * @return The renewalPlan.
    */
   @java.lang.Override public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan getRenewalPlan() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.valueOf(renewalPlan_);
+    com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.forNumber(renewalPlan_);
     return result == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.UNRECOGNIZED : result;
   }
 
   public static final int MULTI_REGION_AUXILIARY_FIELD_NUMBER = 10;
-  private boolean multiRegionAuxiliary_;
+  private boolean multiRegionAuxiliary_ = false;
   /**
    * <pre>
    * Applicable only for commitments located within one of the BigQuery
@@ -871,7 +757,7 @@ private static final long serialVersionUID = 0L;
     if (multiRegionAuxiliary_ != false) {
       output.writeBool(10, multiRegionAuxiliary_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -915,7 +801,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(10, multiRegionAuxiliary_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -954,7 +840,7 @@ private static final long serialVersionUID = 0L;
     if (renewalPlan_ != other.renewalPlan_) return false;
     if (getMultiRegionAuxiliary()
         != other.getMultiRegionAuxiliary()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -991,7 +877,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + MULTI_REGION_AUXILIARY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getMultiRegionAuxiliary());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1119,52 +1005,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.reservation.v1.CapacityCommitment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       slotCount_ = 0L;
-
       plan_ = 0;
-
       state_ = 0;
-
-      if (commitmentStartTimeBuilder_ == null) {
-        commitmentStartTime_ = null;
-      } else {
-        commitmentStartTime_ = null;
+      commitmentStartTime_ = null;
+      if (commitmentStartTimeBuilder_ != null) {
+        commitmentStartTimeBuilder_.dispose();
         commitmentStartTimeBuilder_ = null;
       }
-      if (commitmentEndTimeBuilder_ == null) {
-        commitmentEndTime_ = null;
-      } else {
-        commitmentEndTime_ = null;
+      commitmentEndTime_ = null;
+      if (commitmentEndTimeBuilder_ != null) {
+        commitmentEndTimeBuilder_.dispose();
         commitmentEndTimeBuilder_ = null;
       }
-      if (failureStatusBuilder_ == null) {
-        failureStatus_ = null;
-      } else {
-        failureStatus_ = null;
+      failureStatus_ = null;
+      if (failureStatusBuilder_ != null) {
+        failureStatusBuilder_.dispose();
         failureStatusBuilder_ = null;
       }
       renewalPlan_ = 0;
-
       multiRegionAuxiliary_ = false;
-
       return this;
     }
 
@@ -1191,29 +1064,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.reservation.v1.CapacityCommitment buildPartial() {
       com.google.cloud.bigquery.reservation.v1.CapacityCommitment result = new com.google.cloud.bigquery.reservation.v1.CapacityCommitment(this);
-      result.name_ = name_;
-      result.slotCount_ = slotCount_;
-      result.plan_ = plan_;
-      result.state_ = state_;
-      if (commitmentStartTimeBuilder_ == null) {
-        result.commitmentStartTime_ = commitmentStartTime_;
-      } else {
-        result.commitmentStartTime_ = commitmentStartTimeBuilder_.build();
-      }
-      if (commitmentEndTimeBuilder_ == null) {
-        result.commitmentEndTime_ = commitmentEndTime_;
-      } else {
-        result.commitmentEndTime_ = commitmentEndTimeBuilder_.build();
-      }
-      if (failureStatusBuilder_ == null) {
-        result.failureStatus_ = failureStatus_;
-      } else {
-        result.failureStatus_ = failureStatusBuilder_.build();
-      }
-      result.renewalPlan_ = renewalPlan_;
-      result.multiRegionAuxiliary_ = multiRegionAuxiliary_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.reservation.v1.CapacityCommitment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.slotCount_ = slotCount_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.plan_ = plan_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.commitmentStartTime_ = commitmentStartTimeBuilder_ == null
+            ? commitmentStartTime_
+            : commitmentStartTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.commitmentEndTime_ = commitmentEndTimeBuilder_ == null
+            ? commitmentEndTime_
+            : commitmentEndTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.failureStatus_ = failureStatusBuilder_ == null
+            ? failureStatus_
+            : failureStatusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.renewalPlan_ = renewalPlan_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.multiRegionAuxiliary_ = multiRegionAuxiliary_;
+      }
     }
 
     @java.lang.Override
@@ -1262,6 +1152,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.reservation.v1.CapacityCommitment.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getSlotCount() != 0L) {
@@ -1288,7 +1179,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMultiRegionAuxiliary() != false) {
         setMultiRegionAuxiliary(other.getMultiRegionAuxiliary());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1303,19 +1194,84 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.reservation.v1.CapacityCommitment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              slotCount_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              plan_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getCommitmentEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 58: {
+              input.readMessage(
+                  getFailureStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              renewalPlan_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getCommitmentStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 74
+            case 80: {
+              multiRegionAuxiliary_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.reservation.v1.CapacityCommitment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1382,11 +1338,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1403,8 +1357,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1423,12 +1377,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1458,6 +1410,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSlotCount(long value) {
       
       slotCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1470,7 +1423,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSlotCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       slotCount_ = 0L;
       onChanged();
       return this;
@@ -1498,8 +1451,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlanValue(int value) {
-      
       plan_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1513,8 +1466,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan getPlan() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.valueOf(plan_);
+      com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.forNumber(plan_);
       return result == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.UNRECOGNIZED : result;
     }
     /**
@@ -1530,7 +1482,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       plan_ = value.getNumber();
       onChanged();
       return this;
@@ -1544,7 +1496,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlan() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       plan_ = 0;
       onChanged();
       return this;
@@ -1572,8 +1524,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1587,8 +1539,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State.valueOf(state_);
+      com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State.forNumber(state_);
       return result == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.State.UNRECOGNIZED : result;
     }
     /**
@@ -1604,7 +1555,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1618,7 +1569,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       state_ = 0;
       onChanged();
       return this;
@@ -1637,7 +1588,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commitmentStartTime field is set.
      */
     public boolean hasCommitmentStartTime() {
-      return commitmentStartTimeBuilder_ != null || commitmentStartTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1669,11 +1620,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commitmentStartTime_ = value;
-        onChanged();
       } else {
         commitmentStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1688,11 +1639,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (commitmentStartTimeBuilder_ == null) {
         commitmentStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         commitmentStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1705,17 +1656,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommitmentStartTime(com.google.protobuf.Timestamp value) {
       if (commitmentStartTimeBuilder_ == null) {
-        if (commitmentStartTime_ != null) {
-          commitmentStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(commitmentStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          commitmentStartTime_ != null &&
+          commitmentStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCommitmentStartTimeBuilder().mergeFrom(value);
         } else {
           commitmentStartTime_ = value;
         }
-        onChanged();
       } else {
         commitmentStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1727,14 +1679,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commitment_start_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCommitmentStartTime() {
-      if (commitmentStartTimeBuilder_ == null) {
-        commitmentStartTime_ = null;
-        onChanged();
-      } else {
-        commitmentStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      commitmentStartTime_ = null;
+      if (commitmentStartTimeBuilder_ != null) {
+        commitmentStartTimeBuilder_.dispose();
         commitmentStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1746,7 +1697,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commitment_start_time = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCommitmentStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCommitmentStartTimeFieldBuilder().getBuilder();
     }
@@ -1801,7 +1752,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commitmentEndTime field is set.
      */
     public boolean hasCommitmentEndTime() {
-      return commitmentEndTimeBuilder_ != null || commitmentEndTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1833,11 +1784,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commitmentEndTime_ = value;
-        onChanged();
       } else {
         commitmentEndTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1852,11 +1803,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (commitmentEndTimeBuilder_ == null) {
         commitmentEndTime_ = builderForValue.build();
-        onChanged();
       } else {
         commitmentEndTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1869,17 +1820,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommitmentEndTime(com.google.protobuf.Timestamp value) {
       if (commitmentEndTimeBuilder_ == null) {
-        if (commitmentEndTime_ != null) {
-          commitmentEndTime_ =
-            com.google.protobuf.Timestamp.newBuilder(commitmentEndTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          commitmentEndTime_ != null &&
+          commitmentEndTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCommitmentEndTimeBuilder().mergeFrom(value);
         } else {
           commitmentEndTime_ = value;
         }
-        onChanged();
       } else {
         commitmentEndTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1891,14 +1843,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commitment_end_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCommitmentEndTime() {
-      if (commitmentEndTimeBuilder_ == null) {
-        commitmentEndTime_ = null;
-        onChanged();
-      } else {
-        commitmentEndTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      commitmentEndTime_ = null;
+      if (commitmentEndTimeBuilder_ != null) {
+        commitmentEndTimeBuilder_.dispose();
         commitmentEndTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1910,7 +1861,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commitment_end_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCommitmentEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCommitmentEndTimeFieldBuilder().getBuilder();
     }
@@ -1964,7 +1915,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the failureStatus field is set.
      */
     public boolean hasFailureStatus() {
-      return failureStatusBuilder_ != null || failureStatus_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1994,11 +1945,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         failureStatus_ = value;
-        onChanged();
       } else {
         failureStatusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2012,11 +1963,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (failureStatusBuilder_ == null) {
         failureStatus_ = builderForValue.build();
-        onChanged();
       } else {
         failureStatusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2028,17 +1979,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFailureStatus(com.google.rpc.Status value) {
       if (failureStatusBuilder_ == null) {
-        if (failureStatus_ != null) {
-          failureStatus_ =
-            com.google.rpc.Status.newBuilder(failureStatus_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          failureStatus_ != null &&
+          failureStatus_ != com.google.rpc.Status.getDefaultInstance()) {
+          getFailureStatusBuilder().mergeFrom(value);
         } else {
           failureStatus_ = value;
         }
-        onChanged();
       } else {
         failureStatusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2049,14 +2001,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status failure_status = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearFailureStatus() {
-      if (failureStatusBuilder_ == null) {
-        failureStatus_ = null;
-        onChanged();
-      } else {
-        failureStatus_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      failureStatus_ = null;
+      if (failureStatusBuilder_ != null) {
+        failureStatusBuilder_.dispose();
         failureStatusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2067,7 +2018,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status failure_status = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.rpc.Status.Builder getFailureStatusBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getFailureStatusFieldBuilder().getBuilder();
     }
@@ -2133,8 +2084,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRenewalPlanValue(int value) {
-      
       renewalPlan_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2150,8 +2101,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan getRenewalPlan() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.valueOf(renewalPlan_);
+      com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan result = com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.forNumber(renewalPlan_);
       return result == null ? com.google.cloud.bigquery.reservation.v1.CapacityCommitment.CommitmentPlan.UNRECOGNIZED : result;
     }
     /**
@@ -2169,7 +2119,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       renewalPlan_ = value.getNumber();
       onChanged();
       return this;
@@ -2185,7 +2135,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRenewalPlan() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       renewalPlan_ = 0;
       onChanged();
       return this;
@@ -2224,6 +2174,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMultiRegionAuxiliary(boolean value) {
       
       multiRegionAuxiliary_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2240,7 +2191,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMultiRegionAuxiliary() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       multiRegionAuxiliary_ = false;
       onChanged();
       return this;
@@ -2278,7 +2229,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CapacityCommitment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

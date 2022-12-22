@@ -36,93 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExclusionRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.CustomInfoType.Dictionary.Builder subBuilder = null;
-            if (typeCase_ == 1) {
-              subBuilder = ((com.google.privacy.dlp.v2.CustomInfoType.Dictionary) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.CustomInfoType.Dictionary.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.CustomInfoType.Dictionary) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.privacy.dlp.v2.CustomInfoType.Regex.Builder subBuilder = null;
-            if (typeCase_ == 2) {
-              subBuilder = ((com.google.privacy.dlp.v2.CustomInfoType.Regex) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.CustomInfoType.Regex.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.CustomInfoType.Regex) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.ExcludeInfoTypes.Builder subBuilder = null;
-            if (typeCase_ == 3) {
-              subBuilder = ((com.google.privacy.dlp.v2.ExcludeInfoTypes) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.ExcludeInfoTypes.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.ExcludeInfoTypes) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 3;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            matchingType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_ExclusionRule_descriptor;
@@ -144,6 +57,7 @@ private static final long serialVersionUID = 0L;
     DICTIONARY(1),
     REGEX(2),
     EXCLUDE_INFO_TYPES(3),
+    EXCLUDE_BY_HOTWORD(5),
     TYPE_NOT_SET(0);
     private final int value;
     private TypeCase(int value) {
@@ -164,6 +78,7 @@ private static final long serialVersionUID = 0L;
         case 1: return DICTIONARY;
         case 2: return REGEX;
         case 3: return EXCLUDE_INFO_TYPES;
+        case 5: return EXCLUDE_BY_HOTWORD;
         case 0: return TYPE_NOT_SET;
         default: return null;
       }
@@ -308,8 +223,54 @@ private static final long serialVersionUID = 0L;
     return com.google.privacy.dlp.v2.ExcludeInfoTypes.getDefaultInstance();
   }
 
+  public static final int EXCLUDE_BY_HOTWORD_FIELD_NUMBER = 5;
+  /**
+   * <pre>
+   * Drop if the hotword rule is contained in the proximate context. For
+   * tabular data, the context includes the column name.
+   * </pre>
+   *
+   * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+   * @return Whether the excludeByHotword field is set.
+   */
+  @java.lang.Override
+  public boolean hasExcludeByHotword() {
+    return typeCase_ == 5;
+  }
+  /**
+   * <pre>
+   * Drop if the hotword rule is contained in the proximate context. For
+   * tabular data, the context includes the column name.
+   * </pre>
+   *
+   * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+   * @return The excludeByHotword.
+   */
+  @java.lang.Override
+  public com.google.privacy.dlp.v2.ExcludeByHotword getExcludeByHotword() {
+    if (typeCase_ == 5) {
+       return (com.google.privacy.dlp.v2.ExcludeByHotword) type_;
+    }
+    return com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * Drop if the hotword rule is contained in the proximate context. For
+   * tabular data, the context includes the column name.
+   * </pre>
+   *
+   * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.privacy.dlp.v2.ExcludeByHotwordOrBuilder getExcludeByHotwordOrBuilder() {
+    if (typeCase_ == 5) {
+       return (com.google.privacy.dlp.v2.ExcludeByHotword) type_;
+    }
+    return com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance();
+  }
+
   public static final int MATCHING_TYPE_FIELD_NUMBER = 4;
-  private int matchingType_;
+  private int matchingType_ = 0;
   /**
    * <pre>
    * How the rule is applied, see MatchingType documentation for details.
@@ -330,8 +291,7 @@ private static final long serialVersionUID = 0L;
    * @return The matchingType.
    */
   @java.lang.Override public com.google.privacy.dlp.v2.MatchingType getMatchingType() {
-    @SuppressWarnings("deprecation")
-    com.google.privacy.dlp.v2.MatchingType result = com.google.privacy.dlp.v2.MatchingType.valueOf(matchingType_);
+    com.google.privacy.dlp.v2.MatchingType result = com.google.privacy.dlp.v2.MatchingType.forNumber(matchingType_);
     return result == null ? com.google.privacy.dlp.v2.MatchingType.UNRECOGNIZED : result;
   }
 
@@ -361,7 +321,10 @@ private static final long serialVersionUID = 0L;
     if (matchingType_ != com.google.privacy.dlp.v2.MatchingType.MATCHING_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, matchingType_);
     }
-    unknownFields.writeTo(output);
+    if (typeCase_ == 5) {
+      output.writeMessage(5, (com.google.privacy.dlp.v2.ExcludeByHotword) type_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -386,7 +349,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, matchingType_);
     }
-    size += unknownFields.getSerializedSize();
+    if (typeCase_ == 5) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, (com.google.privacy.dlp.v2.ExcludeByHotword) type_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -416,10 +383,14 @@ private static final long serialVersionUID = 0L;
         if (!getExcludeInfoTypes()
             .equals(other.getExcludeInfoTypes())) return false;
         break;
+      case 5:
+        if (!getExcludeByHotword()
+            .equals(other.getExcludeByHotword())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -445,10 +416,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + EXCLUDE_INFO_TYPES_FIELD_NUMBER;
         hash = (53 * hash) + getExcludeInfoTypes().hashCode();
         break;
+      case 5:
+        hash = (37 * hash) + EXCLUDE_BY_HOTWORD_FIELD_NUMBER;
+        hash = (53 * hash) + getExcludeByHotword().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -570,24 +545,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.ExclusionRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (dictionaryBuilder_ != null) {
+        dictionaryBuilder_.clear();
+      }
+      if (regexBuilder_ != null) {
+        regexBuilder_.clear();
+      }
+      if (excludeInfoTypesBuilder_ != null) {
+        excludeInfoTypesBuilder_.clear();
+      }
+      if (excludeByHotwordBuilder_ != null) {
+        excludeByHotwordBuilder_.clear();
+      }
       matchingType_ = 0;
-
       typeCase_ = 0;
       type_ = null;
       return this;
@@ -616,31 +598,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.ExclusionRule buildPartial() {
       com.google.privacy.dlp.v2.ExclusionRule result = new com.google.privacy.dlp.v2.ExclusionRule(this);
-      if (typeCase_ == 1) {
-        if (dictionaryBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = dictionaryBuilder_.build();
-        }
-      }
-      if (typeCase_ == 2) {
-        if (regexBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = regexBuilder_.build();
-        }
-      }
-      if (typeCase_ == 3) {
-        if (excludeInfoTypesBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = excludeInfoTypesBuilder_.build();
-        }
-      }
-      result.matchingType_ = matchingType_;
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.ExclusionRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.matchingType_ = matchingType_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.ExclusionRule result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 1 &&
+          dictionaryBuilder_ != null) {
+        result.type_ = dictionaryBuilder_.build();
+      }
+      if (typeCase_ == 2 &&
+          regexBuilder_ != null) {
+        result.type_ = regexBuilder_.build();
+      }
+      if (typeCase_ == 3 &&
+          excludeInfoTypesBuilder_ != null) {
+        result.type_ = excludeInfoTypesBuilder_.build();
+      }
+      if (typeCase_ == 5 &&
+          excludeByHotwordBuilder_ != null) {
+        result.type_ = excludeByHotwordBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -703,11 +692,15 @@ private static final long serialVersionUID = 0L;
           mergeExcludeInfoTypes(other.getExcludeInfoTypes());
           break;
         }
+        case EXCLUDE_BY_HOTWORD: {
+          mergeExcludeByHotword(other.getExcludeByHotword());
+          break;
+        }
         case TYPE_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -722,17 +715,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.ExclusionRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDictionaryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRegexFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getExcludeInfoTypesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 3;
+              break;
+            } // case 26
+            case 32: {
+              matchingType_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getExcludeByHotwordFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.ExclusionRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -750,6 +789,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.privacy.dlp.v2.CustomInfoType.Dictionary, com.google.privacy.dlp.v2.CustomInfoType.Dictionary.Builder, com.google.privacy.dlp.v2.CustomInfoType.DictionaryOrBuilder> dictionaryBuilder_;
@@ -925,7 +965,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 1;
-      onChanged();;
+      onChanged();
       return dictionaryBuilder_;
     }
 
@@ -1103,7 +1143,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 2;
-      onChanged();;
+      onChanged();
       return regexBuilder_;
     }
 
@@ -1281,8 +1321,195 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 3;
-      onChanged();;
+      onChanged();
       return excludeInfoTypesBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.privacy.dlp.v2.ExcludeByHotword, com.google.privacy.dlp.v2.ExcludeByHotword.Builder, com.google.privacy.dlp.v2.ExcludeByHotwordOrBuilder> excludeByHotwordBuilder_;
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     * @return Whether the excludeByHotword field is set.
+     */
+    @java.lang.Override
+    public boolean hasExcludeByHotword() {
+      return typeCase_ == 5;
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     * @return The excludeByHotword.
+     */
+    @java.lang.Override
+    public com.google.privacy.dlp.v2.ExcludeByHotword getExcludeByHotword() {
+      if (excludeByHotwordBuilder_ == null) {
+        if (typeCase_ == 5) {
+          return (com.google.privacy.dlp.v2.ExcludeByHotword) type_;
+        }
+        return com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance();
+      } else {
+        if (typeCase_ == 5) {
+          return excludeByHotwordBuilder_.getMessage();
+        }
+        return com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    public Builder setExcludeByHotword(com.google.privacy.dlp.v2.ExcludeByHotword value) {
+      if (excludeByHotwordBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        type_ = value;
+        onChanged();
+      } else {
+        excludeByHotwordBuilder_.setMessage(value);
+      }
+      typeCase_ = 5;
+      return this;
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    public Builder setExcludeByHotword(
+        com.google.privacy.dlp.v2.ExcludeByHotword.Builder builderForValue) {
+      if (excludeByHotwordBuilder_ == null) {
+        type_ = builderForValue.build();
+        onChanged();
+      } else {
+        excludeByHotwordBuilder_.setMessage(builderForValue.build());
+      }
+      typeCase_ = 5;
+      return this;
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    public Builder mergeExcludeByHotword(com.google.privacy.dlp.v2.ExcludeByHotword value) {
+      if (excludeByHotwordBuilder_ == null) {
+        if (typeCase_ == 5 &&
+            type_ != com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance()) {
+          type_ = com.google.privacy.dlp.v2.ExcludeByHotword.newBuilder((com.google.privacy.dlp.v2.ExcludeByHotword) type_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          type_ = value;
+        }
+        onChanged();
+      } else {
+        if (typeCase_ == 5) {
+          excludeByHotwordBuilder_.mergeFrom(value);
+        } else {
+          excludeByHotwordBuilder_.setMessage(value);
+        }
+      }
+      typeCase_ = 5;
+      return this;
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    public Builder clearExcludeByHotword() {
+      if (excludeByHotwordBuilder_ == null) {
+        if (typeCase_ == 5) {
+          typeCase_ = 0;
+          type_ = null;
+          onChanged();
+        }
+      } else {
+        if (typeCase_ == 5) {
+          typeCase_ = 0;
+          type_ = null;
+        }
+        excludeByHotwordBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    public com.google.privacy.dlp.v2.ExcludeByHotword.Builder getExcludeByHotwordBuilder() {
+      return getExcludeByHotwordFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    @java.lang.Override
+    public com.google.privacy.dlp.v2.ExcludeByHotwordOrBuilder getExcludeByHotwordOrBuilder() {
+      if ((typeCase_ == 5) && (excludeByHotwordBuilder_ != null)) {
+        return excludeByHotwordBuilder_.getMessageOrBuilder();
+      } else {
+        if (typeCase_ == 5) {
+          return (com.google.privacy.dlp.v2.ExcludeByHotword) type_;
+        }
+        return com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * Drop if the hotword rule is contained in the proximate context. For
+     * tabular data, the context includes the column name.
+     * </pre>
+     *
+     * <code>.google.privacy.dlp.v2.ExcludeByHotword exclude_by_hotword = 5;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.privacy.dlp.v2.ExcludeByHotword, com.google.privacy.dlp.v2.ExcludeByHotword.Builder, com.google.privacy.dlp.v2.ExcludeByHotwordOrBuilder> 
+        getExcludeByHotwordFieldBuilder() {
+      if (excludeByHotwordBuilder_ == null) {
+        if (!(typeCase_ == 5)) {
+          type_ = com.google.privacy.dlp.v2.ExcludeByHotword.getDefaultInstance();
+        }
+        excludeByHotwordBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.privacy.dlp.v2.ExcludeByHotword, com.google.privacy.dlp.v2.ExcludeByHotword.Builder, com.google.privacy.dlp.v2.ExcludeByHotwordOrBuilder>(
+                (com.google.privacy.dlp.v2.ExcludeByHotword) type_,
+                getParentForChildren(),
+                isClean());
+        type_ = null;
+      }
+      typeCase_ = 5;
+      onChanged();
+      return excludeByHotwordBuilder_;
     }
 
     private int matchingType_ = 0;
@@ -1307,8 +1534,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMatchingTypeValue(int value) {
-      
       matchingType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1322,8 +1549,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.MatchingType getMatchingType() {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.MatchingType result = com.google.privacy.dlp.v2.MatchingType.valueOf(matchingType_);
+      com.google.privacy.dlp.v2.MatchingType result = com.google.privacy.dlp.v2.MatchingType.forNumber(matchingType_);
       return result == null ? com.google.privacy.dlp.v2.MatchingType.UNRECOGNIZED : result;
     }
     /**
@@ -1339,7 +1565,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       matchingType_ = value.getNumber();
       onChanged();
       return this;
@@ -1353,7 +1579,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMatchingType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       matchingType_ = 0;
       onChanged();
       return this;
@@ -1391,7 +1617,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExclusionRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

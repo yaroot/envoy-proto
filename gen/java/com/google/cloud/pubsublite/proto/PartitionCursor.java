@@ -34,63 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PartitionCursor(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            partition_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            com.google.cloud.pubsublite.proto.Cursor.Builder subBuilder = null;
-            if (cursor_ != null) {
-              subBuilder = cursor_.toBuilder();
-            }
-            cursor_ = input.readMessage(com.google.cloud.pubsublite.proto.Cursor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cursor_);
-              cursor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.pubsublite.proto.CursorProto.internal_static_google_cloud_pubsublite_v1_PartitionCursor_descriptor;
@@ -105,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTITION_FIELD_NUMBER = 1;
-  private long partition_;
+  private long partition_ = 0L;
   /**
    * <pre>
    * The partition this is for.
@@ -154,7 +97,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.pubsublite.proto.CursorOrBuilder getCursorOrBuilder() {
-    return getCursor();
+    return cursor_ == null ? com.google.cloud.pubsublite.proto.Cursor.getDefaultInstance() : cursor_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -177,7 +120,7 @@ private static final long serialVersionUID = 0L;
     if (cursor_ != null) {
       output.writeMessage(2, getCursor());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -194,7 +137,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getCursor());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
       if (!getCursor()
           .equals(other.getCursor())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -234,7 +177,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CURSOR_FIELD_NUMBER;
       hash = (53 * hash) + getCursor().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -355,28 +298,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.pubsublite.proto.PartitionCursor.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       partition_ = 0L;
-
-      if (cursorBuilder_ == null) {
-        cursor_ = null;
-      } else {
-        cursor_ = null;
+      cursor_ = null;
+      if (cursorBuilder_ != null) {
+        cursorBuilder_.dispose();
         cursorBuilder_ = null;
       }
       return this;
@@ -405,14 +342,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.pubsublite.proto.PartitionCursor buildPartial() {
       com.google.cloud.pubsublite.proto.PartitionCursor result = new com.google.cloud.pubsublite.proto.PartitionCursor(this);
-      result.partition_ = partition_;
-      if (cursorBuilder_ == null) {
-        result.cursor_ = cursor_;
-      } else {
-        result.cursor_ = cursorBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.pubsublite.proto.PartitionCursor result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.partition_ = partition_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cursor_ = cursorBuilder_ == null
+            ? cursor_
+            : cursorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -465,7 +409,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCursor()) {
         mergeCursor(other.getCursor());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -480,19 +424,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.pubsublite.proto.PartitionCursor parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              partition_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getCursorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.pubsublite.proto.PartitionCursor) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long partition_ ;
     /**
@@ -519,6 +489,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPartition(long value) {
       
       partition_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -531,7 +502,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPartition() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       partition_ = 0L;
       onChanged();
       return this;
@@ -549,7 +520,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cursor field is set.
      */
     public boolean hasCursor() {
-      return cursorBuilder_ != null || cursor_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -579,11 +550,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cursor_ = value;
-        onChanged();
       } else {
         cursorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +568,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.pubsublite.proto.Cursor.Builder builderForValue) {
       if (cursorBuilder_ == null) {
         cursor_ = builderForValue.build();
-        onChanged();
       } else {
         cursorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +584,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCursor(com.google.cloud.pubsublite.proto.Cursor value) {
       if (cursorBuilder_ == null) {
-        if (cursor_ != null) {
-          cursor_ =
-            com.google.cloud.pubsublite.proto.Cursor.newBuilder(cursor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          cursor_ != null &&
+          cursor_ != com.google.cloud.pubsublite.proto.Cursor.getDefaultInstance()) {
+          getCursorBuilder().mergeFrom(value);
         } else {
           cursor_ = value;
         }
-        onChanged();
       } else {
         cursorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +606,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Cursor cursor = 2;</code>
      */
     public Builder clearCursor() {
-      if (cursorBuilder_ == null) {
-        cursor_ = null;
-        onChanged();
-      } else {
-        cursor_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      cursor_ = null;
+      if (cursorBuilder_ != null) {
+        cursorBuilder_.dispose();
         cursorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +623,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.pubsublite.v1.Cursor cursor = 2;</code>
      */
     public com.google.cloud.pubsublite.proto.Cursor.Builder getCursorBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCursorFieldBuilder().getBuilder();
     }
@@ -724,7 +695,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PartitionCursor(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

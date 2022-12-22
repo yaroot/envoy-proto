@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReplicaConfiguration(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.sql.v1.MySqlReplicaConfiguration.Builder subBuilder = null;
-            if (mysqlReplicaConfiguration_ != null) {
-              subBuilder = mysqlReplicaConfiguration_.toBuilder();
-            }
-            mysqlReplicaConfiguration_ = input.readMessage(com.google.cloud.sql.v1.MySqlReplicaConfiguration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mysqlReplicaConfiguration_);
-              mysqlReplicaConfiguration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (failoverTarget_ != null) {
-              subBuilder = failoverTarget_.toBuilder();
-            }
-            failoverTarget_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(failoverTarget_);
-              failoverTarget_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlServiceProto.internal_static_google_cloud_sql_v1_ReplicaConfiguration_descriptor;
@@ -120,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * This is always **sql#replicaConfiguration**.
@@ -215,7 +145,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1.MySqlReplicaConfigurationOrBuilder getMysqlReplicaConfigurationOrBuilder() {
-    return getMysqlReplicaConfiguration();
+    return mysqlReplicaConfiguration_ == null ? com.google.cloud.sql.v1.MySqlReplicaConfiguration.getDefaultInstance() : mysqlReplicaConfiguration_;
   }
 
   public static final int FAILOVER_TARGET_FIELD_NUMBER = 3;
@@ -265,7 +195,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getFailoverTargetOrBuilder() {
-    return getFailoverTarget();
+    return failoverTarget_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : failoverTarget_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,7 +221,7 @@ private static final long serialVersionUID = 0L;
     if (failoverTarget_ != null) {
       output.writeMessage(3, getFailoverTarget());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -311,7 +241,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getFailoverTarget());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -338,7 +268,7 @@ private static final long serialVersionUID = 0L;
       if (!getFailoverTarget()
           .equals(other.getFailoverTarget())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -359,7 +289,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FAILOVER_TARGET_FIELD_NUMBER;
       hash = (53 * hash) + getFailoverTarget().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -480,34 +410,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.ReplicaConfiguration.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kind_ = "";
-
-      if (mysqlReplicaConfigurationBuilder_ == null) {
-        mysqlReplicaConfiguration_ = null;
-      } else {
-        mysqlReplicaConfiguration_ = null;
+      mysqlReplicaConfiguration_ = null;
+      if (mysqlReplicaConfigurationBuilder_ != null) {
+        mysqlReplicaConfigurationBuilder_.dispose();
         mysqlReplicaConfigurationBuilder_ = null;
       }
-      if (failoverTargetBuilder_ == null) {
-        failoverTarget_ = null;
-      } else {
-        failoverTarget_ = null;
+      failoverTarget_ = null;
+      if (failoverTargetBuilder_ != null) {
+        failoverTargetBuilder_.dispose();
         failoverTargetBuilder_ = null;
       }
       return this;
@@ -536,19 +459,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.ReplicaConfiguration buildPartial() {
       com.google.cloud.sql.v1.ReplicaConfiguration result = new com.google.cloud.sql.v1.ReplicaConfiguration(this);
-      result.kind_ = kind_;
-      if (mysqlReplicaConfigurationBuilder_ == null) {
-        result.mysqlReplicaConfiguration_ = mysqlReplicaConfiguration_;
-      } else {
-        result.mysqlReplicaConfiguration_ = mysqlReplicaConfigurationBuilder_.build();
-      }
-      if (failoverTargetBuilder_ == null) {
-        result.failoverTarget_ = failoverTarget_;
-      } else {
-        result.failoverTarget_ = failoverTargetBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.ReplicaConfiguration result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.mysqlReplicaConfiguration_ = mysqlReplicaConfigurationBuilder_ == null
+            ? mysqlReplicaConfiguration_
+            : mysqlReplicaConfigurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.failoverTarget_ = failoverTargetBuilder_ == null
+            ? failoverTarget_
+            : failoverTargetBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -597,6 +527,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.sql.v1.ReplicaConfiguration.getDefaultInstance()) return this;
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasMysqlReplicaConfiguration()) {
@@ -605,7 +536,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasFailoverTarget()) {
         mergeFailoverTarget(other.getFailoverTarget());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -620,19 +551,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.ReplicaConfiguration parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMysqlReplicaConfigurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFailoverTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.ReplicaConfiguration) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object kind_ = "";
     /**
@@ -687,11 +651,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -704,8 +666,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -720,12 +682,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -747,7 +707,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mysqlReplicaConfiguration field is set.
      */
     public boolean hasMysqlReplicaConfiguration() {
-      return mysqlReplicaConfigurationBuilder_ != null || mysqlReplicaConfiguration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -787,11 +747,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mysqlReplicaConfiguration_ = value;
-        onChanged();
       } else {
         mysqlReplicaConfigurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -810,11 +770,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1.MySqlReplicaConfiguration.Builder builderForValue) {
       if (mysqlReplicaConfigurationBuilder_ == null) {
         mysqlReplicaConfiguration_ = builderForValue.build();
-        onChanged();
       } else {
         mysqlReplicaConfigurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -831,17 +791,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMysqlReplicaConfiguration(com.google.cloud.sql.v1.MySqlReplicaConfiguration value) {
       if (mysqlReplicaConfigurationBuilder_ == null) {
-        if (mysqlReplicaConfiguration_ != null) {
-          mysqlReplicaConfiguration_ =
-            com.google.cloud.sql.v1.MySqlReplicaConfiguration.newBuilder(mysqlReplicaConfiguration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          mysqlReplicaConfiguration_ != null &&
+          mysqlReplicaConfiguration_ != com.google.cloud.sql.v1.MySqlReplicaConfiguration.getDefaultInstance()) {
+          getMysqlReplicaConfigurationBuilder().mergeFrom(value);
         } else {
           mysqlReplicaConfiguration_ = value;
         }
-        onChanged();
       } else {
         mysqlReplicaConfigurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -857,14 +818,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.MySqlReplicaConfiguration mysql_replica_configuration = 2;</code>
      */
     public Builder clearMysqlReplicaConfiguration() {
-      if (mysqlReplicaConfigurationBuilder_ == null) {
-        mysqlReplicaConfiguration_ = null;
-        onChanged();
-      } else {
-        mysqlReplicaConfiguration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      mysqlReplicaConfiguration_ = null;
+      if (mysqlReplicaConfigurationBuilder_ != null) {
+        mysqlReplicaConfigurationBuilder_.dispose();
         mysqlReplicaConfigurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -880,7 +840,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.MySqlReplicaConfiguration mysql_replica_configuration = 2;</code>
      */
     public com.google.cloud.sql.v1.MySqlReplicaConfiguration.Builder getMysqlReplicaConfigurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMysqlReplicaConfigurationFieldBuilder().getBuilder();
     }
@@ -946,7 +906,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the failoverTarget field is set.
      */
     public boolean hasFailoverTarget() {
-      return failoverTargetBuilder_ != null || failoverTarget_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -984,11 +944,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         failoverTarget_ = value;
-        onChanged();
       } else {
         failoverTargetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1006,11 +966,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (failoverTargetBuilder_ == null) {
         failoverTarget_ = builderForValue.build();
-        onChanged();
       } else {
         failoverTargetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1026,17 +986,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFailoverTarget(com.google.protobuf.BoolValue value) {
       if (failoverTargetBuilder_ == null) {
-        if (failoverTarget_ != null) {
-          failoverTarget_ =
-            com.google.protobuf.BoolValue.newBuilder(failoverTarget_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          failoverTarget_ != null &&
+          failoverTarget_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getFailoverTargetBuilder().mergeFrom(value);
         } else {
           failoverTarget_ = value;
         }
-        onChanged();
       } else {
         failoverTargetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1051,14 +1012,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue failover_target = 3;</code>
      */
     public Builder clearFailoverTarget() {
-      if (failoverTargetBuilder_ == null) {
-        failoverTarget_ = null;
-        onChanged();
-      } else {
-        failoverTarget_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      failoverTarget_ = null;
+      if (failoverTargetBuilder_ != null) {
+        failoverTargetBuilder_.dispose();
         failoverTargetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1073,7 +1033,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue failover_target = 3;</code>
      */
     public com.google.protobuf.BoolValue.Builder getFailoverTargetBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFailoverTargetFieldBuilder().getBuilder();
     }
@@ -1153,7 +1113,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReplicaConfiguration(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

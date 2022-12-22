@@ -6,9 +6,9 @@ package com.google.cloud.bigquery.datatransfer.v1;
 /**
  * <pre>
  * A request to create a data transfer configuration. If new credentials are
- * needed for this transfer configuration, an authorization code must be
- * provided. If an authorization code is provided, the transfer configuration
- * will be associated with the user id corresponding to the authorization code.
+ * needed for this transfer configuration, authorization info must be provided.
+ * If authorization info is provided, the transfer configuration will be
+ * associated with the user id corresponding to the authorization info.
  * Otherwise, the transfer configuration will be associated with the calling
  * user.
  * </pre>
@@ -43,82 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateTransferConfigRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.datatransfer.v1.TransferConfig.Builder subBuilder = null;
-            if (transferConfig_ != null) {
-              subBuilder = transferConfig_.toBuilder();
-            }
-            transferConfig_ = input.readMessage(com.google.cloud.bigquery.datatransfer.v1.TransferConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transferConfig_);
-              transferConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authorizationCode_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            versionInfo_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccountName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.datatransfer.v1.DataTransferProto.internal_static_google_cloud_bigquery_datatransfer_v1_CreateTransferConfigRequest_descriptor;
@@ -133,7 +57,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The BigQuery project id where the transfer configuration should be created.
@@ -219,28 +144,27 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.datatransfer.v1.TransferConfigOrBuilder getTransferConfigOrBuilder() {
-    return getTransferConfig();
+    return transferConfig_ == null ? com.google.cloud.bigquery.datatransfer.v1.TransferConfig.getDefaultInstance() : transferConfig_;
   }
 
   public static final int AUTHORIZATION_CODE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object authorizationCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authorizationCode_ = "";
   /**
    * <pre>
    * Optional OAuth2 authorization code to use with this transfer configuration.
-   * This is required if new credentials are needed, as indicated by
-   * `CheckValidCreds`.
-   * In order to obtain authorization_code, please make a
-   * request to
-   * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-   * * client_id should be OAuth client_id of BigQuery DTS API for the given
-   *   data source returned by ListDataSources method.
-   * * data_source_scopes are the scopes returned by ListDataSources method.
-   * * redirect_uri is an optional parameter. If not specified, then
-   *   authorization code is posted to the opener of authorization flow window.
-   *   Otherwise it will be sent to the redirect uri. A special value of
-   *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-   *   returned in the title bar of the browser, with the page text prompting
-   *   the user to copy the code and paste it in the application.
+   * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+   * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+   * to obtain authorization_code, make a request to the following URL:
+   * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+   * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+   * &lt;/pre&gt;
+   * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+   * returned by ListDataSources method.
+   * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+   * method.
+   * Note that this should not be set when `service_account_name` is used to
+   * create the transfer config.
    * </pre>
    *
    * <code>string authorization_code = 3;</code>
@@ -262,20 +186,18 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Optional OAuth2 authorization code to use with this transfer configuration.
-   * This is required if new credentials are needed, as indicated by
-   * `CheckValidCreds`.
-   * In order to obtain authorization_code, please make a
-   * request to
-   * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-   * * client_id should be OAuth client_id of BigQuery DTS API for the given
-   *   data source returned by ListDataSources method.
-   * * data_source_scopes are the scopes returned by ListDataSources method.
-   * * redirect_uri is an optional parameter. If not specified, then
-   *   authorization code is posted to the opener of authorization flow window.
-   *   Otherwise it will be sent to the redirect uri. A special value of
-   *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-   *   returned in the title bar of the browser, with the page text prompting
-   *   the user to copy the code and paste it in the application.
+   * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+   * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+   * to obtain authorization_code, make a request to the following URL:
+   * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+   * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+   * &lt;/pre&gt;
+   * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+   * returned by ListDataSources method.
+   * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+   * method.
+   * Note that this should not be set when `service_account_name` is used to
+   * create the transfer config.
    * </pre>
    *
    * <code>string authorization_code = 3;</code>
@@ -297,15 +219,23 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_INFO_FIELD_NUMBER = 5;
-  private volatile java.lang.Object versionInfo_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object versionInfo_ = "";
   /**
    * <pre>
-   * Optional version info. If users want to find a very recent access token,
-   * that is, immediately after approving access, users have to set the
-   * version_info claim in the token request. To obtain the version_info, users
-   * must use the "none+gsession" response type. which be return a
-   * version_info back in the authorization response which be be put in a JWT
-   * claim in the token request.
+   * Optional version info. This is required only if
+   * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+   * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+   * info, make a request to the following URL:
+   * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+   * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+   * &lt;/pre&gt;
+   * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+   * returned by ListDataSources method.
+   * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+   * method.
+   * Note that this should not be set when `service_account_name` is used to
+   * create the transfer config.
    * </pre>
    *
    * <code>string version_info = 5;</code>
@@ -326,12 +256,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional version info. If users want to find a very recent access token,
-   * that is, immediately after approving access, users have to set the
-   * version_info claim in the token request. To obtain the version_info, users
-   * must use the "none+gsession" response type. which be return a
-   * version_info back in the authorization response which be be put in a JWT
-   * claim in the token request.
+   * Optional version info. This is required only if
+   * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+   * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+   * info, make a request to the following URL:
+   * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+   * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+   * &lt;/pre&gt;
+   * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+   * returned by ListDataSources method.
+   * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+   * method.
+   * Note that this should not be set when `service_account_name` is used to
+   * create the transfer config.
    * </pre>
    *
    * <code>string version_info = 5;</code>
@@ -353,13 +290,18 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_NAME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object serviceAccountName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccountName_ = "";
   /**
    * <pre>
-   * Optional service account name. If this field is set, transfer config will
-   * be created with this service account credentials. It requires that
-   * requesting user calling this API has permissions to act as this service
+   * Optional service account name. If this field is set, the transfer config
+   * will be created with this service account's credentials. It requires that
+   * the requesting user calling this API has permissions to act as this service
    * account.
+   * Note that not all data sources support service account credentials when
+   * creating a transfer config. For the latest list of data sources, read about
+   * [using service
+   * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
    * </pre>
    *
    * <code>string service_account_name = 6;</code>
@@ -380,10 +322,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional service account name. If this field is set, transfer config will
-   * be created with this service account credentials. It requires that
-   * requesting user calling this API has permissions to act as this service
+   * Optional service account name. If this field is set, the transfer config
+   * will be created with this service account's credentials. It requires that
+   * the requesting user calling this API has permissions to act as this service
    * account.
+   * Note that not all data sources support service account credentials when
+   * creating a transfer config. For the latest list of data sources, read about
+   * [using service
+   * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
    * </pre>
    *
    * <code>string service_account_name = 6;</code>
@@ -433,7 +379,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAccountName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, serviceAccountName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -458,7 +404,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(serviceAccountName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, serviceAccountName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -486,7 +432,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVersionInfo())) return false;
     if (!getServiceAccountName()
         .equals(other.getServiceAccountName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -509,7 +455,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getVersionInfo().hashCode();
     hash = (37 * hash) + SERVICE_ACCOUNT_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getServiceAccountName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -607,9 +553,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A request to create a data transfer configuration. If new credentials are
-   * needed for this transfer configuration, an authorization code must be
-   * provided. If an authorization code is provided, the transfer configuration
-   * will be associated with the user id corresponding to the authorization code.
+   * needed for this transfer configuration, authorization info must be provided.
+   * If authorization info is provided, the transfer configuration will be
+   * associated with the user id corresponding to the authorization info.
    * Otherwise, the transfer configuration will be associated with the calling
    * user.
    * </pre>
@@ -635,36 +581,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (transferConfigBuilder_ == null) {
-        transferConfig_ = null;
-      } else {
-        transferConfig_ = null;
+      transferConfig_ = null;
+      if (transferConfigBuilder_ != null) {
+        transferConfigBuilder_.dispose();
         transferConfigBuilder_ = null;
       }
       authorizationCode_ = "";
-
       versionInfo_ = "";
-
       serviceAccountName_ = "";
-
       return this;
     }
 
@@ -691,17 +628,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest buildPartial() {
       com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest result = new com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest(this);
-      result.parent_ = parent_;
-      if (transferConfigBuilder_ == null) {
-        result.transferConfig_ = transferConfig_;
-      } else {
-        result.transferConfig_ = transferConfigBuilder_.build();
-      }
-      result.authorizationCode_ = authorizationCode_;
-      result.versionInfo_ = versionInfo_;
-      result.serviceAccountName_ = serviceAccountName_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transferConfig_ = transferConfigBuilder_ == null
+            ? transferConfig_
+            : transferConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.authorizationCode_ = authorizationCode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.versionInfo_ = versionInfo_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.serviceAccountName_ = serviceAccountName_;
+      }
     }
 
     @java.lang.Override
@@ -750,6 +700,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTransferConfig()) {
@@ -757,17 +708,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAuthorizationCode().isEmpty()) {
         authorizationCode_ = other.authorizationCode_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getVersionInfo().isEmpty()) {
         versionInfo_ = other.versionInfo_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getServiceAccountName().isEmpty()) {
         serviceAccountName_ = other.serviceAccountName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -782,19 +736,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTransferConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              authorizationCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              versionInfo_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              serviceAccountName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.datatransfer.v1.CreateTransferConfigRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -858,11 +853,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -878,8 +871,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -897,12 +890,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -919,7 +910,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transferConfig field is set.
      */
     public boolean hasTransferConfig() {
-      return transferConfigBuilder_ != null || transferConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -949,11 +940,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transferConfig_ = value;
-        onChanged();
       } else {
         transferConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -967,11 +958,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.datatransfer.v1.TransferConfig.Builder builderForValue) {
       if (transferConfigBuilder_ == null) {
         transferConfig_ = builderForValue.build();
-        onChanged();
       } else {
         transferConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -983,17 +974,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransferConfig(com.google.cloud.bigquery.datatransfer.v1.TransferConfig value) {
       if (transferConfigBuilder_ == null) {
-        if (transferConfig_ != null) {
-          transferConfig_ =
-            com.google.cloud.bigquery.datatransfer.v1.TransferConfig.newBuilder(transferConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          transferConfig_ != null &&
+          transferConfig_ != com.google.cloud.bigquery.datatransfer.v1.TransferConfig.getDefaultInstance()) {
+          getTransferConfigBuilder().mergeFrom(value);
         } else {
           transferConfig_ = value;
         }
-        onChanged();
       } else {
         transferConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1004,14 +996,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.datatransfer.v1.TransferConfig transfer_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTransferConfig() {
-      if (transferConfigBuilder_ == null) {
-        transferConfig_ = null;
-        onChanged();
-      } else {
-        transferConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      transferConfig_ = null;
+      if (transferConfigBuilder_ != null) {
+        transferConfigBuilder_.dispose();
         transferConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1022,7 +1013,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.datatransfer.v1.TransferConfig transfer_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.bigquery.datatransfer.v1.TransferConfig.Builder getTransferConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTransferConfigFieldBuilder().getBuilder();
     }
@@ -1066,20 +1057,18 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional OAuth2 authorization code to use with this transfer configuration.
-     * This is required if new credentials are needed, as indicated by
-     * `CheckValidCreds`.
-     * In order to obtain authorization_code, please make a
-     * request to
-     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-     * * client_id should be OAuth client_id of BigQuery DTS API for the given
-     *   data source returned by ListDataSources method.
-     * * data_source_scopes are the scopes returned by ListDataSources method.
-     * * redirect_uri is an optional parameter. If not specified, then
-     *   authorization code is posted to the opener of authorization flow window.
-     *   Otherwise it will be sent to the redirect uri. A special value of
-     *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-     *   returned in the title bar of the browser, with the page text prompting
-     *   the user to copy the code and paste it in the application.
+     * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+     * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+     * to obtain authorization_code, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string authorization_code = 3;</code>
@@ -1100,20 +1089,18 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional OAuth2 authorization code to use with this transfer configuration.
-     * This is required if new credentials are needed, as indicated by
-     * `CheckValidCreds`.
-     * In order to obtain authorization_code, please make a
-     * request to
-     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-     * * client_id should be OAuth client_id of BigQuery DTS API for the given
-     *   data source returned by ListDataSources method.
-     * * data_source_scopes are the scopes returned by ListDataSources method.
-     * * redirect_uri is an optional parameter. If not specified, then
-     *   authorization code is posted to the opener of authorization flow window.
-     *   Otherwise it will be sent to the redirect uri. A special value of
-     *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-     *   returned in the title bar of the browser, with the page text prompting
-     *   the user to copy the code and paste it in the application.
+     * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+     * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+     * to obtain authorization_code, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string authorization_code = 3;</code>
@@ -1135,20 +1122,18 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Optional OAuth2 authorization code to use with this transfer configuration.
-     * This is required if new credentials are needed, as indicated by
-     * `CheckValidCreds`.
-     * In order to obtain authorization_code, please make a
-     * request to
-     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-     * * client_id should be OAuth client_id of BigQuery DTS API for the given
-     *   data source returned by ListDataSources method.
-     * * data_source_scopes are the scopes returned by ListDataSources method.
-     * * redirect_uri is an optional parameter. If not specified, then
-     *   authorization code is posted to the opener of authorization flow window.
-     *   Otherwise it will be sent to the redirect uri. A special value of
-     *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-     *   returned in the title bar of the browser, with the page text prompting
-     *   the user to copy the code and paste it in the application.
+     * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+     * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+     * to obtain authorization_code, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string authorization_code = 3;</code>
@@ -1157,59 +1142,53 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authorizationCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Optional OAuth2 authorization code to use with this transfer configuration.
-     * This is required if new credentials are needed, as indicated by
-     * `CheckValidCreds`.
-     * In order to obtain authorization_code, please make a
-     * request to
-     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-     * * client_id should be OAuth client_id of BigQuery DTS API for the given
-     *   data source returned by ListDataSources method.
-     * * data_source_scopes are the scopes returned by ListDataSources method.
-     * * redirect_uri is an optional parameter. If not specified, then
-     *   authorization code is posted to the opener of authorization flow window.
-     *   Otherwise it will be sent to the redirect uri. A special value of
-     *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-     *   returned in the title bar of the browser, with the page text prompting
-     *   the user to copy the code and paste it in the application.
+     * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+     * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+     * to obtain authorization_code, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string authorization_code = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearAuthorizationCode() {
-      
       authorizationCode_ = getDefaultInstance().getAuthorizationCode();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Optional OAuth2 authorization code to use with this transfer configuration.
-     * This is required if new credentials are needed, as indicated by
-     * `CheckValidCreds`.
-     * In order to obtain authorization_code, please make a
-     * request to
-     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?client_id=&lt;datatransferapiclientid&gt;&amp;scope=&lt;data_source_scopes&gt;&amp;redirect_uri=&lt;redirect_uri&gt;
-     * * client_id should be OAuth client_id of BigQuery DTS API for the given
-     *   data source returned by ListDataSources method.
-     * * data_source_scopes are the scopes returned by ListDataSources method.
-     * * redirect_uri is an optional parameter. If not specified, then
-     *   authorization code is posted to the opener of authorization flow window.
-     *   Otherwise it will be sent to the redirect uri. A special value of
-     *   urn:ietf:wg:oauth:2.0:oob means that authorization code should be
-     *   returned in the title bar of the browser, with the page text prompting
-     *   the user to copy the code and paste it in the application.
+     * This is required only if `transferConfig.dataSourceId` is 'youtube_channel'
+     * and new credentials are needed, as indicated by `CheckValidCreds`. In order
+     * to obtain authorization_code, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=authorization_code&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string authorization_code = 3;</code>
@@ -1218,12 +1197,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authorizationCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1231,12 +1208,19 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object versionInfo_ = "";
     /**
      * <pre>
-     * Optional version info. If users want to find a very recent access token,
-     * that is, immediately after approving access, users have to set the
-     * version_info claim in the token request. To obtain the version_info, users
-     * must use the "none+gsession" response type. which be return a
-     * version_info back in the authorization response which be be put in a JWT
-     * claim in the token request.
+     * Optional version info. This is required only if
+     * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+     * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+     * info, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string version_info = 5;</code>
@@ -1256,12 +1240,19 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional version info. If users want to find a very recent access token,
-     * that is, immediately after approving access, users have to set the
-     * version_info claim in the token request. To obtain the version_info, users
-     * must use the "none+gsession" response type. which be return a
-     * version_info back in the authorization response which be be put in a JWT
-     * claim in the token request.
+     * Optional version info. This is required only if
+     * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+     * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+     * info, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string version_info = 5;</code>
@@ -1282,12 +1273,19 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional version info. If users want to find a very recent access token,
-     * that is, immediately after approving access, users have to set the
-     * version_info claim in the token request. To obtain the version_info, users
-     * must use the "none+gsession" response type. which be return a
-     * version_info back in the authorization response which be be put in a JWT
-     * claim in the token request.
+     * Optional version info. This is required only if
+     * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+     * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+     * info, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string version_info = 5;</code>
@@ -1296,41 +1294,53 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionInfo(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       versionInfo_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional version info. If users want to find a very recent access token,
-     * that is, immediately after approving access, users have to set the
-     * version_info claim in the token request. To obtain the version_info, users
-     * must use the "none+gsession" response type. which be return a
-     * version_info back in the authorization response which be be put in a JWT
-     * claim in the token request.
+     * Optional version info. This is required only if
+     * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+     * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+     * info, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string version_info = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearVersionInfo() {
-      
       versionInfo_ = getDefaultInstance().getVersionInfo();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional version info. If users want to find a very recent access token,
-     * that is, immediately after approving access, users have to set the
-     * version_info claim in the token request. To obtain the version_info, users
-     * must use the "none+gsession" response type. which be return a
-     * version_info back in the authorization response which be be put in a JWT
-     * claim in the token request.
+     * Optional version info. This is required only if
+     * `transferConfig.dataSourceId` is not 'youtube_channel' and new credentials
+     * are needed, as indicated by `CheckValidCreds`. In order to obtain version
+     * info, make a request to the following URL:
+     * &lt;pre class="prettyprint" suppresswarning="true"&gt;
+     * https://www.gstatic.com/bigquerydatatransfer/oauthz/auth?redirect_uri=urn:ietf:wg:oauth:2.0:oob&amp;response_type=version_info&amp;client_id=&lt;var&gt;client_id&lt;/var&gt;&amp;scope=&lt;var&gt;data_source_scopes&lt;/var&gt;
+     * &lt;/pre&gt;
+     * * The &lt;var&gt;client_id&lt;/var&gt; is the OAuth client_id of the a data source as
+     * returned by ListDataSources method.
+     * * &lt;var&gt;data_source_scopes&lt;/var&gt; are the scopes returned by ListDataSources
+     * method.
+     * Note that this should not be set when `service_account_name` is used to
+     * create the transfer config.
      * </pre>
      *
      * <code>string version_info = 5;</code>
@@ -1339,12 +1349,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionInfoBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       versionInfo_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1352,10 +1360,14 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object serviceAccountName_ = "";
     /**
      * <pre>
-     * Optional service account name. If this field is set, transfer config will
-     * be created with this service account credentials. It requires that
-     * requesting user calling this API has permissions to act as this service
+     * Optional service account name. If this field is set, the transfer config
+     * will be created with this service account's credentials. It requires that
+     * the requesting user calling this API has permissions to act as this service
      * account.
+     * Note that not all data sources support service account credentials when
+     * creating a transfer config. For the latest list of data sources, read about
+     * [using service
+     * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
      * </pre>
      *
      * <code>string service_account_name = 6;</code>
@@ -1375,10 +1387,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional service account name. If this field is set, transfer config will
-     * be created with this service account credentials. It requires that
-     * requesting user calling this API has permissions to act as this service
+     * Optional service account name. If this field is set, the transfer config
+     * will be created with this service account's credentials. It requires that
+     * the requesting user calling this API has permissions to act as this service
      * account.
+     * Note that not all data sources support service account credentials when
+     * creating a transfer config. For the latest list of data sources, read about
+     * [using service
+     * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
      * </pre>
      *
      * <code>string service_account_name = 6;</code>
@@ -1399,10 +1415,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional service account name. If this field is set, transfer config will
-     * be created with this service account credentials. It requires that
-     * requesting user calling this API has permissions to act as this service
+     * Optional service account name. If this field is set, the transfer config
+     * will be created with this service account's credentials. It requires that
+     * the requesting user calling this API has permissions to act as this service
      * account.
+     * Note that not all data sources support service account credentials when
+     * creating a transfer config. For the latest list of data sources, read about
+     * [using service
+     * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
      * </pre>
      *
      * <code>string service_account_name = 6;</code>
@@ -1411,37 +1431,43 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccountName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional service account name. If this field is set, transfer config will
-     * be created with this service account credentials. It requires that
-     * requesting user calling this API has permissions to act as this service
+     * Optional service account name. If this field is set, the transfer config
+     * will be created with this service account's credentials. It requires that
+     * the requesting user calling this API has permissions to act as this service
      * account.
+     * Note that not all data sources support service account credentials when
+     * creating a transfer config. For the latest list of data sources, read about
+     * [using service
+     * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
      * </pre>
      *
      * <code>string service_account_name = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearServiceAccountName() {
-      
       serviceAccountName_ = getDefaultInstance().getServiceAccountName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional service account name. If this field is set, transfer config will
-     * be created with this service account credentials. It requires that
-     * requesting user calling this API has permissions to act as this service
+     * Optional service account name. If this field is set, the transfer config
+     * will be created with this service account's credentials. It requires that
+     * the requesting user calling this API has permissions to act as this service
      * account.
+     * Note that not all data sources support service account credentials when
+     * creating a transfer config. For the latest list of data sources, read about
+     * [using service
+     * accounts](https://cloud.google.com/bigquery-transfer/docs/use-service-accounts).
      * </pre>
      *
      * <code>string service_account_name = 6;</code>
@@ -1450,12 +1476,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccountName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1492,7 +1516,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateTransferConfigRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

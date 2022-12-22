@@ -45,56 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RuntimeAcceleratorConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            coreCount_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.notebooks.v1.RuntimeProto.internal_static_google_cloud_notebooks_v1_RuntimeAcceleratorConfig_descriptor;
@@ -130,8 +80,9 @@ private static final long serialVersionUID = 0L;
      * Accelerator type is Nvidia Tesla K80.
      * </pre>
      *
-     * <code>NVIDIA_TESLA_K80 = 1;</code>
+     * <code>NVIDIA_TESLA_K80 = 1 [deprecated = true];</code>
      */
+    @java.lang.Deprecated
     NVIDIA_TESLA_K80(1),
     /**
      * <pre>
@@ -229,9 +180,9 @@ private static final long serialVersionUID = 0L;
      * Accelerator type is Nvidia Tesla K80.
      * </pre>
      *
-     * <code>NVIDIA_TESLA_K80 = 1;</code>
+     * <code>NVIDIA_TESLA_K80 = 1 [deprecated = true];</code>
      */
-    public static final int NVIDIA_TESLA_K80_VALUE = 1;
+    @java.lang.Deprecated public static final int NVIDIA_TESLA_K80_VALUE = 1;
     /**
      * <pre>
      * Accelerator type is Nvidia Tesla P100.
@@ -407,7 +358,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Accelerator model.
@@ -428,13 +379,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType result = com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType.valueOf(type_);
+    com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType result = com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType.forNumber(type_);
     return result == null ? com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType.UNRECOGNIZED : result;
   }
 
   public static final int CORE_COUNT_FIELD_NUMBER = 2;
-  private long coreCount_;
+  private long coreCount_ = 0L;
   /**
    * <pre>
    * Count of cores of this accelerator.
@@ -468,7 +418,7 @@ private static final long serialVersionUID = 0L;
     if (coreCount_ != 0L) {
       output.writeInt64(2, coreCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -485,7 +435,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(2, coreCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -503,7 +453,7 @@ private static final long serialVersionUID = 0L;
     if (type_ != other.type_) return false;
     if (getCoreCount()
         != other.getCoreCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -519,7 +469,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + CORE_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getCoreCount());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -650,26 +600,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
       coreCount_ = 0L;
-
       return this;
     }
 
@@ -696,10 +640,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig buildPartial() {
       com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig result = new com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig(this);
-      result.type_ = type_;
-      result.coreCount_ = coreCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.coreCount_ = coreCount_;
+      }
     }
 
     @java.lang.Override
@@ -752,7 +705,7 @@ private static final long serialVersionUID = 0L;
       if (other.getCoreCount() != 0L) {
         setCoreCount(other.getCoreCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -767,19 +720,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              coreCount_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int type_ = 0;
     /**
@@ -803,8 +780,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -818,8 +795,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType result = com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType.valueOf(type_);
+      com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType result = com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType.forNumber(type_);
       return result == null ? com.google.cloud.notebooks.v1.RuntimeAcceleratorConfig.AcceleratorType.UNRECOGNIZED : result;
     }
     /**
@@ -835,7 +811,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -849,7 +825,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -880,6 +856,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCoreCount(long value) {
       
       coreCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -892,7 +869,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCoreCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       coreCount_ = 0L;
       onChanged();
       return this;
@@ -930,7 +907,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RuntimeAcceleratorConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,111 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoscalingPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm.Builder subBuilder = null;
-            if (algorithmCase_ == 3) {
-              subBuilder = ((com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm) algorithm_).toBuilder();
-            }
-            algorithm_ =
-                input.readMessage(com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataproc.v1.BasicAutoscalingAlgorithm) algorithm_);
-              algorithm_ = subBuilder.buildPartial();
-            }
-            algorithmCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.Builder subBuilder = null;
-            if (workerConfig_ != null) {
-              subBuilder = workerConfig_.toBuilder();
-            }
-            workerConfig_ = input.readMessage(com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(workerConfig_);
-              workerConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.Builder subBuilder = null;
-            if (secondaryWorkerConfig_ != null) {
-              subBuilder = secondaryWorkerConfig_.toBuilder();
-            }
-            secondaryWorkerConfig_ = input.readMessage(com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(secondaryWorkerConfig_);
-              secondaryWorkerConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.AutoscalingPoliciesProto.internal_static_google_cloud_dataproc_v1_AutoscalingPolicy_descriptor;
@@ -206,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Required. The policy id.
@@ -258,7 +154,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The "resource name" of the autoscaling policy, as described
@@ -383,7 +280,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfigOrBuilder getWorkerConfigOrBuilder() {
-    return getWorkerConfig();
+    return workerConfig_ == null ? com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.getDefaultInstance() : workerConfig_;
   }
 
   public static final int SECONDARY_WORKER_CONFIG_FIELD_NUMBER = 5;
@@ -421,7 +318,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfigOrBuilder getSecondaryWorkerConfigOrBuilder() {
-    return getSecondaryWorkerConfig();
+    return secondaryWorkerConfig_ == null ? com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.getDefaultInstance() : secondaryWorkerConfig_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 6;
@@ -436,6 +333,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -446,7 +344,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -463,7 +360,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -492,7 +388,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -510,10 +405,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -533,7 +429,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -580,7 +475,7 @@ private static final long serialVersionUID = 0L;
         internalGetLabels(),
         LabelsDefaultEntryHolder.defaultEntry,
         6);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -617,7 +512,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, labels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -657,7 +552,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -692,7 +587,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -835,36 +730,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.AutoscalingPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       name_ = "";
-
-      if (workerConfigBuilder_ == null) {
-        workerConfig_ = null;
-      } else {
-        workerConfig_ = null;
+      if (basicAlgorithmBuilder_ != null) {
+        basicAlgorithmBuilder_.clear();
+      }
+      workerConfig_ = null;
+      if (workerConfigBuilder_ != null) {
+        workerConfigBuilder_.dispose();
         workerConfigBuilder_ = null;
       }
-      if (secondaryWorkerConfigBuilder_ == null) {
-        secondaryWorkerConfig_ = null;
-      } else {
-        secondaryWorkerConfig_ = null;
+      secondaryWorkerConfig_ = null;
+      if (secondaryWorkerConfigBuilder_ != null) {
+        secondaryWorkerConfigBuilder_.dispose();
         secondaryWorkerConfigBuilder_ = null;
       }
       internalGetMutableLabels().clear();
@@ -896,31 +786,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.AutoscalingPolicy buildPartial() {
       com.google.cloud.dataproc.v1.AutoscalingPolicy result = new com.google.cloud.dataproc.v1.AutoscalingPolicy(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.name_ = name_;
-      if (algorithmCase_ == 3) {
-        if (basicAlgorithmBuilder_ == null) {
-          result.algorithm_ = algorithm_;
-        } else {
-          result.algorithm_ = basicAlgorithmBuilder_.build();
-        }
-      }
-      if (workerConfigBuilder_ == null) {
-        result.workerConfig_ = workerConfig_;
-      } else {
-        result.workerConfig_ = workerConfigBuilder_.build();
-      }
-      if (secondaryWorkerConfigBuilder_ == null) {
-        result.secondaryWorkerConfig_ = secondaryWorkerConfig_;
-      } else {
-        result.secondaryWorkerConfig_ = secondaryWorkerConfigBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.algorithmCase_ = algorithmCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.AutoscalingPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.workerConfig_ = workerConfigBuilder_ == null
+            ? workerConfig_
+            : workerConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.secondaryWorkerConfig_ = secondaryWorkerConfigBuilder_ == null
+            ? secondaryWorkerConfig_
+            : secondaryWorkerConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataproc.v1.AutoscalingPolicy result) {
+      result.algorithmCase_ = algorithmCase_;
+      result.algorithm_ = this.algorithm_;
+      if (algorithmCase_ == 3 &&
+          basicAlgorithmBuilder_ != null) {
+        result.algorithm_ = basicAlgorithmBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -969,10 +871,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.AutoscalingPolicy.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasWorkerConfig()) {
@@ -983,6 +887,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000020;
       switch (other.getAlgorithmCase()) {
         case BASIC_ALGORITHM: {
           mergeBasicAlgorithm(other.getBasicAlgorithm());
@@ -992,7 +897,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1007,17 +912,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.AutoscalingPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBasicAlgorithmFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              algorithmCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getWorkerConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSecondaryWorkerConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.AutoscalingPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int algorithmCase_ = 0;
@@ -1099,11 +1057,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1119,8 +1075,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1138,12 +1094,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1222,11 +1176,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1246,8 +1198,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1269,12 +1221,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1417,7 +1367,7 @@ private static final long serialVersionUID = 0L;
         algorithm_ = null;
       }
       algorithmCase_ = 3;
-      onChanged();;
+      onChanged();
       return basicAlgorithmBuilder_;
     }
 
@@ -1433,7 +1383,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the workerConfig field is set.
      */
     public boolean hasWorkerConfig() {
-      return workerConfigBuilder_ != null || workerConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1463,11 +1413,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         workerConfig_ = value;
-        onChanged();
       } else {
         workerConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1481,11 +1431,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.Builder builderForValue) {
       if (workerConfigBuilder_ == null) {
         workerConfig_ = builderForValue.build();
-        onChanged();
       } else {
         workerConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1497,17 +1447,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWorkerConfig(com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig value) {
       if (workerConfigBuilder_ == null) {
-        if (workerConfig_ != null) {
-          workerConfig_ =
-            com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.newBuilder(workerConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          workerConfig_ != null &&
+          workerConfig_ != com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.getDefaultInstance()) {
+          getWorkerConfigBuilder().mergeFrom(value);
         } else {
           workerConfig_ = value;
         }
-        onChanged();
       } else {
         workerConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1518,14 +1469,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig worker_config = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearWorkerConfig() {
-      if (workerConfigBuilder_ == null) {
-        workerConfig_ = null;
-        onChanged();
-      } else {
-        workerConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      workerConfig_ = null;
+      if (workerConfigBuilder_ != null) {
+        workerConfigBuilder_.dispose();
         workerConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1536,7 +1486,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig worker_config = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.Builder getWorkerConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getWorkerConfigFieldBuilder().getBuilder();
     }
@@ -1588,7 +1538,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the secondaryWorkerConfig field is set.
      */
     public boolean hasSecondaryWorkerConfig() {
-      return secondaryWorkerConfigBuilder_ != null || secondaryWorkerConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1618,11 +1568,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         secondaryWorkerConfig_ = value;
-        onChanged();
       } else {
         secondaryWorkerConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1636,11 +1586,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.Builder builderForValue) {
       if (secondaryWorkerConfigBuilder_ == null) {
         secondaryWorkerConfig_ = builderForValue.build();
-        onChanged();
       } else {
         secondaryWorkerConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1652,17 +1602,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecondaryWorkerConfig(com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig value) {
       if (secondaryWorkerConfigBuilder_ == null) {
-        if (secondaryWorkerConfig_ != null) {
-          secondaryWorkerConfig_ =
-            com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.newBuilder(secondaryWorkerConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          secondaryWorkerConfig_ != null &&
+          secondaryWorkerConfig_ != com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.getDefaultInstance()) {
+          getSecondaryWorkerConfigBuilder().mergeFrom(value);
         } else {
           secondaryWorkerConfig_ = value;
         }
-        onChanged();
       } else {
         secondaryWorkerConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1673,14 +1624,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig secondary_worker_config = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearSecondaryWorkerConfig() {
-      if (secondaryWorkerConfigBuilder_ == null) {
-        secondaryWorkerConfig_ = null;
-        onChanged();
-      } else {
-        secondaryWorkerConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      secondaryWorkerConfig_ = null;
+      if (secondaryWorkerConfigBuilder_ != null) {
+        secondaryWorkerConfigBuilder_.dispose();
         secondaryWorkerConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1691,7 +1641,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig secondary_worker_config = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.InstanceGroupAutoscalingPolicyConfig.Builder getSecondaryWorkerConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getSecondaryWorkerConfigFieldBuilder().getBuilder();
     }
@@ -1734,7 +1684,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1742,8 +1692,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -1751,9 +1700,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -1770,7 +1720,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -1799,7 +1748,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -1817,10 +1765,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -1840,7 +1789,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1851,8 +1799,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -1870,7 +1818,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1883,7 +1830,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -1903,12 +1851,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -1924,11 +1870,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
     @java.lang.Override
@@ -1964,7 +1910,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoscalingPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

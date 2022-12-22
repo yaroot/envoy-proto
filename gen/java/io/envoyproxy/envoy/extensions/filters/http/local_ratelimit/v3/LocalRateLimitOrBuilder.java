@@ -306,7 +306,7 @@ public interface LocalRateLimitOrBuilder extends
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -324,7 +324,7 @@ public interface LocalRateLimitOrBuilder extends
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -341,7 +341,7 @@ public interface LocalRateLimitOrBuilder extends
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -358,7 +358,7 @@ public interface LocalRateLimitOrBuilder extends
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -376,7 +376,7 @@ public interface LocalRateLimitOrBuilder extends
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -439,4 +439,23 @@ public interface LocalRateLimitOrBuilder extends
    * @return The enableXRatelimitHeaders.
    */
   io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion getEnableXRatelimitHeaders();
+
+  /**
+   * <pre>
+   * Specifies if the local rate limit filter should include the virtual host rate limits.
+   * </pre>
+   *
+   * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for vhRateLimits.
+   */
+  int getVhRateLimitsValue();
+  /**
+   * <pre>
+   * Specifies if the local rate limit filter should include the virtual host rate limits.
+   * </pre>
+   *
+   * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+   * @return The vhRateLimits.
+   */
+  io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions getVhRateLimits();
 }

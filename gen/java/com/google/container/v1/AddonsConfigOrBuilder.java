@@ -81,7 +81,7 @@ public interface AddonsConfigOrBuilder extends
    *
    * <code>.google.container.v1.KubernetesDashboard kubernetes_dashboard = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.AddonsConfig.kubernetes_dashboard is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1005
+   *     See google/container/v1/cluster_service.proto;l=1046
    * @return Whether the kubernetesDashboard field is set.
    */
   @java.lang.Deprecated boolean hasKubernetesDashboard();
@@ -96,7 +96,7 @@ public interface AddonsConfigOrBuilder extends
    *
    * <code>.google.container.v1.KubernetesDashboard kubernetes_dashboard = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.AddonsConfig.kubernetes_dashboard is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=1005
+   *     See google/container/v1/cluster_service.proto;l=1046
    * @return The kubernetesDashboard.
    */
   @java.lang.Deprecated com.google.container.v1.KubernetesDashboard getKubernetesDashboard();
@@ -286,4 +286,31 @@ public interface AddonsConfigOrBuilder extends
    * <code>.google.container.v1.GcpFilestoreCsiDriverConfig gcp_filestore_csi_driver_config = 14;</code>
    */
   com.google.container.v1.GcpFilestoreCsiDriverConfigOrBuilder getGcpFilestoreCsiDriverConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Configuration for the Backup for GKE agent addon.
+   * </pre>
+   *
+   * <code>.google.container.v1.GkeBackupAgentConfig gke_backup_agent_config = 16;</code>
+   * @return Whether the gkeBackupAgentConfig field is set.
+   */
+  boolean hasGkeBackupAgentConfig();
+  /**
+   * <pre>
+   * Configuration for the Backup for GKE agent addon.
+   * </pre>
+   *
+   * <code>.google.container.v1.GkeBackupAgentConfig gke_backup_agent_config = 16;</code>
+   * @return The gkeBackupAgentConfig.
+   */
+  com.google.container.v1.GkeBackupAgentConfig getGkeBackupAgentConfig();
+  /**
+   * <pre>
+   * Configuration for the Backup for GKE agent addon.
+   * </pre>
+   *
+   * <code>.google.container.v1.GkeBackupAgentConfig gke_backup_agent_config = 16;</code>
+   */
+  com.google.container.v1.GkeBackupAgentConfigOrBuilder getGkeBackupAgentConfigOrBuilder();
 }

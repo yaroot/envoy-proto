@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GatekeeperDeploymentState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            gatekeeperControllerManagerState_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            gatekeeperAudit_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            gatekeeperMutation_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1alpha.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1alpha_GatekeeperDeploymentState_descriptor;
@@ -108,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GATEKEEPER_CONTROLLER_MANAGER_STATE_FIELD_NUMBER = 1;
-  private int gatekeeperControllerManagerState_;
+  private int gatekeeperControllerManagerState_ = 0;
   /**
    * <pre>
    * Status of gatekeeper-controller-manager pod.
@@ -129,13 +72,12 @@ private static final long serialVersionUID = 0L;
    * @return The gatekeeperControllerManagerState.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getGatekeeperControllerManagerState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(gatekeeperControllerManagerState_);
+    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(gatekeeperControllerManagerState_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int GATEKEEPER_AUDIT_FIELD_NUMBER = 2;
-  private int gatekeeperAudit_;
+  private int gatekeeperAudit_ = 0;
   /**
    * <pre>
    * Status of gatekeeper-audit deployment.
@@ -156,13 +98,12 @@ private static final long serialVersionUID = 0L;
    * @return The gatekeeperAudit.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getGatekeeperAudit() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(gatekeeperAudit_);
+    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(gatekeeperAudit_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
   }
 
   public static final int GATEKEEPER_MUTATION_FIELD_NUMBER = 3;
-  private int gatekeeperMutation_;
+  private int gatekeeperMutation_ = 0;
   /**
    * <pre>
    * Status of the pod serving the mutation webhook.
@@ -183,8 +124,7 @@ private static final long serialVersionUID = 0L;
    * @return The gatekeeperMutation.
    */
   @java.lang.Override public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getGatekeeperMutation() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(gatekeeperMutation_);
+    com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(gatekeeperMutation_);
     return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
   }
 
@@ -211,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (gatekeeperMutation_ != com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.DEPLOYMENT_STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, gatekeeperMutation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +172,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, gatekeeperMutation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +190,7 @@ private static final long serialVersionUID = 0L;
     if (gatekeeperControllerManagerState_ != other.gatekeeperControllerManagerState_) return false;
     if (gatekeeperAudit_ != other.gatekeeperAudit_) return false;
     if (gatekeeperMutation_ != other.gatekeeperMutation_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +207,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + gatekeeperAudit_;
     hash = (37 * hash) + GATEKEEPER_MUTATION_FIELD_NUMBER;
     hash = (53 * hash) + gatekeeperMutation_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,28 +328,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       gatekeeperControllerManagerState_ = 0;
-
       gatekeeperAudit_ = 0;
-
       gatekeeperMutation_ = 0;
-
       return this;
     }
 
@@ -436,11 +369,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState result = new com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState(this);
-      result.gatekeeperControllerManagerState_ = gatekeeperControllerManagerState_;
-      result.gatekeeperAudit_ = gatekeeperAudit_;
-      result.gatekeeperMutation_ = gatekeeperMutation_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.gatekeeperControllerManagerState_ = gatekeeperControllerManagerState_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.gatekeeperAudit_ = gatekeeperAudit_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gatekeeperMutation_ = gatekeeperMutation_;
+      }
     }
 
     @java.lang.Override
@@ -496,7 +440,7 @@ private static final long serialVersionUID = 0L;
       if (other.gatekeeperMutation_ != 0) {
         setGatekeeperMutationValue(other.getGatekeeperMutationValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -511,19 +455,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              gatekeeperControllerManagerState_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              gatekeeperAudit_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              gatekeeperMutation_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1alpha.GatekeeperDeploymentState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int gatekeeperControllerManagerState_ = 0;
     /**
@@ -547,8 +520,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGatekeeperControllerManagerStateValue(int value) {
-      
       gatekeeperControllerManagerState_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -562,8 +535,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getGatekeeperControllerManagerState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(gatekeeperControllerManagerState_);
+      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(gatekeeperControllerManagerState_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -579,7 +551,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       gatekeeperControllerManagerState_ = value.getNumber();
       onChanged();
       return this;
@@ -593,7 +565,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGatekeeperControllerManagerState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       gatekeeperControllerManagerState_ = 0;
       onChanged();
       return this;
@@ -621,8 +593,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGatekeeperAuditValue(int value) {
-      
       gatekeeperAudit_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -636,8 +608,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getGatekeeperAudit() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(gatekeeperAudit_);
+      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(gatekeeperAudit_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -653,7 +624,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       gatekeeperAudit_ = value.getNumber();
       onChanged();
       return this;
@@ -667,7 +638,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGatekeeperAudit() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       gatekeeperAudit_ = 0;
       onChanged();
       return this;
@@ -695,8 +666,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGatekeeperMutationValue(int value) {
-      
       gatekeeperMutation_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -710,8 +681,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState getGatekeeperMutation() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.valueOf(gatekeeperMutation_);
+      com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState result = com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.forNumber(gatekeeperMutation_);
       return result == null ? com.google.cloud.gkehub.configmanagement.v1alpha.DeploymentState.UNRECOGNIZED : result;
     }
     /**
@@ -727,7 +697,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       gatekeeperMutation_ = value.getNumber();
       onChanged();
       return this;
@@ -741,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGatekeeperMutation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       gatekeeperMutation_ = 0;
       onChanged();
       return this;
@@ -779,7 +749,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GatekeeperDeploymentState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

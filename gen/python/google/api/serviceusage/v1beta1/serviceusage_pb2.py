@@ -13,13 +13,12 @@ _sym_db = _symbol_database.Default()
 
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
-from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api.serviceusage.v1beta1 import resources_pb2 as google_dot_api_dot_serviceusage_dot_v1beta1_dot_resources__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/api/serviceusage/v1beta1/serviceusage.proto\x12\x1fgoogle.api.serviceusage.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a/google/api/serviceusage/v1beta1/resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"$\n\x14\x45nableServiceRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"%\n\x15\x44isableServiceRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"!\n\x11GetServiceRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\\\n\x13ListServicesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"k\n\x14ListServicesResponse\x12:\n\x08services\x18\x01 \x03(\x0b\x32(.google.api.serviceusage.v1beta1.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"A\n\x1a\x42\x61tchEnableServicesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x13\n\x0bservice_ids\x18\x02 \x03(\t\"\x92\x01\n\x1fListConsumerQuotaMetricsRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x38\n\x04view\x18\x04 \x01(\x0e\x32*.google.api.serviceusage.v1beta1.QuotaView\"\x82\x01\n ListConsumerQuotaMetricsResponse\x12\x45\n\x07metrics\x18\x01 \x03(\x0b\x32\x34.google.api.serviceusage.v1beta1.ConsumerQuotaMetric\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"g\n\x1dGetConsumerQuotaMetricRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32*.google.api.serviceusage.v1beta1.QuotaView\"f\n\x1cGetConsumerQuotaLimitRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32*.google.api.serviceusage.v1beta1.QuotaView\"\xc4\x01\n\x1a\x43reateAdminOverrideRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\xf3\x01\n\x1aUpdateAdminOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x45\n\nforce_only\x18\x05 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\x80\x01\n\x1a\x44\x65leteAdminOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x45\n\nforce_only\x18\x03 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"R\n\x19ListAdminOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"x\n\x1aListAdminOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"f\n!BatchCreateAdminOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"\xdd\x01\n\x1bImportAdminOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12N\n\rinline_source\x18\x02 \x01(\x0b\x32\x35.google.api.serviceusage.v1beta1.OverrideInlineSourceH\x00\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheckB\x08\n\x06source\"a\n\x1cImportAdminOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"\x1e\n\x1cImportAdminOverridesMetadata\"\xc7\x01\n\x1d\x43reateConsumerOverrideRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\xf6\x01\n\x1dUpdateConsumerOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x45\n\nforce_only\x18\x05 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\x83\x01\n\x1d\x44\x65leteConsumerOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x45\n\nforce_only\x18\x03 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"U\n\x1cListConsumerOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"{\n\x1dListConsumerOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"i\n$BatchCreateConsumerOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"\xe0\x01\n\x1eImportConsumerOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12N\n\rinline_source\x18\x02 \x01(\x0b\x32\x35.google.api.serviceusage.v1beta1.OverrideInlineSourceH\x00\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheckB\x08\n\x06source\"d\n\x1fImportConsumerOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"!\n\x1fImportConsumerOverridesMetadata\"g\n ImportAdminQuotaPoliciesResponse\x12\x43\n\x08policies\x18\x01 \x03(\x0b\x32\x31.google.api.serviceusage.v1beta1.AdminQuotaPolicy\"\"\n ImportAdminQuotaPoliciesMetadata\" \n\x1e\x43reateAdminQuotaPolicyMetadata\" \n\x1eUpdateAdminQuotaPolicyMetadata\" \n\x1e\x44\x65leteAdminQuotaPolicyMetadata\"0\n\x1eGenerateServiceIdentityRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"\xf7\x01\n\x1aGetServiceIdentityResponse\x12\x42\n\x08identity\x18\x01 \x01(\x0b\x32\x30.google.api.serviceusage.v1beta1.ServiceIdentity\x12X\n\x05state\x18\x02 \x01(\x0e\x32I.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState\";\n\rIdentityState\x12\x1e\n\x1aIDENTITY_STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\"\x1c\n\x1aGetServiceIdentityMetadata2\xfc#\n\x0cServiceUsage\x12\xc7\x01\n\rEnableService\x12\x35.google.api.serviceusage.v1beta1.EnableServiceRequest\x1a\x1d.google.longrunning.Operation\"`\x88\x02\x01\x82\xd3\xe4\x93\x02*\"%/v1beta1/{name=*/*/services/*}:enable:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xca\x01\n\x0e\x44isableService\x12\x36.google.api.serviceusage.v1beta1.DisableServiceRequest\x1a\x1d.google.longrunning.Operation\"a\x88\x02\x01\x82\xd3\xe4\x93\x02+\"&/v1beta1/{name=*/*/services/*}:disable:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\x95\x01\n\nGetService\x12\x32.google.api.serviceusage.v1beta1.GetServiceRequest\x1a(.google.api.serviceusage.v1beta1.Service\")\x88\x02\x01\x82\xd3\xe4\x93\x02 \x12\x1e/v1beta1/{name=*/*/services/*}\x12\xa6\x01\n\x0cListServices\x12\x34.google.api.serviceusage.v1beta1.ListServicesRequest\x1a\x35.google.api.serviceusage.v1beta1.ListServicesResponse\")\x88\x02\x01\x82\xd3\xe4\x93\x02 \x12\x1e/v1beta1/{parent=*/*}/services\x12\xd8\x01\n\x13\x42\x61tchEnableServices\x12;.google.api.serviceusage.v1beta1.BatchEnableServicesRequest\x1a\x1d.google.longrunning.Operation\"e\x88\x02\x01\x82\xd3\xe4\x93\x02/\"*/v1beta1/{parent=*/*}/services:batchEnable:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xde\x01\n\x18ListConsumerQuotaMetrics\x12@.google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsRequest\x1a\x41.google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsResponse\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics\x12\xcd\x01\n\x16GetConsumerQuotaMetric\x12>.google.api.serviceusage.v1beta1.GetConsumerQuotaMetricRequest\x1a\x34.google.api.serviceusage.v1beta1.ConsumerQuotaMetric\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*}\x12\xd3\x01\n\x15GetConsumerQuotaLimit\x12=.google.api.serviceusage.v1beta1.GetConsumerQuotaLimitRequest\x1a\x33.google.api.serviceusage.v1beta1.ConsumerQuotaLimit\"F\x82\xd3\xe4\x93\x02@\x12>/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*}\x12\xfa\x01\n\x13\x43reateAdminOverride\x12;.google.api.serviceusage.v1beta1.CreateAdminOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02[\"O/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/adminOverrides:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\xfa\x01\n\x13UpdateAdminOverride\x12;.google.api.serviceusage.v1beta1.UpdateAdminOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02[2O/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/adminOverrides/*}:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\xf8\x01\n\x13\x44\x65leteAdminOverride\x12;.google.api.serviceusage.v1beta1.DeleteAdminOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02Q*O/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/adminOverrides/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xe6\x01\n\x12ListAdminOverrides\x12:.google.api.serviceusage.v1beta1.ListAdminOverridesRequest\x1a;.google.api.serviceusage.v1beta1.ListAdminOverridesResponse\"W\x82\xd3\xe4\x93\x02Q\x12O/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/adminOverrides\x12\x8a\x02\n\x14ImportAdminOverrides\x12<.google.api.serviceusage.v1beta1.ImportAdminOverridesRequest\x1a\x1d.google.longrunning.Operation\"\x94\x01\x82\xd3\xe4\x93\x02O\"J/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics:importAdminOverrides:\x01*\xca\x41<\n\x1cImportAdminOverridesResponse\x12\x1cImportAdminOverridesMetadata\x12\x83\x02\n\x16\x43reateConsumerOverride\x12>.google.api.serviceusage.v1beta1.CreateConsumerOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02^\"R/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/consumerOverrides:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\x83\x02\n\x16UpdateConsumerOverride\x12>.google.api.serviceusage.v1beta1.UpdateConsumerOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02^2R/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/consumerOverrides/*}:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\x81\x02\n\x16\x44\x65leteConsumerOverride\x12>.google.api.serviceusage.v1beta1.DeleteConsumerOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x87\x01\x82\xd3\xe4\x93\x02T*R/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/consumerOverrides/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xf2\x01\n\x15ListConsumerOverrides\x12=.google.api.serviceusage.v1beta1.ListConsumerOverridesRequest\x1a>.google.api.serviceusage.v1beta1.ListConsumerOverridesResponse\"Z\x82\xd3\xe4\x93\x02T\x12R/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/consumerOverrides\x12\x99\x02\n\x17ImportConsumerOverrides\x12?.google.api.serviceusage.v1beta1.ImportConsumerOverridesRequest\x1a\x1d.google.longrunning.Operation\"\x9d\x01\x82\xd3\xe4\x93\x02R\"M/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics:importConsumerOverrides:\x01*\xca\x41\x42\n\x1fImportConsumerOverridesResponse\x12\x1fImportConsumerOverridesMetadata\x12\xe6\x01\n\x17GenerateServiceIdentity\x12?.google.api.serviceusage.v1beta1.GenerateServiceIdentityRequest\x1a\x1d.google.longrunning.Operation\"k\x82\xd3\xe4\x93\x02:\"8/v1beta1/{parent=*/*/services/*}:generateServiceIdentity\xca\x41(\n\x0fServiceIdentity\x12\x15google.protobuf.Empty\x1a\xbc\x01\xca\x41\x1bserviceusage.googleapis.com\xd2\x41\x9a\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-only,https://www.googleapis.com/auth/service.managementB\xf0\x01\n#com.google.api.serviceusage.v1beta1B\x11ServiceUsageProtoP\x01ZKgoogle.golang.org/genproto/googleapis/api/serviceusage/v1beta1;serviceusage\xaa\x02\x1fGoogle.Api.ServiceUsage.V1Beta1\xca\x02\x1fGoogle\\Api\\ServiceUsage\\V1beta1\xea\x02\"Google::Api::ServiceUsage::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/api/serviceusage/v1beta1/serviceusage.proto\x12\x1fgoogle.api.serviceusage.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a/google/api/serviceusage/v1beta1/resources.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\"$\n\x14\x45nableServiceRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"%\n\x15\x44isableServiceRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"!\n\x11GetServiceRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\\\n\x13ListServicesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\"k\n\x14ListServicesResponse\x12:\n\x08services\x18\x01 \x03(\x0b\x32(.google.api.serviceusage.v1beta1.Service\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"A\n\x1a\x42\x61tchEnableServicesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x13\n\x0bservice_ids\x18\x02 \x03(\t\"\x92\x01\n\x1fListConsumerQuotaMetricsRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x38\n\x04view\x18\x04 \x01(\x0e\x32*.google.api.serviceusage.v1beta1.QuotaView\"\x82\x01\n ListConsumerQuotaMetricsResponse\x12\x45\n\x07metrics\x18\x01 \x03(\x0b\x32\x34.google.api.serviceusage.v1beta1.ConsumerQuotaMetric\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"g\n\x1dGetConsumerQuotaMetricRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32*.google.api.serviceusage.v1beta1.QuotaView\"f\n\x1cGetConsumerQuotaLimitRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x38\n\x04view\x18\x02 \x01(\x0e\x32*.google.api.serviceusage.v1beta1.QuotaView\"\xc4\x01\n\x1a\x43reateAdminOverrideRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\xf3\x01\n\x1aUpdateAdminOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x45\n\nforce_only\x18\x05 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\x80\x01\n\x1a\x44\x65leteAdminOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x45\n\nforce_only\x18\x03 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"R\n\x19ListAdminOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"x\n\x1aListAdminOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"f\n!BatchCreateAdminOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"\xdd\x01\n\x1bImportAdminOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12N\n\rinline_source\x18\x02 \x01(\x0b\x32\x35.google.api.serviceusage.v1beta1.OverrideInlineSourceH\x00\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheckB\x08\n\x06source\"a\n\x1cImportAdminOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"\x1e\n\x1cImportAdminOverridesMetadata\"\xc7\x01\n\x1d\x43reateConsumerOverrideRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\xf6\x01\n\x1dUpdateConsumerOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12@\n\x08override\x18\x02 \x01(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12/\n\x0bupdate_mask\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x45\n\nforce_only\x18\x05 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"\x83\x01\n\x1d\x44\x65leteConsumerOverrideRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x45\n\nforce_only\x18\x03 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheck\"U\n\x1cListConsumerOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\"{\n\x1dListConsumerOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"i\n$BatchCreateConsumerOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"\xe0\x01\n\x1eImportConsumerOverridesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12N\n\rinline_source\x18\x02 \x01(\x0b\x32\x35.google.api.serviceusage.v1beta1.OverrideInlineSourceH\x00\x12\r\n\x05\x66orce\x18\x03 \x01(\x08\x12\x45\n\nforce_only\x18\x04 \x03(\x0e\x32\x31.google.api.serviceusage.v1beta1.QuotaSafetyCheckB\x08\n\x06source\"d\n\x1fImportConsumerOverridesResponse\x12\x41\n\toverrides\x18\x01 \x03(\x0b\x32..google.api.serviceusage.v1beta1.QuotaOverride\"!\n\x1fImportConsumerOverridesMetadata\"g\n ImportAdminQuotaPoliciesResponse\x12\x43\n\x08policies\x18\x01 \x03(\x0b\x32\x31.google.api.serviceusage.v1beta1.AdminQuotaPolicy\"\"\n ImportAdminQuotaPoliciesMetadata\" \n\x1e\x43reateAdminQuotaPolicyMetadata\" \n\x1eUpdateAdminQuotaPolicyMetadata\" \n\x1e\x44\x65leteAdminQuotaPolicyMetadata\"0\n\x1eGenerateServiceIdentityRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\"\xf7\x01\n\x1aGetServiceIdentityResponse\x12\x42\n\x08identity\x18\x01 \x01(\x0b\x32\x30.google.api.serviceusage.v1beta1.ServiceIdentity\x12X\n\x05state\x18\x02 \x01(\x0e\x32I.google.api.serviceusage.v1beta1.GetServiceIdentityResponse.IdentityState\";\n\rIdentityState\x12\x1e\n\x1aIDENTITY_STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\"\x1c\n\x1aGetServiceIdentityMetadata2\xfc#\n\x0cServiceUsage\x12\xc7\x01\n\rEnableService\x12\x35.google.api.serviceusage.v1beta1.EnableServiceRequest\x1a\x1d.google.longrunning.Operation\"`\x88\x02\x01\x82\xd3\xe4\x93\x02*\"%/v1beta1/{name=*/*/services/*}:enable:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xca\x01\n\x0e\x44isableService\x12\x36.google.api.serviceusage.v1beta1.DisableServiceRequest\x1a\x1d.google.longrunning.Operation\"a\x88\x02\x01\x82\xd3\xe4\x93\x02+\"&/v1beta1/{name=*/*/services/*}:disable:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\x95\x01\n\nGetService\x12\x32.google.api.serviceusage.v1beta1.GetServiceRequest\x1a(.google.api.serviceusage.v1beta1.Service\")\x88\x02\x01\x82\xd3\xe4\x93\x02 \x12\x1e/v1beta1/{name=*/*/services/*}\x12\xa6\x01\n\x0cListServices\x12\x34.google.api.serviceusage.v1beta1.ListServicesRequest\x1a\x35.google.api.serviceusage.v1beta1.ListServicesResponse\")\x88\x02\x01\x82\xd3\xe4\x93\x02 \x12\x1e/v1beta1/{parent=*/*}/services\x12\xd8\x01\n\x13\x42\x61tchEnableServices\x12;.google.api.serviceusage.v1beta1.BatchEnableServicesRequest\x1a\x1d.google.longrunning.Operation\"e\x88\x02\x01\x82\xd3\xe4\x93\x02/\"*/v1beta1/{parent=*/*}/services:batchEnable:\x01*\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xde\x01\n\x18ListConsumerQuotaMetrics\x12@.google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsRequest\x1a\x41.google.api.serviceusage.v1beta1.ListConsumerQuotaMetricsResponse\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics\x12\xcd\x01\n\x16GetConsumerQuotaMetric\x12>.google.api.serviceusage.v1beta1.GetConsumerQuotaMetricRequest\x1a\x34.google.api.serviceusage.v1beta1.ConsumerQuotaMetric\"=\x82\xd3\xe4\x93\x02\x37\x12\x35/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*}\x12\xd3\x01\n\x15GetConsumerQuotaLimit\x12=.google.api.serviceusage.v1beta1.GetConsumerQuotaLimitRequest\x1a\x33.google.api.serviceusage.v1beta1.ConsumerQuotaLimit\"F\x82\xd3\xe4\x93\x02@\x12>/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*}\x12\xfa\x01\n\x13\x43reateAdminOverride\x12;.google.api.serviceusage.v1beta1.CreateAdminOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02[\"O/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/adminOverrides:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\xfa\x01\n\x13UpdateAdminOverride\x12;.google.api.serviceusage.v1beta1.UpdateAdminOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x86\x01\x82\xd3\xe4\x93\x02[2O/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/adminOverrides/*}:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\xf8\x01\n\x13\x44\x65leteAdminOverride\x12;.google.api.serviceusage.v1beta1.DeleteAdminOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x84\x01\x82\xd3\xe4\x93\x02Q*O/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/adminOverrides/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xe6\x01\n\x12ListAdminOverrides\x12:.google.api.serviceusage.v1beta1.ListAdminOverridesRequest\x1a;.google.api.serviceusage.v1beta1.ListAdminOverridesResponse\"W\x82\xd3\xe4\x93\x02Q\x12O/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/adminOverrides\x12\x8a\x02\n\x14ImportAdminOverrides\x12<.google.api.serviceusage.v1beta1.ImportAdminOverridesRequest\x1a\x1d.google.longrunning.Operation\"\x94\x01\x82\xd3\xe4\x93\x02O\"J/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics:importAdminOverrides:\x01*\xca\x41<\n\x1cImportAdminOverridesResponse\x12\x1cImportAdminOverridesMetadata\x12\x83\x02\n\x16\x43reateConsumerOverride\x12>.google.api.serviceusage.v1beta1.CreateConsumerOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02^\"R/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/consumerOverrides:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\x83\x02\n\x16UpdateConsumerOverride\x12>.google.api.serviceusage.v1beta1.UpdateConsumerOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x89\x01\x82\xd3\xe4\x93\x02^2R/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/consumerOverrides/*}:\x08override\xca\x41\"\n\rQuotaOverride\x12\x11OperationMetadata\x12\x81\x02\n\x16\x44\x65leteConsumerOverride\x12>.google.api.serviceusage.v1beta1.DeleteConsumerOverrideRequest\x1a\x1d.google.longrunning.Operation\"\x87\x01\x82\xd3\xe4\x93\x02T*R/v1beta1/{name=*/*/services/*/consumerQuotaMetrics/*/limits/*/consumerOverrides/*}\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xf2\x01\n\x15ListConsumerOverrides\x12=.google.api.serviceusage.v1beta1.ListConsumerOverridesRequest\x1a>.google.api.serviceusage.v1beta1.ListConsumerOverridesResponse\"Z\x82\xd3\xe4\x93\x02T\x12R/v1beta1/{parent=*/*/services/*/consumerQuotaMetrics/*/limits/*}/consumerOverrides\x12\x99\x02\n\x17ImportConsumerOverrides\x12?.google.api.serviceusage.v1beta1.ImportConsumerOverridesRequest\x1a\x1d.google.longrunning.Operation\"\x9d\x01\x82\xd3\xe4\x93\x02R\"M/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics:importConsumerOverrides:\x01*\xca\x41\x42\n\x1fImportConsumerOverridesResponse\x12\x1fImportConsumerOverridesMetadata\x12\xe6\x01\n\x17GenerateServiceIdentity\x12?.google.api.serviceusage.v1beta1.GenerateServiceIdentityRequest\x1a\x1d.google.longrunning.Operation\"k\x82\xd3\xe4\x93\x02:\"8/v1beta1/{parent=*/*/services/*}:generateServiceIdentity\xca\x41(\n\x0fServiceIdentity\x12\x15google.protobuf.Empty\x1a\xbc\x01\xca\x41\x1bserviceusage.googleapis.com\xd2\x41\x9a\x01https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/cloud-platform.read-only,https://www.googleapis.com/auth/service.managementB\xf0\x01\n#com.google.api.serviceusage.v1beta1B\x11ServiceUsageProtoP\x01ZKgoogle.golang.org/genproto/googleapis/api/serviceusage/v1beta1;serviceusage\xaa\x02\x1fGoogle.Api.ServiceUsage.V1Beta1\xca\x02\x1fGoogle\\Api\\ServiceUsage\\V1beta1\xea\x02\"Google::Api::ServiceUsage::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.api.serviceusage.v1beta1.serviceusage_pb2', globals())
@@ -67,80 +66,80 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SERVICEUSAGE.methods_by_name['ImportConsumerOverrides']._serialized_options = b'\202\323\344\223\002R\"M/v1beta1/{parent=*/*/services/*}/consumerQuotaMetrics:importConsumerOverrides:\001*\312AB\n\037ImportConsumerOverridesResponse\022\037ImportConsumerOverridesMetadata'
   _SERVICEUSAGE.methods_by_name['GenerateServiceIdentity']._options = None
   _SERVICEUSAGE.methods_by_name['GenerateServiceIdentity']._serialized_options = b'\202\323\344\223\002:\"8/v1beta1/{parent=*/*/services/*}:generateServiceIdentity\312A(\n\017ServiceIdentity\022\025google.protobuf.Empty'
-  _ENABLESERVICEREQUEST._serialized_start=295
-  _ENABLESERVICEREQUEST._serialized_end=331
-  _DISABLESERVICEREQUEST._serialized_start=333
-  _DISABLESERVICEREQUEST._serialized_end=370
-  _GETSERVICEREQUEST._serialized_start=372
-  _GETSERVICEREQUEST._serialized_end=405
-  _LISTSERVICESREQUEST._serialized_start=407
-  _LISTSERVICESREQUEST._serialized_end=499
-  _LISTSERVICESRESPONSE._serialized_start=501
-  _LISTSERVICESRESPONSE._serialized_end=608
-  _BATCHENABLESERVICESREQUEST._serialized_start=610
-  _BATCHENABLESERVICESREQUEST._serialized_end=675
-  _LISTCONSUMERQUOTAMETRICSREQUEST._serialized_start=678
-  _LISTCONSUMERQUOTAMETRICSREQUEST._serialized_end=824
-  _LISTCONSUMERQUOTAMETRICSRESPONSE._serialized_start=827
-  _LISTCONSUMERQUOTAMETRICSRESPONSE._serialized_end=957
-  _GETCONSUMERQUOTAMETRICREQUEST._serialized_start=959
-  _GETCONSUMERQUOTAMETRICREQUEST._serialized_end=1062
-  _GETCONSUMERQUOTALIMITREQUEST._serialized_start=1064
-  _GETCONSUMERQUOTALIMITREQUEST._serialized_end=1166
-  _CREATEADMINOVERRIDEREQUEST._serialized_start=1169
-  _CREATEADMINOVERRIDEREQUEST._serialized_end=1365
-  _UPDATEADMINOVERRIDEREQUEST._serialized_start=1368
-  _UPDATEADMINOVERRIDEREQUEST._serialized_end=1611
-  _DELETEADMINOVERRIDEREQUEST._serialized_start=1614
-  _DELETEADMINOVERRIDEREQUEST._serialized_end=1742
-  _LISTADMINOVERRIDESREQUEST._serialized_start=1744
-  _LISTADMINOVERRIDESREQUEST._serialized_end=1826
-  _LISTADMINOVERRIDESRESPONSE._serialized_start=1828
-  _LISTADMINOVERRIDESRESPONSE._serialized_end=1948
-  _BATCHCREATEADMINOVERRIDESRESPONSE._serialized_start=1950
-  _BATCHCREATEADMINOVERRIDESRESPONSE._serialized_end=2052
-  _IMPORTADMINOVERRIDESREQUEST._serialized_start=2055
-  _IMPORTADMINOVERRIDESREQUEST._serialized_end=2276
-  _IMPORTADMINOVERRIDESRESPONSE._serialized_start=2278
-  _IMPORTADMINOVERRIDESRESPONSE._serialized_end=2375
-  _IMPORTADMINOVERRIDESMETADATA._serialized_start=2377
-  _IMPORTADMINOVERRIDESMETADATA._serialized_end=2407
-  _CREATECONSUMEROVERRIDEREQUEST._serialized_start=2410
-  _CREATECONSUMEROVERRIDEREQUEST._serialized_end=2609
-  _UPDATECONSUMEROVERRIDEREQUEST._serialized_start=2612
-  _UPDATECONSUMEROVERRIDEREQUEST._serialized_end=2858
-  _DELETECONSUMEROVERRIDEREQUEST._serialized_start=2861
-  _DELETECONSUMEROVERRIDEREQUEST._serialized_end=2992
-  _LISTCONSUMEROVERRIDESREQUEST._serialized_start=2994
-  _LISTCONSUMEROVERRIDESREQUEST._serialized_end=3079
-  _LISTCONSUMEROVERRIDESRESPONSE._serialized_start=3081
-  _LISTCONSUMEROVERRIDESRESPONSE._serialized_end=3204
-  _BATCHCREATECONSUMEROVERRIDESRESPONSE._serialized_start=3206
-  _BATCHCREATECONSUMEROVERRIDESRESPONSE._serialized_end=3311
-  _IMPORTCONSUMEROVERRIDESREQUEST._serialized_start=3314
-  _IMPORTCONSUMEROVERRIDESREQUEST._serialized_end=3538
-  _IMPORTCONSUMEROVERRIDESRESPONSE._serialized_start=3540
-  _IMPORTCONSUMEROVERRIDESRESPONSE._serialized_end=3640
-  _IMPORTCONSUMEROVERRIDESMETADATA._serialized_start=3642
-  _IMPORTCONSUMEROVERRIDESMETADATA._serialized_end=3675
-  _IMPORTADMINQUOTAPOLICIESRESPONSE._serialized_start=3677
-  _IMPORTADMINQUOTAPOLICIESRESPONSE._serialized_end=3780
-  _IMPORTADMINQUOTAPOLICIESMETADATA._serialized_start=3782
-  _IMPORTADMINQUOTAPOLICIESMETADATA._serialized_end=3816
-  _CREATEADMINQUOTAPOLICYMETADATA._serialized_start=3818
-  _CREATEADMINQUOTAPOLICYMETADATA._serialized_end=3850
-  _UPDATEADMINQUOTAPOLICYMETADATA._serialized_start=3852
-  _UPDATEADMINQUOTAPOLICYMETADATA._serialized_end=3884
-  _DELETEADMINQUOTAPOLICYMETADATA._serialized_start=3886
-  _DELETEADMINQUOTAPOLICYMETADATA._serialized_end=3918
-  _GENERATESERVICEIDENTITYREQUEST._serialized_start=3920
-  _GENERATESERVICEIDENTITYREQUEST._serialized_end=3968
-  _GETSERVICEIDENTITYRESPONSE._serialized_start=3971
-  _GETSERVICEIDENTITYRESPONSE._serialized_end=4218
-  _GETSERVICEIDENTITYRESPONSE_IDENTITYSTATE._serialized_start=4159
-  _GETSERVICEIDENTITYRESPONSE_IDENTITYSTATE._serialized_end=4218
-  _GETSERVICEIDENTITYMETADATA._serialized_start=4220
-  _GETSERVICEIDENTITYMETADATA._serialized_end=4248
-  _SERVICEUSAGE._serialized_start=4251
-  _SERVICEUSAGE._serialized_end=8855
+  _ENABLESERVICEREQUEST._serialized_start=262
+  _ENABLESERVICEREQUEST._serialized_end=298
+  _DISABLESERVICEREQUEST._serialized_start=300
+  _DISABLESERVICEREQUEST._serialized_end=337
+  _GETSERVICEREQUEST._serialized_start=339
+  _GETSERVICEREQUEST._serialized_end=372
+  _LISTSERVICESREQUEST._serialized_start=374
+  _LISTSERVICESREQUEST._serialized_end=466
+  _LISTSERVICESRESPONSE._serialized_start=468
+  _LISTSERVICESRESPONSE._serialized_end=575
+  _BATCHENABLESERVICESREQUEST._serialized_start=577
+  _BATCHENABLESERVICESREQUEST._serialized_end=642
+  _LISTCONSUMERQUOTAMETRICSREQUEST._serialized_start=645
+  _LISTCONSUMERQUOTAMETRICSREQUEST._serialized_end=791
+  _LISTCONSUMERQUOTAMETRICSRESPONSE._serialized_start=794
+  _LISTCONSUMERQUOTAMETRICSRESPONSE._serialized_end=924
+  _GETCONSUMERQUOTAMETRICREQUEST._serialized_start=926
+  _GETCONSUMERQUOTAMETRICREQUEST._serialized_end=1029
+  _GETCONSUMERQUOTALIMITREQUEST._serialized_start=1031
+  _GETCONSUMERQUOTALIMITREQUEST._serialized_end=1133
+  _CREATEADMINOVERRIDEREQUEST._serialized_start=1136
+  _CREATEADMINOVERRIDEREQUEST._serialized_end=1332
+  _UPDATEADMINOVERRIDEREQUEST._serialized_start=1335
+  _UPDATEADMINOVERRIDEREQUEST._serialized_end=1578
+  _DELETEADMINOVERRIDEREQUEST._serialized_start=1581
+  _DELETEADMINOVERRIDEREQUEST._serialized_end=1709
+  _LISTADMINOVERRIDESREQUEST._serialized_start=1711
+  _LISTADMINOVERRIDESREQUEST._serialized_end=1793
+  _LISTADMINOVERRIDESRESPONSE._serialized_start=1795
+  _LISTADMINOVERRIDESRESPONSE._serialized_end=1915
+  _BATCHCREATEADMINOVERRIDESRESPONSE._serialized_start=1917
+  _BATCHCREATEADMINOVERRIDESRESPONSE._serialized_end=2019
+  _IMPORTADMINOVERRIDESREQUEST._serialized_start=2022
+  _IMPORTADMINOVERRIDESREQUEST._serialized_end=2243
+  _IMPORTADMINOVERRIDESRESPONSE._serialized_start=2245
+  _IMPORTADMINOVERRIDESRESPONSE._serialized_end=2342
+  _IMPORTADMINOVERRIDESMETADATA._serialized_start=2344
+  _IMPORTADMINOVERRIDESMETADATA._serialized_end=2374
+  _CREATECONSUMEROVERRIDEREQUEST._serialized_start=2377
+  _CREATECONSUMEROVERRIDEREQUEST._serialized_end=2576
+  _UPDATECONSUMEROVERRIDEREQUEST._serialized_start=2579
+  _UPDATECONSUMEROVERRIDEREQUEST._serialized_end=2825
+  _DELETECONSUMEROVERRIDEREQUEST._serialized_start=2828
+  _DELETECONSUMEROVERRIDEREQUEST._serialized_end=2959
+  _LISTCONSUMEROVERRIDESREQUEST._serialized_start=2961
+  _LISTCONSUMEROVERRIDESREQUEST._serialized_end=3046
+  _LISTCONSUMEROVERRIDESRESPONSE._serialized_start=3048
+  _LISTCONSUMEROVERRIDESRESPONSE._serialized_end=3171
+  _BATCHCREATECONSUMEROVERRIDESRESPONSE._serialized_start=3173
+  _BATCHCREATECONSUMEROVERRIDESRESPONSE._serialized_end=3278
+  _IMPORTCONSUMEROVERRIDESREQUEST._serialized_start=3281
+  _IMPORTCONSUMEROVERRIDESREQUEST._serialized_end=3505
+  _IMPORTCONSUMEROVERRIDESRESPONSE._serialized_start=3507
+  _IMPORTCONSUMEROVERRIDESRESPONSE._serialized_end=3607
+  _IMPORTCONSUMEROVERRIDESMETADATA._serialized_start=3609
+  _IMPORTCONSUMEROVERRIDESMETADATA._serialized_end=3642
+  _IMPORTADMINQUOTAPOLICIESRESPONSE._serialized_start=3644
+  _IMPORTADMINQUOTAPOLICIESRESPONSE._serialized_end=3747
+  _IMPORTADMINQUOTAPOLICIESMETADATA._serialized_start=3749
+  _IMPORTADMINQUOTAPOLICIESMETADATA._serialized_end=3783
+  _CREATEADMINQUOTAPOLICYMETADATA._serialized_start=3785
+  _CREATEADMINQUOTAPOLICYMETADATA._serialized_end=3817
+  _UPDATEADMINQUOTAPOLICYMETADATA._serialized_start=3819
+  _UPDATEADMINQUOTAPOLICYMETADATA._serialized_end=3851
+  _DELETEADMINQUOTAPOLICYMETADATA._serialized_start=3853
+  _DELETEADMINQUOTAPOLICYMETADATA._serialized_end=3885
+  _GENERATESERVICEIDENTITYREQUEST._serialized_start=3887
+  _GENERATESERVICEIDENTITYREQUEST._serialized_end=3935
+  _GETSERVICEIDENTITYRESPONSE._serialized_start=3938
+  _GETSERVICEIDENTITYRESPONSE._serialized_end=4185
+  _GETSERVICEIDENTITYRESPONSE_IDENTITYSTATE._serialized_start=4126
+  _GETSERVICEIDENTITYRESPONSE_IDENTITYSTATE._serialized_end=4185
+  _GETSERVICEIDENTITYMETADATA._serialized_start=4187
+  _GETSERVICEIDENTITYMETADATA._serialized_end=4215
+  _SERVICEUSAGE._serialized_start=4218
+  _SERVICEUSAGE._serialized_end=8822
 # @@protoc_insertion_point(module_scope)

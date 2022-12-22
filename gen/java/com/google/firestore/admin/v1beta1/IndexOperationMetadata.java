@@ -37,101 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IndexOperationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (startTime_ != null) {
-              subBuilder = startTime_.toBuilder();
-            }
-            startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(startTime_);
-              startTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            index_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            operationType_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            cancelled_ = input.readBool();
-            break;
-          }
-          case 50: {
-            com.google.firestore.admin.v1beta1.Progress.Builder subBuilder = null;
-            if (documentProgress_ != null) {
-              subBuilder = documentProgress_.toBuilder();
-            }
-            documentProgress_ = input.readMessage(com.google.firestore.admin.v1beta1.Progress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(documentProgress_);
-              documentProgress_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.firestore.admin.v1beta1.FirestoreAdminProto.internal_static_google_firestore_admin_v1beta1_IndexOperationMetadata_descriptor;
@@ -308,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-    return getStartTime();
+    return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
   }
 
   public static final int END_TIME_FIELD_NUMBER = 2;
@@ -349,11 +254,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   public static final int INDEX_FIELD_NUMBER = 3;
-  private volatile java.lang.Object index_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object index_ = "";
   /**
    * <pre>
    * The index resource that this operation is acting on. For example:
@@ -401,7 +307,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATION_TYPE_FIELD_NUMBER = 4;
-  private int operationType_;
+  private int operationType_ = 0;
   /**
    * <pre>
    * The type of index operation.
@@ -422,13 +328,12 @@ private static final long serialVersionUID = 0L;
    * @return The operationType.
    */
   @java.lang.Override public com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType getOperationType() {
-    @SuppressWarnings("deprecation")
-    com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType result = com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType.valueOf(operationType_);
+    com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType result = com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType.forNumber(operationType_);
     return result == null ? com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType.UNRECOGNIZED : result;
   }
 
   public static final int CANCELLED_FIELD_NUMBER = 5;
-  private boolean cancelled_;
+  private boolean cancelled_ = false;
   /**
    * <pre>
    * True if the [google.longrunning.Operation] was cancelled. If the
@@ -479,7 +384,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.firestore.admin.v1beta1.ProgressOrBuilder getDocumentProgressOrBuilder() {
-    return getDocumentProgress();
+    return documentProgress_ == null ? com.google.firestore.admin.v1beta1.Progress.getDefaultInstance() : documentProgress_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -514,7 +419,7 @@ private static final long serialVersionUID = 0L;
     if (documentProgress_ != null) {
       output.writeMessage(6, getDocumentProgress());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -546,7 +451,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getDocumentProgress());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -581,7 +486,7 @@ private static final long serialVersionUID = 0L;
       if (!getDocumentProgress()
           .equals(other.getDocumentProgress())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -611,7 +516,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOCUMENT_PROGRESS_FIELD_NUMBER;
       hash = (53 * hash) + getDocumentProgress().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -733,44 +638,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.firestore.admin.v1beta1.IndexOperationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-      } else {
-        startTime_ = null;
+      bitField0_ = 0;
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
       index_ = "";
-
       operationType_ = 0;
-
       cancelled_ = false;
-
-      if (documentProgressBuilder_ == null) {
-        documentProgress_ = null;
-      } else {
-        documentProgress_ = null;
+      documentProgress_ = null;
+      if (documentProgressBuilder_ != null) {
+        documentProgressBuilder_.dispose();
         documentProgressBuilder_ = null;
       }
       return this;
@@ -799,26 +694,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.firestore.admin.v1beta1.IndexOperationMetadata buildPartial() {
       com.google.firestore.admin.v1beta1.IndexOperationMetadata result = new com.google.firestore.admin.v1beta1.IndexOperationMetadata(this);
-      if (startTimeBuilder_ == null) {
-        result.startTime_ = startTime_;
-      } else {
-        result.startTime_ = startTimeBuilder_.build();
-      }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
-      }
-      result.index_ = index_;
-      result.operationType_ = operationType_;
-      result.cancelled_ = cancelled_;
-      if (documentProgressBuilder_ == null) {
-        result.documentProgress_ = documentProgress_;
-      } else {
-        result.documentProgress_ = documentProgressBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.firestore.admin.v1beta1.IndexOperationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.startTime_ = startTimeBuilder_ == null
+            ? startTime_
+            : startTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.index_ = index_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.operationType_ = operationType_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.cancelled_ = cancelled_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.documentProgress_ = documentProgressBuilder_ == null
+            ? documentProgress_
+            : documentProgressBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -873,6 +779,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getIndex().isEmpty()) {
         index_ = other.index_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.operationType_ != 0) {
@@ -884,7 +791,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDocumentProgress()) {
         mergeDocumentProgress(other.getDocumentProgress());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -899,19 +806,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.firestore.admin.v1beta1.IndexOperationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              index_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              operationType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              cancelled_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getDocumentProgressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.firestore.admin.v1beta1.IndexOperationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Timestamp startTime_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -925,7 +882,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the startTime field is set.
      */
     public boolean hasStartTime() {
-      return startTimeBuilder_ != null || startTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -955,11 +912,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         startTime_ = value;
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -973,11 +930,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (startTimeBuilder_ == null) {
         startTime_ = builderForValue.build();
-        onChanged();
       } else {
         startTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -989,17 +946,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
       if (startTimeBuilder_ == null) {
-        if (startTime_ != null) {
-          startTime_ =
-            com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          startTime_ != null &&
+          startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStartTimeBuilder().mergeFrom(value);
         } else {
           startTime_ = value;
         }
-        onChanged();
       } else {
         startTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1010,14 +968,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 1;</code>
      */
     public Builder clearStartTime() {
-      if (startTimeBuilder_ == null) {
-        startTime_ = null;
-        onChanged();
-      } else {
-        startTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      startTime_ = null;
+      if (startTimeBuilder_ != null) {
+        startTimeBuilder_.dispose();
         startTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1028,7 +985,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp start_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getStartTimeFieldBuilder().getBuilder();
     }
@@ -1081,7 +1038,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1113,11 +1070,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1132,11 +1089,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1149,17 +1106,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1171,14 +1129,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 2;</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1190,7 +1147,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp end_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -1288,11 +1245,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIndex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       index_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1306,8 +1261,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIndex() {
-      
       index_ = getDefaultInstance().getIndex();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1323,12 +1278,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIndexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       index_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1355,8 +1308,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOperationTypeValue(int value) {
-      
       operationType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1370,8 +1323,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType getOperationType() {
-      @SuppressWarnings("deprecation")
-      com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType result = com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType.valueOf(operationType_);
+      com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType result = com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType.forNumber(operationType_);
       return result == null ? com.google.firestore.admin.v1beta1.IndexOperationMetadata.OperationType.UNRECOGNIZED : result;
     }
     /**
@@ -1387,7 +1339,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       operationType_ = value.getNumber();
       onChanged();
       return this;
@@ -1401,7 +1353,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       operationType_ = 0;
       onChanged();
       return this;
@@ -1436,6 +1388,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCancelled(boolean value) {
       
       cancelled_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1450,7 +1403,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCancelled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       cancelled_ = false;
       onChanged();
       return this;
@@ -1468,7 +1421,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the documentProgress field is set.
      */
     public boolean hasDocumentProgress() {
-      return documentProgressBuilder_ != null || documentProgress_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1498,11 +1451,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         documentProgress_ = value;
-        onChanged();
       } else {
         documentProgressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1516,11 +1469,11 @@ private static final long serialVersionUID = 0L;
         com.google.firestore.admin.v1beta1.Progress.Builder builderForValue) {
       if (documentProgressBuilder_ == null) {
         documentProgress_ = builderForValue.build();
-        onChanged();
       } else {
         documentProgressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1532,17 +1485,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDocumentProgress(com.google.firestore.admin.v1beta1.Progress value) {
       if (documentProgressBuilder_ == null) {
-        if (documentProgress_ != null) {
-          documentProgress_ =
-            com.google.firestore.admin.v1beta1.Progress.newBuilder(documentProgress_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          documentProgress_ != null &&
+          documentProgress_ != com.google.firestore.admin.v1beta1.Progress.getDefaultInstance()) {
+          getDocumentProgressBuilder().mergeFrom(value);
         } else {
           documentProgress_ = value;
         }
-        onChanged();
       } else {
         documentProgressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1553,14 +1507,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.admin.v1beta1.Progress document_progress = 6;</code>
      */
     public Builder clearDocumentProgress() {
-      if (documentProgressBuilder_ == null) {
-        documentProgress_ = null;
-        onChanged();
-      } else {
-        documentProgress_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      documentProgress_ = null;
+      if (documentProgressBuilder_ != null) {
+        documentProgressBuilder_.dispose();
         documentProgressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1571,7 +1524,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.firestore.admin.v1beta1.Progress document_progress = 6;</code>
      */
     public com.google.firestore.admin.v1beta1.Progress.Builder getDocumentProgressBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDocumentProgressFieldBuilder().getBuilder();
     }
@@ -1643,7 +1596,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IndexOperationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

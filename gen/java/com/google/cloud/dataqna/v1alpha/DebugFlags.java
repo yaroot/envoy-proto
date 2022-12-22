@@ -34,105 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DebugFlags(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            includeVaQuery_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            includeNestedVaQuery_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            includeHumanInterpretation_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            includeAquaDebugResponse_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            timeOverride_ = input.readInt64();
-            break;
-          }
-          case 48: {
-
-            isInternalGoogleUser_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            ignoreCache_ = input.readBool();
-            break;
-          }
-          case 64: {
-
-            includeSearchEntitiesRpc_ = input.readBool();
-            break;
-          }
-          case 72: {
-
-            includeListColumnAnnotationsRpc_ = input.readBool();
-            break;
-          }
-          case 80: {
-
-            includeVirtualAnalystEntities_ = input.readBool();
-            break;
-          }
-          case 88: {
-
-            includeTableList_ = input.readBool();
-            break;
-          }
-          case 96: {
-
-            includeDomainList_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataqna.v1alpha.QuestionProto.internal_static_google_cloud_dataqna_v1alpha_DebugFlags_descriptor;
@@ -147,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_VA_QUERY_FIELD_NUMBER = 1;
-  private boolean includeVaQuery_;
+  private boolean includeVaQuery_ = false;
   /**
    * <pre>
    * Whether to include the original VAQuery.
@@ -162,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_NESTED_VA_QUERY_FIELD_NUMBER = 2;
-  private boolean includeNestedVaQuery_;
+  private boolean includeNestedVaQuery_ = false;
   /**
    * <pre>
    * Whether to include the original nested VAQuery.
@@ -177,7 +78,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_HUMAN_INTERPRETATION_FIELD_NUMBER = 3;
-  private boolean includeHumanInterpretation_;
+  private boolean includeHumanInterpretation_ = false;
   /**
    * <pre>
    * Whether to include the original human interpretation strings generated
@@ -193,7 +94,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_AQUA_DEBUG_RESPONSE_FIELD_NUMBER = 4;
-  private boolean includeAquaDebugResponse_;
+  private boolean includeAquaDebugResponse_ = false;
   /**
    * <pre>
    * Whether to include the Aqua debug response.
@@ -208,7 +109,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_OVERRIDE_FIELD_NUMBER = 5;
-  private long timeOverride_;
+  private long timeOverride_ = 0L;
   /**
    * <pre>
    * The time in milliseconds from Unix epoch to be used
@@ -227,7 +128,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_INTERNAL_GOOGLE_USER_FIELD_NUMBER = 6;
-  private boolean isInternalGoogleUser_;
+  private boolean isInternalGoogleUser_ = false;
   /**
    * <pre>
    * Set to true if request is initiated by an internal Google user.
@@ -242,7 +143,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IGNORE_CACHE_FIELD_NUMBER = 7;
-  private boolean ignoreCache_;
+  private boolean ignoreCache_ = false;
   /**
    * <pre>
    * Determines whether cache needs to be ignored. If set to
@@ -258,7 +159,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_SEARCH_ENTITIES_RPC_FIELD_NUMBER = 8;
-  private boolean includeSearchEntitiesRpc_;
+  private boolean includeSearchEntitiesRpc_ = false;
   /**
    * <pre>
    * Whether to include the request/response pair from the call to the
@@ -274,7 +175,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_LIST_COLUMN_ANNOTATIONS_RPC_FIELD_NUMBER = 9;
-  private boolean includeListColumnAnnotationsRpc_;
+  private boolean includeListColumnAnnotationsRpc_ = false;
   /**
    * <pre>
    * Whether to include the request/response pair from the call to the
@@ -290,7 +191,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_VIRTUAL_ANALYST_ENTITIES_FIELD_NUMBER = 10;
-  private boolean includeVirtualAnalystEntities_;
+  private boolean includeVirtualAnalystEntities_ = false;
   /**
    * <pre>
    * Whether to include the entity list passed to Analyza.
@@ -305,7 +206,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_TABLE_LIST_FIELD_NUMBER = 11;
-  private boolean includeTableList_;
+  private boolean includeTableList_ = false;
   /**
    * <pre>
    * Whether to include the table list.
@@ -320,7 +221,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_DOMAIN_LIST_FIELD_NUMBER = 12;
-  private boolean includeDomainList_;
+  private boolean includeDomainList_ = false;
   /**
    * <pre>
    * Whether to include the domain list.
@@ -384,7 +285,7 @@ private static final long serialVersionUID = 0L;
     if (includeDomainList_ != false) {
       output.writeBool(12, includeDomainList_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -441,7 +342,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(12, includeDomainList_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -480,7 +381,7 @@ private static final long serialVersionUID = 0L;
         != other.getIncludeTableList()) return false;
     if (getIncludeDomainList()
         != other.getIncludeDomainList()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -527,7 +428,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + INCLUDE_DOMAIN_LIST_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getIncludeDomainList());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -648,46 +549,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataqna.v1alpha.DebugFlags.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       includeVaQuery_ = false;
-
       includeNestedVaQuery_ = false;
-
       includeHumanInterpretation_ = false;
-
       includeAquaDebugResponse_ = false;
-
       timeOverride_ = 0L;
-
       isInternalGoogleUser_ = false;
-
       ignoreCache_ = false;
-
       includeSearchEntitiesRpc_ = false;
-
       includeListColumnAnnotationsRpc_ = false;
-
       includeVirtualAnalystEntities_ = false;
-
       includeTableList_ = false;
-
       includeDomainList_ = false;
-
       return this;
     }
 
@@ -714,20 +599,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataqna.v1alpha.DebugFlags buildPartial() {
       com.google.cloud.dataqna.v1alpha.DebugFlags result = new com.google.cloud.dataqna.v1alpha.DebugFlags(this);
-      result.includeVaQuery_ = includeVaQuery_;
-      result.includeNestedVaQuery_ = includeNestedVaQuery_;
-      result.includeHumanInterpretation_ = includeHumanInterpretation_;
-      result.includeAquaDebugResponse_ = includeAquaDebugResponse_;
-      result.timeOverride_ = timeOverride_;
-      result.isInternalGoogleUser_ = isInternalGoogleUser_;
-      result.ignoreCache_ = ignoreCache_;
-      result.includeSearchEntitiesRpc_ = includeSearchEntitiesRpc_;
-      result.includeListColumnAnnotationsRpc_ = includeListColumnAnnotationsRpc_;
-      result.includeVirtualAnalystEntities_ = includeVirtualAnalystEntities_;
-      result.includeTableList_ = includeTableList_;
-      result.includeDomainList_ = includeDomainList_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataqna.v1alpha.DebugFlags result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.includeVaQuery_ = includeVaQuery_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.includeNestedVaQuery_ = includeNestedVaQuery_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.includeHumanInterpretation_ = includeHumanInterpretation_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.includeAquaDebugResponse_ = includeAquaDebugResponse_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.timeOverride_ = timeOverride_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.isInternalGoogleUser_ = isInternalGoogleUser_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.ignoreCache_ = ignoreCache_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.includeSearchEntitiesRpc_ = includeSearchEntitiesRpc_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.includeListColumnAnnotationsRpc_ = includeListColumnAnnotationsRpc_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.includeVirtualAnalystEntities_ = includeVirtualAnalystEntities_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.includeTableList_ = includeTableList_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.includeDomainList_ = includeDomainList_;
+      }
     }
 
     @java.lang.Override
@@ -810,7 +724,7 @@ private static final long serialVersionUID = 0L;
       if (other.getIncludeDomainList() != false) {
         setIncludeDomainList(other.getIncludeDomainList());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -825,19 +739,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataqna.v1alpha.DebugFlags parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              includeVaQuery_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              includeNestedVaQuery_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              includeHumanInterpretation_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              includeAquaDebugResponse_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              timeOverride_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              isInternalGoogleUser_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              ignoreCache_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              includeSearchEntitiesRpc_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              includeListColumnAnnotationsRpc_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              includeVirtualAnalystEntities_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              includeTableList_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              includeDomainList_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataqna.v1alpha.DebugFlags) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean includeVaQuery_ ;
     /**
@@ -864,6 +852,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeVaQuery(boolean value) {
       
       includeVaQuery_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -876,7 +865,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeVaQuery() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       includeVaQuery_ = false;
       onChanged();
       return this;
@@ -907,6 +896,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeNestedVaQuery(boolean value) {
       
       includeNestedVaQuery_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -919,7 +909,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeNestedVaQuery() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       includeNestedVaQuery_ = false;
       onChanged();
       return this;
@@ -952,6 +942,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeHumanInterpretation(boolean value) {
       
       includeHumanInterpretation_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -965,7 +956,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeHumanInterpretation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       includeHumanInterpretation_ = false;
       onChanged();
       return this;
@@ -996,6 +987,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeAquaDebugResponse(boolean value) {
       
       includeAquaDebugResponse_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1008,7 +1000,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeAquaDebugResponse() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       includeAquaDebugResponse_ = false;
       onChanged();
       return this;
@@ -1047,6 +1039,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTimeOverride(long value) {
       
       timeOverride_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1063,7 +1056,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeOverride() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       timeOverride_ = 0L;
       onChanged();
       return this;
@@ -1094,6 +1087,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsInternalGoogleUser(boolean value) {
       
       isInternalGoogleUser_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1106,7 +1100,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsInternalGoogleUser() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       isInternalGoogleUser_ = false;
       onChanged();
       return this;
@@ -1139,6 +1133,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIgnoreCache(boolean value) {
       
       ignoreCache_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1152,7 +1147,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIgnoreCache() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       ignoreCache_ = false;
       onChanged();
       return this;
@@ -1185,6 +1180,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeSearchEntitiesRpc(boolean value) {
       
       includeSearchEntitiesRpc_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1198,7 +1194,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeSearchEntitiesRpc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       includeSearchEntitiesRpc_ = false;
       onChanged();
       return this;
@@ -1231,6 +1227,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeListColumnAnnotationsRpc(boolean value) {
       
       includeListColumnAnnotationsRpc_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -1244,7 +1241,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeListColumnAnnotationsRpc() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       includeListColumnAnnotationsRpc_ = false;
       onChanged();
       return this;
@@ -1275,6 +1272,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeVirtualAnalystEntities(boolean value) {
       
       includeVirtualAnalystEntities_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -1287,7 +1285,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeVirtualAnalystEntities() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       includeVirtualAnalystEntities_ = false;
       onChanged();
       return this;
@@ -1318,6 +1316,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeTableList(boolean value) {
       
       includeTableList_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -1330,7 +1329,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeTableList() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       includeTableList_ = false;
       onChanged();
       return this;
@@ -1361,6 +1360,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeDomainList(boolean value) {
       
       includeDomainList_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -1373,7 +1373,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeDomainList() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       includeDomainList_ = false;
       onChanged();
       return this;
@@ -1411,7 +1411,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DebugFlags(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

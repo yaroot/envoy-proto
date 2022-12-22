@@ -11,14 +11,13 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.datalabeling.v1beta1 import annotation_pb2 as google_dot_cloud_dot_datalabeling_dot_v1beta1_dot_annotation__pb2
 from google.cloud.datalabeling.v1beta1 import annotation_spec_set_pb2 as google_dot_cloud_dot_datalabeling_dot_v1beta1_dot_annotation__spec__set__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/datalabeling/v1beta1/evaluation.proto\x12!google.cloud.datalabeling.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a\x32google/cloud/datalabeling/v1beta1/annotation.proto\x1a;google/cloud/datalabeling/v1beta1/annotation_spec_set.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x03\n\nEvaluation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x43\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.EvaluationConfig\x12;\n\x17\x65valuation_job_run_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12P\n\x12\x65valuation_metrics\x18\x05 \x01(\x0b\x32\x34.google.cloud.datalabeling.v1beta1.EvaluationMetrics\x12J\n\x0f\x61nnotation_type\x18\x06 \x01(\x0e\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationType\x12\x1c\n\x14\x65valuated_item_count\x18\x07 \x01(\x03:k\xea\x41h\n&datalabeling.googleapis.com/Evaluation\x12>projects/{project}/datasets/{dataset}/evaluations/{evaluation}\"\x91\x01\n\x10\x45valuationConfig\x12j\n\x1f\x62ounding_box_evaluation_options\x18\x01 \x01(\x0b\x32?.google.cloud.datalabeling.v1beta1.BoundingBoxEvaluationOptionsH\x00\x42\x11\n\x0fvertical_option\"5\n\x1c\x42oundingBoxEvaluationOptions\x12\x15\n\riou_threshold\x18\x01 \x01(\x02\"\xd9\x01\n\x11\x45valuationMetrics\x12Z\n\x16\x63lassification_metrics\x18\x01 \x01(\x0b\x32\x38.google.cloud.datalabeling.v1beta1.ClassificationMetricsH\x00\x12]\n\x18object_detection_metrics\x18\x02 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.ObjectDetectionMetricsH\x00\x42\t\n\x07metrics\"\xa3\x01\n\x15\x43lassificationMetrics\x12<\n\x08pr_curve\x18\x01 \x01(\x0b\x32*.google.cloud.datalabeling.v1beta1.PrCurve\x12L\n\x10\x63onfusion_matrix\x18\x02 \x01(\x0b\x32\x32.google.cloud.datalabeling.v1beta1.ConfusionMatrix\"V\n\x16ObjectDetectionMetrics\x12<\n\x08pr_curve\x18\x01 \x01(\x0b\x32*.google.cloud.datalabeling.v1beta1.PrCurve\"\xe6\x03\n\x07PrCurve\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x18\n\x10\x61rea_under_curve\x18\x02 \x01(\x02\x12\x65\n\x1a\x63onfidence_metrics_entries\x18\x03 \x03(\x0b\x32\x41.google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry\x12\x1e\n\x16mean_average_precision\x18\x04 \x01(\x02\x1a\xed\x01\n\x16\x43onfidenceMetricsEntry\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x12\x0e\n\x06recall\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x01(\x02\x12\x10\n\x08\x66\x31_score\x18\x04 \x01(\x02\x12\x12\n\nrecall_at1\x18\x05 \x01(\x02\x12\x15\n\rprecision_at1\x18\x06 \x01(\x02\x12\x14\n\x0c\x66\x31_score_at1\x18\x07 \x01(\x02\x12\x12\n\nrecall_at5\x18\x08 \x01(\x02\x12\x15\n\rprecision_at5\x18\t \x01(\x02\x12\x14\n\x0c\x66\x31_score_at5\x18\n \x01(\x02\"\xfc\x02\n\x0f\x43onfusionMatrix\x12\x43\n\x03row\x18\x01 \x03(\x0b\x32\x36.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row\x1av\n\x14\x43onfusionMatrixEntry\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x12\n\nitem_count\x18\x02 \x01(\x05\x1a\xab\x01\n\x03Row\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12X\n\x07\x65ntries\x18\x02 \x03(\x0b\x32G.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntryB\xe7\x01\n%com.google.cloud.datalabeling.v1beta1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\xaa\x02!Google.Cloud.DataLabeling.V1Beta1\xca\x02!Google\\Cloud\\DataLabeling\\V1beta1\xea\x02$Google::Cloud::DataLabeling::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/datalabeling/v1beta1/evaluation.proto\x12!google.cloud.datalabeling.v1beta1\x1a\x19google/api/resource.proto\x1a\x32google/cloud/datalabeling/v1beta1/annotation.proto\x1a;google/cloud/datalabeling/v1beta1/annotation_spec_set.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xf6\x03\n\nEvaluation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x43\n\x06\x63onfig\x18\x02 \x01(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.EvaluationConfig\x12;\n\x17\x65valuation_job_run_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12/\n\x0b\x63reate_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12P\n\x12\x65valuation_metrics\x18\x05 \x01(\x0b\x32\x34.google.cloud.datalabeling.v1beta1.EvaluationMetrics\x12J\n\x0f\x61nnotation_type\x18\x06 \x01(\x0e\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationType\x12\x1c\n\x14\x65valuated_item_count\x18\x07 \x01(\x03:k\xea\x41h\n&datalabeling.googleapis.com/Evaluation\x12>projects/{project}/datasets/{dataset}/evaluations/{evaluation}\"\x91\x01\n\x10\x45valuationConfig\x12j\n\x1f\x62ounding_box_evaluation_options\x18\x01 \x01(\x0b\x32?.google.cloud.datalabeling.v1beta1.BoundingBoxEvaluationOptionsH\x00\x42\x11\n\x0fvertical_option\"5\n\x1c\x42oundingBoxEvaluationOptions\x12\x15\n\riou_threshold\x18\x01 \x01(\x02\"\xd9\x01\n\x11\x45valuationMetrics\x12Z\n\x16\x63lassification_metrics\x18\x01 \x01(\x0b\x32\x38.google.cloud.datalabeling.v1beta1.ClassificationMetricsH\x00\x12]\n\x18object_detection_metrics\x18\x02 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.ObjectDetectionMetricsH\x00\x42\t\n\x07metrics\"\xa3\x01\n\x15\x43lassificationMetrics\x12<\n\x08pr_curve\x18\x01 \x01(\x0b\x32*.google.cloud.datalabeling.v1beta1.PrCurve\x12L\n\x10\x63onfusion_matrix\x18\x02 \x01(\x0b\x32\x32.google.cloud.datalabeling.v1beta1.ConfusionMatrix\"V\n\x16ObjectDetectionMetrics\x12<\n\x08pr_curve\x18\x01 \x01(\x0b\x32*.google.cloud.datalabeling.v1beta1.PrCurve\"\xe6\x03\n\x07PrCurve\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x18\n\x10\x61rea_under_curve\x18\x02 \x01(\x02\x12\x65\n\x1a\x63onfidence_metrics_entries\x18\x03 \x03(\x0b\x32\x41.google.cloud.datalabeling.v1beta1.PrCurve.ConfidenceMetricsEntry\x12\x1e\n\x16mean_average_precision\x18\x04 \x01(\x02\x1a\xed\x01\n\x16\x43onfidenceMetricsEntry\x12\x1c\n\x14\x63onfidence_threshold\x18\x01 \x01(\x02\x12\x0e\n\x06recall\x18\x02 \x01(\x02\x12\x11\n\tprecision\x18\x03 \x01(\x02\x12\x10\n\x08\x66\x31_score\x18\x04 \x01(\x02\x12\x12\n\nrecall_at1\x18\x05 \x01(\x02\x12\x15\n\rprecision_at1\x18\x06 \x01(\x02\x12\x14\n\x0c\x66\x31_score_at1\x18\x07 \x01(\x02\x12\x12\n\nrecall_at5\x18\x08 \x01(\x02\x12\x15\n\rprecision_at5\x18\t \x01(\x02\x12\x14\n\x0c\x66\x31_score_at5\x18\n \x01(\x02\"\xfc\x02\n\x0f\x43onfusionMatrix\x12\x43\n\x03row\x18\x01 \x03(\x0b\x32\x36.google.cloud.datalabeling.v1beta1.ConfusionMatrix.Row\x1av\n\x14\x43onfusionMatrixEntry\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x12\n\nitem_count\x18\x02 \x01(\x05\x1a\xab\x01\n\x03Row\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12X\n\x07\x65ntries\x18\x02 \x03(\x0b\x32G.google.cloud.datalabeling.v1beta1.ConfusionMatrix.ConfusionMatrixEntryB\xe7\x01\n%com.google.cloud.datalabeling.v1beta1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\xaa\x02!Google.Cloud.DataLabeling.V1Beta1\xca\x02!Google\\Cloud\\DataLabeling\\V1beta1\xea\x02$Google::Cloud::DataLabeling::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.datalabeling.v1beta1.evaluation_pb2', globals())
@@ -28,26 +27,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n%com.google.cloud.datalabeling.v1beta1P\001ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\252\002!Google.Cloud.DataLabeling.V1Beta1\312\002!Google\\Cloud\\DataLabeling\\V1beta1\352\002$Google::Cloud::DataLabeling::V1beta1'
   _EVALUATION._options = None
   _EVALUATION._serialized_options = b'\352Ah\n&datalabeling.googleapis.com/Evaluation\022>projects/{project}/datasets/{dataset}/evaluations/{evaluation}'
-  _EVALUATION._serialized_start=293
-  _EVALUATION._serialized_end=795
-  _EVALUATIONCONFIG._serialized_start=798
-  _EVALUATIONCONFIG._serialized_end=943
-  _BOUNDINGBOXEVALUATIONOPTIONS._serialized_start=945
-  _BOUNDINGBOXEVALUATIONOPTIONS._serialized_end=998
-  _EVALUATIONMETRICS._serialized_start=1001
-  _EVALUATIONMETRICS._serialized_end=1218
-  _CLASSIFICATIONMETRICS._serialized_start=1221
-  _CLASSIFICATIONMETRICS._serialized_end=1384
-  _OBJECTDETECTIONMETRICS._serialized_start=1386
-  _OBJECTDETECTIONMETRICS._serialized_end=1472
-  _PRCURVE._serialized_start=1475
-  _PRCURVE._serialized_end=1961
-  _PRCURVE_CONFIDENCEMETRICSENTRY._serialized_start=1724
-  _PRCURVE_CONFIDENCEMETRICSENTRY._serialized_end=1961
-  _CONFUSIONMATRIX._serialized_start=1964
-  _CONFUSIONMATRIX._serialized_end=2344
-  _CONFUSIONMATRIX_CONFUSIONMATRIXENTRY._serialized_start=2052
-  _CONFUSIONMATRIX_CONFUSIONMATRIXENTRY._serialized_end=2170
-  _CONFUSIONMATRIX_ROW._serialized_start=2173
-  _CONFUSIONMATRIX_ROW._serialized_end=2344
+  _EVALUATION._serialized_start=263
+  _EVALUATION._serialized_end=765
+  _EVALUATIONCONFIG._serialized_start=768
+  _EVALUATIONCONFIG._serialized_end=913
+  _BOUNDINGBOXEVALUATIONOPTIONS._serialized_start=915
+  _BOUNDINGBOXEVALUATIONOPTIONS._serialized_end=968
+  _EVALUATIONMETRICS._serialized_start=971
+  _EVALUATIONMETRICS._serialized_end=1188
+  _CLASSIFICATIONMETRICS._serialized_start=1191
+  _CLASSIFICATIONMETRICS._serialized_end=1354
+  _OBJECTDETECTIONMETRICS._serialized_start=1356
+  _OBJECTDETECTIONMETRICS._serialized_end=1442
+  _PRCURVE._serialized_start=1445
+  _PRCURVE._serialized_end=1931
+  _PRCURVE_CONFIDENCEMETRICSENTRY._serialized_start=1694
+  _PRCURVE_CONFIDENCEMETRICSENTRY._serialized_end=1931
+  _CONFUSIONMATRIX._serialized_start=1934
+  _CONFUSIONMATRIX._serialized_end=2314
+  _CONFUSIONMATRIX_CONFUSIONMATRIXENTRY._serialized_start=2022
+  _CONFUSIONMATRIX_CONFUSIONMATRIXENTRY._serialized_end=2140
+  _CONFUSIONMATRIX_ROW._serialized_start=2143
+  _CONFUSIONMATRIX_ROW._serialized_end=2314
 # @@protoc_insertion_point(module_scope)

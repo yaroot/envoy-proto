@@ -39,78 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StoreSalesThirdPartyMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            advertiserUploadDateTime_ = s;
-            break;
-          }
-          case 65: {
-            bitField0_ |= 0x00000002;
-            validTransactionFraction_ = input.readDouble();
-            break;
-          }
-          case 73: {
-            bitField0_ |= 0x00000004;
-            partnerMatchFraction_ = input.readDouble();
-            break;
-          }
-          case 81: {
-            bitField0_ |= 0x00000008;
-            partnerUploadFraction_ = input.readDouble();
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            bridgeMapVersionId_ = s;
-            break;
-          }
-          case 96: {
-            bitField0_ |= 0x00000020;
-            partnerId_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.OfflineUserDataProto.internal_static_google_ads_googleads_v10_common_StoreSalesThirdPartyMetadata_descriptor;
@@ -126,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ADVERTISER_UPLOAD_DATE_TIME_FIELD_NUMBER = 7;
-  private volatile java.lang.Object advertiserUploadDateTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object advertiserUploadDateTime_ = "";
   /**
    * <pre>
    * Time the advertiser uploaded the data to the partner. Required.
@@ -190,7 +119,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALID_TRANSACTION_FRACTION_FIELD_NUMBER = 8;
-  private double validTransactionFraction_;
+  private double validTransactionFraction_ = 0D;
   /**
    * <pre>
    * The fraction of transactions that are valid. Invalid transactions may
@@ -223,7 +152,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTNER_MATCH_FRACTION_FIELD_NUMBER = 9;
-  private double partnerMatchFraction_;
+  private double partnerMatchFraction_ = 0D;
   /**
    * <pre>
    * The fraction of valid transactions that are matched to a third party
@@ -256,7 +185,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTNER_UPLOAD_FRACTION_FIELD_NUMBER = 10;
-  private double partnerUploadFraction_;
+  private double partnerUploadFraction_ = 0D;
   /**
    * <pre>
    * The fraction of valid transactions that are uploaded by the partner to
@@ -289,7 +218,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BRIDGE_MAP_VERSION_ID_FIELD_NUMBER = 11;
-  private volatile java.lang.Object bridgeMapVersionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bridgeMapVersionId_ = "";
   /**
    * <pre>
    * Version of partner IDs to be used for uploads. Required.
@@ -347,7 +277,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTNER_ID_FIELD_NUMBER = 12;
-  private long partnerId_;
+  private long partnerId_ = 0L;
   /**
    * <pre>
    * ID of the third party partner updating the transaction feed.
@@ -405,7 +335,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       output.writeInt64(12, partnerId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -436,7 +366,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(12, partnerId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -484,7 +414,7 @@ private static final long serialVersionUID = 0L;
       if (getPartnerId()
           != other.getPartnerId()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -523,7 +453,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPartnerId());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -647,34 +577,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       advertiserUploadDateTime_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       validTransactionFraction_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000002);
       partnerMatchFraction_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000004);
       partnerUploadFraction_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000008);
       bridgeMapVersionId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       partnerId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -701,12 +621,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata buildPartial() {
       com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata result = new com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.advertiserUploadDateTime_ = advertiserUploadDateTime_;
         to_bitField0_ |= 0x00000001;
       }
-      result.advertiserUploadDateTime_ = advertiserUploadDateTime_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.validTransactionFraction_ = validTransactionFraction_;
         to_bitField0_ |= 0x00000002;
@@ -720,16 +646,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.bridgeMapVersionId_ = bridgeMapVersionId_;
         to_bitField0_ |= 0x00000010;
       }
-      result.bridgeMapVersionId_ = bridgeMapVersionId_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.partnerId_ = partnerId_;
         to_bitField0_ |= 0x00000020;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -777,8 +701,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata other) {
       if (other == com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.getDefaultInstance()) return this;
       if (other.hasAdvertiserUploadDateTime()) {
-        bitField0_ |= 0x00000001;
         advertiserUploadDateTime_ = other.advertiserUploadDateTime_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasValidTransactionFraction()) {
@@ -791,14 +715,14 @@ private static final long serialVersionUID = 0L;
         setPartnerUploadFraction(other.getPartnerUploadFraction());
       }
       if (other.hasBridgeMapVersionId()) {
-        bitField0_ |= 0x00000010;
         bridgeMapVersionId_ = other.bridgeMapVersionId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasPartnerId()) {
         setPartnerId(other.getPartnerId());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -813,17 +737,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 58: {
+              advertiserUploadDateTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 58
+            case 65: {
+              validTransactionFraction_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 65
+            case 73: {
+              partnerMatchFraction_ = input.readDouble();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 73
+            case 81: {
+              partnerUploadFraction_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 81
+            case 90: {
+              bridgeMapVersionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 90
+            case 96: {
+              partnerId_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 96
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -900,11 +867,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserUploadDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       advertiserUploadDateTime_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -919,8 +884,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdvertiserUploadDateTime() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       advertiserUploadDateTime_ = getDefaultInstance().getAdvertiserUploadDateTime();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -937,12 +902,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserUploadDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       advertiserUploadDateTime_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -991,8 +954,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setValidTransactionFraction(double value) {
-      bitField0_ |= 0x00000002;
+      
       validTransactionFraction_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1058,8 +1022,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartnerMatchFraction(double value) {
-      bitField0_ |= 0x00000004;
+      
       partnerMatchFraction_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1125,8 +1090,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartnerUploadFraction(double value) {
-      bitField0_ |= 0x00000008;
+      
       partnerUploadFraction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1212,11 +1178,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBridgeMapVersionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       bridgeMapVersionId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1229,8 +1193,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBridgeMapVersionId() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       bridgeMapVersionId_ = getDefaultInstance().getBridgeMapVersionId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1245,12 +1209,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBridgeMapVersionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bridgeMapVersionId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1290,8 +1252,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartnerId(long value) {
-      bitField0_ |= 0x00000020;
+      
       partnerId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1342,7 +1305,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StoreSalesThirdPartyMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -42,115 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Budget(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.billing.budgets.v1beta1.Filter.Builder subBuilder = null;
-            if (budgetFilter_ != null) {
-              subBuilder = budgetFilter_.toBuilder();
-            }
-            budgetFilter_ = input.readMessage(com.google.cloud.billing.budgets.v1beta1.Filter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(budgetFilter_);
-              budgetFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.billing.budgets.v1beta1.BudgetAmount.Builder subBuilder = null;
-            if (amount_ != null) {
-              subBuilder = amount_.toBuilder();
-            }
-            amount_ = input.readMessage(com.google.cloud.billing.budgets.v1beta1.BudgetAmount.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(amount_);
-              amount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              thresholdRules_ = new java.util.ArrayList<com.google.cloud.billing.budgets.v1beta1.ThresholdRule>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            thresholdRules_.add(
-                input.readMessage(com.google.cloud.billing.budgets.v1beta1.ThresholdRule.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.Builder subBuilder = null;
-            if (allUpdatesRule_ != null) {
-              subBuilder = allUpdatesRule_.toBuilder();
-            }
-            allUpdatesRule_ = input.readMessage(com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allUpdatesRule_);
-              allUpdatesRule_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        thresholdRules_ = java.util.Collections.unmodifiableList(thresholdRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.billing.budgets.v1beta1.BudgetModel.internal_static_google_cloud_billing_budgets_v1beta1_Budget_descriptor;
@@ -165,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name of the budget.
@@ -215,7 +107,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * User data for display name in UI.
@@ -303,7 +196,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.billing.budgets.v1beta1.FilterOrBuilder getBudgetFilterOrBuilder() {
-    return getBudgetFilter();
+    return budgetFilter_ == null ? com.google.cloud.billing.budgets.v1beta1.Filter.getDefaultInstance() : budgetFilter_;
   }
 
   public static final int AMOUNT_FIELD_NUMBER = 4;
@@ -341,10 +234,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.billing.budgets.v1beta1.BudgetAmountOrBuilder getAmountOrBuilder() {
-    return getAmount();
+    return amount_ == null ? com.google.cloud.billing.budgets.v1beta1.BudgetAmount.getDefaultInstance() : amount_;
   }
 
   public static final int THRESHOLD_RULES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.billing.budgets.v1beta1.ThresholdRule> thresholdRules_;
   /**
    * <pre>
@@ -454,11 +348,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.billing.budgets.v1beta1.AllUpdatesRuleOrBuilder getAllUpdatesRuleOrBuilder() {
-    return getAllUpdatesRule();
+    return allUpdatesRule_ == null ? com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.getDefaultInstance() : allUpdatesRule_;
   }
 
   public static final int ETAG_FIELD_NUMBER = 7;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Optional. Etag to validate that the object is unchanged for a
@@ -542,7 +437,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, etag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -576,7 +471,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -614,7 +509,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getEtag()
         .equals(other.getEtag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -647,7 +542,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ETAG_FIELD_NUMBER;
     hash = (53 * hash) + getEtag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -772,53 +667,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.budgets.v1beta1.Budget.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getThresholdRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
-      if (budgetFilterBuilder_ == null) {
-        budgetFilter_ = null;
-      } else {
-        budgetFilter_ = null;
+      budgetFilter_ = null;
+      if (budgetFilterBuilder_ != null) {
+        budgetFilterBuilder_.dispose();
         budgetFilterBuilder_ = null;
       }
-      if (amountBuilder_ == null) {
-        amount_ = null;
-      } else {
-        amount_ = null;
+      amount_ = null;
+      if (amountBuilder_ != null) {
+        amountBuilder_.dispose();
         amountBuilder_ = null;
       }
       if (thresholdRulesBuilder_ == null) {
         thresholdRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        thresholdRules_ = null;
         thresholdRulesBuilder_.clear();
       }
-      if (allUpdatesRuleBuilder_ == null) {
-        allUpdatesRule_ = null;
-      } else {
-        allUpdatesRule_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      allUpdatesRule_ = null;
+      if (allUpdatesRuleBuilder_ != null) {
+        allUpdatesRuleBuilder_.dispose();
         allUpdatesRuleBuilder_ = null;
       }
       etag_ = "";
-
       return this;
     }
 
@@ -845,36 +730,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.budgets.v1beta1.Budget buildPartial() {
       com.google.cloud.billing.budgets.v1beta1.Budget result = new com.google.cloud.billing.budgets.v1beta1.Budget(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      if (budgetFilterBuilder_ == null) {
-        result.budgetFilter_ = budgetFilter_;
-      } else {
-        result.budgetFilter_ = budgetFilterBuilder_.build();
-      }
-      if (amountBuilder_ == null) {
-        result.amount_ = amount_;
-      } else {
-        result.amount_ = amountBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.billing.budgets.v1beta1.Budget result) {
       if (thresholdRulesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           thresholdRules_ = java.util.Collections.unmodifiableList(thresholdRules_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.thresholdRules_ = thresholdRules_;
       } else {
         result.thresholdRules_ = thresholdRulesBuilder_.build();
       }
-      if (allUpdatesRuleBuilder_ == null) {
-        result.allUpdatesRule_ = allUpdatesRule_;
-      } else {
-        result.allUpdatesRule_ = allUpdatesRuleBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.billing.budgets.v1beta1.Budget result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      result.etag_ = etag_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.budgetFilter_ = budgetFilterBuilder_ == null
+            ? budgetFilter_
+            : budgetFilterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.amount_ = amountBuilder_ == null
+            ? amount_
+            : amountBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.allUpdatesRule_ = allUpdatesRuleBuilder_ == null
+            ? allUpdatesRule_
+            : allUpdatesRuleBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.etag_ = etag_;
+      }
     }
 
     @java.lang.Override
@@ -923,10 +822,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.billing.budgets.v1beta1.Budget.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasBudgetFilter()) {
@@ -939,7 +840,7 @@ private static final long serialVersionUID = 0L;
         if (!other.thresholdRules_.isEmpty()) {
           if (thresholdRules_.isEmpty()) {
             thresholdRules_ = other.thresholdRules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureThresholdRulesIsMutable();
             thresholdRules_.addAll(other.thresholdRules_);
@@ -952,7 +853,7 @@ private static final long serialVersionUID = 0L;
             thresholdRulesBuilder_.dispose();
             thresholdRulesBuilder_ = null;
             thresholdRules_ = other.thresholdRules_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             thresholdRulesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getThresholdRulesFieldBuilder() : null;
@@ -966,9 +867,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -983,17 +885,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.budgets.v1beta1.Budget parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBudgetFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAmountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.billing.budgets.v1beta1.ThresholdRule m =
+                  input.readMessage(
+                      com.google.cloud.billing.budgets.v1beta1.ThresholdRule.parser(),
+                      extensionRegistry);
+              if (thresholdRulesBuilder_ == null) {
+                ensureThresholdRulesIsMutable();
+                thresholdRules_.add(m);
+              } else {
+                thresholdRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getAllUpdatesRuleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.budgets.v1beta1.Budget) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1057,11 +1021,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1076,8 +1038,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1094,12 +1056,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1160,11 +1120,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1178,8 +1136,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1195,12 +1153,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1219,7 +1175,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the budgetFilter field is set.
      */
     public boolean hasBudgetFilter() {
-      return budgetFilterBuilder_ != null || budgetFilter_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1253,11 +1209,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         budgetFilter_ = value;
-        onChanged();
       } else {
         budgetFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1273,11 +1229,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.billing.budgets.v1beta1.Filter.Builder builderForValue) {
       if (budgetFilterBuilder_ == null) {
         budgetFilter_ = builderForValue.build();
-        onChanged();
       } else {
         budgetFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1291,17 +1247,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBudgetFilter(com.google.cloud.billing.budgets.v1beta1.Filter value) {
       if (budgetFilterBuilder_ == null) {
-        if (budgetFilter_ != null) {
-          budgetFilter_ =
-            com.google.cloud.billing.budgets.v1beta1.Filter.newBuilder(budgetFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          budgetFilter_ != null &&
+          budgetFilter_ != com.google.cloud.billing.budgets.v1beta1.Filter.getDefaultInstance()) {
+          getBudgetFilterBuilder().mergeFrom(value);
         } else {
           budgetFilter_ = value;
         }
-        onChanged();
       } else {
         budgetFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1314,14 +1271,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.budgets.v1beta1.Filter budget_filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearBudgetFilter() {
-      if (budgetFilterBuilder_ == null) {
-        budgetFilter_ = null;
-        onChanged();
-      } else {
-        budgetFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      budgetFilter_ = null;
+      if (budgetFilterBuilder_ != null) {
+        budgetFilterBuilder_.dispose();
         budgetFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1334,7 +1290,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.budgets.v1beta1.Filter budget_filter = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.billing.budgets.v1beta1.Filter.Builder getBudgetFilterBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBudgetFilterFieldBuilder().getBuilder();
     }
@@ -1390,7 +1346,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the amount field is set.
      */
     public boolean hasAmount() {
-      return amountBuilder_ != null || amount_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1420,11 +1376,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         amount_ = value;
-        onChanged();
       } else {
         amountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1438,11 +1394,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.billing.budgets.v1beta1.BudgetAmount.Builder builderForValue) {
       if (amountBuilder_ == null) {
         amount_ = builderForValue.build();
-        onChanged();
       } else {
         amountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1454,17 +1410,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAmount(com.google.cloud.billing.budgets.v1beta1.BudgetAmount value) {
       if (amountBuilder_ == null) {
-        if (amount_ != null) {
-          amount_ =
-            com.google.cloud.billing.budgets.v1beta1.BudgetAmount.newBuilder(amount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          amount_ != null &&
+          amount_ != com.google.cloud.billing.budgets.v1beta1.BudgetAmount.getDefaultInstance()) {
+          getAmountBuilder().mergeFrom(value);
         } else {
           amount_ = value;
         }
-        onChanged();
       } else {
         amountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1475,14 +1432,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.budgets.v1beta1.BudgetAmount amount = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAmount() {
-      if (amountBuilder_ == null) {
-        amount_ = null;
-        onChanged();
-      } else {
-        amount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      amount_ = null;
+      if (amountBuilder_ != null) {
+        amountBuilder_.dispose();
         amountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1493,7 +1449,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.budgets.v1beta1.BudgetAmount amount = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.billing.budgets.v1beta1.BudgetAmount.Builder getAmountBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAmountFieldBuilder().getBuilder();
     }
@@ -1536,9 +1492,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.billing.budgets.v1beta1.ThresholdRule> thresholdRules_ =
       java.util.Collections.emptyList();
     private void ensureThresholdRulesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         thresholdRules_ = new java.util.ArrayList<com.google.cloud.billing.budgets.v1beta1.ThresholdRule>(thresholdRules_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1765,7 +1721,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearThresholdRules() {
       if (thresholdRulesBuilder_ == null) {
         thresholdRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         thresholdRulesBuilder_.clear();
@@ -1891,7 +1847,7 @@ private static final long serialVersionUID = 0L;
         thresholdRulesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.billing.budgets.v1beta1.ThresholdRule, com.google.cloud.billing.budgets.v1beta1.ThresholdRule.Builder, com.google.cloud.billing.budgets.v1beta1.ThresholdRuleOrBuilder>(
                 thresholdRules_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         thresholdRules_ = null;
@@ -1911,7 +1867,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allUpdatesRule field is set.
      */
     public boolean hasAllUpdatesRule() {
-      return allUpdatesRuleBuilder_ != null || allUpdatesRule_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1941,11 +1897,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allUpdatesRule_ = value;
-        onChanged();
       } else {
         allUpdatesRuleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1959,11 +1915,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.Builder builderForValue) {
       if (allUpdatesRuleBuilder_ == null) {
         allUpdatesRule_ = builderForValue.build();
-        onChanged();
       } else {
         allUpdatesRuleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1975,17 +1931,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllUpdatesRule(com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule value) {
       if (allUpdatesRuleBuilder_ == null) {
-        if (allUpdatesRule_ != null) {
-          allUpdatesRule_ =
-            com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.newBuilder(allUpdatesRule_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          allUpdatesRule_ != null &&
+          allUpdatesRule_ != com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.getDefaultInstance()) {
+          getAllUpdatesRuleBuilder().mergeFrom(value);
         } else {
           allUpdatesRule_ = value;
         }
-        onChanged();
       } else {
         allUpdatesRuleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1996,14 +1953,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.budgets.v1beta1.AllUpdatesRule all_updates_rule = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearAllUpdatesRule() {
-      if (allUpdatesRuleBuilder_ == null) {
-        allUpdatesRule_ = null;
-        onChanged();
-      } else {
-        allUpdatesRule_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      allUpdatesRule_ = null;
+      if (allUpdatesRuleBuilder_ != null) {
+        allUpdatesRuleBuilder_.dispose();
         allUpdatesRuleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2014,7 +1970,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.billing.budgets.v1beta1.AllUpdatesRule all_updates_rule = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.billing.budgets.v1beta1.AllUpdatesRule.Builder getAllUpdatesRuleBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getAllUpdatesRuleFieldBuilder().getBuilder();
     }
@@ -2113,11 +2069,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2132,8 +2086,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2150,12 +2104,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2192,7 +2144,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Budget(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

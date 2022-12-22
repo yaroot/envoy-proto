@@ -38,36 +38,60 @@ public interface HeaderValueOptionOrBuilder extends
    * <pre>
    * Should the value be appended? If true (default), the value is appended to
    * existing values. Otherwise it replaces any existing values.
+   * This field is deprecated and please use
+   * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+   * .. note::
+   *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+   *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+   *   default value (``false``) for this field.
    * </pre>
    *
-   * <code>.google.protobuf.BoolValue append = 2;</code>
+   * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.core.v3.HeaderValueOption.append is deprecated.
+   *     See envoy/config/core/v3/base.proto;l=365
    * @return Whether the append field is set.
    */
-  boolean hasAppend();
+  @java.lang.Deprecated boolean hasAppend();
   /**
    * <pre>
    * Should the value be appended? If true (default), the value is appended to
    * existing values. Otherwise it replaces any existing values.
+   * This field is deprecated and please use
+   * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+   * .. note::
+   *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+   *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+   *   default value (``false``) for this field.
    * </pre>
    *
-   * <code>.google.protobuf.BoolValue append = 2;</code>
+   * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.core.v3.HeaderValueOption.append is deprecated.
+   *     See envoy/config/core/v3/base.proto;l=365
    * @return The append.
    */
-  com.google.protobuf.BoolValue getAppend();
+  @java.lang.Deprecated com.google.protobuf.BoolValue getAppend();
   /**
    * <pre>
    * Should the value be appended? If true (default), the value is appended to
    * existing values. Otherwise it replaces any existing values.
+   * This field is deprecated and please use
+   * :ref:`append_action &lt;envoy_v3_api_field_config.core.v3.HeaderValueOption.append_action&gt;` as replacement.
+   * .. note::
+   *   The :ref:`external authorization service &lt;envoy_v3_api_msg_service.auth.v3.CheckResponse&gt;` and
+   *   :ref:`external processor service &lt;envoy_v3_api_msg_service.ext_proc.v3.ProcessingResponse&gt;` have
+   *   default value (``false``) for this field.
    * </pre>
    *
-   * <code>.google.protobuf.BoolValue append = 2;</code>
+   * <code>.google.protobuf.BoolValue append = 2 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
-  com.google.protobuf.BoolValueOrBuilder getAppendOrBuilder();
+  @java.lang.Deprecated com.google.protobuf.BoolValueOrBuilder getAppendOrBuilder();
 
   /**
    * <pre>
-   * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-   * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+   * Describes the action taken to append/overwrite the given value for an existing header
+   * or to only add this header if it's absent.
+   * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+   * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>
@@ -76,8 +100,10 @@ public interface HeaderValueOptionOrBuilder extends
   int getAppendActionValue();
   /**
    * <pre>
-   * [#not-implemented-hide:] Describes the action taken to append/overwrite the given value for an existing header
-   * or to only add this header if it's absent. Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD&lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
+   * Describes the action taken to append/overwrite the given value for an existing header
+   * or to only add this header if it's absent.
+   * Value defaults to :ref:`APPEND_IF_EXISTS_OR_ADD
+   * &lt;envoy_v3_api_enum_value_config.core.v3.HeaderValueOption.HeaderAppendAction.APPEND_IF_EXISTS_OR_ADD&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.HeaderValueOption.HeaderAppendAction append_action = 3 [(.validate.rules) = { ... }</code>

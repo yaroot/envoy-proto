@@ -11,12 +11,13 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
+from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.cloud.pubsublite.v1 import common_pb2 as google_dot_cloud_dot_pubsublite_dot_v1_dot_common__pb2
-from google.api import client_pb2 as google_dot_api_dot_client__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/pubsublite/v1/subscriber.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\'google/cloud/pubsublite/v1/common.proto\x1a\x17google/api/client.proto\"\x8a\x01\n\x17InitialSubscribeRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\x03\x12\x46\n\x10initial_location\x18\x04 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestB\x03\xe0\x41\x01\"N\n\x18InitialSubscribeResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"\xe7\x01\n\x0bSeekRequest\x12K\n\x0cnamed_target\x18\x01 \x01(\x0e\x32\x33.google.cloud.pubsublite.v1.SeekRequest.NamedTargetH\x00\x12\x34\n\x06\x63ursor\x18\x02 \x01(\x0b\x32\".google.cloud.pubsublite.v1.CursorH\x00\"K\n\x0bNamedTarget\x12\x1c\n\x18NAMED_TARGET_UNSPECIFIED\x10\x00\x12\x08\n\x04HEAD\x10\x01\x12\x14\n\x10\x43OMMITTED_CURSOR\x10\x02\x42\x08\n\x06target\"B\n\x0cSeekResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"E\n\x12\x46lowControlRequest\x12\x18\n\x10\x61llowed_messages\x18\x01 \x01(\x03\x12\x15\n\rallowed_bytes\x18\x02 \x01(\x03\"\xe6\x01\n\x10SubscribeRequest\x12\x46\n\x07initial\x18\x01 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.InitialSubscribeRequestH\x00\x12\x37\n\x04seek\x18\x02 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestH\x00\x12\x46\n\x0c\x66low_control\x18\x03 \x01(\x0b\x32..google.cloud.pubsublite.v1.FlowControlRequestH\x00\x42\t\n\x07request\"Q\n\x0fMessageResponse\x12>\n\x08messages\x18\x01 \x03(\x0b\x32,.google.cloud.pubsublite.v1.SequencedMessage\"\xe3\x01\n\x11SubscribeResponse\x12G\n\x07initial\x18\x01 \x01(\x0b\x32\x34.google.cloud.pubsublite.v1.InitialSubscribeResponseH\x00\x12\x38\n\x04seek\x18\x02 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SeekResponseH\x00\x12?\n\x08messages\x18\x03 \x01(\x0b\x32+.google.cloud.pubsublite.v1.MessageResponseH\x00\x42\n\n\x08response\"L\n!InitialPartitionAssignmentRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tclient_id\x18\x02 \x01(\x0c\")\n\x13PartitionAssignment\x12\x12\n\npartitions\x18\x01 \x03(\x03\"\x18\n\x16PartitionAssignmentAck\"\xbc\x01\n\x1aPartitionAssignmentRequest\x12P\n\x07initial\x18\x01 \x01(\x0b\x32=.google.cloud.pubsublite.v1.InitialPartitionAssignmentRequestH\x00\x12\x41\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x32.google.cloud.pubsublite.v1.PartitionAssignmentAckH\x00\x42\t\n\x07request2\xd2\x01\n\x11SubscriberService\x12n\n\tSubscribe\x12,.google.cloud.pubsublite.v1.SubscribeRequest\x1a-.google.cloud.pubsublite.v1.SubscribeResponse\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platform2\xef\x01\n\x1aPartitionAssignmentService\x12\x81\x01\n\x10\x41ssignPartitions\x12\x36.google.cloud.pubsublite.v1.PartitionAssignmentRequest\x1a/.google.cloud.pubsublite.v1.PartitionAssignment\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd9\x01\n!com.google.cloud.pubsublite.protoB\x0fSubscriberProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/pubsublite/v1/subscriber.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\'google/cloud/pubsublite/v1/common.proto\"\x8a\x01\n\x17InitialSubscribeRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tpartition\x18\x02 \x01(\x03\x12\x46\n\x10initial_location\x18\x04 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestB\x03\xe0\x41\x01\"N\n\x18InitialSubscribeResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"\xe7\x01\n\x0bSeekRequest\x12K\n\x0cnamed_target\x18\x01 \x01(\x0e\x32\x33.google.cloud.pubsublite.v1.SeekRequest.NamedTargetH\x00\x12\x34\n\x06\x63ursor\x18\x02 \x01(\x0b\x32\".google.cloud.pubsublite.v1.CursorH\x00\"K\n\x0bNamedTarget\x12\x1c\n\x18NAMED_TARGET_UNSPECIFIED\x10\x00\x12\x08\n\x04HEAD\x10\x01\x12\x14\n\x10\x43OMMITTED_CURSOR\x10\x02\x42\x08\n\x06target\"B\n\x0cSeekResponse\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\"E\n\x12\x46lowControlRequest\x12\x18\n\x10\x61llowed_messages\x18\x01 \x01(\x03\x12\x15\n\rallowed_bytes\x18\x02 \x01(\x03\"\xe6\x01\n\x10SubscribeRequest\x12\x46\n\x07initial\x18\x01 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.InitialSubscribeRequestH\x00\x12\x37\n\x04seek\x18\x02 \x01(\x0b\x32\'.google.cloud.pubsublite.v1.SeekRequestH\x00\x12\x46\n\x0c\x66low_control\x18\x03 \x01(\x0b\x32..google.cloud.pubsublite.v1.FlowControlRequestH\x00\x42\t\n\x07request\"Q\n\x0fMessageResponse\x12>\n\x08messages\x18\x01 \x03(\x0b\x32,.google.cloud.pubsublite.v1.SequencedMessage\"\xe3\x01\n\x11SubscribeResponse\x12G\n\x07initial\x18\x01 \x01(\x0b\x32\x34.google.cloud.pubsublite.v1.InitialSubscribeResponseH\x00\x12\x38\n\x04seek\x18\x02 \x01(\x0b\x32(.google.cloud.pubsublite.v1.SeekResponseH\x00\x12?\n\x08messages\x18\x03 \x01(\x0b\x32+.google.cloud.pubsublite.v1.MessageResponseH\x00\x42\n\n\x08response\"L\n!InitialPartitionAssignmentRequest\x12\x14\n\x0csubscription\x18\x01 \x01(\t\x12\x11\n\tclient_id\x18\x02 \x01(\x0c\")\n\x13PartitionAssignment\x12\x12\n\npartitions\x18\x01 \x03(\x03\"\x18\n\x16PartitionAssignmentAck\"\xbc\x01\n\x1aPartitionAssignmentRequest\x12P\n\x07initial\x18\x01 \x01(\x0b\x32=.google.cloud.pubsublite.v1.InitialPartitionAssignmentRequestH\x00\x12\x41\n\x03\x61\x63k\x18\x02 \x01(\x0b\x32\x32.google.cloud.pubsublite.v1.PartitionAssignmentAckH\x00\x42\t\n\x07request2\xd2\x01\n\x11SubscriberService\x12n\n\tSubscribe\x12,.google.cloud.pubsublite.v1.SubscribeRequest\x1a-.google.cloud.pubsublite.v1.SubscribeResponse\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platform2\xef\x01\n\x1aPartitionAssignmentService\x12\x81\x01\n\x10\x41ssignPartitions\x12\x36.google.cloud.pubsublite.v1.PartitionAssignmentRequest\x1a/.google.cloud.pubsublite.v1.PartitionAssignment\"\x00(\x01\x30\x01\x1aM\xca\x41\x19pubsublite.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xd9\x01\n!com.google.cloud.pubsublite.protoB\x0fSubscriberProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.pubsublite.v1.subscriber_pb2', globals())
@@ -30,34 +31,34 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SUBSCRIBERSERVICE._serialized_options = b'\312A\031pubsublite.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
   _PARTITIONASSIGNMENTSERVICE._options = None
   _PARTITIONASSIGNMENTSERVICE._serialized_options = b'\312A\031pubsublite.googleapis.com\322A.https://www.googleapis.com/auth/cloud-platform'
-  _INITIALSUBSCRIBEREQUEST._serialized_start=175
-  _INITIALSUBSCRIBEREQUEST._serialized_end=313
-  _INITIALSUBSCRIBERESPONSE._serialized_start=315
-  _INITIALSUBSCRIBERESPONSE._serialized_end=393
-  _SEEKREQUEST._serialized_start=396
-  _SEEKREQUEST._serialized_end=627
-  _SEEKREQUEST_NAMEDTARGET._serialized_start=542
-  _SEEKREQUEST_NAMEDTARGET._serialized_end=617
-  _SEEKRESPONSE._serialized_start=629
-  _SEEKRESPONSE._serialized_end=695
-  _FLOWCONTROLREQUEST._serialized_start=697
-  _FLOWCONTROLREQUEST._serialized_end=766
-  _SUBSCRIBEREQUEST._serialized_start=769
-  _SUBSCRIBEREQUEST._serialized_end=999
-  _MESSAGERESPONSE._serialized_start=1001
-  _MESSAGERESPONSE._serialized_end=1082
-  _SUBSCRIBERESPONSE._serialized_start=1085
-  _SUBSCRIBERESPONSE._serialized_end=1312
-  _INITIALPARTITIONASSIGNMENTREQUEST._serialized_start=1314
-  _INITIALPARTITIONASSIGNMENTREQUEST._serialized_end=1390
-  _PARTITIONASSIGNMENT._serialized_start=1392
-  _PARTITIONASSIGNMENT._serialized_end=1433
-  _PARTITIONASSIGNMENTACK._serialized_start=1435
-  _PARTITIONASSIGNMENTACK._serialized_end=1459
-  _PARTITIONASSIGNMENTREQUEST._serialized_start=1462
-  _PARTITIONASSIGNMENTREQUEST._serialized_end=1650
-  _SUBSCRIBERSERVICE._serialized_start=1653
-  _SUBSCRIBERSERVICE._serialized_end=1863
-  _PARTITIONASSIGNMENTSERVICE._serialized_start=1866
-  _PARTITIONASSIGNMENTSERVICE._serialized_end=2105
+  _INITIALSUBSCRIBEREQUEST._serialized_start=205
+  _INITIALSUBSCRIBEREQUEST._serialized_end=343
+  _INITIALSUBSCRIBERESPONSE._serialized_start=345
+  _INITIALSUBSCRIBERESPONSE._serialized_end=423
+  _SEEKREQUEST._serialized_start=426
+  _SEEKREQUEST._serialized_end=657
+  _SEEKREQUEST_NAMEDTARGET._serialized_start=572
+  _SEEKREQUEST_NAMEDTARGET._serialized_end=647
+  _SEEKRESPONSE._serialized_start=659
+  _SEEKRESPONSE._serialized_end=725
+  _FLOWCONTROLREQUEST._serialized_start=727
+  _FLOWCONTROLREQUEST._serialized_end=796
+  _SUBSCRIBEREQUEST._serialized_start=799
+  _SUBSCRIBEREQUEST._serialized_end=1029
+  _MESSAGERESPONSE._serialized_start=1031
+  _MESSAGERESPONSE._serialized_end=1112
+  _SUBSCRIBERESPONSE._serialized_start=1115
+  _SUBSCRIBERESPONSE._serialized_end=1342
+  _INITIALPARTITIONASSIGNMENTREQUEST._serialized_start=1344
+  _INITIALPARTITIONASSIGNMENTREQUEST._serialized_end=1420
+  _PARTITIONASSIGNMENT._serialized_start=1422
+  _PARTITIONASSIGNMENT._serialized_end=1463
+  _PARTITIONASSIGNMENTACK._serialized_start=1465
+  _PARTITIONASSIGNMENTACK._serialized_end=1489
+  _PARTITIONASSIGNMENTREQUEST._serialized_start=1492
+  _PARTITIONASSIGNMENTREQUEST._serialized_end=1680
+  _SUBSCRIBERSERVICE._serialized_start=1683
+  _SUBSCRIBERSERVICE._serialized_end=1893
+  _PARTITIONASSIGNMENTSERVICE._serialized_start=1896
+  _PARTITIONASSIGNMENTSERVICE._serialized_end=2135
 # @@protoc_insertion_point(module_scope)

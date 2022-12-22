@@ -30,58 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TlsInspector(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (enableJa3Fingerprinting_ != null) {
-              subBuilder = enableJa3Fingerprinting_.toBuilder();
-            }
-            enableJa3Fingerprinting_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enableJa3Fingerprinting_);
-              enableJa3Fingerprinting_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspectorProto.internal_static_envoy_extensions_filters_listener_tls_inspector_v3_TlsInspector_descriptor;
@@ -130,7 +78,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getEnableJa3FingerprintingOrBuilder() {
-    return getEnableJa3Fingerprinting();
+    return enableJa3Fingerprinting_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : enableJa3Fingerprinting_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -150,7 +98,7 @@ private static final long serialVersionUID = 0L;
     if (enableJa3Fingerprinting_ != null) {
       output.writeMessage(1, getEnableJa3Fingerprinting());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -163,7 +111,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getEnableJa3Fingerprinting());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -183,7 +131,7 @@ private static final long serialVersionUID = 0L;
       if (!getEnableJa3Fingerprinting()
           .equals(other.getEnableJa3Fingerprinting())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -198,7 +146,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_JA3_FINGERPRINTING_FIELD_NUMBER;
       hash = (53 * hash) + getEnableJa3Fingerprinting().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -315,26 +263,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (enableJa3FingerprintingBuilder_ == null) {
-        enableJa3Fingerprinting_ = null;
-      } else {
-        enableJa3Fingerprinting_ = null;
+      bitField0_ = 0;
+      enableJa3Fingerprinting_ = null;
+      if (enableJa3FingerprintingBuilder_ != null) {
+        enableJa3FingerprintingBuilder_.dispose();
         enableJa3FingerprintingBuilder_ = null;
       }
       return this;
@@ -363,13 +306,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector buildPartial() {
       io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector result = new io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector(this);
-      if (enableJa3FingerprintingBuilder_ == null) {
-        result.enableJa3Fingerprinting_ = enableJa3Fingerprinting_;
-      } else {
-        result.enableJa3Fingerprinting_ = enableJa3FingerprintingBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableJa3Fingerprinting_ = enableJa3FingerprintingBuilder_ == null
+            ? enableJa3Fingerprinting_
+            : enableJa3FingerprintingBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -419,7 +367,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnableJa3Fingerprinting()) {
         mergeEnableJa3Fingerprinting(other.getEnableJa3Fingerprinting());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -434,19 +382,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEnableJa3FingerprintingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.listener.tls_inspector.v3.TlsInspector) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.BoolValue enableJa3Fingerprinting_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -460,7 +429,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enableJa3Fingerprinting field is set.
      */
     public boolean hasEnableJa3Fingerprinting() {
-      return enableJa3FingerprintingBuilder_ != null || enableJa3Fingerprinting_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -490,11 +459,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enableJa3Fingerprinting_ = value;
-        onChanged();
       } else {
         enableJa3FingerprintingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -508,11 +477,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (enableJa3FingerprintingBuilder_ == null) {
         enableJa3Fingerprinting_ = builderForValue.build();
-        onChanged();
       } else {
         enableJa3FingerprintingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -524,17 +493,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnableJa3Fingerprinting(com.google.protobuf.BoolValue value) {
       if (enableJa3FingerprintingBuilder_ == null) {
-        if (enableJa3Fingerprinting_ != null) {
-          enableJa3Fingerprinting_ =
-            com.google.protobuf.BoolValue.newBuilder(enableJa3Fingerprinting_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          enableJa3Fingerprinting_ != null &&
+          enableJa3Fingerprinting_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getEnableJa3FingerprintingBuilder().mergeFrom(value);
         } else {
           enableJa3Fingerprinting_ = value;
         }
-        onChanged();
       } else {
         enableJa3FingerprintingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -545,14 +515,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_ja3_fingerprinting = 1;</code>
      */
     public Builder clearEnableJa3Fingerprinting() {
-      if (enableJa3FingerprintingBuilder_ == null) {
-        enableJa3Fingerprinting_ = null;
-        onChanged();
-      } else {
-        enableJa3Fingerprinting_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      enableJa3Fingerprinting_ = null;
+      if (enableJa3FingerprintingBuilder_ != null) {
+        enableJa3FingerprintingBuilder_.dispose();
         enableJa3FingerprintingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -563,7 +532,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_ja3_fingerprinting = 1;</code>
      */
     public com.google.protobuf.BoolValue.Builder getEnableJa3FingerprintingBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEnableJa3FingerprintingFieldBuilder().getBuilder();
     }
@@ -635,7 +604,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TlsInspector(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -235,4 +235,98 @@ public interface RouterOrBuilder extends
    * @return The suppressGrpcRequestFailureCodeStats.
    */
   boolean getSuppressGrpcRequestFailureCodeStats();
+
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> 
+      getUpstreamHttpFiltersList();
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter getUpstreamHttpFilters(int index);
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  int getUpstreamHttpFiltersCount();
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  java.util.List<? extends io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder> 
+      getUpstreamHttpFiltersOrBuilderList();
+  /**
+   * <pre>
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
+   * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all requests that pass through the router.
+   * They will also be applied to shadowed requests.
+   * Upstream filters cannot change route or cluster.
+   * Upstream filters specified on the cluster will override these filters.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
+   * </pre>
+   *
+   * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter upstream_http_filters = 8;</code>
+   */
+  io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder getUpstreamHttpFiltersOrBuilder(
+      int index);
 }

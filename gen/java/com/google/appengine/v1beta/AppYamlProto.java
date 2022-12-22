@@ -80,89 +80,87 @@ public final class AppYamlProto {
     java.lang.String[] descriptorData = {
       "\n&google/appengine/v1beta/app_yaml.proto" +
       "\022\027google.appengine.v1beta\032\036google/protob" +
-      "uf/duration.proto\032\034google/api/annotation" +
-      "s.proto\"\354\001\n\020ApiConfigHandler\022A\n\020auth_fai" +
-      "l_action\030\001 \001(\0162\'.google.appengine.v1beta" +
-      ".AuthFailAction\0228\n\005login\030\002 \001(\0162).google." +
-      "appengine.v1beta.LoginRequirement\022\016\n\006scr" +
-      "ipt\030\003 \001(\t\022>\n\016security_level\030\004 \001(\0162&.goog" +
-      "le.appengine.v1beta.SecurityLevel\022\013\n\003url" +
-      "\030\005 \001(\t\"\223\002\n\014ErrorHandler\022C\n\nerror_code\030\001 " +
-      "\001(\0162/.google.appengine.v1beta.ErrorHandl" +
-      "er.ErrorCode\022\023\n\013static_file\030\002 \001(\t\022\021\n\tmim" +
-      "e_type\030\003 \001(\t\"\225\001\n\tErrorCode\022\032\n\026ERROR_CODE" +
-      "_UNSPECIFIED\020\000\022\026\n\022ERROR_CODE_DEFAULT\020\000\022\031" +
-      "\n\025ERROR_CODE_OVER_QUOTA\020\001\022\035\n\031ERROR_CODE_" +
-      "DOS_API_DENIAL\020\002\022\026\n\022ERROR_CODE_TIMEOUT\020\003" +
-      "\032\002\020\001\"\351\005\n\006UrlMap\022\021\n\turl_regex\030\001 \001(\t\022C\n\014st" +
-      "atic_files\030\002 \001(\0132+.google.appengine.v1be" +
-      "ta.StaticFilesHandlerH\000\0228\n\006script\030\003 \001(\0132" +
-      "&.google.appengine.v1beta.ScriptHandlerH" +
-      "\000\022C\n\014api_endpoint\030\004 \001(\0132+.google.appengi" +
-      "ne.v1beta.ApiEndpointHandlerH\000\022>\n\016securi" +
-      "ty_level\030\005 \001(\0162&.google.appengine.v1beta" +
-      ".SecurityLevel\0228\n\005login\030\006 \001(\0162).google.a" +
-      "ppengine.v1beta.LoginRequirement\022A\n\020auth" +
-      "_fail_action\030\007 \001(\0162\'.google.appengine.v1" +
-      "beta.AuthFailAction\022]\n\033redirect_http_res" +
-      "ponse_code\030\010 \001(\01628.google.appengine.v1be" +
-      "ta.UrlMap.RedirectHttpResponseCode\"\333\001\n\030R" +
-      "edirectHttpResponseCode\022+\n\'REDIRECT_HTTP" +
-      "_RESPONSE_CODE_UNSPECIFIED\020\000\022#\n\037REDIRECT" +
-      "_HTTP_RESPONSE_CODE_301\020\001\022#\n\037REDIRECT_HT" +
-      "TP_RESPONSE_CODE_302\020\002\022#\n\037REDIRECT_HTTP_" +
-      "RESPONSE_CODE_303\020\003\022#\n\037REDIRECT_HTTP_RES" +
-      "PONSE_CODE_307\020\004B\016\n\014handler_type\"\304\002\n\022Sta" +
-      "ticFilesHandler\022\014\n\004path\030\001 \001(\t\022\031\n\021upload_" +
-      "path_regex\030\002 \001(\t\022R\n\014http_headers\030\003 \003(\0132<" +
-      ".google.appengine.v1beta.StaticFilesHand" +
-      "ler.HttpHeadersEntry\022\021\n\tmime_type\030\004 \001(\t\022" +
-      "-\n\nexpiration\030\005 \001(\0132\031.google.protobuf.Du" +
-      "ration\022\035\n\025require_matching_file\030\006 \001(\010\022\034\n" +
-      "\024application_readable\030\007 \001(\010\0322\n\020HttpHeade" +
-      "rsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"" +
-      "$\n\rScriptHandler\022\023\n\013script_path\030\001 \001(\t\")\n" +
-      "\022ApiEndpointHandler\022\023\n\013script_path\030\001 \001(\t" +
-      "\"\353\001\n\013HealthCheck\022\034\n\024disable_health_check" +
-      "\030\001 \001(\010\022\014\n\004host\030\002 \001(\t\022\031\n\021healthy_threshol" +
-      "d\030\003 \001(\r\022\033\n\023unhealthy_threshold\030\004 \001(\r\022\031\n\021" +
-      "restart_threshold\030\005 \001(\r\0221\n\016check_interva" +
-      "l\030\006 \001(\0132\031.google.protobuf.Duration\022*\n\007ti" +
-      "meout\030\007 \001(\0132\031.google.protobuf.Duration\"\367" +
-      "\001\n\016ReadinessCheck\022\014\n\004path\030\001 \001(\t\022\014\n\004host\030" +
-      "\002 \001(\t\022\031\n\021failure_threshold\030\003 \001(\r\022\031\n\021succ" +
-      "ess_threshold\030\004 \001(\r\0221\n\016check_interval\030\005 " +
-      "\001(\0132\031.google.protobuf.Duration\022*\n\007timeou" +
-      "t\030\006 \001(\0132\031.google.protobuf.Duration\0224\n\021ap" +
-      "p_start_timeout\030\007 \001(\0132\031.google.protobuf." +
-      "Duration\"\362\001\n\rLivenessCheck\022\014\n\004path\030\001 \001(\t" +
-      "\022\014\n\004host\030\002 \001(\t\022\031\n\021failure_threshold\030\003 \001(" +
-      "\r\022\031\n\021success_threshold\030\004 \001(\r\0221\n\016check_in" +
-      "terval\030\005 \001(\0132\031.google.protobuf.Duration\022" +
-      "*\n\007timeout\030\006 \001(\0132\031.google.protobuf.Durat" +
-      "ion\0220\n\rinitial_delay\030\007 \001(\0132\031.google.prot" +
-      "obuf.Duration\"(\n\007Library\022\014\n\004name\030\001 \001(\t\022\017" +
-      "\n\007version\030\002 \001(\t*t\n\016AuthFailAction\022 \n\034AUT" +
-      "H_FAIL_ACTION_UNSPECIFIED\020\000\022\035\n\031AUTH_FAIL" +
-      "_ACTION_REDIRECT\020\001\022!\n\035AUTH_FAIL_ACTION_U" +
-      "NAUTHORIZED\020\002*b\n\020LoginRequirement\022\025\n\021LOG" +
-      "IN_UNSPECIFIED\020\000\022\022\n\016LOGIN_OPTIONAL\020\001\022\017\n\013" +
-      "LOGIN_ADMIN\020\002\022\022\n\016LOGIN_REQUIRED\020\003*y\n\rSec" +
-      "urityLevel\022\026\n\022SECURE_UNSPECIFIED\020\000\022\022\n\016SE" +
-      "CURE_DEFAULT\020\000\022\020\n\014SECURE_NEVER\020\001\022\023\n\017SECU" +
-      "RE_OPTIONAL\020\002\022\021\n\rSECURE_ALWAYS\020\003\032\002\020\001B\322\001\n" +
-      "\033com.google.appengine.v1betaB\014AppYamlPro" +
-      "toP\001Z@google.golang.org/genproto/googlea" +
-      "pis/appengine/v1beta;appengine\252\002\035Google." +
-      "Cloud.AppEngine.V1Beta\312\002\035Google\\Cloud\\Ap" +
-      "pEngine\\V1beta\352\002 Google::Cloud::AppEngin" +
-      "e::V1betab\006proto3"
+      "uf/duration.proto\"\354\001\n\020ApiConfigHandler\022A" +
+      "\n\020auth_fail_action\030\001 \001(\0162\'.google.appeng" +
+      "ine.v1beta.AuthFailAction\0228\n\005login\030\002 \001(\016" +
+      "2).google.appengine.v1beta.LoginRequirem" +
+      "ent\022\016\n\006script\030\003 \001(\t\022>\n\016security_level\030\004 " +
+      "\001(\0162&.google.appengine.v1beta.SecurityLe" +
+      "vel\022\013\n\003url\030\005 \001(\t\"\223\002\n\014ErrorHandler\022C\n\nerr" +
+      "or_code\030\001 \001(\0162/.google.appengine.v1beta." +
+      "ErrorHandler.ErrorCode\022\023\n\013static_file\030\002 " +
+      "\001(\t\022\021\n\tmime_type\030\003 \001(\t\"\225\001\n\tErrorCode\022\032\n\026" +
+      "ERROR_CODE_UNSPECIFIED\020\000\022\026\n\022ERROR_CODE_D" +
+      "EFAULT\020\000\022\031\n\025ERROR_CODE_OVER_QUOTA\020\001\022\035\n\031E" +
+      "RROR_CODE_DOS_API_DENIAL\020\002\022\026\n\022ERROR_CODE" +
+      "_TIMEOUT\020\003\032\002\020\001\"\351\005\n\006UrlMap\022\021\n\turl_regex\030\001" +
+      " \001(\t\022C\n\014static_files\030\002 \001(\0132+.google.appe" +
+      "ngine.v1beta.StaticFilesHandlerH\000\0228\n\006scr" +
+      "ipt\030\003 \001(\0132&.google.appengine.v1beta.Scri" +
+      "ptHandlerH\000\022C\n\014api_endpoint\030\004 \001(\0132+.goog" +
+      "le.appengine.v1beta.ApiEndpointHandlerH\000" +
+      "\022>\n\016security_level\030\005 \001(\0162&.google.appeng" +
+      "ine.v1beta.SecurityLevel\0228\n\005login\030\006 \001(\0162" +
+      ").google.appengine.v1beta.LoginRequireme" +
+      "nt\022A\n\020auth_fail_action\030\007 \001(\0162\'.google.ap" +
+      "pengine.v1beta.AuthFailAction\022]\n\033redirec" +
+      "t_http_response_code\030\010 \001(\01628.google.appe" +
+      "ngine.v1beta.UrlMap.RedirectHttpResponse" +
+      "Code\"\333\001\n\030RedirectHttpResponseCode\022+\n\'RED" +
+      "IRECT_HTTP_RESPONSE_CODE_UNSPECIFIED\020\000\022#" +
+      "\n\037REDIRECT_HTTP_RESPONSE_CODE_301\020\001\022#\n\037R" +
+      "EDIRECT_HTTP_RESPONSE_CODE_302\020\002\022#\n\037REDI" +
+      "RECT_HTTP_RESPONSE_CODE_303\020\003\022#\n\037REDIREC" +
+      "T_HTTP_RESPONSE_CODE_307\020\004B\016\n\014handler_ty" +
+      "pe\"\304\002\n\022StaticFilesHandler\022\014\n\004path\030\001 \001(\t\022" +
+      "\031\n\021upload_path_regex\030\002 \001(\t\022R\n\014http_heade" +
+      "rs\030\003 \003(\0132<.google.appengine.v1beta.Stati" +
+      "cFilesHandler.HttpHeadersEntry\022\021\n\tmime_t" +
+      "ype\030\004 \001(\t\022-\n\nexpiration\030\005 \001(\0132\031.google.p" +
+      "rotobuf.Duration\022\035\n\025require_matching_fil" +
+      "e\030\006 \001(\010\022\034\n\024application_readable\030\007 \001(\010\0322\n" +
+      "\020HttpHeadersEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030" +
+      "\002 \001(\t:\0028\001\"$\n\rScriptHandler\022\023\n\013script_pat" +
+      "h\030\001 \001(\t\")\n\022ApiEndpointHandler\022\023\n\013script_" +
+      "path\030\001 \001(\t\"\353\001\n\013HealthCheck\022\034\n\024disable_he" +
+      "alth_check\030\001 \001(\010\022\014\n\004host\030\002 \001(\t\022\031\n\021health" +
+      "y_threshold\030\003 \001(\r\022\033\n\023unhealthy_threshold" +
+      "\030\004 \001(\r\022\031\n\021restart_threshold\030\005 \001(\r\0221\n\016che" +
+      "ck_interval\030\006 \001(\0132\031.google.protobuf.Dura" +
+      "tion\022*\n\007timeout\030\007 \001(\0132\031.google.protobuf." +
+      "Duration\"\367\001\n\016ReadinessCheck\022\014\n\004path\030\001 \001(" +
+      "\t\022\014\n\004host\030\002 \001(\t\022\031\n\021failure_threshold\030\003 \001" +
+      "(\r\022\031\n\021success_threshold\030\004 \001(\r\0221\n\016check_i" +
+      "nterval\030\005 \001(\0132\031.google.protobuf.Duration" +
+      "\022*\n\007timeout\030\006 \001(\0132\031.google.protobuf.Dura" +
+      "tion\0224\n\021app_start_timeout\030\007 \001(\0132\031.google" +
+      ".protobuf.Duration\"\362\001\n\rLivenessCheck\022\014\n\004" +
+      "path\030\001 \001(\t\022\014\n\004host\030\002 \001(\t\022\031\n\021failure_thre" +
+      "shold\030\003 \001(\r\022\031\n\021success_threshold\030\004 \001(\r\0221" +
+      "\n\016check_interval\030\005 \001(\0132\031.google.protobuf" +
+      ".Duration\022*\n\007timeout\030\006 \001(\0132\031.google.prot" +
+      "obuf.Duration\0220\n\rinitial_delay\030\007 \001(\0132\031.g" +
+      "oogle.protobuf.Duration\"(\n\007Library\022\014\n\004na" +
+      "me\030\001 \001(\t\022\017\n\007version\030\002 \001(\t*t\n\016AuthFailAct" +
+      "ion\022 \n\034AUTH_FAIL_ACTION_UNSPECIFIED\020\000\022\035\n" +
+      "\031AUTH_FAIL_ACTION_REDIRECT\020\001\022!\n\035AUTH_FAI" +
+      "L_ACTION_UNAUTHORIZED\020\002*b\n\020LoginRequirem" +
+      "ent\022\025\n\021LOGIN_UNSPECIFIED\020\000\022\022\n\016LOGIN_OPTI" +
+      "ONAL\020\001\022\017\n\013LOGIN_ADMIN\020\002\022\022\n\016LOGIN_REQUIRE" +
+      "D\020\003*y\n\rSecurityLevel\022\026\n\022SECURE_UNSPECIFI" +
+      "ED\020\000\022\022\n\016SECURE_DEFAULT\020\000\022\020\n\014SECURE_NEVER" +
+      "\020\001\022\023\n\017SECURE_OPTIONAL\020\002\022\021\n\rSECURE_ALWAYS" +
+      "\020\003\032\002\020\001B\322\001\n\033com.google.appengine.v1betaB\014" +
+      "AppYamlProtoP\001Z@google.golang.org/genpro" +
+      "to/googleapis/appengine/v1beta;appengine" +
+      "\252\002\035Google.Cloud.AppEngine.V1Beta\312\002\035Googl" +
+      "e\\Cloud\\AppEngine\\V1beta\352\002 Google::Cloud" +
+      "::AppEngine::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.DurationProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_ApiConfigHandler_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -231,7 +229,6 @@ public final class AppYamlProto {
         internal_static_google_appengine_v1beta_Library_descriptor,
         new java.lang.String[] { "Name", "Version", });
     com.google.protobuf.DurationProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

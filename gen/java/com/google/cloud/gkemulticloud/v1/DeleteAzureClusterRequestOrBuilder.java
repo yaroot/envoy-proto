@@ -9,7 +9,8 @@ public interface DeleteAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+   * Required. The resource name the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
    * `AzureCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -22,7 +23,8 @@ public interface DeleteAzureClusterRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The resource name the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
+   * Required. The resource name the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] to delete.
    * `AzureCluster` names are formatted as
    * `projects/&lt;project-id&gt;/locations/&lt;region&gt;/azureClusters/&lt;cluster-id&gt;`.
    * See [Resource Names](https://cloud.google.com/apis/design/resource_names)
@@ -37,9 +39,10 @@ public interface DeleteAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * If set to true, and the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not found,
-   * the request will succeed but no action will be taken on the server and a
-   * completed [Operation][google.longrunning.Operation] will be returned.
+   * If set to true, and the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster] resource is not
+   * found, the request will succeed but no action will be taken on the server
+   * and a completed [Operation][google.longrunning.Operation] will be returned.
    * Useful for idempotent deletion.
    * </pre>
    *
@@ -60,7 +63,8 @@ public interface DeleteAzureClusterRequestOrBuilder extends
 
   /**
    * <pre>
-   * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+   * The current etag of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
    * Allows clients to perform deletions through optimistic concurrency control.
    * If the provided etag does not match the current etag of the cluster,
    * the request will fail and an ABORTED error will be returned.
@@ -72,7 +76,8 @@ public interface DeleteAzureClusterRequestOrBuilder extends
   java.lang.String getEtag();
   /**
    * <pre>
-   * The current etag of the [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
+   * The current etag of the
+   * [AzureCluster][google.cloud.gkemulticloud.v1.AzureCluster].
    * Allows clients to perform deletions through optimistic concurrency control.
    * If the provided etag does not match the current etag of the cluster,
    * the request will fail and an ABORTED error will be returned.

@@ -34,70 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoClassificationPredictionParams(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 13: {
-
-            confidenceThreshold_ = input.readFloat();
-            break;
-          }
-          case 16: {
-
-            maxPredictions_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            segmentClassification_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            shotClassification_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            oneSecIntervalClassification_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParamsProto.internal_static_google_cloud_aiplatform_v1beta1_schema_predict_params_VideoClassificationPredictionParams_descriptor;
@@ -112,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIDENCE_THRESHOLD_FIELD_NUMBER = 1;
-  private float confidenceThreshold_;
+  private float confidenceThreshold_ = 0F;
   /**
    * <pre>
    * The Model only returns predictions with at least this confidence score.
@@ -128,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_PREDICTIONS_FIELD_NUMBER = 2;
-  private int maxPredictions_;
+  private int maxPredictions_ = 0;
   /**
    * <pre>
    * The Model only returns up to that many top, by confidence score,
@@ -145,7 +81,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEGMENT_CLASSIFICATION_FIELD_NUMBER = 3;
-  private boolean segmentClassification_;
+  private boolean segmentClassification_ = false;
   /**
    * <pre>
    * Set to true to request segment-level classification. Vertex AI returns
@@ -163,7 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHOT_CLASSIFICATION_FIELD_NUMBER = 4;
-  private boolean shotClassification_;
+  private boolean shotClassification_ = false;
   /**
    * <pre>
    * Set to true to request shot-level classification. Vertex AI determines
@@ -186,7 +122,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ONE_SEC_INTERVAL_CLASSIFICATION_FIELD_NUMBER = 5;
-  private boolean oneSecIntervalClassification_;
+  private boolean oneSecIntervalClassification_ = false;
   /**
    * <pre>
    * Set to true to request classification for a video at one-second intervals.
@@ -234,7 +170,7 @@ private static final long serialVersionUID = 0L;
     if (oneSecIntervalClassification_ != false) {
       output.writeBool(5, oneSecIntervalClassification_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -263,7 +199,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, oneSecIntervalClassification_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -289,7 +225,7 @@ private static final long serialVersionUID = 0L;
         != other.getShotClassification()) return false;
     if (getOneSecIntervalClassification()
         != other.getOneSecIntervalClassification()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -314,7 +250,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ONE_SEC_INTERVAL_CLASSIFICATION_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getOneSecIntervalClassification());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -435,32 +371,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       confidenceThreshold_ = 0F;
-
       maxPredictions_ = 0;
-
       segmentClassification_ = false;
-
       shotClassification_ = false;
-
       oneSecIntervalClassification_ = false;
-
       return this;
     }
 
@@ -487,13 +414,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams buildPartial() {
       com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams result = new com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams(this);
-      result.confidenceThreshold_ = confidenceThreshold_;
-      result.maxPredictions_ = maxPredictions_;
-      result.segmentClassification_ = segmentClassification_;
-      result.shotClassification_ = shotClassification_;
-      result.oneSecIntervalClassification_ = oneSecIntervalClassification_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.confidenceThreshold_ = confidenceThreshold_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxPredictions_ = maxPredictions_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.segmentClassification_ = segmentClassification_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.shotClassification_ = shotClassification_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.oneSecIntervalClassification_ = oneSecIntervalClassification_;
+      }
     }
 
     @java.lang.Override
@@ -555,7 +497,7 @@ private static final long serialVersionUID = 0L;
       if (other.getOneSecIntervalClassification() != false) {
         setOneSecIntervalClassification(other.getOneSecIntervalClassification());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -570,19 +512,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 13: {
+              confidenceThreshold_ = input.readFloat();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 13
+            case 16: {
+              maxPredictions_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              segmentClassification_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              shotClassification_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              oneSecIntervalClassification_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.schema.predict.params.VideoClassificationPredictionParams) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private float confidenceThreshold_ ;
     /**
@@ -611,6 +592,7 @@ private static final long serialVersionUID = 0L;
     public Builder setConfidenceThreshold(float value) {
       
       confidenceThreshold_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -624,7 +606,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfidenceThreshold() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       confidenceThreshold_ = 0F;
       onChanged();
       return this;
@@ -659,6 +641,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxPredictions(int value) {
       
       maxPredictions_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -673,7 +656,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxPredictions() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxPredictions_ = 0;
       onChanged();
       return this;
@@ -710,6 +693,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSegmentClassification(boolean value) {
       
       segmentClassification_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -725,7 +709,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSegmentClassification() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       segmentClassification_ = false;
       onChanged();
       return this;
@@ -772,6 +756,7 @@ private static final long serialVersionUID = 0L;
     public Builder setShotClassification(boolean value) {
       
       shotClassification_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -792,7 +777,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearShotClassification() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       shotClassification_ = false;
       onChanged();
       return this;
@@ -833,6 +818,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOneSecIntervalClassification(boolean value) {
       
       oneSecIntervalClassification_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -850,7 +836,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOneSecIntervalClassification() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       oneSecIntervalClassification_ = false;
       onChanged();
       return this;
@@ -888,7 +874,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoClassificationPredictionParams(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

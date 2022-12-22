@@ -49,189 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ServiceAttachment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000020;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 10350650: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            targetService_ = s;
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            name_ = s;
-            break;
-          }
-          case 51601514: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              domainNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            domainNames_.add(s);
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 577789506: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              connectedEndpoints_ = new java.util.ArrayList<com.google.cloud.compute.v1.ServiceAttachmentConnectedEndpoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            connectedEndpoints_.add(
-                input.readMessage(com.google.cloud.compute.v1.ServiceAttachmentConnectedEndpoint.parser(), extensionRegistry));
-            break;
-          }
-          case 1111570338: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            region_ = s;
-            break;
-          }
-          case 1632265458: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              consumerRejectLists_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            consumerRejectLists_.add(s);
-            break;
-          }
-          case 1877428002: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            fingerprint_ = s;
-            break;
-          }
-          case 1983423114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            producerForwardingRule_ = s;
-            break;
-          }
-          case -2008422686: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            connectionPreference_ = s;
-            break;
-          }
-          case -1384637400: {
-            bitField0_ |= 0x00000008;
-            enableProxyProtocol_ = input.readBool();
-            break;
-          }
-          case -1296679742: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00001000) != 0)) {
-              natSubnets_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00001000;
-            }
-            natSubnets_.add(s);
-            break;
-          }
-          case -1073161670: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              consumerAcceptLists_ = new java.util.ArrayList<com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            consumerAcceptLists_.add(
-                input.readMessage(com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit.parser(), extensionRegistry));
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            description_ = s;
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            selfLink_ = s;
-            break;
-          }
-          case -73405582: {
-            com.google.cloud.compute.v1.Uint128.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000200) != 0)) {
-              subBuilder = pscServiceAttachmentId_.toBuilder();
-            }
-            pscServiceAttachmentId_ = input.readMessage(com.google.cloud.compute.v1.Uint128.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pscServiceAttachmentId_);
-              pscServiceAttachmentId_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000200;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        domainNames_ = domainNames_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        connectedEndpoints_ = java.util.Collections.unmodifiableList(connectedEndpoints_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        consumerRejectLists_ = consumerRejectLists_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00001000) != 0)) {
-        natSubnets_ = natSubnets_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        consumerAcceptLists_ = java.util.Collections.unmodifiableList(consumerAcceptLists_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ServiceAttachment_descriptor;
@@ -385,6 +202,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int CONNECTED_ENDPOINTS_FIELD_NUMBER = 72223688;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.ServiceAttachmentConnectedEndpoint> connectedEndpoints_;
   /**
    * <pre>
@@ -445,7 +263,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONNECTION_PREFERENCE_FIELD_NUMBER = 285818076;
-  private volatile java.lang.Object connectionPreference_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object connectionPreference_ = "";
   /**
    * <pre>
    * The connection preference of service attachment. The value can be set to ACCEPT_AUTOMATIC. An ACCEPT_AUTOMATIC service attachment is one that always accepts the connection from consumer forwarding rules.
@@ -506,6 +325,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSUMER_ACCEPT_LISTS_FIELD_NUMBER = 402725703;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit> consumerAcceptLists_;
   /**
    * <pre>
@@ -566,6 +386,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONSUMER_REJECT_LISTS_FIELD_NUMBER = 204033182;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList consumerRejectLists_;
   /**
    * <pre>
@@ -617,7 +438,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -675,7 +497,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional description of this resource. Provide this property when you create the resource.
@@ -733,6 +556,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_NAMES_FIELD_NUMBER = 6450189;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList domainNames_;
   /**
    * <pre>
@@ -784,7 +608,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_PROXY_PROTOCOL_FIELD_NUMBER = 363791237;
-  private boolean enableProxyProtocol_;
+  private boolean enableProxyProtocol_ = false;
   /**
    * <pre>
    * If true, enable the proxy protocol which is for supplying client TCP/IP address data in TCP connections that traverse proxies on their way to destination servers.
@@ -811,7 +635,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FINGERPRINT_FIELD_NUMBER = 234678500;
-  private volatile java.lang.Object fingerprint_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fingerprint_ = "";
   /**
    * <pre>
    * Fingerprint of this resource. A hash of the contents stored in this object. This field is used in optimistic locking. This field will be ignored when inserting a ServiceAttachment. An up-to-date fingerprint must be provided in order to patch/update the ServiceAttachment; otherwise, the request will fail with error 412 conditionNotMet. To see the latest fingerprint, make a get() request to retrieve the ServiceAttachment.
@@ -869,7 +694,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource type. The server generates this identifier.
@@ -896,7 +721,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#serviceAttachment for service attachments.
@@ -954,7 +780,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the resource. Provided by the client when the resource is created. The name must be 1-63 characters long, and comply with RFC1035. Specifically, the name must be 1-63 characters long and match the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a lowercase letter, and all following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -1012,6 +839,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAT_SUBNETS_FIELD_NUMBER = 374785944;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList natSubnets_;
   /**
    * <pre>
@@ -1063,7 +891,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRODUCER_FORWARDING_RULE_FIELD_NUMBER = 247927889;
-  private volatile java.lang.Object producerForwardingRule_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object producerForwardingRule_ = "";
   /**
    * <pre>
    * The URL of a forwarding rule with loadBalancingScheme INTERNAL* that is serving the endpoint identified by this service attachment.
@@ -1159,7 +988,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 138946292;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * [Output Only] URL of the region where the service attachment resides. This field applies only to the region resource. You must specify this field as part of the HTTP request URL. It is not settable as a field in the request body.
@@ -1217,7 +1047,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -1275,7 +1106,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_SERVICE_FIELD_NUMBER = 1293831;
-  private volatile java.lang.Object targetService_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object targetService_ = "";
   /**
    * <pre>
    * The URL of a service serving the endpoint identified by this service attachment.
@@ -1400,7 +1232,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       output.writeMessage(527695214, getPscServiceAttachmentId());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1483,7 +1315,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(527695214, getPscServiceAttachmentId());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1573,7 +1405,7 @@ private static final long serialVersionUID = 0L;
       if (!getTargetService()
           .equals(other.getTargetService())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1658,7 +1490,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TARGET_SERVICE_FIELD_NUMBER;
       hash = (53 * hash) + getTargetService().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1798,54 +1630,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (connectedEndpointsBuilder_ == null) {
         connectedEndpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        connectedEndpoints_ = null;
         connectedEndpointsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       connectionPreference_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (consumerAcceptListsBuilder_ == null) {
         consumerAcceptLists_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        consumerAcceptLists_ = null;
         consumerAcceptListsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       consumerRejectLists_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       domainNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000040);
       enableProxyProtocol_ = false;
-      bitField0_ = (bitField0_ & ~0x00000080);
       fingerprint_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000200);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       natSubnets_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00001000);
       producerForwardingRule_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
-      if (pscServiceAttachmentIdBuilder_ == null) {
-        pscServiceAttachmentId_ = null;
-      } else {
-        pscServiceAttachmentIdBuilder_.clear();
+      pscServiceAttachmentId_ = null;
+      if (pscServiceAttachmentIdBuilder_ != null) {
+        pscServiceAttachmentIdBuilder_.dispose();
+        pscServiceAttachmentIdBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00004000);
       region_ = "";
-      bitField0_ = (bitField0_ & ~0x00008000);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00010000);
       targetService_ = "";
-      bitField0_ = (bitField0_ & ~0x00020000);
       return this;
     }
 
@@ -1872,8 +1694,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ServiceAttachment buildPartial() {
       com.google.cloud.compute.v1.ServiceAttachment result = new com.google.cloud.compute.v1.ServiceAttachment(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.ServiceAttachment result) {
       if (connectedEndpointsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           connectedEndpoints_ = java.util.Collections.unmodifiableList(connectedEndpoints_);
@@ -1883,10 +1710,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.connectedEndpoints_ = connectedEndpointsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.connectionPreference_ = connectionPreference_;
       if (consumerAcceptListsBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           consumerAcceptLists_ = java.util.Collections.unmodifiableList(consumerAcceptLists_);
@@ -1901,71 +1724,76 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.consumerRejectLists_ = consumerRejectLists_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000020) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.description_ = description_;
       if (((bitField0_ & 0x00000040) != 0)) {
         domainNames_ = domainNames_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.domainNames_ = domainNames_;
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.enableProxyProtocol_ = enableProxyProtocol_;
-        to_bitField0_ |= 0x00000008;
-      }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.fingerprint_ = fingerprint_;
-      if (((from_bitField0_ & 0x00000200) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000020;
-      }
-      if (((from_bitField0_ & 0x00000400) != 0)) {
-        to_bitField0_ |= 0x00000040;
-      }
-      result.kind_ = kind_;
-      if (((from_bitField0_ & 0x00000800) != 0)) {
-        to_bitField0_ |= 0x00000080;
-      }
-      result.name_ = name_;
       if (((bitField0_ & 0x00001000) != 0)) {
         natSubnets_ = natSubnets_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00001000);
       }
       result.natSubnets_ = natSubnets_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ServiceAttachment result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.connectionPreference_ = connectionPreference_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.enableProxyProtocol_ = enableProxyProtocol_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.fingerprint_ = fingerprint_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.kind_ = kind_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000080;
+      }
       if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.producerForwardingRule_ = producerForwardingRule_;
         to_bitField0_ |= 0x00000100;
       }
-      result.producerForwardingRule_ = producerForwardingRule_;
       if (((from_bitField0_ & 0x00004000) != 0)) {
-        if (pscServiceAttachmentIdBuilder_ == null) {
-          result.pscServiceAttachmentId_ = pscServiceAttachmentId_;
-        } else {
-          result.pscServiceAttachmentId_ = pscServiceAttachmentIdBuilder_.build();
-        }
+        result.pscServiceAttachmentId_ = pscServiceAttachmentIdBuilder_ == null
+            ? pscServiceAttachmentId_
+            : pscServiceAttachmentIdBuilder_.build();
         to_bitField0_ |= 0x00000200;
       }
       if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.region_ = region_;
         to_bitField0_ |= 0x00000400;
       }
-      result.region_ = region_;
       if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00000800;
       }
-      result.selfLink_ = selfLink_;
       if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.targetService_ = targetService_;
         to_bitField0_ |= 0x00001000;
       }
-      result.targetService_ = targetService_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2039,8 +1867,8 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasConnectionPreference()) {
-        bitField0_ |= 0x00000002;
         connectionPreference_ = other.connectionPreference_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (consumerAcceptListsBuilder_ == null) {
@@ -2080,13 +1908,13 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000010;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000020;
         description_ = other.description_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.domainNames_.isEmpty()) {
@@ -2103,21 +1931,21 @@ private static final long serialVersionUID = 0L;
         setEnableProxyProtocol(other.getEnableProxyProtocol());
       }
       if (other.hasFingerprint()) {
-        bitField0_ |= 0x00000100;
         fingerprint_ = other.fingerprint_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasId()) {
         setId(other.getId());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000400;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000800;
         name_ = other.name_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (!other.natSubnets_.isEmpty()) {
@@ -2131,29 +1959,29 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasProducerForwardingRule()) {
-        bitField0_ |= 0x00002000;
         producerForwardingRule_ = other.producerForwardingRule_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasPscServiceAttachmentId()) {
         mergePscServiceAttachmentId(other.getPscServiceAttachmentId());
       }
       if (other.hasRegion()) {
-        bitField0_ |= 0x00008000;
         region_ = other.region_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00010000;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (other.hasTargetService()) {
-        bitField0_ |= 0x00020000;
         targetService_ = other.targetService_;
+        bitField0_ |= 0x00020000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2168,17 +1996,141 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ServiceAttachment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 26840
+            case 10350650: {
+              targetService_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 10350650
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 26989658
+            case 51601514: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDomainNamesIsMutable();
+              domainNames_.add(s);
+              break;
+            } // case 51601514
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 244202930
+            case 577789506: {
+              com.google.cloud.compute.v1.ServiceAttachmentConnectedEndpoint m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.ServiceAttachmentConnectedEndpoint.parser(),
+                      extensionRegistry);
+              if (connectedEndpointsBuilder_ == null) {
+                ensureConnectedEndpointsIsMutable();
+                connectedEndpoints_.add(m);
+              } else {
+                connectedEndpointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 577789506
+            case 1111570338: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 1111570338
+            case 1632265458: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureConsumerRejectListsIsMutable();
+              consumerRejectLists_.add(s);
+              break;
+            } // case 1632265458
+            case 1877428002: {
+              fingerprint_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 1877428002
+            case 1983423114: {
+              producerForwardingRule_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 1983423114
+            case -2008422686: {
+              connectionPreference_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -2008422686
+            case -1384637400: {
+              enableProxyProtocol_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -1384637400
+            case -1296679742: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureNatSubnetsIsMutable();
+              natSubnets_.add(s);
+              break;
+            } // case -1296679742
+            case -1073161670: {
+              com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.ServiceAttachmentConsumerProjectLimit.parser(),
+                      extensionRegistry);
+              if (consumerAcceptListsBuilder_ == null) {
+                ensureConsumerAcceptListsIsMutable();
+                consumerAcceptLists_.add(m);
+              } else {
+                consumerAcceptListsBuilder_.addMessage(m);
+              }
+              break;
+            } // case -1073161670
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -911466526
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case -645248918
+            case -73405582: {
+              input.readMessage(
+                  getPscServiceAttachmentIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case -73405582
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ServiceAttachment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2563,11 +2515,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectionPreference(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       connectionPreference_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2581,8 +2531,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConnectionPreference() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       connectionPreference_ = getDefaultInstance().getConnectionPreference();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2598,12 +2548,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectionPreferenceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       connectionPreference_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2987,10 +2935,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConsumerRejectLists(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureConsumerRejectListsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureConsumerRejectListsIsMutable();
       consumerRejectLists_.set(index, value);
       onChanged();
       return this;
@@ -3006,10 +2952,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addConsumerRejectLists(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureConsumerRejectListsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureConsumerRejectListsIsMutable();
       consumerRejectLists_.add(value);
       onChanged();
       return this;
@@ -3056,10 +3000,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addConsumerRejectListsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureConsumerRejectListsIsMutable();
       consumerRejectLists_.add(value);
       onChanged();
@@ -3130,11 +3072,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3147,8 +3087,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3163,12 +3103,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3237,11 +3175,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3254,8 +3190,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -3270,12 +3206,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3347,10 +3281,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomainNames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDomainNamesIsMutable();
       domainNames_.set(index, value);
       onChanged();
       return this;
@@ -3366,10 +3298,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDomainNames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDomainNamesIsMutable();
       domainNames_.add(value);
       onChanged();
       return this;
@@ -3416,10 +3346,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDomainNamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDomainNamesIsMutable();
       domainNames_.add(value);
       onChanged();
@@ -3461,8 +3389,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableProxyProtocol(boolean value) {
-      bitField0_ |= 0x00000080;
+      
       enableProxyProtocol_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3545,11 +3474,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFingerprint(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       fingerprint_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3562,8 +3489,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFingerprint() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       fingerprint_ = getDefaultInstance().getFingerprint();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3578,12 +3505,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFingerprintBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fingerprint_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3623,8 +3548,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000200;
+      
       id_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3707,11 +3633,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3724,8 +3648,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3740,12 +3664,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3814,11 +3736,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3831,8 +3751,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3847,12 +3767,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3924,10 +3842,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNatSubnets(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNatSubnetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNatSubnetsIsMutable();
       natSubnets_.set(index, value);
       onChanged();
       return this;
@@ -3943,10 +3859,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNatSubnets(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNatSubnetsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNatSubnetsIsMutable();
       natSubnets_.add(value);
       onChanged();
       return this;
@@ -3993,10 +3907,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNatSubnetsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureNatSubnetsIsMutable();
       natSubnets_.add(value);
       onChanged();
@@ -4067,11 +3979,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProducerForwardingRule(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       producerForwardingRule_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4084,8 +3994,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProducerForwardingRule() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       producerForwardingRule_ = getDefaultInstance().getProducerForwardingRule();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -4100,12 +4010,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProducerForwardingRuleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       producerForwardingRule_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -4152,11 +4060,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pscServiceAttachmentId_ = value;
-        onChanged();
       } else {
         pscServiceAttachmentIdBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4170,11 +4078,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Uint128.Builder builderForValue) {
       if (pscServiceAttachmentIdBuilder_ == null) {
         pscServiceAttachmentId_ = builderForValue.build();
-        onChanged();
       } else {
         pscServiceAttachmentIdBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4187,18 +4095,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergePscServiceAttachmentId(com.google.cloud.compute.v1.Uint128 value) {
       if (pscServiceAttachmentIdBuilder_ == null) {
         if (((bitField0_ & 0x00004000) != 0) &&
-            pscServiceAttachmentId_ != null &&
-            pscServiceAttachmentId_ != com.google.cloud.compute.v1.Uint128.getDefaultInstance()) {
-          pscServiceAttachmentId_ =
-            com.google.cloud.compute.v1.Uint128.newBuilder(pscServiceAttachmentId_).mergeFrom(value).buildPartial();
+          pscServiceAttachmentId_ != null &&
+          pscServiceAttachmentId_ != com.google.cloud.compute.v1.Uint128.getDefaultInstance()) {
+          getPscServiceAttachmentIdBuilder().mergeFrom(value);
         } else {
           pscServiceAttachmentId_ = value;
         }
-        onChanged();
       } else {
         pscServiceAttachmentIdBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4209,13 +4116,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Uint128 psc_service_attachment_id = 527695214;</code>
      */
     public Builder clearPscServiceAttachmentId() {
-      if (pscServiceAttachmentIdBuilder_ == null) {
-        pscServiceAttachmentId_ = null;
-        onChanged();
-      } else {
-        pscServiceAttachmentIdBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00004000);
+      pscServiceAttachmentId_ = null;
+      if (pscServiceAttachmentIdBuilder_ != null) {
+        pscServiceAttachmentIdBuilder_.dispose();
+        pscServiceAttachmentIdBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -4330,11 +4237,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4347,8 +4252,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      bitField0_ = (bitField0_ & ~0x00008000);
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -4363,12 +4268,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00008000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -4437,11 +4340,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00010000;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4454,8 +4355,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00010000);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -4470,12 +4371,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00010000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4544,11 +4443,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetService(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
       targetService_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -4561,8 +4458,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetService() {
-      bitField0_ = (bitField0_ & ~0x00020000);
       targetService_ = getDefaultInstance().getTargetService();
+      bitField0_ = (bitField0_ & ~0x00020000);
       onChanged();
       return this;
     }
@@ -4577,12 +4474,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetServiceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00020000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetService_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -4619,7 +4514,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ServiceAttachment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -40,93 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompleteQueryRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            query_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              languageCodes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            languageCodes_.add(s);
-            break;
-          }
-          case 32: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            company_ = s;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            scope_ = rawValue;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        languageCodes_ = languageCodes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.CompletionServiceProto.internal_static_google_cloud_talent_v4beta1_CompleteQueryRequest_descriptor;
@@ -466,7 +379,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Resource name of tenant the completion is performed within.
@@ -520,7 +434,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object query_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object query_ = "";
   /**
    * <pre>
    * Required. The query used to generate suggestions.
@@ -568,6 +483,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList languageCodes_;
   /**
    * <pre>
@@ -635,7 +551,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 4;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * Required. Completion result count.
@@ -651,7 +567,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMPANY_FIELD_NUMBER = 5;
-  private volatile java.lang.Object company_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object company_ = "";
   /**
    * <pre>
    * If provided, restricts completion to specified company.
@@ -707,7 +624,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCOPE_FIELD_NUMBER = 6;
-  private int scope_;
+  private int scope_ = 0;
   /**
    * <pre>
    * The scope of the completion. The defaults is [CompletionScope.PUBLIC][google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.PUBLIC].
@@ -728,13 +645,12 @@ private static final long serialVersionUID = 0L;
    * @return The scope.
    */
   @java.lang.Override public com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope getScope() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.valueOf(scope_);
+    com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.forNumber(scope_);
     return result == null ? com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.UNRECOGNIZED : result;
   }
 
   public static final int TYPE_FIELD_NUMBER = 7;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * The completion topic. The default is [CompletionType.COMBINED][google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.COMBINED].
@@ -755,8 +671,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.valueOf(type_);
+    com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.forNumber(type_);
     return result == null ? com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.UNRECOGNIZED : result;
   }
 
@@ -795,7 +710,7 @@ private static final long serialVersionUID = 0L;
     if (type_ != com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.COMPLETION_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, type_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -833,7 +748,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, type_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -860,7 +775,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCompany())) return false;
     if (scope_ != other.scope_) return false;
     if (type_ != other.type_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -887,7 +802,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + scope_;
     hash = (37 * hash) + TYPE_FIELD_NUMBER;
     hash = (53 * hash) + type_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1008,36 +923,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.CompleteQueryRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       query_ = "";
-
       languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageSize_ = 0;
-
       company_ = "";
-
       scope_ = 0;
-
       type_ = 0;
-
       return this;
     }
 
@@ -1064,20 +969,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.CompleteQueryRequest buildPartial() {
       com.google.cloud.talent.v4beta1.CompleteQueryRequest result = new com.google.cloud.talent.v4beta1.CompleteQueryRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.parent_ = parent_;
-      result.query_ = query_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        languageCodes_ = languageCodes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.languageCodes_ = languageCodes_;
-      result.pageSize_ = pageSize_;
-      result.company_ = company_;
-      result.scope_ = scope_;
-      result.type_ = type_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4beta1.CompleteQueryRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        languageCodes_ = languageCodes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.languageCodes_ = languageCodes_;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.CompleteQueryRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.query_ = query_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.company_ = company_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.scope_ = scope_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.type_ = type_;
+      }
     }
 
     @java.lang.Override
@@ -1126,16 +1051,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4beta1.CompleteQueryRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getQuery().isEmpty()) {
         query_ = other.query_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.languageCodes_.isEmpty()) {
         if (languageCodes_.isEmpty()) {
           languageCodes_ = other.languageCodes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureLanguageCodesIsMutable();
           languageCodes_.addAll(other.languageCodes_);
@@ -1147,6 +1074,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCompany().isEmpty()) {
         company_ = other.company_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.scope_ != 0) {
@@ -1155,7 +1083,7 @@ private static final long serialVersionUID = 0L;
       if (other.type_ != 0) {
         setTypeValue(other.getTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1170,17 +1098,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.CompleteQueryRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              query_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLanguageCodesIsMutable();
+              languageCodes_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              company_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              scope_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.CompleteQueryRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1250,11 +1227,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1271,8 +1246,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1291,12 +1266,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1357,11 +1330,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1375,8 +1346,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
-      
       query_ = getDefaultInstance().getQuery();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1392,21 +1363,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       query_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLanguageCodesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         languageCodes_ = new com.google.protobuf.LazyStringArrayList(languageCodes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1489,10 +1458,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLanguageCodesIsMutable();
       languageCodes_.set(index, value);
       onChanged();
       return this;
@@ -1512,10 +1479,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLanguageCodes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLanguageCodesIsMutable();
       languageCodes_.add(value);
       onChanged();
       return this;
@@ -1555,7 +1520,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLanguageCodes() {
       languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1574,10 +1539,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLanguageCodesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLanguageCodesIsMutable();
       languageCodes_.add(value);
       onChanged();
@@ -1611,6 +1574,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1624,7 +1588,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1698,11 +1662,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompany(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       company_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1720,8 +1682,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCompany() {
-      
       company_ = getDefaultInstance().getCompany();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1741,12 +1703,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompanyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       company_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1773,8 +1733,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setScopeValue(int value) {
-      
       scope_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1788,8 +1748,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope getScope() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.valueOf(scope_);
+      com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.forNumber(scope_);
       return result == null ? com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionScope.UNRECOGNIZED : result;
     }
     /**
@@ -1805,7 +1764,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       scope_ = value.getNumber();
       onChanged();
       return this;
@@ -1819,7 +1778,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearScope() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       scope_ = 0;
       onChanged();
       return this;
@@ -1847,8 +1806,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1862,8 +1821,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.valueOf(type_);
+      com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType result = com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.forNumber(type_);
       return result == null ? com.google.cloud.talent.v4beta1.CompleteQueryRequest.CompletionType.UNRECOGNIZED : result;
     }
     /**
@@ -1879,7 +1837,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1893,7 +1851,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       type_ = 0;
       onChanged();
       return this;
@@ -1931,7 +1889,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompleteQueryRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

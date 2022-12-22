@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportSshPublicKeyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.Builder subBuilder = null;
-            if (sshPublicKey_ != null) {
-              subBuilder = sshPublicKey_.toBuilder();
-            }
-            sshPublicKey_ = input.readMessage(com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sshPublicKey_);
-              sshPublicKey_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.oslogin.v1alpha.OsLoginProto.internal_static_google_cloud_oslogin_v1alpha_ImportSshPublicKeyRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * The unique ID for the user in format `users/{user}`.
@@ -194,11 +131,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.oslogin.common.OsLoginProto.SshPublicKeyOrBuilder getSshPublicKeyOrBuilder() {
-    return getSshPublicKey();
+    return sshPublicKey_ == null ? com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.getDefaultInstance() : sshPublicKey_;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * The project ID of the Google Cloud Platform project.
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, projectId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +223,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(projectId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, projectId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getProjectId()
         .equals(other.getProjectId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +266,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PROJECT_ID_FIELD_NUMBER;
     hash = (53 * hash) + getProjectId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,32 +387,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (sshPublicKeyBuilder_ == null) {
-        sshPublicKey_ = null;
-      } else {
-        sshPublicKey_ = null;
+      sshPublicKey_ = null;
+      if (sshPublicKeyBuilder_ != null) {
+        sshPublicKeyBuilder_.dispose();
         sshPublicKeyBuilder_ = null;
       }
       projectId_ = "";
-
       return this;
     }
 
@@ -501,15 +432,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest buildPartial() {
       com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest result = new com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest(this);
-      result.parent_ = parent_;
-      if (sshPublicKeyBuilder_ == null) {
-        result.sshPublicKey_ = sshPublicKey_;
-      } else {
-        result.sshPublicKey_ = sshPublicKeyBuilder_.build();
-      }
-      result.projectId_ = projectId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sshPublicKey_ = sshPublicKeyBuilder_ == null
+            ? sshPublicKey_
+            : sshPublicKeyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.projectId_ = projectId_;
+      }
     }
 
     @java.lang.Override
@@ -558,6 +498,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasSshPublicKey()) {
@@ -565,9 +506,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,19 +524,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSshPublicKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.oslogin.v1alpha.ImportSshPublicKeyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -649,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -682,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -704,7 +673,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sshPublicKey field is set.
      */
     public boolean hasSshPublicKey() {
-      return sshPublicKeyBuilder_ != null || sshPublicKey_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +703,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sshPublicKey_ = value;
-        onChanged();
       } else {
         sshPublicKeyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +721,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.Builder builderForValue) {
       if (sshPublicKeyBuilder_ == null) {
         sshPublicKey_ = builderForValue.build();
-        onChanged();
       } else {
         sshPublicKeyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +737,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSshPublicKey(com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey value) {
       if (sshPublicKeyBuilder_ == null) {
-        if (sshPublicKey_ != null) {
-          sshPublicKey_ =
-            com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.newBuilder(sshPublicKey_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          sshPublicKey_ != null &&
+          sshPublicKey_ != com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.getDefaultInstance()) {
+          getSshPublicKeyBuilder().mergeFrom(value);
         } else {
           sshPublicKey_ = value;
         }
-        onChanged();
       } else {
         sshPublicKeyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +759,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.oslogin.common.SshPublicKey ssh_public_key = 2;</code>
      */
     public Builder clearSshPublicKey() {
-      if (sshPublicKeyBuilder_ == null) {
-        sshPublicKey_ = null;
-        onChanged();
-      } else {
-        sshPublicKey_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sshPublicKey_ = null;
+      if (sshPublicKeyBuilder_ != null) {
+        sshPublicKeyBuilder_.dispose();
         sshPublicKeyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.oslogin.common.SshPublicKey ssh_public_key = 2;</code>
      */
     public com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.Builder getSshPublicKeyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSshPublicKeyFieldBuilder().getBuilder();
     }
@@ -900,11 +869,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -917,8 +884,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -933,12 +900,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -975,7 +940,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportSshPublicKeyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

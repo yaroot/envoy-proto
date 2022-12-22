@@ -5,7 +5,7 @@ package io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3;
 
 /**
  * <pre>
- * [#next-free-field: 13]
+ * [#next-free-field: 14]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit}
@@ -25,6 +25,7 @@ private static final long serialVersionUID = 0L;
     responseHeadersToAdd_ = java.util.Collections.emptyList();
     descriptors_ = java.util.Collections.emptyList();
     enableXRatelimitHeaders_ = 0;
+    vhRateLimits_ = 0;
   }
 
   @java.lang.Override
@@ -38,156 +39,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private LocalRateLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.type.v3.HttpStatus.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(io.envoyproxy.envoy.type.v3.HttpStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.type.v3.TokenBucket.Builder subBuilder = null;
-            if (tokenBucket_ != null) {
-              subBuilder = tokenBucket_.toBuilder();
-            }
-            tokenBucket_ = input.readMessage(io.envoyproxy.envoy.type.v3.TokenBucket.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tokenBucket_);
-              tokenBucket_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder subBuilder = null;
-            if (filterEnabled_ != null) {
-              subBuilder = filterEnabled_.toBuilder();
-            }
-            filterEnabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterEnabled_);
-              filterEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder subBuilder = null;
-            if (filterEnforced_ != null) {
-              subBuilder = filterEnforced_.toBuilder();
-            }
-            filterEnforced_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterEnforced_);
-              filterEnforced_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            responseHeadersToAdd_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              descriptors_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            descriptors_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor.parser(), extensionRegistry));
-            break;
-          }
-          case 72: {
-
-            stage_ = input.readUInt32();
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requestHeadersToAddWhenNotEnforced_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            requestHeadersToAddWhenNotEnforced_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(), extensionRegistry));
-            break;
-          }
-          case 88: {
-
-            localRateLimitPerDownstreamConnection_ = input.readBool();
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            enableXRatelimitHeaders_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        descriptors_ = java.util.Collections.unmodifiableList(descriptors_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        requestHeadersToAddWhenNotEnforced_ = java.util.Collections.unmodifiableList(requestHeadersToAddWhenNotEnforced_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -203,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The human readable prefix to use when emitting stats.
@@ -295,7 +147,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : status_;
   }
 
   public static final int TOKEN_BUCKET_FIELD_NUMBER = 3;
@@ -372,7 +224,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.v3.TokenBucketOrBuilder getTokenBucketOrBuilder() {
-    return getTokenBucket();
+    return tokenBucket_ == null ? io.envoyproxy.envoy.type.v3.TokenBucket.getDefaultInstance() : tokenBucket_;
   }
 
   public static final int FILTER_ENABLED_FIELD_NUMBER = 4;
@@ -416,7 +268,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercentOrBuilder getFilterEnabledOrBuilder() {
-    return getFilterEnabled();
+    return filterEnabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance() : filterEnabled_;
   }
 
   public static final int FILTER_ENFORCED_FIELD_NUMBER = 5;
@@ -460,10 +312,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercentOrBuilder getFilterEnforcedOrBuilder() {
-    return getFilterEnforced();
+    return filterEnforced_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance() : filterEnforced_;
   }
 
   public static final int REQUEST_HEADERS_TO_ADD_WHEN_NOT_ENFORCED_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> requestHeadersToAddWhenNotEnforced_;
   /**
    * <pre>
@@ -534,6 +387,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_HEADERS_TO_ADD_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> responseHeadersToAdd_;
   /**
    * <pre>
@@ -599,13 +453,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTORS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor> descriptors_;
   /**
    * <pre>
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -625,7 +480,7 @@ private static final long serialVersionUID = 0L;
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -646,7 +501,7 @@ private static final long serialVersionUID = 0L;
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -666,7 +521,7 @@ private static final long serialVersionUID = 0L;
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -686,7 +541,7 @@ private static final long serialVersionUID = 0L;
    * The rate limit descriptor list to use in the local rate limit to override
    * on. The rate limit descriptor is selected by the first full match from the
    * request descriptors.
-   * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+   * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
    * .. note::
    *   In the current implementation the descriptor's token bucket :ref:`fill_interval
    *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -704,7 +559,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAGE_FIELD_NUMBER = 9;
-  private int stage_;
+  private int stage_ = 0;
   /**
    * <pre>
    * Specifies the rate limit configurations to be applied with the same
@@ -722,7 +577,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_RATE_LIMIT_PER_DOWNSTREAM_CONNECTION_FIELD_NUMBER = 11;
-  private boolean localRateLimitPerDownstreamConnection_;
+  private boolean localRateLimitPerDownstreamConnection_ = false;
   /**
    * <pre>
    * Specifies the scope of the rate limiter's token bucket.
@@ -743,7 +598,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_X_RATELIMIT_HEADERS_FIELD_NUMBER = 12;
-  private int enableXRatelimitHeaders_;
+  private int enableXRatelimitHeaders_ = 0;
   /**
    * <pre>
    * Defines the standard version to use for X-RateLimit headers emitted by the filter.
@@ -766,9 +621,34 @@ private static final long serialVersionUID = 0L;
    * @return The enableXRatelimitHeaders.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion getEnableXRatelimitHeaders() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.valueOf(enableXRatelimitHeaders_);
+    io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.forNumber(enableXRatelimitHeaders_);
     return result == null ? io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.UNRECOGNIZED : result;
+  }
+
+  public static final int VH_RATE_LIMITS_FIELD_NUMBER = 13;
+  private int vhRateLimits_ = 0;
+  /**
+   * <pre>
+   * Specifies if the local rate limit filter should include the virtual host rate limits.
+   * </pre>
+   *
+   * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+   * @return The enum numeric value on the wire for vhRateLimits.
+   */
+  @java.lang.Override public int getVhRateLimitsValue() {
+    return vhRateLimits_;
+  }
+  /**
+   * <pre>
+   * Specifies if the local rate limit filter should include the virtual host rate limits.
+   * </pre>
+   *
+   * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+   * @return The vhRateLimits.
+   */
+  @java.lang.Override public io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions getVhRateLimits() {
+    io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions result = io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions.forNumber(vhRateLimits_);
+    return result == null ? io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -818,7 +698,10 @@ private static final long serialVersionUID = 0L;
     if (enableXRatelimitHeaders_ != io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.OFF.getNumber()) {
       output.writeEnum(12, enableXRatelimitHeaders_);
     }
-    unknownFields.writeTo(output);
+    if (vhRateLimits_ != io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions.OVERRIDE.getNumber()) {
+      output.writeEnum(13, vhRateLimits_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -870,7 +753,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(12, enableXRatelimitHeaders_);
     }
-    size += unknownFields.getSerializedSize();
+    if (vhRateLimits_ != io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions.OVERRIDE.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(13, vhRateLimits_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -918,7 +805,8 @@ private static final long serialVersionUID = 0L;
     if (getLocalRateLimitPerDownstreamConnection()
         != other.getLocalRateLimitPerDownstreamConnection()) return false;
     if (enableXRatelimitHeaders_ != other.enableXRatelimitHeaders_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (vhRateLimits_ != other.vhRateLimits_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -966,7 +854,9 @@ private static final long serialVersionUID = 0L;
         getLocalRateLimitPerDownstreamConnection());
     hash = (37 * hash) + ENABLE_X_RATELIMIT_HEADERS_FIELD_NUMBER;
     hash = (53 * hash) + enableXRatelimitHeaders_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + VH_RATE_LIMITS_FIELD_NUMBER;
+    hash = (53 * hash) + vhRateLimits_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1063,7 +953,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#next-free-field: 13]
+   * [#next-free-field: 14]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit}
@@ -1087,75 +977,64 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRequestHeadersToAddWhenNotEnforcedFieldBuilder();
-        getResponseHeadersToAddFieldBuilder();
-        getDescriptorsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       statPrefix_ = "";
-
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-      if (tokenBucketBuilder_ == null) {
-        tokenBucket_ = null;
-      } else {
-        tokenBucket_ = null;
+      tokenBucket_ = null;
+      if (tokenBucketBuilder_ != null) {
+        tokenBucketBuilder_.dispose();
         tokenBucketBuilder_ = null;
       }
-      if (filterEnabledBuilder_ == null) {
-        filterEnabled_ = null;
-      } else {
-        filterEnabled_ = null;
+      filterEnabled_ = null;
+      if (filterEnabledBuilder_ != null) {
+        filterEnabledBuilder_.dispose();
         filterEnabledBuilder_ = null;
       }
-      if (filterEnforcedBuilder_ == null) {
-        filterEnforced_ = null;
-      } else {
-        filterEnforced_ = null;
+      filterEnforced_ = null;
+      if (filterEnforcedBuilder_ != null) {
+        filterEnforcedBuilder_.dispose();
         filterEnforcedBuilder_ = null;
       }
       if (requestHeadersToAddWhenNotEnforcedBuilder_ == null) {
         requestHeadersToAddWhenNotEnforced_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        requestHeadersToAddWhenNotEnforced_ = null;
         requestHeadersToAddWhenNotEnforcedBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       if (responseHeadersToAddBuilder_ == null) {
         responseHeadersToAdd_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        responseHeadersToAdd_ = null;
         responseHeadersToAddBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       if (descriptorsBuilder_ == null) {
         descriptors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        descriptors_ = null;
         descriptorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       stage_ = 0;
-
       localRateLimitPerDownstreamConnection_ = false;
-
       enableXRatelimitHeaders_ = 0;
-
+      vhRateLimits_ = 0;
       return this;
     }
 
@@ -1182,60 +1061,79 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit result = new io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit(this);
-      int from_bitField0_ = bitField0_;
-      result.statPrefix_ = statPrefix_;
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
-      if (tokenBucketBuilder_ == null) {
-        result.tokenBucket_ = tokenBucket_;
-      } else {
-        result.tokenBucket_ = tokenBucketBuilder_.build();
-      }
-      if (filterEnabledBuilder_ == null) {
-        result.filterEnabled_ = filterEnabled_;
-      } else {
-        result.filterEnabled_ = filterEnabledBuilder_.build();
-      }
-      if (filterEnforcedBuilder_ == null) {
-        result.filterEnforced_ = filterEnforced_;
-      } else {
-        result.filterEnforced_ = filterEnforcedBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit result) {
       if (requestHeadersToAddWhenNotEnforcedBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           requestHeadersToAddWhenNotEnforced_ = java.util.Collections.unmodifiableList(requestHeadersToAddWhenNotEnforced_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.requestHeadersToAddWhenNotEnforced_ = requestHeadersToAddWhenNotEnforced_;
       } else {
         result.requestHeadersToAddWhenNotEnforced_ = requestHeadersToAddWhenNotEnforcedBuilder_.build();
       }
       if (responseHeadersToAddBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           responseHeadersToAdd_ = java.util.Collections.unmodifiableList(responseHeadersToAdd_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.responseHeadersToAdd_ = responseHeadersToAdd_;
       } else {
         result.responseHeadersToAdd_ = responseHeadersToAddBuilder_.build();
       }
       if (descriptorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           descriptors_ = java.util.Collections.unmodifiableList(descriptors_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.descriptors_ = descriptors_;
       } else {
         result.descriptors_ = descriptorsBuilder_.build();
       }
-      result.stage_ = stage_;
-      result.localRateLimitPerDownstreamConnection_ = localRateLimitPerDownstreamConnection_;
-      result.enableXRatelimitHeaders_ = enableXRatelimitHeaders_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.tokenBucket_ = tokenBucketBuilder_ == null
+            ? tokenBucket_
+            : tokenBucketBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.filterEnabled_ = filterEnabledBuilder_ == null
+            ? filterEnabled_
+            : filterEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.filterEnforced_ = filterEnforcedBuilder_ == null
+            ? filterEnforced_
+            : filterEnforcedBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.stage_ = stage_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.localRateLimitPerDownstreamConnection_ = localRateLimitPerDownstreamConnection_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.enableXRatelimitHeaders_ = enableXRatelimitHeaders_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.vhRateLimits_ = vhRateLimits_;
+      }
     }
 
     @java.lang.Override
@@ -1284,6 +1182,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit.getDefaultInstance()) return this;
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasStatus()) {
@@ -1302,7 +1201,7 @@ private static final long serialVersionUID = 0L;
         if (!other.requestHeadersToAddWhenNotEnforced_.isEmpty()) {
           if (requestHeadersToAddWhenNotEnforced_.isEmpty()) {
             requestHeadersToAddWhenNotEnforced_ = other.requestHeadersToAddWhenNotEnforced_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureRequestHeadersToAddWhenNotEnforcedIsMutable();
             requestHeadersToAddWhenNotEnforced_.addAll(other.requestHeadersToAddWhenNotEnforced_);
@@ -1315,7 +1214,7 @@ private static final long serialVersionUID = 0L;
             requestHeadersToAddWhenNotEnforcedBuilder_.dispose();
             requestHeadersToAddWhenNotEnforcedBuilder_ = null;
             requestHeadersToAddWhenNotEnforced_ = other.requestHeadersToAddWhenNotEnforced_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             requestHeadersToAddWhenNotEnforcedBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRequestHeadersToAddWhenNotEnforcedFieldBuilder() : null;
@@ -1328,7 +1227,7 @@ private static final long serialVersionUID = 0L;
         if (!other.responseHeadersToAdd_.isEmpty()) {
           if (responseHeadersToAdd_.isEmpty()) {
             responseHeadersToAdd_ = other.responseHeadersToAdd_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureResponseHeadersToAddIsMutable();
             responseHeadersToAdd_.addAll(other.responseHeadersToAdd_);
@@ -1341,7 +1240,7 @@ private static final long serialVersionUID = 0L;
             responseHeadersToAddBuilder_.dispose();
             responseHeadersToAddBuilder_ = null;
             responseHeadersToAdd_ = other.responseHeadersToAdd_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
             responseHeadersToAddBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResponseHeadersToAddFieldBuilder() : null;
@@ -1354,7 +1253,7 @@ private static final long serialVersionUID = 0L;
         if (!other.descriptors_.isEmpty()) {
           if (descriptors_.isEmpty()) {
             descriptors_ = other.descriptors_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureDescriptorsIsMutable();
             descriptors_.addAll(other.descriptors_);
@@ -1367,7 +1266,7 @@ private static final long serialVersionUID = 0L;
             descriptorsBuilder_.dispose();
             descriptorsBuilder_ = null;
             descriptors_ = other.descriptors_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000080);
             descriptorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDescriptorsFieldBuilder() : null;
@@ -1385,7 +1284,10 @@ private static final long serialVersionUID = 0L;
       if (other.enableXRatelimitHeaders_ != 0) {
         setEnableXRatelimitHeadersValue(other.getEnableXRatelimitHeadersValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.vhRateLimits_ != 0) {
+        setVhRateLimitsValue(other.getVhRateLimitsValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1400,17 +1302,122 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTokenBucketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getFilterEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getFilterEnforcedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              io.envoyproxy.envoy.config.core.v3.HeaderValueOption m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(),
+                      extensionRegistry);
+              if (responseHeadersToAddBuilder_ == null) {
+                ensureResponseHeadersToAddIsMutable();
+                responseHeadersToAdd_.add(m);
+              } else {
+                responseHeadersToAddBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 66: {
+              io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor.parser(),
+                      extensionRegistry);
+              if (descriptorsBuilder_ == null) {
+                ensureDescriptorsIsMutable();
+                descriptors_.add(m);
+              } else {
+                descriptorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 72: {
+              stage_ = input.readUInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              io.envoyproxy.envoy.config.core.v3.HeaderValueOption m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.HeaderValueOption.parser(),
+                      extensionRegistry);
+              if (requestHeadersToAddWhenNotEnforcedBuilder_ == null) {
+                ensureRequestHeadersToAddWhenNotEnforcedIsMutable();
+                requestHeadersToAddWhenNotEnforced_.add(m);
+              } else {
+                requestHeadersToAddWhenNotEnforcedBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 88: {
+              localRateLimitPerDownstreamConnection_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 96: {
+              enableXRatelimitHeaders_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 96
+            case 104: {
+              vhRateLimits_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 104
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.local_ratelimit.v3.LocalRateLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1468,11 +1475,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1485,8 +1490,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1501,12 +1506,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1527,7 +1530,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1565,11 +1568,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1587,11 +1590,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.HttpStatus.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1607,17 +1610,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(io.envoyproxy.envoy.type.v3.HttpStatus value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            io.envoyproxy.envoy.type.v3.HttpStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          status_ != null &&
+          status_ != io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1632,14 +1636,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.HttpStatus status = 2;</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1654,7 +1657,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.HttpStatus status = 2;</code>
      */
     public io.envoyproxy.envoy.type.v3.HttpStatus.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -1727,7 +1730,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tokenBucket field is set.
      */
     public boolean hasTokenBucket() {
-      return tokenBucketBuilder_ != null || tokenBucket_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1783,11 +1786,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tokenBucket_ = value;
-        onChanged();
       } else {
         tokenBucketBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1814,11 +1817,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.v3.TokenBucket.Builder builderForValue) {
       if (tokenBucketBuilder_ == null) {
         tokenBucket_ = builderForValue.build();
-        onChanged();
       } else {
         tokenBucketBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1843,17 +1846,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTokenBucket(io.envoyproxy.envoy.type.v3.TokenBucket value) {
       if (tokenBucketBuilder_ == null) {
-        if (tokenBucket_ != null) {
-          tokenBucket_ =
-            io.envoyproxy.envoy.type.v3.TokenBucket.newBuilder(tokenBucket_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          tokenBucket_ != null &&
+          tokenBucket_ != io.envoyproxy.envoy.type.v3.TokenBucket.getDefaultInstance()) {
+          getTokenBucketBuilder().mergeFrom(value);
         } else {
           tokenBucket_ = value;
         }
-        onChanged();
       } else {
         tokenBucketBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1877,14 +1881,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.TokenBucket token_bucket = 3;</code>
      */
     public Builder clearTokenBucket() {
-      if (tokenBucketBuilder_ == null) {
-        tokenBucket_ = null;
-        onChanged();
-      } else {
-        tokenBucket_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      tokenBucket_ = null;
+      if (tokenBucketBuilder_ != null) {
+        tokenBucketBuilder_.dispose();
         tokenBucketBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1908,7 +1911,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.v3.TokenBucket token_bucket = 3;</code>
      */
     public io.envoyproxy.envoy.type.v3.TokenBucket.Builder getTokenBucketBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTokenBucketFieldBuilder().getBuilder();
     }
@@ -1988,7 +1991,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterEnabled field is set.
      */
     public boolean hasFilterEnabled() {
-      return filterEnabledBuilder_ != null || filterEnabled_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2022,11 +2025,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterEnabled_ = value;
-        onChanged();
       } else {
         filterEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2042,11 +2045,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder builderForValue) {
       if (filterEnabledBuilder_ == null) {
         filterEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         filterEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2060,17 +2063,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent value) {
       if (filterEnabledBuilder_ == null) {
-        if (filterEnabled_ != null) {
-          filterEnabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.newBuilder(filterEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          filterEnabled_ != null &&
+          filterEnabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance()) {
+          getFilterEnabledBuilder().mergeFrom(value);
         } else {
           filterEnabled_ = value;
         }
-        onChanged();
       } else {
         filterEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2083,14 +2087,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent filter_enabled = 4;</code>
      */
     public Builder clearFilterEnabled() {
-      if (filterEnabledBuilder_ == null) {
-        filterEnabled_ = null;
-        onChanged();
-      } else {
-        filterEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      filterEnabled_ = null;
+      if (filterEnabledBuilder_ != null) {
+        filterEnabledBuilder_.dispose();
         filterEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2103,7 +2106,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent filter_enabled = 4;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder getFilterEnabledBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getFilterEnabledFieldBuilder().getBuilder();
     }
@@ -2161,7 +2164,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterEnforced field is set.
      */
     public boolean hasFilterEnforced() {
-      return filterEnforcedBuilder_ != null || filterEnforced_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2195,11 +2198,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterEnforced_ = value;
-        onChanged();
       } else {
         filterEnforcedBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2215,11 +2218,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder builderForValue) {
       if (filterEnforcedBuilder_ == null) {
         filterEnforced_ = builderForValue.build();
-        onChanged();
       } else {
         filterEnforcedBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2233,17 +2236,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterEnforced(io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent value) {
       if (filterEnforcedBuilder_ == null) {
-        if (filterEnforced_ != null) {
-          filterEnforced_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.newBuilder(filterEnforced_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          filterEnforced_ != null &&
+          filterEnforced_ != io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.getDefaultInstance()) {
+          getFilterEnforcedBuilder().mergeFrom(value);
         } else {
           filterEnforced_ = value;
         }
-        onChanged();
       } else {
         filterEnforcedBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2256,14 +2260,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent filter_enforced = 5;</code>
      */
     public Builder clearFilterEnforced() {
-      if (filterEnforcedBuilder_ == null) {
-        filterEnforced_ = null;
-        onChanged();
-      } else {
-        filterEnforced_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      filterEnforced_ = null;
+      if (filterEnforcedBuilder_ != null) {
+        filterEnforcedBuilder_.dispose();
         filterEnforcedBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2276,7 +2279,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFractionalPercent filter_enforced = 5;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFractionalPercent.Builder getFilterEnforcedBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getFilterEnforcedFieldBuilder().getBuilder();
     }
@@ -2323,9 +2326,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> requestHeadersToAddWhenNotEnforced_ =
       java.util.Collections.emptyList();
     private void ensureRequestHeadersToAddWhenNotEnforcedIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         requestHeadersToAddWhenNotEnforced_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>(requestHeadersToAddWhenNotEnforced_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2541,7 +2544,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRequestHeadersToAddWhenNotEnforced() {
       if (requestHeadersToAddWhenNotEnforcedBuilder_ == null) {
         requestHeadersToAddWhenNotEnforced_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         requestHeadersToAddWhenNotEnforcedBuilder_.clear();
@@ -2660,7 +2663,7 @@ private static final long serialVersionUID = 0L;
         requestHeadersToAddWhenNotEnforcedBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder>(
                 requestHeadersToAddWhenNotEnforced_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         requestHeadersToAddWhenNotEnforced_ = null;
@@ -2671,9 +2674,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.HeaderValueOption> responseHeadersToAdd_ =
       java.util.Collections.emptyList();
     private void ensureResponseHeadersToAddIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         responseHeadersToAdd_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.HeaderValueOption>(responseHeadersToAdd_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2878,7 +2881,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearResponseHeadersToAdd() {
       if (responseHeadersToAddBuilder_ == null) {
         responseHeadersToAdd_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         responseHeadersToAddBuilder_.clear();
@@ -2990,7 +2993,7 @@ private static final long serialVersionUID = 0L;
         responseHeadersToAddBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.HeaderValueOption, io.envoyproxy.envoy.config.core.v3.HeaderValueOption.Builder, io.envoyproxy.envoy.config.core.v3.HeaderValueOptionOrBuilder>(
                 responseHeadersToAdd_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         responseHeadersToAdd_ = null;
@@ -3001,9 +3004,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor> descriptors_ =
       java.util.Collections.emptyList();
     private void ensureDescriptorsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         descriptors_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor>(descriptors_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -3015,7 +3018,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3038,7 +3041,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3061,7 +3064,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3084,7 +3087,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3114,7 +3117,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3141,7 +3144,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3170,7 +3173,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3200,7 +3203,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3227,7 +3230,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3254,7 +3257,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3282,7 +3285,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3296,7 +3299,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDescriptors() {
       if (descriptorsBuilder_ == null) {
         descriptors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         descriptorsBuilder_.clear();
@@ -3308,7 +3311,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3334,7 +3337,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3354,7 +3357,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3377,7 +3380,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3401,7 +3404,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3421,7 +3424,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3442,7 +3445,7 @@ private static final long serialVersionUID = 0L;
      * The rate limit descriptor list to use in the local rate limit to override
      * on. The rate limit descriptor is selected by the first full match from the
      * request descriptors.
-     * Example on how to use ::ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`
+     * Example on how to use :ref:`this &lt;config_http_filters_local_rate_limit_descriptors&gt;`.
      * .. note::
      *   In the current implementation the descriptor's token bucket :ref:`fill_interval
      *   &lt;envoy_v3_api_field_type.v3.TokenBucket.fill_interval&gt;` must be a multiple
@@ -3464,7 +3467,7 @@ private static final long serialVersionUID = 0L;
         descriptorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor, io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptor.Builder, io.envoyproxy.envoy.extensions.common.ratelimit.v3.LocalRateLimitDescriptorOrBuilder>(
                 descriptors_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         descriptors_ = null;
@@ -3503,6 +3506,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStage(int value) {
       
       stage_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3518,7 +3522,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       stage_ = 0;
       onChanged();
       return this;
@@ -3561,6 +3565,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLocalRateLimitPerDownstreamConnection(boolean value) {
       
       localRateLimitPerDownstreamConnection_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3579,7 +3584,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalRateLimitPerDownstreamConnection() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       localRateLimitPerDownstreamConnection_ = false;
       onChanged();
       return this;
@@ -3609,8 +3614,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableXRatelimitHeadersValue(int value) {
-      
       enableXRatelimitHeaders_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3625,8 +3630,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion getEnableXRatelimitHeaders() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.valueOf(enableXRatelimitHeaders_);
+      io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion result = io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.forNumber(enableXRatelimitHeaders_);
       return result == null ? io.envoyproxy.envoy.extensions.common.ratelimit.v3.XRateLimitHeadersRFCVersion.UNRECOGNIZED : result;
     }
     /**
@@ -3643,7 +3647,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       enableXRatelimitHeaders_ = value.getNumber();
       onChanged();
       return this;
@@ -3658,8 +3662,81 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableXRatelimitHeaders() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       enableXRatelimitHeaders_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int vhRateLimits_ = 0;
+    /**
+     * <pre>
+     * Specifies if the local rate limit filter should include the virtual host rate limits.
+     * </pre>
+     *
+     * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+     * @return The enum numeric value on the wire for vhRateLimits.
+     */
+    @java.lang.Override public int getVhRateLimitsValue() {
+      return vhRateLimits_;
+    }
+    /**
+     * <pre>
+     * Specifies if the local rate limit filter should include the virtual host rate limits.
+     * </pre>
+     *
+     * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+     * @param value The enum numeric value on the wire for vhRateLimits to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVhRateLimitsValue(int value) {
+      vhRateLimits_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies if the local rate limit filter should include the virtual host rate limits.
+     * </pre>
+     *
+     * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+     * @return The vhRateLimits.
+     */
+    @java.lang.Override
+    public io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions getVhRateLimits() {
+      io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions result = io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions.forNumber(vhRateLimits_);
+      return result == null ? io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Specifies if the local rate limit filter should include the virtual host rate limits.
+     * </pre>
+     *
+     * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+     * @param value The vhRateLimits to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVhRateLimits(io.envoyproxy.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000800;
+      vhRateLimits_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies if the local rate limit filter should include the virtual host rate limits.
+     * </pre>
+     *
+     * <code>.envoy.extensions.common.ratelimit.v3.VhRateLimitsOptions vh_rate_limits = 13 [(.validate.rules) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVhRateLimits() {
+      bitField0_ = (bitField0_ & ~0x00000800);
+      vhRateLimits_ = 0;
       onChanged();
       return this;
     }
@@ -3696,7 +3773,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LocalRateLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

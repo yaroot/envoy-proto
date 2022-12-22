@@ -11,7 +11,7 @@ public interface RestoreServiceRequestOrBuilder extends
    * <pre>
    * Required. The relative resource name of the metastore service to run
    * restore, in the following form:
-   * `projects/{project_id}/locations/{location_id}/services/{service_id}`
+   * `projects/{project_id}/locations/{location_id}/services/{service_id}`.
    * </pre>
    *
    * <code>string service = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -22,7 +22,7 @@ public interface RestoreServiceRequestOrBuilder extends
    * <pre>
    * Required. The relative resource name of the metastore service to run
    * restore, in the following form:
-   * `projects/{project_id}/locations/{location_id}/services/{service_id}`
+   * `projects/{project_id}/locations/{location_id}/services/{service_id}`.
    * </pre>
    *
    * <code>string service = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -35,7 +35,7 @@ public interface RestoreServiceRequestOrBuilder extends
    * <pre>
    * Required. The relative resource name of the metastore service backup to
    * restore from, in the following form:
-   * `projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}`
+   * `projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}`.
    * </pre>
    *
    * <code>string backup = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -46,7 +46,7 @@ public interface RestoreServiceRequestOrBuilder extends
    * <pre>
    * Required. The relative resource name of the metastore service backup to
    * restore from, in the following form:
-   * `projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}`
+   * `projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}`.
    * </pre>
    *
    * <code>string backup = 2 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

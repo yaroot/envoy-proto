@@ -31,58 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RateLimitQuotaResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              bucketAction_ = new java.util.ArrayList<io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            bucketAction_.add(
-                input.readMessage(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        bucketAction_ = java.util.Collections.unmodifiableList(bucketAction_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.rate_limit_quota.v3.RlqsProto.internal_static_envoy_service_rate_limit_quota_v3_RateLimitQuotaResponse_descriptor;
@@ -242,86 +190,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BucketAction(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.Builder subBuilder = null;
-              if (bucketId_ != null) {
-                subBuilder = bucketId_.toBuilder();
-              }
-              bucketId_ = input.readMessage(io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(bucketId_);
-                bucketId_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.Builder subBuilder = null;
-              if (bucketActionCase_ == 2) {
-                subBuilder = ((io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction) bucketAction_).toBuilder();
-              }
-              bucketAction_ =
-                  input.readMessage(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction) bucketAction_);
-                bucketAction_ = subBuilder.buildPartial();
-              }
-              bucketActionCase_ = 2;
-              break;
-            }
-            case 26: {
-              io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction.Builder subBuilder = null;
-              if (bucketActionCase_ == 3) {
-                subBuilder = ((io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction) bucketAction_).toBuilder();
-              }
-              bucketAction_ =
-                  input.readMessage(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction) bucketAction_);
-                bucketAction_ = subBuilder.buildPartial();
-              }
-              bucketActionCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.service.rate_limit_quota.v3.RlqsProto.internal_static_envoy_service_rate_limit_quota_v3_RateLimitQuotaResponse_BucketAction_descriptor;
@@ -474,7 +342,7 @@ private static final long serialVersionUID = 0L;
      *   the current bucket assignment is ``expired``, the data plane must immediately
      *   end the current assignment, report the bucket usage, and apply the new assignment.
      *   The new assignment becomes bucket's ``active`` assignment.
-     * `` If the rate limiting strategy is the same as the bucket's ``active`` (not ``expired``)
+     * * If the rate limiting strategy is the same as the bucket's ``active`` (not ``expired``)
      *   assignment, the data plane should extend the duration of the ``active`` assignment
      *   for the duration of the new assignment provided in the :ref:`assignment_time_to_live
      *   &lt;envoy_v3_api_field_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.assignment_time_to_live&gt;`
@@ -506,71 +374,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private QuotaAssignmentAction(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 18: {
-                com.google.protobuf.Duration.Builder subBuilder = null;
-                if (assignmentTimeToLive_ != null) {
-                  subBuilder = assignmentTimeToLive_.toBuilder();
-                }
-                assignmentTimeToLive_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(assignmentTimeToLive_);
-                  assignmentTimeToLive_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 26: {
-                io.envoyproxy.envoy.type.v3.RateLimitStrategy.Builder subBuilder = null;
-                if (rateLimitStrategy_ != null) {
-                  subBuilder = rateLimitStrategy_.toBuilder();
-                }
-                rateLimitStrategy_ = input.readMessage(io.envoyproxy.envoy.type.v3.RateLimitStrategy.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(rateLimitStrategy_);
-                  rateLimitStrategy_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -674,7 +477,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.protobuf.DurationOrBuilder getAssignmentTimeToLiveOrBuilder() {
-        return getAssignmentTimeToLive();
+        return assignmentTimeToLive_ == null ? com.google.protobuf.Duration.getDefaultInstance() : assignmentTimeToLive_;
       }
 
       public static final int RATE_LIMIT_STRATEGY_FIELD_NUMBER = 3;
@@ -715,7 +518,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public io.envoyproxy.envoy.type.v3.RateLimitStrategyOrBuilder getRateLimitStrategyOrBuilder() {
-        return getRateLimitStrategy();
+        return rateLimitStrategy_ == null ? io.envoyproxy.envoy.type.v3.RateLimitStrategy.getDefaultInstance() : rateLimitStrategy_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -738,7 +541,7 @@ private static final long serialVersionUID = 0L;
         if (rateLimitStrategy_ != null) {
           output.writeMessage(3, getRateLimitStrategy());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -755,7 +558,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, getRateLimitStrategy());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -780,7 +583,7 @@ private static final long serialVersionUID = 0L;
           if (!getRateLimitStrategy()
               .equals(other.getRateLimitStrategy())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -799,7 +602,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + RATE_LIMIT_STRATEGY_FIELD_NUMBER;
           hash = (53 * hash) + getRateLimitStrategy().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -918,7 +721,7 @@ private static final long serialVersionUID = 0L;
        *   the current bucket assignment is ``expired``, the data plane must immediately
        *   end the current assignment, report the bucket usage, and apply the new assignment.
        *   The new assignment becomes bucket's ``active`` assignment.
-       * `` If the rate limiting strategy is the same as the bucket's ``active`` (not ``expired``)
+       * * If the rate limiting strategy is the same as the bucket's ``active`` (not ``expired``)
        *   assignment, the data plane should extend the duration of the ``active`` assignment
        *   for the duration of the new assignment provided in the :ref:`assignment_time_to_live
        *   &lt;envoy_v3_api_field_service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.assignment_time_to_live&gt;`
@@ -946,32 +749,26 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (assignmentTimeToLiveBuilder_ == null) {
-            assignmentTimeToLive_ = null;
-          } else {
-            assignmentTimeToLive_ = null;
+          bitField0_ = 0;
+          assignmentTimeToLive_ = null;
+          if (assignmentTimeToLiveBuilder_ != null) {
+            assignmentTimeToLiveBuilder_.dispose();
             assignmentTimeToLiveBuilder_ = null;
           }
-          if (rateLimitStrategyBuilder_ == null) {
-            rateLimitStrategy_ = null;
-          } else {
-            rateLimitStrategy_ = null;
+          rateLimitStrategy_ = null;
+          if (rateLimitStrategyBuilder_ != null) {
+            rateLimitStrategyBuilder_.dispose();
             rateLimitStrategyBuilder_ = null;
           }
           return this;
@@ -1000,18 +797,23 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction buildPartial() {
           io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction result = new io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction(this);
-          if (assignmentTimeToLiveBuilder_ == null) {
-            result.assignmentTimeToLive_ = assignmentTimeToLive_;
-          } else {
-            result.assignmentTimeToLive_ = assignmentTimeToLiveBuilder_.build();
-          }
-          if (rateLimitStrategyBuilder_ == null) {
-            result.rateLimitStrategy_ = rateLimitStrategy_;
-          } else {
-            result.rateLimitStrategy_ = rateLimitStrategyBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.assignmentTimeToLive_ = assignmentTimeToLiveBuilder_ == null
+                ? assignmentTimeToLive_
+                : assignmentTimeToLiveBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.rateLimitStrategy_ = rateLimitStrategyBuilder_ == null
+                ? rateLimitStrategy_
+                : rateLimitStrategyBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -1064,7 +866,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasRateLimitStrategy()) {
             mergeRateLimitStrategy(other.getRateLimitStrategy());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1079,19 +881,47 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 18: {
+                  input.readMessage(
+                      getAssignmentTimeToLiveFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getRateLimitStrategyFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.QuotaAssignmentAction) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private com.google.protobuf.Duration assignmentTimeToLive_;
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -1123,7 +953,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the assignmentTimeToLive field is set.
          */
         public boolean hasAssignmentTimeToLive() {
-          return assignmentTimeToLiveBuilder_ != null || assignmentTimeToLive_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -1189,11 +1019,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             assignmentTimeToLive_ = value;
-            onChanged();
           } else {
             assignmentTimeToLiveBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1225,11 +1055,11 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.Duration.Builder builderForValue) {
           if (assignmentTimeToLiveBuilder_ == null) {
             assignmentTimeToLive_ = builderForValue.build();
-            onChanged();
           } else {
             assignmentTimeToLiveBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1259,17 +1089,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeAssignmentTimeToLive(com.google.protobuf.Duration value) {
           if (assignmentTimeToLiveBuilder_ == null) {
-            if (assignmentTimeToLive_ != null) {
-              assignmentTimeToLive_ =
-                com.google.protobuf.Duration.newBuilder(assignmentTimeToLive_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              assignmentTimeToLive_ != null &&
+              assignmentTimeToLive_ != com.google.protobuf.Duration.getDefaultInstance()) {
+              getAssignmentTimeToLiveBuilder().mergeFrom(value);
             } else {
               assignmentTimeToLive_ = value;
             }
-            onChanged();
           } else {
             assignmentTimeToLiveBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1298,14 +1129,13 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Duration assignment_time_to_live = 2 [(.validate.rules) = { ... }</code>
          */
         public Builder clearAssignmentTimeToLive() {
-          if (assignmentTimeToLiveBuilder_ == null) {
-            assignmentTimeToLive_ = null;
-            onChanged();
-          } else {
-            assignmentTimeToLive_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          assignmentTimeToLive_ = null;
+          if (assignmentTimeToLiveBuilder_ != null) {
+            assignmentTimeToLiveBuilder_.dispose();
             assignmentTimeToLiveBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1334,7 +1164,7 @@ private static final long serialVersionUID = 0L;
          * <code>.google.protobuf.Duration assignment_time_to_live = 2 [(.validate.rules) = { ... }</code>
          */
         public com.google.protobuf.Duration.Builder getAssignmentTimeToLiveBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getAssignmentTimeToLiveFieldBuilder().getBuilder();
         }
@@ -1423,7 +1253,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the rateLimitStrategy field is set.
          */
         public boolean hasRateLimitStrategy() {
-          return rateLimitStrategyBuilder_ != null || rateLimitStrategy_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -1455,11 +1285,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             rateLimitStrategy_ = value;
-            onChanged();
           } else {
             rateLimitStrategyBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1474,11 +1304,11 @@ private static final long serialVersionUID = 0L;
             io.envoyproxy.envoy.type.v3.RateLimitStrategy.Builder builderForValue) {
           if (rateLimitStrategyBuilder_ == null) {
             rateLimitStrategy_ = builderForValue.build();
-            onChanged();
           } else {
             rateLimitStrategyBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1491,17 +1321,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeRateLimitStrategy(io.envoyproxy.envoy.type.v3.RateLimitStrategy value) {
           if (rateLimitStrategyBuilder_ == null) {
-            if (rateLimitStrategy_ != null) {
-              rateLimitStrategy_ =
-                io.envoyproxy.envoy.type.v3.RateLimitStrategy.newBuilder(rateLimitStrategy_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              rateLimitStrategy_ != null &&
+              rateLimitStrategy_ != io.envoyproxy.envoy.type.v3.RateLimitStrategy.getDefaultInstance()) {
+              getRateLimitStrategyBuilder().mergeFrom(value);
             } else {
               rateLimitStrategy_ = value;
             }
-            onChanged();
           } else {
             rateLimitStrategyBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -1513,14 +1344,13 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.type.v3.RateLimitStrategy rate_limit_strategy = 3;</code>
          */
         public Builder clearRateLimitStrategy() {
-          if (rateLimitStrategyBuilder_ == null) {
-            rateLimitStrategy_ = null;
-            onChanged();
-          } else {
-            rateLimitStrategy_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          rateLimitStrategy_ = null;
+          if (rateLimitStrategyBuilder_ != null) {
+            rateLimitStrategyBuilder_.dispose();
             rateLimitStrategyBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1532,7 +1362,7 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.type.v3.RateLimitStrategy rate_limit_strategy = 3;</code>
          */
         public io.envoyproxy.envoy.type.v3.RateLimitStrategy.Builder getRateLimitStrategyBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getRateLimitStrategyFieldBuilder().getBuilder();
         }
@@ -1606,7 +1436,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new QuotaAssignmentAction(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1682,45 +1523,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private AbandonAction(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.envoyproxy.envoy.service.rate_limit_quota.v3.RlqsProto.internal_static_envoy_service_rate_limit_quota_v3_RateLimitQuotaResponse_BucketAction_AbandonAction_descriptor;
@@ -1748,7 +1550,7 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1757,7 +1559,7 @@ private static final long serialVersionUID = 0L;
         if (size != -1) return size;
 
         size = 0;
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1772,7 +1574,7 @@ private static final long serialVersionUID = 0L;
         }
         io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction other = (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction) obj;
 
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1783,7 +1585,7 @@ private static final long serialVersionUID = 0L;
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1925,18 +1727,13 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
@@ -2015,7 +1812,7 @@ private static final long serialVersionUID = 0L;
 
         public Builder mergeFrom(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction other) {
           if (other == io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction.getDefaultInstance()) return this;
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2030,17 +1827,30 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         @java.lang.Override
@@ -2076,7 +1886,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new AbandonAction(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2172,7 +1993,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketIdOrBuilder getBucketIdOrBuilder() {
-      return getBucketId();
+      return bucketId_ == null ? io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.getDefaultInstance() : bucketId_;
     }
 
     public static final int QUOTA_ASSIGNMENT_ACTION_FIELD_NUMBER = 2;
@@ -2311,7 +2132,7 @@ private static final long serialVersionUID = 0L;
       if (bucketActionCase_ == 3) {
         output.writeMessage(3, (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction) bucketAction_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2332,7 +2153,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.AbandonAction) bucketAction_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2365,7 +2186,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2392,7 +2213,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2514,27 +2335,28 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (bucketIdBuilder_ == null) {
-          bucketId_ = null;
-        } else {
-          bucketId_ = null;
+        bitField0_ = 0;
+        bucketId_ = null;
+        if (bucketIdBuilder_ != null) {
+          bucketIdBuilder_.dispose();
           bucketIdBuilder_ = null;
+        }
+        if (quotaAssignmentActionBuilder_ != null) {
+          quotaAssignmentActionBuilder_.clear();
+        }
+        if (abandonActionBuilder_ != null) {
+          abandonActionBuilder_.clear();
         }
         bucketActionCase_ = 0;
         bucketAction_ = null;
@@ -2564,28 +2386,32 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction buildPartial() {
         io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction result = new io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction(this);
-        if (bucketIdBuilder_ == null) {
-          result.bucketId_ = bucketId_;
-        } else {
-          result.bucketId_ = bucketIdBuilder_.build();
-        }
-        if (bucketActionCase_ == 2) {
-          if (quotaAssignmentActionBuilder_ == null) {
-            result.bucketAction_ = bucketAction_;
-          } else {
-            result.bucketAction_ = quotaAssignmentActionBuilder_.build();
-          }
-        }
-        if (bucketActionCase_ == 3) {
-          if (abandonActionBuilder_ == null) {
-            result.bucketAction_ = bucketAction_;
-          } else {
-            result.bucketAction_ = abandonActionBuilder_.build();
-          }
-        }
-        result.bucketActionCase_ = bucketActionCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bucketId_ = bucketIdBuilder_ == null
+              ? bucketId_
+              : bucketIdBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction result) {
+        result.bucketActionCase_ = bucketActionCase_;
+        result.bucketAction_ = this.bucketAction_;
+        if (bucketActionCase_ == 2 &&
+            quotaAssignmentActionBuilder_ != null) {
+          result.bucketAction_ = quotaAssignmentActionBuilder_.build();
+        }
+        if (bucketActionCase_ == 3 &&
+            abandonActionBuilder_ != null) {
+          result.bucketAction_ = abandonActionBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2648,7 +2474,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2663,17 +2489,51 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getBucketIdFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getQuotaAssignmentActionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bucketActionCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getAbandonActionFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bucketActionCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bucketActionCase_ = 0;
@@ -2691,6 +2551,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId bucketId_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2704,7 +2565,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the bucketId field is set.
        */
       public boolean hasBucketId() {
-        return bucketIdBuilder_ != null || bucketId_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2734,11 +2595,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           bucketId_ = value;
-          onChanged();
         } else {
           bucketIdBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2752,11 +2613,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.Builder builderForValue) {
         if (bucketIdBuilder_ == null) {
           bucketId_ = builderForValue.build();
-          onChanged();
         } else {
           bucketIdBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2768,17 +2629,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeBucketId(io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId value) {
         if (bucketIdBuilder_ == null) {
-          if (bucketId_ != null) {
-            bucketId_ =
-              io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.newBuilder(bucketId_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            bucketId_ != null &&
+            bucketId_ != io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.getDefaultInstance()) {
+            getBucketIdBuilder().mergeFrom(value);
           } else {
             bucketId_ = value;
           }
-          onChanged();
         } else {
           bucketIdBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2789,14 +2651,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.service.rate_limit_quota.v3.BucketId bucket_id = 1 [(.validate.rules) = { ... }</code>
        */
       public Builder clearBucketId() {
-        if (bucketIdBuilder_ == null) {
-          bucketId_ = null;
-          onChanged();
-        } else {
-          bucketId_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        bucketId_ = null;
+        if (bucketIdBuilder_ != null) {
+          bucketIdBuilder_.dispose();
           bucketIdBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2807,7 +2668,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.service.rate_limit_quota.v3.BucketId bucket_id = 1 [(.validate.rules) = { ... }</code>
        */
       public io.envoyproxy.envoy.service.rate_limit_quota.v3.BucketId.Builder getBucketIdBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getBucketIdFieldBuilder().getBuilder();
       }
@@ -3066,7 +2927,7 @@ private static final long serialVersionUID = 0L;
           bucketAction_ = null;
         }
         bucketActionCase_ = 2;
-        onChanged();;
+        onChanged();
         return quotaAssignmentActionBuilder_;
       }
 
@@ -3280,7 +3141,7 @@ private static final long serialVersionUID = 0L;
           bucketAction_ = null;
         }
         bucketActionCase_ = 3;
-        onChanged();;
+        onChanged();
         return abandonActionBuilder_;
       }
       @java.lang.Override
@@ -3316,7 +3177,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BucketAction(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3337,6 +3209,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUCKET_ACTION_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction> bucketAction_;
   /**
    * <pre>
@@ -3418,7 +3291,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < bucketAction_.size(); i++) {
       output.writeMessage(1, bucketAction_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3431,7 +3304,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, bucketAction_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3448,7 +3321,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getBucketActionList()
         .equals(other.getBucketActionList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3463,7 +3336,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BUCKET_ACTION_FIELD_NUMBER;
       hash = (53 * hash) + getBucketActionList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3580,29 +3453,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getBucketActionFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (bucketActionBuilder_ == null) {
         bucketAction_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        bucketAction_ = null;
         bucketActionBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -3629,7 +3498,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse buildPartial() {
       io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse result = new io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse result) {
       if (bucketActionBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           bucketAction_ = java.util.Collections.unmodifiableList(bucketAction_);
@@ -3639,8 +3514,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.bucketAction_ = bucketActionBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -3713,7 +3590,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3728,17 +3605,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse.BucketAction.parser(),
+                      extensionRegistry);
+              if (bucketActionBuilder_ == null) {
+                ensureBucketActionIsMutable();
+                bucketAction_.add(m);
+              } else {
+                bucketActionBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.rate_limit_quota.v3.RateLimitQuotaResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4105,7 +4008,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RateLimitQuotaResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

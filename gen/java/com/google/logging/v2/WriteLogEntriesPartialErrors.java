@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WriteLogEntriesPartialErrors(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              logEntryErrors_ = com.google.protobuf.MapField.newMapField(
-                  LogEntryErrorsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.Integer, com.google.rpc.Status>
-            logEntryErrors__ = input.readMessage(
-                LogEntryErrorsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            logEntryErrors_.getMutableMap().put(
-                logEntryErrors__.getKey(), logEntryErrors__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.logging.v2.LoggingProto.internal_static_google_logging_v2_WriteLogEntriesPartialErrors_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.rpc.Status.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.Integer, com.google.rpc.Status> logEntryErrors_;
   private com.google.protobuf.MapField<java.lang.Integer, com.google.rpc.Status>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return logEntryErrors_;
   }
-
   public int getLogEntryErrorsCount() {
     return internalGetLogEntryErrors().getMap().size();
   }
@@ -149,7 +96,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsLogEntryErrors(
       int key) {
@@ -176,7 +122,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.Integer, com.google.rpc.Status> getLogEntryErrorsMap() {
     return internalGetLogEntryErrors().getMap();
   }
@@ -192,10 +137,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.rpc.Status getLogEntryErrorsOrDefault(
+  public /* nullable */
+com.google.rpc.Status getLogEntryErrorsOrDefault(
       int key,
-      com.google.rpc.Status defaultValue) {
+      /* nullable */
+com.google.rpc.Status defaultValue) {
     
     java.util.Map<java.lang.Integer, com.google.rpc.Status> map =
         internalGetLogEntryErrors().getMap();
@@ -213,7 +159,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
    */
   @java.lang.Override
-
   public com.google.rpc.Status getLogEntryErrorsOrThrow(
       int key) {
     
@@ -245,7 +190,7 @@ private static final long serialVersionUID = 0L;
         internalGetLogEntryErrors(),
         LogEntryErrorsDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -264,7 +209,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, logEntryErrors__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -281,7 +226,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetLogEntryErrors().equals(
         other.internalGetLogEntryErrors())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -296,7 +241,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOG_ENTRY_ERRORS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLogEntryErrors().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -439,22 +384,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.logging.v2.WriteLogEntriesPartialErrors.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableLogEntryErrors().clear();
       return this;
     }
@@ -482,11 +423,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.logging.v2.WriteLogEntriesPartialErrors buildPartial() {
       com.google.logging.v2.WriteLogEntriesPartialErrors result = new com.google.logging.v2.WriteLogEntriesPartialErrors(this);
-      int from_bitField0_ = bitField0_;
-      result.logEntryErrors_ = internalGetLogEntryErrors();
-      result.logEntryErrors_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.logging.v2.WriteLogEntriesPartialErrors result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.logEntryErrors_ = internalGetLogEntryErrors();
+        result.logEntryErrors_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -535,7 +482,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.logging.v2.WriteLogEntriesPartialErrors.getDefaultInstance()) return this;
       internalGetMutableLogEntryErrors().mergeFrom(
           other.internalGetLogEntryErrors());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -550,17 +498,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.logging.v2.WriteLogEntriesPartialErrors parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.rpc.Status>
+              logEntryErrors__ = input.readMessage(
+                  LogEntryErrorsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLogEntryErrors().getMutableMap().put(
+                  logEntryErrors__.getKey(), logEntryErrors__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.logging.v2.WriteLogEntriesPartialErrors) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -568,7 +538,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.Integer, com.google.rpc.Status> logEntryErrors_;
     private com.google.protobuf.MapField<java.lang.Integer, com.google.rpc.Status>
-    internalGetLogEntryErrors() {
+        internalGetLogEntryErrors() {
       if (logEntryErrors_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LogEntryErrorsDefaultEntryHolder.defaultEntry);
@@ -576,8 +546,7 @@ private static final long serialVersionUID = 0L;
       return logEntryErrors_;
     }
     private com.google.protobuf.MapField<java.lang.Integer, com.google.rpc.Status>
-    internalGetMutableLogEntryErrors() {
-      onChanged();;
+        internalGetMutableLogEntryErrors() {
       if (logEntryErrors_ == null) {
         logEntryErrors_ = com.google.protobuf.MapField.newMapField(
             LogEntryErrorsDefaultEntryHolder.defaultEntry);
@@ -585,9 +554,10 @@ private static final long serialVersionUID = 0L;
       if (!logEntryErrors_.isMutable()) {
         logEntryErrors_ = logEntryErrors_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return logEntryErrors_;
     }
-
     public int getLogEntryErrorsCount() {
       return internalGetLogEntryErrors().getMap().size();
     }
@@ -602,7 +572,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsLogEntryErrors(
         int key) {
@@ -629,7 +598,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.Integer, com.google.rpc.Status> getLogEntryErrorsMap() {
       return internalGetLogEntryErrors().getMap();
     }
@@ -645,10 +613,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.rpc.Status getLogEntryErrorsOrDefault(
+    public /* nullable */
+com.google.rpc.Status getLogEntryErrorsOrDefault(
         int key,
-        com.google.rpc.Status defaultValue) {
+        /* nullable */
+com.google.rpc.Status defaultValue) {
       
       java.util.Map<java.lang.Integer, com.google.rpc.Status> map =
           internalGetLogEntryErrors().getMap();
@@ -666,7 +635,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
      */
     @java.lang.Override
-
     public com.google.rpc.Status getLogEntryErrorsOrThrow(
         int key) {
       
@@ -677,8 +645,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLogEntryErrors() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableLogEntryErrors().getMutableMap()
           .clear();
       return this;
@@ -694,7 +662,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
      */
-
     public Builder removeLogEntryErrors(
         int key) {
       
@@ -707,7 +674,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.Integer, com.google.rpc.Status>
-    getMutableLogEntryErrors() {
+        getMutableLogEntryErrors() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableLogEntryErrors().getMutableMap();
     }
     /**
@@ -725,12 +693,10 @@ private static final long serialVersionUID = 0L;
         int key,
         com.google.rpc.Status value) {
       
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLogEntryErrors().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -744,11 +710,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;int32, .google.rpc.Status&gt; log_entry_errors = 1;</code>
      */
-
     public Builder putAllLogEntryErrors(
         java.util.Map<java.lang.Integer, com.google.rpc.Status> values) {
       internalGetMutableLogEntryErrors().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -784,7 +750,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WriteLogEntriesPartialErrors(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

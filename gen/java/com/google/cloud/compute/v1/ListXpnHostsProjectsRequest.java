@@ -38,93 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListXpnHostsProjectsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 159957578: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            pageToken_ = s;
-            break;
-          }
-          case 437723352: {
-            bitField0_ |= 0x00000002;
-            maxResults_ = input.readUInt32();
-            break;
-          }
-          case 1284503362: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            orderBy_ = s;
-            break;
-          }
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 1906131130: {
-            com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.Builder subBuilder = null;
-            if (projectsListXpnHostsRequestResource_ != null) {
-              subBuilder = projectsListXpnHostsRequestResource_.toBuilder();
-            }
-            projectsListXpnHostsRequestResource_ = input.readMessage(com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(projectsListXpnHostsRequestResource_);
-              projectsListXpnHostsRequestResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case -1606001726: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            filter_ = s;
-            break;
-          }
-          case -157380176: {
-            bitField0_ |= 0x00000010;
-            returnPartialSuccess_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ListXpnHostsProjectsRequest_descriptor;
@@ -140,7 +53,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int FILTER_FIELD_NUMBER = 336120696;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * A filter expression that filters resources listed in the response. Most Compute resources support two types of filter expressions: expressions that support regular expressions and expressions that follow API improvement proposal AIP-160. If you want to use AIP-160, your expression must specify the field name, an operator, and the value that you want to use for filtering. The value must be a string, a number, or a boolean. The operator must be either `=`, `!=`, `&gt;`, `&lt;`, `&lt;=`, `&gt;=` or `:`. For example, if you are filtering Compute Engine instances, you can exclude instances named `example-instance` by specifying `name != example-instance`. The `:` operator can be used with string fields to match substrings. For non-string fields it is equivalent to the `=` operator. The `:*` comparison can be used to test whether a key has been defined. For example, to find all objects with `owner` label use: ``` labels.owner:* ``` You can also filter nested fields. For example, you could specify `scheduling.automaticRestart = false` to include instances only if they are not scheduled for automatic restarts. You can use filtering on nested fields to filter based on resource labels. To filter on multiple expressions, provide each separate expression within parentheses. For example: ``` (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND` expression. However, you can include `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND (scheduling.automaticRestart = true) ``` If you want to use a regular expression, use the `eq` (equal) or `ne` (not equal) operator against a single un-parenthesized expression with or without quotes or against multiple parenthesized expressions. Examples: `fieldname eq unquoted literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal value is interpreted as a regular expression using Google RE2 library syntax. The literal value must match the entire field. For example, to filter for instances that do not end with name "instance", you would use `name ne .*instance`.
@@ -198,7 +112,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RESULTS_FIELD_NUMBER = 54715419;
-  private int maxResults_;
+  private int maxResults_ = 0;
   /**
    * <pre>
    * The maximum number of results per page that should be returned. If the number of available results is larger than `maxResults`, Compute Engine returns a `nextPageToken` that can be used to get the next page of results in subsequent list requests. Acceptable values are `0` to `500`, inclusive. (Default: `500`)
@@ -225,7 +139,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 160562920;
-  private volatile java.lang.Object orderBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
   /**
    * <pre>
    * Sorts list results by a certain order. By default, results are returned in alphanumerical order based on the resource name. You can also sort results in descending order based on the creation timestamp using `orderBy="creationTimestamp desc"`. This sorts results based on the `creationTimestamp` field in reverse chronological order (newest result first). Use this to sort resources like operations so that the newest operation is returned first. Currently, only sorting by `name` or `creationTimestamp desc` is supported.
@@ -283,7 +198,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 19994697;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * Specifies a page token to use. Set `pageToken` to the `nextPageToken` returned by a previous list request to get the next page of results.
@@ -341,7 +257,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -421,11 +338,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.ProjectsListXpnHostsRequestOrBuilder getProjectsListXpnHostsRequestResourceOrBuilder() {
-    return getProjectsListXpnHostsRequestResource();
+    return projectsListXpnHostsRequestResource_ == null ? com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.getDefaultInstance() : projectsListXpnHostsRequestResource_;
   }
 
   public static final int RETURN_PARTIAL_SUCCESS_FIELD_NUMBER = 517198390;
-  private boolean returnPartialSuccess_;
+  private boolean returnPartialSuccess_ = false;
   /**
    * <pre>
    * Opt-in for partial success behavior which provides partial results in case of failure. The default value is false.
@@ -486,7 +403,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000010) != 0)) {
       output.writeBool(517198390, returnPartialSuccess_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -519,7 +436,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(517198390, returnPartialSuccess_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -566,7 +483,7 @@ private static final long serialVersionUID = 0L;
       if (getReturnPartialSuccess()
           != other.getReturnPartialSuccess()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -604,7 +521,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getReturnPartialSuccess());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -725,40 +642,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.ListXpnHostsProjectsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       filter_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       maxResults_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
       orderBy_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       pageToken_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       project_ = "";
-
-      if (projectsListXpnHostsRequestResourceBuilder_ == null) {
-        projectsListXpnHostsRequestResource_ = null;
-      } else {
-        projectsListXpnHostsRequestResource_ = null;
+      projectsListXpnHostsRequestResource_ = null;
+      if (projectsListXpnHostsRequestResourceBuilder_ != null) {
+        projectsListXpnHostsRequestResourceBuilder_.dispose();
         projectsListXpnHostsRequestResourceBuilder_ = null;
       }
       returnPartialSuccess_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -785,37 +691,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ListXpnHostsProjectsRequest buildPartial() {
       com.google.cloud.compute.v1.ListXpnHostsProjectsRequest result = new com.google.cloud.compute.v1.ListXpnHostsProjectsRequest(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ListXpnHostsProjectsRequest result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.filter_ = filter_;
         to_bitField0_ |= 0x00000001;
       }
-      result.filter_ = filter_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.maxResults_ = maxResults_;
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.orderBy_ = orderBy_;
         to_bitField0_ |= 0x00000004;
       }
-      result.orderBy_ = orderBy_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageToken_ = pageToken_;
         to_bitField0_ |= 0x00000008;
       }
-      result.pageToken_ = pageToken_;
-      result.project_ = project_;
-      if (projectsListXpnHostsRequestResourceBuilder_ == null) {
-        result.projectsListXpnHostsRequestResource_ = projectsListXpnHostsRequestResource_;
-      } else {
-        result.projectsListXpnHostsRequestResource_ = projectsListXpnHostsRequestResourceBuilder_.build();
-      }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.projectsListXpnHostsRequestResource_ = projectsListXpnHostsRequestResourceBuilder_ == null
+            ? projectsListXpnHostsRequestResource_
+            : projectsListXpnHostsRequestResourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.returnPartialSuccess_ = returnPartialSuccess_;
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -863,25 +775,26 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.ListXpnHostsProjectsRequest other) {
       if (other == com.google.cloud.compute.v1.ListXpnHostsProjectsRequest.getDefaultInstance()) return this;
       if (other.hasFilter()) {
-        bitField0_ |= 0x00000001;
         filter_ = other.filter_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasMaxResults()) {
         setMaxResults(other.getMaxResults());
       }
       if (other.hasOrderBy()) {
-        bitField0_ |= 0x00000004;
         orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasPageToken()) {
-        bitField0_ |= 0x00000008;
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasProjectsListXpnHostsRequestResource()) {
@@ -890,7 +803,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasReturnPartialSuccess()) {
         setReturnPartialSuccess(other.getReturnPartialSuccess());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -905,17 +818,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ListXpnHostsProjectsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 159957578: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 159957578
+            case 437723352: {
+              maxResults_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 437723352
+            case 1284503362: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1284503362
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1820481738
+            case 1906131130: {
+              input.readMessage(
+                  getProjectsListXpnHostsRequestResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1906131130
+            case -1606001726: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -1606001726
+            case -157380176: {
+              returnPartialSuccess_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -157380176
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ListXpnHostsProjectsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -984,11 +947,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1001,8 +962,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1017,12 +978,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1062,8 +1021,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxResults(int value) {
-      bitField0_ |= 0x00000002;
+      
       maxResults_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1146,11 +1106,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       orderBy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1163,8 +1121,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1179,12 +1137,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderBy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1253,11 +1209,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1270,8 +1224,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1286,12 +1240,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1349,11 +1301,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1366,8 +1316,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1382,12 +1332,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1404,7 +1352,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the projectsListXpnHostsRequestResource field is set.
      */
     public boolean hasProjectsListXpnHostsRequestResource() {
-      return projectsListXpnHostsRequestResourceBuilder_ != null || projectsListXpnHostsRequestResource_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1434,11 +1382,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         projectsListXpnHostsRequestResource_ = value;
-        onChanged();
       } else {
         projectsListXpnHostsRequestResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1452,11 +1400,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.Builder builderForValue) {
       if (projectsListXpnHostsRequestResourceBuilder_ == null) {
         projectsListXpnHostsRequestResource_ = builderForValue.build();
-        onChanged();
       } else {
         projectsListXpnHostsRequestResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1468,17 +1416,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProjectsListXpnHostsRequestResource(com.google.cloud.compute.v1.ProjectsListXpnHostsRequest value) {
       if (projectsListXpnHostsRequestResourceBuilder_ == null) {
-        if (projectsListXpnHostsRequestResource_ != null) {
-          projectsListXpnHostsRequestResource_ =
-            com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.newBuilder(projectsListXpnHostsRequestResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          projectsListXpnHostsRequestResource_ != null &&
+          projectsListXpnHostsRequestResource_ != com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.getDefaultInstance()) {
+          getProjectsListXpnHostsRequestResourceBuilder().mergeFrom(value);
         } else {
           projectsListXpnHostsRequestResource_ = value;
         }
-        onChanged();
       } else {
         projectsListXpnHostsRequestResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1489,14 +1438,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.ProjectsListXpnHostsRequest projects_list_xpn_hosts_request_resource = 238266391 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearProjectsListXpnHostsRequestResource() {
-      if (projectsListXpnHostsRequestResourceBuilder_ == null) {
-        projectsListXpnHostsRequestResource_ = null;
-        onChanged();
-      } else {
-        projectsListXpnHostsRequestResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      projectsListXpnHostsRequestResource_ = null;
+      if (projectsListXpnHostsRequestResourceBuilder_ != null) {
+        projectsListXpnHostsRequestResourceBuilder_.dispose();
         projectsListXpnHostsRequestResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1507,7 +1455,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.ProjectsListXpnHostsRequest projects_list_xpn_hosts_request_resource = 238266391 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.ProjectsListXpnHostsRequest.Builder getProjectsListXpnHostsRequestResourceBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getProjectsListXpnHostsRequestResourceFieldBuilder().getBuilder();
     }
@@ -1558,7 +1506,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasReturnPartialSuccess() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1582,8 +1530,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReturnPartialSuccess(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       returnPartialSuccess_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1596,7 +1545,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReturnPartialSuccess() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000040);
       returnPartialSuccess_ = false;
       onChanged();
       return this;
@@ -1634,7 +1583,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListXpnHostsProjectsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

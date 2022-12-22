@@ -5,10 +5,10 @@ package com.google.cloud.iap.v1;
 
 /**
  * <pre>
- * Configuration for RCTokens generated for CSM workloads protected by IAP.
- * RCTokens are IAP generated JWTs that can be verified at the application. The
- * RCToken is primarily used for ISTIO deployments, and can be scoped to a
- * single mesh by configuring the audience field accordingly
+ * Configuration for RCToken generated for service mesh workloads protected by
+ * IAP. RCToken are IAP generated JWTs that can be verified at the application.
+ * The RCToken is primarily used for service mesh deployments, and can be scoped
+ * to a single mesh by configuring the audience field accordingly.
  * </pre>
  *
  * Protobuf type {@code google.cloud.iap.v1.CsmSettings}
@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private CsmSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (rctokenAud_ != null) {
-              subBuilder = rctokenAud_.toBuilder();
-            }
-            rctokenAud_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rctokenAud_);
-              rctokenAud_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -140,7 +88,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getRctokenAudOrBuilder() {
-    return getRctokenAud();
+    return rctokenAud_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : rctokenAud_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -160,7 +108,7 @@ private static final long serialVersionUID = 0L;
     if (rctokenAud_ != null) {
       output.writeMessage(1, getRctokenAud());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -173,7 +121,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getRctokenAud());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -193,7 +141,7 @@ private static final long serialVersionUID = 0L;
       if (!getRctokenAud()
           .equals(other.getRctokenAud())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -208,7 +156,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RCTOKEN_AUD_FIELD_NUMBER;
       hash = (53 * hash) + getRctokenAud().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -305,10 +253,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Configuration for RCTokens generated for CSM workloads protected by IAP.
-   * RCTokens are IAP generated JWTs that can be verified at the application. The
-   * RCToken is primarily used for ISTIO deployments, and can be scoped to a
-   * single mesh by configuring the audience field accordingly
+   * Configuration for RCToken generated for service mesh workloads protected by
+   * IAP. RCToken are IAP generated JWTs that can be verified at the application.
+   * The RCToken is primarily used for service mesh deployments, and can be scoped
+   * to a single mesh by configuring the audience field accordingly.
    * </pre>
    *
    * Protobuf type {@code google.cloud.iap.v1.CsmSettings}
@@ -332,26 +280,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.CsmSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rctokenAudBuilder_ == null) {
-        rctokenAud_ = null;
-      } else {
-        rctokenAud_ = null;
+      bitField0_ = 0;
+      rctokenAud_ = null;
+      if (rctokenAudBuilder_ != null) {
+        rctokenAudBuilder_.dispose();
         rctokenAudBuilder_ = null;
       }
       return this;
@@ -380,13 +323,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.CsmSettings buildPartial() {
       com.google.cloud.iap.v1.CsmSettings result = new com.google.cloud.iap.v1.CsmSettings(this);
-      if (rctokenAudBuilder_ == null) {
-        result.rctokenAud_ = rctokenAud_;
-      } else {
-        result.rctokenAud_ = rctokenAudBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.CsmSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rctokenAud_ = rctokenAudBuilder_ == null
+            ? rctokenAud_
+            : rctokenAudBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -436,7 +384,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRctokenAud()) {
         mergeRctokenAud(other.getRctokenAud());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -451,19 +399,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.CsmSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRctokenAudFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.CsmSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.StringValue rctokenAud_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -478,7 +447,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rctokenAud field is set.
      */
     public boolean hasRctokenAud() {
-      return rctokenAudBuilder_ != null || rctokenAud_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -510,11 +479,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rctokenAud_ = value;
-        onChanged();
       } else {
         rctokenAudBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -529,11 +498,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.StringValue.Builder builderForValue) {
       if (rctokenAudBuilder_ == null) {
         rctokenAud_ = builderForValue.build();
-        onChanged();
       } else {
         rctokenAudBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -546,17 +515,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRctokenAud(com.google.protobuf.StringValue value) {
       if (rctokenAudBuilder_ == null) {
-        if (rctokenAud_ != null) {
-          rctokenAud_ =
-            com.google.protobuf.StringValue.newBuilder(rctokenAud_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          rctokenAud_ != null &&
+          rctokenAud_ != com.google.protobuf.StringValue.getDefaultInstance()) {
+          getRctokenAudBuilder().mergeFrom(value);
         } else {
           rctokenAud_ = value;
         }
-        onChanged();
       } else {
         rctokenAudBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -568,14 +538,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue rctoken_aud = 1;</code>
      */
     public Builder clearRctokenAud() {
-      if (rctokenAudBuilder_ == null) {
-        rctokenAud_ = null;
-        onChanged();
-      } else {
-        rctokenAud_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      rctokenAud_ = null;
+      if (rctokenAudBuilder_ != null) {
+        rctokenAudBuilder_.dispose();
         rctokenAudBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -587,7 +556,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue rctoken_aud = 1;</code>
      */
     public com.google.protobuf.StringValue.Builder getRctokenAudBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRctokenAudFieldBuilder().getBuilder();
     }
@@ -661,7 +630,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CsmSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

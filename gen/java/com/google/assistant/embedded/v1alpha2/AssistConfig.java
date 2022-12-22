@@ -34,130 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AssistConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.assistant.embedded.v1alpha2.AudioInConfig.Builder subBuilder = null;
-            if (typeCase_ == 1) {
-              subBuilder = ((com.google.assistant.embedded.v1alpha2.AudioInConfig) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.assistant.embedded.v1alpha2.AudioInConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.assistant.embedded.v1alpha2.AudioInConfig) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.assistant.embedded.v1alpha2.AudioOutConfig.Builder subBuilder = null;
-            if (audioOutConfig_ != null) {
-              subBuilder = audioOutConfig_.toBuilder();
-            }
-            audioOutConfig_ = input.readMessage(com.google.assistant.embedded.v1alpha2.AudioOutConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audioOutConfig_);
-              audioOutConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.assistant.embedded.v1alpha2.DialogStateIn.Builder subBuilder = null;
-            if (dialogStateIn_ != null) {
-              subBuilder = dialogStateIn_.toBuilder();
-            }
-            dialogStateIn_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DialogStateIn.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dialogStateIn_);
-              dialogStateIn_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.assistant.embedded.v1alpha2.DeviceConfig.Builder subBuilder = null;
-            if (deviceConfig_ != null) {
-              subBuilder = deviceConfig_.toBuilder();
-            }
-            deviceConfig_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DeviceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deviceConfig_);
-              deviceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.assistant.embedded.v1alpha2.DebugConfig.Builder subBuilder = null;
-            if (debugConfig_ != null) {
-              subBuilder = debugConfig_.toBuilder();
-            }
-            debugConfig_ = input.readMessage(com.google.assistant.embedded.v1alpha2.DebugConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(debugConfig_);
-              debugConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            typeCase_ = 6;
-            type_ = s;
-            break;
-          }
-          case 66: {
-            com.google.assistant.embedded.v1alpha2.ScreenOutConfig.Builder subBuilder = null;
-            if (screenOutConfig_ != null) {
-              subBuilder = screenOutConfig_.toBuilder();
-            }
-            screenOutConfig_ = input.readMessage(com.google.assistant.embedded.v1alpha2.ScreenOutConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(screenOutConfig_);
-              screenOutConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha2.AssistantProto.internal_static_google_assistant_embedded_v1alpha2_AssistConfig_descriptor;
@@ -363,7 +239,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.AudioOutConfigOrBuilder getAudioOutConfigOrBuilder() {
-    return getAudioOutConfig();
+    return audioOutConfig_ == null ? com.google.assistant.embedded.v1alpha2.AudioOutConfig.getDefaultInstance() : audioOutConfig_;
   }
 
   public static final int SCREEN_OUT_CONFIG_FIELD_NUMBER = 8;
@@ -404,7 +280,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.ScreenOutConfigOrBuilder getScreenOutConfigOrBuilder() {
-    return getScreenOutConfig();
+    return screenOutConfig_ == null ? com.google.assistant.embedded.v1alpha2.ScreenOutConfig.getDefaultInstance() : screenOutConfig_;
   }
 
   public static final int DIALOG_STATE_IN_FIELD_NUMBER = 3;
@@ -442,7 +318,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DialogStateInOrBuilder getDialogStateInOrBuilder() {
-    return getDialogStateIn();
+    return dialogStateIn_ == null ? com.google.assistant.embedded.v1alpha2.DialogStateIn.getDefaultInstance() : dialogStateIn_;
   }
 
   public static final int DEVICE_CONFIG_FIELD_NUMBER = 4;
@@ -480,7 +356,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DeviceConfigOrBuilder getDeviceConfigOrBuilder() {
-    return getDeviceConfig();
+    return deviceConfig_ == null ? com.google.assistant.embedded.v1alpha2.DeviceConfig.getDefaultInstance() : deviceConfig_;
   }
 
   public static final int DEBUG_CONFIG_FIELD_NUMBER = 5;
@@ -518,7 +394,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha2.DebugConfigOrBuilder getDebugConfigOrBuilder() {
-    return getDebugConfig();
+    return debugConfig_ == null ? com.google.assistant.embedded.v1alpha2.DebugConfig.getDefaultInstance() : debugConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -556,7 +432,7 @@ private static final long serialVersionUID = 0L;
     if (screenOutConfig_ != null) {
       output.writeMessage(8, getScreenOutConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -592,7 +468,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getScreenOutConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -645,7 +521,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -688,7 +564,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -809,50 +685,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha2.AssistConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (audioOutConfigBuilder_ == null) {
-        audioOutConfig_ = null;
-      } else {
-        audioOutConfig_ = null;
+      bitField0_ = 0;
+      if (audioInConfigBuilder_ != null) {
+        audioInConfigBuilder_.clear();
+      }
+      audioOutConfig_ = null;
+      if (audioOutConfigBuilder_ != null) {
+        audioOutConfigBuilder_.dispose();
         audioOutConfigBuilder_ = null;
       }
-      if (screenOutConfigBuilder_ == null) {
-        screenOutConfig_ = null;
-      } else {
-        screenOutConfig_ = null;
+      screenOutConfig_ = null;
+      if (screenOutConfigBuilder_ != null) {
+        screenOutConfigBuilder_.dispose();
         screenOutConfigBuilder_ = null;
       }
-      if (dialogStateInBuilder_ == null) {
-        dialogStateIn_ = null;
-      } else {
-        dialogStateIn_ = null;
+      dialogStateIn_ = null;
+      if (dialogStateInBuilder_ != null) {
+        dialogStateInBuilder_.dispose();
         dialogStateInBuilder_ = null;
       }
-      if (deviceConfigBuilder_ == null) {
-        deviceConfig_ = null;
-      } else {
-        deviceConfig_ = null;
+      deviceConfig_ = null;
+      if (deviceConfigBuilder_ != null) {
+        deviceConfigBuilder_.dispose();
         deviceConfigBuilder_ = null;
       }
-      if (debugConfigBuilder_ == null) {
-        debugConfig_ = null;
-      } else {
-        debugConfig_ = null;
+      debugConfig_ = null;
+      if (debugConfigBuilder_ != null) {
+        debugConfigBuilder_.dispose();
         debugConfigBuilder_ = null;
       }
       typeCase_ = 0;
@@ -883,44 +753,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha2.AssistConfig buildPartial() {
       com.google.assistant.embedded.v1alpha2.AssistConfig result = new com.google.assistant.embedded.v1alpha2.AssistConfig(this);
-      if (typeCase_ == 1) {
-        if (audioInConfigBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = audioInConfigBuilder_.build();
-        }
-      }
-      if (typeCase_ == 6) {
-        result.type_ = type_;
-      }
-      if (audioOutConfigBuilder_ == null) {
-        result.audioOutConfig_ = audioOutConfig_;
-      } else {
-        result.audioOutConfig_ = audioOutConfigBuilder_.build();
-      }
-      if (screenOutConfigBuilder_ == null) {
-        result.screenOutConfig_ = screenOutConfig_;
-      } else {
-        result.screenOutConfig_ = screenOutConfigBuilder_.build();
-      }
-      if (dialogStateInBuilder_ == null) {
-        result.dialogStateIn_ = dialogStateIn_;
-      } else {
-        result.dialogStateIn_ = dialogStateInBuilder_.build();
-      }
-      if (deviceConfigBuilder_ == null) {
-        result.deviceConfig_ = deviceConfig_;
-      } else {
-        result.deviceConfig_ = deviceConfigBuilder_.build();
-      }
-      if (debugConfigBuilder_ == null) {
-        result.debugConfig_ = debugConfig_;
-      } else {
-        result.debugConfig_ = debugConfigBuilder_.build();
-      }
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha2.AssistConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.audioOutConfig_ = audioOutConfigBuilder_ == null
+            ? audioOutConfig_
+            : audioOutConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.screenOutConfig_ = screenOutConfigBuilder_ == null
+            ? screenOutConfig_
+            : screenOutConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dialogStateIn_ = dialogStateInBuilder_ == null
+            ? dialogStateIn_
+            : dialogStateInBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.deviceConfig_ = deviceConfigBuilder_ == null
+            ? deviceConfig_
+            : deviceConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.debugConfig_ = debugConfigBuilder_ == null
+            ? debugConfig_
+            : debugConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.assistant.embedded.v1alpha2.AssistConfig result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 1 &&
+          audioInConfigBuilder_ != null) {
+        result.type_ = audioInConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -997,7 +871,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1012,17 +886,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha2.AssistConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAudioInConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAudioOutConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDialogStateInFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDeviceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDebugConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              typeCase_ = 6;
+              type_ = s;
+              break;
+            } // case 50
+            case 66: {
+              input.readMessage(
+                  getScreenOutConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha2.AssistConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -1040,6 +975,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.assistant.embedded.v1alpha2.AudioInConfig, com.google.assistant.embedded.v1alpha2.AudioInConfig.Builder, com.google.assistant.embedded.v1alpha2.AudioInConfigOrBuilder> audioInConfigBuilder_;
@@ -1233,7 +1169,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 1;
-      onChanged();;
+      onChanged();
       return audioInConfigBuilder_;
     }
 
@@ -1317,10 +1253,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTextQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  typeCase_ = 6;
+      if (value == null) { throw new NullPointerException(); }
+      typeCase_ = 6;
       type_ = value;
       onChanged();
       return this;
@@ -1354,10 +1288,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTextQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       typeCase_ = 6;
       type_ = value;
       onChanged();
@@ -1376,7 +1308,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audioOutConfig field is set.
      */
     public boolean hasAudioOutConfig() {
-      return audioOutConfigBuilder_ != null || audioOutConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1406,11 +1338,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audioOutConfig_ = value;
-        onChanged();
       } else {
         audioOutConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1424,11 +1356,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.AudioOutConfig.Builder builderForValue) {
       if (audioOutConfigBuilder_ == null) {
         audioOutConfig_ = builderForValue.build();
-        onChanged();
       } else {
         audioOutConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1440,17 +1372,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudioOutConfig(com.google.assistant.embedded.v1alpha2.AudioOutConfig value) {
       if (audioOutConfigBuilder_ == null) {
-        if (audioOutConfig_ != null) {
-          audioOutConfig_ =
-            com.google.assistant.embedded.v1alpha2.AudioOutConfig.newBuilder(audioOutConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          audioOutConfig_ != null &&
+          audioOutConfig_ != com.google.assistant.embedded.v1alpha2.AudioOutConfig.getDefaultInstance()) {
+          getAudioOutConfigBuilder().mergeFrom(value);
         } else {
           audioOutConfig_ = value;
         }
-        onChanged();
       } else {
         audioOutConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1461,14 +1394,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.AudioOutConfig audio_out_config = 2;</code>
      */
     public Builder clearAudioOutConfig() {
-      if (audioOutConfigBuilder_ == null) {
-        audioOutConfig_ = null;
-        onChanged();
-      } else {
-        audioOutConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      audioOutConfig_ = null;
+      if (audioOutConfigBuilder_ != null) {
+        audioOutConfigBuilder_.dispose();
         audioOutConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1479,7 +1411,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.AudioOutConfig audio_out_config = 2;</code>
      */
     public com.google.assistant.embedded.v1alpha2.AudioOutConfig.Builder getAudioOutConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAudioOutConfigFieldBuilder().getBuilder();
     }
@@ -1532,7 +1464,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the screenOutConfig field is set.
      */
     public boolean hasScreenOutConfig() {
-      return screenOutConfigBuilder_ != null || screenOutConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1564,11 +1496,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         screenOutConfig_ = value;
-        onChanged();
       } else {
         screenOutConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1583,11 +1515,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.ScreenOutConfig.Builder builderForValue) {
       if (screenOutConfigBuilder_ == null) {
         screenOutConfig_ = builderForValue.build();
-        onChanged();
       } else {
         screenOutConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1600,17 +1532,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScreenOutConfig(com.google.assistant.embedded.v1alpha2.ScreenOutConfig value) {
       if (screenOutConfigBuilder_ == null) {
-        if (screenOutConfig_ != null) {
-          screenOutConfig_ =
-            com.google.assistant.embedded.v1alpha2.ScreenOutConfig.newBuilder(screenOutConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          screenOutConfig_ != null &&
+          screenOutConfig_ != com.google.assistant.embedded.v1alpha2.ScreenOutConfig.getDefaultInstance()) {
+          getScreenOutConfigBuilder().mergeFrom(value);
         } else {
           screenOutConfig_ = value;
         }
-        onChanged();
       } else {
         screenOutConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1622,14 +1555,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.ScreenOutConfig screen_out_config = 8;</code>
      */
     public Builder clearScreenOutConfig() {
-      if (screenOutConfigBuilder_ == null) {
-        screenOutConfig_ = null;
-        onChanged();
-      } else {
-        screenOutConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      screenOutConfig_ = null;
+      if (screenOutConfigBuilder_ != null) {
+        screenOutConfigBuilder_.dispose();
         screenOutConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1641,7 +1573,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.ScreenOutConfig screen_out_config = 8;</code>
      */
     public com.google.assistant.embedded.v1alpha2.ScreenOutConfig.Builder getScreenOutConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getScreenOutConfigFieldBuilder().getBuilder();
     }
@@ -1695,7 +1627,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dialogStateIn field is set.
      */
     public boolean hasDialogStateIn() {
-      return dialogStateInBuilder_ != null || dialogStateIn_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1725,11 +1657,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dialogStateIn_ = value;
-        onChanged();
       } else {
         dialogStateInBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1743,11 +1675,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DialogStateIn.Builder builderForValue) {
       if (dialogStateInBuilder_ == null) {
         dialogStateIn_ = builderForValue.build();
-        onChanged();
       } else {
         dialogStateInBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1759,17 +1691,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDialogStateIn(com.google.assistant.embedded.v1alpha2.DialogStateIn value) {
       if (dialogStateInBuilder_ == null) {
-        if (dialogStateIn_ != null) {
-          dialogStateIn_ =
-            com.google.assistant.embedded.v1alpha2.DialogStateIn.newBuilder(dialogStateIn_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          dialogStateIn_ != null &&
+          dialogStateIn_ != com.google.assistant.embedded.v1alpha2.DialogStateIn.getDefaultInstance()) {
+          getDialogStateInBuilder().mergeFrom(value);
         } else {
           dialogStateIn_ = value;
         }
-        onChanged();
       } else {
         dialogStateInBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1780,14 +1713,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DialogStateIn dialog_state_in = 3;</code>
      */
     public Builder clearDialogStateIn() {
-      if (dialogStateInBuilder_ == null) {
-        dialogStateIn_ = null;
-        onChanged();
-      } else {
-        dialogStateIn_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      dialogStateIn_ = null;
+      if (dialogStateInBuilder_ != null) {
+        dialogStateInBuilder_.dispose();
         dialogStateInBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1798,7 +1730,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DialogStateIn dialog_state_in = 3;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DialogStateIn.Builder getDialogStateInBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDialogStateInFieldBuilder().getBuilder();
     }
@@ -1850,7 +1782,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deviceConfig field is set.
      */
     public boolean hasDeviceConfig() {
-      return deviceConfigBuilder_ != null || deviceConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1880,11 +1812,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deviceConfig_ = value;
-        onChanged();
       } else {
         deviceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1898,11 +1830,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DeviceConfig.Builder builderForValue) {
       if (deviceConfigBuilder_ == null) {
         deviceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         deviceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1914,17 +1846,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeviceConfig(com.google.assistant.embedded.v1alpha2.DeviceConfig value) {
       if (deviceConfigBuilder_ == null) {
-        if (deviceConfig_ != null) {
-          deviceConfig_ =
-            com.google.assistant.embedded.v1alpha2.DeviceConfig.newBuilder(deviceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          deviceConfig_ != null &&
+          deviceConfig_ != com.google.assistant.embedded.v1alpha2.DeviceConfig.getDefaultInstance()) {
+          getDeviceConfigBuilder().mergeFrom(value);
         } else {
           deviceConfig_ = value;
         }
-        onChanged();
       } else {
         deviceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1935,14 +1868,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DeviceConfig device_config = 4;</code>
      */
     public Builder clearDeviceConfig() {
-      if (deviceConfigBuilder_ == null) {
-        deviceConfig_ = null;
-        onChanged();
-      } else {
-        deviceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      deviceConfig_ = null;
+      if (deviceConfigBuilder_ != null) {
+        deviceConfigBuilder_.dispose();
         deviceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1953,7 +1885,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DeviceConfig device_config = 4;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DeviceConfig.Builder getDeviceConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDeviceConfigFieldBuilder().getBuilder();
     }
@@ -2005,7 +1937,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the debugConfig field is set.
      */
     public boolean hasDebugConfig() {
-      return debugConfigBuilder_ != null || debugConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2035,11 +1967,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         debugConfig_ = value;
-        onChanged();
       } else {
         debugConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2053,11 +1985,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha2.DebugConfig.Builder builderForValue) {
       if (debugConfigBuilder_ == null) {
         debugConfig_ = builderForValue.build();
-        onChanged();
       } else {
         debugConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2069,17 +2001,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDebugConfig(com.google.assistant.embedded.v1alpha2.DebugConfig value) {
       if (debugConfigBuilder_ == null) {
-        if (debugConfig_ != null) {
-          debugConfig_ =
-            com.google.assistant.embedded.v1alpha2.DebugConfig.newBuilder(debugConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          debugConfig_ != null &&
+          debugConfig_ != com.google.assistant.embedded.v1alpha2.DebugConfig.getDefaultInstance()) {
+          getDebugConfigBuilder().mergeFrom(value);
         } else {
           debugConfig_ = value;
         }
-        onChanged();
       } else {
         debugConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2090,14 +2023,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DebugConfig debug_config = 5;</code>
      */
     public Builder clearDebugConfig() {
-      if (debugConfigBuilder_ == null) {
-        debugConfig_ = null;
-        onChanged();
-      } else {
-        debugConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      debugConfig_ = null;
+      if (debugConfigBuilder_ != null) {
+        debugConfigBuilder_.dispose();
         debugConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2108,7 +2040,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha2.DebugConfig debug_config = 5;</code>
      */
     public com.google.assistant.embedded.v1alpha2.DebugConfig.Builder getDebugConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDebugConfigFieldBuilder().getBuilder();
     }
@@ -2180,7 +2112,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AssistConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

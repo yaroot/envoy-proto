@@ -142,7 +142,6 @@ public interface CertificateOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -155,7 +154,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -215,10 +213,10 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -228,10 +226,10 @@ java.lang.String defaultValue);
       getSanDnsnamesList();
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -240,10 +238,10 @@ java.lang.String defaultValue);
   int getSanDnsnamesCount();
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -253,10 +251,10 @@ java.lang.String defaultValue);
   java.lang.String getSanDnsnames(int index);
   /**
    * <pre>
-   * Output only. The list of Subject Alternative Names of dnsName type defined in the
-   * certificate (see RFC 5280 4.2.1.6).
-   * Managed certificates that haven't been provisioned yet have this field
-   * populated with a value of the managed.domains field.
+   * Output only. The list of Subject Alternative Names of dnsName type defined
+   * in the certificate (see RFC 5280 4.2.1.6). Managed certificates that
+   * haven't been provisioned yet have this field populated with a value of the
+   * managed.domains field.
    * </pre>
    *
    * <code>repeated string san_dnsnames = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

@@ -10,7 +10,7 @@ public interface GetArtifactContentsRequestOrBuilder extends
   /**
    * <pre>
    * Required. The name of the artifact whose contents should be retrieved.
-   * Format: {parent}/artifacts/&#42;
+   * Format: `{parent}/artifacts/&#42;`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface GetArtifactContentsRequestOrBuilder extends
   /**
    * <pre>
    * Required. The name of the artifact whose contents should be retrieved.
-   * Format: {parent}/artifacts/&#42;
+   * Format: `{parent}/artifacts/&#42;`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

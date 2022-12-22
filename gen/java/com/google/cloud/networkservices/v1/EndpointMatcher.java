@@ -35,59 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EndpointMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.Builder subBuilder = null;
-            if (matcherTypeCase_ == 1) {
-              subBuilder = ((com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher) matcherType_).toBuilder();
-            }
-            matcherType_ =
-                input.readMessage(com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher) matcherType_);
-              matcherType_ = subBuilder.buildPartial();
-            }
-            matcherTypeCase_ = 1;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkservices.v1.CommonProto.internal_static_google_cloud_networkservices_v1_EndpointMatcher_descriptor;
@@ -258,64 +205,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MetadataLabelMatcher(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              metadataLabelMatchCriteria_ = rawValue;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                metadataLabels_ = new java.util.ArrayList<com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              metadataLabels_.add(
-                  input.readMessage(com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          metadataLabels_ = java.util.Collections.unmodifiableList(metadataLabels_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -558,57 +447,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MetadataLabels(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                labelName_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                labelValue_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.networkservices.v1.CommonProto.internal_static_google_cloud_networkservices_v1_EndpointMatcher_MetadataLabelMatcher_MetadataLabels_descriptor;
@@ -623,7 +461,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int LABEL_NAME_FIELD_NUMBER = 1;
-      private volatile java.lang.Object labelName_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object labelName_ = "";
       /**
        * <pre>
        * Required. Label name presented as key in xDS Node Metadata.
@@ -669,7 +508,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int LABEL_VALUE_FIELD_NUMBER = 2;
-      private volatile java.lang.Object labelValue_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object labelValue_ = "";
       /**
        * <pre>
        * Required. Label value presented as value corresponding to the above
@@ -736,7 +576,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labelValue_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, labelValue_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -751,7 +591,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(labelValue_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, labelValue_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -770,7 +610,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getLabelName())) return false;
         if (!getLabelValue()
             .equals(other.getLabelValue())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -785,7 +625,7 @@ private static final long serialVersionUID = 0L;
         hash = (53 * hash) + getLabelName().hashCode();
         hash = (37 * hash) + LABEL_VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getLabelValue().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -906,26 +746,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           labelName_ = "";
-
           labelValue_ = "";
-
           return this;
         }
 
@@ -952,10 +786,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels buildPartial() {
           com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels result = new com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels(this);
-          result.labelName_ = labelName_;
-          result.labelValue_ = labelValue_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.labelName_ = labelName_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.labelValue_ = labelValue_;
+          }
         }
 
         @java.lang.Override
@@ -1004,13 +847,15 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels.getDefaultInstance()) return this;
           if (!other.getLabelName().isEmpty()) {
             labelName_ = other.labelName_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (!other.getLabelValue().isEmpty()) {
             labelValue_ = other.labelValue_;
+            bitField0_ |= 0x00000002;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1025,19 +870,43 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  labelName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  labelValue_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object labelName_ = "";
         /**
@@ -1092,11 +961,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLabelName(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           labelName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1109,8 +976,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearLabelName() {
-          
           labelName_ = getDefaultInstance().getLabelName();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1125,12 +992,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLabelNameBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           labelName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1191,11 +1056,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLabelValue(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           labelValue_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -1209,8 +1072,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearLabelValue() {
-          
           labelValue_ = getDefaultInstance().getLabelValue();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
@@ -1226,12 +1089,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setLabelValueBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           labelValue_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -1268,7 +1129,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MetadataLabels(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -1289,7 +1161,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int METADATA_LABEL_MATCH_CRITERIA_FIELD_NUMBER = 1;
-    private int metadataLabelMatchCriteria_;
+    private int metadataLabelMatchCriteria_ = 0;
     /**
      * <pre>
      * Specifies how matching should be done.
@@ -1348,12 +1220,12 @@ private static final long serialVersionUID = 0L;
      * @return The metadataLabelMatchCriteria.
      */
     @java.lang.Override public com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria getMetadataLabelMatchCriteria() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria result = com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.valueOf(metadataLabelMatchCriteria_);
+      com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria result = com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.forNumber(metadataLabelMatchCriteria_);
       return result == null ? com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.UNRECOGNIZED : result;
     }
 
     public static final int METADATA_LABELS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels> metadataLabels_;
     /**
      * <pre>
@@ -1453,7 +1325,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < metadataLabels_.size(); i++) {
         output.writeMessage(2, metadataLabels_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1470,7 +1342,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, metadataLabels_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1488,7 +1360,7 @@ private static final long serialVersionUID = 0L;
       if (metadataLabelMatchCriteria_ != other.metadataLabelMatchCriteria_) return false;
       if (!getMetadataLabelsList()
           .equals(other.getMetadataLabelsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1505,7 +1377,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + METADATA_LABELS_FIELD_NUMBER;
         hash = (53 * hash) + getMetadataLabelsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1626,31 +1498,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getMetadataLabelsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         metadataLabelMatchCriteria_ = 0;
-
         if (metadataLabelsBuilder_ == null) {
           metadataLabels_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          metadataLabels_ = null;
           metadataLabelsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -1677,19 +1544,29 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher buildPartial() {
         com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher result = new com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher(this);
-        int from_bitField0_ = bitField0_;
-        result.metadataLabelMatchCriteria_ = metadataLabelMatchCriteria_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher result) {
         if (metadataLabelsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             metadataLabels_ = java.util.Collections.unmodifiableList(metadataLabels_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.metadataLabels_ = metadataLabels_;
         } else {
           result.metadataLabels_ = metadataLabelsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.metadataLabelMatchCriteria_ = metadataLabelMatchCriteria_;
+        }
       }
 
       @java.lang.Override
@@ -1743,7 +1620,7 @@ private static final long serialVersionUID = 0L;
           if (!other.metadataLabels_.isEmpty()) {
             if (metadataLabels_.isEmpty()) {
               metadataLabels_ = other.metadataLabels_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureMetadataLabelsIsMutable();
               metadataLabels_.addAll(other.metadataLabels_);
@@ -1756,7 +1633,7 @@ private static final long serialVersionUID = 0L;
               metadataLabelsBuilder_.dispose();
               metadataLabelsBuilder_ = null;
               metadataLabels_ = other.metadataLabels_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               metadataLabelsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getMetadataLabelsFieldBuilder() : null;
@@ -1765,7 +1642,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1780,17 +1657,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                metadataLabelMatchCriteria_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels m =
+                    input.readMessage(
+                        com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels.parser(),
+                        extensionRegistry);
+                if (metadataLabelsBuilder_ == null) {
+                  ensureMetadataLabelsIsMutable();
+                  metadataLabels_.add(m);
+                } else {
+                  metadataLabelsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1855,8 +1763,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setMetadataLabelMatchCriteriaValue(int value) {
-        
         metadataLabelMatchCriteria_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1889,8 +1797,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria getMetadataLabelMatchCriteria() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria result = com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.valueOf(metadataLabelMatchCriteria_);
+        com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria result = com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.forNumber(metadataLabelMatchCriteria_);
         return result == null ? com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria.UNRECOGNIZED : result;
       }
       /**
@@ -1925,7 +1832,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         metadataLabelMatchCriteria_ = value.getNumber();
         onChanged();
         return this;
@@ -1958,7 +1865,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMetadataLabelMatchCriteria() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         metadataLabelMatchCriteria_ = 0;
         onChanged();
         return this;
@@ -1967,9 +1874,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels> metadataLabels_ =
         java.util.Collections.emptyList();
       private void ensureMetadataLabelsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           metadataLabels_ = new java.util.ArrayList<com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels>(metadataLabels_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -2207,7 +2114,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearMetadataLabels() {
         if (metadataLabelsBuilder_ == null) {
           metadataLabels_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           metadataLabelsBuilder_.clear();
@@ -2340,7 +2247,7 @@ private static final long serialVersionUID = 0L;
           metadataLabelsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels, com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabels.Builder, com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelsOrBuilder>(
                   metadataLabels_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           metadataLabels_ = null;
@@ -2380,7 +2287,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MetadataLabelMatcher(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2499,7 +2417,7 @@ private static final long serialVersionUID = 0L;
     if (matcherTypeCase_ == 1) {
       output.writeMessage(1, (com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher) matcherType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2512,7 +2430,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, (com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher) matcherType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2536,7 +2454,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2555,7 +2473,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2677,22 +2595,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkservices.v1.EndpointMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (metadataLabelMatcherBuilder_ != null) {
+        metadataLabelMatcherBuilder_.clear();
+      }
       matcherTypeCase_ = 0;
       matcherType_ = null;
       return this;
@@ -2721,16 +2638,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkservices.v1.EndpointMatcher buildPartial() {
       com.google.cloud.networkservices.v1.EndpointMatcher result = new com.google.cloud.networkservices.v1.EndpointMatcher(this);
-      if (matcherTypeCase_ == 1) {
-        if (metadataLabelMatcherBuilder_ == null) {
-          result.matcherType_ = matcherType_;
-        } else {
-          result.matcherType_ = metadataLabelMatcherBuilder_.build();
-        }
-      }
-      result.matcherTypeCase_ = matcherTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkservices.v1.EndpointMatcher result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.networkservices.v1.EndpointMatcher result) {
+      result.matcherTypeCase_ = matcherTypeCase_;
+      result.matcherType_ = this.matcherType_;
+      if (matcherTypeCase_ == 1 &&
+          metadataLabelMatcherBuilder_ != null) {
+        result.matcherType_ = metadataLabelMatcherBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2786,7 +2710,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2801,17 +2725,37 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkservices.v1.EndpointMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMetadataLabelMatcherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              matcherTypeCase_ = 1;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkservices.v1.EndpointMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int matcherTypeCase_ = 0;
@@ -2829,6 +2773,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher, com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcher.Builder, com.google.cloud.networkservices.v1.EndpointMatcher.MetadataLabelMatcherOrBuilder> metadataLabelMatcherBuilder_;
@@ -3004,7 +2949,7 @@ private static final long serialVersionUID = 0L;
         matcherType_ = null;
       }
       matcherTypeCase_ = 1;
-      onChanged();;
+      onChanged();
       return metadataLabelMatcherBuilder_;
     }
     @java.lang.Override
@@ -3040,7 +2985,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EndpointMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

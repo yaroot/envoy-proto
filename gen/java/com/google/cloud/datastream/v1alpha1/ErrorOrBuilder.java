@@ -135,7 +135,6 @@ public interface ErrorOrBuilder extends
    *
    * <code>map&lt;string, string&gt; details = 5;</code>
    */
-
   /* nullable */
 java.lang.String getDetailsOrDefault(
       java.lang.String key,
@@ -148,7 +147,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; details = 5;</code>
    */
-
   java.lang.String getDetailsOrThrow(
       java.lang.String key);
 }

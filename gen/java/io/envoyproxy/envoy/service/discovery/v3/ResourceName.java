@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourceName(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.Builder subBuilder = null;
-            if (dynamicParameterConstraints_ != null) {
-              subBuilder = dynamicParameterConstraints_.toBuilder();
-            }
-            dynamicParameterConstraints_ = input.readMessage(io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dynamicParameterConstraints_);
-              dynamicParameterConstraints_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.discovery.v3.DiscoveryProto.internal_static_envoy_service_discovery_v3_ResourceName_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the resource.
@@ -190,7 +133,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraintsOrBuilder getDynamicParameterConstraintsOrBuilder() {
-    return getDynamicParameterConstraints();
+    return dynamicParameterConstraints_ == null ? io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.getDefaultInstance() : dynamicParameterConstraints_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -213,7 +156,7 @@ private static final long serialVersionUID = 0L;
     if (dynamicParameterConstraints_ != null) {
       output.writeMessage(2, getDynamicParameterConstraints());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -229,7 +172,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getDynamicParameterConstraints());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -251,7 +194,7 @@ private static final long serialVersionUID = 0L;
       if (!getDynamicParameterConstraints()
           .equals(other.getDynamicParameterConstraints())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -268,7 +211,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DYNAMIC_PARAMETER_CONSTRAINTS_FIELD_NUMBER;
       hash = (53 * hash) + getDynamicParameterConstraints().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -389,28 +332,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.discovery.v3.ResourceName.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (dynamicParameterConstraintsBuilder_ == null) {
-        dynamicParameterConstraints_ = null;
-      } else {
-        dynamicParameterConstraints_ = null;
+      dynamicParameterConstraints_ = null;
+      if (dynamicParameterConstraintsBuilder_ != null) {
+        dynamicParameterConstraintsBuilder_.dispose();
         dynamicParameterConstraintsBuilder_ = null;
       }
       return this;
@@ -439,14 +376,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.discovery.v3.ResourceName buildPartial() {
       io.envoyproxy.envoy.service.discovery.v3.ResourceName result = new io.envoyproxy.envoy.service.discovery.v3.ResourceName(this);
-      result.name_ = name_;
-      if (dynamicParameterConstraintsBuilder_ == null) {
-        result.dynamicParameterConstraints_ = dynamicParameterConstraints_;
-      } else {
-        result.dynamicParameterConstraints_ = dynamicParameterConstraintsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.discovery.v3.ResourceName result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dynamicParameterConstraints_ = dynamicParameterConstraintsBuilder_ == null
+            ? dynamicParameterConstraints_
+            : dynamicParameterConstraintsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -495,12 +439,13 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.service.discovery.v3.ResourceName.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDynamicParameterConstraints()) {
         mergeDynamicParameterConstraints(other.getDynamicParameterConstraints());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -515,19 +460,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.discovery.v3.ResourceName parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDynamicParameterConstraintsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.discovery.v3.ResourceName) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -582,11 +553,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -599,8 +568,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -615,12 +584,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -638,7 +605,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dynamicParameterConstraints field is set.
      */
     public boolean hasDynamicParameterConstraints() {
-      return dynamicParameterConstraintsBuilder_ != null || dynamicParameterConstraints_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -670,11 +637,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dynamicParameterConstraints_ = value;
-        onChanged();
       } else {
         dynamicParameterConstraintsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -689,11 +656,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.Builder builderForValue) {
       if (dynamicParameterConstraintsBuilder_ == null) {
         dynamicParameterConstraints_ = builderForValue.build();
-        onChanged();
       } else {
         dynamicParameterConstraintsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -706,17 +673,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDynamicParameterConstraints(io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints value) {
       if (dynamicParameterConstraintsBuilder_ == null) {
-        if (dynamicParameterConstraints_ != null) {
-          dynamicParameterConstraints_ =
-            io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.newBuilder(dynamicParameterConstraints_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dynamicParameterConstraints_ != null &&
+          dynamicParameterConstraints_ != io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.getDefaultInstance()) {
+          getDynamicParameterConstraintsBuilder().mergeFrom(value);
         } else {
           dynamicParameterConstraints_ = value;
         }
-        onChanged();
       } else {
         dynamicParameterConstraintsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -728,14 +696,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.service.discovery.v3.DynamicParameterConstraints dynamic_parameter_constraints = 2;</code>
      */
     public Builder clearDynamicParameterConstraints() {
-      if (dynamicParameterConstraintsBuilder_ == null) {
-        dynamicParameterConstraints_ = null;
-        onChanged();
-      } else {
-        dynamicParameterConstraints_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dynamicParameterConstraints_ = null;
+      if (dynamicParameterConstraintsBuilder_ != null) {
+        dynamicParameterConstraintsBuilder_.dispose();
         dynamicParameterConstraintsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -747,7 +714,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.service.discovery.v3.DynamicParameterConstraints dynamic_parameter_constraints = 2;</code>
      */
     public io.envoyproxy.envoy.service.discovery.v3.DynamicParameterConstraints.Builder getDynamicParameterConstraintsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDynamicParameterConstraintsFieldBuilder().getBuilder();
     }
@@ -821,7 +788,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceName(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

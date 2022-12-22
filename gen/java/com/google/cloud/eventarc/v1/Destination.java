@@ -34,79 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Destination(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.eventarc.v1.CloudRun.Builder subBuilder = null;
-            if (descriptorCase_ == 1) {
-              subBuilder = ((com.google.cloud.eventarc.v1.CloudRun) descriptor_).toBuilder();
-            }
-            descriptor_ =
-                input.readMessage(com.google.cloud.eventarc.v1.CloudRun.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.eventarc.v1.CloudRun) descriptor_);
-              descriptor_ = subBuilder.buildPartial();
-            }
-            descriptorCase_ = 1;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            descriptorCase_ = 2;
-            descriptor_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.eventarc.v1.GKE.Builder subBuilder = null;
-            if (descriptorCase_ == 3) {
-              subBuilder = ((com.google.cloud.eventarc.v1.GKE) descriptor_).toBuilder();
-            }
-            descriptor_ =
-                input.readMessage(com.google.cloud.eventarc.v1.GKE.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.eventarc.v1.GKE) descriptor_);
-              descriptor_ = subBuilder.buildPartial();
-            }
-            descriptorCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.eventarc.v1.TriggerProto.internal_static_google_cloud_eventarc_v1_Destination_descriptor;
@@ -128,6 +55,7 @@ private static final long serialVersionUID = 0L;
     CLOUD_RUN(1),
     CLOUD_FUNCTION(2),
     GKE(3),
+    WORKFLOW(4),
     DESCRIPTOR_NOT_SET(0);
     private final int value;
     private DescriptorCase(int value) {
@@ -148,6 +76,7 @@ private static final long serialVersionUID = 0L;
         case 1: return CLOUD_RUN;
         case 2: return CLOUD_FUNCTION;
         case 3: return GKE;
+        case 4: return WORKFLOW;
         case 0: return DESCRIPTOR_NOT_SET;
         default: return null;
       }
@@ -322,6 +251,79 @@ private static final long serialVersionUID = 0L;
     return com.google.cloud.eventarc.v1.GKE.getDefaultInstance();
   }
 
+  public static final int WORKFLOW_FIELD_NUMBER = 4;
+  /**
+   * <pre>
+   * The resource name of the Workflow whose Executions are triggered by
+   * the events. The Workflow resource should be deployed in the same project
+   * as the trigger.
+   * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+   * </pre>
+   *
+   * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+   * @return Whether the workflow field is set.
+   */
+  public boolean hasWorkflow() {
+    return descriptorCase_ == 4;
+  }
+  /**
+   * <pre>
+   * The resource name of the Workflow whose Executions are triggered by
+   * the events. The Workflow resource should be deployed in the same project
+   * as the trigger.
+   * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+   * </pre>
+   *
+   * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+   * @return The workflow.
+   */
+  public java.lang.String getWorkflow() {
+    java.lang.Object ref = "";
+    if (descriptorCase_ == 4) {
+      ref = descriptor_;
+    }
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      if (descriptorCase_ == 4) {
+        descriptor_ = s;
+      }
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The resource name of the Workflow whose Executions are triggered by
+   * the events. The Workflow resource should be deployed in the same project
+   * as the trigger.
+   * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+   * </pre>
+   *
+   * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+   * @return The bytes for workflow.
+   */
+  public com.google.protobuf.ByteString
+      getWorkflowBytes() {
+    java.lang.Object ref = "";
+    if (descriptorCase_ == 4) {
+      ref = descriptor_;
+    }
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      if (descriptorCase_ == 4) {
+        descriptor_ = b;
+      }
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -345,7 +347,10 @@ private static final long serialVersionUID = 0L;
     if (descriptorCase_ == 3) {
       output.writeMessage(3, (com.google.cloud.eventarc.v1.GKE) descriptor_);
     }
-    unknownFields.writeTo(output);
+    if (descriptorCase_ == 4) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, descriptor_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -365,7 +370,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.cloud.eventarc.v1.GKE) descriptor_);
     }
-    size += unknownFields.getSerializedSize();
+    if (descriptorCase_ == 4) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, descriptor_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -394,10 +402,14 @@ private static final long serialVersionUID = 0L;
         if (!getGke()
             .equals(other.getGke())) return false;
         break;
+      case 4:
+        if (!getWorkflow()
+            .equals(other.getWorkflow())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -421,10 +433,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + GKE_FIELD_NUMBER;
         hash = (53 * hash) + getGke().hashCode();
         break;
+      case 4:
+        hash = (37 * hash) + WORKFLOW_FIELD_NUMBER;
+        hash = (53 * hash) + getWorkflow().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -545,22 +561,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.eventarc.v1.Destination.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (cloudRunBuilder_ != null) {
+        cloudRunBuilder_.clear();
+      }
+      if (gkeBuilder_ != null) {
+        gkeBuilder_.clear();
+      }
       descriptorCase_ = 0;
       descriptor_ = null;
       return this;
@@ -589,26 +607,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.eventarc.v1.Destination buildPartial() {
       com.google.cloud.eventarc.v1.Destination result = new com.google.cloud.eventarc.v1.Destination(this);
-      if (descriptorCase_ == 1) {
-        if (cloudRunBuilder_ == null) {
-          result.descriptor_ = descriptor_;
-        } else {
-          result.descriptor_ = cloudRunBuilder_.build();
-        }
-      }
-      if (descriptorCase_ == 2) {
-        result.descriptor_ = descriptor_;
-      }
-      if (descriptorCase_ == 3) {
-        if (gkeBuilder_ == null) {
-          result.descriptor_ = descriptor_;
-        } else {
-          result.descriptor_ = gkeBuilder_.build();
-        }
-      }
-      result.descriptorCase_ = descriptorCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.eventarc.v1.Destination result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.eventarc.v1.Destination result) {
+      result.descriptorCase_ = descriptorCase_;
+      result.descriptor_ = this.descriptor_;
+      if (descriptorCase_ == 1 &&
+          cloudRunBuilder_ != null) {
+        result.descriptor_ = cloudRunBuilder_.build();
+      }
+      if (descriptorCase_ == 3 &&
+          gkeBuilder_ != null) {
+        result.descriptor_ = gkeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -670,11 +689,17 @@ private static final long serialVersionUID = 0L;
           mergeGke(other.getGke());
           break;
         }
+        case WORKFLOW: {
+          descriptorCase_ = 4;
+          descriptor_ = other.descriptor_;
+          onChanged();
+          break;
+        }
         case DESCRIPTOR_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -689,17 +714,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.eventarc.v1.Destination parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCloudRunFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              descriptorCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              descriptorCase_ = 2;
+              descriptor_ = s;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getGkeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              descriptorCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              descriptorCase_ = 4;
+              descriptor_ = s;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.eventarc.v1.Destination) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int descriptorCase_ = 0;
@@ -717,6 +781,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.eventarc.v1.CloudRun, com.google.cloud.eventarc.v1.CloudRun.Builder, com.google.cloud.eventarc.v1.CloudRunOrBuilder> cloudRunBuilder_;
@@ -901,7 +966,7 @@ private static final long serialVersionUID = 0L;
         descriptor_ = null;
       }
       descriptorCase_ = 1;
-      onChanged();;
+      onChanged();
       return cloudRunBuilder_;
     }
 
@@ -985,10 +1050,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudFunction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  descriptorCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      descriptorCase_ = 2;
       descriptor_ = value;
       onChanged();
       return this;
@@ -1022,10 +1085,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudFunctionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       descriptorCase_ = 2;
       descriptor_ = value;
       onChanged();
@@ -1215,8 +1276,143 @@ private static final long serialVersionUID = 0L;
         descriptor_ = null;
       }
       descriptorCase_ = 3;
-      onChanged();;
+      onChanged();
       return gkeBuilder_;
+    }
+
+    /**
+     * <pre>
+     * The resource name of the Workflow whose Executions are triggered by
+     * the events. The Workflow resource should be deployed in the same project
+     * as the trigger.
+     * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+     * </pre>
+     *
+     * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+     * @return Whether the workflow field is set.
+     */
+    @java.lang.Override
+    public boolean hasWorkflow() {
+      return descriptorCase_ == 4;
+    }
+    /**
+     * <pre>
+     * The resource name of the Workflow whose Executions are triggered by
+     * the events. The Workflow resource should be deployed in the same project
+     * as the trigger.
+     * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+     * </pre>
+     *
+     * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+     * @return The workflow.
+     */
+    @java.lang.Override
+    public java.lang.String getWorkflow() {
+      java.lang.Object ref = "";
+      if (descriptorCase_ == 4) {
+        ref = descriptor_;
+      }
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (descriptorCase_ == 4) {
+          descriptor_ = s;
+        }
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The resource name of the Workflow whose Executions are triggered by
+     * the events. The Workflow resource should be deployed in the same project
+     * as the trigger.
+     * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+     * </pre>
+     *
+     * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for workflow.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getWorkflowBytes() {
+      java.lang.Object ref = "";
+      if (descriptorCase_ == 4) {
+        ref = descriptor_;
+      }
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        if (descriptorCase_ == 4) {
+          descriptor_ = b;
+        }
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The resource name of the Workflow whose Executions are triggered by
+     * the events. The Workflow resource should be deployed in the same project
+     * as the trigger.
+     * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+     * </pre>
+     *
+     * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+     * @param value The workflow to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorkflow(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      descriptorCase_ = 4;
+      descriptor_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource name of the Workflow whose Executions are triggered by
+     * the events. The Workflow resource should be deployed in the same project
+     * as the trigger.
+     * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+     * </pre>
+     *
+     * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearWorkflow() {
+      if (descriptorCase_ == 4) {
+        descriptorCase_ = 0;
+        descriptor_ = null;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The resource name of the Workflow whose Executions are triggered by
+     * the events. The Workflow resource should be deployed in the same project
+     * as the trigger.
+     * Format: `projects/{project}/locations/{location}/workflows/{workflow}`
+     * </pre>
+     *
+     * <code>string workflow = 4 [(.google.api.resource_reference) = { ... }</code>
+     * @param value The bytes for workflow to set.
+     * @return This builder for chaining.
+     */
+    public Builder setWorkflowBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      descriptorCase_ = 4;
+      descriptor_ = value;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1251,7 +1447,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Destination(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

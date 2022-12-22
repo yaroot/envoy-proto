@@ -19,4 +19,31 @@ public interface JwksAsyncFetchOrBuilder extends
    * @return The fastListener.
    */
   boolean getFastListener();
+
+  /**
+   * <pre>
+   * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+   * @return Whether the failedRefetchDuration field is set.
+   */
+  boolean hasFailedRefetchDuration();
+  /**
+   * <pre>
+   * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+   * @return The failedRefetchDuration.
+   */
+  com.google.protobuf.Duration getFailedRefetchDuration();
+  /**
+   * <pre>
+   * The duration to refetch after a failed fetch. If not specified, default is 1 second.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration failed_refetch_duration = 2;</code>
+   */
+  com.google.protobuf.DurationOrBuilder getFailedRefetchDurationOrBuilder();
 }

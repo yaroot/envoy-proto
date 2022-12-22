@@ -11,12 +11,13 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
+from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/pubsublite/v1/common.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"!\n\x0f\x41ttributeValues\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"\x89\x02\n\rPubSubMessage\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x39.google.cloud.pubsublite.v1.PubSubMessage.AttributesEntry\x12.\n\nevent_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a^\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.pubsublite.v1.AttributeValues:\x02\x38\x01\"\x18\n\x06\x43ursor\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xc8\x01\n\x10SequencedMessage\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\x12\x30\n\x0cpublish_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x07message\x18\x03 \x01(\x0b\x32).google.cloud.pubsublite.v1.PubSubMessage\x12\x12\n\nsize_bytes\x18\x04 \x01(\x03\"\xa8\x01\n\x0bReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1b\n\x13throughput_capacity\x18\x02 \x01(\x03:n\xea\x41k\n%pubsublite.googleapis.com/Reservation\x12\x42projects/{project}/locations/{location}/reservations/{reservation}\"\xf7\x05\n\x05Topic\x12\x0c\n\x04name\x18\x01 \x01(\t\x12K\n\x10partition_config\x18\x02 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.PartitionConfig\x12K\n\x10retention_config\x18\x03 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.RetentionConfig\x12O\n\x12reservation_config\x18\x04 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.Topic.ReservationConfig\x1a\xda\x01\n\x0fPartitionConfig\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x13\n\x05scale\x18\x02 \x01(\x05\x42\x02\x18\x01H\x00\x12N\n\x08\x63\x61pacity\x18\x03 \x01(\x0b\x32:.google.cloud.pubsublite.v1.Topic.PartitionConfig.CapacityH\x00\x1a\x46\n\x08\x43\x61pacity\x12\x1b\n\x13publish_mib_per_sec\x18\x01 \x01(\x05\x12\x1d\n\x15subscribe_mib_per_sec\x18\x02 \x01(\x05\x42\x0b\n\tdimension\x1aY\n\x0fRetentionConfig\x12\x1b\n\x13per_partition_bytes\x18\x01 \x01(\x03\x12)\n\x06period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a_\n\x11ReservationConfig\x12J\n\x16throughput_reservation\x18\x01 \x01(\tB*\xfa\x41\'\n%pubsublite.googleapis.com/Reservation:\\\xea\x41Y\n\x1fpubsublite.googleapis.com/Topic\x12\x36projects/{project}/locations/{location}/topics/{topic}\"\x84\x04\n\x0cSubscription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x33\n\x05topic\x18\x02 \x01(\tB$\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12P\n\x0f\x64\x65livery_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.pubsublite.v1.Subscription.DeliveryConfig\x1a\xeb\x01\n\x0e\x44\x65liveryConfig\x12i\n\x14\x64\x65livery_requirement\x18\x03 \x01(\x0e\x32K.google.cloud.pubsublite.v1.Subscription.DeliveryConfig.DeliveryRequirement\"n\n\x13\x44\x65liveryRequirement\x12$\n DELIVERY_REQUIREMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x45LIVER_IMMEDIATELY\x10\x01\x12\x18\n\x14\x44\x45LIVER_AFTER_STORED\x10\x02:q\xea\x41n\n&pubsublite.googleapis.com/Subscription\x12\x44projects/{project}/locations/{location}/subscriptions/{subscription}\"z\n\nTimeTarget\x12\x32\n\x0cpublish_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x30\n\nevent_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x42\x06\n\x04timeB\xd5\x01\n!com.google.cloud.pubsublite.protoB\x0b\x43ommonProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/pubsublite/v1/common.proto\x12\x1agoogle.cloud.pubsublite.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"!\n\x0f\x41ttributeValues\x12\x0e\n\x06values\x18\x01 \x03(\x0c\"\x89\x02\n\rPubSubMessage\x12\x0b\n\x03key\x18\x01 \x01(\x0c\x12\x0c\n\x04\x64\x61ta\x18\x02 \x01(\x0c\x12M\n\nattributes\x18\x03 \x03(\x0b\x32\x39.google.cloud.pubsublite.v1.PubSubMessage.AttributesEntry\x12.\n\nevent_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a^\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.pubsublite.v1.AttributeValues:\x02\x38\x01\"\x18\n\x06\x43ursor\x12\x0e\n\x06offset\x18\x01 \x01(\x03\"\xc8\x01\n\x10SequencedMessage\x12\x32\n\x06\x63ursor\x18\x01 \x01(\x0b\x32\".google.cloud.pubsublite.v1.Cursor\x12\x30\n\x0cpublish_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12:\n\x07message\x18\x03 \x01(\x0b\x32).google.cloud.pubsublite.v1.PubSubMessage\x12\x12\n\nsize_bytes\x18\x04 \x01(\x03\"\xa8\x01\n\x0bReservation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x1b\n\x13throughput_capacity\x18\x02 \x01(\x03:n\xea\x41k\n%pubsublite.googleapis.com/Reservation\x12\x42projects/{project}/locations/{location}/reservations/{reservation}\"\xf7\x05\n\x05Topic\x12\x0c\n\x04name\x18\x01 \x01(\t\x12K\n\x10partition_config\x18\x02 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.PartitionConfig\x12K\n\x10retention_config\x18\x03 \x01(\x0b\x32\x31.google.cloud.pubsublite.v1.Topic.RetentionConfig\x12O\n\x12reservation_config\x18\x04 \x01(\x0b\x32\x33.google.cloud.pubsublite.v1.Topic.ReservationConfig\x1a\xda\x01\n\x0fPartitionConfig\x12\r\n\x05\x63ount\x18\x01 \x01(\x03\x12\x13\n\x05scale\x18\x02 \x01(\x05\x42\x02\x18\x01H\x00\x12N\n\x08\x63\x61pacity\x18\x03 \x01(\x0b\x32:.google.cloud.pubsublite.v1.Topic.PartitionConfig.CapacityH\x00\x1a\x46\n\x08\x43\x61pacity\x12\x1b\n\x13publish_mib_per_sec\x18\x01 \x01(\x05\x12\x1d\n\x15subscribe_mib_per_sec\x18\x02 \x01(\x05\x42\x0b\n\tdimension\x1aY\n\x0fRetentionConfig\x12\x1b\n\x13per_partition_bytes\x18\x01 \x01(\x03\x12)\n\x06period\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\x1a_\n\x11ReservationConfig\x12J\n\x16throughput_reservation\x18\x01 \x01(\tB*\xfa\x41\'\n%pubsublite.googleapis.com/Reservation:\\\xea\x41Y\n\x1fpubsublite.googleapis.com/Topic\x12\x36projects/{project}/locations/{location}/topics/{topic}\"\xc5\x04\n\x0cSubscription\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x33\n\x05topic\x18\x02 \x01(\tB$\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12P\n\x0f\x64\x65livery_config\x18\x03 \x01(\x0b\x32\x37.google.cloud.pubsublite.v1.Subscription.DeliveryConfig\x12?\n\rexport_config\x18\x04 \x01(\x0b\x32(.google.cloud.pubsublite.v1.ExportConfig\x1a\xeb\x01\n\x0e\x44\x65liveryConfig\x12i\n\x14\x64\x65livery_requirement\x18\x03 \x01(\x0e\x32K.google.cloud.pubsublite.v1.Subscription.DeliveryConfig.DeliveryRequirement\"n\n\x13\x44\x65liveryRequirement\x12$\n DELIVERY_REQUIREMENT_UNSPECIFIED\x10\x00\x12\x17\n\x13\x44\x45LIVER_IMMEDIATELY\x10\x01\x12\x18\n\x14\x44\x45LIVER_AFTER_STORED\x10\x02:q\xea\x41n\n&pubsublite.googleapis.com/Subscription\x12\x44projects/{project}/locations/{location}/subscriptions/{subscription}\"\xc1\x03\n\x0c\x45xportConfig\x12\x45\n\rdesired_state\x18\x01 \x01(\x0e\x32..google.cloud.pubsublite.v1.ExportConfig.State\x12J\n\rcurrent_state\x18\x06 \x01(\x0e\x32..google.cloud.pubsublite.v1.ExportConfig.StateB\x03\xe0\x41\x03\x12\x42\n\x11\x64\x65\x61\x64_letter_topic\x18\x05 \x01(\tB\'\xe0\x41\x01\xfa\x41!\n\x1fpubsublite.googleapis.com/Topic\x12N\n\rpubsub_config\x18\x03 \x01(\x0b\x32\x35.google.cloud.pubsublite.v1.ExportConfig.PubSubConfigH\x00\x1a\x1d\n\x0cPubSubConfig\x12\r\n\x05topic\x18\x01 \x01(\t\"\\\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\n\n\x06\x41\x43TIVE\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x15\n\x11PERMISSION_DENIED\x10\x03\x12\r\n\tNOT_FOUND\x10\x04\x42\r\n\x0b\x64\x65stination\"z\n\nTimeTarget\x12\x32\n\x0cpublish_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x30\n\nevent_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x42\x06\n\x04timeB\xd5\x01\n!com.google.cloud.pubsublite.protoB\x0b\x43ommonProtoP\x01ZDgoogle.golang.org/genproto/googleapis/cloud/pubsublite/v1;pubsublite\xf8\x01\x01\xaa\x02\x1aGoogle.Cloud.PubSubLite.V1\xca\x02\x1aGoogle\\Cloud\\PubSubLite\\V1\xea\x02\x1dGoogle::Cloud::PubSubLite::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.pubsublite.v1.common_pb2', globals())
@@ -38,34 +39,44 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _SUBSCRIPTION.fields_by_name['topic']._serialized_options = b'\372A!\n\037pubsublite.googleapis.com/Topic'
   _SUBSCRIPTION._options = None
   _SUBSCRIPTION._serialized_options = b'\352An\n&pubsublite.googleapis.com/Subscription\022Dprojects/{project}/locations/{location}/subscriptions/{subscription}'
-  _ATTRIBUTEVALUES._serialized_start=163
-  _ATTRIBUTEVALUES._serialized_end=196
-  _PUBSUBMESSAGE._serialized_start=199
-  _PUBSUBMESSAGE._serialized_end=464
-  _PUBSUBMESSAGE_ATTRIBUTESENTRY._serialized_start=370
-  _PUBSUBMESSAGE_ATTRIBUTESENTRY._serialized_end=464
-  _CURSOR._serialized_start=466
-  _CURSOR._serialized_end=490
-  _SEQUENCEDMESSAGE._serialized_start=493
-  _SEQUENCEDMESSAGE._serialized_end=693
-  _RESERVATION._serialized_start=696
-  _RESERVATION._serialized_end=864
-  _TOPIC._serialized_start=867
-  _TOPIC._serialized_end=1626
-  _TOPIC_PARTITIONCONFIG._serialized_start=1126
-  _TOPIC_PARTITIONCONFIG._serialized_end=1344
-  _TOPIC_PARTITIONCONFIG_CAPACITY._serialized_start=1261
-  _TOPIC_PARTITIONCONFIG_CAPACITY._serialized_end=1331
-  _TOPIC_RETENTIONCONFIG._serialized_start=1346
-  _TOPIC_RETENTIONCONFIG._serialized_end=1435
-  _TOPIC_RESERVATIONCONFIG._serialized_start=1437
-  _TOPIC_RESERVATIONCONFIG._serialized_end=1532
-  _SUBSCRIPTION._serialized_start=1629
-  _SUBSCRIPTION._serialized_end=2145
-  _SUBSCRIPTION_DELIVERYCONFIG._serialized_start=1795
-  _SUBSCRIPTION_DELIVERYCONFIG._serialized_end=2030
-  _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT._serialized_start=1920
-  _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT._serialized_end=2030
-  _TIMETARGET._serialized_start=2147
-  _TIMETARGET._serialized_end=2269
+  _EXPORTCONFIG.fields_by_name['current_state']._options = None
+  _EXPORTCONFIG.fields_by_name['current_state']._serialized_options = b'\340A\003'
+  _EXPORTCONFIG.fields_by_name['dead_letter_topic']._options = None
+  _EXPORTCONFIG.fields_by_name['dead_letter_topic']._serialized_options = b'\340A\001\372A!\n\037pubsublite.googleapis.com/Topic'
+  _ATTRIBUTEVALUES._serialized_start=196
+  _ATTRIBUTEVALUES._serialized_end=229
+  _PUBSUBMESSAGE._serialized_start=232
+  _PUBSUBMESSAGE._serialized_end=497
+  _PUBSUBMESSAGE_ATTRIBUTESENTRY._serialized_start=403
+  _PUBSUBMESSAGE_ATTRIBUTESENTRY._serialized_end=497
+  _CURSOR._serialized_start=499
+  _CURSOR._serialized_end=523
+  _SEQUENCEDMESSAGE._serialized_start=526
+  _SEQUENCEDMESSAGE._serialized_end=726
+  _RESERVATION._serialized_start=729
+  _RESERVATION._serialized_end=897
+  _TOPIC._serialized_start=900
+  _TOPIC._serialized_end=1659
+  _TOPIC_PARTITIONCONFIG._serialized_start=1159
+  _TOPIC_PARTITIONCONFIG._serialized_end=1377
+  _TOPIC_PARTITIONCONFIG_CAPACITY._serialized_start=1294
+  _TOPIC_PARTITIONCONFIG_CAPACITY._serialized_end=1364
+  _TOPIC_RETENTIONCONFIG._serialized_start=1379
+  _TOPIC_RETENTIONCONFIG._serialized_end=1468
+  _TOPIC_RESERVATIONCONFIG._serialized_start=1470
+  _TOPIC_RESERVATIONCONFIG._serialized_end=1565
+  _SUBSCRIPTION._serialized_start=1662
+  _SUBSCRIPTION._serialized_end=2243
+  _SUBSCRIPTION_DELIVERYCONFIG._serialized_start=1893
+  _SUBSCRIPTION_DELIVERYCONFIG._serialized_end=2128
+  _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT._serialized_start=2018
+  _SUBSCRIPTION_DELIVERYCONFIG_DELIVERYREQUIREMENT._serialized_end=2128
+  _EXPORTCONFIG._serialized_start=2246
+  _EXPORTCONFIG._serialized_end=2695
+  _EXPORTCONFIG_PUBSUBCONFIG._serialized_start=2557
+  _EXPORTCONFIG_PUBSUBCONFIG._serialized_end=2586
+  _EXPORTCONFIG_STATE._serialized_start=2588
+  _EXPORTCONFIG_STATE._serialized_end=2680
+  _TIMETARGET._serialized_start=2697
+  _TIMETARGET._serialized_end=2819
 # @@protoc_insertion_point(module_scope)

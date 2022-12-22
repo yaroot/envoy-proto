@@ -35,56 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AcceleratorConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            acceleratorCount_ = input.readInt64();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            acceleratorType_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1alpha1.ClusterServiceProto.internal_static_google_container_v1alpha1_AcceleratorConfig_descriptor;
@@ -99,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCELERATOR_COUNT_FIELD_NUMBER = 1;
-  private long acceleratorCount_;
+  private long acceleratorCount_ = 0L;
   /**
    * <pre>
    * The number of the accelerator cards exposed to an instance.
@@ -114,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCELERATOR_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object acceleratorType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object acceleratorType_ = "";
   /**
    * <pre>
    * The accelerator type resource name. List of supported accelerators
@@ -181,7 +132,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceleratorType_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, acceleratorType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -197,7 +148,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(acceleratorType_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, acceleratorType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -216,7 +167,7 @@ private static final long serialVersionUID = 0L;
         != other.getAcceleratorCount()) return false;
     if (!getAcceleratorType()
         .equals(other.getAcceleratorType())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -232,7 +183,7 @@ private static final long serialVersionUID = 0L;
         getAcceleratorCount());
     hash = (37 * hash) + ACCELERATOR_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + getAcceleratorType().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -353,26 +304,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1alpha1.AcceleratorConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       acceleratorCount_ = 0L;
-
       acceleratorType_ = "";
-
       return this;
     }
 
@@ -399,10 +344,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1alpha1.AcceleratorConfig buildPartial() {
       com.google.container.v1alpha1.AcceleratorConfig result = new com.google.container.v1alpha1.AcceleratorConfig(this);
-      result.acceleratorCount_ = acceleratorCount_;
-      result.acceleratorType_ = acceleratorType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1alpha1.AcceleratorConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.acceleratorCount_ = acceleratorCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.acceleratorType_ = acceleratorType_;
+      }
     }
 
     @java.lang.Override
@@ -454,9 +408,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAcceleratorType().isEmpty()) {
         acceleratorType_ = other.acceleratorType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -471,19 +426,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1alpha1.AcceleratorConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              acceleratorCount_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              acceleratorType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1alpha1.AcceleratorConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long acceleratorCount_ ;
     /**
@@ -510,6 +489,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAcceleratorCount(long value) {
       
       acceleratorCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -522,7 +502,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcceleratorCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       acceleratorCount_ = 0L;
       onChanged();
       return this;
@@ -584,11 +564,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcceleratorType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       acceleratorType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -602,8 +580,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcceleratorType() {
-      
       acceleratorType_ = getDefaultInstance().getAcceleratorType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -619,12 +597,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcceleratorTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       acceleratorType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -661,7 +637,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AcceleratorConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

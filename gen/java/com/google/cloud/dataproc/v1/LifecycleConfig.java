@@ -34,99 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LifecycleConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (idleDeleteTtl_ != null) {
-              subBuilder = idleDeleteTtl_.toBuilder();
-            }
-            idleDeleteTtl_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(idleDeleteTtl_);
-              idleDeleteTtl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (ttlCase_ == 2) {
-              subBuilder = ((com.google.protobuf.Timestamp) ttl_).toBuilder();
-            }
-            ttl_ =
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Timestamp) ttl_);
-              ttl_ = subBuilder.buildPartial();
-            }
-            ttlCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (ttlCase_ == 3) {
-              subBuilder = ((com.google.protobuf.Duration) ttl_).toBuilder();
-            }
-            ttl_ =
-                input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Duration) ttl_);
-              ttl_ = subBuilder.buildPartial();
-            }
-            ttlCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (idleStartTime_ != null) {
-              subBuilder = idleStartTime_.toBuilder();
-            }
-            idleStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(idleStartTime_);
-              idleStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_LifecycleConfig_descriptor;
@@ -228,13 +135,14 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getIdleDeleteTtlOrBuilder() {
-    return getIdleDeleteTtl();
+    return idleDeleteTtl_ == null ? com.google.protobuf.Duration.getDefaultInstance() : idleDeleteTtl_;
   }
 
   public static final int AUTO_DELETE_TIME_FIELD_NUMBER = 2;
   /**
    * <pre>
-   * Optional. The time when cluster will be auto-deleted (see JSON representation of
+   * Optional. The time when cluster will be auto-deleted (see JSON
+   * representation of
    * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
    * </pre>
    *
@@ -247,7 +155,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The time when cluster will be auto-deleted (see JSON representation of
+   * Optional. The time when cluster will be auto-deleted (see JSON
+   * representation of
    * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
    * </pre>
    *
@@ -263,7 +172,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The time when cluster will be auto-deleted (see JSON representation of
+   * Optional. The time when cluster will be auto-deleted (see JSON
+   * representation of
    * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
    * </pre>
    *
@@ -373,7 +283,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getIdleStartTimeOrBuilder() {
-    return getIdleStartTime();
+    return idleStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : idleStartTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -402,7 +312,7 @@ private static final long serialVersionUID = 0L;
     if (idleStartTime_ != null) {
       output.writeMessage(4, getIdleStartTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -427,7 +337,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getIdleStartTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -465,7 +375,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -496,7 +406,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -617,32 +527,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.LifecycleConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (idleDeleteTtlBuilder_ == null) {
-        idleDeleteTtl_ = null;
-      } else {
-        idleDeleteTtl_ = null;
+      bitField0_ = 0;
+      idleDeleteTtl_ = null;
+      if (idleDeleteTtlBuilder_ != null) {
+        idleDeleteTtlBuilder_.dispose();
         idleDeleteTtlBuilder_ = null;
       }
-      if (idleStartTimeBuilder_ == null) {
-        idleStartTime_ = null;
-      } else {
-        idleStartTime_ = null;
+      if (autoDeleteTimeBuilder_ != null) {
+        autoDeleteTimeBuilder_.clear();
+      }
+      if (autoDeleteTtlBuilder_ != null) {
+        autoDeleteTtlBuilder_.clear();
+      }
+      idleStartTime_ = null;
+      if (idleStartTimeBuilder_ != null) {
+        idleStartTimeBuilder_.dispose();
         idleStartTimeBuilder_ = null;
       }
       ttlCase_ = 0;
@@ -673,33 +583,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.LifecycleConfig buildPartial() {
       com.google.cloud.dataproc.v1.LifecycleConfig result = new com.google.cloud.dataproc.v1.LifecycleConfig(this);
-      if (idleDeleteTtlBuilder_ == null) {
-        result.idleDeleteTtl_ = idleDeleteTtl_;
-      } else {
-        result.idleDeleteTtl_ = idleDeleteTtlBuilder_.build();
-      }
-      if (ttlCase_ == 2) {
-        if (autoDeleteTimeBuilder_ == null) {
-          result.ttl_ = ttl_;
-        } else {
-          result.ttl_ = autoDeleteTimeBuilder_.build();
-        }
-      }
-      if (ttlCase_ == 3) {
-        if (autoDeleteTtlBuilder_ == null) {
-          result.ttl_ = ttl_;
-        } else {
-          result.ttl_ = autoDeleteTtlBuilder_.build();
-        }
-      }
-      if (idleStartTimeBuilder_ == null) {
-        result.idleStartTime_ = idleStartTime_;
-      } else {
-        result.idleStartTime_ = idleStartTimeBuilder_.build();
-      }
-      result.ttlCase_ = ttlCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.LifecycleConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.idleDeleteTtl_ = idleDeleteTtlBuilder_ == null
+            ? idleDeleteTtl_
+            : idleDeleteTtlBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.idleStartTime_ = idleStartTimeBuilder_ == null
+            ? idleStartTime_
+            : idleStartTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataproc.v1.LifecycleConfig result) {
+      result.ttlCase_ = ttlCase_;
+      result.ttl_ = this.ttl_;
+      if (ttlCase_ == 2 &&
+          autoDeleteTimeBuilder_ != null) {
+        result.ttl_ = autoDeleteTimeBuilder_.build();
+      }
+      if (ttlCase_ == 3 &&
+          autoDeleteTtlBuilder_ != null) {
+        result.ttl_ = autoDeleteTtlBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -765,7 +679,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -780,17 +694,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.LifecycleConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getIdleDeleteTtlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAutoDeleteTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              ttlCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAutoDeleteTtlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              ttlCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getIdleStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.LifecycleConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int ttlCase_ = 0;
@@ -808,6 +763,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.Duration idleDeleteTtl_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -825,7 +781,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the idleDeleteTtl field is set.
      */
     public boolean hasIdleDeleteTtl() {
-      return idleDeleteTtlBuilder_ != null || idleDeleteTtl_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -863,11 +819,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         idleDeleteTtl_ = value;
-        onChanged();
       } else {
         idleDeleteTtlBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -885,11 +841,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (idleDeleteTtlBuilder_ == null) {
         idleDeleteTtl_ = builderForValue.build();
-        onChanged();
       } else {
         idleDeleteTtlBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -905,17 +861,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdleDeleteTtl(com.google.protobuf.Duration value) {
       if (idleDeleteTtlBuilder_ == null) {
-        if (idleDeleteTtl_ != null) {
-          idleDeleteTtl_ =
-            com.google.protobuf.Duration.newBuilder(idleDeleteTtl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          idleDeleteTtl_ != null &&
+          idleDeleteTtl_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getIdleDeleteTtlBuilder().mergeFrom(value);
         } else {
           idleDeleteTtl_ = value;
         }
-        onChanged();
       } else {
         idleDeleteTtlBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -930,14 +887,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_delete_ttl = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearIdleDeleteTtl() {
-      if (idleDeleteTtlBuilder_ == null) {
-        idleDeleteTtl_ = null;
-        onChanged();
-      } else {
-        idleDeleteTtl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      idleDeleteTtl_ = null;
+      if (idleDeleteTtlBuilder_ != null) {
+        idleDeleteTtlBuilder_.dispose();
         idleDeleteTtlBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -952,7 +908,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration idle_delete_ttl = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Duration.Builder getIdleDeleteTtlBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getIdleDeleteTtlFieldBuilder().getBuilder();
     }
@@ -1004,7 +960,8 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> autoDeleteTimeBuilder_;
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1017,7 +974,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1040,7 +998,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1061,7 +1020,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1080,7 +1040,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1108,7 +1069,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1132,7 +1094,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1143,7 +1106,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1162,7 +1126,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The time when cluster will be auto-deleted (see JSON representation of
+     * Optional. The time when cluster will be auto-deleted (see JSON
+     * representation of
      * [Timestamp](https://developers.google.com/protocol-buffers/docs/proto3#json)).
      * </pre>
      *
@@ -1183,7 +1148,7 @@ private static final long serialVersionUID = 0L;
         ttl_ = null;
       }
       ttlCase_ = 2;
-      onChanged();;
+      onChanged();
       return autoDeleteTimeBuilder_;
     }
 
@@ -1388,7 +1353,7 @@ private static final long serialVersionUID = 0L;
         ttl_ = null;
       }
       ttlCase_ = 3;
-      onChanged();;
+      onChanged();
       return autoDeleteTtlBuilder_;
     }
 
@@ -1407,7 +1372,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the idleStartTime field is set.
      */
     public boolean hasIdleStartTime() {
-      return idleStartTimeBuilder_ != null || idleStartTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1443,11 +1408,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         idleStartTime_ = value;
-        onChanged();
       } else {
         idleStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1464,11 +1429,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (idleStartTimeBuilder_ == null) {
         idleStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         idleStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1483,17 +1448,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIdleStartTime(com.google.protobuf.Timestamp value) {
       if (idleStartTimeBuilder_ == null) {
-        if (idleStartTime_ != null) {
-          idleStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(idleStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          idleStartTime_ != null &&
+          idleStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getIdleStartTimeBuilder().mergeFrom(value);
         } else {
           idleStartTime_ = value;
         }
-        onChanged();
       } else {
         idleStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1507,14 +1473,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp idle_start_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearIdleStartTime() {
-      if (idleStartTimeBuilder_ == null) {
-        idleStartTime_ = null;
-        onChanged();
-      } else {
-        idleStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      idleStartTime_ = null;
+      if (idleStartTimeBuilder_ != null) {
+        idleStartTimeBuilder_.dispose();
         idleStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1528,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp idle_start_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getIdleStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getIdleStartTimeFieldBuilder().getBuilder();
     }
@@ -1606,7 +1571,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LifecycleConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

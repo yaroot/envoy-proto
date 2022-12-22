@@ -44,220 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobQuery(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            query_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              companies_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            companies_.add(s);
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              locationFilters_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.LocationFilter>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            locationFilters_.add(
-                input.readMessage(com.google.cloud.talent.v4beta1.LocationFilter.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              jobCategories_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            jobCategories_.add(rawValue);
-            break;
-          }
-          case 34: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                jobCategories_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              jobCategories_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 42: {
-            com.google.cloud.talent.v4beta1.CommuteFilter.Builder subBuilder = null;
-            if (commuteFilter_ != null) {
-              subBuilder = commuteFilter_.toBuilder();
-            }
-            commuteFilter_ = input.readMessage(com.google.cloud.talent.v4beta1.CommuteFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commuteFilter_);
-              commuteFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              companyDisplayNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            companyDisplayNames_.add(s);
-            break;
-          }
-          case 58: {
-            com.google.cloud.talent.v4beta1.CompensationFilter.Builder subBuilder = null;
-            if (compensationFilter_ != null) {
-              subBuilder = compensationFilter_.toBuilder();
-            }
-            compensationFilter_ = input.readMessage(com.google.cloud.talent.v4beta1.CompensationFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(compensationFilter_);
-              compensationFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customAttributeFilter_ = s;
-            break;
-          }
-          case 72: {
-
-            disableSpellCheck_ = input.readBool();
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              employmentTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            employmentTypes_.add(rawValue);
-            break;
-          }
-          case 82: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                employmentTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              employmentTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              languageCodes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            languageCodes_.add(s);
-            break;
-          }
-          case 98: {
-            com.google.cloud.talent.v4beta1.TimestampRange.Builder subBuilder = null;
-            if (publishTimeRange_ != null) {
-              subBuilder = publishTimeRange_.toBuilder();
-            }
-            publishTimeRange_ = input.readMessage(com.google.cloud.talent.v4beta1.TimestampRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(publishTimeRange_);
-              publishTimeRange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              excludedJobs_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            excludedJobs_.add(s);
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            queryLanguageCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        companies_ = companies_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        locationFilters_ = java.util.Collections.unmodifiableList(locationFilters_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        jobCategories_ = java.util.Collections.unmodifiableList(jobCategories_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        companyDisplayNames_ = companyDisplayNames_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        employmentTypes_ = java.util.Collections.unmodifiableList(employmentTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        languageCodes_ = languageCodes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        excludedJobs_ = excludedJobs_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4beta1.FiltersProto.internal_static_google_cloud_talent_v4beta1_JobQuery_descriptor;
@@ -272,7 +58,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object query_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object query_ = "";
   /**
    * <pre>
    * The query string that matches against the job title, description, and
@@ -322,7 +109,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_LANGUAGE_CODE_FIELD_NUMBER = 14;
-  private volatile java.lang.Object queryLanguageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object queryLanguageCode_ = "";
   /**
    * <pre>
    * The language code of [query][google.cloud.talent.v4beta1.JobQuery.query]. For example, "en-US". This field helps to
@@ -380,6 +168,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMPANIES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList companies_;
   /**
    * <pre>
@@ -471,6 +260,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FILTERS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.talent.v4beta1.LocationFilter> locationFilters_;
   /**
    * <pre>
@@ -571,14 +361,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JOB_CATEGORIES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> jobCategories_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.talent.v4beta1.JobCategory> jobCategories_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.talent.v4beta1.JobCategory>() {
             public com.google.cloud.talent.v4beta1.JobCategory convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.talent.v4beta1.JobCategory result = com.google.cloud.talent.v4beta1.JobCategory.valueOf(from);
+              com.google.cloud.talent.v4beta1.JobCategory result = com.google.cloud.talent.v4beta1.JobCategory.forNumber(from);
               return result == null ? com.google.cloud.talent.v4beta1.JobCategory.UNRECOGNIZED : result;
             }
           };
@@ -715,10 +505,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.CommuteFilterOrBuilder getCommuteFilterOrBuilder() {
-    return getCommuteFilter();
+    return commuteFilter_ == null ? com.google.cloud.talent.v4beta1.CommuteFilter.getDefaultInstance() : commuteFilter_;
   }
 
   public static final int COMPANY_DISPLAY_NAMES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList companyDisplayNames_;
   /**
    * <pre>
@@ -888,11 +679,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.CompensationFilterOrBuilder getCompensationFilterOrBuilder() {
-    return getCompensationFilter();
+    return compensationFilter_ == null ? com.google.cloud.talent.v4beta1.CompensationFilter.getDefaultInstance() : compensationFilter_;
   }
 
   public static final int CUSTOM_ATTRIBUTE_FILTER_FIELD_NUMBER = 8;
-  private volatile java.lang.Object customAttributeFilter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customAttributeFilter_ = "";
   /**
    * <pre>
    * This filter specifies a structured syntax to match against the
@@ -970,7 +762,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_SPELL_CHECK_FIELD_NUMBER = 9;
-  private boolean disableSpellCheck_;
+  private boolean disableSpellCheck_ = false;
   /**
    * <pre>
    * This flag controls the spell-check feature. If false, the
@@ -988,14 +780,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMPLOYMENT_TYPES_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> employmentTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.talent.v4beta1.EmploymentType> employmentTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.talent.v4beta1.EmploymentType>() {
             public com.google.cloud.talent.v4beta1.EmploymentType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.talent.v4beta1.EmploymentType result = com.google.cloud.talent.v4beta1.EmploymentType.valueOf(from);
+              com.google.cloud.talent.v4beta1.EmploymentType result = com.google.cloud.talent.v4beta1.EmploymentType.forNumber(from);
               return result == null ? com.google.cloud.talent.v4beta1.EmploymentType.UNRECOGNIZED : result;
             }
           };
@@ -1091,6 +883,7 @@ private static final long serialVersionUID = 0L;
   private int employmentTypesMemoizedSerializedSize;
 
   public static final int LANGUAGE_CODES_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList languageCodes_;
   /**
    * <pre>
@@ -1207,10 +1000,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4beta1.TimestampRangeOrBuilder getPublishTimeRangeOrBuilder() {
-    return getPublishTimeRange();
+    return publishTimeRange_ == null ? com.google.cloud.talent.v4beta1.TimestampRange.getDefaultInstance() : publishTimeRange_;
   }
 
   public static final int EXCLUDED_JOBS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList excludedJobs_;
   /**
    * <pre>
@@ -1330,7 +1124,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(queryLanguageCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, queryLanguageCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1424,7 +1218,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(queryLanguageCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, queryLanguageCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1474,7 +1268,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getExcludedJobsList()
         .equals(other.getExcludedJobsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1534,7 +1328,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXCLUDED_JOBS_FIELD_NUMBER;
       hash = (53 * hash) + getExcludedJobsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1655,67 +1449,56 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4beta1.JobQuery.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLocationFiltersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       query_ = "";
-
       queryLanguageCode_ = "";
-
       companies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (locationFiltersBuilder_ == null) {
         locationFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        locationFilters_ = null;
         locationFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       jobCategories_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (commuteFilterBuilder_ == null) {
-        commuteFilter_ = null;
-      } else {
-        commuteFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      commuteFilter_ = null;
+      if (commuteFilterBuilder_ != null) {
+        commuteFilterBuilder_.dispose();
         commuteFilterBuilder_ = null;
       }
       companyDisplayNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (compensationFilterBuilder_ == null) {
-        compensationFilter_ = null;
-      } else {
-        compensationFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      compensationFilter_ = null;
+      if (compensationFilterBuilder_ != null) {
+        compensationFilterBuilder_.dispose();
         compensationFilterBuilder_ = null;
       }
       customAttributeFilter_ = "";
-
       disableSpellCheck_ = false;
-
       employmentTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000400);
       languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
-      if (publishTimeRangeBuilder_ == null) {
-        publishTimeRange_ = null;
-      } else {
-        publishTimeRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      publishTimeRange_ = null;
+      if (publishTimeRangeBuilder_ != null) {
+        publishTimeRangeBuilder_.dispose();
         publishTimeRangeBuilder_ = null;
       }
       excludedJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -1742,67 +1525,83 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4beta1.JobQuery buildPartial() {
       com.google.cloud.talent.v4beta1.JobQuery result = new com.google.cloud.talent.v4beta1.JobQuery(this);
-      int from_bitField0_ = bitField0_;
-      result.query_ = query_;
-      result.queryLanguageCode_ = queryLanguageCode_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4beta1.JobQuery result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         companies_ = companies_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.companies_ = companies_;
       if (locationFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           locationFilters_ = java.util.Collections.unmodifiableList(locationFilters_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.locationFilters_ = locationFilters_;
       } else {
         result.locationFilters_ = locationFiltersBuilder_.build();
       }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        jobCategories_ = java.util.Collections.unmodifiableList(jobCategories_);
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.jobCategories_ = jobCategories_;
-      if (commuteFilterBuilder_ == null) {
-        result.commuteFilter_ = commuteFilter_;
-      } else {
-        result.commuteFilter_ = commuteFilterBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000008) != 0)) {
-        companyDisplayNames_ = companyDisplayNames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.companyDisplayNames_ = companyDisplayNames_;
-      if (compensationFilterBuilder_ == null) {
-        result.compensationFilter_ = compensationFilter_;
-      } else {
-        result.compensationFilter_ = compensationFilterBuilder_.build();
-      }
-      result.customAttributeFilter_ = customAttributeFilter_;
-      result.disableSpellCheck_ = disableSpellCheck_;
       if (((bitField0_ & 0x00000010) != 0)) {
-        employmentTypes_ = java.util.Collections.unmodifiableList(employmentTypes_);
+        jobCategories_ = java.util.Collections.unmodifiableList(jobCategories_);
         bitField0_ = (bitField0_ & ~0x00000010);
       }
-      result.employmentTypes_ = employmentTypes_;
-      if (((bitField0_ & 0x00000020) != 0)) {
-        languageCodes_ = languageCodes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000020);
-      }
-      result.languageCodes_ = languageCodes_;
-      if (publishTimeRangeBuilder_ == null) {
-        result.publishTimeRange_ = publishTimeRange_;
-      } else {
-        result.publishTimeRange_ = publishTimeRangeBuilder_.build();
-      }
+      result.jobCategories_ = jobCategories_;
       if (((bitField0_ & 0x00000040) != 0)) {
-        excludedJobs_ = excludedJobs_.getUnmodifiableView();
+        companyDisplayNames_ = companyDisplayNames_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000040);
       }
+      result.companyDisplayNames_ = companyDisplayNames_;
+      if (((bitField0_ & 0x00000400) != 0)) {
+        employmentTypes_ = java.util.Collections.unmodifiableList(employmentTypes_);
+        bitField0_ = (bitField0_ & ~0x00000400);
+      }
+      result.employmentTypes_ = employmentTypes_;
+      if (((bitField0_ & 0x00000800) != 0)) {
+        languageCodes_ = languageCodes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000800);
+      }
+      result.languageCodes_ = languageCodes_;
+      if (((bitField0_ & 0x00002000) != 0)) {
+        excludedJobs_ = excludedJobs_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00002000);
+      }
       result.excludedJobs_ = excludedJobs_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4beta1.JobQuery result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.query_ = query_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.queryLanguageCode_ = queryLanguageCode_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.commuteFilter_ = commuteFilterBuilder_ == null
+            ? commuteFilter_
+            : commuteFilterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.compensationFilter_ = compensationFilterBuilder_ == null
+            ? compensationFilter_
+            : compensationFilterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.customAttributeFilter_ = customAttributeFilter_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.disableSpellCheck_ = disableSpellCheck_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.publishTimeRange_ = publishTimeRangeBuilder_ == null
+            ? publishTimeRange_
+            : publishTimeRangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1851,16 +1650,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4beta1.JobQuery.getDefaultInstance()) return this;
       if (!other.getQuery().isEmpty()) {
         query_ = other.query_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getQueryLanguageCode().isEmpty()) {
         queryLanguageCode_ = other.queryLanguageCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.companies_.isEmpty()) {
         if (companies_.isEmpty()) {
           companies_ = other.companies_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureCompaniesIsMutable();
           companies_.addAll(other.companies_);
@@ -1871,7 +1672,7 @@ private static final long serialVersionUID = 0L;
         if (!other.locationFilters_.isEmpty()) {
           if (locationFilters_.isEmpty()) {
             locationFilters_ = other.locationFilters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureLocationFiltersIsMutable();
             locationFilters_.addAll(other.locationFilters_);
@@ -1884,7 +1685,7 @@ private static final long serialVersionUID = 0L;
             locationFiltersBuilder_.dispose();
             locationFiltersBuilder_ = null;
             locationFilters_ = other.locationFilters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             locationFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLocationFiltersFieldBuilder() : null;
@@ -1896,7 +1697,7 @@ private static final long serialVersionUID = 0L;
       if (!other.jobCategories_.isEmpty()) {
         if (jobCategories_.isEmpty()) {
           jobCategories_ = other.jobCategories_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureJobCategoriesIsMutable();
           jobCategories_.addAll(other.jobCategories_);
@@ -1909,7 +1710,7 @@ private static final long serialVersionUID = 0L;
       if (!other.companyDisplayNames_.isEmpty()) {
         if (companyDisplayNames_.isEmpty()) {
           companyDisplayNames_ = other.companyDisplayNames_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureCompanyDisplayNamesIsMutable();
           companyDisplayNames_.addAll(other.companyDisplayNames_);
@@ -1921,6 +1722,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCustomAttributeFilter().isEmpty()) {
         customAttributeFilter_ = other.customAttributeFilter_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.getDisableSpellCheck() != false) {
@@ -1929,7 +1731,7 @@ private static final long serialVersionUID = 0L;
       if (!other.employmentTypes_.isEmpty()) {
         if (employmentTypes_.isEmpty()) {
           employmentTypes_ = other.employmentTypes_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000400);
         } else {
           ensureEmploymentTypesIsMutable();
           employmentTypes_.addAll(other.employmentTypes_);
@@ -1939,7 +1741,7 @@ private static final long serialVersionUID = 0L;
       if (!other.languageCodes_.isEmpty()) {
         if (languageCodes_.isEmpty()) {
           languageCodes_ = other.languageCodes_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000800);
         } else {
           ensureLanguageCodesIsMutable();
           languageCodes_.addAll(other.languageCodes_);
@@ -1952,14 +1754,14 @@ private static final long serialVersionUID = 0L;
       if (!other.excludedJobs_.isEmpty()) {
         if (excludedJobs_.isEmpty()) {
           excludedJobs_ = other.excludedJobs_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00002000);
         } else {
           ensureExcludedJobsIsMutable();
           excludedJobs_.addAll(other.excludedJobs_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1974,17 +1776,142 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4beta1.JobQuery parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              query_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCompaniesIsMutable();
+              companies_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.talent.v4beta1.LocationFilter m =
+                  input.readMessage(
+                      com.google.cloud.talent.v4beta1.LocationFilter.parser(),
+                      extensionRegistry);
+              if (locationFiltersBuilder_ == null) {
+                ensureLocationFiltersIsMutable();
+                locationFilters_.add(m);
+              } else {
+                locationFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensureJobCategoriesIsMutable();
+              jobCategories_.add(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureJobCategoriesIsMutable();
+                jobCategories_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getCommuteFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCompanyDisplayNamesIsMutable();
+              companyDisplayNames_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getCompensationFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              customAttributeFilter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 72: {
+              disableSpellCheck_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 72
+            case 80: {
+              int tmpRaw = input.readEnum();
+              ensureEmploymentTypesIsMutable();
+              employmentTypes_.add(tmpRaw);
+              break;
+            } // case 80
+            case 82: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureEmploymentTypesIsMutable();
+                employmentTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 82
+            case 90: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLanguageCodesIsMutable();
+              languageCodes_.add(s);
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getPublishTimeRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureExcludedJobsIsMutable();
+              excludedJobs_.add(s);
+              break;
+            } // case 106
+            case 114: {
+              queryLanguageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4beta1.JobQuery) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2048,11 +1975,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       query_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2067,8 +1992,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
-      
       query_ = getDefaultInstance().getQuery();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2085,12 +2010,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       query_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2166,11 +2089,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       queryLanguageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2189,8 +2110,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQueryLanguageCode() {
-      
       queryLanguageCode_ = getDefaultInstance().getQueryLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2211,21 +2132,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       queryLanguageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList companies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCompaniesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         companies_ = new com.google.protobuf.LazyStringArrayList(companies_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -2338,10 +2257,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompanies(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCompaniesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCompaniesIsMutable();
       companies_.set(index, value);
       onChanged();
       return this;
@@ -2367,10 +2284,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCompanies(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCompaniesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCompaniesIsMutable();
       companies_.add(value);
       onChanged();
       return this;
@@ -2422,7 +2337,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCompanies() {
       companies_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2447,10 +2362,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCompaniesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCompaniesIsMutable();
       companies_.add(value);
       onChanged();
@@ -2460,9 +2373,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.talent.v4beta1.LocationFilter> locationFilters_ =
       java.util.Collections.emptyList();
     private void ensureLocationFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         locationFilters_ = new java.util.ArrayList<com.google.cloud.talent.v4beta1.LocationFilter>(locationFilters_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2744,7 +2657,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLocationFilters() {
       if (locationFiltersBuilder_ == null) {
         locationFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         locationFiltersBuilder_.clear();
@@ -2905,7 +2818,7 @@ private static final long serialVersionUID = 0L;
         locationFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.talent.v4beta1.LocationFilter, com.google.cloud.talent.v4beta1.LocationFilter.Builder, com.google.cloud.talent.v4beta1.LocationFilterOrBuilder>(
                 locationFilters_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         locationFilters_ = null;
@@ -2916,9 +2829,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> jobCategories_ =
       java.util.Collections.emptyList();
     private void ensureJobCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         jobCategories_ = new java.util.ArrayList<java.lang.Integer>(jobCategories_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
       }
     }
     /**
@@ -3050,7 +2963,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearJobCategories() {
       jobCategories_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3165,7 +3078,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commuteFilter field is set.
      */
     public boolean hasCommuteFilter() {
-      return commuteFilterBuilder_ != null || commuteFilter_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3203,11 +3116,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commuteFilter_ = value;
-        onChanged();
       } else {
         commuteFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3225,11 +3138,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.CommuteFilter.Builder builderForValue) {
       if (commuteFilterBuilder_ == null) {
         commuteFilter_ = builderForValue.build();
-        onChanged();
       } else {
         commuteFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3245,17 +3158,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommuteFilter(com.google.cloud.talent.v4beta1.CommuteFilter value) {
       if (commuteFilterBuilder_ == null) {
-        if (commuteFilter_ != null) {
-          commuteFilter_ =
-            com.google.cloud.talent.v4beta1.CommuteFilter.newBuilder(commuteFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          commuteFilter_ != null &&
+          commuteFilter_ != com.google.cloud.talent.v4beta1.CommuteFilter.getDefaultInstance()) {
+          getCommuteFilterBuilder().mergeFrom(value);
         } else {
           commuteFilter_ = value;
         }
-        onChanged();
       } else {
         commuteFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3270,14 +3184,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CommuteFilter commute_filter = 5;</code>
      */
     public Builder clearCommuteFilter() {
-      if (commuteFilterBuilder_ == null) {
-        commuteFilter_ = null;
-        onChanged();
-      } else {
-        commuteFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      commuteFilter_ = null;
+      if (commuteFilterBuilder_ != null) {
+        commuteFilterBuilder_.dispose();
         commuteFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3292,7 +3205,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CommuteFilter commute_filter = 5;</code>
      */
     public com.google.cloud.talent.v4beta1.CommuteFilter.Builder getCommuteFilterBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCommuteFilterFieldBuilder().getBuilder();
     }
@@ -3342,9 +3255,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList companyDisplayNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCompanyDisplayNamesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         companyDisplayNames_ = new com.google.protobuf.LazyStringArrayList(companyDisplayNames_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -3497,10 +3410,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCompanyDisplayNames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCompanyDisplayNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCompanyDisplayNamesIsMutable();
       companyDisplayNames_.set(index, value);
       onChanged();
       return this;
@@ -3534,10 +3445,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCompanyDisplayNames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCompanyDisplayNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCompanyDisplayNamesIsMutable();
       companyDisplayNames_.add(value);
       onChanged();
       return this;
@@ -3605,7 +3514,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCompanyDisplayNames() {
       companyDisplayNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3638,10 +3547,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCompanyDisplayNamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCompanyDisplayNamesIsMutable();
       companyDisplayNames_.add(value);
       onChanged();
@@ -3664,7 +3571,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the compensationFilter field is set.
      */
     public boolean hasCompensationFilter() {
-      return compensationFilterBuilder_ != null || compensationFilter_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3702,11 +3609,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         compensationFilter_ = value;
-        onChanged();
       } else {
         compensationFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3724,11 +3631,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.CompensationFilter.Builder builderForValue) {
       if (compensationFilterBuilder_ == null) {
         compensationFilter_ = builderForValue.build();
-        onChanged();
       } else {
         compensationFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3744,17 +3651,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCompensationFilter(com.google.cloud.talent.v4beta1.CompensationFilter value) {
       if (compensationFilterBuilder_ == null) {
-        if (compensationFilter_ != null) {
-          compensationFilter_ =
-            com.google.cloud.talent.v4beta1.CompensationFilter.newBuilder(compensationFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          compensationFilter_ != null &&
+          compensationFilter_ != com.google.cloud.talent.v4beta1.CompensationFilter.getDefaultInstance()) {
+          getCompensationFilterBuilder().mergeFrom(value);
         } else {
           compensationFilter_ = value;
         }
-        onChanged();
       } else {
         compensationFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3769,14 +3677,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CompensationFilter compensation_filter = 7;</code>
      */
     public Builder clearCompensationFilter() {
-      if (compensationFilterBuilder_ == null) {
-        compensationFilter_ = null;
-        onChanged();
-      } else {
-        compensationFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      compensationFilter_ = null;
+      if (compensationFilterBuilder_ != null) {
+        compensationFilterBuilder_.dispose();
         compensationFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3791,7 +3698,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.CompensationFilter compensation_filter = 7;</code>
      */
     public com.google.cloud.talent.v4beta1.CompensationFilter.Builder getCompensationFilterBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCompensationFilterFieldBuilder().getBuilder();
     }
@@ -3940,11 +3847,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomAttributeFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customAttributeFilter_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3973,8 +3878,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomAttributeFilter() {
-      
       customAttributeFilter_ = getDefaultInstance().getCustomAttributeFilter();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -4005,12 +3910,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomAttributeFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customAttributeFilter_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -4046,6 +3949,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableSpellCheck(boolean value) {
       
       disableSpellCheck_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -4061,7 +3965,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableSpellCheck() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       disableSpellCheck_ = false;
       onChanged();
       return this;
@@ -4070,9 +3974,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> employmentTypes_ =
       java.util.Collections.emptyList();
     private void ensureEmploymentTypesIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         employmentTypes_ = new java.util.ArrayList<java.lang.Integer>(employmentTypes_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000400;
       }
     }
     /**
@@ -4211,7 +4115,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEmploymentTypes() {
       employmentTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -4317,9 +4221,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureLanguageCodesIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000800) != 0)) {
         languageCodes_ = new com.google.protobuf.LazyStringArrayList(languageCodes_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000800;
        }
     }
     /**
@@ -4417,10 +4321,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLanguageCodesIsMutable();
       languageCodes_.set(index, value);
       onChanged();
       return this;
@@ -4443,10 +4345,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLanguageCodes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLanguageCodesIsMutable();
       languageCodes_.add(value);
       onChanged();
       return this;
@@ -4492,7 +4392,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearLanguageCodes() {
       languageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4514,10 +4414,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLanguageCodesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLanguageCodesIsMutable();
       languageCodes_.add(value);
       onChanged();
@@ -4537,7 +4435,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the publishTimeRange field is set.
      */
     public boolean hasPublishTimeRange() {
-      return publishTimeRangeBuilder_ != null || publishTimeRange_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -4569,11 +4467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         publishTimeRange_ = value;
-        onChanged();
       } else {
         publishTimeRangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4588,11 +4486,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4beta1.TimestampRange.Builder builderForValue) {
       if (publishTimeRangeBuilder_ == null) {
         publishTimeRange_ = builderForValue.build();
-        onChanged();
       } else {
         publishTimeRangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4605,17 +4503,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePublishTimeRange(com.google.cloud.talent.v4beta1.TimestampRange value) {
       if (publishTimeRangeBuilder_ == null) {
-        if (publishTimeRange_ != null) {
-          publishTimeRange_ =
-            com.google.cloud.talent.v4beta1.TimestampRange.newBuilder(publishTimeRange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          publishTimeRange_ != null &&
+          publishTimeRange_ != com.google.cloud.talent.v4beta1.TimestampRange.getDefaultInstance()) {
+          getPublishTimeRangeBuilder().mergeFrom(value);
         } else {
           publishTimeRange_ = value;
         }
-        onChanged();
       } else {
         publishTimeRangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4627,14 +4526,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.TimestampRange publish_time_range = 12;</code>
      */
     public Builder clearPublishTimeRange() {
-      if (publishTimeRangeBuilder_ == null) {
-        publishTimeRange_ = null;
-        onChanged();
-      } else {
-        publishTimeRange_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      publishTimeRange_ = null;
+      if (publishTimeRangeBuilder_ != null) {
+        publishTimeRangeBuilder_.dispose();
         publishTimeRangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4646,7 +4544,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4beta1.TimestampRange publish_time_range = 12;</code>
      */
     public com.google.cloud.talent.v4beta1.TimestampRange.Builder getPublishTimeRangeBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getPublishTimeRangeFieldBuilder().getBuilder();
     }
@@ -4690,9 +4588,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList excludedJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureExcludedJobsIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         excludedJobs_ = new com.google.protobuf.LazyStringArrayList(excludedJobs_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00002000;
        }
     }
     /**
@@ -4760,10 +4658,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExcludedJobs(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludedJobsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExcludedJobsIsMutable();
       excludedJobs_.set(index, value);
       onChanged();
       return this;
@@ -4780,10 +4676,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExcludedJobs(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludedJobsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExcludedJobsIsMutable();
       excludedJobs_.add(value);
       onChanged();
       return this;
@@ -4817,7 +4711,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearExcludedJobs() {
       excludedJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -4833,10 +4727,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExcludedJobsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureExcludedJobsIsMutable();
       excludedJobs_.add(value);
       onChanged();
@@ -4875,7 +4767,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobQuery(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

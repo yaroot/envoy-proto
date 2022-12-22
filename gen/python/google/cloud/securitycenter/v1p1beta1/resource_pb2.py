@@ -13,10 +13,9 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.cloud.securitycenter.v1p1beta1 import folder_pb2 as google_dot_cloud_dot_securitycenter_dot_v1p1beta1_dot_folder__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/securitycenter/v1p1beta1/resource.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x32google/cloud/securitycenter/v1p1beta1/folder.proto\x1a\x1cgoogle/api/annotations.proto\"\xb9\x01\n\x08Resource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07project\x18\x02 \x01(\t\x12\x1c\n\x14project_display_name\x18\x03 \x01(\t\x12\x0e\n\x06parent\x18\x04 \x01(\t\x12\x1b\n\x13parent_display_name\x18\x05 \x01(\t\x12\x43\n\x07\x66olders\x18\x07 \x03(\x0b\x32-.google.cloud.securitycenter.v1p1beta1.FolderB\x03\xe0\x41\x03\x42\x8c\x02\n)com.google.cloud.securitycenter.v1p1beta1B\rResourceProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n4google/cloud/securitycenter/v1p1beta1/resource.proto\x12%google.cloud.securitycenter.v1p1beta1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x32google/cloud/securitycenter/v1p1beta1/folder.proto\"\xb9\x01\n\x08Resource\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0f\n\x07project\x18\x02 \x01(\t\x12\x1c\n\x14project_display_name\x18\x03 \x01(\t\x12\x0e\n\x06parent\x18\x04 \x01(\t\x12\x1b\n\x13parent_display_name\x18\x05 \x01(\t\x12\x43\n\x07\x66olders\x18\x07 \x03(\x0b\x32-.google.cloud.securitycenter.v1p1beta1.FolderB\x03\xe0\x41\x03\x42\x8c\x02\n)com.google.cloud.securitycenter.v1p1beta1B\rResourceProtoP\x01ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\xaa\x02%Google.Cloud.SecurityCenter.V1P1Beta1\xca\x02%Google\\Cloud\\SecurityCenter\\V1p1beta1\xea\x02(Google::Cloud::SecurityCenter::V1p1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.v1p1beta1.resource_pb2', globals())
@@ -26,6 +25,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n)com.google.cloud.securitycenter.v1p1beta1B\rResourceProtoP\001ZSgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1p1beta1;securitycenter\252\002%Google.Cloud.SecurityCenter.V1P1Beta1\312\002%Google\\Cloud\\SecurityCenter\\V1p1beta1\352\002(Google::Cloud::SecurityCenter::V1p1beta1'
   _RESOURCE.fields_by_name['folders']._options = None
   _RESOURCE.fields_by_name['folders']._serialized_options = b'\340A\003'
-  _RESOURCE._serialized_start=211
-  _RESOURCE._serialized_end=396
+  _RESOURCE._serialized_start=181
+  _RESOURCE._serialized_end=366
 # @@protoc_insertion_point(module_scope)

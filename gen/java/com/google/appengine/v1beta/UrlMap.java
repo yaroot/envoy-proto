@@ -41,117 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UrlMap(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            urlRegex_ = s;
-            break;
-          }
-          case 18: {
-            com.google.appengine.v1beta.StaticFilesHandler.Builder subBuilder = null;
-            if (handlerTypeCase_ == 2) {
-              subBuilder = ((com.google.appengine.v1beta.StaticFilesHandler) handlerType_).toBuilder();
-            }
-            handlerType_ =
-                input.readMessage(com.google.appengine.v1beta.StaticFilesHandler.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.appengine.v1beta.StaticFilesHandler) handlerType_);
-              handlerType_ = subBuilder.buildPartial();
-            }
-            handlerTypeCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.appengine.v1beta.ScriptHandler.Builder subBuilder = null;
-            if (handlerTypeCase_ == 3) {
-              subBuilder = ((com.google.appengine.v1beta.ScriptHandler) handlerType_).toBuilder();
-            }
-            handlerType_ =
-                input.readMessage(com.google.appengine.v1beta.ScriptHandler.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.appengine.v1beta.ScriptHandler) handlerType_);
-              handlerType_ = subBuilder.buildPartial();
-            }
-            handlerTypeCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.appengine.v1beta.ApiEndpointHandler.Builder subBuilder = null;
-            if (handlerTypeCase_ == 4) {
-              subBuilder = ((com.google.appengine.v1beta.ApiEndpointHandler) handlerType_).toBuilder();
-            }
-            handlerType_ =
-                input.readMessage(com.google.appengine.v1beta.ApiEndpointHandler.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.appengine.v1beta.ApiEndpointHandler) handlerType_);
-              handlerType_ = subBuilder.buildPartial();
-            }
-            handlerTypeCase_ = 4;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            securityLevel_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            login_ = rawValue;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            authFailAction_ = rawValue;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            redirectHttpResponseCode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.AppYamlProto.internal_static_google_appengine_v1beta_UrlMap_descriptor;
@@ -388,7 +277,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_REGEX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object urlRegex_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object urlRegex_ = "";
   /**
    * <pre>
    * URL prefix. Uses regular expression syntax, which means regexp
@@ -575,7 +465,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SECURITY_LEVEL_FIELD_NUMBER = 5;
-  private int securityLevel_;
+  private int securityLevel_ = 0;
   /**
    * <pre>
    * Security (HTTPS) enforcement for this URL.
@@ -596,13 +486,12 @@ private static final long serialVersionUID = 0L;
    * @return The securityLevel.
    */
   @java.lang.Override public com.google.appengine.v1beta.SecurityLevel getSecurityLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.appengine.v1beta.SecurityLevel result = com.google.appengine.v1beta.SecurityLevel.valueOf(securityLevel_);
+    com.google.appengine.v1beta.SecurityLevel result = com.google.appengine.v1beta.SecurityLevel.forNumber(securityLevel_);
     return result == null ? com.google.appengine.v1beta.SecurityLevel.UNRECOGNIZED : result;
   }
 
   public static final int LOGIN_FIELD_NUMBER = 6;
-  private int login_;
+  private int login_ = 0;
   /**
    * <pre>
    * Level of login required to access this resource. Not supported for Node.js
@@ -625,13 +514,12 @@ private static final long serialVersionUID = 0L;
    * @return The login.
    */
   @java.lang.Override public com.google.appengine.v1beta.LoginRequirement getLogin() {
-    @SuppressWarnings("deprecation")
-    com.google.appengine.v1beta.LoginRequirement result = com.google.appengine.v1beta.LoginRequirement.valueOf(login_);
+    com.google.appengine.v1beta.LoginRequirement result = com.google.appengine.v1beta.LoginRequirement.forNumber(login_);
     return result == null ? com.google.appengine.v1beta.LoginRequirement.UNRECOGNIZED : result;
   }
 
   public static final int AUTH_FAIL_ACTION_FIELD_NUMBER = 7;
-  private int authFailAction_;
+  private int authFailAction_ = 0;
   /**
    * <pre>
    * Action to take when users access resources that require
@@ -654,13 +542,12 @@ private static final long serialVersionUID = 0L;
    * @return The authFailAction.
    */
   @java.lang.Override public com.google.appengine.v1beta.AuthFailAction getAuthFailAction() {
-    @SuppressWarnings("deprecation")
-    com.google.appengine.v1beta.AuthFailAction result = com.google.appengine.v1beta.AuthFailAction.valueOf(authFailAction_);
+    com.google.appengine.v1beta.AuthFailAction result = com.google.appengine.v1beta.AuthFailAction.forNumber(authFailAction_);
     return result == null ? com.google.appengine.v1beta.AuthFailAction.UNRECOGNIZED : result;
   }
 
   public static final int REDIRECT_HTTP_RESPONSE_CODE_FIELD_NUMBER = 8;
-  private int redirectHttpResponseCode_;
+  private int redirectHttpResponseCode_ = 0;
   /**
    * <pre>
    * `30x` code to use when performing redirects for the `secure` field.
@@ -683,8 +570,7 @@ private static final long serialVersionUID = 0L;
    * @return The redirectHttpResponseCode.
    */
   @java.lang.Override public com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode getRedirectHttpResponseCode() {
-    @SuppressWarnings("deprecation")
-    com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode result = com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.valueOf(redirectHttpResponseCode_);
+    com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode result = com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.forNumber(redirectHttpResponseCode_);
     return result == null ? com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.UNRECOGNIZED : result;
   }
 
@@ -726,7 +612,7 @@ private static final long serialVersionUID = 0L;
     if (redirectHttpResponseCode_ != com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.REDIRECT_HTTP_RESPONSE_CODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(8, redirectHttpResponseCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -766,7 +652,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(8, redirectHttpResponseCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -804,7 +690,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -841,7 +727,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -964,32 +850,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.UrlMap.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       urlRegex_ = "";
-
+      if (staticFilesBuilder_ != null) {
+        staticFilesBuilder_.clear();
+      }
+      if (scriptBuilder_ != null) {
+        scriptBuilder_.clear();
+      }
+      if (apiEndpointBuilder_ != null) {
+        apiEndpointBuilder_.clear();
+      }
       securityLevel_ = 0;
-
       login_ = 0;
-
       authFailAction_ = 0;
-
       redirectHttpResponseCode_ = 0;
-
       handlerTypeCase_ = 0;
       handlerType_ = null;
       return this;
@@ -1018,35 +904,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.UrlMap buildPartial() {
       com.google.appengine.v1beta.UrlMap result = new com.google.appengine.v1beta.UrlMap(this);
-      result.urlRegex_ = urlRegex_;
-      if (handlerTypeCase_ == 2) {
-        if (staticFilesBuilder_ == null) {
-          result.handlerType_ = handlerType_;
-        } else {
-          result.handlerType_ = staticFilesBuilder_.build();
-        }
-      }
-      if (handlerTypeCase_ == 3) {
-        if (scriptBuilder_ == null) {
-          result.handlerType_ = handlerType_;
-        } else {
-          result.handlerType_ = scriptBuilder_.build();
-        }
-      }
-      if (handlerTypeCase_ == 4) {
-        if (apiEndpointBuilder_ == null) {
-          result.handlerType_ = handlerType_;
-        } else {
-          result.handlerType_ = apiEndpointBuilder_.build();
-        }
-      }
-      result.securityLevel_ = securityLevel_;
-      result.login_ = login_;
-      result.authFailAction_ = authFailAction_;
-      result.redirectHttpResponseCode_ = redirectHttpResponseCode_;
-      result.handlerTypeCase_ = handlerTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.UrlMap result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.urlRegex_ = urlRegex_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.securityLevel_ = securityLevel_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.login_ = login_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.authFailAction_ = authFailAction_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.redirectHttpResponseCode_ = redirectHttpResponseCode_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.appengine.v1beta.UrlMap result) {
+      result.handlerTypeCase_ = handlerTypeCase_;
+      result.handlerType_ = this.handlerType_;
+      if (handlerTypeCase_ == 2 &&
+          staticFilesBuilder_ != null) {
+        result.handlerType_ = staticFilesBuilder_.build();
+      }
+      if (handlerTypeCase_ == 3 &&
+          scriptBuilder_ != null) {
+        result.handlerType_ = scriptBuilder_.build();
+      }
+      if (handlerTypeCase_ == 4 &&
+          apiEndpointBuilder_ != null) {
+        result.handlerType_ = apiEndpointBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1095,6 +992,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.appengine.v1beta.UrlMap.getDefaultInstance()) return this;
       if (!other.getUrlRegex().isEmpty()) {
         urlRegex_ = other.urlRegex_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.securityLevel_ != 0) {
@@ -1126,7 +1024,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1141,17 +1039,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.UrlMap parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              urlRegex_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getStaticFilesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              handlerTypeCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getScriptFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              handlerTypeCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getApiEndpointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              handlerTypeCase_ = 4;
+              break;
+            } // case 34
+            case 40: {
+              securityLevel_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              login_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              authFailAction_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              redirectHttpResponseCode_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.UrlMap) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int handlerTypeCase_ = 0;
@@ -1169,6 +1126,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object urlRegex_ = "";
     /**
@@ -1232,11 +1190,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlRegex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       urlRegex_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1252,8 +1208,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUrlRegex() {
-      
       urlRegex_ = getDefaultInstance().getUrlRegex();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1271,12 +1227,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlRegexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       urlRegex_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1455,7 +1409,7 @@ private static final long serialVersionUID = 0L;
         handlerType_ = null;
       }
       handlerTypeCase_ = 2;
-      onChanged();;
+      onChanged();
       return staticFilesBuilder_;
     }
 
@@ -1651,7 +1605,7 @@ private static final long serialVersionUID = 0L;
         handlerType_ = null;
       }
       handlerTypeCase_ = 3;
-      onChanged();;
+      onChanged();
       return scriptBuilder_;
     }
 
@@ -1829,7 +1783,7 @@ private static final long serialVersionUID = 0L;
         handlerType_ = null;
       }
       handlerTypeCase_ = 4;
-      onChanged();;
+      onChanged();
       return apiEndpointBuilder_;
     }
 
@@ -1855,8 +1809,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSecurityLevelValue(int value) {
-      
       securityLevel_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1870,8 +1824,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.appengine.v1beta.SecurityLevel getSecurityLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.appengine.v1beta.SecurityLevel result = com.google.appengine.v1beta.SecurityLevel.valueOf(securityLevel_);
+      com.google.appengine.v1beta.SecurityLevel result = com.google.appengine.v1beta.SecurityLevel.forNumber(securityLevel_);
       return result == null ? com.google.appengine.v1beta.SecurityLevel.UNRECOGNIZED : result;
     }
     /**
@@ -1887,7 +1840,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       securityLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1901,7 +1854,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSecurityLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       securityLevel_ = 0;
       onChanged();
       return this;
@@ -1931,8 +1884,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLoginValue(int value) {
-      
       login_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1947,8 +1900,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.appengine.v1beta.LoginRequirement getLogin() {
-      @SuppressWarnings("deprecation")
-      com.google.appengine.v1beta.LoginRequirement result = com.google.appengine.v1beta.LoginRequirement.valueOf(login_);
+      com.google.appengine.v1beta.LoginRequirement result = com.google.appengine.v1beta.LoginRequirement.forNumber(login_);
       return result == null ? com.google.appengine.v1beta.LoginRequirement.UNRECOGNIZED : result;
     }
     /**
@@ -1965,7 +1917,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       login_ = value.getNumber();
       onChanged();
       return this;
@@ -1980,7 +1932,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogin() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       login_ = 0;
       onChanged();
       return this;
@@ -2010,8 +1962,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAuthFailActionValue(int value) {
-      
       authFailAction_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2026,8 +1978,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.appengine.v1beta.AuthFailAction getAuthFailAction() {
-      @SuppressWarnings("deprecation")
-      com.google.appengine.v1beta.AuthFailAction result = com.google.appengine.v1beta.AuthFailAction.valueOf(authFailAction_);
+      com.google.appengine.v1beta.AuthFailAction result = com.google.appengine.v1beta.AuthFailAction.forNumber(authFailAction_);
       return result == null ? com.google.appengine.v1beta.AuthFailAction.UNRECOGNIZED : result;
     }
     /**
@@ -2044,7 +1995,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       authFailAction_ = value.getNumber();
       onChanged();
       return this;
@@ -2059,7 +2010,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthFailAction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       authFailAction_ = 0;
       onChanged();
       return this;
@@ -2089,8 +2040,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRedirectHttpResponseCodeValue(int value) {
-      
       redirectHttpResponseCode_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2105,8 +2056,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode getRedirectHttpResponseCode() {
-      @SuppressWarnings("deprecation")
-      com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode result = com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.valueOf(redirectHttpResponseCode_);
+      com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode result = com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.forNumber(redirectHttpResponseCode_);
       return result == null ? com.google.appengine.v1beta.UrlMap.RedirectHttpResponseCode.UNRECOGNIZED : result;
     }
     /**
@@ -2123,7 +2073,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       redirectHttpResponseCode_ = value.getNumber();
       onChanged();
       return this;
@@ -2138,7 +2088,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedirectHttpResponseCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       redirectHttpResponseCode_ = 0;
       onChanged();
       return this;
@@ -2176,7 +2126,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UrlMap(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

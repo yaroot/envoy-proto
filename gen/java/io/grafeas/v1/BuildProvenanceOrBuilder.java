@@ -350,7 +350,6 @@ public interface BuildProvenanceOrBuilder extends
    *
    * <code>map&lt;string, string&gt; build_options = 12;</code>
    */
-
   /* nullable */
 java.lang.String getBuildOptionsOrDefault(
       java.lang.String key,
@@ -364,7 +363,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; build_options = 12;</code>
    */
-
   java.lang.String getBuildOptionsOrThrow(
       java.lang.String key);
 

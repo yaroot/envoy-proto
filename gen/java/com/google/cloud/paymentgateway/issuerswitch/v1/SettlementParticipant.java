@@ -38,96 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SettlementParticipant(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Builder subBuilder = null;
-            if (participant_ != null) {
-              subBuilder = participant_.toBuilder();
-            }
-            participant_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.Participant.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(participant_);
-              participant_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.Builder subBuilder = null;
-            if (account_ != null) {
-              subBuilder = account_.toBuilder();
-            }
-            account_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(account_);
-              account_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.Builder subBuilder = null;
-            if (merchantInfo_ != null) {
-              subBuilder = merchantInfo_.toBuilder();
-            }
-            merchantInfo_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(merchantInfo_);
-              merchantInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mobile_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deviceId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.CommonFieldsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_SettlementParticipant_descriptor;
@@ -176,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.ParticipantOrBuilder getParticipantOrBuilder() {
-    return getParticipant();
+    return participant_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.Participant.getDefaultInstance() : participant_;
   }
 
   public static final int ACCOUNT_FIELD_NUMBER = 2;
@@ -214,7 +124,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.AccountReferenceOrBuilder getAccountOrBuilder() {
-    return getAccount();
+    return account_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.getDefaultInstance() : account_;
   }
 
   public static final int MERCHANT_INFO_FIELD_NUMBER = 3;
@@ -255,11 +165,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfoOrBuilder getMerchantInfoOrBuilder() {
-    return getMerchantInfo();
+    return merchantInfo_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.getDefaultInstance() : merchantInfo_;
   }
 
   public static final int MOBILE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object mobile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mobile_ = "";
   /**
    * <pre>
    * Output only. The mobile number of the participant.
@@ -305,7 +216,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object deviceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deviceId_ = "";
   /**
    * <pre>
    * Output only. The device id of the participant.
@@ -379,7 +291,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, deviceId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -406,7 +318,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deviceId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, deviceId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -440,7 +352,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMobile())) return false;
     if (!getDeviceId()
         .equals(other.getDeviceId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -467,7 +379,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getMobile().hashCode();
     hash = (37 * hash) + DEVICE_ID_FIELD_NUMBER;
     hash = (53 * hash) + getDeviceId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -590,44 +502,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (participantBuilder_ == null) {
-        participant_ = null;
-      } else {
-        participant_ = null;
+      bitField0_ = 0;
+      participant_ = null;
+      if (participantBuilder_ != null) {
+        participantBuilder_.dispose();
         participantBuilder_ = null;
       }
-      if (accountBuilder_ == null) {
-        account_ = null;
-      } else {
-        account_ = null;
+      account_ = null;
+      if (accountBuilder_ != null) {
+        accountBuilder_.dispose();
         accountBuilder_ = null;
       }
-      if (merchantInfoBuilder_ == null) {
-        merchantInfo_ = null;
-      } else {
-        merchantInfo_ = null;
+      merchantInfo_ = null;
+      if (merchantInfoBuilder_ != null) {
+        merchantInfoBuilder_.dispose();
         merchantInfoBuilder_ = null;
       }
       mobile_ = "";
-
       deviceId_ = "";
-
       return this;
     }
 
@@ -654,25 +557,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant result = new com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant(this);
-      if (participantBuilder_ == null) {
-        result.participant_ = participant_;
-      } else {
-        result.participant_ = participantBuilder_.build();
-      }
-      if (accountBuilder_ == null) {
-        result.account_ = account_;
-      } else {
-        result.account_ = accountBuilder_.build();
-      }
-      if (merchantInfoBuilder_ == null) {
-        result.merchantInfo_ = merchantInfo_;
-      } else {
-        result.merchantInfo_ = merchantInfoBuilder_.build();
-      }
-      result.mobile_ = mobile_;
-      result.deviceId_ = deviceId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.participant_ = participantBuilder_ == null
+            ? participant_
+            : participantBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.account_ = accountBuilder_ == null
+            ? account_
+            : accountBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.merchantInfo_ = merchantInfoBuilder_ == null
+            ? merchantInfo_
+            : merchantInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.mobile_ = mobile_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.deviceId_ = deviceId_;
+      }
     }
 
     @java.lang.Override
@@ -730,13 +642,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMobile().isEmpty()) {
         mobile_ = other.mobile_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDeviceId().isEmpty()) {
         deviceId_ = other.deviceId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -751,19 +665,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getParticipantFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAccountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMerchantInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              mobile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              deviceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.SettlementParticipant) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.paymentgateway.issuerswitch.v1.Participant participant_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -777,7 +736,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the participant field is set.
      */
     public boolean hasParticipant() {
-      return participantBuilder_ != null || participant_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -807,11 +766,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         participant_ = value;
-        onChanged();
       } else {
         participantBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -825,11 +784,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Builder builderForValue) {
       if (participantBuilder_ == null) {
         participant_ = builderForValue.build();
-        onChanged();
       } else {
         participantBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -841,17 +800,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParticipant(com.google.cloud.paymentgateway.issuerswitch.v1.Participant value) {
       if (participantBuilder_ == null) {
-        if (participant_ != null) {
-          participant_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.Participant.newBuilder(participant_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          participant_ != null &&
+          participant_ != com.google.cloud.paymentgateway.issuerswitch.v1.Participant.getDefaultInstance()) {
+          getParticipantBuilder().mergeFrom(value);
         } else {
           participant_ = value;
         }
-        onChanged();
       } else {
         participantBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -862,14 +822,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.Participant participant = 1;</code>
      */
     public Builder clearParticipant() {
-      if (participantBuilder_ == null) {
-        participant_ = null;
-        onChanged();
-      } else {
-        participant_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      participant_ = null;
+      if (participantBuilder_ != null) {
+        participantBuilder_.dispose();
         participantBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -880,7 +839,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.Participant participant = 1;</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.Participant.Builder getParticipantBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getParticipantFieldBuilder().getBuilder();
     }
@@ -932,7 +891,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the account field is set.
      */
     public boolean hasAccount() {
-      return accountBuilder_ != null || account_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -962,11 +921,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         account_ = value;
-        onChanged();
       } else {
         accountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -980,11 +939,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.Builder builderForValue) {
       if (accountBuilder_ == null) {
         account_ = builderForValue.build();
-        onChanged();
       } else {
         accountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -996,17 +955,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccount(com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference value) {
       if (accountBuilder_ == null) {
-        if (account_ != null) {
-          account_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.newBuilder(account_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          account_ != null &&
+          account_ != com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.getDefaultInstance()) {
+          getAccountBuilder().mergeFrom(value);
         } else {
           account_ = value;
         }
-        onChanged();
       } else {
         accountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1017,14 +977,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.AccountReference account = 2;</code>
      */
     public Builder clearAccount() {
-      if (accountBuilder_ == null) {
-        account_ = null;
-        onChanged();
-      } else {
-        account_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      account_ = null;
+      if (accountBuilder_ != null) {
+        accountBuilder_.dispose();
         accountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1035,7 +994,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.AccountReference account = 2;</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.AccountReference.Builder getAccountBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAccountFieldBuilder().getBuilder();
     }
@@ -1088,7 +1047,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the merchantInfo field is set.
      */
     public boolean hasMerchantInfo() {
-      return merchantInfoBuilder_ != null || merchantInfo_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1120,11 +1079,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         merchantInfo_ = value;
-        onChanged();
       } else {
         merchantInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1139,11 +1098,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.Builder builderForValue) {
       if (merchantInfoBuilder_ == null) {
         merchantInfo_ = builderForValue.build();
-        onChanged();
       } else {
         merchantInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1156,17 +1115,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMerchantInfo(com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo value) {
       if (merchantInfoBuilder_ == null) {
-        if (merchantInfo_ != null) {
-          merchantInfo_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.newBuilder(merchantInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          merchantInfo_ != null &&
+          merchantInfo_ != com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.getDefaultInstance()) {
+          getMerchantInfoBuilder().mergeFrom(value);
         } else {
           merchantInfo_ = value;
         }
-        onChanged();
       } else {
         merchantInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1178,14 +1138,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo merchant_info = 3;</code>
      */
     public Builder clearMerchantInfo() {
-      if (merchantInfoBuilder_ == null) {
-        merchantInfo_ = null;
-        onChanged();
-      } else {
-        merchantInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      merchantInfo_ = null;
+      if (merchantInfoBuilder_ != null) {
+        merchantInfoBuilder_.dispose();
         merchantInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1197,7 +1156,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo merchant_info = 3;</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.MerchantInfo.Builder getMerchantInfoBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMerchantInfoFieldBuilder().getBuilder();
     }
@@ -1292,11 +1251,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMobile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mobile_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1309,8 +1266,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMobile() {
-      
       mobile_ = getDefaultInstance().getMobile();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1325,12 +1282,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMobileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mobile_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1388,11 +1343,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deviceId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1405,8 +1358,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeviceId() {
-      
       deviceId_ = getDefaultInstance().getDeviceId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1421,12 +1374,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deviceId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1463,7 +1414,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SettlementParticipant(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

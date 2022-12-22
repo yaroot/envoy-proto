@@ -10,7 +10,8 @@ public interface UpdateNodeRequestOrBuilder extends
   /**
    * <pre>
    * Required. Mask of fields from [Node][Tpu.Node] to update.
-   * Supported fields: None.
+   * Supported fields: [description, tags, labels, metadata,
+   * network_config.enable_external_ips].
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -20,7 +21,8 @@ public interface UpdateNodeRequestOrBuilder extends
   /**
    * <pre>
    * Required. Mask of fields from [Node][Tpu.Node] to update.
-   * Supported fields: None.
+   * Supported fields: [description, tags, labels, metadata,
+   * network_config.enable_external_ips].
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -30,7 +32,8 @@ public interface UpdateNodeRequestOrBuilder extends
   /**
    * <pre>
    * Required. Mask of fields from [Node][Tpu.Node] to update.
-   * Supported fields: None.
+   * Supported fields: [description, tags, labels, metadata,
+   * network_config.enable_external_ips].
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>

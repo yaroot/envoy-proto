@@ -40,196 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Job(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 24: {
-
-            priority_ = input.readInt64();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              taskGroups_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.TaskGroup>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            taskGroups_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.TaskGroup.parser(), extensionRegistry));
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            schedulingPolicy_ = rawValue;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              dependencies_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.JobDependency>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            dependencies_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.JobDependency.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            com.google.cloud.batch.v1alpha.AllocationPolicy.Builder subBuilder = null;
-            if (allocationPolicy_ != null) {
-              subBuilder = allocationPolicy_.toBuilder();
-            }
-            allocationPolicy_ = input.readMessage(com.google.cloud.batch.v1alpha.AllocationPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allocationPolicy_);
-              allocationPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 74: {
-            com.google.cloud.batch.v1alpha.JobStatus.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.google.cloud.batch.v1alpha.JobStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.cloud.batch.v1alpha.JobNotification.Builder subBuilder = null;
-            if (notification_ != null) {
-              subBuilder = notification_.toBuilder();
-            }
-            notification_ = input.readMessage(com.google.cloud.batch.v1alpha.JobNotification.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(notification_);
-              notification_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.cloud.batch.v1alpha.LogsPolicy.Builder subBuilder = null;
-            if (logsPolicy_ != null) {
-              subBuilder = logsPolicy_.toBuilder();
-            }
-            logsPolicy_ = input.readMessage(com.google.cloud.batch.v1alpha.LogsPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(logsPolicy_);
-              logsPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              notifications_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.JobNotification>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            notifications_.add(
-                input.readMessage(com.google.cloud.batch.v1alpha.JobNotification.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        taskGroups_ = java.util.Collections.unmodifiableList(taskGroups_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        dependencies_ = java.util.Collections.unmodifiableList(dependencies_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        notifications_ = java.util.Collections.unmodifiableList(notifications_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_Job_descriptor;
@@ -385,7 +195,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Job name.
@@ -433,7 +244,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
    * Output only. A system generated unique ID (in UUID4 format) for the Job.
@@ -479,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 3;
-  private long priority_;
+  private long priority_ = 0L;
   /**
    * <pre>
    * Priority of the Job.
@@ -497,6 +309,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TASK_GROUPS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.TaskGroup> taskGroups_;
   /**
    * <pre>
@@ -557,7 +370,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEDULING_POLICY_FIELD_NUMBER = 5;
-  private int schedulingPolicy_;
+  private int schedulingPolicy_ = 0;
   /**
    * <pre>
    * Scheduling policy for TaskGroups in the job.
@@ -578,12 +391,12 @@ private static final long serialVersionUID = 0L;
    * @return The schedulingPolicy.
    */
   @java.lang.Override public com.google.cloud.batch.v1alpha.Job.SchedulingPolicy getSchedulingPolicy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.batch.v1alpha.Job.SchedulingPolicy result = com.google.cloud.batch.v1alpha.Job.SchedulingPolicy.valueOf(schedulingPolicy_);
+    com.google.cloud.batch.v1alpha.Job.SchedulingPolicy result = com.google.cloud.batch.v1alpha.Job.SchedulingPolicy.forNumber(schedulingPolicy_);
     return result == null ? com.google.cloud.batch.v1alpha.Job.SchedulingPolicy.UNRECOGNIZED : result;
   }
 
   public static final int DEPENDENCIES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.JobDependency> dependencies_;
   /**
    * <pre>
@@ -693,7 +506,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.AllocationPolicyOrBuilder getAllocationPolicyOrBuilder() {
-    return getAllocationPolicy();
+    return allocationPolicy_ == null ? com.google.cloud.batch.v1alpha.AllocationPolicy.getDefaultInstance() : allocationPolicy_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 8;
@@ -708,6 +521,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -718,7 +532,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -738,7 +551,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -770,7 +582,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -791,10 +602,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -817,7 +629,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -864,14 +675,14 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.JobStatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.google.cloud.batch.v1alpha.JobStatus.getDefaultInstance() : status_;
   }
 
   public static final int NOTIFICATION_FIELD_NUMBER = 10;
   private com.google.cloud.batch.v1alpha.JobNotification notification_;
   /**
    * <pre>
-   * Job notification.
+   * Deprecated: please use notifications instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -885,7 +696,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Job notification.
+   * Deprecated: please use notifications instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -899,14 +710,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Job notification.
+   * Deprecated: please use notifications instead.
    * </pre>
    *
    * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.cloud.batch.v1alpha.JobNotificationOrBuilder getNotificationOrBuilder() {
-    return getNotification();
+    return notification_ == null ? com.google.cloud.batch.v1alpha.JobNotification.getDefaultInstance() : notification_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 11;
@@ -944,7 +755,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 12;
@@ -982,7 +793,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LOGS_POLICY_FIELD_NUMBER = 13;
@@ -1020,10 +831,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.LogsPolicyOrBuilder getLogsPolicyOrBuilder() {
-    return getLogsPolicy();
+    return logsPolicy_ == null ? com.google.cloud.batch.v1alpha.LogsPolicy.getDefaultInstance() : logsPolicy_;
   }
 
   public static final int NOTIFICATIONS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.batch.v1alpha.JobNotification> notifications_;
   /**
    * <pre>
@@ -1142,7 +954,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < notifications_.size(); i++) {
       output.writeMessage(14, notifications_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1211,7 +1023,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(14, notifications_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1271,7 +1083,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getNotificationsList()
         .equals(other.getNotificationsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1331,7 +1143,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NOTIFICATIONS_FIELD_NUMBER;
       hash = (53 * hash) + getNotificationsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1474,88 +1286,74 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1alpha.Job.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTaskGroupsFieldBuilder();
-        getDependenciesFieldBuilder();
-        getNotificationsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       uid_ = "";
-
       priority_ = 0L;
-
       if (taskGroupsBuilder_ == null) {
         taskGroups_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        taskGroups_ = null;
         taskGroupsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       schedulingPolicy_ = 0;
-
       if (dependenciesBuilder_ == null) {
         dependencies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        dependencies_ = null;
         dependenciesBuilder_.clear();
       }
-      if (allocationPolicyBuilder_ == null) {
-        allocationPolicy_ = null;
-      } else {
-        allocationPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      allocationPolicy_ = null;
+      if (allocationPolicyBuilder_ != null) {
+        allocationPolicyBuilder_.dispose();
         allocationPolicyBuilder_ = null;
       }
       internalGetMutableLabels().clear();
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-      if (notificationBuilder_ == null) {
-        notification_ = null;
-      } else {
-        notification_ = null;
+      notification_ = null;
+      if (notificationBuilder_ != null) {
+        notificationBuilder_.dispose();
         notificationBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-      if (logsPolicyBuilder_ == null) {
-        logsPolicy_ = null;
-      } else {
-        logsPolicy_ = null;
+      logsPolicy_ = null;
+      if (logsPolicyBuilder_ != null) {
+        logsPolicyBuilder_.dispose();
         logsPolicyBuilder_ = null;
       }
       if (notificationsBuilder_ == null) {
         notifications_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        notifications_ = null;
         notificationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -1582,72 +1380,90 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.Job buildPartial() {
       com.google.cloud.batch.v1alpha.Job result = new com.google.cloud.batch.v1alpha.Job(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.uid_ = uid_;
-      result.priority_ = priority_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.batch.v1alpha.Job result) {
       if (taskGroupsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           taskGroups_ = java.util.Collections.unmodifiableList(taskGroups_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.taskGroups_ = taskGroups_;
       } else {
         result.taskGroups_ = taskGroupsBuilder_.build();
       }
-      result.schedulingPolicy_ = schedulingPolicy_;
       if (dependenciesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           dependencies_ = java.util.Collections.unmodifiableList(dependencies_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.dependencies_ = dependencies_;
       } else {
         result.dependencies_ = dependenciesBuilder_.build();
       }
-      if (allocationPolicyBuilder_ == null) {
-        result.allocationPolicy_ = allocationPolicy_;
-      } else {
-        result.allocationPolicy_ = allocationPolicyBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
-      if (notificationBuilder_ == null) {
-        result.notification_ = notification_;
-      } else {
-        result.notification_ = notificationBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      if (logsPolicyBuilder_ == null) {
-        result.logsPolicy_ = logsPolicy_;
-      } else {
-        result.logsPolicy_ = logsPolicyBuilder_.build();
-      }
       if (notificationsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00002000) != 0)) {
           notifications_ = java.util.Collections.unmodifiableList(notifications_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00002000);
         }
         result.notifications_ = notifications_;
       } else {
         result.notifications_ = notificationsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.Job result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.priority_ = priority_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.schedulingPolicy_ = schedulingPolicy_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.allocationPolicy_ = allocationPolicyBuilder_ == null
+            ? allocationPolicy_
+            : allocationPolicyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.notification_ = notificationBuilder_ == null
+            ? notification_
+            : notificationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.logsPolicy_ = logsPolicyBuilder_ == null
+            ? logsPolicy_
+            : logsPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1696,10 +1512,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.batch.v1alpha.Job.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getPriority() != 0L) {
@@ -1709,7 +1527,7 @@ private static final long serialVersionUID = 0L;
         if (!other.taskGroups_.isEmpty()) {
           if (taskGroups_.isEmpty()) {
             taskGroups_ = other.taskGroups_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureTaskGroupsIsMutable();
             taskGroups_.addAll(other.taskGroups_);
@@ -1722,7 +1540,7 @@ private static final long serialVersionUID = 0L;
             taskGroupsBuilder_.dispose();
             taskGroupsBuilder_ = null;
             taskGroups_ = other.taskGroups_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             taskGroupsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTaskGroupsFieldBuilder() : null;
@@ -1738,7 +1556,7 @@ private static final long serialVersionUID = 0L;
         if (!other.dependencies_.isEmpty()) {
           if (dependencies_.isEmpty()) {
             dependencies_ = other.dependencies_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureDependenciesIsMutable();
             dependencies_.addAll(other.dependencies_);
@@ -1751,7 +1569,7 @@ private static final long serialVersionUID = 0L;
             dependenciesBuilder_.dispose();
             dependenciesBuilder_ = null;
             dependencies_ = other.dependencies_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             dependenciesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDependenciesFieldBuilder() : null;
@@ -1765,6 +1583,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000080;
       if (other.hasStatus()) {
         mergeStatus(other.getStatus());
       }
@@ -1784,7 +1603,7 @@ private static final long serialVersionUID = 0L;
         if (!other.notifications_.isEmpty()) {
           if (notifications_.isEmpty()) {
             notifications_ = other.notifications_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00002000);
           } else {
             ensureNotificationsIsMutable();
             notifications_.addAll(other.notifications_);
@@ -1797,7 +1616,7 @@ private static final long serialVersionUID = 0L;
             notificationsBuilder_.dispose();
             notificationsBuilder_ = null;
             notifications_ = other.notifications_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00002000);
             notificationsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNotificationsFieldBuilder() : null;
@@ -1806,7 +1625,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1821,17 +1640,140 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.Job parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              priority_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.cloud.batch.v1alpha.TaskGroup m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.TaskGroup.parser(),
+                      extensionRegistry);
+              if (taskGroupsBuilder_ == null) {
+                ensureTaskGroupsIsMutable();
+                taskGroups_.add(m);
+              } else {
+                taskGroupsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 40: {
+              schedulingPolicy_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              com.google.cloud.batch.v1alpha.JobDependency m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.JobDependency.parser(),
+                      extensionRegistry);
+              if (dependenciesBuilder_ == null) {
+                ensureDependenciesIsMutable();
+                dependencies_.add(m);
+              } else {
+                dependenciesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getAllocationPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getNotificationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getLogsPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              com.google.cloud.batch.v1alpha.JobNotification m =
+                  input.readMessage(
+                      com.google.cloud.batch.v1alpha.JobNotification.parser(),
+                      extensionRegistry);
+              if (notificationsBuilder_ == null) {
+                ensureNotificationsIsMutable();
+                notifications_.add(m);
+              } else {
+                notificationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.Job) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1892,11 +1834,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1910,8 +1850,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1927,12 +1867,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1990,11 +1928,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2007,8 +1943,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2023,12 +1959,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2064,6 +1998,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPriority(long value) {
       
       priority_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2079,7 +2014,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPriority() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       priority_ = 0L;
       onChanged();
       return this;
@@ -2088,9 +2023,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.batch.v1alpha.TaskGroup> taskGroups_ =
       java.util.Collections.emptyList();
     private void ensureTaskGroupsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         taskGroups_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.TaskGroup>(taskGroups_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2284,7 +2219,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTaskGroups() {
       if (taskGroupsBuilder_ == null) {
         taskGroups_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         taskGroupsBuilder_.clear();
@@ -2389,7 +2324,7 @@ private static final long serialVersionUID = 0L;
         taskGroupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1alpha.TaskGroup, com.google.cloud.batch.v1alpha.TaskGroup.Builder, com.google.cloud.batch.v1alpha.TaskGroupOrBuilder>(
                 taskGroups_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         taskGroups_ = null;
@@ -2419,8 +2354,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSchedulingPolicyValue(int value) {
-      
       schedulingPolicy_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2434,8 +2369,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.Job.SchedulingPolicy getSchedulingPolicy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.batch.v1alpha.Job.SchedulingPolicy result = com.google.cloud.batch.v1alpha.Job.SchedulingPolicy.valueOf(schedulingPolicy_);
+      com.google.cloud.batch.v1alpha.Job.SchedulingPolicy result = com.google.cloud.batch.v1alpha.Job.SchedulingPolicy.forNumber(schedulingPolicy_);
       return result == null ? com.google.cloud.batch.v1alpha.Job.SchedulingPolicy.UNRECOGNIZED : result;
     }
     /**
@@ -2451,7 +2385,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       schedulingPolicy_ = value.getNumber();
       onChanged();
       return this;
@@ -2465,7 +2399,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSchedulingPolicy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       schedulingPolicy_ = 0;
       onChanged();
       return this;
@@ -2474,9 +2408,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.batch.v1alpha.JobDependency> dependencies_ =
       java.util.Collections.emptyList();
     private void ensureDependenciesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         dependencies_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.JobDependency>(dependencies_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2703,7 +2637,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDependencies() {
       if (dependenciesBuilder_ == null) {
         dependencies_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         dependenciesBuilder_.clear();
@@ -2829,7 +2763,7 @@ private static final long serialVersionUID = 0L;
         dependenciesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1alpha.JobDependency, com.google.cloud.batch.v1alpha.JobDependency.Builder, com.google.cloud.batch.v1alpha.JobDependencyOrBuilder>(
                 dependencies_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         dependencies_ = null;
@@ -2849,7 +2783,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allocationPolicy field is set.
      */
     public boolean hasAllocationPolicy() {
-      return allocationPolicyBuilder_ != null || allocationPolicy_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2879,11 +2813,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allocationPolicy_ = value;
-        onChanged();
       } else {
         allocationPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2897,11 +2831,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.AllocationPolicy.Builder builderForValue) {
       if (allocationPolicyBuilder_ == null) {
         allocationPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         allocationPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2913,17 +2847,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllocationPolicy(com.google.cloud.batch.v1alpha.AllocationPolicy value) {
       if (allocationPolicyBuilder_ == null) {
-        if (allocationPolicy_ != null) {
-          allocationPolicy_ =
-            com.google.cloud.batch.v1alpha.AllocationPolicy.newBuilder(allocationPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          allocationPolicy_ != null &&
+          allocationPolicy_ != com.google.cloud.batch.v1alpha.AllocationPolicy.getDefaultInstance()) {
+          getAllocationPolicyBuilder().mergeFrom(value);
         } else {
           allocationPolicy_ = value;
         }
-        onChanged();
       } else {
         allocationPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2934,14 +2869,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy allocation_policy = 7;</code>
      */
     public Builder clearAllocationPolicy() {
-      if (allocationPolicyBuilder_ == null) {
-        allocationPolicy_ = null;
-        onChanged();
-      } else {
-        allocationPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      allocationPolicy_ = null;
+      if (allocationPolicyBuilder_ != null) {
+        allocationPolicyBuilder_.dispose();
         allocationPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2952,7 +2886,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.AllocationPolicy allocation_policy = 7;</code>
      */
     public com.google.cloud.batch.v1alpha.AllocationPolicy.Builder getAllocationPolicyBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getAllocationPolicyFieldBuilder().getBuilder();
     }
@@ -2995,7 +2929,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3003,8 +2937,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -3012,9 +2945,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000080;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -3034,7 +2968,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -3066,7 +2999,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -3087,10 +3019,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -3113,7 +3046,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3124,8 +3056,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -3146,7 +3078,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3159,7 +3090,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000080;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -3182,12 +3114,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000080;
       return this;
     }
     /**
@@ -3206,11 +3136,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000080;
       return this;
     }
 
@@ -3226,7 +3156,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3256,11 +3186,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3274,11 +3204,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.JobStatus.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3290,17 +3220,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.google.cloud.batch.v1alpha.JobStatus value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.google.cloud.batch.v1alpha.JobStatus.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          status_ != null &&
+          status_ != com.google.cloud.batch.v1alpha.JobStatus.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3311,14 +3242,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.JobStatus status = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3329,7 +3259,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.JobStatus status = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.batch.v1alpha.JobStatus.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -3374,7 +3304,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.JobNotification, com.google.cloud.batch.v1alpha.JobNotification.Builder, com.google.cloud.batch.v1alpha.JobNotificationOrBuilder> notificationBuilder_;
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -3383,11 +3313,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the notification field is set.
      */
     @java.lang.Deprecated public boolean hasNotification() {
-      return notificationBuilder_ != null || notification_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -3404,7 +3334,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -3415,16 +3345,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         notification_ = value;
-        onChanged();
       } else {
         notificationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -3433,68 +3363,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.JobNotification.Builder builderForValue) {
       if (notificationBuilder_ == null) {
         notification_ = builderForValue.build();
-        onChanged();
       } else {
         notificationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder mergeNotification(com.google.cloud.batch.v1alpha.JobNotification value) {
       if (notificationBuilder_ == null) {
-        if (notification_ != null) {
-          notification_ =
-            com.google.cloud.batch.v1alpha.JobNotification.newBuilder(notification_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          notification_ != null &&
+          notification_ != com.google.cloud.batch.v1alpha.JobNotification.getDefaultInstance()) {
+          getNotificationBuilder().mergeFrom(value);
         } else {
           notification_ = value;
         }
-        onChanged();
       } else {
         notificationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearNotification() {
-      if (notificationBuilder_ == null) {
-        notification_ = null;
-        onChanged();
-      } else {
-        notification_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      notification_ = null;
+      if (notificationBuilder_ != null) {
+        notificationBuilder_.dispose();
         notificationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.cloud.batch.v1alpha.JobNotification.Builder getNotificationBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getNotificationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -3509,7 +3439,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Job notification.
+     * Deprecated: please use notifications instead.
      * </pre>
      *
      * <code>.google.cloud.batch.v1alpha.JobNotification notification = 10 [deprecated = true];</code>
@@ -3540,7 +3470,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3570,11 +3500,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3588,11 +3518,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3604,17 +3534,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3625,14 +3556,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3643,7 +3573,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3695,7 +3625,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3725,11 +3655,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3743,11 +3673,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3759,17 +3689,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3780,14 +3711,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3798,7 +3728,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -3850,7 +3780,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the logsPolicy field is set.
      */
     public boolean hasLogsPolicy() {
-      return logsPolicyBuilder_ != null || logsPolicy_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3880,11 +3810,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         logsPolicy_ = value;
-        onChanged();
       } else {
         logsPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3898,11 +3828,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.LogsPolicy.Builder builderForValue) {
       if (logsPolicyBuilder_ == null) {
         logsPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         logsPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3914,17 +3844,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLogsPolicy(com.google.cloud.batch.v1alpha.LogsPolicy value) {
       if (logsPolicyBuilder_ == null) {
-        if (logsPolicy_ != null) {
-          logsPolicy_ =
-            com.google.cloud.batch.v1alpha.LogsPolicy.newBuilder(logsPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          logsPolicy_ != null &&
+          logsPolicy_ != com.google.cloud.batch.v1alpha.LogsPolicy.getDefaultInstance()) {
+          getLogsPolicyBuilder().mergeFrom(value);
         } else {
           logsPolicy_ = value;
         }
-        onChanged();
       } else {
         logsPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3935,14 +3866,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.LogsPolicy logs_policy = 13;</code>
      */
     public Builder clearLogsPolicy() {
-      if (logsPolicyBuilder_ == null) {
-        logsPolicy_ = null;
-        onChanged();
-      } else {
-        logsPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      logsPolicy_ = null;
+      if (logsPolicyBuilder_ != null) {
+        logsPolicyBuilder_.dispose();
         logsPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3953,7 +3883,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.LogsPolicy logs_policy = 13;</code>
      */
     public com.google.cloud.batch.v1alpha.LogsPolicy.Builder getLogsPolicyBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getLogsPolicyFieldBuilder().getBuilder();
     }
@@ -3996,9 +3926,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.batch.v1alpha.JobNotification> notifications_ =
       java.util.Collections.emptyList();
     private void ensureNotificationsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         notifications_ = new java.util.ArrayList<com.google.cloud.batch.v1alpha.JobNotification>(notifications_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00002000;
        }
     }
 
@@ -4192,7 +4122,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNotifications() {
       if (notificationsBuilder_ == null) {
         notifications_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
       } else {
         notificationsBuilder_.clear();
@@ -4297,7 +4227,7 @@ private static final long serialVersionUID = 0L;
         notificationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.batch.v1alpha.JobNotification, com.google.cloud.batch.v1alpha.JobNotification.Builder, com.google.cloud.batch.v1alpha.JobNotificationOrBuilder>(
                 notifications_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00002000) != 0),
                 getParentForChildren(),
                 isClean());
         notifications_ = null;
@@ -4337,7 +4267,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Job(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

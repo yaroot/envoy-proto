@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BetweenFilter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.analytics.data.v1alpha.NumericValue.Builder subBuilder = null;
-            if (fromValue_ != null) {
-              subBuilder = fromValue_.toBuilder();
-            }
-            fromValue_ = input.readMessage(com.google.analytics.data.v1alpha.NumericValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fromValue_);
-              fromValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1alpha.NumericValue.Builder subBuilder = null;
-            if (toValue_ != null) {
-              subBuilder = toValue_.toBuilder();
-            }
-            toValue_ = input.readMessage(com.google.analytics.data.v1alpha.NumericValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(toValue_);
-              toValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_BetweenFilter_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.NumericValueOrBuilder getFromValueOrBuilder() {
-    return getFromValue();
+    return fromValue_ == null ? com.google.analytics.data.v1alpha.NumericValue.getDefaultInstance() : fromValue_;
   }
 
   public static final int TO_VALUE_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.NumericValueOrBuilder getToValueOrBuilder() {
-    return getToValue();
+    return toValue_ == null ? com.google.analytics.data.v1alpha.NumericValue.getDefaultInstance() : toValue_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (toValue_ != null) {
       output.writeMessage(2, getToValue());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getToValue());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getToValue()
           .equals(other.getToValue())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TO_VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getToValue().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.BetweenFilter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (fromValueBuilder_ == null) {
-        fromValue_ = null;
-      } else {
-        fromValue_ = null;
+      bitField0_ = 0;
+      fromValue_ = null;
+      if (fromValueBuilder_ != null) {
+        fromValueBuilder_.dispose();
         fromValueBuilder_ = null;
       }
-      if (toValueBuilder_ == null) {
-        toValue_ = null;
-      } else {
-        toValue_ = null;
+      toValue_ = null;
+      if (toValueBuilder_ != null) {
+        toValueBuilder_.dispose();
         toValueBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.BetweenFilter buildPartial() {
       com.google.analytics.data.v1alpha.BetweenFilter result = new com.google.analytics.data.v1alpha.BetweenFilter(this);
-      if (fromValueBuilder_ == null) {
-        result.fromValue_ = fromValue_;
-      } else {
-        result.fromValue_ = fromValueBuilder_.build();
-      }
-      if (toValueBuilder_ == null) {
-        result.toValue_ = toValue_;
-      } else {
-        result.toValue_ = toValueBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.BetweenFilter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.fromValue_ = fromValueBuilder_ == null
+            ? fromValue_
+            : fromValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.toValue_ = toValueBuilder_ == null
+            ? toValue_
+            : toValueBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasToValue()) {
         mergeToValue(other.getToValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.BetweenFilter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getFromValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getToValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.BetweenFilter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.analytics.data.v1alpha.NumericValue fromValue_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fromValue field is set.
      */
     public boolean hasFromValue() {
-      return fromValueBuilder_ != null || fromValue_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fromValue_ = value;
-        onChanged();
       } else {
         fromValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.NumericValue.Builder builderForValue) {
       if (fromValueBuilder_ == null) {
         fromValue_ = builderForValue.build();
-        onChanged();
       } else {
         fromValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFromValue(com.google.analytics.data.v1alpha.NumericValue value) {
       if (fromValueBuilder_ == null) {
-        if (fromValue_ != null) {
-          fromValue_ =
-            com.google.analytics.data.v1alpha.NumericValue.newBuilder(fromValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          fromValue_ != null &&
+          fromValue_ != com.google.analytics.data.v1alpha.NumericValue.getDefaultInstance()) {
+          getFromValueBuilder().mergeFrom(value);
         } else {
           fromValue_ = value;
         }
-        onChanged();
       } else {
         fromValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.NumericValue from_value = 1;</code>
      */
     public Builder clearFromValue() {
-      if (fromValueBuilder_ == null) {
-        fromValue_ = null;
-        onChanged();
-      } else {
-        fromValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      fromValue_ = null;
+      if (fromValueBuilder_ != null) {
+        fromValueBuilder_.dispose();
         fromValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.NumericValue from_value = 1;</code>
      */
     public com.google.analytics.data.v1alpha.NumericValue.Builder getFromValueBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getFromValueFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the toValue field is set.
      */
     public boolean hasToValue() {
-      return toValueBuilder_ != null || toValue_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         toValue_ = value;
-        onChanged();
       } else {
         toValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.NumericValue.Builder builderForValue) {
       if (toValueBuilder_ == null) {
         toValue_ = builderForValue.build();
-        onChanged();
       } else {
         toValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeToValue(com.google.analytics.data.v1alpha.NumericValue value) {
       if (toValueBuilder_ == null) {
-        if (toValue_ != null) {
-          toValue_ =
-            com.google.analytics.data.v1alpha.NumericValue.newBuilder(toValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          toValue_ != null &&
+          toValue_ != com.google.analytics.data.v1alpha.NumericValue.getDefaultInstance()) {
+          getToValueBuilder().mergeFrom(value);
         } else {
           toValue_ = value;
         }
-        onChanged();
       } else {
         toValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.NumericValue to_value = 2;</code>
      */
     public Builder clearToValue() {
-      if (toValueBuilder_ == null) {
-        toValue_ = null;
-        onChanged();
-      } else {
-        toValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      toValue_ = null;
+      if (toValueBuilder_ != null) {
+        toValueBuilder_.dispose();
         toValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.NumericValue to_value = 2;</code>
      */
     public com.google.analytics.data.v1alpha.NumericValue.Builder getToValueBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getToValueFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BetweenFilter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

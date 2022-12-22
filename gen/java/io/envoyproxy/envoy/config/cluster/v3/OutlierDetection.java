@@ -36,323 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OutlierDetection(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (consecutive5Xx_ != null) {
-              subBuilder = consecutive5Xx_.toBuilder();
-            }
-            consecutive5Xx_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(consecutive5Xx_);
-              consecutive5Xx_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (interval_ != null) {
-              subBuilder = interval_.toBuilder();
-            }
-            interval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(interval_);
-              interval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (baseEjectionTime_ != null) {
-              subBuilder = baseEjectionTime_.toBuilder();
-            }
-            baseEjectionTime_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(baseEjectionTime_);
-              baseEjectionTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxEjectionPercent_ != null) {
-              subBuilder = maxEjectionPercent_.toBuilder();
-            }
-            maxEjectionPercent_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxEjectionPercent_);
-              maxEjectionPercent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingConsecutive5Xx_ != null) {
-              subBuilder = enforcingConsecutive5Xx_.toBuilder();
-            }
-            enforcingConsecutive5Xx_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingConsecutive5Xx_);
-              enforcingConsecutive5Xx_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingSuccessRate_ != null) {
-              subBuilder = enforcingSuccessRate_.toBuilder();
-            }
-            enforcingSuccessRate_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingSuccessRate_);
-              enforcingSuccessRate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (successRateMinimumHosts_ != null) {
-              subBuilder = successRateMinimumHosts_.toBuilder();
-            }
-            successRateMinimumHosts_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(successRateMinimumHosts_);
-              successRateMinimumHosts_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (successRateRequestVolume_ != null) {
-              subBuilder = successRateRequestVolume_.toBuilder();
-            }
-            successRateRequestVolume_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(successRateRequestVolume_);
-              successRateRequestVolume_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (successRateStdevFactor_ != null) {
-              subBuilder = successRateStdevFactor_.toBuilder();
-            }
-            successRateStdevFactor_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(successRateStdevFactor_);
-              successRateStdevFactor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (consecutiveGatewayFailure_ != null) {
-              subBuilder = consecutiveGatewayFailure_.toBuilder();
-            }
-            consecutiveGatewayFailure_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(consecutiveGatewayFailure_);
-              consecutiveGatewayFailure_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingConsecutiveGatewayFailure_ != null) {
-              subBuilder = enforcingConsecutiveGatewayFailure_.toBuilder();
-            }
-            enforcingConsecutiveGatewayFailure_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingConsecutiveGatewayFailure_);
-              enforcingConsecutiveGatewayFailure_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-
-            splitExternalLocalOriginErrors_ = input.readBool();
-            break;
-          }
-          case 106: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (consecutiveLocalOriginFailure_ != null) {
-              subBuilder = consecutiveLocalOriginFailure_.toBuilder();
-            }
-            consecutiveLocalOriginFailure_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(consecutiveLocalOriginFailure_);
-              consecutiveLocalOriginFailure_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingConsecutiveLocalOriginFailure_ != null) {
-              subBuilder = enforcingConsecutiveLocalOriginFailure_.toBuilder();
-            }
-            enforcingConsecutiveLocalOriginFailure_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingConsecutiveLocalOriginFailure_);
-              enforcingConsecutiveLocalOriginFailure_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingLocalOriginSuccessRate_ != null) {
-              subBuilder = enforcingLocalOriginSuccessRate_.toBuilder();
-            }
-            enforcingLocalOriginSuccessRate_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingLocalOriginSuccessRate_);
-              enforcingLocalOriginSuccessRate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (failurePercentageThreshold_ != null) {
-              subBuilder = failurePercentageThreshold_.toBuilder();
-            }
-            failurePercentageThreshold_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(failurePercentageThreshold_);
-              failurePercentageThreshold_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingFailurePercentage_ != null) {
-              subBuilder = enforcingFailurePercentage_.toBuilder();
-            }
-            enforcingFailurePercentage_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingFailurePercentage_);
-              enforcingFailurePercentage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (enforcingFailurePercentageLocalOrigin_ != null) {
-              subBuilder = enforcingFailurePercentageLocalOrigin_.toBuilder();
-            }
-            enforcingFailurePercentageLocalOrigin_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enforcingFailurePercentageLocalOrigin_);
-              enforcingFailurePercentageLocalOrigin_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (failurePercentageMinimumHosts_ != null) {
-              subBuilder = failurePercentageMinimumHosts_.toBuilder();
-            }
-            failurePercentageMinimumHosts_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(failurePercentageMinimumHosts_);
-              failurePercentageMinimumHosts_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 162: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (failurePercentageRequestVolume_ != null) {
-              subBuilder = failurePercentageRequestVolume_.toBuilder();
-            }
-            failurePercentageRequestVolume_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(failurePercentageRequestVolume_);
-              failurePercentageRequestVolume_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxEjectionTime_ != null) {
-              subBuilder = maxEjectionTime_.toBuilder();
-            }
-            maxEjectionTime_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxEjectionTime_);
-              maxEjectionTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxEjectionTimeJitter_ != null) {
-              subBuilder = maxEjectionTimeJitter_.toBuilder();
-            }
-            maxEjectionTimeJitter_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxEjectionTimeJitter_);
-              maxEjectionTimeJitter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.cluster.v3.OutlierDetectionProto.internal_static_envoy_config_cluster_v3_OutlierDetection_descriptor;
@@ -370,9 +53,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.UInt32Value consecutive5Xx_;
   /**
    * <pre>
-   * The number of consecutive 5xx responses or local origin errors that are mapped
-   * to 5xx error codes before a consecutive 5xx ejection
-   * occurs. Defaults to 5.
+   * The number of consecutive server-side error responses (for HTTP traffic,
+   * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+   * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -384,9 +67,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The number of consecutive 5xx responses or local origin errors that are mapped
-   * to 5xx error codes before a consecutive 5xx ejection
-   * occurs. Defaults to 5.
+   * The number of consecutive server-side error responses (for HTTP traffic,
+   * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+   * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -398,16 +81,16 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The number of consecutive 5xx responses or local origin errors that are mapped
-   * to 5xx error codes before a consecutive 5xx ejection
-   * occurs. Defaults to 5.
+   * The number of consecutive server-side error responses (for HTTP traffic,
+   * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+   * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
    * </pre>
    *
    * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getConsecutive5XxOrBuilder() {
-    return getConsecutive5Xx();
+    return consecutive5Xx_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : consecutive5Xx_;
   }
 
   public static final int INTERVAL_FIELD_NUMBER = 2;
@@ -451,7 +134,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getIntervalOrBuilder() {
-    return getInterval();
+    return interval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : interval_;
   }
 
   public static final int BASE_EJECTION_TIME_FIELD_NUMBER = 3;
@@ -498,7 +181,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getBaseEjectionTimeOrBuilder() {
-    return getBaseEjectionTime();
+    return baseEjectionTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : baseEjectionTime_;
   }
 
   public static final int MAX_EJECTION_PERCENT_FIELD_NUMBER = 4;
@@ -539,7 +222,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxEjectionPercentOrBuilder() {
-    return getMaxEjectionPercent();
+    return maxEjectionPercent_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxEjectionPercent_;
   }
 
   public static final int ENFORCING_CONSECUTIVE_5XX_FIELD_NUMBER = 5;
@@ -583,7 +266,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingConsecutive5XxOrBuilder() {
-    return getEnforcingConsecutive5Xx();
+    return enforcingConsecutive5Xx_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingConsecutive5Xx_;
   }
 
   public static final int ENFORCING_SUCCESS_RATE_FIELD_NUMBER = 6;
@@ -627,7 +310,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingSuccessRateOrBuilder() {
-    return getEnforcingSuccessRate();
+    return enforcingSuccessRate_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingSuccessRate_;
   }
 
   public static final int SUCCESS_RATE_MINIMUM_HOSTS_FIELD_NUMBER = 7;
@@ -674,7 +357,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getSuccessRateMinimumHostsOrBuilder() {
-    return getSuccessRateMinimumHosts();
+    return successRateMinimumHosts_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : successRateMinimumHosts_;
   }
 
   public static final int SUCCESS_RATE_REQUEST_VOLUME_FIELD_NUMBER = 8;
@@ -724,7 +407,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getSuccessRateRequestVolumeOrBuilder() {
-    return getSuccessRateRequestVolume();
+    return successRateRequestVolume_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : successRateRequestVolume_;
   }
 
   public static final int SUCCESS_RATE_STDEV_FACTOR_FIELD_NUMBER = 9;
@@ -780,7 +463,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getSuccessRateStdevFactorOrBuilder() {
-    return getSuccessRateStdevFactor();
+    return successRateStdevFactor_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : successRateStdevFactor_;
   }
 
   public static final int CONSECUTIVE_GATEWAY_FAILURE_FIELD_NUMBER = 10;
@@ -821,7 +504,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getConsecutiveGatewayFailureOrBuilder() {
-    return getConsecutiveGatewayFailure();
+    return consecutiveGatewayFailure_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : consecutiveGatewayFailure_;
   }
 
   public static final int ENFORCING_CONSECUTIVE_GATEWAY_FAILURE_FIELD_NUMBER = 11;
@@ -865,11 +548,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingConsecutiveGatewayFailureOrBuilder() {
-    return getEnforcingConsecutiveGatewayFailure();
+    return enforcingConsecutiveGatewayFailure_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingConsecutiveGatewayFailure_;
   }
 
   public static final int SPLIT_EXTERNAL_LOCAL_ORIGIN_ERRORS_FIELD_NUMBER = 12;
-  private boolean splitExternalLocalOriginErrors_;
+  private boolean splitExternalLocalOriginErrors_ = false;
   /**
    * <pre>
    * Determines whether to distinguish local origin failures from external errors. If set to true
@@ -933,7 +616,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getConsecutiveLocalOriginFailureOrBuilder() {
-    return getConsecutiveLocalOriginFailure();
+    return consecutiveLocalOriginFailure_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : consecutiveLocalOriginFailure_;
   }
 
   public static final int ENFORCING_CONSECUTIVE_LOCAL_ORIGIN_FAILURE_FIELD_NUMBER = 14;
@@ -986,7 +669,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingConsecutiveLocalOriginFailureOrBuilder() {
-    return getEnforcingConsecutiveLocalOriginFailure();
+    return enforcingConsecutiveLocalOriginFailure_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingConsecutiveLocalOriginFailure_;
   }
 
   public static final int ENFORCING_LOCAL_ORIGIN_SUCCESS_RATE_FIELD_NUMBER = 15;
@@ -1039,7 +722,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingLocalOriginSuccessRateOrBuilder() {
-    return getEnforcingLocalOriginSuccessRate();
+    return enforcingLocalOriginSuccessRate_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingLocalOriginSuccessRate_;
   }
 
   public static final int FAILURE_PERCENTAGE_THRESHOLD_FIELD_NUMBER = 16;
@@ -1083,7 +766,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getFailurePercentageThresholdOrBuilder() {
-    return getFailurePercentageThreshold();
+    return failurePercentageThreshold_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : failurePercentageThreshold_;
   }
 
   public static final int ENFORCING_FAILURE_PERCENTAGE_FIELD_NUMBER = 17;
@@ -1133,7 +816,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingFailurePercentageOrBuilder() {
-    return getEnforcingFailurePercentage();
+    return enforcingFailurePercentage_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingFailurePercentage_;
   }
 
   public static final int ENFORCING_FAILURE_PERCENTAGE_LOCAL_ORIGIN_FIELD_NUMBER = 18;
@@ -1177,7 +860,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getEnforcingFailurePercentageLocalOriginOrBuilder() {
-    return getEnforcingFailurePercentageLocalOrigin();
+    return enforcingFailurePercentageLocalOrigin_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : enforcingFailurePercentageLocalOrigin_;
   }
 
   public static final int FAILURE_PERCENTAGE_MINIMUM_HOSTS_FIELD_NUMBER = 19;
@@ -1221,7 +904,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getFailurePercentageMinimumHostsOrBuilder() {
-    return getFailurePercentageMinimumHosts();
+    return failurePercentageMinimumHosts_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : failurePercentageMinimumHosts_;
   }
 
   public static final int FAILURE_PERCENTAGE_REQUEST_VOLUME_FIELD_NUMBER = 20;
@@ -1268,7 +951,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getFailurePercentageRequestVolumeOrBuilder() {
-    return getFailurePercentageRequestVolume();
+    return failurePercentageRequestVolume_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : failurePercentageRequestVolume_;
   }
 
   public static final int MAX_EJECTION_TIME_FIELD_NUMBER = 21;
@@ -1312,7 +995,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxEjectionTimeOrBuilder() {
-    return getMaxEjectionTime();
+    return maxEjectionTime_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxEjectionTime_;
   }
 
   public static final int MAX_EJECTION_TIME_JITTER_FIELD_NUMBER = 22;
@@ -1359,7 +1042,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxEjectionTimeJitterOrBuilder() {
-    return getMaxEjectionTimeJitter();
+    return maxEjectionTimeJitter_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxEjectionTimeJitter_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1442,7 +1125,7 @@ private static final long serialVersionUID = 0L;
     if (maxEjectionTimeJitter_ != null) {
       output.writeMessage(22, getMaxEjectionTimeJitter());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1539,7 +1222,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(22, getMaxEjectionTimeJitter());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1661,7 +1344,7 @@ private static final long serialVersionUID = 0L;
       if (!getMaxEjectionTimeJitter()
           .equals(other.getMaxEjectionTimeJitter())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1759,7 +1442,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_EJECTION_TIME_JITTER_FIELD_NUMBER;
       hash = (53 * hash) + getMaxEjectionTimeJitter().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1882,148 +1565,122 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.cluster.v3.OutlierDetection.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (consecutive5XxBuilder_ == null) {
-        consecutive5Xx_ = null;
-      } else {
-        consecutive5Xx_ = null;
+      bitField0_ = 0;
+      consecutive5Xx_ = null;
+      if (consecutive5XxBuilder_ != null) {
+        consecutive5XxBuilder_.dispose();
         consecutive5XxBuilder_ = null;
       }
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-      } else {
-        interval_ = null;
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
         intervalBuilder_ = null;
       }
-      if (baseEjectionTimeBuilder_ == null) {
-        baseEjectionTime_ = null;
-      } else {
-        baseEjectionTime_ = null;
+      baseEjectionTime_ = null;
+      if (baseEjectionTimeBuilder_ != null) {
+        baseEjectionTimeBuilder_.dispose();
         baseEjectionTimeBuilder_ = null;
       }
-      if (maxEjectionPercentBuilder_ == null) {
-        maxEjectionPercent_ = null;
-      } else {
-        maxEjectionPercent_ = null;
+      maxEjectionPercent_ = null;
+      if (maxEjectionPercentBuilder_ != null) {
+        maxEjectionPercentBuilder_.dispose();
         maxEjectionPercentBuilder_ = null;
       }
-      if (enforcingConsecutive5XxBuilder_ == null) {
-        enforcingConsecutive5Xx_ = null;
-      } else {
-        enforcingConsecutive5Xx_ = null;
+      enforcingConsecutive5Xx_ = null;
+      if (enforcingConsecutive5XxBuilder_ != null) {
+        enforcingConsecutive5XxBuilder_.dispose();
         enforcingConsecutive5XxBuilder_ = null;
       }
-      if (enforcingSuccessRateBuilder_ == null) {
-        enforcingSuccessRate_ = null;
-      } else {
-        enforcingSuccessRate_ = null;
+      enforcingSuccessRate_ = null;
+      if (enforcingSuccessRateBuilder_ != null) {
+        enforcingSuccessRateBuilder_.dispose();
         enforcingSuccessRateBuilder_ = null;
       }
-      if (successRateMinimumHostsBuilder_ == null) {
-        successRateMinimumHosts_ = null;
-      } else {
-        successRateMinimumHosts_ = null;
+      successRateMinimumHosts_ = null;
+      if (successRateMinimumHostsBuilder_ != null) {
+        successRateMinimumHostsBuilder_.dispose();
         successRateMinimumHostsBuilder_ = null;
       }
-      if (successRateRequestVolumeBuilder_ == null) {
-        successRateRequestVolume_ = null;
-      } else {
-        successRateRequestVolume_ = null;
+      successRateRequestVolume_ = null;
+      if (successRateRequestVolumeBuilder_ != null) {
+        successRateRequestVolumeBuilder_.dispose();
         successRateRequestVolumeBuilder_ = null;
       }
-      if (successRateStdevFactorBuilder_ == null) {
-        successRateStdevFactor_ = null;
-      } else {
-        successRateStdevFactor_ = null;
+      successRateStdevFactor_ = null;
+      if (successRateStdevFactorBuilder_ != null) {
+        successRateStdevFactorBuilder_.dispose();
         successRateStdevFactorBuilder_ = null;
       }
-      if (consecutiveGatewayFailureBuilder_ == null) {
-        consecutiveGatewayFailure_ = null;
-      } else {
-        consecutiveGatewayFailure_ = null;
+      consecutiveGatewayFailure_ = null;
+      if (consecutiveGatewayFailureBuilder_ != null) {
+        consecutiveGatewayFailureBuilder_.dispose();
         consecutiveGatewayFailureBuilder_ = null;
       }
-      if (enforcingConsecutiveGatewayFailureBuilder_ == null) {
-        enforcingConsecutiveGatewayFailure_ = null;
-      } else {
-        enforcingConsecutiveGatewayFailure_ = null;
+      enforcingConsecutiveGatewayFailure_ = null;
+      if (enforcingConsecutiveGatewayFailureBuilder_ != null) {
+        enforcingConsecutiveGatewayFailureBuilder_.dispose();
         enforcingConsecutiveGatewayFailureBuilder_ = null;
       }
       splitExternalLocalOriginErrors_ = false;
-
-      if (consecutiveLocalOriginFailureBuilder_ == null) {
-        consecutiveLocalOriginFailure_ = null;
-      } else {
-        consecutiveLocalOriginFailure_ = null;
+      consecutiveLocalOriginFailure_ = null;
+      if (consecutiveLocalOriginFailureBuilder_ != null) {
+        consecutiveLocalOriginFailureBuilder_.dispose();
         consecutiveLocalOriginFailureBuilder_ = null;
       }
-      if (enforcingConsecutiveLocalOriginFailureBuilder_ == null) {
-        enforcingConsecutiveLocalOriginFailure_ = null;
-      } else {
-        enforcingConsecutiveLocalOriginFailure_ = null;
+      enforcingConsecutiveLocalOriginFailure_ = null;
+      if (enforcingConsecutiveLocalOriginFailureBuilder_ != null) {
+        enforcingConsecutiveLocalOriginFailureBuilder_.dispose();
         enforcingConsecutiveLocalOriginFailureBuilder_ = null;
       }
-      if (enforcingLocalOriginSuccessRateBuilder_ == null) {
-        enforcingLocalOriginSuccessRate_ = null;
-      } else {
-        enforcingLocalOriginSuccessRate_ = null;
+      enforcingLocalOriginSuccessRate_ = null;
+      if (enforcingLocalOriginSuccessRateBuilder_ != null) {
+        enforcingLocalOriginSuccessRateBuilder_.dispose();
         enforcingLocalOriginSuccessRateBuilder_ = null;
       }
-      if (failurePercentageThresholdBuilder_ == null) {
-        failurePercentageThreshold_ = null;
-      } else {
-        failurePercentageThreshold_ = null;
+      failurePercentageThreshold_ = null;
+      if (failurePercentageThresholdBuilder_ != null) {
+        failurePercentageThresholdBuilder_.dispose();
         failurePercentageThresholdBuilder_ = null;
       }
-      if (enforcingFailurePercentageBuilder_ == null) {
-        enforcingFailurePercentage_ = null;
-      } else {
-        enforcingFailurePercentage_ = null;
+      enforcingFailurePercentage_ = null;
+      if (enforcingFailurePercentageBuilder_ != null) {
+        enforcingFailurePercentageBuilder_.dispose();
         enforcingFailurePercentageBuilder_ = null;
       }
-      if (enforcingFailurePercentageLocalOriginBuilder_ == null) {
-        enforcingFailurePercentageLocalOrigin_ = null;
-      } else {
-        enforcingFailurePercentageLocalOrigin_ = null;
+      enforcingFailurePercentageLocalOrigin_ = null;
+      if (enforcingFailurePercentageLocalOriginBuilder_ != null) {
+        enforcingFailurePercentageLocalOriginBuilder_.dispose();
         enforcingFailurePercentageLocalOriginBuilder_ = null;
       }
-      if (failurePercentageMinimumHostsBuilder_ == null) {
-        failurePercentageMinimumHosts_ = null;
-      } else {
-        failurePercentageMinimumHosts_ = null;
+      failurePercentageMinimumHosts_ = null;
+      if (failurePercentageMinimumHostsBuilder_ != null) {
+        failurePercentageMinimumHostsBuilder_.dispose();
         failurePercentageMinimumHostsBuilder_ = null;
       }
-      if (failurePercentageRequestVolumeBuilder_ == null) {
-        failurePercentageRequestVolume_ = null;
-      } else {
-        failurePercentageRequestVolume_ = null;
+      failurePercentageRequestVolume_ = null;
+      if (failurePercentageRequestVolumeBuilder_ != null) {
+        failurePercentageRequestVolumeBuilder_.dispose();
         failurePercentageRequestVolumeBuilder_ = null;
       }
-      if (maxEjectionTimeBuilder_ == null) {
-        maxEjectionTime_ = null;
-      } else {
-        maxEjectionTime_ = null;
+      maxEjectionTime_ = null;
+      if (maxEjectionTimeBuilder_ != null) {
+        maxEjectionTimeBuilder_.dispose();
         maxEjectionTimeBuilder_ = null;
       }
-      if (maxEjectionTimeJitterBuilder_ == null) {
-        maxEjectionTimeJitter_ = null;
-      } else {
-        maxEjectionTimeJitter_ = null;
+      maxEjectionTimeJitter_ = null;
+      if (maxEjectionTimeJitterBuilder_ != null) {
+        maxEjectionTimeJitterBuilder_.dispose();
         maxEjectionTimeJitterBuilder_ = null;
       }
       return this;
@@ -2052,114 +1709,121 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.cluster.v3.OutlierDetection buildPartial() {
       io.envoyproxy.envoy.config.cluster.v3.OutlierDetection result = new io.envoyproxy.envoy.config.cluster.v3.OutlierDetection(this);
-      if (consecutive5XxBuilder_ == null) {
-        result.consecutive5Xx_ = consecutive5Xx_;
-      } else {
-        result.consecutive5Xx_ = consecutive5XxBuilder_.build();
-      }
-      if (intervalBuilder_ == null) {
-        result.interval_ = interval_;
-      } else {
-        result.interval_ = intervalBuilder_.build();
-      }
-      if (baseEjectionTimeBuilder_ == null) {
-        result.baseEjectionTime_ = baseEjectionTime_;
-      } else {
-        result.baseEjectionTime_ = baseEjectionTimeBuilder_.build();
-      }
-      if (maxEjectionPercentBuilder_ == null) {
-        result.maxEjectionPercent_ = maxEjectionPercent_;
-      } else {
-        result.maxEjectionPercent_ = maxEjectionPercentBuilder_.build();
-      }
-      if (enforcingConsecutive5XxBuilder_ == null) {
-        result.enforcingConsecutive5Xx_ = enforcingConsecutive5Xx_;
-      } else {
-        result.enforcingConsecutive5Xx_ = enforcingConsecutive5XxBuilder_.build();
-      }
-      if (enforcingSuccessRateBuilder_ == null) {
-        result.enforcingSuccessRate_ = enforcingSuccessRate_;
-      } else {
-        result.enforcingSuccessRate_ = enforcingSuccessRateBuilder_.build();
-      }
-      if (successRateMinimumHostsBuilder_ == null) {
-        result.successRateMinimumHosts_ = successRateMinimumHosts_;
-      } else {
-        result.successRateMinimumHosts_ = successRateMinimumHostsBuilder_.build();
-      }
-      if (successRateRequestVolumeBuilder_ == null) {
-        result.successRateRequestVolume_ = successRateRequestVolume_;
-      } else {
-        result.successRateRequestVolume_ = successRateRequestVolumeBuilder_.build();
-      }
-      if (successRateStdevFactorBuilder_ == null) {
-        result.successRateStdevFactor_ = successRateStdevFactor_;
-      } else {
-        result.successRateStdevFactor_ = successRateStdevFactorBuilder_.build();
-      }
-      if (consecutiveGatewayFailureBuilder_ == null) {
-        result.consecutiveGatewayFailure_ = consecutiveGatewayFailure_;
-      } else {
-        result.consecutiveGatewayFailure_ = consecutiveGatewayFailureBuilder_.build();
-      }
-      if (enforcingConsecutiveGatewayFailureBuilder_ == null) {
-        result.enforcingConsecutiveGatewayFailure_ = enforcingConsecutiveGatewayFailure_;
-      } else {
-        result.enforcingConsecutiveGatewayFailure_ = enforcingConsecutiveGatewayFailureBuilder_.build();
-      }
-      result.splitExternalLocalOriginErrors_ = splitExternalLocalOriginErrors_;
-      if (consecutiveLocalOriginFailureBuilder_ == null) {
-        result.consecutiveLocalOriginFailure_ = consecutiveLocalOriginFailure_;
-      } else {
-        result.consecutiveLocalOriginFailure_ = consecutiveLocalOriginFailureBuilder_.build();
-      }
-      if (enforcingConsecutiveLocalOriginFailureBuilder_ == null) {
-        result.enforcingConsecutiveLocalOriginFailure_ = enforcingConsecutiveLocalOriginFailure_;
-      } else {
-        result.enforcingConsecutiveLocalOriginFailure_ = enforcingConsecutiveLocalOriginFailureBuilder_.build();
-      }
-      if (enforcingLocalOriginSuccessRateBuilder_ == null) {
-        result.enforcingLocalOriginSuccessRate_ = enforcingLocalOriginSuccessRate_;
-      } else {
-        result.enforcingLocalOriginSuccessRate_ = enforcingLocalOriginSuccessRateBuilder_.build();
-      }
-      if (failurePercentageThresholdBuilder_ == null) {
-        result.failurePercentageThreshold_ = failurePercentageThreshold_;
-      } else {
-        result.failurePercentageThreshold_ = failurePercentageThresholdBuilder_.build();
-      }
-      if (enforcingFailurePercentageBuilder_ == null) {
-        result.enforcingFailurePercentage_ = enforcingFailurePercentage_;
-      } else {
-        result.enforcingFailurePercentage_ = enforcingFailurePercentageBuilder_.build();
-      }
-      if (enforcingFailurePercentageLocalOriginBuilder_ == null) {
-        result.enforcingFailurePercentageLocalOrigin_ = enforcingFailurePercentageLocalOrigin_;
-      } else {
-        result.enforcingFailurePercentageLocalOrigin_ = enforcingFailurePercentageLocalOriginBuilder_.build();
-      }
-      if (failurePercentageMinimumHostsBuilder_ == null) {
-        result.failurePercentageMinimumHosts_ = failurePercentageMinimumHosts_;
-      } else {
-        result.failurePercentageMinimumHosts_ = failurePercentageMinimumHostsBuilder_.build();
-      }
-      if (failurePercentageRequestVolumeBuilder_ == null) {
-        result.failurePercentageRequestVolume_ = failurePercentageRequestVolume_;
-      } else {
-        result.failurePercentageRequestVolume_ = failurePercentageRequestVolumeBuilder_.build();
-      }
-      if (maxEjectionTimeBuilder_ == null) {
-        result.maxEjectionTime_ = maxEjectionTime_;
-      } else {
-        result.maxEjectionTime_ = maxEjectionTimeBuilder_.build();
-      }
-      if (maxEjectionTimeJitterBuilder_ == null) {
-        result.maxEjectionTimeJitter_ = maxEjectionTimeJitter_;
-      } else {
-        result.maxEjectionTimeJitter_ = maxEjectionTimeJitterBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.cluster.v3.OutlierDetection result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.consecutive5Xx_ = consecutive5XxBuilder_ == null
+            ? consecutive5Xx_
+            : consecutive5XxBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.interval_ = intervalBuilder_ == null
+            ? interval_
+            : intervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.baseEjectionTime_ = baseEjectionTimeBuilder_ == null
+            ? baseEjectionTime_
+            : baseEjectionTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxEjectionPercent_ = maxEjectionPercentBuilder_ == null
+            ? maxEjectionPercent_
+            : maxEjectionPercentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enforcingConsecutive5Xx_ = enforcingConsecutive5XxBuilder_ == null
+            ? enforcingConsecutive5Xx_
+            : enforcingConsecutive5XxBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.enforcingSuccessRate_ = enforcingSuccessRateBuilder_ == null
+            ? enforcingSuccessRate_
+            : enforcingSuccessRateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.successRateMinimumHosts_ = successRateMinimumHostsBuilder_ == null
+            ? successRateMinimumHosts_
+            : successRateMinimumHostsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.successRateRequestVolume_ = successRateRequestVolumeBuilder_ == null
+            ? successRateRequestVolume_
+            : successRateRequestVolumeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.successRateStdevFactor_ = successRateStdevFactorBuilder_ == null
+            ? successRateStdevFactor_
+            : successRateStdevFactorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.consecutiveGatewayFailure_ = consecutiveGatewayFailureBuilder_ == null
+            ? consecutiveGatewayFailure_
+            : consecutiveGatewayFailureBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.enforcingConsecutiveGatewayFailure_ = enforcingConsecutiveGatewayFailureBuilder_ == null
+            ? enforcingConsecutiveGatewayFailure_
+            : enforcingConsecutiveGatewayFailureBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.splitExternalLocalOriginErrors_ = splitExternalLocalOriginErrors_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.consecutiveLocalOriginFailure_ = consecutiveLocalOriginFailureBuilder_ == null
+            ? consecutiveLocalOriginFailure_
+            : consecutiveLocalOriginFailureBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.enforcingConsecutiveLocalOriginFailure_ = enforcingConsecutiveLocalOriginFailureBuilder_ == null
+            ? enforcingConsecutiveLocalOriginFailure_
+            : enforcingConsecutiveLocalOriginFailureBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.enforcingLocalOriginSuccessRate_ = enforcingLocalOriginSuccessRateBuilder_ == null
+            ? enforcingLocalOriginSuccessRate_
+            : enforcingLocalOriginSuccessRateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.failurePercentageThreshold_ = failurePercentageThresholdBuilder_ == null
+            ? failurePercentageThreshold_
+            : failurePercentageThresholdBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.enforcingFailurePercentage_ = enforcingFailurePercentageBuilder_ == null
+            ? enforcingFailurePercentage_
+            : enforcingFailurePercentageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.enforcingFailurePercentageLocalOrigin_ = enforcingFailurePercentageLocalOriginBuilder_ == null
+            ? enforcingFailurePercentageLocalOrigin_
+            : enforcingFailurePercentageLocalOriginBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.failurePercentageMinimumHosts_ = failurePercentageMinimumHostsBuilder_ == null
+            ? failurePercentageMinimumHosts_
+            : failurePercentageMinimumHostsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.failurePercentageRequestVolume_ = failurePercentageRequestVolumeBuilder_ == null
+            ? failurePercentageRequestVolume_
+            : failurePercentageRequestVolumeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.maxEjectionTime_ = maxEjectionTimeBuilder_ == null
+            ? maxEjectionTime_
+            : maxEjectionTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.maxEjectionTimeJitter_ = maxEjectionTimeJitterBuilder_ == null
+            ? maxEjectionTimeJitter_
+            : maxEjectionTimeJitterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2272,7 +1936,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxEjectionTimeJitter()) {
         mergeMaxEjectionTimeJitter(other.getMaxEjectionTimeJitter());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2287,41 +1951,207 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.cluster.v3.OutlierDetection parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getConsecutive5XxFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBaseEjectionTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMaxEjectionPercentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEnforcingConsecutive5XxFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getEnforcingSuccessRateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getSuccessRateMinimumHostsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getSuccessRateRequestVolumeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getSuccessRateStdevFactorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getConsecutiveGatewayFailureFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getEnforcingConsecutiveGatewayFailureFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 96: {
+              splitExternalLocalOriginErrors_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 106: {
+              input.readMessage(
+                  getConsecutiveLocalOriginFailureFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getEnforcingConsecutiveLocalOriginFailureFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getEnforcingLocalOriginSuccessRateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getFailurePercentageThresholdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getEnforcingFailurePercentageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getEnforcingFailurePercentageLocalOriginFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getFailurePercentageMinimumHostsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 154
+            case 162: {
+              input.readMessage(
+                  getFailurePercentageRequestVolumeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 162
+            case 170: {
+              input.readMessage(
+                  getMaxEjectionTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getMaxEjectionTimeJitterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 178
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.cluster.v3.OutlierDetection) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.UInt32Value consecutive5Xx_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> consecutive5XxBuilder_;
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
      * @return Whether the consecutive5xx field is set.
      */
     public boolean hasConsecutive5Xx() {
-      return consecutive5XxBuilder_ != null || consecutive5Xx_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -2336,9 +2166,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -2349,18 +2179,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         consecutive5Xx_ = value;
-        onChanged();
       } else {
         consecutive5XxBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -2369,76 +2199,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (consecutive5XxBuilder_ == null) {
         consecutive5Xx_ = builderForValue.build();
-        onChanged();
       } else {
         consecutive5XxBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
      */
     public Builder mergeConsecutive5Xx(com.google.protobuf.UInt32Value value) {
       if (consecutive5XxBuilder_ == null) {
-        if (consecutive5Xx_ != null) {
-          consecutive5Xx_ =
-            com.google.protobuf.UInt32Value.newBuilder(consecutive5Xx_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          consecutive5Xx_ != null &&
+          consecutive5Xx_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getConsecutive5XxBuilder().mergeFrom(value);
         } else {
           consecutive5Xx_ = value;
         }
-        onChanged();
       } else {
         consecutive5XxBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
      */
     public Builder clearConsecutive5Xx() {
-      if (consecutive5XxBuilder_ == null) {
-        consecutive5Xx_ = null;
-        onChanged();
-      } else {
-        consecutive5Xx_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      consecutive5Xx_ = null;
+      if (consecutive5XxBuilder_ != null) {
+        consecutive5XxBuilder_.dispose();
         consecutive5XxBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getConsecutive5XxBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getConsecutive5XxFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -2453,9 +2283,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The number of consecutive 5xx responses or local origin errors that are mapped
-     * to 5xx error codes before a consecutive 5xx ejection
-     * occurs. Defaults to 5.
+     * The number of consecutive server-side error responses (for HTTP traffic,
+     * 5xx responses; for TCP traffic, connection failures; for Redis, failure to
+     * respond PONG; etc.) before a consecutive 5xx ejection occurs. Defaults to 5.
      * </pre>
      *
      * <code>.google.protobuf.UInt32Value consecutive_5xx = 1;</code>
@@ -2488,7 +2318,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the interval field is set.
      */
     public boolean hasInterval() {
-      return intervalBuilder_ != null || interval_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2522,11 +2352,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         interval_ = value;
-        onChanged();
       } else {
         intervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2542,11 +2372,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (intervalBuilder_ == null) {
         interval_ = builderForValue.build();
-        onChanged();
       } else {
         intervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2560,17 +2390,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInterval(com.google.protobuf.Duration value) {
       if (intervalBuilder_ == null) {
-        if (interval_ != null) {
-          interval_ =
-            com.google.protobuf.Duration.newBuilder(interval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          interval_ != null &&
+          interval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getIntervalBuilder().mergeFrom(value);
         } else {
           interval_ = value;
         }
-        onChanged();
       } else {
         intervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2583,14 +2414,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration interval = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearInterval() {
-      if (intervalBuilder_ == null) {
-        interval_ = null;
-        onChanged();
-      } else {
-        interval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      interval_ = null;
+      if (intervalBuilder_ != null) {
+        intervalBuilder_.dispose();
         intervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2603,7 +2433,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration interval = 2 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getIntervalBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getIntervalFieldBuilder().getBuilder();
     }
@@ -2662,7 +2492,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the baseEjectionTime field is set.
      */
     public boolean hasBaseEjectionTime() {
-      return baseEjectionTimeBuilder_ != null || baseEjectionTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2698,11 +2528,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         baseEjectionTime_ = value;
-        onChanged();
       } else {
         baseEjectionTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2719,11 +2549,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (baseEjectionTimeBuilder_ == null) {
         baseEjectionTime_ = builderForValue.build();
-        onChanged();
       } else {
         baseEjectionTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2738,17 +2568,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBaseEjectionTime(com.google.protobuf.Duration value) {
       if (baseEjectionTimeBuilder_ == null) {
-        if (baseEjectionTime_ != null) {
-          baseEjectionTime_ =
-            com.google.protobuf.Duration.newBuilder(baseEjectionTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          baseEjectionTime_ != null &&
+          baseEjectionTime_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getBaseEjectionTimeBuilder().mergeFrom(value);
         } else {
           baseEjectionTime_ = value;
         }
-        onChanged();
       } else {
         baseEjectionTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2762,14 +2593,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration base_ejection_time = 3 [(.validate.rules) = { ... }</code>
      */
     public Builder clearBaseEjectionTime() {
-      if (baseEjectionTimeBuilder_ == null) {
-        baseEjectionTime_ = null;
-        onChanged();
-      } else {
-        baseEjectionTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      baseEjectionTime_ = null;
+      if (baseEjectionTimeBuilder_ != null) {
+        baseEjectionTimeBuilder_.dispose();
         baseEjectionTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2783,7 +2613,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration base_ejection_time = 3 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getBaseEjectionTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBaseEjectionTimeFieldBuilder().getBuilder();
     }
@@ -2842,7 +2672,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxEjectionPercent field is set.
      */
     public boolean hasMaxEjectionPercent() {
-      return maxEjectionPercentBuilder_ != null || maxEjectionPercent_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2874,11 +2704,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxEjectionPercent_ = value;
-        onChanged();
       } else {
         maxEjectionPercentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2893,11 +2723,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxEjectionPercentBuilder_ == null) {
         maxEjectionPercent_ = builderForValue.build();
-        onChanged();
       } else {
         maxEjectionPercentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2910,17 +2740,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxEjectionPercent(com.google.protobuf.UInt32Value value) {
       if (maxEjectionPercentBuilder_ == null) {
-        if (maxEjectionPercent_ != null) {
-          maxEjectionPercent_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxEjectionPercent_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          maxEjectionPercent_ != null &&
+          maxEjectionPercent_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxEjectionPercentBuilder().mergeFrom(value);
         } else {
           maxEjectionPercent_ = value;
         }
-        onChanged();
       } else {
         maxEjectionPercentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2932,14 +2763,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_ejection_percent = 4 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaxEjectionPercent() {
-      if (maxEjectionPercentBuilder_ == null) {
-        maxEjectionPercent_ = null;
-        onChanged();
-      } else {
-        maxEjectionPercent_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      maxEjectionPercent_ = null;
+      if (maxEjectionPercentBuilder_ != null) {
+        maxEjectionPercentBuilder_.dispose();
         maxEjectionPercentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2951,7 +2781,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_ejection_percent = 4 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxEjectionPercentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMaxEjectionPercentFieldBuilder().getBuilder();
     }
@@ -3007,7 +2837,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingConsecutive5xx field is set.
      */
     public boolean hasEnforcingConsecutive5Xx() {
-      return enforcingConsecutive5XxBuilder_ != null || enforcingConsecutive5Xx_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -3041,11 +2871,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingConsecutive5Xx_ = value;
-        onChanged();
       } else {
         enforcingConsecutive5XxBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3061,11 +2891,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingConsecutive5XxBuilder_ == null) {
         enforcingConsecutive5Xx_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingConsecutive5XxBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3079,17 +2909,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingConsecutive5Xx(com.google.protobuf.UInt32Value value) {
       if (enforcingConsecutive5XxBuilder_ == null) {
-        if (enforcingConsecutive5Xx_ != null) {
-          enforcingConsecutive5Xx_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingConsecutive5Xx_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          enforcingConsecutive5Xx_ != null &&
+          enforcingConsecutive5Xx_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingConsecutive5XxBuilder().mergeFrom(value);
         } else {
           enforcingConsecutive5Xx_ = value;
         }
-        onChanged();
       } else {
         enforcingConsecutive5XxBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3102,14 +2933,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_consecutive_5xx = 5 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingConsecutive5Xx() {
-      if (enforcingConsecutive5XxBuilder_ == null) {
-        enforcingConsecutive5Xx_ = null;
-        onChanged();
-      } else {
-        enforcingConsecutive5Xx_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      enforcingConsecutive5Xx_ = null;
+      if (enforcingConsecutive5XxBuilder_ != null) {
+        enforcingConsecutive5XxBuilder_.dispose();
         enforcingConsecutive5XxBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3122,7 +2952,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_consecutive_5xx = 5 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingConsecutive5XxBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getEnforcingConsecutive5XxFieldBuilder().getBuilder();
     }
@@ -3180,7 +3010,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingSuccessRate field is set.
      */
     public boolean hasEnforcingSuccessRate() {
-      return enforcingSuccessRateBuilder_ != null || enforcingSuccessRate_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3214,11 +3044,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingSuccessRate_ = value;
-        onChanged();
       } else {
         enforcingSuccessRateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3234,11 +3064,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingSuccessRateBuilder_ == null) {
         enforcingSuccessRate_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingSuccessRateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3252,17 +3082,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingSuccessRate(com.google.protobuf.UInt32Value value) {
       if (enforcingSuccessRateBuilder_ == null) {
-        if (enforcingSuccessRate_ != null) {
-          enforcingSuccessRate_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingSuccessRate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          enforcingSuccessRate_ != null &&
+          enforcingSuccessRate_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingSuccessRateBuilder().mergeFrom(value);
         } else {
           enforcingSuccessRate_ = value;
         }
-        onChanged();
       } else {
         enforcingSuccessRateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3275,14 +3106,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_success_rate = 6 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingSuccessRate() {
-      if (enforcingSuccessRateBuilder_ == null) {
-        enforcingSuccessRate_ = null;
-        onChanged();
-      } else {
-        enforcingSuccessRate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      enforcingSuccessRate_ = null;
+      if (enforcingSuccessRateBuilder_ != null) {
+        enforcingSuccessRateBuilder_.dispose();
         enforcingSuccessRateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3295,7 +3125,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_success_rate = 6 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingSuccessRateBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEnforcingSuccessRateFieldBuilder().getBuilder();
     }
@@ -3354,7 +3184,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the successRateMinimumHosts field is set.
      */
     public boolean hasSuccessRateMinimumHosts() {
-      return successRateMinimumHostsBuilder_ != null || successRateMinimumHosts_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3390,11 +3220,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         successRateMinimumHosts_ = value;
-        onChanged();
       } else {
         successRateMinimumHostsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3411,11 +3241,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (successRateMinimumHostsBuilder_ == null) {
         successRateMinimumHosts_ = builderForValue.build();
-        onChanged();
       } else {
         successRateMinimumHostsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3430,17 +3260,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuccessRateMinimumHosts(com.google.protobuf.UInt32Value value) {
       if (successRateMinimumHostsBuilder_ == null) {
-        if (successRateMinimumHosts_ != null) {
-          successRateMinimumHosts_ =
-            com.google.protobuf.UInt32Value.newBuilder(successRateMinimumHosts_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          successRateMinimumHosts_ != null &&
+          successRateMinimumHosts_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getSuccessRateMinimumHostsBuilder().mergeFrom(value);
         } else {
           successRateMinimumHosts_ = value;
         }
-        onChanged();
       } else {
         successRateMinimumHostsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3454,14 +3285,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value success_rate_minimum_hosts = 7;</code>
      */
     public Builder clearSuccessRateMinimumHosts() {
-      if (successRateMinimumHostsBuilder_ == null) {
-        successRateMinimumHosts_ = null;
-        onChanged();
-      } else {
-        successRateMinimumHosts_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      successRateMinimumHosts_ = null;
+      if (successRateMinimumHostsBuilder_ != null) {
+        successRateMinimumHostsBuilder_.dispose();
         successRateMinimumHostsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3475,7 +3305,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value success_rate_minimum_hosts = 7;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getSuccessRateMinimumHostsBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSuccessRateMinimumHostsFieldBuilder().getBuilder();
     }
@@ -3537,7 +3367,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the successRateRequestVolume field is set.
      */
     public boolean hasSuccessRateRequestVolume() {
-      return successRateRequestVolumeBuilder_ != null || successRateRequestVolume_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3575,11 +3405,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         successRateRequestVolume_ = value;
-        onChanged();
       } else {
         successRateRequestVolumeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3597,11 +3427,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (successRateRequestVolumeBuilder_ == null) {
         successRateRequestVolume_ = builderForValue.build();
-        onChanged();
       } else {
         successRateRequestVolumeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3617,17 +3447,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuccessRateRequestVolume(com.google.protobuf.UInt32Value value) {
       if (successRateRequestVolumeBuilder_ == null) {
-        if (successRateRequestVolume_ != null) {
-          successRateRequestVolume_ =
-            com.google.protobuf.UInt32Value.newBuilder(successRateRequestVolume_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          successRateRequestVolume_ != null &&
+          successRateRequestVolume_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getSuccessRateRequestVolumeBuilder().mergeFrom(value);
         } else {
           successRateRequestVolume_ = value;
         }
-        onChanged();
       } else {
         successRateRequestVolumeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3642,14 +3473,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value success_rate_request_volume = 8;</code>
      */
     public Builder clearSuccessRateRequestVolume() {
-      if (successRateRequestVolumeBuilder_ == null) {
-        successRateRequestVolume_ = null;
-        onChanged();
-      } else {
-        successRateRequestVolume_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      successRateRequestVolume_ = null;
+      if (successRateRequestVolumeBuilder_ != null) {
+        successRateRequestVolumeBuilder_.dispose();
         successRateRequestVolumeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3664,7 +3494,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value success_rate_request_volume = 8;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getSuccessRateRequestVolumeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getSuccessRateRequestVolumeFieldBuilder().getBuilder();
     }
@@ -3730,7 +3560,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the successRateStdevFactor field is set.
      */
     public boolean hasSuccessRateStdevFactor() {
-      return successRateStdevFactorBuilder_ != null || successRateStdevFactor_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3772,11 +3602,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         successRateStdevFactor_ = value;
-        onChanged();
       } else {
         successRateStdevFactorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3796,11 +3626,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (successRateStdevFactorBuilder_ == null) {
         successRateStdevFactor_ = builderForValue.build();
-        onChanged();
       } else {
         successRateStdevFactorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3818,17 +3648,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuccessRateStdevFactor(com.google.protobuf.UInt32Value value) {
       if (successRateStdevFactorBuilder_ == null) {
-        if (successRateStdevFactor_ != null) {
-          successRateStdevFactor_ =
-            com.google.protobuf.UInt32Value.newBuilder(successRateStdevFactor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          successRateStdevFactor_ != null &&
+          successRateStdevFactor_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getSuccessRateStdevFactorBuilder().mergeFrom(value);
         } else {
           successRateStdevFactor_ = value;
         }
-        onChanged();
       } else {
         successRateStdevFactorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3845,14 +3676,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value success_rate_stdev_factor = 9;</code>
      */
     public Builder clearSuccessRateStdevFactor() {
-      if (successRateStdevFactorBuilder_ == null) {
-        successRateStdevFactor_ = null;
-        onChanged();
-      } else {
-        successRateStdevFactor_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      successRateStdevFactor_ = null;
+      if (successRateStdevFactorBuilder_ != null) {
+        successRateStdevFactorBuilder_.dispose();
         successRateStdevFactorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3869,7 +3699,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value success_rate_stdev_factor = 9;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getSuccessRateStdevFactorBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getSuccessRateStdevFactorFieldBuilder().getBuilder();
     }
@@ -3934,7 +3764,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the consecutiveGatewayFailure field is set.
      */
     public boolean hasConsecutiveGatewayFailure() {
-      return consecutiveGatewayFailureBuilder_ != null || consecutiveGatewayFailure_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3966,11 +3796,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         consecutiveGatewayFailure_ = value;
-        onChanged();
       } else {
         consecutiveGatewayFailureBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3985,11 +3815,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (consecutiveGatewayFailureBuilder_ == null) {
         consecutiveGatewayFailure_ = builderForValue.build();
-        onChanged();
       } else {
         consecutiveGatewayFailureBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4002,17 +3832,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConsecutiveGatewayFailure(com.google.protobuf.UInt32Value value) {
       if (consecutiveGatewayFailureBuilder_ == null) {
-        if (consecutiveGatewayFailure_ != null) {
-          consecutiveGatewayFailure_ =
-            com.google.protobuf.UInt32Value.newBuilder(consecutiveGatewayFailure_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          consecutiveGatewayFailure_ != null &&
+          consecutiveGatewayFailure_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getConsecutiveGatewayFailureBuilder().mergeFrom(value);
         } else {
           consecutiveGatewayFailure_ = value;
         }
-        onChanged();
       } else {
         consecutiveGatewayFailureBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4024,14 +3855,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value consecutive_gateway_failure = 10;</code>
      */
     public Builder clearConsecutiveGatewayFailure() {
-      if (consecutiveGatewayFailureBuilder_ == null) {
-        consecutiveGatewayFailure_ = null;
-        onChanged();
-      } else {
-        consecutiveGatewayFailure_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      consecutiveGatewayFailure_ = null;
+      if (consecutiveGatewayFailureBuilder_ != null) {
+        consecutiveGatewayFailureBuilder_.dispose();
         consecutiveGatewayFailureBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4043,7 +3873,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value consecutive_gateway_failure = 10;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getConsecutiveGatewayFailureBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getConsecutiveGatewayFailureFieldBuilder().getBuilder();
     }
@@ -4099,7 +3929,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingConsecutiveGatewayFailure field is set.
      */
     public boolean hasEnforcingConsecutiveGatewayFailure() {
-      return enforcingConsecutiveGatewayFailureBuilder_ != null || enforcingConsecutiveGatewayFailure_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -4133,11 +3963,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingConsecutiveGatewayFailure_ = value;
-        onChanged();
       } else {
         enforcingConsecutiveGatewayFailureBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4153,11 +3983,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingConsecutiveGatewayFailureBuilder_ == null) {
         enforcingConsecutiveGatewayFailure_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingConsecutiveGatewayFailureBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4171,17 +4001,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingConsecutiveGatewayFailure(com.google.protobuf.UInt32Value value) {
       if (enforcingConsecutiveGatewayFailureBuilder_ == null) {
-        if (enforcingConsecutiveGatewayFailure_ != null) {
-          enforcingConsecutiveGatewayFailure_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingConsecutiveGatewayFailure_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          enforcingConsecutiveGatewayFailure_ != null &&
+          enforcingConsecutiveGatewayFailure_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingConsecutiveGatewayFailureBuilder().mergeFrom(value);
         } else {
           enforcingConsecutiveGatewayFailure_ = value;
         }
-        onChanged();
       } else {
         enforcingConsecutiveGatewayFailureBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4194,14 +4025,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_consecutive_gateway_failure = 11 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingConsecutiveGatewayFailure() {
-      if (enforcingConsecutiveGatewayFailureBuilder_ == null) {
-        enforcingConsecutiveGatewayFailure_ = null;
-        onChanged();
-      } else {
-        enforcingConsecutiveGatewayFailure_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      enforcingConsecutiveGatewayFailure_ = null;
+      if (enforcingConsecutiveGatewayFailureBuilder_ != null) {
+        enforcingConsecutiveGatewayFailureBuilder_.dispose();
         enforcingConsecutiveGatewayFailureBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4214,7 +4044,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_consecutive_gateway_failure = 11 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingConsecutiveGatewayFailureBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getEnforcingConsecutiveGatewayFailureFieldBuilder().getBuilder();
     }
@@ -4295,6 +4125,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSplitExternalLocalOriginErrors(boolean value) {
       
       splitExternalLocalOriginErrors_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -4313,7 +4144,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSplitExternalLocalOriginErrors() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       splitExternalLocalOriginErrors_ = false;
       onChanged();
       return this;
@@ -4334,7 +4165,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the consecutiveLocalOriginFailure field is set.
      */
     public boolean hasConsecutiveLocalOriginFailure() {
-      return consecutiveLocalOriginFailureBuilder_ != null || consecutiveLocalOriginFailure_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -4370,11 +4201,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         consecutiveLocalOriginFailure_ = value;
-        onChanged();
       } else {
         consecutiveLocalOriginFailureBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4391,11 +4222,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (consecutiveLocalOriginFailureBuilder_ == null) {
         consecutiveLocalOriginFailure_ = builderForValue.build();
-        onChanged();
       } else {
         consecutiveLocalOriginFailureBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4410,17 +4241,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConsecutiveLocalOriginFailure(com.google.protobuf.UInt32Value value) {
       if (consecutiveLocalOriginFailureBuilder_ == null) {
-        if (consecutiveLocalOriginFailure_ != null) {
-          consecutiveLocalOriginFailure_ =
-            com.google.protobuf.UInt32Value.newBuilder(consecutiveLocalOriginFailure_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          consecutiveLocalOriginFailure_ != null &&
+          consecutiveLocalOriginFailure_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getConsecutiveLocalOriginFailureBuilder().mergeFrom(value);
         } else {
           consecutiveLocalOriginFailure_ = value;
         }
-        onChanged();
       } else {
         consecutiveLocalOriginFailureBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4434,14 +4266,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value consecutive_local_origin_failure = 13;</code>
      */
     public Builder clearConsecutiveLocalOriginFailure() {
-      if (consecutiveLocalOriginFailureBuilder_ == null) {
-        consecutiveLocalOriginFailure_ = null;
-        onChanged();
-      } else {
-        consecutiveLocalOriginFailure_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      consecutiveLocalOriginFailure_ = null;
+      if (consecutiveLocalOriginFailureBuilder_ != null) {
+        consecutiveLocalOriginFailureBuilder_.dispose();
         consecutiveLocalOriginFailureBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4455,7 +4286,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value consecutive_local_origin_failure = 13;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getConsecutiveLocalOriginFailureBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getConsecutiveLocalOriginFailureFieldBuilder().getBuilder();
     }
@@ -4518,7 +4349,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingConsecutiveLocalOriginFailure field is set.
      */
     public boolean hasEnforcingConsecutiveLocalOriginFailure() {
-      return enforcingConsecutiveLocalOriginFailureBuilder_ != null || enforcingConsecutiveLocalOriginFailure_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -4558,11 +4389,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingConsecutiveLocalOriginFailure_ = value;
-        onChanged();
       } else {
         enforcingConsecutiveLocalOriginFailureBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4581,11 +4412,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingConsecutiveLocalOriginFailureBuilder_ == null) {
         enforcingConsecutiveLocalOriginFailure_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingConsecutiveLocalOriginFailureBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4602,17 +4433,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingConsecutiveLocalOriginFailure(com.google.protobuf.UInt32Value value) {
       if (enforcingConsecutiveLocalOriginFailureBuilder_ == null) {
-        if (enforcingConsecutiveLocalOriginFailure_ != null) {
-          enforcingConsecutiveLocalOriginFailure_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingConsecutiveLocalOriginFailure_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          enforcingConsecutiveLocalOriginFailure_ != null &&
+          enforcingConsecutiveLocalOriginFailure_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingConsecutiveLocalOriginFailureBuilder().mergeFrom(value);
         } else {
           enforcingConsecutiveLocalOriginFailure_ = value;
         }
-        onChanged();
       } else {
         enforcingConsecutiveLocalOriginFailureBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4628,14 +4460,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_consecutive_local_origin_failure = 14 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingConsecutiveLocalOriginFailure() {
-      if (enforcingConsecutiveLocalOriginFailureBuilder_ == null) {
-        enforcingConsecutiveLocalOriginFailure_ = null;
-        onChanged();
-      } else {
-        enforcingConsecutiveLocalOriginFailure_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      enforcingConsecutiveLocalOriginFailure_ = null;
+      if (enforcingConsecutiveLocalOriginFailureBuilder_ != null) {
+        enforcingConsecutiveLocalOriginFailureBuilder_.dispose();
         enforcingConsecutiveLocalOriginFailureBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4651,7 +4482,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_consecutive_local_origin_failure = 14 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingConsecutiveLocalOriginFailureBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getEnforcingConsecutiveLocalOriginFailureFieldBuilder().getBuilder();
     }
@@ -4718,7 +4549,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingLocalOriginSuccessRate field is set.
      */
     public boolean hasEnforcingLocalOriginSuccessRate() {
-      return enforcingLocalOriginSuccessRateBuilder_ != null || enforcingLocalOriginSuccessRate_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -4758,11 +4589,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingLocalOriginSuccessRate_ = value;
-        onChanged();
       } else {
         enforcingLocalOriginSuccessRateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4781,11 +4612,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingLocalOriginSuccessRateBuilder_ == null) {
         enforcingLocalOriginSuccessRate_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingLocalOriginSuccessRateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4802,17 +4633,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingLocalOriginSuccessRate(com.google.protobuf.UInt32Value value) {
       if (enforcingLocalOriginSuccessRateBuilder_ == null) {
-        if (enforcingLocalOriginSuccessRate_ != null) {
-          enforcingLocalOriginSuccessRate_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingLocalOriginSuccessRate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          enforcingLocalOriginSuccessRate_ != null &&
+          enforcingLocalOriginSuccessRate_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingLocalOriginSuccessRateBuilder().mergeFrom(value);
         } else {
           enforcingLocalOriginSuccessRate_ = value;
         }
-        onChanged();
       } else {
         enforcingLocalOriginSuccessRateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -4828,14 +4660,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_local_origin_success_rate = 15 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingLocalOriginSuccessRate() {
-      if (enforcingLocalOriginSuccessRateBuilder_ == null) {
-        enforcingLocalOriginSuccessRate_ = null;
-        onChanged();
-      } else {
-        enforcingLocalOriginSuccessRate_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      enforcingLocalOriginSuccessRate_ = null;
+      if (enforcingLocalOriginSuccessRateBuilder_ != null) {
+        enforcingLocalOriginSuccessRateBuilder_.dispose();
         enforcingLocalOriginSuccessRateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4851,7 +4682,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_local_origin_success_rate = 15 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingLocalOriginSuccessRateBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getEnforcingLocalOriginSuccessRateFieldBuilder().getBuilder();
     }
@@ -4915,7 +4746,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the failurePercentageThreshold field is set.
      */
     public boolean hasFailurePercentageThreshold() {
-      return failurePercentageThresholdBuilder_ != null || failurePercentageThreshold_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -4949,11 +4780,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         failurePercentageThreshold_ = value;
-        onChanged();
       } else {
         failurePercentageThresholdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4969,11 +4800,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (failurePercentageThresholdBuilder_ == null) {
         failurePercentageThreshold_ = builderForValue.build();
-        onChanged();
       } else {
         failurePercentageThresholdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4987,17 +4818,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFailurePercentageThreshold(com.google.protobuf.UInt32Value value) {
       if (failurePercentageThresholdBuilder_ == null) {
-        if (failurePercentageThreshold_ != null) {
-          failurePercentageThreshold_ =
-            com.google.protobuf.UInt32Value.newBuilder(failurePercentageThreshold_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          failurePercentageThreshold_ != null &&
+          failurePercentageThreshold_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getFailurePercentageThresholdBuilder().mergeFrom(value);
         } else {
           failurePercentageThreshold_ = value;
         }
-        onChanged();
       } else {
         failurePercentageThresholdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5010,14 +4842,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value failure_percentage_threshold = 16 [(.validate.rules) = { ... }</code>
      */
     public Builder clearFailurePercentageThreshold() {
-      if (failurePercentageThresholdBuilder_ == null) {
-        failurePercentageThreshold_ = null;
-        onChanged();
-      } else {
-        failurePercentageThreshold_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      failurePercentageThreshold_ = null;
+      if (failurePercentageThresholdBuilder_ != null) {
+        failurePercentageThresholdBuilder_.dispose();
         failurePercentageThresholdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5030,7 +4861,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value failure_percentage_threshold = 16 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getFailurePercentageThresholdBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getFailurePercentageThresholdFieldBuilder().getBuilder();
     }
@@ -5090,7 +4921,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingFailurePercentage field is set.
      */
     public boolean hasEnforcingFailurePercentage() {
-      return enforcingFailurePercentageBuilder_ != null || enforcingFailurePercentage_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -5128,11 +4959,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingFailurePercentage_ = value;
-        onChanged();
       } else {
         enforcingFailurePercentageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5150,11 +4981,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingFailurePercentageBuilder_ == null) {
         enforcingFailurePercentage_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingFailurePercentageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5170,17 +5001,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingFailurePercentage(com.google.protobuf.UInt32Value value) {
       if (enforcingFailurePercentageBuilder_ == null) {
-        if (enforcingFailurePercentage_ != null) {
-          enforcingFailurePercentage_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingFailurePercentage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          enforcingFailurePercentage_ != null &&
+          enforcingFailurePercentage_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingFailurePercentageBuilder().mergeFrom(value);
         } else {
           enforcingFailurePercentage_ = value;
         }
-        onChanged();
       } else {
         enforcingFailurePercentageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5195,14 +5027,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_failure_percentage = 17 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingFailurePercentage() {
-      if (enforcingFailurePercentageBuilder_ == null) {
-        enforcingFailurePercentage_ = null;
-        onChanged();
-      } else {
-        enforcingFailurePercentage_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      enforcingFailurePercentage_ = null;
+      if (enforcingFailurePercentageBuilder_ != null) {
+        enforcingFailurePercentageBuilder_.dispose();
         enforcingFailurePercentageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5217,7 +5048,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_failure_percentage = 17 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingFailurePercentageBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getEnforcingFailurePercentageFieldBuilder().getBuilder();
     }
@@ -5279,7 +5110,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enforcingFailurePercentageLocalOrigin field is set.
      */
     public boolean hasEnforcingFailurePercentageLocalOrigin() {
-      return enforcingFailurePercentageLocalOriginBuilder_ != null || enforcingFailurePercentageLocalOrigin_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -5313,11 +5144,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enforcingFailurePercentageLocalOrigin_ = value;
-        onChanged();
       } else {
         enforcingFailurePercentageLocalOriginBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5333,11 +5164,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (enforcingFailurePercentageLocalOriginBuilder_ == null) {
         enforcingFailurePercentageLocalOrigin_ = builderForValue.build();
-        onChanged();
       } else {
         enforcingFailurePercentageLocalOriginBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5351,17 +5182,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnforcingFailurePercentageLocalOrigin(com.google.protobuf.UInt32Value value) {
       if (enforcingFailurePercentageLocalOriginBuilder_ == null) {
-        if (enforcingFailurePercentageLocalOrigin_ != null) {
-          enforcingFailurePercentageLocalOrigin_ =
-            com.google.protobuf.UInt32Value.newBuilder(enforcingFailurePercentageLocalOrigin_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          enforcingFailurePercentageLocalOrigin_ != null &&
+          enforcingFailurePercentageLocalOrigin_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getEnforcingFailurePercentageLocalOriginBuilder().mergeFrom(value);
         } else {
           enforcingFailurePercentageLocalOrigin_ = value;
         }
-        onChanged();
       } else {
         enforcingFailurePercentageLocalOriginBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5374,14 +5206,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_failure_percentage_local_origin = 18 [(.validate.rules) = { ... }</code>
      */
     public Builder clearEnforcingFailurePercentageLocalOrigin() {
-      if (enforcingFailurePercentageLocalOriginBuilder_ == null) {
-        enforcingFailurePercentageLocalOrigin_ = null;
-        onChanged();
-      } else {
-        enforcingFailurePercentageLocalOrigin_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      enforcingFailurePercentageLocalOrigin_ = null;
+      if (enforcingFailurePercentageLocalOriginBuilder_ != null) {
+        enforcingFailurePercentageLocalOriginBuilder_.dispose();
         enforcingFailurePercentageLocalOriginBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5394,7 +5225,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value enforcing_failure_percentage_local_origin = 18 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt32Value.Builder getEnforcingFailurePercentageLocalOriginBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getEnforcingFailurePercentageLocalOriginFieldBuilder().getBuilder();
     }
@@ -5452,7 +5283,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the failurePercentageMinimumHosts field is set.
      */
     public boolean hasFailurePercentageMinimumHosts() {
-      return failurePercentageMinimumHostsBuilder_ != null || failurePercentageMinimumHosts_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
@@ -5486,11 +5317,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         failurePercentageMinimumHosts_ = value;
-        onChanged();
       } else {
         failurePercentageMinimumHostsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5506,11 +5337,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (failurePercentageMinimumHostsBuilder_ == null) {
         failurePercentageMinimumHosts_ = builderForValue.build();
-        onChanged();
       } else {
         failurePercentageMinimumHostsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5524,17 +5355,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFailurePercentageMinimumHosts(com.google.protobuf.UInt32Value value) {
       if (failurePercentageMinimumHostsBuilder_ == null) {
-        if (failurePercentageMinimumHosts_ != null) {
-          failurePercentageMinimumHosts_ =
-            com.google.protobuf.UInt32Value.newBuilder(failurePercentageMinimumHosts_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          failurePercentageMinimumHosts_ != null &&
+          failurePercentageMinimumHosts_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getFailurePercentageMinimumHostsBuilder().mergeFrom(value);
         } else {
           failurePercentageMinimumHosts_ = value;
         }
-        onChanged();
       } else {
         failurePercentageMinimumHostsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5547,14 +5379,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value failure_percentage_minimum_hosts = 19;</code>
      */
     public Builder clearFailurePercentageMinimumHosts() {
-      if (failurePercentageMinimumHostsBuilder_ == null) {
-        failurePercentageMinimumHosts_ = null;
-        onChanged();
-      } else {
-        failurePercentageMinimumHosts_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      failurePercentageMinimumHosts_ = null;
+      if (failurePercentageMinimumHostsBuilder_ != null) {
+        failurePercentageMinimumHostsBuilder_.dispose();
         failurePercentageMinimumHostsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5567,7 +5398,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value failure_percentage_minimum_hosts = 19;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getFailurePercentageMinimumHostsBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getFailurePercentageMinimumHostsFieldBuilder().getBuilder();
     }
@@ -5626,7 +5457,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the failurePercentageRequestVolume field is set.
      */
     public boolean hasFailurePercentageRequestVolume() {
-      return failurePercentageRequestVolumeBuilder_ != null || failurePercentageRequestVolume_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -5662,11 +5493,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         failurePercentageRequestVolume_ = value;
-        onChanged();
       } else {
         failurePercentageRequestVolumeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5683,11 +5514,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (failurePercentageRequestVolumeBuilder_ == null) {
         failurePercentageRequestVolume_ = builderForValue.build();
-        onChanged();
       } else {
         failurePercentageRequestVolumeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5702,17 +5533,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFailurePercentageRequestVolume(com.google.protobuf.UInt32Value value) {
       if (failurePercentageRequestVolumeBuilder_ == null) {
-        if (failurePercentageRequestVolume_ != null) {
-          failurePercentageRequestVolume_ =
-            com.google.protobuf.UInt32Value.newBuilder(failurePercentageRequestVolume_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          failurePercentageRequestVolume_ != null &&
+          failurePercentageRequestVolume_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getFailurePercentageRequestVolumeBuilder().mergeFrom(value);
         } else {
           failurePercentageRequestVolume_ = value;
         }
-        onChanged();
       } else {
         failurePercentageRequestVolumeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5726,14 +5558,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value failure_percentage_request_volume = 20;</code>
      */
     public Builder clearFailurePercentageRequestVolume() {
-      if (failurePercentageRequestVolumeBuilder_ == null) {
-        failurePercentageRequestVolume_ = null;
-        onChanged();
-      } else {
-        failurePercentageRequestVolume_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      failurePercentageRequestVolume_ = null;
+      if (failurePercentageRequestVolumeBuilder_ != null) {
+        failurePercentageRequestVolumeBuilder_.dispose();
         failurePercentageRequestVolumeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5747,7 +5578,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value failure_percentage_request_volume = 20;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getFailurePercentageRequestVolumeBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getFailurePercentageRequestVolumeFieldBuilder().getBuilder();
     }
@@ -5807,7 +5638,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxEjectionTime field is set.
      */
     public boolean hasMaxEjectionTime() {
-      return maxEjectionTimeBuilder_ != null || maxEjectionTime_ != null;
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <pre>
@@ -5841,11 +5672,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxEjectionTime_ = value;
-        onChanged();
       } else {
         maxEjectionTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -5861,11 +5692,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxEjectionTimeBuilder_ == null) {
         maxEjectionTime_ = builderForValue.build();
-        onChanged();
       } else {
         maxEjectionTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -5879,17 +5710,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxEjectionTime(com.google.protobuf.Duration value) {
       if (maxEjectionTimeBuilder_ == null) {
-        if (maxEjectionTime_ != null) {
-          maxEjectionTime_ =
-            com.google.protobuf.Duration.newBuilder(maxEjectionTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00100000) != 0) &&
+          maxEjectionTime_ != null &&
+          maxEjectionTime_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxEjectionTimeBuilder().mergeFrom(value);
         } else {
           maxEjectionTime_ = value;
         }
-        onChanged();
       } else {
         maxEjectionTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -5902,14 +5734,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_ejection_time = 21 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaxEjectionTime() {
-      if (maxEjectionTimeBuilder_ == null) {
-        maxEjectionTime_ = null;
-        onChanged();
-      } else {
-        maxEjectionTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00100000);
+      maxEjectionTime_ = null;
+      if (maxEjectionTimeBuilder_ != null) {
+        maxEjectionTimeBuilder_.dispose();
         maxEjectionTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5922,7 +5753,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_ejection_time = 21 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getMaxEjectionTimeBuilder() {
-      
+      bitField0_ |= 0x00100000;
       onChanged();
       return getMaxEjectionTimeFieldBuilder().getBuilder();
     }
@@ -5981,7 +5812,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxEjectionTimeJitter field is set.
      */
     public boolean hasMaxEjectionTimeJitter() {
-      return maxEjectionTimeJitterBuilder_ != null || maxEjectionTimeJitter_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -6017,11 +5848,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxEjectionTimeJitter_ = value;
-        onChanged();
       } else {
         maxEjectionTimeJitterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6038,11 +5869,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxEjectionTimeJitterBuilder_ == null) {
         maxEjectionTimeJitter_ = builderForValue.build();
-        onChanged();
       } else {
         maxEjectionTimeJitterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6057,17 +5888,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxEjectionTimeJitter(com.google.protobuf.Duration value) {
       if (maxEjectionTimeJitterBuilder_ == null) {
-        if (maxEjectionTimeJitter_ != null) {
-          maxEjectionTimeJitter_ =
-            com.google.protobuf.Duration.newBuilder(maxEjectionTimeJitter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          maxEjectionTimeJitter_ != null &&
+          maxEjectionTimeJitter_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxEjectionTimeJitterBuilder().mergeFrom(value);
         } else {
           maxEjectionTimeJitter_ = value;
         }
-        onChanged();
       } else {
         maxEjectionTimeJitterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6081,14 +5913,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_ejection_time_jitter = 22;</code>
      */
     public Builder clearMaxEjectionTimeJitter() {
-      if (maxEjectionTimeJitterBuilder_ == null) {
-        maxEjectionTimeJitter_ = null;
-        onChanged();
-      } else {
-        maxEjectionTimeJitter_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      maxEjectionTimeJitter_ = null;
+      if (maxEjectionTimeJitterBuilder_ != null) {
+        maxEjectionTimeJitterBuilder_.dispose();
         maxEjectionTimeJitterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6102,7 +5933,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_ejection_time_jitter = 22;</code>
      */
     public com.google.protobuf.Duration.Builder getMaxEjectionTimeJitterBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getMaxEjectionTimeJitterFieldBuilder().getBuilder();
     }
@@ -6180,7 +6011,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutlierDetection(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

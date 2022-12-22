@@ -71,51 +71,6 @@ public final class Migrate {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MigrateAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              rename_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return udpa.annotations.Migrate.internal_static_udpa_annotations_MigrateAnnotation_descriptor;
@@ -130,7 +85,8 @@ public final class Migrate {
     }
 
     public static final int RENAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object rename_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object rename_ = "";
     /**
      * <pre>
      * Rename the message/enum/enum value in next version.
@@ -192,7 +148,7 @@ public final class Migrate {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rename_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, rename_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -204,7 +160,7 @@ public final class Migrate {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rename_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, rename_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -221,7 +177,7 @@ public final class Migrate {
 
       if (!getRename()
           .equals(other.getRename())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -234,7 +190,7 @@ public final class Migrate {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + RENAME_FIELD_NUMBER;
       hash = (53 * hash) + getRename().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -351,24 +307,19 @@ public final class Migrate {
 
       // Construct using udpa.annotations.Migrate.MigrateAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         rename_ = "";
-
         return this;
       }
 
@@ -395,9 +346,16 @@ public final class Migrate {
       @java.lang.Override
       public udpa.annotations.Migrate.MigrateAnnotation buildPartial() {
         udpa.annotations.Migrate.MigrateAnnotation result = new udpa.annotations.Migrate.MigrateAnnotation(this);
-        result.rename_ = rename_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(udpa.annotations.Migrate.MigrateAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.rename_ = rename_;
+        }
       }
 
       @java.lang.Override
@@ -446,9 +404,10 @@ public final class Migrate {
         if (other == udpa.annotations.Migrate.MigrateAnnotation.getDefaultInstance()) return this;
         if (!other.getRename().isEmpty()) {
           rename_ = other.rename_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -463,19 +422,38 @@ public final class Migrate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        udpa.annotations.Migrate.MigrateAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                rename_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (udpa.annotations.Migrate.MigrateAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object rename_ = "";
       /**
@@ -530,11 +508,9 @@ public final class Migrate {
        */
       public Builder setRename(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rename_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -547,8 +523,8 @@ public final class Migrate {
        * @return This builder for chaining.
        */
       public Builder clearRename() {
-        
         rename_ = getDefaultInstance().getRename();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -563,12 +539,10 @@ public final class Migrate {
        */
       public Builder setRenameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         rename_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -605,7 +579,18 @@ public final class Migrate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MigrateAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -702,57 +687,6 @@ public final class Migrate {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FieldMigrateAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              rename_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              oneofPromotion_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return udpa.annotations.Migrate.internal_static_udpa_annotations_FieldMigrateAnnotation_descriptor;
@@ -767,7 +701,8 @@ public final class Migrate {
     }
 
     public static final int RENAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object rename_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object rename_ = "";
     /**
      * <pre>
      * Rename the field in next version.
@@ -813,7 +748,8 @@ public final class Migrate {
     }
 
     public static final int ONEOF_PROMOTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object oneofPromotion_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object oneofPromotion_ = "";
     /**
      * <pre>
      * Add the field to a named oneof in next version. If this already exists, the
@@ -882,7 +818,7 @@ public final class Migrate {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oneofPromotion_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, oneofPromotion_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -897,7 +833,7 @@ public final class Migrate {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oneofPromotion_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, oneofPromotion_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -916,7 +852,7 @@ public final class Migrate {
           .equals(other.getRename())) return false;
       if (!getOneofPromotion()
           .equals(other.getOneofPromotion())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -931,7 +867,7 @@ public final class Migrate {
       hash = (53 * hash) + getRename().hashCode();
       hash = (37 * hash) + ONEOF_PROMOTION_FIELD_NUMBER;
       hash = (53 * hash) + getOneofPromotion().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1048,26 +984,20 @@ public final class Migrate {
 
       // Construct using udpa.annotations.Migrate.FieldMigrateAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         rename_ = "";
-
         oneofPromotion_ = "";
-
         return this;
       }
 
@@ -1094,10 +1024,19 @@ public final class Migrate {
       @java.lang.Override
       public udpa.annotations.Migrate.FieldMigrateAnnotation buildPartial() {
         udpa.annotations.Migrate.FieldMigrateAnnotation result = new udpa.annotations.Migrate.FieldMigrateAnnotation(this);
-        result.rename_ = rename_;
-        result.oneofPromotion_ = oneofPromotion_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(udpa.annotations.Migrate.FieldMigrateAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.rename_ = rename_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.oneofPromotion_ = oneofPromotion_;
+        }
       }
 
       @java.lang.Override
@@ -1146,13 +1085,15 @@ public final class Migrate {
         if (other == udpa.annotations.Migrate.FieldMigrateAnnotation.getDefaultInstance()) return this;
         if (!other.getRename().isEmpty()) {
           rename_ = other.rename_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getOneofPromotion().isEmpty()) {
           oneofPromotion_ = other.oneofPromotion_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1167,19 +1108,43 @@ public final class Migrate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        udpa.annotations.Migrate.FieldMigrateAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                rename_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                oneofPromotion_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (udpa.annotations.Migrate.FieldMigrateAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object rename_ = "";
       /**
@@ -1234,11 +1199,9 @@ public final class Migrate {
        */
       public Builder setRename(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rename_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1251,8 +1214,8 @@ public final class Migrate {
        * @return This builder for chaining.
        */
       public Builder clearRename() {
-        
         rename_ = getDefaultInstance().getRename();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1267,12 +1230,10 @@ public final class Migrate {
        */
       public Builder setRenameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         rename_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1336,11 +1297,9 @@ public final class Migrate {
        */
       public Builder setOneofPromotion(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         oneofPromotion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1355,8 +1314,8 @@ public final class Migrate {
        * @return This builder for chaining.
        */
       public Builder clearOneofPromotion() {
-        
         oneofPromotion_ = getDefaultInstance().getOneofPromotion();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1373,12 +1332,10 @@ public final class Migrate {
        */
       public Builder setOneofPromotionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         oneofPromotion_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1415,7 +1372,18 @@ public final class Migrate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FieldMigrateAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1489,51 +1457,6 @@ public final class Migrate {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FileMigrateAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              moveToPackage_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return udpa.annotations.Migrate.internal_static_udpa_annotations_FileMigrateAnnotation_descriptor;
@@ -1548,7 +1471,8 @@ public final class Migrate {
     }
 
     public static final int MOVE_TO_PACKAGE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object moveToPackage_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object moveToPackage_ = "";
     /**
      * <pre>
      * Move all types in the file to another package, this implies changing proto
@@ -1612,7 +1536,7 @@ public final class Migrate {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(moveToPackage_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, moveToPackage_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1624,7 +1548,7 @@ public final class Migrate {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(moveToPackage_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, moveToPackage_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1641,7 +1565,7 @@ public final class Migrate {
 
       if (!getMoveToPackage()
           .equals(other.getMoveToPackage())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1654,7 +1578,7 @@ public final class Migrate {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + MOVE_TO_PACKAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMoveToPackage().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1771,24 +1695,19 @@ public final class Migrate {
 
       // Construct using udpa.annotations.Migrate.FileMigrateAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         moveToPackage_ = "";
-
         return this;
       }
 
@@ -1815,9 +1734,16 @@ public final class Migrate {
       @java.lang.Override
       public udpa.annotations.Migrate.FileMigrateAnnotation buildPartial() {
         udpa.annotations.Migrate.FileMigrateAnnotation result = new udpa.annotations.Migrate.FileMigrateAnnotation(this);
-        result.moveToPackage_ = moveToPackage_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(udpa.annotations.Migrate.FileMigrateAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.moveToPackage_ = moveToPackage_;
+        }
       }
 
       @java.lang.Override
@@ -1866,9 +1792,10 @@ public final class Migrate {
         if (other == udpa.annotations.Migrate.FileMigrateAnnotation.getDefaultInstance()) return this;
         if (!other.getMoveToPackage().isEmpty()) {
           moveToPackage_ = other.moveToPackage_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1883,19 +1810,38 @@ public final class Migrate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        udpa.annotations.Migrate.FileMigrateAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                moveToPackage_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (udpa.annotations.Migrate.FileMigrateAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object moveToPackage_ = "";
       /**
@@ -1953,11 +1899,9 @@ public final class Migrate {
        */
       public Builder setMoveToPackage(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         moveToPackage_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1971,8 +1915,8 @@ public final class Migrate {
        * @return This builder for chaining.
        */
       public Builder clearMoveToPackage() {
-        
         moveToPackage_ = getDefaultInstance().getMoveToPackage();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1988,12 +1932,10 @@ public final class Migrate {
        */
       public Builder setMoveToPackageBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         moveToPackage_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2030,7 +1972,18 @@ public final class Migrate {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FileMigrateAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

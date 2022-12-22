@@ -291,69 +291,6 @@ public final class AdMobResourcesProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PublisherAccount(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              publisherId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reportingTimeZone_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              currencyCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_PublisherAccount_descriptor;
@@ -368,7 +305,8 @@ public final class AdMobResourcesProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Resource name of this account.
@@ -416,7 +354,8 @@ public final class AdMobResourcesProto {
     }
 
     public static final int PUBLISHER_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object publisherId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object publisherId_ = "";
     /**
      * <pre>
      * The unique ID by which this publisher account can be identified
@@ -464,7 +403,8 @@ public final class AdMobResourcesProto {
     }
 
     public static final int REPORTING_TIME_ZONE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object reportingTimeZone_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object reportingTimeZone_ = "";
     /**
      * <pre>
      * The time zone that is used in reports that are generated for this account.
@@ -514,7 +454,8 @@ public final class AdMobResourcesProto {
     }
 
     public static final int CURRENCY_CODE_FIELD_NUMBER = 4;
-    private volatile java.lang.Object currencyCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object currencyCode_ = "";
     /**
      * <pre>
      * Currency code of the earning-related metrics, which is the 3-letter code
@@ -589,7 +530,7 @@ public final class AdMobResourcesProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currencyCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, currencyCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -610,7 +551,7 @@ public final class AdMobResourcesProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currencyCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, currencyCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -633,7 +574,7 @@ public final class AdMobResourcesProto {
           .equals(other.getReportingTimeZone())) return false;
       if (!getCurrencyCode()
           .equals(other.getCurrencyCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -652,7 +593,7 @@ public final class AdMobResourcesProto {
       hash = (53 * hash) + getReportingTimeZone().hashCode();
       hash = (37 * hash) + CURRENCY_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCurrencyCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -774,30 +715,22 @@ public final class AdMobResourcesProto {
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         publisherId_ = "";
-
         reportingTimeZone_ = "";
-
         currencyCode_ = "";
-
         return this;
       }
 
@@ -824,12 +757,25 @@ public final class AdMobResourcesProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount result = new com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount(this);
-        result.name_ = name_;
-        result.publisherId_ = publisherId_;
-        result.reportingTimeZone_ = reportingTimeZone_;
-        result.currencyCode_ = currencyCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.publisherId_ = publisherId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.reportingTimeZone_ = reportingTimeZone_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.currencyCode_ = currencyCode_;
+        }
       }
 
       @java.lang.Override
@@ -878,21 +824,25 @@ public final class AdMobResourcesProto {
         if (other == com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getPublisherId().isEmpty()) {
           publisherId_ = other.publisherId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getReportingTimeZone().isEmpty()) {
           reportingTimeZone_ = other.reportingTimeZone_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getCurrencyCode().isEmpty()) {
           currencyCode_ = other.currencyCode_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -907,19 +857,53 @@ public final class AdMobResourcesProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                publisherId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                reportingTimeZone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                currencyCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -977,11 +961,9 @@ public final class AdMobResourcesProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -995,8 +977,8 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1012,12 +994,10 @@ public final class AdMobResourcesProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1078,11 +1058,9 @@ public final class AdMobResourcesProto {
        */
       public Builder setPublisherId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         publisherId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1096,8 +1074,8 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearPublisherId() {
-        
         publisherId_ = getDefaultInstance().getPublisherId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1113,12 +1091,10 @@ public final class AdMobResourcesProto {
        */
       public Builder setPublisherIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         publisherId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1182,11 +1158,9 @@ public final class AdMobResourcesProto {
        */
       public Builder setReportingTimeZone(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         reportingTimeZone_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1201,8 +1175,8 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearReportingTimeZone() {
-        
         reportingTimeZone_ = getDefaultInstance().getReportingTimeZone();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1219,12 +1193,10 @@ public final class AdMobResourcesProto {
        */
       public Builder setReportingTimeZoneBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         reportingTimeZone_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1288,11 +1260,9 @@ public final class AdMobResourcesProto {
        */
       public Builder setCurrencyCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         currencyCode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1307,8 +1277,8 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearCurrencyCode() {
-        
         currencyCode_ = getDefaultInstance().getCurrencyCode();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1325,12 +1295,10 @@ public final class AdMobResourcesProto {
        */
       public Builder setCurrencyCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         currencyCode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1367,7 +1335,18 @@ public final class AdMobResourcesProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PublisherAccount(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1763,159 +1742,6 @@ public final class AdMobResourcesProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private NetworkReportSpec(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder subBuilder = null;
-              if (dateRange_ != null) {
-                subBuilder = dateRange_.toBuilder();
-              }
-              dateRange_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.DateRange.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(dateRange_);
-                dateRange_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dimensions_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dimensions_.add(rawValue);
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  dimensions_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                dimensions_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                metrics_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              metrics_.add(rawValue);
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  metrics_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                metrics_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                dimensionFilters_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              dimensionFilters_.add(
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                sortConditions_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              sortConditions_.add(
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder subBuilder = null;
-              if (localizationSettings_ != null) {
-                subBuilder = localizationSettings_.toBuilder();
-              }
-              localizationSettings_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(localizationSettings_);
-                localizationSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 56: {
-
-              maxReportRows_ = input.readInt32();
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              timeZone_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dimensions_ = java.util.Collections.unmodifiableList(dimensions_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          metrics_ = java.util.Collections.unmodifiableList(metrics_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          dimensionFilters_ = java.util.Collections.unmodifiableList(dimensionFilters_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          sortConditions_ = java.util.Collections.unmodifiableList(sortConditions_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -2606,65 +2432,6 @@ public final class AdMobResourcesProto {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private DimensionFilter(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                dimension_ = rawValue;
-                break;
-              }
-              case 18: {
-                com.google.ads.admob.v1.AdMobResourcesProto.StringList.Builder subBuilder = null;
-                if (operatorCase_ == 2) {
-                  subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_).toBuilder();
-                }
-                operator_ =
-                    input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.StringList.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_);
-                  operator_ = subBuilder.buildPartial();
-                }
-                operatorCase_ = 2;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_NetworkReportSpec_DimensionFilter_descriptor;
@@ -2764,7 +2531,7 @@ public final class AdMobResourcesProto {
       }
 
       public static final int DIMENSION_FIELD_NUMBER = 1;
-      private int dimension_;
+      private int dimension_ = 0;
       /**
        * <pre>
        * Applies the filter criterion to the specified dimension.
@@ -2785,8 +2552,7 @@ public final class AdMobResourcesProto {
        * @return The dimension.
        */
       @java.lang.Override public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension getDimension() {
-        @SuppressWarnings("deprecation")
-        com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.valueOf(dimension_);
+        com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.forNumber(dimension_);
         return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.UNRECOGNIZED : result;
       }
 
@@ -2810,7 +2576,7 @@ public final class AdMobResourcesProto {
         if (operatorCase_ == 2) {
           output.writeMessage(2, (com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2827,7 +2593,7 @@ public final class AdMobResourcesProto {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, (com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2852,7 +2618,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2873,7 +2639,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2994,24 +2760,22 @@ public final class AdMobResourcesProto {
 
         // Construct using com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (matchesAnyBuilder_ != null) {
+            matchesAnyBuilder_.clear();
+          }
           dimension_ = 0;
-
           operatorCase_ = 0;
           operator_ = null;
           return this;
@@ -3040,17 +2804,26 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter buildPartial() {
           com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter result = new com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter(this);
-          if (operatorCase_ == 2) {
-            if (matchesAnyBuilder_ == null) {
-              result.operator_ = operator_;
-            } else {
-              result.operator_ = matchesAnyBuilder_.build();
-            }
-          }
-          result.dimension_ = dimension_;
-          result.operatorCase_ = operatorCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.dimension_ = dimension_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter result) {
+          result.operatorCase_ = operatorCase_;
+          result.operator_ = this.operator_;
+          if (operatorCase_ == 2 &&
+              matchesAnyBuilder_ != null) {
+            result.operator_ = matchesAnyBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -3109,7 +2882,7 @@ public final class AdMobResourcesProto {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -3124,17 +2897,42 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  dimension_ = input.readEnum();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 8
+                case 18: {
+                  input.readMessage(
+                      getMatchesAnyFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  operatorCase_ = 2;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int operatorCase_ = 0;
@@ -3152,6 +2950,7 @@ public final class AdMobResourcesProto {
           return this;
         }
 
+        private int bitField0_;
 
         private com.google.protobuf.SingleFieldBuilderV3<
             com.google.ads.admob.v1.AdMobResourcesProto.StringList, com.google.ads.admob.v1.AdMobResourcesProto.StringList.Builder, com.google.ads.admob.v1.AdMobResourcesProto.StringListOrBuilder> matchesAnyBuilder_;
@@ -3336,7 +3135,7 @@ public final class AdMobResourcesProto {
             operator_ = null;
           }
           operatorCase_ = 2;
-          onChanged();;
+          onChanged();
           return matchesAnyBuilder_;
         }
 
@@ -3362,8 +3161,8 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder setDimensionValue(int value) {
-          
           dimension_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -3377,8 +3176,7 @@ public final class AdMobResourcesProto {
          */
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension getDimension() {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.valueOf(dimension_);
+          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.forNumber(dimension_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.UNRECOGNIZED : result;
         }
         /**
@@ -3394,7 +3192,7 @@ public final class AdMobResourcesProto {
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000002;
           dimension_ = value.getNumber();
           onChanged();
           return this;
@@ -3408,7 +3206,7 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder clearDimension() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           dimension_ = 0;
           onChanged();
           return this;
@@ -3446,7 +3244,18 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DimensionFilter(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -3579,63 +3388,6 @@ public final class AdMobResourcesProto {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private SortCondition(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-                sortOnCase_ = 1;
-                sortOn_ = rawValue;
-                break;
-              }
-              case 16: {
-                int rawValue = input.readEnum();
-                sortOnCase_ = 2;
-                sortOn_ = rawValue;
-                break;
-              }
-              case 24: {
-                int rawValue = input.readEnum();
-
-                order_ = rawValue;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_NetworkReportSpec_SortCondition_descriptor;
@@ -3726,8 +3478,7 @@ public final class AdMobResourcesProto {
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension getDimension() {
         if (sortOnCase_ == 1) {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.valueOf(
+          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.forNumber(
               (java.lang.Integer) sortOn_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.UNRECOGNIZED : result;
         }
@@ -3770,8 +3521,7 @@ public final class AdMobResourcesProto {
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric getMetric() {
         if (sortOnCase_ == 2) {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.valueOf(
+          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.forNumber(
               (java.lang.Integer) sortOn_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.UNRECOGNIZED : result;
         }
@@ -3779,7 +3529,7 @@ public final class AdMobResourcesProto {
       }
 
       public static final int ORDER_FIELD_NUMBER = 3;
-      private int order_;
+      private int order_ = 0;
       /**
        * <pre>
        * Sorting order of the dimension or metric.
@@ -3800,8 +3550,7 @@ public final class AdMobResourcesProto {
        * @return The order.
        */
       @java.lang.Override public com.google.ads.admob.v1.AdMobResourcesProto.SortOrder getOrder() {
-        @SuppressWarnings("deprecation")
-        com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.valueOf(order_);
+        com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.forNumber(order_);
         return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.UNRECOGNIZED : result;
       }
 
@@ -3828,7 +3577,7 @@ public final class AdMobResourcesProto {
         if (order_ != com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.SORT_ORDER_UNSPECIFIED.getNumber()) {
           output.writeEnum(3, order_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -3849,7 +3598,7 @@ public final class AdMobResourcesProto {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(3, order_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -3878,7 +3627,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -3903,7 +3652,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -4024,24 +3773,19 @@ public final class AdMobResourcesProto {
 
         // Construct using com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           order_ = 0;
-
           sortOnCase_ = 0;
           sortOn_ = null;
           return this;
@@ -4070,16 +3814,22 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition buildPartial() {
           com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition result = new com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition(this);
-          if (sortOnCase_ == 1) {
-            result.sortOn_ = sortOn_;
-          }
-          if (sortOnCase_ == 2) {
-            result.sortOn_ = sortOn_;
-          }
-          result.order_ = order_;
-          result.sortOnCase_ = sortOnCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.order_ = order_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition result) {
+          result.sortOnCase_ = sortOnCase_;
+          result.sortOn_ = this.sortOn_;
         }
 
         @java.lang.Override
@@ -4142,7 +3892,7 @@ public final class AdMobResourcesProto {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -4157,17 +3907,47 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int rawValue = input.readEnum();
+                  sortOnCase_ = 1;
+                  sortOn_ = rawValue;
+                  break;
+                } // case 8
+                case 16: {
+                  int rawValue = input.readEnum();
+                  sortOnCase_ = 2;
+                  sortOn_ = rawValue;
+                  break;
+                } // case 16
+                case 24: {
+                  order_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int sortOnCase_ = 0;
@@ -4185,6 +3965,7 @@ public final class AdMobResourcesProto {
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <pre>
@@ -4239,8 +4020,7 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension getDimension() {
           if (sortOnCase_ == 1) {
-            @SuppressWarnings("deprecation")
-            com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.valueOf(
+            com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.forNumber(
                 (java.lang.Integer) sortOn_);
             return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.UNRECOGNIZED : result;
           }
@@ -4334,8 +4114,7 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric getMetric() {
           if (sortOnCase_ == 2) {
-            @SuppressWarnings("deprecation")
-            com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.valueOf(
+            com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.forNumber(
                 (java.lang.Integer) sortOn_);
             return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.UNRECOGNIZED : result;
           }
@@ -4398,8 +4177,8 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder setOrderValue(int value) {
-          
           order_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -4413,8 +4192,7 @@ public final class AdMobResourcesProto {
          */
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.SortOrder getOrder() {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.valueOf(order_);
+          com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.forNumber(order_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.UNRECOGNIZED : result;
         }
         /**
@@ -4430,7 +4208,7 @@ public final class AdMobResourcesProto {
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000004;
           order_ = value.getNumber();
           onChanged();
           return this;
@@ -4444,7 +4222,7 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder clearOrder() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           order_ = 0;
           onChanged();
           return this;
@@ -4482,7 +4260,18 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SortCondition(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -4537,18 +4326,18 @@ public final class AdMobResourcesProto {
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.DateRangeOrBuilder getDateRangeOrBuilder() {
-      return getDateRange();
+      return dateRange_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.DateRange.getDefaultInstance() : dateRange_;
     }
 
     public static final int DIMENSIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> dimensions_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension> dimensions_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension>() {
               public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.valueOf(from);
+                com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.forNumber(from);
                 return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Dimension.UNRECOGNIZED : result;
               }
             };
@@ -4629,14 +4418,14 @@ public final class AdMobResourcesProto {
     private int dimensionsMemoizedSerializedSize;
 
     public static final int METRICS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> metrics_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric> metrics_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric>() {
               public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.valueOf(from);
+                com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.forNumber(from);
                 return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Metric.UNRECOGNIZED : result;
               }
             };
@@ -4707,6 +4496,7 @@ public final class AdMobResourcesProto {
     private int metricsMemoizedSerializedSize;
 
     public static final int DIMENSION_FILTERS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter> dimensionFilters_;
     /**
      * <pre>
@@ -4767,6 +4557,7 @@ public final class AdMobResourcesProto {
     }
 
     public static final int SORT_CONDITIONS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition> sortConditions_;
     /**
      * <pre>
@@ -4876,11 +4667,11 @@ public final class AdMobResourcesProto {
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettingsOrBuilder getLocalizationSettingsOrBuilder() {
-      return getLocalizationSettings();
+      return localizationSettings_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance() : localizationSettings_;
     }
 
     public static final int MAX_REPORT_ROWS_FIELD_NUMBER = 7;
-    private int maxReportRows_;
+    private int maxReportRows_ = 0;
     /**
      * <pre>
      * Maximum number of report data rows to return. If the value is not set, the
@@ -4897,7 +4688,8 @@ public final class AdMobResourcesProto {
     }
 
     public static final int TIME_ZONE_FIELD_NUMBER = 8;
-    private volatile java.lang.Object timeZone_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object timeZone_ = "";
     /**
      * <pre>
      * A report time zone. Accepts an IANA TZ name values, such as
@@ -4997,7 +4789,7 @@ public final class AdMobResourcesProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, timeZone_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5053,7 +4845,7 @@ public final class AdMobResourcesProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, timeZone_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5088,7 +4880,7 @@ public final class AdMobResourcesProto {
           != other.getMaxReportRows()) return false;
       if (!getTimeZone()
           .equals(other.getTimeZone())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5127,7 +4919,7 @@ public final class AdMobResourcesProto {
       hash = (53 * hash) + getMaxReportRows();
       hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getTimeZone().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5280,56 +5072,48 @@ public final class AdMobResourcesProto {
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDimensionFiltersFieldBuilder();
-          getSortConditionsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (dateRangeBuilder_ == null) {
-          dateRange_ = null;
-        } else {
-          dateRange_ = null;
+        bitField0_ = 0;
+        dateRange_ = null;
+        if (dateRangeBuilder_ != null) {
+          dateRangeBuilder_.dispose();
           dateRangeBuilder_ = null;
         }
         dimensions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        metrics_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+        metrics_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (dimensionFiltersBuilder_ == null) {
           dimensionFilters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          dimensionFilters_ = null;
           dimensionFiltersBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (sortConditionsBuilder_ == null) {
           sortConditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
+          sortConditions_ = null;
           sortConditionsBuilder_.clear();
         }
-        if (localizationSettingsBuilder_ == null) {
-          localizationSettings_ = null;
-        } else {
-          localizationSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        localizationSettings_ = null;
+        if (localizationSettingsBuilder_ != null) {
+          localizationSettingsBuilder_.dispose();
           localizationSettingsBuilder_ = null;
         }
         maxReportRows_ = 0;
-
         timeZone_ = "";
-
         return this;
       }
 
@@ -5356,49 +5140,61 @@ public final class AdMobResourcesProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec result = new com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec(this);
-        int from_bitField0_ = bitField0_;
-        if (dateRangeBuilder_ == null) {
-          result.dateRange_ = dateRange_;
-        } else {
-          result.dateRange_ = dateRangeBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           dimensions_ = java.util.Collections.unmodifiableList(dimensions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.dimensions_ = dimensions_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           metrics_ = java.util.Collections.unmodifiableList(metrics_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.metrics_ = metrics_;
         if (dimensionFiltersBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             dimensionFilters_ = java.util.Collections.unmodifiableList(dimensionFilters_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.dimensionFilters_ = dimensionFilters_;
         } else {
           result.dimensionFilters_ = dimensionFiltersBuilder_.build();
         }
         if (sortConditionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             sortConditions_ = java.util.Collections.unmodifiableList(sortConditions_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.sortConditions_ = sortConditions_;
         } else {
           result.sortConditions_ = sortConditionsBuilder_.build();
         }
-        if (localizationSettingsBuilder_ == null) {
-          result.localizationSettings_ = localizationSettings_;
-        } else {
-          result.localizationSettings_ = localizationSettingsBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dateRange_ = dateRangeBuilder_ == null
+              ? dateRange_
+              : dateRangeBuilder_.build();
         }
-        result.maxReportRows_ = maxReportRows_;
-        result.timeZone_ = timeZone_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.localizationSettings_ = localizationSettingsBuilder_ == null
+              ? localizationSettings_
+              : localizationSettingsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.maxReportRows_ = maxReportRows_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.timeZone_ = timeZone_;
+        }
       }
 
       @java.lang.Override
@@ -5451,7 +5247,7 @@ public final class AdMobResourcesProto {
         if (!other.dimensions_.isEmpty()) {
           if (dimensions_.isEmpty()) {
             dimensions_ = other.dimensions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureDimensionsIsMutable();
             dimensions_.addAll(other.dimensions_);
@@ -5461,7 +5257,7 @@ public final class AdMobResourcesProto {
         if (!other.metrics_.isEmpty()) {
           if (metrics_.isEmpty()) {
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureMetricsIsMutable();
             metrics_.addAll(other.metrics_);
@@ -5472,7 +5268,7 @@ public final class AdMobResourcesProto {
           if (!other.dimensionFilters_.isEmpty()) {
             if (dimensionFilters_.isEmpty()) {
               dimensionFilters_ = other.dimensionFilters_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureDimensionFiltersIsMutable();
               dimensionFilters_.addAll(other.dimensionFilters_);
@@ -5485,7 +5281,7 @@ public final class AdMobResourcesProto {
               dimensionFiltersBuilder_.dispose();
               dimensionFiltersBuilder_ = null;
               dimensionFilters_ = other.dimensionFilters_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               dimensionFiltersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDimensionFiltersFieldBuilder() : null;
@@ -5498,7 +5294,7 @@ public final class AdMobResourcesProto {
           if (!other.sortConditions_.isEmpty()) {
             if (sortConditions_.isEmpty()) {
               sortConditions_ = other.sortConditions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureSortConditionsIsMutable();
               sortConditions_.addAll(other.sortConditions_);
@@ -5511,7 +5307,7 @@ public final class AdMobResourcesProto {
               sortConditionsBuilder_.dispose();
               sortConditionsBuilder_ = null;
               sortConditions_ = other.sortConditions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000010);
               sortConditionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSortConditionsFieldBuilder() : null;
@@ -5528,9 +5324,10 @@ public final class AdMobResourcesProto {
         }
         if (!other.getTimeZone().isEmpty()) {
           timeZone_ = other.timeZone_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5545,17 +5342,114 @@ public final class AdMobResourcesProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDateRangeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                int tmpRaw = input.readEnum();
+                ensureDimensionsIsMutable();
+                dimensions_.add(tmpRaw);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureDimensionsIsMutable();
+                  dimensions_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                ensureMetricsIsMutable();
+                metrics_.add(tmpRaw);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureMetricsIsMutable();
+                  metrics_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 26
+              case 34: {
+                com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter m =
+                    input.readMessage(
+                        com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter.parser(),
+                        extensionRegistry);
+                if (dimensionFiltersBuilder_ == null) {
+                  ensureDimensionFiltersIsMutable();
+                  dimensionFilters_.add(m);
+                } else {
+                  dimensionFiltersBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition m =
+                    input.readMessage(
+                        com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition.parser(),
+                        extensionRegistry);
+                if (sortConditionsBuilder_ == null) {
+                  ensureSortConditionsIsMutable();
+                  sortConditions_.add(m);
+                } else {
+                  sortConditionsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getLocalizationSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 56: {
+                maxReportRows_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 66: {
+                timeZone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5572,7 +5466,7 @@ public final class AdMobResourcesProto {
        * @return Whether the dateRange field is set.
        */
       public boolean hasDateRange() {
-        return dateRangeBuilder_ != null || dateRange_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -5602,11 +5496,11 @@ public final class AdMobResourcesProto {
             throw new NullPointerException();
           }
           dateRange_ = value;
-          onChanged();
         } else {
           dateRangeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5620,11 +5514,11 @@ public final class AdMobResourcesProto {
           com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder builderForValue) {
         if (dateRangeBuilder_ == null) {
           dateRange_ = builderForValue.build();
-          onChanged();
         } else {
           dateRangeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5636,17 +5530,18 @@ public final class AdMobResourcesProto {
        */
       public Builder mergeDateRange(com.google.ads.admob.v1.AdMobResourcesProto.DateRange value) {
         if (dateRangeBuilder_ == null) {
-          if (dateRange_ != null) {
-            dateRange_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.DateRange.newBuilder(dateRange_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            dateRange_ != null &&
+            dateRange_ != com.google.ads.admob.v1.AdMobResourcesProto.DateRange.getDefaultInstance()) {
+            getDateRangeBuilder().mergeFrom(value);
           } else {
             dateRange_ = value;
           }
-          onChanged();
         } else {
           dateRangeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -5657,14 +5552,13 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.DateRange date_range = 1;</code>
        */
       public Builder clearDateRange() {
-        if (dateRangeBuilder_ == null) {
-          dateRange_ = null;
-          onChanged();
-        } else {
-          dateRange_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dateRange_ = null;
+        if (dateRangeBuilder_ != null) {
+          dateRangeBuilder_.dispose();
           dateRangeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5675,7 +5569,7 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.DateRange date_range = 1;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder getDateRangeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDateRangeFieldBuilder().getBuilder();
       }
@@ -5718,9 +5612,9 @@ public final class AdMobResourcesProto {
       private java.util.List<java.lang.Integer> dimensions_ =
         java.util.Collections.emptyList();
       private void ensureDimensionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           dimensions_ = new java.util.ArrayList<java.lang.Integer>(dimensions_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
         }
       }
       /**
@@ -5838,7 +5732,7 @@ public final class AdMobResourcesProto {
        */
       public Builder clearDimensions() {
         dimensions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5930,9 +5824,9 @@ public final class AdMobResourcesProto {
       private java.util.List<java.lang.Integer> metrics_ =
         java.util.Collections.emptyList();
       private void ensureMetricsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           metrics_ = new java.util.ArrayList<java.lang.Integer>(metrics_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
         }
       }
       /**
@@ -6036,7 +5930,7 @@ public final class AdMobResourcesProto {
        */
       public Builder clearMetrics() {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -6118,9 +6012,9 @@ public final class AdMobResourcesProto {
       private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter> dimensionFilters_ =
         java.util.Collections.emptyList();
       private void ensureDimensionFiltersIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           dimensionFilters_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter>(dimensionFilters_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -6314,7 +6208,7 @@ public final class AdMobResourcesProto {
       public Builder clearDimensionFilters() {
         if (dimensionFiltersBuilder_ == null) {
           dimensionFilters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           dimensionFiltersBuilder_.clear();
@@ -6419,7 +6313,7 @@ public final class AdMobResourcesProto {
           dimensionFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilter.Builder, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.DimensionFilterOrBuilder>(
                   dimensionFilters_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           dimensionFilters_ = null;
@@ -6430,9 +6324,9 @@ public final class AdMobResourcesProto {
       private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition> sortConditions_ =
         java.util.Collections.emptyList();
       private void ensureSortConditionsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           sortConditions_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition>(sortConditions_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -6659,7 +6553,7 @@ public final class AdMobResourcesProto {
       public Builder clearSortConditions() {
         if (sortConditionsBuilder_ == null) {
           sortConditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           sortConditionsBuilder_.clear();
@@ -6785,7 +6679,7 @@ public final class AdMobResourcesProto {
           sortConditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortCondition.Builder, com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.SortConditionOrBuilder>(
                   sortConditions_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           sortConditions_ = null;
@@ -6805,7 +6699,7 @@ public final class AdMobResourcesProto {
        * @return Whether the localizationSettings field is set.
        */
       public boolean hasLocalizationSettings() {
-        return localizationSettingsBuilder_ != null || localizationSettings_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -6835,11 +6729,11 @@ public final class AdMobResourcesProto {
             throw new NullPointerException();
           }
           localizationSettings_ = value;
-          onChanged();
         } else {
           localizationSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -6853,11 +6747,11 @@ public final class AdMobResourcesProto {
           com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder builderForValue) {
         if (localizationSettingsBuilder_ == null) {
           localizationSettings_ = builderForValue.build();
-          onChanged();
         } else {
           localizationSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -6869,17 +6763,18 @@ public final class AdMobResourcesProto {
        */
       public Builder mergeLocalizationSettings(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings value) {
         if (localizationSettingsBuilder_ == null) {
-          if (localizationSettings_ != null) {
-            localizationSettings_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.newBuilder(localizationSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            localizationSettings_ != null &&
+            localizationSettings_ != com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance()) {
+            getLocalizationSettingsBuilder().mergeFrom(value);
           } else {
             localizationSettings_ = value;
           }
-          onChanged();
         } else {
           localizationSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -6890,14 +6785,13 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.LocalizationSettings localization_settings = 6;</code>
        */
       public Builder clearLocalizationSettings() {
-        if (localizationSettingsBuilder_ == null) {
-          localizationSettings_ = null;
-          onChanged();
-        } else {
-          localizationSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        localizationSettings_ = null;
+        if (localizationSettingsBuilder_ != null) {
+          localizationSettingsBuilder_.dispose();
           localizationSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6908,7 +6802,7 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.LocalizationSettings localization_settings = 6;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder getLocalizationSettingsBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getLocalizationSettingsFieldBuilder().getBuilder();
       }
@@ -6977,6 +6871,7 @@ public final class AdMobResourcesProto {
       public Builder setMaxReportRows(int value) {
         
         maxReportRows_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -6991,7 +6886,7 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearMaxReportRows() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         maxReportRows_ = 0;
         onChanged();
         return this;
@@ -7062,11 +6957,9 @@ public final class AdMobResourcesProto {
        */
       public Builder setTimeZone(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         timeZone_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -7083,8 +6976,8 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearTimeZone() {
-        
         timeZone_ = getDefaultInstance().getTimeZone();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -7103,12 +6996,10 @@ public final class AdMobResourcesProto {
        */
       public Builder setTimeZoneBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         timeZone_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -7145,7 +7036,18 @@ public final class AdMobResourcesProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NetworkReportSpec(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7540,159 +7442,6 @@ public final class AdMobResourcesProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private MediationReportSpec(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder subBuilder = null;
-              if (dateRange_ != null) {
-                subBuilder = dateRange_.toBuilder();
-              }
-              dateRange_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.DateRange.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(dateRange_);
-                dateRange_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dimensions_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              dimensions_.add(rawValue);
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  dimensions_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                dimensions_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                metrics_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              metrics_.add(rawValue);
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  metrics_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                metrics_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                dimensionFilters_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              dimensionFilters_.add(
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter.parser(), extensionRegistry));
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                sortConditions_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              sortConditions_.add(
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder subBuilder = null;
-              if (localizationSettings_ != null) {
-                subBuilder = localizationSettings_.toBuilder();
-              }
-              localizationSettings_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(localizationSettings_);
-                localizationSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 56: {
-
-              maxReportRows_ = input.readInt32();
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              timeZone_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          dimensions_ = java.util.Collections.unmodifiableList(dimensions_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          metrics_ = java.util.Collections.unmodifiableList(metrics_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          dimensionFilters_ = java.util.Collections.unmodifiableList(dimensionFilters_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          sortConditions_ = java.util.Collections.unmodifiableList(sortConditions_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -8396,65 +8145,6 @@ public final class AdMobResourcesProto {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private DimensionFilter(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                dimension_ = rawValue;
-                break;
-              }
-              case 18: {
-                com.google.ads.admob.v1.AdMobResourcesProto.StringList.Builder subBuilder = null;
-                if (operatorCase_ == 2) {
-                  subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_).toBuilder();
-                }
-                operator_ =
-                    input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.StringList.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_);
-                  operator_ = subBuilder.buildPartial();
-                }
-                operatorCase_ = 2;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_MediationReportSpec_DimensionFilter_descriptor;
@@ -8554,7 +8244,7 @@ public final class AdMobResourcesProto {
       }
 
       public static final int DIMENSION_FIELD_NUMBER = 1;
-      private int dimension_;
+      private int dimension_ = 0;
       /**
        * <pre>
        * Applies the filter criterion to the specified dimension.
@@ -8575,8 +8265,7 @@ public final class AdMobResourcesProto {
        * @return The dimension.
        */
       @java.lang.Override public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension getDimension() {
-        @SuppressWarnings("deprecation")
-        com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.valueOf(dimension_);
+        com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.forNumber(dimension_);
         return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.UNRECOGNIZED : result;
       }
 
@@ -8600,7 +8289,7 @@ public final class AdMobResourcesProto {
         if (operatorCase_ == 2) {
           output.writeMessage(2, (com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -8617,7 +8306,7 @@ public final class AdMobResourcesProto {
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, (com.google.ads.admob.v1.AdMobResourcesProto.StringList) operator_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -8642,7 +8331,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -8663,7 +8352,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -8784,24 +8473,22 @@ public final class AdMobResourcesProto {
 
         // Construct using com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (matchesAnyBuilder_ != null) {
+            matchesAnyBuilder_.clear();
+          }
           dimension_ = 0;
-
           operatorCase_ = 0;
           operator_ = null;
           return this;
@@ -8830,17 +8517,26 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter buildPartial() {
           com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter result = new com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter(this);
-          if (operatorCase_ == 2) {
-            if (matchesAnyBuilder_ == null) {
-              result.operator_ = operator_;
-            } else {
-              result.operator_ = matchesAnyBuilder_.build();
-            }
-          }
-          result.dimension_ = dimension_;
-          result.operatorCase_ = operatorCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.dimension_ = dimension_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter result) {
+          result.operatorCase_ = operatorCase_;
+          result.operator_ = this.operator_;
+          if (operatorCase_ == 2 &&
+              matchesAnyBuilder_ != null) {
+            result.operator_ = matchesAnyBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -8899,7 +8595,7 @@ public final class AdMobResourcesProto {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -8914,17 +8610,42 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  dimension_ = input.readEnum();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 8
+                case 18: {
+                  input.readMessage(
+                      getMatchesAnyFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  operatorCase_ = 2;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int operatorCase_ = 0;
@@ -8942,6 +8663,7 @@ public final class AdMobResourcesProto {
           return this;
         }
 
+        private int bitField0_;
 
         private com.google.protobuf.SingleFieldBuilderV3<
             com.google.ads.admob.v1.AdMobResourcesProto.StringList, com.google.ads.admob.v1.AdMobResourcesProto.StringList.Builder, com.google.ads.admob.v1.AdMobResourcesProto.StringListOrBuilder> matchesAnyBuilder_;
@@ -9126,7 +8848,7 @@ public final class AdMobResourcesProto {
             operator_ = null;
           }
           operatorCase_ = 2;
-          onChanged();;
+          onChanged();
           return matchesAnyBuilder_;
         }
 
@@ -9152,8 +8874,8 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder setDimensionValue(int value) {
-          
           dimension_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -9167,8 +8889,7 @@ public final class AdMobResourcesProto {
          */
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension getDimension() {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.valueOf(dimension_);
+          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.forNumber(dimension_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.UNRECOGNIZED : result;
         }
         /**
@@ -9184,7 +8905,7 @@ public final class AdMobResourcesProto {
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000002;
           dimension_ = value.getNumber();
           onChanged();
           return this;
@@ -9198,7 +8919,7 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder clearDimension() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           dimension_ = 0;
           onChanged();
           return this;
@@ -9236,7 +8957,18 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DimensionFilter(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -9369,63 +9101,6 @@ public final class AdMobResourcesProto {
       getUnknownFields() {
         return this.unknownFields;
       }
-      private SortCondition(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-                sortOnCase_ = 1;
-                sortOn_ = rawValue;
-                break;
-              }
-              case 16: {
-                int rawValue = input.readEnum();
-                sortOnCase_ = 2;
-                sortOn_ = rawValue;
-                break;
-              }
-              case 24: {
-                int rawValue = input.readEnum();
-
-                order_ = rawValue;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_MediationReportSpec_SortCondition_descriptor;
@@ -9516,8 +9191,7 @@ public final class AdMobResourcesProto {
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension getDimension() {
         if (sortOnCase_ == 1) {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.valueOf(
+          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.forNumber(
               (java.lang.Integer) sortOn_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.UNRECOGNIZED : result;
         }
@@ -9560,8 +9234,7 @@ public final class AdMobResourcesProto {
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric getMetric() {
         if (sortOnCase_ == 2) {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.valueOf(
+          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.forNumber(
               (java.lang.Integer) sortOn_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.UNRECOGNIZED : result;
         }
@@ -9569,7 +9242,7 @@ public final class AdMobResourcesProto {
       }
 
       public static final int ORDER_FIELD_NUMBER = 3;
-      private int order_;
+      private int order_ = 0;
       /**
        * <pre>
        * Sorting order of the dimension or metric.
@@ -9590,8 +9263,7 @@ public final class AdMobResourcesProto {
        * @return The order.
        */
       @java.lang.Override public com.google.ads.admob.v1.AdMobResourcesProto.SortOrder getOrder() {
-        @SuppressWarnings("deprecation")
-        com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.valueOf(order_);
+        com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.forNumber(order_);
         return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.UNRECOGNIZED : result;
       }
 
@@ -9618,7 +9290,7 @@ public final class AdMobResourcesProto {
         if (order_ != com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.SORT_ORDER_UNSPECIFIED.getNumber()) {
           output.writeEnum(3, order_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -9639,7 +9311,7 @@ public final class AdMobResourcesProto {
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(3, order_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -9668,7 +9340,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -9693,7 +9365,7 @@ public final class AdMobResourcesProto {
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -9814,24 +9486,19 @@ public final class AdMobResourcesProto {
 
         // Construct using com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           order_ = 0;
-
           sortOnCase_ = 0;
           sortOn_ = null;
           return this;
@@ -9860,16 +9527,22 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition buildPartial() {
           com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition result = new com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition(this);
-          if (sortOnCase_ == 1) {
-            result.sortOn_ = sortOn_;
-          }
-          if (sortOnCase_ == 2) {
-            result.sortOn_ = sortOn_;
-          }
-          result.order_ = order_;
-          result.sortOnCase_ = sortOnCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.order_ = order_;
+          }
+        }
+
+        private void buildPartialOneofs(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition result) {
+          result.sortOnCase_ = sortOnCase_;
+          result.sortOn_ = this.sortOn_;
         }
 
         @java.lang.Override
@@ -9932,7 +9605,7 @@ public final class AdMobResourcesProto {
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -9947,17 +9620,47 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int rawValue = input.readEnum();
+                  sortOnCase_ = 1;
+                  sortOn_ = rawValue;
+                  break;
+                } // case 8
+                case 16: {
+                  int rawValue = input.readEnum();
+                  sortOnCase_ = 2;
+                  sortOn_ = rawValue;
+                  break;
+                } // case 16
+                case 24: {
+                  order_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int sortOnCase_ = 0;
@@ -9975,6 +9678,7 @@ public final class AdMobResourcesProto {
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <pre>
@@ -10029,8 +9733,7 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension getDimension() {
           if (sortOnCase_ == 1) {
-            @SuppressWarnings("deprecation")
-            com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.valueOf(
+            com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.forNumber(
                 (java.lang.Integer) sortOn_);
             return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.UNRECOGNIZED : result;
           }
@@ -10124,8 +9827,7 @@ public final class AdMobResourcesProto {
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric getMetric() {
           if (sortOnCase_ == 2) {
-            @SuppressWarnings("deprecation")
-            com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.valueOf(
+            com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.forNumber(
                 (java.lang.Integer) sortOn_);
             return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.UNRECOGNIZED : result;
           }
@@ -10188,8 +9890,8 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder setOrderValue(int value) {
-          
           order_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -10203,8 +9905,7 @@ public final class AdMobResourcesProto {
          */
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.SortOrder getOrder() {
-          @SuppressWarnings("deprecation")
-          com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.valueOf(order_);
+          com.google.ads.admob.v1.AdMobResourcesProto.SortOrder result = com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.forNumber(order_);
           return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.SortOrder.UNRECOGNIZED : result;
         }
         /**
@@ -10220,7 +9921,7 @@ public final class AdMobResourcesProto {
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000004;
           order_ = value.getNumber();
           onChanged();
           return this;
@@ -10234,7 +9935,7 @@ public final class AdMobResourcesProto {
          * @return This builder for chaining.
          */
         public Builder clearOrder() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           order_ = 0;
           onChanged();
           return this;
@@ -10272,7 +9973,18 @@ public final class AdMobResourcesProto {
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SortCondition(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -10327,18 +10039,18 @@ public final class AdMobResourcesProto {
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.DateRangeOrBuilder getDateRangeOrBuilder() {
-      return getDateRange();
+      return dateRange_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.DateRange.getDefaultInstance() : dateRange_;
     }
 
     public static final int DIMENSIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> dimensions_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension> dimensions_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension>() {
               public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.valueOf(from);
+                com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.forNumber(from);
                 return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Dimension.UNRECOGNIZED : result;
               }
             };
@@ -10419,14 +10131,14 @@ public final class AdMobResourcesProto {
     private int dimensionsMemoizedSerializedSize;
 
     public static final int METRICS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> metrics_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric> metrics_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric>() {
               public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.valueOf(from);
+                com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric result = com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.forNumber(from);
                 return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Metric.UNRECOGNIZED : result;
               }
             };
@@ -10497,6 +10209,7 @@ public final class AdMobResourcesProto {
     private int metricsMemoizedSerializedSize;
 
     public static final int DIMENSION_FILTERS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter> dimensionFilters_;
     /**
      * <pre>
@@ -10557,6 +10270,7 @@ public final class AdMobResourcesProto {
     }
 
     public static final int SORT_CONDITIONS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition> sortConditions_;
     /**
      * <pre>
@@ -10666,11 +10380,11 @@ public final class AdMobResourcesProto {
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettingsOrBuilder getLocalizationSettingsOrBuilder() {
-      return getLocalizationSettings();
+      return localizationSettings_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance() : localizationSettings_;
     }
 
     public static final int MAX_REPORT_ROWS_FIELD_NUMBER = 7;
-    private int maxReportRows_;
+    private int maxReportRows_ = 0;
     /**
      * <pre>
      * Maximum number of report data rows to return. If the value is not set, the
@@ -10687,7 +10401,8 @@ public final class AdMobResourcesProto {
     }
 
     public static final int TIME_ZONE_FIELD_NUMBER = 8;
-    private volatile java.lang.Object timeZone_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object timeZone_ = "";
     /**
      * <pre>
      * A report time zone. Accepts an IANA TZ name values, such as
@@ -10787,7 +10502,7 @@ public final class AdMobResourcesProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 8, timeZone_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10843,7 +10558,7 @@ public final class AdMobResourcesProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(timeZone_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, timeZone_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10878,7 +10593,7 @@ public final class AdMobResourcesProto {
           != other.getMaxReportRows()) return false;
       if (!getTimeZone()
           .equals(other.getTimeZone())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10917,7 +10632,7 @@ public final class AdMobResourcesProto {
       hash = (53 * hash) + getMaxReportRows();
       hash = (37 * hash) + TIME_ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getTimeZone().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11069,56 +10784,48 @@ public final class AdMobResourcesProto {
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getDimensionFiltersFieldBuilder();
-          getSortConditionsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (dateRangeBuilder_ == null) {
-          dateRange_ = null;
-        } else {
-          dateRange_ = null;
+        bitField0_ = 0;
+        dateRange_ = null;
+        if (dateRangeBuilder_ != null) {
+          dateRangeBuilder_.dispose();
           dateRangeBuilder_ = null;
         }
         dimensions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
-        metrics_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
+        metrics_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000004);
         if (dimensionFiltersBuilder_ == null) {
           dimensionFilters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          dimensionFilters_ = null;
           dimensionFiltersBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         if (sortConditionsBuilder_ == null) {
           sortConditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
+          sortConditions_ = null;
           sortConditionsBuilder_.clear();
         }
-        if (localizationSettingsBuilder_ == null) {
-          localizationSettings_ = null;
-        } else {
-          localizationSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        localizationSettings_ = null;
+        if (localizationSettingsBuilder_ != null) {
+          localizationSettingsBuilder_.dispose();
           localizationSettingsBuilder_ = null;
         }
         maxReportRows_ = 0;
-
         timeZone_ = "";
-
         return this;
       }
 
@@ -11145,49 +10852,61 @@ public final class AdMobResourcesProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec result = new com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec(this);
-        int from_bitField0_ = bitField0_;
-        if (dateRangeBuilder_ == null) {
-          result.dateRange_ = dateRange_;
-        } else {
-          result.dateRange_ = dateRangeBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           dimensions_ = java.util.Collections.unmodifiableList(dimensions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.dimensions_ = dimensions_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           metrics_ = java.util.Collections.unmodifiableList(metrics_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.metrics_ = metrics_;
         if (dimensionFiltersBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             dimensionFilters_ = java.util.Collections.unmodifiableList(dimensionFilters_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.dimensionFilters_ = dimensionFilters_;
         } else {
           result.dimensionFilters_ = dimensionFiltersBuilder_.build();
         }
         if (sortConditionsBuilder_ == null) {
-          if (((bitField0_ & 0x00000008) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             sortConditions_ = java.util.Collections.unmodifiableList(sortConditions_);
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.sortConditions_ = sortConditions_;
         } else {
           result.sortConditions_ = sortConditionsBuilder_.build();
         }
-        if (localizationSettingsBuilder_ == null) {
-          result.localizationSettings_ = localizationSettings_;
-        } else {
-          result.localizationSettings_ = localizationSettingsBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dateRange_ = dateRangeBuilder_ == null
+              ? dateRange_
+              : dateRangeBuilder_.build();
         }
-        result.maxReportRows_ = maxReportRows_;
-        result.timeZone_ = timeZone_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.localizationSettings_ = localizationSettingsBuilder_ == null
+              ? localizationSettings_
+              : localizationSettingsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.maxReportRows_ = maxReportRows_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.timeZone_ = timeZone_;
+        }
       }
 
       @java.lang.Override
@@ -11240,7 +10959,7 @@ public final class AdMobResourcesProto {
         if (!other.dimensions_.isEmpty()) {
           if (dimensions_.isEmpty()) {
             dimensions_ = other.dimensions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureDimensionsIsMutable();
             dimensions_.addAll(other.dimensions_);
@@ -11250,7 +10969,7 @@ public final class AdMobResourcesProto {
         if (!other.metrics_.isEmpty()) {
           if (metrics_.isEmpty()) {
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureMetricsIsMutable();
             metrics_.addAll(other.metrics_);
@@ -11261,7 +10980,7 @@ public final class AdMobResourcesProto {
           if (!other.dimensionFilters_.isEmpty()) {
             if (dimensionFilters_.isEmpty()) {
               dimensionFilters_ = other.dimensionFilters_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureDimensionFiltersIsMutable();
               dimensionFilters_.addAll(other.dimensionFilters_);
@@ -11274,7 +10993,7 @@ public final class AdMobResourcesProto {
               dimensionFiltersBuilder_.dispose();
               dimensionFiltersBuilder_ = null;
               dimensionFilters_ = other.dimensionFilters_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000008);
               dimensionFiltersBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDimensionFiltersFieldBuilder() : null;
@@ -11287,7 +11006,7 @@ public final class AdMobResourcesProto {
           if (!other.sortConditions_.isEmpty()) {
             if (sortConditions_.isEmpty()) {
               sortConditions_ = other.sortConditions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureSortConditionsIsMutable();
               sortConditions_.addAll(other.sortConditions_);
@@ -11300,7 +11019,7 @@ public final class AdMobResourcesProto {
               sortConditionsBuilder_.dispose();
               sortConditionsBuilder_ = null;
               sortConditions_ = other.sortConditions_;
-              bitField0_ = (bitField0_ & ~0x00000008);
+              bitField0_ = (bitField0_ & ~0x00000010);
               sortConditionsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getSortConditionsFieldBuilder() : null;
@@ -11317,9 +11036,10 @@ public final class AdMobResourcesProto {
         }
         if (!other.getTimeZone().isEmpty()) {
           timeZone_ = other.timeZone_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11334,17 +11054,114 @@ public final class AdMobResourcesProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDateRangeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                int tmpRaw = input.readEnum();
+                ensureDimensionsIsMutable();
+                dimensions_.add(tmpRaw);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureDimensionsIsMutable();
+                  dimensions_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                ensureMetricsIsMutable();
+                metrics_.add(tmpRaw);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureMetricsIsMutable();
+                  metrics_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 26
+              case 34: {
+                com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter m =
+                    input.readMessage(
+                        com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter.parser(),
+                        extensionRegistry);
+                if (dimensionFiltersBuilder_ == null) {
+                  ensureDimensionFiltersIsMutable();
+                  dimensionFilters_.add(m);
+                } else {
+                  dimensionFiltersBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 42: {
+                com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition m =
+                    input.readMessage(
+                        com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition.parser(),
+                        extensionRegistry);
+                if (sortConditionsBuilder_ == null) {
+                  ensureSortConditionsIsMutable();
+                  sortConditions_.add(m);
+                } else {
+                  sortConditionsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getLocalizationSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 56: {
+                maxReportRows_ = input.readInt32();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 66: {
+                timeZone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -11361,7 +11178,7 @@ public final class AdMobResourcesProto {
        * @return Whether the dateRange field is set.
        */
       public boolean hasDateRange() {
-        return dateRangeBuilder_ != null || dateRange_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -11391,11 +11208,11 @@ public final class AdMobResourcesProto {
             throw new NullPointerException();
           }
           dateRange_ = value;
-          onChanged();
         } else {
           dateRangeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -11409,11 +11226,11 @@ public final class AdMobResourcesProto {
           com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder builderForValue) {
         if (dateRangeBuilder_ == null) {
           dateRange_ = builderForValue.build();
-          onChanged();
         } else {
           dateRangeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -11425,17 +11242,18 @@ public final class AdMobResourcesProto {
        */
       public Builder mergeDateRange(com.google.ads.admob.v1.AdMobResourcesProto.DateRange value) {
         if (dateRangeBuilder_ == null) {
-          if (dateRange_ != null) {
-            dateRange_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.DateRange.newBuilder(dateRange_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            dateRange_ != null &&
+            dateRange_ != com.google.ads.admob.v1.AdMobResourcesProto.DateRange.getDefaultInstance()) {
+            getDateRangeBuilder().mergeFrom(value);
           } else {
             dateRange_ = value;
           }
-          onChanged();
         } else {
           dateRangeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -11446,14 +11264,13 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.DateRange date_range = 1;</code>
        */
       public Builder clearDateRange() {
-        if (dateRangeBuilder_ == null) {
-          dateRange_ = null;
-          onChanged();
-        } else {
-          dateRange_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dateRange_ = null;
+        if (dateRangeBuilder_ != null) {
+          dateRangeBuilder_.dispose();
           dateRangeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -11464,7 +11281,7 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.DateRange date_range = 1;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder getDateRangeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDateRangeFieldBuilder().getBuilder();
       }
@@ -11507,9 +11324,9 @@ public final class AdMobResourcesProto {
       private java.util.List<java.lang.Integer> dimensions_ =
         java.util.Collections.emptyList();
       private void ensureDimensionsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           dimensions_ = new java.util.ArrayList<java.lang.Integer>(dimensions_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
         }
       }
       /**
@@ -11627,7 +11444,7 @@ public final class AdMobResourcesProto {
        */
       public Builder clearDimensions() {
         dimensions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -11719,9 +11536,9 @@ public final class AdMobResourcesProto {
       private java.util.List<java.lang.Integer> metrics_ =
         java.util.Collections.emptyList();
       private void ensureMetricsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           metrics_ = new java.util.ArrayList<java.lang.Integer>(metrics_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
         }
       }
       /**
@@ -11825,7 +11642,7 @@ public final class AdMobResourcesProto {
        */
       public Builder clearMetrics() {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -11907,9 +11724,9 @@ public final class AdMobResourcesProto {
       private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter> dimensionFilters_ =
         java.util.Collections.emptyList();
       private void ensureDimensionFiltersIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           dimensionFilters_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter>(dimensionFilters_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -12103,7 +11920,7 @@ public final class AdMobResourcesProto {
       public Builder clearDimensionFilters() {
         if (dimensionFiltersBuilder_ == null) {
           dimensionFilters_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           dimensionFiltersBuilder_.clear();
@@ -12208,7 +12025,7 @@ public final class AdMobResourcesProto {
           dimensionFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilter.Builder, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.DimensionFilterOrBuilder>(
                   dimensionFilters_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           dimensionFilters_ = null;
@@ -12219,9 +12036,9 @@ public final class AdMobResourcesProto {
       private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition> sortConditions_ =
         java.util.Collections.emptyList();
       private void ensureSortConditionsIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           sortConditions_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition>(sortConditions_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -12448,7 +12265,7 @@ public final class AdMobResourcesProto {
       public Builder clearSortConditions() {
         if (sortConditionsBuilder_ == null) {
           sortConditions_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           sortConditionsBuilder_.clear();
@@ -12574,7 +12391,7 @@ public final class AdMobResourcesProto {
           sortConditionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortCondition.Builder, com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.SortConditionOrBuilder>(
                   sortConditions_,
-                  ((bitField0_ & 0x00000008) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           sortConditions_ = null;
@@ -12594,7 +12411,7 @@ public final class AdMobResourcesProto {
        * @return Whether the localizationSettings field is set.
        */
       public boolean hasLocalizationSettings() {
-        return localizationSettingsBuilder_ != null || localizationSettings_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -12624,11 +12441,11 @@ public final class AdMobResourcesProto {
             throw new NullPointerException();
           }
           localizationSettings_ = value;
-          onChanged();
         } else {
           localizationSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -12642,11 +12459,11 @@ public final class AdMobResourcesProto {
           com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder builderForValue) {
         if (localizationSettingsBuilder_ == null) {
           localizationSettings_ = builderForValue.build();
-          onChanged();
         } else {
           localizationSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -12658,17 +12475,18 @@ public final class AdMobResourcesProto {
        */
       public Builder mergeLocalizationSettings(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings value) {
         if (localizationSettingsBuilder_ == null) {
-          if (localizationSettings_ != null) {
-            localizationSettings_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.newBuilder(localizationSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            localizationSettings_ != null &&
+            localizationSettings_ != com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance()) {
+            getLocalizationSettingsBuilder().mergeFrom(value);
           } else {
             localizationSettings_ = value;
           }
-          onChanged();
         } else {
           localizationSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -12679,14 +12497,13 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.LocalizationSettings localization_settings = 6;</code>
        */
       public Builder clearLocalizationSettings() {
-        if (localizationSettingsBuilder_ == null) {
-          localizationSettings_ = null;
-          onChanged();
-        } else {
-          localizationSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        localizationSettings_ = null;
+        if (localizationSettingsBuilder_ != null) {
+          localizationSettingsBuilder_.dispose();
           localizationSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -12697,7 +12514,7 @@ public final class AdMobResourcesProto {
        * <code>.google.ads.admob.v1.LocalizationSettings localization_settings = 6;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder getLocalizationSettingsBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getLocalizationSettingsFieldBuilder().getBuilder();
       }
@@ -12766,6 +12583,7 @@ public final class AdMobResourcesProto {
       public Builder setMaxReportRows(int value) {
         
         maxReportRows_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -12780,7 +12598,7 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearMaxReportRows() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         maxReportRows_ = 0;
         onChanged();
         return this;
@@ -12851,11 +12669,9 @@ public final class AdMobResourcesProto {
        */
       public Builder setTimeZone(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         timeZone_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -12872,8 +12688,8 @@ public final class AdMobResourcesProto {
        * @return This builder for chaining.
        */
       public Builder clearTimeZone() {
-        
         timeZone_ = getDefaultInstance().getTimeZone();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -12892,12 +12708,10 @@ public final class AdMobResourcesProto {
        */
       public Builder setTimeZoneBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         timeZone_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -12934,7 +12748,18 @@ public final class AdMobResourcesProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MediationReportSpec(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12997,7 +12822,6 @@ public final class AdMobResourcesProto {
      *
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
      */
-
     /* nullable */
 com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrDefault(
         java.lang.String key,
@@ -13010,7 +12834,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue defaultValu
      *
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
      */
-
     com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrThrow(
         java.lang.String key);
 
@@ -13061,7 +12884,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue defaultValu
      *
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
      */
-
     /* nullable */
 com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrDefault(
         java.lang.String key,
@@ -13076,7 +12898,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      *
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
      */
-
     com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrThrow(
         java.lang.String key);
   }
@@ -13110,72 +12931,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ReportRow(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                dimensionValues_ = com.google.protobuf.MapField.newMapField(
-                    DimensionValuesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue>
-              dimensionValues__ = input.readMessage(
-                  DimensionValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              dimensionValues_.getMutableMap().put(
-                  dimensionValues__.getKey(), dimensionValues__.getValue());
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                metricValues_ = com.google.protobuf.MapField.newMapField(
-                    MetricValuesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue>
-              metricValues__ = input.readMessage(
-                  MetricValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              metricValues_.getMutableMap().put(
-                  metricValues__.getKey(), metricValues__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -13285,57 +13040,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       getUnknownFields() {
         return this.unknownFields;
       }
-      private DimensionValue(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                value_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                displayLabel_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_ReportRow_DimensionValue_descriptor;
@@ -13350,7 +13054,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       }
 
       public static final int VALUE_FIELD_NUMBER = 1;
-      private volatile java.lang.Object value_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object value_ = "";
       /**
        * <pre>
        * Dimension value in the format specified in the report's spec Dimension
@@ -13398,7 +13103,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       }
 
       public static final int DISPLAY_LABEL_FIELD_NUMBER = 2;
-      private volatile java.lang.Object displayLabel_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object displayLabel_ = "";
       /**
        * <pre>
        * The localized string representation of the value. If unspecified, the
@@ -13465,7 +13171,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayLabel_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 2, displayLabel_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -13480,7 +13186,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(displayLabel_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, displayLabel_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -13499,7 +13205,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             .equals(other.getValue())) return false;
         if (!getDisplayLabel()
             .equals(other.getDisplayLabel())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -13514,7 +13220,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         hash = (53 * hash) + getValue().hashCode();
         hash = (37 * hash) + DISPLAY_LABEL_FIELD_NUMBER;
         hash = (53 * hash) + getDisplayLabel().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -13635,26 +13341,20 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
         // Construct using com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           value_ = "";
-
           displayLabel_ = "";
-
           return this;
         }
 
@@ -13681,10 +13381,19 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue buildPartial() {
           com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue result = new com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue(this);
-          result.value_ = value_;
-          result.displayLabel_ = displayLabel_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.value_ = value_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.displayLabel_ = displayLabel_;
+          }
         }
 
         @java.lang.Override
@@ -13733,13 +13442,15 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           if (other == com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue.getDefaultInstance()) return this;
           if (!other.getValue().isEmpty()) {
             value_ = other.value_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (!other.getDisplayLabel().isEmpty()) {
             displayLabel_ = other.displayLabel_;
+            bitField0_ |= 0x00000002;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -13754,19 +13465,43 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  value_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  displayLabel_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object value_ = "";
         /**
@@ -13824,11 +13559,9 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          */
         public Builder setValue(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           value_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -13842,8 +13575,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          * @return This builder for chaining.
          */
         public Builder clearValue() {
-          
           value_ = getDefaultInstance().getValue();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -13859,12 +13592,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          */
         public Builder setValueBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           value_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -13925,11 +13656,9 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          */
         public Builder setDisplayLabel(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           displayLabel_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -13943,8 +13672,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          * @return This builder for chaining.
          */
         public Builder clearDisplayLabel() {
-          
           displayLabel_ = getDefaultInstance().getDisplayLabel();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
@@ -13960,12 +13689,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          */
         public Builder setDisplayLabelBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           displayLabel_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -14002,7 +13729,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DimensionValue(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -14119,60 +13857,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private MetricValue(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                value_ = input.readInt64();
-                valueCase_ = 1;
-                break;
-              }
-              case 17: {
-                value_ = input.readDouble();
-                valueCase_ = 2;
-                break;
-              }
-              case 24: {
-                value_ = input.readInt64();
-                valueCase_ = 3;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -14347,7 +14031,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           output.writeInt64(
               3, (long)((java.lang.Long) value_));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -14371,7 +14055,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             .computeInt64Size(
                 3, (long)((java.lang.Long) value_));
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -14404,7 +14088,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -14434,7 +14118,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -14555,22 +14239,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
         // Construct using com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           valueCase_ = 0;
           value_ = null;
           return this;
@@ -14599,18 +14279,19 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         @java.lang.Override
         public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue buildPartial() {
           com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue result = new com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue(this);
-          if (valueCase_ == 1) {
-            result.value_ = value_;
-          }
-          if (valueCase_ == 2) {
-            result.value_ = value_;
-          }
-          if (valueCase_ == 3) {
-            result.value_ = value_;
-          }
-          result.valueCase_ = valueCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue result) {
+          result.valueCase_ = valueCase_;
+          result.value_ = this.value_;
         }
 
         @java.lang.Override
@@ -14674,7 +14355,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -14689,17 +14370,45 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  value_ = input.readInt64();
+                  valueCase_ = 1;
+                  break;
+                } // case 8
+                case 17: {
+                  value_ = input.readDouble();
+                  valueCase_ = 2;
+                  break;
+                } // case 17
+                case 24: {
+                  value_ = input.readInt64();
+                  valueCase_ = 3;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int valueCase_ = 0;
@@ -14717,6 +14426,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <pre>
@@ -14753,6 +14463,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          * @return This builder for chaining.
          */
         public Builder setIntegerValue(long value) {
+          
           valueCase_ = 1;
           value_ = value;
           onChanged();
@@ -14810,6 +14521,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          * @return This builder for chaining.
          */
         public Builder setDoubleValue(double value) {
+          
           valueCase_ = 2;
           value_ = value;
           onChanged();
@@ -14873,6 +14585,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
          * @return This builder for chaining.
          */
         public Builder setMicrosValue(long value) {
+          
           valueCase_ = 3;
           value_ = value;
           onChanged();
@@ -14929,7 +14642,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MetricValue(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -14961,6 +14685,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> dimensionValues_;
     private com.google.protobuf.MapField<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue>
@@ -14971,7 +14696,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       }
       return dimensionValues_;
     }
-
     public int getDimensionValuesCount() {
       return internalGetDimensionValues().getMap().size();
     }
@@ -14982,7 +14706,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      *
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsDimensionValues(
         java.lang.String key) {
@@ -15005,7 +14728,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> getDimensionValuesMap() {
       return internalGetDimensionValues().getMap();
     }
@@ -15017,10 +14739,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrDefault(
+    public /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrDefault(
         java.lang.String key,
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue defaultValue) {
+        /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> map =
           internalGetDimensionValues().getMap();
@@ -15034,7 +14757,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
      */
     @java.lang.Override
-
     public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -15058,6 +14780,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> metricValues_;
     private com.google.protobuf.MapField<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue>
@@ -15068,7 +14791,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       }
       return metricValues_;
     }
-
     public int getMetricValuesCount() {
       return internalGetMetricValues().getMap().size();
     }
@@ -15081,7 +14803,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      *
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsMetricValues(
         java.lang.String key) {
@@ -15106,7 +14827,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> getMetricValuesMap() {
       return internalGetMetricValues().getMap();
     }
@@ -15120,10 +14840,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrDefault(
+    public /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrDefault(
         java.lang.String key,
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue) {
+        /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> map =
           internalGetMetricValues().getMap();
@@ -15139,7 +14860,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
      */
     @java.lang.Override
-
     public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -15177,7 +14897,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           internalGetMetricValues(),
           MetricValuesDefaultEntryHolder.defaultEntry,
           2);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -15206,7 +14926,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, metricValues__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -15225,7 +14945,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           other.internalGetDimensionValues())) return false;
       if (!internalGetMetricValues().equals(
           other.internalGetMetricValues())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -15244,7 +14964,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         hash = (37 * hash) + METRIC_VALUES_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMetricValues().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -15391,22 +15111,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableDimensionValues().clear();
         internalGetMutableMetricValues().clear();
         return this;
@@ -15435,13 +15151,21 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.ReportRow result = new com.google.ads.admob.v1.AdMobResourcesProto.ReportRow(this);
-        int from_bitField0_ = bitField0_;
-        result.dimensionValues_ = internalGetDimensionValues();
-        result.dimensionValues_.makeImmutable();
-        result.metricValues_ = internalGetMetricValues();
-        result.metricValues_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.ReportRow result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dimensionValues_ = internalGetDimensionValues();
+          result.dimensionValues_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.metricValues_ = internalGetMetricValues();
+          result.metricValues_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -15490,9 +15214,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (other == com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.getDefaultInstance()) return this;
         internalGetMutableDimensionValues().mergeFrom(
             other.internalGetDimensionValues());
+        bitField0_ |= 0x00000001;
         internalGetMutableMetricValues().mergeFrom(
             other.internalGetMetricValues());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000002;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -15507,17 +15233,48 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportRow parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue>
+                dimensionValues__ = input.readMessage(
+                    DimensionValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableDimensionValues().getMutableMap().put(
+                    dimensionValues__.getKey(), dimensionValues__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue>
+                metricValues__ = input.readMessage(
+                    MetricValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMetricValues().getMutableMap().put(
+                    metricValues__.getKey(), metricValues__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.ReportRow) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -15525,7 +15282,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> dimensionValues_;
       private com.google.protobuf.MapField<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue>
-      internalGetDimensionValues() {
+          internalGetDimensionValues() {
         if (dimensionValues_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               DimensionValuesDefaultEntryHolder.defaultEntry);
@@ -15533,8 +15290,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         return dimensionValues_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue>
-      internalGetMutableDimensionValues() {
-        onChanged();;
+          internalGetMutableDimensionValues() {
         if (dimensionValues_ == null) {
           dimensionValues_ = com.google.protobuf.MapField.newMapField(
               DimensionValuesDefaultEntryHolder.defaultEntry);
@@ -15542,9 +15298,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (!dimensionValues_.isMutable()) {
           dimensionValues_ = dimensionValues_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return dimensionValues_;
       }
-
       public int getDimensionValuesCount() {
         return internalGetDimensionValues().getMap().size();
       }
@@ -15555,7 +15312,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        *
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsDimensionValues(
           java.lang.String key) {
@@ -15578,7 +15334,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> getDimensionValuesMap() {
         return internalGetDimensionValues().getMap();
       }
@@ -15590,10 +15345,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
        */
       @java.lang.Override
-
-      public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrDefault(
+      public /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrDefault(
           java.lang.String key,
-          com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue defaultValue) {
+          /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> map =
             internalGetDimensionValues().getMap();
@@ -15607,7 +15363,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
        */
       @java.lang.Override
-
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue getDimensionValuesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -15618,8 +15373,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearDimensionValues() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableDimensionValues().getMutableMap()
             .clear();
         return this;
@@ -15631,7 +15386,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        *
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
        */
-
       public Builder removeDimensionValues(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -15644,7 +15398,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue>
-      getMutableDimensionValues() {
+          getMutableDimensionValues() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableDimensionValues().getMutableMap();
       }
       /**
@@ -15658,12 +15413,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           java.lang.String key,
           com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableDimensionValues().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -15673,18 +15426,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        *
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.DimensionValue&gt; dimension_values = 1;</code>
        */
-
       public Builder putAllDimensionValues(
           java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.DimensionValue> values) {
         internalGetMutableDimensionValues().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> metricValues_;
       private com.google.protobuf.MapField<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue>
-      internalGetMetricValues() {
+          internalGetMetricValues() {
         if (metricValues_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MetricValuesDefaultEntryHolder.defaultEntry);
@@ -15692,8 +15445,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         return metricValues_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue>
-      internalGetMutableMetricValues() {
-        onChanged();;
+          internalGetMutableMetricValues() {
         if (metricValues_ == null) {
           metricValues_ = com.google.protobuf.MapField.newMapField(
               MetricValuesDefaultEntryHolder.defaultEntry);
@@ -15701,9 +15453,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (!metricValues_.isMutable()) {
           metricValues_ = metricValues_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return metricValues_;
       }
-
       public int getMetricValuesCount() {
         return internalGetMetricValues().getMap().size();
       }
@@ -15716,7 +15469,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        *
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsMetricValues(
           java.lang.String key) {
@@ -15741,7 +15493,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> getMetricValuesMap() {
         return internalGetMetricValues().getMap();
       }
@@ -15755,10 +15506,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrDefault(
+      public /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrDefault(
           java.lang.String key,
-          com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue) {
+          /* nullable */
+com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> map =
             internalGetMetricValues().getMap();
@@ -15774,7 +15526,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
        */
       @java.lang.Override
-
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue getMetricValuesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -15785,8 +15536,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearMetricValues() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableMetricValues().getMutableMap()
             .clear();
         return this;
@@ -15800,7 +15551,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        *
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
        */
-
       public Builder removeMetricValues(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -15813,7 +15563,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue>
-      getMutableMetricValues() {
+          getMutableMetricValues() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableMetricValues().getMutableMap();
       }
       /**
@@ -15829,12 +15580,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           java.lang.String key,
           com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMetricValues().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -15846,11 +15595,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        *
        * <code>map&lt;string, .google.ads.admob.v1.ReportRow.MetricValue&gt; metric_values = 2;</code>
        */
-
       public Builder putAllMetricValues(
           java.util.Map<java.lang.String, com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue> values) {
         internalGetMutableMetricValues().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
       @java.lang.Override
@@ -15886,7 +15635,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportRow(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -15981,57 +15741,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ReportWarning(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -16248,7 +15957,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Type of the warning.
@@ -16269,13 +15978,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      * @return The type.
      */
     @java.lang.Override public com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type result = com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type.valueOf(type_);
+      com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type result = com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type.forNumber(type_);
       return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type.UNRECOGNIZED : result;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * Describes the details of the warning message, in English.
@@ -16340,7 +16049,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -16356,7 +16065,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -16374,7 +16083,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (type_ != other.type_) return false;
       if (!getDescription()
           .equals(other.getDescription())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -16389,7 +16098,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       hash = (53 * hash) + type_;
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
       hash = (53 * hash) + getDescription().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -16510,26 +16219,20 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         description_ = "";
-
         return this;
       }
 
@@ -16556,10 +16259,19 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning result = new com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning(this);
-        result.type_ = type_;
-        result.description_ = description_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
       }
 
       @java.lang.Override
@@ -16611,9 +16323,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -16628,19 +16341,43 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -16664,8 +16401,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -16679,8 +16416,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type result = com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type.valueOf(type_);
+        com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type result = com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type.forNumber(type_);
         return result == null ? com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.Type.UNRECOGNIZED : result;
       }
       /**
@@ -16696,7 +16432,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -16710,7 +16446,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -16769,11 +16505,9 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -16786,8 +16520,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -16802,12 +16536,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -16844,7 +16576,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportWarning(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -16983,77 +16726,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReportHeader(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder subBuilder = null;
-              if (dateRange_ != null) {
-                subBuilder = dateRange_.toBuilder();
-              }
-              dateRange_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.DateRange.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(dateRange_);
-                dateRange_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder subBuilder = null;
-              if (localizationSettings_ != null) {
-                subBuilder = localizationSettings_.toBuilder();
-              }
-              localizationSettings_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(localizationSettings_);
-                localizationSettings_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              reportingTimeZone_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_ReportHeader_descriptor;
@@ -17105,7 +16777,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.DateRangeOrBuilder getDateRangeOrBuilder() {
-      return getDateRange();
+      return dateRange_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.DateRange.getDefaultInstance() : dateRange_;
     }
 
     public static final int LOCALIZATION_SETTINGS_FIELD_NUMBER = 2;
@@ -17146,11 +16818,12 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettingsOrBuilder getLocalizationSettingsOrBuilder() {
-      return getLocalizationSettings();
+      return localizationSettings_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance() : localizationSettings_;
     }
 
     public static final int REPORTING_TIME_ZONE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object reportingTimeZone_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object reportingTimeZone_ = "";
     /**
      * <pre>
      * The report time zone. The value is a time-zone ID as specified by the CLDR
@@ -17220,7 +16893,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reportingTimeZone_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, reportingTimeZone_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -17240,7 +16913,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(reportingTimeZone_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, reportingTimeZone_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -17267,7 +16940,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       }
       if (!getReportingTimeZone()
           .equals(other.getReportingTimeZone())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -17288,7 +16961,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       }
       hash = (37 * hash) + REPORTING_TIME_ZONE_FIELD_NUMBER;
       hash = (53 * hash) + getReportingTimeZone().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -17410,36 +17083,29 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (dateRangeBuilder_ == null) {
-          dateRange_ = null;
-        } else {
-          dateRange_ = null;
+        bitField0_ = 0;
+        dateRange_ = null;
+        if (dateRangeBuilder_ != null) {
+          dateRangeBuilder_.dispose();
           dateRangeBuilder_ = null;
         }
-        if (localizationSettingsBuilder_ == null) {
-          localizationSettings_ = null;
-        } else {
-          localizationSettings_ = null;
+        localizationSettings_ = null;
+        if (localizationSettingsBuilder_ != null) {
+          localizationSettingsBuilder_.dispose();
           localizationSettingsBuilder_ = null;
         }
         reportingTimeZone_ = "";
-
         return this;
       }
 
@@ -17466,19 +17132,26 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader result = new com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader(this);
-        if (dateRangeBuilder_ == null) {
-          result.dateRange_ = dateRange_;
-        } else {
-          result.dateRange_ = dateRangeBuilder_.build();
-        }
-        if (localizationSettingsBuilder_ == null) {
-          result.localizationSettings_ = localizationSettings_;
-        } else {
-          result.localizationSettings_ = localizationSettingsBuilder_.build();
-        }
-        result.reportingTimeZone_ = reportingTimeZone_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dateRange_ = dateRangeBuilder_ == null
+              ? dateRange_
+              : dateRangeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.localizationSettings_ = localizationSettingsBuilder_ == null
+              ? localizationSettings_
+              : localizationSettingsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.reportingTimeZone_ = reportingTimeZone_;
+        }
       }
 
       @java.lang.Override
@@ -17533,9 +17206,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         }
         if (!other.getReportingTimeZone().isEmpty()) {
           reportingTimeZone_ = other.reportingTimeZone_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -17550,19 +17224,52 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDateRangeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getLocalizationSettingsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                reportingTimeZone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.ads.admob.v1.AdMobResourcesProto.DateRange dateRange_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -17577,7 +17284,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return Whether the dateRange field is set.
        */
       public boolean hasDateRange() {
-        return dateRangeBuilder_ != null || dateRange_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -17609,11 +17316,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             throw new NullPointerException();
           }
           dateRange_ = value;
-          onChanged();
         } else {
           dateRangeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -17628,11 +17335,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder builderForValue) {
         if (dateRangeBuilder_ == null) {
           dateRange_ = builderForValue.build();
-          onChanged();
         } else {
           dateRangeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -17645,17 +17352,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder mergeDateRange(com.google.ads.admob.v1.AdMobResourcesProto.DateRange value) {
         if (dateRangeBuilder_ == null) {
-          if (dateRange_ != null) {
-            dateRange_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.DateRange.newBuilder(dateRange_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            dateRange_ != null &&
+            dateRange_ != com.google.ads.admob.v1.AdMobResourcesProto.DateRange.getDefaultInstance()) {
+            getDateRangeBuilder().mergeFrom(value);
           } else {
             dateRange_ = value;
           }
-          onChanged();
         } else {
           dateRangeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -17667,14 +17375,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.ads.admob.v1.DateRange date_range = 1;</code>
        */
       public Builder clearDateRange() {
-        if (dateRangeBuilder_ == null) {
-          dateRange_ = null;
-          onChanged();
-        } else {
-          dateRange_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        dateRange_ = null;
+        if (dateRangeBuilder_ != null) {
+          dateRangeBuilder_.dispose();
           dateRangeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -17686,7 +17393,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.ads.admob.v1.DateRange date_range = 1;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.DateRange.Builder getDateRangeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDateRangeFieldBuilder().getBuilder();
       }
@@ -17741,7 +17448,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return Whether the localizationSettings field is set.
        */
       public boolean hasLocalizationSettings() {
-        return localizationSettingsBuilder_ != null || localizationSettings_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -17773,11 +17480,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             throw new NullPointerException();
           }
           localizationSettings_ = value;
-          onChanged();
         } else {
           localizationSettingsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -17792,11 +17499,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder builderForValue) {
         if (localizationSettingsBuilder_ == null) {
           localizationSettings_ = builderForValue.build();
-          onChanged();
         } else {
           localizationSettingsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -17809,17 +17516,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder mergeLocalizationSettings(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings value) {
         if (localizationSettingsBuilder_ == null) {
-          if (localizationSettings_ != null) {
-            localizationSettings_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.newBuilder(localizationSettings_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            localizationSettings_ != null &&
+            localizationSettings_ != com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance()) {
+            getLocalizationSettingsBuilder().mergeFrom(value);
           } else {
             localizationSettings_ = value;
           }
-          onChanged();
         } else {
           localizationSettingsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -17831,14 +17539,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.ads.admob.v1.LocalizationSettings localization_settings = 2;</code>
        */
       public Builder clearLocalizationSettings() {
-        if (localizationSettingsBuilder_ == null) {
-          localizationSettings_ = null;
-          onChanged();
-        } else {
-          localizationSettings_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        localizationSettings_ = null;
+        if (localizationSettingsBuilder_ != null) {
+          localizationSettingsBuilder_.dispose();
           localizationSettingsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -17850,7 +17557,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.ads.admob.v1.LocalizationSettings localization_settings = 2;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.Builder getLocalizationSettingsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getLocalizationSettingsFieldBuilder().getBuilder();
       }
@@ -17948,11 +17655,9 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setReportingTimeZone(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         reportingTimeZone_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -17966,8 +17671,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearReportingTimeZone() {
-        
         reportingTimeZone_ = getDefaultInstance().getReportingTimeZone();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -17983,12 +17688,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setReportingTimeZoneBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         reportingTimeZone_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -18025,7 +17728,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportHeader(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -18138,63 +17852,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ReportFooter(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                warnings_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              warnings_.add(
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.parser(), extensionRegistry));
-              break;
-            }
-            case 16: {
-
-              matchingRowCount_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          warnings_ = java.util.Collections.unmodifiableList(warnings_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_ReportFooter_descriptor;
@@ -18209,6 +17866,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     }
 
     public static final int WARNINGS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning> warnings_;
     /**
      * <pre>
@@ -18269,7 +17927,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     }
 
     public static final int MATCHING_ROW_COUNT_FIELD_NUMBER = 2;
-    private long matchingRowCount_;
+    private long matchingRowCount_ = 0L;
     /**
      * <pre>
      * Total number of rows that matched the request.
@@ -18305,7 +17963,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (matchingRowCount_ != 0L) {
         output.writeInt64(2, matchingRowCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -18322,7 +17980,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, matchingRowCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -18341,7 +17999,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           .equals(other.getWarningsList())) return false;
       if (getMatchingRowCount()
           != other.getMatchingRowCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -18359,7 +18017,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       hash = (37 * hash) + MATCHING_ROW_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getMatchingRowCount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -18481,31 +18139,26 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getWarningsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (warningsBuilder_ == null) {
           warnings_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          warnings_ = null;
           warningsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         matchingRowCount_ = 0L;
-
         return this;
       }
 
@@ -18532,7 +18185,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter result = new com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter result) {
         if (warningsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             warnings_ = java.util.Collections.unmodifiableList(warnings_);
@@ -18542,9 +18201,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         } else {
           result.warnings_ = warningsBuilder_.build();
         }
-        result.matchingRowCount_ = matchingRowCount_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.matchingRowCount_ = matchingRowCount_;
+        }
       }
 
       @java.lang.Override
@@ -18620,7 +18283,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (other.getMatchingRowCount() != 0L) {
           setMatchingRowCount(other.getMatchingRowCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -18635,17 +18298,48 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning m =
+                    input.readMessage(
+                        com.google.ads.admob.v1.AdMobResourcesProto.ReportWarning.parser(),
+                        extensionRegistry);
+                if (warningsBuilder_ == null) {
+                  ensureWarningsIsMutable();
+                  warnings_.add(m);
+                } else {
+                  warningsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 16: {
+                matchingRowCount_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -18991,6 +18685,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       public Builder setMatchingRowCount(long value) {
         
         matchingRowCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -19005,7 +18700,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearMatchingRowCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         matchingRowCount_ = 0L;
         onChanged();
         return this;
@@ -19043,7 +18738,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ReportFooter(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -19158,71 +18864,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DateRange(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.Date.Builder subBuilder = null;
-              if (startDate_ != null) {
-                subBuilder = startDate_.toBuilder();
-              }
-              startDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startDate_);
-                startDate_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.type.Date.Builder subBuilder = null;
-              if (endDate_ != null) {
-                subBuilder = endDate_.toBuilder();
-              }
-              endDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(endDate_);
-                endDate_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_DateRange_descriptor;
@@ -19274,7 +18915,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      */
     @java.lang.Override
     public com.google.type.DateOrBuilder getStartDateOrBuilder() {
-      return getStartDate();
+      return startDate_ == null ? com.google.type.Date.getDefaultInstance() : startDate_;
     }
 
     public static final int END_DATE_FIELD_NUMBER = 2;
@@ -19315,7 +18956,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
      */
     @java.lang.Override
     public com.google.type.DateOrBuilder getEndDateOrBuilder() {
-      return getEndDate();
+      return endDate_ == null ? com.google.type.Date.getDefaultInstance() : endDate_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -19338,7 +18979,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (endDate_ != null) {
         output.writeMessage(2, getEndDate());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -19355,7 +18996,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getEndDate());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -19380,7 +19021,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (!getEndDate()
             .equals(other.getEndDate())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -19399,7 +19040,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         hash = (37 * hash) + END_DATE_FIELD_NUMBER;
         hash = (53 * hash) + getEndDate().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -19520,32 +19161,26 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.DateRange.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (startDateBuilder_ == null) {
-          startDate_ = null;
-        } else {
-          startDate_ = null;
+        bitField0_ = 0;
+        startDate_ = null;
+        if (startDateBuilder_ != null) {
+          startDateBuilder_.dispose();
           startDateBuilder_ = null;
         }
-        if (endDateBuilder_ == null) {
-          endDate_ = null;
-        } else {
-          endDate_ = null;
+        endDate_ = null;
+        if (endDateBuilder_ != null) {
+          endDateBuilder_.dispose();
           endDateBuilder_ = null;
         }
         return this;
@@ -19574,18 +19209,23 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.DateRange buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.DateRange result = new com.google.ads.admob.v1.AdMobResourcesProto.DateRange(this);
-        if (startDateBuilder_ == null) {
-          result.startDate_ = startDate_;
-        } else {
-          result.startDate_ = startDateBuilder_.build();
-        }
-        if (endDateBuilder_ == null) {
-          result.endDate_ = endDate_;
-        } else {
-          result.endDate_ = endDateBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.DateRange result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startDate_ = startDateBuilder_ == null
+              ? startDate_
+              : startDateBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.endDate_ = endDateBuilder_ == null
+              ? endDate_
+              : endDateBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -19638,7 +19278,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (other.hasEndDate()) {
           mergeEndDate(other.getEndDate());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -19653,19 +19293,47 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.DateRange parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStartDateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getEndDateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.DateRange) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.type.Date startDate_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -19680,7 +19348,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return Whether the startDate field is set.
        */
       public boolean hasStartDate() {
-        return startDateBuilder_ != null || startDate_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -19712,11 +19380,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             throw new NullPointerException();
           }
           startDate_ = value;
-          onChanged();
         } else {
           startDateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -19731,11 +19399,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.type.Date.Builder builderForValue) {
         if (startDateBuilder_ == null) {
           startDate_ = builderForValue.build();
-          onChanged();
         } else {
           startDateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -19748,17 +19416,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder mergeStartDate(com.google.type.Date value) {
         if (startDateBuilder_ == null) {
-          if (startDate_ != null) {
-            startDate_ =
-              com.google.type.Date.newBuilder(startDate_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            startDate_ != null &&
+            startDate_ != com.google.type.Date.getDefaultInstance()) {
+            getStartDateBuilder().mergeFrom(value);
           } else {
             startDate_ = value;
           }
-          onChanged();
         } else {
           startDateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -19770,14 +19439,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.type.Date start_date = 1;</code>
        */
       public Builder clearStartDate() {
-        if (startDateBuilder_ == null) {
-          startDate_ = null;
-          onChanged();
-        } else {
-          startDate_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startDate_ = null;
+        if (startDateBuilder_ != null) {
+          startDateBuilder_.dispose();
           startDateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -19789,7 +19457,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.type.Date start_date = 1;</code>
        */
       public com.google.type.Date.Builder getStartDateBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getStartDateFieldBuilder().getBuilder();
       }
@@ -19844,7 +19512,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return Whether the endDate field is set.
        */
       public boolean hasEndDate() {
-        return endDateBuilder_ != null || endDate_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -19876,11 +19544,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
             throw new NullPointerException();
           }
           endDate_ = value;
-          onChanged();
         } else {
           endDateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -19895,11 +19563,11 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.type.Date.Builder builderForValue) {
         if (endDateBuilder_ == null) {
           endDate_ = builderForValue.build();
-          onChanged();
         } else {
           endDateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -19912,17 +19580,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder mergeEndDate(com.google.type.Date value) {
         if (endDateBuilder_ == null) {
-          if (endDate_ != null) {
-            endDate_ =
-              com.google.type.Date.newBuilder(endDate_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            endDate_ != null &&
+            endDate_ != com.google.type.Date.getDefaultInstance()) {
+            getEndDateBuilder().mergeFrom(value);
           } else {
             endDate_ = value;
           }
-          onChanged();
         } else {
           endDateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -19934,14 +19603,13 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.type.Date end_date = 2;</code>
        */
       public Builder clearEndDate() {
-        if (endDateBuilder_ == null) {
-          endDate_ = null;
-          onChanged();
-        } else {
-          endDate_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        endDate_ = null;
+        if (endDateBuilder_ != null) {
+          endDateBuilder_.dispose();
           endDateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -19953,7 +19621,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * <code>.google.type.Date end_date = 2;</code>
        */
       public com.google.type.Date.Builder getEndDateBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getEndDateFieldBuilder().getBuilder();
       }
@@ -20027,7 +19695,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DateRange(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -20133,57 +19812,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LocalizationSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              currencyCode_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              languageCode_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_LocalizationSettings_descriptor;
@@ -20198,7 +19826,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     }
 
     public static final int CURRENCY_CODE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object currencyCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object currencyCode_ = "";
     /**
      * <pre>
      * Currency code of the earning related metrics, which is the 3-letter code
@@ -20248,7 +19877,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     }
 
     public static final int LANGUAGE_CODE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object languageCode_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object languageCode_ = "";
     /**
      * <pre>
      * Language used for any localized text, such as some dimension value display
@@ -20317,7 +19947,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, languageCode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -20332,7 +19962,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(languageCode_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, languageCode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -20351,7 +19981,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           .equals(other.getCurrencyCode())) return false;
       if (!getLanguageCode()
           .equals(other.getLanguageCode())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -20366,7 +19996,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       hash = (53 * hash) + getCurrencyCode().hashCode();
       hash = (37 * hash) + LANGUAGE_CODE_FIELD_NUMBER;
       hash = (53 * hash) + getLanguageCode().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -20488,26 +20118,20 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         currencyCode_ = "";
-
         languageCode_ = "";
-
         return this;
       }
 
@@ -20534,10 +20158,19 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings result = new com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings(this);
-        result.currencyCode_ = currencyCode_;
-        result.languageCode_ = languageCode_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.currencyCode_ = currencyCode_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.languageCode_ = languageCode_;
+        }
       }
 
       @java.lang.Override
@@ -20586,13 +20219,15 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         if (other == com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings.getDefaultInstance()) return this;
         if (!other.getCurrencyCode().isEmpty()) {
           currencyCode_ = other.currencyCode_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getLanguageCode().isEmpty()) {
           languageCode_ = other.languageCode_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -20607,19 +20242,43 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                currencyCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                languageCode_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.LocalizationSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object currencyCode_ = "";
       /**
@@ -20680,11 +20339,9 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setCurrencyCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         currencyCode_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -20699,8 +20356,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearCurrencyCode() {
-        
         currencyCode_ = getDefaultInstance().getCurrencyCode();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -20717,12 +20374,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setCurrencyCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         currencyCode_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -20786,11 +20441,9 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setLanguageCode(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         languageCode_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -20805,8 +20458,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearLanguageCode() {
-        
         languageCode_ = getDefaultInstance().getLanguageCode();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -20823,12 +20476,10 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setLanguageCodeBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         languageCode_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -20865,7 +20516,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocalizationSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -20962,58 +20624,6 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StringList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                values_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              values_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          values_ = values_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobResourcesProto.internal_static_google_ads_admob_v1_StringList_descriptor;
@@ -21028,6 +20638,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
     }
 
     public static final int VALUES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList values_;
     /**
      * <pre>
@@ -21095,7 +20706,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       for (int i = 0; i < values_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, values_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -21112,7 +20723,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         size += dataSize;
         size += 1 * getValuesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -21129,7 +20740,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       if (!getValuesList()
           .equals(other.getValuesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -21144,7 +20755,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
         hash = (37 * hash) + VALUES_FIELD_NUMBER;
         hash = (53 * hash) + getValuesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -21265,22 +20876,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
 
       // Construct using com.google.ads.admob.v1.AdMobResourcesProto.StringList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         values_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -21309,14 +20916,22 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobResourcesProto.StringList buildPartial() {
         com.google.ads.admob.v1.AdMobResourcesProto.StringList result = new com.google.ads.admob.v1.AdMobResourcesProto.StringList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.admob.v1.AdMobResourcesProto.StringList result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           values_ = values_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.values_ = values_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobResourcesProto.StringList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -21373,7 +20988,7 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -21388,17 +21003,36 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobResourcesProto.StringList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureValuesIsMutable();
+                values_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobResourcesProto.StringList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -21470,10 +21104,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder setValues(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValuesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureValuesIsMutable();
         values_.set(index, value);
         onChanged();
         return this;
@@ -21489,10 +21121,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder addValues(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValuesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureValuesIsMutable();
         values_.add(value);
         onChanged();
         return this;
@@ -21539,10 +21169,8 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
        */
       public Builder addValuesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureValuesIsMutable();
         values_.add(value);
         onChanged();
@@ -21581,7 +21209,18 @@ com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.MetricValue defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StringList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

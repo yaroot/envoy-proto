@@ -29,7 +29,7 @@ public interface AcceleratorTypeOrBuilder extends
 
   /**
    * <pre>
-   * the accelerator type.
+   * The accelerator type.
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -38,7 +38,7 @@ public interface AcceleratorTypeOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * the accelerator type.
+   * The accelerator type.
    * </pre>
    *
    * <code>string type = 2;</code>

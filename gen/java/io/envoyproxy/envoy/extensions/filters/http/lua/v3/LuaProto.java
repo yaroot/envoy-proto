@@ -44,22 +44,23 @@ public final class LuaProto {
       "#envoy/annotations/deprecation.proto\032\035ud" +
       "pa/annotations/status.proto\032!udpa/annota" +
       "tions/versioning.proto\032\027validate/validat" +
-      "e.proto\"\272\002\n\003Lua\022 \n\013inline_code\030\001 \001(\tB\013\030\001" +
+      "e.proto\"\317\002\n\003Lua\022 \n\013inline_code\030\001 \001(\tB\013\030\001" +
       "\222\307\206\330\004\0033.0\022P\n\014source_codes\030\002 \003(\0132:.envoy." +
       "extensions.filters.http.lua.v3.Lua.Sourc" +
       "eCodesEntry\022=\n\023default_source_code\030\003 \001(\013" +
-      "2 .envoy.config.core.v3.DataSource\032T\n\020So" +
-      "urceCodesEntry\022\013\n\003key\030\001 \001(\t\022/\n\005value\030\002 \001" +
-      "(\0132 .envoy.config.core.v3.DataSource:\0028\001" +
-      ":*\232\305\210\036%\n#envoy.config.filter.http.lua.v2" +
-      ".Lua\"\215\001\n\013LuaPerRoute\022\033\n\010disabled\030\001 \001(\010B\007" +
-      "\372B\004j\002\010\001H\000\022\027\n\004name\030\002 \001(\tB\007\372B\004r\002\020\001H\000\0227\n\013so" +
-      "urce_code\030\003 \001(\0132 .envoy.config.core.v3.D" +
-      "ataSourceH\000B\017\n\010override\022\003\370B\001B\233\001\n2io.envo" +
-      "yproxy.envoy.extensions.filters.http.lua" +
-      ".v3B\010LuaProtoP\001ZQgithub.com/envoyproxy/g" +
-      "o-control-plane/envoy/extensions/filters" +
-      "/http/lua/v3;luav3\272\200\310\321\006\002\020\002b\006proto3"
+      "2 .envoy.config.core.v3.DataSource\022\023\n\013st" +
+      "at_prefix\030\004 \001(\t\032T\n\020SourceCodesEntry\022\013\n\003k" +
+      "ey\030\001 \001(\t\022/\n\005value\030\002 \001(\0132 .envoy.config.c" +
+      "ore.v3.DataSource:\0028\001:*\232\305\210\036%\n#envoy.conf" +
+      "ig.filter.http.lua.v2.Lua\"\215\001\n\013LuaPerRout" +
+      "e\022\033\n\010disabled\030\001 \001(\010B\007\372B\004j\002\010\001H\000\022\027\n\004name\030\002" +
+      " \001(\tB\007\372B\004r\002\020\001H\000\0227\n\013source_code\030\003 \001(\0132 .e" +
+      "nvoy.config.core.v3.DataSourceH\000B\017\n\010over" +
+      "ride\022\003\370B\001B\233\001\n2io.envoyproxy.envoy.extens" +
+      "ions.filters.http.lua.v3B\010LuaProtoP\001ZQgi" +
+      "thub.com/envoyproxy/go-control-plane/env" +
+      "oy/extensions/filters/http/lua/v3;luav3\272" +
+      "\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -75,7 +76,7 @@ public final class LuaProto {
     internal_static_envoy_extensions_filters_http_lua_v3_Lua_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_lua_v3_Lua_descriptor,
-        new java.lang.String[] { "InlineCode", "SourceCodes", "DefaultSourceCode", });
+        new java.lang.String[] { "InlineCode", "SourceCodes", "DefaultSourceCode", "StatPrefix", });
     internal_static_envoy_extensions_filters_http_lua_v3_Lua_SourceCodesEntry_descriptor =
       internal_static_envoy_extensions_filters_http_lua_v3_Lua_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_filters_http_lua_v3_Lua_SourceCodesEntry_fieldAccessorTable = new

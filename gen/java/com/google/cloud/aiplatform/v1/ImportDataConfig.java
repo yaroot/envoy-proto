@@ -36,79 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportDataConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1.GcsSource.Builder subBuilder = null;
-            if (sourceCase_ == 1) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.GcsSource) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.GcsSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.GcsSource) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 1;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dataItemLabels_ = com.google.protobuf.MapField.newMapField(
-                  DataItemLabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            dataItemLabels__ = input.readMessage(
-                DataItemLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            dataItemLabels_.getMutableMap().put(
-                dataItemLabels__.getKey(), dataItemLabels__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            importSchemaUri_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.DatasetProto.internal_static_google_cloud_aiplatform_v1_ImportDataConfig_descriptor;
@@ -121,6 +48,8 @@ private static final long serialVersionUID = 0L;
     switch (number) {
       case 2:
         return internalGetDataItemLabels();
+      case 3:
+        return internalGetAnnotationLabels();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -228,6 +157,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> dataItemLabels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -238,7 +168,6 @@ private static final long serialVersionUID = 0L;
     }
     return dataItemLabels_;
   }
-
   public int getDataItemLabelsCount() {
     return internalGetDataItemLabels().getMap().size();
   }
@@ -259,7 +188,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsDataItemLabels(
       java.lang.String key) {
@@ -292,7 +220,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getDataItemLabelsMap() {
     return internalGetDataItemLabels().getMap();
   }
@@ -314,10 +241,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getDataItemLabelsOrDefault(
+  public /* nullable */
+java.lang.String getDataItemLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetDataItemLabels().getMap();
@@ -341,7 +269,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getDataItemLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -353,8 +280,128 @@ private static final long serialVersionUID = 0L;
     return map.get(key);
   }
 
+  public static final int ANNOTATION_LABELS_FIELD_NUMBER = 3;
+  private static final class AnnotationLabelsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, java.lang.String> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, java.lang.String>newDefaultInstance(
+                com.google.cloud.aiplatform.v1.DatasetProto.internal_static_google_cloud_aiplatform_v1_ImportDataConfig_AnnotationLabelsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "");
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, java.lang.String> annotationLabels_;
+  private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+  internalGetAnnotationLabels() {
+    if (annotationLabels_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          AnnotationLabelsDefaultEntryHolder.defaultEntry);
+    }
+    return annotationLabels_;
+  }
+  public int getAnnotationLabelsCount() {
+    return internalGetAnnotationLabels().getMap().size();
+  }
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  @java.lang.Override
+  public boolean containsAnnotationLabels(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetAnnotationLabels().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getAnnotationLabelsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, java.lang.String> getAnnotationLabels() {
+    return getAnnotationLabelsMap();
+  }
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, java.lang.String> getAnnotationLabelsMap() {
+    return internalGetAnnotationLabels().getMap();
+  }
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+java.lang.String getAnnotationLabelsOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetAnnotationLabels().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * Labels that will be applied to newly imported Annotations. If two
+   * Annotations are identical, one of them will be deduped. Two Annotations are
+   * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+   * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+   * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+   * These labels will be overridden by Annotation labels specified inside index
+   * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+   */
+  @java.lang.Override
+  public java.lang.String getAnnotationLabelsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, java.lang.String> map =
+        internalGetAnnotationLabels().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
+  }
+
   public static final int IMPORT_SCHEMA_URI_FIELD_NUMBER = 4;
-  private volatile java.lang.Object importSchemaUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object importSchemaUri_ = "";
   /**
    * <pre>
    * Required. Points to a YAML file stored on Google Cloud Storage describing the import
@@ -428,10 +475,16 @@ private static final long serialVersionUID = 0L;
         internalGetDataItemLabels(),
         DataItemLabelsDefaultEntryHolder.defaultEntry,
         2);
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetAnnotationLabels(),
+        AnnotationLabelsDefaultEntryHolder.defaultEntry,
+        3);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importSchemaUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, importSchemaUri_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -454,10 +507,20 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, dataItemLabels__);
     }
+    for (java.util.Map.Entry<java.lang.String, java.lang.String> entry
+         : internalGetAnnotationLabels().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+      annotationLabels__ = AnnotationLabelsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, annotationLabels__);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(importSchemaUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, importSchemaUri_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -474,6 +537,8 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetDataItemLabels().equals(
         other.internalGetDataItemLabels())) return false;
+    if (!internalGetAnnotationLabels().equals(
+        other.internalGetAnnotationLabels())) return false;
     if (!getImportSchemaUri()
         .equals(other.getImportSchemaUri())) return false;
     if (!getSourceCase().equals(other.getSourceCase())) return false;
@@ -485,7 +550,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -500,6 +565,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATA_ITEM_LABELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetDataItemLabels().hashCode();
     }
+    if (!internalGetAnnotationLabels().getMap().isEmpty()) {
+      hash = (37 * hash) + ANNOTATION_LABELS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetAnnotationLabels().hashCode();
+    }
     hash = (37 * hash) + IMPORT_SCHEMA_URI_FIELD_NUMBER;
     hash = (53 * hash) + getImportSchemaUri().hashCode();
     switch (sourceCase_) {
@@ -510,7 +579,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -628,6 +697,8 @@ private static final long serialVersionUID = 0L;
       switch (number) {
         case 2:
           return internalGetDataItemLabels();
+        case 3:
+          return internalGetAnnotationLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -639,6 +710,8 @@ private static final long serialVersionUID = 0L;
       switch (number) {
         case 2:
           return internalGetMutableDataItemLabels();
+        case 3:
+          return internalGetMutableAnnotationLabels();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -654,25 +727,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.ImportDataConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (gcsSourceBuilder_ != null) {
+        gcsSourceBuilder_.clear();
+      }
       internalGetMutableDataItemLabels().clear();
+      internalGetMutableAnnotationLabels().clear();
       importSchemaUri_ = "";
-
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -701,20 +773,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.ImportDataConfig buildPartial() {
       com.google.cloud.aiplatform.v1.ImportDataConfig result = new com.google.cloud.aiplatform.v1.ImportDataConfig(this);
-      int from_bitField0_ = bitField0_;
-      if (sourceCase_ == 1) {
-        if (gcsSourceBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = gcsSourceBuilder_.build();
-        }
-      }
-      result.dataItemLabels_ = internalGetDataItemLabels();
-      result.dataItemLabels_.makeImmutable();
-      result.importSchemaUri_ = importSchemaUri_;
-      result.sourceCase_ = sourceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.ImportDataConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataItemLabels_ = internalGetDataItemLabels();
+        result.dataItemLabels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.annotationLabels_ = internalGetAnnotationLabels();
+        result.annotationLabels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.importSchemaUri_ = importSchemaUri_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1.ImportDataConfig result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 1 &&
+          gcsSourceBuilder_ != null) {
+        result.source_ = gcsSourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -763,8 +849,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1.ImportDataConfig.getDefaultInstance()) return this;
       internalGetMutableDataItemLabels().mergeFrom(
           other.internalGetDataItemLabels());
+      bitField0_ |= 0x00000002;
+      internalGetMutableAnnotationLabels().mergeFrom(
+          other.internalGetAnnotationLabels());
+      bitField0_ |= 0x00000004;
       if (!other.getImportSchemaUri().isEmpty()) {
         importSchemaUri_ = other.importSchemaUri_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       switch (other.getSourceCase()) {
@@ -776,7 +867,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -791,17 +882,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.ImportDataConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGcsSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              dataItemLabels__ = input.readMessage(
+                  DataItemLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDataItemLabels().getMutableMap().put(
+                  dataItemLabels__.getKey(), dataItemLabels__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              annotationLabels__ = input.readMessage(
+                  AnnotationLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAnnotationLabels().getMutableMap().put(
+                  annotationLabels__.getKey(), annotationLabels__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              importSchemaUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.ImportDataConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -995,14 +1129,14 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 1;
-      onChanged();;
+      onChanged();
       return gcsSourceBuilder_;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> dataItemLabels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetDataItemLabels() {
+        internalGetDataItemLabels() {
       if (dataItemLabels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             DataItemLabelsDefaultEntryHolder.defaultEntry);
@@ -1010,8 +1144,7 @@ private static final long serialVersionUID = 0L;
       return dataItemLabels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableDataItemLabels() {
-      onChanged();;
+        internalGetMutableDataItemLabels() {
       if (dataItemLabels_ == null) {
         dataItemLabels_ = com.google.protobuf.MapField.newMapField(
             DataItemLabelsDefaultEntryHolder.defaultEntry);
@@ -1019,9 +1152,10 @@ private static final long serialVersionUID = 0L;
       if (!dataItemLabels_.isMutable()) {
         dataItemLabels_ = dataItemLabels_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return dataItemLabels_;
     }
-
     public int getDataItemLabelsCount() {
       return internalGetDataItemLabels().getMap().size();
     }
@@ -1042,7 +1176,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsDataItemLabels(
         java.lang.String key) {
@@ -1075,7 +1208,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getDataItemLabelsMap() {
       return internalGetDataItemLabels().getMap();
     }
@@ -1097,10 +1229,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getDataItemLabelsOrDefault(
+    public /* nullable */
+java.lang.String getDataItemLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetDataItemLabels().getMap();
@@ -1124,7 +1257,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getDataItemLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1135,8 +1267,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearDataItemLabels() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableDataItemLabels().getMutableMap()
           .clear();
       return this;
@@ -1158,7 +1290,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
      */
-
     public Builder removeDataItemLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1171,7 +1302,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableDataItemLabels() {
+        getMutableDataItemLabels() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableDataItemLabels().getMutableMap();
     }
     /**
@@ -1195,12 +1327,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableDataItemLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1220,11 +1350,208 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; data_item_labels = 2;</code>
      */
-
     public Builder putAllDataItemLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableDataItemLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, java.lang.String> annotationLabels_;
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetAnnotationLabels() {
+      if (annotationLabels_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AnnotationLabelsDefaultEntryHolder.defaultEntry);
+      }
+      return annotationLabels_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableAnnotationLabels() {
+      if (annotationLabels_ == null) {
+        annotationLabels_ = com.google.protobuf.MapField.newMapField(
+            AnnotationLabelsDefaultEntryHolder.defaultEntry);
+      }
+      if (!annotationLabels_.isMutable()) {
+        annotationLabels_ = annotationLabels_.copy();
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return annotationLabels_;
+    }
+    public int getAnnotationLabelsCount() {
+      return internalGetAnnotationLabels().getMap().size();
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    @java.lang.Override
+    public boolean containsAnnotationLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetAnnotationLabels().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAnnotationLabelsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String> getAnnotationLabels() {
+      return getAnnotationLabelsMap();
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, java.lang.String> getAnnotationLabelsMap() {
+      return internalGetAnnotationLabels().getMap();
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+java.lang.String getAnnotationLabelsOrDefault(
+        java.lang.String key,
+        /* nullable */
+java.lang.String defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAnnotationLabels().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    @java.lang.Override
+    public java.lang.String getAnnotationLabelsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, java.lang.String> map =
+          internalGetAnnotationLabels().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearAnnotationLabels() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      internalGetMutableAnnotationLabels().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    public Builder removeAnnotationLabels(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableAnnotationLabels().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, java.lang.String>
+        getMutableAnnotationLabels() {
+      bitField0_ |= 0x00000004;
+      return internalGetMutableAnnotationLabels().getMutableMap();
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    public Builder putAnnotationLabels(
+        java.lang.String key,
+        java.lang.String value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableAnnotationLabels().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000004;
+      return this;
+    }
+    /**
+     * <pre>
+     * Labels that will be applied to newly imported Annotations. If two
+     * Annotations are identical, one of them will be deduped. Two Annotations are
+     * considered identical if their [payload][google.cloud.aiplatform.v1.Annotation.payload],
+     * [payload_schema_uri][google.cloud.aiplatform.v1.Annotation.payload_schema_uri] and all of their
+     * [labels][google.cloud.aiplatform.v1.Annotation.labels] are the same.
+     * These labels will be overridden by Annotation labels specified inside index
+     * file referenced by [import_schema_uri][google.cloud.aiplatform.v1.ImportDataConfig.import_schema_uri], e.g. jsonl file.
+     * </pre>
+     *
+     * <code>map&lt;string, string&gt; annotation_labels = 3;</code>
+     */
+    public Builder putAllAnnotationLabels(
+        java.util.Map<java.lang.String, java.lang.String> values) {
+      internalGetMutableAnnotationLabels().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1290,11 +1617,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportSchemaUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       importSchemaUri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1310,8 +1635,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImportSchemaUri() {
-      
       importSchemaUri_ = getDefaultInstance().getImportSchemaUri();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1329,12 +1654,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImportSchemaUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       importSchemaUri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1371,7 +1694,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportDataConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

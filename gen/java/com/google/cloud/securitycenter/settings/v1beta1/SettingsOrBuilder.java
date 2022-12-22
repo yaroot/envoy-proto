@@ -177,7 +177,6 @@ public interface SettingsOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings&gt; component_settings = 7;</code>
    */
-
   /* nullable */
 com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings getComponentSettingsOrDefault(
       java.lang.String key,
@@ -190,7 +189,6 @@ com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings defaultValue)
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.ComponentSettings&gt; component_settings = 7;</code>
    */
-
   com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings getComponentSettingsOrThrow(
       java.lang.String key);
 
@@ -241,7 +239,6 @@ com.google.cloud.securitycenter.settings.v1beta1.ComponentSettings defaultValue)
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.Settings.DetectorGroupSettings&gt; detector_group_settings = 8;</code>
    */
-
   /* nullable */
 com.google.cloud.securitycenter.settings.v1beta1.Settings.DetectorGroupSettings getDetectorGroupSettingsOrDefault(
       java.lang.String key,
@@ -256,7 +253,6 @@ com.google.cloud.securitycenter.settings.v1beta1.Settings.DetectorGroupSettings 
    *
    * <code>map&lt;string, .google.cloud.securitycenter.settings.v1beta1.Settings.DetectorGroupSettings&gt; detector_group_settings = 8;</code>
    */
-
   com.google.cloud.securitycenter.settings.v1beta1.Settings.DetectorGroupSettings getDetectorGroupSettingsOrThrow(
       java.lang.String key);
 

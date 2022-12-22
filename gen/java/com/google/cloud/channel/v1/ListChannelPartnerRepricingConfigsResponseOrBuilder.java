@@ -54,8 +54,9 @@ public interface ListChannelPartnerRepricingConfigsResponseOrBuilder extends
   /**
    * <pre>
    * A token to retrieve the next page of results.
-   * Pass to [ListChannelPartnerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.page_token] to obtain
-   * that page.
+   * Pass to
+   * [ListChannelPartnerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.page_token]
+   * to obtain that page.
    * </pre>
    *
    * <code>string next_page_token = 2;</code>
@@ -65,8 +66,9 @@ public interface ListChannelPartnerRepricingConfigsResponseOrBuilder extends
   /**
    * <pre>
    * A token to retrieve the next page of results.
-   * Pass to [ListChannelPartnerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.page_token] to obtain
-   * that page.
+   * Pass to
+   * [ListChannelPartnerRepricingConfigsRequest.page_token][google.cloud.channel.v1.ListChannelPartnerRepricingConfigsRequest.page_token]
+   * to obtain that page.
    * </pre>
    *
    * <code>string next_page_token = 2;</code>

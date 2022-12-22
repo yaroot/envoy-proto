@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserSequenceStep(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            isDirectlyFollowedBy_ = input.readBool();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            stepScoping_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.analytics.data.v1alpha.SegmentFilterExpression.Builder subBuilder = null;
-            if (segmentFilterExpression_ != null) {
-              subBuilder = segmentFilterExpression_.toBuilder();
-            }
-            segmentFilterExpression_ = input.readMessage(com.google.analytics.data.v1alpha.SegmentFilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(segmentFilterExpression_);
-              segmentFilterExpression_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_UserSequenceStep_descriptor;
@@ -113,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_DIRECTLY_FOLLOWED_BY_FIELD_NUMBER = 1;
-  private boolean isDirectlyFollowedBy_;
+  private boolean isDirectlyFollowedBy_ = false;
   /**
    * <pre>
    * If true, the event satisfying this step must be the very next event
@@ -132,7 +69,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STEP_SCOPING_FIELD_NUMBER = 2;
-  private int stepScoping_;
+  private int stepScoping_ = 0;
   /**
    * <pre>
    * This sequence step must be satisfied in the scoping for the user to
@@ -167,8 +104,7 @@ private static final long serialVersionUID = 0L;
    * @return The stepScoping.
    */
   @java.lang.Override public com.google.analytics.data.v1alpha.UserCriteriaScoping getStepScoping() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.valueOf(stepScoping_);
+    com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.forNumber(stepScoping_);
     return result == null ? com.google.analytics.data.v1alpha.UserCriteriaScoping.UNRECOGNIZED : result;
   }
 
@@ -213,7 +149,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.SegmentFilterExpressionOrBuilder getSegmentFilterExpressionOrBuilder() {
-    return getSegmentFilterExpression();
+    return segmentFilterExpression_ == null ? com.google.analytics.data.v1alpha.SegmentFilterExpression.getDefaultInstance() : segmentFilterExpression_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -239,7 +175,7 @@ private static final long serialVersionUID = 0L;
     if (segmentFilterExpression_ != null) {
       output.writeMessage(3, getSegmentFilterExpression());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -260,7 +196,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSegmentFilterExpression());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -283,7 +219,7 @@ private static final long serialVersionUID = 0L;
       if (!getSegmentFilterExpression()
           .equals(other.getSegmentFilterExpression())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -303,7 +239,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SEGMENT_FILTER_EXPRESSION_FIELD_NUMBER;
       hash = (53 * hash) + getSegmentFilterExpression().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -425,30 +361,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.UserSequenceStep.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       isDirectlyFollowedBy_ = false;
-
       stepScoping_ = 0;
-
-      if (segmentFilterExpressionBuilder_ == null) {
-        segmentFilterExpression_ = null;
-      } else {
-        segmentFilterExpression_ = null;
+      segmentFilterExpression_ = null;
+      if (segmentFilterExpressionBuilder_ != null) {
+        segmentFilterExpressionBuilder_.dispose();
         segmentFilterExpressionBuilder_ = null;
       }
       return this;
@@ -477,15 +406,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.UserSequenceStep buildPartial() {
       com.google.analytics.data.v1alpha.UserSequenceStep result = new com.google.analytics.data.v1alpha.UserSequenceStep(this);
-      result.isDirectlyFollowedBy_ = isDirectlyFollowedBy_;
-      result.stepScoping_ = stepScoping_;
-      if (segmentFilterExpressionBuilder_ == null) {
-        result.segmentFilterExpression_ = segmentFilterExpression_;
-      } else {
-        result.segmentFilterExpression_ = segmentFilterExpressionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.UserSequenceStep result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.isDirectlyFollowedBy_ = isDirectlyFollowedBy_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stepScoping_ = stepScoping_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.segmentFilterExpression_ = segmentFilterExpressionBuilder_ == null
+            ? segmentFilterExpression_
+            : segmentFilterExpressionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -541,7 +479,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSegmentFilterExpression()) {
         mergeSegmentFilterExpression(other.getSegmentFilterExpression());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -556,19 +494,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.UserSequenceStep parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              isDirectlyFollowedBy_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              stepScoping_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getSegmentFilterExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.UserSequenceStep) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean isDirectlyFollowedBy_ ;
     /**
@@ -603,6 +572,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsDirectlyFollowedBy(boolean value) {
       
       isDirectlyFollowedBy_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -619,7 +589,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsDirectlyFollowedBy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       isDirectlyFollowedBy_ = false;
       onChanged();
       return this;
@@ -661,8 +631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStepScopingValue(int value) {
-      
       stepScoping_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -683,8 +653,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.data.v1alpha.UserCriteriaScoping getStepScoping() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.valueOf(stepScoping_);
+      com.google.analytics.data.v1alpha.UserCriteriaScoping result = com.google.analytics.data.v1alpha.UserCriteriaScoping.forNumber(stepScoping_);
       return result == null ? com.google.analytics.data.v1alpha.UserCriteriaScoping.UNRECOGNIZED : result;
     }
     /**
@@ -707,7 +676,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       stepScoping_ = value.getNumber();
       onChanged();
       return this;
@@ -728,7 +697,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStepScoping() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       stepScoping_ = 0;
       onChanged();
       return this;
@@ -748,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the segmentFilterExpression field is set.
      */
     public boolean hasSegmentFilterExpression() {
-      return segmentFilterExpressionBuilder_ != null || segmentFilterExpression_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -782,11 +751,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         segmentFilterExpression_ = value;
-        onChanged();
       } else {
         segmentFilterExpressionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -802,11 +771,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.SegmentFilterExpression.Builder builderForValue) {
       if (segmentFilterExpressionBuilder_ == null) {
         segmentFilterExpression_ = builderForValue.build();
-        onChanged();
       } else {
         segmentFilterExpressionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -820,17 +789,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSegmentFilterExpression(com.google.analytics.data.v1alpha.SegmentFilterExpression value) {
       if (segmentFilterExpressionBuilder_ == null) {
-        if (segmentFilterExpression_ != null) {
-          segmentFilterExpression_ =
-            com.google.analytics.data.v1alpha.SegmentFilterExpression.newBuilder(segmentFilterExpression_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          segmentFilterExpression_ != null &&
+          segmentFilterExpression_ != com.google.analytics.data.v1alpha.SegmentFilterExpression.getDefaultInstance()) {
+          getSegmentFilterExpressionBuilder().mergeFrom(value);
         } else {
           segmentFilterExpression_ = value;
         }
-        onChanged();
       } else {
         segmentFilterExpressionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -843,14 +813,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.SegmentFilterExpression segment_filter_expression = 3;</code>
      */
     public Builder clearSegmentFilterExpression() {
-      if (segmentFilterExpressionBuilder_ == null) {
-        segmentFilterExpression_ = null;
-        onChanged();
-      } else {
-        segmentFilterExpression_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      segmentFilterExpression_ = null;
+      if (segmentFilterExpressionBuilder_ != null) {
+        segmentFilterExpressionBuilder_.dispose();
         segmentFilterExpressionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -863,7 +832,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.SegmentFilterExpression segment_filter_expression = 3;</code>
      */
     public com.google.analytics.data.v1alpha.SegmentFilterExpression.Builder getSegmentFilterExpressionBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSegmentFilterExpressionFieldBuilder().getBuilder();
     }
@@ -939,7 +908,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserSequenceStep(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

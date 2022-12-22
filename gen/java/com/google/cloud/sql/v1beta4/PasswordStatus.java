@@ -34,63 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PasswordStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            locked_ = input.readBool();
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (passwordExpirationTime_ != null) {
-              subBuilder = passwordExpirationTime_.toBuilder();
-            }
-            passwordExpirationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(passwordExpirationTime_);
-              passwordExpirationTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1beta4.CloudSqlUsersProto.internal_static_google_cloud_sql_v1beta4_PasswordStatus_descriptor;
@@ -105,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCKED_FIELD_NUMBER = 1;
-  private boolean locked_;
+  private boolean locked_ = false;
   /**
    * <pre>
    * If true, user does not have login privileges.
@@ -154,7 +97,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPasswordExpirationTimeOrBuilder() {
-    return getPasswordExpirationTime();
+    return passwordExpirationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : passwordExpirationTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -177,7 +120,7 @@ private static final long serialVersionUID = 0L;
     if (passwordExpirationTime_ != null) {
       output.writeMessage(2, getPasswordExpirationTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -194,7 +137,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPasswordExpirationTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
       if (!getPasswordExpirationTime()
           .equals(other.getPasswordExpirationTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -234,7 +177,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PASSWORD_EXPIRATION_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getPasswordExpirationTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -355,28 +298,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1beta4.PasswordStatus.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       locked_ = false;
-
-      if (passwordExpirationTimeBuilder_ == null) {
-        passwordExpirationTime_ = null;
-      } else {
-        passwordExpirationTime_ = null;
+      passwordExpirationTime_ = null;
+      if (passwordExpirationTimeBuilder_ != null) {
+        passwordExpirationTimeBuilder_.dispose();
         passwordExpirationTimeBuilder_ = null;
       }
       return this;
@@ -405,14 +342,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1beta4.PasswordStatus buildPartial() {
       com.google.cloud.sql.v1beta4.PasswordStatus result = new com.google.cloud.sql.v1beta4.PasswordStatus(this);
-      result.locked_ = locked_;
-      if (passwordExpirationTimeBuilder_ == null) {
-        result.passwordExpirationTime_ = passwordExpirationTime_;
-      } else {
-        result.passwordExpirationTime_ = passwordExpirationTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1beta4.PasswordStatus result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.locked_ = locked_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.passwordExpirationTime_ = passwordExpirationTimeBuilder_ == null
+            ? passwordExpirationTime_
+            : passwordExpirationTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -465,7 +409,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPasswordExpirationTime()) {
         mergePasswordExpirationTime(other.getPasswordExpirationTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -480,19 +424,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1beta4.PasswordStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              locked_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getPasswordExpirationTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1beta4.PasswordStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean locked_ ;
     /**
@@ -519,6 +489,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLocked(boolean value) {
       
       locked_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -531,7 +502,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocked() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       locked_ = false;
       onChanged();
       return this;
@@ -549,7 +520,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the passwordExpirationTime field is set.
      */
     public boolean hasPasswordExpirationTime() {
-      return passwordExpirationTimeBuilder_ != null || passwordExpirationTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -579,11 +550,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         passwordExpirationTime_ = value;
-        onChanged();
       } else {
         passwordExpirationTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +568,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (passwordExpirationTimeBuilder_ == null) {
         passwordExpirationTime_ = builderForValue.build();
-        onChanged();
       } else {
         passwordExpirationTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +584,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePasswordExpirationTime(com.google.protobuf.Timestamp value) {
       if (passwordExpirationTimeBuilder_ == null) {
-        if (passwordExpirationTime_ != null) {
-          passwordExpirationTime_ =
-            com.google.protobuf.Timestamp.newBuilder(passwordExpirationTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          passwordExpirationTime_ != null &&
+          passwordExpirationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPasswordExpirationTimeBuilder().mergeFrom(value);
         } else {
           passwordExpirationTime_ = value;
         }
-        onChanged();
       } else {
         passwordExpirationTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +606,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp password_expiration_time = 2;</code>
      */
     public Builder clearPasswordExpirationTime() {
-      if (passwordExpirationTimeBuilder_ == null) {
-        passwordExpirationTime_ = null;
-        onChanged();
-      } else {
-        passwordExpirationTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      passwordExpirationTime_ = null;
+      if (passwordExpirationTimeBuilder_ != null) {
+        passwordExpirationTimeBuilder_.dispose();
         passwordExpirationTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +623,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp password_expiration_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getPasswordExpirationTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPasswordExpirationTimeFieldBuilder().getBuilder();
     }
@@ -724,7 +695,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PasswordStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

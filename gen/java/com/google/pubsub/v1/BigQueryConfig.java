@@ -36,72 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BigQueryConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            table_ = s;
-            break;
-          }
-          case 16: {
-
-            useTopicSchema_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            writeMetadata_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            dropUnknownFields_ = input.readBool();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.pubsub.v1.PubsubProto.internal_static_google_pubsub_v1_BigQueryConfig_descriptor;
@@ -295,7 +229,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TABLE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object table_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object table_ = "";
   /**
    * <pre>
    * The name of the table to which to write data, of the form
@@ -343,7 +278,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_TOPIC_SCHEMA_FIELD_NUMBER = 2;
-  private boolean useTopicSchema_;
+  private boolean useTopicSchema_ = false;
   /**
    * <pre>
    * When true, use the topic's schema as the columns to write to in BigQuery,
@@ -359,7 +294,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WRITE_METADATA_FIELD_NUMBER = 3;
-  private boolean writeMetadata_;
+  private boolean writeMetadata_ = false;
   /**
    * <pre>
    * When true, write the subscription name, message_id, publish_time,
@@ -378,7 +313,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DROP_UNKNOWN_FIELDS_FIELD_NUMBER = 4;
-  private boolean dropUnknownFields_;
+  private boolean dropUnknownFields_ = false;
   /**
    * <pre>
    * When true and use_topic_schema is true, any fields that are a part of the
@@ -397,11 +332,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 5;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
-   * Output only. An output-only field that indicates whether or not the subscription can
-   * receive messages.
+   * Output only. An output-only field that indicates whether or not the
+   * subscription can receive messages.
    * </pre>
    *
    * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -412,16 +347,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. An output-only field that indicates whether or not the subscription can
-   * receive messages.
+   * Output only. An output-only field that indicates whether or not the
+   * subscription can receive messages.
    * </pre>
    *
    * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The state.
    */
   @java.lang.Override public com.google.pubsub.v1.BigQueryConfig.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.pubsub.v1.BigQueryConfig.State result = com.google.pubsub.v1.BigQueryConfig.State.valueOf(state_);
+    com.google.pubsub.v1.BigQueryConfig.State result = com.google.pubsub.v1.BigQueryConfig.State.forNumber(state_);
     return result == null ? com.google.pubsub.v1.BigQueryConfig.State.UNRECOGNIZED : result;
   }
 
@@ -454,7 +388,7 @@ private static final long serialVersionUID = 0L;
     if (state_ != com.google.pubsub.v1.BigQueryConfig.State.STATE_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, state_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -482,7 +416,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, state_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -506,7 +440,7 @@ private static final long serialVersionUID = 0L;
     if (getDropUnknownFields()
         != other.getDropUnknownFields()) return false;
     if (state_ != other.state_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -530,7 +464,7 @@ private static final long serialVersionUID = 0L;
         getDropUnknownFields());
     hash = (37 * hash) + STATE_FIELD_NUMBER;
     hash = (53 * hash) + state_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -651,32 +585,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.pubsub.v1.BigQueryConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       table_ = "";
-
       useTopicSchema_ = false;
-
       writeMetadata_ = false;
-
       dropUnknownFields_ = false;
-
       state_ = 0;
-
       return this;
     }
 
@@ -703,13 +628,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.pubsub.v1.BigQueryConfig buildPartial() {
       com.google.pubsub.v1.BigQueryConfig result = new com.google.pubsub.v1.BigQueryConfig(this);
-      result.table_ = table_;
-      result.useTopicSchema_ = useTopicSchema_;
-      result.writeMetadata_ = writeMetadata_;
-      result.dropUnknownFields_ = dropUnknownFields_;
-      result.state_ = state_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.pubsub.v1.BigQueryConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.table_ = table_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.useTopicSchema_ = useTopicSchema_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.writeMetadata_ = writeMetadata_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.dropUnknownFields_ = dropUnknownFields_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.state_ = state_;
+      }
     }
 
     @java.lang.Override
@@ -758,6 +698,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.pubsub.v1.BigQueryConfig.getDefaultInstance()) return this;
       if (!other.getTable().isEmpty()) {
         table_ = other.table_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getUseTopicSchema() != false) {
@@ -772,7 +713,7 @@ private static final long serialVersionUID = 0L;
       if (other.state_ != 0) {
         setStateValue(other.getStateValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -787,19 +728,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.pubsub.v1.BigQueryConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              table_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              useTopicSchema_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              writeMetadata_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              dropUnknownFields_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.pubsub.v1.BigQueryConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object table_ = "";
     /**
@@ -857,11 +837,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTable(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       table_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -875,8 +853,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTable() {
-      
       table_ = getDefaultInstance().getTable();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -892,12 +870,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTableBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       table_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -929,6 +905,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseTopicSchema(boolean value) {
       
       useTopicSchema_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -942,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseTopicSchema() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       useTopicSchema_ = false;
       onChanged();
       return this;
@@ -981,6 +958,7 @@ private static final long serialVersionUID = 0L;
     public Builder setWriteMetadata(boolean value) {
       
       writeMetadata_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -997,7 +975,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWriteMetadata() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       writeMetadata_ = false;
       onChanged();
       return this;
@@ -1036,6 +1014,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDropUnknownFields(boolean value) {
       
       dropUnknownFields_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1052,7 +1031,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDropUnknownFields() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       dropUnknownFields_ = false;
       onChanged();
       return this;
@@ -1061,8 +1040,8 @@ private static final long serialVersionUID = 0L;
     private int state_ = 0;
     /**
      * <pre>
-     * Output only. An output-only field that indicates whether or not the subscription can
-     * receive messages.
+     * Output only. An output-only field that indicates whether or not the
+     * subscription can receive messages.
      * </pre>
      *
      * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1073,8 +1052,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. An output-only field that indicates whether or not the subscription can
-     * receive messages.
+     * Output only. An output-only field that indicates whether or not the
+     * subscription can receive messages.
      * </pre>
      *
      * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1082,15 +1061,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. An output-only field that indicates whether or not the subscription can
-     * receive messages.
+     * Output only. An output-only field that indicates whether or not the
+     * subscription can receive messages.
      * </pre>
      *
      * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1098,14 +1077,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.pubsub.v1.BigQueryConfig.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.pubsub.v1.BigQueryConfig.State result = com.google.pubsub.v1.BigQueryConfig.State.valueOf(state_);
+      com.google.pubsub.v1.BigQueryConfig.State result = com.google.pubsub.v1.BigQueryConfig.State.forNumber(state_);
       return result == null ? com.google.pubsub.v1.BigQueryConfig.State.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Output only. An output-only field that indicates whether or not the subscription can
-     * receive messages.
+     * Output only. An output-only field that indicates whether or not the
+     * subscription can receive messages.
      * </pre>
      *
      * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1116,22 +1094,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       state_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. An output-only field that indicates whether or not the subscription can
-     * receive messages.
+     * Output only. An output-only field that indicates whether or not the
+     * subscription can receive messages.
      * </pre>
      *
      * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       state_ = 0;
       onChanged();
       return this;
@@ -1169,7 +1147,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BigQueryConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

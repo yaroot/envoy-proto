@@ -35,63 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JwtLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            inCase_ = 1;
-            in_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            inCase_ = 2;
-            in_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            valuePrefix_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.AuthProto.internal_static_google_api_JwtLocation_descriptor;
@@ -112,6 +55,7 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     HEADER(1),
     QUERY(2),
+    COOKIE(4),
     IN_NOT_SET(0);
     private final int value;
     private InCase(int value) {
@@ -131,6 +75,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 1: return HEADER;
         case 2: return QUERY;
+        case 4: return COOKIE;
         case 0: return IN_NOT_SET;
         default: return null;
       }
@@ -274,8 +219,73 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int COOKIE_FIELD_NUMBER = 4;
+  /**
+   * <pre>
+   * Specifies cookie name to extract JWT token.
+   * </pre>
+   *
+   * <code>string cookie = 4;</code>
+   * @return Whether the cookie field is set.
+   */
+  public boolean hasCookie() {
+    return inCase_ == 4;
+  }
+  /**
+   * <pre>
+   * Specifies cookie name to extract JWT token.
+   * </pre>
+   *
+   * <code>string cookie = 4;</code>
+   * @return The cookie.
+   */
+  public java.lang.String getCookie() {
+    java.lang.Object ref = "";
+    if (inCase_ == 4) {
+      ref = in_;
+    }
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      if (inCase_ == 4) {
+        in_ = s;
+      }
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Specifies cookie name to extract JWT token.
+   * </pre>
+   *
+   * <code>string cookie = 4;</code>
+   * @return The bytes for cookie.
+   */
+  public com.google.protobuf.ByteString
+      getCookieBytes() {
+    java.lang.Object ref = "";
+    if (inCase_ == 4) {
+      ref = in_;
+    }
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      if (inCase_ == 4) {
+        in_ = b;
+      }
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int VALUE_PREFIX_FIELD_NUMBER = 3;
-  private volatile java.lang.Object valuePrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object valuePrefix_ = "";
   /**
    * <pre>
    * The value prefix. The value format is "value_prefix{token}"
@@ -355,7 +365,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(valuePrefix_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, valuePrefix_);
     }
-    unknownFields.writeTo(output);
+    if (inCase_ == 4) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, in_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -373,7 +386,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(valuePrefix_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, valuePrefix_);
     }
-    size += unknownFields.getSerializedSize();
+    if (inCase_ == 4) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, in_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -400,10 +416,14 @@ private static final long serialVersionUID = 0L;
         if (!getQuery()
             .equals(other.getQuery())) return false;
         break;
+      case 4:
+        if (!getCookie()
+            .equals(other.getCookie())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -425,10 +445,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + QUERY_FIELD_NUMBER;
         hash = (53 * hash) + getQuery().hashCode();
         break;
+      case 4:
+        hash = (37 * hash) + COOKIE_FIELD_NUMBER;
+        hash = (53 * hash) + getCookie().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -549,24 +573,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.JwtLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       valuePrefix_ = "";
-
       inCase_ = 0;
       in_ = null;
       return this;
@@ -595,16 +614,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.JwtLocation buildPartial() {
       com.google.api.JwtLocation result = new com.google.api.JwtLocation(this);
-      if (inCase_ == 1) {
-        result.in_ = in_;
-      }
-      if (inCase_ == 2) {
-        result.in_ = in_;
-      }
-      result.valuePrefix_ = valuePrefix_;
-      result.inCase_ = inCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.JwtLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.valuePrefix_ = valuePrefix_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.api.JwtLocation result) {
+      result.inCase_ = inCase_;
+      result.in_ = this.in_;
     }
 
     @java.lang.Override
@@ -653,6 +678,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.JwtLocation.getDefaultInstance()) return this;
       if (!other.getValuePrefix().isEmpty()) {
         valuePrefix_ = other.valuePrefix_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       switch (other.getInCase()) {
@@ -668,11 +694,17 @@ private static final long serialVersionUID = 0L;
           onChanged();
           break;
         }
+        case COOKIE: {
+          inCase_ = 4;
+          in_ = other.in_;
+          onChanged();
+          break;
+        }
         case IN_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -687,17 +719,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.JwtLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              inCase_ = 1;
+              in_ = s;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              inCase_ = 2;
+              in_ = s;
+              break;
+            } // case 18
+            case 26: {
+              valuePrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              inCase_ = 4;
+              in_ = s;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.JwtLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int inCase_ = 0;
@@ -715,6 +783,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -792,10 +861,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeader(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  inCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      inCase_ = 1;
       in_ = value;
       onChanged();
       return this;
@@ -827,10 +894,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeaderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inCase_ = 1;
       in_ = value;
       onChanged();
@@ -913,10 +978,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  inCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      inCase_ = 2;
       in_ = value;
       onChanged();
       return this;
@@ -948,11 +1011,126 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inCase_ = 2;
+      in_ = value;
+      onChanged();
+      return this;
+    }
+
+    /**
+     * <pre>
+     * Specifies cookie name to extract JWT token.
+     * </pre>
+     *
+     * <code>string cookie = 4;</code>
+     * @return Whether the cookie field is set.
+     */
+    @java.lang.Override
+    public boolean hasCookie() {
+      return inCase_ == 4;
+    }
+    /**
+     * <pre>
+     * Specifies cookie name to extract JWT token.
+     * </pre>
+     *
+     * <code>string cookie = 4;</code>
+     * @return The cookie.
+     */
+    @java.lang.Override
+    public java.lang.String getCookie() {
+      java.lang.Object ref = "";
+      if (inCase_ == 4) {
+        ref = in_;
+      }
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (inCase_ == 4) {
+          in_ = s;
+        }
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies cookie name to extract JWT token.
+     * </pre>
+     *
+     * <code>string cookie = 4;</code>
+     * @return The bytes for cookie.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCookieBytes() {
+      java.lang.Object ref = "";
+      if (inCase_ == 4) {
+        ref = in_;
+      }
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        if (inCase_ == 4) {
+          in_ = b;
+        }
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies cookie name to extract JWT token.
+     * </pre>
+     *
+     * <code>string cookie = 4;</code>
+     * @param value The cookie to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCookie(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      inCase_ = 4;
+      in_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies cookie name to extract JWT token.
+     * </pre>
+     *
+     * <code>string cookie = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCookie() {
+      if (inCase_ == 4) {
+        inCase_ = 0;
+        in_ = null;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies cookie name to extract JWT token.
+     * </pre>
+     *
+     * <code>string cookie = 4;</code>
+     * @param value The bytes for cookie to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCookieBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      inCase_ = 4;
       in_ = value;
       onChanged();
       return this;
@@ -1029,11 +1207,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValuePrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       valuePrefix_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1052,8 +1228,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValuePrefix() {
-      
       valuePrefix_ = getDefaultInstance().getValuePrefix();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1074,12 +1250,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValuePrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       valuePrefix_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1116,7 +1290,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JwtLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

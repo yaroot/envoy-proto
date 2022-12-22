@@ -195,7 +195,6 @@ public interface TaskOrBuilder extends
    *
    * <code>map&lt;string, string&gt; service_labels = 6;</code>
    */
-
   /* nullable */
 java.lang.String getServiceLabelsOrDefault(
       java.lang.String key,
@@ -208,7 +207,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; service_labels = 6;</code>
    */
-
   java.lang.String getServiceLabelsOrThrow(
       java.lang.String key);
 

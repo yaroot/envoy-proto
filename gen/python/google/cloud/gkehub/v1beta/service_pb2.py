@@ -14,14 +14,13 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
-from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.gkehub.v1beta import feature_pb2 as google_dot_cloud_dot_gkehub_dot_v1beta_dot_feature__pb2
 from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(google/cloud/gkehub/v1beta/service.proto\x12\x1agoogle.cloud.gkehub.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a(google/cloud/gkehub/v1beta/feature.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"n\n\x13ListFeaturesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"g\n\x14ListFeaturesResponse\x12\x36\n\tresources\x18\x01 \x03(\x0b\x32#.google.cloud.gkehub.v1beta.Feature\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"!\n\x11GetFeatureRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x8a\x01\n\x14\x43reateFeatureRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x12\n\nfeature_id\x18\x02 \x01(\t\x12\x35\n\x08resource\x18\x03 \x01(\x0b\x32#.google.cloud.gkehub.v1beta.Feature\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"L\n\x14\x44\x65leteFeatureRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xa5\x01\n\x14UpdateFeatureRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x35\n\x08resource\x18\x03 \x01(\x0b\x32#.google.cloud.gkehub.v1beta.Feature\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xf9\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x63\x61ncel_requested\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x32\xc4\x08\n\x06GkeHub\x12\xb4\x01\n\x0cListFeatures\x12/.google.cloud.gkehub.v1beta.ListFeaturesRequest\x1a\x30.google.cloud.gkehub.v1beta.ListFeaturesResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{parent=projects/*/locations/*}/features\xda\x41\x06parent\x12\xa1\x01\n\nGetFeature\x12-.google.cloud.gkehub.v1beta.GetFeatureRequest\x1a#.google.cloud.gkehub.v1beta.Feature\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{name=projects/*/locations/*/features/*}\xda\x41\x04name\x12\xe0\x01\n\rCreateFeature\x12\x30.google.cloud.gkehub.v1beta.CreateFeatureRequest\x1a\x1d.google.longrunning.Operation\"~\x82\xd3\xe4\x93\x02<\"0/v1beta/{parent=projects/*/locations/*}/features:\x08resource\xda\x41\x1aparent,resource,feature_id\xca\x41\x1c\n\x07\x46\x65\x61ture\x12\x11OperationMetadata\x12\xce\x01\n\rDeleteFeature\x12\x30.google.cloud.gkehub.v1beta.DeleteFeatureRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x32*0/v1beta/{name=projects/*/locations/*/features/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xdf\x01\n\rUpdateFeature\x12\x30.google.cloud.gkehub.v1beta.UpdateFeatureRequest\x1a\x1d.google.longrunning.Operation\"}\x82\xd3\xe4\x93\x02<20/v1beta/{name=projects/*/locations/*/features/*}:\x08resource\xda\x41\x19name,resource,update_mask\xca\x41\x1c\n\x07\x46\x65\x61ture\x12\x11OperationMetadata\x1aI\xca\x41\x15gkehub.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xcc\x01\n\x1e\x63om.google.cloud.gkehub.v1betaB\x0cServiceProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/gkehub/v1beta;gkehub\xaa\x02\x1aGoogle.Cloud.GkeHub.V1Beta\xca\x02\x1aGoogle\\Cloud\\GkeHub\\V1beta\xea\x02\x1dGoogle::Cloud::GkeHub::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n(google/cloud/gkehub/v1beta/service.proto\x12\x1agoogle.cloud.gkehub.v1beta\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a(google/cloud/gkehub/v1beta/feature.proto\x1a#google/longrunning/operations.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"n\n\x13ListFeaturesRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x11\n\tpage_size\x18\x02 \x01(\x05\x12\x12\n\npage_token\x18\x03 \x01(\t\x12\x0e\n\x06\x66ilter\x18\x04 \x01(\t\x12\x10\n\x08order_by\x18\x05 \x01(\t\"g\n\x14ListFeaturesResponse\x12\x36\n\tresources\x18\x01 \x03(\x0b\x32#.google.cloud.gkehub.v1beta.Feature\x12\x17\n\x0fnext_page_token\x18\x02 \x01(\t\"!\n\x11GetFeatureRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\"\x8a\x01\n\x14\x43reateFeatureRequest\x12\x0e\n\x06parent\x18\x01 \x01(\t\x12\x12\n\nfeature_id\x18\x02 \x01(\t\x12\x35\n\x08resource\x18\x03 \x01(\x0b\x32#.google.cloud.gkehub.v1beta.Feature\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"L\n\x14\x44\x65leteFeatureRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x66orce\x18\x02 \x01(\x08\x12\x17\n\nrequest_id\x18\x03 \x01(\tB\x03\xe0\x41\x01\"\xa5\x01\n\x14UpdateFeatureRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12/\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMask\x12\x35\n\x08resource\x18\x03 \x01(\x0b\x32#.google.cloud.gkehub.v1beta.Feature\x12\x17\n\nrequest_id\x18\x04 \x01(\tB\x03\xe0\x41\x01\"\xf9\x01\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1a\n\rstatus_detail\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10\x63\x61ncel_requested\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x32\xc4\x08\n\x06GkeHub\x12\xb4\x01\n\x0cListFeatures\x12/.google.cloud.gkehub.v1beta.ListFeaturesRequest\x1a\x30.google.cloud.gkehub.v1beta.ListFeaturesResponse\"A\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{parent=projects/*/locations/*}/features\xda\x41\x06parent\x12\xa1\x01\n\nGetFeature\x12-.google.cloud.gkehub.v1beta.GetFeatureRequest\x1a#.google.cloud.gkehub.v1beta.Feature\"?\x82\xd3\xe4\x93\x02\x32\x12\x30/v1beta/{name=projects/*/locations/*/features/*}\xda\x41\x04name\x12\xe0\x01\n\rCreateFeature\x12\x30.google.cloud.gkehub.v1beta.CreateFeatureRequest\x1a\x1d.google.longrunning.Operation\"~\x82\xd3\xe4\x93\x02<\"0/v1beta/{parent=projects/*/locations/*}/features:\x08resource\xda\x41\x1aparent,resource,feature_id\xca\x41\x1c\n\x07\x46\x65\x61ture\x12\x11OperationMetadata\x12\xce\x01\n\rDeleteFeature\x12\x30.google.cloud.gkehub.v1beta.DeleteFeatureRequest\x1a\x1d.google.longrunning.Operation\"l\x82\xd3\xe4\x93\x02\x32*0/v1beta/{name=projects/*/locations/*/features/*}\xda\x41\x04name\xca\x41*\n\x15google.protobuf.Empty\x12\x11OperationMetadata\x12\xdf\x01\n\rUpdateFeature\x12\x30.google.cloud.gkehub.v1beta.UpdateFeatureRequest\x1a\x1d.google.longrunning.Operation\"}\x82\xd3\xe4\x93\x02<20/v1beta/{name=projects/*/locations/*/features/*}:\x08resource\xda\x41\x19name,resource,update_mask\xca\x41\x1c\n\x07\x46\x65\x61ture\x12\x11OperationMetadata\x1aI\xca\x41\x15gkehub.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xcc\x01\n\x1e\x63om.google.cloud.gkehub.v1betaB\x0cServiceProtoP\x01Z@google.golang.org/genproto/googleapis/cloud/gkehub/v1beta;gkehub\xaa\x02\x1aGoogle.Cloud.GkeHub.V1Beta\xca\x02\x1aGoogle\\Cloud\\GkeHub\\V1beta\xea\x02\x1dGoogle::Cloud::GkeHub::V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gkehub.v1beta.service_pb2', globals())
@@ -61,20 +60,20 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _GKEHUB.methods_by_name['DeleteFeature']._serialized_options = b'\202\323\344\223\0022*0/v1beta/{name=projects/*/locations/*/features/*}\332A\004name\312A*\n\025google.protobuf.Empty\022\021OperationMetadata'
   _GKEHUB.methods_by_name['UpdateFeature']._options = None
   _GKEHUB.methods_by_name['UpdateFeature']._serialized_options = b'\202\323\344\223\002<20/v1beta/{name=projects/*/locations/*/features/*}:\010resource\332A\031name,resource,update_mask\312A\034\n\007Feature\022\021OperationMetadata'
-  _LISTFEATURESREQUEST._serialized_start=333
-  _LISTFEATURESREQUEST._serialized_end=443
-  _LISTFEATURESRESPONSE._serialized_start=445
-  _LISTFEATURESRESPONSE._serialized_end=548
-  _GETFEATUREREQUEST._serialized_start=550
-  _GETFEATUREREQUEST._serialized_end=583
-  _CREATEFEATUREREQUEST._serialized_start=586
-  _CREATEFEATUREREQUEST._serialized_end=724
-  _DELETEFEATUREREQUEST._serialized_start=726
-  _DELETEFEATUREREQUEST._serialized_end=802
-  _UPDATEFEATUREREQUEST._serialized_start=805
-  _UPDATEFEATUREREQUEST._serialized_end=970
-  _OPERATIONMETADATA._serialized_start=973
-  _OPERATIONMETADATA._serialized_end=1222
-  _GKEHUB._serialized_start=1225
-  _GKEHUB._serialized_end=2317
+  _LISTFEATURESREQUEST._serialized_start=306
+  _LISTFEATURESREQUEST._serialized_end=416
+  _LISTFEATURESRESPONSE._serialized_start=418
+  _LISTFEATURESRESPONSE._serialized_end=521
+  _GETFEATUREREQUEST._serialized_start=523
+  _GETFEATUREREQUEST._serialized_end=556
+  _CREATEFEATUREREQUEST._serialized_start=559
+  _CREATEFEATUREREQUEST._serialized_end=697
+  _DELETEFEATUREREQUEST._serialized_start=699
+  _DELETEFEATUREREQUEST._serialized_end=775
+  _UPDATEFEATUREREQUEST._serialized_start=778
+  _UPDATEFEATUREREQUEST._serialized_end=943
+  _OPERATIONMETADATA._serialized_start=946
+  _OPERATIONMETADATA._serialized_end=1195
+  _GKEHUB._serialized_start=1198
+  _GKEHUB._serialized_end=2290
 # @@protoc_insertion_point(module_scope)

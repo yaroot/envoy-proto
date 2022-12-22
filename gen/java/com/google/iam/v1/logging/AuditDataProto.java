@@ -29,19 +29,17 @@ public final class AuditDataProto {
   static {
     java.lang.String[] descriptorData = {
       "\n&google/iam/v1/logging/audit_data.proto" +
-      "\022\025google.iam.v1.logging\032\034google/api/anno" +
-      "tations.proto\032\032google/iam/v1/policy.prot" +
-      "o\"=\n\tAuditData\0220\n\014policy_delta\030\002 \001(\0132\032.g" +
-      "oogle.iam.v1.PolicyDeltaB\211\001\n\031com.google." +
-      "iam.v1.loggingB\016AuditDataProtoP\001Z<google" +
-      ".golang.org/genproto/googleapis/iam/v1/l" +
-      "ogging;logging\252\002\033Google.Cloud.Iam.V1.Log" +
-      "gingb\006proto3"
+      "\022\025google.iam.v1.logging\032\032google/iam/v1/p" +
+      "olicy.proto\"=\n\tAuditData\0220\n\014policy_delta" +
+      "\030\002 \001(\0132\032.google.iam.v1.PolicyDeltaB\211\001\n\031c" +
+      "om.google.iam.v1.loggingB\016AuditDataProto" +
+      "P\001Z<google.golang.org/genproto/googleapi" +
+      "s/iam/v1/logging;logging\252\002\033Google.Cloud." +
+      "Iam.V1.Loggingb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
           com.google.iam.v1.PolicyProto.getDescriptor(),
         });
     internal_static_google_iam_v1_logging_AuditData_descriptor =
@@ -50,7 +48,6 @@ public final class AuditDataProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_iam_v1_logging_AuditData_descriptor,
         new java.lang.String[] { "PolicyDelta", });
-    com.google.api.AnnotationsProto.getDescriptor();
     com.google.iam.v1.PolicyProto.getDescriptor();
   }
 

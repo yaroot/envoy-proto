@@ -52,7 +52,7 @@ public interface RemoteJwksOrBuilder extends
   /**
    * <pre>
    * Duration after which the cached JWKS should be expired. If not specified, default cache
-   * duration is 5 minutes.
+   * duration is 10 minutes.
    * </pre>
    *
    * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -62,7 +62,7 @@ public interface RemoteJwksOrBuilder extends
   /**
    * <pre>
    * Duration after which the cached JWKS should be expired. If not specified, default cache
-   * duration is 5 minutes.
+   * duration is 10 minutes.
    * </pre>
    *
    * <code>.google.protobuf.Duration cache_duration = 2;</code>
@@ -72,7 +72,7 @@ public interface RemoteJwksOrBuilder extends
   /**
    * <pre>
    * Duration after which the cached JWKS should be expired. If not specified, default cache
-   * duration is 5 minutes.
+   * duration is 10 minutes.
    * </pre>
    *
    * <code>.google.protobuf.Duration cache_duration = 2;</code>

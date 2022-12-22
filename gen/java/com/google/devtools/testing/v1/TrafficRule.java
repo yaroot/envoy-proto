@@ -34,78 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TrafficRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (delay_ != null) {
-              subBuilder = delay_.toBuilder();
-            }
-            delay_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(delay_);
-              delay_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 21: {
-
-            packetLossRatio_ = input.readFloat();
-            break;
-          }
-          case 29: {
-
-            packetDuplicationRatio_ = input.readFloat();
-            break;
-          }
-          case 37: {
-
-            bandwidth_ = input.readFloat();
-            break;
-          }
-          case 45: {
-
-            burst_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestEnvironmentDiscoveryProto.internal_static_google_devtools_testing_v1_TrafficRule_descriptor;
@@ -154,11 +82,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDelayOrBuilder() {
-    return getDelay();
+    return delay_ == null ? com.google.protobuf.Duration.getDefaultInstance() : delay_;
   }
 
   public static final int PACKET_LOSS_RATIO_FIELD_NUMBER = 2;
-  private float packetLossRatio_;
+  private float packetLossRatio_ = 0F;
   /**
    * <pre>
    * Packet loss ratio (0.0 - 1.0).
@@ -173,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PACKET_DUPLICATION_RATIO_FIELD_NUMBER = 3;
-  private float packetDuplicationRatio_;
+  private float packetDuplicationRatio_ = 0F;
   /**
    * <pre>
    * Packet duplication ratio (0.0 - 1.0).
@@ -188,7 +116,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BANDWIDTH_FIELD_NUMBER = 4;
-  private float bandwidth_;
+  private float bandwidth_ = 0F;
   /**
    * <pre>
    * Bandwidth in kbits/second.
@@ -203,7 +131,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BURST_FIELD_NUMBER = 5;
-  private float burst_;
+  private float burst_ = 0F;
   /**
    * <pre>
    * Burst size in kbits.
@@ -246,7 +174,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToRawIntBits(burst_) != 0) {
       output.writeFloat(5, burst_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -275,7 +203,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(5, burst_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -307,7 +235,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Float.floatToIntBits(getBurst())
         != java.lang.Float.floatToIntBits(
             other.getBurst())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -334,7 +262,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + BURST_FIELD_NUMBER;
     hash = (53 * hash) + java.lang.Float.floatToIntBits(
         getBurst());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -455,36 +383,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.TrafficRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (delayBuilder_ == null) {
-        delay_ = null;
-      } else {
-        delay_ = null;
+      bitField0_ = 0;
+      delay_ = null;
+      if (delayBuilder_ != null) {
+        delayBuilder_.dispose();
         delayBuilder_ = null;
       }
       packetLossRatio_ = 0F;
-
       packetDuplicationRatio_ = 0F;
-
       bandwidth_ = 0F;
-
       burst_ = 0F;
-
       return this;
     }
 
@@ -511,17 +430,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.TrafficRule buildPartial() {
       com.google.devtools.testing.v1.TrafficRule result = new com.google.devtools.testing.v1.TrafficRule(this);
-      if (delayBuilder_ == null) {
-        result.delay_ = delay_;
-      } else {
-        result.delay_ = delayBuilder_.build();
-      }
-      result.packetLossRatio_ = packetLossRatio_;
-      result.packetDuplicationRatio_ = packetDuplicationRatio_;
-      result.bandwidth_ = bandwidth_;
-      result.burst_ = burst_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.TrafficRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.delay_ = delayBuilder_ == null
+            ? delay_
+            : delayBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.packetLossRatio_ = packetLossRatio_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.packetDuplicationRatio_ = packetDuplicationRatio_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.bandwidth_ = bandwidth_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.burst_ = burst_;
+      }
     }
 
     @java.lang.Override
@@ -583,7 +515,7 @@ private static final long serialVersionUID = 0L;
       if (other.getBurst() != 0F) {
         setBurst(other.getBurst());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -598,19 +530,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.TrafficRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDelayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 21: {
+              packetLossRatio_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            case 29: {
+              packetDuplicationRatio_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 29
+            case 37: {
+              bandwidth_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 37
+            case 45: {
+              burst_ = input.readFloat();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 45
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.TrafficRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Duration delay_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -624,7 +597,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the delay field is set.
      */
     public boolean hasDelay() {
-      return delayBuilder_ != null || delay_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -654,11 +627,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         delay_ = value;
-        onChanged();
       } else {
         delayBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -672,11 +645,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (delayBuilder_ == null) {
         delay_ = builderForValue.build();
-        onChanged();
       } else {
         delayBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -688,17 +661,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDelay(com.google.protobuf.Duration value) {
       if (delayBuilder_ == null) {
-        if (delay_ != null) {
-          delay_ =
-            com.google.protobuf.Duration.newBuilder(delay_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          delay_ != null &&
+          delay_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDelayBuilder().mergeFrom(value);
         } else {
           delay_ = value;
         }
-        onChanged();
       } else {
         delayBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -709,14 +683,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration delay = 1;</code>
      */
     public Builder clearDelay() {
-      if (delayBuilder_ == null) {
-        delay_ = null;
-        onChanged();
-      } else {
-        delay_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      delay_ = null;
+      if (delayBuilder_ != null) {
+        delayBuilder_.dispose();
         delayBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -727,7 +700,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration delay = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getDelayBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getDelayFieldBuilder().getBuilder();
     }
@@ -792,6 +765,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPacketLossRatio(float value) {
       
       packetLossRatio_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -804,7 +778,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPacketLossRatio() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       packetLossRatio_ = 0F;
       onChanged();
       return this;
@@ -835,6 +809,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPacketDuplicationRatio(float value) {
       
       packetDuplicationRatio_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -847,7 +822,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPacketDuplicationRatio() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       packetDuplicationRatio_ = 0F;
       onChanged();
       return this;
@@ -878,6 +853,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBandwidth(float value) {
       
       bandwidth_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -890,7 +866,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBandwidth() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       bandwidth_ = 0F;
       onChanged();
       return this;
@@ -921,6 +897,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBurst(float value) {
       
       burst_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -933,7 +910,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBurst() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       burst_ = 0F;
       onChanged();
       return this;
@@ -971,7 +948,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TrafficRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

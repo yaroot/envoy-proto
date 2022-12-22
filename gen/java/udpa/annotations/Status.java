@@ -236,56 +236,6 @@ public final class Status {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StatusAnnotation(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              workInProgress_ = input.readBool();
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              packageVersionStatus_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return udpa.annotations.Status.internal_static_udpa_annotations_StatusAnnotation_descriptor;
@@ -300,7 +250,7 @@ public final class Status {
     }
 
     public static final int WORK_IN_PROGRESS_FIELD_NUMBER = 1;
-    private boolean workInProgress_;
+    private boolean workInProgress_ = false;
     /**
      * <pre>
      * The entity is work-in-progress and subject to breaking changes.
@@ -315,7 +265,7 @@ public final class Status {
     }
 
     public static final int PACKAGE_VERSION_STATUS_FIELD_NUMBER = 2;
-    private int packageVersionStatus_;
+    private int packageVersionStatus_ = 0;
     /**
      * <pre>
      * The entity belongs to a package with the given version status.
@@ -336,8 +286,7 @@ public final class Status {
      * @return The packageVersionStatus.
      */
     @java.lang.Override public udpa.annotations.Status.PackageVersionStatus getPackageVersionStatus() {
-      @SuppressWarnings("deprecation")
-      udpa.annotations.Status.PackageVersionStatus result = udpa.annotations.Status.PackageVersionStatus.valueOf(packageVersionStatus_);
+      udpa.annotations.Status.PackageVersionStatus result = udpa.annotations.Status.PackageVersionStatus.forNumber(packageVersionStatus_);
       return result == null ? udpa.annotations.Status.PackageVersionStatus.UNRECOGNIZED : result;
     }
 
@@ -361,7 +310,7 @@ public final class Status {
       if (packageVersionStatus_ != udpa.annotations.Status.PackageVersionStatus.UNKNOWN.getNumber()) {
         output.writeEnum(2, packageVersionStatus_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -378,7 +327,7 @@ public final class Status {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, packageVersionStatus_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -396,7 +345,7 @@ public final class Status {
       if (getWorkInProgress()
           != other.getWorkInProgress()) return false;
       if (packageVersionStatus_ != other.packageVersionStatus_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -412,7 +361,7 @@ public final class Status {
           getWorkInProgress());
       hash = (37 * hash) + PACKAGE_VERSION_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + packageVersionStatus_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -529,26 +478,20 @@ public final class Status {
 
       // Construct using udpa.annotations.Status.StatusAnnotation.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         workInProgress_ = false;
-
         packageVersionStatus_ = 0;
-
         return this;
       }
 
@@ -575,10 +518,19 @@ public final class Status {
       @java.lang.Override
       public udpa.annotations.Status.StatusAnnotation buildPartial() {
         udpa.annotations.Status.StatusAnnotation result = new udpa.annotations.Status.StatusAnnotation(this);
-        result.workInProgress_ = workInProgress_;
-        result.packageVersionStatus_ = packageVersionStatus_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(udpa.annotations.Status.StatusAnnotation result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.workInProgress_ = workInProgress_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.packageVersionStatus_ = packageVersionStatus_;
+        }
       }
 
       @java.lang.Override
@@ -631,7 +583,7 @@ public final class Status {
         if (other.packageVersionStatus_ != 0) {
           setPackageVersionStatusValue(other.getPackageVersionStatusValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -646,19 +598,43 @@ public final class Status {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        udpa.annotations.Status.StatusAnnotation parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                workInProgress_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                packageVersionStatus_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (udpa.annotations.Status.StatusAnnotation) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean workInProgress_ ;
       /**
@@ -685,6 +661,7 @@ public final class Status {
       public Builder setWorkInProgress(boolean value) {
         
         workInProgress_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -697,7 +674,7 @@ public final class Status {
        * @return This builder for chaining.
        */
       public Builder clearWorkInProgress() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         workInProgress_ = false;
         onChanged();
         return this;
@@ -725,8 +702,8 @@ public final class Status {
        * @return This builder for chaining.
        */
       public Builder setPackageVersionStatusValue(int value) {
-        
         packageVersionStatus_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -740,8 +717,7 @@ public final class Status {
        */
       @java.lang.Override
       public udpa.annotations.Status.PackageVersionStatus getPackageVersionStatus() {
-        @SuppressWarnings("deprecation")
-        udpa.annotations.Status.PackageVersionStatus result = udpa.annotations.Status.PackageVersionStatus.valueOf(packageVersionStatus_);
+        udpa.annotations.Status.PackageVersionStatus result = udpa.annotations.Status.PackageVersionStatus.forNumber(packageVersionStatus_);
         return result == null ? udpa.annotations.Status.PackageVersionStatus.UNRECOGNIZED : result;
       }
       /**
@@ -757,7 +733,7 @@ public final class Status {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         packageVersionStatus_ = value.getNumber();
         onChanged();
         return this;
@@ -771,7 +747,7 @@ public final class Status {
        * @return This builder for chaining.
        */
       public Builder clearPackageVersionStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         packageVersionStatus_ = 0;
         onChanged();
         return this;
@@ -809,7 +785,18 @@ public final class Status {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StatusAnnotation(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

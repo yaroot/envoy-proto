@@ -36,75 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompleteTrialRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.Measurement.Builder subBuilder = null;
-            if (finalMeasurement_ != null) {
-              subBuilder = finalMeasurement_.toBuilder();
-            }
-            finalMeasurement_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.Measurement.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(finalMeasurement_);
-              finalMeasurement_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            trialInfeasible_ = input.readBool();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            infeasibleReason_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.VizierServiceProto.internal_static_google_cloud_aiplatform_v1beta1_CompleteTrialRequest_descriptor;
@@ -119,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The Trial's name.
@@ -209,11 +141,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.MeasurementOrBuilder getFinalMeasurementOrBuilder() {
-    return getFinalMeasurement();
+    return finalMeasurement_ == null ? com.google.cloud.aiplatform.v1beta1.Measurement.getDefaultInstance() : finalMeasurement_;
   }
 
   public static final int TRIAL_INFEASIBLE_FIELD_NUMBER = 3;
-  private boolean trialInfeasible_;
+  private boolean trialInfeasible_ = false;
   /**
    * <pre>
    * Optional. True if the Trial cannot be run with the given Parameter, and
@@ -229,7 +161,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INFEASIBLE_REASON_FIELD_NUMBER = 4;
-  private volatile java.lang.Object infeasibleReason_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object infeasibleReason_ = "";
   /**
    * <pre>
    * Optional. A human readable reason why the trial was infeasible. This should
@@ -302,7 +235,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(infeasibleReason_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, infeasibleReason_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -325,7 +258,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(infeasibleReason_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, infeasibleReason_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -351,7 +284,7 @@ private static final long serialVersionUID = 0L;
         != other.getTrialInfeasible()) return false;
     if (!getInfeasibleReason()
         .equals(other.getInfeasibleReason())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -373,7 +306,7 @@ private static final long serialVersionUID = 0L;
         getTrialInfeasible());
     hash = (37 * hash) + INFEASIBLE_REASON_FIELD_NUMBER;
     hash = (53 * hash) + getInfeasibleReason().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -494,34 +427,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (finalMeasurementBuilder_ == null) {
-        finalMeasurement_ = null;
-      } else {
-        finalMeasurement_ = null;
+      finalMeasurement_ = null;
+      if (finalMeasurementBuilder_ != null) {
+        finalMeasurementBuilder_.dispose();
         finalMeasurementBuilder_ = null;
       }
       trialInfeasible_ = false;
-
       infeasibleReason_ = "";
-
       return this;
     }
 
@@ -548,16 +473,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest buildPartial() {
       com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest result = new com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest(this);
-      result.name_ = name_;
-      if (finalMeasurementBuilder_ == null) {
-        result.finalMeasurement_ = finalMeasurement_;
-      } else {
-        result.finalMeasurement_ = finalMeasurementBuilder_.build();
-      }
-      result.trialInfeasible_ = trialInfeasible_;
-      result.infeasibleReason_ = infeasibleReason_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.finalMeasurement_ = finalMeasurementBuilder_ == null
+            ? finalMeasurement_
+            : finalMeasurementBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.trialInfeasible_ = trialInfeasible_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.infeasibleReason_ = infeasibleReason_;
+      }
     }
 
     @java.lang.Override
@@ -606,6 +542,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasFinalMeasurement()) {
@@ -616,9 +553,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getInfeasibleReason().isEmpty()) {
         infeasibleReason_ = other.infeasibleReason_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -633,19 +571,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getFinalMeasurementFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              trialInfeasible_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              infeasibleReason_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.CompleteTrialRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -706,11 +680,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -725,8 +697,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -743,12 +715,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -767,7 +737,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the finalMeasurement field is set.
      */
     public boolean hasFinalMeasurement() {
-      return finalMeasurementBuilder_ != null || finalMeasurement_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -801,11 +771,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         finalMeasurement_ = value;
-        onChanged();
       } else {
         finalMeasurementBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -821,11 +791,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.Measurement.Builder builderForValue) {
       if (finalMeasurementBuilder_ == null) {
         finalMeasurement_ = builderForValue.build();
-        onChanged();
       } else {
         finalMeasurementBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -839,17 +809,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFinalMeasurement(com.google.cloud.aiplatform.v1beta1.Measurement value) {
       if (finalMeasurementBuilder_ == null) {
-        if (finalMeasurement_ != null) {
-          finalMeasurement_ =
-            com.google.cloud.aiplatform.v1beta1.Measurement.newBuilder(finalMeasurement_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          finalMeasurement_ != null &&
+          finalMeasurement_ != com.google.cloud.aiplatform.v1beta1.Measurement.getDefaultInstance()) {
+          getFinalMeasurementBuilder().mergeFrom(value);
         } else {
           finalMeasurement_ = value;
         }
-        onChanged();
       } else {
         finalMeasurementBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -862,14 +833,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Measurement final_measurement = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearFinalMeasurement() {
-      if (finalMeasurementBuilder_ == null) {
-        finalMeasurement_ = null;
-        onChanged();
-      } else {
-        finalMeasurement_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      finalMeasurement_ = null;
+      if (finalMeasurementBuilder_ != null) {
+        finalMeasurementBuilder_.dispose();
         finalMeasurementBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -882,7 +852,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Measurement final_measurement = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.Measurement.Builder getFinalMeasurementBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getFinalMeasurementFieldBuilder().getBuilder();
     }
@@ -953,6 +923,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTrialInfeasible(boolean value) {
       
       trialInfeasible_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -966,7 +937,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTrialInfeasible() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       trialInfeasible_ = false;
       onChanged();
       return this;
@@ -1028,11 +999,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInfeasibleReason(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       infeasibleReason_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1046,8 +1015,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInfeasibleReason() {
-      
       infeasibleReason_ = getDefaultInstance().getInfeasibleReason();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1063,12 +1032,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInfeasibleReasonBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       infeasibleReason_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1105,7 +1072,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompleteTrialRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

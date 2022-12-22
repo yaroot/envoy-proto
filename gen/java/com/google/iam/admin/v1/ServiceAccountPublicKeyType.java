@@ -14,7 +14,7 @@ public enum ServiceAccountPublicKeyType
     implements com.google.protobuf.ProtocolMessageEnum {
   /**
    * <pre>
-   * Unspecified. Returns nothing here.
+   * Do not return the public key.
    * </pre>
    *
    * <code>TYPE_NONE = 0;</code>
@@ -41,7 +41,7 @@ public enum ServiceAccountPublicKeyType
 
   /**
    * <pre>
-   * Unspecified. Returns nothing here.
+   * Do not return the public key.
    * </pre>
    *
    * <code>TYPE_NONE = 0;</code>
@@ -122,7 +122,7 @@ public enum ServiceAccountPublicKeyType
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.getDescriptor().getEnumTypes().get(2);
+    return com.google.iam.admin.v1.Iam.getDescriptor().getEnumTypes().get(2);
   }
 
   private static final ServiceAccountPublicKeyType[] VALUES = values();

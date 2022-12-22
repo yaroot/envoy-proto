@@ -302,160 +302,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PatchConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              rebootConfig_ = rawValue;
-              break;
-            }
-            case 18: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.Builder subBuilder = null;
-              if (retryStrategy_ != null) {
-                subBuilder = retryStrategy_.toBuilder();
-              }
-              retryStrategy_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(retryStrategy_);
-                retryStrategy_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Builder subBuilder = null;
-              if (apt_ != null) {
-                subBuilder = apt_.toBuilder();
-              }
-              apt_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(apt_);
-                apt_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.Builder subBuilder = null;
-              if (yum_ != null) {
-                subBuilder = yum_.toBuilder();
-              }
-              yum_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(yum_);
-                yum_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.Builder subBuilder = null;
-              if (goo_ != null) {
-                subBuilder = goo_.toBuilder();
-              }
-              goo_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(goo_);
-                goo_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.Builder subBuilder = null;
-              if (zypper_ != null) {
-                subBuilder = zypper_.toBuilder();
-              }
-              zypper_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(zypper_);
-                zypper_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Builder subBuilder = null;
-              if (windowsUpdate_ != null) {
-                subBuilder = windowsUpdate_.toBuilder();
-              }
-              windowsUpdate_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(windowsUpdate_);
-                windowsUpdate_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder subBuilder = null;
-              if (preStep_ != null) {
-                subBuilder = preStep_.toBuilder();
-              }
-              preStep_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(preStep_);
-                preStep_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder subBuilder = null;
-              if (postStep_ != null) {
-                subBuilder = postStep_.toBuilder();
-              }
-              postStep_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(postStep_);
-                postStep_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 80: {
-
-              migInstancesAllowed_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_PatchConfig_descriptor;
@@ -638,7 +484,7 @@ public final class PatchJobs {
     }
 
     public static final int REBOOT_CONFIG_FIELD_NUMBER = 1;
-    private int rebootConfig_;
+    private int rebootConfig_ = 0;
     /**
      * <pre>
      * Post-patch reboot settings.
@@ -659,8 +505,7 @@ public final class PatchJobs {
      * @return The rebootConfig.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig getRebootConfig() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig.valueOf(rebootConfig_);
+      com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig.forNumber(rebootConfig_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig.UNRECOGNIZED : result;
     }
 
@@ -705,7 +550,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategyOrBuilder getRetryStrategyOrBuilder() {
-      return getRetryStrategy();
+      return retryStrategy_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.getDefaultInstance() : retryStrategy_;
     }
 
     public static final int APT_FIELD_NUMBER = 3;
@@ -743,7 +588,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettingsOrBuilder getAptOrBuilder() {
-      return getApt();
+      return apt_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.getDefaultInstance() : apt_;
     }
 
     public static final int YUM_FIELD_NUMBER = 4;
@@ -781,7 +626,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettingsOrBuilder getYumOrBuilder() {
-      return getYum();
+      return yum_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.getDefaultInstance() : yum_;
     }
 
     public static final int GOO_FIELD_NUMBER = 5;
@@ -819,7 +664,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettingsOrBuilder getGooOrBuilder() {
-      return getGoo();
+      return goo_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.getDefaultInstance() : goo_;
     }
 
     public static final int ZYPPER_FIELD_NUMBER = 6;
@@ -857,7 +702,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettingsOrBuilder getZypperOrBuilder() {
-      return getZypper();
+      return zypper_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.getDefaultInstance() : zypper_;
     }
 
     public static final int WINDOWS_UPDATE_FIELD_NUMBER = 7;
@@ -895,7 +740,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettingsOrBuilder getWindowsUpdateOrBuilder() {
-      return getWindowsUpdate();
+      return windowsUpdate_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.getDefaultInstance() : windowsUpdate_;
     }
 
     public static final int PRE_STEP_FIELD_NUMBER = 8;
@@ -933,7 +778,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepOrBuilder getPreStepOrBuilder() {
-      return getPreStep();
+      return preStep_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.getDefaultInstance() : preStep_;
     }
 
     public static final int POST_STEP_FIELD_NUMBER = 9;
@@ -971,11 +816,11 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepOrBuilder getPostStepOrBuilder() {
-      return getPostStep();
+      return postStep_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.getDefaultInstance() : postStep_;
     }
 
     public static final int MIG_INSTANCES_ALLOWED_FIELD_NUMBER = 10;
-    private boolean migInstancesAllowed_;
+    private boolean migInstancesAllowed_ = false;
     /**
      * <pre>
      * Allows the patch job to run on Managed instance groups (MIGs).
@@ -1033,7 +878,7 @@ public final class PatchJobs {
       if (migInstancesAllowed_ != false) {
         output.writeBool(10, migInstancesAllowed_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1082,7 +927,7 @@ public final class PatchJobs {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(10, migInstancesAllowed_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1140,7 +985,7 @@ public final class PatchJobs {
       }
       if (getMigInstancesAllowed()
           != other.getMigInstancesAllowed()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1188,7 +1033,7 @@ public final class PatchJobs {
       hash = (37 * hash) + MIG_INSTANCES_ALLOWED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getMigInstancesAllowed());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1310,74 +1155,60 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         rebootConfig_ = 0;
-
-        if (retryStrategyBuilder_ == null) {
-          retryStrategy_ = null;
-        } else {
-          retryStrategy_ = null;
+        retryStrategy_ = null;
+        if (retryStrategyBuilder_ != null) {
+          retryStrategyBuilder_.dispose();
           retryStrategyBuilder_ = null;
         }
-        if (aptBuilder_ == null) {
-          apt_ = null;
-        } else {
-          apt_ = null;
+        apt_ = null;
+        if (aptBuilder_ != null) {
+          aptBuilder_.dispose();
           aptBuilder_ = null;
         }
-        if (yumBuilder_ == null) {
-          yum_ = null;
-        } else {
-          yum_ = null;
+        yum_ = null;
+        if (yumBuilder_ != null) {
+          yumBuilder_.dispose();
           yumBuilder_ = null;
         }
-        if (gooBuilder_ == null) {
-          goo_ = null;
-        } else {
-          goo_ = null;
+        goo_ = null;
+        if (gooBuilder_ != null) {
+          gooBuilder_.dispose();
           gooBuilder_ = null;
         }
-        if (zypperBuilder_ == null) {
-          zypper_ = null;
-        } else {
-          zypper_ = null;
+        zypper_ = null;
+        if (zypperBuilder_ != null) {
+          zypperBuilder_.dispose();
           zypperBuilder_ = null;
         }
-        if (windowsUpdateBuilder_ == null) {
-          windowsUpdate_ = null;
-        } else {
-          windowsUpdate_ = null;
+        windowsUpdate_ = null;
+        if (windowsUpdateBuilder_ != null) {
+          windowsUpdateBuilder_.dispose();
           windowsUpdateBuilder_ = null;
         }
-        if (preStepBuilder_ == null) {
-          preStep_ = null;
-        } else {
-          preStep_ = null;
+        preStep_ = null;
+        if (preStepBuilder_ != null) {
+          preStepBuilder_.dispose();
           preStepBuilder_ = null;
         }
-        if (postStepBuilder_ == null) {
-          postStep_ = null;
-        } else {
-          postStep_ = null;
+        postStep_ = null;
+        if (postStepBuilder_ != null) {
+          postStepBuilder_.dispose();
           postStepBuilder_ = null;
         }
         migInstancesAllowed_ = false;
-
         return this;
       }
 
@@ -1404,50 +1235,59 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig(this);
-        result.rebootConfig_ = rebootConfig_;
-        if (retryStrategyBuilder_ == null) {
-          result.retryStrategy_ = retryStrategy_;
-        } else {
-          result.retryStrategy_ = retryStrategyBuilder_.build();
-        }
-        if (aptBuilder_ == null) {
-          result.apt_ = apt_;
-        } else {
-          result.apt_ = aptBuilder_.build();
-        }
-        if (yumBuilder_ == null) {
-          result.yum_ = yum_;
-        } else {
-          result.yum_ = yumBuilder_.build();
-        }
-        if (gooBuilder_ == null) {
-          result.goo_ = goo_;
-        } else {
-          result.goo_ = gooBuilder_.build();
-        }
-        if (zypperBuilder_ == null) {
-          result.zypper_ = zypper_;
-        } else {
-          result.zypper_ = zypperBuilder_.build();
-        }
-        if (windowsUpdateBuilder_ == null) {
-          result.windowsUpdate_ = windowsUpdate_;
-        } else {
-          result.windowsUpdate_ = windowsUpdateBuilder_.build();
-        }
-        if (preStepBuilder_ == null) {
-          result.preStep_ = preStep_;
-        } else {
-          result.preStep_ = preStepBuilder_.build();
-        }
-        if (postStepBuilder_ == null) {
-          result.postStep_ = postStep_;
-        } else {
-          result.postStep_ = postStepBuilder_.build();
-        }
-        result.migInstancesAllowed_ = migInstancesAllowed_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.rebootConfig_ = rebootConfig_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.retryStrategy_ = retryStrategyBuilder_ == null
+              ? retryStrategy_
+              : retryStrategyBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.apt_ = aptBuilder_ == null
+              ? apt_
+              : aptBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.yum_ = yumBuilder_ == null
+              ? yum_
+              : yumBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.goo_ = gooBuilder_ == null
+              ? goo_
+              : gooBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.zypper_ = zypperBuilder_ == null
+              ? zypper_
+              : zypperBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.windowsUpdate_ = windowsUpdateBuilder_ == null
+              ? windowsUpdate_
+              : windowsUpdateBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.preStep_ = preStepBuilder_ == null
+              ? preStep_
+              : preStepBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.postStep_ = postStepBuilder_ == null
+              ? postStep_
+              : postStepBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.migInstancesAllowed_ = migInstancesAllowed_;
+        }
       }
 
       @java.lang.Override
@@ -1524,7 +1364,7 @@ public final class PatchJobs {
         if (other.getMigInstancesAllowed() != false) {
           setMigInstancesAllowed(other.getMigInstancesAllowed());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1539,19 +1379,99 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                rebootConfig_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getRetryStrategyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getAptFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getYumFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getGooFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getZypperFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getWindowsUpdateFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getPreStepFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                input.readMessage(
+                    getPostStepFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 80: {
+                migInstancesAllowed_ = input.readBool();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int rebootConfig_ = 0;
       /**
@@ -1575,8 +1495,8 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder setRebootConfigValue(int value) {
-        
         rebootConfig_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1590,8 +1510,7 @@ public final class PatchJobs {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig getRebootConfig() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig.valueOf(rebootConfig_);
+        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig.forNumber(rebootConfig_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.PatchConfig.RebootConfig.UNRECOGNIZED : result;
       }
       /**
@@ -1607,7 +1526,7 @@ public final class PatchJobs {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         rebootConfig_ = value.getNumber();
         onChanged();
         return this;
@@ -1621,7 +1540,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearRebootConfig() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         rebootConfig_ = 0;
         onChanged();
         return this;
@@ -1641,7 +1560,7 @@ public final class PatchJobs {
        * @return Whether the retryStrategy field is set.
        */
       public boolean hasRetryStrategy() {
-        return retryStrategyBuilder_ != null || retryStrategy_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1675,11 +1594,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           retryStrategy_ = value;
-          onChanged();
         } else {
           retryStrategyBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1695,11 +1614,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.Builder builderForValue) {
         if (retryStrategyBuilder_ == null) {
           retryStrategy_ = builderForValue.build();
-          onChanged();
         } else {
           retryStrategyBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1713,17 +1632,18 @@ public final class PatchJobs {
        */
       public Builder mergeRetryStrategy(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy value) {
         if (retryStrategyBuilder_ == null) {
-          if (retryStrategy_ != null) {
-            retryStrategy_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.newBuilder(retryStrategy_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            retryStrategy_ != null &&
+            retryStrategy_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.getDefaultInstance()) {
+            getRetryStrategyBuilder().mergeFrom(value);
           } else {
             retryStrategy_ = value;
           }
-          onChanged();
         } else {
           retryStrategyBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1736,14 +1656,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.RetryStrategy retry_strategy = 2;</code>
        */
       public Builder clearRetryStrategy() {
-        if (retryStrategyBuilder_ == null) {
-          retryStrategy_ = null;
-          onChanged();
-        } else {
-          retryStrategy_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        retryStrategy_ = null;
+        if (retryStrategyBuilder_ != null) {
+          retryStrategyBuilder_.dispose();
           retryStrategyBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1756,7 +1675,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.RetryStrategy retry_strategy = 2;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.Builder getRetryStrategyBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getRetryStrategyFieldBuilder().getBuilder();
       }
@@ -1812,7 +1731,7 @@ public final class PatchJobs {
        * @return Whether the apt field is set.
        */
       public boolean hasApt() {
-        return aptBuilder_ != null || apt_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1842,11 +1761,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           apt_ = value;
-          onChanged();
         } else {
           aptBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1860,11 +1779,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Builder builderForValue) {
         if (aptBuilder_ == null) {
           apt_ = builderForValue.build();
-          onChanged();
         } else {
           aptBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1876,17 +1795,18 @@ public final class PatchJobs {
        */
       public Builder mergeApt(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings value) {
         if (aptBuilder_ == null) {
-          if (apt_ != null) {
-            apt_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.newBuilder(apt_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            apt_ != null &&
+            apt_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.getDefaultInstance()) {
+            getAptBuilder().mergeFrom(value);
           } else {
             apt_ = value;
           }
-          onChanged();
         } else {
           aptBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1897,14 +1817,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.AptSettings apt = 3;</code>
        */
       public Builder clearApt() {
-        if (aptBuilder_ == null) {
-          apt_ = null;
-          onChanged();
-        } else {
-          apt_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        apt_ = null;
+        if (aptBuilder_ != null) {
+          aptBuilder_.dispose();
           aptBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1915,7 +1834,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.AptSettings apt = 3;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Builder getAptBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getAptFieldBuilder().getBuilder();
       }
@@ -1967,7 +1886,7 @@ public final class PatchJobs {
        * @return Whether the yum field is set.
        */
       public boolean hasYum() {
-        return yumBuilder_ != null || yum_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -1997,11 +1916,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           yum_ = value;
-          onChanged();
         } else {
           yumBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2015,11 +1934,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.Builder builderForValue) {
         if (yumBuilder_ == null) {
           yum_ = builderForValue.build();
-          onChanged();
         } else {
           yumBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2031,17 +1950,18 @@ public final class PatchJobs {
        */
       public Builder mergeYum(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings value) {
         if (yumBuilder_ == null) {
-          if (yum_ != null) {
-            yum_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.newBuilder(yum_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            yum_ != null &&
+            yum_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.getDefaultInstance()) {
+            getYumBuilder().mergeFrom(value);
           } else {
             yum_ = value;
           }
-          onChanged();
         } else {
           yumBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -2052,14 +1972,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.YumSettings yum = 4;</code>
        */
       public Builder clearYum() {
-        if (yumBuilder_ == null) {
-          yum_ = null;
-          onChanged();
-        } else {
-          yum_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        yum_ = null;
+        if (yumBuilder_ != null) {
+          yumBuilder_.dispose();
           yumBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2070,7 +1989,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.YumSettings yum = 4;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.Builder getYumBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getYumFieldBuilder().getBuilder();
       }
@@ -2122,7 +2041,7 @@ public final class PatchJobs {
        * @return Whether the goo field is set.
        */
       public boolean hasGoo() {
-        return gooBuilder_ != null || goo_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -2152,11 +2071,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           goo_ = value;
-          onChanged();
         } else {
           gooBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2170,11 +2089,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.Builder builderForValue) {
         if (gooBuilder_ == null) {
           goo_ = builderForValue.build();
-          onChanged();
         } else {
           gooBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2186,17 +2105,18 @@ public final class PatchJobs {
        */
       public Builder mergeGoo(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings value) {
         if (gooBuilder_ == null) {
-          if (goo_ != null) {
-            goo_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.newBuilder(goo_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            goo_ != null &&
+            goo_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.getDefaultInstance()) {
+            getGooBuilder().mergeFrom(value);
           } else {
             goo_ = value;
           }
-          onChanged();
         } else {
           gooBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -2207,14 +2127,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.GooSettings goo = 5;</code>
        */
       public Builder clearGoo() {
-        if (gooBuilder_ == null) {
-          goo_ = null;
-          onChanged();
-        } else {
-          goo_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        goo_ = null;
+        if (gooBuilder_ != null) {
+          gooBuilder_.dispose();
           gooBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2225,7 +2144,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.GooSettings goo = 5;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.Builder getGooBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getGooFieldBuilder().getBuilder();
       }
@@ -2277,7 +2196,7 @@ public final class PatchJobs {
        * @return Whether the zypper field is set.
        */
       public boolean hasZypper() {
-        return zypperBuilder_ != null || zypper_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -2307,11 +2226,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           zypper_ = value;
-          onChanged();
         } else {
           zypperBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2325,11 +2244,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.Builder builderForValue) {
         if (zypperBuilder_ == null) {
           zypper_ = builderForValue.build();
-          onChanged();
         } else {
           zypperBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2341,17 +2260,18 @@ public final class PatchJobs {
        */
       public Builder mergeZypper(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings value) {
         if (zypperBuilder_ == null) {
-          if (zypper_ != null) {
-            zypper_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.newBuilder(zypper_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            zypper_ != null &&
+            zypper_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.getDefaultInstance()) {
+            getZypperBuilder().mergeFrom(value);
           } else {
             zypper_ = value;
           }
-          onChanged();
         } else {
           zypperBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2362,14 +2282,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ZypperSettings zypper = 6;</code>
        */
       public Builder clearZypper() {
-        if (zypperBuilder_ == null) {
-          zypper_ = null;
-          onChanged();
-        } else {
-          zypper_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        zypper_ = null;
+        if (zypperBuilder_ != null) {
+          zypperBuilder_.dispose();
           zypperBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2380,7 +2299,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ZypperSettings zypper = 6;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.Builder getZypperBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getZypperFieldBuilder().getBuilder();
       }
@@ -2432,7 +2351,7 @@ public final class PatchJobs {
        * @return Whether the windowsUpdate field is set.
        */
       public boolean hasWindowsUpdate() {
-        return windowsUpdateBuilder_ != null || windowsUpdate_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -2462,11 +2381,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           windowsUpdate_ = value;
-          onChanged();
         } else {
           windowsUpdateBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -2480,11 +2399,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Builder builderForValue) {
         if (windowsUpdateBuilder_ == null) {
           windowsUpdate_ = builderForValue.build();
-          onChanged();
         } else {
           windowsUpdateBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -2496,17 +2415,18 @@ public final class PatchJobs {
        */
       public Builder mergeWindowsUpdate(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings value) {
         if (windowsUpdateBuilder_ == null) {
-          if (windowsUpdate_ != null) {
-            windowsUpdate_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.newBuilder(windowsUpdate_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            windowsUpdate_ != null &&
+            windowsUpdate_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.getDefaultInstance()) {
+            getWindowsUpdateBuilder().mergeFrom(value);
           } else {
             windowsUpdate_ = value;
           }
-          onChanged();
         } else {
           windowsUpdateBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -2517,14 +2437,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.WindowsUpdateSettings windows_update = 7;</code>
        */
       public Builder clearWindowsUpdate() {
-        if (windowsUpdateBuilder_ == null) {
-          windowsUpdate_ = null;
-          onChanged();
-        } else {
-          windowsUpdate_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        windowsUpdate_ = null;
+        if (windowsUpdateBuilder_ != null) {
+          windowsUpdateBuilder_.dispose();
           windowsUpdateBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2535,7 +2454,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.WindowsUpdateSettings windows_update = 7;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Builder getWindowsUpdateBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getWindowsUpdateFieldBuilder().getBuilder();
       }
@@ -2587,7 +2506,7 @@ public final class PatchJobs {
        * @return Whether the preStep field is set.
        */
       public boolean hasPreStep() {
-        return preStepBuilder_ != null || preStep_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -2617,11 +2536,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           preStep_ = value;
-          onChanged();
         } else {
           preStepBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2635,11 +2554,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder builderForValue) {
         if (preStepBuilder_ == null) {
           preStep_ = builderForValue.build();
-          onChanged();
         } else {
           preStepBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2651,17 +2570,18 @@ public final class PatchJobs {
        */
       public Builder mergePreStep(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep value) {
         if (preStepBuilder_ == null) {
-          if (preStep_ != null) {
-            preStep_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.newBuilder(preStep_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            preStep_ != null &&
+            preStep_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.getDefaultInstance()) {
+            getPreStepBuilder().mergeFrom(value);
           } else {
             preStep_ = value;
           }
-          onChanged();
         } else {
           preStepBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -2672,14 +2592,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStep pre_step = 8;</code>
        */
       public Builder clearPreStep() {
-        if (preStepBuilder_ == null) {
-          preStep_ = null;
-          onChanged();
-        } else {
-          preStep_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        preStep_ = null;
+        if (preStepBuilder_ != null) {
+          preStepBuilder_.dispose();
           preStepBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2690,7 +2609,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStep pre_step = 8;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder getPreStepBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getPreStepFieldBuilder().getBuilder();
       }
@@ -2742,7 +2661,7 @@ public final class PatchJobs {
        * @return Whether the postStep field is set.
        */
       public boolean hasPostStep() {
-        return postStepBuilder_ != null || postStep_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -2772,11 +2691,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           postStep_ = value;
-          onChanged();
         } else {
           postStepBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -2790,11 +2709,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder builderForValue) {
         if (postStepBuilder_ == null) {
           postStep_ = builderForValue.build();
-          onChanged();
         } else {
           postStepBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -2806,17 +2725,18 @@ public final class PatchJobs {
        */
       public Builder mergePostStep(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep value) {
         if (postStepBuilder_ == null) {
-          if (postStep_ != null) {
-            postStep_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.newBuilder(postStep_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            postStep_ != null &&
+            postStep_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.getDefaultInstance()) {
+            getPostStepBuilder().mergeFrom(value);
           } else {
             postStep_ = value;
           }
-          onChanged();
         } else {
           postStepBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -2827,14 +2747,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStep post_step = 9;</code>
        */
       public Builder clearPostStep() {
-        if (postStepBuilder_ == null) {
-          postStep_ = null;
-          onChanged();
-        } else {
-          postStep_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        postStep_ = null;
+        if (postStepBuilder_ != null) {
+          postStepBuilder_.dispose();
           postStepBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2845,7 +2764,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStep post_step = 9;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder getPostStepBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getPostStepFieldBuilder().getBuilder();
       }
@@ -2910,6 +2829,7 @@ public final class PatchJobs {
       public Builder setMigInstancesAllowed(boolean value) {
         
         migInstancesAllowed_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -2922,7 +2842,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearMigInstancesAllowed() {
-        
+        bitField0_ = (bitField0_ & ~0x00000200);
         migInstancesAllowed_ = false;
         onChanged();
         return this;
@@ -2960,7 +2880,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PatchConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3134,76 +3065,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AptSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                excludes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              excludes_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                exclusivePackages_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              exclusivePackages_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          exclusivePackages_ = exclusivePackages_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_AptSettings_descriptor;
@@ -3363,7 +3224,7 @@ public final class PatchJobs {
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * By changing the type to DIST, the patching will be performed
@@ -3386,12 +3247,12 @@ public final class PatchJobs {
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type.valueOf(type_);
+      com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type.forNumber(type_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type.UNRECOGNIZED : result;
     }
 
     public static final int EXCLUDES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList excludes_;
     /**
      * <pre>
@@ -3443,6 +3304,7 @@ public final class PatchJobs {
     }
 
     public static final int EXCLUSIVE_PACKAGES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList exclusivePackages_;
     /**
      * <pre>
@@ -3528,7 +3390,7 @@ public final class PatchJobs {
       for (int i = 0; i < exclusivePackages_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, exclusivePackages_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3557,7 +3419,7 @@ public final class PatchJobs {
         size += dataSize;
         size += 1 * getExclusivePackagesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3577,7 +3439,7 @@ public final class PatchJobs {
           .equals(other.getExcludesList())) return false;
       if (!getExclusivePackagesList()
           .equals(other.getExclusivePackagesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3598,7 +3460,7 @@ public final class PatchJobs {
         hash = (37 * hash) + EXCLUSIVE_PACKAGES_FIELD_NUMBER;
         hash = (53 * hash) + getExclusivePackagesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3720,28 +3582,23 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -3768,20 +3625,30 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings(this);
-        int from_bitField0_ = bitField0_;
-        result.type_ = type_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.excludes_ = excludes_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          exclusivePackages_ = exclusivePackages_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.exclusivePackages_ = exclusivePackages_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          excludes_ = excludes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.excludes_ = excludes_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          exclusivePackages_ = exclusivePackages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.exclusivePackages_ = exclusivePackages_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
       }
 
       @java.lang.Override
@@ -3834,7 +3701,7 @@ public final class PatchJobs {
         if (!other.excludes_.isEmpty()) {
           if (excludes_.isEmpty()) {
             excludes_ = other.excludes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureExcludesIsMutable();
             excludes_.addAll(other.excludes_);
@@ -3844,14 +3711,14 @@ public final class PatchJobs {
         if (!other.exclusivePackages_.isEmpty()) {
           if (exclusivePackages_.isEmpty()) {
             exclusivePackages_ = other.exclusivePackages_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureExclusivePackagesIsMutable();
             exclusivePackages_.addAll(other.exclusivePackages_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3866,17 +3733,47 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludesIsMutable();
+                excludes_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExclusivePackagesIsMutable();
+                exclusivePackages_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3905,8 +3802,8 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3921,8 +3818,7 @@ public final class PatchJobs {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type.valueOf(type_);
+        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type.forNumber(type_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.AptSettings.Type.UNRECOGNIZED : result;
       }
       /**
@@ -3939,7 +3835,7 @@ public final class PatchJobs {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -3954,7 +3850,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -3962,9 +3858,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExcludesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           excludes_ = new com.google.protobuf.LazyStringArrayList(excludes_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -4027,10 +3923,8 @@ public final class PatchJobs {
        */
       public Builder setExcludes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.set(index, value);
         onChanged();
         return this;
@@ -4046,10 +3940,8 @@ public final class PatchJobs {
        */
       public Builder addExcludes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
         return this;
@@ -4081,7 +3973,7 @@ public final class PatchJobs {
        */
       public Builder clearExcludes() {
         excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4096,10 +3988,8 @@ public final class PatchJobs {
        */
       public Builder addExcludesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
@@ -4108,9 +3998,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExclusivePackagesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           exclusivePackages_ = new com.google.protobuf.LazyStringArrayList(exclusivePackages_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -4188,10 +4078,8 @@ public final class PatchJobs {
        */
       public Builder setExclusivePackages(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePackagesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePackagesIsMutable();
         exclusivePackages_.set(index, value);
         onChanged();
         return this;
@@ -4210,10 +4098,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePackages(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePackagesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePackagesIsMutable();
         exclusivePackages_.add(value);
         onChanged();
         return this;
@@ -4251,7 +4137,7 @@ public final class PatchJobs {
        */
       public Builder clearExclusivePackages() {
         exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -4269,10 +4155,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePackagesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExclusivePackagesIsMutable();
         exclusivePackages_.add(value);
         onChanged();
@@ -4311,7 +4195,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AptSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4489,80 +4384,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private YumSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              security_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              minimal_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                excludes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              excludes_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                exclusivePackages_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              exclusivePackages_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          exclusivePackages_ = exclusivePackages_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_YumSettings_descriptor;
@@ -4577,7 +4398,7 @@ public final class PatchJobs {
     }
 
     public static final int SECURITY_FIELD_NUMBER = 1;
-    private boolean security_;
+    private boolean security_ = false;
     /**
      * <pre>
      * Adds the `--security` flag to `yum update`. Not supported on
@@ -4593,7 +4414,7 @@ public final class PatchJobs {
     }
 
     public static final int MINIMAL_FIELD_NUMBER = 2;
-    private boolean minimal_;
+    private boolean minimal_ = false;
     /**
      * <pre>
      * Will cause patch to run `yum update-minimal` instead.
@@ -4608,6 +4429,7 @@ public final class PatchJobs {
     }
 
     public static final int EXCLUDES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList excludes_;
     /**
      * <pre>
@@ -4663,6 +4485,7 @@ public final class PatchJobs {
     }
 
     public static final int EXCLUSIVE_PACKAGES_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList exclusivePackages_;
     /**
      * <pre>
@@ -4751,7 +4574,7 @@ public final class PatchJobs {
       for (int i = 0; i < exclusivePackages_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, exclusivePackages_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4784,7 +4607,7 @@ public final class PatchJobs {
         size += dataSize;
         size += 1 * getExclusivePackagesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4807,7 +4630,7 @@ public final class PatchJobs {
           .equals(other.getExcludesList())) return false;
       if (!getExclusivePackagesList()
           .equals(other.getExclusivePackagesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4832,7 +4655,7 @@ public final class PatchJobs {
         hash = (37 * hash) + EXCLUSIVE_PACKAGES_FIELD_NUMBER;
         hash = (53 * hash) + getExclusivePackagesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4955,30 +4778,24 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         security_ = false;
-
         minimal_ = false;
-
         excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -5005,21 +4822,33 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings(this);
-        int from_bitField0_ = bitField0_;
-        result.security_ = security_;
-        result.minimal_ = minimal_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.excludes_ = excludes_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          exclusivePackages_ = exclusivePackages_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.exclusivePackages_ = exclusivePackages_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          excludes_ = excludes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.excludes_ = excludes_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          exclusivePackages_ = exclusivePackages_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.exclusivePackages_ = exclusivePackages_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.security_ = security_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.minimal_ = minimal_;
+        }
       }
 
       @java.lang.Override
@@ -5075,7 +4904,7 @@ public final class PatchJobs {
         if (!other.excludes_.isEmpty()) {
           if (excludes_.isEmpty()) {
             excludes_ = other.excludes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureExcludesIsMutable();
             excludes_.addAll(other.excludes_);
@@ -5085,14 +4914,14 @@ public final class PatchJobs {
         if (!other.exclusivePackages_.isEmpty()) {
           if (exclusivePackages_.isEmpty()) {
             exclusivePackages_ = other.exclusivePackages_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureExclusivePackagesIsMutable();
             exclusivePackages_.addAll(other.exclusivePackages_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5107,17 +4936,52 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                security_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                minimal_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludesIsMutable();
+                excludes_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExclusivePackagesIsMutable();
+                exclusivePackages_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.YumSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5149,6 +5013,7 @@ public final class PatchJobs {
       public Builder setSecurity(boolean value) {
         
         security_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5162,7 +5027,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearSecurity() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         security_ = false;
         onChanged();
         return this;
@@ -5193,6 +5058,7 @@ public final class PatchJobs {
       public Builder setMinimal(boolean value) {
         
         minimal_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5205,7 +5071,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearMinimal() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         minimal_ = false;
         onChanged();
         return this;
@@ -5213,9 +5079,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExcludesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           excludes_ = new com.google.protobuf.LazyStringArrayList(excludes_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -5283,10 +5149,8 @@ public final class PatchJobs {
        */
       public Builder setExcludes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.set(index, value);
         onChanged();
         return this;
@@ -5303,10 +5167,8 @@ public final class PatchJobs {
        */
       public Builder addExcludes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
         return this;
@@ -5340,7 +5202,7 @@ public final class PatchJobs {
        */
       public Builder clearExcludes() {
         excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -5356,10 +5218,8 @@ public final class PatchJobs {
        */
       public Builder addExcludesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
@@ -5368,9 +5228,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExclusivePackagesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           exclusivePackages_ = new com.google.protobuf.LazyStringArrayList(exclusivePackages_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -5448,10 +5308,8 @@ public final class PatchJobs {
        */
       public Builder setExclusivePackages(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePackagesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePackagesIsMutable();
         exclusivePackages_.set(index, value);
         onChanged();
         return this;
@@ -5470,10 +5328,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePackages(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePackagesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePackagesIsMutable();
         exclusivePackages_.add(value);
         onChanged();
         return this;
@@ -5511,7 +5367,7 @@ public final class PatchJobs {
        */
       public Builder clearExclusivePackages() {
         exclusivePackages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5529,10 +5385,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePackagesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExclusivePackagesIsMutable();
         exclusivePackages_.add(value);
         onChanged();
@@ -5571,7 +5425,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new YumSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5626,45 +5491,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GooSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_GooSettings_descriptor;
@@ -5692,7 +5518,7 @@ public final class PatchJobs {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5701,7 +5527,7 @@ public final class PatchJobs {
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5716,7 +5542,7 @@ public final class PatchJobs {
       }
       com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings other = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5727,7 +5553,7 @@ public final class PatchJobs {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5848,18 +5674,13 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -5938,7 +5759,7 @@ public final class PatchJobs {
 
       public Builder mergeFrom(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings other) {
         if (other == com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5953,17 +5774,30 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GooSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -5999,7 +5833,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GooSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6259,104 +6104,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ZypperSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              withOptional_ = input.readBool();
-              break;
-            }
-            case 16: {
-
-              withUpdate_ = input.readBool();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                categories_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              categories_.add(s);
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                severities_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              severities_.add(s);
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                excludes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              excludes_.add(s);
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                exclusivePatches_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              exclusivePatches_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          categories_ = categories_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          severities_ = severities_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          exclusivePatches_ = exclusivePatches_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_ZypperSettings_descriptor;
@@ -6371,7 +6118,7 @@ public final class PatchJobs {
     }
 
     public static final int WITH_OPTIONAL_FIELD_NUMBER = 1;
-    private boolean withOptional_;
+    private boolean withOptional_ = false;
     /**
      * <pre>
      * Adds the `--with-optional` flag to `zypper patch`.
@@ -6386,7 +6133,7 @@ public final class PatchJobs {
     }
 
     public static final int WITH_UPDATE_FIELD_NUMBER = 2;
-    private boolean withUpdate_;
+    private boolean withUpdate_ = false;
     /**
      * <pre>
      * Adds the `--with-update` flag, to `zypper patch`.
@@ -6401,6 +6148,7 @@ public final class PatchJobs {
     }
 
     public static final int CATEGORIES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList categories_;
     /**
      * <pre>
@@ -6456,6 +6204,7 @@ public final class PatchJobs {
     }
 
     public static final int SEVERITIES_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList severities_;
     /**
      * <pre>
@@ -6511,6 +6260,7 @@ public final class PatchJobs {
     }
 
     public static final int EXCLUDES_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList excludes_;
     /**
      * <pre>
@@ -6562,6 +6312,7 @@ public final class PatchJobs {
     }
 
     public static final int EXCLUSIVE_PATCHES_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList exclusivePatches_;
     /**
      * <pre>
@@ -6652,7 +6403,7 @@ public final class PatchJobs {
       for (int i = 0; i < exclusivePatches_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, exclusivePatches_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6701,7 +6452,7 @@ public final class PatchJobs {
         size += dataSize;
         size += 1 * getExclusivePatchesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6728,7 +6479,7 @@ public final class PatchJobs {
           .equals(other.getExcludesList())) return false;
       if (!getExclusivePatchesList()
           .equals(other.getExclusivePatchesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6761,7 +6512,7 @@ public final class PatchJobs {
         hash = (37 * hash) + EXCLUSIVE_PATCHES_FIELD_NUMBER;
         hash = (53 * hash) + getExclusivePatchesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6883,34 +6634,28 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         withOptional_ = false;
-
         withUpdate_ = false;
-
         categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        severities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
-        excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
-        exclusivePatches_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        severities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000008);
+        excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        exclusivePatches_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -6937,31 +6682,43 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings(this);
-        int from_bitField0_ = bitField0_;
-        result.withOptional_ = withOptional_;
-        result.withUpdate_ = withUpdate_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          categories_ = categories_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.categories_ = categories_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          severities_ = severities_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.severities_ = severities_;
-        if (((bitField0_ & 0x00000004) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000004);
-        }
-        result.excludes_ = excludes_;
-        if (((bitField0_ & 0x00000008) != 0)) {
-          exclusivePatches_ = exclusivePatches_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
-        }
-        result.exclusivePatches_ = exclusivePatches_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          categories_ = categories_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.categories_ = categories_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          severities_ = severities_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.severities_ = severities_;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          excludes_ = excludes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.excludes_ = excludes_;
+        if (((bitField0_ & 0x00000020) != 0)) {
+          exclusivePatches_ = exclusivePatches_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000020);
+        }
+        result.exclusivePatches_ = exclusivePatches_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.withOptional_ = withOptional_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.withUpdate_ = withUpdate_;
+        }
       }
 
       @java.lang.Override
@@ -7017,7 +6774,7 @@ public final class PatchJobs {
         if (!other.categories_.isEmpty()) {
           if (categories_.isEmpty()) {
             categories_ = other.categories_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureCategoriesIsMutable();
             categories_.addAll(other.categories_);
@@ -7027,7 +6784,7 @@ public final class PatchJobs {
         if (!other.severities_.isEmpty()) {
           if (severities_.isEmpty()) {
             severities_ = other.severities_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureSeveritiesIsMutable();
             severities_.addAll(other.severities_);
@@ -7037,7 +6794,7 @@ public final class PatchJobs {
         if (!other.excludes_.isEmpty()) {
           if (excludes_.isEmpty()) {
             excludes_ = other.excludes_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureExcludesIsMutable();
             excludes_.addAll(other.excludes_);
@@ -7047,14 +6804,14 @@ public final class PatchJobs {
         if (!other.exclusivePatches_.isEmpty()) {
           if (exclusivePatches_.isEmpty()) {
             exclusivePatches_ = other.exclusivePatches_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureExclusivePatchesIsMutable();
             exclusivePatches_.addAll(other.exclusivePatches_);
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7069,17 +6826,64 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                withOptional_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                withUpdate_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureCategoriesIsMutable();
+                categories_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureSeveritiesIsMutable();
+                severities_.add(s);
+                break;
+              } // case 34
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludesIsMutable();
+                excludes_.add(s);
+                break;
+              } // case 42
+              case 50: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExclusivePatchesIsMutable();
+                exclusivePatches_.add(s);
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ZypperSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -7109,6 +6913,7 @@ public final class PatchJobs {
       public Builder setWithOptional(boolean value) {
         
         withOptional_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7121,7 +6926,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearWithOptional() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         withOptional_ = false;
         onChanged();
         return this;
@@ -7152,6 +6957,7 @@ public final class PatchJobs {
       public Builder setWithUpdate(boolean value) {
         
         withUpdate_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7164,7 +6970,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearWithUpdate() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         withUpdate_ = false;
         onChanged();
         return this;
@@ -7172,9 +6978,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureCategoriesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           categories_ = new com.google.protobuf.LazyStringArrayList(categories_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
@@ -7242,10 +7048,8 @@ public final class PatchJobs {
        */
       public Builder setCategories(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCategoriesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureCategoriesIsMutable();
         categories_.set(index, value);
         onChanged();
         return this;
@@ -7262,10 +7066,8 @@ public final class PatchJobs {
        */
       public Builder addCategories(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCategoriesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureCategoriesIsMutable();
         categories_.add(value);
         onChanged();
         return this;
@@ -7299,7 +7101,7 @@ public final class PatchJobs {
        */
       public Builder clearCategories() {
         categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -7315,10 +7117,8 @@ public final class PatchJobs {
        */
       public Builder addCategoriesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureCategoriesIsMutable();
         categories_.add(value);
         onChanged();
@@ -7327,9 +7127,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList severities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureSeveritiesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           severities_ = new com.google.protobuf.LazyStringArrayList(severities_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000008;
          }
       }
       /**
@@ -7397,10 +7197,8 @@ public final class PatchJobs {
        */
       public Builder setSeverities(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSeveritiesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSeveritiesIsMutable();
         severities_.set(index, value);
         onChanged();
         return this;
@@ -7417,10 +7215,8 @@ public final class PatchJobs {
        */
       public Builder addSeverities(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSeveritiesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureSeveritiesIsMutable();
         severities_.add(value);
         onChanged();
         return this;
@@ -7454,7 +7250,7 @@ public final class PatchJobs {
        */
       public Builder clearSeverities() {
         severities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -7470,10 +7266,8 @@ public final class PatchJobs {
        */
       public Builder addSeveritiesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureSeveritiesIsMutable();
         severities_.add(value);
         onChanged();
@@ -7482,9 +7276,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExcludesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           excludes_ = new com.google.protobuf.LazyStringArrayList(excludes_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -7547,10 +7341,8 @@ public final class PatchJobs {
        */
       public Builder setExcludes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.set(index, value);
         onChanged();
         return this;
@@ -7566,10 +7358,8 @@ public final class PatchJobs {
        */
       public Builder addExcludes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
         return this;
@@ -7601,7 +7391,7 @@ public final class PatchJobs {
        */
       public Builder clearExcludes() {
         excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -7616,10 +7406,8 @@ public final class PatchJobs {
        */
       public Builder addExcludesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
@@ -7628,9 +7416,9 @@ public final class PatchJobs {
 
       private com.google.protobuf.LazyStringList exclusivePatches_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExclusivePatchesIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           exclusivePatches_ = new com.google.protobuf.LazyStringArrayList(exclusivePatches_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000020;
          }
       }
       /**
@@ -7703,10 +7491,8 @@ public final class PatchJobs {
        */
       public Builder setExclusivePatches(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePatchesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePatchesIsMutable();
         exclusivePatches_.set(index, value);
         onChanged();
         return this;
@@ -7724,10 +7510,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePatches(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePatchesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePatchesIsMutable();
         exclusivePatches_.add(value);
         onChanged();
         return this;
@@ -7763,7 +7547,7 @@ public final class PatchJobs {
        */
       public Builder clearExclusivePatches() {
         exclusivePatches_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -7780,10 +7564,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePatchesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExclusivePatchesIsMutable();
         exclusivePatches_.add(value);
         onChanged();
@@ -7822,7 +7604,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ZypperSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8023,96 +7816,6 @@ public final class PatchJobs {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private WindowsUpdateSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                classifications_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              classifications_.add(rawValue);
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  classifications_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                classifications_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                excludes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              excludes_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                exclusivePatches_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              exclusivePatches_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          classifications_ = java.util.Collections.unmodifiableList(classifications_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          excludes_ = excludes_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          exclusivePatches_ = exclusivePatches_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -8428,14 +8131,14 @@ public final class PatchJobs {
     }
 
     public static final int CLASSIFICATIONS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> classifications_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification> classifications_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification>() {
               public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification.valueOf(from);
+                com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification.forNumber(from);
                 return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.Classification.UNRECOGNIZED : result;
               }
             };
@@ -8511,6 +8214,7 @@ public final class PatchJobs {
     private int classificationsMemoizedSerializedSize;
 
     public static final int EXCLUDES_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList excludes_;
     /**
      * <pre>
@@ -8562,6 +8266,7 @@ public final class PatchJobs {
     }
 
     public static final int EXCLUSIVE_PATCHES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList exclusivePatches_;
     /**
      * <pre>
@@ -8648,7 +8353,7 @@ public final class PatchJobs {
       for (int i = 0; i < exclusivePatches_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, exclusivePatches_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8685,7 +8390,7 @@ public final class PatchJobs {
         size += dataSize;
         size += 1 * getExclusivePatchesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8705,7 +8410,7 @@ public final class PatchJobs {
           .equals(other.getExcludesList())) return false;
       if (!getExclusivePatchesList()
           .equals(other.getExclusivePatchesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8728,7 +8433,7 @@ public final class PatchJobs {
         hash = (37 * hash) + EXCLUSIVE_PATCHES_FIELD_NUMBER;
         hash = (53 * hash) + getExclusivePatchesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8849,22 +8554,18 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         classifications_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
         excludes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -8897,7 +8598,13 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           classifications_ = java.util.Collections.unmodifiableList(classifications_);
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -8913,8 +8620,10 @@ public final class PatchJobs {
           bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.exclusivePatches_ = exclusivePatches_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -8991,7 +8700,7 @@ public final class PatchJobs {
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9006,17 +8715,59 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                ensureClassificationsIsMutable();
+                classifications_.add(tmpRaw);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureClassificationsIsMutable();
+                  classifications_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludesIsMutable();
+                excludes_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExclusivePatchesIsMutable();
+                exclusivePatches_.add(s);
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.WindowsUpdateSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -9288,10 +9039,8 @@ public final class PatchJobs {
        */
       public Builder setExcludes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.set(index, value);
         onChanged();
         return this;
@@ -9307,10 +9056,8 @@ public final class PatchJobs {
        */
       public Builder addExcludes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
         return this;
@@ -9357,10 +9104,8 @@ public final class PatchJobs {
        */
       public Builder addExcludesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExcludesIsMutable();
         excludes_.add(value);
         onChanged();
@@ -9444,10 +9189,8 @@ public final class PatchJobs {
        */
       public Builder setExclusivePatches(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePatchesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePatchesIsMutable();
         exclusivePatches_.set(index, value);
         onChanged();
         return this;
@@ -9465,10 +9208,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePatches(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExclusivePatchesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExclusivePatchesIsMutable();
         exclusivePatches_.add(value);
         onChanged();
         return this;
@@ -9521,10 +9262,8 @@ public final class PatchJobs {
        */
       public Builder addExclusivePatchesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExclusivePatchesIsMutable();
         exclusivePatches_.add(value);
         onChanged();
@@ -9563,7 +9302,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new WindowsUpdateSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9629,50 +9379,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RetryStrategy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              enabled_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_RetryStrategy_descriptor;
@@ -9687,7 +9393,7 @@ public final class PatchJobs {
     }
 
     public static final int ENABLED_FIELD_NUMBER = 1;
-    private boolean enabled_;
+    private boolean enabled_ = false;
     /**
      * <pre>
      * If true, the agent will continue to try and patch until the window has
@@ -9719,7 +9425,7 @@ public final class PatchJobs {
       if (enabled_ != false) {
         output.writeBool(1, enabled_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9732,7 +9438,7 @@ public final class PatchJobs {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(1, enabled_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9749,7 +9455,7 @@ public final class PatchJobs {
 
       if (getEnabled()
           != other.getEnabled()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9763,7 +9469,7 @@ public final class PatchJobs {
       hash = (37 * hash) + ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnabled());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9884,24 +9590,19 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         enabled_ = false;
-
         return this;
       }
 
@@ -9928,9 +9629,16 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy(this);
-        result.enabled_ = enabled_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enabled_ = enabled_;
+        }
       }
 
       @java.lang.Override
@@ -9980,7 +9688,7 @@ public final class PatchJobs {
         if (other.getEnabled() != false) {
           setEnabled(other.getEnabled());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9995,19 +9703,38 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                enabled_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.RetryStrategy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean enabled_ ;
       /**
@@ -10036,6 +9763,7 @@ public final class PatchJobs {
       public Builder setEnabled(boolean value) {
         
         enabled_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10049,7 +9777,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearEnabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         enabled_ = false;
         onChanged();
         return this;
@@ -10087,7 +9815,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RetryStrategy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10196,71 +9935,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ExecStep(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Builder subBuilder = null;
-              if (linuxExecStepConfig_ != null) {
-                subBuilder = linuxExecStepConfig_.toBuilder();
-              }
-              linuxExecStepConfig_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(linuxExecStepConfig_);
-                linuxExecStepConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Builder subBuilder = null;
-              if (windowsExecStepConfig_ != null) {
-                subBuilder = windowsExecStepConfig_.toBuilder();
-              }
-              windowsExecStepConfig_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(windowsExecStepConfig_);
-                windowsExecStepConfig_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_ExecStep_descriptor;
@@ -10309,7 +9983,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfigOrBuilder getLinuxExecStepConfigOrBuilder() {
-      return getLinuxExecStepConfig();
+      return linuxExecStepConfig_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.getDefaultInstance() : linuxExecStepConfig_;
     }
 
     public static final int WINDOWS_EXEC_STEP_CONFIG_FIELD_NUMBER = 2;
@@ -10347,7 +10021,7 @@ public final class PatchJobs {
      */
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfigOrBuilder getWindowsExecStepConfigOrBuilder() {
-      return getWindowsExecStepConfig();
+      return windowsExecStepConfig_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.getDefaultInstance() : windowsExecStepConfig_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10370,7 +10044,7 @@ public final class PatchJobs {
       if (windowsExecStepConfig_ != null) {
         output.writeMessage(2, getWindowsExecStepConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10387,7 +10061,7 @@ public final class PatchJobs {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getWindowsExecStepConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10412,7 +10086,7 @@ public final class PatchJobs {
         if (!getWindowsExecStepConfig()
             .equals(other.getWindowsExecStepConfig())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10431,7 +10105,7 @@ public final class PatchJobs {
         hash = (37 * hash) + WINDOWS_EXEC_STEP_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getWindowsExecStepConfig().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10552,32 +10226,26 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (linuxExecStepConfigBuilder_ == null) {
-          linuxExecStepConfig_ = null;
-        } else {
-          linuxExecStepConfig_ = null;
+        bitField0_ = 0;
+        linuxExecStepConfig_ = null;
+        if (linuxExecStepConfigBuilder_ != null) {
+          linuxExecStepConfigBuilder_.dispose();
           linuxExecStepConfigBuilder_ = null;
         }
-        if (windowsExecStepConfigBuilder_ == null) {
-          windowsExecStepConfig_ = null;
-        } else {
-          windowsExecStepConfig_ = null;
+        windowsExecStepConfig_ = null;
+        if (windowsExecStepConfigBuilder_ != null) {
+          windowsExecStepConfigBuilder_.dispose();
           windowsExecStepConfigBuilder_ = null;
         }
         return this;
@@ -10606,18 +10274,23 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep(this);
-        if (linuxExecStepConfigBuilder_ == null) {
-          result.linuxExecStepConfig_ = linuxExecStepConfig_;
-        } else {
-          result.linuxExecStepConfig_ = linuxExecStepConfigBuilder_.build();
-        }
-        if (windowsExecStepConfigBuilder_ == null) {
-          result.windowsExecStepConfig_ = windowsExecStepConfig_;
-        } else {
-          result.windowsExecStepConfig_ = windowsExecStepConfigBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.linuxExecStepConfig_ = linuxExecStepConfigBuilder_ == null
+              ? linuxExecStepConfig_
+              : linuxExecStepConfigBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.windowsExecStepConfig_ = windowsExecStepConfigBuilder_ == null
+              ? windowsExecStepConfig_
+              : windowsExecStepConfigBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -10670,7 +10343,7 @@ public final class PatchJobs {
         if (other.hasWindowsExecStepConfig()) {
           mergeWindowsExecStepConfig(other.getWindowsExecStepConfig());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10685,19 +10358,47 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getLinuxExecStepConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getWindowsExecStepConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig linuxExecStepConfig_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10711,7 +10412,7 @@ public final class PatchJobs {
        * @return Whether the linuxExecStepConfig field is set.
        */
       public boolean hasLinuxExecStepConfig() {
-        return linuxExecStepConfigBuilder_ != null || linuxExecStepConfig_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -10741,11 +10442,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           linuxExecStepConfig_ = value;
-          onChanged();
         } else {
           linuxExecStepConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10759,11 +10460,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Builder builderForValue) {
         if (linuxExecStepConfigBuilder_ == null) {
           linuxExecStepConfig_ = builderForValue.build();
-          onChanged();
         } else {
           linuxExecStepConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10775,17 +10476,18 @@ public final class PatchJobs {
        */
       public Builder mergeLinuxExecStepConfig(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig value) {
         if (linuxExecStepConfigBuilder_ == null) {
-          if (linuxExecStepConfig_ != null) {
-            linuxExecStepConfig_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.newBuilder(linuxExecStepConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            linuxExecStepConfig_ != null &&
+            linuxExecStepConfig_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.getDefaultInstance()) {
+            getLinuxExecStepConfigBuilder().mergeFrom(value);
           } else {
             linuxExecStepConfig_ = value;
           }
-          onChanged();
         } else {
           linuxExecStepConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10796,14 +10498,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStepConfig linux_exec_step_config = 1;</code>
        */
       public Builder clearLinuxExecStepConfig() {
-        if (linuxExecStepConfigBuilder_ == null) {
-          linuxExecStepConfig_ = null;
-          onChanged();
-        } else {
-          linuxExecStepConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        linuxExecStepConfig_ = null;
+        if (linuxExecStepConfigBuilder_ != null) {
+          linuxExecStepConfigBuilder_.dispose();
           linuxExecStepConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10814,7 +10515,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStepConfig linux_exec_step_config = 1;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Builder getLinuxExecStepConfigBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getLinuxExecStepConfigFieldBuilder().getBuilder();
       }
@@ -10866,7 +10567,7 @@ public final class PatchJobs {
        * @return Whether the windowsExecStepConfig field is set.
        */
       public boolean hasWindowsExecStepConfig() {
-        return windowsExecStepConfigBuilder_ != null || windowsExecStepConfig_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -10896,11 +10597,11 @@ public final class PatchJobs {
             throw new NullPointerException();
           }
           windowsExecStepConfig_ = value;
-          onChanged();
         } else {
           windowsExecStepConfigBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10914,11 +10615,11 @@ public final class PatchJobs {
           com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Builder builderForValue) {
         if (windowsExecStepConfigBuilder_ == null) {
           windowsExecStepConfig_ = builderForValue.build();
-          onChanged();
         } else {
           windowsExecStepConfigBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10930,17 +10631,18 @@ public final class PatchJobs {
        */
       public Builder mergeWindowsExecStepConfig(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig value) {
         if (windowsExecStepConfigBuilder_ == null) {
-          if (windowsExecStepConfig_ != null) {
-            windowsExecStepConfig_ =
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.newBuilder(windowsExecStepConfig_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            windowsExecStepConfig_ != null &&
+            windowsExecStepConfig_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.getDefaultInstance()) {
+            getWindowsExecStepConfigBuilder().mergeFrom(value);
           } else {
             windowsExecStepConfig_ = value;
           }
-          onChanged();
         } else {
           windowsExecStepConfigBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10951,14 +10653,13 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStepConfig windows_exec_step_config = 2;</code>
        */
       public Builder clearWindowsExecStepConfig() {
-        if (windowsExecStepConfigBuilder_ == null) {
-          windowsExecStepConfig_ = null;
-          onChanged();
-        } else {
-          windowsExecStepConfig_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        windowsExecStepConfig_ = null;
+        if (windowsExecStepConfigBuilder_ != null) {
+          windowsExecStepConfigBuilder_.dispose();
           windowsExecStepConfigBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10969,7 +10670,7 @@ public final class PatchJobs {
        * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStepConfig windows_exec_step_config = 2;</code>
        */
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Builder getWindowsExecStepConfigBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getWindowsExecStepConfigFieldBuilder().getBuilder();
       }
@@ -11041,7 +10742,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExecStep(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -11212,96 +10924,6 @@ public final class PatchJobs {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ExecStepConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              executableCase_ = 1;
-              executable_ = s;
-              break;
-            }
-            case 18: {
-              com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject.Builder subBuilder = null;
-              if (executableCase_ == 2) {
-                subBuilder = ((com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject) executable_).toBuilder();
-              }
-              executable_ =
-                  input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject) executable_);
-                executable_ = subBuilder.buildPartial();
-              }
-              executableCase_ = 2;
-              break;
-            }
-            case 24: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                allowedSuccessCodes_ = newIntList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              allowedSuccessCodes_.addInt(input.readInt32());
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                allowedSuccessCodes_ = newIntList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                allowedSuccessCodes_.addInt(input.readInt32());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              interpreter_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          allowedSuccessCodes_.makeImmutable(); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -11633,6 +11255,7 @@ public final class PatchJobs {
     }
 
     public static final int ALLOWED_SUCCESS_CODES_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.IntList allowedSuccessCodes_;
     /**
      * <pre>
@@ -11676,7 +11299,7 @@ public final class PatchJobs {
     private int allowedSuccessCodesMemoizedSerializedSize = -1;
 
     public static final int INTERPRETER_FIELD_NUMBER = 4;
-    private int interpreter_;
+    private int interpreter_ = 0;
     /**
      * <pre>
      * The script interpreter to use to run the script. If no interpreter is
@@ -11703,8 +11326,7 @@ public final class PatchJobs {
      * @return The interpreter.
      */
     @java.lang.Override public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter getInterpreter() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.valueOf(interpreter_);
+      com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.forNumber(interpreter_);
       return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.UNRECOGNIZED : result;
     }
 
@@ -11739,7 +11361,7 @@ public final class PatchJobs {
       if (interpreter_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.INTERPRETER_UNSPECIFIED.getNumber()) {
         output.writeEnum(4, interpreter_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11773,7 +11395,7 @@ public final class PatchJobs {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, interpreter_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11804,7 +11426,7 @@ public final class PatchJobs {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11833,7 +11455,7 @@ public final class PatchJobs {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11954,26 +11576,23 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (gcsObjectBuilder_ != null) {
+          gcsObjectBuilder_.clear();
+        }
         allowedSuccessCodes_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         interpreter_ = 0;
-
         executableCase_ = 0;
         executable_ = null;
         return this;
@@ -12002,26 +11621,35 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig(this);
-        int from_bitField0_ = bitField0_;
-        if (executableCase_ == 1) {
-          result.executable_ = executable_;
-        }
-        if (executableCase_ == 2) {
-          if (gcsObjectBuilder_ == null) {
-            result.executable_ = executable_;
-          } else {
-            result.executable_ = gcsObjectBuilder_.build();
-          }
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          allowedSuccessCodes_.makeImmutable();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.allowedSuccessCodes_ = allowedSuccessCodes_;
-        result.interpreter_ = interpreter_;
-        result.executableCase_ = executableCase_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          allowedSuccessCodes_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.allowedSuccessCodes_ = allowedSuccessCodes_;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.interpreter_ = interpreter_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig result) {
+        result.executableCase_ = executableCase_;
+        result.executable_ = this.executable_;
+        if (executableCase_ == 2 &&
+            gcsObjectBuilder_ != null) {
+          result.executable_ = gcsObjectBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -12071,7 +11699,7 @@ public final class PatchJobs {
         if (!other.allowedSuccessCodes_.isEmpty()) {
           if (allowedSuccessCodes_.isEmpty()) {
             allowedSuccessCodes_ = other.allowedSuccessCodes_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureAllowedSuccessCodesIsMutable();
             allowedSuccessCodes_.addAll(other.allowedSuccessCodes_);
@@ -12096,7 +11724,7 @@ public final class PatchJobs {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -12111,17 +11739,64 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                executableCase_ = 1;
+                executable_ = s;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getGcsObjectFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                executableCase_ = 2;
+                break;
+              } // case 18
+              case 24: {
+                int v = input.readInt32();
+                ensureAllowedSuccessCodesIsMutable();
+                allowedSuccessCodes_.addInt(v);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureAllowedSuccessCodesIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  allowedSuccessCodes_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              case 32: {
+                interpreter_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int executableCase_ = 0;
@@ -12217,10 +11892,8 @@ public final class PatchJobs {
        */
       public Builder setLocalPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  executableCase_ = 1;
+        if (value == null) { throw new NullPointerException(); }
+        executableCase_ = 1;
         executable_ = value;
         onChanged();
         return this;
@@ -12252,10 +11925,8 @@ public final class PatchJobs {
        */
       public Builder setLocalPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         executableCase_ = 1;
         executable_ = value;
         onChanged();
@@ -12436,16 +12107,16 @@ public final class PatchJobs {
           executable_ = null;
         }
         executableCase_ = 2;
-        onChanged();;
+        onChanged();
         return gcsObjectBuilder_;
       }
 
       private com.google.protobuf.Internal.IntList allowedSuccessCodes_ = emptyIntList();
       private void ensureAllowedSuccessCodesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           allowedSuccessCodes_ = mutableCopy(allowedSuccessCodes_);
-          bitField0_ |= 0x00000001;
-         }
+          bitField0_ |= 0x00000004;
+        }
       }
       /**
        * <pre>
@@ -12458,7 +12129,7 @@ public final class PatchJobs {
        */
       public java.util.List<java.lang.Integer>
           getAllowedSuccessCodesList() {
-        return ((bitField0_ & 0x00000001) != 0) ?
+        return ((bitField0_ & 0x00000004) != 0) ?
                  java.util.Collections.unmodifiableList(allowedSuccessCodes_) : allowedSuccessCodes_;
       }
       /**
@@ -12499,6 +12170,7 @@ public final class PatchJobs {
        */
       public Builder setAllowedSuccessCodes(
           int index, int value) {
+        
         ensureAllowedSuccessCodesIsMutable();
         allowedSuccessCodes_.setInt(index, value);
         onChanged();
@@ -12515,6 +12187,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder addAllowedSuccessCodes(int value) {
+        
         ensureAllowedSuccessCodesIsMutable();
         allowedSuccessCodes_.addInt(value);
         onChanged();
@@ -12549,7 +12222,7 @@ public final class PatchJobs {
        */
       public Builder clearAllowedSuccessCodes() {
         allowedSuccessCodes_ = emptyIntList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -12582,8 +12255,8 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder setInterpreterValue(int value) {
-        
         interpreter_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -12600,8 +12273,7 @@ public final class PatchJobs {
        */
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter getInterpreter() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.valueOf(interpreter_);
+        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter result = com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.forNumber(interpreter_);
         return result == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepConfig.Interpreter.UNRECOGNIZED : result;
       }
       /**
@@ -12620,7 +12292,7 @@ public final class PatchJobs {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         interpreter_ = value.getNumber();
         onChanged();
         return this;
@@ -12637,7 +12309,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearInterpreter() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         interpreter_ = 0;
         onChanged();
         return this;
@@ -12675,7 +12347,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExecStepConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12783,62 +12466,6 @@ public final class PatchJobs {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GcsObject(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bucket_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              object_ = s;
-              break;
-            }
-            case 24: {
-
-              generationNumber_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.internal_static_google_cloud_osconfig_agentendpoint_v1_GcsObject_descriptor;
@@ -12853,7 +12480,8 @@ public final class PatchJobs {
     }
 
     public static final int BUCKET_FIELD_NUMBER = 1;
-    private volatile java.lang.Object bucket_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bucket_ = "";
     /**
      * <pre>
      * Bucket of the GCS object.
@@ -12899,7 +12527,8 @@ public final class PatchJobs {
     }
 
     public static final int OBJECT_FIELD_NUMBER = 2;
-    private volatile java.lang.Object object_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object object_ = "";
     /**
      * <pre>
      * Name of the GCS object.
@@ -12945,7 +12574,7 @@ public final class PatchJobs {
     }
 
     public static final int GENERATION_NUMBER_FIELD_NUMBER = 3;
-    private long generationNumber_;
+    private long generationNumber_ = 0L;
     /**
      * <pre>
      * Generation number of the GCS object. This is used to ensure that the
@@ -12983,7 +12612,7 @@ public final class PatchJobs {
       if (generationNumber_ != 0L) {
         output.writeInt64(3, generationNumber_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -13002,7 +12631,7 @@ public final class PatchJobs {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, generationNumber_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13023,7 +12652,7 @@ public final class PatchJobs {
           .equals(other.getObject())) return false;
       if (getGenerationNumber()
           != other.getGenerationNumber()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -13041,7 +12670,7 @@ public final class PatchJobs {
       hash = (37 * hash) + GENERATION_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getGenerationNumber());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13162,28 +12791,21 @@ public final class PatchJobs {
 
       // Construct using com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         bucket_ = "";
-
         object_ = "";
-
         generationNumber_ = 0L;
-
         return this;
       }
 
@@ -13210,11 +12832,22 @@ public final class PatchJobs {
       @java.lang.Override
       public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject buildPartial() {
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject result = new com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject(this);
-        result.bucket_ = bucket_;
-        result.object_ = object_;
-        result.generationNumber_ = generationNumber_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bucket_ = bucket_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.object_ = object_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.generationNumber_ = generationNumber_;
+        }
       }
 
       @java.lang.Override
@@ -13263,16 +12896,18 @@ public final class PatchJobs {
         if (other == com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject.getDefaultInstance()) return this;
         if (!other.getBucket().isEmpty()) {
           bucket_ = other.bucket_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getObject().isEmpty()) {
           object_ = other.object_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getGenerationNumber() != 0L) {
           setGenerationNumber(other.getGenerationNumber());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -13287,19 +12922,48 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                bucket_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                object_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                generationNumber_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.GcsObject) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object bucket_ = "";
       /**
@@ -13354,11 +13018,9 @@ public final class PatchJobs {
        */
       public Builder setBucket(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         bucket_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -13371,8 +13033,8 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearBucket() {
-        
         bucket_ = getDefaultInstance().getBucket();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -13387,12 +13049,10 @@ public final class PatchJobs {
        */
       public Builder setBucketBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         bucket_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -13450,11 +13110,9 @@ public final class PatchJobs {
        */
       public Builder setObject(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         object_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -13467,8 +13125,8 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearObject() {
-        
         object_ = getDefaultInstance().getObject();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -13483,12 +13141,10 @@ public final class PatchJobs {
        */
       public Builder setObjectBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         object_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -13520,6 +13176,7 @@ public final class PatchJobs {
       public Builder setGenerationNumber(long value) {
         
         generationNumber_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -13533,7 +13190,7 @@ public final class PatchJobs {
        * @return This builder for chaining.
        */
       public Builder clearGenerationNumber() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         generationNumber_ = 0L;
         onChanged();
         return this;
@@ -13571,7 +13228,18 @@ public final class PatchJobs {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GcsObject(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

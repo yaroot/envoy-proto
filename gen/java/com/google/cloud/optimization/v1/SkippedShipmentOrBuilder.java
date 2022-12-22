@@ -20,8 +20,9 @@ public interface SkippedShipmentOrBuilder extends
 
   /**
    * <pre>
-   * Copy of the corresponding [Shipment.label][google.cloud.optimization.v1.Shipment.label], if specified in the
-   * `Shipment`.
+   * Copy of the corresponding
+   * [Shipment.label][google.cloud.optimization.v1.Shipment.label], if specified
+   * in the `Shipment`.
    * </pre>
    *
    * <code>string label = 2;</code>
@@ -30,8 +31,9 @@ public interface SkippedShipmentOrBuilder extends
   java.lang.String getLabel();
   /**
    * <pre>
-   * Copy of the corresponding [Shipment.label][google.cloud.optimization.v1.Shipment.label], if specified in the
-   * `Shipment`.
+   * Copy of the corresponding
+   * [Shipment.label][google.cloud.optimization.v1.Shipment.label], if specified
+   * in the `Shipment`.
    * </pre>
    *
    * <code>string label = 2;</code>

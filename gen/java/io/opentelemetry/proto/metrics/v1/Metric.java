@@ -107,133 +107,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Metric(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            unit_ = s;
-            break;
-          }
-          case 42: {
-            io.opentelemetry.proto.metrics.v1.Gauge.Builder subBuilder = null;
-            if (dataCase_ == 5) {
-              subBuilder = ((io.opentelemetry.proto.metrics.v1.Gauge) data_).toBuilder();
-            }
-            data_ =
-                input.readMessage(io.opentelemetry.proto.metrics.v1.Gauge.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.opentelemetry.proto.metrics.v1.Gauge) data_);
-              data_ = subBuilder.buildPartial();
-            }
-            dataCase_ = 5;
-            break;
-          }
-          case 58: {
-            io.opentelemetry.proto.metrics.v1.Sum.Builder subBuilder = null;
-            if (dataCase_ == 7) {
-              subBuilder = ((io.opentelemetry.proto.metrics.v1.Sum) data_).toBuilder();
-            }
-            data_ =
-                input.readMessage(io.opentelemetry.proto.metrics.v1.Sum.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.opentelemetry.proto.metrics.v1.Sum) data_);
-              data_ = subBuilder.buildPartial();
-            }
-            dataCase_ = 7;
-            break;
-          }
-          case 74: {
-            io.opentelemetry.proto.metrics.v1.Histogram.Builder subBuilder = null;
-            if (dataCase_ == 9) {
-              subBuilder = ((io.opentelemetry.proto.metrics.v1.Histogram) data_).toBuilder();
-            }
-            data_ =
-                input.readMessage(io.opentelemetry.proto.metrics.v1.Histogram.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.opentelemetry.proto.metrics.v1.Histogram) data_);
-              data_ = subBuilder.buildPartial();
-            }
-            dataCase_ = 9;
-            break;
-          }
-          case 82: {
-            io.opentelemetry.proto.metrics.v1.ExponentialHistogram.Builder subBuilder = null;
-            if (dataCase_ == 10) {
-              subBuilder = ((io.opentelemetry.proto.metrics.v1.ExponentialHistogram) data_).toBuilder();
-            }
-            data_ =
-                input.readMessage(io.opentelemetry.proto.metrics.v1.ExponentialHistogram.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.opentelemetry.proto.metrics.v1.ExponentialHistogram) data_);
-              data_ = subBuilder.buildPartial();
-            }
-            dataCase_ = 10;
-            break;
-          }
-          case 90: {
-            io.opentelemetry.proto.metrics.v1.Summary.Builder subBuilder = null;
-            if (dataCase_ == 11) {
-              subBuilder = ((io.opentelemetry.proto.metrics.v1.Summary) data_).toBuilder();
-            }
-            data_ =
-                input.readMessage(io.opentelemetry.proto.metrics.v1.Summary.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.opentelemetry.proto.metrics.v1.Summary) data_);
-              data_ = subBuilder.buildPartial();
-            }
-            dataCase_ = 11;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opentelemetry.proto.metrics.v1.MetricsProto.internal_static_opentelemetry_proto_metrics_v1_Metric_descriptor;
@@ -295,7 +168,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * name of the metric, including its DNS name prefix. It must be unique.
@@ -341,7 +215,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * description of the metric, which can be used in documentation.
@@ -387,7 +262,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNIT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object unit_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object unit_ = "";
   /**
    * <pre>
    * unit in which the metric value is reported. Follows the format
@@ -627,7 +503,7 @@ private static final long serialVersionUID = 0L;
     if (dataCase_ == 11) {
       output.writeMessage(11, (io.opentelemetry.proto.metrics.v1.Summary) data_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -665,7 +541,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, (io.opentelemetry.proto.metrics.v1.Summary) data_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -711,7 +587,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -752,7 +628,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -943,28 +819,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opentelemetry.proto.metrics.v1.Metric.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
       unit_ = "";
-
+      if (gaugeBuilder_ != null) {
+        gaugeBuilder_.clear();
+      }
+      if (sumBuilder_ != null) {
+        sumBuilder_.clear();
+      }
+      if (histogramBuilder_ != null) {
+        histogramBuilder_.clear();
+      }
+      if (exponentialHistogramBuilder_ != null) {
+        exponentialHistogramBuilder_.clear();
+      }
+      if (summaryBuilder_ != null) {
+        summaryBuilder_.clear();
+      }
       dataCase_ = 0;
       data_ = null;
       return this;
@@ -993,47 +877,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opentelemetry.proto.metrics.v1.Metric buildPartial() {
       io.opentelemetry.proto.metrics.v1.Metric result = new io.opentelemetry.proto.metrics.v1.Metric(this);
-      result.name_ = name_;
-      result.description_ = description_;
-      result.unit_ = unit_;
-      if (dataCase_ == 5) {
-        if (gaugeBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = gaugeBuilder_.build();
-        }
-      }
-      if (dataCase_ == 7) {
-        if (sumBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = sumBuilder_.build();
-        }
-      }
-      if (dataCase_ == 9) {
-        if (histogramBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = histogramBuilder_.build();
-        }
-      }
-      if (dataCase_ == 10) {
-        if (exponentialHistogramBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = exponentialHistogramBuilder_.build();
-        }
-      }
-      if (dataCase_ == 11) {
-        if (summaryBuilder_ == null) {
-          result.data_ = data_;
-        } else {
-          result.data_ = summaryBuilder_.build();
-        }
-      }
-      result.dataCase_ = dataCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.opentelemetry.proto.metrics.v1.Metric result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.unit_ = unit_;
+      }
+    }
+
+    private void buildPartialOneofs(io.opentelemetry.proto.metrics.v1.Metric result) {
+      result.dataCase_ = dataCase_;
+      result.data_ = this.data_;
+      if (dataCase_ == 5 &&
+          gaugeBuilder_ != null) {
+        result.data_ = gaugeBuilder_.build();
+      }
+      if (dataCase_ == 7 &&
+          sumBuilder_ != null) {
+        result.data_ = sumBuilder_.build();
+      }
+      if (dataCase_ == 9 &&
+          histogramBuilder_ != null) {
+        result.data_ = histogramBuilder_.build();
+      }
+      if (dataCase_ == 10 &&
+          exponentialHistogramBuilder_ != null) {
+        result.data_ = exponentialHistogramBuilder_.build();
+      }
+      if (dataCase_ == 11 &&
+          summaryBuilder_ != null) {
+        result.data_ = summaryBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1082,14 +967,17 @@ private static final long serialVersionUID = 0L;
       if (other == io.opentelemetry.proto.metrics.v1.Metric.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUnit().isEmpty()) {
         unit_ = other.unit_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getDataCase()) {
@@ -1117,7 +1005,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1132,17 +1020,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opentelemetry.proto.metrics.v1.Metric parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              unit_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getGaugeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataCase_ = 5;
+              break;
+            } // case 42
+            case 58: {
+              input.readMessage(
+                  getSumFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataCase_ = 7;
+              break;
+            } // case 58
+            case 74: {
+              input.readMessage(
+                  getHistogramFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getExponentialHistogramFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getSummaryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              dataCase_ = 11;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opentelemetry.proto.metrics.v1.Metric) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int dataCase_ = 0;
@@ -1160,6 +1111,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1214,11 +1166,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1231,8 +1181,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1247,12 +1197,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1310,11 +1258,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1327,8 +1273,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1343,12 +1289,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1409,11 +1353,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnit(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       unit_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1427,8 +1369,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnit() {
-      
       unit_ = getDefaultInstance().getUnit();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1444,12 +1386,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       unit_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1592,7 +1532,7 @@ private static final long serialVersionUID = 0L;
         data_ = null;
       }
       dataCase_ = 5;
-      onChanged();;
+      onChanged();
       return gaugeBuilder_;
     }
 
@@ -1734,7 +1674,7 @@ private static final long serialVersionUID = 0L;
         data_ = null;
       }
       dataCase_ = 7;
-      onChanged();;
+      onChanged();
       return sumBuilder_;
     }
 
@@ -1876,7 +1816,7 @@ private static final long serialVersionUID = 0L;
         data_ = null;
       }
       dataCase_ = 9;
-      onChanged();;
+      onChanged();
       return histogramBuilder_;
     }
 
@@ -2018,7 +1958,7 @@ private static final long serialVersionUID = 0L;
         data_ = null;
       }
       dataCase_ = 10;
-      onChanged();;
+      onChanged();
       return exponentialHistogramBuilder_;
     }
 
@@ -2160,7 +2100,7 @@ private static final long serialVersionUID = 0L;
         data_ = null;
       }
       dataCase_ = 11;
-      onChanged();;
+      onChanged();
       return summaryBuilder_;
     }
     @java.lang.Override
@@ -2196,7 +2136,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Metric(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

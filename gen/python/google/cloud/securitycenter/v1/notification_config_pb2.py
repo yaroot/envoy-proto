@@ -15,7 +15,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8google/cloud/securitycenter/v1/notification_config.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\xa0\x03\n\x12NotificationConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x36\n\x0cpubsub_topic\x18\x03 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\x12\x1c\n\x0fservice_account\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12^\n\x10streaming_config\x18\x05 \x01(\x0b\x32\x42.google.cloud.securitycenter.v1.NotificationConfig.StreamingConfigH\x00\x1a!\n\x0fStreamingConfig\x12\x0e\n\x06\x66ilter\x18\x01 \x01(\t:}\xea\x41z\n0securitycenter.googleapis.com/NotificationConfig\x12\x46organizations/{organization}/notificationConfigs/{notification_config}B\x0f\n\rnotify_configB\xb6\x02\n\"com.google.cloud.securitycenter.v1B\x17NotificationConfigProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n8google/cloud/securitycenter/v1/notification_config.proto\x12\x1egoogle.cloud.securitycenter.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"\x9c\x04\n\x12NotificationConfig\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x36\n\x0cpubsub_topic\x18\x03 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\x12\x1c\n\x0fservice_account\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12^\n\x10streaming_config\x18\x05 \x01(\x0b\x32\x42.google.cloud.securitycenter.v1.NotificationConfig.StreamingConfigH\x00\x1a!\n\x0fStreamingConfig\x12\x0e\n\x06\x66ilter\x18\x01 \x01(\t:\xf8\x01\xea\x41\xf4\x01\n0securitycenter.googleapis.com/NotificationConfig\x12\x46organizations/{organization}/notificationConfigs/{notification_config}\x12:folders/{folder}/notificationConfigs/{notification_config}\x12<projects/{project}/notificationConfigs/{notification_config}B\x0f\n\rnotify_configB\xb6\x02\n\"com.google.cloud.securitycenter.v1B\x17NotificationConfigProtoP\x01ZLgoogle.golang.org/genproto/googleapis/cloud/securitycenter/v1;securitycenter\xaa\x02\x1eGoogle.Cloud.SecurityCenter.V1\xca\x02\x1eGoogle\\Cloud\\SecurityCenter\\V1\xea\x02!Google::Cloud::SecurityCenter::V1\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.securitycenter.v1.notification_config_pb2', globals())
@@ -28,9 +28,9 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _NOTIFICATIONCONFIG.fields_by_name['service_account']._options = None
   _NOTIFICATIONCONFIG.fields_by_name['service_account']._serialized_options = b'\340A\003'
   _NOTIFICATIONCONFIG._options = None
-  _NOTIFICATIONCONFIG._serialized_options = b'\352Az\n0securitycenter.googleapis.com/NotificationConfig\022Forganizations/{organization}/notificationConfigs/{notification_config}'
+  _NOTIFICATIONCONFIG._serialized_options = b'\352A\364\001\n0securitycenter.googleapis.com/NotificationConfig\022Forganizations/{organization}/notificationConfigs/{notification_config}\022:folders/{folder}/notificationConfigs/{notification_config}\022<projects/{project}/notificationConfigs/{notification_config}'
   _NOTIFICATIONCONFIG._serialized_start=153
-  _NOTIFICATIONCONFIG._serialized_end=569
+  _NOTIFICATIONCONFIG._serialized_end=693
   _NOTIFICATIONCONFIG_STREAMINGCONFIG._serialized_start=392
   _NOTIFICATIONCONFIG_STREAMINGCONFIG._serialized_end=425
 # @@protoc_insertion_point(module_scope)

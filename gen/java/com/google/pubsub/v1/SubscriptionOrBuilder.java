@@ -259,7 +259,6 @@ public interface SubscriptionOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -273,7 +272,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 9;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -523,8 +521,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. An output-only field indicating whether or not the subscription can receive
-   * messages.
+   * Output only. An output-only field indicating whether or not the
+   * subscription can receive messages.
    * </pre>
    *
    * <code>.google.pubsub.v1.Subscription.State state = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -533,8 +531,8 @@ java.lang.String defaultValue);
   int getStateValue();
   /**
    * <pre>
-   * Output only. An output-only field indicating whether or not the subscription can receive
-   * messages.
+   * Output only. An output-only field indicating whether or not the
+   * subscription can receive messages.
    * </pre>
    *
    * <code>.google.pubsub.v1.Subscription.State state = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

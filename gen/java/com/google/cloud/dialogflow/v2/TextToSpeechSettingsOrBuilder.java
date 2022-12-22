@@ -98,7 +98,6 @@ public interface TextToSpeechSettingsOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.dialogflow.v2.SynthesizeSpeechConfig&gt; synthesize_speech_configs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig getSynthesizeSpeechConfigsOrDefault(
       java.lang.String key,
@@ -113,7 +112,6 @@ com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig defaultValue);
    *
    * <code>map&lt;string, .google.cloud.dialogflow.v2.SynthesizeSpeechConfig&gt; synthesize_speech_configs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   com.google.cloud.dialogflow.v2.SynthesizeSpeechConfig getSynthesizeSpeechConfigsOrThrow(
       java.lang.String key);
 }

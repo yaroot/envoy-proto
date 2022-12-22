@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Build(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            builderVersion_ = s;
-            break;
-          }
-          case 18: {
-            io.grafeas.v1beta1.build.BuildSignature.Builder subBuilder = null;
-            if (signature_ != null) {
-              subBuilder = signature_.toBuilder();
-            }
-            signature_ = input.readMessage(io.grafeas.v1beta1.build.BuildSignature.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(signature_);
-              signature_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1beta1.build.BuildOuterClass.internal_static_grafeas_v1beta1_build_Build_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUILDER_VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object builderVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object builderVersion_ = "";
   /**
    * <pre>
    * Required. Immutable. Version of the builder which produced this build.
@@ -191,7 +134,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1beta1.build.BuildSignatureOrBuilder getSignatureOrBuilder() {
-    return getSignature();
+    return signature_ == null ? io.grafeas.v1beta1.build.BuildSignature.getDefaultInstance() : signature_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -214,7 +157,7 @@ private static final long serialVersionUID = 0L;
     if (signature_ != null) {
       output.writeMessage(2, getSignature());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -230,7 +173,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSignature());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -252,7 +195,7 @@ private static final long serialVersionUID = 0L;
       if (!getSignature()
           .equals(other.getSignature())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +212,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
       hash = (53 * hash) + getSignature().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -391,28 +334,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1beta1.build.Build.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       builderVersion_ = "";
-
-      if (signatureBuilder_ == null) {
-        signature_ = null;
-      } else {
-        signature_ = null;
+      signature_ = null;
+      if (signatureBuilder_ != null) {
+        signatureBuilder_.dispose();
         signatureBuilder_ = null;
       }
       return this;
@@ -441,14 +378,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1beta1.build.Build buildPartial() {
       io.grafeas.v1beta1.build.Build result = new io.grafeas.v1beta1.build.Build(this);
-      result.builderVersion_ = builderVersion_;
-      if (signatureBuilder_ == null) {
-        result.signature_ = signature_;
-      } else {
-        result.signature_ = signatureBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1beta1.build.Build result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.builderVersion_ = builderVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.signature_ = signatureBuilder_ == null
+            ? signature_
+            : signatureBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -497,12 +441,13 @@ private static final long serialVersionUID = 0L;
       if (other == io.grafeas.v1beta1.build.Build.getDefaultInstance()) return this;
       if (!other.getBuilderVersion().isEmpty()) {
         builderVersion_ = other.builderVersion_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasSignature()) {
         mergeSignature(other.getSignature());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -517,19 +462,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1beta1.build.Build parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              builderVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSignatureFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1beta1.build.Build) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object builderVersion_ = "";
     /**
@@ -584,11 +555,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuilderVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       builderVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -601,8 +570,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBuilderVersion() {
-      
       builderVersion_ = getDefaultInstance().getBuilderVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -617,12 +586,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuilderVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       builderVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -640,7 +607,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the signature field is set.
      */
     public boolean hasSignature() {
-      return signatureBuilder_ != null || signature_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -672,11 +639,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         signature_ = value;
-        onChanged();
       } else {
         signatureBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -691,11 +658,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1beta1.build.BuildSignature.Builder builderForValue) {
       if (signatureBuilder_ == null) {
         signature_ = builderForValue.build();
-        onChanged();
       } else {
         signatureBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -708,17 +675,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSignature(io.grafeas.v1beta1.build.BuildSignature value) {
       if (signatureBuilder_ == null) {
-        if (signature_ != null) {
-          signature_ =
-            io.grafeas.v1beta1.build.BuildSignature.newBuilder(signature_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          signature_ != null &&
+          signature_ != io.grafeas.v1beta1.build.BuildSignature.getDefaultInstance()) {
+          getSignatureBuilder().mergeFrom(value);
         } else {
           signature_ = value;
         }
-        onChanged();
       } else {
         signatureBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -730,14 +698,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1beta1.build.BuildSignature signature = 2;</code>
      */
     public Builder clearSignature() {
-      if (signatureBuilder_ == null) {
-        signature_ = null;
-        onChanged();
-      } else {
-        signature_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      signature_ = null;
+      if (signatureBuilder_ != null) {
+        signatureBuilder_.dispose();
         signatureBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -749,7 +716,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1beta1.build.BuildSignature signature = 2;</code>
      */
     public io.grafeas.v1beta1.build.BuildSignature.Builder getSignatureBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSignatureFieldBuilder().getBuilder();
     }
@@ -823,7 +790,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Build(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

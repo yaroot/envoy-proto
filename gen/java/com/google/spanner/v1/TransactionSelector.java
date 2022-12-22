@@ -8,7 +8,8 @@ package com.google.spanner.v1;
  * This message is used to select the transaction in which a
  * [Read][google.spanner.v1.Spanner.Read] or
  * [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] call runs.
- * See [TransactionOptions][google.spanner.v1.TransactionOptions] for more information about transactions.
+ * See [TransactionOptions][google.spanner.v1.TransactionOptions] for more
+ * information about transactions.
  * </pre>
  *
  * Protobuf type {@code google.spanner.v1.TransactionSelector}
@@ -36,78 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private TransactionSelector(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.spanner.v1.TransactionOptions.Builder subBuilder = null;
-            if (selectorCase_ == 1) {
-              subBuilder = ((com.google.spanner.v1.TransactionOptions) selector_).toBuilder();
-            }
-            selector_ =
-                input.readMessage(com.google.spanner.v1.TransactionOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.spanner.v1.TransactionOptions) selector_);
-              selector_ = subBuilder.buildPartial();
-            }
-            selectorCase_ = 1;
-            break;
-          }
-          case 18: {
-            selector_ = input.readBytes();
-            selectorCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.spanner.v1.TransactionOptions.Builder subBuilder = null;
-            if (selectorCase_ == 3) {
-              subBuilder = ((com.google.spanner.v1.TransactionOptions) selector_).toBuilder();
-            }
-            selector_ =
-                input.readMessage(com.google.spanner.v1.TransactionOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.spanner.v1.TransactionOptions) selector_);
-              selector_ = subBuilder.buildPartial();
-            }
-            selectorCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -248,7 +177,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Begin a new transaction and execute this read or SQL query in
    * it. The transaction ID of the new transaction is returned in
-   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+   * which is a [Transaction][google.spanner.v1.Transaction].
    * </pre>
    *
    * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -262,7 +192,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Begin a new transaction and execute this read or SQL query in
    * it. The transaction ID of the new transaction is returned in
-   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+   * which is a [Transaction][google.spanner.v1.Transaction].
    * </pre>
    *
    * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -279,7 +210,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Begin a new transaction and execute this read or SQL query in
    * it. The transaction ID of the new transaction is returned in
-   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+   * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+   * which is a [Transaction][google.spanner.v1.Transaction].
    * </pre>
    *
    * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -316,7 +248,7 @@ private static final long serialVersionUID = 0L;
     if (selectorCase_ == 3) {
       output.writeMessage(3, (com.google.spanner.v1.TransactionOptions) selector_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -338,7 +270,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.spanner.v1.TransactionOptions) selector_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -370,7 +302,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -397,7 +329,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -497,7 +429,8 @@ private static final long serialVersionUID = 0L;
    * This message is used to select the transaction in which a
    * [Read][google.spanner.v1.Spanner.Read] or
    * [ExecuteSql][google.spanner.v1.Spanner.ExecuteSql] call runs.
-   * See [TransactionOptions][google.spanner.v1.TransactionOptions] for more information about transactions.
+   * See [TransactionOptions][google.spanner.v1.TransactionOptions] for more
+   * information about transactions.
    * </pre>
    *
    * Protobuf type {@code google.spanner.v1.TransactionSelector}
@@ -521,22 +454,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.v1.TransactionSelector.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (singleUseBuilder_ != null) {
+        singleUseBuilder_.clear();
+      }
+      if (beginBuilder_ != null) {
+        beginBuilder_.clear();
+      }
       selectorCase_ = 0;
       selector_ = null;
       return this;
@@ -565,26 +500,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.v1.TransactionSelector buildPartial() {
       com.google.spanner.v1.TransactionSelector result = new com.google.spanner.v1.TransactionSelector(this);
-      if (selectorCase_ == 1) {
-        if (singleUseBuilder_ == null) {
-          result.selector_ = selector_;
-        } else {
-          result.selector_ = singleUseBuilder_.build();
-        }
-      }
-      if (selectorCase_ == 2) {
-        result.selector_ = selector_;
-      }
-      if (selectorCase_ == 3) {
-        if (beginBuilder_ == null) {
-          result.selector_ = selector_;
-        } else {
-          result.selector_ = beginBuilder_.build();
-        }
-      }
-      result.selectorCase_ = selectorCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.spanner.v1.TransactionSelector result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.spanner.v1.TransactionSelector result) {
+      result.selectorCase_ = selectorCase_;
+      result.selector_ = this.selector_;
+      if (selectorCase_ == 1 &&
+          singleUseBuilder_ != null) {
+        result.selector_ = singleUseBuilder_.build();
+      }
+      if (selectorCase_ == 3 &&
+          beginBuilder_ != null) {
+        result.selector_ = beginBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -648,7 +584,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -663,17 +599,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.v1.TransactionSelector parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSingleUseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              selectorCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              selector_ = input.readBytes();
+              selectorCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBeginFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              selectorCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.v1.TransactionSelector) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int selectorCase_ = 0;
@@ -691,6 +659,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.spanner.v1.TransactionOptions, com.google.spanner.v1.TransactionOptions.Builder, com.google.spanner.v1.TransactionOptionsOrBuilder> singleUseBuilder_;
@@ -884,7 +853,7 @@ private static final long serialVersionUID = 0L;
         selector_ = null;
       }
       selectorCase_ = 1;
-      onChanged();;
+      onChanged();
       return singleUseBuilder_;
     }
 
@@ -923,10 +892,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  selectorCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      selectorCase_ = 2;
       selector_ = value;
       onChanged();
       return this;
@@ -954,7 +921,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -968,7 +936,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -992,7 +961,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1014,7 +984,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1034,7 +1005,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1063,7 +1035,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1088,7 +1061,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1100,7 +1074,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1120,7 +1095,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Begin a new transaction and execute this read or SQL query in
      * it. The transaction ID of the new transaction is returned in
-     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction], which is a [Transaction][google.spanner.v1.Transaction].
+     * [ResultSetMetadata.transaction][google.spanner.v1.ResultSetMetadata.transaction],
+     * which is a [Transaction][google.spanner.v1.Transaction].
      * </pre>
      *
      * <code>.google.spanner.v1.TransactionOptions begin = 3;</code>
@@ -1140,7 +1116,7 @@ private static final long serialVersionUID = 0L;
         selector_ = null;
       }
       selectorCase_ = 3;
-      onChanged();;
+      onChanged();
       return beginBuilder_;
     }
     @java.lang.Override
@@ -1176,7 +1152,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TransactionSelector(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

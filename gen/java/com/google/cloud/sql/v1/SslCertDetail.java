@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SslCertDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.sql.v1.SslCert.Builder subBuilder = null;
-            if (certInfo_ != null) {
-              subBuilder = certInfo_.toBuilder();
-            }
-            certInfo_ = input.readMessage(com.google.cloud.sql.v1.SslCert.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(certInfo_);
-              certInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            certPrivateKey_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1_SslCertDetail_descriptor;
@@ -141,11 +83,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.sql.v1.SslCertOrBuilder getCertInfoOrBuilder() {
-    return getCertInfo();
+    return certInfo_ == null ? com.google.cloud.sql.v1.SslCert.getDefaultInstance() : certInfo_;
   }
 
   public static final int CERT_PRIVATE_KEY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object certPrivateKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object certPrivateKey_ = "";
   /**
    * <pre>
    * The private key for the client cert, in pem format.  Keep private in order
@@ -212,7 +155,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certPrivateKey_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, certPrivateKey_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +171,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(certPrivateKey_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, certPrivateKey_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +193,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCertPrivateKey()
         .equals(other.getCertPrivateKey())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +210,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CERT_PRIVATE_KEY_FIELD_NUMBER;
     hash = (53 * hash) + getCertPrivateKey().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,30 +331,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.SslCertDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (certInfoBuilder_ == null) {
-        certInfo_ = null;
-      } else {
-        certInfo_ = null;
+      bitField0_ = 0;
+      certInfo_ = null;
+      if (certInfoBuilder_ != null) {
+        certInfoBuilder_.dispose();
         certInfoBuilder_ = null;
       }
       certPrivateKey_ = "";
-
       return this;
     }
 
@@ -438,14 +375,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.SslCertDetail buildPartial() {
       com.google.cloud.sql.v1.SslCertDetail result = new com.google.cloud.sql.v1.SslCertDetail(this);
-      if (certInfoBuilder_ == null) {
-        result.certInfo_ = certInfo_;
-      } else {
-        result.certInfo_ = certInfoBuilder_.build();
-      }
-      result.certPrivateKey_ = certPrivateKey_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.SslCertDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.certInfo_ = certInfoBuilder_ == null
+            ? certInfo_
+            : certInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.certPrivateKey_ = certPrivateKey_;
+      }
     }
 
     @java.lang.Override
@@ -497,9 +441,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCertPrivateKey().isEmpty()) {
         certPrivateKey_ = other.certPrivateKey_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -514,19 +459,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.SslCertDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCertInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              certPrivateKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.SslCertDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.sql.v1.SslCert certInfo_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -540,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the certInfo field is set.
      */
     public boolean hasCertInfo() {
-      return certInfoBuilder_ != null || certInfo_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -570,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         certInfo_ = value;
-        onChanged();
       } else {
         certInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -588,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.sql.v1.SslCert.Builder builderForValue) {
       if (certInfoBuilder_ == null) {
         certInfo_ = builderForValue.build();
-        onChanged();
       } else {
         certInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -604,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCertInfo(com.google.cloud.sql.v1.SslCert value) {
       if (certInfoBuilder_ == null) {
-        if (certInfo_ != null) {
-          certInfo_ =
-            com.google.cloud.sql.v1.SslCert.newBuilder(certInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          certInfo_ != null &&
+          certInfo_ != com.google.cloud.sql.v1.SslCert.getDefaultInstance()) {
+          getCertInfoBuilder().mergeFrom(value);
         } else {
           certInfo_ = value;
         }
-        onChanged();
       } else {
         certInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -625,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.SslCert cert_info = 1;</code>
      */
     public Builder clearCertInfo() {
-      if (certInfoBuilder_ == null) {
-        certInfo_ = null;
-        onChanged();
-      } else {
-        certInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      certInfo_ = null;
+      if (certInfoBuilder_ != null) {
+        certInfoBuilder_.dispose();
         certInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -643,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.sql.v1.SslCert cert_info = 1;</code>
      */
     public com.google.cloud.sql.v1.SslCert.Builder getCertInfoBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCertInfoFieldBuilder().getBuilder();
     }
@@ -739,11 +710,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertPrivateKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       certPrivateKey_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -757,8 +726,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCertPrivateKey() {
-      
       certPrivateKey_ = getDefaultInstance().getCertPrivateKey();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -774,12 +743,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertPrivateKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       certPrivateKey_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -816,7 +783,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SslCertDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

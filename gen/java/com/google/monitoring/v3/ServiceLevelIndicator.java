@@ -46,87 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ServiceLevelIndicator(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.monitoring.v3.RequestBasedSli.Builder subBuilder = null;
-            if (typeCase_ == 1) {
-              subBuilder = ((com.google.monitoring.v3.RequestBasedSli) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.monitoring.v3.RequestBasedSli.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.v3.RequestBasedSli) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.monitoring.v3.WindowsBasedSli.Builder subBuilder = null;
-            if (typeCase_ == 2) {
-              subBuilder = ((com.google.monitoring.v3.WindowsBasedSli) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.monitoring.v3.WindowsBasedSli.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.v3.WindowsBasedSli) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 2;
-            break;
-          }
-          case 34: {
-            com.google.monitoring.v3.BasicSli.Builder subBuilder = null;
-            if (typeCase_ == 4) {
-              subBuilder = ((com.google.monitoring.v3.BasicSli) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.monitoring.v3.BasicSli.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.v3.BasicSli) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 4;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.ServiceMonitoringProto.internal_static_google_monitoring_v3_ServiceLevelIndicator_descriptor;
@@ -335,7 +254,7 @@ private static final long serialVersionUID = 0L;
     if (typeCase_ == 4) {
       output.writeMessage(4, (com.google.monitoring.v3.BasicSli) type_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -356,7 +275,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, (com.google.monitoring.v3.BasicSli) type_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -388,7 +307,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -415,7 +334,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -548,22 +467,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.ServiceLevelIndicator.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (basicSliBuilder_ != null) {
+        basicSliBuilder_.clear();
+      }
+      if (requestBasedBuilder_ != null) {
+        requestBasedBuilder_.clear();
+      }
+      if (windowsBasedBuilder_ != null) {
+        windowsBasedBuilder_.clear();
+      }
       typeCase_ = 0;
       type_ = null;
       return this;
@@ -592,30 +516,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.ServiceLevelIndicator buildPartial() {
       com.google.monitoring.v3.ServiceLevelIndicator result = new com.google.monitoring.v3.ServiceLevelIndicator(this);
-      if (typeCase_ == 4) {
-        if (basicSliBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = basicSliBuilder_.build();
-        }
-      }
-      if (typeCase_ == 1) {
-        if (requestBasedBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = requestBasedBuilder_.build();
-        }
-      }
-      if (typeCase_ == 2) {
-        if (windowsBasedBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = windowsBasedBuilder_.build();
-        }
-      }
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.ServiceLevelIndicator result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.monitoring.v3.ServiceLevelIndicator result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 4 &&
+          basicSliBuilder_ != null) {
+        result.type_ = basicSliBuilder_.build();
+      }
+      if (typeCase_ == 1 &&
+          requestBasedBuilder_ != null) {
+        result.type_ = requestBasedBuilder_.build();
+      }
+      if (typeCase_ == 2 &&
+          windowsBasedBuilder_ != null) {
+        result.type_ = windowsBasedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -679,7 +604,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -694,17 +619,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.ServiceLevelIndicator parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRequestBasedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getWindowsBasedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 2;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getBasicSliFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 4;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.ServiceLevelIndicator) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -722,6 +681,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.monitoring.v3.BasicSli, com.google.monitoring.v3.BasicSli.Builder, com.google.monitoring.v3.BasicSliOrBuilder> basicSliBuilder_;
@@ -897,7 +857,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 4;
-      onChanged();;
+      onChanged();
       return basicSliBuilder_;
     }
 
@@ -1075,7 +1035,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 1;
-      onChanged();;
+      onChanged();
       return requestBasedBuilder_;
     }
 
@@ -1253,7 +1213,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 2;
-      onChanged();;
+      onChanged();
       return windowsBasedBuilder_;
     }
     @java.lang.Override
@@ -1289,7 +1249,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ServiceLevelIndicator(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

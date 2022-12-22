@@ -35,78 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BteqOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.bigquery.migration.v2alpha.DatasetReference.Builder subBuilder = null;
-            if (projectDataset_ != null) {
-              subBuilder = projectDataset_.toBuilder();
-            }
-            projectDataset_ = input.readMessage(com.google.cloud.bigquery.migration.v2alpha.DatasetReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(projectDataset_);
-              projectDataset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultPathUri_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              fileReplacementMap_ = com.google.protobuf.MapField.newMapField(
-                  FileReplacementMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            fileReplacementMap__ = input.readMessage(
-                FileReplacementMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            fileReplacementMap_.getMutableMap().put(
-                fileReplacementMap__.getKey(), fileReplacementMap__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.migration.v2alpha.TranslationTaskProto.internal_static_google_cloud_bigquery_migration_v2alpha_BteqOptions_descriptor;
@@ -170,11 +98,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.migration.v2alpha.DatasetReferenceOrBuilder getProjectDatasetOrBuilder() {
-    return getProjectDataset();
+    return projectDataset_ == null ? com.google.cloud.bigquery.migration.v2alpha.DatasetReference.getDefaultInstance() : projectDataset_;
   }
 
   public static final int DEFAULT_PATH_URI_FIELD_NUMBER = 2;
-  private volatile java.lang.Object defaultPathUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultPathUri_ = "";
   /**
    * <pre>
    * The Cloud Storage location to be used as the default path for files that
@@ -233,6 +162,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> fileReplacementMap_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -243,7 +173,6 @@ private static final long serialVersionUID = 0L;
     }
     return fileReplacementMap_;
   }
-
   public int getFileReplacementMapCount() {
     return internalGetFileReplacementMap().getMap().size();
   }
@@ -256,7 +185,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsFileReplacementMap(
       java.lang.String key) {
@@ -281,7 +209,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getFileReplacementMapMap() {
     return internalGetFileReplacementMap().getMap();
   }
@@ -295,10 +222,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getFileReplacementMapOrDefault(
+  public /* nullable */
+java.lang.String getFileReplacementMapOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetFileReplacementMap().getMap();
@@ -314,7 +242,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getFileReplacementMapOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -352,7 +279,7 @@ private static final long serialVersionUID = 0L;
         internalGetFileReplacementMap(),
         FileReplacementMapDefaultEntryHolder.defaultEntry,
         3);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -378,7 +305,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, fileReplacementMap__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -402,7 +329,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDefaultPathUri())) return false;
     if (!internalGetFileReplacementMap().equals(
         other.internalGetFileReplacementMap())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -423,7 +350,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FILE_REPLACEMENT_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetFileReplacementMap().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -566,30 +493,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.migration.v2alpha.BteqOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (projectDatasetBuilder_ == null) {
-        projectDataset_ = null;
-      } else {
-        projectDataset_ = null;
+      bitField0_ = 0;
+      projectDataset_ = null;
+      if (projectDatasetBuilder_ != null) {
+        projectDatasetBuilder_.dispose();
         projectDatasetBuilder_ = null;
       }
       defaultPathUri_ = "";
-
       internalGetMutableFileReplacementMap().clear();
       return this;
     }
@@ -617,17 +538,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.migration.v2alpha.BteqOptions buildPartial() {
       com.google.cloud.bigquery.migration.v2alpha.BteqOptions result = new com.google.cloud.bigquery.migration.v2alpha.BteqOptions(this);
-      int from_bitField0_ = bitField0_;
-      if (projectDatasetBuilder_ == null) {
-        result.projectDataset_ = projectDataset_;
-      } else {
-        result.projectDataset_ = projectDatasetBuilder_.build();
-      }
-      result.defaultPathUri_ = defaultPathUri_;
-      result.fileReplacementMap_ = internalGetFileReplacementMap();
-      result.fileReplacementMap_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.migration.v2alpha.BteqOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.projectDataset_ = projectDatasetBuilder_ == null
+            ? projectDataset_
+            : projectDatasetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.defaultPathUri_ = defaultPathUri_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.fileReplacementMap_ = internalGetFileReplacementMap();
+        result.fileReplacementMap_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -679,11 +608,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDefaultPathUri().isEmpty()) {
         defaultPathUri_ = other.defaultPathUri_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       internalGetMutableFileReplacementMap().mergeFrom(
           other.internalGetFileReplacementMap());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000004;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -698,17 +629,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.migration.v2alpha.BteqOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getProjectDatasetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              defaultPathUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              fileReplacementMap__ = input.readMessage(
+                  FileReplacementMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFileReplacementMap().getMutableMap().put(
+                  fileReplacementMap__.getKey(), fileReplacementMap__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.migration.v2alpha.BteqOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -726,7 +691,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the projectDataset field is set.
      */
     public boolean hasProjectDataset() {
-      return projectDatasetBuilder_ != null || projectDataset_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -758,11 +723,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         projectDataset_ = value;
-        onChanged();
       } else {
         projectDatasetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -777,11 +742,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.migration.v2alpha.DatasetReference.Builder builderForValue) {
       if (projectDatasetBuilder_ == null) {
         projectDataset_ = builderForValue.build();
-        onChanged();
       } else {
         projectDatasetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -794,17 +759,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProjectDataset(com.google.cloud.bigquery.migration.v2alpha.DatasetReference value) {
       if (projectDatasetBuilder_ == null) {
-        if (projectDataset_ != null) {
-          projectDataset_ =
-            com.google.cloud.bigquery.migration.v2alpha.DatasetReference.newBuilder(projectDataset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          projectDataset_ != null &&
+          projectDataset_ != com.google.cloud.bigquery.migration.v2alpha.DatasetReference.getDefaultInstance()) {
+          getProjectDatasetBuilder().mergeFrom(value);
         } else {
           projectDataset_ = value;
         }
-        onChanged();
       } else {
         projectDatasetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -816,14 +782,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.migration.v2alpha.DatasetReference project_dataset = 1;</code>
      */
     public Builder clearProjectDataset() {
-      if (projectDatasetBuilder_ == null) {
-        projectDataset_ = null;
-        onChanged();
-      } else {
-        projectDataset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      projectDataset_ = null;
+      if (projectDatasetBuilder_ != null) {
+        projectDatasetBuilder_.dispose();
         projectDatasetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -835,7 +800,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.migration.v2alpha.DatasetReference project_dataset = 1;</code>
      */
     public com.google.cloud.bigquery.migration.v2alpha.DatasetReference.Builder getProjectDatasetBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getProjectDatasetFieldBuilder().getBuilder();
     }
@@ -933,11 +898,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultPathUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       defaultPathUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -951,8 +914,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultPathUri() {
-      
       defaultPathUri_ = getDefaultInstance().getDefaultPathUri();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -968,12 +931,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultPathUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultPathUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -981,7 +942,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> fileReplacementMap_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetFileReplacementMap() {
+        internalGetFileReplacementMap() {
       if (fileReplacementMap_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FileReplacementMapDefaultEntryHolder.defaultEntry);
@@ -989,8 +950,7 @@ private static final long serialVersionUID = 0L;
       return fileReplacementMap_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableFileReplacementMap() {
-      onChanged();;
+        internalGetMutableFileReplacementMap() {
       if (fileReplacementMap_ == null) {
         fileReplacementMap_ = com.google.protobuf.MapField.newMapField(
             FileReplacementMapDefaultEntryHolder.defaultEntry);
@@ -998,9 +958,10 @@ private static final long serialVersionUID = 0L;
       if (!fileReplacementMap_.isMutable()) {
         fileReplacementMap_ = fileReplacementMap_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return fileReplacementMap_;
     }
-
     public int getFileReplacementMapCount() {
       return internalGetFileReplacementMap().getMap().size();
     }
@@ -1013,7 +974,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsFileReplacementMap(
         java.lang.String key) {
@@ -1038,7 +998,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getFileReplacementMapMap() {
       return internalGetFileReplacementMap().getMap();
     }
@@ -1052,10 +1011,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getFileReplacementMapOrDefault(
+    public /* nullable */
+java.lang.String getFileReplacementMapOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetFileReplacementMap().getMap();
@@ -1071,7 +1031,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getFileReplacementMapOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1082,8 +1041,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFileReplacementMap() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableFileReplacementMap().getMutableMap()
           .clear();
       return this;
@@ -1097,7 +1056,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
      */
-
     public Builder removeFileReplacementMap(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1110,7 +1068,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableFileReplacementMap() {
+        getMutableFileReplacementMap() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableFileReplacementMap().getMutableMap();
     }
     /**
@@ -1126,12 +1085,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFileReplacementMap().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1143,11 +1100,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
      */
-
     public Builder putAllFileReplacementMap(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableFileReplacementMap().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override
@@ -1183,7 +1140,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BteqOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

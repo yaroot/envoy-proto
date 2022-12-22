@@ -651,7 +651,6 @@ public interface AccessLogCommonOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; filter_state_objects = 21;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getFilterStateObjectsOrDefault(
       java.lang.String key,
@@ -666,7 +665,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; filter_state_objects = 21;</code>
    */
-
   com.google.protobuf.Any getFilterStateObjectsOrThrow(
       java.lang.String key);
 }

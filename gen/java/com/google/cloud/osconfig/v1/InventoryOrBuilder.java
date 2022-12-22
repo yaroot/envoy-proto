@@ -109,7 +109,6 @@ public interface InventoryOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.osconfig.v1.Inventory.Item&gt; items = 2;</code>
    */
-
   /* nullable */
 com.google.cloud.osconfig.v1.Inventory.Item getItemsOrDefault(
       java.lang.String key,
@@ -125,7 +124,6 @@ com.google.cloud.osconfig.v1.Inventory.Item defaultValue);
    *
    * <code>map&lt;string, .google.cloud.osconfig.v1.Inventory.Item&gt; items = 2;</code>
    */
-
   com.google.cloud.osconfig.v1.Inventory.Item getItemsOrThrow(
       java.lang.String key);
 

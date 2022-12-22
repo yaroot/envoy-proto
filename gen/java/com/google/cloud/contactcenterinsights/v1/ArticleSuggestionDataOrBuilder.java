@@ -102,7 +102,6 @@ public interface ArticleSuggestionDataOrBuilder extends
    *
    * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
-
   /* nullable */
 java.lang.String getMetadataOrDefault(
       java.lang.String key,
@@ -116,15 +115,14 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; metadata = 4;</code>
    */
-
   java.lang.String getMetadataOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * Name of the query record.
+   * The name of the answer record.
    * Format:
-   * projects/{project}/locations/{location}/queryRecords/{query_record}
+   * projects/{project}/locations/{location}/answerRecords/{answer_record}
    * </pre>
    *
    * <code>string query_record = 5;</code>
@@ -133,9 +131,9 @@ java.lang.String defaultValue);
   java.lang.String getQueryRecord();
   /**
    * <pre>
-   * Name of the query record.
+   * The name of the answer record.
    * Format:
-   * projects/{project}/locations/{location}/queryRecords/{query_record}
+   * projects/{project}/locations/{location}/answerRecords/{answer_record}
    * </pre>
    *
    * <code>string query_record = 5;</code>

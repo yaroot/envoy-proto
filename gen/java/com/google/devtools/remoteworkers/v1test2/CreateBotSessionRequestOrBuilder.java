@@ -29,7 +29,8 @@ public interface CreateBotSessionRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The bot session to create. Server-assigned fields like name must be unset.
+   * Required. The bot session to create. Server-assigned fields like name must
+   * be unset.
    * </pre>
    *
    * <code>.google.devtools.remoteworkers.v1test2.BotSession bot_session = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -38,7 +39,8 @@ public interface CreateBotSessionRequestOrBuilder extends
   boolean hasBotSession();
   /**
    * <pre>
-   * Required. The bot session to create. Server-assigned fields like name must be unset.
+   * Required. The bot session to create. Server-assigned fields like name must
+   * be unset.
    * </pre>
    *
    * <code>.google.devtools.remoteworkers.v1test2.BotSession bot_session = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -47,7 +49,8 @@ public interface CreateBotSessionRequestOrBuilder extends
   com.google.devtools.remoteworkers.v1test2.BotSession getBotSession();
   /**
    * <pre>
-   * Required. The bot session to create. Server-assigned fields like name must be unset.
+   * Required. The bot session to create. Server-assigned fields like name must
+   * be unset.
    * </pre>
    *
    * <code>.google.devtools.remoteworkers.v1test2.BotSession bot_session = 2 [(.google.api.field_behavior) = REQUIRED];</code>

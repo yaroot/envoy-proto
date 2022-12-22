@@ -36,80 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobQueryRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            query_ = s;
-            break;
-          }
-          case 16: {
-
-            maxResults_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            com.google.cloud.bigquery.logging.v1.DatasetName.Builder subBuilder = null;
-            if (defaultDataset_ != null) {
-              subBuilder = defaultDataset_.toBuilder();
-            }
-            defaultDataset_ = input.readMessage(com.google.cloud.bigquery.logging.v1.DatasetName.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(defaultDataset_);
-              defaultDataset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 40: {
-
-            dryRun_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.logging.v1.AuditDataProto.internal_static_google_cloud_bigquery_logging_v1_JobQueryRequest_descriptor;
@@ -124,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object query_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object query_ = "";
   /**
    * <pre>
    * The query.
@@ -170,7 +97,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_RESULTS_FIELD_NUMBER = 2;
-  private int maxResults_;
+  private int maxResults_ = 0;
   /**
    * <pre>
    * The maximum number of results.
@@ -219,11 +146,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.logging.v1.DatasetNameOrBuilder getDefaultDatasetOrBuilder() {
-    return getDefaultDataset();
+    return defaultDataset_ == null ? com.google.cloud.bigquery.logging.v1.DatasetName.getDefaultInstance() : defaultDataset_;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Project that the query should be charged to.
@@ -269,7 +197,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DRY_RUN_FIELD_NUMBER = 5;
-  private boolean dryRun_;
+  private boolean dryRun_ = false;
   /**
    * <pre>
    * If true, don't actually run the job. Just check that it would run.
@@ -312,7 +240,7 @@ private static final long serialVersionUID = 0L;
     if (dryRun_ != false) {
       output.writeBool(5, dryRun_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -339,7 +267,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, dryRun_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -367,7 +295,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProjectId())) return false;
     if (getDryRun()
         != other.getDryRun()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -391,7 +319,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DRY_RUN_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getDryRun());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -512,36 +440,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.logging.v1.JobQueryRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       query_ = "";
-
       maxResults_ = 0;
-
-      if (defaultDatasetBuilder_ == null) {
-        defaultDataset_ = null;
-      } else {
-        defaultDataset_ = null;
+      defaultDataset_ = null;
+      if (defaultDatasetBuilder_ != null) {
+        defaultDatasetBuilder_.dispose();
         defaultDatasetBuilder_ = null;
       }
       projectId_ = "";
-
       dryRun_ = false;
-
       return this;
     }
 
@@ -568,17 +487,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.logging.v1.JobQueryRequest buildPartial() {
       com.google.cloud.bigquery.logging.v1.JobQueryRequest result = new com.google.cloud.bigquery.logging.v1.JobQueryRequest(this);
-      result.query_ = query_;
-      result.maxResults_ = maxResults_;
-      if (defaultDatasetBuilder_ == null) {
-        result.defaultDataset_ = defaultDataset_;
-      } else {
-        result.defaultDataset_ = defaultDatasetBuilder_.build();
-      }
-      result.projectId_ = projectId_;
-      result.dryRun_ = dryRun_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.logging.v1.JobQueryRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.query_ = query_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxResults_ = maxResults_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultDataset_ = defaultDatasetBuilder_ == null
+            ? defaultDataset_
+            : defaultDatasetBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.dryRun_ = dryRun_;
+      }
     }
 
     @java.lang.Override
@@ -627,6 +559,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.logging.v1.JobQueryRequest.getDefaultInstance()) return this;
       if (!other.getQuery().isEmpty()) {
         query_ = other.query_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getMaxResults() != 0) {
@@ -637,12 +570,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getDryRun() != false) {
         setDryRun(other.getDryRun());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -657,19 +591,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.logging.v1.JobQueryRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              query_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              maxResults_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getDefaultDatasetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              dryRun_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.logging.v1.JobQueryRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object query_ = "";
     /**
@@ -724,11 +699,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       query_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -741,8 +714,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQuery() {
-      
       query_ = getDefaultInstance().getQuery();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -757,12 +730,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       query_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -792,6 +763,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxResults(int value) {
       
       maxResults_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -804,7 +776,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxResults() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       maxResults_ = 0;
       onChanged();
       return this;
@@ -822,7 +794,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the defaultDataset field is set.
      */
     public boolean hasDefaultDataset() {
-      return defaultDatasetBuilder_ != null || defaultDataset_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -852,11 +824,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         defaultDataset_ = value;
-        onChanged();
       } else {
         defaultDatasetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -870,11 +842,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.logging.v1.DatasetName.Builder builderForValue) {
       if (defaultDatasetBuilder_ == null) {
         defaultDataset_ = builderForValue.build();
-        onChanged();
       } else {
         defaultDatasetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -886,17 +858,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDefaultDataset(com.google.cloud.bigquery.logging.v1.DatasetName value) {
       if (defaultDatasetBuilder_ == null) {
-        if (defaultDataset_ != null) {
-          defaultDataset_ =
-            com.google.cloud.bigquery.logging.v1.DatasetName.newBuilder(defaultDataset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          defaultDataset_ != null &&
+          defaultDataset_ != com.google.cloud.bigquery.logging.v1.DatasetName.getDefaultInstance()) {
+          getDefaultDatasetBuilder().mergeFrom(value);
         } else {
           defaultDataset_ = value;
         }
-        onChanged();
       } else {
         defaultDatasetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -907,14 +880,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.DatasetName default_dataset = 3;</code>
      */
     public Builder clearDefaultDataset() {
-      if (defaultDatasetBuilder_ == null) {
-        defaultDataset_ = null;
-        onChanged();
-      } else {
-        defaultDataset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      defaultDataset_ = null;
+      if (defaultDatasetBuilder_ != null) {
+        defaultDatasetBuilder_.dispose();
         defaultDatasetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -925,7 +897,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.logging.v1.DatasetName default_dataset = 3;</code>
      */
     public com.google.cloud.bigquery.logging.v1.DatasetName.Builder getDefaultDatasetBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDefaultDatasetFieldBuilder().getBuilder();
     }
@@ -1018,11 +990,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1035,8 +1005,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1051,12 +1021,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1086,6 +1054,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDryRun(boolean value) {
       
       dryRun_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1098,7 +1067,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDryRun() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       dryRun_ = false;
       onChanged();
       return this;
@@ -1136,7 +1105,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobQueryRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

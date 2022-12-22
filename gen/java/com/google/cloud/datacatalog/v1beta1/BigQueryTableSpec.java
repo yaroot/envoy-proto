@@ -35,79 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BigQueryTableSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            tableSourceType_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.datacatalog.v1beta1.ViewSpec.Builder subBuilder = null;
-            if (typeSpecCase_ == 2) {
-              subBuilder = ((com.google.cloud.datacatalog.v1beta1.ViewSpec) typeSpec_).toBuilder();
-            }
-            typeSpec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1beta1.ViewSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1beta1.ViewSpec) typeSpec_);
-              typeSpec_ = subBuilder.buildPartial();
-            }
-            typeSpecCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.datacatalog.v1beta1.TableSpec.Builder subBuilder = null;
-            if (typeSpecCase_ == 3) {
-              subBuilder = ((com.google.cloud.datacatalog.v1beta1.TableSpec) typeSpec_).toBuilder();
-            }
-            typeSpec_ =
-                input.readMessage(com.google.cloud.datacatalog.v1beta1.TableSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datacatalog.v1beta1.TableSpec) typeSpec_);
-              typeSpec_ = subBuilder.buildPartial();
-            }
-            typeSpecCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datacatalog.v1beta1.TableSpecOuterClass.internal_static_google_cloud_datacatalog_v1beta1_BigQueryTableSpec_descriptor;
@@ -163,7 +90,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TABLE_SOURCE_TYPE_FIELD_NUMBER = 1;
-  private int tableSourceType_;
+  private int tableSourceType_ = 0;
   /**
    * <pre>
    * Output only. The table source type.
@@ -184,8 +111,7 @@ private static final long serialVersionUID = 0L;
    * @return The tableSourceType.
    */
   @java.lang.Override public com.google.cloud.datacatalog.v1beta1.TableSourceType getTableSourceType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.datacatalog.v1beta1.TableSourceType result = com.google.cloud.datacatalog.v1beta1.TableSourceType.valueOf(tableSourceType_);
+    com.google.cloud.datacatalog.v1beta1.TableSourceType result = com.google.cloud.datacatalog.v1beta1.TableSourceType.forNumber(tableSourceType_);
     return result == null ? com.google.cloud.datacatalog.v1beta1.TableSourceType.UNRECOGNIZED : result;
   }
 
@@ -304,7 +230,7 @@ private static final long serialVersionUID = 0L;
     if (typeSpecCase_ == 3) {
       output.writeMessage(3, (com.google.cloud.datacatalog.v1beta1.TableSpec) typeSpec_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -325,7 +251,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.cloud.datacatalog.v1beta1.TableSpec) typeSpec_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -354,7 +280,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -379,7 +305,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -500,24 +426,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tableSourceType_ = 0;
-
+      if (viewSpecBuilder_ != null) {
+        viewSpecBuilder_.clear();
+      }
+      if (tableSpecBuilder_ != null) {
+        tableSpecBuilder_.clear();
+      }
       typeSpecCase_ = 0;
       typeSpec_ = null;
       return this;
@@ -546,24 +473,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec buildPartial() {
       com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec result = new com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec(this);
-      result.tableSourceType_ = tableSourceType_;
-      if (typeSpecCase_ == 2) {
-        if (viewSpecBuilder_ == null) {
-          result.typeSpec_ = typeSpec_;
-        } else {
-          result.typeSpec_ = viewSpecBuilder_.build();
-        }
-      }
-      if (typeSpecCase_ == 3) {
-        if (tableSpecBuilder_ == null) {
-          result.typeSpec_ = typeSpec_;
-        } else {
-          result.typeSpec_ = tableSpecBuilder_.build();
-        }
-      }
-      result.typeSpecCase_ = typeSpecCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tableSourceType_ = tableSourceType_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec result) {
+      result.typeSpecCase_ = typeSpecCase_;
+      result.typeSpec_ = this.typeSpec_;
+      if (typeSpecCase_ == 2 &&
+          viewSpecBuilder_ != null) {
+        result.typeSpec_ = viewSpecBuilder_.build();
+      }
+      if (typeSpecCase_ == 3 &&
+          tableSpecBuilder_ != null) {
+        result.typeSpec_ = tableSpecBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -626,7 +559,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -641,17 +574,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              tableSourceType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getViewSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeSpecCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTableSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeSpecCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datacatalog.v1beta1.BigQueryTableSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeSpecCase_ = 0;
@@ -669,6 +634,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int tableSourceType_ = 0;
     /**
@@ -692,8 +658,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTableSourceTypeValue(int value) {
-      
       tableSourceType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -707,8 +673,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.datacatalog.v1beta1.TableSourceType getTableSourceType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.datacatalog.v1beta1.TableSourceType result = com.google.cloud.datacatalog.v1beta1.TableSourceType.valueOf(tableSourceType_);
+      com.google.cloud.datacatalog.v1beta1.TableSourceType result = com.google.cloud.datacatalog.v1beta1.TableSourceType.forNumber(tableSourceType_);
       return result == null ? com.google.cloud.datacatalog.v1beta1.TableSourceType.UNRECOGNIZED : result;
     }
     /**
@@ -724,7 +689,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       tableSourceType_ = value.getNumber();
       onChanged();
       return this;
@@ -738,7 +703,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTableSourceType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       tableSourceType_ = 0;
       onChanged();
       return this;
@@ -927,7 +892,7 @@ private static final long serialVersionUID = 0L;
         typeSpec_ = null;
       }
       typeSpecCase_ = 2;
-      onChanged();;
+      onChanged();
       return viewSpecBuilder_;
     }
 
@@ -1114,7 +1079,7 @@ private static final long serialVersionUID = 0L;
         typeSpec_ = null;
       }
       typeSpecCase_ = 3;
-      onChanged();;
+      onChanged();
       return tableSpecBuilder_;
     }
     @java.lang.Override
@@ -1150,7 +1115,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BigQueryTableSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

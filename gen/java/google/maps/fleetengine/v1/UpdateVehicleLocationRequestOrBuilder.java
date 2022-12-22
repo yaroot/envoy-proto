@@ -64,8 +64,8 @@ package google.maps.fleetengine.v1;
 
   /**
    * <pre>
-   * Required. The vehicle's most recent location.  The `location` and `update_time`
-   * subfields are required.
+   * Required. The vehicle's most recent location.  The `location` and
+   * `update_time` subfields are required.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -74,8 +74,8 @@ package google.maps.fleetengine.v1;
   boolean hasCurrentLocation();
   /**
    * <pre>
-   * Required. The vehicle's most recent location.  The `location` and `update_time`
-   * subfields are required.
+   * Required. The vehicle's most recent location.  The `location` and
+   * `update_time` subfields are required.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -84,8 +84,8 @@ package google.maps.fleetengine.v1;
   google.maps.fleetengine.v1.VehicleLocation getCurrentLocation();
   /**
    * <pre>
-   * Required. The vehicle's most recent location.  The `location` and `update_time`
-   * subfields are required.
+   * Required. The vehicle's most recent location.  The `location` and
+   * `update_time` subfields are required.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>

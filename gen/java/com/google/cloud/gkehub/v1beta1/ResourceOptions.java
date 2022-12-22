@@ -36,62 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourceOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            connectVersion_ = s;
-            break;
-          }
-          case 16: {
-
-            v1Beta1Crd_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            k8SVersion_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.v1beta1.MembershipOuterClass.internal_static_google_cloud_gkehub_v1beta1_ResourceOptions_descriptor;
@@ -106,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONNECT_VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object connectVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object connectVersion_ = "";
   /**
    * <pre>
    * Optional. The Connect agent version to use for connect_resources. Defaults to the
@@ -156,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int V1BETA1_CRD_FIELD_NUMBER = 2;
-  private boolean v1Beta1Crd_;
+  private boolean v1Beta1Crd_ = false;
   /**
    * <pre>
    * Optional. Use `apiextensions/v1beta1` instead of `apiextensions/v1` for
@@ -174,7 +119,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int K8S_VERSION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object k8SVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object k8SVersion_ = "";
   /**
    * <pre>
    * Optional. Major version of the Kubernetes cluster. This is only used to determine
@@ -246,7 +192,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(k8SVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, k8SVersion_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -265,7 +211,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(k8SVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, k8SVersion_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -286,7 +232,7 @@ private static final long serialVersionUID = 0L;
         != other.getV1Beta1Crd()) return false;
     if (!getK8SVersion()
         .equals(other.getK8SVersion())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -304,7 +250,7 @@ private static final long serialVersionUID = 0L;
         getV1Beta1Crd());
     hash = (37 * hash) + K8S_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getK8SVersion().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -425,28 +371,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.v1beta1.ResourceOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       connectVersion_ = "";
-
       v1Beta1Crd_ = false;
-
       k8SVersion_ = "";
-
       return this;
     }
 
@@ -473,11 +412,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.v1beta1.ResourceOptions buildPartial() {
       com.google.cloud.gkehub.v1beta1.ResourceOptions result = new com.google.cloud.gkehub.v1beta1.ResourceOptions(this);
-      result.connectVersion_ = connectVersion_;
-      result.v1Beta1Crd_ = v1Beta1Crd_;
-      result.k8SVersion_ = k8SVersion_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.v1beta1.ResourceOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.connectVersion_ = connectVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.v1Beta1Crd_ = v1Beta1Crd_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.k8SVersion_ = k8SVersion_;
+      }
     }
 
     @java.lang.Override
@@ -526,6 +476,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkehub.v1beta1.ResourceOptions.getDefaultInstance()) return this;
       if (!other.getConnectVersion().isEmpty()) {
         connectVersion_ = other.connectVersion_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getV1Beta1Crd() != false) {
@@ -533,9 +484,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getK8SVersion().isEmpty()) {
         k8SVersion_ = other.k8SVersion_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -550,19 +502,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.v1beta1.ResourceOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              connectVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              v1Beta1Crd_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              k8SVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.v1beta1.ResourceOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object connectVersion_ = "";
     /**
@@ -623,11 +604,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       connectVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -642,8 +621,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConnectVersion() {
-      
       connectVersion_ = getDefaultInstance().getConnectVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -660,12 +639,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       connectVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -701,6 +678,7 @@ private static final long serialVersionUID = 0L;
     public Builder setV1Beta1Crd(boolean value) {
       
       v1Beta1Crd_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -716,7 +694,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearV1Beta1Crd() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       v1Beta1Crd_ = false;
       onChanged();
       return this;
@@ -781,11 +759,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setK8SVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       k8SVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -800,8 +776,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearK8SVersion() {
-      
       k8SVersion_ = getDefaultInstance().getK8SVersion();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -818,12 +794,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setK8SVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       k8SVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -860,7 +834,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

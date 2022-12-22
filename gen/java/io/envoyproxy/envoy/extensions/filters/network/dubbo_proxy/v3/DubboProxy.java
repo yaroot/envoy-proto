@@ -39,116 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DubboProxy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            protocolType_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            serializationType_ = rawValue;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              routeConfig_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            routeConfig_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              dubboFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            dubboFilters_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.Drds.Builder subBuilder = null;
-            if (routeSpecifierCase_ == 6) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.Drds) routeSpecifier_).toBuilder();
-            }
-            routeSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.Drds.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.Drds) routeSpecifier_);
-              routeSpecifier_ = subBuilder.buildPartial();
-            }
-            routeSpecifierCase_ = 6;
-            break;
-          }
-          case 58: {
-            io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.MultipleRouteConfiguration.Builder subBuilder = null;
-            if (routeSpecifierCase_ == 7) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.MultipleRouteConfiguration) routeSpecifier_).toBuilder();
-            }
-            routeSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.MultipleRouteConfiguration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.MultipleRouteConfiguration) routeSpecifier_);
-              routeSpecifier_ = subBuilder.buildPartial();
-            }
-            routeSpecifierCase_ = 7;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        routeConfig_ = java.util.Collections.unmodifiableList(routeConfig_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        dubboFilters_ = java.util.Collections.unmodifiableList(dubboFilters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxyProto.internal_static_envoy_extensions_filters_network_dubbo_proxy_v3_DubboProxy_descriptor;
@@ -204,7 +94,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The human readable prefix to use when emitting statistics.
@@ -250,7 +141,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROTOCOL_TYPE_FIELD_NUMBER = 2;
-  private int protocolType_;
+  private int protocolType_ = 0;
   /**
    * <pre>
    * Configure the protocol used.
@@ -271,13 +162,12 @@ private static final long serialVersionUID = 0L;
    * @return The protocolType.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType getProtocolType() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType.valueOf(protocolType_);
+    io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType.forNumber(protocolType_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType.UNRECOGNIZED : result;
   }
 
   public static final int SERIALIZATION_TYPE_FIELD_NUMBER = 3;
-  private int serializationType_;
+  private int serializationType_ = 0;
   /**
    * <pre>
    * Configure the serialization protocol used.
@@ -298,12 +188,12 @@ private static final long serialVersionUID = 0L;
    * @return The serializationType.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType getSerializationType() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType.valueOf(serializationType_);
+    io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType.forNumber(serializationType_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType.UNRECOGNIZED : result;
   }
 
   public static final int ROUTE_CONFIG_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration> routeConfig_;
   /**
    * <pre>
@@ -448,6 +338,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DUBBO_FILTERS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter> dubboFilters_;
   /**
    * <pre>
@@ -557,7 +448,7 @@ private static final long serialVersionUID = 0L;
     if (routeSpecifierCase_ == 7) {
       output.writeMessage(7, (io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.MultipleRouteConfiguration) routeSpecifier_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -593,7 +484,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, (io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.MultipleRouteConfiguration) routeSpecifier_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -629,7 +520,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -666,7 +557,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -787,42 +678,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRouteConfigFieldBuilder();
-        getDubboFiltersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       statPrefix_ = "";
-
       protocolType_ = 0;
-
       serializationType_ = 0;
-
       if (routeConfigBuilder_ == null) {
         routeConfig_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        routeConfig_ = null;
         routeConfigBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000008);
+      if (drdsBuilder_ != null) {
+        drdsBuilder_.clear();
+      }
+      if (multipleRouteConfigBuilder_ != null) {
+        multipleRouteConfigBuilder_.clear();
       }
       if (dubboFiltersBuilder_ == null) {
         dubboFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        dubboFilters_ = null;
         dubboFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       routeSpecifierCase_ = 0;
       routeSpecifier_ = null;
       return this;
@@ -851,45 +741,58 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy buildPartial() {
       io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy result = new io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy(this);
-      int from_bitField0_ = bitField0_;
-      result.statPrefix_ = statPrefix_;
-      result.protocolType_ = protocolType_;
-      result.serializationType_ = serializationType_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy result) {
       if (routeConfigBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           routeConfig_ = java.util.Collections.unmodifiableList(routeConfig_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.routeConfig_ = routeConfig_;
       } else {
         result.routeConfig_ = routeConfigBuilder_.build();
       }
-      if (routeSpecifierCase_ == 6) {
-        if (drdsBuilder_ == null) {
-          result.routeSpecifier_ = routeSpecifier_;
-        } else {
-          result.routeSpecifier_ = drdsBuilder_.build();
-        }
-      }
-      if (routeSpecifierCase_ == 7) {
-        if (multipleRouteConfigBuilder_ == null) {
-          result.routeSpecifier_ = routeSpecifier_;
-        } else {
-          result.routeSpecifier_ = multipleRouteConfigBuilder_.build();
-        }
-      }
       if (dubboFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           dubboFilters_ = java.util.Collections.unmodifiableList(dubboFilters_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.dubboFilters_ = dubboFilters_;
       } else {
         result.dubboFilters_ = dubboFiltersBuilder_.build();
       }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.protocolType_ = protocolType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.serializationType_ = serializationType_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy result) {
       result.routeSpecifierCase_ = routeSpecifierCase_;
-      onBuilt();
-      return result;
+      result.routeSpecifier_ = this.routeSpecifier_;
+      if (routeSpecifierCase_ == 6 &&
+          drdsBuilder_ != null) {
+        result.routeSpecifier_ = drdsBuilder_.build();
+      }
+      if (routeSpecifierCase_ == 7 &&
+          multipleRouteConfigBuilder_ != null) {
+        result.routeSpecifier_ = multipleRouteConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -938,6 +841,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy.getDefaultInstance()) return this;
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.protocolType_ != 0) {
@@ -950,7 +854,7 @@ private static final long serialVersionUID = 0L;
         if (!other.routeConfig_.isEmpty()) {
           if (routeConfig_.isEmpty()) {
             routeConfig_ = other.routeConfig_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureRouteConfigIsMutable();
             routeConfig_.addAll(other.routeConfig_);
@@ -963,7 +867,7 @@ private static final long serialVersionUID = 0L;
             routeConfigBuilder_.dispose();
             routeConfigBuilder_ = null;
             routeConfig_ = other.routeConfig_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             routeConfigBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRouteConfigFieldBuilder() : null;
@@ -976,7 +880,7 @@ private static final long serialVersionUID = 0L;
         if (!other.dubboFilters_.isEmpty()) {
           if (dubboFilters_.isEmpty()) {
             dubboFilters_ = other.dubboFilters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureDubboFiltersIsMutable();
             dubboFilters_.addAll(other.dubboFilters_);
@@ -989,7 +893,7 @@ private static final long serialVersionUID = 0L;
             dubboFiltersBuilder_.dispose();
             dubboFiltersBuilder_ = null;
             dubboFilters_ = other.dubboFilters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000040);
             dubboFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDubboFiltersFieldBuilder() : null;
@@ -1011,7 +915,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1026,17 +930,85 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              protocolType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              serializationType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration.parser(),
+                      extensionRegistry);
+              if (routeConfigBuilder_ == null) {
+                ensureRouteConfigIsMutable();
+                routeConfig_.add(m);
+              } else {
+                routeConfigBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter.parser(),
+                      extensionRegistry);
+              if (dubboFiltersBuilder_ == null) {
+                ensureDubboFiltersIsMutable();
+                dubboFilters_.add(m);
+              } else {
+                dubboFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDrdsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              routeSpecifierCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getMultipleRouteConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              routeSpecifierCase_ = 7;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboProxy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int routeSpecifierCase_ = 0;
@@ -1109,11 +1081,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1126,8 +1096,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1142,12 +1112,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1174,8 +1142,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtocolTypeValue(int value) {
-      
       protocolType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1189,8 +1157,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType getProtocolType() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType.valueOf(protocolType_);
+      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType.forNumber(protocolType_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.ProtocolType.UNRECOGNIZED : result;
     }
     /**
@@ -1206,7 +1173,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       protocolType_ = value.getNumber();
       onChanged();
       return this;
@@ -1220,7 +1187,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtocolType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       protocolType_ = 0;
       onChanged();
       return this;
@@ -1248,8 +1215,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSerializationTypeValue(int value) {
-      
       serializationType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1263,8 +1230,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType getSerializationType() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType.valueOf(serializationType_);
+      io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType result = io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType.forNumber(serializationType_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.SerializationType.UNRECOGNIZED : result;
     }
     /**
@@ -1280,7 +1246,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       serializationType_ = value.getNumber();
       onChanged();
       return this;
@@ -1294,7 +1260,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSerializationType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       serializationType_ = 0;
       onChanged();
       return this;
@@ -1303,9 +1269,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration> routeConfig_ =
       java.util.Collections.emptyList();
     private void ensureRouteConfigIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         routeConfig_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration>(routeConfig_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1521,7 +1487,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder clearRouteConfig() {
       if (routeConfigBuilder_ == null) {
         routeConfig_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         routeConfigBuilder_.clear();
@@ -1640,7 +1606,7 @@ private static final long serialVersionUID = 0L;
         routeConfigBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration, io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfiguration.Builder, io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.RouteConfigurationOrBuilder>(
                 routeConfig_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         routeConfig_ = null;
@@ -1822,7 +1788,7 @@ private static final long serialVersionUID = 0L;
         routeSpecifier_ = null;
       }
       routeSpecifierCase_ = 6;
-      onChanged();;
+      onChanged();
       return drdsBuilder_;
     }
 
@@ -1964,16 +1930,16 @@ private static final long serialVersionUID = 0L;
         routeSpecifier_ = null;
       }
       routeSpecifierCase_ = 7;
-      onChanged();;
+      onChanged();
       return multipleRouteConfigBuilder_;
     }
 
     private java.util.List<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter> dubboFilters_ =
       java.util.Collections.emptyList();
     private void ensureDubboFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         dubboFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter>(dubboFilters_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2200,7 +2166,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDubboFilters() {
       if (dubboFiltersBuilder_ == null) {
         dubboFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         dubboFiltersBuilder_.clear();
@@ -2326,7 +2292,7 @@ private static final long serialVersionUID = 0L;
         dubboFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter, io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilter.Builder, io.envoyproxy.envoy.extensions.filters.network.dubbo_proxy.v3.DubboFilterOrBuilder>(
                 dubboFilters_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         dubboFilters_ = null;
@@ -2366,7 +2332,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DubboProxy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

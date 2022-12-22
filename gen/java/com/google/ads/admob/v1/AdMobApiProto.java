@@ -72,51 +72,6 @@ public final class AdMobApiProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetPublisherAccountRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobApiProto.internal_static_google_ads_admob_v1_GetPublisherAccountRequest_descriptor;
@@ -131,7 +86,8 @@ public final class AdMobApiProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Resource name of the publisher account to retrieve.
@@ -195,7 +151,7 @@ public final class AdMobApiProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -207,7 +163,7 @@ public final class AdMobApiProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -224,7 +180,7 @@ public final class AdMobApiProto {
 
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -237,7 +193,7 @@ public final class AdMobApiProto {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -358,24 +314,19 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         return this;
       }
 
@@ -402,9 +353,16 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest result = new com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest(this);
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -453,9 +411,10 @@ public final class AdMobApiProto {
         if (other == com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -470,19 +429,38 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.GetPublisherAccountRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -540,11 +518,9 @@ public final class AdMobApiProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -558,8 +534,8 @@ public final class AdMobApiProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -575,12 +551,10 @@ public final class AdMobApiProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -617,7 +591,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetPublisherAccountRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -708,56 +693,6 @@ public final class AdMobApiProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListPublisherAccountsRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              pageSize_ = input.readInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              pageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobApiProto.internal_static_google_ads_admob_v1_ListPublisherAccountsRequest_descriptor;
@@ -772,7 +707,7 @@ public final class AdMobApiProto {
     }
 
     public static final int PAGE_SIZE_FIELD_NUMBER = 1;
-    private int pageSize_;
+    private int pageSize_ = 0;
     /**
      * <pre>
      * Maximum number of accounts to return.
@@ -787,7 +722,8 @@ public final class AdMobApiProto {
     }
 
     public static final int PAGE_TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object pageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object pageToken_ = "";
     /**
      * <pre>
      * The value returned by the last `ListPublisherAccountsResponse`; indicates
@@ -856,7 +792,7 @@ public final class AdMobApiProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, pageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -872,7 +808,7 @@ public final class AdMobApiProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(pageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, pageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -891,7 +827,7 @@ public final class AdMobApiProto {
           != other.getPageSize()) return false;
       if (!getPageToken()
           .equals(other.getPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -906,7 +842,7 @@ public final class AdMobApiProto {
       hash = (53 * hash) + getPageSize();
       hash = (37 * hash) + PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1028,26 +964,20 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         pageSize_ = 0;
-
         pageToken_ = "";
-
         return this;
       }
 
@@ -1074,10 +1004,19 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest result = new com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest(this);
-        result.pageSize_ = pageSize_;
-        result.pageToken_ = pageToken_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.pageSize_ = pageSize_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.pageToken_ = pageToken_;
+        }
       }
 
       @java.lang.Override
@@ -1129,9 +1068,10 @@ public final class AdMobApiProto {
         }
         if (!other.getPageToken().isEmpty()) {
           pageToken_ = other.pageToken_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1146,19 +1086,43 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                pageSize_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                pageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int pageSize_ ;
       /**
@@ -1185,6 +1149,7 @@ public final class AdMobApiProto {
       public Builder setPageSize(int value) {
         
         pageSize_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1197,7 +1162,7 @@ public final class AdMobApiProto {
        * @return This builder for chaining.
        */
       public Builder clearPageSize() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         pageSize_ = 0;
         onChanged();
         return this;
@@ -1262,11 +1227,9 @@ public final class AdMobApiProto {
        */
       public Builder setPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         pageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1281,8 +1244,8 @@ public final class AdMobApiProto {
        * @return This builder for chaining.
        */
       public Builder clearPageToken() {
-        
         pageToken_ = getDefaultInstance().getPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1299,12 +1262,10 @@ public final class AdMobApiProto {
        */
       public Builder setPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         pageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1341,7 +1302,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListPublisherAccountsRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1464,64 +1436,6 @@ public final class AdMobApiProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private ListPublisherAccountsResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                account_ = new java.util.ArrayList<com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              account_.add(
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nextPageToken_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          account_ = java.util.Collections.unmodifiableList(account_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobApiProto.internal_static_google_ads_admob_v1_ListPublisherAccountsResponse_descriptor;
@@ -1536,6 +1450,7 @@ public final class AdMobApiProto {
     }
 
     public static final int ACCOUNT_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount> account_;
     /**
      * <pre>
@@ -1596,7 +1511,8 @@ public final class AdMobApiProto {
     }
 
     public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 2;
-    private volatile java.lang.Object nextPageToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object nextPageToken_ = "";
     /**
      * <pre>
      * If not empty, indicates that there might be more accounts for the request;
@@ -1663,7 +1579,7 @@ public final class AdMobApiProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, nextPageToken_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1679,7 +1595,7 @@ public final class AdMobApiProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, nextPageToken_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1698,7 +1614,7 @@ public final class AdMobApiProto {
           .equals(other.getAccountList())) return false;
       if (!getNextPageToken()
           .equals(other.getNextPageToken())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1715,7 +1631,7 @@ public final class AdMobApiProto {
       }
       hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
       hash = (53 * hash) + getNextPageToken().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1836,31 +1752,26 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAccountFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (accountBuilder_ == null) {
           account_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          account_ = null;
           accountBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         nextPageToken_ = "";
-
         return this;
       }
 
@@ -1887,7 +1798,13 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse result = new com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse result) {
         if (accountBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             account_ = java.util.Collections.unmodifiableList(account_);
@@ -1897,9 +1814,13 @@ public final class AdMobApiProto {
         } else {
           result.account_ = accountBuilder_.build();
         }
-        result.nextPageToken_ = nextPageToken_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.nextPageToken_ = nextPageToken_;
+        }
       }
 
       @java.lang.Override
@@ -1974,9 +1895,10 @@ public final class AdMobApiProto {
         }
         if (!other.getNextPageToken().isEmpty()) {
           nextPageToken_ = other.nextPageToken_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1991,17 +1913,48 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount m =
+                    input.readMessage(
+                        com.google.ads.admob.v1.AdMobResourcesProto.PublisherAccount.parser(),
+                        extensionRegistry);
+                if (accountBuilder_ == null) {
+                  ensureAccountIsMutable();
+                  account_.add(m);
+                } else {
+                  accountBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                nextPageToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.ListPublisherAccountsResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2374,11 +2327,9 @@ public final class AdMobApiProto {
        */
       public Builder setNextPageToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2392,8 +2343,8 @@ public final class AdMobApiProto {
        * @return This builder for chaining.
        */
       public Builder clearNextPageToken() {
-        
         nextPageToken_ = getDefaultInstance().getNextPageToken();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2409,12 +2360,10 @@ public final class AdMobApiProto {
        */
       public Builder setNextPageTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         nextPageToken_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2451,7 +2400,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ListPublisherAccountsResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2556,64 +2516,6 @@ public final class AdMobApiProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GenerateMediationReportRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              parent_ = s;
-              break;
-            }
-            case 18: {
-              com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Builder subBuilder = null;
-              if (reportSpec_ != null) {
-                subBuilder = reportSpec_.toBuilder();
-              }
-              reportSpec_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(reportSpec_);
-                reportSpec_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobApiProto.internal_static_google_ads_admob_v1_GenerateMediationReportRequest_descriptor;
@@ -2628,7 +2530,8 @@ public final class AdMobApiProto {
     }
 
     public static final int PARENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object parent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object parent_ = "";
     /**
      * <pre>
      * Resource name of the account to generate the report for.
@@ -2710,7 +2613,7 @@ public final class AdMobApiProto {
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpecOrBuilder getReportSpecOrBuilder() {
-      return getReportSpec();
+      return reportSpec_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.getDefaultInstance() : reportSpec_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2733,7 +2636,7 @@ public final class AdMobApiProto {
       if (reportSpec_ != null) {
         output.writeMessage(2, getReportSpec());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2749,7 +2652,7 @@ public final class AdMobApiProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getReportSpec());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2771,7 +2674,7 @@ public final class AdMobApiProto {
         if (!getReportSpec()
             .equals(other.getReportSpec())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2788,7 +2691,7 @@ public final class AdMobApiProto {
         hash = (37 * hash) + REPORT_SPEC_FIELD_NUMBER;
         hash = (53 * hash) + getReportSpec().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2909,28 +2812,22 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         parent_ = "";
-
-        if (reportSpecBuilder_ == null) {
-          reportSpec_ = null;
-        } else {
-          reportSpec_ = null;
+        reportSpec_ = null;
+        if (reportSpecBuilder_ != null) {
+          reportSpecBuilder_.dispose();
           reportSpecBuilder_ = null;
         }
         return this;
@@ -2959,14 +2856,21 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest result = new com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest(this);
-        result.parent_ = parent_;
-        if (reportSpecBuilder_ == null) {
-          result.reportSpec_ = reportSpec_;
-        } else {
-          result.reportSpec_ = reportSpecBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parent_ = parent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.reportSpec_ = reportSpecBuilder_ == null
+              ? reportSpec_
+              : reportSpecBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3015,12 +2919,13 @@ public final class AdMobApiProto {
         if (other == com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest.getDefaultInstance()) return this;
         if (!other.getParent().isEmpty()) {
           parent_ = other.parent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasReportSpec()) {
           mergeReportSpec(other.getReportSpec());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3035,19 +2940,45 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                parent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getReportSpecFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object parent_ = "";
       /**
@@ -3105,11 +3036,9 @@ public final class AdMobApiProto {
        */
       public Builder setParent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3123,8 +3052,8 @@ public final class AdMobApiProto {
        * @return This builder for chaining.
        */
       public Builder clearParent() {
-        
         parent_ = getDefaultInstance().getParent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3140,12 +3069,10 @@ public final class AdMobApiProto {
        */
       public Builder setParentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3162,7 +3089,7 @@ public final class AdMobApiProto {
        * @return Whether the reportSpec field is set.
        */
       public boolean hasReportSpec() {
-        return reportSpecBuilder_ != null || reportSpec_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -3192,11 +3119,11 @@ public final class AdMobApiProto {
             throw new NullPointerException();
           }
           reportSpec_ = value;
-          onChanged();
         } else {
           reportSpecBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3210,11 +3137,11 @@ public final class AdMobApiProto {
           com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Builder builderForValue) {
         if (reportSpecBuilder_ == null) {
           reportSpec_ = builderForValue.build();
-          onChanged();
         } else {
           reportSpecBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3226,17 +3153,18 @@ public final class AdMobApiProto {
        */
       public Builder mergeReportSpec(com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec value) {
         if (reportSpecBuilder_ == null) {
-          if (reportSpec_ != null) {
-            reportSpec_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.newBuilder(reportSpec_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            reportSpec_ != null &&
+            reportSpec_ != com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.getDefaultInstance()) {
+            getReportSpecBuilder().mergeFrom(value);
           } else {
             reportSpec_ = value;
           }
-          onChanged();
         } else {
           reportSpecBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3247,14 +3175,13 @@ public final class AdMobApiProto {
        * <code>.google.ads.admob.v1.MediationReportSpec report_spec = 2;</code>
        */
       public Builder clearReportSpec() {
-        if (reportSpecBuilder_ == null) {
-          reportSpec_ = null;
-          onChanged();
-        } else {
-          reportSpec_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        reportSpec_ = null;
+        if (reportSpecBuilder_ != null) {
+          reportSpecBuilder_.dispose();
           reportSpecBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3265,7 +3192,7 @@ public final class AdMobApiProto {
        * <code>.google.ads.admob.v1.MediationReportSpec report_spec = 2;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.MediationReportSpec.Builder getReportSpecBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getReportSpecFieldBuilder().getBuilder();
       }
@@ -3337,7 +3264,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenerateMediationReportRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3512,87 +3450,6 @@ public final class AdMobApiProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GenerateMediationReportResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.Builder subBuilder = null;
-              if (payloadCase_ == 1) {
-                subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader) payload_).toBuilder();
-              }
-              payload_ =
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader) payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-              payloadCase_ = 1;
-              break;
-            }
-            case 18: {
-              com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.Builder subBuilder = null;
-              if (payloadCase_ == 2) {
-                subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.ReportRow) payload_).toBuilder();
-              }
-              payload_ =
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.ReportRow) payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-              payloadCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter.Builder subBuilder = null;
-              if (payloadCase_ == 3) {
-                subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_).toBuilder();
-              }
-              payload_ =
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-              payloadCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3808,7 +3665,7 @@ public final class AdMobApiProto {
       if (payloadCase_ == 3) {
         output.writeMessage(3, (com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3829,7 +3686,7 @@ public final class AdMobApiProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3861,7 +3718,7 @@ public final class AdMobApiProto {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3888,7 +3745,7 @@ public final class AdMobApiProto {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4041,22 +3898,27 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (headerBuilder_ != null) {
+          headerBuilder_.clear();
+        }
+        if (rowBuilder_ != null) {
+          rowBuilder_.clear();
+        }
+        if (footerBuilder_ != null) {
+          footerBuilder_.clear();
+        }
         payloadCase_ = 0;
         payload_ = null;
         return this;
@@ -4085,30 +3947,31 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse result = new com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse(this);
-        if (payloadCase_ == 1) {
-          if (headerBuilder_ == null) {
-            result.payload_ = payload_;
-          } else {
-            result.payload_ = headerBuilder_.build();
-          }
-        }
-        if (payloadCase_ == 2) {
-          if (rowBuilder_ == null) {
-            result.payload_ = payload_;
-          } else {
-            result.payload_ = rowBuilder_.build();
-          }
-        }
-        if (payloadCase_ == 3) {
-          if (footerBuilder_ == null) {
-            result.payload_ = payload_;
-          } else {
-            result.payload_ = footerBuilder_.build();
-          }
-        }
-        result.payloadCase_ = payloadCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse result) {
+        result.payloadCase_ = payloadCase_;
+        result.payload_ = this.payload_;
+        if (payloadCase_ == 1 &&
+            headerBuilder_ != null) {
+          result.payload_ = headerBuilder_.build();
+        }
+        if (payloadCase_ == 2 &&
+            rowBuilder_ != null) {
+          result.payload_ = rowBuilder_.build();
+        }
+        if (payloadCase_ == 3 &&
+            footerBuilder_ != null) {
+          result.payload_ = footerBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -4172,7 +4035,7 @@ public final class AdMobApiProto {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4187,17 +4050,51 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHeaderFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getRowFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getFooterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.GenerateMediationReportResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int payloadCase_ = 0;
@@ -4215,6 +4112,7 @@ public final class AdMobApiProto {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader, com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.Builder, com.google.ads.admob.v1.AdMobResourcesProto.ReportHeaderOrBuilder> headerBuilder_;
@@ -4399,7 +4297,7 @@ public final class AdMobApiProto {
           payload_ = null;
         }
         payloadCase_ = 1;
-        onChanged();;
+        onChanged();
         return headerBuilder_;
       }
 
@@ -4577,7 +4475,7 @@ public final class AdMobApiProto {
           payload_ = null;
         }
         payloadCase_ = 2;
-        onChanged();;
+        onChanged();
         return rowBuilder_;
       }
 
@@ -4764,7 +4662,7 @@ public final class AdMobApiProto {
           payload_ = null;
         }
         payloadCase_ = 3;
-        onChanged();;
+        onChanged();
         return footerBuilder_;
       }
       @java.lang.Override
@@ -4800,7 +4698,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenerateMediationReportResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4905,64 +4814,6 @@ public final class AdMobApiProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GenerateNetworkReportRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              parent_ = s;
-              break;
-            }
-            case 18: {
-              com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Builder subBuilder = null;
-              if (reportSpec_ != null) {
-                subBuilder = reportSpec_.toBuilder();
-              }
-              reportSpec_ = input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(reportSpec_);
-                reportSpec_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.ads.admob.v1.AdMobApiProto.internal_static_google_ads_admob_v1_GenerateNetworkReportRequest_descriptor;
@@ -4977,7 +4828,8 @@ public final class AdMobApiProto {
     }
 
     public static final int PARENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object parent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object parent_ = "";
     /**
      * <pre>
      * Resource name of the account to generate the report for.
@@ -5059,7 +4911,7 @@ public final class AdMobApiProto {
      */
     @java.lang.Override
     public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpecOrBuilder getReportSpecOrBuilder() {
-      return getReportSpec();
+      return reportSpec_ == null ? com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.getDefaultInstance() : reportSpec_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -5082,7 +4934,7 @@ public final class AdMobApiProto {
       if (reportSpec_ != null) {
         output.writeMessage(2, getReportSpec());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5098,7 +4950,7 @@ public final class AdMobApiProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getReportSpec());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5120,7 +4972,7 @@ public final class AdMobApiProto {
         if (!getReportSpec()
             .equals(other.getReportSpec())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5137,7 +4989,7 @@ public final class AdMobApiProto {
         hash = (37 * hash) + REPORT_SPEC_FIELD_NUMBER;
         hash = (53 * hash) + getReportSpec().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5258,28 +5110,22 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         parent_ = "";
-
-        if (reportSpecBuilder_ == null) {
-          reportSpec_ = null;
-        } else {
-          reportSpec_ = null;
+        reportSpec_ = null;
+        if (reportSpecBuilder_ != null) {
+          reportSpecBuilder_.dispose();
           reportSpecBuilder_ = null;
         }
         return this;
@@ -5308,14 +5154,21 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest result = new com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest(this);
-        result.parent_ = parent_;
-        if (reportSpecBuilder_ == null) {
-          result.reportSpec_ = reportSpec_;
-        } else {
-          result.reportSpec_ = reportSpecBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.parent_ = parent_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.reportSpec_ = reportSpecBuilder_ == null
+              ? reportSpec_
+              : reportSpecBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -5364,12 +5217,13 @@ public final class AdMobApiProto {
         if (other == com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest.getDefaultInstance()) return this;
         if (!other.getParent().isEmpty()) {
           parent_ = other.parent_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasReportSpec()) {
           mergeReportSpec(other.getReportSpec());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5384,19 +5238,45 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                parent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getReportSpecFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object parent_ = "";
       /**
@@ -5454,11 +5334,9 @@ public final class AdMobApiProto {
        */
       public Builder setParent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5472,8 +5350,8 @@ public final class AdMobApiProto {
        * @return This builder for chaining.
        */
       public Builder clearParent() {
-        
         parent_ = getDefaultInstance().getParent();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -5489,12 +5367,10 @@ public final class AdMobApiProto {
        */
       public Builder setParentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         parent_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5511,7 +5387,7 @@ public final class AdMobApiProto {
        * @return Whether the reportSpec field is set.
        */
       public boolean hasReportSpec() {
-        return reportSpecBuilder_ != null || reportSpec_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -5541,11 +5417,11 @@ public final class AdMobApiProto {
             throw new NullPointerException();
           }
           reportSpec_ = value;
-          onChanged();
         } else {
           reportSpecBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -5559,11 +5435,11 @@ public final class AdMobApiProto {
           com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Builder builderForValue) {
         if (reportSpecBuilder_ == null) {
           reportSpec_ = builderForValue.build();
-          onChanged();
         } else {
           reportSpecBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -5575,17 +5451,18 @@ public final class AdMobApiProto {
        */
       public Builder mergeReportSpec(com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec value) {
         if (reportSpecBuilder_ == null) {
-          if (reportSpec_ != null) {
-            reportSpec_ =
-              com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.newBuilder(reportSpec_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            reportSpec_ != null &&
+            reportSpec_ != com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.getDefaultInstance()) {
+            getReportSpecBuilder().mergeFrom(value);
           } else {
             reportSpec_ = value;
           }
-          onChanged();
         } else {
           reportSpecBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -5596,14 +5473,13 @@ public final class AdMobApiProto {
        * <code>.google.ads.admob.v1.NetworkReportSpec report_spec = 2;</code>
        */
       public Builder clearReportSpec() {
-        if (reportSpecBuilder_ == null) {
-          reportSpec_ = null;
-          onChanged();
-        } else {
-          reportSpec_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        reportSpec_ = null;
+        if (reportSpecBuilder_ != null) {
+          reportSpecBuilder_.dispose();
           reportSpecBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -5614,7 +5490,7 @@ public final class AdMobApiProto {
        * <code>.google.ads.admob.v1.NetworkReportSpec report_spec = 2;</code>
        */
       public com.google.ads.admob.v1.AdMobResourcesProto.NetworkReportSpec.Builder getReportSpecBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getReportSpecFieldBuilder().getBuilder();
       }
@@ -5686,7 +5562,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenerateNetworkReportRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5861,87 +5748,6 @@ public final class AdMobApiProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private GenerateNetworkReportResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.Builder subBuilder = null;
-              if (payloadCase_ == 1) {
-                subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader) payload_).toBuilder();
-              }
-              payload_ =
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader) payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-              payloadCase_ = 1;
-              break;
-            }
-            case 18: {
-              com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.Builder subBuilder = null;
-              if (payloadCase_ == 2) {
-                subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.ReportRow) payload_).toBuilder();
-              }
-              payload_ =
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportRow.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.ReportRow) payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-              payloadCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter.Builder subBuilder = null;
-              if (payloadCase_ == 3) {
-                subBuilder = ((com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_).toBuilder();
-              }
-              payload_ =
-                  input.readMessage(com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_);
-                payload_ = subBuilder.buildPartial();
-              }
-              payloadCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -6157,7 +5963,7 @@ public final class AdMobApiProto {
       if (payloadCase_ == 3) {
         output.writeMessage(3, (com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6178,7 +5984,7 @@ public final class AdMobApiProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.ads.admob.v1.AdMobResourcesProto.ReportFooter) payload_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6210,7 +6016,7 @@ public final class AdMobApiProto {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6237,7 +6043,7 @@ public final class AdMobApiProto {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6390,22 +6196,27 @@ public final class AdMobApiProto {
 
       // Construct using com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (headerBuilder_ != null) {
+          headerBuilder_.clear();
+        }
+        if (rowBuilder_ != null) {
+          rowBuilder_.clear();
+        }
+        if (footerBuilder_ != null) {
+          footerBuilder_.clear();
+        }
         payloadCase_ = 0;
         payload_ = null;
         return this;
@@ -6434,30 +6245,31 @@ public final class AdMobApiProto {
       @java.lang.Override
       public com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse buildPartial() {
         com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse result = new com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse(this);
-        if (payloadCase_ == 1) {
-          if (headerBuilder_ == null) {
-            result.payload_ = payload_;
-          } else {
-            result.payload_ = headerBuilder_.build();
-          }
-        }
-        if (payloadCase_ == 2) {
-          if (rowBuilder_ == null) {
-            result.payload_ = payload_;
-          } else {
-            result.payload_ = rowBuilder_.build();
-          }
-        }
-        if (payloadCase_ == 3) {
-          if (footerBuilder_ == null) {
-            result.payload_ = payload_;
-          } else {
-            result.payload_ = footerBuilder_.build();
-          }
-        }
-        result.payloadCase_ = payloadCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse result) {
+        result.payloadCase_ = payloadCase_;
+        result.payload_ = this.payload_;
+        if (payloadCase_ == 1 &&
+            headerBuilder_ != null) {
+          result.payload_ = headerBuilder_.build();
+        }
+        if (payloadCase_ == 2 &&
+            rowBuilder_ != null) {
+          result.payload_ = rowBuilder_.build();
+        }
+        if (payloadCase_ == 3 &&
+            footerBuilder_ != null) {
+          result.payload_ = footerBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -6521,7 +6333,7 @@ public final class AdMobApiProto {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6536,17 +6348,51 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHeaderFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getRowFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getFooterFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                payloadCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.ads.admob.v1.AdMobApiProto.GenerateNetworkReportResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int payloadCase_ = 0;
@@ -6564,6 +6410,7 @@ public final class AdMobApiProto {
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader, com.google.ads.admob.v1.AdMobResourcesProto.ReportHeader.Builder, com.google.ads.admob.v1.AdMobResourcesProto.ReportHeaderOrBuilder> headerBuilder_;
@@ -6748,7 +6595,7 @@ public final class AdMobApiProto {
           payload_ = null;
         }
         payloadCase_ = 1;
-        onChanged();;
+        onChanged();
         return headerBuilder_;
       }
 
@@ -6926,7 +6773,7 @@ public final class AdMobApiProto {
           payload_ = null;
         }
         payloadCase_ = 2;
-        onChanged();;
+        onChanged();
         return rowBuilder_;
       }
 
@@ -7113,7 +6960,7 @@ public final class AdMobApiProto {
           payload_ = null;
         }
         payloadCase_ = 3;
-        onChanged();;
+        onChanged();
         return footerBuilder_;
       }
       @java.lang.Override
@@ -7149,7 +6996,18 @@ public final class AdMobApiProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GenerateNetworkReportResponse(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

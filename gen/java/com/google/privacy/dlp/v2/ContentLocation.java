@@ -37,126 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ContentLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            containerName_ = s;
-            break;
-          }
-          case 18: {
-            com.google.privacy.dlp.v2.RecordLocation.Builder subBuilder = null;
-            if (locationCase_ == 2) {
-              subBuilder = ((com.google.privacy.dlp.v2.RecordLocation) location_).toBuilder();
-            }
-            location_ =
-                input.readMessage(com.google.privacy.dlp.v2.RecordLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.RecordLocation) location_);
-              location_ = subBuilder.buildPartial();
-            }
-            locationCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.ImageLocation.Builder subBuilder = null;
-            if (locationCase_ == 3) {
-              subBuilder = ((com.google.privacy.dlp.v2.ImageLocation) location_).toBuilder();
-            }
-            location_ =
-                input.readMessage(com.google.privacy.dlp.v2.ImageLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.ImageLocation) location_);
-              location_ = subBuilder.buildPartial();
-            }
-            locationCase_ = 3;
-            break;
-          }
-          case 42: {
-            com.google.privacy.dlp.v2.DocumentLocation.Builder subBuilder = null;
-            if (locationCase_ == 5) {
-              subBuilder = ((com.google.privacy.dlp.v2.DocumentLocation) location_).toBuilder();
-            }
-            location_ =
-                input.readMessage(com.google.privacy.dlp.v2.DocumentLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.DocumentLocation) location_);
-              location_ = subBuilder.buildPartial();
-            }
-            locationCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (containerTimestamp_ != null) {
-              subBuilder = containerTimestamp_.toBuilder();
-            }
-            containerTimestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(containerTimestamp_);
-              containerTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            containerVersion_ = s;
-            break;
-          }
-          case 66: {
-            com.google.privacy.dlp.v2.MetadataLocation.Builder subBuilder = null;
-            if (locationCase_ == 8) {
-              subBuilder = ((com.google.privacy.dlp.v2.MetadataLocation) location_).toBuilder();
-            }
-            location_ =
-                input.readMessage(com.google.privacy.dlp.v2.MetadataLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.MetadataLocation) location_);
-              location_ = subBuilder.buildPartial();
-            }
-            locationCase_ = 8;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_ContentLocation_descriptor;
@@ -216,7 +96,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTAINER_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object containerName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object containerName_ = "";
   /**
    * <pre>
    * Name of the container where the finding is located.
@@ -226,7 +107,7 @@ private static final long serialVersionUID = 0L;
    * * Cloud Storage files: `gs://{bucket}/{path}`
    * * Datastore namespace: {namespace}
    * Nested names could be absent if the embedded object has no string
-   * identifier (for an example an image contained within a document).
+   * identifier (for example, an image contained within a document).
    * </pre>
    *
    * <code>string container_name = 1;</code>
@@ -254,7 +135,7 @@ private static final long serialVersionUID = 0L;
    * * Cloud Storage files: `gs://{bucket}/{path}`
    * * Datastore namespace: {namespace}
    * Nested names could be absent if the embedded object has no string
-   * identifier (for an example an image contained within a document).
+   * identifier (for example, an image contained within a document).
    * </pre>
    *
    * <code>string container_name = 1;</code>
@@ -451,10 +332,10 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp containerTimestamp_;
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Finding container modification timestamp, if applicable. For Cloud Storage,
+   * this field contains the last file modification timestamp. For a BigQuery
+   * table, this field contains the last_modified_time property. For Datastore,
+   * this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -466,10 +347,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Finding container modification timestamp, if applicable. For Cloud Storage,
+   * this field contains the last file modification timestamp. For a BigQuery
+   * table, this field contains the last_modified_time property. For Datastore,
+   * this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -481,25 +362,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Findings container modification timestamp, if applicable.
-   * For Google Cloud Storage contains last file modification timestamp.
-   * For BigQuery table contains last_modified_time property.
-   * For Datastore - not populated.
+   * Finding container modification timestamp, if applicable. For Cloud Storage,
+   * this field contains the last file modification timestamp. For a BigQuery
+   * table, this field contains the last_modified_time property. For Datastore,
+   * this field isn't populated.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getContainerTimestampOrBuilder() {
-    return getContainerTimestamp();
+    return containerTimestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : containerTimestamp_;
   }
 
   public static final int CONTAINER_VERSION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object containerVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object containerVersion_ = "";
   /**
    * <pre>
-   * Findings container version, if available
-   * ("generation" for Google Cloud Storage).
+   * Finding container version, if available
+   * ("generation" for Cloud Storage).
    * </pre>
    *
    * <code>string container_version = 7;</code>
@@ -520,8 +402,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Findings container version, if available
-   * ("generation" for Google Cloud Storage).
+   * Finding container version, if available
+   * ("generation" for Cloud Storage).
    * </pre>
    *
    * <code>string container_version = 7;</code>
@@ -577,7 +459,7 @@ private static final long serialVersionUID = 0L;
     if (locationCase_ == 8) {
       output.writeMessage(8, (com.google.privacy.dlp.v2.MetadataLocation) location_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -612,7 +494,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, (com.google.privacy.dlp.v2.MetadataLocation) location_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -657,7 +539,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -696,7 +578,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -818,32 +700,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.ContentLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       containerName_ = "";
-
-      if (containerTimestampBuilder_ == null) {
-        containerTimestamp_ = null;
-      } else {
-        containerTimestamp_ = null;
+      if (recordLocationBuilder_ != null) {
+        recordLocationBuilder_.clear();
+      }
+      if (imageLocationBuilder_ != null) {
+        imageLocationBuilder_.clear();
+      }
+      if (documentLocationBuilder_ != null) {
+        documentLocationBuilder_.clear();
+      }
+      if (metadataLocationBuilder_ != null) {
+        metadataLocationBuilder_.clear();
+      }
+      containerTimestamp_ = null;
+      if (containerTimestampBuilder_ != null) {
+        containerTimestampBuilder_.dispose();
         containerTimestampBuilder_ = null;
       }
       containerVersion_ = "";
-
       locationCase_ = 0;
       location_ = null;
       return this;
@@ -872,44 +759,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.ContentLocation buildPartial() {
       com.google.privacy.dlp.v2.ContentLocation result = new com.google.privacy.dlp.v2.ContentLocation(this);
-      result.containerName_ = containerName_;
-      if (locationCase_ == 2) {
-        if (recordLocationBuilder_ == null) {
-          result.location_ = location_;
-        } else {
-          result.location_ = recordLocationBuilder_.build();
-        }
-      }
-      if (locationCase_ == 3) {
-        if (imageLocationBuilder_ == null) {
-          result.location_ = location_;
-        } else {
-          result.location_ = imageLocationBuilder_.build();
-        }
-      }
-      if (locationCase_ == 5) {
-        if (documentLocationBuilder_ == null) {
-          result.location_ = location_;
-        } else {
-          result.location_ = documentLocationBuilder_.build();
-        }
-      }
-      if (locationCase_ == 8) {
-        if (metadataLocationBuilder_ == null) {
-          result.location_ = location_;
-        } else {
-          result.location_ = metadataLocationBuilder_.build();
-        }
-      }
-      if (containerTimestampBuilder_ == null) {
-        result.containerTimestamp_ = containerTimestamp_;
-      } else {
-        result.containerTimestamp_ = containerTimestampBuilder_.build();
-      }
-      result.containerVersion_ = containerVersion_;
-      result.locationCase_ = locationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.ContentLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.containerName_ = containerName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.containerTimestamp_ = containerTimestampBuilder_ == null
+            ? containerTimestamp_
+            : containerTimestampBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.containerVersion_ = containerVersion_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.ContentLocation result) {
+      result.locationCase_ = locationCase_;
+      result.location_ = this.location_;
+      if (locationCase_ == 2 &&
+          recordLocationBuilder_ != null) {
+        result.location_ = recordLocationBuilder_.build();
+      }
+      if (locationCase_ == 3 &&
+          imageLocationBuilder_ != null) {
+        result.location_ = imageLocationBuilder_.build();
+      }
+      if (locationCase_ == 5 &&
+          documentLocationBuilder_ != null) {
+        result.location_ = documentLocationBuilder_.build();
+      }
+      if (locationCase_ == 8 &&
+          metadataLocationBuilder_ != null) {
+        result.location_ = metadataLocationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -958,6 +847,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.privacy.dlp.v2.ContentLocation.getDefaultInstance()) return this;
       if (!other.getContainerName().isEmpty()) {
         containerName_ = other.containerName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasContainerTimestamp()) {
@@ -965,6 +855,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getContainerVersion().isEmpty()) {
         containerVersion_ = other.containerVersion_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       switch (other.getLocationCase()) {
@@ -988,7 +879,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1003,17 +894,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.ContentLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              containerName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRecordLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              locationCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getImageLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              locationCase_ = 3;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getDocumentLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              locationCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getContainerTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              containerVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getMetadataLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              locationCase_ = 8;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.ContentLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int locationCase_ = 0;
@@ -1031,6 +980,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object containerName_ = "";
     /**
@@ -1042,7 +992,7 @@ private static final long serialVersionUID = 0L;
      * * Cloud Storage files: `gs://{bucket}/{path}`
      * * Datastore namespace: {namespace}
      * Nested names could be absent if the embedded object has no string
-     * identifier (for an example an image contained within a document).
+     * identifier (for example, an image contained within a document).
      * </pre>
      *
      * <code>string container_name = 1;</code>
@@ -1069,7 +1019,7 @@ private static final long serialVersionUID = 0L;
      * * Cloud Storage files: `gs://{bucket}/{path}`
      * * Datastore namespace: {namespace}
      * Nested names could be absent if the embedded object has no string
-     * identifier (for an example an image contained within a document).
+     * identifier (for example, an image contained within a document).
      * </pre>
      *
      * <code>string container_name = 1;</code>
@@ -1097,7 +1047,7 @@ private static final long serialVersionUID = 0L;
      * * Cloud Storage files: `gs://{bucket}/{path}`
      * * Datastore namespace: {namespace}
      * Nested names could be absent if the embedded object has no string
-     * identifier (for an example an image contained within a document).
+     * identifier (for example, an image contained within a document).
      * </pre>
      *
      * <code>string container_name = 1;</code>
@@ -1106,11 +1056,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       containerName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1123,15 +1071,15 @@ private static final long serialVersionUID = 0L;
      * * Cloud Storage files: `gs://{bucket}/{path}`
      * * Datastore namespace: {namespace}
      * Nested names could be absent if the embedded object has no string
-     * identifier (for an example an image contained within a document).
+     * identifier (for example, an image contained within a document).
      * </pre>
      *
      * <code>string container_name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearContainerName() {
-      
       containerName_ = getDefaultInstance().getContainerName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1144,7 +1092,7 @@ private static final long serialVersionUID = 0L;
      * * Cloud Storage files: `gs://{bucket}/{path}`
      * * Datastore namespace: {namespace}
      * Nested names could be absent if the embedded object has no string
-     * identifier (for an example an image contained within a document).
+     * identifier (for example, an image contained within a document).
      * </pre>
      *
      * <code>string container_name = 1;</code>
@@ -1153,12 +1101,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       containerName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1337,7 +1283,7 @@ private static final long serialVersionUID = 0L;
         location_ = null;
       }
       locationCase_ = 2;
-      onChanged();;
+      onChanged();
       return recordLocationBuilder_;
     }
 
@@ -1515,7 +1461,7 @@ private static final long serialVersionUID = 0L;
         location_ = null;
       }
       locationCase_ = 3;
-      onChanged();;
+      onChanged();
       return imageLocationBuilder_;
     }
 
@@ -1693,7 +1639,7 @@ private static final long serialVersionUID = 0L;
         location_ = null;
       }
       locationCase_ = 5;
-      onChanged();;
+      onChanged();
       return documentLocationBuilder_;
     }
 
@@ -1871,7 +1817,7 @@ private static final long serialVersionUID = 0L;
         location_ = null;
       }
       locationCase_ = 8;
-      onChanged();;
+      onChanged();
       return metadataLocationBuilder_;
     }
 
@@ -1880,24 +1826,24 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> containerTimestampBuilder_;
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
      * @return Whether the containerTimestamp field is set.
      */
     public boolean hasContainerTimestamp() {
-      return containerTimestampBuilder_ != null || containerTimestamp_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -1912,10 +1858,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -1926,19 +1872,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         containerTimestamp_ = value;
-        onChanged();
       } else {
         containerTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -1947,80 +1893,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (containerTimestampBuilder_ == null) {
         containerTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         containerTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
      */
     public Builder mergeContainerTimestamp(com.google.protobuf.Timestamp value) {
       if (containerTimestampBuilder_ == null) {
-        if (containerTimestamp_ != null) {
-          containerTimestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(containerTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          containerTimestamp_ != null &&
+          containerTimestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getContainerTimestampBuilder().mergeFrom(value);
         } else {
           containerTimestamp_ = value;
         }
-        onChanged();
       } else {
         containerTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
      */
     public Builder clearContainerTimestamp() {
-      if (containerTimestampBuilder_ == null) {
-        containerTimestamp_ = null;
-        onChanged();
-      } else {
-        containerTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      containerTimestamp_ = null;
+      if (containerTimestampBuilder_ != null) {
+        containerTimestampBuilder_.dispose();
         containerTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getContainerTimestampBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getContainerTimestampFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -2035,10 +1981,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Findings container modification timestamp, if applicable.
-     * For Google Cloud Storage contains last file modification timestamp.
-     * For BigQuery table contains last_modified_time property.
-     * For Datastore - not populated.
+     * Finding container modification timestamp, if applicable. For Cloud Storage,
+     * this field contains the last file modification timestamp. For a BigQuery
+     * table, this field contains the last_modified_time property. For Datastore,
+     * this field isn't populated.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp container_timestamp = 6;</code>
@@ -2060,8 +2006,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object containerVersion_ = "";
     /**
      * <pre>
-     * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * Finding container version, if available
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string container_version = 7;</code>
@@ -2081,8 +2027,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * Finding container version, if available
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string container_version = 7;</code>
@@ -2103,8 +2049,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * Finding container version, if available
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string container_version = 7;</code>
@@ -2113,33 +2059,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       containerVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * Finding container version, if available
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string container_version = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearContainerVersion() {
-      
       containerVersion_ = getDefaultInstance().getContainerVersion();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Findings container version, if available
-     * ("generation" for Google Cloud Storage).
+     * Finding container version, if available
+     * ("generation" for Cloud Storage).
      * </pre>
      *
      * <code>string container_version = 7;</code>
@@ -2148,12 +2092,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContainerVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       containerVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2190,7 +2132,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ContentLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

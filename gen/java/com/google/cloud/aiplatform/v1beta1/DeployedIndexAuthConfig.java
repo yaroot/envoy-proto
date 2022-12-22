@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeployedIndexAuthConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.Builder subBuilder = null;
-            if (authProvider_ != null) {
-              subBuilder = authProvider_.toBuilder();
-            }
-            authProvider_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authProvider_);
-              authProvider_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.IndexEndpointProto.internal_static_google_cloud_aiplatform_v1beta1_DeployedIndexAuthConfig_descriptor;
@@ -240,70 +188,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AuthProvider(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                audiences_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              audiences_.add(s);
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                allowedIssuers_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              allowedIssuers_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          audiences_ = audiences_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          allowedIssuers_ = allowedIssuers_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.IndexEndpointProto.internal_static_google_cloud_aiplatform_v1beta1_DeployedIndexAuthConfig_AuthProvider_descriptor;
@@ -318,6 +202,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AUDIENCES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList audiences_;
     /**
      * <pre>
@@ -381,6 +266,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ALLOWED_ISSUERS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList allowedIssuers_;
     /**
      * <pre>
@@ -459,7 +345,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < allowedIssuers_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, allowedIssuers_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -484,7 +370,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getAllowedIssuersList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -503,7 +389,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getAudiencesList())) return false;
       if (!getAllowedIssuersList()
           .equals(other.getAllowedIssuersList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -522,7 +408,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ALLOWED_ISSUERS_FIELD_NUMBER;
         hash = (53 * hash) + getAllowedIssuersList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -645,22 +531,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         audiences_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         allowedIssuers_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -691,7 +573,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider buildPartial() {
         com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider result = new com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           audiences_ = audiences_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -702,8 +590,10 @@ private static final long serialVersionUID = 0L;
           bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.allowedIssuers_ = allowedIssuers_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -770,7 +660,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -785,17 +675,42 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAudiencesIsMutable();
+                audiences_.add(s);
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAllowedIssuersIsMutable();
+                allowedIssuers_.add(s);
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -882,10 +797,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAudiences(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAudiencesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAudiencesIsMutable();
         audiences_.set(index, value);
         onChanged();
         return this;
@@ -904,10 +817,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAudiences(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAudiencesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAudiencesIsMutable();
         audiences_.add(value);
         onChanged();
         return this;
@@ -963,10 +874,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAudiencesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAudiencesIsMutable();
         audiences_.add(value);
         onChanged();
@@ -1050,10 +959,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAllowedIssuers(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedIssuersIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedIssuersIsMutable();
         allowedIssuers_.set(index, value);
         onChanged();
         return this;
@@ -1071,10 +978,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAllowedIssuers(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAllowedIssuersIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAllowedIssuersIsMutable();
         allowedIssuers_.add(value);
         onChanged();
         return this;
@@ -1127,10 +1032,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addAllowedIssuersBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAllowedIssuersIsMutable();
         allowedIssuers_.add(value);
         onChanged();
@@ -1169,7 +1072,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AuthProvider(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1224,7 +1138,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProviderOrBuilder getAuthProviderOrBuilder() {
-    return getAuthProvider();
+    return authProvider_ == null ? com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.getDefaultInstance() : authProvider_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1244,7 +1158,7 @@ private static final long serialVersionUID = 0L;
     if (authProvider_ != null) {
       output.writeMessage(1, getAuthProvider());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1257,7 +1171,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getAuthProvider());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1277,7 +1191,7 @@ private static final long serialVersionUID = 0L;
       if (!getAuthProvider()
           .equals(other.getAuthProvider())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1292,7 +1206,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUTH_PROVIDER_FIELD_NUMBER;
       hash = (53 * hash) + getAuthProvider().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1413,26 +1327,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (authProviderBuilder_ == null) {
-        authProvider_ = null;
-      } else {
-        authProvider_ = null;
+      bitField0_ = 0;
+      authProvider_ = null;
+      if (authProviderBuilder_ != null) {
+        authProviderBuilder_.dispose();
         authProviderBuilder_ = null;
       }
       return this;
@@ -1461,13 +1370,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig buildPartial() {
       com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig result = new com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig(this);
-      if (authProviderBuilder_ == null) {
-        result.authProvider_ = authProvider_;
-      } else {
-        result.authProvider_ = authProviderBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.authProvider_ = authProviderBuilder_ == null
+            ? authProvider_
+            : authProviderBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1517,7 +1431,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAuthProvider()) {
         mergeAuthProvider(other.getAuthProvider());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1532,19 +1446,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAuthProviderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider authProvider_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1558,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authProvider field is set.
      */
     public boolean hasAuthProvider() {
-      return authProviderBuilder_ != null || authProvider_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1588,11 +1523,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authProvider_ = value;
-        onChanged();
       } else {
         authProviderBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1606,11 +1541,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.Builder builderForValue) {
       if (authProviderBuilder_ == null) {
         authProvider_ = builderForValue.build();
-        onChanged();
       } else {
         authProviderBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1622,17 +1557,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthProvider(com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider value) {
       if (authProviderBuilder_ == null) {
-        if (authProvider_ != null) {
-          authProvider_ =
-            com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.newBuilder(authProvider_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          authProvider_ != null &&
+          authProvider_ != com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.getDefaultInstance()) {
+          getAuthProviderBuilder().mergeFrom(value);
         } else {
           authProvider_ = value;
         }
-        onChanged();
       } else {
         authProviderBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1643,14 +1579,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider auth_provider = 1;</code>
      */
     public Builder clearAuthProvider() {
-      if (authProviderBuilder_ == null) {
-        authProvider_ = null;
-        onChanged();
-      } else {
-        authProvider_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      authProvider_ = null;
+      if (authProviderBuilder_ != null) {
+        authProviderBuilder_.dispose();
         authProviderBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1661,7 +1596,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider auth_provider = 1;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.DeployedIndexAuthConfig.AuthProvider.Builder getAuthProviderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAuthProviderFieldBuilder().getBuilder();
     }
@@ -1733,7 +1668,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeployedIndexAuthConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

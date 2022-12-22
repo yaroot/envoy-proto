@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LabelStats(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              exampleCount_ = com.google.protobuf.MapField.newMapField(
-                  ExampleCountDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
-            exampleCount__ = input.readMessage(
-                ExampleCountDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            exampleCount_.getMutableMap().put(
-                exampleCount__.getKey(), exampleCount__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.DatasetOuterClass.internal_static_google_cloud_datalabeling_v1beta1_LabelStats_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Long> exampleCount_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return exampleCount_;
   }
-
   public int getExampleCountCount() {
     return internalGetExampleCount().getMap().size();
   }
@@ -149,7 +96,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int64&gt; example_count = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsExampleCount(
       java.lang.String key) {
@@ -176,7 +122,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; example_count = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Long> getExampleCountMap() {
     return internalGetExampleCount().getMap();
   }
@@ -192,7 +137,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; example_count = 1;</code>
    */
   @java.lang.Override
-
   public long getExampleCountOrDefault(
       java.lang.String key,
       long defaultValue) {
@@ -213,7 +157,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; example_count = 1;</code>
    */
   @java.lang.Override
-
   public long getExampleCountOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -245,7 +188,7 @@ private static final long serialVersionUID = 0L;
         internalGetExampleCount(),
         ExampleCountDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -264,7 +207,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, exampleCount__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -281,7 +224,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetExampleCount().equals(
         other.internalGetExampleCount())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -296,7 +239,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXAMPLE_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + internalGetExampleCount().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -439,22 +382,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.LabelStats.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableExampleCount().clear();
       return this;
     }
@@ -482,11 +421,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.LabelStats buildPartial() {
       com.google.cloud.datalabeling.v1beta1.LabelStats result = new com.google.cloud.datalabeling.v1beta1.LabelStats(this);
-      int from_bitField0_ = bitField0_;
-      result.exampleCount_ = internalGetExampleCount();
-      result.exampleCount_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.LabelStats result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.exampleCount_ = internalGetExampleCount();
+        result.exampleCount_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -535,7 +480,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datalabeling.v1beta1.LabelStats.getDefaultInstance()) return this;
       internalGetMutableExampleCount().mergeFrom(
           other.internalGetExampleCount());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -550,17 +496,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.LabelStats parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              exampleCount__ = input.readMessage(
+                  ExampleCountDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableExampleCount().getMutableMap().put(
+                  exampleCount__.getKey(), exampleCount__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.LabelStats) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -568,7 +536,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Long> exampleCount_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetExampleCount() {
+        internalGetExampleCount() {
       if (exampleCount_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ExampleCountDefaultEntryHolder.defaultEntry);
@@ -576,8 +544,7 @@ private static final long serialVersionUID = 0L;
       return exampleCount_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMutableExampleCount() {
-      onChanged();;
+        internalGetMutableExampleCount() {
       if (exampleCount_ == null) {
         exampleCount_ = com.google.protobuf.MapField.newMapField(
             ExampleCountDefaultEntryHolder.defaultEntry);
@@ -585,9 +552,10 @@ private static final long serialVersionUID = 0L;
       if (!exampleCount_.isMutable()) {
         exampleCount_ = exampleCount_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return exampleCount_;
     }
-
     public int getExampleCountCount() {
       return internalGetExampleCount().getMap().size();
     }
@@ -602,7 +570,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; example_count = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsExampleCount(
         java.lang.String key) {
@@ -629,7 +596,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; example_count = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Long> getExampleCountMap() {
       return internalGetExampleCount().getMap();
     }
@@ -645,7 +611,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; example_count = 1;</code>
      */
     @java.lang.Override
-
     public long getExampleCountOrDefault(
         java.lang.String key,
         long defaultValue) {
@@ -666,7 +631,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; example_count = 1;</code>
      */
     @java.lang.Override
-
     public long getExampleCountOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -677,8 +641,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearExampleCount() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableExampleCount().getMutableMap()
           .clear();
       return this;
@@ -694,7 +658,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; example_count = 1;</code>
      */
-
     public Builder removeExampleCount(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -707,7 +670,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
-    getMutableExampleCount() {
+        getMutableExampleCount() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableExampleCount().getMutableMap();
     }
     /**
@@ -728,6 +692,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableExampleCount().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -741,11 +706,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; example_count = 1;</code>
      */
-
     public Builder putAllExampleCount(
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableExampleCount().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -781,7 +746,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LabelStats(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

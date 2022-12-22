@@ -38,92 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MySqlConnectionProfile(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            host_ = s;
-            break;
-          }
-          case 16: {
-
-            port_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            username_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            password_ = s;
-            break;
-          }
-          case 40: {
-
-            passwordSet_ = input.readBool();
-            break;
-          }
-          case 50: {
-            com.google.cloud.clouddms.v1.SslConfig.Builder subBuilder = null;
-            if (ssl_ != null) {
-              subBuilder = ssl_.toBuilder();
-            }
-            ssl_ = input.readMessage(com.google.cloud.clouddms.v1.SslConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ssl_);
-              ssl_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cloudSqlId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.clouddms.v1.ClouddmsResourcesProto.internal_static_google_cloud_clouddms_v1_MySqlConnectionProfile_descriptor;
@@ -138,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOST_FIELD_NUMBER = 1;
-  private volatile java.lang.Object host_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object host_ = "";
   /**
    * <pre>
    * Required. The IP or hostname of the source MySQL database.
@@ -184,7 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_FIELD_NUMBER = 2;
-  private int port_;
+  private int port_ = 0;
   /**
    * <pre>
    * Required. The network port of the source MySQL database.
@@ -199,7 +114,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USERNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object username_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object username_ = "";
   /**
    * <pre>
    * Required. The username that Database Migration Service will use to connect to the
@@ -247,7 +163,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSWORD_FIELD_NUMBER = 4;
-  private volatile java.lang.Object password_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object password_ = "";
   /**
    * <pre>
    * Required. Input only. The password for the user that Database Migration Service will be using to
@@ -297,7 +214,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSWORD_SET_FIELD_NUMBER = 5;
-  private boolean passwordSet_;
+  private boolean passwordSet_ = false;
   /**
    * <pre>
    * Output only. Indicates If this connection profile password is stored.
@@ -346,11 +263,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.clouddms.v1.SslConfigOrBuilder getSslOrBuilder() {
-    return getSsl();
+    return ssl_ == null ? com.google.cloud.clouddms.v1.SslConfig.getDefaultInstance() : ssl_;
   }
 
   public static final int CLOUD_SQL_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object cloudSqlId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cloudSqlId_ = "";
   /**
    * <pre>
    * If the source is a Cloud SQL database, use this field to
@@ -432,7 +350,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudSqlId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cloudSqlId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -465,7 +383,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cloudSqlId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cloudSqlId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -497,7 +415,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getCloudSqlId()
         .equals(other.getCloudSqlId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -525,7 +443,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CLOUD_SQL_ID_FIELD_NUMBER;
     hash = (53 * hash) + getCloudSqlId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -646,40 +564,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.clouddms.v1.MySqlConnectionProfile.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       host_ = "";
-
       port_ = 0;
-
       username_ = "";
-
       password_ = "";
-
       passwordSet_ = false;
-
-      if (sslBuilder_ == null) {
-        ssl_ = null;
-      } else {
-        ssl_ = null;
+      ssl_ = null;
+      if (sslBuilder_ != null) {
+        sslBuilder_.dispose();
         sslBuilder_ = null;
       }
       cloudSqlId_ = "";
-
       return this;
     }
 
@@ -706,19 +613,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.clouddms.v1.MySqlConnectionProfile buildPartial() {
       com.google.cloud.clouddms.v1.MySqlConnectionProfile result = new com.google.cloud.clouddms.v1.MySqlConnectionProfile(this);
-      result.host_ = host_;
-      result.port_ = port_;
-      result.username_ = username_;
-      result.password_ = password_;
-      result.passwordSet_ = passwordSet_;
-      if (sslBuilder_ == null) {
-        result.ssl_ = ssl_;
-      } else {
-        result.ssl_ = sslBuilder_.build();
-      }
-      result.cloudSqlId_ = cloudSqlId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.clouddms.v1.MySqlConnectionProfile result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.host_ = host_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.username_ = username_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.password_ = password_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.passwordSet_ = passwordSet_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.ssl_ = sslBuilder_ == null
+            ? ssl_
+            : sslBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.cloudSqlId_ = cloudSqlId_;
+      }
     }
 
     @java.lang.Override
@@ -767,6 +691,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.clouddms.v1.MySqlConnectionProfile.getDefaultInstance()) return this;
       if (!other.getHost().isEmpty()) {
         host_ = other.host_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPort() != 0) {
@@ -774,10 +699,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getUsername().isEmpty()) {
         username_ = other.username_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPassword().isEmpty()) {
         password_ = other.password_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getPasswordSet() != false) {
@@ -788,9 +715,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCloudSqlId().isEmpty()) {
         cloudSqlId_ = other.cloudSqlId_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -805,19 +733,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.clouddms.v1.MySqlConnectionProfile parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              host_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              port_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              username_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              password_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              passwordSet_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              input.readMessage(
+                  getSslFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              cloudSqlId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.clouddms.v1.MySqlConnectionProfile) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object host_ = "";
     /**
@@ -872,11 +851,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHost(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       host_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -889,8 +866,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHost() {
-      
       host_ = getDefaultInstance().getHost();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -905,12 +882,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       host_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -940,6 +915,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPort(int value) {
       
       port_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -952,7 +928,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       port_ = 0;
       onChanged();
       return this;
@@ -1014,11 +990,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsername(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       username_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1032,8 +1006,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsername() {
-      
       username_ = getDefaultInstance().getUsername();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1049,12 +1023,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUsernameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       username_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1118,11 +1090,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPassword(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       password_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1137,8 +1107,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPassword() {
-      
       password_ = getDefaultInstance().getPassword();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1155,12 +1125,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPasswordBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       password_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1190,6 +1158,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPasswordSet(boolean value) {
       
       passwordSet_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1202,7 +1171,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPasswordSet() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       passwordSet_ = false;
       onChanged();
       return this;
@@ -1220,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ssl field is set.
      */
     public boolean hasSsl() {
-      return sslBuilder_ != null || ssl_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1250,11 +1219,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ssl_ = value;
-        onChanged();
       } else {
         sslBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1268,11 +1237,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.clouddms.v1.SslConfig.Builder builderForValue) {
       if (sslBuilder_ == null) {
         ssl_ = builderForValue.build();
-        onChanged();
       } else {
         sslBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1284,17 +1253,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSsl(com.google.cloud.clouddms.v1.SslConfig value) {
       if (sslBuilder_ == null) {
-        if (ssl_ != null) {
-          ssl_ =
-            com.google.cloud.clouddms.v1.SslConfig.newBuilder(ssl_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          ssl_ != null &&
+          ssl_ != com.google.cloud.clouddms.v1.SslConfig.getDefaultInstance()) {
+          getSslBuilder().mergeFrom(value);
         } else {
           ssl_ = value;
         }
-        onChanged();
       } else {
         sslBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1305,14 +1275,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.clouddms.v1.SslConfig ssl = 6;</code>
      */
     public Builder clearSsl() {
-      if (sslBuilder_ == null) {
-        ssl_ = null;
-        onChanged();
-      } else {
-        ssl_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      ssl_ = null;
+      if (sslBuilder_ != null) {
+        sslBuilder_.dispose();
         sslBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1323,7 +1292,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.clouddms.v1.SslConfig ssl = 6;</code>
      */
     public com.google.cloud.clouddms.v1.SslConfig.Builder getSslBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSslFieldBuilder().getBuilder();
     }
@@ -1419,11 +1388,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudSqlId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cloudSqlId_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1437,8 +1404,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCloudSqlId() {
-      
       cloudSqlId_ = getDefaultInstance().getCloudSqlId();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1454,12 +1421,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudSqlIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cloudSqlId_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1496,7 +1461,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MySqlConnectionProfile(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

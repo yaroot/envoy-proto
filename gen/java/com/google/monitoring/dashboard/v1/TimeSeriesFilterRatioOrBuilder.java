@@ -123,7 +123,7 @@ public interface TimeSeriesFilterRatioOrBuilder extends
    *
    * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
    * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilterRatio.statistical_time_series_filter is deprecated.
-   *     See google/monitoring/dashboard/v1/metrics.proto;l=115
+   *     See google/monitoring/dashboard/v1/metrics.proto;l=118
    * @return Whether the statisticalTimeSeriesFilter field is set.
    */
   @java.lang.Deprecated boolean hasStatisticalTimeSeriesFilter();
@@ -135,7 +135,7 @@ public interface TimeSeriesFilterRatioOrBuilder extends
    *
    * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
    * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilterRatio.statistical_time_series_filter is deprecated.
-   *     See google/monitoring/dashboard/v1/metrics.proto;l=115
+   *     See google/monitoring/dashboard/v1/metrics.proto;l=118
    * @return The statisticalTimeSeriesFilter.
    */
   @java.lang.Deprecated com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter getStatisticalTimeSeriesFilter();

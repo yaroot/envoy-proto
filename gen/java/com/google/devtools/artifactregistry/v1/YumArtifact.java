@@ -38,69 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private YumArtifact(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            packageName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            packageType_ = rawValue;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            architecture_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.artifactregistry.v1.YumArtifactProto.internal_static_google_devtools_artifactregistry_v1_YumArtifact_descriptor;
@@ -260,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The Artifact Registry resource name of the artifact.
@@ -306,7 +244,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PACKAGE_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object packageName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object packageName_ = "";
   /**
    * <pre>
    * Output only. The yum package name of the artifact.
@@ -352,7 +291,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PACKAGE_TYPE_FIELD_NUMBER = 3;
-  private int packageType_;
+  private int packageType_ = 0;
   /**
    * <pre>
    * Output only. An artifact is a binary or source package.
@@ -373,13 +312,13 @@ private static final long serialVersionUID = 0L;
    * @return The packageType.
    */
   @java.lang.Override public com.google.devtools.artifactregistry.v1.YumArtifact.PackageType getPackageType() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.artifactregistry.v1.YumArtifact.PackageType result = com.google.devtools.artifactregistry.v1.YumArtifact.PackageType.valueOf(packageType_);
+    com.google.devtools.artifactregistry.v1.YumArtifact.PackageType result = com.google.devtools.artifactregistry.v1.YumArtifact.PackageType.forNumber(packageType_);
     return result == null ? com.google.devtools.artifactregistry.v1.YumArtifact.PackageType.UNRECOGNIZED : result;
   }
 
   public static final int ARCHITECTURE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object architecture_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object architecture_ = "";
   /**
    * <pre>
    * Output only. Operating system architecture of the artifact.
@@ -450,7 +389,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(architecture_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, architecture_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -472,7 +411,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(architecture_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, architecture_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -494,7 +433,7 @@ private static final long serialVersionUID = 0L;
     if (packageType_ != other.packageType_) return false;
     if (!getArchitecture()
         .equals(other.getArchitecture())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -513,7 +452,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + packageType_;
     hash = (37 * hash) + ARCHITECTURE_FIELD_NUMBER;
     hash = (53 * hash) + getArchitecture().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -634,30 +573,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.artifactregistry.v1.YumArtifact.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       packageName_ = "";
-
       packageType_ = 0;
-
       architecture_ = "";
-
       return this;
     }
 
@@ -684,12 +615,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.artifactregistry.v1.YumArtifact buildPartial() {
       com.google.devtools.artifactregistry.v1.YumArtifact result = new com.google.devtools.artifactregistry.v1.YumArtifact(this);
-      result.name_ = name_;
-      result.packageName_ = packageName_;
-      result.packageType_ = packageType_;
-      result.architecture_ = architecture_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.artifactregistry.v1.YumArtifact result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.packageName_ = packageName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.packageType_ = packageType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.architecture_ = architecture_;
+      }
     }
 
     @java.lang.Override
@@ -738,10 +682,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.artifactregistry.v1.YumArtifact.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPackageName().isEmpty()) {
         packageName_ = other.packageName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.packageType_ != 0) {
@@ -749,9 +695,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getArchitecture().isEmpty()) {
         architecture_ = other.architecture_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -766,19 +713,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.artifactregistry.v1.YumArtifact parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              packageName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              packageType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              architecture_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.artifactregistry.v1.YumArtifact) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -833,11 +814,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -850,8 +829,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -866,12 +845,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -929,11 +906,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPackageName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       packageName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -946,8 +921,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPackageName() {
-      
       packageName_ = getDefaultInstance().getPackageName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -962,12 +937,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPackageNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       packageName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -994,8 +967,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPackageTypeValue(int value) {
-      
       packageType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1009,8 +982,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.artifactregistry.v1.YumArtifact.PackageType getPackageType() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.artifactregistry.v1.YumArtifact.PackageType result = com.google.devtools.artifactregistry.v1.YumArtifact.PackageType.valueOf(packageType_);
+      com.google.devtools.artifactregistry.v1.YumArtifact.PackageType result = com.google.devtools.artifactregistry.v1.YumArtifact.PackageType.forNumber(packageType_);
       return result == null ? com.google.devtools.artifactregistry.v1.YumArtifact.PackageType.UNRECOGNIZED : result;
     }
     /**
@@ -1026,7 +998,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       packageType_ = value.getNumber();
       onChanged();
       return this;
@@ -1040,7 +1012,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPackageType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       packageType_ = 0;
       onChanged();
       return this;
@@ -1099,11 +1071,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArchitecture(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       architecture_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1116,8 +1086,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearArchitecture() {
-      
       architecture_ = getDefaultInstance().getArchitecture();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1132,12 +1102,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setArchitectureBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       architecture_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1174,7 +1142,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new YumArtifact(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

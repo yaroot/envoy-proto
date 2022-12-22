@@ -39,104 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VmEndpointNatMappingsInterfaceNatMappings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1198689274: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            sourceVirtualIp_ = s;
-            break;
-          }
-          case -1895732224: {
-            bitField0_ |= 0x00000002;
-            numTotalNatPorts_ = input.readInt32();
-            break;
-          }
-          case -1610704952: {
-            bitField0_ |= 0x00000001;
-            numTotalDrainNatPorts_ = input.readInt32();
-            break;
-          }
-          case -1131442678: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              drainNatIpPortRanges_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            drainNatIpPortRanges_.add(s);
-            break;
-          }
-          case -772239678: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            sourceAliasIpRange_ = s;
-            break;
-          }
-          case -405423550: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              ruleMappings_ = new java.util.ArrayList<com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            ruleMappings_.add(
-                input.readMessage(com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings.parser(), extensionRegistry));
-            break;
-          }
-          case -40320814: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              natIpPortRanges_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            natIpPortRanges_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        drainNatIpPortRanges_ = drainNatIpPortRanges_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        ruleMappings_ = java.util.Collections.unmodifiableList(ruleMappings_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        natIpPortRanges_ = natIpPortRanges_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_VmEndpointNatMappingsInterfaceNatMappings_descriptor;
@@ -152,6 +54,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DRAIN_NAT_IP_PORT_RANGES_FIELD_NUMBER = 395440577;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList drainNatIpPortRanges_;
   /**
    * <pre>
@@ -203,6 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAT_IP_PORT_RANGES_FIELD_NUMBER = 531830810;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList natIpPortRanges_;
   /**
    * <pre>
@@ -254,7 +158,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUM_TOTAL_DRAIN_NAT_PORTS_FIELD_NUMBER = 335532793;
-  private int numTotalDrainNatPorts_;
+  private int numTotalDrainNatPorts_ = 0;
   /**
    * <pre>
    * Total number of drain ports across all NAT IPs allocated to this interface. It equals to the aggregated port number in the field drain_nat_ip_port_ranges.
@@ -281,7 +185,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUM_TOTAL_NAT_PORTS_FIELD_NUMBER = 299904384;
-  private int numTotalNatPorts_;
+  private int numTotalNatPorts_ = 0;
   /**
    * <pre>
    * Total number of ports across all NAT IPs allocated to this interface. It equals to the aggregated port number in the field nat_ip_port_ranges.
@@ -308,6 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RULE_MAPPINGS_FIELD_NUMBER = 486192968;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings> ruleMappings_;
   /**
    * <pre>
@@ -368,7 +273,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_ALIAS_IP_RANGE_FIELD_NUMBER = 440340952;
-  private volatile java.lang.Object sourceAliasIpRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceAliasIpRange_ = "";
   /**
    * <pre>
    * Alias IP range for this interface endpoint. It will be a private (RFC 1918) IP range. Examples: "10.33.4.55/32", or "192.168.5.0/24".
@@ -426,7 +332,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_VIRTUAL_IP_FIELD_NUMBER = 149836159;
-  private volatile java.lang.Object sourceVirtualIp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceVirtualIp_ = "";
   /**
    * <pre>
    * Primary IP of the VM for this NIC.
@@ -518,7 +425,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < natIpPortRanges_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 531830810, natIpPortRanges_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -561,7 +468,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 5 * getNatIpPortRangesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -602,7 +509,7 @@ private static final long serialVersionUID = 0L;
       if (!getSourceVirtualIp()
           .equals(other.getSourceVirtualIp())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -641,7 +548,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SOURCE_VIRTUAL_IP_FIELD_NUMBER;
       hash = (53 * hash) + getSourceVirtualIp().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -762,41 +669,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRuleMappingsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       drainNatIpPortRanges_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       natIpPortRanges_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       numTotalDrainNatPorts_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
       numTotalNatPorts_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000008);
       if (ruleMappingsBuilder_ == null) {
         ruleMappings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        ruleMappings_ = null;
         ruleMappingsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       sourceAliasIpRange_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       sourceVirtualIp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -823,8 +722,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings buildPartial() {
       com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings result = new com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         drainNatIpPortRanges_ = drainNatIpPortRanges_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -835,14 +739,6 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.natIpPortRanges_ = natIpPortRanges_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        result.numTotalDrainNatPorts_ = numTotalDrainNatPorts_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.numTotalNatPorts_ = numTotalNatPorts_;
-        to_bitField0_ |= 0x00000002;
-      }
       if (ruleMappingsBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0)) {
           ruleMappings_ = java.util.Collections.unmodifiableList(ruleMappings_);
@@ -852,17 +748,28 @@ private static final long serialVersionUID = 0L;
       } else {
         result.ruleMappings_ = ruleMappingsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.numTotalDrainNatPorts_ = numTotalDrainNatPorts_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.numTotalNatPorts_ = numTotalNatPorts_;
+        to_bitField0_ |= 0x00000002;
+      }
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sourceAliasIpRange_ = sourceAliasIpRange_;
         to_bitField0_ |= 0x00000004;
       }
-      result.sourceAliasIpRange_ = sourceAliasIpRange_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.sourceVirtualIp_ = sourceVirtualIp_;
         to_bitField0_ |= 0x00000008;
       }
-      result.sourceVirtualIp_ = sourceVirtualIp_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -962,16 +869,16 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasSourceAliasIpRange()) {
-        bitField0_ |= 0x00000020;
         sourceAliasIpRange_ = other.sourceAliasIpRange_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasSourceVirtualIp()) {
-        bitField0_ |= 0x00000040;
         sourceVirtualIp_ = other.sourceVirtualIp_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -986,17 +893,75 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1198689274: {
+              sourceVirtualIp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 1198689274
+            case -1895732224: {
+              numTotalNatPorts_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1895732224
+            case -1610704952: {
+              numTotalDrainNatPorts_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1610704952
+            case -1131442678: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDrainNatIpPortRangesIsMutable();
+              drainNatIpPortRanges_.add(s);
+              break;
+            } // case -1131442678
+            case -772239678: {
+              sourceAliasIpRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -772239678
+            case -405423550: {
+              com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings.parser(),
+                      extensionRegistry);
+              if (ruleMappingsBuilder_ == null) {
+                ensureRuleMappingsIsMutable();
+                ruleMappings_.add(m);
+              } else {
+                ruleMappingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case -405423550
+            case -40320814: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureNatIpPortRangesIsMutable();
+              natIpPortRanges_.add(s);
+              break;
+            } // case -40320814
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.VmEndpointNatMappingsInterfaceNatMappings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1068,10 +1033,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDrainNatIpPortRanges(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDrainNatIpPortRangesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDrainNatIpPortRangesIsMutable();
       drainNatIpPortRanges_.set(index, value);
       onChanged();
       return this;
@@ -1087,10 +1050,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDrainNatIpPortRanges(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDrainNatIpPortRangesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDrainNatIpPortRangesIsMutable();
       drainNatIpPortRanges_.add(value);
       onChanged();
       return this;
@@ -1137,10 +1098,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDrainNatIpPortRangesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDrainNatIpPortRangesIsMutable();
       drainNatIpPortRanges_.add(value);
       onChanged();
@@ -1214,10 +1173,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNatIpPortRanges(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNatIpPortRangesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNatIpPortRangesIsMutable();
       natIpPortRanges_.set(index, value);
       onChanged();
       return this;
@@ -1233,10 +1190,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNatIpPortRanges(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureNatIpPortRangesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureNatIpPortRangesIsMutable();
       natIpPortRanges_.add(value);
       onChanged();
       return this;
@@ -1283,10 +1238,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addNatIpPortRangesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureNatIpPortRangesIsMutable();
       natIpPortRanges_.add(value);
       onChanged();
@@ -1328,8 +1281,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNumTotalDrainNatPorts(int value) {
-      bitField0_ |= 0x00000004;
+      
       numTotalDrainNatPorts_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1383,8 +1337,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNumTotalNatPorts(int value) {
-      bitField0_ |= 0x00000008;
+      
       numTotalNatPorts_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1779,11 +1734,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceAliasIpRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       sourceAliasIpRange_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1796,8 +1749,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceAliasIpRange() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       sourceAliasIpRange_ = getDefaultInstance().getSourceAliasIpRange();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1812,12 +1765,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceAliasIpRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceAliasIpRange_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1886,11 +1837,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceVirtualIp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       sourceVirtualIp_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1903,8 +1852,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceVirtualIp() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       sourceVirtualIp_ = getDefaultInstance().getSourceVirtualIp();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1919,12 +1868,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceVirtualIpBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceVirtualIp_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1961,7 +1908,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VmEndpointNatMappingsInterfaceNatMappings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

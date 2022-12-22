@@ -31,71 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OrcaLoadReportRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (reportInterval_ != null) {
-              subBuilder = reportInterval_.toBuilder();
-            }
-            reportInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reportInterval_);
-              reportInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requestCostNames_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            requestCostNames_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        requestCostNames_ = requestCostNames_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.github.xds.service.orca.v3.OrcaProto.internal_static_xds_service_orca_v3_OrcaLoadReportRequest_descriptor;
@@ -144,10 +79,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getReportIntervalOrBuilder() {
-    return getReportInterval();
+    return reportInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : reportInterval_;
   }
 
   public static final int REQUEST_COST_NAMES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requestCostNames_;
   /**
    * <pre>
@@ -226,7 +162,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < requestCostNames_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, requestCostNames_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -247,7 +183,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getRequestCostNamesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -269,7 +205,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRequestCostNamesList()
         .equals(other.getRequestCostNamesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -288,7 +224,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REQUEST_COST_NAMES_FIELD_NUMBER;
       hash = (53 * hash) + getRequestCostNamesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -405,30 +341,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.github.xds.service.orca.v3.OrcaLoadReportRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (reportIntervalBuilder_ == null) {
-        reportInterval_ = null;
-      } else {
-        reportInterval_ = null;
+      bitField0_ = 0;
+      reportInterval_ = null;
+      if (reportIntervalBuilder_ != null) {
+        reportIntervalBuilder_.dispose();
         reportIntervalBuilder_ = null;
       }
       requestCostNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -455,19 +386,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.github.xds.service.orca.v3.OrcaLoadReportRequest buildPartial() {
       com.github.xds.service.orca.v3.OrcaLoadReportRequest result = new com.github.xds.service.orca.v3.OrcaLoadReportRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (reportIntervalBuilder_ == null) {
-        result.reportInterval_ = reportInterval_;
-      } else {
-        result.reportInterval_ = reportIntervalBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        requestCostNames_ = requestCostNames_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.requestCostNames_ = requestCostNames_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.github.xds.service.orca.v3.OrcaLoadReportRequest result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        requestCostNames_ = requestCostNames_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.requestCostNames_ = requestCostNames_;
+    }
+
+    private void buildPartial0(com.github.xds.service.orca.v3.OrcaLoadReportRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.reportInterval_ = reportIntervalBuilder_ == null
+            ? reportInterval_
+            : reportIntervalBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -520,14 +459,14 @@ private static final long serialVersionUID = 0L;
       if (!other.requestCostNames_.isEmpty()) {
         if (requestCostNames_.isEmpty()) {
           requestCostNames_ = other.requestCostNames_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureRequestCostNamesIsMutable();
           requestCostNames_.addAll(other.requestCostNames_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -542,17 +481,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.github.xds.service.orca.v3.OrcaLoadReportRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getReportIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequestCostNamesIsMutable();
+              requestCostNames_.add(s);
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.github.xds.service.orca.v3.OrcaLoadReportRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -569,7 +534,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reportInterval field is set.
      */
     public boolean hasReportInterval() {
-      return reportIntervalBuilder_ != null || reportInterval_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -599,11 +564,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reportInterval_ = value;
-        onChanged();
       } else {
         reportIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -617,11 +582,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (reportIntervalBuilder_ == null) {
         reportInterval_ = builderForValue.build();
-        onChanged();
       } else {
         reportIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -633,17 +598,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReportInterval(com.google.protobuf.Duration value) {
       if (reportIntervalBuilder_ == null) {
-        if (reportInterval_ != null) {
-          reportInterval_ =
-            com.google.protobuf.Duration.newBuilder(reportInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          reportInterval_ != null &&
+          reportInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getReportIntervalBuilder().mergeFrom(value);
         } else {
           reportInterval_ = value;
         }
-        onChanged();
       } else {
         reportIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -654,14 +620,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration report_interval = 1;</code>
      */
     public Builder clearReportInterval() {
-      if (reportIntervalBuilder_ == null) {
-        reportInterval_ = null;
-        onChanged();
-      } else {
-        reportInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      reportInterval_ = null;
+      if (reportIntervalBuilder_ != null) {
+        reportIntervalBuilder_.dispose();
         reportIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -672,7 +637,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration report_interval = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getReportIntervalBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getReportIntervalFieldBuilder().getBuilder();
     }
@@ -714,9 +679,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requestCostNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequestCostNamesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         requestCostNames_ = new com.google.protobuf.LazyStringArrayList(requestCostNames_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -789,10 +754,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestCostNames(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestCostNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequestCostNamesIsMutable();
       requestCostNames_.set(index, value);
       onChanged();
       return this;
@@ -810,10 +773,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequestCostNames(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestCostNamesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequestCostNamesIsMutable();
       requestCostNames_.add(value);
       onChanged();
       return this;
@@ -849,7 +810,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequestCostNames() {
       requestCostNames_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -866,10 +827,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequestCostNamesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequestCostNamesIsMutable();
       requestCostNames_.add(value);
       onChanged();
@@ -908,7 +867,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OrcaLoadReportRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,7 +9,7 @@ public interface ReauthSettingsOrBuilder extends
 
   /**
    * <pre>
-   * Reauth method required by the policy.
+   * Reauth method requested.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>
@@ -18,7 +18,7 @@ public interface ReauthSettingsOrBuilder extends
   int getMethodValue();
   /**
    * <pre>
-   * Reauth method required by the policy.
+   * Reauth method requested.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.ReauthSettings.Method method = 1;</code>

@@ -11,14 +11,14 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from envoy.config.cluster.v3 import cluster_pb2 as envoy_dot_config_dot_cluster_dot_v3_dot_cluster__pb2
 from envoy.config.core.v3 import base_pb2 as envoy_dot_config_dot_core_dot_v3_dot_base__pb2
+from envoy.extensions.load_balancing_policies.common.v3 import common_pb2 as envoy_dot_extensions_dot_load__balancing__policies_dot_common_dot_v3_dot_common__pb2
 from google.protobuf import wrappers_pb2 as google_dot_protobuf_dot_wrappers__pb2
 from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nMenvoy/extensions/load_balancing_policies/least_request/v3/least_request.proto\x12\x39\x65nvoy.extensions.load_balancing_policies.least_request.v3\x1a%envoy/config/cluster/v3/cluster.proto\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xda\x01\n\x0cLeastRequest\x12;\n\x0c\x63hoice_count\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x02\x12@\n\x13\x61\x63tive_request_bias\x18\x02 \x01(\x0b\x32#.envoy.config.core.v3.RuntimeDouble\x12K\n\x11slow_start_config\x18\x03 \x01(\x0b\x32\x30.envoy.config.cluster.v3.Cluster.SlowStartConfigB\xd8\x01\nGio.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3B\x11LeastRequestProtoP\x01Zpgithub.com/envoyproxy/go-control-plane/envoy/extensions/load_balancing_policies/least_request/v3;least_requestv3\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nMenvoy/extensions/load_balancing_policies/least_request/v3/least_request.proto\x12\x39\x65nvoy.extensions.load_balancing_policies.least_request.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a?envoy/extensions/load_balancing_policies/common/v3/common.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xcf\x02\n\x0cLeastRequest\x12;\n\x0c\x63hoice_count\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt32ValueB\x07\xfa\x42\x04*\x02(\x02\x12@\n\x13\x61\x63tive_request_bias\x18\x02 \x01(\x0b\x32#.envoy.config.core.v3.RuntimeDouble\x12^\n\x11slow_start_config\x18\x03 \x01(\x0b\x32\x43.envoy.extensions.load_balancing_policies.common.v3.SlowStartConfig\x12`\n\x12locality_lb_config\x18\x04 \x01(\x0b\x32\x44.envoy.extensions.load_balancing_policies.common.v3.LocalityLbConfigB\xd8\x01\nGio.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3B\x11LeastRequestProtoP\x01Zpgithub.com/envoyproxy/go-control-plane/envoy/extensions/load_balancing_policies/least_request/v3;least_requestv3\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'envoy.extensions.load_balancing_policies.least_request.v3.least_request_pb2', globals())
@@ -28,6 +28,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\nGio.envoyproxy.envoy.extensions.load_balancing_policies.least_request.v3B\021LeastRequestProtoP\001Zpgithub.com/envoyproxy/go-control-plane/envoy/extensions/load_balancing_policies/least_request/v3;least_requestv3\272\200\310\321\006\002\020\002'
   _LEASTREQUEST.fields_by_name['choice_count']._options = None
   _LEASTREQUEST.fields_by_name['choice_count']._serialized_options = b'\372B\004*\002(\002'
-  _LEASTREQUEST._serialized_start=301
-  _LEASTREQUEST._serialized_end=519
+  _LEASTREQUEST._serialized_start=327
+  _LEASTREQUEST._serialized_end=662
 # @@protoc_insertion_point(module_scope)

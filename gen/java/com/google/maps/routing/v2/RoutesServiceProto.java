@@ -67,7 +67,7 @@ public final class RoutesServiceProto {
       "/v2/units.proto\032%google/maps/routing/v2/" +
       "waypoint.proto\032\036google/protobuf/duration" +
       ".proto\032\037google/protobuf/timestamp.proto\032" +
-      "\027google/rpc/status.proto\"\337\005\n\024ComputeRout" +
+      "\027google/rpc/status.proto\"\214\007\n\024ComputeRout" +
       "esRequest\0225\n\006origin\030\001 \001(\0132 .google.maps." +
       "routing.v2.WaypointB\003\340A\002\022:\n\013destination\030" +
       "\002 \001(\0132 .google.maps.routing.v2.WaypointB" +
@@ -86,53 +86,59 @@ public final class RoutesServiceProto {
       ".google.maps.routing.v2.RouteModifiersB\003" +
       "\340A\001\022\032\n\rlanguage_code\030\n \001(\tB\003\340A\001\0221\n\005units" +
       "\030\013 \001(\0162\035.google.maps.routing.v2.UnitsB\003\340" +
-      "A\001\"\203\001\n\025ComputeRoutesResponse\022-\n\006routes\030\001" +
-      " \003(\0132\035.google.maps.routing.v2.Route\022;\n\rf" +
-      "allback_info\030\002 \001(\0132$.google.maps.routing" +
-      ".v2.FallbackInfo\"\357\002\n\031ComputeRouteMatrixR" +
-      "equest\022?\n\007origins\030\001 \003(\0132).google.maps.ro" +
-      "uting.v2.RouteMatrixOriginB\003\340A\002\022I\n\014desti" +
-      "nations\030\002 \003(\0132..google.maps.routing.v2.R" +
-      "outeMatrixDestinationB\003\340A\002\022A\n\013travel_mod" +
-      "e\030\003 \001(\0162\'.google.maps.routing.v2.RouteTr" +
-      "avelModeB\003\340A\001\022J\n\022routing_preference\030\004 \001(" +
-      "\0162).google.maps.routing.v2.RoutingPrefer" +
-      "enceB\003\340A\001\0227\n\016departure_time\030\005 \001(\0132\032.goog" +
-      "le.protobuf.TimestampB\003\340A\001\"\222\001\n\021RouteMatr" +
-      "ixOrigin\0227\n\010waypoint\030\001 \001(\0132 .google.maps" +
-      ".routing.v2.WaypointB\003\340A\002\022D\n\017route_modif" +
-      "iers\030\002 \001(\0132&.google.maps.routing.v2.Rout" +
-      "eModifiersB\003\340A\001\"Q\n\026RouteMatrixDestinatio" +
-      "n\0227\n\010waypoint\030\001 \001(\0132 .google.maps.routin" +
-      "g.v2.WaypointB\003\340A\002\"\256\003\n\022RouteMatrixElemen" +
-      "t\022\024\n\014origin_index\030\001 \001(\005\022\031\n\021destination_i" +
-      "ndex\030\002 \001(\005\022\"\n\006status\030\003 \001(\0132\022.google.rpc." +
-      "Status\022F\n\tcondition\030\t \001(\01623.google.maps." +
-      "routing.v2.RouteMatrixElementCondition\022\027" +
-      "\n\017distance_meters\030\004 \001(\005\022+\n\010duration\030\005 \001(" +
-      "\0132\031.google.protobuf.Duration\0222\n\017static_d" +
-      "uration\030\006 \001(\0132\031.google.protobuf.Duration" +
-      "\022D\n\017travel_advisory\030\007 \001(\0132+.google.maps." +
-      "routing.v2.RouteTravelAdvisory\022;\n\rfallba" +
-      "ck_info\030\010 \001(\0132$.google.maps.routing.v2.F" +
-      "allbackInfo*t\n\033RouteMatrixElementConditi" +
-      "on\022.\n*ROUTE_MATRIX_ELEMENT_CONDITION_UNS" +
-      "PECIFIED\020\000\022\020\n\014ROUTE_EXISTS\020\001\022\023\n\017ROUTE_NO" +
-      "T_FOUND\020\0022\344\002\n\006Routes\022\225\001\n\rComputeRoutes\022," +
+      "A\001\022d\n\032requested_reference_routes\030\016 \003(\0162;" +
       ".google.maps.routing.v2.ComputeRoutesReq" +
-      "uest\032-.google.maps.routing.v2.ComputeRou" +
-      "tesResponse\"\'\202\323\344\223\002!\"\034/directions/v2:comp" +
-      "uteRoutes:\001*\022\247\001\n\022ComputeRouteMatrix\0221.go" +
-      "ogle.maps.routing.v2.ComputeRouteMatrixR" +
-      "equest\032*.google.maps.routing.v2.RouteMat" +
-      "rixElement\"0\202\323\344\223\002*\"%/distanceMatrix/v2:c" +
-      "omputeRouteMatrix:\001*0\001\032\030\312A\025routes.google" +
-      "apis.comB\312\001\n\032com.google.maps.routing.v2B" +
-      "\022RoutesServiceProtoP\001Z=google.golang.org" +
-      "/genproto/googleapis/maps/routing/v2;rou" +
-      "ting\370\001\001\242\002\005GMRV2\252\002\026Google.Maps.Routing.V2" +
-      "\312\002\026Google\\Maps\\Routing\\V2\352\002\031Google::Maps" +
-      "::Routing::V2b\006proto3"
+      "uest.ReferenceRouteB\003\340A\001\"E\n\016ReferenceRou" +
+      "te\022\037\n\033REFERENCE_ROUTE_UNSPECIFIED\020\000\022\022\n\016F" +
+      "UEL_EFFICIENT\020\001\"\203\001\n\025ComputeRoutesRespons" +
+      "e\022-\n\006routes\030\001 \003(\0132\035.google.maps.routing." +
+      "v2.Route\022;\n\rfallback_info\030\002 \001(\0132$.google" +
+      ".maps.routing.v2.FallbackInfo\"\357\002\n\031Comput" +
+      "eRouteMatrixRequest\022?\n\007origins\030\001 \003(\0132).g" +
+      "oogle.maps.routing.v2.RouteMatrixOriginB" +
+      "\003\340A\002\022I\n\014destinations\030\002 \003(\0132..google.maps" +
+      ".routing.v2.RouteMatrixDestinationB\003\340A\002\022" +
+      "A\n\013travel_mode\030\003 \001(\0162\'.google.maps.routi" +
+      "ng.v2.RouteTravelModeB\003\340A\001\022J\n\022routing_pr" +
+      "eference\030\004 \001(\0162).google.maps.routing.v2." +
+      "RoutingPreferenceB\003\340A\001\0227\n\016departure_time" +
+      "\030\005 \001(\0132\032.google.protobuf.TimestampB\003\340A\001\"" +
+      "\222\001\n\021RouteMatrixOrigin\0227\n\010waypoint\030\001 \001(\0132" +
+      " .google.maps.routing.v2.WaypointB\003\340A\002\022D" +
+      "\n\017route_modifiers\030\002 \001(\0132&.google.maps.ro" +
+      "uting.v2.RouteModifiersB\003\340A\001\"Q\n\026RouteMat" +
+      "rixDestination\0227\n\010waypoint\030\001 \001(\0132 .googl" +
+      "e.maps.routing.v2.WaypointB\003\340A\002\"\337\003\n\022Rout" +
+      "eMatrixElement\022\031\n\014origin_index\030\001 \001(\005H\000\210\001" +
+      "\001\022\036\n\021destination_index\030\002 \001(\005H\001\210\001\001\022\"\n\006sta" +
+      "tus\030\003 \001(\0132\022.google.rpc.Status\022F\n\tconditi" +
+      "on\030\t \001(\01623.google.maps.routing.v2.RouteM" +
+      "atrixElementCondition\022\027\n\017distance_meters" +
+      "\030\004 \001(\005\022+\n\010duration\030\005 \001(\0132\031.google.protob" +
+      "uf.Duration\0222\n\017static_duration\030\006 \001(\0132\031.g" +
+      "oogle.protobuf.Duration\022D\n\017travel_adviso" +
+      "ry\030\007 \001(\0132+.google.maps.routing.v2.RouteT" +
+      "ravelAdvisory\022;\n\rfallback_info\030\010 \001(\0132$.g" +
+      "oogle.maps.routing.v2.FallbackInfoB\017\n\r_o" +
+      "rigin_indexB\024\n\022_destination_index*t\n\033Rou" +
+      "teMatrixElementCondition\022.\n*ROUTE_MATRIX" +
+      "_ELEMENT_CONDITION_UNSPECIFIED\020\000\022\020\n\014ROUT" +
+      "E_EXISTS\020\001\022\023\n\017ROUTE_NOT_FOUND\020\0022\344\002\n\006Rout" +
+      "es\022\225\001\n\rComputeRoutes\022,.google.maps.routi" +
+      "ng.v2.ComputeRoutesRequest\032-.google.maps" +
+      ".routing.v2.ComputeRoutesResponse\"\'\202\323\344\223\002" +
+      "!\"\034/directions/v2:computeRoutes:\001*\022\247\001\n\022C" +
+      "omputeRouteMatrix\0221.google.maps.routing." +
+      "v2.ComputeRouteMatrixRequest\032*.google.ma" +
+      "ps.routing.v2.RouteMatrixElement\"0\202\323\344\223\002*" +
+      "\"%/distanceMatrix/v2:computeRouteMatrix:" +
+      "\001*0\001\032\030\312A\025routes.googleapis.comB\312\001\n\032com.g" +
+      "oogle.maps.routing.v2B\022RoutesServiceProt" +
+      "oP\001Z=google.golang.org/genproto/googleap" +
+      "is/maps/routing/v2;routing\370\001\001\242\002\005GMRV2\252\002\026" +
+      "Google.Maps.Routing.V2\312\002\026Google\\Maps\\Rou" +
+      "ting\\V2\352\002\031Google::Maps::Routing::V2b\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -157,7 +163,7 @@ public final class RoutesServiceProto {
     internal_static_google_maps_routing_v2_ComputeRoutesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_maps_routing_v2_ComputeRoutesRequest_descriptor,
-        new java.lang.String[] { "Origin", "Destination", "Intermediates", "TravelMode", "RoutingPreference", "PolylineQuality", "PolylineEncoding", "DepartureTime", "ComputeAlternativeRoutes", "RouteModifiers", "LanguageCode", "Units", });
+        new java.lang.String[] { "Origin", "Destination", "Intermediates", "TravelMode", "RoutingPreference", "PolylineQuality", "PolylineEncoding", "DepartureTime", "ComputeAlternativeRoutes", "RouteModifiers", "LanguageCode", "Units", "RequestedReferenceRoutes", });
     internal_static_google_maps_routing_v2_ComputeRoutesResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_google_maps_routing_v2_ComputeRoutesResponse_fieldAccessorTable = new
@@ -187,7 +193,7 @@ public final class RoutesServiceProto {
     internal_static_google_maps_routing_v2_RouteMatrixElement_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_maps_routing_v2_RouteMatrixElement_descriptor,
-        new java.lang.String[] { "OriginIndex", "DestinationIndex", "Status", "Condition", "DistanceMeters", "Duration", "StaticDuration", "TravelAdvisory", "FallbackInfo", });
+        new java.lang.String[] { "OriginIndex", "DestinationIndex", "Status", "Condition", "DistanceMeters", "Duration", "StaticDuration", "TravelAdvisory", "FallbackInfo", "OriginIndex", "DestinationIndex", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(com.google.api.ClientProto.defaultHost);

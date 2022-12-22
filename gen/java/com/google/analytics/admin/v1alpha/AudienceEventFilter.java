@@ -37,64 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AudienceEventFilter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            eventName_ = s;
-            break;
-          }
-          case 18: {
-            com.google.analytics.admin.v1alpha.AudienceFilterExpression.Builder subBuilder = null;
-            if (eventParameterFilterExpression_ != null) {
-              subBuilder = eventParameterFilterExpression_.toBuilder();
-            }
-            eventParameterFilterExpression_ = input.readMessage(com.google.analytics.admin.v1alpha.AudienceFilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventParameterFilterExpression_);
-              eventParameterFilterExpression_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.admin.v1alpha.AudienceProto.internal_static_google_analytics_admin_v1alpha_AudienceEventFilter_descriptor;
@@ -109,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object eventName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object eventName_ = "";
   /**
    * <pre>
    * Required. Immutable. The name of the event to match against.
@@ -207,7 +150,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.admin.v1alpha.AudienceFilterExpressionOrBuilder getEventParameterFilterExpressionOrBuilder() {
-    return getEventParameterFilterExpression();
+    return eventParameterFilterExpression_ == null ? com.google.analytics.admin.v1alpha.AudienceFilterExpression.getDefaultInstance() : eventParameterFilterExpression_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -230,7 +173,7 @@ private static final long serialVersionUID = 0L;
     if (eventParameterFilterExpression_ != null) {
       output.writeMessage(2, getEventParameterFilterExpression());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -246,7 +189,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getEventParameterFilterExpression());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -268,7 +211,7 @@ private static final long serialVersionUID = 0L;
       if (!getEventParameterFilterExpression()
           .equals(other.getEventParameterFilterExpression())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -285,7 +228,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EVENT_PARAMETER_FILTER_EXPRESSION_FIELD_NUMBER;
       hash = (53 * hash) + getEventParameterFilterExpression().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -408,28 +351,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.admin.v1alpha.AudienceEventFilter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       eventName_ = "";
-
-      if (eventParameterFilterExpressionBuilder_ == null) {
-        eventParameterFilterExpression_ = null;
-      } else {
-        eventParameterFilterExpression_ = null;
+      eventParameterFilterExpression_ = null;
+      if (eventParameterFilterExpressionBuilder_ != null) {
+        eventParameterFilterExpressionBuilder_.dispose();
         eventParameterFilterExpressionBuilder_ = null;
       }
       return this;
@@ -458,14 +395,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.AudienceEventFilter buildPartial() {
       com.google.analytics.admin.v1alpha.AudienceEventFilter result = new com.google.analytics.admin.v1alpha.AudienceEventFilter(this);
-      result.eventName_ = eventName_;
-      if (eventParameterFilterExpressionBuilder_ == null) {
-        result.eventParameterFilterExpression_ = eventParameterFilterExpression_;
-      } else {
-        result.eventParameterFilterExpression_ = eventParameterFilterExpressionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.admin.v1alpha.AudienceEventFilter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventName_ = eventName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.eventParameterFilterExpression_ = eventParameterFilterExpressionBuilder_ == null
+            ? eventParameterFilterExpression_
+            : eventParameterFilterExpressionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -514,12 +458,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.admin.v1alpha.AudienceEventFilter.getDefaultInstance()) return this;
       if (!other.getEventName().isEmpty()) {
         eventName_ = other.eventName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEventParameterFilterExpression()) {
         mergeEventParameterFilterExpression(other.getEventParameterFilterExpression());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -534,19 +479,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.admin.v1alpha.AudienceEventFilter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              eventName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEventParameterFilterExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.admin.v1alpha.AudienceEventFilter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object eventName_ = "";
     /**
@@ -601,11 +572,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       eventName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -618,8 +587,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEventName() {
-      
       eventName_ = getDefaultInstance().getEventName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -634,12 +603,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       eventName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -662,7 +629,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventParameterFilterExpression field is set.
      */
     public boolean hasEventParameterFilterExpression() {
-      return eventParameterFilterExpressionBuilder_ != null || eventParameterFilterExpression_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -704,11 +671,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventParameterFilterExpression_ = value;
-        onChanged();
       } else {
         eventParameterFilterExpressionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -728,11 +695,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.admin.v1alpha.AudienceFilterExpression.Builder builderForValue) {
       if (eventParameterFilterExpressionBuilder_ == null) {
         eventParameterFilterExpression_ = builderForValue.build();
-        onChanged();
       } else {
         eventParameterFilterExpressionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -750,17 +717,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventParameterFilterExpression(com.google.analytics.admin.v1alpha.AudienceFilterExpression value) {
       if (eventParameterFilterExpressionBuilder_ == null) {
-        if (eventParameterFilterExpression_ != null) {
-          eventParameterFilterExpression_ =
-            com.google.analytics.admin.v1alpha.AudienceFilterExpression.newBuilder(eventParameterFilterExpression_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          eventParameterFilterExpression_ != null &&
+          eventParameterFilterExpression_ != com.google.analytics.admin.v1alpha.AudienceFilterExpression.getDefaultInstance()) {
+          getEventParameterFilterExpressionBuilder().mergeFrom(value);
         } else {
           eventParameterFilterExpression_ = value;
         }
-        onChanged();
       } else {
         eventParameterFilterExpressionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -777,14 +745,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.admin.v1alpha.AudienceFilterExpression event_parameter_filter_expression = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearEventParameterFilterExpression() {
-      if (eventParameterFilterExpressionBuilder_ == null) {
-        eventParameterFilterExpression_ = null;
-        onChanged();
-      } else {
-        eventParameterFilterExpression_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      eventParameterFilterExpression_ = null;
+      if (eventParameterFilterExpressionBuilder_ != null) {
+        eventParameterFilterExpressionBuilder_.dispose();
         eventParameterFilterExpressionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -801,7 +768,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.admin.v1alpha.AudienceFilterExpression event_parameter_filter_expression = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.analytics.admin.v1alpha.AudienceFilterExpression.Builder getEventParameterFilterExpressionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEventParameterFilterExpressionFieldBuilder().getBuilder();
     }
@@ -885,7 +852,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AudienceEventFilter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

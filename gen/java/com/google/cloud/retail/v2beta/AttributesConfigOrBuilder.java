@@ -92,7 +92,6 @@ public interface AttributesConfigOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.retail.v2beta.CatalogAttribute&gt; catalog_attributes = 2;</code>
    */
-
   /* nullable */
 com.google.cloud.retail.v2beta.CatalogAttribute getCatalogAttributesOrDefault(
       java.lang.String key,
@@ -111,7 +110,6 @@ com.google.cloud.retail.v2beta.CatalogAttribute defaultValue);
    *
    * <code>map&lt;string, .google.cloud.retail.v2beta.CatalogAttribute&gt; catalog_attributes = 2;</code>
    */
-
   com.google.cloud.retail.v2beta.CatalogAttribute getCatalogAttributesOrThrow(
       java.lang.String key);
 

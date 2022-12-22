@@ -36,68 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Quota(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 823811545: {
-            bitField0_ |= 0x00000001;
-            limit_ = input.readDouble();
-            break;
-          }
-          case 849319322: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            owner_ = s;
-            break;
-          }
-          case 892595465: {
-            bitField0_ |= 0x00000008;
-            usage_ = input.readDouble();
-            break;
-          }
-          case -30429822: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            metric_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_Quota_descriptor;
@@ -297,13 +235,29 @@ private static final long serialVersionUID = 0L;
      */
     FORWARDING_RULES(432668949),
     /**
+     * <code>GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES = 164566753;</code>
+     */
+    GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES(164566753),
+    /**
      * <code>GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES = 327611949;</code>
      */
     GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES(327611949),
     /**
+     * <code>GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES = 400256169;</code>
+     */
+    GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES(400256169),
+    /**
      * <code>GLOBAL_INTERNAL_ADDRESSES = 42738332;</code>
      */
     GLOBAL_INTERNAL_ADDRESSES(42738332),
+    /**
+     * <code>GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES = 256608303;</code>
+     */
+    GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES(256608303),
+    /**
+     * <code>GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES = 323514196;</code>
+     */
+    GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES(323514196),
     /**
      * <code>GPUS_ALL_REGIONS = 39387177;</code>
      */
@@ -541,9 +495,25 @@ private static final long serialVersionUID = 0L;
      */
     REGIONAL_AUTOSCALERS(29363772),
     /**
+     * <code>REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES = 4240989;</code>
+     */
+    REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES(4240989),
+    /**
+     * <code>REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES = 409564525;</code>
+     */
+    REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES(409564525),
+    /**
      * <code>REGIONAL_INSTANCE_GROUP_MANAGERS = 37543696;</code>
      */
     REGIONAL_INSTANCE_GROUP_MANAGERS(37543696),
+    /**
+     * <code>REGIONAL_INTERNAL_LB_BACKEND_SERVICES = 137983760;</code>
+     */
+    REGIONAL_INTERNAL_LB_BACKEND_SERVICES(137983760),
+    /**
+     * <code>REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES = 96282539;</code>
+     */
+    REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES(96282539),
     /**
      * <code>RESERVATIONS = 32644647;</code>
      */
@@ -608,6 +578,10 @@ private static final long serialVersionUID = 0L;
      * <code>STATIC_BYOIP_ADDRESSES = 275809649;</code>
      */
     STATIC_BYOIP_ADDRESSES(275809649),
+    /**
+     * <code>STATIC_EXTERNAL_IPV6_ADDRESS_RANGES = 472346774;</code>
+     */
+    STATIC_EXTERNAL_IPV6_ADDRESS_RANGES(472346774),
     /**
      * <code>SUBNETWORKS = 421330469;</code>
      */
@@ -844,13 +818,29 @@ private static final long serialVersionUID = 0L;
      */
     public static final int FORWARDING_RULES_VALUE = 432668949;
     /**
+     * <code>GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES = 164566753;</code>
+     */
+    public static final int GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES_VALUE = 164566753;
+    /**
      * <code>GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES = 327611949;</code>
      */
     public static final int GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES_VALUE = 327611949;
     /**
+     * <code>GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES = 400256169;</code>
+     */
+    public static final int GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES_VALUE = 400256169;
+    /**
      * <code>GLOBAL_INTERNAL_ADDRESSES = 42738332;</code>
      */
     public static final int GLOBAL_INTERNAL_ADDRESSES_VALUE = 42738332;
+    /**
+     * <code>GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES = 256608303;</code>
+     */
+    public static final int GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES_VALUE = 256608303;
+    /**
+     * <code>GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES = 323514196;</code>
+     */
+    public static final int GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES_VALUE = 323514196;
     /**
      * <code>GPUS_ALL_REGIONS = 39387177;</code>
      */
@@ -1088,9 +1078,25 @@ private static final long serialVersionUID = 0L;
      */
     public static final int REGIONAL_AUTOSCALERS_VALUE = 29363772;
     /**
+     * <code>REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES = 4240989;</code>
+     */
+    public static final int REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES_VALUE = 4240989;
+    /**
+     * <code>REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES = 409564525;</code>
+     */
+    public static final int REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES_VALUE = 409564525;
+    /**
      * <code>REGIONAL_INSTANCE_GROUP_MANAGERS = 37543696;</code>
      */
     public static final int REGIONAL_INSTANCE_GROUP_MANAGERS_VALUE = 37543696;
+    /**
+     * <code>REGIONAL_INTERNAL_LB_BACKEND_SERVICES = 137983760;</code>
+     */
+    public static final int REGIONAL_INTERNAL_LB_BACKEND_SERVICES_VALUE = 137983760;
+    /**
+     * <code>REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES = 96282539;</code>
+     */
+    public static final int REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES_VALUE = 96282539;
     /**
      * <code>RESERVATIONS = 32644647;</code>
      */
@@ -1155,6 +1161,10 @@ private static final long serialVersionUID = 0L;
      * <code>STATIC_BYOIP_ADDRESSES = 275809649;</code>
      */
     public static final int STATIC_BYOIP_ADDRESSES_VALUE = 275809649;
+    /**
+     * <code>STATIC_EXTERNAL_IPV6_ADDRESS_RANGES = 472346774;</code>
+     */
+    public static final int STATIC_EXTERNAL_IPV6_ADDRESS_RANGES_VALUE = 472346774;
     /**
      * <code>SUBNETWORKS = 421330469;</code>
      */
@@ -1279,8 +1289,12 @@ private static final long serialVersionUID = 0L;
         case 272457134: return EXTERNAL_VPN_GATEWAYS;
         case 374485843: return FIREWALLS;
         case 432668949: return FORWARDING_RULES;
+        case 164566753: return GLOBAL_EXTERNAL_MANAGED_BACKEND_SERVICES;
         case 327611949: return GLOBAL_EXTERNAL_MANAGED_FORWARDING_RULES;
+        case 400256169: return GLOBAL_EXTERNAL_PROXY_LB_BACKEND_SERVICES;
         case 42738332: return GLOBAL_INTERNAL_ADDRESSES;
+        case 256608303: return GLOBAL_INTERNAL_MANAGED_BACKEND_SERVICES;
+        case 323514196: return GLOBAL_INTERNAL_TRAFFIC_DIRECTOR_BACKEND_SERVICES;
         case 39387177: return GPUS_ALL_REGIONS;
         case 289347502: return HEALTH_CHECKS;
         case 15562360: return IMAGES;
@@ -1340,7 +1354,11 @@ private static final long serialVersionUID = 0L;
         case 471371980: return PUBLIC_ADVERTISED_PREFIXES;
         case 532465974: return PUBLIC_DELEGATED_PREFIXES;
         case 29363772: return REGIONAL_AUTOSCALERS;
+        case 4240989: return REGIONAL_EXTERNAL_MANAGED_BACKEND_SERVICES;
+        case 409564525: return REGIONAL_EXTERNAL_NETWORK_LB_BACKEND_SERVICES;
         case 37543696: return REGIONAL_INSTANCE_GROUP_MANAGERS;
+        case 137983760: return REGIONAL_INTERNAL_LB_BACKEND_SERVICES;
+        case 96282539: return REGIONAL_INTERNAL_MANAGED_BACKEND_SERVICES;
         case 32644647: return RESERVATIONS;
         case 83955297: return RESOURCE_POLICIES;
         case 493018666: return ROUTERS;
@@ -1356,6 +1374,7 @@ private static final long serialVersionUID = 0L;
         case 378372399: return SSL_CERTIFICATES;
         case 93624049: return STATIC_ADDRESSES;
         case 275809649: return STATIC_BYOIP_ADDRESSES;
+        case 472346774: return STATIC_EXTERNAL_IPV6_ADDRESS_RANGES;
         case 421330469: return SUBNETWORKS;
         case 522170599: return T2A_CPUS;
         case 71187140: return T2D_CPUS;
@@ -1428,7 +1447,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int LIMIT_FIELD_NUMBER = 102976443;
-  private double limit_;
+  private double limit_ = 0D;
   /**
    * <pre>
    * [Output Only] Quota limit for this metric.
@@ -1455,7 +1474,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRIC_FIELD_NUMBER = 533067184;
-  private volatile java.lang.Object metric_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object metric_ = "";
   /**
    * <pre>
    * [Output Only] Name of the quota metric.
@@ -1516,7 +1536,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OWNER_FIELD_NUMBER = 106164915;
-  private volatile java.lang.Object owner_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object owner_ = "";
   /**
    * <pre>
    * [Output Only] Owning resource. This is the resource on which this quota is applied.
@@ -1574,7 +1595,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USAGE_FIELD_NUMBER = 111574433;
-  private double usage_;
+  private double usage_ = 0D;
   /**
    * <pre>
    * [Output Only] Current usage of this metric.
@@ -1626,7 +1647,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 533067184, metric_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1649,7 +1670,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(533067184, metric_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1686,7 +1707,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Double.doubleToLongBits(
               other.getUsage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1715,7 +1736,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getUsage()));
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1836,30 +1857,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.Quota.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       limit_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000001);
       metric_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       owner_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       usage_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -1886,6 +1899,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Quota buildPartial() {
       com.google.cloud.compute.v1.Quota result = new com.google.cloud.compute.v1.Quota(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Quota result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1893,20 +1912,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.metric_ = metric_;
         to_bitField0_ |= 0x00000002;
       }
-      result.metric_ = metric_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.owner_ = owner_;
         to_bitField0_ |= 0x00000004;
       }
-      result.owner_ = owner_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.usage_ = usage_;
         to_bitField0_ |= 0x00000008;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1957,19 +1974,19 @@ private static final long serialVersionUID = 0L;
         setLimit(other.getLimit());
       }
       if (other.hasMetric()) {
-        bitField0_ |= 0x00000002;
         metric_ = other.metric_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasOwner()) {
-        bitField0_ |= 0x00000004;
         owner_ = other.owner_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasUsage()) {
         setUsage(other.getUsage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1984,17 +2001,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Quota parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 823811545: {
+              limit_ = input.readDouble();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 823811545
+            case 849319322: {
+              owner_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 849319322
+            case 892595465: {
+              usage_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 892595465
+            case -30429822: {
+              metric_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -30429822
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Quota) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2034,8 +2084,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLimit(double value) {
-      bitField0_ |= 0x00000001;
+      
       limit_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2122,11 +2173,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetric(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       metric_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2140,8 +2189,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMetric() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       metric_ = getDefaultInstance().getMetric();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2157,12 +2206,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMetricBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       metric_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2231,11 +2278,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOwner(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       owner_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2248,8 +2293,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOwner() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       owner_ = getDefaultInstance().getOwner();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2264,12 +2309,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOwnerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       owner_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2309,8 +2352,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUsage(double value) {
-      bitField0_ |= 0x00000008;
+      
       usage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2361,7 +2405,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Quota(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -34,106 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Mutation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            com.google.datastore.v1beta3.Entity.Builder subBuilder = null;
-            if (operationCase_ == 4) {
-              subBuilder = ((com.google.datastore.v1beta3.Entity) operation_).toBuilder();
-            }
-            operation_ =
-                input.readMessage(com.google.datastore.v1beta3.Entity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.datastore.v1beta3.Entity) operation_);
-              operation_ = subBuilder.buildPartial();
-            }
-            operationCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.datastore.v1beta3.Entity.Builder subBuilder = null;
-            if (operationCase_ == 5) {
-              subBuilder = ((com.google.datastore.v1beta3.Entity) operation_).toBuilder();
-            }
-            operation_ =
-                input.readMessage(com.google.datastore.v1beta3.Entity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.datastore.v1beta3.Entity) operation_);
-              operation_ = subBuilder.buildPartial();
-            }
-            operationCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.datastore.v1beta3.Entity.Builder subBuilder = null;
-            if (operationCase_ == 6) {
-              subBuilder = ((com.google.datastore.v1beta3.Entity) operation_).toBuilder();
-            }
-            operation_ =
-                input.readMessage(com.google.datastore.v1beta3.Entity.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.datastore.v1beta3.Entity) operation_);
-              operation_ = subBuilder.buildPartial();
-            }
-            operationCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.datastore.v1beta3.Key.Builder subBuilder = null;
-            if (operationCase_ == 7) {
-              subBuilder = ((com.google.datastore.v1beta3.Key) operation_).toBuilder();
-            }
-            operation_ =
-                input.readMessage(com.google.datastore.v1beta3.Key.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.datastore.v1beta3.Key) operation_);
-              operation_ = subBuilder.buildPartial();
-            }
-            operationCase_ = 7;
-            break;
-          }
-          case 64: {
-            conflictDetectionStrategy_ = input.readInt64();
-            conflictDetectionStrategyCase_ = 8;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.v1beta3.DatastoreProto.internal_static_google_datastore_v1beta3_Mutation_descriptor;
@@ -476,7 +376,7 @@ private static final long serialVersionUID = 0L;
       output.writeInt64(
           8, (long)((java.lang.Long) conflictDetectionStrategy_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -506,7 +406,7 @@ private static final long serialVersionUID = 0L;
         .computeInt64Size(
             8, (long)((java.lang.Long) conflictDetectionStrategy_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -551,7 +451,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -591,7 +491,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -712,22 +612,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.v1beta3.Mutation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (insertBuilder_ != null) {
+        insertBuilder_.clear();
+      }
+      if (updateBuilder_ != null) {
+        updateBuilder_.clear();
+      }
+      if (upsertBuilder_ != null) {
+        upsertBuilder_.clear();
+      }
+      if (deleteBuilder_ != null) {
+        deleteBuilder_.clear();
+      }
       operationCase_ = 0;
       operation_ = null;
       conflictDetectionStrategyCase_ = 0;
@@ -758,41 +666,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.v1beta3.Mutation buildPartial() {
       com.google.datastore.v1beta3.Mutation result = new com.google.datastore.v1beta3.Mutation(this);
-      if (operationCase_ == 4) {
-        if (insertBuilder_ == null) {
-          result.operation_ = operation_;
-        } else {
-          result.operation_ = insertBuilder_.build();
-        }
-      }
-      if (operationCase_ == 5) {
-        if (updateBuilder_ == null) {
-          result.operation_ = operation_;
-        } else {
-          result.operation_ = updateBuilder_.build();
-        }
-      }
-      if (operationCase_ == 6) {
-        if (upsertBuilder_ == null) {
-          result.operation_ = operation_;
-        } else {
-          result.operation_ = upsertBuilder_.build();
-        }
-      }
-      if (operationCase_ == 7) {
-        if (deleteBuilder_ == null) {
-          result.operation_ = operation_;
-        } else {
-          result.operation_ = deleteBuilder_.build();
-        }
-      }
-      if (conflictDetectionStrategyCase_ == 8) {
-        result.conflictDetectionStrategy_ = conflictDetectionStrategy_;
-      }
-      result.operationCase_ = operationCase_;
-      result.conflictDetectionStrategyCase_ = conflictDetectionStrategyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.datastore.v1beta3.Mutation result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.datastore.v1beta3.Mutation result) {
+      result.operationCase_ = operationCase_;
+      result.operation_ = this.operation_;
+      if (operationCase_ == 4 &&
+          insertBuilder_ != null) {
+        result.operation_ = insertBuilder_.build();
+      }
+      if (operationCase_ == 5 &&
+          updateBuilder_ != null) {
+        result.operation_ = updateBuilder_.build();
+      }
+      if (operationCase_ == 6 &&
+          upsertBuilder_ != null) {
+        result.operation_ = upsertBuilder_.build();
+      }
+      if (operationCase_ == 7 &&
+          deleteBuilder_ != null) {
+        result.operation_ = deleteBuilder_.build();
+      }
+      result.conflictDetectionStrategyCase_ = conflictDetectionStrategyCase_;
+      result.conflictDetectionStrategy_ = this.conflictDetectionStrategy_;
     }
 
     @java.lang.Override
@@ -869,7 +773,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -884,17 +788,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.v1beta3.Mutation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              input.readMessage(
+                  getInsertFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              operationCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getUpdateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              operationCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getUpsertFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              operationCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDeleteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              operationCase_ = 7;
+              break;
+            } // case 58
+            case 64: {
+              conflictDetectionStrategy_ = input.readInt64();
+              conflictDetectionStrategyCase_ = 8;
+              break;
+            } // case 64
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.v1beta3.Mutation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int operationCase_ = 0;
@@ -927,6 +877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.datastore.v1beta3.Entity, com.google.datastore.v1beta3.Entity.Builder, com.google.datastore.v1beta3.EntityOrBuilder> insertBuilder_;
@@ -1111,7 +1062,7 @@ private static final long serialVersionUID = 0L;
         operation_ = null;
       }
       operationCase_ = 4;
-      onChanged();;
+      onChanged();
       return insertBuilder_;
     }
 
@@ -1298,7 +1249,7 @@ private static final long serialVersionUID = 0L;
         operation_ = null;
       }
       operationCase_ = 5;
-      onChanged();;
+      onChanged();
       return updateBuilder_;
     }
 
@@ -1485,7 +1436,7 @@ private static final long serialVersionUID = 0L;
         operation_ = null;
       }
       operationCase_ = 6;
-      onChanged();;
+      onChanged();
       return upsertBuilder_;
     }
 
@@ -1672,7 +1623,7 @@ private static final long serialVersionUID = 0L;
         operation_ = null;
       }
       operationCase_ = 7;
-      onChanged();;
+      onChanged();
       return deleteBuilder_;
     }
 
@@ -1714,6 +1665,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBaseVersion(long value) {
+      
       conflictDetectionStrategyCase_ = 8;
       conflictDetectionStrategy_ = value;
       onChanged();
@@ -1769,7 +1721,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Mutation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

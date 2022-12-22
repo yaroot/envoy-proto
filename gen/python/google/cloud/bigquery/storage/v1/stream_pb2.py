@@ -19,7 +19,7 @@ from google.cloud.bigquery.storage.v1 import table_pb2 as google_dot_cloud_dot_b
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/bigquery/storage/v1/stream.proto\x12 google.cloud.bigquery.storage.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/bigquery/storage/v1/arrow.proto\x1a+google/cloud/bigquery/storage/v1/avro.proto\x1a,google/cloud/bigquery/storage/v1/table.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xbb\x08\n\x0bReadSession\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x65xpire_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x46\n\x0b\x64\x61ta_format\x18\x03 \x01(\x0e\x32,.google.cloud.bigquery.storage.v1.DataFormatB\x03\xe0\x41\x05\x12H\n\x0b\x61vro_schema\x18\x04 \x01(\x0b\x32,.google.cloud.bigquery.storage.v1.AvroSchemaB\x03\xe0\x41\x03H\x00\x12J\n\x0c\x61rrow_schema\x18\x05 \x01(\x0b\x32-.google.cloud.bigquery.storage.v1.ArrowSchemaB\x03\xe0\x41\x03H\x00\x12\x34\n\x05table\x18\x06 \x01(\tB%\xe0\x41\x05\xfa\x41\x1f\n\x1d\x62igquery.googleapis.com/Table\x12Z\n\x0ftable_modifiers\x18\x07 \x01(\x0b\x32<.google.cloud.bigquery.storage.v1.ReadSession.TableModifiersB\x03\xe0\x41\x01\x12Y\n\x0cread_options\x18\x08 \x01(\x0b\x32>.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptionsB\x03\xe0\x41\x01\x12\x42\n\x07streams\x18\n \x03(\x0b\x32,.google.cloud.bigquery.storage.v1.ReadStreamB\x03\xe0\x41\x03\x12*\n\x1d\x65stimated_total_bytes_scanned\x18\x0c \x01(\x03\x42\x03\xe0\x41\x03\x12\x15\n\x08trace_id\x18\r \x01(\tB\x03\xe0\x41\x01\x1a\x43\n\x0eTableModifiers\x12\x31\n\rsnapshot_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\xd4\x01\n\x10TableReadOptions\x12\x17\n\x0fselected_fields\x18\x01 \x03(\t\x12\x17\n\x0frow_restriction\x18\x02 \x01(\t\x12g\n\x1b\x61rrow_serialization_options\x18\x03 \x01(\x0b\x32;.google.cloud.bigquery.storage.v1.ArrowSerializationOptionsB\x03\xe0\x41\x01H\x00\x42%\n#output_format_serialization_options:k\xea\x41h\n*bigquerystorage.googleapis.com/ReadSession\x12:projects/{project}/locations/{location}/sessions/{session}B\x08\n\x06schema\"\x9c\x01\n\nReadStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03:{\xea\x41x\n)bigquerystorage.googleapis.com/ReadStream\x12Kprojects/{project}/locations/{location}/sessions/{session}/streams/{stream}\"\xe4\x04\n\x0bWriteStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x45\n\x04type\x18\x02 \x01(\x0e\x32\x32.google.cloud.bigquery.storage.v1.WriteStream.TypeB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x63ommit_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x0ctable_schema\x18\x05 \x01(\x0b\x32-.google.cloud.bigquery.storage.v1.TableSchemaB\x03\xe0\x41\x03\x12P\n\nwrite_mode\x18\x07 \x01(\x0e\x32\x37.google.cloud.bigquery.storage.v1.WriteStream.WriteModeB\x03\xe0\x41\x05\"F\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\r\n\tCOMMITTED\x10\x01\x12\x0b\n\x07PENDING\x10\x02\x12\x0c\n\x08\x42UFFERED\x10\x03\"3\n\tWriteMode\x12\x1a\n\x16WRITE_MODE_UNSPECIFIED\x10\x00\x12\n\n\x06INSERT\x10\x01:v\xea\x41s\n*bigquerystorage.googleapis.com/WriteStream\x12\x45projects/{project}/datasets/{dataset}/tables/{table}/streams/{stream}*>\n\nDataFormat\x12\x1b\n\x17\x44\x41TA_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04\x41VRO\x10\x01\x12\t\n\x05\x41RROW\x10\x02\x42\xc4\x01\n$com.google.cloud.bigquery.storage.v1B\x0bStreamProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\xaa\x02 Google.Cloud.BigQuery.Storage.V1\xca\x02 Google\\Cloud\\BigQuery\\Storage\\V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n-google/cloud/bigquery/storage/v1/stream.proto\x12 google.cloud.bigquery.storage.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a,google/cloud/bigquery/storage/v1/arrow.proto\x1a+google/cloud/bigquery/storage/v1/avro.proto\x1a,google/cloud/bigquery/storage/v1/table.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc4\t\n\x0bReadSession\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x34\n\x0b\x65xpire_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x46\n\x0b\x64\x61ta_format\x18\x03 \x01(\x0e\x32,.google.cloud.bigquery.storage.v1.DataFormatB\x03\xe0\x41\x05\x12H\n\x0b\x61vro_schema\x18\x04 \x01(\x0b\x32,.google.cloud.bigquery.storage.v1.AvroSchemaB\x03\xe0\x41\x03H\x00\x12J\n\x0c\x61rrow_schema\x18\x05 \x01(\x0b\x32-.google.cloud.bigquery.storage.v1.ArrowSchemaB\x03\xe0\x41\x03H\x00\x12\x34\n\x05table\x18\x06 \x01(\tB%\xe0\x41\x05\xfa\x41\x1f\n\x1d\x62igquery.googleapis.com/Table\x12Z\n\x0ftable_modifiers\x18\x07 \x01(\x0b\x32<.google.cloud.bigquery.storage.v1.ReadSession.TableModifiersB\x03\xe0\x41\x01\x12Y\n\x0cread_options\x18\x08 \x01(\x0b\x32>.google.cloud.bigquery.storage.v1.ReadSession.TableReadOptionsB\x03\xe0\x41\x01\x12\x42\n\x07streams\x18\n \x03(\x0b\x32,.google.cloud.bigquery.storage.v1.ReadStreamB\x03\xe0\x41\x03\x12*\n\x1d\x65stimated_total_bytes_scanned\x18\x0c \x01(\x03\x42\x03\xe0\x41\x03\x12 \n\x13\x65stimated_row_count\x18\x0e \x01(\x03\x42\x03\xe0\x41\x03\x12\x15\n\x08trace_id\x18\r \x01(\tB\x03\xe0\x41\x01\x1a\x43\n\x0eTableModifiers\x12\x31\n\rsnapshot_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x1a\xbb\x02\n\x10TableReadOptions\x12\x17\n\x0fselected_fields\x18\x01 \x03(\t\x12\x17\n\x0frow_restriction\x18\x02 \x01(\t\x12g\n\x1b\x61rrow_serialization_options\x18\x03 \x01(\x0b\x32;.google.cloud.bigquery.storage.v1.ArrowSerializationOptionsB\x03\xe0\x41\x01H\x00\x12\x65\n\x1a\x61vro_serialization_options\x18\x04 \x01(\x0b\x32:.google.cloud.bigquery.storage.v1.AvroSerializationOptionsB\x03\xe0\x41\x01H\x00\x42%\n#output_format_serialization_options:k\xea\x41h\n*bigquerystorage.googleapis.com/ReadSession\x12:projects/{project}/locations/{location}/sessions/{session}B\x08\n\x06schema\"\x9c\x01\n\nReadStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03:{\xea\x41x\n)bigquerystorage.googleapis.com/ReadStream\x12Kprojects/{project}/locations/{location}/sessions/{session}/streams/{stream}\"\xfb\x04\n\x0bWriteStream\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x45\n\x04type\x18\x02 \x01(\x0e\x32\x32.google.cloud.bigquery.storage.v1.WriteStream.TypeB\x03\xe0\x41\x05\x12\x34\n\x0b\x63reate_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x34\n\x0b\x63ommit_time\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12H\n\x0ctable_schema\x18\x05 \x01(\x0b\x32-.google.cloud.bigquery.storage.v1.TableSchemaB\x03\xe0\x41\x03\x12P\n\nwrite_mode\x18\x07 \x01(\x0e\x32\x37.google.cloud.bigquery.storage.v1.WriteStream.WriteModeB\x03\xe0\x41\x05\x12\x15\n\x08location\x18\x08 \x01(\tB\x03\xe0\x41\x05\"F\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\r\n\tCOMMITTED\x10\x01\x12\x0b\n\x07PENDING\x10\x02\x12\x0c\n\x08\x42UFFERED\x10\x03\"3\n\tWriteMode\x12\x1a\n\x16WRITE_MODE_UNSPECIFIED\x10\x00\x12\n\n\x06INSERT\x10\x01:v\xea\x41s\n*bigquerystorage.googleapis.com/WriteStream\x12\x45projects/{project}/datasets/{dataset}/tables/{table}/streams/{stream}*>\n\nDataFormat\x12\x1b\n\x17\x44\x41TA_FORMAT_UNSPECIFIED\x10\x00\x12\x08\n\x04\x41VRO\x10\x01\x12\t\n\x05\x41RROW\x10\x02*I\n\x0fWriteStreamView\x12!\n\x1dWRITE_STREAM_VIEW_UNSPECIFIED\x10\x00\x12\t\n\x05\x42\x41SIC\x10\x01\x12\x08\n\x04\x46ULL\x10\x02\x42\xc4\x01\n$com.google.cloud.bigquery.storage.v1B\x0bStreamProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\xaa\x02 Google.Cloud.BigQuery.Storage.V1\xca\x02 Google\\Cloud\\BigQuery\\Storage\\V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.bigquery.storage.v1.stream_pb2', globals())
@@ -29,6 +29,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n$com.google.cloud.bigquery.storage.v1B\013StreamProtoP\001ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\252\002 Google.Cloud.BigQuery.Storage.V1\312\002 Google\\Cloud\\BigQuery\\Storage\\V1'
   _READSESSION_TABLEREADOPTIONS.fields_by_name['arrow_serialization_options']._options = None
   _READSESSION_TABLEREADOPTIONS.fields_by_name['arrow_serialization_options']._serialized_options = b'\340A\001'
+  _READSESSION_TABLEREADOPTIONS.fields_by_name['avro_serialization_options']._options = None
+  _READSESSION_TABLEREADOPTIONS.fields_by_name['avro_serialization_options']._serialized_options = b'\340A\001'
   _READSESSION.fields_by_name['name']._options = None
   _READSESSION.fields_by_name['name']._serialized_options = b'\340A\003'
   _READSESSION.fields_by_name['expire_time']._options = None
@@ -49,6 +51,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _READSESSION.fields_by_name['streams']._serialized_options = b'\340A\003'
   _READSESSION.fields_by_name['estimated_total_bytes_scanned']._options = None
   _READSESSION.fields_by_name['estimated_total_bytes_scanned']._serialized_options = b'\340A\003'
+  _READSESSION.fields_by_name['estimated_row_count']._options = None
+  _READSESSION.fields_by_name['estimated_row_count']._serialized_options = b'\340A\003'
   _READSESSION.fields_by_name['trace_id']._options = None
   _READSESSION.fields_by_name['trace_id']._serialized_options = b'\340A\001'
   _READSESSION._options = None
@@ -69,22 +73,26 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _WRITESTREAM.fields_by_name['table_schema']._serialized_options = b'\340A\003'
   _WRITESTREAM.fields_by_name['write_mode']._options = None
   _WRITESTREAM.fields_by_name['write_mode']._serialized_options = b'\340A\005'
+  _WRITESTREAM.fields_by_name['location']._options = None
+  _WRITESTREAM.fields_by_name['location']._serialized_options = b'\340A\005'
   _WRITESTREAM._options = None
   _WRITESTREAM._serialized_options = b'\352As\n*bigquerystorage.googleapis.com/WriteStream\022Eprojects/{project}/datasets/{dataset}/tables/{table}/streams/{stream}'
-  _DATAFORMAT._serialized_start=2173
-  _DATAFORMAT._serialized_end=2235
+  _DATAFORMAT._serialized_start=2333
+  _DATAFORMAT._serialized_end=2395
+  _WRITESTREAMVIEW._serialized_start=2397
+  _WRITESTREAMVIEW._serialized_end=2470
   _READSESSION._serialized_start=314
-  _READSESSION._serialized_end=1397
-  _READSESSION_TABLEMODIFIERS._serialized_start=996
-  _READSESSION_TABLEMODIFIERS._serialized_end=1063
-  _READSESSION_TABLEREADOPTIONS._serialized_start=1066
-  _READSESSION_TABLEREADOPTIONS._serialized_end=1278
-  _READSTREAM._serialized_start=1400
-  _READSTREAM._serialized_end=1556
-  _WRITESTREAM._serialized_start=1559
-  _WRITESTREAM._serialized_end=2171
-  _WRITESTREAM_TYPE._serialized_start=1928
-  _WRITESTREAM_TYPE._serialized_end=1998
-  _WRITESTREAM_WRITEMODE._serialized_start=2000
-  _WRITESTREAM_WRITEMODE._serialized_end=2051
+  _READSESSION._serialized_end=1534
+  _READSESSION_TABLEMODIFIERS._serialized_start=1030
+  _READSESSION_TABLEMODIFIERS._serialized_end=1097
+  _READSESSION_TABLEREADOPTIONS._serialized_start=1100
+  _READSESSION_TABLEREADOPTIONS._serialized_end=1415
+  _READSTREAM._serialized_start=1537
+  _READSTREAM._serialized_end=1693
+  _WRITESTREAM._serialized_start=1696
+  _WRITESTREAM._serialized_end=2331
+  _WRITESTREAM_TYPE._serialized_start=2088
+  _WRITESTREAM_TYPE._serialized_end=2158
+  _WRITESTREAM_WRITEMODE._serialized_start=2160
+  _WRITESTREAM_WRITEMODE._serialized_end=2211
 # @@protoc_insertion_point(module_scope)

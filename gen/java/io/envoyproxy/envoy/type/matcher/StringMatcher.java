@@ -35,88 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StringMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            matchPatternCase_ = 1;
-            matchPattern_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            matchPatternCase_ = 2;
-            matchPattern_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            matchPatternCase_ = 3;
-            matchPattern_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            matchPatternCase_ = 4;
-            matchPattern_ = s;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.type.matcher.RegexMatcher.Builder subBuilder = null;
-            if (matchPatternCase_ == 5) {
-              subBuilder = ((io.envoyproxy.envoy.type.matcher.RegexMatcher) matchPattern_).toBuilder();
-            }
-            matchPattern_ =
-                input.readMessage(io.envoyproxy.envoy.type.matcher.RegexMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.type.matcher.RegexMatcher) matchPattern_);
-              matchPattern_ = subBuilder.buildPartial();
-            }
-            matchPatternCase_ = 5;
-            break;
-          }
-          case 48: {
-
-            ignoreCase_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.type.matcher.StringProto.internal_static_envoy_type_matcher_StringMatcher_descriptor;
@@ -534,7 +452,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IGNORE_CASE_FIELD_NUMBER = 6;
-  private boolean ignoreCase_;
+  private boolean ignoreCase_ = false;
   /**
    * <pre>
    * If true, indicates the exact/prefix/suffix matching should be case insensitive. This has no
@@ -582,7 +500,7 @@ private static final long serialVersionUID = 0L;
     if (ignoreCase_ != false) {
       output.writeBool(6, ignoreCase_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -611,7 +529,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, ignoreCase_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -653,7 +571,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -691,7 +609,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -813,24 +731,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.type.matcher.StringMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (safeRegexBuilder_ != null) {
+        safeRegexBuilder_.clear();
+      }
       ignoreCase_ = false;
-
       matchPatternCase_ = 0;
       matchPattern_ = null;
       return this;
@@ -859,29 +775,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.type.matcher.StringMatcher buildPartial() {
       io.envoyproxy.envoy.type.matcher.StringMatcher result = new io.envoyproxy.envoy.type.matcher.StringMatcher(this);
-      if (matchPatternCase_ == 1) {
-        result.matchPattern_ = matchPattern_;
-      }
-      if (matchPatternCase_ == 2) {
-        result.matchPattern_ = matchPattern_;
-      }
-      if (matchPatternCase_ == 3) {
-        result.matchPattern_ = matchPattern_;
-      }
-      if (matchPatternCase_ == 4) {
-        result.matchPattern_ = matchPattern_;
-      }
-      if (matchPatternCase_ == 5) {
-        if (safeRegexBuilder_ == null) {
-          result.matchPattern_ = matchPattern_;
-        } else {
-          result.matchPattern_ = safeRegexBuilder_.build();
-        }
-      }
-      result.ignoreCase_ = ignoreCase_;
-      result.matchPatternCase_ = matchPatternCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.type.matcher.StringMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.ignoreCase_ = ignoreCase_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.type.matcher.StringMatcher result) {
+      result.matchPatternCase_ = matchPatternCase_;
+      result.matchPattern_ = this.matchPattern_;
+      if (matchPatternCase_ == 5 &&
+          safeRegexBuilder_ != null) {
+        result.matchPattern_ = safeRegexBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -964,7 +877,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -979,17 +892,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.type.matcher.StringMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              matchPatternCase_ = 1;
+              matchPattern_ = s;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              matchPatternCase_ = 2;
+              matchPattern_ = s;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              matchPatternCase_ = 3;
+              matchPattern_ = s;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              matchPatternCase_ = 4;
+              matchPattern_ = s;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSafeRegexFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              matchPatternCase_ = 5;
+              break;
+            } // case 42
+            case 48: {
+              ignoreCase_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.type.matcher.StringMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int matchPatternCase_ = 0;
@@ -1007,6 +969,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1092,10 +1055,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExact(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  matchPatternCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      matchPatternCase_ = 1;
       matchPattern_ = value;
       onChanged();
       return this;
@@ -1131,10 +1092,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExactBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       matchPatternCase_ = 1;
       matchPattern_ = value;
       onChanged();
@@ -1229,10 +1188,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  matchPatternCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      matchPatternCase_ = 2;
       matchPattern_ = value;
       onChanged();
       return this;
@@ -1270,10 +1227,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       matchPatternCase_ = 2;
       matchPattern_ = value;
       onChanged();
@@ -1368,10 +1323,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuffix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  matchPatternCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      matchPatternCase_ = 3;
       matchPattern_ = value;
       onChanged();
       return this;
@@ -1409,10 +1362,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuffixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       matchPatternCase_ = 3;
       matchPattern_ = value;
       onChanged();
@@ -1539,10 +1490,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setRegex(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  matchPatternCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      matchPatternCase_ = 4;
       matchPattern_ = value;
       onChanged();
       return this;
@@ -1596,10 +1545,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setRegexBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       matchPatternCase_ = 4;
       matchPattern_ = value;
       onChanged();
@@ -1780,7 +1727,7 @@ private static final long serialVersionUID = 0L;
         matchPattern_ = null;
       }
       matchPatternCase_ = 5;
-      onChanged();;
+      onChanged();
       return safeRegexBuilder_;
     }
 
@@ -1813,6 +1760,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIgnoreCase(boolean value) {
       
       ignoreCase_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1827,7 +1775,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIgnoreCase() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       ignoreCase_ = false;
       onChanged();
       return this;
@@ -1865,7 +1813,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StringMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

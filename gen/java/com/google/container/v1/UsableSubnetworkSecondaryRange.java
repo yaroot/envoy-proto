@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UsableSubnetworkSecondaryRange(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            rangeName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ipCidrRange_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1.ClusterServiceProto.internal_static_google_container_v1_UsableSubnetworkSecondaryRange_descriptor;
@@ -295,7 +238,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RANGE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object rangeName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rangeName_ = "";
   /**
    * <pre>
    * The name associated with this subnetwork secondary range, used when adding
@@ -343,7 +287,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_CIDR_RANGE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object ipCidrRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ipCidrRange_ = "";
   /**
    * <pre>
    * The range of IP addresses belonging to this subnetwork secondary range.
@@ -389,7 +334,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 3;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * This field is to determine the status of the secondary range programmably.
@@ -410,8 +355,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.container.v1.UsableSubnetworkSecondaryRange.Status getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1.UsableSubnetworkSecondaryRange.Status result = com.google.container.v1.UsableSubnetworkSecondaryRange.Status.valueOf(status_);
+    com.google.container.v1.UsableSubnetworkSecondaryRange.Status result = com.google.container.v1.UsableSubnetworkSecondaryRange.Status.forNumber(status_);
     return result == null ? com.google.container.v1.UsableSubnetworkSecondaryRange.Status.UNRECOGNIZED : result;
   }
 
@@ -438,7 +382,7 @@ private static final long serialVersionUID = 0L;
     if (status_ != com.google.container.v1.UsableSubnetworkSecondaryRange.Status.UNKNOWN.getNumber()) {
       output.writeEnum(3, status_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -457,7 +401,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, status_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -477,7 +421,7 @@ private static final long serialVersionUID = 0L;
     if (!getIpCidrRange()
         .equals(other.getIpCidrRange())) return false;
     if (status_ != other.status_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -494,7 +438,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getIpCidrRange().hashCode();
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -615,28 +559,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.UsableSubnetworkSecondaryRange.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       rangeName_ = "";
-
       ipCidrRange_ = "";
-
       status_ = 0;
-
       return this;
     }
 
@@ -663,11 +600,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.UsableSubnetworkSecondaryRange buildPartial() {
       com.google.container.v1.UsableSubnetworkSecondaryRange result = new com.google.container.v1.UsableSubnetworkSecondaryRange(this);
-      result.rangeName_ = rangeName_;
-      result.ipCidrRange_ = ipCidrRange_;
-      result.status_ = status_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1.UsableSubnetworkSecondaryRange result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rangeName_ = rangeName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.ipCidrRange_ = ipCidrRange_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.status_ = status_;
+      }
     }
 
     @java.lang.Override
@@ -716,16 +664,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1.UsableSubnetworkSecondaryRange.getDefaultInstance()) return this;
       if (!other.getRangeName().isEmpty()) {
         rangeName_ = other.rangeName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getIpCidrRange().isEmpty()) {
         ipCidrRange_ = other.ipCidrRange_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -740,19 +690,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.UsableSubnetworkSecondaryRange parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              rangeName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              ipCidrRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.UsableSubnetworkSecondaryRange) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object rangeName_ = "";
     /**
@@ -810,11 +789,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRangeName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       rangeName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -828,8 +805,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRangeName() {
-      
       rangeName_ = getDefaultInstance().getRangeName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -845,12 +822,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRangeNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rangeName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -908,11 +883,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpCidrRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ipCidrRange_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -925,8 +898,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIpCidrRange() {
-      
       ipCidrRange_ = getDefaultInstance().getIpCidrRange();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -941,12 +914,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpCidrRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ipCidrRange_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -973,8 +944,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -988,8 +959,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1.UsableSubnetworkSecondaryRange.Status getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1.UsableSubnetworkSecondaryRange.Status result = com.google.container.v1.UsableSubnetworkSecondaryRange.Status.valueOf(status_);
+      com.google.container.v1.UsableSubnetworkSecondaryRange.Status result = com.google.container.v1.UsableSubnetworkSecondaryRange.Status.forNumber(status_);
       return result == null ? com.google.container.v1.UsableSubnetworkSecondaryRange.Status.UNRECOGNIZED : result;
     }
     /**
@@ -1005,7 +975,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1019,7 +989,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       status_ = 0;
       onChanged();
       return this;
@@ -1057,7 +1027,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UsableSubnetworkSecondaryRange(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -177,7 +177,6 @@ public interface CallSetOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 4;</code>
    */
-
   /* nullable */
 com.google.protobuf.ListValue getInfoOrDefault(
       java.lang.String key,
@@ -191,7 +190,6 @@ com.google.protobuf.ListValue defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.ListValue&gt; info = 4;</code>
    */
-
   com.google.protobuf.ListValue getInfoOrThrow(
       java.lang.String key);
 }

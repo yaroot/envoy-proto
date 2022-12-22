@@ -46,4 +46,26 @@ public interface DatadogConfigOrBuilder extends
    */
   com.google.protobuf.ByteString
       getServiceNameBytes();
+
+  /**
+   * <pre>
+   * Optional hostname to use when sending spans to the collector_cluster. Useful for collectors
+   * that require a specific hostname. Defaults to :ref:`collector_cluster &lt;envoy_v3_api_field_config.trace.v3.DatadogConfig.collector_cluster&gt;` above.
+   * </pre>
+   *
+   * <code>string collector_hostname = 3;</code>
+   * @return The collectorHostname.
+   */
+  java.lang.String getCollectorHostname();
+  /**
+   * <pre>
+   * Optional hostname to use when sending spans to the collector_cluster. Useful for collectors
+   * that require a specific hostname. Defaults to :ref:`collector_cluster &lt;envoy_v3_api_field_config.trace.v3.DatadogConfig.collector_cluster&gt;` above.
+   * </pre>
+   *
+   * <code>string collector_hostname = 3;</code>
+   * @return The bytes for collectorHostname.
+   */
+  com.google.protobuf.ByteString
+      getCollectorHostnameBytes();
 }

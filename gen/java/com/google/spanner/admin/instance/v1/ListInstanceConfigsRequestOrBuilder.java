@@ -46,7 +46,8 @@ public interface ListInstanceConfigsRequestOrBuilder extends
    * <pre>
    * If non-empty, `page_token` should contain a
    * [next_page_token][google.spanner.admin.instance.v1.ListInstanceConfigsResponse.next_page_token]
-   * from a previous [ListInstanceConfigsResponse][google.spanner.admin.instance.v1.ListInstanceConfigsResponse].
+   * from a previous
+   * [ListInstanceConfigsResponse][google.spanner.admin.instance.v1.ListInstanceConfigsResponse].
    * </pre>
    *
    * <code>string page_token = 3;</code>
@@ -57,7 +58,8 @@ public interface ListInstanceConfigsRequestOrBuilder extends
    * <pre>
    * If non-empty, `page_token` should contain a
    * [next_page_token][google.spanner.admin.instance.v1.ListInstanceConfigsResponse.next_page_token]
-   * from a previous [ListInstanceConfigsResponse][google.spanner.admin.instance.v1.ListInstanceConfigsResponse].
+   * from a previous
+   * [ListInstanceConfigsResponse][google.spanner.admin.instance.v1.ListInstanceConfigsResponse].
    * </pre>
    *
    * <code>string page_token = 3;</code>

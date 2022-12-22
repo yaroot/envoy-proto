@@ -249,106 +249,6 @@ public final class CloudSupportProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SupportAccount(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accountId_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cloudResource_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 50: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (createTime_ != null) {
-                subBuilder = createTime_.toBuilder();
-              }
-              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(createTime_);
-                createTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              billingAccountName_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              unifyAccountId_ = s;
-              break;
-            }
-            case 72: {
-              int rawValue = input.readEnum();
-
-              pricingModel_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.support.common.CloudSupportProto.internal_static_google_cloud_support_common_SupportAccount_descriptor;
@@ -672,7 +572,8 @@ public final class CloudSupportProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * The resource name for a support account in format
@@ -722,7 +623,8 @@ public final class CloudSupportProto {
     }
 
     public static final int ACCOUNT_ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object accountId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountId_ = "";
     /**
      * <pre>
      * Identifier for this entity that gets persisted in storage system. The
@@ -772,7 +674,8 @@ public final class CloudSupportProto {
     }
 
     public static final int CLOUD_RESOURCE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object cloudResource_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object cloudResource_ = "";
     /**
      * <pre>
      * The Cloud resource with which this support account is associated.
@@ -818,7 +721,8 @@ public final class CloudSupportProto {
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 4;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * A user friendly display name assigned to this support account.
@@ -864,7 +768,7 @@ public final class CloudSupportProto {
     }
 
     public static final int STATE_FIELD_NUMBER = 5;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Indicates the current state of an account.
@@ -885,8 +789,7 @@ public final class CloudSupportProto {
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.support.common.CloudSupportProto.SupportAccount.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.support.common.CloudSupportProto.SupportAccount.State result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.State.valueOf(state_);
+      com.google.cloud.support.common.CloudSupportProto.SupportAccount.State result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.State.forNumber(state_);
       return result == null ? com.google.cloud.support.common.CloudSupportProto.SupportAccount.State.UNRECOGNIZED : result;
     }
 
@@ -928,11 +831,12 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-      return getCreateTime();
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
     public static final int BILLING_ACCOUNT_NAME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object billingAccountName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object billingAccountName_ = "";
     /**
      * <pre>
      * The resource name of a billing account associated with this support
@@ -980,7 +884,8 @@ public final class CloudSupportProto {
     }
 
     public static final int UNIFY_ACCOUNT_ID_FIELD_NUMBER = 8;
-    private volatile java.lang.Object unifyAccountId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object unifyAccountId_ = "";
     /**
      * <code>string unify_account_id = 8;</code>
      * @return The unifyAccountId.
@@ -1018,7 +923,7 @@ public final class CloudSupportProto {
     }
 
     public static final int PRICING_MODEL_FIELD_NUMBER = 9;
-    private int pricingModel_;
+    private int pricingModel_ = 0;
     /**
      * <pre>
      * The PricingModel applicable to this support account.
@@ -1039,8 +944,7 @@ public final class CloudSupportProto {
      * @return The pricingModel.
      */
     @java.lang.Override public com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel getPricingModel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.valueOf(pricingModel_);
+      com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.forNumber(pricingModel_);
       return result == null ? com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.UNRECOGNIZED : result;
     }
 
@@ -1085,7 +989,7 @@ public final class CloudSupportProto {
       if (pricingModel_ != com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.PRICING_MODEL_UNKNOWN.getNumber()) {
         output.writeEnum(9, pricingModel_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1124,7 +1028,7 @@ public final class CloudSupportProto {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(9, pricingModel_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1158,7 +1062,7 @@ public final class CloudSupportProto {
       if (!getUnifyAccountId()
           .equals(other.getUnifyAccountId())) return false;
       if (pricingModel_ != other.pricingModel_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1189,7 +1093,7 @@ public final class CloudSupportProto {
       hash = (53 * hash) + getUnifyAccountId().hashCode();
       hash = (37 * hash) + PRICING_MODEL_FIELD_NUMBER;
       hash = (53 * hash) + pricingModel_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1312,44 +1216,31 @@ public final class CloudSupportProto {
 
       // Construct using com.google.cloud.support.common.CloudSupportProto.SupportAccount.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         accountId_ = "";
-
         cloudResource_ = "";
-
         displayName_ = "";
-
         state_ = 0;
-
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-        } else {
-          createTime_ = null;
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
         billingAccountName_ = "";
-
         unifyAccountId_ = "";
-
         pricingModel_ = 0;
-
         return this;
       }
 
@@ -1376,21 +1267,42 @@ public final class CloudSupportProto {
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.SupportAccount buildPartial() {
         com.google.cloud.support.common.CloudSupportProto.SupportAccount result = new com.google.cloud.support.common.CloudSupportProto.SupportAccount(this);
-        result.name_ = name_;
-        result.accountId_ = accountId_;
-        result.cloudResource_ = cloudResource_;
-        result.displayName_ = displayName_;
-        result.state_ = state_;
-        if (createTimeBuilder_ == null) {
-          result.createTime_ = createTime_;
-        } else {
-          result.createTime_ = createTimeBuilder_.build();
-        }
-        result.billingAccountName_ = billingAccountName_;
-        result.unifyAccountId_ = unifyAccountId_;
-        result.pricingModel_ = pricingModel_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.SupportAccount result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.accountId_ = accountId_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.cloudResource_ = cloudResource_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.displayName_ = displayName_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.createTime_ = createTimeBuilder_ == null
+              ? createTime_
+              : createTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.billingAccountName_ = billingAccountName_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.unifyAccountId_ = unifyAccountId_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.pricingModel_ = pricingModel_;
+        }
       }
 
       @java.lang.Override
@@ -1439,18 +1351,22 @@ public final class CloudSupportProto {
         if (other == com.google.cloud.support.common.CloudSupportProto.SupportAccount.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getAccountId().isEmpty()) {
           accountId_ = other.accountId_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getCloudResource().isEmpty()) {
           cloudResource_ = other.cloudResource_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.state_ != 0) {
@@ -1461,16 +1377,18 @@ public final class CloudSupportProto {
         }
         if (!other.getBillingAccountName().isEmpty()) {
           billingAccountName_ = other.billingAccountName_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getUnifyAccountId().isEmpty()) {
           unifyAccountId_ = other.unifyAccountId_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (other.pricingModel_ != 0) {
           setPricingModelValue(other.getPricingModelValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1485,19 +1403,80 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.support.common.CloudSupportProto.SupportAccount parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                accountId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                cloudResource_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 50: {
+                input.readMessage(
+                    getCreateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                billingAccountName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                unifyAccountId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 72: {
+                pricingModel_ = input.readEnum();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.support.common.CloudSupportProto.SupportAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -1558,11 +1537,9 @@ public final class CloudSupportProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1577,8 +1554,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1595,12 +1572,10 @@ public final class CloudSupportProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1664,11 +1639,9 @@ public final class CloudSupportProto {
        */
       public Builder setAccountId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accountId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1683,8 +1656,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearAccountId() {
-        
         accountId_ = getDefaultInstance().getAccountId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1701,12 +1674,10 @@ public final class CloudSupportProto {
        */
       public Builder setAccountIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountId_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1764,11 +1735,9 @@ public final class CloudSupportProto {
        */
       public Builder setCloudResource(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         cloudResource_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1781,8 +1750,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearCloudResource() {
-        
         cloudResource_ = getDefaultInstance().getCloudResource();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1797,12 +1766,10 @@ public final class CloudSupportProto {
        */
       public Builder setCloudResourceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         cloudResource_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1860,11 +1827,9 @@ public final class CloudSupportProto {
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1877,8 +1842,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1893,12 +1858,10 @@ public final class CloudSupportProto {
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1925,8 +1888,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1940,8 +1903,7 @@ public final class CloudSupportProto {
        */
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.SupportAccount.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.support.common.CloudSupportProto.SupportAccount.State result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.State.valueOf(state_);
+        com.google.cloud.support.common.CloudSupportProto.SupportAccount.State result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.State.forNumber(state_);
         return result == null ? com.google.cloud.support.common.CloudSupportProto.SupportAccount.State.UNRECOGNIZED : result;
       }
       /**
@@ -1957,7 +1919,7 @@ public final class CloudSupportProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000010;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -1971,7 +1933,7 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         state_ = 0;
         onChanged();
         return this;
@@ -1990,7 +1952,7 @@ public final class CloudSupportProto {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return createTimeBuilder_ != null || createTime_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -2022,11 +1984,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           createTime_ = value;
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2041,11 +2003,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createTimeBuilder_ == null) {
           createTime_ = builderForValue.build();
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2058,17 +2020,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (createTime_ != null) {
-            createTime_ =
-              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            createTime_ != null &&
+            createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreateTimeBuilder().mergeFrom(value);
           } else {
             createTime_ = value;
           }
-          onChanged();
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2080,14 +2043,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 6;</code>
        */
       public Builder clearCreateTime() {
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-          onChanged();
-        } else {
-          createTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2099,7 +2061,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 6;</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -2197,11 +2159,9 @@ public final class CloudSupportProto {
        */
       public Builder setBillingAccountName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         billingAccountName_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2215,8 +2175,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearBillingAccountName() {
-        
         billingAccountName_ = getDefaultInstance().getBillingAccountName();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -2232,12 +2192,10 @@ public final class CloudSupportProto {
        */
       public Builder setBillingAccountNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         billingAccountName_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -2283,11 +2241,9 @@ public final class CloudSupportProto {
        */
       public Builder setUnifyAccountId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         unifyAccountId_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2296,8 +2252,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearUnifyAccountId() {
-        
         unifyAccountId_ = getDefaultInstance().getUnifyAccountId();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -2308,12 +2264,10 @@ public final class CloudSupportProto {
        */
       public Builder setUnifyAccountIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         unifyAccountId_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2340,8 +2294,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder setPricingModelValue(int value) {
-        
         pricingModel_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -2355,8 +2309,7 @@ public final class CloudSupportProto {
        */
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel getPricingModel() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.valueOf(pricingModel_);
+        com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel result = com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.forNumber(pricingModel_);
         return result == null ? com.google.cloud.support.common.CloudSupportProto.SupportAccount.PricingModel.UNRECOGNIZED : result;
       }
       /**
@@ -2372,7 +2325,7 @@ public final class CloudSupportProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000100;
         pricingModel_ = value.getNumber();
         onChanged();
         return this;
@@ -2386,7 +2339,7 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearPricingModel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         pricingModel_ = 0;
         onChanged();
         return this;
@@ -2424,7 +2377,18 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SupportAccount(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2866,162 +2830,6 @@ public final class CloudSupportProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Case(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              displayName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              component_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              subcomponent_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              clientTimezone_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                ccAddresses_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              ccAddresses_.add(s);
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              projectId_ = s;
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                issues_ = new java.util.ArrayList<com.google.cloud.support.common.CloudSupportProto.CustomerIssue>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              issues_.add(
-                  input.readMessage(com.google.cloud.support.common.CloudSupportProto.CustomerIssue.parser(), extensionRegistry));
-              break;
-            }
-            case 88: {
-              int rawValue = input.readEnum();
-
-              priority_ = rawValue;
-              break;
-            }
-            case 96: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 106: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (createTime_ != null) {
-                subBuilder = createTime_.toBuilder();
-              }
-              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(createTime_);
-                createTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 114: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (updateTime_ != null) {
-                subBuilder = updateTime_.toBuilder();
-              }
-              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateTime_);
-                updateTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 122: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              creatorEmail_ = s;
-              break;
-            }
-            case 130: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              category_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          ccAddresses_ = ccAddresses_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          issues_ = java.util.Collections.unmodifiableList(issues_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -3486,7 +3294,8 @@ public final class CloudSupportProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * The resource name for the Case in format
@@ -3534,7 +3343,8 @@ public final class CloudSupportProto {
     }
 
     public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object displayName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object displayName_ = "";
     /**
      * <pre>
      * The short summary of the issue reported in this case.
@@ -3580,7 +3390,8 @@ public final class CloudSupportProto {
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 3;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * The board description of issue provided with initial summary.
@@ -3626,7 +3437,8 @@ public final class CloudSupportProto {
     }
 
     public static final int COMPONENT_FIELD_NUMBER = 4;
-    private volatile java.lang.Object component_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object component_ = "";
     /**
      * <pre>
      * The product component for which this Case is reported.
@@ -3672,7 +3484,8 @@ public final class CloudSupportProto {
     }
 
     public static final int SUBCOMPONENT_FIELD_NUMBER = 5;
-    private volatile java.lang.Object subcomponent_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object subcomponent_ = "";
     /**
      * <pre>
      * The product subcomponent for which this Case is reported.
@@ -3718,7 +3531,8 @@ public final class CloudSupportProto {
     }
 
     public static final int CLIENT_TIMEZONE_FIELD_NUMBER = 6;
-    private volatile java.lang.Object clientTimezone_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object clientTimezone_ = "";
     /**
      * <pre>
      * Timezone the client sending this request is in.
@@ -3768,6 +3582,7 @@ public final class CloudSupportProto {
     }
 
     public static final int CC_ADDRESSES_FIELD_NUMBER = 7;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList ccAddresses_;
     /**
      * <pre>
@@ -3823,7 +3638,8 @@ public final class CloudSupportProto {
     }
 
     public static final int PROJECT_ID_FIELD_NUMBER = 8;
-    private volatile java.lang.Object projectId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object projectId_ = "";
     /**
      * <pre>
      * The Google Cloud Platform project ID for which this case is created.
@@ -3869,6 +3685,7 @@ public final class CloudSupportProto {
     }
 
     public static final int ISSUES_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.support.common.CloudSupportProto.CustomerIssue> issues_;
     /**
      * <pre>
@@ -3929,7 +3746,7 @@ public final class CloudSupportProto {
     }
 
     public static final int PRIORITY_FIELD_NUMBER = 11;
-    private int priority_;
+    private int priority_ = 0;
     /**
      * <pre>
      * The current priority of this case.
@@ -3950,13 +3767,12 @@ public final class CloudSupportProto {
      * @return The priority.
      */
     @java.lang.Override public com.google.cloud.support.common.CloudSupportProto.Case.Priority getPriority() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.support.common.CloudSupportProto.Case.Priority result = com.google.cloud.support.common.CloudSupportProto.Case.Priority.valueOf(priority_);
+      com.google.cloud.support.common.CloudSupportProto.Case.Priority result = com.google.cloud.support.common.CloudSupportProto.Case.Priority.forNumber(priority_);
       return result == null ? com.google.cloud.support.common.CloudSupportProto.Case.Priority.UNRECOGNIZED : result;
     }
 
     public static final int STATE_FIELD_NUMBER = 12;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * The current state of this case.
@@ -3977,8 +3793,7 @@ public final class CloudSupportProto {
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.support.common.CloudSupportProto.Case.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.support.common.CloudSupportProto.Case.State result = com.google.cloud.support.common.CloudSupportProto.Case.State.valueOf(state_);
+      com.google.cloud.support.common.CloudSupportProto.Case.State result = com.google.cloud.support.common.CloudSupportProto.Case.State.forNumber(state_);
       return result == null ? com.google.cloud.support.common.CloudSupportProto.Case.State.UNRECOGNIZED : result;
     }
 
@@ -4020,7 +3835,7 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-      return getCreateTime();
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
     public static final int UPDATE_TIME_FIELD_NUMBER = 14;
@@ -4061,11 +3876,12 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-      return getUpdateTime();
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
     }
 
     public static final int CREATOR_EMAIL_FIELD_NUMBER = 15;
-    private volatile java.lang.Object creatorEmail_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object creatorEmail_ = "";
     /**
      * <pre>
      * Email address of user who created this case.
@@ -4113,7 +3929,8 @@ public final class CloudSupportProto {
     }
 
     public static final int CATEGORY_FIELD_NUMBER = 16;
-    private volatile java.lang.Object category_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object category_ = "";
     /**
      * <pre>
      * The issue category applicable to this case.
@@ -4217,7 +4034,7 @@ public final class CloudSupportProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 16, category_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4281,7 +4098,7 @@ public final class CloudSupportProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(category_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(16, category_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4330,7 +4147,7 @@ public final class CloudSupportProto {
           .equals(other.getCreatorEmail())) return false;
       if (!getCategory()
           .equals(other.getCategory())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4379,7 +4196,7 @@ public final class CloudSupportProto {
       hash = (53 * hash) + getCreatorEmail().hashCode();
       hash = (37 * hash) + CATEGORY_FIELD_NUMBER;
       hash = (53 * hash) + getCategory().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4500,65 +4317,48 @@ public final class CloudSupportProto {
 
       // Construct using com.google.cloud.support.common.CloudSupportProto.Case.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getIssuesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         displayName_ = "";
-
         description_ = "";
-
         component_ = "";
-
         subcomponent_ = "";
-
         clientTimezone_ = "";
-
         ccAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000040);
         projectId_ = "";
-
         if (issuesBuilder_ == null) {
           issues_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          issues_ = null;
           issuesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000100);
         priority_ = 0;
-
         state_ = 0;
-
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-        } else {
-          createTime_ = null;
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-        } else {
-          updateTime_ = null;
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
         creatorEmail_ = "";
-
         category_ = "";
-
         return this;
       }
 
@@ -4585,44 +4385,74 @@ public final class CloudSupportProto {
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.Case buildPartial() {
         com.google.cloud.support.common.CloudSupportProto.Case result = new com.google.cloud.support.common.CloudSupportProto.Case(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        result.displayName_ = displayName_;
-        result.description_ = description_;
-        result.component_ = component_;
-        result.subcomponent_ = subcomponent_;
-        result.clientTimezone_ = clientTimezone_;
-        if (((bitField0_ & 0x00000001) != 0)) {
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.support.common.CloudSupportProto.Case result) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           ccAddresses_ = ccAddresses_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.ccAddresses_ = ccAddresses_;
-        result.projectId_ = projectId_;
         if (issuesBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000100) != 0)) {
             issues_ = java.util.Collections.unmodifiableList(issues_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           }
           result.issues_ = issues_;
         } else {
           result.issues_ = issuesBuilder_.build();
         }
-        result.priority_ = priority_;
-        result.state_ = state_;
-        if (createTimeBuilder_ == null) {
-          result.createTime_ = createTime_;
-        } else {
-          result.createTime_ = createTimeBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.Case result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
         }
-        if (updateTimeBuilder_ == null) {
-          result.updateTime_ = updateTime_;
-        } else {
-          result.updateTime_ = updateTimeBuilder_.build();
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.displayName_ = displayName_;
         }
-        result.creatorEmail_ = creatorEmail_;
-        result.category_ = category_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.component_ = component_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.subcomponent_ = subcomponent_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.clientTimezone_ = clientTimezone_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.projectId_ = projectId_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.priority_ = priority_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.createTime_ = createTimeBuilder_ == null
+              ? createTime_
+              : createTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.updateTime_ = updateTimeBuilder_ == null
+              ? updateTime_
+              : updateTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.creatorEmail_ = creatorEmail_;
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.category_ = category_;
+        }
       }
 
       @java.lang.Override
@@ -4671,32 +4501,38 @@ public final class CloudSupportProto {
         if (other == com.google.cloud.support.common.CloudSupportProto.Case.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDisplayName().isEmpty()) {
           displayName_ = other.displayName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getComponent().isEmpty()) {
           component_ = other.component_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getSubcomponent().isEmpty()) {
           subcomponent_ = other.subcomponent_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getClientTimezone().isEmpty()) {
           clientTimezone_ = other.clientTimezone_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.ccAddresses_.isEmpty()) {
           if (ccAddresses_.isEmpty()) {
             ccAddresses_ = other.ccAddresses_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureCcAddressesIsMutable();
             ccAddresses_.addAll(other.ccAddresses_);
@@ -4705,13 +4541,14 @@ public final class CloudSupportProto {
         }
         if (!other.getProjectId().isEmpty()) {
           projectId_ = other.projectId_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (issuesBuilder_ == null) {
           if (!other.issues_.isEmpty()) {
             if (issues_.isEmpty()) {
               issues_ = other.issues_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000100);
             } else {
               ensureIssuesIsMutable();
               issues_.addAll(other.issues_);
@@ -4724,7 +4561,7 @@ public final class CloudSupportProto {
               issuesBuilder_.dispose();
               issuesBuilder_ = null;
               issues_ = other.issues_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000100);
               issuesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getIssuesFieldBuilder() : null;
@@ -4747,13 +4584,15 @@ public final class CloudSupportProto {
         }
         if (!other.getCreatorEmail().isEmpty()) {
           creatorEmail_ = other.creatorEmail_;
+          bitField0_ |= 0x00002000;
           onChanged();
         }
         if (!other.getCategory().isEmpty()) {
           category_ = other.category_;
+          bitField0_ |= 0x00004000;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4768,17 +4607,118 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.support.common.CloudSupportProto.Case parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                displayName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                component_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                subcomponent_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                clientTimezone_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureCcAddressesIsMutable();
+                ccAddresses_.add(s);
+                break;
+              } // case 58
+              case 66: {
+                projectId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 82: {
+                com.google.cloud.support.common.CloudSupportProto.CustomerIssue m =
+                    input.readMessage(
+                        com.google.cloud.support.common.CloudSupportProto.CustomerIssue.parser(),
+                        extensionRegistry);
+                if (issuesBuilder_ == null) {
+                  ensureIssuesIsMutable();
+                  issues_.add(m);
+                } else {
+                  issuesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 82
+              case 88: {
+                priority_ = input.readEnum();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 88
+              case 96: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 96
+              case 106: {
+                input.readMessage(
+                    getCreateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 106
+              case 114: {
+                input.readMessage(
+                    getUpdateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 114
+              case 122: {
+                creatorEmail_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 122
+              case 130: {
+                category_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 130
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.support.common.CloudSupportProto.Case) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4839,11 +4779,9 @@ public final class CloudSupportProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4857,8 +4795,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4874,12 +4812,10 @@ public final class CloudSupportProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4937,11 +4873,9 @@ public final class CloudSupportProto {
        */
       public Builder setDisplayName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4954,8 +4888,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearDisplayName() {
-        
         displayName_ = getDefaultInstance().getDisplayName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -4970,12 +4904,10 @@ public final class CloudSupportProto {
        */
       public Builder setDisplayNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5033,11 +4965,9 @@ public final class CloudSupportProto {
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5050,8 +4980,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -5066,12 +4996,10 @@ public final class CloudSupportProto {
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5129,11 +5057,9 @@ public final class CloudSupportProto {
        */
       public Builder setComponent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         component_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5146,8 +5072,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearComponent() {
-        
         component_ = getDefaultInstance().getComponent();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -5162,12 +5088,10 @@ public final class CloudSupportProto {
        */
       public Builder setComponentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         component_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -5225,11 +5149,9 @@ public final class CloudSupportProto {
        */
       public Builder setSubcomponent(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         subcomponent_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5242,8 +5164,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearSubcomponent() {
-        
         subcomponent_ = getDefaultInstance().getSubcomponent();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -5258,12 +5180,10 @@ public final class CloudSupportProto {
        */
       public Builder setSubcomponentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         subcomponent_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -5327,11 +5247,9 @@ public final class CloudSupportProto {
        */
       public Builder setClientTimezone(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         clientTimezone_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -5346,8 +5264,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearClientTimezone() {
-        
         clientTimezone_ = getDefaultInstance().getClientTimezone();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -5364,21 +5282,19 @@ public final class CloudSupportProto {
        */
       public Builder setClientTimezoneBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         clientTimezone_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList ccAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureCcAddressesIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000040) != 0)) {
           ccAddresses_ = new com.google.protobuf.LazyStringArrayList(ccAddresses_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000040;
          }
       }
       /**
@@ -5446,10 +5362,8 @@ public final class CloudSupportProto {
        */
       public Builder setCcAddresses(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCcAddressesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureCcAddressesIsMutable();
         ccAddresses_.set(index, value);
         onChanged();
         return this;
@@ -5466,10 +5380,8 @@ public final class CloudSupportProto {
        */
       public Builder addCcAddresses(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCcAddressesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureCcAddressesIsMutable();
         ccAddresses_.add(value);
         onChanged();
         return this;
@@ -5503,7 +5415,7 @@ public final class CloudSupportProto {
        */
       public Builder clearCcAddresses() {
         ccAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -5519,10 +5431,8 @@ public final class CloudSupportProto {
        */
       public Builder addCcAddressesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureCcAddressesIsMutable();
         ccAddresses_.add(value);
         onChanged();
@@ -5582,11 +5492,9 @@ public final class CloudSupportProto {
        */
       public Builder setProjectId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         projectId_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -5599,8 +5507,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearProjectId() {
-        
         projectId_ = getDefaultInstance().getProjectId();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -5615,12 +5523,10 @@ public final class CloudSupportProto {
        */
       public Builder setProjectIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         projectId_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -5628,9 +5534,9 @@ public final class CloudSupportProto {
       private java.util.List<com.google.cloud.support.common.CloudSupportProto.CustomerIssue> issues_ =
         java.util.Collections.emptyList();
       private void ensureIssuesIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000100) != 0)) {
           issues_ = new java.util.ArrayList<com.google.cloud.support.common.CloudSupportProto.CustomerIssue>(issues_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000100;
          }
       }
 
@@ -5824,7 +5730,7 @@ public final class CloudSupportProto {
       public Builder clearIssues() {
         if (issuesBuilder_ == null) {
           issues_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
           onChanged();
         } else {
           issuesBuilder_.clear();
@@ -5929,7 +5835,7 @@ public final class CloudSupportProto {
           issuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.support.common.CloudSupportProto.CustomerIssue, com.google.cloud.support.common.CloudSupportProto.CustomerIssue.Builder, com.google.cloud.support.common.CloudSupportProto.CustomerIssueOrBuilder>(
                   issues_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000100) != 0),
                   getParentForChildren(),
                   isClean());
           issues_ = null;
@@ -5959,8 +5865,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder setPriorityValue(int value) {
-        
         priority_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -5974,8 +5880,7 @@ public final class CloudSupportProto {
        */
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.Case.Priority getPriority() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.support.common.CloudSupportProto.Case.Priority result = com.google.cloud.support.common.CloudSupportProto.Case.Priority.valueOf(priority_);
+        com.google.cloud.support.common.CloudSupportProto.Case.Priority result = com.google.cloud.support.common.CloudSupportProto.Case.Priority.forNumber(priority_);
         return result == null ? com.google.cloud.support.common.CloudSupportProto.Case.Priority.UNRECOGNIZED : result;
       }
       /**
@@ -5991,7 +5896,7 @@ public final class CloudSupportProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000200;
         priority_ = value.getNumber();
         onChanged();
         return this;
@@ -6005,7 +5910,7 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearPriority() {
-        
+        bitField0_ = (bitField0_ & ~0x00000200);
         priority_ = 0;
         onChanged();
         return this;
@@ -6033,8 +5938,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -6048,8 +5953,7 @@ public final class CloudSupportProto {
        */
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.Case.State getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.support.common.CloudSupportProto.Case.State result = com.google.cloud.support.common.CloudSupportProto.Case.State.valueOf(state_);
+        com.google.cloud.support.common.CloudSupportProto.Case.State result = com.google.cloud.support.common.CloudSupportProto.Case.State.forNumber(state_);
         return result == null ? com.google.cloud.support.common.CloudSupportProto.Case.State.UNRECOGNIZED : result;
       }
       /**
@@ -6065,7 +5969,7 @@ public final class CloudSupportProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000400;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -6079,7 +5983,7 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000400);
         state_ = 0;
         onChanged();
         return this;
@@ -6098,7 +6002,7 @@ public final class CloudSupportProto {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return createTimeBuilder_ != null || createTime_ != null;
+        return ((bitField0_ & 0x00000800) != 0);
       }
       /**
        * <pre>
@@ -6130,11 +6034,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           createTime_ = value;
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000800;
+        onChanged();
         return this;
       }
       /**
@@ -6149,11 +6053,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createTimeBuilder_ == null) {
           createTime_ = builderForValue.build();
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000800;
+        onChanged();
         return this;
       }
       /**
@@ -6166,17 +6070,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (createTime_ != null) {
-            createTime_ =
-              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000800) != 0) &&
+            createTime_ != null &&
+            createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreateTimeBuilder().mergeFrom(value);
           } else {
             createTime_ = value;
           }
-          onChanged();
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000800;
+        onChanged();
         return this;
       }
       /**
@@ -6188,14 +6093,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 13;</code>
        */
       public Builder clearCreateTime() {
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-          onChanged();
-        } else {
-          createTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000800);
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6207,7 +6111,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 13;</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        
+        bitField0_ |= 0x00000800;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -6262,7 +6166,7 @@ public final class CloudSupportProto {
        * @return Whether the updateTime field is set.
        */
       public boolean hasUpdateTime() {
-        return updateTimeBuilder_ != null || updateTime_ != null;
+        return ((bitField0_ & 0x00001000) != 0);
       }
       /**
        * <pre>
@@ -6294,11 +6198,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           updateTime_ = value;
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00001000;
+        onChanged();
         return this;
       }
       /**
@@ -6313,11 +6217,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updateTimeBuilder_ == null) {
           updateTime_ = builderForValue.build();
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00001000;
+        onChanged();
         return this;
       }
       /**
@@ -6330,17 +6234,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
         if (updateTimeBuilder_ == null) {
-          if (updateTime_ != null) {
-            updateTime_ =
-              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00001000) != 0) &&
+            updateTime_ != null &&
+            updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdateTimeBuilder().mergeFrom(value);
           } else {
             updateTime_ = value;
           }
-          onChanged();
         } else {
           updateTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00001000;
+        onChanged();
         return this;
       }
       /**
@@ -6352,14 +6257,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp update_time = 14;</code>
        */
       public Builder clearUpdateTime() {
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-          onChanged();
-        } else {
-          updateTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00001000);
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6371,7 +6275,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp update_time = 14;</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-        
+        bitField0_ |= 0x00001000;
         onChanged();
         return getUpdateTimeFieldBuilder().getBuilder();
       }
@@ -6469,11 +6373,9 @@ public final class CloudSupportProto {
        */
       public Builder setCreatorEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         creatorEmail_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -6487,8 +6389,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearCreatorEmail() {
-        
         creatorEmail_ = getDefaultInstance().getCreatorEmail();
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
         return this;
       }
@@ -6504,12 +6406,10 @@ public final class CloudSupportProto {
        */
       public Builder setCreatorEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         creatorEmail_ = value;
+        bitField0_ |= 0x00002000;
         onChanged();
         return this;
       }
@@ -6567,11 +6467,9 @@ public final class CloudSupportProto {
        */
       public Builder setCategory(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         category_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -6584,8 +6482,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearCategory() {
-        
         category_ = getDefaultInstance().getCategory();
+        bitField0_ = (bitField0_ & ~0x00004000);
         onChanged();
         return this;
       }
@@ -6600,12 +6498,10 @@ public final class CloudSupportProto {
        */
       public Builder setCategoryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         category_ = value;
+        bitField0_ |= 0x00004000;
         onChanged();
         return this;
       }
@@ -6642,7 +6538,18 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Case(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6833,96 +6740,6 @@ public final class CloudSupportProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private CustomerIssue(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              issueId_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              state_ = rawValue;
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (createTime_ != null) {
-                subBuilder = createTime_.toBuilder();
-              }
-              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(createTime_);
-                createTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (resolveTime_ != null) {
-                subBuilder = resolveTime_.toBuilder();
-              }
-              resolveTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(resolveTime_);
-                resolveTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (updateTime_ != null) {
-                subBuilder = updateTime_.toBuilder();
-              }
-              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateTime_);
-                updateTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7134,7 +6951,8 @@ public final class CloudSupportProto {
     }
 
     public static final int ISSUE_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object issueId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object issueId_ = "";
     /**
      * <pre>
      * Unique identifier for the internal issue.
@@ -7182,7 +7000,7 @@ public final class CloudSupportProto {
     }
 
     public static final int STATE_FIELD_NUMBER = 2;
-    private int state_;
+    private int state_ = 0;
     /**
      * <pre>
      * Represents current status of the internal ticket.
@@ -7205,8 +7023,7 @@ public final class CloudSupportProto {
      * @return The state.
      */
     @java.lang.Override public com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState result = com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState.valueOf(state_);
+      com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState result = com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState.forNumber(state_);
       return result == null ? com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState.UNRECOGNIZED : result;
     }
 
@@ -7248,7 +7065,7 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-      return getCreateTime();
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
     public static final int RESOLVE_TIME_FIELD_NUMBER = 4;
@@ -7289,7 +7106,7 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getResolveTimeOrBuilder() {
-      return getResolveTime();
+      return resolveTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : resolveTime_;
     }
 
     public static final int UPDATE_TIME_FIELD_NUMBER = 5;
@@ -7330,7 +7147,7 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-      return getUpdateTime();
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -7362,7 +7179,7 @@ public final class CloudSupportProto {
       if (updateTime_ != null) {
         output.writeMessage(5, getUpdateTime());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7390,7 +7207,7 @@ public final class CloudSupportProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getUpdateTime());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7423,7 +7240,7 @@ public final class CloudSupportProto {
         if (!getUpdateTime()
             .equals(other.getUpdateTime())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7450,7 +7267,7 @@ public final class CloudSupportProto {
         hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getUpdateTime().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -7573,42 +7390,33 @@ public final class CloudSupportProto {
 
       // Construct using com.google.cloud.support.common.CloudSupportProto.CustomerIssue.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         issueId_ = "";
-
         state_ = 0;
-
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-        } else {
-          createTime_ = null;
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-        if (resolveTimeBuilder_ == null) {
-          resolveTime_ = null;
-        } else {
-          resolveTime_ = null;
+        resolveTime_ = null;
+        if (resolveTimeBuilder_ != null) {
+          resolveTimeBuilder_.dispose();
           resolveTimeBuilder_ = null;
         }
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-        } else {
-          updateTime_ = null;
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
         return this;
@@ -7637,25 +7445,34 @@ public final class CloudSupportProto {
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.CustomerIssue buildPartial() {
         com.google.cloud.support.common.CloudSupportProto.CustomerIssue result = new com.google.cloud.support.common.CloudSupportProto.CustomerIssue(this);
-        result.issueId_ = issueId_;
-        result.state_ = state_;
-        if (createTimeBuilder_ == null) {
-          result.createTime_ = createTime_;
-        } else {
-          result.createTime_ = createTimeBuilder_.build();
-        }
-        if (resolveTimeBuilder_ == null) {
-          result.resolveTime_ = resolveTime_;
-        } else {
-          result.resolveTime_ = resolveTimeBuilder_.build();
-        }
-        if (updateTimeBuilder_ == null) {
-          result.updateTime_ = updateTime_;
-        } else {
-          result.updateTime_ = updateTimeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.CustomerIssue result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.issueId_ = issueId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.state_ = state_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.createTime_ = createTimeBuilder_ == null
+              ? createTime_
+              : createTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.resolveTime_ = resolveTimeBuilder_ == null
+              ? resolveTime_
+              : resolveTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.updateTime_ = updateTimeBuilder_ == null
+              ? updateTime_
+              : updateTimeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -7704,6 +7521,7 @@ public final class CloudSupportProto {
         if (other == com.google.cloud.support.common.CloudSupportProto.CustomerIssue.getDefaultInstance()) return this;
         if (!other.getIssueId().isEmpty()) {
           issueId_ = other.issueId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.state_ != 0) {
@@ -7718,7 +7536,7 @@ public final class CloudSupportProto {
         if (other.hasUpdateTime()) {
           mergeUpdateTime(other.getUpdateTime());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -7733,19 +7551,64 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.support.common.CloudSupportProto.CustomerIssue parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                issueId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                state_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                input.readMessage(
+                    getCreateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getResolveTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getUpdateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.support.common.CloudSupportProto.CustomerIssue) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object issueId_ = "";
       /**
@@ -7803,11 +7666,9 @@ public final class CloudSupportProto {
        */
       public Builder setIssueId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         issueId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7821,8 +7682,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearIssueId() {
-        
         issueId_ = getDefaultInstance().getIssueId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -7838,12 +7699,10 @@ public final class CloudSupportProto {
        */
       public Builder setIssueIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         issueId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -7872,8 +7731,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder setStateValue(int value) {
-        
         state_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7888,8 +7747,7 @@ public final class CloudSupportProto {
        */
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState getState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState result = com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState.valueOf(state_);
+        com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState result = com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState.forNumber(state_);
         return result == null ? com.google.cloud.support.common.CloudSupportProto.CustomerIssue.IssueState.UNRECOGNIZED : result;
       }
       /**
@@ -7906,7 +7764,7 @@ public final class CloudSupportProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         state_ = value.getNumber();
         onChanged();
         return this;
@@ -7921,7 +7779,7 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         state_ = 0;
         onChanged();
         return this;
@@ -7940,7 +7798,7 @@ public final class CloudSupportProto {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return createTimeBuilder_ != null || createTime_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -7972,11 +7830,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           createTime_ = value;
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -7991,11 +7849,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createTimeBuilder_ == null) {
           createTime_ = builderForValue.build();
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -8008,17 +7866,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (createTime_ != null) {
-            createTime_ =
-              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            createTime_ != null &&
+            createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreateTimeBuilder().mergeFrom(value);
           } else {
             createTime_ = value;
           }
-          onChanged();
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -8030,14 +7889,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 3;</code>
        */
       public Builder clearCreateTime() {
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-          onChanged();
-        } else {
-          createTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8049,7 +7907,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 3;</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -8104,7 +7962,7 @@ public final class CloudSupportProto {
        * @return Whether the resolveTime field is set.
        */
       public boolean hasResolveTime() {
-        return resolveTimeBuilder_ != null || resolveTime_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -8136,11 +7994,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           resolveTime_ = value;
-          onChanged();
         } else {
           resolveTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -8155,11 +8013,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (resolveTimeBuilder_ == null) {
           resolveTime_ = builderForValue.build();
-          onChanged();
         } else {
           resolveTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -8172,17 +8030,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeResolveTime(com.google.protobuf.Timestamp value) {
         if (resolveTimeBuilder_ == null) {
-          if (resolveTime_ != null) {
-            resolveTime_ =
-              com.google.protobuf.Timestamp.newBuilder(resolveTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            resolveTime_ != null &&
+            resolveTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getResolveTimeBuilder().mergeFrom(value);
           } else {
             resolveTime_ = value;
           }
-          onChanged();
         } else {
           resolveTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -8194,14 +8053,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp resolve_time = 4;</code>
        */
       public Builder clearResolveTime() {
-        if (resolveTimeBuilder_ == null) {
-          resolveTime_ = null;
-          onChanged();
-        } else {
-          resolveTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        resolveTime_ = null;
+        if (resolveTimeBuilder_ != null) {
+          resolveTimeBuilder_.dispose();
           resolveTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8213,7 +8071,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp resolve_time = 4;</code>
        */
       public com.google.protobuf.Timestamp.Builder getResolveTimeBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getResolveTimeFieldBuilder().getBuilder();
       }
@@ -8268,7 +8126,7 @@ public final class CloudSupportProto {
        * @return Whether the updateTime field is set.
        */
       public boolean hasUpdateTime() {
-        return updateTimeBuilder_ != null || updateTime_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -8300,11 +8158,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           updateTime_ = value;
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -8319,11 +8177,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updateTimeBuilder_ == null) {
           updateTime_ = builderForValue.build();
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -8336,17 +8194,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
         if (updateTimeBuilder_ == null) {
-          if (updateTime_ != null) {
-            updateTime_ =
-              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            updateTime_ != null &&
+            updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdateTimeBuilder().mergeFrom(value);
           } else {
             updateTime_ = value;
           }
-          onChanged();
         } else {
           updateTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -8358,14 +8217,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp update_time = 5;</code>
        */
       public Builder clearUpdateTime() {
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-          onChanged();
-        } else {
-          updateTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8377,7 +8235,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp update_time = 5;</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getUpdateTimeFieldBuilder().getBuilder();
       }
@@ -8451,7 +8309,18 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CustomerIssue(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8547,57 +8416,6 @@ public final class CloudSupportProto {
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private SupportRole(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              role_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -8793,7 +8611,8 @@ public final class CloudSupportProto {
     }
 
     public static final int EMAIL_FIELD_NUMBER = 1;
-    private volatile java.lang.Object email_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object email_ = "";
     /**
      * <pre>
      * Email address of user being added through this Role.
@@ -8839,7 +8658,7 @@ public final class CloudSupportProto {
     }
 
     public static final int ROLE_FIELD_NUMBER = 2;
-    private int role_;
+    private int role_ = 0;
     /**
      * <pre>
      * The type of role assigned to user.
@@ -8860,8 +8679,7 @@ public final class CloudSupportProto {
      * @return The role.
      */
     @java.lang.Override public com.google.cloud.support.common.CloudSupportProto.SupportRole.Role getRole() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.support.common.CloudSupportProto.SupportRole.Role result = com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.valueOf(role_);
+      com.google.cloud.support.common.CloudSupportProto.SupportRole.Role result = com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.forNumber(role_);
       return result == null ? com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.UNRECOGNIZED : result;
     }
 
@@ -8885,7 +8703,7 @@ public final class CloudSupportProto {
       if (role_ != com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.ROLE_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, role_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8901,7 +8719,7 @@ public final class CloudSupportProto {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, role_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8919,7 +8737,7 @@ public final class CloudSupportProto {
       if (!getEmail()
           .equals(other.getEmail())) return false;
       if (role_ != other.role_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8934,7 +8752,7 @@ public final class CloudSupportProto {
       hash = (53 * hash) + getEmail().hashCode();
       hash = (37 * hash) + ROLE_FIELD_NUMBER;
       hash = (53 * hash) + role_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9056,26 +8874,20 @@ public final class CloudSupportProto {
 
       // Construct using com.google.cloud.support.common.CloudSupportProto.SupportRole.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         email_ = "";
-
         role_ = 0;
-
         return this;
       }
 
@@ -9102,10 +8914,19 @@ public final class CloudSupportProto {
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.SupportRole buildPartial() {
         com.google.cloud.support.common.CloudSupportProto.SupportRole result = new com.google.cloud.support.common.CloudSupportProto.SupportRole(this);
-        result.email_ = email_;
-        result.role_ = role_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.SupportRole result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.email_ = email_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.role_ = role_;
+        }
       }
 
       @java.lang.Override
@@ -9154,12 +8975,13 @@ public final class CloudSupportProto {
         if (other == com.google.cloud.support.common.CloudSupportProto.SupportRole.getDefaultInstance()) return this;
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.role_ != 0) {
           setRoleValue(other.getRoleValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9174,19 +8996,43 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.support.common.CloudSupportProto.SupportRole parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                email_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                role_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.support.common.CloudSupportProto.SupportRole) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object email_ = "";
       /**
@@ -9241,11 +9087,9 @@ public final class CloudSupportProto {
        */
       public Builder setEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         email_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9258,8 +9102,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
-        
         email_ = getDefaultInstance().getEmail();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9274,12 +9118,10 @@ public final class CloudSupportProto {
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         email_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9306,8 +9148,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder setRoleValue(int value) {
-        
         role_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -9321,8 +9163,7 @@ public final class CloudSupportProto {
        */
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.SupportRole.Role getRole() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.support.common.CloudSupportProto.SupportRole.Role result = com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.valueOf(role_);
+        com.google.cloud.support.common.CloudSupportProto.SupportRole.Role result = com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.forNumber(role_);
         return result == null ? com.google.cloud.support.common.CloudSupportProto.SupportRole.Role.UNRECOGNIZED : result;
       }
       /**
@@ -9338,7 +9179,7 @@ public final class CloudSupportProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         role_ = value.getNumber();
         onChanged();
         return this;
@@ -9352,7 +9193,7 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearRole() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         role_ = 0;
         onChanged();
         return this;
@@ -9390,7 +9231,18 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SupportRole(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9544,76 +9396,6 @@ public final class CloudSupportProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Comment(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              text_ = s;
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (createTime_ != null) {
-                subBuilder = createTime_.toBuilder();
-              }
-              createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(createTime_);
-                createTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              author_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.support.common.CloudSupportProto.internal_static_google_cloud_support_common_Comment_descriptor;
@@ -9628,7 +9410,8 @@ public final class CloudSupportProto {
     }
 
     public static final int TEXT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object text_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object text_ = "";
     /**
      * <pre>
      * Text containing a maximum of 3000 characters.
@@ -9711,11 +9494,12 @@ public final class CloudSupportProto {
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-      return getCreateTime();
+      return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
     }
 
     public static final int AUTHOR_FIELD_NUMBER = 3;
-    private volatile java.lang.Object author_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object author_ = "";
     /**
      * <pre>
      * The email address/name of user who created this comment.
@@ -9763,7 +9547,8 @@ public final class CloudSupportProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 4;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * The resource name for this comment in format
@@ -9838,7 +9623,7 @@ public final class CloudSupportProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9860,7 +9645,7 @@ public final class CloudSupportProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9886,7 +9671,7 @@ public final class CloudSupportProto {
           .equals(other.getAuthor())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9907,7 +9692,7 @@ public final class CloudSupportProto {
       hash = (53 * hash) + getAuthor().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10028,34 +9813,26 @@ public final class CloudSupportProto {
 
       // Construct using com.google.cloud.support.common.CloudSupportProto.Comment.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         text_ = "";
-
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-        } else {
-          createTime_ = null;
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
         author_ = "";
-
         name_ = "";
-
         return this;
       }
 
@@ -10082,16 +9859,27 @@ public final class CloudSupportProto {
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.Comment buildPartial() {
         com.google.cloud.support.common.CloudSupportProto.Comment result = new com.google.cloud.support.common.CloudSupportProto.Comment(this);
-        result.text_ = text_;
-        if (createTimeBuilder_ == null) {
-          result.createTime_ = createTime_;
-        } else {
-          result.createTime_ = createTimeBuilder_.build();
-        }
-        result.author_ = author_;
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.Comment result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.text_ = text_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.createTime_ = createTimeBuilder_ == null
+              ? createTime_
+              : createTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.author_ = author_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -10140,6 +9928,7 @@ public final class CloudSupportProto {
         if (other == com.google.cloud.support.common.CloudSupportProto.Comment.getDefaultInstance()) return this;
         if (!other.getText().isEmpty()) {
           text_ = other.text_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasCreateTime()) {
@@ -10147,13 +9936,15 @@ public final class CloudSupportProto {
         }
         if (!other.getAuthor().isEmpty()) {
           author_ = other.author_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10168,19 +9959,55 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.support.common.CloudSupportProto.Comment parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                text_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getCreateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                author_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.support.common.CloudSupportProto.Comment) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object text_ = "";
       /**
@@ -10235,11 +10062,9 @@ public final class CloudSupportProto {
        */
       public Builder setText(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         text_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10252,8 +10077,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearText() {
-        
         text_ = getDefaultInstance().getText();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -10268,12 +10093,10 @@ public final class CloudSupportProto {
        */
       public Builder setTextBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         text_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10291,7 +10114,7 @@ public final class CloudSupportProto {
        * @return Whether the createTime field is set.
        */
       public boolean hasCreateTime() {
-        return createTimeBuilder_ != null || createTime_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -10323,11 +10146,11 @@ public final class CloudSupportProto {
             throw new NullPointerException();
           }
           createTime_ = value;
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10342,11 +10165,11 @@ public final class CloudSupportProto {
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (createTimeBuilder_ == null) {
           createTime_ = builderForValue.build();
-          onChanged();
         } else {
           createTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10359,17 +10182,18 @@ public final class CloudSupportProto {
        */
       public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
         if (createTimeBuilder_ == null) {
-          if (createTime_ != null) {
-            createTime_ =
-              com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            createTime_ != null &&
+            createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getCreateTimeBuilder().mergeFrom(value);
           } else {
             createTime_ = value;
           }
-          onChanged();
         } else {
           createTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10381,14 +10205,13 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 2;</code>
        */
       public Builder clearCreateTime() {
-        if (createTimeBuilder_ == null) {
-          createTime_ = null;
-          onChanged();
-        } else {
-          createTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        createTime_ = null;
+        if (createTimeBuilder_ != null) {
+          createTimeBuilder_.dispose();
           createTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10400,7 +10223,7 @@ public final class CloudSupportProto {
        * <code>.google.protobuf.Timestamp create_time = 2;</code>
        */
       public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getCreateTimeFieldBuilder().getBuilder();
       }
@@ -10498,11 +10321,9 @@ public final class CloudSupportProto {
        */
       public Builder setAuthor(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         author_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -10516,8 +10337,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearAuthor() {
-        
         author_ = getDefaultInstance().getAuthor();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -10533,12 +10354,10 @@ public final class CloudSupportProto {
        */
       public Builder setAuthorBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         author_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -10602,11 +10421,9 @@ public final class CloudSupportProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -10621,8 +10438,8 @@ public final class CloudSupportProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -10639,12 +10456,10 @@ public final class CloudSupportProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -10681,7 +10496,18 @@ public final class CloudSupportProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Comment(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10744,7 +10570,6 @@ public final class CloudSupportProto {
      *
      * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
      */
-
     /* nullable */
 com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrDefault(
         java.lang.String key,
@@ -10757,7 +10582,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
      *
      * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
      */
-
     com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrThrow(
         java.lang.String key);
   }
@@ -10794,59 +10618,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private IssueTaxonomy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                categories_ = com.google.protobuf.MapField.newMapField(
-                    CategoriesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category>
-              categories__ = input.readMessage(
-                  CategoriesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              categories_.getMutableMap().put(
-                  categories__.getKey(), categories__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -11047,82 +10818,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Component(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                displayName_ = s;
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  languages_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                languages_.add(s);
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                template_ = s;
-                break;
-              }
-              case 34: {
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  subcomponents_ = new java.util.ArrayList<com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                subcomponents_.add(
-                    input.readMessage(com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component.parser(), extensionRegistry));
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            languages_ = languages_.getUnmodifiableView();
-          }
-          if (((mutable_bitField0_ & 0x00000002) != 0)) {
-            subcomponents_ = java.util.Collections.unmodifiableList(subcomponents_);
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.support.common.CloudSupportProto.internal_static_google_cloud_support_common_IssueTaxonomy_Component_descriptor;
@@ -11137,7 +10832,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
       }
 
       public static final int DISPLAY_NAME_FIELD_NUMBER = 1;
-      private volatile java.lang.Object displayName_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object displayName_ = "";
       /**
        * <pre>
        * User friendly name of this component.
@@ -11183,6 +10879,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
       }
 
       public static final int LANGUAGES_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
       private com.google.protobuf.LazyStringList languages_;
       /**
        * <pre>
@@ -11238,7 +10935,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
       }
 
       public static final int TEMPLATE_FIELD_NUMBER = 3;
-      private volatile java.lang.Object template_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object template_ = "";
       /**
        * <pre>
        * Template to be used while filling the description of a support case.
@@ -11284,6 +10982,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
       }
 
       public static final int SUBCOMPONENTS_FIELD_NUMBER = 4;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> subcomponents_;
       /**
        * <pre>
@@ -11369,7 +11068,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
         for (int i = 0; i < subcomponents_.size(); i++) {
           output.writeMessage(4, subcomponents_.get(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -11396,7 +11095,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(4, subcomponents_.get(i));
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -11419,7 +11118,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
             .equals(other.getTemplate())) return false;
         if (!getSubcomponentsList()
             .equals(other.getSubcomponentsList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -11442,7 +11141,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
           hash = (37 * hash) + SUBCOMPONENTS_FIELD_NUMBER;
           hash = (53 * hash) + getSubcomponentsList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -11569,35 +11268,29 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
 
         // Construct using com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-            getSubcomponentsFieldBuilder();
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           displayName_ = "";
-
           languages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           template_ = "";
-
           if (subcomponentsBuilder_ == null) {
             subcomponents_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
+            subcomponents_ = null;
             subcomponentsBuilder_.clear();
           }
+          bitField0_ = (bitField0_ & ~0x00000008);
           return this;
         }
 
@@ -11624,25 +11317,37 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
         @java.lang.Override
         public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component buildPartial() {
           com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component result = new com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component(this);
-          int from_bitField0_ = bitField0_;
-          result.displayName_ = displayName_;
-          if (((bitField0_ & 0x00000001) != 0)) {
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component result) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             languages_ = languages_.getUnmodifiableView();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.languages_ = languages_;
-          result.template_ = template_;
           if (subcomponentsBuilder_ == null) {
-            if (((bitField0_ & 0x00000002) != 0)) {
+            if (((bitField0_ & 0x00000008) != 0)) {
               subcomponents_ = java.util.Collections.unmodifiableList(subcomponents_);
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000008);
             }
             result.subcomponents_ = subcomponents_;
           } else {
             result.subcomponents_ = subcomponentsBuilder_.build();
           }
-          onBuilt();
-          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.displayName_ = displayName_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.template_ = template_;
+          }
         }
 
         @java.lang.Override
@@ -11691,12 +11396,13 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
           if (other == com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component.getDefaultInstance()) return this;
           if (!other.getDisplayName().isEmpty()) {
             displayName_ = other.displayName_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (!other.languages_.isEmpty()) {
             if (languages_.isEmpty()) {
               languages_ = other.languages_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensureLanguagesIsMutable();
               languages_.addAll(other.languages_);
@@ -11705,13 +11411,14 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
           }
           if (!other.getTemplate().isEmpty()) {
             template_ = other.template_;
+            bitField0_ |= 0x00000004;
             onChanged();
           }
           if (subcomponentsBuilder_ == null) {
             if (!other.subcomponents_.isEmpty()) {
               if (subcomponents_.isEmpty()) {
                 subcomponents_ = other.subcomponents_;
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = (bitField0_ & ~0x00000008);
               } else {
                 ensureSubcomponentsIsMutable();
                 subcomponents_.addAll(other.subcomponents_);
@@ -11724,7 +11431,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
                 subcomponentsBuilder_.dispose();
                 subcomponentsBuilder_ = null;
                 subcomponents_ = other.subcomponents_;
-                bitField0_ = (bitField0_ & ~0x00000002);
+                bitField0_ = (bitField0_ & ~0x00000008);
                 subcomponentsBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getSubcomponentsFieldBuilder() : null;
@@ -11733,7 +11440,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
               }
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -11748,17 +11455,59 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  displayName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  ensureLanguagesIsMutable();
+                  languages_.add(s);
+                  break;
+                } // case 18
+                case 26: {
+                  template_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+                case 34: {
+                  com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component m =
+                      input.readMessage(
+                          com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component.parser(),
+                          extensionRegistry);
+                  if (subcomponentsBuilder_ == null) {
+                    ensureSubcomponentsIsMutable();
+                    subcomponents_.add(m);
+                  } else {
+                    subcomponentsBuilder_.addMessage(m);
+                  }
+                  break;
+                } // case 34
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -11816,11 +11565,9 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder setDisplayName(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -11833,8 +11580,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          * @return This builder for chaining.
          */
         public Builder clearDisplayName() {
-          
           displayName_ = getDefaultInstance().getDisplayName();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -11849,21 +11596,19 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder setDisplayNameBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
 
         private com.google.protobuf.LazyStringList languages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         private void ensureLanguagesIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000002) != 0)) {
             languages_ = new com.google.protobuf.LazyStringArrayList(languages_);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
            }
         }
         /**
@@ -11931,10 +11676,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder setLanguages(
             int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguagesIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureLanguagesIsMutable();
           languages_.set(index, value);
           onChanged();
           return this;
@@ -11951,10 +11694,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder addLanguages(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLanguagesIsMutable();
+          if (value == null) { throw new NullPointerException(); }
+          ensureLanguagesIsMutable();
           languages_.add(value);
           onChanged();
           return this;
@@ -11988,7 +11729,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder clearLanguages() {
           languages_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
@@ -12004,10 +11745,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder addLanguagesBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           ensureLanguagesIsMutable();
           languages_.add(value);
           onChanged();
@@ -12067,11 +11806,9 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder setTemplate(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           template_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -12084,8 +11821,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          * @return This builder for chaining.
          */
         public Builder clearTemplate() {
-          
           template_ = getDefaultInstance().getTemplate();
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
           return this;
         }
@@ -12100,12 +11837,10 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
          */
         public Builder setTemplateBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           template_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -12113,9 +11848,9 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
         private java.util.List<com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> subcomponents_ =
           java.util.Collections.emptyList();
         private void ensureSubcomponentsIsMutable() {
-          if (!((bitField0_ & 0x00000002) != 0)) {
+          if (!((bitField0_ & 0x00000008) != 0)) {
             subcomponents_ = new java.util.ArrayList<com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>(subcomponents_);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000008;
            }
         }
 
@@ -12309,7 +12044,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
         public Builder clearSubcomponents() {
           if (subcomponentsBuilder_ == null) {
             subcomponents_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             onChanged();
           } else {
             subcomponentsBuilder_.clear();
@@ -12414,7 +12149,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
             subcomponentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component.Builder, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.ComponentOrBuilder>(
                     subcomponents_,
-                    ((bitField0_ & 0x00000002) != 0),
+                    ((bitField0_ & 0x00000008) != 0),
                     getParentForChildren(),
                     isClean());
             subcomponents_ = null;
@@ -12454,7 +12189,18 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Component(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -12537,7 +12283,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category default
        *
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
        */
-
       /* nullable */
 com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrDefault(
           java.lang.String key,
@@ -12550,7 +12295,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        *
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
        */
-
       com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrThrow(
           java.lang.String key);
     }
@@ -12587,65 +12331,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
       getUnknownFields() {
         return this.unknownFields;
       }
-      private Category(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                displayName_ = s;
-                break;
-              }
-              case 18: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  components_ = com.google.protobuf.MapField.newMapField(
-                      ComponentsDefaultEntryHolder.defaultEntry);
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>
-                components__ = input.readMessage(
-                    ComponentsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-                components_.getMutableMap().put(
-                    components__.getKey(), components__.getValue());
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.support.common.CloudSupportProto.internal_static_google_cloud_support_common_IssueTaxonomy_Category_descriptor;
@@ -12672,7 +12357,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
       }
 
       public static final int DISPLAY_NAME_FIELD_NUMBER = 1;
-      private volatile java.lang.Object displayName_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object displayName_ = "";
       /**
        * <pre>
        * User friendly name of this category.
@@ -12729,6 +12415,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
                     com.google.protobuf.WireFormat.FieldType.MESSAGE,
                     com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component.getDefaultInstance());
       }
+      @SuppressWarnings("serial")
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> components_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>
@@ -12739,7 +12426,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         }
         return components_;
       }
-
       public int getComponentsCount() {
         return internalGetComponents().getMap().size();
       }
@@ -12750,7 +12436,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        *
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsComponents(
           java.lang.String key) {
@@ -12773,7 +12458,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> getComponentsMap() {
         return internalGetComponents().getMap();
       }
@@ -12785,10 +12469,11 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrDefault(
+      public /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrDefault(
           java.lang.String key,
-          com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaultValue) {
+          /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> map =
             internalGetComponents().getMap();
@@ -12802,7 +12487,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -12837,7 +12521,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
             internalGetComponents(),
             ComponentsDefaultEntryHolder.defaultEntry,
             2);
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -12859,7 +12543,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           size += com.google.protobuf.CodedOutputStream
               .computeMessageSize(2, components__);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -12878,7 +12562,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
             .equals(other.getDisplayName())) return false;
         if (!internalGetComponents().equals(
             other.internalGetComponents())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -12895,7 +12579,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           hash = (37 * hash) + COMPONENTS_FIELD_NUMBER;
           hash = (53 * hash) + internalGetComponents().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -13039,24 +12723,19 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
 
         // Construct using com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           displayName_ = "";
-
           internalGetMutableComponents().clear();
           return this;
         }
@@ -13084,12 +12763,20 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         @java.lang.Override
         public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category buildPartial() {
           com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category result = new com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category(this);
-          int from_bitField0_ = bitField0_;
-          result.displayName_ = displayName_;
-          result.components_ = internalGetComponents();
-          result.components_.makeImmutable();
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.displayName_ = displayName_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.components_ = internalGetComponents();
+            result.components_.makeImmutable();
+          }
         }
 
         @java.lang.Override
@@ -13138,11 +12825,13 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           if (other == com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category.getDefaultInstance()) return this;
           if (!other.getDisplayName().isEmpty()) {
             displayName_ = other.displayName_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           internalGetMutableComponents().mergeFrom(
               other.internalGetComponents());
-          this.mergeUnknownFields(other.unknownFields);
+          bitField0_ |= 0x00000002;
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -13157,17 +12846,44 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  displayName_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>
+                  components__ = input.readMessage(
+                      ComponentsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                  internalGetMutableComponents().getMutableMap().put(
+                      components__.getKey(), components__.getValue());
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -13225,11 +12941,9 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          */
         public Builder setDisplayName(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -13242,8 +12956,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          * @return This builder for chaining.
          */
         public Builder clearDisplayName() {
-          
           displayName_ = getDefaultInstance().getDisplayName();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -13258,12 +12972,10 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          */
         public Builder setDisplayNameBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           displayName_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -13271,7 +12983,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         private com.google.protobuf.MapField<
             java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> components_;
         private com.google.protobuf.MapField<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>
-        internalGetComponents() {
+            internalGetComponents() {
           if (components_ == null) {
             return com.google.protobuf.MapField.emptyMapField(
                 ComponentsDefaultEntryHolder.defaultEntry);
@@ -13279,8 +12991,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           return components_;
         }
         private com.google.protobuf.MapField<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>
-        internalGetMutableComponents() {
-          onChanged();;
+            internalGetMutableComponents() {
           if (components_ == null) {
             components_ = com.google.protobuf.MapField.newMapField(
                 ComponentsDefaultEntryHolder.defaultEntry);
@@ -13288,9 +12999,10 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           if (!components_.isMutable()) {
             components_ = components_.copy();
           }
+          bitField0_ |= 0x00000002;
+          onChanged();
           return components_;
         }
-
         public int getComponentsCount() {
           return internalGetComponents().getMap().size();
         }
@@ -13301,7 +13013,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          *
          * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
          */
-
         @java.lang.Override
         public boolean containsComponents(
             java.lang.String key) {
@@ -13324,7 +13035,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
          */
         @java.lang.Override
-
         public java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> getComponentsMap() {
           return internalGetComponents().getMap();
         }
@@ -13336,10 +13046,11 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
          */
         @java.lang.Override
-
-        public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrDefault(
+        public /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrDefault(
             java.lang.String key,
-            com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaultValue) {
+            /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaultValue) {
           if (key == null) { throw new NullPointerException("map key"); }
           java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> map =
               internalGetComponents().getMap();
@@ -13353,7 +13064,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
          */
         @java.lang.Override
-
         public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component getComponentsOrThrow(
             java.lang.String key) {
           if (key == null) { throw new NullPointerException("map key"); }
@@ -13364,8 +13074,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           }
           return map.get(key);
         }
-
         public Builder clearComponents() {
+          bitField0_ = (bitField0_ & ~0x00000002);
           internalGetMutableComponents().getMutableMap()
               .clear();
           return this;
@@ -13377,7 +13087,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          *
          * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
          */
-
         public Builder removeComponents(
             java.lang.String key) {
           if (key == null) { throw new NullPointerException("map key"); }
@@ -13390,7 +13099,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          */
         @java.lang.Deprecated
         public java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component>
-        getMutableComponents() {
+            getMutableComponents() {
+          bitField0_ |= 0x00000002;
           return internalGetMutableComponents().getMutableMap();
         }
         /**
@@ -13404,12 +13114,10 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
             java.lang.String key,
             com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component value) {
           if (key == null) { throw new NullPointerException("map key"); }
-          if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+          if (value == null) { throw new NullPointerException("map value"); }
           internalGetMutableComponents().getMutableMap()
               .put(key, value);
+          bitField0_ |= 0x00000002;
           return this;
         }
         /**
@@ -13419,11 +13127,11 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
          *
          * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Component&gt; components = 2;</code>
          */
-
         public Builder putAllComponents(
             java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component> values) {
           internalGetMutableComponents().getMutableMap()
               .putAll(values);
+          bitField0_ |= 0x00000002;
           return this;
         }
         @java.lang.Override
@@ -13459,7 +13167,18 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Category(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -13491,6 +13210,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> categories_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category>
@@ -13501,7 +13221,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
       }
       return categories_;
     }
-
     public int getCategoriesCount() {
       return internalGetCategories().getMap().size();
     }
@@ -13512,7 +13231,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
      *
      * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsCategories(
         java.lang.String key) {
@@ -13535,7 +13253,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
      * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> getCategoriesMap() {
       return internalGetCategories().getMap();
     }
@@ -13547,10 +13264,11 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
      * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrDefault(
+    public /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrDefault(
         java.lang.String key,
-        com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category defaultValue) {
+        /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> map =
           internalGetCategories().getMap();
@@ -13564,7 +13282,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
      * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -13596,7 +13313,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           internalGetCategories(),
           CategoriesDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -13615,7 +13332,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, categories__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -13632,7 +13349,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
 
       if (!internalGetCategories().equals(
           other.internalGetCategories())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -13647,7 +13364,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         hash = (37 * hash) + CATEGORIES_FIELD_NUMBER;
         hash = (53 * hash) + internalGetCategories().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -13793,22 +13510,18 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
 
       // Construct using com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableCategories().clear();
         return this;
       }
@@ -13836,11 +13549,17 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
       @java.lang.Override
       public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy buildPartial() {
         com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy result = new com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy(this);
-        int from_bitField0_ = bitField0_;
-        result.categories_ = internalGetCategories();
-        result.categories_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.categories_ = internalGetCategories();
+          result.categories_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -13889,7 +13608,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         if (other == com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.getDefaultInstance()) return this;
         internalGetMutableCategories().mergeFrom(
             other.internalGetCategories());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -13904,17 +13624,39 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category>
+                categories__ = input.readMessage(
+                    CategoriesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableCategories().getMutableMap().put(
+                    categories__.getKey(), categories__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -13922,7 +13664,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> categories_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category>
-      internalGetCategories() {
+          internalGetCategories() {
         if (categories_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               CategoriesDefaultEntryHolder.defaultEntry);
@@ -13930,8 +13672,7 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         return categories_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category>
-      internalGetMutableCategories() {
-        onChanged();;
+          internalGetMutableCategories() {
         if (categories_ == null) {
           categories_ = com.google.protobuf.MapField.newMapField(
               CategoriesDefaultEntryHolder.defaultEntry);
@@ -13939,9 +13680,10 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         if (!categories_.isMutable()) {
           categories_ = categories_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return categories_;
       }
-
       public int getCategoriesCount() {
         return internalGetCategories().getMap().size();
       }
@@ -13952,7 +13694,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        *
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsCategories(
           java.lang.String key) {
@@ -13975,7 +13716,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> getCategoriesMap() {
         return internalGetCategories().getMap();
       }
@@ -13987,10 +13727,11 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrDefault(
+      public /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrDefault(
           java.lang.String key,
-          com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category defaultValue) {
+          /* nullable */
+com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> map =
             internalGetCategories().getMap();
@@ -14004,7 +13745,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category getCategoriesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -14015,8 +13755,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
         }
         return map.get(key);
       }
-
       public Builder clearCategories() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableCategories().getMutableMap()
             .clear();
         return this;
@@ -14028,7 +13768,6 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        *
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
        */
-
       public Builder removeCategories(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -14041,7 +13780,8 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category>
-      getMutableCategories() {
+          getMutableCategories() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableCategories().getMutableMap();
       }
       /**
@@ -14055,12 +13795,10 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           java.lang.String key,
           com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableCategories().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -14070,11 +13808,11 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
        *
        * <code>map&lt;string, .google.cloud.support.common.IssueTaxonomy.Category&gt; categories = 1;</code>
        */
-
       public Builder putAllCategories(
           java.util.Map<java.lang.String, com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Category> values) {
         internalGetMutableCategories().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -14110,7 +13848,18 @@ com.google.cloud.support.common.CloudSupportProto.IssueTaxonomy.Component defaul
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new IssueTaxonomy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

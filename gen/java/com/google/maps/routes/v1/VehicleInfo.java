@@ -37,57 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VehicleInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            licensePlateLastCharacter_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            emissionType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.ComputeRoutesRequestProto.internal_static_google_maps_routes_v1_VehicleInfo_descriptor;
@@ -102,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LICENSE_PLATE_LAST_CHARACTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object licensePlateLastCharacter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object licensePlateLastCharacter_ = "";
   /**
    * <pre>
    * Specifies the license plate last character. Could be a digit or a letter.
@@ -148,7 +98,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EMISSION_TYPE_FIELD_NUMBER = 2;
-  private int emissionType_;
+  private int emissionType_ = 0;
   /**
    * <pre>
    * Describes the vehicle's emission type.
@@ -171,8 +121,7 @@ private static final long serialVersionUID = 0L;
    * @return The emissionType.
    */
   @java.lang.Override public com.google.maps.routes.v1.VehicleEmissionType getEmissionType() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routes.v1.VehicleEmissionType result = com.google.maps.routes.v1.VehicleEmissionType.valueOf(emissionType_);
+    com.google.maps.routes.v1.VehicleEmissionType result = com.google.maps.routes.v1.VehicleEmissionType.forNumber(emissionType_);
     return result == null ? com.google.maps.routes.v1.VehicleEmissionType.UNRECOGNIZED : result;
   }
 
@@ -196,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (emissionType_ != com.google.maps.routes.v1.VehicleEmissionType.VEHICLE_EMISSION_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, emissionType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -212,7 +161,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, emissionType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -230,7 +179,7 @@ private static final long serialVersionUID = 0L;
     if (!getLicensePlateLastCharacter()
         .equals(other.getLicensePlateLastCharacter())) return false;
     if (emissionType_ != other.emissionType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -245,7 +194,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLicensePlateLastCharacter().hashCode();
     hash = (37 * hash) + EMISSION_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + emissionType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -367,26 +316,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.VehicleInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       licensePlateLastCharacter_ = "";
-
       emissionType_ = 0;
-
       return this;
     }
 
@@ -413,10 +356,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.VehicleInfo buildPartial() {
       com.google.maps.routes.v1.VehicleInfo result = new com.google.maps.routes.v1.VehicleInfo(this);
-      result.licensePlateLastCharacter_ = licensePlateLastCharacter_;
-      result.emissionType_ = emissionType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.VehicleInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.licensePlateLastCharacter_ = licensePlateLastCharacter_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.emissionType_ = emissionType_;
+      }
     }
 
     @java.lang.Override
@@ -465,12 +417,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.maps.routes.v1.VehicleInfo.getDefaultInstance()) return this;
       if (!other.getLicensePlateLastCharacter().isEmpty()) {
         licensePlateLastCharacter_ = other.licensePlateLastCharacter_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.emissionType_ != 0) {
         setEmissionTypeValue(other.getEmissionTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -485,19 +438,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.VehicleInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              licensePlateLastCharacter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              emissionType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.VehicleInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object licensePlateLastCharacter_ = "";
     /**
@@ -552,11 +529,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLicensePlateLastCharacter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       licensePlateLastCharacter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -569,8 +544,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLicensePlateLastCharacter() {
-      
       licensePlateLastCharacter_ = getDefaultInstance().getLicensePlateLastCharacter();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -585,12 +560,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLicensePlateLastCharacterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       licensePlateLastCharacter_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -619,8 +592,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEmissionTypeValue(int value) {
-      
       emissionType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -635,8 +608,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.VehicleEmissionType getEmissionType() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routes.v1.VehicleEmissionType result = com.google.maps.routes.v1.VehicleEmissionType.valueOf(emissionType_);
+      com.google.maps.routes.v1.VehicleEmissionType result = com.google.maps.routes.v1.VehicleEmissionType.forNumber(emissionType_);
       return result == null ? com.google.maps.routes.v1.VehicleEmissionType.UNRECOGNIZED : result;
     }
     /**
@@ -653,7 +625,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       emissionType_ = value.getNumber();
       onChanged();
       return this;
@@ -668,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmissionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       emissionType_ = 0;
       onChanged();
       return this;
@@ -706,7 +678,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VehicleInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

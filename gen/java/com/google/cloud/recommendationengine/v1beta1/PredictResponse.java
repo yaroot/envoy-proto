@@ -38,100 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PredictResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              results_ = new java.util.ArrayList<com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            results_.add(
-                input.readMessage(com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            recommendationToken_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              itemsMissingInCatalog_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            itemsMissingInCatalog_.add(s);
-            break;
-          }
-          case 32: {
-
-            dryRun_ = input.readBool();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              metadata_ = com.google.protobuf.MapField.newMapField(
-                  MetadataDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-            metadata__ = input.readMessage(
-                MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            metadata_.getMutableMap().put(
-                metadata__.getKey(), metadata__.getValue());
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            nextPageToken_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        results_ = java.util.Collections.unmodifiableList(results_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        itemsMissingInCatalog_ = itemsMissingInCatalog_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.PredictionServiceOuterClass.internal_static_google_cloud_recommendationengine_v1beta1_PredictResponse_descriptor;
@@ -240,7 +146,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
      */
-
     /* nullable */
 com.google.protobuf.Value getItemMetadataOrDefault(
         java.lang.String key,
@@ -258,7 +163,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
      */
-
     com.google.protobuf.Value getItemMetadataOrThrow(
         java.lang.String key);
   }
@@ -294,65 +198,6 @@ com.google.protobuf.Value defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PredictionResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                itemMetadata_ = com.google.protobuf.MapField.newMapField(
-                    ItemMetadataDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-              itemMetadata__ = input.readMessage(
-                  ItemMetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              itemMetadata_.getMutableMap().put(
-                  itemMetadata__.getKey(), itemMetadata__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.recommendationengine.v1beta1.PredictionServiceOuterClass.internal_static_google_cloud_recommendationengine_v1beta1_PredictResponse_PredictionResult_descriptor;
@@ -379,7 +224,8 @@ com.google.protobuf.Value defaultValue);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * ID of the recommended catalog item
@@ -436,6 +282,7 @@ com.google.protobuf.Value defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Value.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> itemMetadata_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -446,7 +293,6 @@ com.google.protobuf.Value defaultValue);
       }
       return itemMetadata_;
     }
-
     public int getItemMetadataCount() {
       return internalGetItemMetadata().getMap().size();
     }
@@ -462,7 +308,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsItemMetadata(
         java.lang.String key) {
@@ -490,7 +335,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getItemMetadataMap() {
       return internalGetItemMetadata().getMap();
     }
@@ -507,10 +351,11 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getItemMetadataOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getItemMetadataOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetItemMetadata().getMap();
@@ -529,7 +374,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getItemMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -564,7 +408,7 @@ com.google.protobuf.Value defaultValue);
           internalGetItemMetadata(),
           ItemMetadataDefaultEntryHolder.defaultEntry,
           2);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -586,7 +430,7 @@ com.google.protobuf.Value defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, itemMetadata__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -605,7 +449,7 @@ com.google.protobuf.Value defaultValue);
           .equals(other.getId())) return false;
       if (!internalGetItemMetadata().equals(
           other.internalGetItemMetadata())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -622,7 +466,7 @@ com.google.protobuf.Value defaultValue);
         hash = (37 * hash) + ITEM_METADATA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetItemMetadata().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -765,24 +609,19 @@ com.google.protobuf.Value defaultValue);
 
       // Construct using com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         internalGetMutableItemMetadata().clear();
         return this;
       }
@@ -810,12 +649,20 @@ com.google.protobuf.Value defaultValue);
       @java.lang.Override
       public com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult buildPartial() {
         com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult result = new com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        result.itemMetadata_ = internalGetItemMetadata();
-        result.itemMetadata_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.itemMetadata_ = internalGetItemMetadata();
+          result.itemMetadata_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -864,11 +711,13 @@ com.google.protobuf.Value defaultValue);
         if (other == com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         internalGetMutableItemMetadata().mergeFrom(
             other.internalGetItemMetadata());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000002;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -883,17 +732,44 @@ com.google.protobuf.Value defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+                itemMetadata__ = input.readMessage(
+                    ItemMetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableItemMetadata().getMutableMap().put(
+                    itemMetadata__.getKey(), itemMetadata__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -951,11 +827,9 @@ com.google.protobuf.Value defaultValue);
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -968,8 +842,8 @@ com.google.protobuf.Value defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -984,12 +858,10 @@ com.google.protobuf.Value defaultValue);
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -997,7 +869,7 @@ com.google.protobuf.Value defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Value> itemMetadata_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-      internalGetItemMetadata() {
+          internalGetItemMetadata() {
         if (itemMetadata_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ItemMetadataDefaultEntryHolder.defaultEntry);
@@ -1005,8 +877,7 @@ com.google.protobuf.Value defaultValue);
         return itemMetadata_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-      internalGetMutableItemMetadata() {
-        onChanged();;
+          internalGetMutableItemMetadata() {
         if (itemMetadata_ == null) {
           itemMetadata_ = com.google.protobuf.MapField.newMapField(
               ItemMetadataDefaultEntryHolder.defaultEntry);
@@ -1014,9 +885,10 @@ com.google.protobuf.Value defaultValue);
         if (!itemMetadata_.isMutable()) {
           itemMetadata_ = itemMetadata_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return itemMetadata_;
       }
-
       public int getItemMetadataCount() {
         return internalGetItemMetadata().getMap().size();
       }
@@ -1032,7 +904,6 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsItemMetadata(
           java.lang.String key) {
@@ -1060,7 +931,6 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.Value> getItemMetadataMap() {
         return internalGetItemMetadata().getMap();
       }
@@ -1077,10 +947,11 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.Value getItemMetadataOrDefault(
+      public /* nullable */
+com.google.protobuf.Value getItemMetadataOrDefault(
           java.lang.String key,
-          com.google.protobuf.Value defaultValue) {
+          /* nullable */
+com.google.protobuf.Value defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Value> map =
             internalGetItemMetadata().getMap();
@@ -1099,7 +970,6 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.Value getItemMetadataOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1110,8 +980,8 @@ com.google.protobuf.Value defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearItemMetadata() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableItemMetadata().getMutableMap()
             .clear();
         return this;
@@ -1128,7 +998,6 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
        */
-
       public Builder removeItemMetadata(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1141,7 +1010,8 @@ com.google.protobuf.Value defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Value>
-      getMutableItemMetadata() {
+          getMutableItemMetadata() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableItemMetadata().getMutableMap();
       }
       /**
@@ -1160,12 +1030,10 @@ com.google.protobuf.Value defaultValue);
           java.lang.String key,
           com.google.protobuf.Value value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableItemMetadata().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -1180,11 +1048,11 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; item_metadata = 2;</code>
        */
-
       public Builder putAllItemMetadata(
           java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
         internalGetMutableItemMetadata().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
       @java.lang.Override
@@ -1220,7 +1088,18 @@ com.google.protobuf.Value defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PredictionResult(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1241,6 +1120,7 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int RESULTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult> results_;
   /**
    * <pre>
@@ -1306,7 +1186,8 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int RECOMMENDATION_TOKEN_FIELD_NUMBER = 2;
-  private volatile java.lang.Object recommendationToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object recommendationToken_ = "";
   /**
    * <pre>
    * A unique recommendation token. This should be included in the user event
@@ -1356,6 +1237,7 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int ITEMS_MISSING_IN_CATALOG_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList itemsMissingInCatalog_;
   /**
    * <pre>
@@ -1407,7 +1289,7 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int DRY_RUN_FIELD_NUMBER = 4;
-  private boolean dryRun_;
+  private boolean dryRun_ = false;
   /**
    * <pre>
    * True if the dryRun property was set in the request.
@@ -1433,6 +1315,7 @@ com.google.protobuf.Value defaultValue);
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.Value> metadata_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -1443,7 +1326,6 @@ com.google.protobuf.Value defaultValue);
     }
     return metadata_;
   }
-
   public int getMetadataCount() {
     return internalGetMetadata().getMap().size();
   }
@@ -1454,7 +1336,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsMetadata(
       java.lang.String key) {
@@ -1477,7 +1358,6 @@ com.google.protobuf.Value defaultValue);
    * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.Value> getMetadataMap() {
     return internalGetMetadata().getMap();
   }
@@ -1489,10 +1369,11 @@ com.google.protobuf.Value defaultValue);
    * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Value getMetadataOrDefault(
+  public /* nullable */
+com.google.protobuf.Value getMetadataOrDefault(
       java.lang.String key,
-      com.google.protobuf.Value defaultValue) {
+      /* nullable */
+com.google.protobuf.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Value> map =
         internalGetMetadata().getMap();
@@ -1506,7 +1387,6 @@ com.google.protobuf.Value defaultValue);
    * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Value getMetadataOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1519,7 +1399,8 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int NEXT_PAGE_TOKEN_FIELD_NUMBER = 6;
-  private volatile java.lang.Object nextPageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nextPageToken_ = "";
   /**
    * <pre>
    * If empty, the list is complete. If nonempty, the token to pass to the next
@@ -1601,7 +1482,7 @@ com.google.protobuf.Value defaultValue);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, nextPageToken_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1642,7 +1523,7 @@ com.google.protobuf.Value defaultValue);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nextPageToken_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, nextPageToken_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1669,7 +1550,7 @@ com.google.protobuf.Value defaultValue);
         other.internalGetMetadata())) return false;
     if (!getNextPageToken()
         .equals(other.getNextPageToken())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1699,7 +1580,7 @@ com.google.protobuf.Value defaultValue);
     }
     hash = (37 * hash) + NEXT_PAGE_TOKEN_FIELD_NUMBER;
     hash = (53 * hash) + getNextPageToken().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1842,38 +1723,31 @@ com.google.protobuf.Value defaultValue);
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.PredictResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getResultsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (resultsBuilder_ == null) {
         results_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        results_ = null;
         resultsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       recommendationToken_ = "";
-
       itemsMissingInCatalog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       dryRun_ = false;
-
       internalGetMutableMetadata().clear();
       nextPageToken_ = "";
-
       return this;
     }
 
@@ -1900,7 +1774,13 @@ com.google.protobuf.Value defaultValue);
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.PredictResponse buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.PredictResponse result = new com.google.cloud.recommendationengine.v1beta1.PredictResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.recommendationengine.v1beta1.PredictResponse result) {
       if (resultsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           results_ = java.util.Collections.unmodifiableList(results_);
@@ -1910,18 +1790,28 @@ com.google.protobuf.Value defaultValue);
       } else {
         result.results_ = resultsBuilder_.build();
       }
-      result.recommendationToken_ = recommendationToken_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         itemsMissingInCatalog_ = itemsMissingInCatalog_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.itemsMissingInCatalog_ = itemsMissingInCatalog_;
-      result.dryRun_ = dryRun_;
-      result.metadata_ = internalGetMetadata();
-      result.metadata_.makeImmutable();
-      result.nextPageToken_ = nextPageToken_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.PredictResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.recommendationToken_ = recommendationToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.dryRun_ = dryRun_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.metadata_ = internalGetMetadata();
+        result.metadata_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.nextPageToken_ = nextPageToken_;
+      }
     }
 
     @java.lang.Override
@@ -1996,12 +1886,13 @@ com.google.protobuf.Value defaultValue);
       }
       if (!other.getRecommendationToken().isEmpty()) {
         recommendationToken_ = other.recommendationToken_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.itemsMissingInCatalog_.isEmpty()) {
         if (itemsMissingInCatalog_.isEmpty()) {
           itemsMissingInCatalog_ = other.itemsMissingInCatalog_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureItemsMissingInCatalogIsMutable();
           itemsMissingInCatalog_.addAll(other.itemsMissingInCatalog_);
@@ -2013,11 +1904,13 @@ com.google.protobuf.Value defaultValue);
       }
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
+      bitField0_ |= 0x00000010;
       if (!other.getNextPageToken().isEmpty()) {
         nextPageToken_ = other.nextPageToken_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2032,17 +1925,73 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.PredictResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult m =
+                  input.readMessage(
+                      com.google.cloud.recommendationengine.v1beta1.PredictResponse.PredictionResult.parser(),
+                      extensionRegistry);
+              if (resultsBuilder_ == null) {
+                ensureResultsIsMutable();
+                results_.add(m);
+              } else {
+                resultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              recommendationToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureItemsMissingInCatalogIsMutable();
+              itemsMissingInCatalog_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              dryRun_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+              metadata__ = input.readMessage(
+                  MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMetadata().getMutableMap().put(
+                  metadata__.getKey(), metadata__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              nextPageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.PredictResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2436,11 +2385,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setRecommendationToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       recommendationToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2455,8 +2402,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearRecommendationToken() {
-      
       recommendationToken_ = getDefaultInstance().getRecommendationToken();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2473,21 +2420,19 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setRecommendationTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       recommendationToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList itemsMissingInCatalog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureItemsMissingInCatalogIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         itemsMissingInCatalog_ = new com.google.protobuf.LazyStringArrayList(itemsMissingInCatalog_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -2550,10 +2495,8 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setItemsMissingInCatalog(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureItemsMissingInCatalogIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureItemsMissingInCatalogIsMutable();
       itemsMissingInCatalog_.set(index, value);
       onChanged();
       return this;
@@ -2569,10 +2512,8 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder addItemsMissingInCatalog(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureItemsMissingInCatalogIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureItemsMissingInCatalogIsMutable();
       itemsMissingInCatalog_.add(value);
       onChanged();
       return this;
@@ -2604,7 +2545,7 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder clearItemsMissingInCatalog() {
       itemsMissingInCatalog_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2619,10 +2560,8 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder addItemsMissingInCatalogBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureItemsMissingInCatalogIsMutable();
       itemsMissingInCatalog_.add(value);
       onChanged();
@@ -2654,6 +2593,7 @@ com.google.protobuf.Value defaultValue);
     public Builder setDryRun(boolean value) {
       
       dryRun_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2666,7 +2606,7 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearDryRun() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       dryRun_ = false;
       onChanged();
       return this;
@@ -2675,7 +2615,7 @@ com.google.protobuf.Value defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> metadata_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetMetadata() {
+        internalGetMetadata() {
       if (metadata_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -2683,8 +2623,7 @@ com.google.protobuf.Value defaultValue);
       return metadata_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetMutableMetadata() {
-      onChanged();;
+        internalGetMutableMetadata() {
       if (metadata_ == null) {
         metadata_ = com.google.protobuf.MapField.newMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -2692,9 +2631,10 @@ com.google.protobuf.Value defaultValue);
       if (!metadata_.isMutable()) {
         metadata_ = metadata_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return metadata_;
     }
-
     public int getMetadataCount() {
       return internalGetMetadata().getMap().size();
     }
@@ -2705,7 +2645,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsMetadata(
         java.lang.String key) {
@@ -2728,7 +2667,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getMetadataMap() {
       return internalGetMetadata().getMap();
     }
@@ -2740,10 +2678,11 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getMetadataOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getMetadataOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetMetadata().getMap();
@@ -2757,7 +2696,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2768,8 +2706,8 @@ com.google.protobuf.Value defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearMetadata() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableMetadata().getMutableMap()
           .clear();
       return this;
@@ -2781,7 +2719,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
      */
-
     public Builder removeMetadata(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2794,7 +2731,8 @@ com.google.protobuf.Value defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.Value>
-    getMutableMetadata() {
+        getMutableMetadata() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableMetadata().getMutableMap();
     }
     /**
@@ -2808,12 +2746,10 @@ com.google.protobuf.Value defaultValue);
         java.lang.String key,
         com.google.protobuf.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMetadata().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -2823,11 +2759,11 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 5;</code>
      */
-
     public Builder putAllMetadata(
         java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
       internalGetMutableMetadata().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -2887,11 +2823,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setNextPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       nextPageToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2905,8 +2839,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearNextPageToken() {
-      
       nextPageToken_ = getDefaultInstance().getNextPageToken();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2922,12 +2856,10 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setNextPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nextPageToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2964,7 +2896,18 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PredictResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

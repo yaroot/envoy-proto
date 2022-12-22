@@ -40,100 +40,15 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Permission(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            title_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 32: {
-
-            onlyInPredefinedRoles_ = input.readBool();
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            stage_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            customRolesSupportLevel_ = rawValue;
-            break;
-          }
-          case 56: {
-
-            apiDisabled_ = input.readBool();
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryPermission_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_Permission_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_Permission_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_Permission_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_Permission_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.Permission.class, com.google.iam.admin.v1.Permission.Builder.class);
   }
@@ -311,7 +226,7 @@ private static final long serialVersionUID = 0L;
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
      * <pre>
-     * Permission is fully supported for custom role use.
+     * Default state. Permission is fully supported for custom role use.
      * </pre>
      *
      * <code>SUPPORTED = 0;</code>
@@ -338,7 +253,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Permission is fully supported for custom role use.
+     * Default state. Permission is fully supported for custom role use.
      * </pre>
      *
      * <code>SUPPORTED = 0;</code>
@@ -446,7 +361,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of this Permission.
@@ -492,7 +408,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TITLE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object title_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object title_ = "";
   /**
    * <pre>
    * The title of this Permission.
@@ -538,7 +455,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * A brief description of what this Permission is used for.
@@ -586,11 +504,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ONLY_IN_PREDEFINED_ROLES_FIELD_NUMBER = 4;
-  private boolean onlyInPredefinedRoles_;
+  private boolean onlyInPredefinedRoles_ = false;
   /**
    * <code>bool only_in_predefined_roles = 4 [deprecated = true];</code>
    * @deprecated google.iam.admin.v1.Permission.only_in_predefined_roles is deprecated.
-   *     See google/iam/admin/v1/iam.proto;l=1341
+   *     See google/iam/admin/v1/iam.proto;l=1450
    * @return The onlyInPredefinedRoles.
    */
   @java.lang.Override
@@ -599,7 +517,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAGE_FIELD_NUMBER = 5;
-  private int stage_;
+  private int stage_ = 0;
   /**
    * <pre>
    * The current launch stage of the permission.
@@ -620,13 +538,12 @@ private static final long serialVersionUID = 0L;
    * @return The stage.
    */
   @java.lang.Override public com.google.iam.admin.v1.Permission.PermissionLaunchStage getStage() {
-    @SuppressWarnings("deprecation")
-    com.google.iam.admin.v1.Permission.PermissionLaunchStage result = com.google.iam.admin.v1.Permission.PermissionLaunchStage.valueOf(stage_);
+    com.google.iam.admin.v1.Permission.PermissionLaunchStage result = com.google.iam.admin.v1.Permission.PermissionLaunchStage.forNumber(stage_);
     return result == null ? com.google.iam.admin.v1.Permission.PermissionLaunchStage.UNRECOGNIZED : result;
   }
 
   public static final int CUSTOM_ROLES_SUPPORT_LEVEL_FIELD_NUMBER = 6;
-  private int customRolesSupportLevel_;
+  private int customRolesSupportLevel_ = 0;
   /**
    * <pre>
    * The current custom role support level.
@@ -647,13 +564,12 @@ private static final long serialVersionUID = 0L;
    * @return The customRolesSupportLevel.
    */
   @java.lang.Override public com.google.iam.admin.v1.Permission.CustomRolesSupportLevel getCustomRolesSupportLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.iam.admin.v1.Permission.CustomRolesSupportLevel result = com.google.iam.admin.v1.Permission.CustomRolesSupportLevel.valueOf(customRolesSupportLevel_);
+    com.google.iam.admin.v1.Permission.CustomRolesSupportLevel result = com.google.iam.admin.v1.Permission.CustomRolesSupportLevel.forNumber(customRolesSupportLevel_);
     return result == null ? com.google.iam.admin.v1.Permission.CustomRolesSupportLevel.UNRECOGNIZED : result;
   }
 
   public static final int API_DISABLED_FIELD_NUMBER = 7;
-  private boolean apiDisabled_;
+  private boolean apiDisabled_ = false;
   /**
    * <pre>
    * The service API associated with the permission is not enabled.
@@ -668,7 +584,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_PERMISSION_FIELD_NUMBER = 8;
-  private volatile java.lang.Object primaryPermission_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryPermission_ = "";
   /**
    * <pre>
    * The preferred name for this permission. If present, then this permission is
@@ -753,7 +670,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(primaryPermission_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, primaryPermission_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -790,7 +707,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(primaryPermission_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, primaryPermission_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -819,7 +736,7 @@ private static final long serialVersionUID = 0L;
         != other.getApiDisabled()) return false;
     if (!getPrimaryPermission()
         .equals(other.getPrimaryPermission())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -848,7 +765,7 @@ private static final long serialVersionUID = 0L;
         getApiDisabled());
     hash = (37 * hash) + PRIMARY_PERMISSION_FIELD_NUMBER;
     hash = (53 * hash) + getPrimaryPermission().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -956,58 +873,46 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.PermissionOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_Permission_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_Permission_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_Permission_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_Permission_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.Permission.class, com.google.iam.admin.v1.Permission.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.Permission.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       title_ = "";
-
       description_ = "";
-
       onlyInPredefinedRoles_ = false;
-
       stage_ = 0;
-
       customRolesSupportLevel_ = 0;
-
       apiDisabled_ = false;
-
       primaryPermission_ = "";
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_Permission_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_Permission_descriptor;
     }
 
     @java.lang.Override
@@ -1027,16 +932,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.Permission buildPartial() {
       com.google.iam.admin.v1.Permission result = new com.google.iam.admin.v1.Permission(this);
-      result.name_ = name_;
-      result.title_ = title_;
-      result.description_ = description_;
-      result.onlyInPredefinedRoles_ = onlyInPredefinedRoles_;
-      result.stage_ = stage_;
-      result.customRolesSupportLevel_ = customRolesSupportLevel_;
-      result.apiDisabled_ = apiDisabled_;
-      result.primaryPermission_ = primaryPermission_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.Permission result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.title_ = title_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.onlyInPredefinedRoles_ = onlyInPredefinedRoles_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stage_ = stage_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.customRolesSupportLevel_ = customRolesSupportLevel_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.apiDisabled_ = apiDisabled_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.primaryPermission_ = primaryPermission_;
+      }
     }
 
     @java.lang.Override
@@ -1085,14 +1011,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.iam.admin.v1.Permission.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTitle().isEmpty()) {
         title_ = other.title_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getOnlyInPredefinedRoles() != false) {
@@ -1109,9 +1038,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPrimaryPermission().isEmpty()) {
         primaryPermission_ = other.primaryPermission_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1126,19 +1056,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.Permission parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              title_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              onlyInPredefinedRoles_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              stage_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              customRolesSupportLevel_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              apiDisabled_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              primaryPermission_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.Permission) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1193,11 +1177,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1210,8 +1192,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1226,12 +1208,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1289,11 +1269,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitle(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       title_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1306,8 +1284,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTitle() {
-      
       title_ = getDefaultInstance().getTitle();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1322,12 +1300,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTitleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       title_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1388,11 +1364,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1406,8 +1380,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1423,12 +1397,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1437,7 +1409,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>bool only_in_predefined_roles = 4 [deprecated = true];</code>
      * @deprecated google.iam.admin.v1.Permission.only_in_predefined_roles is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=1341
+     *     See google/iam/admin/v1/iam.proto;l=1450
      * @return The onlyInPredefinedRoles.
      */
     @java.lang.Override
@@ -1447,24 +1419,25 @@ private static final long serialVersionUID = 0L;
     /**
      * <code>bool only_in_predefined_roles = 4 [deprecated = true];</code>
      * @deprecated google.iam.admin.v1.Permission.only_in_predefined_roles is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=1341
+     *     See google/iam/admin/v1/iam.proto;l=1450
      * @param value The onlyInPredefinedRoles to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setOnlyInPredefinedRoles(boolean value) {
       
       onlyInPredefinedRoles_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <code>bool only_in_predefined_roles = 4 [deprecated = true];</code>
      * @deprecated google.iam.admin.v1.Permission.only_in_predefined_roles is deprecated.
-     *     See google/iam/admin/v1/iam.proto;l=1341
+     *     See google/iam/admin/v1/iam.proto;l=1450
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearOnlyInPredefinedRoles() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       onlyInPredefinedRoles_ = false;
       onChanged();
       return this;
@@ -1492,8 +1465,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStageValue(int value) {
-      
       stage_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1507,8 +1480,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.iam.admin.v1.Permission.PermissionLaunchStage getStage() {
-      @SuppressWarnings("deprecation")
-      com.google.iam.admin.v1.Permission.PermissionLaunchStage result = com.google.iam.admin.v1.Permission.PermissionLaunchStage.valueOf(stage_);
+      com.google.iam.admin.v1.Permission.PermissionLaunchStage result = com.google.iam.admin.v1.Permission.PermissionLaunchStage.forNumber(stage_);
       return result == null ? com.google.iam.admin.v1.Permission.PermissionLaunchStage.UNRECOGNIZED : result;
     }
     /**
@@ -1524,7 +1496,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       stage_ = value.getNumber();
       onChanged();
       return this;
@@ -1538,7 +1510,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       stage_ = 0;
       onChanged();
       return this;
@@ -1566,8 +1538,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCustomRolesSupportLevelValue(int value) {
-      
       customRolesSupportLevel_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1581,8 +1553,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.iam.admin.v1.Permission.CustomRolesSupportLevel getCustomRolesSupportLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.iam.admin.v1.Permission.CustomRolesSupportLevel result = com.google.iam.admin.v1.Permission.CustomRolesSupportLevel.valueOf(customRolesSupportLevel_);
+      com.google.iam.admin.v1.Permission.CustomRolesSupportLevel result = com.google.iam.admin.v1.Permission.CustomRolesSupportLevel.forNumber(customRolesSupportLevel_);
       return result == null ? com.google.iam.admin.v1.Permission.CustomRolesSupportLevel.UNRECOGNIZED : result;
     }
     /**
@@ -1598,7 +1569,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       customRolesSupportLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -1612,7 +1583,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomRolesSupportLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       customRolesSupportLevel_ = 0;
       onChanged();
       return this;
@@ -1643,6 +1614,7 @@ private static final long serialVersionUID = 0L;
     public Builder setApiDisabled(boolean value) {
       
       apiDisabled_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1655,7 +1627,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiDisabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       apiDisabled_ = false;
       onChanged();
       return this;
@@ -1717,11 +1689,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryPermission(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       primaryPermission_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1735,8 +1705,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryPermission() {
-      
       primaryPermission_ = getDefaultInstance().getPrimaryPermission();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1752,12 +1722,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryPermissionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       primaryPermission_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1794,7 +1762,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Permission(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

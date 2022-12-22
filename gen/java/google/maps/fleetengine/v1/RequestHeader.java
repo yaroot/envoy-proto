@@ -44,110 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RequestHeader(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            regionCode_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sdkVersion_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            osVersion_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deviceModel_ = s;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            sdkType_ = rawValue;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mapsSdkVersion_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            navSdkVersion_ = s;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            platform_ = rawValue;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            manufacturer_ = s;
-            break;
-          }
-          case 88: {
-
-            androidApiLevel_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.Headers.internal_static_maps_fleetengine_v1_RequestHeader_descriptor;
@@ -486,7 +382,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * The BCP-47 language code, such as en-US or sr-Latn. For more information,
@@ -538,7 +435,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_CODE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object regionCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object regionCode_ = "";
   /**
    * <pre>
    * Required. CLDR region code of the region where the request originates.
@@ -586,7 +484,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SDK_VERSION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object sdkVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sdkVersion_ = "";
   /**
    * <pre>
    * Version of the calling SDK, if applicable.
@@ -634,7 +533,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OS_VERSION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object osVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object osVersion_ = "";
   /**
    * <pre>
    * Version of the operating system on which the calling SDK is running.
@@ -682,7 +582,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_MODEL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object deviceModel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deviceModel_ = "";
   /**
    * <pre>
    * Model of the device on which the calling SDK is running.
@@ -730,7 +631,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SDK_TYPE_FIELD_NUMBER = 6;
-  private int sdkType_;
+  private int sdkType_ = 0;
   /**
    * <pre>
    * The type of SDK sending the request.
@@ -751,13 +652,13 @@ private static final long serialVersionUID = 0L;
    * @return The sdkType.
    */
   @java.lang.Override public google.maps.fleetengine.v1.RequestHeader.SdkType getSdkType() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.RequestHeader.SdkType result = google.maps.fleetengine.v1.RequestHeader.SdkType.valueOf(sdkType_);
+    google.maps.fleetengine.v1.RequestHeader.SdkType result = google.maps.fleetengine.v1.RequestHeader.SdkType.forNumber(sdkType_);
     return result == null ? google.maps.fleetengine.v1.RequestHeader.SdkType.UNRECOGNIZED : result;
   }
 
   public static final int MAPS_SDK_VERSION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object mapsSdkVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mapsSdkVersion_ = "";
   /**
    * <pre>
    * Version of the MapSDK which the calling SDK depends on, if applicable.
@@ -805,7 +706,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAV_SDK_VERSION_FIELD_NUMBER = 8;
-  private volatile java.lang.Object navSdkVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object navSdkVersion_ = "";
   /**
    * <pre>
    * Version of the NavSDK which the calling SDK depends on, if applicable.
@@ -853,7 +755,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLATFORM_FIELD_NUMBER = 9;
-  private int platform_;
+  private int platform_ = 0;
   /**
    * <pre>
    * Platform of the calling SDK.
@@ -874,13 +776,13 @@ private static final long serialVersionUID = 0L;
    * @return The platform.
    */
   @java.lang.Override public google.maps.fleetengine.v1.RequestHeader.Platform getPlatform() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.RequestHeader.Platform result = google.maps.fleetengine.v1.RequestHeader.Platform.valueOf(platform_);
+    google.maps.fleetengine.v1.RequestHeader.Platform result = google.maps.fleetengine.v1.RequestHeader.Platform.forNumber(platform_);
     return result == null ? google.maps.fleetengine.v1.RequestHeader.Platform.UNRECOGNIZED : result;
   }
 
   public static final int MANUFACTURER_FIELD_NUMBER = 10;
-  private volatile java.lang.Object manufacturer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object manufacturer_ = "";
   /**
    * <pre>
    * Manufacturer of the Android device from the calling SDK, only applicable
@@ -930,7 +832,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANDROID_API_LEVEL_FIELD_NUMBER = 11;
-  private int androidApiLevel_;
+  private int androidApiLevel_ = 0;
   /**
    * <pre>
    * Android API level of the calling SDK, only applicable for the Android SDKs.
@@ -992,7 +894,7 @@ private static final long serialVersionUID = 0L;
     if (androidApiLevel_ != 0) {
       output.writeInt32(11, androidApiLevel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1037,7 +939,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(11, androidApiLevel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1072,7 +974,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getManufacturer())) return false;
     if (getAndroidApiLevel()
         != other.getAndroidApiLevel()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1105,7 +1007,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getManufacturer().hashCode();
     hash = (37 * hash) + ANDROID_API_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getAndroidApiLevel();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1226,44 +1128,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.RequestHeader.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       languageCode_ = "";
-
       regionCode_ = "";
-
       sdkVersion_ = "";
-
       osVersion_ = "";
-
       deviceModel_ = "";
-
       sdkType_ = 0;
-
       mapsSdkVersion_ = "";
-
       navSdkVersion_ = "";
-
       platform_ = 0;
-
       manufacturer_ = "";
-
       androidApiLevel_ = 0;
-
       return this;
     }
 
@@ -1290,19 +1177,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.RequestHeader buildPartial() {
       google.maps.fleetengine.v1.RequestHeader result = new google.maps.fleetengine.v1.RequestHeader(this);
-      result.languageCode_ = languageCode_;
-      result.regionCode_ = regionCode_;
-      result.sdkVersion_ = sdkVersion_;
-      result.osVersion_ = osVersion_;
-      result.deviceModel_ = deviceModel_;
-      result.sdkType_ = sdkType_;
-      result.mapsSdkVersion_ = mapsSdkVersion_;
-      result.navSdkVersion_ = navSdkVersion_;
-      result.platform_ = platform_;
-      result.manufacturer_ = manufacturer_;
-      result.androidApiLevel_ = androidApiLevel_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.RequestHeader result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.regionCode_ = regionCode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.sdkVersion_ = sdkVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.osVersion_ = osVersion_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.deviceModel_ = deviceModel_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sdkType_ = sdkType_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.mapsSdkVersion_ = mapsSdkVersion_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.navSdkVersion_ = navSdkVersion_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.platform_ = platform_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.manufacturer_ = manufacturer_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.androidApiLevel_ = androidApiLevel_;
+      }
     }
 
     @java.lang.Override
@@ -1351,22 +1265,27 @@ private static final long serialVersionUID = 0L;
       if (other == google.maps.fleetengine.v1.RequestHeader.getDefaultInstance()) return this;
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRegionCode().isEmpty()) {
         regionCode_ = other.regionCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSdkVersion().isEmpty()) {
         sdkVersion_ = other.sdkVersion_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getOsVersion().isEmpty()) {
         osVersion_ = other.osVersion_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDeviceModel().isEmpty()) {
         deviceModel_ = other.deviceModel_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.sdkType_ != 0) {
@@ -1374,10 +1293,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMapsSdkVersion().isEmpty()) {
         mapsSdkVersion_ = other.mapsSdkVersion_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getNavSdkVersion().isEmpty()) {
         navSdkVersion_ = other.navSdkVersion_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.platform_ != 0) {
@@ -1385,12 +1306,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getManufacturer().isEmpty()) {
         manufacturer_ = other.manufacturer_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.getAndroidApiLevel() != 0) {
         setAndroidApiLevel(other.getAndroidApiLevel());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1405,19 +1327,88 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.RequestHeader parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              regionCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              sdkVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              osVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              deviceModel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              sdkType_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              mapsSdkVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              navSdkVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 72: {
+              platform_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              manufacturer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 88: {
+              androidApiLevel_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.RequestHeader) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object languageCode_ = "";
     /**
@@ -1481,11 +1472,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1501,8 +1490,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1520,12 +1509,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1586,11 +1573,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       regionCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1604,8 +1589,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegionCode() {
-      
       regionCode_ = getDefaultInstance().getRegionCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1621,12 +1606,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       regionCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1687,11 +1670,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSdkVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sdkVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1705,8 +1686,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSdkVersion() {
-      
       sdkVersion_ = getDefaultInstance().getSdkVersion();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1722,12 +1703,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSdkVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sdkVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1788,11 +1767,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       osVersion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1806,8 +1783,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOsVersion() {
-      
       osVersion_ = getDefaultInstance().getOsVersion();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1823,12 +1800,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOsVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       osVersion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1889,11 +1864,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceModel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deviceModel_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1907,8 +1880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeviceModel() {
-      
       deviceModel_ = getDefaultInstance().getDeviceModel();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1924,12 +1897,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceModelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deviceModel_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1956,8 +1927,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSdkTypeValue(int value) {
-      
       sdkType_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1971,8 +1942,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.RequestHeader.SdkType getSdkType() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.RequestHeader.SdkType result = google.maps.fleetengine.v1.RequestHeader.SdkType.valueOf(sdkType_);
+      google.maps.fleetengine.v1.RequestHeader.SdkType result = google.maps.fleetengine.v1.RequestHeader.SdkType.forNumber(sdkType_);
       return result == null ? google.maps.fleetengine.v1.RequestHeader.SdkType.UNRECOGNIZED : result;
     }
     /**
@@ -1988,7 +1958,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       sdkType_ = value.getNumber();
       onChanged();
       return this;
@@ -2002,7 +1972,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSdkType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       sdkType_ = 0;
       onChanged();
       return this;
@@ -2064,11 +2034,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMapsSdkVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mapsSdkVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2082,8 +2050,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMapsSdkVersion() {
-      
       mapsSdkVersion_ = getDefaultInstance().getMapsSdkVersion();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2099,12 +2067,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMapsSdkVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mapsSdkVersion_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2165,11 +2131,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNavSdkVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       navSdkVersion_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2183,8 +2147,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNavSdkVersion() {
-      
       navSdkVersion_ = getDefaultInstance().getNavSdkVersion();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2200,12 +2164,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNavSdkVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       navSdkVersion_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2232,8 +2194,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlatformValue(int value) {
-      
       platform_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2247,8 +2209,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.RequestHeader.Platform getPlatform() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.RequestHeader.Platform result = google.maps.fleetengine.v1.RequestHeader.Platform.valueOf(platform_);
+      google.maps.fleetengine.v1.RequestHeader.Platform result = google.maps.fleetengine.v1.RequestHeader.Platform.forNumber(platform_);
       return result == null ? google.maps.fleetengine.v1.RequestHeader.Platform.UNRECOGNIZED : result;
     }
     /**
@@ -2264,7 +2225,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       platform_ = value.getNumber();
       onChanged();
       return this;
@@ -2278,7 +2239,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlatform() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       platform_ = 0;
       onChanged();
       return this;
@@ -2343,11 +2304,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setManufacturer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       manufacturer_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2362,8 +2321,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearManufacturer() {
-      
       manufacturer_ = getDefaultInstance().getManufacturer();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2380,12 +2339,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setManufacturerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       manufacturer_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2417,6 +2374,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAndroidApiLevel(int value) {
       
       androidApiLevel_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2430,7 +2388,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAndroidApiLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       androidApiLevel_ = 0;
       onChanged();
       return this;
@@ -2468,7 +2426,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RequestHeader(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

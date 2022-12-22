@@ -13,9 +13,11 @@ _sym_db = _symbol_database.Default()
 
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
+from google.cloud.retail.v2 import common_pb2 as google_dot_cloud_dot_retail_dot_v2_dot_common__pb2
+from google.cloud.retail.v2 import import_config_pb2 as google_dot_cloud_dot_retail_dot_v2_dot_import__config__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/cloud/retail/v2/catalog.proto\x12\x16google.cloud.retail.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xec\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12M\n\x14product_level_config\x18\x04 \x01(\x0b\x32*.google.cloud.retail.v2.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xc1\x01\n\x1a\x63om.google.cloud.retail.v2B\x0c\x43\x61talogProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n$google/cloud/retail/v2/catalog.proto\x12\x16google.cloud.retail.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a#google/cloud/retail/v2/common.proto\x1a*google/cloud/retail/v2/import_config.proto\"^\n\x12ProductLevelConfig\x12\x1e\n\x16ingestion_product_type\x18\x01 \x01(\t\x12(\n merchant_center_product_id_field\x18\x02 \x01(\t\"\xbf\t\n\x10\x43\x61talogAttribute\x12\x10\n\x03key\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x06in_use\x18\t \x01(\x08\x42\x03\xe0\x41\x03\x12I\n\x04type\x18\n \x01(\x0e\x32\x36.google.cloud.retail.v2.CatalogAttribute.AttributeTypeB\x03\xe0\x41\x03\x12R\n\x10indexable_option\x18\x05 \x01(\x0e\x32\x38.google.cloud.retail.v2.CatalogAttribute.IndexableOption\x12\x61\n\x18\x64ynamic_facetable_option\x18\x06 \x01(\x0e\x32?.google.cloud.retail.v2.CatalogAttribute.DynamicFacetableOption\x12T\n\x11searchable_option\x18\x07 \x01(\x0e\x32\x39.google.cloud.retail.v2.CatalogAttribute.SearchableOption\x12_\n\x17\x65xact_searchable_option\x18\x0b \x01(\x0e\x32>.google.cloud.retail.v2.CatalogAttribute.ExactSearchableOption\x12V\n\x12retrievable_option\x18\x0c \x01(\x0e\x32:.google.cloud.retail.v2.CatalogAttribute.RetrievableOption\"8\n\rAttributeType\x12\x0b\n\x07UNKNOWN\x10\x00\x12\x0b\n\x07TEXTUAL\x10\x01\x12\r\n\tNUMERICAL\x10\x02\"b\n\x0fIndexableOption\x12 \n\x1cINDEXABLE_OPTION_UNSPECIFIED\x10\x00\x12\x15\n\x11INDEXABLE_ENABLED\x10\x01\x12\x16\n\x12INDEXABLE_DISABLED\x10\x02\"\x81\x01\n\x16\x44ynamicFacetableOption\x12(\n$DYNAMIC_FACETABLE_OPTION_UNSPECIFIED\x10\x00\x12\x1d\n\x19\x44YNAMIC_FACETABLE_ENABLED\x10\x01\x12\x1e\n\x1a\x44YNAMIC_FACETABLE_DISABLED\x10\x02\"f\n\x10SearchableOption\x12!\n\x1dSEARCHABLE_OPTION_UNSPECIFIED\x10\x00\x12\x16\n\x12SEARCHABLE_ENABLED\x10\x01\x12\x17\n\x13SEARCHABLE_DISABLED\x10\x02\"}\n\x15\x45xactSearchableOption\x12\'\n#EXACT_SEARCHABLE_OPTION_UNSPECIFIED\x10\x00\x12\x1c\n\x18\x45XACT_SEARCHABLE_ENABLED\x10\x01\x12\x1d\n\x19\x45XACT_SEARCHABLE_DISABLED\x10\x02\"j\n\x11RetrievableOption\x12\"\n\x1eRETRIEVABLE_OPTION_UNSPECIFIED\x10\x00\x12\x17\n\x13RETRIEVABLE_ENABLED\x10\x01\x12\x18\n\x14RETRIEVABLE_DISABLED\x10\x02\"\xb6\x03\n\x10\x41ttributesConfig\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12[\n\x12\x63\x61talog_attributes\x18\x02 \x03(\x0b\x32?.google.cloud.retail.v2.AttributesConfig.CatalogAttributesEntry\x12Q\n\x16\x61ttribute_config_level\x18\x03 \x01(\x0e\x32,.google.cloud.retail.v2.AttributeConfigLevelB\x03\xe0\x41\x03\x1a\x62\n\x16\x43\x61talogAttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x37\n\x05value\x18\x02 \x01(\x0b\x32(.google.cloud.retail.v2.CatalogAttribute:\x02\x38\x01:x\xea\x41u\n&retail.googleapis.com/AttributesConfig\x12Kprojects/{project}/locations/{location}/catalogs/{catalog}/attributesConfig\"\x99\x05\n\x10\x43ompletionConfig\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x16\n\x0ematching_order\x18\x02 \x01(\t\x12\x17\n\x0fmax_suggestions\x18\x03 \x01(\x05\x12\x19\n\x11min_prefix_length\x18\x04 \x01(\x05\x12\x15\n\rauto_learning\x18\x0b \x01(\x08\x12X\n\x18suggestions_input_config\x18\x05 \x01(\x0b\x32\x31.google.cloud.retail.v2.CompletionDataInputConfigB\x03\xe0\x41\x03\x12.\n!last_suggestions_import_operation\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12U\n\x15\x64\x65nylist_input_config\x18\x07 \x01(\x0b\x32\x31.google.cloud.retail.v2.CompletionDataInputConfigB\x03\xe0\x41\x03\x12+\n\x1elast_denylist_import_operation\x18\x08 \x01(\tB\x03\xe0\x41\x03\x12V\n\x16\x61llowlist_input_config\x18\t \x01(\x0b\x32\x31.google.cloud.retail.v2.CompletionDataInputConfigB\x03\xe0\x41\x03\x12,\n\x1flast_allowlist_import_operation\x18\n \x01(\tB\x03\xe0\x41\x03:x\xea\x41u\n&retail.googleapis.com/CompletionConfig\x12Kprojects/{project}/locations/{location}/catalogs/{catalog}/completionConfig\"\xec\x01\n\x07\x43\x61talog\x12\x14\n\x04name\x18\x01 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12\x1c\n\x0c\x64isplay_name\x18\x02 \x01(\tB\x06\xe0\x41\x02\xe0\x41\x05\x12M\n\x14product_level_config\x18\x04 \x01(\x0b\x32*.google.cloud.retail.v2.ProductLevelConfigB\x03\xe0\x41\x02:^\xea\x41[\n\x1dretail.googleapis.com/Catalog\x12:projects/{project}/locations/{location}/catalogs/{catalog}B\xc1\x01\n\x1a\x63om.google.cloud.retail.v2B\x0c\x43\x61talogProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.retail.v2.catalog_pb2', globals())
@@ -23,6 +25,36 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.google.cloud.retail.v2B\014CatalogProtoP\001Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\242\002\006RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Google\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Retail::V2'
+  _CATALOGATTRIBUTE.fields_by_name['key']._options = None
+  _CATALOGATTRIBUTE.fields_by_name['key']._serialized_options = b'\340A\002'
+  _CATALOGATTRIBUTE.fields_by_name['in_use']._options = None
+  _CATALOGATTRIBUTE.fields_by_name['in_use']._serialized_options = b'\340A\003'
+  _CATALOGATTRIBUTE.fields_by_name['type']._options = None
+  _CATALOGATTRIBUTE.fields_by_name['type']._serialized_options = b'\340A\003'
+  _ATTRIBUTESCONFIG_CATALOGATTRIBUTESENTRY._options = None
+  _ATTRIBUTESCONFIG_CATALOGATTRIBUTESENTRY._serialized_options = b'8\001'
+  _ATTRIBUTESCONFIG.fields_by_name['name']._options = None
+  _ATTRIBUTESCONFIG.fields_by_name['name']._serialized_options = b'\340A\002\340A\005'
+  _ATTRIBUTESCONFIG.fields_by_name['attribute_config_level']._options = None
+  _ATTRIBUTESCONFIG.fields_by_name['attribute_config_level']._serialized_options = b'\340A\003'
+  _ATTRIBUTESCONFIG._options = None
+  _ATTRIBUTESCONFIG._serialized_options = b'\352Au\n&retail.googleapis.com/AttributesConfig\022Kprojects/{project}/locations/{location}/catalogs/{catalog}/attributesConfig'
+  _COMPLETIONCONFIG.fields_by_name['name']._options = None
+  _COMPLETIONCONFIG.fields_by_name['name']._serialized_options = b'\340A\002\340A\005'
+  _COMPLETIONCONFIG.fields_by_name['suggestions_input_config']._options = None
+  _COMPLETIONCONFIG.fields_by_name['suggestions_input_config']._serialized_options = b'\340A\003'
+  _COMPLETIONCONFIG.fields_by_name['last_suggestions_import_operation']._options = None
+  _COMPLETIONCONFIG.fields_by_name['last_suggestions_import_operation']._serialized_options = b'\340A\003'
+  _COMPLETIONCONFIG.fields_by_name['denylist_input_config']._options = None
+  _COMPLETIONCONFIG.fields_by_name['denylist_input_config']._serialized_options = b'\340A\003'
+  _COMPLETIONCONFIG.fields_by_name['last_denylist_import_operation']._options = None
+  _COMPLETIONCONFIG.fields_by_name['last_denylist_import_operation']._serialized_options = b'\340A\003'
+  _COMPLETIONCONFIG.fields_by_name['allowlist_input_config']._options = None
+  _COMPLETIONCONFIG.fields_by_name['allowlist_input_config']._serialized_options = b'\340A\003'
+  _COMPLETIONCONFIG.fields_by_name['last_allowlist_import_operation']._options = None
+  _COMPLETIONCONFIG.fields_by_name['last_allowlist_import_operation']._serialized_options = b'\340A\003'
+  _COMPLETIONCONFIG._options = None
+  _COMPLETIONCONFIG._serialized_options = b'\352Au\n&retail.googleapis.com/CompletionConfig\022Kprojects/{project}/locations/{location}/catalogs/{catalog}/completionConfig'
   _CATALOG.fields_by_name['name']._options = None
   _CATALOG.fields_by_name['name']._serialized_options = b'\340A\002\340A\005'
   _CATALOG.fields_by_name['display_name']._options = None
@@ -31,8 +63,28 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _CATALOG.fields_by_name['product_level_config']._serialized_options = b'\340A\002'
   _CATALOG._options = None
   _CATALOG._serialized_options = b'\352A[\n\035retail.googleapis.com/Catalog\022:projects/{project}/locations/{location}/catalogs/{catalog}'
-  _PRODUCTLEVELCONFIG._serialized_start=124
-  _PRODUCTLEVELCONFIG._serialized_end=218
-  _CATALOG._serialized_start=221
-  _CATALOG._serialized_end=457
+  _PRODUCTLEVELCONFIG._serialized_start=205
+  _PRODUCTLEVELCONFIG._serialized_end=299
+  _CATALOGATTRIBUTE._serialized_start=302
+  _CATALOGATTRIBUTE._serialized_end=1517
+  _CATALOGATTRIBUTE_ATTRIBUTETYPE._serialized_start=890
+  _CATALOGATTRIBUTE_ATTRIBUTETYPE._serialized_end=946
+  _CATALOGATTRIBUTE_INDEXABLEOPTION._serialized_start=948
+  _CATALOGATTRIBUTE_INDEXABLEOPTION._serialized_end=1046
+  _CATALOGATTRIBUTE_DYNAMICFACETABLEOPTION._serialized_start=1049
+  _CATALOGATTRIBUTE_DYNAMICFACETABLEOPTION._serialized_end=1178
+  _CATALOGATTRIBUTE_SEARCHABLEOPTION._serialized_start=1180
+  _CATALOGATTRIBUTE_SEARCHABLEOPTION._serialized_end=1282
+  _CATALOGATTRIBUTE_EXACTSEARCHABLEOPTION._serialized_start=1284
+  _CATALOGATTRIBUTE_EXACTSEARCHABLEOPTION._serialized_end=1409
+  _CATALOGATTRIBUTE_RETRIEVABLEOPTION._serialized_start=1411
+  _CATALOGATTRIBUTE_RETRIEVABLEOPTION._serialized_end=1517
+  _ATTRIBUTESCONFIG._serialized_start=1520
+  _ATTRIBUTESCONFIG._serialized_end=1958
+  _ATTRIBUTESCONFIG_CATALOGATTRIBUTESENTRY._serialized_start=1738
+  _ATTRIBUTESCONFIG_CATALOGATTRIBUTESENTRY._serialized_end=1836
+  _COMPLETIONCONFIG._serialized_start=1961
+  _COMPLETIONCONFIG._serialized_end=2626
+  _CATALOG._serialized_start=2629
+  _CATALOG._serialized_end=2865
 # @@protoc_insertion_point(module_scope)

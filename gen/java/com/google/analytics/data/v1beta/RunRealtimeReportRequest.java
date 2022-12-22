@@ -40,162 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RunRealtimeReportRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            property_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dimensions_ = new java.util.ArrayList<com.google.analytics.data.v1beta.Dimension>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            dimensions_.add(
-                input.readMessage(com.google.analytics.data.v1beta.Dimension.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              metrics_ = new java.util.ArrayList<com.google.analytics.data.v1beta.Metric>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            metrics_.add(
-                input.readMessage(com.google.analytics.data.v1beta.Metric.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.analytics.data.v1beta.FilterExpression.Builder subBuilder = null;
-            if (dimensionFilter_ != null) {
-              subBuilder = dimensionFilter_.toBuilder();
-            }
-            dimensionFilter_ = input.readMessage(com.google.analytics.data.v1beta.FilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dimensionFilter_);
-              dimensionFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.analytics.data.v1beta.FilterExpression.Builder subBuilder = null;
-            if (metricFilter_ != null) {
-              subBuilder = metricFilter_.toBuilder();
-            }
-            metricFilter_ = input.readMessage(com.google.analytics.data.v1beta.FilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metricFilter_);
-              metricFilter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            limit_ = input.readInt64();
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              metricAggregations_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            metricAggregations_.add(rawValue);
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                metricAggregations_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              metricAggregations_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              orderBys_ = new java.util.ArrayList<com.google.analytics.data.v1beta.OrderBy>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            orderBys_.add(
-                input.readMessage(com.google.analytics.data.v1beta.OrderBy.parser(), extensionRegistry));
-            break;
-          }
-          case 72: {
-
-            returnPropertyQuota_ = input.readBool();
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              minuteRanges_ = new java.util.ArrayList<com.google.analytics.data.v1beta.MinuteRange>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            minuteRanges_.add(
-                input.readMessage(com.google.analytics.data.v1beta.MinuteRange.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        dimensions_ = java.util.Collections.unmodifiableList(dimensions_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        metrics_ = java.util.Collections.unmodifiableList(metrics_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        metricAggregations_ = java.util.Collections.unmodifiableList(metricAggregations_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        orderBys_ = java.util.Collections.unmodifiableList(orderBys_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        minuteRanges_ = java.util.Collections.unmodifiableList(minuteRanges_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1beta.AnalyticsDataApiProto.internal_static_google_analytics_data_v1beta_RunRealtimeReportRequest_descriptor;
@@ -210,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROPERTY_FIELD_NUMBER = 1;
-  private volatile java.lang.Object property_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object property_ = "";
   /**
    * <pre>
    * A Google Analytics GA4 property identifier whose events are tracked.
@@ -264,6 +109,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIMENSIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.data.v1beta.Dimension> dimensions_;
   /**
    * <pre>
@@ -324,6 +170,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRICS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.data.v1beta.Metric> metrics_;
   /**
    * <pre>
@@ -387,8 +234,7 @@ private static final long serialVersionUID = 0L;
   private com.google.analytics.data.v1beta.FilterExpression dimensionFilter_;
   /**
    * <pre>
-   * The filter clause of dimensions. Dimensions must be requested to be used in
-   * this filter. Metrics cannot be used in this filter.
+   * The filter clause of dimensions. Metrics cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -400,8 +246,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The filter clause of dimensions. Dimensions must be requested to be used in
-   * this filter. Metrics cannot be used in this filter.
+   * The filter clause of dimensions. Metrics cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -413,15 +258,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The filter clause of dimensions. Dimensions must be requested to be used in
-   * this filter. Metrics cannot be used in this filter.
+   * The filter clause of dimensions. Metrics cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
    */
   @java.lang.Override
   public com.google.analytics.data.v1beta.FilterExpressionOrBuilder getDimensionFilterOrBuilder() {
-    return getDimensionFilter();
+    return dimensionFilter_ == null ? com.google.analytics.data.v1beta.FilterExpression.getDefaultInstance() : dimensionFilter_;
   }
 
   public static final int METRIC_FILTER_FIELD_NUMBER = 5;
@@ -429,8 +273,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The filter clause of metrics. Applied at post aggregation phase, similar to
-   * SQL having-clause. Metrics must be requested to be used in this filter.
-   * Dimensions cannot be used in this filter.
+   * SQL having-clause. Dimensions cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -443,8 +286,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The filter clause of metrics. Applied at post aggregation phase, similar to
-   * SQL having-clause. Metrics must be requested to be used in this filter.
-   * Dimensions cannot be used in this filter.
+   * SQL having-clause. Dimensions cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -457,19 +299,18 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The filter clause of metrics. Applied at post aggregation phase, similar to
-   * SQL having-clause. Metrics must be requested to be used in this filter.
-   * Dimensions cannot be used in this filter.
+   * SQL having-clause. Dimensions cannot be used in this filter.
    * </pre>
    *
    * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
    */
   @java.lang.Override
   public com.google.analytics.data.v1beta.FilterExpressionOrBuilder getMetricFilterOrBuilder() {
-    return getMetricFilter();
+    return metricFilter_ == null ? com.google.analytics.data.v1beta.FilterExpression.getDefaultInstance() : metricFilter_;
   }
 
   public static final int LIMIT_FIELD_NUMBER = 6;
-  private long limit_;
+  private long limit_ = 0L;
   /**
    * <pre>
    * The number of rows to return. If unspecified, 10,000 rows are returned. The
@@ -491,14 +332,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRIC_AGGREGATIONS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> metricAggregations_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.analytics.data.v1beta.MetricAggregation> metricAggregations_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.analytics.data.v1beta.MetricAggregation>() {
             public com.google.analytics.data.v1beta.MetricAggregation convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.analytics.data.v1beta.MetricAggregation result = com.google.analytics.data.v1beta.MetricAggregation.valueOf(from);
+              com.google.analytics.data.v1beta.MetricAggregation result = com.google.analytics.data.v1beta.MetricAggregation.forNumber(from);
               return result == null ? com.google.analytics.data.v1beta.MetricAggregation.UNRECOGNIZED : result;
             }
           };
@@ -574,6 +415,7 @@ private static final long serialVersionUID = 0L;
   private int metricAggregationsMemoizedSerializedSize;
 
   public static final int ORDER_BYS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.data.v1beta.OrderBy> orderBys_;
   /**
    * <pre>
@@ -634,7 +476,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RETURN_PROPERTY_QUOTA_FIELD_NUMBER = 9;
-  private boolean returnPropertyQuota_;
+  private boolean returnPropertyQuota_ = false;
   /**
    * <pre>
    * Toggles whether to return the current state of this Analytics Property's
@@ -650,6 +492,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINUTE_RANGES_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.data.v1beta.MinuteRange> minuteRanges_;
   /**
    * <pre>
@@ -778,7 +621,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < minuteRanges_.size(); i++) {
       output.writeMessage(10, minuteRanges_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -834,7 +677,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, minuteRanges_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -874,7 +717,7 @@ private static final long serialVersionUID = 0L;
         != other.getReturnPropertyQuota()) return false;
     if (!getMinuteRangesList()
         .equals(other.getMinuteRangesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -921,7 +764,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MINUTE_RANGES_FIELD_NUMBER;
       hash = (53 * hash) + getMinuteRangesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1042,70 +885,61 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1beta.RunRealtimeReportRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDimensionsFieldBuilder();
-        getMetricsFieldBuilder();
-        getOrderBysFieldBuilder();
-        getMinuteRangesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       property_ = "";
-
       if (dimensionsBuilder_ == null) {
         dimensions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        dimensions_ = null;
         dimensionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        metrics_ = null;
         metricsBuilder_.clear();
       }
-      if (dimensionFilterBuilder_ == null) {
-        dimensionFilter_ = null;
-      } else {
-        dimensionFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      dimensionFilter_ = null;
+      if (dimensionFilterBuilder_ != null) {
+        dimensionFilterBuilder_.dispose();
         dimensionFilterBuilder_ = null;
       }
-      if (metricFilterBuilder_ == null) {
-        metricFilter_ = null;
-      } else {
-        metricFilter_ = null;
+      metricFilter_ = null;
+      if (metricFilterBuilder_ != null) {
+        metricFilterBuilder_.dispose();
         metricFilterBuilder_ = null;
       }
       limit_ = 0L;
-
       metricAggregations_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       if (orderBysBuilder_ == null) {
         orderBys_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        orderBys_ = null;
         orderBysBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       returnPropertyQuota_ = false;
-
       if (minuteRangesBuilder_ == null) {
         minuteRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        minuteRanges_ = null;
         minuteRangesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       return this;
     }
 
@@ -1132,63 +966,77 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1beta.RunRealtimeReportRequest buildPartial() {
       com.google.analytics.data.v1beta.RunRealtimeReportRequest result = new com.google.analytics.data.v1beta.RunRealtimeReportRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.property_ = property_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.analytics.data.v1beta.RunRealtimeReportRequest result) {
       if (dimensionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           dimensions_ = java.util.Collections.unmodifiableList(dimensions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.dimensions_ = dimensions_;
       } else {
         result.dimensions_ = dimensionsBuilder_.build();
       }
       if (metricsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           metrics_ = java.util.Collections.unmodifiableList(metrics_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.metrics_ = metrics_;
       } else {
         result.metrics_ = metricsBuilder_.build();
       }
-      if (dimensionFilterBuilder_ == null) {
-        result.dimensionFilter_ = dimensionFilter_;
-      } else {
-        result.dimensionFilter_ = dimensionFilterBuilder_.build();
-      }
-      if (metricFilterBuilder_ == null) {
-        result.metricFilter_ = metricFilter_;
-      } else {
-        result.metricFilter_ = metricFilterBuilder_.build();
-      }
-      result.limit_ = limit_;
-      if (((bitField0_ & 0x00000004) != 0)) {
+      if (((bitField0_ & 0x00000040) != 0)) {
         metricAggregations_ = java.util.Collections.unmodifiableList(metricAggregations_);
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.metricAggregations_ = metricAggregations_;
       if (orderBysBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           orderBys_ = java.util.Collections.unmodifiableList(orderBys_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.orderBys_ = orderBys_;
       } else {
         result.orderBys_ = orderBysBuilder_.build();
       }
-      result.returnPropertyQuota_ = returnPropertyQuota_;
       if (minuteRangesBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           minuteRanges_ = java.util.Collections.unmodifiableList(minuteRanges_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.minuteRanges_ = minuteRanges_;
       } else {
         result.minuteRanges_ = minuteRangesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1beta.RunRealtimeReportRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.property_ = property_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.dimensionFilter_ = dimensionFilterBuilder_ == null
+            ? dimensionFilter_
+            : dimensionFilterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.metricFilter_ = metricFilterBuilder_ == null
+            ? metricFilter_
+            : metricFilterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.limit_ = limit_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.returnPropertyQuota_ = returnPropertyQuota_;
+      }
     }
 
     @java.lang.Override
@@ -1237,13 +1085,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.data.v1beta.RunRealtimeReportRequest.getDefaultInstance()) return this;
       if (!other.getProperty().isEmpty()) {
         property_ = other.property_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (dimensionsBuilder_ == null) {
         if (!other.dimensions_.isEmpty()) {
           if (dimensions_.isEmpty()) {
             dimensions_ = other.dimensions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureDimensionsIsMutable();
             dimensions_.addAll(other.dimensions_);
@@ -1256,7 +1105,7 @@ private static final long serialVersionUID = 0L;
             dimensionsBuilder_.dispose();
             dimensionsBuilder_ = null;
             dimensions_ = other.dimensions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             dimensionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDimensionsFieldBuilder() : null;
@@ -1269,7 +1118,7 @@ private static final long serialVersionUID = 0L;
         if (!other.metrics_.isEmpty()) {
           if (metrics_.isEmpty()) {
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureMetricsIsMutable();
             metrics_.addAll(other.metrics_);
@@ -1282,7 +1131,7 @@ private static final long serialVersionUID = 0L;
             metricsBuilder_.dispose();
             metricsBuilder_ = null;
             metrics_ = other.metrics_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             metricsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMetricsFieldBuilder() : null;
@@ -1303,7 +1152,7 @@ private static final long serialVersionUID = 0L;
       if (!other.metricAggregations_.isEmpty()) {
         if (metricAggregations_.isEmpty()) {
           metricAggregations_ = other.metricAggregations_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureMetricAggregationsIsMutable();
           metricAggregations_.addAll(other.metricAggregations_);
@@ -1314,7 +1163,7 @@ private static final long serialVersionUID = 0L;
         if (!other.orderBys_.isEmpty()) {
           if (orderBys_.isEmpty()) {
             orderBys_ = other.orderBys_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureOrderBysIsMutable();
             orderBys_.addAll(other.orderBys_);
@@ -1327,7 +1176,7 @@ private static final long serialVersionUID = 0L;
             orderBysBuilder_.dispose();
             orderBysBuilder_ = null;
             orderBys_ = other.orderBys_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000080);
             orderBysBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getOrderBysFieldBuilder() : null;
@@ -1343,7 +1192,7 @@ private static final long serialVersionUID = 0L;
         if (!other.minuteRanges_.isEmpty()) {
           if (minuteRanges_.isEmpty()) {
             minuteRanges_ = other.minuteRanges_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureMinuteRangesIsMutable();
             minuteRanges_.addAll(other.minuteRanges_);
@@ -1356,7 +1205,7 @@ private static final long serialVersionUID = 0L;
             minuteRangesBuilder_.dispose();
             minuteRangesBuilder_ = null;
             minuteRanges_ = other.minuteRanges_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000200);
             minuteRangesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMinuteRangesFieldBuilder() : null;
@@ -1365,7 +1214,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1380,17 +1229,128 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1beta.RunRealtimeReportRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              property_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.analytics.data.v1beta.Dimension m =
+                  input.readMessage(
+                      com.google.analytics.data.v1beta.Dimension.parser(),
+                      extensionRegistry);
+              if (dimensionsBuilder_ == null) {
+                ensureDimensionsIsMutable();
+                dimensions_.add(m);
+              } else {
+                dimensionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.analytics.data.v1beta.Metric m =
+                  input.readMessage(
+                      com.google.analytics.data.v1beta.Metric.parser(),
+                      extensionRegistry);
+              if (metricsBuilder_ == null) {
+                ensureMetricsIsMutable();
+                metrics_.add(m);
+              } else {
+                metricsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDimensionFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getMetricFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              limit_ = input.readInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              int tmpRaw = input.readEnum();
+              ensureMetricAggregationsIsMutable();
+              metricAggregations_.add(tmpRaw);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureMetricAggregationsIsMutable();
+                metricAggregations_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 58
+            case 66: {
+              com.google.analytics.data.v1beta.OrderBy m =
+                  input.readMessage(
+                      com.google.analytics.data.v1beta.OrderBy.parser(),
+                      extensionRegistry);
+              if (orderBysBuilder_ == null) {
+                ensureOrderBysIsMutable();
+                orderBys_.add(m);
+              } else {
+                orderBysBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 72: {
+              returnPropertyQuota_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 82: {
+              com.google.analytics.data.v1beta.MinuteRange m =
+                  input.readMessage(
+                      com.google.analytics.data.v1beta.MinuteRange.parser(),
+                      extensionRegistry);
+              if (minuteRangesBuilder_ == null) {
+                ensureMinuteRangesIsMutable();
+                minuteRanges_.add(m);
+              } else {
+                minuteRangesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1beta.RunRealtimeReportRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1460,11 +1420,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProperty(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       property_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1481,8 +1439,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProperty() {
-      
       property_ = getDefaultInstance().getProperty();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1501,12 +1459,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPropertyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       property_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1514,9 +1470,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.analytics.data.v1beta.Dimension> dimensions_ =
       java.util.Collections.emptyList();
     private void ensureDimensionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         dimensions_ = new java.util.ArrayList<com.google.analytics.data.v1beta.Dimension>(dimensions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1710,7 +1666,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDimensions() {
       if (dimensionsBuilder_ == null) {
         dimensions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         dimensionsBuilder_.clear();
@@ -1815,7 +1771,7 @@ private static final long serialVersionUID = 0L;
         dimensionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.analytics.data.v1beta.Dimension, com.google.analytics.data.v1beta.Dimension.Builder, com.google.analytics.data.v1beta.DimensionOrBuilder>(
                 dimensions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         dimensions_ = null;
@@ -1826,9 +1782,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.analytics.data.v1beta.Metric> metrics_ =
       java.util.Collections.emptyList();
     private void ensureMetricsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         metrics_ = new java.util.ArrayList<com.google.analytics.data.v1beta.Metric>(metrics_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -2022,7 +1978,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMetrics() {
       if (metricsBuilder_ == null) {
         metrics_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         metricsBuilder_.clear();
@@ -2127,7 +2083,7 @@ private static final long serialVersionUID = 0L;
         metricsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.analytics.data.v1beta.Metric, com.google.analytics.data.v1beta.Metric.Builder, com.google.analytics.data.v1beta.MetricOrBuilder>(
                 metrics_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         metrics_ = null;
@@ -2140,20 +2096,18 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1beta.FilterExpression, com.google.analytics.data.v1beta.FilterExpression.Builder, com.google.analytics.data.v1beta.FilterExpressionOrBuilder> dimensionFilterBuilder_;
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
      * @return Whether the dimensionFilter field is set.
      */
     public boolean hasDimensionFilter() {
-      return dimensionFilterBuilder_ != null || dimensionFilter_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -2168,8 +2122,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -2180,17 +2133,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dimensionFilter_ = value;
-        onChanged();
       } else {
         dimensionFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -2199,72 +2151,68 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1beta.FilterExpression.Builder builderForValue) {
       if (dimensionFilterBuilder_ == null) {
         dimensionFilter_ = builderForValue.build();
-        onChanged();
       } else {
         dimensionFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
      */
     public Builder mergeDimensionFilter(com.google.analytics.data.v1beta.FilterExpression value) {
       if (dimensionFilterBuilder_ == null) {
-        if (dimensionFilter_ != null) {
-          dimensionFilter_ =
-            com.google.analytics.data.v1beta.FilterExpression.newBuilder(dimensionFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          dimensionFilter_ != null &&
+          dimensionFilter_ != com.google.analytics.data.v1beta.FilterExpression.getDefaultInstance()) {
+          getDimensionFilterBuilder().mergeFrom(value);
         } else {
           dimensionFilter_ = value;
         }
-        onChanged();
       } else {
         dimensionFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
      */
     public Builder clearDimensionFilter() {
-      if (dimensionFilterBuilder_ == null) {
-        dimensionFilter_ = null;
-        onChanged();
-      } else {
-        dimensionFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      dimensionFilter_ = null;
+      if (dimensionFilterBuilder_ != null) {
+        dimensionFilterBuilder_.dispose();
         dimensionFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
      */
     public com.google.analytics.data.v1beta.FilterExpression.Builder getDimensionFilterBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDimensionFilterFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -2279,8 +2227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The filter clause of dimensions. Dimensions must be requested to be used in
-     * this filter. Metrics cannot be used in this filter.
+     * The filter clause of dimensions. Metrics cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression dimension_filter = 4;</code>
@@ -2305,21 +2252,19 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
      * @return Whether the metricFilter field is set.
      */
     public boolean hasMetricFilter() {
-      return metricFilterBuilder_ != null || metricFilter_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -2335,8 +2280,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -2347,18 +2291,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         metricFilter_ = value;
-        onChanged();
       } else {
         metricFilterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -2367,76 +2310,72 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1beta.FilterExpression.Builder builderForValue) {
       if (metricFilterBuilder_ == null) {
         metricFilter_ = builderForValue.build();
-        onChanged();
       } else {
         metricFilterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
      */
     public Builder mergeMetricFilter(com.google.analytics.data.v1beta.FilterExpression value) {
       if (metricFilterBuilder_ == null) {
-        if (metricFilter_ != null) {
-          metricFilter_ =
-            com.google.analytics.data.v1beta.FilterExpression.newBuilder(metricFilter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          metricFilter_ != null &&
+          metricFilter_ != com.google.analytics.data.v1beta.FilterExpression.getDefaultInstance()) {
+          getMetricFilterBuilder().mergeFrom(value);
         } else {
           metricFilter_ = value;
         }
-        onChanged();
       } else {
         metricFilterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
      */
     public Builder clearMetricFilter() {
-      if (metricFilterBuilder_ == null) {
-        metricFilter_ = null;
-        onChanged();
-      } else {
-        metricFilter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      metricFilter_ = null;
+      if (metricFilterBuilder_ != null) {
+        metricFilterBuilder_.dispose();
         metricFilterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
      */
     public com.google.analytics.data.v1beta.FilterExpression.Builder getMetricFilterBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMetricFilterFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -2452,8 +2391,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The filter clause of metrics. Applied at post aggregation phase, similar to
-     * SQL having-clause. Metrics must be requested to be used in this filter.
-     * Dimensions cannot be used in this filter.
+     * SQL having-clause. Dimensions cannot be used in this filter.
      * </pre>
      *
      * <code>.google.analytics.data.v1beta.FilterExpression metric_filter = 5;</code>
@@ -2511,6 +2449,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLimit(long value) {
       
       limit_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2530,7 +2469,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLimit() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       limit_ = 0L;
       onChanged();
       return this;
@@ -2539,9 +2478,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> metricAggregations_ =
       java.util.Collections.emptyList();
     private void ensureMetricAggregationsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         metricAggregations_ = new java.util.ArrayList<java.lang.Integer>(metricAggregations_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000040;
       }
     }
     /**
@@ -2652,7 +2591,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearMetricAggregations() {
       metricAggregations_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2739,9 +2678,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.analytics.data.v1beta.OrderBy> orderBys_ =
       java.util.Collections.emptyList();
     private void ensureOrderBysIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         orderBys_ = new java.util.ArrayList<com.google.analytics.data.v1beta.OrderBy>(orderBys_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2935,7 +2874,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearOrderBys() {
       if (orderBysBuilder_ == null) {
         orderBys_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         orderBysBuilder_.clear();
@@ -3040,7 +2979,7 @@ private static final long serialVersionUID = 0L;
         orderBysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.analytics.data.v1beta.OrderBy, com.google.analytics.data.v1beta.OrderBy.Builder, com.google.analytics.data.v1beta.OrderByOrBuilder>(
                 orderBys_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         orderBys_ = null;
@@ -3075,6 +3014,7 @@ private static final long serialVersionUID = 0L;
     public Builder setReturnPropertyQuota(boolean value) {
       
       returnPropertyQuota_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3088,7 +3028,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReturnPropertyQuota() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       returnPropertyQuota_ = false;
       onChanged();
       return this;
@@ -3097,9 +3037,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.analytics.data.v1beta.MinuteRange> minuteRanges_ =
       java.util.Collections.emptyList();
     private void ensureMinuteRangesIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         minuteRanges_ = new java.util.ArrayList<com.google.analytics.data.v1beta.MinuteRange>(minuteRanges_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -3337,7 +3277,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMinuteRanges() {
       if (minuteRangesBuilder_ == null) {
         minuteRanges_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         minuteRangesBuilder_.clear();
@@ -3470,7 +3410,7 @@ private static final long serialVersionUID = 0L;
         minuteRangesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.analytics.data.v1beta.MinuteRange, com.google.analytics.data.v1beta.MinuteRange.Builder, com.google.analytics.data.v1beta.MinuteRangeOrBuilder>(
                 minuteRanges_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         minuteRanges_ = null;
@@ -3510,7 +3450,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RunRealtimeReportRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

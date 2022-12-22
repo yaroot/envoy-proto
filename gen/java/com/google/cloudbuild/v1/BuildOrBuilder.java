@@ -626,7 +626,6 @@ public interface BuildOrBuilder extends
    *
    * <code>map&lt;string, string&gt; substitutions = 29;</code>
    */
-
   /* nullable */
 java.lang.String getSubstitutionsOrDefault(
       java.lang.String key,
@@ -639,7 +638,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; substitutions = 29;</code>
    */
-
   java.lang.String getSubstitutionsOrThrow(
       java.lang.String key);
 
@@ -815,7 +813,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, .google.devtools.cloudbuild.v1.TimeSpan&gt; timing = 33 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloudbuild.v1.TimeSpan getTimingOrDefault(
       java.lang.String key,
@@ -835,7 +832,6 @@ com.google.cloudbuild.v1.TimeSpan defaultValue);
    *
    * <code>map&lt;string, .google.devtools.cloudbuild.v1.TimeSpan&gt; timing = 33 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloudbuild.v1.TimeSpan getTimingOrThrow(
       java.lang.String key);
 

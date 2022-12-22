@@ -37,64 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateProcessorRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.documentai.v1beta3.Processor.Builder subBuilder = null;
-            if (processor_ != null) {
-              subBuilder = processor_.toBuilder();
-            }
-            processor_ = input.readMessage(com.google.cloud.documentai.v1beta3.Processor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(processor_);
-              processor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1beta3.DocumentAiProcessorService.internal_static_google_cloud_documentai_v1beta3_CreateProcessorRequest_descriptor;
@@ -109,11 +51,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
-   * Required. The parent (project and location) under which to create the processor.
-   * Format: projects/{project}/locations/{location}
+   * Required. The parent (project and location) under which to create the
+   * processor. Format: `projects/{project}/locations/{location}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -134,8 +77,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The parent (project and location) under which to create the processor.
-   * Format: projects/{project}/locations/{location}
+   * Required. The parent (project and location) under which to create the
+   * processor. Format: `projects/{project}/locations/{location}`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -160,8 +103,9 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.documentai.v1beta3.Processor processor_;
   /**
    * <pre>
-   * Required. The processor to be created, requires [processor_type] and [display_name]
-   * to be set. Also, the processor is under CMEK if CMEK fields are set.
+   * Required. The processor to be created, requires [processor_type] and
+   * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+   * are set.
    * </pre>
    *
    * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -173,8 +117,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The processor to be created, requires [processor_type] and [display_name]
-   * to be set. Also, the processor is under CMEK if CMEK fields are set.
+   * Required. The processor to be created, requires [processor_type] and
+   * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+   * are set.
    * </pre>
    *
    * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -186,15 +131,16 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The processor to be created, requires [processor_type] and [display_name]
-   * to be set. Also, the processor is under CMEK if CMEK fields are set.
+   * Required. The processor to be created, requires [processor_type] and
+   * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+   * are set.
    * </pre>
    *
    * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta3.ProcessorOrBuilder getProcessorOrBuilder() {
-    return getProcessor();
+    return processor_ == null ? com.google.cloud.documentai.v1beta3.Processor.getDefaultInstance() : processor_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -217,7 +163,7 @@ private static final long serialVersionUID = 0L;
     if (processor_ != null) {
       output.writeMessage(2, getProcessor());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -233,7 +179,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getProcessor());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -255,7 +201,7 @@ private static final long serialVersionUID = 0L;
       if (!getProcessor()
           .equals(other.getProcessor())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -272,7 +218,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROCESSOR_FIELD_NUMBER;
       hash = (53 * hash) + getProcessor().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -395,28 +341,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1beta3.CreateProcessorRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (processorBuilder_ == null) {
-        processor_ = null;
-      } else {
-        processor_ = null;
+      processor_ = null;
+      if (processorBuilder_ != null) {
+        processorBuilder_.dispose();
         processorBuilder_ = null;
       }
       return this;
@@ -445,14 +385,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1beta3.CreateProcessorRequest buildPartial() {
       com.google.cloud.documentai.v1beta3.CreateProcessorRequest result = new com.google.cloud.documentai.v1beta3.CreateProcessorRequest(this);
-      result.parent_ = parent_;
-      if (processorBuilder_ == null) {
-        result.processor_ = processor_;
-      } else {
-        result.processor_ = processorBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1beta3.CreateProcessorRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.processor_ = processorBuilder_ == null
+            ? processor_
+            : processorBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -501,12 +448,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.documentai.v1beta3.CreateProcessorRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasProcessor()) {
         mergeProcessor(other.getProcessor());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -521,25 +469,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1beta3.CreateProcessorRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getProcessorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1beta3.CreateProcessorRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
-     * Required. The parent (project and location) under which to create the processor.
-     * Format: projects/{project}/locations/{location}
+     * Required. The parent (project and location) under which to create the
+     * processor. Format: `projects/{project}/locations/{location}`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -559,8 +533,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The parent (project and location) under which to create the processor.
-     * Format: projects/{project}/locations/{location}
+     * Required. The parent (project and location) under which to create the
+     * processor. Format: `projects/{project}/locations/{location}`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -581,8 +555,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The parent (project and location) under which to create the processor.
-     * Format: projects/{project}/locations/{location}
+     * Required. The parent (project and location) under which to create the
+     * processor. Format: `projects/{project}/locations/{location}`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -591,33 +565,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The parent (project and location) under which to create the processor.
-     * Format: projects/{project}/locations/{location}
+     * Required. The parent (project and location) under which to create the
+     * processor. Format: `projects/{project}/locations/{location}`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The parent (project and location) under which to create the processor.
-     * Format: projects/{project}/locations/{location}
+     * Required. The parent (project and location) under which to create the
+     * processor. Format: `projects/{project}/locations/{location}`
      * </pre>
      *
      * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -626,12 +598,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -641,20 +611,22 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta3.Processor, com.google.cloud.documentai.v1beta3.Processor.Builder, com.google.cloud.documentai.v1beta3.ProcessorOrBuilder> processorBuilder_;
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the processor field is set.
      */
     public boolean hasProcessor() {
-      return processorBuilder_ != null || processor_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -669,8 +641,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -681,17 +654,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         processor_ = value;
-        onChanged();
       } else {
         processorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -700,72 +674,76 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta3.Processor.Builder builderForValue) {
       if (processorBuilder_ == null) {
         processor_ = builderForValue.build();
-        onChanged();
       } else {
         processorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeProcessor(com.google.cloud.documentai.v1beta3.Processor value) {
       if (processorBuilder_ == null) {
-        if (processor_ != null) {
-          processor_ =
-            com.google.cloud.documentai.v1beta3.Processor.newBuilder(processor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          processor_ != null &&
+          processor_ != com.google.cloud.documentai.v1beta3.Processor.getDefaultInstance()) {
+          getProcessorBuilder().mergeFrom(value);
         } else {
           processor_ = value;
         }
-        onChanged();
       } else {
         processorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearProcessor() {
-      if (processorBuilder_ == null) {
-        processor_ = null;
-        onChanged();
-      } else {
-        processor_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      processor_ = null;
+      if (processorBuilder_ != null) {
+        processorBuilder_.dispose();
         processorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.documentai.v1beta3.Processor.Builder getProcessorBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getProcessorFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -780,8 +758,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The processor to be created, requires [processor_type] and [display_name]
-     * to be set. Also, the processor is under CMEK if CMEK fields are set.
+     * Required. The processor to be created, requires [processor_type] and
+     * [display_name] to be set. Also, the processor is under CMEK if CMEK fields
+     * are set.
      * </pre>
      *
      * <code>.google.cloud.documentai.v1beta3.Processor processor = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -832,7 +811,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateProcessorRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

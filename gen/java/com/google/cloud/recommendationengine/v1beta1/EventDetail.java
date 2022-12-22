@@ -39,95 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EventDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uri_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageViewId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              experimentIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            experimentIds_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            recommendationToken_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.recommendationengine.v1beta1.FeatureMap.Builder subBuilder = null;
-            if (eventAttributes_ != null) {
-              subBuilder = eventAttributes_.toBuilder();
-            }
-            eventAttributes_ = input.readMessage(com.google.cloud.recommendationengine.v1beta1.FeatureMap.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventAttributes_);
-              eventAttributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            referrerUri_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        experimentIds_ = experimentIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.UserEventOuterClass.internal_static_google_cloud_recommendationengine_v1beta1_EventDetail_descriptor;
@@ -142,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URI_FIELD_NUMBER = 1;
-  private volatile java.lang.Object uri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uri_ = "";
   /**
    * <pre>
    * Optional. Complete url (window.location.href) of the user's current page.
@@ -192,7 +104,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REFERRER_URI_FIELD_NUMBER = 6;
-  private volatile java.lang.Object referrerUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object referrerUri_ = "";
   /**
    * <pre>
    * Optional. The referrer url of the current page. When using
@@ -240,7 +153,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_VIEW_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object pageViewId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageViewId_ = "";
   /**
    * <pre>
    * Optional. A unique id of a web page view.
@@ -298,6 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXPERIMENT_IDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList experimentIds_;
   /**
    * <pre>
@@ -361,7 +276,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECOMMENDATION_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object recommendationToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object recommendationToken_ = "";
   /**
    * <pre>
    * Optional. Recommendation token included in the recommendation prediction
@@ -478,7 +394,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.recommendationengine.v1beta1.FeatureMapOrBuilder getEventAttributesOrBuilder() {
-    return getEventAttributes();
+    return eventAttributes_ == null ? com.google.cloud.recommendationengine.v1beta1.FeatureMap.getDefaultInstance() : eventAttributes_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -513,7 +429,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(referrerUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, referrerUri_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -546,7 +462,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(referrerUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, referrerUri_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -576,7 +492,7 @@ private static final long serialVersionUID = 0L;
       if (!getEventAttributes()
           .equals(other.getEventAttributes())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -603,7 +519,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EVENT_ATTRIBUTES_FIELD_NUMBER;
       hash = (53 * hash) + getEventAttributes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -724,36 +640,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.EventDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       uri_ = "";
-
       referrerUri_ = "";
-
       pageViewId_ = "";
-
       experimentIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       recommendationToken_ = "";
-
-      if (eventAttributesBuilder_ == null) {
-        eventAttributes_ = null;
-      } else {
-        eventAttributes_ = null;
+      eventAttributes_ = null;
+      if (eventAttributesBuilder_ != null) {
+        eventAttributesBuilder_.dispose();
         eventAttributesBuilder_ = null;
       }
       return this;
@@ -782,23 +689,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.EventDetail buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.EventDetail result = new com.google.cloud.recommendationengine.v1beta1.EventDetail(this);
-      int from_bitField0_ = bitField0_;
-      result.uri_ = uri_;
-      result.referrerUri_ = referrerUri_;
-      result.pageViewId_ = pageViewId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        experimentIds_ = experimentIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.experimentIds_ = experimentIds_;
-      result.recommendationToken_ = recommendationToken_;
-      if (eventAttributesBuilder_ == null) {
-        result.eventAttributes_ = eventAttributes_;
-      } else {
-        result.eventAttributes_ = eventAttributesBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.recommendationengine.v1beta1.EventDetail result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        experimentIds_ = experimentIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.experimentIds_ = experimentIds_;
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.EventDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.uri_ = uri_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.referrerUri_ = referrerUri_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageViewId_ = pageViewId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.recommendationToken_ = recommendationToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.eventAttributes_ = eventAttributesBuilder_ == null
+            ? eventAttributes_
+            : eventAttributesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -847,20 +770,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.recommendationengine.v1beta1.EventDetail.getDefaultInstance()) return this;
       if (!other.getUri().isEmpty()) {
         uri_ = other.uri_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getReferrerUri().isEmpty()) {
         referrerUri_ = other.referrerUri_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getPageViewId().isEmpty()) {
         pageViewId_ = other.pageViewId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.experimentIds_.isEmpty()) {
         if (experimentIds_.isEmpty()) {
           experimentIds_ = other.experimentIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureExperimentIdsIsMutable();
           experimentIds_.addAll(other.experimentIds_);
@@ -869,12 +795,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRecommendationToken().isEmpty()) {
         recommendationToken_ = other.recommendationToken_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasEventAttributes()) {
         mergeEventAttributes(other.getEventAttributes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -889,17 +816,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.EventDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              uri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              pageViewId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureExperimentIdsIsMutable();
+              experimentIds_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              recommendationToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getEventAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              referrerUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.EventDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -963,11 +936,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -982,8 +953,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUri() {
-      
       uri_ = getDefaultInstance().getUri();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1000,12 +971,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1066,11 +1035,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferrerUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       referrerUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1084,8 +1051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReferrerUri() {
-      
       referrerUri_ = getDefaultInstance().getReferrerUri();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1101,12 +1068,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReferrerUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       referrerUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1182,11 +1147,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageViewId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageViewId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1205,8 +1168,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageViewId() {
-      
       pageViewId_ = getDefaultInstance().getPageViewId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1227,21 +1190,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageViewIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageViewId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList experimentIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureExperimentIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         experimentIds_ = new com.google.protobuf.LazyStringArrayList(experimentIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1319,10 +1280,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExperimentIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExperimentIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExperimentIdsIsMutable();
       experimentIds_.set(index, value);
       onChanged();
       return this;
@@ -1341,10 +1300,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExperimentIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExperimentIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureExperimentIdsIsMutable();
       experimentIds_.add(value);
       onChanged();
       return this;
@@ -1382,7 +1339,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearExperimentIds() {
       experimentIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1400,10 +1357,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addExperimentIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureExperimentIdsIsMutable();
       experimentIds_.add(value);
       onChanged();
@@ -1496,11 +1451,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRecommendationToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       recommendationToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1524,8 +1477,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecommendationToken() {
-      
       recommendationToken_ = getDefaultInstance().getRecommendationToken();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1551,12 +1504,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRecommendationTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       recommendationToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1578,7 +1529,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventAttributes field is set.
      */
     public boolean hasEventAttributes() {
-      return eventAttributesBuilder_ != null || eventAttributes_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1618,11 +1569,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventAttributes_ = value;
-        onChanged();
       } else {
         eventAttributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1641,11 +1592,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.recommendationengine.v1beta1.FeatureMap.Builder builderForValue) {
       if (eventAttributesBuilder_ == null) {
         eventAttributes_ = builderForValue.build();
-        onChanged();
       } else {
         eventAttributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1662,17 +1613,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventAttributes(com.google.cloud.recommendationengine.v1beta1.FeatureMap value) {
       if (eventAttributesBuilder_ == null) {
-        if (eventAttributes_ != null) {
-          eventAttributes_ =
-            com.google.cloud.recommendationengine.v1beta1.FeatureMap.newBuilder(eventAttributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          eventAttributes_ != null &&
+          eventAttributes_ != com.google.cloud.recommendationengine.v1beta1.FeatureMap.getDefaultInstance()) {
+          getEventAttributesBuilder().mergeFrom(value);
         } else {
           eventAttributes_ = value;
         }
-        onChanged();
       } else {
         eventAttributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1688,14 +1640,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recommendationengine.v1beta1.FeatureMap event_attributes = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearEventAttributes() {
-      if (eventAttributesBuilder_ == null) {
-        eventAttributes_ = null;
-        onChanged();
-      } else {
-        eventAttributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      eventAttributes_ = null;
+      if (eventAttributesBuilder_ != null) {
+        eventAttributesBuilder_.dispose();
         eventAttributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1711,7 +1662,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recommendationengine.v1beta1.FeatureMap event_attributes = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.recommendationengine.v1beta1.FeatureMap.Builder getEventAttributesBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEventAttributesFieldBuilder().getBuilder();
     }
@@ -1793,7 +1744,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EventDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

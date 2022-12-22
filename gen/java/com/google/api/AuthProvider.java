@@ -42,88 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuthProvider(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            issuer_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            jwksUri_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            audiences_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authorizationUrl_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              jwtLocations_ = new java.util.ArrayList<com.google.api.JwtLocation>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            jwtLocations_.add(
-                input.readMessage(com.google.api.JwtLocation.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        jwtLocations_ = java.util.Collections.unmodifiableList(jwtLocations_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.AuthProto.internal_static_google_api_AuthProvider_descriptor;
@@ -138,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The unique identifier of the auth provider. It will be referred to by
@@ -188,7 +107,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ISSUER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object issuer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object issuer_ = "";
   /**
    * <pre>
    * Identifies the principal that issued the JWT. See
@@ -242,7 +162,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JWKS_URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object jwksUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object jwksUri_ = "";
   /**
    * <pre>
    * URL of the provider's public key set to validate signature of the JWT. See
@@ -308,7 +229,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUDIENCES_FIELD_NUMBER = 4;
-  private volatile java.lang.Object audiences_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object audiences_ = "";
   /**
    * <pre>
    * The list of JWT
@@ -382,7 +304,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTHORIZATION_URL_FIELD_NUMBER = 5;
-  private volatile java.lang.Object authorizationUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authorizationUrl_ = "";
   /**
    * <pre>
    * Redirect URL if JWT token is required but not present or is expired.
@@ -430,13 +353,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JWT_LOCATIONS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.JwtLocation> jwtLocations_;
   /**
    * <pre>
-   * Defines the locations to extract the JWT.
-   * JWT locations can be either from HTTP headers or URL query parameters.
-   * The rule is that the first match wins. The checking order is: checking
-   * all headers first, then URL query parameters.
+   * Defines the locations to extract the JWT.  For now it is only used by the
+   * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+   * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+   * JWT locations can be one of HTTP headers, URL query parameters or
+   * cookies. The rule is that the first match wins.
    * If not specified,  default to use following 3 locations:
    *    1) Authorization: Bearer
    *    2) x-goog-iap-jwt-assertion
@@ -457,10 +382,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Defines the locations to extract the JWT.
-   * JWT locations can be either from HTTP headers or URL query parameters.
-   * The rule is that the first match wins. The checking order is: checking
-   * all headers first, then URL query parameters.
+   * Defines the locations to extract the JWT.  For now it is only used by the
+   * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+   * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+   * JWT locations can be one of HTTP headers, URL query parameters or
+   * cookies. The rule is that the first match wins.
    * If not specified,  default to use following 3 locations:
    *    1) Authorization: Bearer
    *    2) x-goog-iap-jwt-assertion
@@ -482,10 +408,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Defines the locations to extract the JWT.
-   * JWT locations can be either from HTTP headers or URL query parameters.
-   * The rule is that the first match wins. The checking order is: checking
-   * all headers first, then URL query parameters.
+   * Defines the locations to extract the JWT.  For now it is only used by the
+   * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+   * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+   * JWT locations can be one of HTTP headers, URL query parameters or
+   * cookies. The rule is that the first match wins.
    * If not specified,  default to use following 3 locations:
    *    1) Authorization: Bearer
    *    2) x-goog-iap-jwt-assertion
@@ -506,10 +433,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Defines the locations to extract the JWT.
-   * JWT locations can be either from HTTP headers or URL query parameters.
-   * The rule is that the first match wins. The checking order is: checking
-   * all headers first, then URL query parameters.
+   * Defines the locations to extract the JWT.  For now it is only used by the
+   * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+   * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+   * JWT locations can be one of HTTP headers, URL query parameters or
+   * cookies. The rule is that the first match wins.
    * If not specified,  default to use following 3 locations:
    *    1) Authorization: Bearer
    *    2) x-goog-iap-jwt-assertion
@@ -530,10 +458,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Defines the locations to extract the JWT.
-   * JWT locations can be either from HTTP headers or URL query parameters.
-   * The rule is that the first match wins. The checking order is: checking
-   * all headers first, then URL query parameters.
+   * Defines the locations to extract the JWT.  For now it is only used by the
+   * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+   * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+   * JWT locations can be one of HTTP headers, URL query parameters or
+   * cookies. The rule is that the first match wins.
    * If not specified,  default to use following 3 locations:
    *    1) Authorization: Bearer
    *    2) x-goog-iap-jwt-assertion
@@ -586,7 +515,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < jwtLocations_.size(); i++) {
       output.writeMessage(6, jwtLocations_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -614,7 +543,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, jwtLocations_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -641,7 +570,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAuthorizationUrl())) return false;
     if (!getJwtLocationsList()
         .equals(other.getJwtLocationsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -666,7 +595,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + JWT_LOCATIONS_FIELD_NUMBER;
       hash = (53 * hash) + getJwtLocationsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -789,39 +718,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.AuthProvider.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getJwtLocationsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       issuer_ = "";
-
       jwksUri_ = "";
-
       audiences_ = "";
-
       authorizationUrl_ = "";
-
       if (jwtLocationsBuilder_ == null) {
         jwtLocations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        jwtLocations_ = null;
         jwtLocationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -848,23 +768,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.AuthProvider buildPartial() {
       com.google.api.AuthProvider result = new com.google.api.AuthProvider(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.issuer_ = issuer_;
-      result.jwksUri_ = jwksUri_;
-      result.audiences_ = audiences_;
-      result.authorizationUrl_ = authorizationUrl_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.AuthProvider result) {
       if (jwtLocationsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           jwtLocations_ = java.util.Collections.unmodifiableList(jwtLocations_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.jwtLocations_ = jwtLocations_;
       } else {
         result.jwtLocations_ = jwtLocationsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.api.AuthProvider result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.issuer_ = issuer_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.jwksUri_ = jwksUri_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.audiences_ = audiences_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.authorizationUrl_ = authorizationUrl_;
+      }
     }
 
     @java.lang.Override
@@ -913,29 +851,34 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.AuthProvider.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getIssuer().isEmpty()) {
         issuer_ = other.issuer_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getJwksUri().isEmpty()) {
         jwksUri_ = other.jwksUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getAudiences().isEmpty()) {
         audiences_ = other.audiences_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getAuthorizationUrl().isEmpty()) {
         authorizationUrl_ = other.authorizationUrl_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (jwtLocationsBuilder_ == null) {
         if (!other.jwtLocations_.isEmpty()) {
           if (jwtLocations_.isEmpty()) {
             jwtLocations_ = other.jwtLocations_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureJwtLocationsIsMutable();
             jwtLocations_.addAll(other.jwtLocations_);
@@ -948,7 +891,7 @@ private static final long serialVersionUID = 0L;
             jwtLocationsBuilder_.dispose();
             jwtLocationsBuilder_ = null;
             jwtLocations_ = other.jwtLocations_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             jwtLocationsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getJwtLocationsFieldBuilder() : null;
@@ -957,7 +900,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -972,17 +915,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.AuthProvider parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              issuer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              jwksUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              audiences_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              authorizationUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.api.JwtLocation m =
+                  input.readMessage(
+                      com.google.api.JwtLocation.parser(),
+                      extensionRegistry);
+              if (jwtLocationsBuilder_ == null) {
+                ensureJwtLocationsIsMutable();
+                jwtLocations_.add(m);
+              } else {
+                jwtLocationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.AuthProvider) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1046,11 +1040,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1065,8 +1057,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1083,12 +1075,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1158,11 +1148,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIssuer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       issuer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1179,8 +1167,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIssuer() {
-      
       issuer_ = getDefaultInstance().getIssuer();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1199,12 +1187,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIssuerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       issuer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1292,11 +1278,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJwksUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       jwksUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1319,8 +1303,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearJwksUri() {
-      
       jwksUri_ = getDefaultInstance().getJwksUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1345,12 +1329,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJwksUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       jwksUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1450,11 +1432,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudiences(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       audiences_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1481,8 +1461,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAudiences() {
-      
       audiences_ = getDefaultInstance().getAudiences();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1511,12 +1491,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAudiencesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       audiences_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1577,11 +1555,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authorizationUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1595,8 +1571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthorizationUrl() {
-      
       authorizationUrl_ = getDefaultInstance().getAuthorizationUrl();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1612,12 +1588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authorizationUrl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1625,9 +1599,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.JwtLocation> jwtLocations_ =
       java.util.Collections.emptyList();
     private void ensureJwtLocationsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         jwtLocations_ = new java.util.ArrayList<com.google.api.JwtLocation>(jwtLocations_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1636,10 +1610,11 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1663,10 +1638,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1690,10 +1666,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1717,10 +1694,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1751,10 +1729,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1782,10 +1761,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1815,10 +1795,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1849,10 +1830,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1880,10 +1862,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1911,10 +1894,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1943,10 +1927,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -1964,7 +1949,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearJwtLocations() {
       if (jwtLocationsBuilder_ == null) {
         jwtLocations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         jwtLocationsBuilder_.clear();
@@ -1973,10 +1958,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2003,10 +1989,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2027,10 +2014,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2054,10 +2042,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2082,10 +2071,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2106,10 +2096,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2131,10 +2122,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Defines the locations to extract the JWT.
-     * JWT locations can be either from HTTP headers or URL query parameters.
-     * The rule is that the first match wins. The checking order is: checking
-     * all headers first, then URL query parameters.
+     * Defines the locations to extract the JWT.  For now it is only used by the
+     * Cloud Endpoints to store the OpenAPI extension [x-google-jwt-locations]
+     * (https://cloud.google.com/endpoints/docs/openapi/openapi-extensions#x-google-jwt-locations)
+     * JWT locations can be one of HTTP headers, URL query parameters or
+     * cookies. The rule is that the first match wins.
      * If not specified,  default to use following 3 locations:
      *    1) Authorization: Bearer
      *    2) x-goog-iap-jwt-assertion
@@ -2160,7 +2152,7 @@ private static final long serialVersionUID = 0L;
         jwtLocationsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.JwtLocation, com.google.api.JwtLocation.Builder, com.google.api.JwtLocationOrBuilder>(
                 jwtLocations_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         jwtLocations_ = null;
@@ -2200,7 +2192,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuthProvider(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

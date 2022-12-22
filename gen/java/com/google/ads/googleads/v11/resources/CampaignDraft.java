@@ -40,92 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CampaignDraft(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 72: {
-            bitField0_ |= 0x00000001;
-            draftId_ = input.readInt64();
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            baseCampaign_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            name_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            draftCampaign_ = s;
-            break;
-          }
-          case 104: {
-            bitField0_ |= 0x00000010;
-            hasExperimentRunning_ = input.readBool();
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            longRunningOperation_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.CampaignDraftProto.internal_static_google_ads_googleads_v11_resources_CampaignDraft_descriptor;
@@ -141,7 +55,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int RESOURCE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * Immutable. The resource name of the campaign draft.
@@ -191,7 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DRAFT_ID_FIELD_NUMBER = 9;
-  private long draftId_;
+  private long draftId_ = 0L;
   /**
    * <pre>
    * Output only. The ID of the draft.
@@ -220,7 +135,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BASE_CAMPAIGN_FIELD_NUMBER = 10;
-  private volatile java.lang.Object baseCampaign_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseCampaign_ = "";
   /**
    * <pre>
    * Immutable. The base campaign to which the draft belongs.
@@ -278,7 +194,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 11;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the campaign draft.
@@ -348,7 +265,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DRAFT_CAMPAIGN_FIELD_NUMBER = 12;
-  private volatile java.lang.Object draftCampaign_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object draftCampaign_ = "";
   /**
    * <pre>
    * Output only. Resource name of the Campaign that results from overlaying the draft
@@ -412,7 +330,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 6;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Output only. The status of the campaign draft. This field is read-only.
@@ -435,13 +353,12 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus result = com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus.valueOf(status_);
+    com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus result = com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus.forNumber(status_);
     return result == null ? com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus.UNRECOGNIZED : result;
   }
 
   public static final int HAS_EXPERIMENT_RUNNING_FIELD_NUMBER = 13;
-  private boolean hasExperimentRunning_;
+  private boolean hasExperimentRunning_ = false;
   /**
    * <pre>
    * Output only. Whether there is an experiment based on this draft currently serving.
@@ -468,7 +385,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LONG_RUNNING_OPERATION_FIELD_NUMBER = 14;
-  private volatile java.lang.Object longRunningOperation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object longRunningOperation_ = "";
   /**
    * <pre>
    * Output only. The resource name of the long-running operation that can be used to poll
@@ -569,7 +487,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 14, longRunningOperation_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -605,7 +523,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(14, longRunningOperation_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -653,7 +571,7 @@ private static final long serialVersionUID = 0L;
       if (!getLongRunningOperation()
           .equals(other.getLongRunningOperation())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -694,7 +612,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LONG_RUNNING_OPERATION_FIELD_NUMBER;
       hash = (53 * hash) + getLongRunningOperation().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -815,38 +733,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.CampaignDraft.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       resourceName_ = "";
-
       draftId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       baseCampaign_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       draftCampaign_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       status_ = 0;
-
       hasExperimentRunning_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       longRunningOperation_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -873,37 +779,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.CampaignDraft buildPartial() {
       com.google.ads.googleads.v11.resources.CampaignDraft result = new com.google.ads.googleads.v11.resources.CampaignDraft(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.CampaignDraft result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.resourceName_ = resourceName_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.draftId_ = draftId_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.baseCampaign_ = baseCampaign_;
         to_bitField0_ |= 0x00000002;
       }
-      result.baseCampaign_ = baseCampaign_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000004;
       }
-      result.name_ = name_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.draftCampaign_ = draftCampaign_;
         to_bitField0_ |= 0x00000008;
       }
-      result.draftCampaign_ = draftCampaign_;
-      result.status_ = status_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
         result.hasExperimentRunning_ = hasExperimentRunning_;
         to_bitField0_ |= 0x00000010;
       }
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.longRunningOperation_ = longRunningOperation_;
         to_bitField0_ |= 0x00000020;
       }
-      result.longRunningOperation_ = longRunningOperation_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -952,24 +866,25 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.resources.CampaignDraft.getDefaultInstance()) return this;
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDraftId()) {
         setDraftId(other.getDraftId());
       }
       if (other.hasBaseCampaign()) {
-        bitField0_ |= 0x00000002;
         baseCampaign_ = other.baseCampaign_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000004;
         name_ = other.name_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDraftCampaign()) {
-        bitField0_ |= 0x00000008;
         draftCampaign_ = other.draftCampaign_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.status_ != 0) {
@@ -979,11 +894,11 @@ private static final long serialVersionUID = 0L;
         setHasExperimentRunning(other.getHasExperimentRunning());
       }
       if (other.hasLongRunningOperation()) {
-        bitField0_ |= 0x00000020;
         longRunningOperation_ = other.longRunningOperation_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -998,17 +913,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.CampaignDraft parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 48: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 72: {
+              draftId_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 72
+            case 82: {
+              baseCampaign_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 82
+            case 90: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 90
+            case 98: {
+              draftCampaign_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 98
+            case 104: {
+              hasExperimentRunning_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 104
+            case 114: {
+              longRunningOperation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.CampaignDraft) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1072,11 +1040,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1091,8 +1057,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1109,12 +1075,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1131,7 +1095,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasDraftId() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1157,8 +1121,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDraftId(long value) {
-      bitField0_ |= 0x00000001;
+      
       draftId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1172,7 +1137,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDraftId() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       draftId_ = 0L;
       onChanged();
       return this;
@@ -1188,7 +1153,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the baseCampaign field is set.
      */
     public boolean hasBaseCampaign() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1242,11 +1207,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseCampaign(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       baseCampaign_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1259,8 +1222,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBaseCampaign() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       baseCampaign_ = getDefaultInstance().getBaseCampaign();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1275,12 +1238,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseCampaignBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       baseCampaign_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1299,7 +1260,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1365,11 +1326,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1386,8 +1345,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1406,12 +1365,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1428,7 +1385,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the draftCampaign field is set.
      */
     public boolean hasDraftCampaign() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1488,11 +1445,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDraftCampaign(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       draftCampaign_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1507,8 +1462,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDraftCampaign() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       draftCampaign_ = getDefaultInstance().getDraftCampaign();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1525,12 +1480,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDraftCampaignBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       draftCampaign_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1559,8 +1512,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1575,8 +1528,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus result = com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus.valueOf(status_);
+      com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus result = com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus.forNumber(status_);
       return result == null ? com.google.ads.googleads.v11.enums.CampaignDraftStatusEnum.CampaignDraftStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1593,7 +1545,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -1608,7 +1560,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       status_ = 0;
       onChanged();
       return this;
@@ -1625,7 +1577,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasHasExperimentRunning() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1649,8 +1601,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHasExperimentRunning(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       hasExperimentRunning_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1663,7 +1616,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHasExperimentRunning() {
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000040);
       hasExperimentRunning_ = false;
       onChanged();
       return this;
@@ -1681,7 +1634,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the longRunningOperation field is set.
      */
     public boolean hasLongRunningOperation() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1741,11 +1694,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongRunningOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       longRunningOperation_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1760,8 +1711,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLongRunningOperation() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       longRunningOperation_ = getDefaultInstance().getLongRunningOperation();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1778,12 +1729,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongRunningOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       longRunningOperation_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1820,7 +1769,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CampaignDraft(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

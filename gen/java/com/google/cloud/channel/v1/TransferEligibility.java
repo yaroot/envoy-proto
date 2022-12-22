@@ -36,62 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TransferEligibility(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            isEligible_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            ineligibilityReason_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.EntitlementsProto.internal_static_google_cloud_channel_v1_TransferEligibility_descriptor;
@@ -268,7 +212,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_ELIGIBLE_FIELD_NUMBER = 1;
-  private boolean isEligible_;
+  private boolean isEligible_ = false;
   /**
    * <pre>
    * Whether reseller is eligible to transfer the SKU.
@@ -283,7 +227,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Localized description if reseller is not eligible to transfer the SKU.
@@ -329,7 +274,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INELIGIBILITY_REASON_FIELD_NUMBER = 3;
-  private int ineligibilityReason_;
+  private int ineligibilityReason_ = 0;
   /**
    * <pre>
    * Specified the reason for ineligibility.
@@ -350,8 +295,7 @@ private static final long serialVersionUID = 0L;
    * @return The ineligibilityReason.
    */
   @java.lang.Override public com.google.cloud.channel.v1.TransferEligibility.Reason getIneligibilityReason() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.TransferEligibility.Reason result = com.google.cloud.channel.v1.TransferEligibility.Reason.valueOf(ineligibilityReason_);
+    com.google.cloud.channel.v1.TransferEligibility.Reason result = com.google.cloud.channel.v1.TransferEligibility.Reason.forNumber(ineligibilityReason_);
     return result == null ? com.google.cloud.channel.v1.TransferEligibility.Reason.UNRECOGNIZED : result;
   }
 
@@ -378,7 +322,7 @@ private static final long serialVersionUID = 0L;
     if (ineligibilityReason_ != com.google.cloud.channel.v1.TransferEligibility.Reason.REASON_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, ineligibilityReason_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -398,7 +342,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, ineligibilityReason_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -418,7 +362,7 @@ private static final long serialVersionUID = 0L;
     if (!getDescription()
         .equals(other.getDescription())) return false;
     if (ineligibilityReason_ != other.ineligibilityReason_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -436,7 +380,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDescription().hashCode();
     hash = (37 * hash) + INELIGIBILITY_REASON_FIELD_NUMBER;
     hash = (53 * hash) + ineligibilityReason_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -557,28 +501,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.TransferEligibility.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       isEligible_ = false;
-
       description_ = "";
-
       ineligibilityReason_ = 0;
-
       return this;
     }
 
@@ -605,11 +542,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.TransferEligibility buildPartial() {
       com.google.cloud.channel.v1.TransferEligibility result = new com.google.cloud.channel.v1.TransferEligibility(this);
-      result.isEligible_ = isEligible_;
-      result.description_ = description_;
-      result.ineligibilityReason_ = ineligibilityReason_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.TransferEligibility result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.isEligible_ = isEligible_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.ineligibilityReason_ = ineligibilityReason_;
+      }
     }
 
     @java.lang.Override
@@ -661,12 +609,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.ineligibilityReason_ != 0) {
         setIneligibilityReasonValue(other.getIneligibilityReasonValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -681,19 +630,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.TransferEligibility parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              isEligible_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              ineligibilityReason_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.TransferEligibility) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean isEligible_ ;
     /**
@@ -720,6 +698,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsEligible(boolean value) {
       
       isEligible_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -732,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsEligible() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       isEligible_ = false;
       onChanged();
       return this;
@@ -791,11 +770,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -808,8 +785,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -824,12 +801,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -856,8 +831,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIneligibilityReasonValue(int value) {
-      
       ineligibilityReason_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -871,8 +846,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.TransferEligibility.Reason getIneligibilityReason() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.TransferEligibility.Reason result = com.google.cloud.channel.v1.TransferEligibility.Reason.valueOf(ineligibilityReason_);
+      com.google.cloud.channel.v1.TransferEligibility.Reason result = com.google.cloud.channel.v1.TransferEligibility.Reason.forNumber(ineligibilityReason_);
       return result == null ? com.google.cloud.channel.v1.TransferEligibility.Reason.UNRECOGNIZED : result;
     }
     /**
@@ -888,7 +862,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       ineligibilityReason_ = value.getNumber();
       onChanged();
       return this;
@@ -902,7 +876,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIneligibilityReason() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       ineligibilityReason_ = 0;
       onChanged();
       return this;
@@ -940,7 +914,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TransferEligibility(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

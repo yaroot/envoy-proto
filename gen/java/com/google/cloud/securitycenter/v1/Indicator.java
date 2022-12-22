@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
     ipAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     domains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     signatures_ = java.util.Collections.emptyList();
+    uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -39,82 +40,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Indicator(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ipAddresses_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ipAddresses_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              domains_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            domains_.add(s);
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              signatures_ = new java.util.ArrayList<com.google.cloud.securitycenter.v1.Indicator.ProcessSignature>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            signatures_.add(
-                input.readMessage(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ipAddresses_ = ipAddresses_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        domains_ = domains_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        signatures_ = java.util.Collections.unmodifiableList(signatures_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -219,73 +144,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ProcessSignature(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 50: {
-              com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Builder subBuilder = null;
-              if (signatureCase_ == 6) {
-                subBuilder = ((com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature) signature_).toBuilder();
-              }
-              signature_ =
-                  input.readMessage(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature) signature_);
-                signature_ = subBuilder.buildPartial();
-              }
-              signatureCase_ = 6;
-              break;
-            }
-            case 58: {
-              com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature.Builder subBuilder = null;
-              if (signatureCase_ == 7) {
-                subBuilder = ((com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature) signature_).toBuilder();
-              }
-              signature_ =
-                  input.readMessage(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature) signature_);
-                signature_ = subBuilder.buildPartial();
-              }
-              signatureCase_ = 7;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -406,64 +264,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private MemoryHashSignature(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        int mutable_bitField0_ = 0;
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                binaryFamily_ = s;
-                break;
-              }
-              case 34: {
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  detections_ = new java.util.ArrayList<com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                detections_.add(
-                    input.readMessage(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection.parser(), extensionRegistry));
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          if (((mutable_bitField0_ & 0x00000001) != 0)) {
-            detections_ = java.util.Collections.unmodifiableList(detections_);
-          }
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.securitycenter.v1.IndicatorProto.internal_static_google_cloud_securitycenter_v1_Indicator_ProcessSignature_MemoryHashSignature_descriptor;
@@ -546,56 +346,6 @@ private static final long serialVersionUID = 0L;
         getUnknownFields() {
           return this.unknownFields;
         }
-        private Detection(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  binary_ = s;
-                  break;
-                }
-                case 25: {
-
-                  percentPagesMatched_ = input.readDouble();
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return com.google.cloud.securitycenter.v1.IndicatorProto.internal_static_google_cloud_securitycenter_v1_Indicator_ProcessSignature_MemoryHashSignature_Detection_descriptor;
@@ -610,7 +360,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int BINARY_FIELD_NUMBER = 2;
-        private volatile java.lang.Object binary_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object binary_ = "";
         /**
          * <pre>
          * The name of the binary associated with the memory hash
@@ -658,7 +409,7 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int PERCENT_PAGES_MATCHED_FIELD_NUMBER = 3;
-        private double percentPagesMatched_;
+        private double percentPagesMatched_ = 0D;
         /**
          * <pre>
          * The percentage of memory page hashes in the signature
@@ -693,7 +444,7 @@ private static final long serialVersionUID = 0L;
           if (java.lang.Double.doubleToRawLongBits(percentPagesMatched_) != 0) {
             output.writeDouble(3, percentPagesMatched_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -709,7 +460,7 @@ private static final long serialVersionUID = 0L;
             size += com.google.protobuf.CodedOutputStream
               .computeDoubleSize(3, percentPagesMatched_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -729,7 +480,7 @@ private static final long serialVersionUID = 0L;
           if (java.lang.Double.doubleToLongBits(getPercentPagesMatched())
               != java.lang.Double.doubleToLongBits(
                   other.getPercentPagesMatched())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -745,7 +496,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + PERCENT_PAGES_MATCHED_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               java.lang.Double.doubleToLongBits(getPercentPagesMatched()));
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -866,26 +617,20 @@ private static final long serialVersionUID = 0L;
 
           // Construct using com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             binary_ = "";
-
             percentPagesMatched_ = 0D;
-
             return this;
           }
 
@@ -912,10 +657,19 @@ private static final long serialVersionUID = 0L;
           @java.lang.Override
           public com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection buildPartial() {
             com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection result = new com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection(this);
-            result.binary_ = binary_;
-            result.percentPagesMatched_ = percentPagesMatched_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.binary_ = binary_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.percentPagesMatched_ = percentPagesMatched_;
+            }
           }
 
           @java.lang.Override
@@ -964,12 +718,13 @@ private static final long serialVersionUID = 0L;
             if (other == com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection.getDefaultInstance()) return this;
             if (!other.getBinary().isEmpty()) {
               binary_ = other.binary_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (other.getPercentPagesMatched() != 0D) {
               setPercentPagesMatched(other.getPercentPagesMatched());
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -984,19 +739,43 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 18: {
+                    binary_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 18
+                  case 25: {
+                    percentPagesMatched_ = input.readDouble();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 25
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object binary_ = "";
           /**
@@ -1054,11 +833,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setBinary(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             binary_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -1072,8 +849,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearBinary() {
-            
             binary_ = getDefaultInstance().getBinary();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -1089,12 +866,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setBinaryBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             binary_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -1126,6 +901,7 @@ private static final long serialVersionUID = 0L;
           public Builder setPercentPagesMatched(double value) {
             
             percentPagesMatched_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -1139,7 +915,7 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearPercentPagesMatched() {
-            
+            bitField0_ = (bitField0_ & ~0x00000002);
             percentPagesMatched_ = 0D;
             onChanged();
             return this;
@@ -1177,7 +953,18 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new Detection(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -1198,7 +985,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int BINARY_FAMILY_FIELD_NUMBER = 1;
-      private volatile java.lang.Object binaryFamily_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object binaryFamily_ = "";
       /**
        * <pre>
        * The binary family.
@@ -1244,6 +1032,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DETECTIONS_FIELD_NUMBER = 4;
+      @SuppressWarnings("serial")
       private java.util.List<com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection> detections_;
       /**
        * <pre>
@@ -1328,7 +1117,7 @@ private static final long serialVersionUID = 0L;
         for (int i = 0; i < detections_.size(); i++) {
           output.writeMessage(4, detections_.get(i));
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1344,7 +1133,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(4, detections_.get(i));
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1363,7 +1152,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getBinaryFamily())) return false;
         if (!getDetectionsList()
             .equals(other.getDetectionsList())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1380,7 +1169,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + DETECTIONS_FIELD_NUMBER;
           hash = (53 * hash) + getDetectionsList().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1501,31 +1290,26 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-            getDetectionsFieldBuilder();
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           binaryFamily_ = "";
-
           if (detectionsBuilder_ == null) {
             detections_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
           } else {
+            detections_ = null;
             detectionsBuilder_.clear();
           }
+          bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
 
@@ -1552,19 +1336,29 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature buildPartial() {
           com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature result = new com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature(this);
-          int from_bitField0_ = bitField0_;
-          result.binaryFamily_ = binaryFamily_;
+          buildPartialRepeatedFields(result);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartialRepeatedFields(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature result) {
           if (detectionsBuilder_ == null) {
-            if (((bitField0_ & 0x00000001) != 0)) {
+            if (((bitField0_ & 0x00000002) != 0)) {
               detections_ = java.util.Collections.unmodifiableList(detections_);
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             }
             result.detections_ = detections_;
           } else {
             result.detections_ = detectionsBuilder_.build();
           }
-          onBuilt();
-          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.binaryFamily_ = binaryFamily_;
+          }
         }
 
         @java.lang.Override
@@ -1613,13 +1407,14 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.getDefaultInstance()) return this;
           if (!other.getBinaryFamily().isEmpty()) {
             binaryFamily_ = other.binaryFamily_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (detectionsBuilder_ == null) {
             if (!other.detections_.isEmpty()) {
               if (detections_.isEmpty()) {
                 detections_ = other.detections_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
               } else {
                 ensureDetectionsIsMutable();
                 detections_.addAll(other.detections_);
@@ -1632,7 +1427,7 @@ private static final long serialVersionUID = 0L;
                 detectionsBuilder_.dispose();
                 detectionsBuilder_ = null;
                 detections_ = other.detections_;
-                bitField0_ = (bitField0_ & ~0x00000001);
+                bitField0_ = (bitField0_ & ~0x00000002);
                 detectionsBuilder_ = 
                   com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                      getDetectionsFieldBuilder() : null;
@@ -1641,7 +1436,7 @@ private static final long serialVersionUID = 0L;
               }
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1656,17 +1451,48 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  binaryFamily_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 34: {
+                  com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection m =
+                      input.readMessage(
+                          com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection.parser(),
+                          extensionRegistry);
+                  if (detectionsBuilder_ == null) {
+                    ensureDetectionsIsMutable();
+                    detections_.add(m);
+                  } else {
+                    detectionsBuilder_.addMessage(m);
+                  }
+                  break;
+                } // case 34
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int bitField0_;
@@ -1724,11 +1550,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setBinaryFamily(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           binaryFamily_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1741,8 +1565,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearBinaryFamily() {
-          
           binaryFamily_ = getDefaultInstance().getBinaryFamily();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -1757,12 +1581,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setBinaryFamilyBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           binaryFamily_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1770,9 +1592,9 @@ private static final long serialVersionUID = 0L;
         private java.util.List<com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection> detections_ =
           java.util.Collections.emptyList();
         private void ensureDetectionsIsMutable() {
-          if (!((bitField0_ & 0x00000001) != 0)) {
+          if (!((bitField0_ & 0x00000002) != 0)) {
             detections_ = new java.util.ArrayList<com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection>(detections_);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
            }
         }
 
@@ -1977,7 +1799,7 @@ private static final long serialVersionUID = 0L;
         public Builder clearDetections() {
           if (detectionsBuilder_ == null) {
             detections_ = java.util.Collections.emptyList();
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
           } else {
             detectionsBuilder_.clear();
@@ -2089,7 +1911,7 @@ private static final long serialVersionUID = 0L;
             detectionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
                 com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection, com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Detection.Builder, com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.DetectionOrBuilder>(
                     detections_,
-                    ((bitField0_ & 0x00000001) != 0),
+                    ((bitField0_ & 0x00000002) != 0),
                     getParentForChildren(),
                     isClean());
             detections_ = null;
@@ -2129,7 +1951,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new MemoryHashSignature(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2205,51 +2038,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private YaraRuleSignature(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 42: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                yaraRule_ = s;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.securitycenter.v1.IndicatorProto.internal_static_google_cloud_securitycenter_v1_Indicator_ProcessSignature_YaraRuleSignature_descriptor;
@@ -2264,7 +2052,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int YARA_RULE_FIELD_NUMBER = 5;
-      private volatile java.lang.Object yaraRule_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object yaraRule_ = "";
       /**
        * <pre>
        * The name of the YARA rule.
@@ -2326,7 +2115,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(yaraRule_)) {
           com.google.protobuf.GeneratedMessageV3.writeString(output, 5, yaraRule_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2338,7 +2127,7 @@ private static final long serialVersionUID = 0L;
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(yaraRule_)) {
           size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, yaraRule_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2355,7 +2144,7 @@ private static final long serialVersionUID = 0L;
 
         if (!getYaraRule()
             .equals(other.getYaraRule())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2368,7 +2157,7 @@ private static final long serialVersionUID = 0L;
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + YARA_RULE_FIELD_NUMBER;
         hash = (53 * hash) + getYaraRule().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2489,24 +2278,19 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           yaraRule_ = "";
-
           return this;
         }
 
@@ -2533,9 +2317,16 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature buildPartial() {
           com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature result = new com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature(this);
-          result.yaraRule_ = yaraRule_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.yaraRule_ = yaraRule_;
+          }
         }
 
         @java.lang.Override
@@ -2584,9 +2375,10 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature.getDefaultInstance()) return this;
           if (!other.getYaraRule().isEmpty()) {
             yaraRule_ = other.yaraRule_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2601,19 +2393,38 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 42: {
+                  yaraRule_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 42
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object yaraRule_ = "";
         /**
@@ -2668,11 +2479,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setYaraRule(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           yaraRule_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2685,8 +2494,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearYaraRule() {
-          
           yaraRule_ = getDefaultInstance().getYaraRule();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -2701,12 +2510,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setYaraRuleBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           yaraRule_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -2743,7 +2550,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new YaraRuleSignature(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2910,7 +2728,7 @@ private static final long serialVersionUID = 0L;
       if (signatureCase_ == 7) {
         output.writeMessage(7, (com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature) signature_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2927,7 +2745,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(7, (com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.YaraRuleSignature) signature_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2955,7 +2773,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2978,7 +2796,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3099,22 +2917,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (memoryHashSignatureBuilder_ != null) {
+          memoryHashSignatureBuilder_.clear();
+        }
+        if (yaraRuleSignatureBuilder_ != null) {
+          yaraRuleSignatureBuilder_.clear();
+        }
         signatureCase_ = 0;
         signature_ = null;
         return this;
@@ -3143,23 +2963,27 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.securitycenter.v1.Indicator.ProcessSignature buildPartial() {
         com.google.cloud.securitycenter.v1.Indicator.ProcessSignature result = new com.google.cloud.securitycenter.v1.Indicator.ProcessSignature(this);
-        if (signatureCase_ == 6) {
-          if (memoryHashSignatureBuilder_ == null) {
-            result.signature_ = signature_;
-          } else {
-            result.signature_ = memoryHashSignatureBuilder_.build();
-          }
-        }
-        if (signatureCase_ == 7) {
-          if (yaraRuleSignatureBuilder_ == null) {
-            result.signature_ = signature_;
-          } else {
-            result.signature_ = yaraRuleSignatureBuilder_.build();
-          }
-        }
-        result.signatureCase_ = signatureCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.securitycenter.v1.Indicator.ProcessSignature result) {
+        result.signatureCase_ = signatureCase_;
+        result.signature_ = this.signature_;
+        if (signatureCase_ == 6 &&
+            memoryHashSignatureBuilder_ != null) {
+          result.signature_ = memoryHashSignatureBuilder_.build();
+        }
+        if (signatureCase_ == 7 &&
+            yaraRuleSignatureBuilder_ != null) {
+          result.signature_ = yaraRuleSignatureBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3219,7 +3043,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3234,17 +3058,44 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.securitycenter.v1.Indicator.ProcessSignature parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 50: {
+                input.readMessage(
+                    getMemoryHashSignatureFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                signatureCase_ = 6;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getYaraRuleSignatureFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                signatureCase_ = 7;
+                break;
+              } // case 58
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.securitycenter.v1.Indicator.ProcessSignature) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int signatureCase_ = 0;
@@ -3262,6 +3113,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature, com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignature.Builder, com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.MemoryHashSignatureOrBuilder> memoryHashSignatureBuilder_;
@@ -3437,7 +3289,7 @@ private static final long serialVersionUID = 0L;
           signature_ = null;
         }
         signatureCase_ = 6;
-        onChanged();;
+        onChanged();
         return memoryHashSignatureBuilder_;
       }
 
@@ -3615,7 +3467,7 @@ private static final long serialVersionUID = 0L;
           signature_ = null;
         }
         signatureCase_ = 7;
-        onChanged();;
+        onChanged();
         return yaraRuleSignatureBuilder_;
       }
       @java.lang.Override
@@ -3651,7 +3503,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ProcessSignature(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3672,6 +3535,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_ADDRESSES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ipAddresses_;
   /**
    * <pre>
@@ -3723,6 +3587,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAINS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList domains_;
   /**
    * <pre>
@@ -3774,6 +3639,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SIGNATURES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.securitycenter.v1.Indicator.ProcessSignature> signatures_;
   /**
    * <pre>
@@ -3838,6 +3704,58 @@ private static final long serialVersionUID = 0L;
     return signatures_.get(index);
   }
 
+  public static final int URIS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
+  private com.google.protobuf.LazyStringList uris_;
+  /**
+   * <pre>
+   * The list of URIs associated to the Findings.
+   * </pre>
+   *
+   * <code>repeated string uris = 4;</code>
+   * @return A list containing the uris.
+   */
+  public com.google.protobuf.ProtocolStringList
+      getUrisList() {
+    return uris_;
+  }
+  /**
+   * <pre>
+   * The list of URIs associated to the Findings.
+   * </pre>
+   *
+   * <code>repeated string uris = 4;</code>
+   * @return The count of uris.
+   */
+  public int getUrisCount() {
+    return uris_.size();
+  }
+  /**
+   * <pre>
+   * The list of URIs associated to the Findings.
+   * </pre>
+   *
+   * <code>repeated string uris = 4;</code>
+   * @param index The index of the element to return.
+   * @return The uris at the given index.
+   */
+  public java.lang.String getUris(int index) {
+    return uris_.get(index);
+  }
+  /**
+   * <pre>
+   * The list of URIs associated to the Findings.
+   * </pre>
+   *
+   * <code>repeated string uris = 4;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the uris at the given index.
+   */
+  public com.google.protobuf.ByteString
+      getUrisBytes(int index) {
+    return uris_.getByteString(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -3861,7 +3779,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < signatures_.size(); i++) {
       output.writeMessage(3, signatures_.get(i));
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < uris_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 4, uris_.getRaw(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3890,7 +3811,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, signatures_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    {
+      int dataSize = 0;
+      for (int i = 0; i < uris_.size(); i++) {
+        dataSize += computeStringSizeNoTag(uris_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getUrisList().size();
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3911,7 +3840,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDomainsList())) return false;
     if (!getSignaturesList()
         .equals(other.getSignaturesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUrisList()
+        .equals(other.getUrisList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3934,7 +3865,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SIGNATURES_FIELD_NUMBER;
       hash = (53 * hash) + getSignaturesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getUrisCount() > 0) {
+      hash = (37 * hash) + URIS_FIELD_NUMBER;
+      hash = (53 * hash) + getUrisList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4058,33 +3993,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.v1.Indicator.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSignaturesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ipAddresses_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       domains_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
       if (signaturesBuilder_ == null) {
         signatures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        signatures_ = null;
         signaturesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
+      uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -4111,7 +4044,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.v1.Indicator buildPartial() {
       com.google.cloud.securitycenter.v1.Indicator result = new com.google.cloud.securitycenter.v1.Indicator(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.securitycenter.v1.Indicator result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         ipAddresses_ = ipAddresses_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -4131,8 +4070,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.signatures_ = signaturesBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        uris_ = uris_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.uris_ = uris_;
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.v1.Indicator result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -4225,7 +4171,17 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.uris_.isEmpty()) {
+        if (uris_.isEmpty()) {
+          uris_ = other.uris_;
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          ensureUrisIsMutable();
+          uris_.addAll(other.uris_);
+        }
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4240,17 +4196,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.v1.Indicator parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIpAddressesIsMutable();
+              ipAddresses_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDomainsIsMutable();
+              domains_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.securitycenter.v1.Indicator.ProcessSignature m =
+                  input.readMessage(
+                      com.google.cloud.securitycenter.v1.Indicator.ProcessSignature.parser(),
+                      extensionRegistry);
+              if (signaturesBuilder_ == null) {
+                ensureSignaturesIsMutable();
+                signatures_.add(m);
+              } else {
+                signaturesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureUrisIsMutable();
+              uris_.add(s);
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.v1.Indicator) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -4322,10 +4322,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpAddresses(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpAddressesIsMutable();
       ipAddresses_.set(index, value);
       onChanged();
       return this;
@@ -4341,10 +4339,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpAddresses(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpAddressesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpAddressesIsMutable();
       ipAddresses_.add(value);
       onChanged();
       return this;
@@ -4391,10 +4387,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpAddressesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIpAddressesIsMutable();
       ipAddresses_.add(value);
       onChanged();
@@ -4468,10 +4462,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomains(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDomainsIsMutable();
       domains_.set(index, value);
       onChanged();
       return this;
@@ -4487,10 +4479,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDomains(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDomainsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDomainsIsMutable();
       domains_.add(value);
       onChanged();
       return this;
@@ -4537,10 +4527,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDomainsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDomainsIsMutable();
       domains_.add(value);
       onChanged();
@@ -4876,6 +4864,146 @@ private static final long serialVersionUID = 0L;
       }
       return signaturesBuilder_;
     }
+
+    private com.google.protobuf.LazyStringList uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureUrisIsMutable() {
+      if (!((bitField0_ & 0x00000008) != 0)) {
+        uris_ = new com.google.protobuf.LazyStringArrayList(uris_);
+        bitField0_ |= 0x00000008;
+       }
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @return A list containing the uris.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getUrisList() {
+      return uris_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @return The count of uris.
+     */
+    public int getUrisCount() {
+      return uris_.size();
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @param index The index of the element to return.
+     * @return The uris at the given index.
+     */
+    public java.lang.String getUris(int index) {
+      return uris_.get(index);
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the uris at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getUrisBytes(int index) {
+      return uris_.getByteString(index);
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @param index The index to set the value at.
+     * @param value The uris to set.
+     * @return This builder for chaining.
+     */
+    public Builder setUris(
+        int index, java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureUrisIsMutable();
+      uris_.set(index, value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @param value The uris to add.
+     * @return This builder for chaining.
+     */
+    public Builder addUris(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      ensureUrisIsMutable();
+      uris_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @param values The uris to add.
+     * @return This builder for chaining.
+     */
+    public Builder addAllUris(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureUrisIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, uris_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearUris() {
+      uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The list of URIs associated to the Findings.
+     * </pre>
+     *
+     * <code>repeated string uris = 4;</code>
+     * @param value The bytes of the uris to add.
+     * @return This builder for chaining.
+     */
+    public Builder addUrisBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      ensureUrisIsMutable();
+      uris_.add(value);
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -4909,7 +5037,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Indicator(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

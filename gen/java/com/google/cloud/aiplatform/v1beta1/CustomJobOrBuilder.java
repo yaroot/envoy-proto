@@ -30,7 +30,7 @@ public interface CustomJobOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the CustomJob.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -41,7 +41,7 @@ public interface CustomJobOrBuilder extends
   /**
    * <pre>
    * Required. The display name of the CustomJob.
-   * The name can be up to 128 characters long and can be consist of any UTF-8
+   * The name can be up to 128 characters long and can consist of any UTF-8
    * characters.
    * </pre>
    *
@@ -296,7 +296,6 @@ public interface CustomJobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -313,7 +312,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 11;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -421,7 +419,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; web_access_uris = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getWebAccessUrisOrDefault(
       java.lang.String key,
@@ -442,7 +439,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; web_access_uris = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getWebAccessUrisOrThrow(
       java.lang.String key);
 }

@@ -63,7 +63,8 @@ public interface TransferableSkuOrBuilder extends
 
   /**
    * <pre>
-   * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+   * Optional. The customer to transfer has an entitlement with the populated
+   * legacy SKU.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -72,7 +73,8 @@ public interface TransferableSkuOrBuilder extends
   boolean hasLegacySku();
   /**
    * <pre>
-   * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+   * Optional. The customer to transfer has an entitlement with the populated
+   * legacy SKU.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -81,7 +83,8 @@ public interface TransferableSkuOrBuilder extends
   com.google.cloud.channel.v1.Sku getLegacySku();
   /**
    * <pre>
-   * Optional. The customer to transfer has an entitlement with the populated legacy SKU.
+   * Optional. The customer to transfer has an entitlement with the populated
+   * legacy SKU.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.Sku legacy_sku = 12 [(.google.api.field_behavior) = OPTIONAL];</code>

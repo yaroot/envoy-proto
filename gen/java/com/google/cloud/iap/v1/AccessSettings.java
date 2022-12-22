@@ -34,97 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AccessSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.iap.v1.GcipSettings.Builder subBuilder = null;
-            if (gcipSettings_ != null) {
-              subBuilder = gcipSettings_.toBuilder();
-            }
-            gcipSettings_ = input.readMessage(com.google.cloud.iap.v1.GcipSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gcipSettings_);
-              gcipSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.iap.v1.CorsSettings.Builder subBuilder = null;
-            if (corsSettings_ != null) {
-              subBuilder = corsSettings_.toBuilder();
-            }
-            corsSettings_ = input.readMessage(com.google.cloud.iap.v1.CorsSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(corsSettings_);
-              corsSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.iap.v1.OAuthSettings.Builder subBuilder = null;
-            if (oauthSettings_ != null) {
-              subBuilder = oauthSettings_.toBuilder();
-            }
-            oauthSettings_ = input.readMessage(com.google.cloud.iap.v1.OAuthSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(oauthSettings_);
-              oauthSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.iap.v1.ReauthSettings.Builder subBuilder = null;
-            if (reauthSettings_ != null) {
-              subBuilder = reauthSettings_.toBuilder();
-            }
-            reauthSettings_ = input.readMessage(com.google.cloud.iap.v1.ReauthSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reauthSettings_);
-              reauthSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_AccessSettings_descriptor;
@@ -173,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.GcipSettingsOrBuilder getGcipSettingsOrBuilder() {
-    return getGcipSettings();
+    return gcipSettings_ == null ? com.google.cloud.iap.v1.GcipSettings.getDefaultInstance() : gcipSettings_;
   }
 
   public static final int CORS_SETTINGS_FIELD_NUMBER = 2;
@@ -211,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.CorsSettingsOrBuilder getCorsSettingsOrBuilder() {
-    return getCorsSettings();
+    return corsSettings_ == null ? com.google.cloud.iap.v1.CorsSettings.getDefaultInstance() : corsSettings_;
   }
 
   public static final int OAUTH_SETTINGS_FIELD_NUMBER = 3;
@@ -249,7 +158,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.OAuthSettingsOrBuilder getOauthSettingsOrBuilder() {
-    return getOauthSettings();
+    return oauthSettings_ == null ? com.google.cloud.iap.v1.OAuthSettings.getDefaultInstance() : oauthSettings_;
   }
 
   public static final int REAUTH_SETTINGS_FIELD_NUMBER = 6;
@@ -287,7 +196,45 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.iap.v1.ReauthSettingsOrBuilder getReauthSettingsOrBuilder() {
-    return getReauthSettings();
+    return reauthSettings_ == null ? com.google.cloud.iap.v1.ReauthSettings.getDefaultInstance() : reauthSettings_;
+  }
+
+  public static final int ALLOWED_DOMAINS_SETTINGS_FIELD_NUMBER = 7;
+  private com.google.cloud.iap.v1.AllowedDomainsSettings allowedDomainsSettings_;
+  /**
+   * <pre>
+   * Settings to configure and enable allowed domains.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+   * @return Whether the allowedDomainsSettings field is set.
+   */
+  @java.lang.Override
+  public boolean hasAllowedDomainsSettings() {
+    return allowedDomainsSettings_ != null;
+  }
+  /**
+   * <pre>
+   * Settings to configure and enable allowed domains.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+   * @return The allowedDomainsSettings.
+   */
+  @java.lang.Override
+  public com.google.cloud.iap.v1.AllowedDomainsSettings getAllowedDomainsSettings() {
+    return allowedDomainsSettings_ == null ? com.google.cloud.iap.v1.AllowedDomainsSettings.getDefaultInstance() : allowedDomainsSettings_;
+  }
+  /**
+   * <pre>
+   * Settings to configure and enable allowed domains.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.iap.v1.AllowedDomainsSettingsOrBuilder getAllowedDomainsSettingsOrBuilder() {
+    return allowedDomainsSettings_ == null ? com.google.cloud.iap.v1.AllowedDomainsSettings.getDefaultInstance() : allowedDomainsSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -316,7 +263,10 @@ private static final long serialVersionUID = 0L;
     if (reauthSettings_ != null) {
       output.writeMessage(6, getReauthSettings());
     }
-    unknownFields.writeTo(output);
+    if (allowedDomainsSettings_ != null) {
+      output.writeMessage(7, getAllowedDomainsSettings());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -341,7 +291,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getReauthSettings());
     }
-    size += unknownFields.getSerializedSize();
+    if (allowedDomainsSettings_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getAllowedDomainsSettings());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -376,7 +330,12 @@ private static final long serialVersionUID = 0L;
       if (!getReauthSettings()
           .equals(other.getReauthSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasAllowedDomainsSettings() != other.hasAllowedDomainsSettings()) return false;
+    if (hasAllowedDomainsSettings()) {
+      if (!getAllowedDomainsSettings()
+          .equals(other.getAllowedDomainsSettings())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +362,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REAUTH_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getReauthSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasAllowedDomainsSettings()) {
+      hash = (37 * hash) + ALLOWED_DOMAINS_SETTINGS_FIELD_NUMBER;
+      hash = (53 * hash) + getAllowedDomainsSettings().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,45 +487,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.AccessSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (gcipSettingsBuilder_ == null) {
-        gcipSettings_ = null;
-      } else {
-        gcipSettings_ = null;
+      bitField0_ = 0;
+      gcipSettings_ = null;
+      if (gcipSettingsBuilder_ != null) {
+        gcipSettingsBuilder_.dispose();
         gcipSettingsBuilder_ = null;
       }
-      if (corsSettingsBuilder_ == null) {
-        corsSettings_ = null;
-      } else {
-        corsSettings_ = null;
+      corsSettings_ = null;
+      if (corsSettingsBuilder_ != null) {
+        corsSettingsBuilder_.dispose();
         corsSettingsBuilder_ = null;
       }
-      if (oauthSettingsBuilder_ == null) {
-        oauthSettings_ = null;
-      } else {
-        oauthSettings_ = null;
+      oauthSettings_ = null;
+      if (oauthSettingsBuilder_ != null) {
+        oauthSettingsBuilder_.dispose();
         oauthSettingsBuilder_ = null;
       }
-      if (reauthSettingsBuilder_ == null) {
-        reauthSettings_ = null;
-      } else {
-        reauthSettings_ = null;
+      reauthSettings_ = null;
+      if (reauthSettingsBuilder_ != null) {
+        reauthSettingsBuilder_.dispose();
         reauthSettingsBuilder_ = null;
+      }
+      allowedDomainsSettings_ = null;
+      if (allowedDomainsSettingsBuilder_ != null) {
+        allowedDomainsSettingsBuilder_.dispose();
+        allowedDomainsSettingsBuilder_ = null;
       }
       return this;
     }
@@ -590,28 +550,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.AccessSettings buildPartial() {
       com.google.cloud.iap.v1.AccessSettings result = new com.google.cloud.iap.v1.AccessSettings(this);
-      if (gcipSettingsBuilder_ == null) {
-        result.gcipSettings_ = gcipSettings_;
-      } else {
-        result.gcipSettings_ = gcipSettingsBuilder_.build();
-      }
-      if (corsSettingsBuilder_ == null) {
-        result.corsSettings_ = corsSettings_;
-      } else {
-        result.corsSettings_ = corsSettingsBuilder_.build();
-      }
-      if (oauthSettingsBuilder_ == null) {
-        result.oauthSettings_ = oauthSettings_;
-      } else {
-        result.oauthSettings_ = oauthSettingsBuilder_.build();
-      }
-      if (reauthSettingsBuilder_ == null) {
-        result.reauthSettings_ = reauthSettings_;
-      } else {
-        result.reauthSettings_ = reauthSettingsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.AccessSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.gcipSettings_ = gcipSettingsBuilder_ == null
+            ? gcipSettings_
+            : gcipSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.corsSettings_ = corsSettingsBuilder_ == null
+            ? corsSettings_
+            : corsSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.oauthSettings_ = oauthSettingsBuilder_ == null
+            ? oauthSettings_
+            : oauthSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.reauthSettings_ = reauthSettingsBuilder_ == null
+            ? reauthSettings_
+            : reauthSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.allowedDomainsSettings_ = allowedDomainsSettingsBuilder_ == null
+            ? allowedDomainsSettings_
+            : allowedDomainsSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -670,7 +640,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasReauthSettings()) {
         mergeReauthSettings(other.getReauthSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasAllowedDomainsSettings()) {
+        mergeAllowedDomainsSettings(other.getAllowedDomainsSettings());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -685,19 +658,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.AccessSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGcipSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCorsSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getOauthSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 50: {
+              input.readMessage(
+                  getReauthSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getAllowedDomainsSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.AccessSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.iap.v1.GcipSettings gcipSettings_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -711,7 +733,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gcipSettings field is set.
      */
     public boolean hasGcipSettings() {
-      return gcipSettingsBuilder_ != null || gcipSettings_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -741,11 +763,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gcipSettings_ = value;
-        onChanged();
       } else {
         gcipSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -759,11 +781,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.GcipSettings.Builder builderForValue) {
       if (gcipSettingsBuilder_ == null) {
         gcipSettings_ = builderForValue.build();
-        onChanged();
       } else {
         gcipSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -775,17 +797,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGcipSettings(com.google.cloud.iap.v1.GcipSettings value) {
       if (gcipSettingsBuilder_ == null) {
-        if (gcipSettings_ != null) {
-          gcipSettings_ =
-            com.google.cloud.iap.v1.GcipSettings.newBuilder(gcipSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          gcipSettings_ != null &&
+          gcipSettings_ != com.google.cloud.iap.v1.GcipSettings.getDefaultInstance()) {
+          getGcipSettingsBuilder().mergeFrom(value);
         } else {
           gcipSettings_ = value;
         }
-        onChanged();
       } else {
         gcipSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -796,14 +819,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.GcipSettings gcip_settings = 1;</code>
      */
     public Builder clearGcipSettings() {
-      if (gcipSettingsBuilder_ == null) {
-        gcipSettings_ = null;
-        onChanged();
-      } else {
-        gcipSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      gcipSettings_ = null;
+      if (gcipSettingsBuilder_ != null) {
+        gcipSettingsBuilder_.dispose();
         gcipSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -814,7 +836,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.GcipSettings gcip_settings = 1;</code>
      */
     public com.google.cloud.iap.v1.GcipSettings.Builder getGcipSettingsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getGcipSettingsFieldBuilder().getBuilder();
     }
@@ -866,7 +888,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the corsSettings field is set.
      */
     public boolean hasCorsSettings() {
-      return corsSettingsBuilder_ != null || corsSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -896,11 +918,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         corsSettings_ = value;
-        onChanged();
       } else {
         corsSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -914,11 +936,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.CorsSettings.Builder builderForValue) {
       if (corsSettingsBuilder_ == null) {
         corsSettings_ = builderForValue.build();
-        onChanged();
       } else {
         corsSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -930,17 +952,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCorsSettings(com.google.cloud.iap.v1.CorsSettings value) {
       if (corsSettingsBuilder_ == null) {
-        if (corsSettings_ != null) {
-          corsSettings_ =
-            com.google.cloud.iap.v1.CorsSettings.newBuilder(corsSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          corsSettings_ != null &&
+          corsSettings_ != com.google.cloud.iap.v1.CorsSettings.getDefaultInstance()) {
+          getCorsSettingsBuilder().mergeFrom(value);
         } else {
           corsSettings_ = value;
         }
-        onChanged();
       } else {
         corsSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -951,14 +974,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.CorsSettings cors_settings = 2;</code>
      */
     public Builder clearCorsSettings() {
-      if (corsSettingsBuilder_ == null) {
-        corsSettings_ = null;
-        onChanged();
-      } else {
-        corsSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      corsSettings_ = null;
+      if (corsSettingsBuilder_ != null) {
+        corsSettingsBuilder_.dispose();
         corsSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -969,7 +991,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.CorsSettings cors_settings = 2;</code>
      */
     public com.google.cloud.iap.v1.CorsSettings.Builder getCorsSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCorsSettingsFieldBuilder().getBuilder();
     }
@@ -1021,7 +1043,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the oauthSettings field is set.
      */
     public boolean hasOauthSettings() {
-      return oauthSettingsBuilder_ != null || oauthSettings_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1051,11 +1073,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         oauthSettings_ = value;
-        onChanged();
       } else {
         oauthSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1069,11 +1091,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.OAuthSettings.Builder builderForValue) {
       if (oauthSettingsBuilder_ == null) {
         oauthSettings_ = builderForValue.build();
-        onChanged();
       } else {
         oauthSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1085,17 +1107,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOauthSettings(com.google.cloud.iap.v1.OAuthSettings value) {
       if (oauthSettingsBuilder_ == null) {
-        if (oauthSettings_ != null) {
-          oauthSettings_ =
-            com.google.cloud.iap.v1.OAuthSettings.newBuilder(oauthSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          oauthSettings_ != null &&
+          oauthSettings_ != com.google.cloud.iap.v1.OAuthSettings.getDefaultInstance()) {
+          getOauthSettingsBuilder().mergeFrom(value);
         } else {
           oauthSettings_ = value;
         }
-        onChanged();
       } else {
         oauthSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1106,14 +1129,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.OAuthSettings oauth_settings = 3;</code>
      */
     public Builder clearOauthSettings() {
-      if (oauthSettingsBuilder_ == null) {
-        oauthSettings_ = null;
-        onChanged();
-      } else {
-        oauthSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      oauthSettings_ = null;
+      if (oauthSettingsBuilder_ != null) {
+        oauthSettingsBuilder_.dispose();
         oauthSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1124,7 +1146,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.OAuthSettings oauth_settings = 3;</code>
      */
     public com.google.cloud.iap.v1.OAuthSettings.Builder getOauthSettingsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getOauthSettingsFieldBuilder().getBuilder();
     }
@@ -1176,7 +1198,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reauthSettings field is set.
      */
     public boolean hasReauthSettings() {
-      return reauthSettingsBuilder_ != null || reauthSettings_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1206,11 +1228,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reauthSettings_ = value;
-        onChanged();
       } else {
         reauthSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1224,11 +1246,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.iap.v1.ReauthSettings.Builder builderForValue) {
       if (reauthSettingsBuilder_ == null) {
         reauthSettings_ = builderForValue.build();
-        onChanged();
       } else {
         reauthSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1240,17 +1262,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReauthSettings(com.google.cloud.iap.v1.ReauthSettings value) {
       if (reauthSettingsBuilder_ == null) {
-        if (reauthSettings_ != null) {
-          reauthSettings_ =
-            com.google.cloud.iap.v1.ReauthSettings.newBuilder(reauthSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          reauthSettings_ != null &&
+          reauthSettings_ != com.google.cloud.iap.v1.ReauthSettings.getDefaultInstance()) {
+          getReauthSettingsBuilder().mergeFrom(value);
         } else {
           reauthSettings_ = value;
         }
-        onChanged();
       } else {
         reauthSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1261,14 +1284,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.ReauthSettings reauth_settings = 6;</code>
      */
     public Builder clearReauthSettings() {
-      if (reauthSettingsBuilder_ == null) {
-        reauthSettings_ = null;
-        onChanged();
-      } else {
-        reauthSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      reauthSettings_ = null;
+      if (reauthSettingsBuilder_ != null) {
+        reauthSettingsBuilder_.dispose();
         reauthSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1279,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.iap.v1.ReauthSettings reauth_settings = 6;</code>
      */
     public com.google.cloud.iap.v1.ReauthSettings.Builder getReauthSettingsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getReauthSettingsFieldBuilder().getBuilder();
     }
@@ -1318,6 +1340,161 @@ private static final long serialVersionUID = 0L;
       }
       return reauthSettingsBuilder_;
     }
+
+    private com.google.cloud.iap.v1.AllowedDomainsSettings allowedDomainsSettings_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.iap.v1.AllowedDomainsSettings, com.google.cloud.iap.v1.AllowedDomainsSettings.Builder, com.google.cloud.iap.v1.AllowedDomainsSettingsOrBuilder> allowedDomainsSettingsBuilder_;
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     * @return Whether the allowedDomainsSettings field is set.
+     */
+    public boolean hasAllowedDomainsSettings() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     * @return The allowedDomainsSettings.
+     */
+    public com.google.cloud.iap.v1.AllowedDomainsSettings getAllowedDomainsSettings() {
+      if (allowedDomainsSettingsBuilder_ == null) {
+        return allowedDomainsSettings_ == null ? com.google.cloud.iap.v1.AllowedDomainsSettings.getDefaultInstance() : allowedDomainsSettings_;
+      } else {
+        return allowedDomainsSettingsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    public Builder setAllowedDomainsSettings(com.google.cloud.iap.v1.AllowedDomainsSettings value) {
+      if (allowedDomainsSettingsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        allowedDomainsSettings_ = value;
+      } else {
+        allowedDomainsSettingsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    public Builder setAllowedDomainsSettings(
+        com.google.cloud.iap.v1.AllowedDomainsSettings.Builder builderForValue) {
+      if (allowedDomainsSettingsBuilder_ == null) {
+        allowedDomainsSettings_ = builderForValue.build();
+      } else {
+        allowedDomainsSettingsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    public Builder mergeAllowedDomainsSettings(com.google.cloud.iap.v1.AllowedDomainsSettings value) {
+      if (allowedDomainsSettingsBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0) &&
+          allowedDomainsSettings_ != null &&
+          allowedDomainsSettings_ != com.google.cloud.iap.v1.AllowedDomainsSettings.getDefaultInstance()) {
+          getAllowedDomainsSettingsBuilder().mergeFrom(value);
+        } else {
+          allowedDomainsSettings_ = value;
+        }
+      } else {
+        allowedDomainsSettingsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    public Builder clearAllowedDomainsSettings() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      allowedDomainsSettings_ = null;
+      if (allowedDomainsSettingsBuilder_ != null) {
+        allowedDomainsSettingsBuilder_.dispose();
+        allowedDomainsSettingsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    public com.google.cloud.iap.v1.AllowedDomainsSettings.Builder getAllowedDomainsSettingsBuilder() {
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return getAllowedDomainsSettingsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    public com.google.cloud.iap.v1.AllowedDomainsSettingsOrBuilder getAllowedDomainsSettingsOrBuilder() {
+      if (allowedDomainsSettingsBuilder_ != null) {
+        return allowedDomainsSettingsBuilder_.getMessageOrBuilder();
+      } else {
+        return allowedDomainsSettings_ == null ?
+            com.google.cloud.iap.v1.AllowedDomainsSettings.getDefaultInstance() : allowedDomainsSettings_;
+      }
+    }
+    /**
+     * <pre>
+     * Settings to configure and enable allowed domains.
+     * </pre>
+     *
+     * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.iap.v1.AllowedDomainsSettings, com.google.cloud.iap.v1.AllowedDomainsSettings.Builder, com.google.cloud.iap.v1.AllowedDomainsSettingsOrBuilder> 
+        getAllowedDomainsSettingsFieldBuilder() {
+      if (allowedDomainsSettingsBuilder_ == null) {
+        allowedDomainsSettingsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.iap.v1.AllowedDomainsSettings, com.google.cloud.iap.v1.AllowedDomainsSettings.Builder, com.google.cloud.iap.v1.AllowedDomainsSettingsOrBuilder>(
+                getAllowedDomainsSettings(),
+                getParentForChildren(),
+                isClean());
+        allowedDomainsSettings_ = null;
+      }
+      return allowedDomainsSettingsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1351,7 +1528,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AccessSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

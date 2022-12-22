@@ -38,76 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateCertificateAuthorityRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            certificateAuthorityId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.security.privateca.v1.CertificateAuthority.Builder subBuilder = null;
-            if (certificateAuthority_ != null) {
-              subBuilder = certificateAuthority_.toBuilder();
-            }
-            certificateAuthority_ = input.readMessage(com.google.cloud.security.privateca.v1.CertificateAuthority.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(certificateAuthority_);
-              certificateAuthority_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.security.privateca.v1.PrivateCaProto.internal_static_google_cloud_security_privateca_v1_CreateCertificateAuthorityRequest_descriptor;
@@ -122,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the [CaPool][google.cloud.security.privateca.v1.CaPool] associated with the
@@ -172,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CERTIFICATE_AUTHORITY_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object certificateAuthorityId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object certificateAuthorityId_ = "";
   /**
    * <pre>
    * Required. It must be unique within a location and match the regular
@@ -254,11 +186,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.security.privateca.v1.CertificateAuthorityOrBuilder getCertificateAuthorityOrBuilder() {
-    return getCertificateAuthority();
+    return certificateAuthority_ == null ? com.google.cloud.security.privateca.v1.CertificateAuthority.getDefaultInstance() : certificateAuthority_;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * Optional. An ID to identify requests. Specify a unique request ID so that if you must
@@ -349,7 +282,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, requestId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -371,7 +304,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, requestId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -397,7 +330,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRequestId()
         .equals(other.getRequestId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -418,7 +351,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRequestId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -540,34 +473,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       certificateAuthorityId_ = "";
-
-      if (certificateAuthorityBuilder_ == null) {
-        certificateAuthority_ = null;
-      } else {
-        certificateAuthority_ = null;
+      certificateAuthority_ = null;
+      if (certificateAuthorityBuilder_ != null) {
+        certificateAuthorityBuilder_.dispose();
         certificateAuthorityBuilder_ = null;
       }
       requestId_ = "";
-
       return this;
     }
 
@@ -594,16 +519,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest buildPartial() {
       com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest result = new com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest(this);
-      result.parent_ = parent_;
-      result.certificateAuthorityId_ = certificateAuthorityId_;
-      if (certificateAuthorityBuilder_ == null) {
-        result.certificateAuthority_ = certificateAuthority_;
-      } else {
-        result.certificateAuthority_ = certificateAuthorityBuilder_.build();
-      }
-      result.requestId_ = requestId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.certificateAuthorityId_ = certificateAuthorityId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.certificateAuthority_ = certificateAuthorityBuilder_ == null
+            ? certificateAuthority_
+            : certificateAuthorityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -652,10 +588,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCertificateAuthorityId().isEmpty()) {
         certificateAuthorityId_ = other.certificateAuthorityId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCertificateAuthority()) {
@@ -663,9 +601,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -680,19 +619,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              certificateAuthorityId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCertificateAuthorityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.security.privateca.v1.CreateCertificateAuthorityRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -753,11 +728,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -772,8 +745,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -790,12 +763,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -856,11 +827,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertificateAuthorityId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       certificateAuthorityId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -874,8 +843,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCertificateAuthorityId() {
-      
       certificateAuthorityId_ = getDefaultInstance().getCertificateAuthorityId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -891,12 +860,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCertificateAuthorityIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       certificateAuthorityId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -913,7 +880,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the certificateAuthority field is set.
      */
     public boolean hasCertificateAuthority() {
-      return certificateAuthorityBuilder_ != null || certificateAuthority_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -943,11 +910,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         certificateAuthority_ = value;
-        onChanged();
       } else {
         certificateAuthorityBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -961,11 +928,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.security.privateca.v1.CertificateAuthority.Builder builderForValue) {
       if (certificateAuthorityBuilder_ == null) {
         certificateAuthority_ = builderForValue.build();
-        onChanged();
       } else {
         certificateAuthorityBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -977,17 +944,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCertificateAuthority(com.google.cloud.security.privateca.v1.CertificateAuthority value) {
       if (certificateAuthorityBuilder_ == null) {
-        if (certificateAuthority_ != null) {
-          certificateAuthority_ =
-            com.google.cloud.security.privateca.v1.CertificateAuthority.newBuilder(certificateAuthority_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          certificateAuthority_ != null &&
+          certificateAuthority_ != com.google.cloud.security.privateca.v1.CertificateAuthority.getDefaultInstance()) {
+          getCertificateAuthorityBuilder().mergeFrom(value);
         } else {
           certificateAuthority_ = value;
         }
-        onChanged();
       } else {
         certificateAuthorityBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -998,14 +966,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.security.privateca.v1.CertificateAuthority certificate_authority = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCertificateAuthority() {
-      if (certificateAuthorityBuilder_ == null) {
-        certificateAuthority_ = null;
-        onChanged();
-      } else {
-        certificateAuthority_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      certificateAuthority_ = null;
+      if (certificateAuthorityBuilder_ != null) {
+        certificateAuthorityBuilder_.dispose();
         certificateAuthorityBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1016,7 +983,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.security.privateca.v1.CertificateAuthority certificate_authority = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.security.privateca.v1.CertificateAuthority.Builder getCertificateAuthorityBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCertificateAuthorityFieldBuilder().getBuilder();
     }
@@ -1139,11 +1106,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1166,8 +1131,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1192,12 +1157,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1234,7 +1197,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateCertificateAuthorityRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

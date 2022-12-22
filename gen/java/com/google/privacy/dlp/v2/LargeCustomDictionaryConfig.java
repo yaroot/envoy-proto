@@ -8,7 +8,7 @@ package com.google.privacy.dlp.v2;
  * Configuration for a custom dictionary created from a data source of any size
  * up to the maximum size defined in the
  * [limits](https://cloud.google.com/dlp/limits) page. The artifacts of
- * dictionary creation are stored in the specified Google Cloud Storage
+ * dictionary creation are stored in the specified Cloud Storage
  * location. Consider using `CustomInfoType.Dictionary` for smaller dictionaries
  * that satisfy the size requirements.
  * </pre>
@@ -38,86 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private LargeCustomDictionaryConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.CloudStoragePath.Builder subBuilder = null;
-            if (outputPath_ != null) {
-              subBuilder = outputPath_.toBuilder();
-            }
-            outputPath_ = input.readMessage(com.google.privacy.dlp.v2.CloudStoragePath.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputPath_);
-              outputPath_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.privacy.dlp.v2.CloudStorageFileSet.Builder subBuilder = null;
-            if (sourceCase_ == 2) {
-              subBuilder = ((com.google.privacy.dlp.v2.CloudStorageFileSet) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.privacy.dlp.v2.CloudStorageFileSet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.CloudStorageFileSet) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.BigQueryField.Builder subBuilder = null;
-            if (sourceCase_ == 3) {
-              subBuilder = ((com.google.privacy.dlp.v2.BigQueryField) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.privacy.dlp.v2.BigQueryField.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.BigQueryField) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -177,7 +97,7 @@ private static final long serialVersionUID = 0L;
   private com.google.privacy.dlp.v2.CloudStoragePath outputPath_;
   /**
    * <pre>
-   * Location to store dictionary artifacts in Google Cloud Storage. These files
+   * Location to store dictionary artifacts in Cloud Storage. These files
    * will only be accessible by project owners and the DLP API. If any of these
    * artifacts are modified, the dictionary is considered invalid and can no
    * longer be used.
@@ -192,7 +112,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Location to store dictionary artifacts in Google Cloud Storage. These files
+   * Location to store dictionary artifacts in Cloud Storage. These files
    * will only be accessible by project owners and the DLP API. If any of these
    * artifacts are modified, the dictionary is considered invalid and can no
    * longer be used.
@@ -207,7 +127,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Location to store dictionary artifacts in Google Cloud Storage. These files
+   * Location to store dictionary artifacts in Cloud Storage. These files
    * will only be accessible by project owners and the DLP API. If any of these
    * artifacts are modified, the dictionary is considered invalid and can no
    * longer be used.
@@ -217,7 +137,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.CloudStoragePathOrBuilder getOutputPathOrBuilder() {
-    return getOutputPath();
+    return outputPath_ == null ? com.google.privacy.dlp.v2.CloudStoragePath.getDefaultInstance() : outputPath_;
   }
 
   public static final int CLOUD_STORAGE_FILE_SET_FIELD_NUMBER = 2;
@@ -329,7 +249,7 @@ private static final long serialVersionUID = 0L;
     if (sourceCase_ == 3) {
       output.writeMessage(3, (com.google.privacy.dlp.v2.BigQueryField) source_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -350,7 +270,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.privacy.dlp.v2.BigQueryField) source_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -383,7 +303,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -410,7 +330,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -510,7 +430,7 @@ private static final long serialVersionUID = 0L;
    * Configuration for a custom dictionary created from a data source of any size
    * up to the maximum size defined in the
    * [limits](https://cloud.google.com/dlp/limits) page. The artifacts of
-   * dictionary creation are stored in the specified Google Cloud Storage
+   * dictionary creation are stored in the specified Cloud Storage
    * location. Consider using `CustomInfoType.Dictionary` for smaller dictionaries
    * that satisfy the size requirements.
    * </pre>
@@ -536,27 +456,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.LargeCustomDictionaryConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (outputPathBuilder_ == null) {
-        outputPath_ = null;
-      } else {
-        outputPath_ = null;
+      bitField0_ = 0;
+      outputPath_ = null;
+      if (outputPathBuilder_ != null) {
+        outputPathBuilder_.dispose();
         outputPathBuilder_ = null;
+      }
+      if (cloudStorageFileSetBuilder_ != null) {
+        cloudStorageFileSetBuilder_.clear();
+      }
+      if (bigQueryFieldBuilder_ != null) {
+        bigQueryFieldBuilder_.clear();
       }
       sourceCase_ = 0;
       source_ = null;
@@ -586,28 +507,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.LargeCustomDictionaryConfig buildPartial() {
       com.google.privacy.dlp.v2.LargeCustomDictionaryConfig result = new com.google.privacy.dlp.v2.LargeCustomDictionaryConfig(this);
-      if (outputPathBuilder_ == null) {
-        result.outputPath_ = outputPath_;
-      } else {
-        result.outputPath_ = outputPathBuilder_.build();
-      }
-      if (sourceCase_ == 2) {
-        if (cloudStorageFileSetBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = cloudStorageFileSetBuilder_.build();
-        }
-      }
-      if (sourceCase_ == 3) {
-        if (bigQueryFieldBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = bigQueryFieldBuilder_.build();
-        }
-      }
-      result.sourceCase_ = sourceCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.LargeCustomDictionaryConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.outputPath_ = outputPathBuilder_ == null
+            ? outputPath_
+            : outputPathBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.LargeCustomDictionaryConfig result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 2 &&
+          cloudStorageFileSetBuilder_ != null) {
+        result.source_ = cloudStorageFileSetBuilder_.build();
+      }
+      if (sourceCase_ == 3 &&
+          bigQueryFieldBuilder_ != null) {
+        result.source_ = bigQueryFieldBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -670,7 +595,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -685,17 +610,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.LargeCustomDictionaryConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOutputPathFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCloudStorageFileSetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBigQueryFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.LargeCustomDictionaryConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -713,13 +672,14 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.privacy.dlp.v2.CloudStoragePath outputPath_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.privacy.dlp.v2.CloudStoragePath, com.google.privacy.dlp.v2.CloudStoragePath.Builder, com.google.privacy.dlp.v2.CloudStoragePathOrBuilder> outputPathBuilder_;
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -729,11 +689,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputPath field is set.
      */
     public boolean hasOutputPath() {
-      return outputPathBuilder_ != null || outputPath_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -751,7 +711,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -765,16 +725,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputPath_ = value;
-        onChanged();
       } else {
         outputPathBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -786,16 +746,16 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.CloudStoragePath.Builder builderForValue) {
       if (outputPathBuilder_ == null) {
         outputPath_ = builderForValue.build();
-        onChanged();
       } else {
         outputPathBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -805,22 +765,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputPath(com.google.privacy.dlp.v2.CloudStoragePath value) {
       if (outputPathBuilder_ == null) {
-        if (outputPath_ != null) {
-          outputPath_ =
-            com.google.privacy.dlp.v2.CloudStoragePath.newBuilder(outputPath_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          outputPath_ != null &&
+          outputPath_ != com.google.privacy.dlp.v2.CloudStoragePath.getDefaultInstance()) {
+          getOutputPathBuilder().mergeFrom(value);
         } else {
           outputPath_ = value;
         }
-        onChanged();
       } else {
         outputPathBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -829,19 +790,18 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.CloudStoragePath output_path = 1;</code>
      */
     public Builder clearOutputPath() {
-      if (outputPathBuilder_ == null) {
-        outputPath_ = null;
-        onChanged();
-      } else {
-        outputPath_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      outputPath_ = null;
+      if (outputPathBuilder_ != null) {
+        outputPathBuilder_.dispose();
         outputPathBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -850,13 +810,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.CloudStoragePath output_path = 1;</code>
      */
     public com.google.privacy.dlp.v2.CloudStoragePath.Builder getOutputPathBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOutputPathFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -874,7 +834,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Location to store dictionary artifacts in Google Cloud Storage. These files
+     * Location to store dictionary artifacts in Cloud Storage. These files
      * will only be accessible by project owners and the DLP API. If any of these
      * artifacts are modified, the dictionary is considered invalid and can no
      * longer be used.
@@ -1070,7 +1030,7 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 2;
-      onChanged();;
+      onChanged();
       return cloudStorageFileSetBuilder_;
     }
 
@@ -1248,7 +1208,7 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 3;
-      onChanged();;
+      onChanged();
       return bigQueryFieldBuilder_;
     }
     @java.lang.Override
@@ -1284,7 +1244,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LargeCustomDictionaryConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -89,10 +89,10 @@ public final class StatsProto {
       "g\022\024\n\014measure_name\030\002 \001(\t\022\026\n\014double_value\030" +
       "\003 \001(\001H\000\022\023\n\tint_value\030\004 \001(\003H\000\022(\n\004time\030\005 \001" +
       "(\0132\032.google.protobuf.TimestampB\007\n\005valueB" +
-      "\214\001\n\034io.opencensus.proto.stats.v1B\nStatsP" +
+      "\217\001\n\034io.opencensus.proto.stats.v1B\nStatsP" +
       "rotoP\001ZBgithub.com/census-instrumentatio" +
-      "n/opencensus-proto/gen-go/stats/v1\352\002\031Ope" +
-      "nCensus.Proto.Stats.V1b\006proto3"
+      "n/opencensus-proto/gen-go/stats/v1\352\002\034Ope" +
+      "nCensus::Proto::Stats::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

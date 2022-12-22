@@ -175,25 +175,25 @@ public interface ListObjectsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically equal to or
-   * after lexicographic_start. If lexicographic_end is also set, the objects
-   * listed have names between lexicographic_start (inclusive) and
+   * Optional. Filter results to objects whose names are lexicographically equal
+   * to or after lexicographic_start. If lexicographic_end is also set, the
+   * objects listed have names between lexicographic_start (inclusive) and
    * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_start = 10;</code>
+   * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The lexicographicStart.
    */
   java.lang.String getLexicographicStart();
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically equal to or
-   * after lexicographic_start. If lexicographic_end is also set, the objects
-   * listed have names between lexicographic_start (inclusive) and
+   * Optional. Filter results to objects whose names are lexicographically equal
+   * to or after lexicographic_start. If lexicographic_end is also set, the
+   * objects listed have names between lexicographic_start (inclusive) and
    * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_start = 10;</code>
+   * <code>string lexicographic_start = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for lexicographicStart.
    */
   com.google.protobuf.ByteString
@@ -201,25 +201,25 @@ public interface ListObjectsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically before
-   * lexicographic_end. If lexicographic_start is also set, the objects listed
-   * have names between lexicographic_start (inclusive) and lexicographic_end
-   * (exclusive).
+   * Optional. Filter results to objects whose names are lexicographically
+   * before lexicographic_end. If lexicographic_start is also set, the objects
+   * listed have names between lexicographic_start (inclusive) and
+   * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_end = 11;</code>
+   * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The lexicographicEnd.
    */
   java.lang.String getLexicographicEnd();
   /**
    * <pre>
-   * Filter results to objects whose names are lexicographically before
-   * lexicographic_end. If lexicographic_start is also set, the objects listed
-   * have names between lexicographic_start (inclusive) and lexicographic_end
-   * (exclusive).
+   * Optional. Filter results to objects whose names are lexicographically
+   * before lexicographic_end. If lexicographic_start is also set, the objects
+   * listed have names between lexicographic_start (inclusive) and
+   * lexicographic_end (exclusive).
    * </pre>
    *
-   * <code>string lexicographic_end = 11;</code>
+   * <code>string lexicographic_end = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The bytes for lexicographicEnd.
    */
   com.google.protobuf.ByteString

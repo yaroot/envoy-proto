@@ -16,7 +16,7 @@ public interface GetClusterRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.GetClusterRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2077
+   *     See google/container/v1/cluster_service.proto;l=2162
    * @return The projectId.
    */
   @java.lang.Deprecated java.lang.String getProjectId();
@@ -29,7 +29,7 @@ public interface GetClusterRequestOrBuilder extends
    *
    * <code>string project_id = 1 [deprecated = true];</code>
    * @deprecated google.container.v1.GetClusterRequest.project_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2077
+   *     See google/container/v1/cluster_service.proto;l=2162
    * @return The bytes for projectId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -45,7 +45,7 @@ public interface GetClusterRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.GetClusterRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2083
+   *     See google/container/v1/cluster_service.proto;l=2168
    * @return The zone.
    */
   @java.lang.Deprecated java.lang.String getZone();
@@ -59,7 +59,7 @@ public interface GetClusterRequestOrBuilder extends
    *
    * <code>string zone = 2 [deprecated = true];</code>
    * @deprecated google.container.v1.GetClusterRequest.zone is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2083
+   *     See google/container/v1/cluster_service.proto;l=2168
    * @return The bytes for zone.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -73,7 +73,7 @@ public interface GetClusterRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.GetClusterRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2087
+   *     See google/container/v1/cluster_service.proto;l=2172
    * @return The clusterId.
    */
   @java.lang.Deprecated java.lang.String getClusterId();
@@ -85,7 +85,7 @@ public interface GetClusterRequestOrBuilder extends
    *
    * <code>string cluster_id = 3 [deprecated = true];</code>
    * @deprecated google.container.v1.GetClusterRequest.cluster_id is deprecated.
-   *     See google/container/v1/cluster_service.proto;l=2087
+   *     See google/container/v1/cluster_service.proto;l=2172
    * @return The bytes for clusterId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

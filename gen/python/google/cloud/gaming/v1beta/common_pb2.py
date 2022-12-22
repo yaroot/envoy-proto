@@ -14,10 +14,9 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/gaming/v1beta/common.proto\x12\x1agoogle.cloud.gaming.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xe2\x03\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0bunreachable\x18\x08 \x03(\tB\x03\xe0\x41\x03\x12\x61\n\x10operation_status\x18\t \x03(\x0b\x32\x42.google.cloud.gaming.v1beta.OperationMetadata.OperationStatusEntryB\x03\xe0\x41\x03\x1a\x63\n\x14OperationStatusEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.gaming.v1beta.OperationStatus:\x02\x38\x01\"\xf2\x01\n\x0fOperationStatus\x12\x11\n\x04\x64one\x18\x01 \x01(\x08\x42\x03\xe0\x41\x03\x12I\n\nerror_code\x18\x02 \x01(\x0e\x32\x35.google.cloud.gaming.v1beta.OperationStatus.ErrorCode\x12\x15\n\rerror_message\x18\x03 \x01(\t\"j\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12\x12\n\x0eINTERNAL_ERROR\x10\x01\x12\x15\n\x11PERMISSION_DENIED\x10\x02\x12\x16\n\x12\x43LUSTER_CONNECTION\x10\x03\"\x85\x01\n\rLabelSelector\x12\x45\n\x06labels\x18\x01 \x03(\x0b\x32\x35.google.cloud.gaming.v1beta.LabelSelector.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x1f\n\rRealmSelector\x12\x0e\n\x06realms\x18\x01 \x03(\t\"\xb1\x01\n\x08Schedule\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x11\x63ron_job_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x11\n\tcron_spec\x18\x04 \x01(\t\";\n\nSpecSource\x12\x1f\n\x17game_server_config_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\xc1\x04\n\rTargetDetails\x12 \n\x18game_server_cluster_name\x18\x01 \x01(\t\x12#\n\x1bgame_server_deployment_name\x18\x02 \x01(\t\x12S\n\rfleet_details\x18\x03 \x03(\x0b\x32<.google.cloud.gaming.v1beta.TargetDetails.TargetFleetDetails\x1a\x93\x03\n\x12TargetFleetDetails\x12W\n\x05\x66leet\x18\x01 \x01(\x0b\x32H.google.cloud.gaming.v1beta.TargetDetails.TargetFleetDetails.TargetFleet\x12\x66\n\nautoscaler\x18\x02 \x01(\x0b\x32R.google.cloud.gaming.v1beta.TargetDetails.TargetFleetDetails.TargetFleetAutoscaler\x1aX\n\x0bTargetFleet\x12\x0c\n\x04name\x18\x01 \x01(\t\x12;\n\x0bspec_source\x18\x02 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\x1a\x62\n\x15TargetFleetAutoscaler\x12\x0c\n\x04name\x18\x01 \x01(\t\x12;\n\x0bspec_source\x18\x02 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\"I\n\x0bTargetState\x12:\n\x07\x64\x65tails\x18\x01 \x03(\x0b\x32).google.cloud.gaming.v1beta.TargetDetails\"\xaf\x05\n\x14\x44\x65ployedFleetDetails\x12V\n\x0e\x64\x65ployed_fleet\x18\x01 \x01(\x0b\x32>.google.cloud.gaming.v1beta.DeployedFleetDetails.DeployedFleet\x12\x65\n\x13\x64\x65ployed_autoscaler\x18\x02 \x01(\x0b\x32H.google.cloud.gaming.v1beta.DeployedFleetDetails.DeployedFleetAutoscaler\x1a\xcb\x02\n\rDeployedFleet\x12\r\n\x05\x66leet\x18\x01 \x01(\t\x12\x12\n\nfleet_spec\x18\x02 \x01(\t\x12;\n\x0bspec_source\x18\x03 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\x12\x62\n\x06status\x18\x05 \x01(\x0b\x32R.google.cloud.gaming.v1beta.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus\x1av\n\x13\x44\x65ployedFleetStatus\x12\x16\n\x0eready_replicas\x18\x01 \x01(\x03\x12\x1a\n\x12\x61llocated_replicas\x18\x02 \x01(\x03\x12\x19\n\x11reserved_replicas\x18\x03 \x01(\x03\x12\x10\n\x08replicas\x18\x04 \x01(\x03\x1a\x89\x01\n\x17\x44\x65ployedFleetAutoscaler\x12\x12\n\nautoscaler\x18\x01 \x01(\t\x12;\n\x0bspec_source\x18\x04 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\x12\x1d\n\x15\x66leet_autoscaler_spec\x18\x03 \x01(\tBd\n\x1e\x63om.google.cloud.gaming.v1betaP\x01Z@google.golang.org/genproto/googleapis/cloud/gaming/v1beta;gamingb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\'google/cloud/gaming/v1beta/common.proto\x12\x1agoogle.cloud.gaming.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xe2\x03\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12\x18\n\x0bunreachable\x18\x08 \x03(\tB\x03\xe0\x41\x03\x12\x61\n\x10operation_status\x18\t \x03(\x0b\x32\x42.google.cloud.gaming.v1beta.OperationMetadata.OperationStatusEntryB\x03\xe0\x41\x03\x1a\x63\n\x14OperationStatusEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12:\n\x05value\x18\x02 \x01(\x0b\x32+.google.cloud.gaming.v1beta.OperationStatus:\x02\x38\x01\"\xf2\x01\n\x0fOperationStatus\x12\x11\n\x04\x64one\x18\x01 \x01(\x08\x42\x03\xe0\x41\x03\x12I\n\nerror_code\x18\x02 \x01(\x0e\x32\x35.google.cloud.gaming.v1beta.OperationStatus.ErrorCode\x12\x15\n\rerror_message\x18\x03 \x01(\t\"j\n\tErrorCode\x12\x1a\n\x16\x45RROR_CODE_UNSPECIFIED\x10\x00\x12\x12\n\x0eINTERNAL_ERROR\x10\x01\x12\x15\n\x11PERMISSION_DENIED\x10\x02\x12\x16\n\x12\x43LUSTER_CONNECTION\x10\x03\"\x85\x01\n\rLabelSelector\x12\x45\n\x06labels\x18\x01 \x03(\x0b\x32\x35.google.cloud.gaming.v1beta.LabelSelector.LabelsEntry\x1a-\n\x0bLabelsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\x1f\n\rRealmSelector\x12\x0e\n\x06realms\x18\x01 \x03(\t\"\xb1\x01\n\x08Schedule\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x34\n\x11\x63ron_job_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x11\n\tcron_spec\x18\x04 \x01(\t\";\n\nSpecSource\x12\x1f\n\x17game_server_config_name\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\xc1\x04\n\rTargetDetails\x12 \n\x18game_server_cluster_name\x18\x01 \x01(\t\x12#\n\x1bgame_server_deployment_name\x18\x02 \x01(\t\x12S\n\rfleet_details\x18\x03 \x03(\x0b\x32<.google.cloud.gaming.v1beta.TargetDetails.TargetFleetDetails\x1a\x93\x03\n\x12TargetFleetDetails\x12W\n\x05\x66leet\x18\x01 \x01(\x0b\x32H.google.cloud.gaming.v1beta.TargetDetails.TargetFleetDetails.TargetFleet\x12\x66\n\nautoscaler\x18\x02 \x01(\x0b\x32R.google.cloud.gaming.v1beta.TargetDetails.TargetFleetDetails.TargetFleetAutoscaler\x1aX\n\x0bTargetFleet\x12\x0c\n\x04name\x18\x01 \x01(\t\x12;\n\x0bspec_source\x18\x02 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\x1a\x62\n\x15TargetFleetAutoscaler\x12\x0c\n\x04name\x18\x01 \x01(\t\x12;\n\x0bspec_source\x18\x02 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\"I\n\x0bTargetState\x12:\n\x07\x64\x65tails\x18\x01 \x03(\x0b\x32).google.cloud.gaming.v1beta.TargetDetails\"\xaf\x05\n\x14\x44\x65ployedFleetDetails\x12V\n\x0e\x64\x65ployed_fleet\x18\x01 \x01(\x0b\x32>.google.cloud.gaming.v1beta.DeployedFleetDetails.DeployedFleet\x12\x65\n\x13\x64\x65ployed_autoscaler\x18\x02 \x01(\x0b\x32H.google.cloud.gaming.v1beta.DeployedFleetDetails.DeployedFleetAutoscaler\x1a\xcb\x02\n\rDeployedFleet\x12\r\n\x05\x66leet\x18\x01 \x01(\t\x12\x12\n\nfleet_spec\x18\x02 \x01(\t\x12;\n\x0bspec_source\x18\x03 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\x12\x62\n\x06status\x18\x05 \x01(\x0b\x32R.google.cloud.gaming.v1beta.DeployedFleetDetails.DeployedFleet.DeployedFleetStatus\x1av\n\x13\x44\x65ployedFleetStatus\x12\x16\n\x0eready_replicas\x18\x01 \x01(\x03\x12\x1a\n\x12\x61llocated_replicas\x18\x02 \x01(\x03\x12\x19\n\x11reserved_replicas\x18\x03 \x01(\x03\x12\x10\n\x08replicas\x18\x04 \x01(\x03\x1a\x89\x01\n\x17\x44\x65ployedFleetAutoscaler\x12\x12\n\nautoscaler\x18\x01 \x01(\t\x12;\n\x0bspec_source\x18\x04 \x01(\x0b\x32&.google.cloud.gaming.v1beta.SpecSource\x12\x1d\n\x15\x66leet_autoscaler_spec\x18\x03 \x01(\tBd\n\x1e\x63om.google.cloud.gaming.v1betaP\x01Z@google.golang.org/genproto/googleapis/cloud/gaming/v1beta;gamingb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.gaming.v1beta.common_pb2', globals())
@@ -49,40 +48,40 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OPERATIONSTATUS.fields_by_name['done']._serialized_options = b'\340A\003'
   _LABELSELECTOR_LABELSENTRY._options = None
   _LABELSELECTOR_LABELSENTRY._serialized_options = b'8\001'
-  _OPERATIONMETADATA._serialized_start=200
-  _OPERATIONMETADATA._serialized_end=682
-  _OPERATIONMETADATA_OPERATIONSTATUSENTRY._serialized_start=583
-  _OPERATIONMETADATA_OPERATIONSTATUSENTRY._serialized_end=682
-  _OPERATIONSTATUS._serialized_start=685
-  _OPERATIONSTATUS._serialized_end=927
-  _OPERATIONSTATUS_ERRORCODE._serialized_start=821
-  _OPERATIONSTATUS_ERRORCODE._serialized_end=927
-  _LABELSELECTOR._serialized_start=930
-  _LABELSELECTOR._serialized_end=1063
-  _LABELSELECTOR_LABELSENTRY._serialized_start=1018
-  _LABELSELECTOR_LABELSENTRY._serialized_end=1063
-  _REALMSELECTOR._serialized_start=1065
-  _REALMSELECTOR._serialized_end=1096
-  _SCHEDULE._serialized_start=1099
-  _SCHEDULE._serialized_end=1276
-  _SPECSOURCE._serialized_start=1278
-  _SPECSOURCE._serialized_end=1337
-  _TARGETDETAILS._serialized_start=1340
-  _TARGETDETAILS._serialized_end=1917
-  _TARGETDETAILS_TARGETFLEETDETAILS._serialized_start=1514
-  _TARGETDETAILS_TARGETFLEETDETAILS._serialized_end=1917
-  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEET._serialized_start=1729
-  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEET._serialized_end=1817
-  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEETAUTOSCALER._serialized_start=1819
-  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEETAUTOSCALER._serialized_end=1917
-  _TARGETSTATE._serialized_start=1919
-  _TARGETSTATE._serialized_end=1992
-  _DEPLOYEDFLEETDETAILS._serialized_start=1995
-  _DEPLOYEDFLEETDETAILS._serialized_end=2682
-  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET._serialized_start=2211
-  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET._serialized_end=2542
-  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET_DEPLOYEDFLEETSTATUS._serialized_start=2424
-  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET_DEPLOYEDFLEETSTATUS._serialized_end=2542
-  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEETAUTOSCALER._serialized_start=2545
-  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEETAUTOSCALER._serialized_end=2682
+  _OPERATIONMETADATA._serialized_start=170
+  _OPERATIONMETADATA._serialized_end=652
+  _OPERATIONMETADATA_OPERATIONSTATUSENTRY._serialized_start=553
+  _OPERATIONMETADATA_OPERATIONSTATUSENTRY._serialized_end=652
+  _OPERATIONSTATUS._serialized_start=655
+  _OPERATIONSTATUS._serialized_end=897
+  _OPERATIONSTATUS_ERRORCODE._serialized_start=791
+  _OPERATIONSTATUS_ERRORCODE._serialized_end=897
+  _LABELSELECTOR._serialized_start=900
+  _LABELSELECTOR._serialized_end=1033
+  _LABELSELECTOR_LABELSENTRY._serialized_start=988
+  _LABELSELECTOR_LABELSENTRY._serialized_end=1033
+  _REALMSELECTOR._serialized_start=1035
+  _REALMSELECTOR._serialized_end=1066
+  _SCHEDULE._serialized_start=1069
+  _SCHEDULE._serialized_end=1246
+  _SPECSOURCE._serialized_start=1248
+  _SPECSOURCE._serialized_end=1307
+  _TARGETDETAILS._serialized_start=1310
+  _TARGETDETAILS._serialized_end=1887
+  _TARGETDETAILS_TARGETFLEETDETAILS._serialized_start=1484
+  _TARGETDETAILS_TARGETFLEETDETAILS._serialized_end=1887
+  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEET._serialized_start=1699
+  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEET._serialized_end=1787
+  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEETAUTOSCALER._serialized_start=1789
+  _TARGETDETAILS_TARGETFLEETDETAILS_TARGETFLEETAUTOSCALER._serialized_end=1887
+  _TARGETSTATE._serialized_start=1889
+  _TARGETSTATE._serialized_end=1962
+  _DEPLOYEDFLEETDETAILS._serialized_start=1965
+  _DEPLOYEDFLEETDETAILS._serialized_end=2652
+  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET._serialized_start=2181
+  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET._serialized_end=2512
+  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET_DEPLOYEDFLEETSTATUS._serialized_start=2394
+  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEET_DEPLOYEDFLEETSTATUS._serialized_end=2512
+  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEETAUTOSCALER._serialized_start=2515
+  _DEPLOYEDFLEETDETAILS_DEPLOYEDFLEETAUTOSCALER._serialized_end=2652
 # @@protoc_insertion_point(module_scope)

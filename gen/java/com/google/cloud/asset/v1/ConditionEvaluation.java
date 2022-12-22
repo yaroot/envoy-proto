@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConditionEvaluation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            evaluationValue_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1.AssetProto.internal_static_google_cloud_asset_v1_ConditionEvaluation_descriptor;
@@ -260,7 +215,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVALUATION_VALUE_FIELD_NUMBER = 1;
-  private int evaluationValue_;
+  private int evaluationValue_ = 0;
   /**
    * <pre>
    * The evaluation result.
@@ -281,8 +236,7 @@ private static final long serialVersionUID = 0L;
    * @return The evaluationValue.
    */
   @java.lang.Override public com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue getEvaluationValue() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue result = com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.valueOf(evaluationValue_);
+    com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue result = com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.forNumber(evaluationValue_);
     return result == null ? com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.UNRECOGNIZED : result;
   }
 
@@ -303,7 +257,7 @@ private static final long serialVersionUID = 0L;
     if (evaluationValue_ != com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.EVALUATION_VALUE_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, evaluationValue_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -316,7 +270,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, evaluationValue_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -332,7 +286,7 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.asset.v1.ConditionEvaluation other = (com.google.cloud.asset.v1.ConditionEvaluation) obj;
 
     if (evaluationValue_ != other.evaluationValue_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -345,7 +299,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + EVALUATION_VALUE_FIELD_NUMBER;
     hash = (53 * hash) + evaluationValue_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -466,24 +420,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.ConditionEvaluation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       evaluationValue_ = 0;
-
       return this;
     }
 
@@ -510,9 +459,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.ConditionEvaluation buildPartial() {
       com.google.cloud.asset.v1.ConditionEvaluation result = new com.google.cloud.asset.v1.ConditionEvaluation(this);
-      result.evaluationValue_ = evaluationValue_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.ConditionEvaluation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.evaluationValue_ = evaluationValue_;
+      }
     }
 
     @java.lang.Override
@@ -562,7 +518,7 @@ private static final long serialVersionUID = 0L;
       if (other.evaluationValue_ != 0) {
         setEvaluationValueValue(other.getEvaluationValueValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -577,19 +533,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.ConditionEvaluation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              evaluationValue_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.ConditionEvaluation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int evaluationValue_ = 0;
     /**
@@ -613,8 +588,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEvaluationValueValue(int value) {
-      
       evaluationValue_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -628,8 +603,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue getEvaluationValue() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue result = com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.valueOf(evaluationValue_);
+      com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue result = com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.forNumber(evaluationValue_);
       return result == null ? com.google.cloud.asset.v1.ConditionEvaluation.EvaluationValue.UNRECOGNIZED : result;
     }
     /**
@@ -645,7 +619,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       evaluationValue_ = value.getNumber();
       onChanged();
       return this;
@@ -659,7 +633,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEvaluationValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       evaluationValue_ = 0;
       onChanged();
       return this;
@@ -697,7 +671,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConditionEvaluation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

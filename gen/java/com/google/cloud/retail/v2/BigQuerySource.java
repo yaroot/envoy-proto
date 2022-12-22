@@ -39,89 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BigQuerySource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            datasetId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tableId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gcsStagingDir_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dataSchema_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 50: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (partitionCase_ == 6) {
-              subBuilder = ((com.google.type.Date) partition_).toBuilder();
-            }
-            partition_ =
-                input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.type.Date) partition_);
-              partition_ = subBuilder.buildPartial();
-            }
-            partitionCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2.ImportConfigProto.internal_static_google_cloud_retail_v2_BigQuerySource_descriptor;
@@ -178,9 +95,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Only supported in
+   * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
    * </pre>
    *
    * <code>.google.type.Date partition_date = 6;</code>
@@ -193,9 +109,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Only supported in
+   * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
    * </pre>
    *
    * <code>.google.type.Date partition_date = 6;</code>
@@ -211,9 +126,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Only supported in
+   * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
    * </pre>
    *
    * <code>.google.type.Date partition_date = 6;</code>
@@ -227,7 +141,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * The project ID (can be project # or ID) that the BigQuery source is in with
@@ -277,7 +192,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATASET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object datasetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object datasetId_ = "";
   /**
    * <pre>
    * Required. The BigQuery data set to copy the data from with a length limit
@@ -325,7 +241,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TABLE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object tableId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tableId_ = "";
   /**
    * <pre>
    * Required. The BigQuery table to copy the data from with a length limit of
@@ -373,7 +290,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GCS_STAGING_DIR_FIELD_NUMBER = 3;
-  private volatile java.lang.Object gcsStagingDir_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gcsStagingDir_ = "";
   /**
    * <pre>
    * Intermediate Cloud Storage directory used for the import with a length
@@ -423,7 +341,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_SCHEMA_FIELD_NUMBER = 4;
-  private volatile java.lang.Object dataSchema_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dataSchema_ = "";
   /**
    * <pre>
    * The schema to use when parsing the data from the source.
@@ -439,8 +358,7 @@ private static final long serialVersionUID = 0L;
    * * `user_event_ga360`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/3437719.
-   * * `user_event_ga4`: This feature is in private preview. Please contact the
-   *   support team for importing Google Analytics 4 events.
+   * * `user_event_ga4`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/7029846.
    * Supported values for auto-completion imports:
@@ -480,8 +398,7 @@ private static final long serialVersionUID = 0L;
    * * `user_event_ga360`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/3437719.
-   * * `user_event_ga4`: This feature is in private preview. Please contact the
-   *   support team for importing Google Analytics 4 events.
+   * * `user_event_ga4`:
    *   The schema is available here:
    *   https://support.google.com/analytics/answer/7029846.
    * Supported values for auto-completion imports:
@@ -540,7 +457,7 @@ private static final long serialVersionUID = 0L;
     if (partitionCase_ == 6) {
       output.writeMessage(6, (com.google.type.Date) partition_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -568,7 +485,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (com.google.type.Date) partition_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -602,7 +519,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -631,7 +548,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -752,32 +669,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2.BigQuerySource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (partitionDateBuilder_ != null) {
+        partitionDateBuilder_.clear();
+      }
       projectId_ = "";
-
       datasetId_ = "";
-
       tableId_ = "";
-
       gcsStagingDir_ = "";
-
       dataSchema_ = "";
-
       partitionCase_ = 0;
       partition_ = null;
       return this;
@@ -806,21 +717,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2.BigQuerySource buildPartial() {
       com.google.cloud.retail.v2.BigQuerySource result = new com.google.cloud.retail.v2.BigQuerySource(this);
-      if (partitionCase_ == 6) {
-        if (partitionDateBuilder_ == null) {
-          result.partition_ = partition_;
-        } else {
-          result.partition_ = partitionDateBuilder_.build();
-        }
-      }
-      result.projectId_ = projectId_;
-      result.datasetId_ = datasetId_;
-      result.tableId_ = tableId_;
-      result.gcsStagingDir_ = gcsStagingDir_;
-      result.dataSchema_ = dataSchema_;
-      result.partitionCase_ = partitionCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2.BigQuerySource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.datasetId_ = datasetId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tableId_ = tableId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.gcsStagingDir_ = gcsStagingDir_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.dataSchema_ = dataSchema_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.retail.v2.BigQuerySource result) {
+      result.partitionCase_ = partitionCase_;
+      result.partition_ = this.partition_;
+      if (partitionCase_ == 6 &&
+          partitionDateBuilder_ != null) {
+        result.partition_ = partitionDateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -869,22 +797,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2.BigQuerySource.getDefaultInstance()) return this;
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDatasetId().isEmpty()) {
         datasetId_ = other.datasetId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getTableId().isEmpty()) {
         tableId_ = other.tableId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getGcsStagingDir().isEmpty()) {
         gcsStagingDir_ = other.gcsStagingDir_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDataSchema().isEmpty()) {
         dataSchema_ = other.dataSchema_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       switch (other.getPartitionCase()) {
@@ -896,7 +829,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -911,17 +844,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2.BigQuerySource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              datasetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              tableId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 26: {
+              gcsStagingDir_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26
+            case 34: {
+              dataSchema_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 34
+            case 42: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getPartitionDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              partitionCase_ = 6;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2.BigQuerySource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int partitionCase_ = 0;
@@ -939,15 +917,15 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.type.Date, com.google.type.Date.Builder, com.google.type.DateOrBuilder> partitionDateBuilder_;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -960,9 +938,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -985,9 +962,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1008,9 +984,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1029,9 +1004,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1059,9 +1033,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1085,9 +1058,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1098,9 +1070,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1119,9 +1090,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * BigQuery time partitioned table's _PARTITIONDATE in YYYY-MM-DD format.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Only supported in
+     * [ImportProductsRequest][google.cloud.retail.v2.ImportProductsRequest].
      * </pre>
      *
      * <code>.google.type.Date partition_date = 6;</code>
@@ -1141,7 +1111,7 @@ private static final long serialVersionUID = 0L;
         partition_ = null;
       }
       partitionCase_ = 6;
-      onChanged();;
+      onChanged();
       return partitionDateBuilder_;
     }
 
@@ -1204,11 +1174,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1223,8 +1191,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1241,12 +1209,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1307,11 +1273,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatasetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       datasetId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1325,8 +1289,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatasetId() {
-      
       datasetId_ = getDefaultInstance().getDatasetId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1342,12 +1306,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatasetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       datasetId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1408,11 +1370,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTableId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tableId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1426,8 +1386,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTableId() {
-      
       tableId_ = getDefaultInstance().getTableId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1443,12 +1403,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTableIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tableId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1512,11 +1470,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsStagingDir(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gcsStagingDir_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1531,8 +1487,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGcsStagingDir() {
-      
       gcsStagingDir_ = getDefaultInstance().getGcsStagingDir();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1549,12 +1505,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsStagingDirBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gcsStagingDir_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1575,8 +1529,7 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/3437719.
-     * * `user_event_ga4`: This feature is in private preview. Please contact the
-     *   support team for importing Google Analytics 4 events.
+     * * `user_event_ga4`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/7029846.
      * Supported values for auto-completion imports:
@@ -1615,8 +1568,7 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/3437719.
-     * * `user_event_ga4`: This feature is in private preview. Please contact the
-     *   support team for importing Google Analytics 4 events.
+     * * `user_event_ga4`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/7029846.
      * Supported values for auto-completion imports:
@@ -1656,8 +1608,7 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/3437719.
-     * * `user_event_ga4`: This feature is in private preview. Please contact the
-     *   support team for importing Google Analytics 4 events.
+     * * `user_event_ga4`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/7029846.
      * Supported values for auto-completion imports:
@@ -1672,11 +1623,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataSchema(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dataSchema_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1695,8 +1644,7 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/3437719.
-     * * `user_event_ga4`: This feature is in private preview. Please contact the
-     *   support team for importing Google Analytics 4 events.
+     * * `user_event_ga4`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/7029846.
      * Supported values for auto-completion imports:
@@ -1709,8 +1657,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataSchema() {
-      
       dataSchema_ = getDefaultInstance().getDataSchema();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1729,8 +1677,7 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/3437719.
-     * * `user_event_ga4`: This feature is in private preview. Please contact the
-     *   support team for importing Google Analytics 4 events.
+     * * `user_event_ga4`:
      *   The schema is available here:
      *   https://support.google.com/analytics/answer/7029846.
      * Supported values for auto-completion imports:
@@ -1745,12 +1692,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataSchemaBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dataSchema_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1787,7 +1732,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BigQuerySource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

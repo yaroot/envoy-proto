@@ -84,7 +84,6 @@ public interface InlineSecretOrBuilder extends
    *
    * <code>map&lt;string, bytes&gt; env_map = 2;</code>
    */
-
   /* nullable */
 com.google.protobuf.ByteString getEnvMapOrDefault(
       java.lang.String key,
@@ -101,7 +100,6 @@ com.google.protobuf.ByteString defaultValue);
    *
    * <code>map&lt;string, bytes&gt; env_map = 2;</code>
    */
-
   com.google.protobuf.ByteString getEnvMapOrThrow(
       java.lang.String key);
 }

@@ -12,20 +12,23 @@ public interface SoftwareConfigOrBuilder extends
    * The version of the software running in the environment.
    * This encapsulates both the version of Cloud Composer functionality and the
    * version of Apache Airflow. It must match the regular expression
-   * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+   * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
    * When used as input, the server also checks if the provided version is
    * supported and denies the request for an unsupported version.
-   * The Cloud Composer portion of the version is a
-   * [semantic version](https://semver.org) or `latest`. When the patch version
-   * is omitted, the current Cloud Composer patch version is selected.
-   * When `latest` is provided instead of an explicit version number,
-   * the server replaces `latest` with the current Cloud Composer version
-   * and stores that version number in the same field.
-   * The portion of the image version that follows *airflow-* is an
-   * official Apache Airflow repository
-   * [release name](https://github.com/apache/incubator-airflow/releases).
-   * See also [Version
-   * List](/composer/docs/concepts/versioning/composer-versions).
+   * The Cloud Composer portion of the image version is a full
+   * [semantic version](https://semver.org), or an alias in the form of major
+   * version number or `latest`. When an alias is provided, the server replaces
+   * it with the current Cloud Composer version that satisfies the alias.
+   * The Apache Airflow portion of the image version is a full semantic version
+   * that points to one of the supported Apache Airflow versions, or an alias in
+   * the form of only major or major.minor versions specified. When an alias is
+   * provided, the server replaces it with the latest Apache Airflow version
+   * that satisfies the alias and is supported in the given Cloud Composer
+   * version.
+   * In all cases, the resolved image version is stored in the same field.
+   * See also [version
+   * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+   * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
    * </pre>
    *
    * <code>string image_version = 1;</code>
@@ -37,20 +40,23 @@ public interface SoftwareConfigOrBuilder extends
    * The version of the software running in the environment.
    * This encapsulates both the version of Cloud Composer functionality and the
    * version of Apache Airflow. It must match the regular expression
-   * `composer-([0-9]+&#92;.[0-9]+&#92;.[0-9]+|latest)-airflow-[0-9]+&#92;.[0-9]+(&#92;.[0-9]+.*)?`.
+   * `composer-([0-9]+(&#92;.[0-9]+&#92;.[0-9]+(-preview&#92;.[0-9]+)?)?|latest)-airflow-([0-9]+(&#92;.[0-9]+(&#92;.[0-9]+)?)?)`.
    * When used as input, the server also checks if the provided version is
    * supported and denies the request for an unsupported version.
-   * The Cloud Composer portion of the version is a
-   * [semantic version](https://semver.org) or `latest`. When the patch version
-   * is omitted, the current Cloud Composer patch version is selected.
-   * When `latest` is provided instead of an explicit version number,
-   * the server replaces `latest` with the current Cloud Composer version
-   * and stores that version number in the same field.
-   * The portion of the image version that follows *airflow-* is an
-   * official Apache Airflow repository
-   * [release name](https://github.com/apache/incubator-airflow/releases).
-   * See also [Version
-   * List](/composer/docs/concepts/versioning/composer-versions).
+   * The Cloud Composer portion of the image version is a full
+   * [semantic version](https://semver.org), or an alias in the form of major
+   * version number or `latest`. When an alias is provided, the server replaces
+   * it with the current Cloud Composer version that satisfies the alias.
+   * The Apache Airflow portion of the image version is a full semantic version
+   * that points to one of the supported Apache Airflow versions, or an alias in
+   * the form of only major or major.minor versions specified. When an alias is
+   * provided, the server replaces it with the latest Apache Airflow version
+   * that satisfies the alias and is supported in the given Cloud Composer
+   * version.
+   * In all cases, the resolved image version is stored in the same field.
+   * See also [version
+   * list](/composer/docs/concepts/versioning/composer-versions) and [versioning
+   * overview](/composer/docs/concepts/versioning/composer-versioning-overview).
    * </pre>
    *
    * <code>string image_version = 1;</code>
@@ -146,7 +152,6 @@ public interface SoftwareConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getAirflowConfigOverridesOrDefault(
       java.lang.String key,
@@ -171,7 +176,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; airflow_config_overrides = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getAirflowConfigOverridesOrThrow(
       java.lang.String key);
 
@@ -238,7 +242,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getPypiPackagesOrDefault(
       java.lang.String key,
@@ -257,7 +260,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; pypi_packages = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getPypiPackagesOrThrow(
       java.lang.String key);
 
@@ -376,7 +378,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getEnvVariablesOrDefault(
       java.lang.String key,
@@ -408,7 +409,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; env_variables = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getEnvVariablesOrThrow(
       java.lang.String key);
 
@@ -418,6 +418,9 @@ java.lang.String defaultValue);
    * scheduler, worker, and webserver processes.
    * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
    * updated.
+   * This field is only supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+   * Python major version 3.
    * </pre>
    *
    * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -430,6 +433,9 @@ java.lang.String defaultValue);
    * scheduler, worker, and webserver processes.
    * Can be set to '2' or '3'. If not specified, the default is '3'. Cannot be
    * updated.
+   * This field is only supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+   * Python major version 3.
    * </pre>
    *
    * <code>string python_version = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -437,4 +443,43 @@ java.lang.String defaultValue);
    */
   com.google.protobuf.ByteString
       getPythonVersionBytes();
+
+  /**
+   * <pre>
+   * Optional. The number of schedulers for Airflow.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-2.*.*.
+   * </pre>
+   *
+   * <code>int32 scheduler_count = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The schedulerCount.
+   */
+  int getSchedulerCount();
+
+  /**
+   * <pre>
+   * Optional. The configuration for Cloud Data Lineage integration.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the cloudDataLineageIntegration field is set.
+   */
+  boolean hasCloudDataLineageIntegration();
+  /**
+   * <pre>
+   * Optional. The configuration for Cloud Data Lineage integration.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The cloudDataLineageIntegration.
+   */
+  com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration getCloudDataLineageIntegration();
+  /**
+   * <pre>
+   * Optional. The configuration for Cloud Data Lineage integration.
+   * </pre>
+   *
+   * <code>.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegration cloud_data_lineage_integration = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  com.google.cloud.orchestration.airflow.service.v1beta1.CloudDataLineageIntegrationOrBuilder getCloudDataLineageIntegrationOrBuilder();
 }

@@ -28,4 +28,25 @@ public interface GetWriteStreamRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getNameBytes();
+
+  /**
+   * <pre>
+   * Indicates whether to get full or partial view of the WriteStream. If
+   * not set, view returned will be basic.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+   * @return The enum numeric value on the wire for view.
+   */
+  int getViewValue();
+  /**
+   * <pre>
+   * Indicates whether to get full or partial view of the WriteStream. If
+   * not set, view returned will be basic.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+   * @return The view.
+   */
+  com.google.cloud.bigquery.storage.v1.WriteStreamView getView();
 }

@@ -22,7 +22,7 @@ from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__
 from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/devtools/remoteworkers/v1test2/bots.proto\x12%google.devtools.remoteworkers.v1test2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/devtools/remoteworkers/v1test2/worker.proto\x1a\x19google/protobuf/any.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\x86\x03\n\nBotSession\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06\x62ot_id\x18\x02 \x01(\t\x12@\n\x06status\x18\x03 \x01(\x0e\x32\x30.google.devtools.remoteworkers.v1test2.BotStatus\x12=\n\x06worker\x18\x04 \x01(\x0b\x32-.google.devtools.remoteworkers.v1test2.Worker\x12<\n\x06leases\x18\x05 \x03(\x0b\x32,.google.devtools.remoteworkers.v1test2.Lease\x12/\n\x0b\x65xpire_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07version\x18\x07 \x01(\t:Y\xea\x41V\n\'remoteworkers.googleapis.com/BotSession\x12+{unknown_path=**}/botSessions/{bot_session}\"\x89\x03\n\x05Lease\x12\n\n\x02id\x18\x07 \x01(\t\x12%\n\x07payload\x18\x08 \x01(\x0b\x32\x14.google.protobuf.Any\x12$\n\x06result\x18\t \x01(\x0b\x32\x14.google.protobuf.Any\x12@\n\x05state\x18\x02 \x01(\x0e\x32\x31.google.devtools.remoteworkers.v1test2.LeaseState\x12\"\n\x06status\x18\x03 \x01(\x0b\x32\x12.google.rpc.Status\x12\x43\n\x0crequirements\x18\x04 \x01(\x0b\x32-.google.devtools.remoteworkers.v1test2.Worker\x12/\n\x0b\x65xpire_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\nassignment\x18\x01 \x01(\tB\x02\x18\x01\x12\x33\n\x11inline_assignment\x18\x06 \x01(\x0b\x32\x14.google.protobuf.AnyB\x02\x18\x01\"\xc5\x01\n\tAdminTemp\x12I\n\x07\x63ommand\x18\x01 \x01(\x0e\x32\x38.google.devtools.remoteworkers.v1test2.AdminTemp.Command\x12\x0b\n\x03\x61rg\x18\x02 \x01(\t\"`\n\x07\x43ommand\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0e\n\nBOT_UPDATE\x10\x01\x12\x0f\n\x0b\x42OT_RESTART\x10\x02\x12\x11\n\rBOT_TERMINATE\x10\x03\x12\x10\n\x0cHOST_RESTART\x10\x04\"{\n\x17\x43reateBotSessionRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0b\x62ot_session\x18\x02 \x01(\x0b\x32\x31.google.devtools.remoteworkers.v1test2.BotSessionB\x03\xe0\x41\x02\"\xdb\x01\n\x17UpdateBotSessionRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'remoteworkers.googleapis.com/BotSession\x12K\n\x0b\x62ot_session\x18\x02 \x01(\x0b\x32\x31.google.devtools.remoteworkers.v1test2.BotSessionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02*y\n\tBotStatus\x12\x1a\n\x16\x42OT_STATUS_UNSPECIFIED\x10\x00\x12\x06\n\x02OK\x10\x01\x12\r\n\tUNHEALTHY\x10\x02\x12\x12\n\x0eHOST_REBOOTING\x10\x03\x12\x13\n\x0f\x42OT_TERMINATING\x10\x04\x12\x10\n\x0cINITIALIZING\x10\x05*`\n\nLeaseState\x12\x1b\n\x17LEASE_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\r\n\tCOMPLETED\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\xd9\x03\n\x04\x42ots\x12\xd1\x01\n\x10\x43reateBotSession\x12>.google.devtools.remoteworkers.v1test2.CreateBotSessionRequest\x1a\x31.google.devtools.remoteworkers.v1test2.BotSession\"J\x82\xd3\xe4\x93\x02/\" /v1test2/{parent=**}/botSessions:\x0b\x62ot_session\xda\x41\x12parent,bot_session\x12\xdb\x01\n\x10UpdateBotSession\x12>.google.devtools.remoteworkers.v1test2.UpdateBotSessionRequest\x1a\x31.google.devtools.remoteworkers.v1test2.BotSession\"T\x82\xd3\xe4\x93\x02/2 /v1test2/{name=**/botSessions/*}:\x0b\x62ot_session\xda\x41\x1cname,bot_session,update_mask\x1a\x1f\xca\x41\x1cremoteworkers.googleapis.comB\xe6\x01\n)com.google.devtools.remoteworkers.v1test2B\x11RemoteWorkersBotsP\x01ZRgoogle.golang.org/genproto/googleapis/devtools/remoteworkers/v1test2;remoteworkers\xa2\x02\x02RW\xaa\x02%Google.DevTools.RemoteWorkers.V1Test2\xca\x02\"Google\\Cloud\\Remoteworkers\\V1test2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/devtools/remoteworkers/v1test2/bots.proto\x12%google.devtools.remoteworkers.v1test2\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x32google/devtools/remoteworkers/v1test2/worker.proto\x1a\x19google/protobuf/any.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x17google/rpc/status.proto\"\x83\x03\n\nBotSession\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x0e\n\x06\x62ot_id\x18\x02 \x01(\t\x12@\n\x06status\x18\x03 \x01(\x0e\x32\x30.google.devtools.remoteworkers.v1test2.BotStatus\x12=\n\x06worker\x18\x04 \x01(\x0b\x32-.google.devtools.remoteworkers.v1test2.Worker\x12<\n\x06leases\x18\x05 \x03(\x0b\x32,.google.devtools.remoteworkers.v1test2.Lease\x12/\n\x0b\x65xpire_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x0f\n\x07version\x18\x07 \x01(\t:V\xea\x41S\n\'remoteworkers.googleapis.com/BotSession\x12({unknown_path}/botSessions/{bot_session}\"\x89\x03\n\x05Lease\x12\n\n\x02id\x18\x07 \x01(\t\x12%\n\x07payload\x18\x08 \x01(\x0b\x32\x14.google.protobuf.Any\x12$\n\x06result\x18\t \x01(\x0b\x32\x14.google.protobuf.Any\x12@\n\x05state\x18\x02 \x01(\x0e\x32\x31.google.devtools.remoteworkers.v1test2.LeaseState\x12\"\n\x06status\x18\x03 \x01(\x0b\x32\x12.google.rpc.Status\x12\x43\n\x0crequirements\x18\x04 \x01(\x0b\x32-.google.devtools.remoteworkers.v1test2.Worker\x12/\n\x0b\x65xpire_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x16\n\nassignment\x18\x01 \x01(\tB\x02\x18\x01\x12\x33\n\x11inline_assignment\x18\x06 \x01(\x0b\x32\x14.google.protobuf.AnyB\x02\x18\x01\"\xc5\x01\n\tAdminTemp\x12I\n\x07\x63ommand\x18\x01 \x01(\x0e\x32\x38.google.devtools.remoteworkers.v1test2.AdminTemp.Command\x12\x0b\n\x03\x61rg\x18\x02 \x01(\t\"`\n\x07\x43ommand\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0e\n\nBOT_UPDATE\x10\x01\x12\x0f\n\x0b\x42OT_RESTART\x10\x02\x12\x11\n\rBOT_TERMINATE\x10\x03\x12\x10\n\x0cHOST_RESTART\x10\x04\"{\n\x17\x43reateBotSessionRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12K\n\x0b\x62ot_session\x18\x02 \x01(\x0b\x32\x31.google.devtools.remoteworkers.v1test2.BotSessionB\x03\xe0\x41\x02\"\xdb\x01\n\x17UpdateBotSessionRequest\x12=\n\x04name\x18\x01 \x01(\tB/\xe0\x41\x02\xfa\x41)\n\'remoteworkers.googleapis.com/BotSession\x12K\n\x0b\x62ot_session\x18\x02 \x01(\x0b\x32\x31.google.devtools.remoteworkers.v1test2.BotSessionB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02*y\n\tBotStatus\x12\x1a\n\x16\x42OT_STATUS_UNSPECIFIED\x10\x00\x12\x06\n\x02OK\x10\x01\x12\r\n\tUNHEALTHY\x10\x02\x12\x12\n\x0eHOST_REBOOTING\x10\x03\x12\x13\n\x0f\x42OT_TERMINATING\x10\x04\x12\x10\n\x0cINITIALIZING\x10\x05*`\n\nLeaseState\x12\x1b\n\x17LEASE_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07PENDING\x10\x01\x12\n\n\x06\x41\x43TIVE\x10\x02\x12\r\n\tCOMPLETED\x10\x04\x12\r\n\tCANCELLED\x10\x05\x32\xd9\x03\n\x04\x42ots\x12\xd1\x01\n\x10\x43reateBotSession\x12>.google.devtools.remoteworkers.v1test2.CreateBotSessionRequest\x1a\x31.google.devtools.remoteworkers.v1test2.BotSession\"J\x82\xd3\xe4\x93\x02/\" /v1test2/{parent=**}/botSessions:\x0b\x62ot_session\xda\x41\x12parent,bot_session\x12\xdb\x01\n\x10UpdateBotSession\x12>.google.devtools.remoteworkers.v1test2.UpdateBotSessionRequest\x1a\x31.google.devtools.remoteworkers.v1test2.BotSession\"T\x82\xd3\xe4\x93\x02/2 /v1test2/{name=**/botSessions/*}:\x0b\x62ot_session\xda\x41\x1cname,bot_session,update_mask\x1a\x1f\xca\x41\x1cremoteworkers.googleapis.comB\xe6\x01\n)com.google.devtools.remoteworkers.v1test2B\x11RemoteWorkersBotsP\x01ZRgoogle.golang.org/genproto/googleapis/devtools/remoteworkers/v1test2;remoteworkers\xa2\x02\x02RW\xaa\x02%Google.DevTools.RemoteWorkers.V1Test2\xca\x02\"Google\\Cloud\\Remoteworkers\\V1test2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.devtools.remoteworkers.v1test2.bots_pb2', globals())
@@ -31,7 +31,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n)com.google.devtools.remoteworkers.v1test2B\021RemoteWorkersBotsP\001ZRgoogle.golang.org/genproto/googleapis/devtools/remoteworkers/v1test2;remoteworkers\242\002\002RW\252\002%Google.DevTools.RemoteWorkers.V1Test2\312\002\"Google\\Cloud\\Remoteworkers\\V1test2'
   _BOTSESSION._options = None
-  _BOTSESSION._serialized_options = b'\352AV\n\'remoteworkers.googleapis.com/BotSession\022+{unknown_path=**}/botSessions/{bot_session}'
+  _BOTSESSION._serialized_options = b'\352AS\n\'remoteworkers.googleapis.com/BotSession\022({unknown_path}/botSessions/{bot_session}'
   _LEASE.fields_by_name['assignment']._options = None
   _LEASE.fields_by_name['assignment']._serialized_options = b'\030\001'
   _LEASE.fields_by_name['inline_assignment']._options = None
@@ -52,22 +52,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _BOTS.methods_by_name['CreateBotSession']._serialized_options = b'\202\323\344\223\002/\" /v1test2/{parent=**}/botSessions:\013bot_session\332A\022parent,bot_session'
   _BOTS.methods_by_name['UpdateBotSession']._options = None
   _BOTS.methods_by_name['UpdateBotSession']._serialized_options = b'\202\323\344\223\002/2 /v1test2/{name=**/botSessions/*}:\013bot_session\332A\034name,bot_session,update_mask'
-  _BOTSTATUS._serialized_start=1713
-  _BOTSTATUS._serialized_end=1834
-  _LEASESTATE._serialized_start=1836
-  _LEASESTATE._serialized_end=1932
+  _BOTSTATUS._serialized_start=1710
+  _BOTSTATUS._serialized_end=1831
+  _LEASESTATE._serialized_start=1833
+  _LEASESTATE._serialized_end=1929
   _BOTSESSION._serialized_start=378
-  _BOTSESSION._serialized_end=768
-  _LEASE._serialized_start=771
-  _LEASE._serialized_end=1164
-  _ADMINTEMP._serialized_start=1167
-  _ADMINTEMP._serialized_end=1364
-  _ADMINTEMP_COMMAND._serialized_start=1268
-  _ADMINTEMP_COMMAND._serialized_end=1364
-  _CREATEBOTSESSIONREQUEST._serialized_start=1366
-  _CREATEBOTSESSIONREQUEST._serialized_end=1489
-  _UPDATEBOTSESSIONREQUEST._serialized_start=1492
-  _UPDATEBOTSESSIONREQUEST._serialized_end=1711
-  _BOTS._serialized_start=1935
-  _BOTS._serialized_end=2408
+  _BOTSESSION._serialized_end=765
+  _LEASE._serialized_start=768
+  _LEASE._serialized_end=1161
+  _ADMINTEMP._serialized_start=1164
+  _ADMINTEMP._serialized_end=1361
+  _ADMINTEMP_COMMAND._serialized_start=1265
+  _ADMINTEMP_COMMAND._serialized_end=1361
+  _CREATEBOTSESSIONREQUEST._serialized_start=1363
+  _CREATEBOTSESSIONREQUEST._serialized_end=1486
+  _UPDATEBOTSESSIONREQUEST._serialized_start=1489
+  _UPDATEBOTSESSIONREQUEST._serialized_end=1708
+  _BOTS._serialized_start=1932
+  _BOTS._serialized_end=2405
 # @@protoc_insertion_point(module_scope)

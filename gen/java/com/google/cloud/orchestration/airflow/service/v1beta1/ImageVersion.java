@@ -36,92 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImageVersion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageVersionId_ = s;
-            break;
-          }
-          case 16: {
-
-            isDefault_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              supportedPythonVersions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            supportedPythonVersions_.add(s);
-            break;
-          }
-          case 34: {
-            com.google.type.Date.Builder subBuilder = null;
-            if (releaseDate_ != null) {
-              subBuilder = releaseDate_.toBuilder();
-            }
-            releaseDate_ = input.readMessage(com.google.type.Date.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(releaseDate_);
-              releaseDate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            creationDisabled_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            upgradeDisabled_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        supportedPythonVersions_ = supportedPythonVersions_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersionsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_ImageVersion_descriptor;
@@ -136,11 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_VERSION_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object imageVersionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageVersionId_ = "";
   /**
    * <pre>
    * The string identifier of the ImageVersion, in the form:
-   * "composer-x.y.z-airflow-a.b(.c)"
+   * "composer-x.y.z-airflow-a.b.c"
    * </pre>
    *
    * <code>string image_version_id = 1;</code>
@@ -162,7 +77,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The string identifier of the ImageVersion, in the form:
-   * "composer-x.y.z-airflow-a.b(.c)"
+   * "composer-x.y.z-airflow-a.b.c"
    * </pre>
    *
    * <code>string image_version_id = 1;</code>
@@ -184,7 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IS_DEFAULT_FIELD_NUMBER = 2;
-  private boolean isDefault_;
+  private boolean isDefault_ = false;
   /**
    * <pre>
    * Whether this is the default ImageVersion used by Composer during
@@ -200,6 +115,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUPPORTED_PYTHON_VERSIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList supportedPythonVersions_;
   /**
    * <pre>
@@ -285,11 +201,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.DateOrBuilder getReleaseDateOrBuilder() {
-    return getReleaseDate();
+    return releaseDate_ == null ? com.google.type.Date.getDefaultInstance() : releaseDate_;
   }
 
   public static final int CREATION_DISABLED_FIELD_NUMBER = 5;
-  private boolean creationDisabled_;
+  private boolean creationDisabled_ = false;
   /**
    * <pre>
    * Whether it is impossible to create an environment with the image version.
@@ -304,7 +220,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPGRADE_DISABLED_FIELD_NUMBER = 6;
-  private boolean upgradeDisabled_;
+  private boolean upgradeDisabled_ = false;
   /**
    * <pre>
    * Whether it is impossible to upgrade an environment running with the image
@@ -351,7 +267,7 @@ private static final long serialVersionUID = 0L;
     if (upgradeDisabled_ != false) {
       output.writeBool(6, upgradeDisabled_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -387,7 +303,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, upgradeDisabled_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -417,7 +333,7 @@ private static final long serialVersionUID = 0L;
         != other.getCreationDisabled()) return false;
     if (getUpgradeDisabled()
         != other.getUpgradeDisabled()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -447,7 +363,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + UPGRADE_DISABLED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUpgradeDisabled());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -568,38 +484,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       imageVersionId_ = "";
-
       isDefault_ = false;
-
       supportedPythonVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (releaseDateBuilder_ == null) {
-        releaseDate_ = null;
-      } else {
-        releaseDate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      releaseDate_ = null;
+      if (releaseDateBuilder_ != null) {
+        releaseDateBuilder_.dispose();
         releaseDateBuilder_ = null;
       }
       creationDisabled_ = false;
-
       upgradeDisabled_ = false;
-
       return this;
     }
 
@@ -626,23 +533,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion result = new com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion(this);
-      int from_bitField0_ = bitField0_;
-      result.imageVersionId_ = imageVersionId_;
-      result.isDefault_ = isDefault_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        supportedPythonVersions_ = supportedPythonVersions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.supportedPythonVersions_ = supportedPythonVersions_;
-      if (releaseDateBuilder_ == null) {
-        result.releaseDate_ = releaseDate_;
-      } else {
-        result.releaseDate_ = releaseDateBuilder_.build();
-      }
-      result.creationDisabled_ = creationDisabled_;
-      result.upgradeDisabled_ = upgradeDisabled_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        supportedPythonVersions_ = supportedPythonVersions_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.supportedPythonVersions_ = supportedPythonVersions_;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.imageVersionId_ = imageVersionId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.isDefault_ = isDefault_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.releaseDate_ = releaseDateBuilder_ == null
+            ? releaseDate_
+            : releaseDateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.creationDisabled_ = creationDisabled_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.upgradeDisabled_ = upgradeDisabled_;
+      }
     }
 
     @java.lang.Override
@@ -691,6 +614,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion.getDefaultInstance()) return this;
       if (!other.getImageVersionId().isEmpty()) {
         imageVersionId_ = other.imageVersionId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getIsDefault() != false) {
@@ -699,7 +623,7 @@ private static final long serialVersionUID = 0L;
       if (!other.supportedPythonVersions_.isEmpty()) {
         if (supportedPythonVersions_.isEmpty()) {
           supportedPythonVersions_ = other.supportedPythonVersions_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureSupportedPythonVersionsIsMutable();
           supportedPythonVersions_.addAll(other.supportedPythonVersions_);
@@ -715,7 +639,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUpgradeDisabled() != false) {
         setUpgradeDisabled(other.getUpgradeDisabled());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -730,17 +654,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              imageVersionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              isDefault_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSupportedPythonVersionsIsMutable();
+              supportedPythonVersions_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getReleaseDateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              creationDisabled_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              upgradeDisabled_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.ImageVersion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -749,7 +719,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The string identifier of the ImageVersion, in the form:
-     * "composer-x.y.z-airflow-a.b(.c)"
+     * "composer-x.y.z-airflow-a.b.c"
      * </pre>
      *
      * <code>string image_version_id = 1;</code>
@@ -770,7 +740,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The string identifier of the ImageVersion, in the form:
-     * "composer-x.y.z-airflow-a.b(.c)"
+     * "composer-x.y.z-airflow-a.b.c"
      * </pre>
      *
      * <code>string image_version_id = 1;</code>
@@ -792,7 +762,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The string identifier of the ImageVersion, in the form:
-     * "composer-x.y.z-airflow-a.b(.c)"
+     * "composer-x.y.z-airflow-a.b.c"
      * </pre>
      *
      * <code>string image_version_id = 1;</code>
@@ -801,33 +771,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageVersionId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The string identifier of the ImageVersion, in the form:
-     * "composer-x.y.z-airflow-a.b(.c)"
+     * "composer-x.y.z-airflow-a.b.c"
      * </pre>
      *
      * <code>string image_version_id = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearImageVersionId() {
-      
       imageVersionId_ = getDefaultInstance().getImageVersionId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The string identifier of the ImageVersion, in the form:
-     * "composer-x.y.z-airflow-a.b(.c)"
+     * "composer-x.y.z-airflow-a.b.c"
      * </pre>
      *
      * <code>string image_version_id = 1;</code>
@@ -836,12 +804,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageVersionId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -873,6 +839,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIsDefault(boolean value) {
       
       isDefault_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -886,7 +853,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIsDefault() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       isDefault_ = false;
       onChanged();
       return this;
@@ -894,9 +861,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList supportedPythonVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSupportedPythonVersionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         supportedPythonVersions_ = new com.google.protobuf.LazyStringArrayList(supportedPythonVersions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -959,10 +926,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSupportedPythonVersions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSupportedPythonVersionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedPythonVersionsIsMutable();
       supportedPythonVersions_.set(index, value);
       onChanged();
       return this;
@@ -978,10 +943,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSupportedPythonVersions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSupportedPythonVersionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSupportedPythonVersionsIsMutable();
       supportedPythonVersions_.add(value);
       onChanged();
       return this;
@@ -1013,7 +976,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSupportedPythonVersions() {
       supportedPythonVersions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1028,10 +991,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSupportedPythonVersionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSupportedPythonVersionsIsMutable();
       supportedPythonVersions_.add(value);
       onChanged();
@@ -1050,7 +1011,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the releaseDate field is set.
      */
     public boolean hasReleaseDate() {
-      return releaseDateBuilder_ != null || releaseDate_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1080,11 +1041,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         releaseDate_ = value;
-        onChanged();
       } else {
         releaseDateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1098,11 +1059,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.Date.Builder builderForValue) {
       if (releaseDateBuilder_ == null) {
         releaseDate_ = builderForValue.build();
-        onChanged();
       } else {
         releaseDateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1114,17 +1075,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReleaseDate(com.google.type.Date value) {
       if (releaseDateBuilder_ == null) {
-        if (releaseDate_ != null) {
-          releaseDate_ =
-            com.google.type.Date.newBuilder(releaseDate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          releaseDate_ != null &&
+          releaseDate_ != com.google.type.Date.getDefaultInstance()) {
+          getReleaseDateBuilder().mergeFrom(value);
         } else {
           releaseDate_ = value;
         }
-        onChanged();
       } else {
         releaseDateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1135,14 +1097,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date release_date = 4;</code>
      */
     public Builder clearReleaseDate() {
-      if (releaseDateBuilder_ == null) {
-        releaseDate_ = null;
-        onChanged();
-      } else {
-        releaseDate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      releaseDate_ = null;
+      if (releaseDateBuilder_ != null) {
+        releaseDateBuilder_.dispose();
         releaseDateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1153,7 +1114,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.Date release_date = 4;</code>
      */
     public com.google.type.Date.Builder getReleaseDateBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getReleaseDateFieldBuilder().getBuilder();
     }
@@ -1218,6 +1179,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCreationDisabled(boolean value) {
       
       creationDisabled_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1230,7 +1192,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationDisabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       creationDisabled_ = false;
       onChanged();
       return this;
@@ -1263,6 +1225,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpgradeDisabled(boolean value) {
       
       upgradeDisabled_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1276,7 +1239,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpgradeDisabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       upgradeDisabled_ = false;
       onChanged();
       return this;
@@ -1314,7 +1277,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImageVersion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

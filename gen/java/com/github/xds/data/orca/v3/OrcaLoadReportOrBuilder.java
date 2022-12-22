@@ -83,7 +83,6 @@ public interface OrcaLoadReportOrBuilder extends
    *
    * <code>map&lt;string, double&gt; request_cost = 4;</code>
    */
-
   double getRequestCostOrDefault(
       java.lang.String key,
       double defaultValue);
@@ -95,7 +94,6 @@ public interface OrcaLoadReportOrBuilder extends
    *
    * <code>map&lt;string, double&gt; request_cost = 4;</code>
    */
-
   double getRequestCostOrThrow(
       java.lang.String key);
 
@@ -142,7 +140,6 @@ public interface OrcaLoadReportOrBuilder extends
    *
    * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
    */
-
   double getUtilizationOrDefault(
       java.lang.String key,
       double defaultValue);
@@ -154,7 +151,6 @@ public interface OrcaLoadReportOrBuilder extends
    *
    * <code>map&lt;string, double&gt; utilization = 5 [(.validate.rules) = { ... }</code>
    */
-
   double getUtilizationOrThrow(
       java.lang.String key);
 }

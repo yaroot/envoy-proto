@@ -442,7 +442,7 @@ public interface Http2ProtocolOptionsOrBuilder extends
    *
    * <code>bool stream_error_on_invalid_http_messaging = 12 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.core.v3.Http2ProtocolOptions.stream_error_on_invalid_http_messaging is deprecated.
-   *     See envoy/config/core/v3/protocol.proto;l=506
+   *     See envoy/config/core/v3/protocol.proto;l=518
    * @return The streamErrorOnInvalidHttpMessaging.
    */
   @java.lang.Deprecated boolean getStreamErrorOnInvalidHttpMessaging();

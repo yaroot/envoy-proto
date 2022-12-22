@@ -202,7 +202,6 @@ public final class Resources {
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     /* nullable */
 com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrDefault(
         java.lang.String key,
@@ -221,7 +220,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrThrow(
         java.lang.String key);
 
@@ -268,7 +266,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     /* nullable */
 com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrDefault(
         java.lang.String key,
@@ -282,7 +279,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrThrow(
         java.lang.String key);
 
@@ -329,7 +325,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     /* nullable */
 com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrDefault(
         java.lang.String key,
@@ -343,7 +338,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrThrow(
         java.lang.String key);
 
@@ -402,7 +396,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     /* nullable */
 com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrDefault(
         java.lang.String key,
@@ -419,7 +412,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrThrow(
         java.lang.String key);
 
@@ -514,154 +506,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Policy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                admissionWhitelistPatterns_ = new java.util.ArrayList<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              admissionWhitelistPatterns_.add(
-                  input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                clusterAdmissionRules_ = com.google.protobuf.MapField.newMapField(
-                    ClusterAdmissionRulesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-              clusterAdmissionRules__ = input.readMessage(
-                  ClusterAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              clusterAdmissionRules_.getMutableMap().put(
-                  clusterAdmissionRules__.getKey(), clusterAdmissionRules__.getValue());
-              break;
-            }
-            case 34: {
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.Builder subBuilder = null;
-              if (defaultAdmissionRule_ != null) {
-                subBuilder = defaultAdmissionRule_.toBuilder();
-              }
-              defaultAdmissionRule_ = input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(defaultAdmissionRule_);
-                defaultAdmissionRule_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (updateTime_ != null) {
-                subBuilder = updateTime_.toBuilder();
-              }
-              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateTime_);
-                updateTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 56: {
-              int rawValue = input.readEnum();
-
-              globalPolicyEvaluationMode_ = rawValue;
-              break;
-            }
-            case 66: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                kubernetesServiceAccountAdmissionRules_ = com.google.protobuf.MapField.newMapField(
-                    KubernetesServiceAccountAdmissionRulesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-              kubernetesServiceAccountAdmissionRules__ = input.readMessage(
-                  KubernetesServiceAccountAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              kubernetesServiceAccountAdmissionRules_.getMutableMap().put(
-                  kubernetesServiceAccountAdmissionRules__.getKey(), kubernetesServiceAccountAdmissionRules__.getValue());
-              break;
-            }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                istioServiceIdentityAdmissionRules_ = com.google.protobuf.MapField.newMapField(
-                    IstioServiceIdentityAdmissionRulesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-              istioServiceIdentityAdmissionRules__ = input.readMessage(
-                  IstioServiceIdentityAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              istioServiceIdentityAdmissionRules_.getMutableMap().put(
-                  istioServiceIdentityAdmissionRules__.getKey(), istioServiceIdentityAdmissionRules__.getValue());
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                kubernetesNamespaceAdmissionRules_ = com.google.protobuf.MapField.newMapField(
-                    KubernetesNamespaceAdmissionRulesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000004;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-              kubernetesNamespaceAdmissionRules__ = input.readMessage(
-                  KubernetesNamespaceAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              kubernetesNamespaceAdmissionRules_.getMutableMap().put(
-                  kubernetesNamespaceAdmissionRules__.getKey(), kubernetesNamespaceAdmissionRules__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          admissionWhitelistPatterns_ = java.util.Collections.unmodifiableList(admissionWhitelistPatterns_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -836,7 +680,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Output only. The resource name, in the format `projects/&#42;&#47;policy`. There is
@@ -884,7 +729,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 6;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * Optional. A descriptive comment.
@@ -930,7 +776,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int GLOBAL_POLICY_EVALUATION_MODE_FIELD_NUMBER = 7;
-    private int globalPolicyEvaluationMode_;
+    private int globalPolicyEvaluationMode_ = 0;
     /**
      * <pre>
      * Optional. Controls the evaluation of a Google-maintained global admission
@@ -957,12 +803,12 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * @return The globalPolicyEvaluationMode.
      */
     @java.lang.Override public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode getGlobalPolicyEvaluationMode() {
-      @SuppressWarnings("deprecation")
-      com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode.valueOf(globalPolicyEvaluationMode_);
+      com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode.forNumber(globalPolicyEvaluationMode_);
       return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode.UNRECOGNIZED : result;
     }
 
     public static final int ADMISSION_WHITELIST_PATTERNS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern> admissionWhitelistPatterns_;
     /**
      * <pre>
@@ -1044,6 +890,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> clusterAdmissionRules_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
@@ -1054,7 +901,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       }
       return clusterAdmissionRules_;
     }
-
     public int getClusterAdmissionRulesCount() {
       return internalGetClusterAdmissionRules().getMap().size();
     }
@@ -1071,7 +917,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsClusterAdmissionRules(
         java.lang.String key) {
@@ -1100,7 +945,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getClusterAdmissionRulesMap() {
       return internalGetClusterAdmissionRules().getMap();
     }
@@ -1118,10 +962,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrDefault(
+    public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrDefault(
         java.lang.String key,
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+        /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
           internalGetClusterAdmissionRules().getMap();
@@ -1141,7 +986,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1165,6 +1009,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> kubernetesNamespaceAdmissionRules_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
@@ -1175,7 +1020,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       }
       return kubernetesNamespaceAdmissionRules_;
     }
-
     public int getKubernetesNamespaceAdmissionRulesCount() {
       return internalGetKubernetesNamespaceAdmissionRules().getMap().size();
     }
@@ -1187,7 +1031,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsKubernetesNamespaceAdmissionRules(
         java.lang.String key) {
@@ -1211,7 +1054,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getKubernetesNamespaceAdmissionRulesMap() {
       return internalGetKubernetesNamespaceAdmissionRules().getMap();
     }
@@ -1224,10 +1066,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrDefault(
+    public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrDefault(
         java.lang.String key,
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+        /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
           internalGetKubernetesNamespaceAdmissionRules().getMap();
@@ -1242,7 +1085,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1266,6 +1108,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> kubernetesServiceAccountAdmissionRules_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
@@ -1276,7 +1119,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       }
       return kubernetesServiceAccountAdmissionRules_;
     }
-
     public int getKubernetesServiceAccountAdmissionRulesCount() {
       return internalGetKubernetesServiceAccountAdmissionRules().getMap().size();
     }
@@ -1288,7 +1130,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsKubernetesServiceAccountAdmissionRules(
         java.lang.String key) {
@@ -1312,7 +1153,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getKubernetesServiceAccountAdmissionRulesMap() {
       return internalGetKubernetesServiceAccountAdmissionRules().getMap();
     }
@@ -1325,10 +1165,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrDefault(
+    public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrDefault(
         java.lang.String key,
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+        /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
           internalGetKubernetesServiceAccountAdmissionRules().getMap();
@@ -1343,7 +1184,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1367,6 +1207,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> istioServiceIdentityAdmissionRules_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
@@ -1377,7 +1218,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       }
       return istioServiceIdentityAdmissionRules_;
     }
-
     public int getIstioServiceIdentityAdmissionRulesCount() {
       return internalGetIstioServiceIdentityAdmissionRules().getMap().size();
     }
@@ -1392,7 +1232,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      *
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsIstioServiceIdentityAdmissionRules(
         java.lang.String key) {
@@ -1419,7 +1258,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getIstioServiceIdentityAdmissionRulesMap() {
       return internalGetIstioServiceIdentityAdmissionRules().getMap();
     }
@@ -1435,10 +1273,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrDefault(
+    public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrDefault(
         java.lang.String key,
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+        /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
           internalGetIstioServiceIdentityAdmissionRules().getMap();
@@ -1456,7 +1295,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1506,7 +1344,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      */
     @java.lang.Override
     public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRuleOrBuilder getDefaultAdmissionRuleOrBuilder() {
-      return getDefaultAdmissionRule();
+      return defaultAdmissionRule_ == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.getDefaultInstance() : defaultAdmissionRule_;
     }
 
     public static final int UPDATE_TIME_FIELD_NUMBER = 5;
@@ -1544,7 +1382,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-      return getUpdateTime();
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1603,7 +1441,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           internalGetKubernetesNamespaceAdmissionRules(),
           KubernetesNamespaceAdmissionRulesDefaultEntryHolder.defaultEntry,
           10);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1674,7 +1512,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(10, kubernetesNamespaceAdmissionRules__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1714,7 +1552,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (!getUpdateTime()
             .equals(other.getUpdateTime())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1759,7 +1597,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
         hash = (53 * hash) + getUpdateTime().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1914,49 +1752,40 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAdmissionWhitelistPatternsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         description_ = "";
-
         globalPolicyEvaluationMode_ = 0;
-
         if (admissionWhitelistPatternsBuilder_ == null) {
           admissionWhitelistPatterns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          admissionWhitelistPatterns_ = null;
           admissionWhitelistPatternsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableClusterAdmissionRules().clear();
         internalGetMutableKubernetesNamespaceAdmissionRules().clear();
         internalGetMutableKubernetesServiceAccountAdmissionRules().clear();
         internalGetMutableIstioServiceIdentityAdmissionRules().clear();
-        if (defaultAdmissionRuleBuilder_ == null) {
-          defaultAdmissionRule_ = null;
-        } else {
-          defaultAdmissionRule_ = null;
+        defaultAdmissionRule_ = null;
+        if (defaultAdmissionRuleBuilder_ != null) {
+          defaultAdmissionRuleBuilder_.dispose();
           defaultAdmissionRuleBuilder_ = null;
         }
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-        } else {
-          updateTime_ = null;
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
         return this;
@@ -1985,39 +1814,61 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        result.description_ = description_;
-        result.globalPolicyEvaluationMode_ = globalPolicyEvaluationMode_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy result) {
         if (admissionWhitelistPatternsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000008) != 0)) {
             admissionWhitelistPatterns_ = java.util.Collections.unmodifiableList(admissionWhitelistPatterns_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           }
           result.admissionWhitelistPatterns_ = admissionWhitelistPatterns_;
         } else {
           result.admissionWhitelistPatterns_ = admissionWhitelistPatternsBuilder_.build();
         }
-        result.clusterAdmissionRules_ = internalGetClusterAdmissionRules();
-        result.clusterAdmissionRules_.makeImmutable();
-        result.kubernetesNamespaceAdmissionRules_ = internalGetKubernetesNamespaceAdmissionRules();
-        result.kubernetesNamespaceAdmissionRules_.makeImmutable();
-        result.kubernetesServiceAccountAdmissionRules_ = internalGetKubernetesServiceAccountAdmissionRules();
-        result.kubernetesServiceAccountAdmissionRules_.makeImmutable();
-        result.istioServiceIdentityAdmissionRules_ = internalGetIstioServiceIdentityAdmissionRules();
-        result.istioServiceIdentityAdmissionRules_.makeImmutable();
-        if (defaultAdmissionRuleBuilder_ == null) {
-          result.defaultAdmissionRule_ = defaultAdmissionRule_;
-        } else {
-          result.defaultAdmissionRule_ = defaultAdmissionRuleBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
         }
-        if (updateTimeBuilder_ == null) {
-          result.updateTime_ = updateTime_;
-        } else {
-          result.updateTime_ = updateTimeBuilder_.build();
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
         }
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.globalPolicyEvaluationMode_ = globalPolicyEvaluationMode_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.clusterAdmissionRules_ = internalGetClusterAdmissionRules();
+          result.clusterAdmissionRules_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.kubernetesNamespaceAdmissionRules_ = internalGetKubernetesNamespaceAdmissionRules();
+          result.kubernetesNamespaceAdmissionRules_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.kubernetesServiceAccountAdmissionRules_ = internalGetKubernetesServiceAccountAdmissionRules();
+          result.kubernetesServiceAccountAdmissionRules_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.istioServiceIdentityAdmissionRules_ = internalGetIstioServiceIdentityAdmissionRules();
+          result.istioServiceIdentityAdmissionRules_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.defaultAdmissionRule_ = defaultAdmissionRuleBuilder_ == null
+              ? defaultAdmissionRule_
+              : defaultAdmissionRuleBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.updateTime_ = updateTimeBuilder_ == null
+              ? updateTime_
+              : updateTimeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2066,10 +1917,12 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.globalPolicyEvaluationMode_ != 0) {
@@ -2079,7 +1932,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           if (!other.admissionWhitelistPatterns_.isEmpty()) {
             if (admissionWhitelistPatterns_.isEmpty()) {
               admissionWhitelistPatterns_ = other.admissionWhitelistPatterns_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
             } else {
               ensureAdmissionWhitelistPatternsIsMutable();
               admissionWhitelistPatterns_.addAll(other.admissionWhitelistPatterns_);
@@ -2092,7 +1945,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
               admissionWhitelistPatternsBuilder_.dispose();
               admissionWhitelistPatternsBuilder_ = null;
               admissionWhitelistPatterns_ = other.admissionWhitelistPatterns_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000008);
               admissionWhitelistPatternsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getAdmissionWhitelistPatternsFieldBuilder() : null;
@@ -2103,19 +1956,23 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         }
         internalGetMutableClusterAdmissionRules().mergeFrom(
             other.internalGetClusterAdmissionRules());
+        bitField0_ |= 0x00000010;
         internalGetMutableKubernetesNamespaceAdmissionRules().mergeFrom(
             other.internalGetKubernetesNamespaceAdmissionRules());
+        bitField0_ |= 0x00000020;
         internalGetMutableKubernetesServiceAccountAdmissionRules().mergeFrom(
             other.internalGetKubernetesServiceAccountAdmissionRules());
+        bitField0_ |= 0x00000040;
         internalGetMutableIstioServiceIdentityAdmissionRules().mergeFrom(
             other.internalGetIstioServiceIdentityAdmissionRules());
+        bitField0_ |= 0x00000080;
         if (other.hasDefaultAdmissionRule()) {
           mergeDefaultAdmissionRule(other.getDefaultAdmissionRule());
         }
         if (other.hasUpdateTime()) {
           mergeUpdateTime(other.getUpdateTime());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2130,17 +1987,108 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern m =
+                    input.readMessage(
+                        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern.parser(),
+                        extensionRegistry);
+                if (admissionWhitelistPatternsBuilder_ == null) {
+                  ensureAdmissionWhitelistPatternsIsMutable();
+                  admissionWhitelistPatterns_.add(m);
+                } else {
+                  admissionWhitelistPatternsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
+                clusterAdmissionRules__ = input.readMessage(
+                    ClusterAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableClusterAdmissionRules().getMutableMap().put(
+                    clusterAdmissionRules__.getKey(), clusterAdmissionRules__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getDefaultAdmissionRuleFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getUpdateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 42
+              case 50: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 50
+              case 56: {
+                globalPolicyEvaluationMode_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 56
+              case 66: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
+                kubernetesServiceAccountAdmissionRules__ = input.readMessage(
+                    KubernetesServiceAccountAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableKubernetesServiceAccountAdmissionRules().getMutableMap().put(
+                    kubernetesServiceAccountAdmissionRules__.getKey(), kubernetesServiceAccountAdmissionRules__.getValue());
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 66
+              case 74: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
+                istioServiceIdentityAdmissionRules__ = input.readMessage(
+                    IstioServiceIdentityAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableIstioServiceIdentityAdmissionRules().getMutableMap().put(
+                    istioServiceIdentityAdmissionRules__.getKey(), istioServiceIdentityAdmissionRules__.getValue());
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 74
+              case 82: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
+                kubernetesNamespaceAdmissionRules__ = input.readMessage(
+                    KubernetesNamespaceAdmissionRulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableKubernetesNamespaceAdmissionRules().getMutableMap().put(
+                    kubernetesNamespaceAdmissionRules__.getKey(), kubernetesNamespaceAdmissionRules__.getValue());
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2201,11 +2149,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2219,8 +2165,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2236,12 +2182,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2299,11 +2243,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2316,8 +2258,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -2332,12 +2274,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2370,8 +2310,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder setGlobalPolicyEvaluationModeValue(int value) {
-        
         globalPolicyEvaluationMode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2388,8 +2328,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode getGlobalPolicyEvaluationMode() {
-        @SuppressWarnings("deprecation")
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode.valueOf(globalPolicyEvaluationMode_);
+        com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode.forNumber(globalPolicyEvaluationMode_);
         return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.Policy.GlobalPolicyEvaluationMode.UNRECOGNIZED : result;
       }
       /**
@@ -2408,7 +2347,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         globalPolicyEvaluationMode_ = value.getNumber();
         onChanged();
         return this;
@@ -2425,7 +2364,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearGlobalPolicyEvaluationMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         globalPolicyEvaluationMode_ = 0;
         onChanged();
         return this;
@@ -2434,9 +2373,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       private java.util.List<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern> admissionWhitelistPatterns_ =
         java.util.Collections.emptyList();
       private void ensureAdmissionWhitelistPatternsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           admissionWhitelistPatterns_ = new java.util.ArrayList<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern>(admissionWhitelistPatterns_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
          }
       }
 
@@ -2652,7 +2591,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       public Builder clearAdmissionWhitelistPatterns() {
         if (admissionWhitelistPatternsBuilder_ == null) {
           admissionWhitelistPatterns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
           onChanged();
         } else {
           admissionWhitelistPatternsBuilder_.clear();
@@ -2771,7 +2710,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           admissionWhitelistPatternsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern.Builder, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPatternOrBuilder>(
                   admissionWhitelistPatterns_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000008) != 0),
                   getParentForChildren(),
                   isClean());
           admissionWhitelistPatterns_ = null;
@@ -2782,7 +2721,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> clusterAdmissionRules_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetClusterAdmissionRules() {
+          internalGetClusterAdmissionRules() {
         if (clusterAdmissionRules_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ClusterAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -2790,8 +2729,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         return clusterAdmissionRules_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetMutableClusterAdmissionRules() {
-        onChanged();;
+          internalGetMutableClusterAdmissionRules() {
         if (clusterAdmissionRules_ == null) {
           clusterAdmissionRules_ = com.google.protobuf.MapField.newMapField(
               ClusterAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -2799,9 +2737,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (!clusterAdmissionRules_.isMutable()) {
           clusterAdmissionRules_ = clusterAdmissionRules_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return clusterAdmissionRules_;
       }
-
       public int getClusterAdmissionRulesCount() {
         return internalGetClusterAdmissionRules().getMap().size();
       }
@@ -2818,7 +2757,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       @java.lang.Override
       public boolean containsClusterAdmissionRules(
           java.lang.String key) {
@@ -2847,7 +2785,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getClusterAdmissionRulesMap() {
         return internalGetClusterAdmissionRules().getMap();
       }
@@ -2865,10 +2802,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
-      public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrDefault(
+      public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrDefault(
           java.lang.String key,
-          com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+          /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
             internalGetClusterAdmissionRules().getMap();
@@ -2888,7 +2826,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getClusterAdmissionRulesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2899,8 +2836,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         }
         return map.get(key);
       }
-
       public Builder clearClusterAdmissionRules() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableClusterAdmissionRules().getMutableMap()
             .clear();
         return this;
@@ -2918,7 +2855,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder removeClusterAdmissionRules(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2931,7 +2867,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      getMutableClusterAdmissionRules() {
+          getMutableClusterAdmissionRules() {
+        bitField0_ |= 0x00000010;
         return internalGetMutableClusterAdmissionRules().getMutableMap();
       }
       /**
@@ -2951,12 +2888,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           java.lang.String key,
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableClusterAdmissionRules().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -2972,18 +2907,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; cluster_admission_rules = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder putAllClusterAdmissionRules(
           java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> values) {
         internalGetMutableClusterAdmissionRules().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> kubernetesNamespaceAdmissionRules_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetKubernetesNamespaceAdmissionRules() {
+          internalGetKubernetesNamespaceAdmissionRules() {
         if (kubernetesNamespaceAdmissionRules_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               KubernetesNamespaceAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -2991,8 +2926,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         return kubernetesNamespaceAdmissionRules_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetMutableKubernetesNamespaceAdmissionRules() {
-        onChanged();;
+          internalGetMutableKubernetesNamespaceAdmissionRules() {
         if (kubernetesNamespaceAdmissionRules_ == null) {
           kubernetesNamespaceAdmissionRules_ = com.google.protobuf.MapField.newMapField(
               KubernetesNamespaceAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -3000,9 +2934,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (!kubernetesNamespaceAdmissionRules_.isMutable()) {
           kubernetesNamespaceAdmissionRules_ = kubernetesNamespaceAdmissionRules_.copy();
         }
+        bitField0_ |= 0x00000020;
+        onChanged();
         return kubernetesNamespaceAdmissionRules_;
       }
-
       public int getKubernetesNamespaceAdmissionRulesCount() {
         return internalGetKubernetesNamespaceAdmissionRules().getMap().size();
       }
@@ -3014,7 +2949,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       @java.lang.Override
       public boolean containsKubernetesNamespaceAdmissionRules(
           java.lang.String key) {
@@ -3038,7 +2972,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getKubernetesNamespaceAdmissionRulesMap() {
         return internalGetKubernetesNamespaceAdmissionRules().getMap();
       }
@@ -3051,10 +2984,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
-      public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrDefault(
+      public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrDefault(
           java.lang.String key,
-          com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+          /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
             internalGetKubernetesNamespaceAdmissionRules().getMap();
@@ -3069,7 +3003,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesNamespaceAdmissionRulesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3080,8 +3013,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         }
         return map.get(key);
       }
-
       public Builder clearKubernetesNamespaceAdmissionRules() {
+        bitField0_ = (bitField0_ & ~0x00000020);
         internalGetMutableKubernetesNamespaceAdmissionRules().getMutableMap()
             .clear();
         return this;
@@ -3094,7 +3027,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder removeKubernetesNamespaceAdmissionRules(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3107,7 +3039,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      getMutableKubernetesNamespaceAdmissionRules() {
+          getMutableKubernetesNamespaceAdmissionRules() {
+        bitField0_ |= 0x00000020;
         return internalGetMutableKubernetesNamespaceAdmissionRules().getMutableMap();
       }
       /**
@@ -3122,12 +3055,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           java.lang.String key,
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableKubernetesNamespaceAdmissionRules().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000020;
         return this;
       }
       /**
@@ -3138,18 +3069,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_namespace_admission_rules = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder putAllKubernetesNamespaceAdmissionRules(
           java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> values) {
         internalGetMutableKubernetesNamespaceAdmissionRules().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000020;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> kubernetesServiceAccountAdmissionRules_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetKubernetesServiceAccountAdmissionRules() {
+          internalGetKubernetesServiceAccountAdmissionRules() {
         if (kubernetesServiceAccountAdmissionRules_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               KubernetesServiceAccountAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -3157,8 +3088,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         return kubernetesServiceAccountAdmissionRules_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetMutableKubernetesServiceAccountAdmissionRules() {
-        onChanged();;
+          internalGetMutableKubernetesServiceAccountAdmissionRules() {
         if (kubernetesServiceAccountAdmissionRules_ == null) {
           kubernetesServiceAccountAdmissionRules_ = com.google.protobuf.MapField.newMapField(
               KubernetesServiceAccountAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -3166,9 +3096,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (!kubernetesServiceAccountAdmissionRules_.isMutable()) {
           kubernetesServiceAccountAdmissionRules_ = kubernetesServiceAccountAdmissionRules_.copy();
         }
+        bitField0_ |= 0x00000040;
+        onChanged();
         return kubernetesServiceAccountAdmissionRules_;
       }
-
       public int getKubernetesServiceAccountAdmissionRulesCount() {
         return internalGetKubernetesServiceAccountAdmissionRules().getMap().size();
       }
@@ -3180,7 +3111,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       @java.lang.Override
       public boolean containsKubernetesServiceAccountAdmissionRules(
           java.lang.String key) {
@@ -3204,7 +3134,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getKubernetesServiceAccountAdmissionRulesMap() {
         return internalGetKubernetesServiceAccountAdmissionRules().getMap();
       }
@@ -3217,10 +3146,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
-      public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrDefault(
+      public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrDefault(
           java.lang.String key,
-          com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+          /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
             internalGetKubernetesServiceAccountAdmissionRules().getMap();
@@ -3235,7 +3165,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getKubernetesServiceAccountAdmissionRulesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3246,8 +3175,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         }
         return map.get(key);
       }
-
       public Builder clearKubernetesServiceAccountAdmissionRules() {
+        bitField0_ = (bitField0_ & ~0x00000040);
         internalGetMutableKubernetesServiceAccountAdmissionRules().getMutableMap()
             .clear();
         return this;
@@ -3260,7 +3189,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder removeKubernetesServiceAccountAdmissionRules(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3273,7 +3201,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      getMutableKubernetesServiceAccountAdmissionRules() {
+          getMutableKubernetesServiceAccountAdmissionRules() {
+        bitField0_ |= 0x00000040;
         return internalGetMutableKubernetesServiceAccountAdmissionRules().getMutableMap();
       }
       /**
@@ -3288,12 +3217,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           java.lang.String key,
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableKubernetesServiceAccountAdmissionRules().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000040;
         return this;
       }
       /**
@@ -3304,18 +3231,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; kubernetes_service_account_admission_rules = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder putAllKubernetesServiceAccountAdmissionRules(
           java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> values) {
         internalGetMutableKubernetesServiceAccountAdmissionRules().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000040;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> istioServiceIdentityAdmissionRules_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetIstioServiceIdentityAdmissionRules() {
+          internalGetIstioServiceIdentityAdmissionRules() {
         if (istioServiceIdentityAdmissionRules_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               IstioServiceIdentityAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -3323,8 +3250,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         return istioServiceIdentityAdmissionRules_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      internalGetMutableIstioServiceIdentityAdmissionRules() {
-        onChanged();;
+          internalGetMutableIstioServiceIdentityAdmissionRules() {
         if (istioServiceIdentityAdmissionRules_ == null) {
           istioServiceIdentityAdmissionRules_ = com.google.protobuf.MapField.newMapField(
               IstioServiceIdentityAdmissionRulesDefaultEntryHolder.defaultEntry);
@@ -3332,9 +3258,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (!istioServiceIdentityAdmissionRules_.isMutable()) {
           istioServiceIdentityAdmissionRules_ = istioServiceIdentityAdmissionRules_.copy();
         }
+        bitField0_ |= 0x00000080;
+        onChanged();
         return istioServiceIdentityAdmissionRules_;
       }
-
       public int getIstioServiceIdentityAdmissionRulesCount() {
         return internalGetIstioServiceIdentityAdmissionRules().getMap().size();
       }
@@ -3349,7 +3276,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       @java.lang.Override
       public boolean containsIstioServiceIdentityAdmissionRules(
           java.lang.String key) {
@@ -3376,7 +3302,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> getIstioServiceIdentityAdmissionRulesMap() {
         return internalGetIstioServiceIdentityAdmissionRules().getMap();
       }
@@ -3392,10 +3317,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
-      public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrDefault(
+      public /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrDefault(
           java.lang.String key,
-          com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
+          /* nullable */
+com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> map =
             internalGetIstioServiceIdentityAdmissionRules().getMap();
@@ -3413,7 +3339,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       @java.lang.Override
-
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule getIstioServiceIdentityAdmissionRulesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3424,8 +3349,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         }
         return map.get(key);
       }
-
       public Builder clearIstioServiceIdentityAdmissionRules() {
+        bitField0_ = (bitField0_ & ~0x00000080);
         internalGetMutableIstioServiceIdentityAdmissionRules().getMutableMap()
             .clear();
         return this;
@@ -3441,7 +3366,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder removeIstioServiceIdentityAdmissionRules(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3454,7 +3378,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule>
-      getMutableIstioServiceIdentityAdmissionRules() {
+          getMutableIstioServiceIdentityAdmissionRules() {
+        bitField0_ |= 0x00000080;
         return internalGetMutableIstioServiceIdentityAdmissionRules().getMutableMap();
       }
       /**
@@ -3472,12 +3397,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           java.lang.String key,
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableIstioServiceIdentityAdmissionRules().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000080;
         return this;
       }
       /**
@@ -3491,11 +3414,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        *
        * <code>map&lt;string, .google.cloud.binaryauthorization.v1.AdmissionRule&gt; istio_service_identity_admission_rules = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
-
       public Builder putAllIstioServiceIdentityAdmissionRules(
           java.util.Map<java.lang.String, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule> values) {
         internalGetMutableIstioServiceIdentityAdmissionRules().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000080;
         return this;
       }
 
@@ -3512,7 +3435,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return Whether the defaultAdmissionRule field is set.
        */
       public boolean hasDefaultAdmissionRule() {
-        return defaultAdmissionRuleBuilder_ != null || defaultAdmissionRule_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -3544,11 +3467,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
             throw new NullPointerException();
           }
           defaultAdmissionRule_ = value;
-          onChanged();
         } else {
           defaultAdmissionRuleBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -3563,11 +3486,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.Builder builderForValue) {
         if (defaultAdmissionRuleBuilder_ == null) {
           defaultAdmissionRule_ = builderForValue.build();
-          onChanged();
         } else {
           defaultAdmissionRuleBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -3580,17 +3503,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder mergeDefaultAdmissionRule(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule value) {
         if (defaultAdmissionRuleBuilder_ == null) {
-          if (defaultAdmissionRule_ != null) {
-            defaultAdmissionRule_ =
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.newBuilder(defaultAdmissionRule_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            defaultAdmissionRule_ != null &&
+            defaultAdmissionRule_ != com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.getDefaultInstance()) {
+            getDefaultAdmissionRuleBuilder().mergeFrom(value);
           } else {
             defaultAdmissionRule_ = value;
           }
-          onChanged();
         } else {
           defaultAdmissionRuleBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -3602,14 +3526,13 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>.google.cloud.binaryauthorization.v1.AdmissionRule default_admission_rule = 4 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearDefaultAdmissionRule() {
-        if (defaultAdmissionRuleBuilder_ == null) {
-          defaultAdmissionRule_ = null;
-          onChanged();
-        } else {
-          defaultAdmissionRule_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        defaultAdmissionRule_ = null;
+        if (defaultAdmissionRuleBuilder_ != null) {
+          defaultAdmissionRuleBuilder_.dispose();
           defaultAdmissionRuleBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3621,7 +3544,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>.google.cloud.binaryauthorization.v1.AdmissionRule default_admission_rule = 4 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.Builder getDefaultAdmissionRuleBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getDefaultAdmissionRuleFieldBuilder().getBuilder();
       }
@@ -3675,7 +3598,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return Whether the updateTime field is set.
        */
       public boolean hasUpdateTime() {
-        return updateTimeBuilder_ != null || updateTime_ != null;
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <pre>
@@ -3705,11 +3628,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
             throw new NullPointerException();
           }
           updateTime_ = value;
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -3723,11 +3646,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updateTimeBuilder_ == null) {
           updateTime_ = builderForValue.build();
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -3739,17 +3662,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
         if (updateTimeBuilder_ == null) {
-          if (updateTime_ != null) {
-            updateTime_ =
-              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000200) != 0) &&
+            updateTime_ != null &&
+            updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdateTimeBuilder().mergeFrom(value);
           } else {
             updateTime_ = value;
           }
-          onChanged();
         } else {
           updateTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -3760,14 +3684,13 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>.google.protobuf.Timestamp update_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearUpdateTime() {
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-          onChanged();
-        } else {
-          updateTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3778,7 +3701,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>.google.protobuf.Timestamp update_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-        
+        bitField0_ |= 0x00000200;
         onChanged();
         return getUpdateTimeFieldBuilder().getBuilder();
       }
@@ -3850,7 +3773,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Policy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3933,51 +3867,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AdmissionWhitelistPattern(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              namePattern_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Resources.internal_static_google_cloud_binaryauthorization_v1_AdmissionWhitelistPattern_descriptor;
@@ -3992,7 +3881,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int NAME_PATTERN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object namePattern_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object namePattern_ = "";
     /**
      * <pre>
      * An image name pattern to allowlist, in the form `registry/path/to/image`.
@@ -4060,7 +3950,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(namePattern_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, namePattern_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4072,7 +3962,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(namePattern_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, namePattern_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4089,7 +3979,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       if (!getNamePattern()
           .equals(other.getNamePattern())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4102,7 +3992,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NAME_PATTERN_FIELD_NUMBER;
       hash = (53 * hash) + getNamePattern().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4224,24 +4114,19 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         namePattern_ = "";
-
         return this;
       }
 
@@ -4268,9 +4153,16 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern(this);
-        result.namePattern_ = namePattern_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.namePattern_ = namePattern_;
+        }
       }
 
       @java.lang.Override
@@ -4319,9 +4211,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern.getDefaultInstance()) return this;
         if (!other.getNamePattern().isEmpty()) {
           namePattern_ = other.namePattern_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4336,19 +4229,38 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                namePattern_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionWhitelistPattern) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object namePattern_ = "";
       /**
@@ -4412,11 +4324,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setNamePattern(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         namePattern_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4432,8 +4342,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearNamePattern() {
-        
         namePattern_ = getDefaultInstance().getNamePattern();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -4451,12 +4361,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setNamePatternBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         namePattern_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4493,7 +4401,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AdmissionWhitelistPattern(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4658,70 +4577,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private AdmissionRule(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              evaluationMode_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                requireAttestationsBy_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              requireAttestationsBy_.add(s);
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              enforcementMode_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          requireAttestationsBy_ = requireAttestationsBy_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -5047,7 +4902,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int EVALUATION_MODE_FIELD_NUMBER = 1;
-    private int evaluationMode_;
+    private int evaluationMode_ = 0;
     /**
      * <pre>
      * Required. How this admission rule will be evaluated.
@@ -5068,12 +4923,12 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * @return The evaluationMode.
      */
     @java.lang.Override public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode getEvaluationMode() {
-      @SuppressWarnings("deprecation")
-      com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode.valueOf(evaluationMode_);
+      com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode.forNumber(evaluationMode_);
       return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode.UNRECOGNIZED : result;
     }
 
     public static final int REQUIRE_ATTESTATIONS_BY_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList requireAttestationsBy_;
     /**
      * <pre>
@@ -5149,7 +5004,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int ENFORCEMENT_MODE_FIELD_NUMBER = 3;
-    private int enforcementMode_;
+    private int enforcementMode_ = 0;
     /**
      * <pre>
      * Required. The action when a pod creation is denied by the admission rule.
@@ -5170,8 +5025,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * @return The enforcementMode.
      */
     @java.lang.Override public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode getEnforcementMode() {
-      @SuppressWarnings("deprecation")
-      com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.valueOf(enforcementMode_);
+      com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.forNumber(enforcementMode_);
       return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.UNRECOGNIZED : result;
     }
 
@@ -5198,7 +5052,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (enforcementMode_ != com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.ENFORCEMENT_MODE_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, enforcementMode_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5223,7 +5077,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, enforcementMode_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5242,7 +5096,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!getRequireAttestationsByList()
           .equals(other.getRequireAttestationsByList())) return false;
       if (enforcementMode_ != other.enforcementMode_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5261,7 +5115,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       }
       hash = (37 * hash) + ENFORCEMENT_MODE_FIELD_NUMBER;
       hash = (53 * hash) + enforcementMode_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5387,28 +5241,22 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         evaluationMode_ = 0;
-
         requireAttestationsBy_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         enforcementMode_ = 0;
-
         return this;
       }
 
@@ -5435,16 +5283,28 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule(this);
-        int from_bitField0_ = bitField0_;
-        result.evaluationMode_ = evaluationMode_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          requireAttestationsBy_ = requireAttestationsBy_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.requireAttestationsBy_ = requireAttestationsBy_;
-        result.enforcementMode_ = enforcementMode_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          requireAttestationsBy_ = requireAttestationsBy_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.requireAttestationsBy_ = requireAttestationsBy_;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.evaluationMode_ = evaluationMode_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.enforcementMode_ = enforcementMode_;
+        }
       }
 
       @java.lang.Override
@@ -5497,7 +5357,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (!other.requireAttestationsBy_.isEmpty()) {
           if (requireAttestationsBy_.isEmpty()) {
             requireAttestationsBy_ = other.requireAttestationsBy_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureRequireAttestationsByIsMutable();
             requireAttestationsBy_.addAll(other.requireAttestationsBy_);
@@ -5507,7 +5367,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other.enforcementMode_ != 0) {
           setEnforcementModeValue(other.getEnforcementModeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5522,17 +5382,46 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                evaluationMode_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureRequireAttestationsByIsMutable();
+                requireAttestationsBy_.add(s);
+                break;
+              } // case 18
+              case 24: {
+                enforcementMode_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5559,8 +5448,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder setEvaluationModeValue(int value) {
-        
         evaluationMode_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5574,8 +5463,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode getEvaluationMode() {
-        @SuppressWarnings("deprecation")
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode.valueOf(evaluationMode_);
+        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode.forNumber(evaluationMode_);
         return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EvaluationMode.UNRECOGNIZED : result;
       }
       /**
@@ -5591,7 +5479,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         evaluationMode_ = value.getNumber();
         onChanged();
         return this;
@@ -5605,7 +5493,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearEvaluationMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         evaluationMode_ = 0;
         onChanged();
         return this;
@@ -5613,9 +5501,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       private com.google.protobuf.LazyStringList requireAttestationsBy_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureRequireAttestationsByIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           requireAttestationsBy_ = new com.google.protobuf.LazyStringArrayList(requireAttestationsBy_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
@@ -5708,10 +5596,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setRequireAttestationsBy(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequireAttestationsByIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequireAttestationsByIsMutable();
         requireAttestationsBy_.set(index, value);
         onChanged();
         return this;
@@ -5733,10 +5619,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder addRequireAttestationsBy(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequireAttestationsByIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureRequireAttestationsByIsMutable();
         requireAttestationsBy_.add(value);
         onChanged();
         return this;
@@ -5780,7 +5664,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder clearRequireAttestationsBy() {
         requireAttestationsBy_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5801,10 +5685,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder addRequireAttestationsByBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureRequireAttestationsByIsMutable();
         requireAttestationsBy_.add(value);
         onChanged();
@@ -5833,8 +5715,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder setEnforcementModeValue(int value) {
-        
         enforcementMode_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5848,8 +5730,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode getEnforcementMode() {
-        @SuppressWarnings("deprecation")
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.valueOf(enforcementMode_);
+        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.forNumber(enforcementMode_);
         return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule.EnforcementMode.UNRECOGNIZED : result;
       }
       /**
@@ -5865,7 +5746,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         enforcementMode_ = value.getNumber();
         onChanged();
         return this;
@@ -5879,7 +5760,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearEnforcementMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         enforcementMode_ = 0;
         onChanged();
         return this;
@@ -5917,7 +5798,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AdmissionRule(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -6079,84 +5971,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Attestor(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 26: {
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote.Builder subBuilder = null;
-              if (attestorTypeCase_ == 3) {
-                subBuilder = ((com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote) attestorType_).toBuilder();
-              }
-              attestorType_ =
-                  input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote) attestorType_);
-                attestorType_ = subBuilder.buildPartial();
-              }
-              attestorTypeCase_ = 3;
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (updateTime_ != null) {
-                subBuilder = updateTime_.toBuilder();
-              }
-              updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(updateTime_);
-                updateTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Resources.internal_static_google_cloud_binaryauthorization_v1_Attestor_descriptor;
@@ -6210,7 +6024,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The resource name, in the format:
@@ -6258,7 +6073,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 6;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
      * Optional. A descriptive comment.  This field may be updated.
@@ -6386,7 +6202,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-      return getUpdateTime();
+      return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -6415,7 +6231,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, description_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6438,7 +6254,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(description_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, description_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6471,7 +6287,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6498,7 +6314,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6621,30 +6437,26 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         description_ = "";
-
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-        } else {
-          updateTime_ = null;
+        if (userOwnedGrafeasNoteBuilder_ != null) {
+          userOwnedGrafeasNoteBuilder_.clear();
+        }
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
         attestorTypeCase_ = 0;
@@ -6675,23 +6487,34 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor(this);
-        result.name_ = name_;
-        result.description_ = description_;
-        if (attestorTypeCase_ == 3) {
-          if (userOwnedGrafeasNoteBuilder_ == null) {
-            result.attestorType_ = attestorType_;
-          } else {
-            result.attestorType_ = userOwnedGrafeasNoteBuilder_.build();
-          }
-        }
-        if (updateTimeBuilder_ == null) {
-          result.updateTime_ = updateTime_;
-        } else {
-          result.updateTime_ = updateTimeBuilder_.build();
-        }
-        result.attestorTypeCase_ = attestorTypeCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.updateTime_ = updateTimeBuilder_ == null
+              ? updateTime_
+              : updateTimeBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor result) {
+        result.attestorTypeCase_ = attestorTypeCase_;
+        result.attestorType_ = this.attestorType_;
+        if (attestorTypeCase_ == 3 &&
+            userOwnedGrafeasNoteBuilder_ != null) {
+          result.attestorType_ = userOwnedGrafeasNoteBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -6740,10 +6563,12 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.hasUpdateTime()) {
@@ -6758,7 +6583,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6773,17 +6598,54 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 26: {
+                input.readMessage(
+                    getUserOwnedGrafeasNoteFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                attestorTypeCase_ = 3;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getUpdateTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 50: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.Attestor) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int attestorTypeCase_ = 0;
@@ -6801,6 +6663,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         return this;
       }
 
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -6858,11 +6721,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6876,8 +6737,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -6893,12 +6754,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -6959,11 +6818,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -6977,8 +6834,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -6994,12 +6851,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7187,7 +7042,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           attestorType_ = null;
         }
         attestorTypeCase_ = 3;
-        onChanged();;
+        onChanged();
         return userOwnedGrafeasNoteBuilder_;
       }
 
@@ -7203,7 +7058,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return Whether the updateTime field is set.
        */
       public boolean hasUpdateTime() {
-        return updateTimeBuilder_ != null || updateTime_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -7233,11 +7088,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
             throw new NullPointerException();
           }
           updateTime_ = value;
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7251,11 +7106,11 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (updateTimeBuilder_ == null) {
           updateTime_ = builderForValue.build();
-          onChanged();
         } else {
           updateTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7267,17 +7122,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
         if (updateTimeBuilder_ == null) {
-          if (updateTime_ != null) {
-            updateTime_ =
-              com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            updateTime_ != null &&
+            updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getUpdateTimeBuilder().mergeFrom(value);
           } else {
             updateTime_ = value;
           }
-          onChanged();
         } else {
           updateTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7288,14 +7144,13 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>.google.protobuf.Timestamp update_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public Builder clearUpdateTime() {
-        if (updateTimeBuilder_ == null) {
-          updateTime_ = null;
-          onChanged();
-        } else {
-          updateTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        updateTime_ = null;
+        if (updateTimeBuilder_ != null) {
+          updateTimeBuilder_.dispose();
           updateTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7306,7 +7161,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * <code>.google.protobuf.Timestamp update_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
        */
       public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getUpdateTimeFieldBuilder().getBuilder();
       }
@@ -7378,7 +7233,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Attestor(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7575,70 +7441,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UserOwnedGrafeasNote(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              noteReference_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                publicKeys_ = new java.util.ArrayList<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              publicKeys_.add(
-                  input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              delegationServiceAccountEmail_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          publicKeys_ = java.util.Collections.unmodifiableList(publicKeys_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Resources.internal_static_google_cloud_binaryauthorization_v1_UserOwnedGrafeasNote_descriptor;
@@ -7653,7 +7455,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int NOTE_REFERENCE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object noteReference_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object noteReference_ = "";
     /**
      * <pre>
      * Required. The Grafeas resource name of a Attestation.Authority Note,
@@ -7709,6 +7512,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int PUBLIC_KEYS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey> publicKeys_;
     /**
      * <pre>
@@ -7799,7 +7603,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int DELEGATION_SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER = 3;
-    private volatile java.lang.Object delegationServiceAccountEmail_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object delegationServiceAccountEmail_ = "";
     /**
      * <pre>
      * Output only. This field will contain the service account email address
@@ -7881,7 +7686,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(delegationServiceAccountEmail_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, delegationServiceAccountEmail_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7900,7 +7705,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(delegationServiceAccountEmail_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, delegationServiceAccountEmail_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7921,7 +7726,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           .equals(other.getPublicKeysList())) return false;
       if (!getDelegationServiceAccountEmail()
           .equals(other.getDelegationServiceAccountEmail())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7940,7 +7745,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       }
       hash = (37 * hash) + DELEGATION_SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER;
       hash = (53 * hash) + getDelegationServiceAccountEmail().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8062,33 +7867,27 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getPublicKeysFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         noteReference_ = "";
-
         if (publicKeysBuilder_ == null) {
           publicKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          publicKeys_ = null;
           publicKeysBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         delegationServiceAccountEmail_ = "";
-
         return this;
       }
 
@@ -8115,20 +7914,32 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote(this);
-        int from_bitField0_ = bitField0_;
-        result.noteReference_ = noteReference_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote result) {
         if (publicKeysBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000002) != 0)) {
             publicKeys_ = java.util.Collections.unmodifiableList(publicKeys_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           }
           result.publicKeys_ = publicKeys_;
         } else {
           result.publicKeys_ = publicKeysBuilder_.build();
         }
-        result.delegationServiceAccountEmail_ = delegationServiceAccountEmail_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.noteReference_ = noteReference_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.delegationServiceAccountEmail_ = delegationServiceAccountEmail_;
+        }
       }
 
       @java.lang.Override
@@ -8177,13 +7988,14 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote.getDefaultInstance()) return this;
         if (!other.getNoteReference().isEmpty()) {
           noteReference_ = other.noteReference_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (publicKeysBuilder_ == null) {
           if (!other.publicKeys_.isEmpty()) {
             if (publicKeys_.isEmpty()) {
               publicKeys_ = other.publicKeys_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
             } else {
               ensurePublicKeysIsMutable();
               publicKeys_.addAll(other.publicKeys_);
@@ -8196,7 +8008,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
               publicKeysBuilder_.dispose();
               publicKeysBuilder_ = null;
               publicKeys_ = other.publicKeys_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000002);
               publicKeysBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getPublicKeysFieldBuilder() : null;
@@ -8207,9 +8019,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         }
         if (!other.getDelegationServiceAccountEmail().isEmpty()) {
           delegationServiceAccountEmail_ = other.delegationServiceAccountEmail_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8224,17 +8037,53 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                noteReference_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey m =
+                    input.readMessage(
+                        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey.parser(),
+                        extensionRegistry);
+                if (publicKeysBuilder_ == null) {
+                  ensurePublicKeysIsMutable();
+                  publicKeys_.add(m);
+                } else {
+                  publicKeysBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                delegationServiceAccountEmail_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.UserOwnedGrafeasNote) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -8307,11 +8156,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setNoteReference(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         noteReference_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8329,8 +8176,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearNoteReference() {
-        
         noteReference_ = getDefaultInstance().getNoteReference();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -8350,12 +8197,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setNoteReferenceBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         noteReference_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -8363,9 +8208,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       private java.util.List<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey> publicKeys_ =
         java.util.Collections.emptyList();
       private void ensurePublicKeysIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           publicKeys_ = new java.util.ArrayList<com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey>(publicKeys_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
 
@@ -8625,7 +8470,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       public Builder clearPublicKeys() {
         if (publicKeysBuilder_ == null) {
           publicKeys_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
           publicKeysBuilder_.clear();
@@ -8772,7 +8617,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           publicKeysBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey.Builder, com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKeyOrBuilder>(
                   publicKeys_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000002) != 0),
                   getParentForChildren(),
                   isClean());
           publicKeys_ = null;
@@ -8854,11 +8699,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setDelegationServiceAccountEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         delegationServiceAccountEmail_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8878,8 +8721,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearDelegationServiceAccountEmail() {
-        
         delegationServiceAccountEmail_ = getDefaultInstance().getDelegationServiceAccountEmail();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -8901,12 +8744,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setDelegationServiceAccountEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         delegationServiceAccountEmail_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8943,7 +8784,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UserOwnedGrafeasNote(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9051,57 +8903,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private PkixPublicKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              publicKeyPem_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              signatureAlgorithm_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -9474,7 +9275,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int PUBLIC_KEY_PEM_FIELD_NUMBER = 1;
-    private volatile java.lang.Object publicKeyPem_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object publicKeyPem_ = "";
     /**
      * <pre>
      * A PEM-encoded public key, as described in
@@ -9522,7 +9324,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int SIGNATURE_ALGORITHM_FIELD_NUMBER = 2;
-    private int signatureAlgorithm_;
+    private int signatureAlgorithm_ = 0;
     /**
      * <pre>
      * The signature algorithm used to verify a message against a signature using
@@ -9551,8 +9353,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
      * @return The signatureAlgorithm.
      */
     @java.lang.Override public com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm getSignatureAlgorithm() {
-      @SuppressWarnings("deprecation")
-      com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.valueOf(signatureAlgorithm_);
+      com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.forNumber(signatureAlgorithm_);
       return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.UNRECOGNIZED : result;
     }
 
@@ -9576,7 +9377,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (signatureAlgorithm_ != com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.SIGNATURE_ALGORITHM_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, signatureAlgorithm_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9592,7 +9393,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, signatureAlgorithm_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9610,7 +9411,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (!getPublicKeyPem()
           .equals(other.getPublicKeyPem())) return false;
       if (signatureAlgorithm_ != other.signatureAlgorithm_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9625,7 +9426,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       hash = (53 * hash) + getPublicKeyPem().hashCode();
       hash = (37 * hash) + SIGNATURE_ALGORITHM_FIELD_NUMBER;
       hash = (53 * hash) + signatureAlgorithm_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9749,26 +9550,20 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         publicKeyPem_ = "";
-
         signatureAlgorithm_ = 0;
-
         return this;
       }
 
@@ -9795,10 +9590,19 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey(this);
-        result.publicKeyPem_ = publicKeyPem_;
-        result.signatureAlgorithm_ = signatureAlgorithm_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.publicKeyPem_ = publicKeyPem_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.signatureAlgorithm_ = signatureAlgorithm_;
+        }
       }
 
       @java.lang.Override
@@ -9847,12 +9651,13 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.getDefaultInstance()) return this;
         if (!other.getPublicKeyPem().isEmpty()) {
           publicKeyPem_ = other.publicKeyPem_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.signatureAlgorithm_ != 0) {
           setSignatureAlgorithmValue(other.getSignatureAlgorithmValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9867,19 +9672,43 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                publicKeyPem_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                signatureAlgorithm_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object publicKeyPem_ = "";
       /**
@@ -9937,11 +9766,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setPublicKeyPem(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         publicKeyPem_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9955,8 +9782,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearPublicKeyPem() {
-        
         publicKeyPem_ = getDefaultInstance().getPublicKeyPem();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9972,12 +9799,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setPublicKeyPemBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         publicKeyPem_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -10012,8 +9837,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder setSignatureAlgorithmValue(int value) {
-        
         signatureAlgorithm_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -10031,8 +9856,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm getSignatureAlgorithm() {
-        @SuppressWarnings("deprecation")
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.valueOf(signatureAlgorithm_);
+        com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm result = com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.forNumber(signatureAlgorithm_);
         return result == null ? com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.SignatureAlgorithm.UNRECOGNIZED : result;
       }
       /**
@@ -10052,7 +9876,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         signatureAlgorithm_ = value.getNumber();
         onChanged();
         return this;
@@ -10070,7 +9894,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearSignatureAlgorithm() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         signatureAlgorithm_ = 0;
         onChanged();
         return this;
@@ -10108,7 +9932,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PkixPublicKey(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10309,77 +10144,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AttestorPublicKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              comment_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              publicKeyCase_ = 3;
-              publicKey_ = s;
-              break;
-            }
-            case 42: {
-              com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.Builder subBuilder = null;
-              if (publicKeyCase_ == 5) {
-                subBuilder = ((com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey) publicKey_).toBuilder();
-              }
-              publicKey_ =
-                  input.readMessage(com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey) publicKey_);
-                publicKey_ = subBuilder.buildPartial();
-              }
-              publicKeyCase_ = 5;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protos.google.cloud.binaryauthorization.v1.Resources.internal_static_google_cloud_binaryauthorization_v1_AttestorPublicKey_descriptor;
@@ -10435,7 +10199,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int COMMENT_FIELD_NUMBER = 1;
-    private volatile java.lang.Object comment_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object comment_ = "";
     /**
      * <pre>
      * Optional. A descriptive comment. This field may be updated.
@@ -10481,7 +10246,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     }
 
     public static final int ID_FIELD_NUMBER = 2;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * The ID of this public key.
@@ -10704,7 +10470,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       if (publicKeyCase_ == 5) {
         output.writeMessage(5, (com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey) publicKey_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10726,7 +10492,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, (com.google.protos.google.cloud.binaryauthorization.v1.Resources.PkixPublicKey) publicKey_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10758,7 +10524,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10785,7 +10551,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10907,26 +10673,23 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
 
       // Construct using com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         comment_ = "";
-
         id_ = "";
-
+        if (pkixPublicKeyBuilder_ != null) {
+          pkixPublicKeyBuilder_.clear();
+        }
         publicKeyCase_ = 0;
         publicKey_ = null;
         return this;
@@ -10955,21 +10718,29 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       @java.lang.Override
       public com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey buildPartial() {
         com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey result = new com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey(this);
-        result.comment_ = comment_;
-        result.id_ = id_;
-        if (publicKeyCase_ == 3) {
-          result.publicKey_ = publicKey_;
-        }
-        if (publicKeyCase_ == 5) {
-          if (pkixPublicKeyBuilder_ == null) {
-            result.publicKey_ = publicKey_;
-          } else {
-            result.publicKey_ = pkixPublicKeyBuilder_.build();
-          }
-        }
-        result.publicKeyCase_ = publicKeyCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.comment_ = comment_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.id_ = id_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey result) {
+        result.publicKeyCase_ = publicKeyCase_;
+        result.publicKey_ = this.publicKey_;
+        if (publicKeyCase_ == 5 &&
+            pkixPublicKeyBuilder_ != null) {
+          result.publicKey_ = pkixPublicKeyBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -11018,10 +10789,12 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         if (other == com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey.getDefaultInstance()) return this;
         if (!other.getComment().isEmpty()) {
           comment_ = other.comment_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         switch (other.getPublicKeyCase()) {
@@ -11039,7 +10812,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11054,17 +10827,53 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                comment_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                publicKeyCase_ = 3;
+                publicKey_ = s;
+                break;
+              } // case 26
+              case 42: {
+                input.readMessage(
+                    getPkixPublicKeyFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                publicKeyCase_ = 5;
+                break;
+              } // case 42
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protos.google.cloud.binaryauthorization.v1.Resources.AttestorPublicKey) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int publicKeyCase_ = 0;
@@ -11082,6 +10891,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
         return this;
       }
 
+      private int bitField0_;
 
       private java.lang.Object comment_ = "";
       /**
@@ -11136,11 +10946,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setComment(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         comment_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11153,8 +10961,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearComment() {
-        
         comment_ = getDefaultInstance().getComment();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -11169,12 +10977,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setCommentBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         comment_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -11250,11 +11056,9 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11273,8 +11077,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -11295,12 +11099,10 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11409,10 +11211,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setAsciiArmoredPgpPublicKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  publicKeyCase_ = 3;
+        if (value == null) { throw new NullPointerException(); }
+        publicKeyCase_ = 3;
         publicKey_ = value;
         onChanged();
         return this;
@@ -11458,10 +11258,8 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
        */
       public Builder setAsciiArmoredPgpPublicKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         publicKeyCase_ = 3;
         publicKey_ = value;
         onChanged();
@@ -11678,7 +11476,7 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           publicKey_ = null;
         }
         publicKeyCase_ = 5;
-        onChanged();;
+        onChanged();
         return pkixPublicKeyBuilder_;
       }
       @java.lang.Override
@@ -11714,7 +11512,18 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AttestorPublicKey(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -11802,101 +11611,100 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
       "sources.proto\022#google.cloud.binaryauthor" +
       "ization.v1\032\037google/api/field_behavior.pr" +
       "oto\032\031google/api/resource.proto\032\037google/p" +
-      "rotobuf/timestamp.proto\032\034google/api/anno" +
-      "tations.proto\"\370\014\n\006Policy\022\021\n\004name\030\001 \001(\tB\003" +
-      "\340A\003\022\030\n\013description\030\006 \001(\tB\003\340A\001\022r\n\035global_" +
-      "policy_evaluation_mode\030\007 \001(\0162F.google.cl" +
-      "oud.binaryauthorization.v1.Policy.Global" +
-      "PolicyEvaluationModeB\003\340A\001\022i\n\034admission_w" +
-      "hitelist_patterns\030\002 \003(\0132>.google.cloud.b" +
-      "inaryauthorization.v1.AdmissionWhitelist" +
-      "PatternB\003\340A\001\022l\n\027cluster_admission_rules\030" +
-      "\003 \003(\0132F.google.cloud.binaryauthorization" +
-      ".v1.Policy.ClusterAdmissionRulesEntryB\003\340" +
-      "A\001\022\205\001\n$kubernetes_namespace_admission_ru" +
-      "les\030\n \003(\0132R.google.cloud.binaryauthoriza" +
-      "tion.v1.Policy.KubernetesNamespaceAdmiss" +
-      "ionRulesEntryB\003\340A\001\022\220\001\n*kubernetes_servic" +
-      "e_account_admission_rules\030\010 \003(\0132W.google" +
-      ".cloud.binaryauthorization.v1.Policy.Kub" +
-      "ernetesServiceAccountAdmissionRulesEntry" +
-      "B\003\340A\001\022\210\001\n&istio_service_identity_admissi" +
-      "on_rules\030\t \003(\0132S.google.cloud.binaryauth" +
-      "orization.v1.Policy.IstioServiceIdentity" +
-      "AdmissionRulesEntryB\003\340A\001\022W\n\026default_admi" +
-      "ssion_rule\030\004 \001(\01322.google.cloud.binaryau" +
-      "thorization.v1.AdmissionRuleB\003\340A\002\0224\n\013upd" +
-      "ate_time\030\005 \001(\0132\032.google.protobuf.Timesta" +
-      "mpB\003\340A\003\032p\n\032ClusterAdmissionRulesEntry\022\013\n" +
-      "\003key\030\001 \001(\t\022A\n\005value\030\002 \001(\01322.google.cloud" +
-      ".binaryauthorization.v1.AdmissionRule:\0028" +
-      "\001\032|\n&KubernetesNamespaceAdmissionRulesEn" +
-      "try\022\013\n\003key\030\001 \001(\t\022A\n\005value\030\002 \001(\01322.google" +
-      ".cloud.binaryauthorization.v1.AdmissionR" +
-      "ule:\0028\001\032\201\001\n+KubernetesServiceAccountAdmi" +
-      "ssionRulesEntry\022\013\n\003key\030\001 \001(\t\022A\n\005value\030\002 " +
-      "\001(\01322.google.cloud.binaryauthorization.v" +
-      "1.AdmissionRule:\0028\001\032}\n\'IstioServiceIdent" +
-      "ityAdmissionRulesEntry\022\013\n\003key\030\001 \001(\t\022A\n\005v" +
-      "alue\030\002 \001(\01322.google.cloud.binaryauthoriz" +
-      "ation.v1.AdmissionRule:\0028\001\"d\n\032GlobalPoli" +
-      "cyEvaluationMode\022-\n)GLOBAL_POLICY_EVALUA" +
-      "TION_MODE_UNSPECIFIED\020\000\022\n\n\006ENABLE\020\001\022\013\n\007D" +
-      "ISABLE\020\002:f\352Ac\n)binaryauthorization.googl" +
-      "eapis.com/Policy\022\031projects/{project}/pol" +
-      "icy\022\033locations/{location}/policy\"1\n\031Admi" +
-      "ssionWhitelistPattern\022\024\n\014name_pattern\030\001 " +
-      "\001(\t\"\332\003\n\rAdmissionRule\022_\n\017evaluation_mode" +
-      "\030\001 \001(\0162A.google.cloud.binaryauthorizatio" +
-      "n.v1.AdmissionRule.EvaluationModeB\003\340A\002\022$" +
-      "\n\027require_attestations_by\030\002 \003(\tB\003\340A\001\022a\n\020" +
-      "enforcement_mode\030\003 \001(\0162B.google.cloud.bi" +
-      "naryauthorization.v1.AdmissionRule.Enfor" +
-      "cementModeB\003\340A\002\"m\n\016EvaluationMode\022\037\n\033EVA" +
-      "LUATION_MODE_UNSPECIFIED\020\000\022\020\n\014ALWAYS_ALL" +
-      "OW\020\001\022\027\n\023REQUIRE_ATTESTATION\020\002\022\017\n\013ALWAYS_" +
-      "DENY\020\003\"p\n\017EnforcementMode\022 \n\034ENFORCEMENT" +
-      "_MODE_UNSPECIFIED\020\000\022 \n\034ENFORCED_BLOCK_AN" +
-      "D_AUDIT_LOG\020\001\022\031\n\025DRYRUN_AUDIT_LOG_ONLY\020\002" +
-      "\"\267\002\n\010Attestor\022\021\n\004name\030\001 \001(\tB\003\340A\002\022\030\n\013desc" +
-      "ription\030\006 \001(\tB\003\340A\001\022\\\n\027user_owned_grafeas" +
-      "_note\030\003 \001(\01329.google.cloud.binaryauthori" +
-      "zation.v1.UserOwnedGrafeasNoteH\000\0224\n\013upda" +
-      "te_time\030\004 \001(\0132\032.google.protobuf.Timestam" +
-      "pB\003\340A\003:Y\352AV\n+binaryauthorization.googlea" +
-      "pis.com/Attestor\022\'projects/{project}/att" +
-      "estors/{attestor}B\017\n\rattestor_type\"\264\001\n\024U" +
-      "serOwnedGrafeasNote\022\033\n\016note_reference\030\001 " +
-      "\001(\tB\003\340A\002\022P\n\013public_keys\030\002 \003(\01326.google.c" +
-      "loud.binaryauthorization.v1.AttestorPubl" +
-      "icKeyB\003\340A\001\022-\n delegation_service_account" +
-      "_email\030\003 \001(\tB\003\340A\003\"\277\004\n\rPkixPublicKey\022\026\n\016p" +
-      "ublic_key_pem\030\001 \001(\t\022b\n\023signature_algorit" +
-      "hm\030\002 \001(\0162E.google.cloud.binaryauthorizat" +
-      "ion.v1.PkixPublicKey.SignatureAlgorithm\"" +
-      "\261\003\n\022SignatureAlgorithm\022#\n\037SIGNATURE_ALGO" +
-      "RITHM_UNSPECIFIED\020\000\022\027\n\023RSA_PSS_2048_SHA2" +
-      "56\020\001\022\027\n\023RSA_PSS_3072_SHA256\020\002\022\027\n\023RSA_PSS" +
-      "_4096_SHA256\020\003\022\027\n\023RSA_PSS_4096_SHA512\020\004\022" +
-      "\036\n\032RSA_SIGN_PKCS1_2048_SHA256\020\005\022\036\n\032RSA_S" +
-      "IGN_PKCS1_3072_SHA256\020\006\022\036\n\032RSA_SIGN_PKCS" +
-      "1_4096_SHA256\020\007\022\036\n\032RSA_SIGN_PKCS1_4096_S" +
-      "HA512\020\010\022\025\n\021ECDSA_P256_SHA256\020\t\022\027\n\023EC_SIG" +
-      "N_P256_SHA256\020\t\022\025\n\021ECDSA_P384_SHA384\020\n\022\027" +
-      "\n\023EC_SIGN_P384_SHA384\020\n\022\025\n\021ECDSA_P521_SH" +
-      "A512\020\013\022\027\n\023EC_SIGN_P521_SHA512\020\013\032\002\020\001\"\272\001\n\021" +
-      "AttestorPublicKey\022\024\n\007comment\030\001 \001(\tB\003\340A\001\022" +
-      "\n\n\002id\030\002 \001(\t\022&\n\034ascii_armored_pgp_public_" +
-      "key\030\003 \001(\tH\000\022M\n\017pkix_public_key\030\005 \001(\01322.g" +
-      "oogle.cloud.binaryauthorization.v1.PkixP" +
-      "ublicKeyH\000B\014\n\npublic_keyB\211\002\n5com.google." +
-      "protos.google.cloud.binaryauthorization." +
-      "v1P\000ZVgoogle.golang.org/genproto/googlea" +
-      "pis/cloud/binaryauthorization/v1;binarya" +
-      "uthorization\370\001\001\252\002#Google.Cloud.BinaryAut" +
-      "horization.V1\312\002#Google\\Cloud\\BinaryAutho" +
-      "rization\\V1\352\002&Google::Cloud::BinaryAutho" +
-      "rization::V1b\006proto3"
+      "rotobuf/timestamp.proto\"\370\014\n\006Policy\022\021\n\004na" +
+      "me\030\001 \001(\tB\003\340A\003\022\030\n\013description\030\006 \001(\tB\003\340A\001\022" +
+      "r\n\035global_policy_evaluation_mode\030\007 \001(\0162F" +
+      ".google.cloud.binaryauthorization.v1.Pol" +
+      "icy.GlobalPolicyEvaluationModeB\003\340A\001\022i\n\034a" +
+      "dmission_whitelist_patterns\030\002 \003(\0132>.goog" +
+      "le.cloud.binaryauthorization.v1.Admissio" +
+      "nWhitelistPatternB\003\340A\001\022l\n\027cluster_admiss" +
+      "ion_rules\030\003 \003(\0132F.google.cloud.binaryaut" +
+      "horization.v1.Policy.ClusterAdmissionRul" +
+      "esEntryB\003\340A\001\022\205\001\n$kubernetes_namespace_ad" +
+      "mission_rules\030\n \003(\0132R.google.cloud.binar" +
+      "yauthorization.v1.Policy.KubernetesNames" +
+      "paceAdmissionRulesEntryB\003\340A\001\022\220\001\n*kuberne" +
+      "tes_service_account_admission_rules\030\010 \003(" +
+      "\0132W.google.cloud.binaryauthorization.v1." +
+      "Policy.KubernetesServiceAccountAdmission" +
+      "RulesEntryB\003\340A\001\022\210\001\n&istio_service_identi" +
+      "ty_admission_rules\030\t \003(\0132S.google.cloud." +
+      "binaryauthorization.v1.Policy.IstioServi" +
+      "ceIdentityAdmissionRulesEntryB\003\340A\001\022W\n\026de" +
+      "fault_admission_rule\030\004 \001(\01322.google.clou" +
+      "d.binaryauthorization.v1.AdmissionRuleB\003" +
+      "\340A\002\0224\n\013update_time\030\005 \001(\0132\032.google.protob" +
+      "uf.TimestampB\003\340A\003\032p\n\032ClusterAdmissionRul" +
+      "esEntry\022\013\n\003key\030\001 \001(\t\022A\n\005value\030\002 \001(\01322.go" +
+      "ogle.cloud.binaryauthorization.v1.Admiss" +
+      "ionRule:\0028\001\032|\n&KubernetesNamespaceAdmiss" +
+      "ionRulesEntry\022\013\n\003key\030\001 \001(\t\022A\n\005value\030\002 \001(" +
+      "\01322.google.cloud.binaryauthorization.v1." +
+      "AdmissionRule:\0028\001\032\201\001\n+KubernetesServiceA" +
+      "ccountAdmissionRulesEntry\022\013\n\003key\030\001 \001(\t\022A" +
+      "\n\005value\030\002 \001(\01322.google.cloud.binaryautho" +
+      "rization.v1.AdmissionRule:\0028\001\032}\n\'IstioSe" +
+      "rviceIdentityAdmissionRulesEntry\022\013\n\003key\030" +
+      "\001 \001(\t\022A\n\005value\030\002 \001(\01322.google.cloud.bina" +
+      "ryauthorization.v1.AdmissionRule:\0028\001\"d\n\032" +
+      "GlobalPolicyEvaluationMode\022-\n)GLOBAL_POL" +
+      "ICY_EVALUATION_MODE_UNSPECIFIED\020\000\022\n\n\006ENA" +
+      "BLE\020\001\022\013\n\007DISABLE\020\002:f\352Ac\n)binaryauthoriza" +
+      "tion.googleapis.com/Policy\022\031projects/{pr" +
+      "oject}/policy\022\033locations/{location}/poli" +
+      "cy\"1\n\031AdmissionWhitelistPattern\022\024\n\014name_" +
+      "pattern\030\001 \001(\t\"\332\003\n\rAdmissionRule\022_\n\017evalu" +
+      "ation_mode\030\001 \001(\0162A.google.cloud.binaryau" +
+      "thorization.v1.AdmissionRule.EvaluationM" +
+      "odeB\003\340A\002\022$\n\027require_attestations_by\030\002 \003(" +
+      "\tB\003\340A\001\022a\n\020enforcement_mode\030\003 \001(\0162B.googl" +
+      "e.cloud.binaryauthorization.v1.Admission" +
+      "Rule.EnforcementModeB\003\340A\002\"m\n\016EvaluationM" +
+      "ode\022\037\n\033EVALUATION_MODE_UNSPECIFIED\020\000\022\020\n\014" +
+      "ALWAYS_ALLOW\020\001\022\027\n\023REQUIRE_ATTESTATION\020\002\022" +
+      "\017\n\013ALWAYS_DENY\020\003\"p\n\017EnforcementMode\022 \n\034E" +
+      "NFORCEMENT_MODE_UNSPECIFIED\020\000\022 \n\034ENFORCE" +
+      "D_BLOCK_AND_AUDIT_LOG\020\001\022\031\n\025DRYRUN_AUDIT_" +
+      "LOG_ONLY\020\002\"\267\002\n\010Attestor\022\021\n\004name\030\001 \001(\tB\003\340" +
+      "A\002\022\030\n\013description\030\006 \001(\tB\003\340A\001\022\\\n\027user_own" +
+      "ed_grafeas_note\030\003 \001(\01329.google.cloud.bin" +
+      "aryauthorization.v1.UserOwnedGrafeasNote" +
+      "H\000\0224\n\013update_time\030\004 \001(\0132\032.google.protobu" +
+      "f.TimestampB\003\340A\003:Y\352AV\n+binaryauthorizati" +
+      "on.googleapis.com/Attestor\022\'projects/{pr" +
+      "oject}/attestors/{attestor}B\017\n\rattestor_" +
+      "type\"\264\001\n\024UserOwnedGrafeasNote\022\033\n\016note_re" +
+      "ference\030\001 \001(\tB\003\340A\002\022P\n\013public_keys\030\002 \003(\0132" +
+      "6.google.cloud.binaryauthorization.v1.At" +
+      "testorPublicKeyB\003\340A\001\022-\n delegation_servi" +
+      "ce_account_email\030\003 \001(\tB\003\340A\003\"\277\004\n\rPkixPubl" +
+      "icKey\022\026\n\016public_key_pem\030\001 \001(\t\022b\n\023signatu" +
+      "re_algorithm\030\002 \001(\0162E.google.cloud.binary" +
+      "authorization.v1.PkixPublicKey.Signature" +
+      "Algorithm\"\261\003\n\022SignatureAlgorithm\022#\n\037SIGN" +
+      "ATURE_ALGORITHM_UNSPECIFIED\020\000\022\027\n\023RSA_PSS" +
+      "_2048_SHA256\020\001\022\027\n\023RSA_PSS_3072_SHA256\020\002\022" +
+      "\027\n\023RSA_PSS_4096_SHA256\020\003\022\027\n\023RSA_PSS_4096" +
+      "_SHA512\020\004\022\036\n\032RSA_SIGN_PKCS1_2048_SHA256\020" +
+      "\005\022\036\n\032RSA_SIGN_PKCS1_3072_SHA256\020\006\022\036\n\032RSA" +
+      "_SIGN_PKCS1_4096_SHA256\020\007\022\036\n\032RSA_SIGN_PK" +
+      "CS1_4096_SHA512\020\010\022\025\n\021ECDSA_P256_SHA256\020\t" +
+      "\022\027\n\023EC_SIGN_P256_SHA256\020\t\022\025\n\021ECDSA_P384_" +
+      "SHA384\020\n\022\027\n\023EC_SIGN_P384_SHA384\020\n\022\025\n\021ECD" +
+      "SA_P521_SHA512\020\013\022\027\n\023EC_SIGN_P521_SHA512\020" +
+      "\013\032\002\020\001\"\272\001\n\021AttestorPublicKey\022\024\n\007comment\030\001" +
+      " \001(\tB\003\340A\001\022\n\n\002id\030\002 \001(\t\022&\n\034ascii_armored_p" +
+      "gp_public_key\030\003 \001(\tH\000\022M\n\017pkix_public_key" +
+      "\030\005 \001(\01322.google.cloud.binaryauthorizatio" +
+      "n.v1.PkixPublicKeyH\000B\014\n\npublic_keyB\211\002\n5c" +
+      "om.google.protos.google.cloud.binaryauth" +
+      "orization.v1P\000ZVgoogle.golang.org/genpro" +
+      "to/googleapis/cloud/binaryauthorization/" +
+      "v1;binaryauthorization\370\001\001\252\002#Google.Cloud" +
+      ".BinaryAuthorization.V1\312\002#Google\\Cloud\\B" +
+      "inaryAuthorization\\V1\352\002&Google::Cloud::B" +
+      "inaryAuthorization::V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11904,7 +11712,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.api.ResourceProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_binaryauthorization_v1_Policy_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -11981,7 +11788,6 @@ com.google.protos.google.cloud.binaryauthorization.v1.Resources.AdmissionRule de
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.api.ResourceProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

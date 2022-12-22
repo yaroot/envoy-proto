@@ -43,216 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchVehiclesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.v1.RequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.v1.RequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 34: {
-            google.maps.fleetengine.v1.TerminalLocation.Builder subBuilder = null;
-            if (pickupPoint_ != null) {
-              subBuilder = pickupPoint_.toBuilder();
-            }
-            pickupPoint_ = input.readMessage(google.maps.fleetengine.v1.TerminalLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pickupPoint_);
-              pickupPoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            google.maps.fleetengine.v1.TerminalLocation.Builder subBuilder = null;
-            if (dropoffPoint_ != null) {
-              subBuilder = dropoffPoint_.toBuilder();
-            }
-            dropoffPoint_ = input.readMessage(google.maps.fleetengine.v1.TerminalLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dropoffPoint_);
-              dropoffPoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            pickupRadiusMeters_ = input.readInt32();
-            break;
-          }
-          case 56: {
-
-            count_ = input.readInt32();
-            break;
-          }
-          case 64: {
-
-            minimumCapacity_ = input.readInt32();
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tripTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tripTypes_.add(rawValue);
-            break;
-          }
-          case 74: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tripTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              tripTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maximumStaleness_ != null) {
-              subBuilder = maximumStaleness_.toBuilder();
-            }
-            maximumStaleness_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maximumStaleness_);
-              maximumStaleness_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              requiredAttributes_ = new java.util.ArrayList<google.maps.fleetengine.v1.VehicleAttribute>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            requiredAttributes_.add(
-                input.readMessage(google.maps.fleetengine.v1.VehicleAttribute.parser(), extensionRegistry));
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-
-            orderBy_ = rawValue;
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              vehicleTypes_ = new java.util.ArrayList<google.maps.fleetengine.v1.Vehicle.VehicleType>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            vehicleTypes_.add(
-                input.readMessage(google.maps.fleetengine.v1.Vehicle.VehicleType.parser(), extensionRegistry));
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              requiredOneOfAttributes_ = new java.util.ArrayList<google.maps.fleetengine.v1.VehicleAttributeList>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            requiredOneOfAttributes_.add(
-                input.readMessage(google.maps.fleetengine.v1.VehicleAttributeList.parser(), extensionRegistry));
-            break;
-          }
-          case 144: {
-
-            includeBackToBack_ = input.readBool();
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tripId_ = s;
-            break;
-          }
-          case 162: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              requiredOneOfAttributeSets_ = new java.util.ArrayList<google.maps.fleetengine.v1.VehicleAttributeList>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            requiredOneOfAttributeSets_.add(
-                input.readMessage(google.maps.fleetengine.v1.VehicleAttributeList.parser(), extensionRegistry));
-            break;
-          }
-          case 168: {
-            int rawValue = input.readEnum();
-
-            currentTripsPresent_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tripTypes_ = java.util.Collections.unmodifiableList(tripTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        requiredAttributes_ = java.util.Collections.unmodifiableList(requiredAttributes_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        vehicleTypes_ = java.util.Collections.unmodifiableList(vehicleTypes_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        requiredOneOfAttributes_ = java.util.Collections.unmodifiableList(requiredOneOfAttributes_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        requiredOneOfAttributeSets_ = java.util.Collections.unmodifiableList(requiredOneOfAttributeSets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.VehicleApi.internal_static_maps_fleetengine_v1_SearchVehiclesRequest_descriptor;
@@ -656,11 +446,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.RequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.v1.RequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int PARENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Must be in the format `providers/{provider}`.
@@ -746,7 +537,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.TerminalLocationOrBuilder getPickupPointOrBuilder() {
-    return getPickupPoint();
+    return pickupPoint_ == null ? google.maps.fleetengine.v1.TerminalLocation.getDefaultInstance() : pickupPoint_;
   }
 
   public static final int DROPOFF_POINT_FIELD_NUMBER = 5;
@@ -787,11 +578,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.TerminalLocationOrBuilder getDropoffPointOrBuilder() {
-    return getDropoffPoint();
+    return dropoffPoint_ == null ? google.maps.fleetengine.v1.TerminalLocation.getDefaultInstance() : dropoffPoint_;
   }
 
   public static final int PICKUP_RADIUS_METERS_FIELD_NUMBER = 6;
-  private int pickupRadiusMeters_;
+  private int pickupRadiusMeters_ = 0;
   /**
    * <pre>
    * Required. Defines the vehicle search radius around the pickup point. Only
@@ -808,7 +599,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COUNT_FIELD_NUMBER = 7;
-  private int count_;
+  private int count_ = 0;
   /**
    * <pre>
    * Required. Specifies the maximum number of vehicles to return. The value
@@ -824,12 +615,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MINIMUM_CAPACITY_FIELD_NUMBER = 8;
-  private int minimumCapacity_;
+  private int minimumCapacity_ = 0;
   /**
    * <pre>
-   * Required. Specifies the number of passengers being considered for a trip. The
-   * value must be greater than or equal to one. The driver is not considered in
-   * the capacity value.
+   * Required. Specifies the number of passengers being considered for a trip.
+   * The value must be greater than or equal to one. The driver is not
+   * considered in the capacity value.
    * </pre>
    *
    * <code>int32 minimum_capacity = 8 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -841,14 +632,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRIP_TYPES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> tripTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, google.maps.fleetengine.v1.TripType> tripTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, google.maps.fleetengine.v1.TripType>() {
             public google.maps.fleetengine.v1.TripType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.valueOf(from);
+              google.maps.fleetengine.v1.TripType result = google.maps.fleetengine.v1.TripType.forNumber(from);
               return result == null ? google.maps.fleetengine.v1.TripType.UNRECOGNIZED : result;
             }
           };
@@ -979,10 +770,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaximumStalenessOrBuilder() {
-    return getMaximumStaleness();
+    return maximumStaleness_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maximumStaleness_;
   }
 
   public static final int VEHICLE_TYPES_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.Vehicle.VehicleType> vehicleTypes_;
   /**
    * <pre>
@@ -1048,6 +840,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_ATTRIBUTES_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.VehicleAttribute> requiredAttributes_;
   /**
    * <pre>
@@ -1067,9 +860,9 @@ private static final long serialVersionUID = 0L;
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -1096,9 +889,9 @@ private static final long serialVersionUID = 0L;
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -1126,9 +919,9 @@ private static final long serialVersionUID = 0L;
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -1155,9 +948,9 @@ private static final long serialVersionUID = 0L;
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -1184,9 +977,9 @@ private static final long serialVersionUID = 0L;
    * ...)
    * ```
    * Restricts the search to only those vehicles with the specified attributes.
-   * This field is a conjunction/AND operation. Your app can specify up to 100
-   * attributes; however, the combined key:value string length cannot exceed
-   * 1024 characters.
+   * This field is a conjunction/AND operation. A max of 50 required_attributes
+   * is allowed. This matches the maximum number of attributes allowed on a
+   * vehicle.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -1198,6 +991,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_ONE_OF_ATTRIBUTES_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.VehicleAttributeList> requiredOneOfAttributes_;
   /**
    * <pre>
@@ -1278,6 +1072,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUIRED_ONE_OF_ATTRIBUTE_SETS_FIELD_NUMBER = 20;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.v1.VehicleAttributeList> requiredOneOfAttributeSets_;
   /**
    * <pre>
@@ -1433,7 +1228,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 13;
-  private int orderBy_;
+  private int orderBy_ = 0;
   /**
    * <pre>
    * Required. Specifies the desired ordering criterion for results.
@@ -1454,13 +1249,12 @@ private static final long serialVersionUID = 0L;
    * @return The orderBy.
    */
   @java.lang.Override public google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder getOrderBy() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.valueOf(orderBy_);
+    google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.forNumber(orderBy_);
     return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.UNRECOGNIZED : result;
   }
 
   public static final int INCLUDE_BACK_TO_BACK_FIELD_NUMBER = 18;
-  private boolean includeBackToBack_;
+  private boolean includeBackToBack_ = false;
   /**
    * <pre>
    * Indicates if a vehicle with a single active trip is eligible for another
@@ -1481,7 +1275,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRIP_ID_FIELD_NUMBER = 19;
-  private volatile java.lang.Object tripId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tripId_ = "";
   /**
    * <pre>
    * Indicates the trip associated with this `SearchVehicleRequest`.
@@ -1527,7 +1322,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENT_TRIPS_PRESENT_FIELD_NUMBER = 21;
-  private int currentTripsPresent_;
+  private int currentTripsPresent_ = 0;
   /**
    * <pre>
    * Restricts vehicles from appearing in the search results based on
@@ -1554,8 +1349,7 @@ private static final long serialVersionUID = 0L;
    * @return The currentTripsPresent.
    */
   @java.lang.Override public google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent getCurrentTripsPresent() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent result = google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.valueOf(currentTripsPresent_);
+    google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent result = google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.forNumber(currentTripsPresent_);
     return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.UNRECOGNIZED : result;
   }
 
@@ -1629,7 +1423,7 @@ private static final long serialVersionUID = 0L;
     if (currentTripsPresent_ != google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.CURRENT_TRIPS_PRESENT_UNSPECIFIED.getNumber()) {
       output.writeEnum(21, currentTripsPresent_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1712,7 +1506,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(21, currentTripsPresent_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1770,7 +1564,7 @@ private static final long serialVersionUID = 0L;
     if (!getTripId()
         .equals(other.getTripId())) return false;
     if (currentTripsPresent_ != other.currentTripsPresent_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1834,7 +1628,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getTripId().hashCode();
     hash = (37 * hash) + CURRENT_TRIPS_PRESENT_FIELD_NUMBER;
     hash = (53 * hash) + currentTripsPresent_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1955,92 +1749,76 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.SearchVehiclesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getVehicleTypesFieldBuilder();
-        getRequiredAttributesFieldBuilder();
-        getRequiredOneOfAttributesFieldBuilder();
-        getRequiredOneOfAttributeSetsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       parent_ = "";
-
-      if (pickupPointBuilder_ == null) {
-        pickupPoint_ = null;
-      } else {
-        pickupPoint_ = null;
+      pickupPoint_ = null;
+      if (pickupPointBuilder_ != null) {
+        pickupPointBuilder_.dispose();
         pickupPointBuilder_ = null;
       }
-      if (dropoffPointBuilder_ == null) {
-        dropoffPoint_ = null;
-      } else {
-        dropoffPoint_ = null;
+      dropoffPoint_ = null;
+      if (dropoffPointBuilder_ != null) {
+        dropoffPointBuilder_.dispose();
         dropoffPointBuilder_ = null;
       }
       pickupRadiusMeters_ = 0;
-
       count_ = 0;
-
       minimumCapacity_ = 0;
-
       tripTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (maximumStalenessBuilder_ == null) {
-        maximumStaleness_ = null;
-      } else {
-        maximumStaleness_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      maximumStaleness_ = null;
+      if (maximumStalenessBuilder_ != null) {
+        maximumStalenessBuilder_.dispose();
         maximumStalenessBuilder_ = null;
       }
       if (vehicleTypesBuilder_ == null) {
         vehicleTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        vehicleTypes_ = null;
         vehicleTypesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       if (requiredAttributesBuilder_ == null) {
         requiredAttributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        requiredAttributes_ = null;
         requiredAttributesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       if (requiredOneOfAttributesBuilder_ == null) {
         requiredOneOfAttributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        requiredOneOfAttributes_ = null;
         requiredOneOfAttributesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000800);
       if (requiredOneOfAttributeSetsBuilder_ == null) {
         requiredOneOfAttributeSets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        requiredOneOfAttributeSets_ = null;
         requiredOneOfAttributeSetsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00001000);
       orderBy_ = 0;
-
       includeBackToBack_ = false;
-
       tripId_ = "";
-
       currentTripsPresent_ = 0;
-
       return this;
     }
 
@@ -2067,78 +1845,102 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.SearchVehiclesRequest buildPartial() {
       google.maps.fleetengine.v1.SearchVehiclesRequest result = new google.maps.fleetengine.v1.SearchVehiclesRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.parent_ = parent_;
-      if (pickupPointBuilder_ == null) {
-        result.pickupPoint_ = pickupPoint_;
-      } else {
-        result.pickupPoint_ = pickupPointBuilder_.build();
-      }
-      if (dropoffPointBuilder_ == null) {
-        result.dropoffPoint_ = dropoffPoint_;
-      } else {
-        result.dropoffPoint_ = dropoffPointBuilder_.build();
-      }
-      result.pickupRadiusMeters_ = pickupRadiusMeters_;
-      result.count_ = count_;
-      result.minimumCapacity_ = minimumCapacity_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.v1.SearchVehiclesRequest result) {
+      if (((bitField0_ & 0x00000080) != 0)) {
         tripTypes_ = java.util.Collections.unmodifiableList(tripTypes_);
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
       }
       result.tripTypes_ = tripTypes_;
-      if (maximumStalenessBuilder_ == null) {
-        result.maximumStaleness_ = maximumStaleness_;
-      } else {
-        result.maximumStaleness_ = maximumStalenessBuilder_.build();
-      }
       if (vehicleTypesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           vehicleTypes_ = java.util.Collections.unmodifiableList(vehicleTypes_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.vehicleTypes_ = vehicleTypes_;
       } else {
         result.vehicleTypes_ = vehicleTypesBuilder_.build();
       }
       if (requiredAttributesBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           requiredAttributes_ = java.util.Collections.unmodifiableList(requiredAttributes_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.requiredAttributes_ = requiredAttributes_;
       } else {
         result.requiredAttributes_ = requiredAttributesBuilder_.build();
       }
       if (requiredOneOfAttributesBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000800) != 0)) {
           requiredOneOfAttributes_ = java.util.Collections.unmodifiableList(requiredOneOfAttributes_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000800);
         }
         result.requiredOneOfAttributes_ = requiredOneOfAttributes_;
       } else {
         result.requiredOneOfAttributes_ = requiredOneOfAttributesBuilder_.build();
       }
       if (requiredOneOfAttributeSetsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00001000) != 0)) {
           requiredOneOfAttributeSets_ = java.util.Collections.unmodifiableList(requiredOneOfAttributeSets_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00001000);
         }
         result.requiredOneOfAttributeSets_ = requiredOneOfAttributeSets_;
       } else {
         result.requiredOneOfAttributeSets_ = requiredOneOfAttributeSetsBuilder_.build();
       }
-      result.orderBy_ = orderBy_;
-      result.includeBackToBack_ = includeBackToBack_;
-      result.tripId_ = tripId_;
-      result.currentTripsPresent_ = currentTripsPresent_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.SearchVehiclesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pickupPoint_ = pickupPointBuilder_ == null
+            ? pickupPoint_
+            : pickupPointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.dropoffPoint_ = dropoffPointBuilder_ == null
+            ? dropoffPoint_
+            : dropoffPointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pickupRadiusMeters_ = pickupRadiusMeters_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.count_ = count_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.minimumCapacity_ = minimumCapacity_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.maximumStaleness_ = maximumStalenessBuilder_ == null
+            ? maximumStaleness_
+            : maximumStalenessBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.includeBackToBack_ = includeBackToBack_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.tripId_ = tripId_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.currentTripsPresent_ = currentTripsPresent_;
+      }
     }
 
     @java.lang.Override
@@ -2190,6 +1992,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasPickupPoint()) {
@@ -2210,7 +2013,7 @@ private static final long serialVersionUID = 0L;
       if (!other.tripTypes_.isEmpty()) {
         if (tripTypes_.isEmpty()) {
           tripTypes_ = other.tripTypes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureTripTypesIsMutable();
           tripTypes_.addAll(other.tripTypes_);
@@ -2224,7 +2027,7 @@ private static final long serialVersionUID = 0L;
         if (!other.vehicleTypes_.isEmpty()) {
           if (vehicleTypes_.isEmpty()) {
             vehicleTypes_ = other.vehicleTypes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureVehicleTypesIsMutable();
             vehicleTypes_.addAll(other.vehicleTypes_);
@@ -2237,7 +2040,7 @@ private static final long serialVersionUID = 0L;
             vehicleTypesBuilder_.dispose();
             vehicleTypesBuilder_ = null;
             vehicleTypes_ = other.vehicleTypes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000200);
             vehicleTypesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVehicleTypesFieldBuilder() : null;
@@ -2250,7 +2053,7 @@ private static final long serialVersionUID = 0L;
         if (!other.requiredAttributes_.isEmpty()) {
           if (requiredAttributes_.isEmpty()) {
             requiredAttributes_ = other.requiredAttributes_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureRequiredAttributesIsMutable();
             requiredAttributes_.addAll(other.requiredAttributes_);
@@ -2263,7 +2066,7 @@ private static final long serialVersionUID = 0L;
             requiredAttributesBuilder_.dispose();
             requiredAttributesBuilder_ = null;
             requiredAttributes_ = other.requiredAttributes_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000400);
             requiredAttributesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRequiredAttributesFieldBuilder() : null;
@@ -2276,7 +2079,7 @@ private static final long serialVersionUID = 0L;
         if (!other.requiredOneOfAttributes_.isEmpty()) {
           if (requiredOneOfAttributes_.isEmpty()) {
             requiredOneOfAttributes_ = other.requiredOneOfAttributes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000800);
           } else {
             ensureRequiredOneOfAttributesIsMutable();
             requiredOneOfAttributes_.addAll(other.requiredOneOfAttributes_);
@@ -2289,7 +2092,7 @@ private static final long serialVersionUID = 0L;
             requiredOneOfAttributesBuilder_.dispose();
             requiredOneOfAttributesBuilder_ = null;
             requiredOneOfAttributes_ = other.requiredOneOfAttributes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000800);
             requiredOneOfAttributesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRequiredOneOfAttributesFieldBuilder() : null;
@@ -2302,7 +2105,7 @@ private static final long serialVersionUID = 0L;
         if (!other.requiredOneOfAttributeSets_.isEmpty()) {
           if (requiredOneOfAttributeSets_.isEmpty()) {
             requiredOneOfAttributeSets_ = other.requiredOneOfAttributeSets_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00001000);
           } else {
             ensureRequiredOneOfAttributeSetsIsMutable();
             requiredOneOfAttributeSets_.addAll(other.requiredOneOfAttributeSets_);
@@ -2315,7 +2118,7 @@ private static final long serialVersionUID = 0L;
             requiredOneOfAttributeSetsBuilder_.dispose();
             requiredOneOfAttributeSetsBuilder_ = null;
             requiredOneOfAttributeSets_ = other.requiredOneOfAttributeSets_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00001000);
             requiredOneOfAttributeSetsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRequiredOneOfAttributeSetsFieldBuilder() : null;
@@ -2332,12 +2135,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTripId().isEmpty()) {
         tripId_ = other.tripId_;
+        bitField0_ |= 0x00008000;
         onChanged();
       }
       if (other.currentTripsPresent_ != 0) {
         setCurrentTripsPresentValue(other.getCurrentTripsPresentValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2352,17 +2156,167 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.SearchVehiclesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPickupPointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getDropoffPointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 48: {
+              pickupRadiusMeters_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 56: {
+              count_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 64: {
+              minimumCapacity_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            case 72: {
+              int tmpRaw = input.readEnum();
+              ensureTripTypesIsMutable();
+              tripTypes_.add(tmpRaw);
+              break;
+            } // case 72
+            case 74: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureTripTypesIsMutable();
+                tripTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getMaximumStalenessFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 82
+            case 98: {
+              google.maps.fleetengine.v1.VehicleAttribute m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.VehicleAttribute.parser(),
+                      extensionRegistry);
+              if (requiredAttributesBuilder_ == null) {
+                ensureRequiredAttributesIsMutable();
+                requiredAttributes_.add(m);
+              } else {
+                requiredAttributesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 98
+            case 104: {
+              orderBy_ = input.readEnum();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 104
+            case 114: {
+              google.maps.fleetengine.v1.Vehicle.VehicleType m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.Vehicle.VehicleType.parser(),
+                      extensionRegistry);
+              if (vehicleTypesBuilder_ == null) {
+                ensureVehicleTypesIsMutable();
+                vehicleTypes_.add(m);
+              } else {
+                vehicleTypesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 114
+            case 122: {
+              google.maps.fleetengine.v1.VehicleAttributeList m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.VehicleAttributeList.parser(),
+                      extensionRegistry);
+              if (requiredOneOfAttributesBuilder_ == null) {
+                ensureRequiredOneOfAttributesIsMutable();
+                requiredOneOfAttributes_.add(m);
+              } else {
+                requiredOneOfAttributesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            case 144: {
+              includeBackToBack_ = input.readBool();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 144
+            case 154: {
+              tripId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 154
+            case 162: {
+              google.maps.fleetengine.v1.VehicleAttributeList m =
+                  input.readMessage(
+                      google.maps.fleetengine.v1.VehicleAttributeList.parser(),
+                      extensionRegistry);
+              if (requiredOneOfAttributeSetsBuilder_ == null) {
+                ensureRequiredOneOfAttributeSetsIsMutable();
+                requiredOneOfAttributeSets_.add(m);
+              } else {
+                requiredOneOfAttributeSetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 162
+            case 168: {
+              currentTripsPresent_ = input.readEnum();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 168
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.SearchVehiclesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2379,7 +2333,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2409,11 +2363,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2427,11 +2381,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.RequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2443,17 +2397,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.v1.RequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.v1.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.v1.RequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2464,14 +2419,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2482,7 +2436,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public google.maps.fleetengine.v1.RequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -2584,11 +2538,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2604,8 +2556,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2623,12 +2575,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2645,7 +2595,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pickupPoint field is set.
      */
     public boolean hasPickupPoint() {
-      return pickupPointBuilder_ != null || pickupPoint_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2675,11 +2625,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pickupPoint_ = value;
-        onChanged();
       } else {
         pickupPointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2693,11 +2643,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.TerminalLocation.Builder builderForValue) {
       if (pickupPointBuilder_ == null) {
         pickupPoint_ = builderForValue.build();
-        onChanged();
       } else {
         pickupPointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2709,17 +2659,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePickupPoint(google.maps.fleetengine.v1.TerminalLocation value) {
       if (pickupPointBuilder_ == null) {
-        if (pickupPoint_ != null) {
-          pickupPoint_ =
-            google.maps.fleetengine.v1.TerminalLocation.newBuilder(pickupPoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          pickupPoint_ != null &&
+          pickupPoint_ != google.maps.fleetengine.v1.TerminalLocation.getDefaultInstance()) {
+          getPickupPointBuilder().mergeFrom(value);
         } else {
           pickupPoint_ = value;
         }
-        onChanged();
       } else {
         pickupPointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2730,14 +2681,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.TerminalLocation pickup_point = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearPickupPoint() {
-      if (pickupPointBuilder_ == null) {
-        pickupPoint_ = null;
-        onChanged();
-      } else {
-        pickupPoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      pickupPoint_ = null;
+      if (pickupPointBuilder_ != null) {
+        pickupPointBuilder_.dispose();
         pickupPointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2748,7 +2698,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.TerminalLocation pickup_point = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public google.maps.fleetengine.v1.TerminalLocation.Builder getPickupPointBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getPickupPointFieldBuilder().getBuilder();
     }
@@ -2801,7 +2751,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dropoffPoint field is set.
      */
     public boolean hasDropoffPoint() {
-      return dropoffPointBuilder_ != null || dropoffPoint_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2833,11 +2783,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dropoffPoint_ = value;
-        onChanged();
       } else {
         dropoffPointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2852,11 +2802,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.TerminalLocation.Builder builderForValue) {
       if (dropoffPointBuilder_ == null) {
         dropoffPoint_ = builderForValue.build();
-        onChanged();
       } else {
         dropoffPointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2869,17 +2819,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDropoffPoint(google.maps.fleetengine.v1.TerminalLocation value) {
       if (dropoffPointBuilder_ == null) {
-        if (dropoffPoint_ != null) {
-          dropoffPoint_ =
-            google.maps.fleetengine.v1.TerminalLocation.newBuilder(dropoffPoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          dropoffPoint_ != null &&
+          dropoffPoint_ != google.maps.fleetengine.v1.TerminalLocation.getDefaultInstance()) {
+          getDropoffPointBuilder().mergeFrom(value);
         } else {
           dropoffPoint_ = value;
         }
-        onChanged();
       } else {
         dropoffPointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2891,14 +2842,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.TerminalLocation dropoff_point = 5;</code>
      */
     public Builder clearDropoffPoint() {
-      if (dropoffPointBuilder_ == null) {
-        dropoffPoint_ = null;
-        onChanged();
-      } else {
-        dropoffPoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      dropoffPoint_ = null;
+      if (dropoffPointBuilder_ != null) {
+        dropoffPointBuilder_.dispose();
         dropoffPointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2910,7 +2860,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.TerminalLocation dropoff_point = 5;</code>
      */
     public google.maps.fleetengine.v1.TerminalLocation.Builder getDropoffPointBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDropoffPointFieldBuilder().getBuilder();
     }
@@ -2981,6 +2931,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPickupRadiusMeters(int value) {
       
       pickupRadiusMeters_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2995,7 +2946,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPickupRadiusMeters() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       pickupRadiusMeters_ = 0;
       onChanged();
       return this;
@@ -3028,6 +2979,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCount(int value) {
       
       count_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3041,7 +2993,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       count_ = 0;
       onChanged();
       return this;
@@ -3050,9 +3002,9 @@ private static final long serialVersionUID = 0L;
     private int minimumCapacity_ ;
     /**
      * <pre>
-     * Required. Specifies the number of passengers being considered for a trip. The
-     * value must be greater than or equal to one. The driver is not considered in
-     * the capacity value.
+     * Required. Specifies the number of passengers being considered for a trip.
+     * The value must be greater than or equal to one. The driver is not
+     * considered in the capacity value.
      * </pre>
      *
      * <code>int32 minimum_capacity = 8 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3064,9 +3016,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Specifies the number of passengers being considered for a trip. The
-     * value must be greater than or equal to one. The driver is not considered in
-     * the capacity value.
+     * Required. Specifies the number of passengers being considered for a trip.
+     * The value must be greater than or equal to one. The driver is not
+     * considered in the capacity value.
      * </pre>
      *
      * <code>int32 minimum_capacity = 8 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3076,21 +3028,22 @@ private static final long serialVersionUID = 0L;
     public Builder setMinimumCapacity(int value) {
       
       minimumCapacity_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Specifies the number of passengers being considered for a trip. The
-     * value must be greater than or equal to one. The driver is not considered in
-     * the capacity value.
+     * Required. Specifies the number of passengers being considered for a trip.
+     * The value must be greater than or equal to one. The driver is not
+     * considered in the capacity value.
      * </pre>
      *
      * <code>int32 minimum_capacity = 8 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearMinimumCapacity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       minimumCapacity_ = 0;
       onChanged();
       return this;
@@ -3099,9 +3052,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> tripTypes_ =
       java.util.Collections.emptyList();
     private void ensureTripTypesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         tripTypes_ = new java.util.ArrayList<java.lang.Integer>(tripTypes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
@@ -3233,7 +3186,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTripTypes() {
       tripTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3346,7 +3299,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maximumStaleness field is set.
      */
     public boolean hasMaximumStaleness() {
-      return maximumStalenessBuilder_ != null || maximumStaleness_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3380,11 +3333,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maximumStaleness_ = value;
-        onChanged();
       } else {
         maximumStalenessBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3400,11 +3353,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maximumStalenessBuilder_ == null) {
         maximumStaleness_ = builderForValue.build();
-        onChanged();
       } else {
         maximumStalenessBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3418,17 +3371,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaximumStaleness(com.google.protobuf.Duration value) {
       if (maximumStalenessBuilder_ == null) {
-        if (maximumStaleness_ != null) {
-          maximumStaleness_ =
-            com.google.protobuf.Duration.newBuilder(maximumStaleness_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          maximumStaleness_ != null &&
+          maximumStaleness_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaximumStalenessBuilder().mergeFrom(value);
         } else {
           maximumStaleness_ = value;
         }
-        onChanged();
       } else {
         maximumStalenessBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3441,14 +3395,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration maximum_staleness = 10;</code>
      */
     public Builder clearMaximumStaleness() {
-      if (maximumStalenessBuilder_ == null) {
-        maximumStaleness_ = null;
-        onChanged();
-      } else {
-        maximumStaleness_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      maximumStaleness_ = null;
+      if (maximumStalenessBuilder_ != null) {
+        maximumStalenessBuilder_.dispose();
         maximumStalenessBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3461,7 +3414,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration maximum_staleness = 10;</code>
      */
     public com.google.protobuf.Duration.Builder getMaximumStalenessBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getMaximumStalenessFieldBuilder().getBuilder();
     }
@@ -3508,9 +3461,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.v1.Vehicle.VehicleType> vehicleTypes_ =
       java.util.Collections.emptyList();
     private void ensureVehicleTypesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         vehicleTypes_ = new java.util.ArrayList<google.maps.fleetengine.v1.Vehicle.VehicleType>(vehicleTypes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -3715,7 +3668,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearVehicleTypes() {
       if (vehicleTypesBuilder_ == null) {
         vehicleTypes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         vehicleTypesBuilder_.clear();
@@ -3827,7 +3780,7 @@ private static final long serialVersionUID = 0L;
         vehicleTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.v1.Vehicle.VehicleType, google.maps.fleetengine.v1.Vehicle.VehicleType.Builder, google.maps.fleetengine.v1.Vehicle.VehicleTypeOrBuilder>(
                 vehicleTypes_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         vehicleTypes_ = null;
@@ -3838,9 +3791,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.v1.VehicleAttribute> requiredAttributes_ =
       java.util.Collections.emptyList();
     private void ensureRequiredAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         requiredAttributes_ = new java.util.ArrayList<google.maps.fleetengine.v1.VehicleAttribute>(requiredAttributes_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -3865,9 +3818,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -3897,9 +3850,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -3929,9 +3882,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -3961,9 +3914,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4000,9 +3953,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4036,9 +3989,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4074,9 +4027,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4113,9 +4066,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4149,9 +4102,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4185,9 +4138,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4222,9 +4175,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4232,7 +4185,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRequiredAttributes() {
       if (requiredAttributesBuilder_ == null) {
         requiredAttributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         requiredAttributesBuilder_.clear();
@@ -4257,9 +4210,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4292,9 +4245,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4321,9 +4274,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4353,9 +4306,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4386,9 +4339,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4415,9 +4368,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4445,9 +4398,9 @@ private static final long serialVersionUID = 0L;
      * ...)
      * ```
      * Restricts the search to only those vehicles with the specified attributes.
-     * This field is a conjunction/AND operation. Your app can specify up to 100
-     * attributes; however, the combined key:value string length cannot exceed
-     * 1024 characters.
+     * This field is a conjunction/AND operation. A max of 50 required_attributes
+     * is allowed. This matches the maximum number of attributes allowed on a
+     * vehicle.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.v1.VehicleAttribute required_attributes = 12;</code>
@@ -4463,7 +4416,7 @@ private static final long serialVersionUID = 0L;
         requiredAttributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.v1.VehicleAttribute, google.maps.fleetengine.v1.VehicleAttribute.Builder, google.maps.fleetengine.v1.VehicleAttributeOrBuilder>(
                 requiredAttributes_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         requiredAttributes_ = null;
@@ -4474,9 +4427,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.v1.VehicleAttributeList> requiredOneOfAttributes_ =
       java.util.Collections.emptyList();
     private void ensureRequiredOneOfAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000800) != 0)) {
         requiredOneOfAttributes_ = new java.util.ArrayList<google.maps.fleetengine.v1.VehicleAttributeList>(requiredOneOfAttributes_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000800;
        }
     }
 
@@ -4714,7 +4667,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRequiredOneOfAttributes() {
       if (requiredOneOfAttributesBuilder_ == null) {
         requiredOneOfAttributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
       } else {
         requiredOneOfAttributesBuilder_.clear();
@@ -4847,7 +4800,7 @@ private static final long serialVersionUID = 0L;
         requiredOneOfAttributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.v1.VehicleAttributeList, google.maps.fleetengine.v1.VehicleAttributeList.Builder, google.maps.fleetengine.v1.VehicleAttributeListOrBuilder>(
                 requiredOneOfAttributes_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000800) != 0),
                 getParentForChildren(),
                 isClean());
         requiredOneOfAttributes_ = null;
@@ -4858,9 +4811,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.v1.VehicleAttributeList> requiredOneOfAttributeSets_ =
       java.util.Collections.emptyList();
     private void ensureRequiredOneOfAttributeSetsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         requiredOneOfAttributeSets_ = new java.util.ArrayList<google.maps.fleetengine.v1.VehicleAttributeList>(requiredOneOfAttributeSets_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00001000;
        }
     }
 
@@ -5263,7 +5216,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRequiredOneOfAttributeSets() {
       if (requiredOneOfAttributeSetsBuilder_ == null) {
         requiredOneOfAttributeSets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
       } else {
         requiredOneOfAttributeSetsBuilder_.clear();
@@ -5501,7 +5454,7 @@ private static final long serialVersionUID = 0L;
         requiredOneOfAttributeSetsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.v1.VehicleAttributeList, google.maps.fleetengine.v1.VehicleAttributeList.Builder, google.maps.fleetengine.v1.VehicleAttributeListOrBuilder>(
                 requiredOneOfAttributeSets_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00001000) != 0),
                 getParentForChildren(),
                 isClean());
         requiredOneOfAttributeSets_ = null;
@@ -5531,8 +5484,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOrderByValue(int value) {
-      
       orderBy_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -5546,8 +5499,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder getOrderBy() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.valueOf(orderBy_);
+      google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder result = google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.forNumber(orderBy_);
       return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.VehicleMatchOrder.UNRECOGNIZED : result;
     }
     /**
@@ -5563,7 +5515,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00002000;
       orderBy_ = value.getNumber();
       onChanged();
       return this;
@@ -5577,7 +5529,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       orderBy_ = 0;
       onChanged();
       return this;
@@ -5620,6 +5572,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeBackToBack(boolean value) {
       
       includeBackToBack_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -5638,7 +5591,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeBackToBack() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       includeBackToBack_ = false;
       onChanged();
       return this;
@@ -5697,11 +5650,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTripId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tripId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5714,8 +5665,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTripId() {
-      
       tripId_ = getDefaultInstance().getTripId();
+      bitField0_ = (bitField0_ & ~0x00008000);
       onChanged();
       return this;
     }
@@ -5730,12 +5681,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTripIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tripId_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -5768,8 +5717,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCurrentTripsPresentValue(int value) {
-      
       currentTripsPresent_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5786,8 +5735,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent getCurrentTripsPresent() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent result = google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.valueOf(currentTripsPresent_);
+      google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent result = google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.forNumber(currentTripsPresent_);
       return result == null ? google.maps.fleetengine.v1.SearchVehiclesRequest.CurrentTripsPresent.UNRECOGNIZED : result;
     }
     /**
@@ -5806,7 +5754,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00010000;
       currentTripsPresent_ = value.getNumber();
       onChanged();
       return this;
@@ -5823,7 +5771,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentTripsPresent() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       currentTripsPresent_ = 0;
       onChanged();
       return this;
@@ -5861,7 +5809,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchVehiclesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

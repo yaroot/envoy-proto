@@ -266,9 +266,9 @@ public interface RouteActionOrBuilder extends
    * at a different path from those exposed at the reverse proxy layer. The router filter will
    * place the original path before rewrite into the :ref:`x-envoy-original-path
    * &lt;config_http_filters_router_x-envoy-original-path&gt;` header.
-   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;` or
-   * [#comment:TODO(silverstar194) add the following once implemented: :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
-   * :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;` may be specified.
+   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`
+   * :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`,
+   * or :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;` may be specified.
    * .. attention::
    *   Pay careful attention to the use of trailing slashes in the
    *   :ref:`route's match &lt;envoy_v3_api_field_config.route.v3.Route.match&gt;` prefix value.
@@ -299,9 +299,9 @@ public interface RouteActionOrBuilder extends
    * at a different path from those exposed at the reverse proxy layer. The router filter will
    * place the original path before rewrite into the :ref:`x-envoy-original-path
    * &lt;config_http_filters_router_x-envoy-original-path&gt;` header.
-   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;` or
-   * [#comment:TODO(silverstar194) add the following once implemented: :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
-   * :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;` may be specified.
+   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`
+   * :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`,
+   * or :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;` may be specified.
    * .. attention::
    *   Pay careful attention to the use of trailing slashes in the
    *   :ref:`route's match &lt;envoy_v3_api_field_config.route.v3.Route.match&gt;` prefix value.
@@ -337,9 +337,9 @@ public interface RouteActionOrBuilder extends
    * identifiers. The router filter will place the original path as it was
    * before the rewrite into the :ref:`x-envoy-original-path
    * &lt;config_http_filters_router_x-envoy-original-path&gt;` header.
-   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`
-   * or :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`
-   * [#comment:TODO(silverstar194) add the following once implemented: :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
+   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`,
+   * :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`, or
+   * :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
    * may be specified.
    * Examples using Google's `RE2 &lt;https://github.com/google/re2&gt;`_ engine:
    * * The path pattern ``^/service/([^/]+)(/.*)$`` paired with a substitution
@@ -369,9 +369,9 @@ public interface RouteActionOrBuilder extends
    * identifiers. The router filter will place the original path as it was
    * before the rewrite into the :ref:`x-envoy-original-path
    * &lt;config_http_filters_router_x-envoy-original-path&gt;` header.
-   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`
-   * or :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`
-   * [#comment:TODO(silverstar194) add the following once implemented: :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
+   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`,
+   * :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`, or
+   * :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
    * may be specified.
    * Examples using Google's `RE2 &lt;https://github.com/google/re2&gt;`_ engine:
    * * The path pattern ``^/service/([^/]+)(/.*)$`` paired with a substitution
@@ -401,9 +401,9 @@ public interface RouteActionOrBuilder extends
    * identifiers. The router filter will place the original path as it was
    * before the rewrite into the :ref:`x-envoy-original-path
    * &lt;config_http_filters_router_x-envoy-original-path&gt;` header.
-   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`
-   * or :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`
-   * [#comment:TODO(silverstar194) add the following once implemented: :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
+   * Only one of :ref:`regex_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.regex_rewrite&gt;`,
+   * :ref:`prefix_rewrite &lt;envoy_v3_api_field_config.route.v3.RouteAction.prefix_rewrite&gt;`, or
+   * :ref:`path_rewrite_policy &lt;envoy_v3_api_field_config.route.v3.RouteAction.path_rewrite_policy&gt;`]
    * may be specified.
    * Examples using Google's `RE2 &lt;https://github.com/google/re2&gt;`_ engine:
    * * The path pattern ``^/service/([^/]+)(/.*)$`` paired with a substitution
@@ -425,8 +425,7 @@ public interface RouteActionOrBuilder extends
 
   /**
    * <pre>
-   * [#not-implemented-hide:]
-   * [#comment: TODO(silverstar195): Hook into extension once added]
+   * [#extension-category: envoy.path.rewrite]
    * </pre>
    *
    * <code>.envoy.config.core.v3.TypedExtensionConfig path_rewrite_policy = 41;</code>
@@ -435,8 +434,7 @@ public interface RouteActionOrBuilder extends
   boolean hasPathRewritePolicy();
   /**
    * <pre>
-   * [#not-implemented-hide:]
-   * [#comment: TODO(silverstar195): Hook into extension once added]
+   * [#extension-category: envoy.path.rewrite]
    * </pre>
    *
    * <code>.envoy.config.core.v3.TypedExtensionConfig path_rewrite_policy = 41;</code>
@@ -445,8 +443,7 @@ public interface RouteActionOrBuilder extends
   io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getPathRewritePolicy();
   /**
    * <pre>
-   * [#not-implemented-hide:]
-   * [#comment: TODO(silverstar195): Hook into extension once added]
+   * [#extension-category: envoy.path.rewrite]
    * </pre>
    *
    * <code>.envoy.config.core.v3.TypedExtensionConfig path_rewrite_policy = 41;</code>
@@ -1056,7 +1053,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.BoolValue include_vh_rate_limits = 14 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.include_vh_rate_limits is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1232
+   *     See envoy/config/route/v3/route_components.proto;l=1260
    * @return Whether the includeVhRateLimits field is set.
    */
   @java.lang.Deprecated boolean hasIncludeVhRateLimits();
@@ -1071,7 +1068,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.BoolValue include_vh_rate_limits = 14 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.include_vh_rate_limits is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1232
+   *     See envoy/config/route/v3/route_components.proto;l=1260
    * @return The includeVhRateLimits.
    */
   @java.lang.Deprecated com.google.protobuf.BoolValue getIncludeVhRateLimits();
@@ -1189,30 +1186,55 @@ public interface RouteActionOrBuilder extends
 
   /**
    * <pre>
-   * Indicates that the route has a CORS policy.
+   * Indicates that the route has a CORS policy. This field is ignored if related cors policy is
+   * found in the :ref:`Route.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config&gt;` or
+   * :ref:`WeightedCluster.ClusterWeight.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.WeightedCluster.ClusterWeight.typed_per_filter_config&gt;`.
+   * .. attention::
+   *   This option has been deprecated. Please use
+   *   :ref:`Route.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config&gt;` or
+   *   :ref:`WeightedCluster.ClusterWeight.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.WeightedCluster.ClusterWeight.typed_per_filter_config&gt;`
+   *   to configure the CORS HTTP filter.
    * </pre>
    *
-   * <code>.envoy.config.route.v3.CorsPolicy cors = 17;</code>
+   * <code>.envoy.config.route.v3.CorsPolicy cors = 17 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.RouteAction.cors is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=1287
    * @return Whether the cors field is set.
    */
-  boolean hasCors();
+  @java.lang.Deprecated boolean hasCors();
   /**
    * <pre>
-   * Indicates that the route has a CORS policy.
+   * Indicates that the route has a CORS policy. This field is ignored if related cors policy is
+   * found in the :ref:`Route.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config&gt;` or
+   * :ref:`WeightedCluster.ClusterWeight.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.WeightedCluster.ClusterWeight.typed_per_filter_config&gt;`.
+   * .. attention::
+   *   This option has been deprecated. Please use
+   *   :ref:`Route.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config&gt;` or
+   *   :ref:`WeightedCluster.ClusterWeight.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.WeightedCluster.ClusterWeight.typed_per_filter_config&gt;`
+   *   to configure the CORS HTTP filter.
    * </pre>
    *
-   * <code>.envoy.config.route.v3.CorsPolicy cors = 17;</code>
+   * <code>.envoy.config.route.v3.CorsPolicy cors = 17 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.config.route.v3.RouteAction.cors is deprecated.
+   *     See envoy/config/route/v3/route_components.proto;l=1287
    * @return The cors.
    */
-  io.envoyproxy.envoy.config.route.v3.CorsPolicy getCors();
+  @java.lang.Deprecated io.envoyproxy.envoy.config.route.v3.CorsPolicy getCors();
   /**
    * <pre>
-   * Indicates that the route has a CORS policy.
+   * Indicates that the route has a CORS policy. This field is ignored if related cors policy is
+   * found in the :ref:`Route.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config&gt;` or
+   * :ref:`WeightedCluster.ClusterWeight.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.WeightedCluster.ClusterWeight.typed_per_filter_config&gt;`.
+   * .. attention::
+   *   This option has been deprecated. Please use
+   *   :ref:`Route.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.Route.typed_per_filter_config&gt;` or
+   *   :ref:`WeightedCluster.ClusterWeight.typed_per_filter_config&lt;envoy_v3_api_field_config.route.v3.WeightedCluster.ClusterWeight.typed_per_filter_config&gt;`
+   *   to configure the CORS HTTP filter.
    * </pre>
    *
-   * <code>.envoy.config.route.v3.CorsPolicy cors = 17;</code>
+   * <code>.envoy.config.route.v3.CorsPolicy cors = 17 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
-  io.envoyproxy.envoy.config.route.v3.CorsPolicyOrBuilder getCorsOrBuilder();
+  @java.lang.Deprecated io.envoyproxy.envoy.config.route.v3.CorsPolicyOrBuilder getCorsOrBuilder();
 
   /**
    * <pre>
@@ -1238,7 +1260,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.Duration max_grpc_timeout = 23 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.max_grpc_timeout is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1272
+   *     See envoy/config/route/v3/route_components.proto;l=1309
    * @return Whether the maxGrpcTimeout field is set.
    */
   @java.lang.Deprecated boolean hasMaxGrpcTimeout();
@@ -1266,7 +1288,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.Duration max_grpc_timeout = 23 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.max_grpc_timeout is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1272
+   *     See envoy/config/route/v3/route_components.proto;l=1309
    * @return The maxGrpcTimeout.
    */
   @java.lang.Deprecated com.google.protobuf.Duration getMaxGrpcTimeout();
@@ -1310,7 +1332,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.Duration grpc_timeout_offset = 28 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.grpc_timeout_offset is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1283
+   *     See envoy/config/route/v3/route_components.proto;l=1320
    * @return Whether the grpcTimeoutOffset field is set.
    */
   @java.lang.Deprecated boolean hasGrpcTimeoutOffset();
@@ -1328,7 +1350,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.Duration grpc_timeout_offset = 28 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.grpc_timeout_offset is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1283
+   *     See envoy/config/route/v3/route_components.proto;l=1320
    * @return The grpcTimeoutOffset.
    */
   @java.lang.Deprecated com.google.protobuf.Duration getGrpcTimeoutOffset();
@@ -1411,14 +1433,14 @@ public interface RouteActionOrBuilder extends
   /**
    * <code>.envoy.config.route.v3.RouteAction.InternalRedirectAction internal_redirect_action = 26 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.internal_redirect_action is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1294
+   *     See envoy/config/route/v3/route_components.proto;l=1331
    * @return The enum numeric value on the wire for internalRedirectAction.
    */
   @java.lang.Deprecated int getInternalRedirectActionValue();
   /**
    * <code>.envoy.config.route.v3.RouteAction.InternalRedirectAction internal_redirect_action = 26 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.internal_redirect_action is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1294
+   *     See envoy/config/route/v3/route_components.proto;l=1331
    * @return The internalRedirectAction.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.route.v3.RouteAction.InternalRedirectAction getInternalRedirectAction();
@@ -1442,7 +1464,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.UInt32Value max_internal_redirects = 31 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.max_internal_redirects is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1311
+   *     See envoy/config/route/v3/route_components.proto;l=1348
    * @return Whether the maxInternalRedirects field is set.
    */
   @java.lang.Deprecated boolean hasMaxInternalRedirects();
@@ -1465,7 +1487,7 @@ public interface RouteActionOrBuilder extends
    *
    * <code>.google.protobuf.UInt32Value max_internal_redirects = 31 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.RouteAction.max_internal_redirects is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=1311
+   *     See envoy/config/route/v3/route_components.proto;l=1348
    * @return The maxInternalRedirects.
    */
   @java.lang.Deprecated com.google.protobuf.UInt32Value getMaxInternalRedirects();

@@ -9,28 +9,28 @@ public interface WriteObjectSpecOrBuilder extends
 
   /**
    * <pre>
-   * Destination object, including its name and its metadata.
+   * Required. Destination object, including its name and its metadata.
    * </pre>
    *
-   * <code>.google.storage.v2.Object resource = 1;</code>
+   * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the resource field is set.
    */
   boolean hasResource();
   /**
    * <pre>
-   * Destination object, including its name and its metadata.
+   * Required. Destination object, including its name and its metadata.
    * </pre>
    *
-   * <code>.google.storage.v2.Object resource = 1;</code>
+   * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The resource.
    */
   com.google.storage.v2.Object getResource();
   /**
    * <pre>
-   * Destination object, including its name and its metadata.
+   * Required. Destination object, including its name and its metadata.
    * </pre>
    *
-   * <code>.google.storage.v2.Object resource = 1;</code>
+   * <code>.google.storage.v2.Object resource = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   com.google.storage.v2.ObjectOrBuilder getResourceOrBuilder();
 

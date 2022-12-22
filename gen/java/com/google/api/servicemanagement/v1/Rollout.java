@@ -40,110 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Rollout(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            rolloutId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            createdBy_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy.Builder subBuilder = null;
-            if (strategyCase_ == 5) {
-              subBuilder = ((com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy) strategy_).toBuilder();
-            }
-            strategy_ =
-                input.readMessage(com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy) strategy_);
-              strategy_ = subBuilder.buildPartial();
-            }
-            strategyCase_ = 5;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceName_ = s;
-            break;
-          }
-          case 1602: {
-            com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy.Builder subBuilder = null;
-            if (strategyCase_ == 200) {
-              subBuilder = ((com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy) strategy_).toBuilder();
-            }
-            strategy_ =
-                input.readMessage(com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy) strategy_);
-              strategy_ = subBuilder.buildPartial();
-            }
-            strategyCase_ = 200;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.servicemanagement.v1.ResourcesProto.internal_static_google_api_servicemanagement_v1_Rollout_descriptor;
@@ -425,7 +321,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; percentages = 1;</code>
      */
-
     double getPercentagesOrDefault(
         java.lang.String key,
         double defaultValue);
@@ -438,7 +333,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; percentages = 1;</code>
      */
-
     double getPercentagesOrThrow(
         java.lang.String key);
   }
@@ -498,59 +392,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TrafficPercentStrategy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                percentages_ = com.google.protobuf.MapField.newMapField(
-                    PercentagesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
-              percentages__ = input.readMessage(
-                  PercentagesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              percentages_.getMutableMap().put(
-                  percentages__.getKey(), percentages__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.api.servicemanagement.v1.ResourcesProto.internal_static_google_api_servicemanagement_v1_Rollout_TrafficPercentStrategy_descriptor;
@@ -588,6 +429,7 @@ private static final long serialVersionUID = 0L;
                   com.google.protobuf.WireFormat.FieldType.DOUBLE,
                   0D);
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Double> percentages_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
@@ -598,7 +440,6 @@ private static final long serialVersionUID = 0L;
       }
       return percentages_;
     }
-
     public int getPercentagesCount() {
       return internalGetPercentages().getMap().size();
     }
@@ -611,7 +452,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, double&gt; percentages = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsPercentages(
         java.lang.String key) {
@@ -636,7 +476,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; percentages = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Double> getPercentagesMap() {
       return internalGetPercentages().getMap();
     }
@@ -650,7 +489,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; percentages = 1;</code>
      */
     @java.lang.Override
-
     public double getPercentagesOrDefault(
         java.lang.String key,
         double defaultValue) {
@@ -669,7 +507,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, double&gt; percentages = 1;</code>
      */
     @java.lang.Override
-
     public double getPercentagesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -701,7 +538,7 @@ private static final long serialVersionUID = 0L;
           internalGetPercentages(),
           PercentagesDefaultEntryHolder.defaultEntry,
           1);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -720,7 +557,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(1, percentages__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -737,7 +574,7 @@ private static final long serialVersionUID = 0L;
 
       if (!internalGetPercentages().equals(
           other.internalGetPercentages())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -752,7 +589,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + PERCENTAGES_FIELD_NUMBER;
         hash = (53 * hash) + internalGetPercentages().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -920,22 +757,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutablePercentages().clear();
         return this;
       }
@@ -963,11 +796,17 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy buildPartial() {
         com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy result = new com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy(this);
-        int from_bitField0_ = bitField0_;
-        result.percentages_ = internalGetPercentages();
-        result.percentages_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.percentages_ = internalGetPercentages();
+          result.percentages_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -1016,7 +855,8 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy.getDefaultInstance()) return this;
         internalGetMutablePercentages().mergeFrom(
             other.internalGetPercentages());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000001;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1031,17 +871,39 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
+                percentages__ = input.readMessage(
+                    PercentagesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutablePercentages().getMutableMap().put(
+                    percentages__.getKey(), percentages__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.api.servicemanagement.v1.Rollout.TrafficPercentStrategy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1049,7 +911,7 @@ private static final long serialVersionUID = 0L;
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.Double> percentages_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-      internalGetPercentages() {
+          internalGetPercentages() {
         if (percentages_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               PercentagesDefaultEntryHolder.defaultEntry);
@@ -1057,8 +919,7 @@ private static final long serialVersionUID = 0L;
         return percentages_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-      internalGetMutablePercentages() {
-        onChanged();;
+          internalGetMutablePercentages() {
         if (percentages_ == null) {
           percentages_ = com.google.protobuf.MapField.newMapField(
               PercentagesDefaultEntryHolder.defaultEntry);
@@ -1066,9 +927,10 @@ private static final long serialVersionUID = 0L;
         if (!percentages_.isMutable()) {
           percentages_ = percentages_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return percentages_;
       }
-
       public int getPercentagesCount() {
         return internalGetPercentages().getMap().size();
       }
@@ -1081,7 +943,6 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;string, double&gt; percentages = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsPercentages(
           java.lang.String key) {
@@ -1106,7 +967,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;string, double&gt; percentages = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.Double> getPercentagesMap() {
         return internalGetPercentages().getMap();
       }
@@ -1120,7 +980,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;string, double&gt; percentages = 1;</code>
        */
       @java.lang.Override
-
       public double getPercentagesOrDefault(
           java.lang.String key,
           double defaultValue) {
@@ -1139,7 +998,6 @@ private static final long serialVersionUID = 0L;
        * <code>map&lt;string, double&gt; percentages = 1;</code>
        */
       @java.lang.Override
-
       public double getPercentagesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1150,8 +1008,8 @@ private static final long serialVersionUID = 0L;
         }
         return map.get(key);
       }
-
       public Builder clearPercentages() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutablePercentages().getMutableMap()
             .clear();
         return this;
@@ -1165,7 +1023,6 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;string, double&gt; percentages = 1;</code>
        */
-
       public Builder removePercentages(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1178,7 +1035,8 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.Double>
-      getMutablePercentages() {
+          getMutablePercentages() {
+        bitField0_ |= 0x00000001;
         return internalGetMutablePercentages().getMutableMap();
       }
       /**
@@ -1197,6 +1055,7 @@ private static final long serialVersionUID = 0L;
         
         internalGetMutablePercentages().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -1208,11 +1067,11 @@ private static final long serialVersionUID = 0L;
        *
        * <code>map&lt;string, double&gt; percentages = 1;</code>
        */
-
       public Builder putAllPercentages(
           java.util.Map<java.lang.String, java.lang.Double> values) {
         internalGetMutablePercentages().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
       @java.lang.Override
@@ -1248,7 +1107,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TrafficPercentStrategy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1304,45 +1174,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DeleteServiceStrategy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.api.servicemanagement.v1.ResourcesProto.internal_static_google_api_servicemanagement_v1_Rollout_DeleteServiceStrategy_descriptor;
@@ -1370,7 +1201,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1379,7 +1210,7 @@ private static final long serialVersionUID = 0L;
       if (size != -1) return size;
 
       size = 0;
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1394,7 +1225,7 @@ private static final long serialVersionUID = 0L;
       }
       com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy other = (com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy) obj;
 
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1405,7 +1236,7 @@ private static final long serialVersionUID = 0L;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1527,18 +1358,13 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
@@ -1617,7 +1443,7 @@ private static final long serialVersionUID = 0L;
 
       public Builder mergeFrom(com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy other) {
         if (other == com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1632,17 +1458,30 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       @java.lang.Override
@@ -1678,7 +1517,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DeleteServiceStrategy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1740,7 +1590,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROLLOUT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object rolloutId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rolloutId_ = "";
   /**
    * <pre>
    * Optional. Unique identifier of this Rollout. Must be no longer than 63
@@ -1834,11 +1685,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int CREATED_BY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object createdBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object createdBy_ = "";
   /**
    * <pre>
    * The user who created the Rollout. Readonly.
@@ -1884,7 +1736,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 4;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * The status of this rollout. Readonly. In case of a failed rollout,
@@ -1909,8 +1761,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.api.servicemanagement.v1.Rollout.RolloutStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.api.servicemanagement.v1.Rollout.RolloutStatus result = com.google.api.servicemanagement.v1.Rollout.RolloutStatus.valueOf(status_);
+    com.google.api.servicemanagement.v1.Rollout.RolloutStatus result = com.google.api.servicemanagement.v1.Rollout.RolloutStatus.forNumber(status_);
     return result == null ? com.google.api.servicemanagement.v1.Rollout.RolloutStatus.UNRECOGNIZED : result;
   }
 
@@ -2007,7 +1858,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_NAME_FIELD_NUMBER = 8;
-  private volatile java.lang.Object serviceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceName_ = "";
   /**
    * <pre>
    * The name of the service associated with this Rollout.
@@ -2087,7 +1939,7 @@ private static final long serialVersionUID = 0L;
     if (strategyCase_ == 200) {
       output.writeMessage(200, (com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy) strategy_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2121,7 +1973,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(200, (com.google.api.servicemanagement.v1.Rollout.DeleteServiceStrategy) strategy_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2161,7 +2013,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2196,7 +2048,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2319,36 +2171,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.servicemanagement.v1.Rollout.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       rolloutId_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       createdBy_ = "";
-
       status_ = 0;
-
+      if (trafficPercentStrategyBuilder_ != null) {
+        trafficPercentStrategyBuilder_.clear();
+      }
+      if (deleteServiceStrategyBuilder_ != null) {
+        deleteServiceStrategyBuilder_.clear();
+      }
       serviceName_ = "";
-
       strategyCase_ = 0;
       strategy_ = null;
       return this;
@@ -2377,32 +2226,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.servicemanagement.v1.Rollout buildPartial() {
       com.google.api.servicemanagement.v1.Rollout result = new com.google.api.servicemanagement.v1.Rollout(this);
-      result.rolloutId_ = rolloutId_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.createdBy_ = createdBy_;
-      result.status_ = status_;
-      if (strategyCase_ == 5) {
-        if (trafficPercentStrategyBuilder_ == null) {
-          result.strategy_ = strategy_;
-        } else {
-          result.strategy_ = trafficPercentStrategyBuilder_.build();
-        }
-      }
-      if (strategyCase_ == 200) {
-        if (deleteServiceStrategyBuilder_ == null) {
-          result.strategy_ = strategy_;
-        } else {
-          result.strategy_ = deleteServiceStrategyBuilder_.build();
-        }
-      }
-      result.serviceName_ = serviceName_;
-      result.strategyCase_ = strategyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.servicemanagement.v1.Rollout result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rolloutId_ = rolloutId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.createdBy_ = createdBy_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.serviceName_ = serviceName_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.api.servicemanagement.v1.Rollout result) {
+      result.strategyCase_ = strategyCase_;
+      result.strategy_ = this.strategy_;
+      if (strategyCase_ == 5 &&
+          trafficPercentStrategyBuilder_ != null) {
+        result.strategy_ = trafficPercentStrategyBuilder_.build();
+      }
+      if (strategyCase_ == 200 &&
+          deleteServiceStrategyBuilder_ != null) {
+        result.strategy_ = deleteServiceStrategyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2451,6 +2312,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.servicemanagement.v1.Rollout.getDefaultInstance()) return this;
       if (!other.getRolloutId().isEmpty()) {
         rolloutId_ = other.rolloutId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -2458,6 +2320,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCreatedBy().isEmpty()) {
         createdBy_ = other.createdBy_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.status_ != 0) {
@@ -2465,6 +2328,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceName().isEmpty()) {
         serviceName_ = other.serviceName_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       switch (other.getStrategyCase()) {
@@ -2480,7 +2344,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2495,17 +2359,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.servicemanagement.v1.Rollout parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              rolloutId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              createdBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getTrafficPercentStrategyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              strategyCase_ = 5;
+              break;
+            } // case 42
+            case 66: {
+              serviceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 1602: {
+              input.readMessage(
+                  getDeleteServiceStrategyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              strategyCase_ = 200;
+              break;
+            } // case 1602
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.servicemanagement.v1.Rollout) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int strategyCase_ = 0;
@@ -2523,6 +2441,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object rolloutId_ = "";
     /**
@@ -2598,11 +2517,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRolloutId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       rolloutId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2622,8 +2539,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRolloutId() {
-      
       rolloutId_ = getDefaultInstance().getRolloutId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2645,12 +2562,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRolloutIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rolloutId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2667,7 +2582,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2697,11 +2612,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2715,11 +2630,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2731,17 +2646,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2752,14 +2668,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2770,7 +2685,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -2863,11 +2778,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreatedBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       createdBy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2880,8 +2793,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreatedBy() {
-      
       createdBy_ = getDefaultInstance().getCreatedBy();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2896,12 +2809,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreatedByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       createdBy_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2932,8 +2843,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2949,8 +2860,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.api.servicemanagement.v1.Rollout.RolloutStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.api.servicemanagement.v1.Rollout.RolloutStatus result = com.google.api.servicemanagement.v1.Rollout.RolloutStatus.valueOf(status_);
+      com.google.api.servicemanagement.v1.Rollout.RolloutStatus result = com.google.api.servicemanagement.v1.Rollout.RolloutStatus.forNumber(status_);
       return result == null ? com.google.api.servicemanagement.v1.Rollout.RolloutStatus.UNRECOGNIZED : result;
     }
     /**
@@ -2968,7 +2878,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -2984,7 +2894,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       status_ = 0;
       onChanged();
       return this;
@@ -3173,7 +3083,7 @@ private static final long serialVersionUID = 0L;
         strategy_ = null;
       }
       strategyCase_ = 5;
-      onChanged();;
+      onChanged();
       return trafficPercentStrategyBuilder_;
     }
 
@@ -3360,7 +3270,7 @@ private static final long serialVersionUID = 0L;
         strategy_ = null;
       }
       strategyCase_ = 200;
-      onChanged();;
+      onChanged();
       return deleteServiceStrategyBuilder_;
     }
 
@@ -3417,11 +3327,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3434,8 +3342,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceName() {
-      
       serviceName_ = getDefaultInstance().getServiceName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3450,12 +3358,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3492,7 +3398,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Rollout(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

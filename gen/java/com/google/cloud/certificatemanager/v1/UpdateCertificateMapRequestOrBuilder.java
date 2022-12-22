@@ -36,8 +36,8 @@ public interface UpdateCertificateMapRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The update mask applies to the resource. For the `FieldMask` definition,
-   * see
+   * Required. The update mask applies to the resource. For the `FieldMask`
+   * definition, see
    * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
    * </pre>
    *
@@ -47,8 +47,8 @@ public interface UpdateCertificateMapRequestOrBuilder extends
   boolean hasUpdateMask();
   /**
    * <pre>
-   * Required. The update mask applies to the resource. For the `FieldMask` definition,
-   * see
+   * Required. The update mask applies to the resource. For the `FieldMask`
+   * definition, see
    * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
    * </pre>
    *
@@ -58,8 +58,8 @@ public interface UpdateCertificateMapRequestOrBuilder extends
   com.google.protobuf.FieldMask getUpdateMask();
   /**
    * <pre>
-   * Required. The update mask applies to the resource. For the `FieldMask` definition,
-   * see
+   * Required. The update mask applies to the resource. For the `FieldMask`
+   * definition, see
    * https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask.
    * </pre>
    *

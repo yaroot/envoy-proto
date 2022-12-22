@@ -63,4 +63,34 @@ public interface AccessDeniedPageSettingsOrBuilder extends
    * <code>.google.protobuf.BoolValue generate_troubleshooting_uri = 2;</code>
    */
   com.google.protobuf.BoolValueOrBuilder getGenerateTroubleshootingUriOrBuilder();
+
+  /**
+   * <pre>
+   * Whether to generate remediation token on access denied events to this
+   * application.
+   * </pre>
+   *
+   * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+   * @return Whether the remediationTokenGenerationEnabled field is set.
+   */
+  boolean hasRemediationTokenGenerationEnabled();
+  /**
+   * <pre>
+   * Whether to generate remediation token on access denied events to this
+   * application.
+   * </pre>
+   *
+   * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+   * @return The remediationTokenGenerationEnabled.
+   */
+  com.google.protobuf.BoolValue getRemediationTokenGenerationEnabled();
+  /**
+   * <pre>
+   * Whether to generate remediation token on access denied events to this
+   * application.
+   * </pre>
+   *
+   * <code>optional .google.protobuf.BoolValue remediation_token_generation_enabled = 3;</code>
+   */
+  com.google.protobuf.BoolValueOrBuilder getRemediationTokenGenerationEnabledOrBuilder();
 }

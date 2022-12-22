@@ -39,173 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AzureControlPlane(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subnetId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vmSize_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder subBuilder = null;
-            if (rootVolume_ != null) {
-              subBuilder = rootVolume_.toBuilder();
-            }
-            rootVolume_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rootVolume_);
-              rootVolume_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder subBuilder = null;
-            if (mainVolume_ != null) {
-              subBuilder = mainVolume_.toBuilder();
-            }
-            mainVolume_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mainVolume_);
-              mainVolume_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tags_ = com.google.protobuf.MapField.newMapField(
-                  TagsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            tags__ = input.readMessage(
-                TagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            tags_.getMutableMap().put(
-                tags__.getKey(), tags__.getValue());
-            break;
-          }
-          case 82: {
-            com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.Builder subBuilder = null;
-            if (databaseEncryption_ != null) {
-              subBuilder = databaseEncryption_.toBuilder();
-            }
-            databaseEncryption_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(databaseEncryption_);
-              databaseEncryption_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.cloud.gkemulticloud.v1.AzureSshConfig.Builder subBuilder = null;
-            if (sshConfig_ != null) {
-              subBuilder = sshConfig_.toBuilder();
-            }
-            sshConfig_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureSshConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sshConfig_);
-              sshConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.cloud.gkemulticloud.v1.AzureProxyConfig.Builder subBuilder = null;
-            if (proxyConfig_ != null) {
-              subBuilder = proxyConfig_.toBuilder();
-            }
-            proxyConfig_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureProxyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(proxyConfig_);
-              proxyConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              replicaPlacements_ = new java.util.ArrayList<com.google.cloud.gkemulticloud.v1.ReplicaPlacement>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            replicaPlacements_.add(
-                input.readMessage(com.google.cloud.gkemulticloud.v1.ReplicaPlacement.parser(), extensionRegistry));
-            break;
-          }
-          case 114: {
-            com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.Builder subBuilder = null;
-            if (configEncryption_ != null) {
-              subBuilder = configEncryption_.toBuilder();
-            }
-            configEncryption_ = input.readMessage(com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(configEncryption_);
-              configEncryption_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            endpointSubnetId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        replicaPlacements_ = java.util.Collections.unmodifiableList(replicaPlacements_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.AzureResourcesProto.internal_static_google_cloud_gkemulticloud_v1_AzureControlPlane_descriptor;
@@ -232,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * Required. The Kubernetes version to run on control plane replicas
@@ -286,11 +120,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNET_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object subnetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subnetId_ = "";
   /**
    * <pre>
-   * Optional. The ARM ID of the default subnet for the control plane. The control plane
-   * VMs are deployed in this subnet, unless
+   * Optional. The ARM ID of the default subnet for the control plane. The
+   * control plane VMs are deployed in this subnet, unless
    * `AzureControlPlane.replica_placements` is specified. This subnet will also
    * be used as default for `AzureControlPlane.endpoint_subnet_id` if
    * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -318,8 +153,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The ARM ID of the default subnet for the control plane. The control plane
-   * VMs are deployed in this subnet, unless
+   * Optional. The ARM ID of the default subnet for the control plane. The
+   * control plane VMs are deployed in this subnet, unless
    * `AzureControlPlane.replica_placements` is specified. This subnet will also
    * be used as default for `AzureControlPlane.endpoint_subnet_id` if
    * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -348,7 +183,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_SIZE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object vmSize_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmSize_ = "";
   /**
    * <pre>
    * Optional. The Azure VM size name. Example: `Standard_DS2_v2`.
@@ -437,7 +273,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureSshConfigOrBuilder getSshConfigOrBuilder() {
-    return getSshConfig();
+    return sshConfig_ == null ? com.google.cloud.gkemulticloud.v1.AzureSshConfig.getDefaultInstance() : sshConfig_;
   }
 
   public static final int ROOT_VOLUME_FIELD_NUMBER = 4;
@@ -481,7 +317,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureDiskTemplateOrBuilder getRootVolumeOrBuilder() {
-    return getRootVolume();
+    return rootVolume_ == null ? com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.getDefaultInstance() : rootVolume_;
   }
 
   public static final int MAIN_VOLUME_FIELD_NUMBER = 5;
@@ -528,7 +364,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureDiskTemplateOrBuilder getMainVolumeOrBuilder() {
-    return getMainVolume();
+    return mainVolume_ == null ? com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.getDefaultInstance() : mainVolume_;
   }
 
   public static final int DATABASE_ENCRYPTION_FIELD_NUMBER = 10;
@@ -566,7 +402,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryptionOrBuilder getDatabaseEncryptionOrBuilder() {
-    return getDatabaseEncryption();
+    return databaseEncryption_ == null ? com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.getDefaultInstance() : databaseEncryption_;
   }
 
   public static final int PROXY_CONFIG_FIELD_NUMBER = 12;
@@ -604,7 +440,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureProxyConfigOrBuilder getProxyConfigOrBuilder() {
-    return getProxyConfig();
+    return proxyConfig_ == null ? com.google.cloud.gkemulticloud.v1.AzureProxyConfig.getDefaultInstance() : proxyConfig_;
   }
 
   public static final int CONFIG_ENCRYPTION_FIELD_NUMBER = 14;
@@ -642,7 +478,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkemulticloud.v1.AzureConfigEncryptionOrBuilder getConfigEncryptionOrBuilder() {
-    return getConfigEncryption();
+    return configEncryption_ == null ? com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.getDefaultInstance() : configEncryption_;
   }
 
   public static final int TAGS_FIELD_NUMBER = 7;
@@ -657,6 +493,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> tags_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -667,18 +504,17 @@ private static final long serialVersionUID = 0L;
     }
     return tags_;
   }
-
   public int getTagsCount() {
     return internalGetTags().getMap().size();
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsTags(
       java.lang.String key) {
@@ -695,28 +531,30 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getTagsMap() {
     return internalGetTags().getMap();
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getTagsOrDefault(
+  public /* nullable */
+java.lang.String getTagsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetTags().getMap();
@@ -724,13 +562,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getTagsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -743,6 +581,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPLICA_PLACEMENTS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.gkemulticloud.v1.ReplicaPlacement> replicaPlacements_;
   /**
    * <pre>
@@ -818,11 +657,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENDPOINT_SUBNET_ID_FIELD_NUMBER = 15;
-  private volatile java.lang.Object endpointSubnetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpointSubnetId_ = "";
   /**
    * <pre>
-   * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-   * When unspecified, it defaults to AzureControlPlane.subnet_id.
+   * Optional. The ARM ID of the subnet where the control plane load balancer is
+   * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
    * Example:
    * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
    * </pre>
@@ -845,8 +685,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-   * When unspecified, it defaults to AzureControlPlane.subnet_id.
+   * Optional. The ARM ID of the subnet where the control plane load balancer is
+   * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
    * Example:
    * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
    * </pre>
@@ -922,7 +762,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointSubnetId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, endpointSubnetId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -981,7 +821,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointSubnetId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, endpointSubnetId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1038,7 +878,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getReplicaPlacementsList())) return false;
     if (!getEndpointSubnetId()
         .equals(other.getEndpointSubnetId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1089,7 +929,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ENDPOINT_SUBNET_ID_FIELD_NUMBER;
     hash = (53 * hash) + getEndpointSubnetId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1232,74 +1072,60 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.AzureControlPlane.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getReplicaPlacementsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       version_ = "";
-
       subnetId_ = "";
-
       vmSize_ = "";
-
-      if (sshConfigBuilder_ == null) {
-        sshConfig_ = null;
-      } else {
-        sshConfig_ = null;
+      sshConfig_ = null;
+      if (sshConfigBuilder_ != null) {
+        sshConfigBuilder_.dispose();
         sshConfigBuilder_ = null;
       }
-      if (rootVolumeBuilder_ == null) {
-        rootVolume_ = null;
-      } else {
-        rootVolume_ = null;
+      rootVolume_ = null;
+      if (rootVolumeBuilder_ != null) {
+        rootVolumeBuilder_.dispose();
         rootVolumeBuilder_ = null;
       }
-      if (mainVolumeBuilder_ == null) {
-        mainVolume_ = null;
-      } else {
-        mainVolume_ = null;
+      mainVolume_ = null;
+      if (mainVolumeBuilder_ != null) {
+        mainVolumeBuilder_.dispose();
         mainVolumeBuilder_ = null;
       }
-      if (databaseEncryptionBuilder_ == null) {
-        databaseEncryption_ = null;
-      } else {
-        databaseEncryption_ = null;
+      databaseEncryption_ = null;
+      if (databaseEncryptionBuilder_ != null) {
+        databaseEncryptionBuilder_.dispose();
         databaseEncryptionBuilder_ = null;
       }
-      if (proxyConfigBuilder_ == null) {
-        proxyConfig_ = null;
-      } else {
-        proxyConfig_ = null;
+      proxyConfig_ = null;
+      if (proxyConfigBuilder_ != null) {
+        proxyConfigBuilder_.dispose();
         proxyConfigBuilder_ = null;
       }
-      if (configEncryptionBuilder_ == null) {
-        configEncryption_ = null;
-      } else {
-        configEncryption_ = null;
+      configEncryption_ = null;
+      if (configEncryptionBuilder_ != null) {
+        configEncryptionBuilder_.dispose();
         configEncryptionBuilder_ = null;
       }
       internalGetMutableTags().clear();
       if (replicaPlacementsBuilder_ == null) {
         replicaPlacements_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        replicaPlacements_ = null;
         replicaPlacementsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000400);
       endpointSubnetId_ = "";
-
       return this;
     }
 
@@ -1326,54 +1152,72 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.AzureControlPlane buildPartial() {
       com.google.cloud.gkemulticloud.v1.AzureControlPlane result = new com.google.cloud.gkemulticloud.v1.AzureControlPlane(this);
-      int from_bitField0_ = bitField0_;
-      result.version_ = version_;
-      result.subnetId_ = subnetId_;
-      result.vmSize_ = vmSize_;
-      if (sshConfigBuilder_ == null) {
-        result.sshConfig_ = sshConfig_;
-      } else {
-        result.sshConfig_ = sshConfigBuilder_.build();
-      }
-      if (rootVolumeBuilder_ == null) {
-        result.rootVolume_ = rootVolume_;
-      } else {
-        result.rootVolume_ = rootVolumeBuilder_.build();
-      }
-      if (mainVolumeBuilder_ == null) {
-        result.mainVolume_ = mainVolume_;
-      } else {
-        result.mainVolume_ = mainVolumeBuilder_.build();
-      }
-      if (databaseEncryptionBuilder_ == null) {
-        result.databaseEncryption_ = databaseEncryption_;
-      } else {
-        result.databaseEncryption_ = databaseEncryptionBuilder_.build();
-      }
-      if (proxyConfigBuilder_ == null) {
-        result.proxyConfig_ = proxyConfig_;
-      } else {
-        result.proxyConfig_ = proxyConfigBuilder_.build();
-      }
-      if (configEncryptionBuilder_ == null) {
-        result.configEncryption_ = configEncryption_;
-      } else {
-        result.configEncryption_ = configEncryptionBuilder_.build();
-      }
-      result.tags_ = internalGetTags();
-      result.tags_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.gkemulticloud.v1.AzureControlPlane result) {
       if (replicaPlacementsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000400) != 0)) {
           replicaPlacements_ = java.util.Collections.unmodifiableList(replicaPlacements_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000400);
         }
         result.replicaPlacements_ = replicaPlacements_;
       } else {
         result.replicaPlacements_ = replicaPlacementsBuilder_.build();
       }
-      result.endpointSubnetId_ = endpointSubnetId_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.AzureControlPlane result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = version_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.subnetId_ = subnetId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vmSize_ = vmSize_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.sshConfig_ = sshConfigBuilder_ == null
+            ? sshConfig_
+            : sshConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.rootVolume_ = rootVolumeBuilder_ == null
+            ? rootVolume_
+            : rootVolumeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.mainVolume_ = mainVolumeBuilder_ == null
+            ? mainVolume_
+            : mainVolumeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.databaseEncryption_ = databaseEncryptionBuilder_ == null
+            ? databaseEncryption_
+            : databaseEncryptionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.proxyConfig_ = proxyConfigBuilder_ == null
+            ? proxyConfig_
+            : proxyConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.configEncryption_ = configEncryptionBuilder_ == null
+            ? configEncryption_
+            : configEncryptionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.tags_ = internalGetTags();
+        result.tags_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.endpointSubnetId_ = endpointSubnetId_;
+      }
     }
 
     @java.lang.Override
@@ -1422,14 +1266,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.AzureControlPlane.getDefaultInstance()) return this;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSubnetId().isEmpty()) {
         subnetId_ = other.subnetId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getVmSize().isEmpty()) {
         vmSize_ = other.vmSize_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasSshConfig()) {
@@ -1452,11 +1299,12 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableTags().mergeFrom(
           other.internalGetTags());
+      bitField0_ |= 0x00000200;
       if (replicaPlacementsBuilder_ == null) {
         if (!other.replicaPlacements_.isEmpty()) {
           if (replicaPlacements_.isEmpty()) {
             replicaPlacements_ = other.replicaPlacements_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000400);
           } else {
             ensureReplicaPlacementsIsMutable();
             replicaPlacements_.addAll(other.replicaPlacements_);
@@ -1469,7 +1317,7 @@ private static final long serialVersionUID = 0L;
             replicaPlacementsBuilder_.dispose();
             replicaPlacementsBuilder_ = null;
             replicaPlacements_ = other.replicaPlacements_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000400);
             replicaPlacementsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getReplicaPlacementsFieldBuilder() : null;
@@ -1480,9 +1328,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEndpointSubnetId().isEmpty()) {
         endpointSubnetId_ = other.endpointSubnetId_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1497,17 +1346,114 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.AzureControlPlane parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              subnetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              vmSize_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getRootVolumeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getMainVolumeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              tags__ = input.readMessage(
+                  TagsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTags().getMutableMap().put(
+                  tags__.getKey(), tags__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 58
+            case 82: {
+              input.readMessage(
+                  getDatabaseEncryptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getSshConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getProxyConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 98
+            case 106: {
+              com.google.cloud.gkemulticloud.v1.ReplicaPlacement m =
+                  input.readMessage(
+                      com.google.cloud.gkemulticloud.v1.ReplicaPlacement.parser(),
+                      extensionRegistry);
+              if (replicaPlacementsBuilder_ == null) {
+                ensureReplicaPlacementsIsMutable();
+                replicaPlacements_.add(m);
+              } else {
+                replicaPlacementsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getConfigEncryptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 114
+            case 122: {
+              endpointSubnetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.AzureControlPlane) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1577,11 +1523,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1598,8 +1542,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1618,12 +1562,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1631,8 +1573,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object subnetId_ = "";
     /**
      * <pre>
-     * Optional. The ARM ID of the default subnet for the control plane. The control plane
-     * VMs are deployed in this subnet, unless
+     * Optional. The ARM ID of the default subnet for the control plane. The
+     * control plane VMs are deployed in this subnet, unless
      * `AzureControlPlane.replica_placements` is specified. This subnet will also
      * be used as default for `AzureControlPlane.endpoint_subnet_id` if
      * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -1659,8 +1601,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the default subnet for the control plane. The control plane
-     * VMs are deployed in this subnet, unless
+     * Optional. The ARM ID of the default subnet for the control plane. The
+     * control plane VMs are deployed in this subnet, unless
      * `AzureControlPlane.replica_placements` is specified. This subnet will also
      * be used as default for `AzureControlPlane.endpoint_subnet_id` if
      * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -1688,8 +1630,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the default subnet for the control plane. The control plane
-     * VMs are deployed in this subnet, unless
+     * Optional. The ARM ID of the default subnet for the control plane. The
+     * control plane VMs are deployed in this subnet, unless
      * `AzureControlPlane.replica_placements` is specified. This subnet will also
      * be used as default for `AzureControlPlane.endpoint_subnet_id` if
      * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -1705,18 +1647,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subnetId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the default subnet for the control plane. The control plane
-     * VMs are deployed in this subnet, unless
+     * Optional. The ARM ID of the default subnet for the control plane. The
+     * control plane VMs are deployed in this subnet, unless
      * `AzureControlPlane.replica_placements` is specified. This subnet will also
      * be used as default for `AzureControlPlane.endpoint_subnet_id` if
      * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -1730,15 +1670,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubnetId() {
-      
       subnetId_ = getDefaultInstance().getSubnetId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the default subnet for the control plane. The control plane
-     * VMs are deployed in this subnet, unless
+     * Optional. The ARM ID of the default subnet for the control plane. The
+     * control plane VMs are deployed in this subnet, unless
      * `AzureControlPlane.replica_placements` is specified. This subnet will also
      * be used as default for `AzureControlPlane.endpoint_subnet_id` if
      * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -1754,12 +1694,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subnetId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1826,11 +1764,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmSize(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vmSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1846,8 +1782,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmSize() {
-      
       vmSize_ = getDefaultInstance().getVmSize();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1865,12 +1801,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmSizeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vmSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1888,7 +1822,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sshConfig field is set.
      */
     public boolean hasSshConfig() {
-      return sshConfigBuilder_ != null || sshConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1920,11 +1854,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sshConfig_ = value;
-        onChanged();
       } else {
         sshConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1939,11 +1873,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureSshConfig.Builder builderForValue) {
       if (sshConfigBuilder_ == null) {
         sshConfig_ = builderForValue.build();
-        onChanged();
       } else {
         sshConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1956,17 +1890,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSshConfig(com.google.cloud.gkemulticloud.v1.AzureSshConfig value) {
       if (sshConfigBuilder_ == null) {
-        if (sshConfig_ != null) {
-          sshConfig_ =
-            com.google.cloud.gkemulticloud.v1.AzureSshConfig.newBuilder(sshConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          sshConfig_ != null &&
+          sshConfig_ != com.google.cloud.gkemulticloud.v1.AzureSshConfig.getDefaultInstance()) {
+          getSshConfigBuilder().mergeFrom(value);
         } else {
           sshConfig_ = value;
         }
-        onChanged();
       } else {
         sshConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1978,14 +1913,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureSshConfig ssh_config = 11 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearSshConfig() {
-      if (sshConfigBuilder_ == null) {
-        sshConfig_ = null;
-        onChanged();
-      } else {
-        sshConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      sshConfig_ = null;
+      if (sshConfigBuilder_ != null) {
+        sshConfigBuilder_.dispose();
         sshConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1997,7 +1931,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureSshConfig ssh_config = 11 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureSshConfig.Builder getSshConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getSshConfigFieldBuilder().getBuilder();
     }
@@ -2053,7 +1987,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rootVolume field is set.
      */
     public boolean hasRootVolume() {
-      return rootVolumeBuilder_ != null || rootVolume_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2087,11 +2021,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rootVolume_ = value;
-        onChanged();
       } else {
         rootVolumeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2107,11 +2041,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder builderForValue) {
       if (rootVolumeBuilder_ == null) {
         rootVolume_ = builderForValue.build();
-        onChanged();
       } else {
         rootVolumeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2125,17 +2059,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRootVolume(com.google.cloud.gkemulticloud.v1.AzureDiskTemplate value) {
       if (rootVolumeBuilder_ == null) {
-        if (rootVolume_ != null) {
-          rootVolume_ =
-            com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.newBuilder(rootVolume_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          rootVolume_ != null &&
+          rootVolume_ != com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.getDefaultInstance()) {
+          getRootVolumeBuilder().mergeFrom(value);
         } else {
           rootVolume_ = value;
         }
-        onChanged();
       } else {
         rootVolumeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2148,14 +2083,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDiskTemplate root_volume = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearRootVolume() {
-      if (rootVolumeBuilder_ == null) {
-        rootVolume_ = null;
-        onChanged();
-      } else {
-        rootVolume_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      rootVolume_ = null;
+      if (rootVolumeBuilder_ != null) {
+        rootVolumeBuilder_.dispose();
         rootVolumeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2168,7 +2102,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDiskTemplate root_volume = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder getRootVolumeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRootVolumeFieldBuilder().getBuilder();
     }
@@ -2227,7 +2161,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the mainVolume field is set.
      */
     public boolean hasMainVolume() {
-      return mainVolumeBuilder_ != null || mainVolume_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2263,11 +2197,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mainVolume_ = value;
-        onChanged();
       } else {
         mainVolumeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2284,11 +2218,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder builderForValue) {
       if (mainVolumeBuilder_ == null) {
         mainVolume_ = builderForValue.build();
-        onChanged();
       } else {
         mainVolumeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2303,17 +2237,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMainVolume(com.google.cloud.gkemulticloud.v1.AzureDiskTemplate value) {
       if (mainVolumeBuilder_ == null) {
-        if (mainVolume_ != null) {
-          mainVolume_ =
-            com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.newBuilder(mainVolume_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          mainVolume_ != null &&
+          mainVolume_ != com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.getDefaultInstance()) {
+          getMainVolumeBuilder().mergeFrom(value);
         } else {
           mainVolume_ = value;
         }
-        onChanged();
       } else {
         mainVolumeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2327,14 +2262,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDiskTemplate main_volume = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearMainVolume() {
-      if (mainVolumeBuilder_ == null) {
-        mainVolume_ = null;
-        onChanged();
-      } else {
-        mainVolume_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      mainVolume_ = null;
+      if (mainVolumeBuilder_ != null) {
+        mainVolumeBuilder_.dispose();
         mainVolumeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2348,7 +2282,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDiskTemplate main_volume = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureDiskTemplate.Builder getMainVolumeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getMainVolumeFieldBuilder().getBuilder();
     }
@@ -2406,7 +2340,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the databaseEncryption field is set.
      */
     public boolean hasDatabaseEncryption() {
-      return databaseEncryptionBuilder_ != null || databaseEncryption_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2436,11 +2370,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         databaseEncryption_ = value;
-        onChanged();
       } else {
         databaseEncryptionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2454,11 +2388,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.Builder builderForValue) {
       if (databaseEncryptionBuilder_ == null) {
         databaseEncryption_ = builderForValue.build();
-        onChanged();
       } else {
         databaseEncryptionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2470,17 +2404,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDatabaseEncryption(com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption value) {
       if (databaseEncryptionBuilder_ == null) {
-        if (databaseEncryption_ != null) {
-          databaseEncryption_ =
-            com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.newBuilder(databaseEncryption_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          databaseEncryption_ != null &&
+          databaseEncryption_ != com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.getDefaultInstance()) {
+          getDatabaseEncryptionBuilder().mergeFrom(value);
         } else {
           databaseEncryption_ = value;
         }
-        onChanged();
       } else {
         databaseEncryptionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2491,14 +2426,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption database_encryption = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDatabaseEncryption() {
-      if (databaseEncryptionBuilder_ == null) {
-        databaseEncryption_ = null;
-        onChanged();
-      } else {
-        databaseEncryption_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      databaseEncryption_ = null;
+      if (databaseEncryptionBuilder_ != null) {
+        databaseEncryptionBuilder_.dispose();
         databaseEncryptionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2509,7 +2443,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption database_encryption = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureDatabaseEncryption.Builder getDatabaseEncryptionBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDatabaseEncryptionFieldBuilder().getBuilder();
     }
@@ -2561,7 +2495,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the proxyConfig field is set.
      */
     public boolean hasProxyConfig() {
-      return proxyConfigBuilder_ != null || proxyConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2591,11 +2525,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         proxyConfig_ = value;
-        onChanged();
       } else {
         proxyConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2609,11 +2543,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureProxyConfig.Builder builderForValue) {
       if (proxyConfigBuilder_ == null) {
         proxyConfig_ = builderForValue.build();
-        onChanged();
       } else {
         proxyConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2625,17 +2559,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProxyConfig(com.google.cloud.gkemulticloud.v1.AzureProxyConfig value) {
       if (proxyConfigBuilder_ == null) {
-        if (proxyConfig_ != null) {
-          proxyConfig_ =
-            com.google.cloud.gkemulticloud.v1.AzureProxyConfig.newBuilder(proxyConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          proxyConfig_ != null &&
+          proxyConfig_ != com.google.cloud.gkemulticloud.v1.AzureProxyConfig.getDefaultInstance()) {
+          getProxyConfigBuilder().mergeFrom(value);
         } else {
           proxyConfig_ = value;
         }
-        onChanged();
       } else {
         proxyConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2646,14 +2581,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureProxyConfig proxy_config = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearProxyConfig() {
-      if (proxyConfigBuilder_ == null) {
-        proxyConfig_ = null;
-        onChanged();
-      } else {
-        proxyConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      proxyConfig_ = null;
+      if (proxyConfigBuilder_ != null) {
+        proxyConfigBuilder_.dispose();
         proxyConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2664,7 +2598,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureProxyConfig proxy_config = 12 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureProxyConfig.Builder getProxyConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getProxyConfigFieldBuilder().getBuilder();
     }
@@ -2716,7 +2650,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the configEncryption field is set.
      */
     public boolean hasConfigEncryption() {
-      return configEncryptionBuilder_ != null || configEncryption_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2746,11 +2680,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         configEncryption_ = value;
-        onChanged();
       } else {
         configEncryptionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2764,11 +2698,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.Builder builderForValue) {
       if (configEncryptionBuilder_ == null) {
         configEncryption_ = builderForValue.build();
-        onChanged();
       } else {
         configEncryptionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2780,17 +2714,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfigEncryption(com.google.cloud.gkemulticloud.v1.AzureConfigEncryption value) {
       if (configEncryptionBuilder_ == null) {
-        if (configEncryption_ != null) {
-          configEncryption_ =
-            com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.newBuilder(configEncryption_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          configEncryption_ != null &&
+          configEncryption_ != com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.getDefaultInstance()) {
+          getConfigEncryptionBuilder().mergeFrom(value);
         } else {
           configEncryption_ = value;
         }
-        onChanged();
       } else {
         configEncryptionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2801,14 +2736,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureConfigEncryption config_encryption = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearConfigEncryption() {
-      if (configEncryptionBuilder_ == null) {
-        configEncryption_ = null;
-        onChanged();
-      } else {
-        configEncryption_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      configEncryption_ = null;
+      if (configEncryptionBuilder_ != null) {
+        configEncryptionBuilder_.dispose();
         configEncryptionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2819,7 +2753,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkemulticloud.v1.AzureConfigEncryption config_encryption = 14 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkemulticloud.v1.AzureConfigEncryption.Builder getConfigEncryptionBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getConfigEncryptionFieldBuilder().getBuilder();
     }
@@ -2862,7 +2796,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> tags_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetTags() {
+        internalGetTags() {
       if (tags_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TagsDefaultEntryHolder.defaultEntry);
@@ -2870,8 +2804,7 @@ private static final long serialVersionUID = 0L;
       return tags_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableTags() {
-      onChanged();;
+        internalGetMutableTags() {
       if (tags_ == null) {
         tags_ = com.google.protobuf.MapField.newMapField(
             TagsDefaultEntryHolder.defaultEntry);
@@ -2879,20 +2812,21 @@ private static final long serialVersionUID = 0L;
       if (!tags_.isMutable()) {
         tags_ = tags_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return tags_;
     }
-
     public int getTagsCount() {
       return internalGetTags().getMap().size();
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsTags(
         java.lang.String key) {
@@ -2909,28 +2843,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getTagsMap() {
       return internalGetTags().getMap();
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getTagsOrDefault(
+    public /* nullable */
+java.lang.String getTagsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetTags().getMap();
@@ -2938,13 +2874,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getTagsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2955,20 +2891,20 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTags() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutableTags().getMutableMap()
           .clear();
       return this;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeTags(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2981,12 +2917,14 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableTags() {
+        getMutableTags() {
+      bitField0_ |= 0x00000200;
       return internalGetMutableTags().getMutableMap();
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2995,35 +2933,34 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTags().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
      * <pre>
-     * Optional. A set of tags to apply to all underlying control plane Azure resources.
+     * Optional. A set of tags to apply to all underlying control plane Azure
+     * resources.
      * </pre>
      *
      * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllTags(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableTags().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
       return this;
     }
 
     private java.util.List<com.google.cloud.gkemulticloud.v1.ReplicaPlacement> replicaPlacements_ =
       java.util.Collections.emptyList();
     private void ensureReplicaPlacementsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         replicaPlacements_ = new java.util.ArrayList<com.google.cloud.gkemulticloud.v1.ReplicaPlacement>(replicaPlacements_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000400;
        }
     }
 
@@ -3250,7 +3187,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearReplicaPlacements() {
       if (replicaPlacementsBuilder_ == null) {
         replicaPlacements_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
       } else {
         replicaPlacementsBuilder_.clear();
@@ -3376,7 +3313,7 @@ private static final long serialVersionUID = 0L;
         replicaPlacementsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.gkemulticloud.v1.ReplicaPlacement, com.google.cloud.gkemulticloud.v1.ReplicaPlacement.Builder, com.google.cloud.gkemulticloud.v1.ReplicaPlacementOrBuilder>(
                 replicaPlacements_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000400) != 0),
                 getParentForChildren(),
                 isClean());
         replicaPlacements_ = null;
@@ -3387,8 +3324,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object endpointSubnetId_ = "";
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-     * When unspecified, it defaults to AzureControlPlane.subnet_id.
+     * Optional. The ARM ID of the subnet where the control plane load balancer is
+     * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
      * </pre>
@@ -3410,8 +3347,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-     * When unspecified, it defaults to AzureControlPlane.subnet_id.
+     * Optional. The ARM ID of the subnet where the control plane load balancer is
+     * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
      * </pre>
@@ -3434,8 +3371,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-     * When unspecified, it defaults to AzureControlPlane.subnet_id.
+     * Optional. The ARM ID of the subnet where the control plane load balancer is
+     * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
      * </pre>
@@ -3446,18 +3383,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointSubnetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endpointSubnetId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-     * When unspecified, it defaults to AzureControlPlane.subnet_id.
+     * Optional. The ARM ID of the subnet where the control plane load balancer is
+     * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
      * </pre>
@@ -3466,15 +3401,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndpointSubnetId() {
-      
       endpointSubnetId_ = getDefaultInstance().getEndpointSubnetId();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-     * When unspecified, it defaults to AzureControlPlane.subnet_id.
+     * Optional. The ARM ID of the subnet where the control plane load balancer is
+     * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
      * Example:
      * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
      * </pre>
@@ -3485,12 +3420,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEndpointSubnetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       endpointSubnetId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3527,7 +3460,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AzureControlPlane(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

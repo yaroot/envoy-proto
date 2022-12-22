@@ -35,148 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResponseFlags(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            failedLocalHealthcheck_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            noHealthyUpstream_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            upstreamRequestTimeout_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            localReset_ = input.readBool();
-            break;
-          }
-          case 40: {
-
-            upstreamRemoteReset_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            upstreamConnectionFailure_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            upstreamConnectionTermination_ = input.readBool();
-            break;
-          }
-          case 64: {
-
-            upstreamOverflow_ = input.readBool();
-            break;
-          }
-          case 72: {
-
-            noRouteFound_ = input.readBool();
-            break;
-          }
-          case 80: {
-
-            delayInjected_ = input.readBool();
-            break;
-          }
-          case 88: {
-
-            faultInjected_ = input.readBool();
-            break;
-          }
-          case 96: {
-
-            rateLimited_ = input.readBool();
-            break;
-          }
-          case 106: {
-            io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Builder subBuilder = null;
-            if (unauthorizedDetails_ != null) {
-              subBuilder = unauthorizedDetails_.toBuilder();
-            }
-            unauthorizedDetails_ = input.readMessage(io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(unauthorizedDetails_);
-              unauthorizedDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 112: {
-
-            rateLimitServiceError_ = input.readBool();
-            break;
-          }
-          case 120: {
-
-            downstreamConnectionTermination_ = input.readBool();
-            break;
-          }
-          case 128: {
-
-            upstreamRetryLimitExceeded_ = input.readBool();
-            break;
-          }
-          case 136: {
-
-            streamIdleTimeout_ = input.readBool();
-            break;
-          }
-          case 144: {
-
-            invalidEnvoyRequestHeaders_ = input.readBool();
-            break;
-          }
-          case 152: {
-
-            downstreamProtocolError_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.data.accesslog.v2.AccesslogProto.internal_static_envoy_data_accesslog_v2_ResponseFlags_descriptor;
@@ -232,51 +90,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private Unauthorized(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              reason_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -412,7 +225,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int REASON_FIELD_NUMBER = 1;
-    private int reason_;
+    private int reason_ = 0;
     /**
      * <code>.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason reason = 1;</code>
      * @return The enum numeric value on the wire for reason.
@@ -425,8 +238,7 @@ private static final long serialVersionUID = 0L;
      * @return The reason.
      */
     @java.lang.Override public io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason getReason() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason result = io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.valueOf(reason_);
+      io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason result = io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.forNumber(reason_);
       return result == null ? io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.UNRECOGNIZED : result;
     }
 
@@ -447,7 +259,7 @@ private static final long serialVersionUID = 0L;
       if (reason_ != io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.REASON_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, reason_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -460,7 +272,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, reason_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -476,7 +288,7 @@ private static final long serialVersionUID = 0L;
       io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized other = (io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized) obj;
 
       if (reason_ != other.reason_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -489,7 +301,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + REASON_FIELD_NUMBER;
       hash = (53 * hash) + reason_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -606,24 +418,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         reason_ = 0;
-
         return this;
       }
 
@@ -650,9 +457,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized buildPartial() {
         io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized result = new io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized(this);
-        result.reason_ = reason_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.reason_ = reason_;
+        }
       }
 
       @java.lang.Override
@@ -702,7 +516,7 @@ private static final long serialVersionUID = 0L;
         if (other.reason_ != 0) {
           setReasonValue(other.getReasonValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -717,19 +531,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                reason_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int reason_ = 0;
       /**
@@ -745,8 +578,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setReasonValue(int value) {
-        
         reason_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -756,8 +589,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason getReason() {
-        @SuppressWarnings("deprecation")
-        io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason result = io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.valueOf(reason_);
+        io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason result = io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.forNumber(reason_);
         return result == null ? io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Reason.UNRECOGNIZED : result;
       }
       /**
@@ -769,7 +601,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         reason_ = value.getNumber();
         onChanged();
         return this;
@@ -779,7 +611,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearReason() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         reason_ = 0;
         onChanged();
         return this;
@@ -817,7 +649,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Unauthorized(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -838,7 +681,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAILED_LOCAL_HEALTHCHECK_FIELD_NUMBER = 1;
-  private boolean failedLocalHealthcheck_;
+  private boolean failedLocalHealthcheck_ = false;
   /**
    * <pre>
    * Indicates local server healthcheck failed.
@@ -853,7 +696,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NO_HEALTHY_UPSTREAM_FIELD_NUMBER = 2;
-  private boolean noHealthyUpstream_;
+  private boolean noHealthyUpstream_ = false;
   /**
    * <pre>
    * Indicates there was no healthy upstream.
@@ -868,7 +711,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_REQUEST_TIMEOUT_FIELD_NUMBER = 3;
-  private boolean upstreamRequestTimeout_;
+  private boolean upstreamRequestTimeout_ = false;
   /**
    * <pre>
    * Indicates an there was an upstream request timeout.
@@ -883,7 +726,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_RESET_FIELD_NUMBER = 4;
-  private boolean localReset_;
+  private boolean localReset_ = false;
   /**
    * <pre>
    * Indicates local codec level reset was sent on the stream.
@@ -898,7 +741,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_REMOTE_RESET_FIELD_NUMBER = 5;
-  private boolean upstreamRemoteReset_;
+  private boolean upstreamRemoteReset_ = false;
   /**
    * <pre>
    * Indicates remote codec level reset was received on the stream.
@@ -913,7 +756,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_CONNECTION_FAILURE_FIELD_NUMBER = 6;
-  private boolean upstreamConnectionFailure_;
+  private boolean upstreamConnectionFailure_ = false;
   /**
    * <pre>
    * Indicates there was a local reset by a connection pool due to an initial connection failure.
@@ -928,7 +771,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_CONNECTION_TERMINATION_FIELD_NUMBER = 7;
-  private boolean upstreamConnectionTermination_;
+  private boolean upstreamConnectionTermination_ = false;
   /**
    * <pre>
    * Indicates the stream was reset due to an upstream connection termination.
@@ -943,7 +786,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_OVERFLOW_FIELD_NUMBER = 8;
-  private boolean upstreamOverflow_;
+  private boolean upstreamOverflow_ = false;
   /**
    * <pre>
    * Indicates the stream was reset because of a resource overflow.
@@ -958,7 +801,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NO_ROUTE_FOUND_FIELD_NUMBER = 9;
-  private boolean noRouteFound_;
+  private boolean noRouteFound_ = false;
   /**
    * <pre>
    * Indicates no route was found for the request.
@@ -973,7 +816,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DELAY_INJECTED_FIELD_NUMBER = 10;
-  private boolean delayInjected_;
+  private boolean delayInjected_ = false;
   /**
    * <pre>
    * Indicates that the request was delayed before proxying.
@@ -988,7 +831,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAULT_INJECTED_FIELD_NUMBER = 11;
-  private boolean faultInjected_;
+  private boolean faultInjected_ = false;
   /**
    * <pre>
    * Indicates that the request was aborted with an injected error code.
@@ -1003,7 +846,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RATE_LIMITED_FIELD_NUMBER = 12;
-  private boolean rateLimited_;
+  private boolean rateLimited_ = false;
   /**
    * <pre>
    * Indicates that the request was rate-limited locally.
@@ -1052,11 +895,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.UnauthorizedOrBuilder getUnauthorizedDetailsOrBuilder() {
-    return getUnauthorizedDetails();
+    return unauthorizedDetails_ == null ? io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.getDefaultInstance() : unauthorizedDetails_;
   }
 
   public static final int RATE_LIMIT_SERVICE_ERROR_FIELD_NUMBER = 14;
-  private boolean rateLimitServiceError_;
+  private boolean rateLimitServiceError_ = false;
   /**
    * <pre>
    * Indicates that the request was rejected because there was an error in rate limit service.
@@ -1071,7 +914,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOWNSTREAM_CONNECTION_TERMINATION_FIELD_NUMBER = 15;
-  private boolean downstreamConnectionTermination_;
+  private boolean downstreamConnectionTermination_ = false;
   /**
    * <pre>
    * Indicates the stream was reset due to a downstream connection termination.
@@ -1086,7 +929,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPSTREAM_RETRY_LIMIT_EXCEEDED_FIELD_NUMBER = 16;
-  private boolean upstreamRetryLimitExceeded_;
+  private boolean upstreamRetryLimitExceeded_ = false;
   /**
    * <pre>
    * Indicates that the upstream retry limit was exceeded, resulting in a downstream error.
@@ -1101,7 +944,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STREAM_IDLE_TIMEOUT_FIELD_NUMBER = 17;
-  private boolean streamIdleTimeout_;
+  private boolean streamIdleTimeout_ = false;
   /**
    * <pre>
    * Indicates that the stream idle timeout was hit, resulting in a downstream 408.
@@ -1116,7 +959,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVALID_ENVOY_REQUEST_HEADERS_FIELD_NUMBER = 18;
-  private boolean invalidEnvoyRequestHeaders_;
+  private boolean invalidEnvoyRequestHeaders_ = false;
   /**
    * <pre>
    * Indicates that the request was rejected because an envoy request header failed strict
@@ -1132,7 +975,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOWNSTREAM_PROTOCOL_ERROR_FIELD_NUMBER = 19;
-  private boolean downstreamProtocolError_;
+  private boolean downstreamProtocolError_ = false;
   /**
    * <pre>
    * Indicates there was an HTTP protocol error on the downstream request.
@@ -1217,7 +1060,7 @@ private static final long serialVersionUID = 0L;
     if (downstreamProtocolError_ != false) {
       output.writeBool(19, downstreamProtocolError_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1302,7 +1145,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(19, downstreamProtocolError_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1358,7 +1201,7 @@ private static final long serialVersionUID = 0L;
         != other.getInvalidEnvoyRequestHeaders()) return false;
     if (getDownstreamProtocolError()
         != other.getDownstreamProtocolError()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1427,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + DOWNSTREAM_PROTOCOL_ERROR_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getDownstreamProtocolError());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1549,64 +1392,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       failedLocalHealthcheck_ = false;
-
       noHealthyUpstream_ = false;
-
       upstreamRequestTimeout_ = false;
-
       localReset_ = false;
-
       upstreamRemoteReset_ = false;
-
       upstreamConnectionFailure_ = false;
-
       upstreamConnectionTermination_ = false;
-
       upstreamOverflow_ = false;
-
       noRouteFound_ = false;
-
       delayInjected_ = false;
-
       faultInjected_ = false;
-
       rateLimited_ = false;
-
-      if (unauthorizedDetailsBuilder_ == null) {
-        unauthorizedDetails_ = null;
-      } else {
-        unauthorizedDetails_ = null;
+      unauthorizedDetails_ = null;
+      if (unauthorizedDetailsBuilder_ != null) {
+        unauthorizedDetailsBuilder_.dispose();
         unauthorizedDetailsBuilder_ = null;
       }
       rateLimitServiceError_ = false;
-
       downstreamConnectionTermination_ = false;
-
       upstreamRetryLimitExceeded_ = false;
-
       streamIdleTimeout_ = false;
-
       invalidEnvoyRequestHeaders_ = false;
-
       downstreamProtocolError_ = false;
-
       return this;
     }
 
@@ -1633,31 +1453,72 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags buildPartial() {
       io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags result = new io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags(this);
-      result.failedLocalHealthcheck_ = failedLocalHealthcheck_;
-      result.noHealthyUpstream_ = noHealthyUpstream_;
-      result.upstreamRequestTimeout_ = upstreamRequestTimeout_;
-      result.localReset_ = localReset_;
-      result.upstreamRemoteReset_ = upstreamRemoteReset_;
-      result.upstreamConnectionFailure_ = upstreamConnectionFailure_;
-      result.upstreamConnectionTermination_ = upstreamConnectionTermination_;
-      result.upstreamOverflow_ = upstreamOverflow_;
-      result.noRouteFound_ = noRouteFound_;
-      result.delayInjected_ = delayInjected_;
-      result.faultInjected_ = faultInjected_;
-      result.rateLimited_ = rateLimited_;
-      if (unauthorizedDetailsBuilder_ == null) {
-        result.unauthorizedDetails_ = unauthorizedDetails_;
-      } else {
-        result.unauthorizedDetails_ = unauthorizedDetailsBuilder_.build();
-      }
-      result.rateLimitServiceError_ = rateLimitServiceError_;
-      result.downstreamConnectionTermination_ = downstreamConnectionTermination_;
-      result.upstreamRetryLimitExceeded_ = upstreamRetryLimitExceeded_;
-      result.streamIdleTimeout_ = streamIdleTimeout_;
-      result.invalidEnvoyRequestHeaders_ = invalidEnvoyRequestHeaders_;
-      result.downstreamProtocolError_ = downstreamProtocolError_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.failedLocalHealthcheck_ = failedLocalHealthcheck_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.noHealthyUpstream_ = noHealthyUpstream_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.upstreamRequestTimeout_ = upstreamRequestTimeout_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.localReset_ = localReset_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.upstreamRemoteReset_ = upstreamRemoteReset_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.upstreamConnectionFailure_ = upstreamConnectionFailure_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.upstreamConnectionTermination_ = upstreamConnectionTermination_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.upstreamOverflow_ = upstreamOverflow_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.noRouteFound_ = noRouteFound_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.delayInjected_ = delayInjected_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.faultInjected_ = faultInjected_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.rateLimited_ = rateLimited_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.unauthorizedDetails_ = unauthorizedDetailsBuilder_ == null
+            ? unauthorizedDetails_
+            : unauthorizedDetailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.rateLimitServiceError_ = rateLimitServiceError_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.downstreamConnectionTermination_ = downstreamConnectionTermination_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.upstreamRetryLimitExceeded_ = upstreamRetryLimitExceeded_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.streamIdleTimeout_ = streamIdleTimeout_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.invalidEnvoyRequestHeaders_ = invalidEnvoyRequestHeaders_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.downstreamProtocolError_ = downstreamProtocolError_;
+      }
     }
 
     @java.lang.Override
@@ -1761,7 +1622,7 @@ private static final long serialVersionUID = 0L;
       if (other.getDownstreamProtocolError() != false) {
         setDownstreamProtocolError(other.getDownstreamProtocolError());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1776,19 +1637,130 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              failedLocalHealthcheck_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              noHealthyUpstream_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              upstreamRequestTimeout_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              localReset_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              upstreamRemoteReset_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              upstreamConnectionFailure_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              upstreamConnectionTermination_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              upstreamOverflow_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              noRouteFound_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              delayInjected_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              faultInjected_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              rateLimited_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 106: {
+              input.readMessage(
+                  getUnauthorizedDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 112: {
+              rateLimitServiceError_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              downstreamConnectionTermination_ = input.readBool();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 128: {
+              upstreamRetryLimitExceeded_ = input.readBool();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 136: {
+              streamIdleTimeout_ = input.readBool();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 136
+            case 144: {
+              invalidEnvoyRequestHeaders_ = input.readBool();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 144
+            case 152: {
+              downstreamProtocolError_ = input.readBool();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 152
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean failedLocalHealthcheck_ ;
     /**
@@ -1815,6 +1787,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailedLocalHealthcheck(boolean value) {
       
       failedLocalHealthcheck_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1827,7 +1800,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailedLocalHealthcheck() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       failedLocalHealthcheck_ = false;
       onChanged();
       return this;
@@ -1858,6 +1831,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNoHealthyUpstream(boolean value) {
       
       noHealthyUpstream_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1870,7 +1844,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoHealthyUpstream() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       noHealthyUpstream_ = false;
       onChanged();
       return this;
@@ -1901,6 +1875,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamRequestTimeout(boolean value) {
       
       upstreamRequestTimeout_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1913,7 +1888,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamRequestTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       upstreamRequestTimeout_ = false;
       onChanged();
       return this;
@@ -1944,6 +1919,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLocalReset(boolean value) {
       
       localReset_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1956,7 +1932,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalReset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       localReset_ = false;
       onChanged();
       return this;
@@ -1987,6 +1963,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamRemoteReset(boolean value) {
       
       upstreamRemoteReset_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1999,7 +1976,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamRemoteReset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       upstreamRemoteReset_ = false;
       onChanged();
       return this;
@@ -2030,6 +2007,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamConnectionFailure(boolean value) {
       
       upstreamConnectionFailure_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2042,7 +2020,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamConnectionFailure() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       upstreamConnectionFailure_ = false;
       onChanged();
       return this;
@@ -2073,6 +2051,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamConnectionTermination(boolean value) {
       
       upstreamConnectionTermination_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2085,7 +2064,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamConnectionTermination() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       upstreamConnectionTermination_ = false;
       onChanged();
       return this;
@@ -2116,6 +2095,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamOverflow(boolean value) {
       
       upstreamOverflow_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2128,7 +2108,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamOverflow() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       upstreamOverflow_ = false;
       onChanged();
       return this;
@@ -2159,6 +2139,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNoRouteFound(boolean value) {
       
       noRouteFound_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2171,7 +2152,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoRouteFound() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       noRouteFound_ = false;
       onChanged();
       return this;
@@ -2202,6 +2183,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDelayInjected(boolean value) {
       
       delayInjected_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2214,7 +2196,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDelayInjected() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       delayInjected_ = false;
       onChanged();
       return this;
@@ -2245,6 +2227,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFaultInjected(boolean value) {
       
       faultInjected_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2257,7 +2240,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFaultInjected() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       faultInjected_ = false;
       onChanged();
       return this;
@@ -2288,6 +2271,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRateLimited(boolean value) {
       
       rateLimited_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2300,7 +2284,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRateLimited() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       rateLimited_ = false;
       onChanged();
       return this;
@@ -2318,7 +2302,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the unauthorizedDetails field is set.
      */
     public boolean hasUnauthorizedDetails() {
-      return unauthorizedDetailsBuilder_ != null || unauthorizedDetails_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -2348,11 +2332,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         unauthorizedDetails_ = value;
-        onChanged();
       } else {
         unauthorizedDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2366,11 +2350,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Builder builderForValue) {
       if (unauthorizedDetailsBuilder_ == null) {
         unauthorizedDetails_ = builderForValue.build();
-        onChanged();
       } else {
         unauthorizedDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2382,17 +2366,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUnauthorizedDetails(io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized value) {
       if (unauthorizedDetailsBuilder_ == null) {
-        if (unauthorizedDetails_ != null) {
-          unauthorizedDetails_ =
-            io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.newBuilder(unauthorizedDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          unauthorizedDetails_ != null &&
+          unauthorizedDetails_ != io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.getDefaultInstance()) {
+          getUnauthorizedDetailsBuilder().mergeFrom(value);
         } else {
           unauthorizedDetails_ = value;
         }
-        onChanged();
       } else {
         unauthorizedDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -2403,14 +2388,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.data.accesslog.v2.ResponseFlags.Unauthorized unauthorized_details = 13;</code>
      */
     public Builder clearUnauthorizedDetails() {
-      if (unauthorizedDetailsBuilder_ == null) {
-        unauthorizedDetails_ = null;
-        onChanged();
-      } else {
-        unauthorizedDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      unauthorizedDetails_ = null;
+      if (unauthorizedDetailsBuilder_ != null) {
+        unauthorizedDetailsBuilder_.dispose();
         unauthorizedDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2421,7 +2405,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.data.accesslog.v2.ResponseFlags.Unauthorized unauthorized_details = 13;</code>
      */
     public io.envoyproxy.envoy.data.accesslog.v2.ResponseFlags.Unauthorized.Builder getUnauthorizedDetailsBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getUnauthorizedDetailsFieldBuilder().getBuilder();
     }
@@ -2486,6 +2470,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRateLimitServiceError(boolean value) {
       
       rateLimitServiceError_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -2498,7 +2483,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRateLimitServiceError() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       rateLimitServiceError_ = false;
       onChanged();
       return this;
@@ -2529,6 +2514,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDownstreamConnectionTermination(boolean value) {
       
       downstreamConnectionTermination_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -2541,7 +2527,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDownstreamConnectionTermination() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       downstreamConnectionTermination_ = false;
       onChanged();
       return this;
@@ -2572,6 +2558,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUpstreamRetryLimitExceeded(boolean value) {
       
       upstreamRetryLimitExceeded_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
@@ -2584,7 +2571,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUpstreamRetryLimitExceeded() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       upstreamRetryLimitExceeded_ = false;
       onChanged();
       return this;
@@ -2615,6 +2602,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStreamIdleTimeout(boolean value) {
       
       streamIdleTimeout_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -2627,7 +2615,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStreamIdleTimeout() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       streamIdleTimeout_ = false;
       onChanged();
       return this;
@@ -2660,6 +2648,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInvalidEnvoyRequestHeaders(boolean value) {
       
       invalidEnvoyRequestHeaders_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -2673,7 +2662,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvalidEnvoyRequestHeaders() {
-      
+      bitField0_ = (bitField0_ & ~0x00020000);
       invalidEnvoyRequestHeaders_ = false;
       onChanged();
       return this;
@@ -2704,6 +2693,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDownstreamProtocolError(boolean value) {
       
       downstreamProtocolError_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -2716,7 +2706,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDownstreamProtocolError() {
-      
+      bitField0_ = (bitField0_ & ~0x00040000);
       downstreamProtocolError_ = false;
       onChanged();
       return this;
@@ -2754,7 +2744,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResponseFlags(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

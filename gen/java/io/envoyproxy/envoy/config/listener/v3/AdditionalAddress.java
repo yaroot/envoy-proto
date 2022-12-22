@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AdditionalAddress(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.Address.Builder subBuilder = null;
-            if (address_ != null) {
-              subBuilder = address_.toBuilder();
-            }
-            address_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Address.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(address_);
-              address_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.listener.v3.ListenerProto.internal_static_envoy_config_listener_v3_AdditionalAddress_descriptor;
@@ -122,7 +70,63 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder() {
-    return getAddress();
+    return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
+  }
+
+  public static final int SOCKET_OPTIONS_FIELD_NUMBER = 2;
+  private io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride socketOptions_;
+  /**
+   * <pre>
+   * Additional socket options that may not be present in Envoy source code or
+   * precompiled binaries. If specified, this will override the
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+   * in the listener. If specified with no
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+   * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+   * it means no socket option will apply.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+   * @return Whether the socketOptions field is set.
+   */
+  @java.lang.Override
+  public boolean hasSocketOptions() {
+    return socketOptions_ != null;
+  }
+  /**
+   * <pre>
+   * Additional socket options that may not be present in Envoy source code or
+   * precompiled binaries. If specified, this will override the
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+   * in the listener. If specified with no
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+   * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+   * it means no socket option will apply.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+   * @return The socketOptions.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride getSocketOptions() {
+    return socketOptions_ == null ? io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.getDefaultInstance() : socketOptions_;
+  }
+  /**
+   * <pre>
+   * Additional socket options that may not be present in Envoy source code or
+   * precompiled binaries. If specified, this will override the
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+   * in the listener. If specified with no
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+   * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+   * it means no socket option will apply.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.config.core.v3.SocketOptionsOverrideOrBuilder getSocketOptionsOrBuilder() {
+    return socketOptions_ == null ? io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.getDefaultInstance() : socketOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -142,7 +146,10 @@ private static final long serialVersionUID = 0L;
     if (address_ != null) {
       output.writeMessage(1, getAddress());
     }
-    unknownFields.writeTo(output);
+    if (socketOptions_ != null) {
+      output.writeMessage(2, getSocketOptions());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -155,7 +162,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getAddress());
     }
-    size += unknownFields.getSerializedSize();
+    if (socketOptions_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(2, getSocketOptions());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -175,7 +186,12 @@ private static final long serialVersionUID = 0L;
       if (!getAddress()
           .equals(other.getAddress())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasSocketOptions() != other.hasSocketOptions()) return false;
+    if (hasSocketOptions()) {
+      if (!getSocketOptions()
+          .equals(other.getSocketOptions())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -190,7 +206,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
       hash = (53 * hash) + getAddress().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasSocketOptions()) {
+      hash = (37 * hash) + SOCKET_OPTIONS_FIELD_NUMBER;
+      hash = (53 * hash) + getSocketOptions().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -311,27 +331,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.listener.v3.AdditionalAddress.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (addressBuilder_ == null) {
-        address_ = null;
-      } else {
-        address_ = null;
+      bitField0_ = 0;
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
+      }
+      socketOptions_ = null;
+      if (socketOptionsBuilder_ != null) {
+        socketOptionsBuilder_.dispose();
+        socketOptionsBuilder_ = null;
       }
       return this;
     }
@@ -359,13 +379,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.listener.v3.AdditionalAddress buildPartial() {
       io.envoyproxy.envoy.config.listener.v3.AdditionalAddress result = new io.envoyproxy.envoy.config.listener.v3.AdditionalAddress(this);
-      if (addressBuilder_ == null) {
-        result.address_ = address_;
-      } else {
-        result.address_ = addressBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.listener.v3.AdditionalAddress result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.address_ = addressBuilder_ == null
+            ? address_
+            : addressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.socketOptions_ = socketOptionsBuilder_ == null
+            ? socketOptions_
+            : socketOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -415,7 +445,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasAddress()) {
         mergeAddress(other.getAddress());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasSocketOptions()) {
+        mergeSocketOptions(other.getSocketOptions());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -430,19 +463,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.listener.v3.AdditionalAddress parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getSocketOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.listener.v3.AdditionalAddress) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.Address address_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -452,7 +513,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the address field is set.
      */
     public boolean hasAddress() {
-      return addressBuilder_ != null || address_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.config.core.v3.Address address = 1;</code>
@@ -474,11 +535,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         address_ = value;
-        onChanged();
       } else {
         addressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -488,11 +549,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.Address.Builder builderForValue) {
       if (addressBuilder_ == null) {
         address_ = builderForValue.build();
-        onChanged();
       } else {
         addressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -500,38 +561,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAddress(io.envoyproxy.envoy.config.core.v3.Address value) {
       if (addressBuilder_ == null) {
-        if (address_ != null) {
-          address_ =
-            io.envoyproxy.envoy.config.core.v3.Address.newBuilder(address_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          address_ != null &&
+          address_ != io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance()) {
+          getAddressBuilder().mergeFrom(value);
         } else {
           address_ = value;
         }
-        onChanged();
       } else {
         addressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.core.v3.Address address = 1;</code>
      */
     public Builder clearAddress() {
-      if (addressBuilder_ == null) {
-        address_ = null;
-        onChanged();
-      } else {
-        address_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.core.v3.Address address = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.Address.Builder getAddressBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAddressFieldBuilder().getBuilder();
     }
@@ -561,6 +622,215 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       return addressBuilder_;
+    }
+
+    private io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride socketOptions_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride, io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.Builder, io.envoyproxy.envoy.config.core.v3.SocketOptionsOverrideOrBuilder> socketOptionsBuilder_;
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     * @return Whether the socketOptions field is set.
+     */
+    public boolean hasSocketOptions() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     * @return The socketOptions.
+     */
+    public io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride getSocketOptions() {
+      if (socketOptionsBuilder_ == null) {
+        return socketOptions_ == null ? io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.getDefaultInstance() : socketOptions_;
+      } else {
+        return socketOptionsBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    public Builder setSocketOptions(io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride value) {
+      if (socketOptionsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        socketOptions_ = value;
+      } else {
+        socketOptionsBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    public Builder setSocketOptions(
+        io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.Builder builderForValue) {
+      if (socketOptionsBuilder_ == null) {
+        socketOptions_ = builderForValue.build();
+      } else {
+        socketOptionsBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    public Builder mergeSocketOptions(io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride value) {
+      if (socketOptionsBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          socketOptions_ != null &&
+          socketOptions_ != io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.getDefaultInstance()) {
+          getSocketOptionsBuilder().mergeFrom(value);
+        } else {
+          socketOptions_ = value;
+        }
+      } else {
+        socketOptionsBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    public Builder clearSocketOptions() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      socketOptions_ = null;
+      if (socketOptionsBuilder_ != null) {
+        socketOptionsBuilder_.dispose();
+        socketOptionsBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.Builder getSocketOptionsBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getSocketOptionsFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    public io.envoyproxy.envoy.config.core.v3.SocketOptionsOverrideOrBuilder getSocketOptionsOrBuilder() {
+      if (socketOptionsBuilder_ != null) {
+        return socketOptionsBuilder_.getMessageOrBuilder();
+      } else {
+        return socketOptions_ == null ?
+            io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.getDefaultInstance() : socketOptions_;
+      }
+    }
+    /**
+     * <pre>
+     * Additional socket options that may not be present in Envoy source code or
+     * precompiled binaries. If specified, this will override the
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+     * in the listener. If specified with no
+     * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+     * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+     * it means no socket option will apply.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride, io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.Builder, io.envoyproxy.envoy.config.core.v3.SocketOptionsOverrideOrBuilder> 
+        getSocketOptionsFieldBuilder() {
+      if (socketOptionsBuilder_ == null) {
+        socketOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride, io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride.Builder, io.envoyproxy.envoy.config.core.v3.SocketOptionsOverrideOrBuilder>(
+                getSocketOptions(),
+                getParentForChildren(),
+                isClean());
+        socketOptions_ = null;
+      }
+      return socketOptionsBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -595,7 +865,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AdditionalAddress(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

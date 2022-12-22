@@ -36,90 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateSshScriptRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            migrationJob_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vm_ = s;
-            break;
-          }
-          case 24: {
-
-            vmPort_ = input.readInt32();
-            break;
-          }
-          case 802: {
-            com.google.cloud.clouddms.v1.VmCreationConfig.Builder subBuilder = null;
-            if (vmConfigCase_ == 100) {
-              subBuilder = ((com.google.cloud.clouddms.v1.VmCreationConfig) vmConfig_).toBuilder();
-            }
-            vmConfig_ =
-                input.readMessage(com.google.cloud.clouddms.v1.VmCreationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.clouddms.v1.VmCreationConfig) vmConfig_);
-              vmConfig_ = subBuilder.buildPartial();
-            }
-            vmConfigCase_ = 100;
-            break;
-          }
-          case 810: {
-            com.google.cloud.clouddms.v1.VmSelectionConfig.Builder subBuilder = null;
-            if (vmConfigCase_ == 101) {
-              subBuilder = ((com.google.cloud.clouddms.v1.VmSelectionConfig) vmConfig_).toBuilder();
-            }
-            vmConfig_ =
-                input.readMessage(com.google.cloud.clouddms.v1.VmSelectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.clouddms.v1.VmSelectionConfig) vmConfig_);
-              vmConfig_ = subBuilder.buildPartial();
-            }
-            vmConfigCase_ = 101;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.clouddms.v1.ClouddmsProto.internal_static_google_cloud_clouddms_v1_GenerateSshScriptRequest_descriptor;
@@ -175,7 +91,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIGRATION_JOB_FIELD_NUMBER = 1;
-  private volatile java.lang.Object migrationJob_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object migrationJob_ = "";
   /**
    * <pre>
    * Name of the migration job resource to generate the SSH script.
@@ -221,7 +138,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_FIELD_NUMBER = 2;
-  private volatile java.lang.Object vm_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vm_ = "";
   /**
    * <pre>
    * Required. Bastion VM Instance name to use or to create.
@@ -353,7 +271,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_PORT_FIELD_NUMBER = 3;
-  private int vmPort_;
+  private int vmPort_ = 0;
   /**
    * <pre>
    * The port that will be open on the bastion host
@@ -396,7 +314,7 @@ private static final long serialVersionUID = 0L;
     if (vmConfigCase_ == 101) {
       output.writeMessage(101, (com.google.cloud.clouddms.v1.VmSelectionConfig) vmConfig_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -423,7 +341,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(101, (com.google.cloud.clouddms.v1.VmSelectionConfig) vmConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -457,7 +375,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -486,7 +404,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -607,28 +525,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.clouddms.v1.GenerateSshScriptRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       migrationJob_ = "";
-
       vm_ = "";
-
+      if (vmCreationConfigBuilder_ != null) {
+        vmCreationConfigBuilder_.clear();
+      }
+      if (vmSelectionConfigBuilder_ != null) {
+        vmSelectionConfigBuilder_.clear();
+      }
       vmPort_ = 0;
-
       vmConfigCase_ = 0;
       vmConfig_ = null;
       return this;
@@ -657,26 +574,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.clouddms.v1.GenerateSshScriptRequest buildPartial() {
       com.google.cloud.clouddms.v1.GenerateSshScriptRequest result = new com.google.cloud.clouddms.v1.GenerateSshScriptRequest(this);
-      result.migrationJob_ = migrationJob_;
-      result.vm_ = vm_;
-      if (vmConfigCase_ == 100) {
-        if (vmCreationConfigBuilder_ == null) {
-          result.vmConfig_ = vmConfig_;
-        } else {
-          result.vmConfig_ = vmCreationConfigBuilder_.build();
-        }
-      }
-      if (vmConfigCase_ == 101) {
-        if (vmSelectionConfigBuilder_ == null) {
-          result.vmConfig_ = vmConfig_;
-        } else {
-          result.vmConfig_ = vmSelectionConfigBuilder_.build();
-        }
-      }
-      result.vmPort_ = vmPort_;
-      result.vmConfigCase_ = vmConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.clouddms.v1.GenerateSshScriptRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.migrationJob_ = migrationJob_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.vm_ = vm_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.vmPort_ = vmPort_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.clouddms.v1.GenerateSshScriptRequest result) {
+      result.vmConfigCase_ = vmConfigCase_;
+      result.vmConfig_ = this.vmConfig_;
+      if (vmConfigCase_ == 100 &&
+          vmCreationConfigBuilder_ != null) {
+        result.vmConfig_ = vmCreationConfigBuilder_.build();
+      }
+      if (vmConfigCase_ == 101 &&
+          vmSelectionConfigBuilder_ != null) {
+        result.vmConfig_ = vmSelectionConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -725,10 +652,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.clouddms.v1.GenerateSshScriptRequest.getDefaultInstance()) return this;
       if (!other.getMigrationJob().isEmpty()) {
         migrationJob_ = other.migrationJob_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getVm().isEmpty()) {
         vm_ = other.vm_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getVmPort() != 0) {
@@ -747,7 +676,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -762,17 +691,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.clouddms.v1.GenerateSshScriptRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              migrationJob_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              vm_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              vmPort_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 24
+            case 802: {
+              input.readMessage(
+                  getVmCreationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              vmConfigCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getVmSelectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              vmConfigCase_ = 101;
+              break;
+            } // case 810
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.clouddms.v1.GenerateSshScriptRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int vmConfigCase_ = 0;
@@ -790,6 +761,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object migrationJob_ = "";
     /**
@@ -844,11 +816,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMigrationJob(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       migrationJob_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -861,8 +831,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMigrationJob() {
-      
       migrationJob_ = getDefaultInstance().getMigrationJob();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -877,12 +847,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMigrationJobBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       migrationJob_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -940,11 +908,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVm(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vm_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -957,8 +923,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVm() {
-      
       vm_ = getDefaultInstance().getVm();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -973,12 +939,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vm_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1157,7 +1121,7 @@ private static final long serialVersionUID = 0L;
         vmConfig_ = null;
       }
       vmConfigCase_ = 100;
-      onChanged();;
+      onChanged();
       return vmCreationConfigBuilder_;
     }
 
@@ -1335,7 +1299,7 @@ private static final long serialVersionUID = 0L;
         vmConfig_ = null;
       }
       vmConfigCase_ = 101;
-      onChanged();;
+      onChanged();
       return vmSelectionConfigBuilder_;
     }
 
@@ -1364,6 +1328,7 @@ private static final long serialVersionUID = 0L;
     public Builder setVmPort(int value) {
       
       vmPort_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1376,7 +1341,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmPort() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       vmPort_ = 0;
       onChanged();
       return this;
@@ -1414,7 +1379,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateSshScriptRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -269,7 +269,6 @@ public interface DeltaDiscoveryRequestOrBuilder extends
    *
    * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
    */
-
   /* nullable */
 java.lang.String getInitialResourceVersionsOrDefault(
       java.lang.String key,
@@ -289,7 +288,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
    */
-
   java.lang.String getInitialResourceVersionsOrThrow(
       java.lang.String key);
 

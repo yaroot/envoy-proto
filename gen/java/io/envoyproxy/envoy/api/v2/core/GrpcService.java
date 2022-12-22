@@ -37,99 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GrpcService(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc.Builder subBuilder = null;
-            if (targetSpecifierCase_ == 1) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc) targetSpecifier_).toBuilder();
-            }
-            targetSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc) targetSpecifier_);
-              targetSpecifier_ = subBuilder.buildPartial();
-            }
-            targetSpecifierCase_ = 1;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.Builder subBuilder = null;
-            if (targetSpecifierCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc) targetSpecifier_).toBuilder();
-            }
-            targetSpecifier_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc) targetSpecifier_);
-              targetSpecifier_ = subBuilder.buildPartial();
-            }
-            targetSpecifierCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeout_ != null) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              initialMetadata_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.HeaderValue>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            initialMetadata_.add(
-                input.readMessage(io.envoyproxy.envoy.api.v2.core.HeaderValue.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        initialMetadata_ = java.util.Collections.unmodifiableList(initialMetadata_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_descriptor;
@@ -199,51 +106,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EnvoyGrpc(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              clusterName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_EnvoyGrpc_descriptor;
@@ -258,7 +120,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CLUSTER_NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object clusterName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object clusterName_ = "";
     /**
      * <pre>
      * The name of the upstream gRPC cluster. SSL credentials will be supplied
@@ -324,7 +187,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clusterName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, clusterName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -336,7 +199,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(clusterName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, clusterName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -353,7 +216,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getClusterName()
           .equals(other.getClusterName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -366,7 +229,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CLUSTER_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getClusterName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -483,24 +346,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         clusterName_ = "";
-
         return this;
       }
 
@@ -527,9 +385,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc buildPartial() {
         io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc result = new io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc(this);
-        result.clusterName_ = clusterName_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.clusterName_ = clusterName_;
+        }
       }
 
       @java.lang.Override
@@ -578,9 +443,10 @@ private static final long serialVersionUID = 0L;
         if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc.getDefaultInstance()) return this;
         if (!other.getClusterName().isEmpty()) {
           clusterName_ = other.clusterName_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -595,19 +461,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                clusterName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.EnvoyGrpc) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object clusterName_ = "";
       /**
@@ -668,11 +553,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setClusterName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         clusterName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -687,8 +570,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearClusterName() {
-        
         clusterName_ = getDefaultInstance().getClusterName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -705,12 +588,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setClusterNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         clusterName_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -747,7 +628,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EnvoyGrpc(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -980,102 +872,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GoogleGrpc(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              targetUri_ = s;
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.Builder subBuilder = null;
-              if (channelCredentials_ != null) {
-                subBuilder = channelCredentials_.toBuilder();
-              }
-              channelCredentials_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(channelCredentials_);
-                channelCredentials_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                callCredentials_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              callCredentials_.add(
-                  input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.parser(), extensionRegistry));
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              statPrefix_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              credentialsFactoryName_ = s;
-              break;
-            }
-            case 50: {
-              com.google.protobuf.Struct.Builder subBuilder = null;
-              if (config_ != null) {
-                subBuilder = config_.toBuilder();
-              }
-              config_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(config_);
-                config_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          callCredentials_ = java.util.Collections.unmodifiableList(callCredentials_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_descriptor;
@@ -1205,84 +1001,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private SslCredentials(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                io.envoyproxy.envoy.api.v2.core.DataSource.Builder subBuilder = null;
-                if (rootCerts_ != null) {
-                  subBuilder = rootCerts_.toBuilder();
-                }
-                rootCerts_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.DataSource.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(rootCerts_);
-                  rootCerts_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 18: {
-                io.envoyproxy.envoy.api.v2.core.DataSource.Builder subBuilder = null;
-                if (privateKey_ != null) {
-                  subBuilder = privateKey_.toBuilder();
-                }
-                privateKey_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.DataSource.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(privateKey_);
-                  privateKey_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              case 26: {
-                io.envoyproxy.envoy.api.v2.core.DataSource.Builder subBuilder = null;
-                if (certChain_ != null) {
-                  subBuilder = certChain_.toBuilder();
-                }
-                certChain_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.DataSource.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom(certChain_);
-                  certChain_ = subBuilder.buildPartial();
-                }
-
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_SslCredentials_descriptor;
@@ -1331,7 +1049,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.core.DataSourceOrBuilder getRootCertsOrBuilder() {
-        return getRootCerts();
+        return rootCerts_ == null ? io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance() : rootCerts_;
       }
 
       public static final int PRIVATE_KEY_FIELD_NUMBER = 2;
@@ -1369,7 +1087,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.core.DataSourceOrBuilder getPrivateKeyOrBuilder() {
-        return getPrivateKey();
+        return privateKey_ == null ? io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance() : privateKey_;
       }
 
       public static final int CERT_CHAIN_FIELD_NUMBER = 3;
@@ -1407,7 +1125,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.core.DataSourceOrBuilder getCertChainOrBuilder() {
-        return getCertChain();
+        return certChain_ == null ? io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance() : certChain_;
       }
 
       private byte memoizedIsInitialized = -1;
@@ -1433,7 +1151,7 @@ private static final long serialVersionUID = 0L;
         if (certChain_ != null) {
           output.writeMessage(3, getCertChain());
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1454,7 +1172,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, getCertChain());
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1484,7 +1202,7 @@ private static final long serialVersionUID = 0L;
           if (!getCertChain()
               .equals(other.getCertChain())) return false;
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1507,7 +1225,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + CERT_CHAIN_FIELD_NUMBER;
           hash = (53 * hash) + getCertChain().hashCode();
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1628,38 +1346,31 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
-          if (rootCertsBuilder_ == null) {
-            rootCerts_ = null;
-          } else {
-            rootCerts_ = null;
+          bitField0_ = 0;
+          rootCerts_ = null;
+          if (rootCertsBuilder_ != null) {
+            rootCertsBuilder_.dispose();
             rootCertsBuilder_ = null;
           }
-          if (privateKeyBuilder_ == null) {
-            privateKey_ = null;
-          } else {
-            privateKey_ = null;
+          privateKey_ = null;
+          if (privateKeyBuilder_ != null) {
+            privateKeyBuilder_.dispose();
             privateKeyBuilder_ = null;
           }
-          if (certChainBuilder_ == null) {
-            certChain_ = null;
-          } else {
-            certChain_ = null;
+          certChain_ = null;
+          if (certChainBuilder_ != null) {
+            certChainBuilder_.dispose();
             certChainBuilder_ = null;
           }
           return this;
@@ -1688,23 +1399,28 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials buildPartial() {
           io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials(this);
-          if (rootCertsBuilder_ == null) {
-            result.rootCerts_ = rootCerts_;
-          } else {
-            result.rootCerts_ = rootCertsBuilder_.build();
-          }
-          if (privateKeyBuilder_ == null) {
-            result.privateKey_ = privateKey_;
-          } else {
-            result.privateKey_ = privateKeyBuilder_.build();
-          }
-          if (certChainBuilder_ == null) {
-            result.certChain_ = certChain_;
-          } else {
-            result.certChain_ = certChainBuilder_.build();
-          }
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.rootCerts_ = rootCertsBuilder_ == null
+                ? rootCerts_
+                : rootCertsBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.privateKey_ = privateKeyBuilder_ == null
+                ? privateKey_
+                : privateKeyBuilder_.build();
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.certChain_ = certChainBuilder_ == null
+                ? certChain_
+                : certChainBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -1760,7 +1476,7 @@ private static final long serialVersionUID = 0L;
           if (other.hasCertChain()) {
             mergeCertChain(other.getCertChain());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1775,19 +1491,54 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getRootCertsFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getPrivateKeyFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getCertChainFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private io.envoyproxy.envoy.api.v2.core.DataSource rootCerts_;
         private com.google.protobuf.SingleFieldBuilderV3<
@@ -1801,7 +1552,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the rootCerts field is set.
          */
         public boolean hasRootCerts() {
-          return rootCertsBuilder_ != null || rootCerts_ != null;
+          return ((bitField0_ & 0x00000001) != 0);
         }
         /**
          * <pre>
@@ -1831,11 +1582,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             rootCerts_ = value;
-            onChanged();
           } else {
             rootCertsBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1849,11 +1600,11 @@ private static final long serialVersionUID = 0L;
             io.envoyproxy.envoy.api.v2.core.DataSource.Builder builderForValue) {
           if (rootCertsBuilder_ == null) {
             rootCerts_ = builderForValue.build();
-            onChanged();
           } else {
             rootCertsBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1865,17 +1616,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeRootCerts(io.envoyproxy.envoy.api.v2.core.DataSource value) {
           if (rootCertsBuilder_ == null) {
-            if (rootCerts_ != null) {
-              rootCerts_ =
-                io.envoyproxy.envoy.api.v2.core.DataSource.newBuilder(rootCerts_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000001) != 0) &&
+              rootCerts_ != null &&
+              rootCerts_ != io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance()) {
+              getRootCertsBuilder().mergeFrom(value);
             } else {
               rootCerts_ = value;
             }
-            onChanged();
           } else {
             rootCertsBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000001;
+          onChanged();
           return this;
         }
         /**
@@ -1886,14 +1638,13 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.api.v2.core.DataSource root_certs = 1;</code>
          */
         public Builder clearRootCerts() {
-          if (rootCertsBuilder_ == null) {
-            rootCerts_ = null;
-            onChanged();
-          } else {
-            rootCerts_ = null;
+          bitField0_ = (bitField0_ & ~0x00000001);
+          rootCerts_ = null;
+          if (rootCertsBuilder_ != null) {
+            rootCertsBuilder_.dispose();
             rootCertsBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -1904,7 +1655,7 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.api.v2.core.DataSource root_certs = 1;</code>
          */
         public io.envoyproxy.envoy.api.v2.core.DataSource.Builder getRootCertsBuilder() {
-          
+          bitField0_ |= 0x00000001;
           onChanged();
           return getRootCertsFieldBuilder().getBuilder();
         }
@@ -1956,7 +1707,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the privateKey field is set.
          */
         public boolean hasPrivateKey() {
-          return privateKeyBuilder_ != null || privateKey_ != null;
+          return ((bitField0_ & 0x00000002) != 0);
         }
         /**
          * <pre>
@@ -1986,11 +1737,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             privateKey_ = value;
-            onChanged();
           } else {
             privateKeyBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -2004,11 +1755,11 @@ private static final long serialVersionUID = 0L;
             io.envoyproxy.envoy.api.v2.core.DataSource.Builder builderForValue) {
           if (privateKeyBuilder_ == null) {
             privateKey_ = builderForValue.build();
-            onChanged();
           } else {
             privateKeyBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -2020,17 +1771,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergePrivateKey(io.envoyproxy.envoy.api.v2.core.DataSource value) {
           if (privateKeyBuilder_ == null) {
-            if (privateKey_ != null) {
-              privateKey_ =
-                io.envoyproxy.envoy.api.v2.core.DataSource.newBuilder(privateKey_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000002) != 0) &&
+              privateKey_ != null &&
+              privateKey_ != io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance()) {
+              getPrivateKeyBuilder().mergeFrom(value);
             } else {
               privateKey_ = value;
             }
-            onChanged();
           } else {
             privateKeyBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000002;
+          onChanged();
           return this;
         }
         /**
@@ -2041,14 +1793,13 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.api.v2.core.DataSource private_key = 2 [(.udpa.annotations.sensitive) = true];</code>
          */
         public Builder clearPrivateKey() {
-          if (privateKeyBuilder_ == null) {
-            privateKey_ = null;
-            onChanged();
-          } else {
-            privateKey_ = null;
+          bitField0_ = (bitField0_ & ~0x00000002);
+          privateKey_ = null;
+          if (privateKeyBuilder_ != null) {
+            privateKeyBuilder_.dispose();
             privateKeyBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -2059,7 +1810,7 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.api.v2.core.DataSource private_key = 2 [(.udpa.annotations.sensitive) = true];</code>
          */
         public io.envoyproxy.envoy.api.v2.core.DataSource.Builder getPrivateKeyBuilder() {
-          
+          bitField0_ |= 0x00000002;
           onChanged();
           return getPrivateKeyFieldBuilder().getBuilder();
         }
@@ -2111,7 +1862,7 @@ private static final long serialVersionUID = 0L;
          * @return Whether the certChain field is set.
          */
         public boolean hasCertChain() {
-          return certChainBuilder_ != null || certChain_ != null;
+          return ((bitField0_ & 0x00000004) != 0);
         }
         /**
          * <pre>
@@ -2141,11 +1892,11 @@ private static final long serialVersionUID = 0L;
               throw new NullPointerException();
             }
             certChain_ = value;
-            onChanged();
           } else {
             certChainBuilder_.setMessage(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -2159,11 +1910,11 @@ private static final long serialVersionUID = 0L;
             io.envoyproxy.envoy.api.v2.core.DataSource.Builder builderForValue) {
           if (certChainBuilder_ == null) {
             certChain_ = builderForValue.build();
-            onChanged();
           } else {
             certChainBuilder_.setMessage(builderForValue.build());
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -2175,17 +1926,18 @@ private static final long serialVersionUID = 0L;
          */
         public Builder mergeCertChain(io.envoyproxy.envoy.api.v2.core.DataSource value) {
           if (certChainBuilder_ == null) {
-            if (certChain_ != null) {
-              certChain_ =
-                io.envoyproxy.envoy.api.v2.core.DataSource.newBuilder(certChain_).mergeFrom(value).buildPartial();
+            if (((bitField0_ & 0x00000004) != 0) &&
+              certChain_ != null &&
+              certChain_ != io.envoyproxy.envoy.api.v2.core.DataSource.getDefaultInstance()) {
+              getCertChainBuilder().mergeFrom(value);
             } else {
               certChain_ = value;
             }
-            onChanged();
           } else {
             certChainBuilder_.mergeFrom(value);
           }
-
+          bitField0_ |= 0x00000004;
+          onChanged();
           return this;
         }
         /**
@@ -2196,14 +1948,13 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.api.v2.core.DataSource cert_chain = 3;</code>
          */
         public Builder clearCertChain() {
-          if (certChainBuilder_ == null) {
-            certChain_ = null;
-            onChanged();
-          } else {
-            certChain_ = null;
+          bitField0_ = (bitField0_ & ~0x00000004);
+          certChain_ = null;
+          if (certChainBuilder_ != null) {
+            certChainBuilder_.dispose();
             certChainBuilder_ = null;
           }
-
+          onChanged();
           return this;
         }
         /**
@@ -2214,7 +1965,7 @@ private static final long serialVersionUID = 0L;
          * <code>.envoy.api.v2.core.DataSource cert_chain = 3;</code>
          */
         public io.envoyproxy.envoy.api.v2.core.DataSource.Builder getCertChainBuilder() {
-          
+          bitField0_ |= 0x00000004;
           onChanged();
           return getCertChainFieldBuilder().getBuilder();
         }
@@ -2286,7 +2037,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SslCredentials(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2342,45 +2104,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private GoogleLocalCredentials(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_GoogleLocalCredentials_descriptor;
@@ -2408,7 +2131,7 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2417,7 +2140,7 @@ private static final long serialVersionUID = 0L;
         if (size != -1) return size;
 
         size = 0;
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2432,7 +2155,7 @@ private static final long serialVersionUID = 0L;
         }
         io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials other = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials) obj;
 
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2443,7 +2166,7 @@ private static final long serialVersionUID = 0L;
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2565,18 +2288,13 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
@@ -2655,7 +2373,7 @@ private static final long serialVersionUID = 0L;
 
         public Builder mergeFrom(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials other) {
           if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials.getDefaultInstance()) return this;
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2670,17 +2388,30 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         @java.lang.Override
@@ -2716,7 +2447,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GoogleLocalCredentials(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2830,87 +2572,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private ChannelCredentials(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 1) {
-                  subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 1;
-                break;
-              }
-              case 18: {
-                com.google.protobuf.Empty.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 2) {
-                  subBuilder = ((com.google.protobuf.Empty) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(com.google.protobuf.Empty.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.protobuf.Empty) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 2;
-                break;
-              }
-              case 26: {
-                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 3) {
-                  subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 3;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -3096,7 +2757,7 @@ private static final long serialVersionUID = 0L;
         if (credentialSpecifierCase_ == 3) {
           output.writeMessage(3, (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials) credentialSpecifier_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -3117,7 +2778,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(3, (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.GoogleLocalCredentials) credentialSpecifier_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -3149,7 +2810,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -3176,7 +2837,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -3298,22 +2959,27 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (sslCredentialsBuilder_ != null) {
+            sslCredentialsBuilder_.clear();
+          }
+          if (googleDefaultBuilder_ != null) {
+            googleDefaultBuilder_.clear();
+          }
+          if (localCredentialsBuilder_ != null) {
+            localCredentialsBuilder_.clear();
+          }
           credentialSpecifierCase_ = 0;
           credentialSpecifier_ = null;
           return this;
@@ -3342,30 +3008,31 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials buildPartial() {
           io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials(this);
-          if (credentialSpecifierCase_ == 1) {
-            if (sslCredentialsBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = sslCredentialsBuilder_.build();
-            }
-          }
-          if (credentialSpecifierCase_ == 2) {
-            if (googleDefaultBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = googleDefaultBuilder_.build();
-            }
-          }
-          if (credentialSpecifierCase_ == 3) {
-            if (localCredentialsBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = localCredentialsBuilder_.build();
-            }
-          }
-          result.credentialSpecifierCase_ = credentialSpecifierCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials result) {
+          result.credentialSpecifierCase_ = credentialSpecifierCase_;
+          result.credentialSpecifier_ = this.credentialSpecifier_;
+          if (credentialSpecifierCase_ == 1 &&
+              sslCredentialsBuilder_ != null) {
+            result.credentialSpecifier_ = sslCredentialsBuilder_.build();
+          }
+          if (credentialSpecifierCase_ == 2 &&
+              googleDefaultBuilder_ != null) {
+            result.credentialSpecifier_ = googleDefaultBuilder_.build();
+          }
+          if (credentialSpecifierCase_ == 3 &&
+              localCredentialsBuilder_ != null) {
+            result.credentialSpecifier_ = localCredentialsBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -3429,7 +3096,7 @@ private static final long serialVersionUID = 0L;
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -3444,17 +3111,51 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  input.readMessage(
+                      getSslCredentialsFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 1;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getGoogleDefaultFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 2;
+                  break;
+                } // case 18
+                case 26: {
+                  input.readMessage(
+                      getLocalCredentialsFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 3;
+                  break;
+                } // case 26
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int credentialSpecifierCase_ = 0;
@@ -3472,6 +3173,7 @@ private static final long serialVersionUID = 0L;
           return this;
         }
 
+        private int bitField0_;
 
         private com.google.protobuf.SingleFieldBuilderV3<
             io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials, io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentials.Builder, io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.SslCredentialsOrBuilder> sslCredentialsBuilder_;
@@ -3611,7 +3313,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 1;
-          onChanged();;
+          onChanged();
           return sslCredentialsBuilder_;
         }
 
@@ -3789,7 +3491,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 2;
-          onChanged();;
+          onChanged();
           return googleDefaultBuilder_;
         }
 
@@ -3931,7 +3633,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 3;
-          onChanged();;
+          onChanged();
           return localCredentialsBuilder_;
         }
         @java.lang.Override
@@ -3967,7 +3669,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ChannelCredentials(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -4244,127 +3957,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private CallCredentials(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-                credentialSpecifierCase_ = 1;
-                credentialSpecifier_ = s;
-                break;
-              }
-              case 18: {
-                com.google.protobuf.Empty.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 2) {
-                  subBuilder = ((com.google.protobuf.Empty) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(com.google.protobuf.Empty.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((com.google.protobuf.Empty) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 2;
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-                credentialSpecifierCase_ = 3;
-                credentialSpecifier_ = s;
-                break;
-              }
-              case 34: {
-                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 4) {
-                  subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 4;
-                break;
-              }
-              case 42: {
-                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 5) {
-                  subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 5;
-                break;
-              }
-              case 50: {
-                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 6) {
-                  subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 6;
-                break;
-              }
-              case 58: {
-                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService.Builder subBuilder = null;
-                if (credentialSpecifierCase_ == 7) {
-                  subBuilder = ((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService) credentialSpecifier_).toBuilder();
-                }
-                credentialSpecifier_ =
-                    input.readMessage(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService.parser(), extensionRegistry);
-                if (subBuilder != null) {
-                  subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService) credentialSpecifier_);
-                  credentialSpecifier_ = subBuilder.buildPartial();
-                }
-                credentialSpecifierCase_ = 7;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_CallCredentials_descriptor;
@@ -4428,56 +4020,6 @@ private static final long serialVersionUID = 0L;
         getUnknownFields() {
           return this.unknownFields;
         }
-        private ServiceAccountJWTAccessCredentials(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  jsonKey_ = s;
-                  break;
-                }
-                case 16: {
-
-                  tokenLifetimeSeconds_ = input.readUInt64();
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_CallCredentials_ServiceAccountJWTAccessCredentials_descriptor;
@@ -4492,7 +4034,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int JSON_KEY_FIELD_NUMBER = 1;
-        private volatile java.lang.Object jsonKey_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object jsonKey_ = "";
         /**
          * <code>string json_key = 1;</code>
          * @return The jsonKey.
@@ -4530,7 +4073,7 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int TOKEN_LIFETIME_SECONDS_FIELD_NUMBER = 2;
-        private long tokenLifetimeSeconds_;
+        private long tokenLifetimeSeconds_ = 0L;
         /**
          * <code>uint64 token_lifetime_seconds = 2;</code>
          * @return The tokenLifetimeSeconds.
@@ -4560,7 +4103,7 @@ private static final long serialVersionUID = 0L;
           if (tokenLifetimeSeconds_ != 0L) {
             output.writeUInt64(2, tokenLifetimeSeconds_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -4576,7 +4119,7 @@ private static final long serialVersionUID = 0L;
             size += com.google.protobuf.CodedOutputStream
               .computeUInt64Size(2, tokenLifetimeSeconds_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -4595,7 +4138,7 @@ private static final long serialVersionUID = 0L;
               .equals(other.getJsonKey())) return false;
           if (getTokenLifetimeSeconds()
               != other.getTokenLifetimeSeconds()) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -4611,7 +4154,7 @@ private static final long serialVersionUID = 0L;
           hash = (37 * hash) + TOKEN_LIFETIME_SECONDS_FIELD_NUMBER;
           hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
               getTokenLifetimeSeconds());
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -4728,26 +4271,20 @@ private static final long serialVersionUID = 0L;
 
           // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             jsonKey_ = "";
-
             tokenLifetimeSeconds_ = 0L;
-
             return this;
           }
 
@@ -4774,10 +4311,19 @@ private static final long serialVersionUID = 0L;
           @java.lang.Override
           public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials buildPartial() {
             io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials(this);
-            result.jsonKey_ = jsonKey_;
-            result.tokenLifetimeSeconds_ = tokenLifetimeSeconds_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.jsonKey_ = jsonKey_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.tokenLifetimeSeconds_ = tokenLifetimeSeconds_;
+            }
           }
 
           @java.lang.Override
@@ -4826,12 +4372,13 @@ private static final long serialVersionUID = 0L;
             if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials.getDefaultInstance()) return this;
             if (!other.getJsonKey().isEmpty()) {
               jsonKey_ = other.jsonKey_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (other.getTokenLifetimeSeconds() != 0L) {
               setTokenLifetimeSeconds(other.getTokenLifetimeSeconds());
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -4846,19 +4393,43 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    jsonKey_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 16: {
+                    tokenLifetimeSeconds_ = input.readUInt64();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 16
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.ServiceAccountJWTAccessCredentials) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object jsonKey_ = "";
           /**
@@ -4901,11 +4472,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setJsonKey(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             jsonKey_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -4914,8 +4483,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearJsonKey() {
-            
             jsonKey_ = getDefaultInstance().getJsonKey();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -4926,12 +4495,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setJsonKeyBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             jsonKey_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -4953,6 +4520,7 @@ private static final long serialVersionUID = 0L;
           public Builder setTokenLifetimeSeconds(long value) {
             
             tokenLifetimeSeconds_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -4961,7 +4529,7 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearTokenLifetimeSeconds() {
-            
+            bitField0_ = (bitField0_ & ~0x00000002);
             tokenLifetimeSeconds_ = 0L;
             onChanged();
             return this;
@@ -4999,7 +4567,18 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new ServiceAccountJWTAccessCredentials(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -5076,57 +4655,6 @@ private static final long serialVersionUID = 0L;
         getUnknownFields() {
           return this.unknownFields;
         }
-        private GoogleIAMCredentials(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  authorizationToken_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  authoritySelector_ = s;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_CallCredentials_GoogleIAMCredentials_descriptor;
@@ -5141,7 +4669,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int AUTHORIZATION_TOKEN_FIELD_NUMBER = 1;
-        private volatile java.lang.Object authorizationToken_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object authorizationToken_ = "";
         /**
          * <code>string authorization_token = 1;</code>
          * @return The authorizationToken.
@@ -5179,7 +4708,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int AUTHORITY_SELECTOR_FIELD_NUMBER = 2;
-        private volatile java.lang.Object authoritySelector_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object authoritySelector_ = "";
         /**
          * <code>string authority_selector = 2;</code>
          * @return The authoritySelector.
@@ -5236,7 +4766,7 @@ private static final long serialVersionUID = 0L;
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(authoritySelector_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 2, authoritySelector_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -5251,7 +4781,7 @@ private static final long serialVersionUID = 0L;
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(authoritySelector_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, authoritySelector_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -5270,7 +4800,7 @@ private static final long serialVersionUID = 0L;
               .equals(other.getAuthorizationToken())) return false;
           if (!getAuthoritySelector()
               .equals(other.getAuthoritySelector())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -5285,7 +4815,7 @@ private static final long serialVersionUID = 0L;
           hash = (53 * hash) + getAuthorizationToken().hashCode();
           hash = (37 * hash) + AUTHORITY_SELECTOR_FIELD_NUMBER;
           hash = (53 * hash) + getAuthoritySelector().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -5402,26 +4932,20 @@ private static final long serialVersionUID = 0L;
 
           // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             authorizationToken_ = "";
-
             authoritySelector_ = "";
-
             return this;
           }
 
@@ -5448,10 +4972,19 @@ private static final long serialVersionUID = 0L;
           @java.lang.Override
           public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials buildPartial() {
             io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials(this);
-            result.authorizationToken_ = authorizationToken_;
-            result.authoritySelector_ = authoritySelector_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.authorizationToken_ = authorizationToken_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.authoritySelector_ = authoritySelector_;
+            }
           }
 
           @java.lang.Override
@@ -5500,13 +5033,15 @@ private static final long serialVersionUID = 0L;
             if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials.getDefaultInstance()) return this;
             if (!other.getAuthorizationToken().isEmpty()) {
               authorizationToken_ = other.authorizationToken_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.getAuthoritySelector().isEmpty()) {
               authoritySelector_ = other.authoritySelector_;
+              bitField0_ |= 0x00000002;
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -5521,19 +5056,43 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    authorizationToken_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    authoritySelector_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.GoogleIAMCredentials) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object authorizationToken_ = "";
           /**
@@ -5576,11 +5135,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setAuthorizationToken(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             authorizationToken_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -5589,8 +5146,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearAuthorizationToken() {
-            
             authorizationToken_ = getDefaultInstance().getAuthorizationToken();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -5601,12 +5158,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setAuthorizationTokenBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             authorizationToken_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -5652,11 +5207,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setAuthoritySelector(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             authoritySelector_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -5665,8 +5218,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearAuthoritySelector() {
-            
             authoritySelector_ = getDefaultInstance().getAuthoritySelector();
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -5677,12 +5230,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setAuthoritySelectorBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             authoritySelector_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -5719,7 +5270,18 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new GoogleIAMCredentials(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -5819,79 +5381,6 @@ private static final long serialVersionUID = 0L;
         getUnknownFields() {
           return this.unknownFields;
         }
-        private MetadataCredentialsFromPlugin(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  name_ = s;
-                  break;
-                }
-                case 18: {
-                  com.google.protobuf.Struct.Builder subBuilder = null;
-                  if (configTypeCase_ == 2) {
-                    subBuilder = ((com.google.protobuf.Struct) configType_).toBuilder();
-                  }
-                  configType_ =
-                      input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom((com.google.protobuf.Struct) configType_);
-                    configType_ = subBuilder.buildPartial();
-                  }
-                  configTypeCase_ = 2;
-                  break;
-                }
-                case 26: {
-                  com.google.protobuf.Any.Builder subBuilder = null;
-                  if (configTypeCase_ == 3) {
-                    subBuilder = ((com.google.protobuf.Any) configType_).toBuilder();
-                  }
-                  configType_ =
-                      input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-                  if (subBuilder != null) {
-                    subBuilder.mergeFrom((com.google.protobuf.Any) configType_);
-                    configType_ = subBuilder.buildPartial();
-                  }
-                  configTypeCase_ = 3;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_CallCredentials_MetadataCredentialsFromPlugin_descriptor;
@@ -5947,7 +5436,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int NAME_FIELD_NUMBER = 1;
-        private volatile java.lang.Object name_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object name_ = "";
         /**
          * <code>string name = 1;</code>
          * @return The name.
@@ -6073,7 +5563,7 @@ private static final long serialVersionUID = 0L;
           if (configTypeCase_ == 3) {
             output.writeMessage(3, (com.google.protobuf.Any) configType_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -6093,7 +5583,7 @@ private static final long serialVersionUID = 0L;
             size += com.google.protobuf.CodedOutputStream
               .computeMessageSize(3, (com.google.protobuf.Any) configType_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -6123,7 +5613,7 @@ private static final long serialVersionUID = 0L;
             case 0:
             default:
           }
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -6148,7 +5638,7 @@ private static final long serialVersionUID = 0L;
             case 0:
             default:
           }
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -6265,24 +5755,25 @@ private static final long serialVersionUID = 0L;
 
           // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             name_ = "";
-
+            if (configBuilder_ != null) {
+              configBuilder_.clear();
+            }
+            if (typedConfigBuilder_ != null) {
+              typedConfigBuilder_.clear();
+            }
             configTypeCase_ = 0;
             configType_ = null;
             return this;
@@ -6311,24 +5802,30 @@ private static final long serialVersionUID = 0L;
           @java.lang.Override
           public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin buildPartial() {
             io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin(this);
-            result.name_ = name_;
-            if (configTypeCase_ == 2) {
-              if (configBuilder_ == null) {
-                result.configType_ = configType_;
-              } else {
-                result.configType_ = configBuilder_.build();
-              }
-            }
-            if (configTypeCase_ == 3) {
-              if (typedConfigBuilder_ == null) {
-                result.configType_ = configType_;
-              } else {
-                result.configType_ = typedConfigBuilder_.build();
-              }
-            }
-            result.configTypeCase_ = configTypeCase_;
+            if (bitField0_ != 0) { buildPartial0(result); }
+            buildPartialOneofs(result);
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.name_ = name_;
+            }
+          }
+
+          private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin result) {
+            result.configTypeCase_ = configTypeCase_;
+            result.configType_ = this.configType_;
+            if (configTypeCase_ == 2 &&
+                configBuilder_ != null) {
+              result.configType_ = configBuilder_.build();
+            }
+            if (configTypeCase_ == 3 &&
+                typedConfigBuilder_ != null) {
+              result.configType_ = typedConfigBuilder_.build();
+            }
           }
 
           @java.lang.Override
@@ -6377,6 +5874,7 @@ private static final long serialVersionUID = 0L;
             if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin.getDefaultInstance()) return this;
             if (!other.getName().isEmpty()) {
               name_ = other.name_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             switch (other.getConfigTypeCase()) {
@@ -6392,7 +5890,7 @@ private static final long serialVersionUID = 0L;
                 break;
               }
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -6407,17 +5905,49 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    name_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    input.readMessage(
+                        getConfigFieldBuilder().getBuilder(),
+                        extensionRegistry);
+                    configTypeCase_ = 2;
+                    break;
+                  } // case 18
+                  case 26: {
+                    input.readMessage(
+                        getTypedConfigFieldBuilder().getBuilder(),
+                        extensionRegistry);
+                    configTypeCase_ = 3;
+                    break;
+                  } // case 26
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.MetadataCredentialsFromPlugin) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
           private int configTypeCase_ = 0;
@@ -6435,6 +5965,7 @@ private static final long serialVersionUID = 0L;
             return this;
           }
 
+          private int bitField0_;
 
           private java.lang.Object name_ = "";
           /**
@@ -6477,11 +6008,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setName(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             name_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -6490,8 +6019,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearName() {
-            
             name_ = getDefaultInstance().getName();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -6502,12 +6031,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setNameBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             name_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -6654,7 +6181,7 @@ private static final long serialVersionUID = 0L;
               configType_ = null;
             }
             configTypeCase_ = 2;
-            onChanged();;
+            onChanged();
             return configBuilder_;
           }
 
@@ -6796,7 +6323,7 @@ private static final long serialVersionUID = 0L;
               configType_ = null;
             }
             configTypeCase_ = 3;
-            onChanged();;
+            onChanged();
             return typedConfigBuilder_;
           }
           @java.lang.Override
@@ -6832,7 +6359,18 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new MetadataCredentialsFromPlugin(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -6860,7 +6398,7 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * URI of the token exchange service that handles token exchange requests.
          * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-         * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+         * https://github.com/bufbuild/protoc-gen-validate/issues/303]
          * </pre>
          *
          * <code>string token_exchange_service_uri = 1;</code>
@@ -6871,7 +6409,7 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * URI of the token exchange service that handles token exchange requests.
          * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-         * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+         * https://github.com/bufbuild/protoc-gen-validate/issues/303]
          * </pre>
          *
          * <code>string token_exchange_service_uri = 1;</code>
@@ -7096,99 +6634,6 @@ private static final long serialVersionUID = 0L;
         getUnknownFields() {
           return this.unknownFields;
         }
-        private StsService(
-            com.google.protobuf.CodedInputStream input,
-            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-            throws com.google.protobuf.InvalidProtocolBufferException {
-          this();
-          if (extensionRegistry == null) {
-            throw new java.lang.NullPointerException();
-          }
-          com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-              com.google.protobuf.UnknownFieldSet.newBuilder();
-          try {
-            boolean done = false;
-            while (!done) {
-              int tag = input.readTag();
-              switch (tag) {
-                case 0:
-                  done = true;
-                  break;
-                case 10: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  tokenExchangeServiceUri_ = s;
-                  break;
-                }
-                case 18: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  resource_ = s;
-                  break;
-                }
-                case 26: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  audience_ = s;
-                  break;
-                }
-                case 34: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  scope_ = s;
-                  break;
-                }
-                case 42: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  requestedTokenType_ = s;
-                  break;
-                }
-                case 50: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  subjectTokenPath_ = s;
-                  break;
-                }
-                case 58: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  subjectTokenType_ = s;
-                  break;
-                }
-                case 66: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  actorTokenPath_ = s;
-                  break;
-                }
-                case 74: {
-                  java.lang.String s = input.readStringRequireUtf8();
-
-                  actorTokenType_ = s;
-                  break;
-                }
-                default: {
-                  if (!parseUnknownField(
-                      input, unknownFields, extensionRegistry, tag)) {
-                    done = true;
-                  }
-                  break;
-                }
-              }
-            }
-          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            throw e.setUnfinishedMessage(this);
-          } catch (com.google.protobuf.UninitializedMessageException e) {
-            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-          } catch (java.io.IOException e) {
-            throw new com.google.protobuf.InvalidProtocolBufferException(
-                e).setUnfinishedMessage(this);
-          } finally {
-            this.unknownFields = unknownFields.build();
-            makeExtensionsImmutable();
-          }
-        }
         public static final com.google.protobuf.Descriptors.Descriptor
             getDescriptor() {
           return io.envoyproxy.envoy.api.v2.core.GrpcServiceProto.internal_static_envoy_api_v2_core_GrpcService_GoogleGrpc_CallCredentials_StsService_descriptor;
@@ -7203,12 +6648,13 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int TOKEN_EXCHANGE_SERVICE_URI_FIELD_NUMBER = 1;
-        private volatile java.lang.Object tokenExchangeServiceUri_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object tokenExchangeServiceUri_ = "";
         /**
          * <pre>
          * URI of the token exchange service that handles token exchange requests.
          * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-         * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+         * https://github.com/bufbuild/protoc-gen-validate/issues/303]
          * </pre>
          *
          * <code>string token_exchange_service_uri = 1;</code>
@@ -7231,7 +6677,7 @@ private static final long serialVersionUID = 0L;
          * <pre>
          * URI of the token exchange service that handles token exchange requests.
          * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-         * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+         * https://github.com/bufbuild/protoc-gen-validate/issues/303]
          * </pre>
          *
          * <code>string token_exchange_service_uri = 1;</code>
@@ -7253,7 +6699,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int RESOURCE_FIELD_NUMBER = 2;
-        private volatile java.lang.Object resource_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object resource_ = "";
         /**
          * <pre>
          * Location of the target service or resource where the client
@@ -7301,7 +6748,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int AUDIENCE_FIELD_NUMBER = 3;
-        private volatile java.lang.Object audience_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object audience_ = "";
         /**
          * <pre>
          * Logical name of the target service where the client intends to
@@ -7349,7 +6797,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int SCOPE_FIELD_NUMBER = 4;
-        private volatile java.lang.Object scope_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object scope_ = "";
         /**
          * <pre>
          * The desired scope of the requested security token in the
@@ -7397,7 +6846,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int REQUESTED_TOKEN_TYPE_FIELD_NUMBER = 5;
-        private volatile java.lang.Object requestedTokenType_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object requestedTokenType_ = "";
         /**
          * <pre>
          * Type of the requested security token.
@@ -7443,7 +6893,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int SUBJECT_TOKEN_PATH_FIELD_NUMBER = 6;
-        private volatile java.lang.Object subjectTokenPath_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object subjectTokenPath_ = "";
         /**
          * <pre>
          * The path of subject token, a security token that represents the
@@ -7491,7 +6942,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int SUBJECT_TOKEN_TYPE_FIELD_NUMBER = 7;
-        private volatile java.lang.Object subjectTokenType_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object subjectTokenType_ = "";
         /**
          * <pre>
          * Type of the subject token.
@@ -7537,7 +6989,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int ACTOR_TOKEN_PATH_FIELD_NUMBER = 8;
-        private volatile java.lang.Object actorTokenPath_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object actorTokenPath_ = "";
         /**
          * <pre>
          * The path of actor token, a security token that represents the identity
@@ -7587,7 +7040,8 @@ private static final long serialVersionUID = 0L;
         }
 
         public static final int ACTOR_TOKEN_TYPE_FIELD_NUMBER = 9;
-        private volatile java.lang.Object actorTokenType_;
+        @SuppressWarnings("serial")
+        private volatile java.lang.Object actorTokenType_ = "";
         /**
          * <pre>
          * Type of the actor token.
@@ -7673,7 +7127,7 @@ private static final long serialVersionUID = 0L;
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(actorTokenType_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 9, actorTokenType_);
           }
-          unknownFields.writeTo(output);
+          getUnknownFields().writeTo(output);
         }
 
         @java.lang.Override
@@ -7709,7 +7163,7 @@ private static final long serialVersionUID = 0L;
           if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(actorTokenType_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, actorTokenType_);
           }
-          size += unknownFields.getSerializedSize();
+          size += getUnknownFields().getSerializedSize();
           memoizedSize = size;
           return size;
         }
@@ -7742,7 +7196,7 @@ private static final long serialVersionUID = 0L;
               .equals(other.getActorTokenPath())) return false;
           if (!getActorTokenType()
               .equals(other.getActorTokenType())) return false;
-          if (!unknownFields.equals(other.unknownFields)) return false;
+          if (!getUnknownFields().equals(other.getUnknownFields())) return false;
           return true;
         }
 
@@ -7771,7 +7225,7 @@ private static final long serialVersionUID = 0L;
           hash = (53 * hash) + getActorTokenPath().hashCode();
           hash = (37 * hash) + ACTOR_TOKEN_TYPE_FIELD_NUMBER;
           hash = (53 * hash) + getActorTokenType().hashCode();
-          hash = (29 * hash) + unknownFields.hashCode();
+          hash = (29 * hash) + getUnknownFields().hashCode();
           memoizedHashCode = hash;
           return hash;
         }
@@ -7896,40 +7350,27 @@ private static final long serialVersionUID = 0L;
 
           // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService.newBuilder()
           private Builder() {
-            maybeForceBuilderInitialization();
+
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
             super(parent);
-            maybeForceBuilderInitialization();
-          }
-          private void maybeForceBuilderInitialization() {
-            if (com.google.protobuf.GeneratedMessageV3
-                    .alwaysUseFieldBuilders) {
-            }
+
           }
           @java.lang.Override
           public Builder clear() {
             super.clear();
+            bitField0_ = 0;
             tokenExchangeServiceUri_ = "";
-
             resource_ = "";
-
             audience_ = "";
-
             scope_ = "";
-
             requestedTokenType_ = "";
-
             subjectTokenPath_ = "";
-
             subjectTokenType_ = "";
-
             actorTokenPath_ = "";
-
             actorTokenType_ = "";
-
             return this;
           }
 
@@ -7956,17 +7397,40 @@ private static final long serialVersionUID = 0L;
           @java.lang.Override
           public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService buildPartial() {
             io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService(this);
-            result.tokenExchangeServiceUri_ = tokenExchangeServiceUri_;
-            result.resource_ = resource_;
-            result.audience_ = audience_;
-            result.scope_ = scope_;
-            result.requestedTokenType_ = requestedTokenType_;
-            result.subjectTokenPath_ = subjectTokenPath_;
-            result.subjectTokenType_ = subjectTokenType_;
-            result.actorTokenPath_ = actorTokenPath_;
-            result.actorTokenType_ = actorTokenType_;
+            if (bitField0_ != 0) { buildPartial0(result); }
             onBuilt();
             return result;
+          }
+
+          private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService result) {
+            int from_bitField0_ = bitField0_;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.tokenExchangeServiceUri_ = tokenExchangeServiceUri_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.resource_ = resource_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
+              result.audience_ = audience_;
+            }
+            if (((from_bitField0_ & 0x00000008) != 0)) {
+              result.scope_ = scope_;
+            }
+            if (((from_bitField0_ & 0x00000010) != 0)) {
+              result.requestedTokenType_ = requestedTokenType_;
+            }
+            if (((from_bitField0_ & 0x00000020) != 0)) {
+              result.subjectTokenPath_ = subjectTokenPath_;
+            }
+            if (((from_bitField0_ & 0x00000040) != 0)) {
+              result.subjectTokenType_ = subjectTokenType_;
+            }
+            if (((from_bitField0_ & 0x00000080) != 0)) {
+              result.actorTokenPath_ = actorTokenPath_;
+            }
+            if (((from_bitField0_ & 0x00000100) != 0)) {
+              result.actorTokenType_ = actorTokenType_;
+            }
           }
 
           @java.lang.Override
@@ -8015,41 +7479,50 @@ private static final long serialVersionUID = 0L;
             if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService.getDefaultInstance()) return this;
             if (!other.getTokenExchangeServiceUri().isEmpty()) {
               tokenExchangeServiceUri_ = other.tokenExchangeServiceUri_;
+              bitField0_ |= 0x00000001;
               onChanged();
             }
             if (!other.getResource().isEmpty()) {
               resource_ = other.resource_;
+              bitField0_ |= 0x00000002;
               onChanged();
             }
             if (!other.getAudience().isEmpty()) {
               audience_ = other.audience_;
+              bitField0_ |= 0x00000004;
               onChanged();
             }
             if (!other.getScope().isEmpty()) {
               scope_ = other.scope_;
+              bitField0_ |= 0x00000008;
               onChanged();
             }
             if (!other.getRequestedTokenType().isEmpty()) {
               requestedTokenType_ = other.requestedTokenType_;
+              bitField0_ |= 0x00000010;
               onChanged();
             }
             if (!other.getSubjectTokenPath().isEmpty()) {
               subjectTokenPath_ = other.subjectTokenPath_;
+              bitField0_ |= 0x00000020;
               onChanged();
             }
             if (!other.getSubjectTokenType().isEmpty()) {
               subjectTokenType_ = other.subjectTokenType_;
+              bitField0_ |= 0x00000040;
               onChanged();
             }
             if (!other.getActorTokenPath().isEmpty()) {
               actorTokenPath_ = other.actorTokenPath_;
+              bitField0_ |= 0x00000080;
               onChanged();
             }
             if (!other.getActorTokenType().isEmpty()) {
               actorTokenType_ = other.actorTokenType_;
+              bitField0_ |= 0x00000100;
               onChanged();
             }
-            this.mergeUnknownFields(other.unknownFields);
+            this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
             return this;
           }
@@ -8064,26 +7537,85 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws java.io.IOException {
-            io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService parsedMessage = null;
+            if (extensionRegistry == null) {
+              throw new java.lang.NullPointerException();
+            }
             try {
-              parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+              boolean done = false;
+              while (!done) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 10: {
+                    tokenExchangeServiceUri_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000001;
+                    break;
+                  } // case 10
+                  case 18: {
+                    resource_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  case 26: {
+                    audience_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000004;
+                    break;
+                  } // case 26
+                  case 34: {
+                    scope_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000008;
+                    break;
+                  } // case 34
+                  case 42: {
+                    requestedTokenType_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000010;
+                    break;
+                  } // case 42
+                  case 50: {
+                    subjectTokenPath_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000020;
+                    break;
+                  } // case 50
+                  case 58: {
+                    subjectTokenType_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000040;
+                    break;
+                  } // case 58
+                  case 66: {
+                    actorTokenPath_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000080;
+                    break;
+                  } // case 66
+                  case 74: {
+                    actorTokenType_ = input.readStringRequireUtf8();
+                    bitField0_ |= 0x00000100;
+                    break;
+                  } // case 74
+                  default: {
+                    if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                      done = true; // was an endgroup tag
+                    }
+                    break;
+                  } // default:
+                } // switch (tag)
+              } // while (!done)
             } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-              parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService) e.getUnfinishedMessage();
               throw e.unwrapIOException();
             } finally {
-              if (parsedMessage != null) {
-                mergeFrom(parsedMessage);
-              }
-            }
+              onChanged();
+            } // finally
             return this;
           }
+          private int bitField0_;
 
           private java.lang.Object tokenExchangeServiceUri_ = "";
           /**
            * <pre>
            * URI of the token exchange service that handles token exchange requests.
            * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-           * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+           * https://github.com/bufbuild/protoc-gen-validate/issues/303]
            * </pre>
            *
            * <code>string token_exchange_service_uri = 1;</code>
@@ -8105,7 +7637,7 @@ private static final long serialVersionUID = 0L;
            * <pre>
            * URI of the token exchange service that handles token exchange requests.
            * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-           * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+           * https://github.com/bufbuild/protoc-gen-validate/issues/303]
            * </pre>
            *
            * <code>string token_exchange_service_uri = 1;</code>
@@ -8128,7 +7660,7 @@ private static final long serialVersionUID = 0L;
            * <pre>
            * URI of the token exchange service that handles token exchange requests.
            * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-           * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+           * https://github.com/bufbuild/protoc-gen-validate/issues/303]
            * </pre>
            *
            * <code>string token_exchange_service_uri = 1;</code>
@@ -8137,11 +7669,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setTokenExchangeServiceUri(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             tokenExchangeServiceUri_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -8149,15 +7679,15 @@ private static final long serialVersionUID = 0L;
            * <pre>
            * URI of the token exchange service that handles token exchange requests.
            * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-           * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+           * https://github.com/bufbuild/protoc-gen-validate/issues/303]
            * </pre>
            *
            * <code>string token_exchange_service_uri = 1;</code>
            * @return This builder for chaining.
            */
           public Builder clearTokenExchangeServiceUri() {
-            
             tokenExchangeServiceUri_ = getDefaultInstance().getTokenExchangeServiceUri();
+            bitField0_ = (bitField0_ & ~0x00000001);
             onChanged();
             return this;
           }
@@ -8165,7 +7695,7 @@ private static final long serialVersionUID = 0L;
            * <pre>
            * URI of the token exchange service that handles token exchange requests.
            * [#comment:TODO(asraa): Add URI validation when implemented. Tracked by
-           * https://github.com/envoyproxy/protoc-gen-validate/issues/303]
+           * https://github.com/bufbuild/protoc-gen-validate/issues/303]
            * </pre>
            *
            * <code>string token_exchange_service_uri = 1;</code>
@@ -8174,12 +7704,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setTokenExchangeServiceUriBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             tokenExchangeServiceUri_ = value;
+            bitField0_ |= 0x00000001;
             onChanged();
             return this;
           }
@@ -8240,11 +7768,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setResource(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             resource_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -8258,8 +7784,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearResource() {
-            
             resource_ = getDefaultInstance().getResource();
+            bitField0_ = (bitField0_ & ~0x00000002);
             onChanged();
             return this;
           }
@@ -8275,12 +7801,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setResourceBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             resource_ = value;
+            bitField0_ |= 0x00000002;
             onChanged();
             return this;
           }
@@ -8341,11 +7865,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setAudience(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             audience_ = value;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
           }
@@ -8359,8 +7881,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearAudience() {
-            
             audience_ = getDefaultInstance().getAudience();
+            bitField0_ = (bitField0_ & ~0x00000004);
             onChanged();
             return this;
           }
@@ -8376,12 +7898,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setAudienceBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             audience_ = value;
+            bitField0_ |= 0x00000004;
             onChanged();
             return this;
           }
@@ -8442,11 +7962,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setScope(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             scope_ = value;
+            bitField0_ |= 0x00000008;
             onChanged();
             return this;
           }
@@ -8460,8 +7978,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearScope() {
-            
             scope_ = getDefaultInstance().getScope();
+            bitField0_ = (bitField0_ & ~0x00000008);
             onChanged();
             return this;
           }
@@ -8477,12 +7995,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setScopeBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             scope_ = value;
+            bitField0_ |= 0x00000008;
             onChanged();
             return this;
           }
@@ -8540,11 +8056,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setRequestedTokenType(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             requestedTokenType_ = value;
+            bitField0_ |= 0x00000010;
             onChanged();
             return this;
           }
@@ -8557,8 +8071,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearRequestedTokenType() {
-            
             requestedTokenType_ = getDefaultInstance().getRequestedTokenType();
+            bitField0_ = (bitField0_ & ~0x00000010);
             onChanged();
             return this;
           }
@@ -8573,12 +8087,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setRequestedTokenTypeBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             requestedTokenType_ = value;
+            bitField0_ |= 0x00000010;
             onChanged();
             return this;
           }
@@ -8639,11 +8151,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setSubjectTokenPath(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             subjectTokenPath_ = value;
+            bitField0_ |= 0x00000020;
             onChanged();
             return this;
           }
@@ -8657,8 +8167,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearSubjectTokenPath() {
-            
             subjectTokenPath_ = getDefaultInstance().getSubjectTokenPath();
+            bitField0_ = (bitField0_ & ~0x00000020);
             onChanged();
             return this;
           }
@@ -8674,12 +8184,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setSubjectTokenPathBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             subjectTokenPath_ = value;
+            bitField0_ |= 0x00000020;
             onChanged();
             return this;
           }
@@ -8737,11 +8245,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setSubjectTokenType(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             subjectTokenType_ = value;
+            bitField0_ |= 0x00000040;
             onChanged();
             return this;
           }
@@ -8754,8 +8260,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearSubjectTokenType() {
-            
             subjectTokenType_ = getDefaultInstance().getSubjectTokenType();
+            bitField0_ = (bitField0_ & ~0x00000040);
             onChanged();
             return this;
           }
@@ -8770,12 +8276,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setSubjectTokenTypeBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             subjectTokenType_ = value;
+            bitField0_ |= 0x00000040;
             onChanged();
             return this;
           }
@@ -8839,11 +8343,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setActorTokenPath(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             actorTokenPath_ = value;
+            bitField0_ |= 0x00000080;
             onChanged();
             return this;
           }
@@ -8858,8 +8360,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearActorTokenPath() {
-            
             actorTokenPath_ = getDefaultInstance().getActorTokenPath();
+            bitField0_ = (bitField0_ & ~0x00000080);
             onChanged();
             return this;
           }
@@ -8876,12 +8378,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setActorTokenPathBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             actorTokenPath_ = value;
+            bitField0_ |= 0x00000080;
             onChanged();
             return this;
           }
@@ -8939,11 +8439,9 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setActorTokenType(
               java.lang.String value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  
+            if (value == null) { throw new NullPointerException(); }
             actorTokenType_ = value;
+            bitField0_ |= 0x00000100;
             onChanged();
             return this;
           }
@@ -8956,8 +8454,8 @@ private static final long serialVersionUID = 0L;
            * @return This builder for chaining.
            */
           public Builder clearActorTokenType() {
-            
             actorTokenType_ = getDefaultInstance().getActorTokenType();
+            bitField0_ = (bitField0_ & ~0x00000100);
             onChanged();
             return this;
           }
@@ -8972,12 +8470,10 @@ private static final long serialVersionUID = 0L;
            */
           public Builder setActorTokenTypeBytes(
               com.google.protobuf.ByteString value) {
-            if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-            
+            if (value == null) { throw new NullPointerException(); }
+            checkByteStringIsUtf8(value);
             actorTokenType_ = value;
+            bitField0_ |= 0x00000100;
             onChanged();
             return this;
           }
@@ -9014,7 +8510,18 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            return new StsService(input, extensionRegistry);
+            Builder builder = newBuilder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+              throw e.setUnfinishedMessage(builder.buildPartial());
+            } catch (com.google.protobuf.UninitializedMessageException e) {
+              throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+            } catch (java.io.IOException e) {
+              throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                  .setUnfinishedMessage(builder.buildPartial());
+            }
+            return builder.buildPartial();
           }
         };
 
@@ -9490,7 +8997,7 @@ private static final long serialVersionUID = 0L;
         if (credentialSpecifierCase_ == 7) {
           output.writeMessage(7, (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService) credentialSpecifier_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -9525,7 +9032,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(7, (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.StsService) credentialSpecifier_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -9573,7 +9080,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -9616,7 +9123,7 @@ private static final long serialVersionUID = 0L;
           case 0:
           default:
         }
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -9737,22 +9244,33 @@ private static final long serialVersionUID = 0L;
 
         // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
+          if (googleComputeEngineBuilder_ != null) {
+            googleComputeEngineBuilder_.clear();
+          }
+          if (serviceAccountJwtAccessBuilder_ != null) {
+            serviceAccountJwtAccessBuilder_.clear();
+          }
+          if (googleIamBuilder_ != null) {
+            googleIamBuilder_.clear();
+          }
+          if (fromPluginBuilder_ != null) {
+            fromPluginBuilder_.clear();
+          }
+          if (stsServiceBuilder_ != null) {
+            stsServiceBuilder_.clear();
+          }
           credentialSpecifierCase_ = 0;
           credentialSpecifier_ = null;
           return this;
@@ -9781,50 +9299,39 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials buildPartial() {
           io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials(this);
-          if (credentialSpecifierCase_ == 1) {
-            result.credentialSpecifier_ = credentialSpecifier_;
-          }
-          if (credentialSpecifierCase_ == 2) {
-            if (googleComputeEngineBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = googleComputeEngineBuilder_.build();
-            }
-          }
-          if (credentialSpecifierCase_ == 3) {
-            result.credentialSpecifier_ = credentialSpecifier_;
-          }
-          if (credentialSpecifierCase_ == 4) {
-            if (serviceAccountJwtAccessBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = serviceAccountJwtAccessBuilder_.build();
-            }
-          }
-          if (credentialSpecifierCase_ == 5) {
-            if (googleIamBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = googleIamBuilder_.build();
-            }
-          }
-          if (credentialSpecifierCase_ == 6) {
-            if (fromPluginBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = fromPluginBuilder_.build();
-            }
-          }
-          if (credentialSpecifierCase_ == 7) {
-            if (stsServiceBuilder_ == null) {
-              result.credentialSpecifier_ = credentialSpecifier_;
-            } else {
-              result.credentialSpecifier_ = stsServiceBuilder_.build();
-            }
-          }
-          result.credentialSpecifierCase_ = credentialSpecifierCase_;
+          if (bitField0_ != 0) { buildPartial0(result); }
+          buildPartialOneofs(result);
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials result) {
+          int from_bitField0_ = bitField0_;
+        }
+
+        private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials result) {
+          result.credentialSpecifierCase_ = credentialSpecifierCase_;
+          result.credentialSpecifier_ = this.credentialSpecifier_;
+          if (credentialSpecifierCase_ == 2 &&
+              googleComputeEngineBuilder_ != null) {
+            result.credentialSpecifier_ = googleComputeEngineBuilder_.build();
+          }
+          if (credentialSpecifierCase_ == 4 &&
+              serviceAccountJwtAccessBuilder_ != null) {
+            result.credentialSpecifier_ = serviceAccountJwtAccessBuilder_.build();
+          }
+          if (credentialSpecifierCase_ == 5 &&
+              googleIamBuilder_ != null) {
+            result.credentialSpecifier_ = googleIamBuilder_.build();
+          }
+          if (credentialSpecifierCase_ == 6 &&
+              fromPluginBuilder_ != null) {
+            result.credentialSpecifier_ = fromPluginBuilder_.build();
+          }
+          if (credentialSpecifierCase_ == 7 &&
+              stsServiceBuilder_ != null) {
+            result.credentialSpecifier_ = stsServiceBuilder_.build();
+          }
         }
 
         @java.lang.Override
@@ -9908,7 +9415,7 @@ private static final long serialVersionUID = 0L;
               break;
             }
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -9923,17 +9430,77 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  credentialSpecifierCase_ = 1;
+                  credentialSpecifier_ = s;
+                  break;
+                } // case 10
+                case 18: {
+                  input.readMessage(
+                      getGoogleComputeEngineFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 2;
+                  break;
+                } // case 18
+                case 26: {
+                  java.lang.String s = input.readStringRequireUtf8();
+                  credentialSpecifierCase_ = 3;
+                  credentialSpecifier_ = s;
+                  break;
+                } // case 26
+                case 34: {
+                  input.readMessage(
+                      getServiceAccountJwtAccessFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 4;
+                  break;
+                } // case 34
+                case 42: {
+                  input.readMessage(
+                      getGoogleIamFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 5;
+                  break;
+                } // case 42
+                case 50: {
+                  input.readMessage(
+                      getFromPluginFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 6;
+                  break;
+                } // case 50
+                case 58: {
+                  input.readMessage(
+                      getStsServiceFieldBuilder().getBuilder(),
+                      extensionRegistry);
+                  credentialSpecifierCase_ = 7;
+                  break;
+                } // case 58
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
         private int credentialSpecifierCase_ = 0;
@@ -9951,6 +9518,7 @@ private static final long serialVersionUID = 0L;
           return this;
         }
 
+        private int bitField0_;
 
         /**
          * <pre>
@@ -10032,10 +9600,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setAccessToken(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  credentialSpecifierCase_ = 1;
+          if (value == null) { throw new NullPointerException(); }
+          credentialSpecifierCase_ = 1;
           credentialSpecifier_ = value;
           onChanged();
           return this;
@@ -10069,10 +9635,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setAccessTokenBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           credentialSpecifierCase_ = 1;
           credentialSpecifier_ = value;
           onChanged();
@@ -10262,7 +9826,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 2;
-          onChanged();;
+          onChanged();
           return googleComputeEngineBuilder_;
         }
 
@@ -10346,10 +9910,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setGoogleRefreshToken(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  credentialSpecifierCase_ = 3;
+          if (value == null) { throw new NullPointerException(); }
+          credentialSpecifierCase_ = 3;
           credentialSpecifier_ = value;
           onChanged();
           return this;
@@ -10383,10 +9945,8 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setGoogleRefreshTokenBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           credentialSpecifierCase_ = 3;
           credentialSpecifier_ = value;
           onChanged();
@@ -10576,7 +10136,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 4;
-          onChanged();;
+          onChanged();
           return serviceAccountJwtAccessBuilder_;
         }
 
@@ -10763,7 +10323,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 5;
-          onChanged();;
+          onChanged();
           return googleIamBuilder_;
         }
 
@@ -10959,7 +10519,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 6;
-          onChanged();;
+          onChanged();
           return fromPluginBuilder_;
         }
 
@@ -11155,7 +10715,7 @@ private static final long serialVersionUID = 0L;
             credentialSpecifier_ = null;
           }
           credentialSpecifierCase_ = 7;
-          onChanged();;
+          onChanged();
           return stsServiceBuilder_;
         }
         @java.lang.Override
@@ -11191,7 +10751,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CallCredentials(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -11212,7 +10783,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TARGET_URI_FIELD_NUMBER = 1;
-    private volatile java.lang.Object targetUri_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object targetUri_ = "";
     /**
      * <pre>
      * The target URI when using the `Google C++ gRPC client
@@ -11284,10 +10856,11 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentialsOrBuilder getChannelCredentialsOrBuilder() {
-      return getChannelCredentials();
+      return channelCredentials_ == null ? io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.getDefaultInstance() : channelCredentials_;
     }
 
     public static final int CALL_CREDENTIALS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials> callCredentials_;
     /**
      * <pre>
@@ -11353,7 +10926,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STAT_PREFIX_FIELD_NUMBER = 4;
-    private volatile java.lang.Object statPrefix_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object statPrefix_ = "";
     /**
      * <pre>
      * The human readable prefix to use when emitting statistics for the gRPC
@@ -11411,7 +10985,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CREDENTIALS_FACTORY_NAME_FIELD_NUMBER = 5;
-    private volatile java.lang.Object credentialsFactoryName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object credentialsFactoryName_ = "";
     /**
      * <pre>
      * The name of the Google gRPC credentials factory to use. This must have been registered with
@@ -11498,7 +11073,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.StructOrBuilder getConfigOrBuilder() {
-      return getConfig();
+      return config_ == null ? com.google.protobuf.Struct.getDefaultInstance() : config_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11533,7 +11108,7 @@ private static final long serialVersionUID = 0L;
       if (config_ != null) {
         output.writeMessage(6, getConfig());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11563,7 +11138,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, getConfig());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11596,7 +11171,7 @@ private static final long serialVersionUID = 0L;
         if (!getConfig()
             .equals(other.getConfig())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11625,7 +11200,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getConfig().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11746,45 +11321,36 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getCallCredentialsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         targetUri_ = "";
-
-        if (channelCredentialsBuilder_ == null) {
-          channelCredentials_ = null;
-        } else {
-          channelCredentials_ = null;
+        channelCredentials_ = null;
+        if (channelCredentialsBuilder_ != null) {
+          channelCredentialsBuilder_.dispose();
           channelCredentialsBuilder_ = null;
         }
         if (callCredentialsBuilder_ == null) {
           callCredentials_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          callCredentials_ = null;
           callCredentialsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         statPrefix_ = "";
-
         credentialsFactoryName_ = "";
-
-        if (configBuilder_ == null) {
-          config_ = null;
-        } else {
-          config_ = null;
+        config_ = null;
+        if (configBuilder_ != null) {
+          configBuilder_.dispose();
           configBuilder_ = null;
         }
         return this;
@@ -11813,31 +11379,45 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc buildPartial() {
         io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc result = new io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc(this);
-        int from_bitField0_ = bitField0_;
-        result.targetUri_ = targetUri_;
-        if (channelCredentialsBuilder_ == null) {
-          result.channelCredentials_ = channelCredentials_;
-        } else {
-          result.channelCredentials_ = channelCredentialsBuilder_.build();
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc result) {
         if (callCredentialsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000004) != 0)) {
             callCredentials_ = java.util.Collections.unmodifiableList(callCredentials_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           }
           result.callCredentials_ = callCredentials_;
         } else {
           result.callCredentials_ = callCredentialsBuilder_.build();
         }
-        result.statPrefix_ = statPrefix_;
-        result.credentialsFactoryName_ = credentialsFactoryName_;
-        if (configBuilder_ == null) {
-          result.config_ = config_;
-        } else {
-          result.config_ = configBuilder_.build();
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.targetUri_ = targetUri_;
         }
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.channelCredentials_ = channelCredentialsBuilder_ == null
+              ? channelCredentials_
+              : channelCredentialsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.statPrefix_ = statPrefix_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.credentialsFactoryName_ = credentialsFactoryName_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.config_ = configBuilder_ == null
+              ? config_
+              : configBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -11886,6 +11466,7 @@ private static final long serialVersionUID = 0L;
         if (other == io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.getDefaultInstance()) return this;
         if (!other.getTargetUri().isEmpty()) {
           targetUri_ = other.targetUri_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasChannelCredentials()) {
@@ -11895,7 +11476,7 @@ private static final long serialVersionUID = 0L;
           if (!other.callCredentials_.isEmpty()) {
             if (callCredentials_.isEmpty()) {
               callCredentials_ = other.callCredentials_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
             } else {
               ensureCallCredentialsIsMutable();
               callCredentials_.addAll(other.callCredentials_);
@@ -11908,7 +11489,7 @@ private static final long serialVersionUID = 0L;
               callCredentialsBuilder_.dispose();
               callCredentialsBuilder_ = null;
               callCredentials_ = other.callCredentials_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000004);
               callCredentialsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getCallCredentialsFieldBuilder() : null;
@@ -11919,16 +11500,18 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getStatPrefix().isEmpty()) {
           statPrefix_ = other.statPrefix_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getCredentialsFactoryName().isEmpty()) {
           credentialsFactoryName_ = other.credentialsFactoryName_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (other.hasConfig()) {
           mergeConfig(other.getConfig());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11943,17 +11526,72 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                targetUri_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getChannelCredentialsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials m =
+                    input.readMessage(
+                        io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.parser(),
+                        extensionRegistry);
+                if (callCredentialsBuilder_ == null) {
+                  ensureCallCredentialsIsMutable();
+                  callCredentials_.add(m);
+                } else {
+                  callCredentialsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 26
+              case 34: {
+                statPrefix_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                credentialsFactoryName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getConfigFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -12017,11 +11655,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetUri(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         targetUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12036,8 +11672,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTargetUri() {
-        
         targetUri_ = getDefaultInstance().getTargetUri();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -12054,12 +11690,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTargetUriBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         targetUri_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -12072,7 +11706,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the channelCredentials field is set.
        */
       public boolean hasChannelCredentials() {
-        return channelCredentialsBuilder_ != null || channelCredentials_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials channel_credentials = 2;</code>
@@ -12094,11 +11728,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           channelCredentials_ = value;
-          onChanged();
         } else {
           channelCredentialsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -12108,11 +11742,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.Builder builderForValue) {
         if (channelCredentialsBuilder_ == null) {
           channelCredentials_ = builderForValue.build();
-          onChanged();
         } else {
           channelCredentialsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -12120,38 +11754,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeChannelCredentials(io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials value) {
         if (channelCredentialsBuilder_ == null) {
-          if (channelCredentials_ != null) {
-            channelCredentials_ =
-              io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.newBuilder(channelCredentials_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            channelCredentials_ != null &&
+            channelCredentials_ != io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.getDefaultInstance()) {
+            getChannelCredentialsBuilder().mergeFrom(value);
           } else {
             channelCredentials_ = value;
           }
-          onChanged();
         } else {
           channelCredentialsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials channel_credentials = 2;</code>
        */
       public Builder clearChannelCredentials() {
-        if (channelCredentialsBuilder_ == null) {
-          channelCredentials_ = null;
-          onChanged();
-        } else {
-          channelCredentials_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        channelCredentials_ = null;
+        if (channelCredentialsBuilder_ != null) {
+          channelCredentialsBuilder_.dispose();
           channelCredentialsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials channel_credentials = 2;</code>
        */
       public io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.ChannelCredentials.Builder getChannelCredentialsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getChannelCredentialsFieldBuilder().getBuilder();
       }
@@ -12186,9 +11820,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials> callCredentials_ =
         java.util.Collections.emptyList();
       private void ensureCallCredentialsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           callCredentials_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials>(callCredentials_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000004;
          }
       }
 
@@ -12393,7 +12027,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearCallCredentials() {
         if (callCredentialsBuilder_ == null) {
           callCredentials_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
           callCredentialsBuilder_.clear();
@@ -12505,7 +12139,7 @@ private static final long serialVersionUID = 0L;
           callCredentialsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials, io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentials.Builder, io.envoyproxy.envoy.api.v2.core.GrpcService.GoogleGrpc.CallCredentialsOrBuilder>(
                   callCredentials_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000004) != 0),
                   getParentForChildren(),
                   isClean());
           callCredentials_ = null;
@@ -12584,11 +12218,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setStatPrefix(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         statPrefix_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -12607,8 +12239,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStatPrefix() {
-        
         statPrefix_ = getDefaultInstance().getStatPrefix();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -12629,12 +12261,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setStatPrefixBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         statPrefix_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -12698,11 +12328,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCredentialsFactoryName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         credentialsFactoryName_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -12717,8 +12345,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCredentialsFactoryName() {
-        
         credentialsFactoryName_ = getDefaultInstance().getCredentialsFactoryName();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -12735,12 +12363,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCredentialsFactoryNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         credentialsFactoryName_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -12758,7 +12384,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the config field is set.
        */
       public boolean hasConfig() {
-        return configBuilder_ != null || config_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -12790,11 +12416,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           config_ = value;
-          onChanged();
         } else {
           configBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -12809,11 +12435,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Struct.Builder builderForValue) {
         if (configBuilder_ == null) {
           config_ = builderForValue.build();
-          onChanged();
         } else {
           configBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -12826,17 +12452,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeConfig(com.google.protobuf.Struct value) {
         if (configBuilder_ == null) {
-          if (config_ != null) {
-            config_ =
-              com.google.protobuf.Struct.newBuilder(config_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            config_ != null &&
+            config_ != com.google.protobuf.Struct.getDefaultInstance()) {
+            getConfigBuilder().mergeFrom(value);
           } else {
             config_ = value;
           }
-          onChanged();
         } else {
           configBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -12848,14 +12475,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Struct config = 6;</code>
        */
       public Builder clearConfig() {
-        if (configBuilder_ == null) {
-          config_ = null;
-          onChanged();
-        } else {
-          config_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        config_ = null;
+        if (configBuilder_ != null) {
+          configBuilder_.dispose();
           configBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -12867,7 +12493,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Struct config = 6;</code>
        */
       public com.google.protobuf.Struct.Builder getConfigBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getConfigFieldBuilder().getBuilder();
       }
@@ -12941,7 +12567,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GoogleGrpc(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -13138,10 +12775,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeoutOrBuilder() {
-    return getTimeout();
+    return timeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeout_;
   }
 
   public static final int INITIAL_METADATA_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.api.v2.core.HeaderValue> initialMetadata_;
   /**
    * <pre>
@@ -13237,7 +12875,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < initialMetadata_.size(); i++) {
       output.writeMessage(5, initialMetadata_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -13262,7 +12900,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, initialMetadata_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -13297,7 +12935,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -13328,7 +12966,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -13451,35 +13089,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.core.GrpcService.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInitialMetadataFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeout_ = null;
+      bitField0_ = 0;
+      if (envoyGrpcBuilder_ != null) {
+        envoyGrpcBuilder_.clear();
+      }
+      if (googleGrpcBuilder_ != null) {
+        googleGrpcBuilder_.clear();
+      }
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
       if (initialMetadataBuilder_ == null) {
         initialMetadata_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        initialMetadata_ = null;
         initialMetadataBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       targetSpecifierCase_ = 0;
       targetSpecifier_ = null;
       return this;
@@ -13508,38 +13147,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.core.GrpcService buildPartial() {
       io.envoyproxy.envoy.api.v2.core.GrpcService result = new io.envoyproxy.envoy.api.v2.core.GrpcService(this);
-      int from_bitField0_ = bitField0_;
-      if (targetSpecifierCase_ == 1) {
-        if (envoyGrpcBuilder_ == null) {
-          result.targetSpecifier_ = targetSpecifier_;
-        } else {
-          result.targetSpecifier_ = envoyGrpcBuilder_.build();
-        }
-      }
-      if (targetSpecifierCase_ == 2) {
-        if (googleGrpcBuilder_ == null) {
-          result.targetSpecifier_ = targetSpecifier_;
-        } else {
-          result.targetSpecifier_ = googleGrpcBuilder_.build();
-        }
-      }
-      if (timeoutBuilder_ == null) {
-        result.timeout_ = timeout_;
-      } else {
-        result.timeout_ = timeoutBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.api.v2.core.GrpcService result) {
       if (initialMetadataBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           initialMetadata_ = java.util.Collections.unmodifiableList(initialMetadata_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.initialMetadata_ = initialMetadata_;
       } else {
         result.initialMetadata_ = initialMetadataBuilder_.build();
       }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.core.GrpcService result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.core.GrpcService result) {
       result.targetSpecifierCase_ = targetSpecifierCase_;
-      onBuilt();
-      return result;
+      result.targetSpecifier_ = this.targetSpecifier_;
+      if (targetSpecifierCase_ == 1 &&
+          envoyGrpcBuilder_ != null) {
+        result.targetSpecifier_ = envoyGrpcBuilder_.build();
+      }
+      if (targetSpecifierCase_ == 2 &&
+          googleGrpcBuilder_ != null) {
+        result.targetSpecifier_ = googleGrpcBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -13593,7 +13239,7 @@ private static final long serialVersionUID = 0L;
         if (!other.initialMetadata_.isEmpty()) {
           if (initialMetadata_.isEmpty()) {
             initialMetadata_ = other.initialMetadata_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureInitialMetadataIsMutable();
             initialMetadata_.addAll(other.initialMetadata_);
@@ -13606,7 +13252,7 @@ private static final long serialVersionUID = 0L;
             initialMetadataBuilder_.dispose();
             initialMetadataBuilder_ = null;
             initialMetadata_ = other.initialMetadata_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             initialMetadataBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInitialMetadataFieldBuilder() : null;
@@ -13628,7 +13274,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -13643,17 +13289,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.core.GrpcService parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEnvoyGrpcFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetSpecifierCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGoogleGrpcFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetSpecifierCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              io.envoyproxy.envoy.api.v2.core.HeaderValue m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.api.v2.core.HeaderValue.parser(),
+                      extensionRegistry);
+              if (initialMetadataBuilder_ == null) {
+                ensureInitialMetadataIsMutable();
+                initialMetadata_.add(m);
+              } else {
+                initialMetadataBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.core.GrpcService) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int targetSpecifierCase_ = 0;
@@ -13865,7 +13558,7 @@ private static final long serialVersionUID = 0L;
         targetSpecifier_ = null;
       }
       targetSpecifierCase_ = 1;
-      onChanged();;
+      onChanged();
       return envoyGrpcBuilder_;
     }
 
@@ -14061,7 +13754,7 @@ private static final long serialVersionUID = 0L;
         targetSpecifier_ = null;
       }
       targetSpecifierCase_ = 2;
-      onChanged();;
+      onChanged();
       return googleGrpcBuilder_;
     }
 
@@ -14078,7 +13771,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeout field is set.
      */
     public boolean hasTimeout() {
-      return timeoutBuilder_ != null || timeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -14110,11 +13803,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -14129,11 +13822,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -14146,17 +13839,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeout(com.google.protobuf.Duration value) {
       if (timeoutBuilder_ == null) {
-        if (timeout_ != null) {
-          timeout_ =
-            com.google.protobuf.Duration.newBuilder(timeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          timeout_ != null &&
+          timeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -14168,14 +13862,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 3;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -14187,7 +13880,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTimeoutFieldBuilder().getBuilder();
     }
@@ -14232,9 +13925,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.api.v2.core.HeaderValue> initialMetadata_ =
       java.util.Collections.emptyList();
     private void ensureInitialMetadataIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         initialMetadata_ = new java.util.ArrayList<io.envoyproxy.envoy.api.v2.core.HeaderValue>(initialMetadata_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -14450,7 +14143,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInitialMetadata() {
       if (initialMetadataBuilder_ == null) {
         initialMetadata_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         initialMetadataBuilder_.clear();
@@ -14569,7 +14262,7 @@ private static final long serialVersionUID = 0L;
         initialMetadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.api.v2.core.HeaderValue, io.envoyproxy.envoy.api.v2.core.HeaderValue.Builder, io.envoyproxy.envoy.api.v2.core.HeaderValueOrBuilder>(
                 initialMetadata_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         initialMetadata_ = null;
@@ -14609,7 +14302,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GrpcService(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

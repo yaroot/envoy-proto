@@ -44,56 +44,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KmsWrappedCryptoKey(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            wrappedKey_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cryptoKeyName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_KmsWrappedCryptoKey_descriptor;
@@ -108,7 +58,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WRAPPED_KEY_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString wrappedKey_;
+  private com.google.protobuf.ByteString wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Required. The wrapped data crypto key.
@@ -123,7 +73,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CRYPTO_KEY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object cryptoKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cryptoKeyName_ = "";
   /**
    * <pre>
    * Required. The resource name of the KMS CryptoKey to use for unwrapping.
@@ -188,7 +139,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoKeyName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, cryptoKeyName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -204,7 +155,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cryptoKeyName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, cryptoKeyName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -223,7 +174,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getWrappedKey())) return false;
     if (!getCryptoKeyName()
         .equals(other.getCryptoKeyName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -238,7 +189,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getWrappedKey().hashCode();
     hash = (37 * hash) + CRYPTO_KEY_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getCryptoKeyName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -367,26 +318,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.KmsWrappedCryptoKey.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
-
       cryptoKeyName_ = "";
-
       return this;
     }
 
@@ -413,10 +358,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.KmsWrappedCryptoKey buildPartial() {
       com.google.privacy.dlp.v2.KmsWrappedCryptoKey result = new com.google.privacy.dlp.v2.KmsWrappedCryptoKey(this);
-      result.wrappedKey_ = wrappedKey_;
-      result.cryptoKeyName_ = cryptoKeyName_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.KmsWrappedCryptoKey result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.wrappedKey_ = wrappedKey_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cryptoKeyName_ = cryptoKeyName_;
+      }
     }
 
     @java.lang.Override
@@ -468,9 +422,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCryptoKeyName().isEmpty()) {
         cryptoKeyName_ = other.cryptoKeyName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -485,19 +440,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.KmsWrappedCryptoKey parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              wrappedKey_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              cryptoKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.KmsWrappedCryptoKey) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString wrappedKey_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -522,11 +501,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setWrappedKey(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       wrappedKey_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -539,7 +516,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWrappedKey() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       wrappedKey_ = getDefaultInstance().getWrappedKey();
       onChanged();
       return this;
@@ -598,11 +575,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCryptoKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cryptoKeyName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -615,8 +590,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCryptoKeyName() {
-      
       cryptoKeyName_ = getDefaultInstance().getCryptoKeyName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -631,12 +606,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCryptoKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cryptoKeyName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -673,7 +646,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KmsWrappedCryptoKey(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

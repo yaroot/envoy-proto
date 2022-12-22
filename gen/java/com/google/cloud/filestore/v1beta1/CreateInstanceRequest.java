@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateInstanceRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            instanceId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.filestore.v1beta1.Instance.Builder subBuilder = null;
-            if (instance_ != null) {
-              subBuilder = instance_.toBuilder();
-            }
-            instance_ = input.readMessage(com.google.cloud.filestore.v1beta1.Instance.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(instance_);
-              instance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.filestore.v1beta1.CloudFilestoreServiceProto.internal_static_google_cloud_filestore_v1beta1_CreateInstanceRequest_descriptor;
@@ -114,11 +50,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The instance's project and location, in the format
-   * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+   * `projects/{project_id}/locations/{location}`. In Filestore,
    * locations map to GCP zones, for example **us-west1-b**.
    * </pre>
    *
@@ -141,7 +78,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Required. The instance's project and location, in the format
-   * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+   * `projects/{project_id}/locations/{location}`. In Filestore,
    * locations map to GCP zones, for example **us-west1-b**.
    * </pre>
    *
@@ -164,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object instanceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object instanceId_ = "";
   /**
    * <pre>
    * Required. The ID of the instance to create.
@@ -250,7 +188,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.filestore.v1beta1.InstanceOrBuilder getInstanceOrBuilder() {
-    return getInstance();
+    return instance_ == null ? com.google.cloud.filestore.v1beta1.Instance.getDefaultInstance() : instance_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -276,7 +214,7 @@ private static final long serialVersionUID = 0L;
     if (instance_ != null) {
       output.writeMessage(3, getInstance());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -295,7 +233,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getInstance());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -319,7 +257,7 @@ private static final long serialVersionUID = 0L;
       if (!getInstance()
           .equals(other.getInstance())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -338,7 +276,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INSTANCE_FIELD_NUMBER;
       hash = (53 * hash) + getInstance().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -459,30 +397,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.filestore.v1beta1.CreateInstanceRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       instanceId_ = "";
-
-      if (instanceBuilder_ == null) {
-        instance_ = null;
-      } else {
-        instance_ = null;
+      instance_ = null;
+      if (instanceBuilder_ != null) {
+        instanceBuilder_.dispose();
         instanceBuilder_ = null;
       }
       return this;
@@ -511,15 +442,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.CreateInstanceRequest buildPartial() {
       com.google.cloud.filestore.v1beta1.CreateInstanceRequest result = new com.google.cloud.filestore.v1beta1.CreateInstanceRequest(this);
-      result.parent_ = parent_;
-      result.instanceId_ = instanceId_;
-      if (instanceBuilder_ == null) {
-        result.instance_ = instance_;
-      } else {
-        result.instance_ = instanceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.filestore.v1beta1.CreateInstanceRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instanceId_ = instanceId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.instance_ = instanceBuilder_ == null
+            ? instance_
+            : instanceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -568,16 +508,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.filestore.v1beta1.CreateInstanceRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getInstanceId().isEmpty()) {
         instanceId_ = other.instanceId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasInstance()) {
         mergeInstance(other.getInstance());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -592,25 +534,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.filestore.v1beta1.CreateInstanceRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instanceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getInstanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.filestore.v1beta1.CreateInstanceRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
      * <pre>
      * Required. The instance's project and location, in the format
-     * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+     * `projects/{project_id}/locations/{location}`. In Filestore,
      * locations map to GCP zones, for example **us-west1-b**.
      * </pre>
      *
@@ -632,7 +605,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The instance's project and location, in the format
-     * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+     * `projects/{project_id}/locations/{location}`. In Filestore,
      * locations map to GCP zones, for example **us-west1-b**.
      * </pre>
      *
@@ -655,7 +628,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Required. The instance's project and location, in the format
-     * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+     * `projects/{project_id}/locations/{location}`. In Filestore,
      * locations map to GCP zones, for example **us-west1-b**.
      * </pre>
      *
@@ -665,18 +638,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The instance's project and location, in the format
-     * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+     * `projects/{project_id}/locations/{location}`. In Filestore,
      * locations map to GCP zones, for example **us-west1-b**.
      * </pre>
      *
@@ -684,15 +655,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The instance's project and location, in the format
-     * `projects/{project_id}/locations/{location}`. In Cloud Filestore,
+     * `projects/{project_id}/locations/{location}`. In Filestore,
      * locations map to GCP zones, for example **us-west1-b**.
      * </pre>
      *
@@ -702,12 +673,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -774,11 +743,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       instanceId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -794,8 +761,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstanceId() {
-      
       instanceId_ = getDefaultInstance().getInstanceId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -813,12 +780,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       instanceId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -835,7 +800,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the instance field is set.
      */
     public boolean hasInstance() {
-      return instanceBuilder_ != null || instance_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -865,11 +830,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         instance_ = value;
-        onChanged();
       } else {
         instanceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -883,11 +848,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.filestore.v1beta1.Instance.Builder builderForValue) {
       if (instanceBuilder_ == null) {
         instance_ = builderForValue.build();
-        onChanged();
       } else {
         instanceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -899,17 +864,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInstance(com.google.cloud.filestore.v1beta1.Instance value) {
       if (instanceBuilder_ == null) {
-        if (instance_ != null) {
-          instance_ =
-            com.google.cloud.filestore.v1beta1.Instance.newBuilder(instance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          instance_ != null &&
+          instance_ != com.google.cloud.filestore.v1beta1.Instance.getDefaultInstance()) {
+          getInstanceBuilder().mergeFrom(value);
         } else {
           instance_ = value;
         }
-        onChanged();
       } else {
         instanceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -920,14 +886,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.filestore.v1beta1.Instance instance = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInstance() {
-      if (instanceBuilder_ == null) {
-        instance_ = null;
-        onChanged();
-      } else {
-        instance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      instance_ = null;
+      if (instanceBuilder_ != null) {
+        instanceBuilder_.dispose();
         instanceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -938,7 +903,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.filestore.v1beta1.Instance instance = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.filestore.v1beta1.Instance.Builder getInstanceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getInstanceFieldBuilder().getBuilder();
     }
@@ -1010,7 +975,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateInstanceRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -46,139 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeliveryVehicle(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.Builder subBuilder = null;
-            if (lastLocation_ != null) {
-              subBuilder = lastLocation_.toBuilder();
-            }
-            lastLocation_ = input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastLocation_);
-              lastLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            navigationStatus_ = rawValue;
-            break;
-          }
-          case 34: {
-
-            currentRouteSegment_ = input.readBytes();
-            break;
-          }
-          case 42: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (currentRouteSegmentEndPoint_ != null) {
-              subBuilder = currentRouteSegmentEndPoint_.toBuilder();
-            }
-            currentRouteSegmentEndPoint_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(currentRouteSegmentEndPoint_);
-              currentRouteSegmentEndPoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (remainingDistanceMeters_ != null) {
-              subBuilder = remainingDistanceMeters_.toBuilder();
-            }
-            remainingDistanceMeters_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(remainingDistanceMeters_);
-              remainingDistanceMeters_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (remainingDuration_ != null) {
-              subBuilder = remainingDuration_.toBuilder();
-            }
-            remainingDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(remainingDuration_);
-              remainingDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              remainingVehicleJourneySegments_ = new java.util.ArrayList<google.maps.fleetengine.delivery.v1.VehicleJourneySegment>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            remainingVehicleJourneySegments_.add(
-                input.readMessage(google.maps.fleetengine.delivery.v1.VehicleJourneySegment.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              attributes_ = new java.util.ArrayList<google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            attributes_.add(
-                input.readMessage(google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        remainingVehicleJourneySegments_ = java.util.Collections.unmodifiableList(remainingVehicleJourneySegments_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        attributes_ = java.util.Collections.unmodifiableList(attributes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.DeliveryVehicles.internal_static_maps_fleetengine_delivery_v1_DeliveryVehicle_descriptor;
@@ -193,7 +60,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The unique name of this Delivery Vehicle.
@@ -275,11 +143,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationOrBuilder getLastLocationOrBuilder() {
-    return getLastLocation();
+    return lastLocation_ == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.getDefaultInstance() : lastLocation_;
   }
 
   public static final int NAVIGATION_STATUS_FIELD_NUMBER = 3;
-  private int navigationStatus_;
+  private int navigationStatus_ = 0;
   /**
    * <pre>
    * The Delivery Vehicle's navigation status.
@@ -300,13 +168,12 @@ private static final long serialVersionUID = 0L;
    * @return The navigationStatus.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus getNavigationStatus() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus result = google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus.valueOf(navigationStatus_);
+    google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus result = google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus.forNumber(navigationStatus_);
     return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus.UNRECOGNIZED : result;
   }
 
   public static final int CURRENT_ROUTE_SEGMENT_FIELD_NUMBER = 4;
-  private com.google.protobuf.ByteString currentRouteSegment_;
+  private com.google.protobuf.ByteString currentRouteSegment_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The encoded polyline specifying the route that the navigation recommends
@@ -394,7 +261,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getCurrentRouteSegmentEndPointOrBuilder() {
-    return getCurrentRouteSegmentEndPoint();
+    return currentRouteSegmentEndPoint_ == null ? com.google.type.LatLng.getDefaultInstance() : currentRouteSegmentEndPoint_;
   }
 
   public static final int REMAINING_DISTANCE_METERS_FIELD_NUMBER = 6;
@@ -459,7 +326,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getRemainingDistanceMetersOrBuilder() {
-    return getRemainingDistanceMeters();
+    return remainingDistanceMeters_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : remainingDistanceMeters_;
   }
 
   public static final int REMAINING_DURATION_FIELD_NUMBER = 7;
@@ -524,10 +391,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getRemainingDurationOrBuilder() {
-    return getRemainingDuration();
+    return remainingDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : remainingDuration_;
   }
 
   public static final int REMAINING_VEHICLE_JOURNEY_SEGMENTS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.delivery.v1.VehicleJourneySegment> remainingVehicleJourneySegments_;
   /**
    * <pre>
@@ -593,11 +461,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute> attributes_;
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -608,8 +477,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -621,8 +490,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -633,8 +502,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -645,8 +514,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A list of custom Delivery Vehicle attributes. Each attribute must have a
-   * unique key.
+   * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+   * at most 50 attributes, and each attribute must have a unique key.
    * </pre>
    *
    * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -698,7 +567,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < attributes_.size(); i++) {
       output.writeMessage(9, attributes_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -742,7 +611,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, attributes_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -786,7 +655,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRemainingVehicleJourneySegmentsList())) return false;
     if (!getAttributesList()
         .equals(other.getAttributesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -827,7 +696,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
       hash = (53 * hash) + getAttributesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -955,66 +824,55 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.DeliveryVehicle.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRemainingVehicleJourneySegmentsFieldBuilder();
-        getAttributesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (lastLocationBuilder_ == null) {
-        lastLocation_ = null;
-      } else {
-        lastLocation_ = null;
+      lastLocation_ = null;
+      if (lastLocationBuilder_ != null) {
+        lastLocationBuilder_.dispose();
         lastLocationBuilder_ = null;
       }
       navigationStatus_ = 0;
-
       currentRouteSegment_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (currentRouteSegmentEndPointBuilder_ == null) {
-        currentRouteSegmentEndPoint_ = null;
-      } else {
-        currentRouteSegmentEndPoint_ = null;
+      currentRouteSegmentEndPoint_ = null;
+      if (currentRouteSegmentEndPointBuilder_ != null) {
+        currentRouteSegmentEndPointBuilder_.dispose();
         currentRouteSegmentEndPointBuilder_ = null;
       }
-      if (remainingDistanceMetersBuilder_ == null) {
-        remainingDistanceMeters_ = null;
-      } else {
-        remainingDistanceMeters_ = null;
+      remainingDistanceMeters_ = null;
+      if (remainingDistanceMetersBuilder_ != null) {
+        remainingDistanceMetersBuilder_.dispose();
         remainingDistanceMetersBuilder_ = null;
       }
-      if (remainingDurationBuilder_ == null) {
-        remainingDuration_ = null;
-      } else {
-        remainingDuration_ = null;
+      remainingDuration_ = null;
+      if (remainingDurationBuilder_ != null) {
+        remainingDurationBuilder_.dispose();
         remainingDurationBuilder_ = null;
       }
       if (remainingVehicleJourneySegmentsBuilder_ == null) {
         remainingVehicleJourneySegments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        remainingVehicleJourneySegments_ = null;
         remainingVehicleJourneySegmentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000080);
       if (attributesBuilder_ == null) {
         attributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        attributes_ = null;
         attributesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       return this;
     }
 
@@ -1041,50 +899,64 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicle buildPartial() {
       google.maps.fleetengine.delivery.v1.DeliveryVehicle result = new google.maps.fleetengine.delivery.v1.DeliveryVehicle(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (lastLocationBuilder_ == null) {
-        result.lastLocation_ = lastLocation_;
-      } else {
-        result.lastLocation_ = lastLocationBuilder_.build();
-      }
-      result.navigationStatus_ = navigationStatus_;
-      result.currentRouteSegment_ = currentRouteSegment_;
-      if (currentRouteSegmentEndPointBuilder_ == null) {
-        result.currentRouteSegmentEndPoint_ = currentRouteSegmentEndPoint_;
-      } else {
-        result.currentRouteSegmentEndPoint_ = currentRouteSegmentEndPointBuilder_.build();
-      }
-      if (remainingDistanceMetersBuilder_ == null) {
-        result.remainingDistanceMeters_ = remainingDistanceMeters_;
-      } else {
-        result.remainingDistanceMeters_ = remainingDistanceMetersBuilder_.build();
-      }
-      if (remainingDurationBuilder_ == null) {
-        result.remainingDuration_ = remainingDuration_;
-      } else {
-        result.remainingDuration_ = remainingDurationBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(google.maps.fleetengine.delivery.v1.DeliveryVehicle result) {
       if (remainingVehicleJourneySegmentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           remainingVehicleJourneySegments_ = java.util.Collections.unmodifiableList(remainingVehicleJourneySegments_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.remainingVehicleJourneySegments_ = remainingVehicleJourneySegments_;
       } else {
         result.remainingVehicleJourneySegments_ = remainingVehicleJourneySegmentsBuilder_.build();
       }
       if (attributesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           attributes_ = java.util.Collections.unmodifiableList(attributes_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.attributes_ = attributes_;
       } else {
         result.attributes_ = attributesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.DeliveryVehicle result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.lastLocation_ = lastLocationBuilder_ == null
+            ? lastLocation_
+            : lastLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.navigationStatus_ = navigationStatus_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.currentRouteSegment_ = currentRouteSegment_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.currentRouteSegmentEndPoint_ = currentRouteSegmentEndPointBuilder_ == null
+            ? currentRouteSegmentEndPoint_
+            : currentRouteSegmentEndPointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.remainingDistanceMeters_ = remainingDistanceMetersBuilder_ == null
+            ? remainingDistanceMeters_
+            : remainingDistanceMetersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.remainingDuration_ = remainingDurationBuilder_ == null
+            ? remainingDuration_
+            : remainingDurationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1133,6 +1005,7 @@ private static final long serialVersionUID = 0L;
       if (other == google.maps.fleetengine.delivery.v1.DeliveryVehicle.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasLastLocation()) {
@@ -1157,7 +1030,7 @@ private static final long serialVersionUID = 0L;
         if (!other.remainingVehicleJourneySegments_.isEmpty()) {
           if (remainingVehicleJourneySegments_.isEmpty()) {
             remainingVehicleJourneySegments_ = other.remainingVehicleJourneySegments_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureRemainingVehicleJourneySegmentsIsMutable();
             remainingVehicleJourneySegments_.addAll(other.remainingVehicleJourneySegments_);
@@ -1170,7 +1043,7 @@ private static final long serialVersionUID = 0L;
             remainingVehicleJourneySegmentsBuilder_.dispose();
             remainingVehicleJourneySegmentsBuilder_ = null;
             remainingVehicleJourneySegments_ = other.remainingVehicleJourneySegments_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000080);
             remainingVehicleJourneySegmentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRemainingVehicleJourneySegmentsFieldBuilder() : null;
@@ -1183,7 +1056,7 @@ private static final long serialVersionUID = 0L;
         if (!other.attributes_.isEmpty()) {
           if (attributes_.isEmpty()) {
             attributes_ = other.attributes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAttributesIsMutable();
             attributes_.addAll(other.attributes_);
@@ -1196,7 +1069,7 @@ private static final long serialVersionUID = 0L;
             attributesBuilder_.dispose();
             attributesBuilder_ = null;
             attributes_ = other.attributes_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
             attributesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAttributesFieldBuilder() : null;
@@ -1205,7 +1078,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1220,17 +1093,99 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.DeliveryVehicle parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getLastLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              navigationStatus_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              currentRouteSegment_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getCurrentRouteSegmentEndPointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getRemainingDistanceMetersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getRemainingDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              google.maps.fleetengine.delivery.v1.VehicleJourneySegment m =
+                  input.readMessage(
+                      google.maps.fleetengine.delivery.v1.VehicleJourneySegment.parser(),
+                      extensionRegistry);
+              if (remainingVehicleJourneySegmentsBuilder_ == null) {
+                ensureRemainingVehicleJourneySegmentsIsMutable();
+                remainingVehicleJourneySegments_.add(m);
+              } else {
+                remainingVehicleJourneySegmentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute m =
+                  input.readMessage(
+                      google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute.parser(),
+                      extensionRegistry);
+              if (attributesBuilder_ == null) {
+                ensureAttributesIsMutable();
+                attributes_.add(m);
+              } else {
+                attributesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.DeliveryVehicle) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1291,11 +1246,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1309,8 +1262,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1326,12 +1279,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1348,7 +1299,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastLocation field is set.
      */
     public boolean hasLastLocation() {
-      return lastLocationBuilder_ != null || lastLocation_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1378,11 +1329,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastLocation_ = value;
-        onChanged();
       } else {
         lastLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1396,11 +1347,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.Builder builderForValue) {
       if (lastLocationBuilder_ == null) {
         lastLocation_ = builderForValue.build();
-        onChanged();
       } else {
         lastLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1412,17 +1363,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastLocation(google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation value) {
       if (lastLocationBuilder_ == null) {
-        if (lastLocation_ != null) {
-          lastLocation_ =
-            google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.newBuilder(lastLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          lastLocation_ != null &&
+          lastLocation_ != google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.getDefaultInstance()) {
+          getLastLocationBuilder().mergeFrom(value);
         } else {
           lastLocation_ = value;
         }
-        onChanged();
       } else {
         lastLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1433,14 +1385,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryVehicleLocation last_location = 2;</code>
      */
     public Builder clearLastLocation() {
-      if (lastLocationBuilder_ == null) {
-        lastLocation_ = null;
-        onChanged();
-      } else {
-        lastLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      lastLocation_ = null;
+      if (lastLocationBuilder_ != null) {
+        lastLocationBuilder_.dispose();
         lastLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1451,7 +1402,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.delivery.v1.DeliveryVehicleLocation last_location = 2;</code>
      */
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.Builder getLastLocationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getLastLocationFieldBuilder().getBuilder();
     }
@@ -1513,8 +1464,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNavigationStatusValue(int value) {
-      
       navigationStatus_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1528,8 +1479,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus getNavigationStatus() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus result = google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus.valueOf(navigationStatus_);
+      google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus result = google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus.forNumber(navigationStatus_);
       return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleNavigationStatus.UNRECOGNIZED : result;
     }
     /**
@@ -1545,7 +1495,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       navigationStatus_ = value.getNumber();
       onChanged();
       return this;
@@ -1559,7 +1509,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNavigationStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       navigationStatus_ = 0;
       onChanged();
       return this;
@@ -1630,11 +1580,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCurrentRouteSegment(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       currentRouteSegment_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1668,7 +1616,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentRouteSegment() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       currentRouteSegment_ = getDefaultInstance().getCurrentRouteSegment();
       onChanged();
       return this;
@@ -1692,7 +1640,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the currentRouteSegmentEndPoint field is set.
      */
     public boolean hasCurrentRouteSegmentEndPoint() {
-      return currentRouteSegmentEndPointBuilder_ != null || currentRouteSegmentEndPoint_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1734,11 +1682,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         currentRouteSegmentEndPoint_ = value;
-        onChanged();
       } else {
         currentRouteSegmentEndPointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1758,11 +1706,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (currentRouteSegmentEndPointBuilder_ == null) {
         currentRouteSegmentEndPoint_ = builderForValue.build();
-        onChanged();
       } else {
         currentRouteSegmentEndPointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1780,17 +1728,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCurrentRouteSegmentEndPoint(com.google.type.LatLng value) {
       if (currentRouteSegmentEndPointBuilder_ == null) {
-        if (currentRouteSegmentEndPoint_ != null) {
-          currentRouteSegmentEndPoint_ =
-            com.google.type.LatLng.newBuilder(currentRouteSegmentEndPoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          currentRouteSegmentEndPoint_ != null &&
+          currentRouteSegmentEndPoint_ != com.google.type.LatLng.getDefaultInstance()) {
+          getCurrentRouteSegmentEndPointBuilder().mergeFrom(value);
         } else {
           currentRouteSegmentEndPoint_ = value;
         }
-        onChanged();
       } else {
         currentRouteSegmentEndPointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1807,14 +1756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng current_route_segment_end_point = 5;</code>
      */
     public Builder clearCurrentRouteSegmentEndPoint() {
-      if (currentRouteSegmentEndPointBuilder_ == null) {
-        currentRouteSegmentEndPoint_ = null;
-        onChanged();
-      } else {
-        currentRouteSegmentEndPoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      currentRouteSegmentEndPoint_ = null;
+      if (currentRouteSegmentEndPointBuilder_ != null) {
+        currentRouteSegmentEndPointBuilder_.dispose();
         currentRouteSegmentEndPointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1831,7 +1779,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng current_route_segment_end_point = 5;</code>
      */
     public com.google.type.LatLng.Builder getCurrentRouteSegmentEndPointBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCurrentRouteSegmentEndPointFieldBuilder().getBuilder();
     }
@@ -1904,7 +1852,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the remainingDistanceMeters field is set.
      */
     public boolean hasRemainingDistanceMeters() {
-      return remainingDistanceMetersBuilder_ != null || remainingDistanceMeters_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1952,11 +1900,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         remainingDistanceMeters_ = value;
-        onChanged();
       } else {
         remainingDistanceMetersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1979,11 +1927,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (remainingDistanceMetersBuilder_ == null) {
         remainingDistanceMeters_ = builderForValue.build();
-        onChanged();
       } else {
         remainingDistanceMetersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2004,17 +1952,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRemainingDistanceMeters(com.google.protobuf.Int32Value value) {
       if (remainingDistanceMetersBuilder_ == null) {
-        if (remainingDistanceMeters_ != null) {
-          remainingDistanceMeters_ =
-            com.google.protobuf.Int32Value.newBuilder(remainingDistanceMeters_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          remainingDistanceMeters_ != null &&
+          remainingDistanceMeters_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getRemainingDistanceMetersBuilder().mergeFrom(value);
         } else {
           remainingDistanceMeters_ = value;
         }
-        onChanged();
       } else {
         remainingDistanceMetersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2034,14 +1983,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value remaining_distance_meters = 6;</code>
      */
     public Builder clearRemainingDistanceMeters() {
-      if (remainingDistanceMetersBuilder_ == null) {
-        remainingDistanceMeters_ = null;
-        onChanged();
-      } else {
-        remainingDistanceMeters_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      remainingDistanceMeters_ = null;
+      if (remainingDistanceMetersBuilder_ != null) {
+        remainingDistanceMetersBuilder_.dispose();
         remainingDistanceMetersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2061,7 +2009,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value remaining_distance_meters = 6;</code>
      */
     public com.google.protobuf.Int32Value.Builder getRemainingDistanceMetersBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getRemainingDistanceMetersFieldBuilder().getBuilder();
     }
@@ -2140,7 +2088,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the remainingDuration field is set.
      */
     public boolean hasRemainingDuration() {
-      return remainingDurationBuilder_ != null || remainingDuration_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2188,11 +2136,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         remainingDuration_ = value;
-        onChanged();
       } else {
         remainingDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2215,11 +2163,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (remainingDurationBuilder_ == null) {
         remainingDuration_ = builderForValue.build();
-        onChanged();
       } else {
         remainingDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2240,17 +2188,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRemainingDuration(com.google.protobuf.Duration value) {
       if (remainingDurationBuilder_ == null) {
-        if (remainingDuration_ != null) {
-          remainingDuration_ =
-            com.google.protobuf.Duration.newBuilder(remainingDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          remainingDuration_ != null &&
+          remainingDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getRemainingDurationBuilder().mergeFrom(value);
         } else {
           remainingDuration_ = value;
         }
-        onChanged();
       } else {
         remainingDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2270,14 +2219,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration remaining_duration = 7;</code>
      */
     public Builder clearRemainingDuration() {
-      if (remainingDurationBuilder_ == null) {
-        remainingDuration_ = null;
-        onChanged();
-      } else {
-        remainingDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      remainingDuration_ = null;
+      if (remainingDurationBuilder_ != null) {
+        remainingDurationBuilder_.dispose();
         remainingDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2297,7 +2245,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration remaining_duration = 7;</code>
      */
     public com.google.protobuf.Duration.Builder getRemainingDurationBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getRemainingDurationFieldBuilder().getBuilder();
     }
@@ -2358,9 +2306,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.delivery.v1.VehicleJourneySegment> remainingVehicleJourneySegments_ =
       java.util.Collections.emptyList();
     private void ensureRemainingVehicleJourneySegmentsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         remainingVehicleJourneySegments_ = new java.util.ArrayList<google.maps.fleetengine.delivery.v1.VehicleJourneySegment>(remainingVehicleJourneySegments_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000080;
        }
     }
 
@@ -2565,7 +2513,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRemainingVehicleJourneySegments() {
       if (remainingVehicleJourneySegmentsBuilder_ == null) {
         remainingVehicleJourneySegments_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
       } else {
         remainingVehicleJourneySegmentsBuilder_.clear();
@@ -2677,7 +2625,7 @@ private static final long serialVersionUID = 0L;
         remainingVehicleJourneySegmentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.delivery.v1.VehicleJourneySegment, google.maps.fleetengine.delivery.v1.VehicleJourneySegment.Builder, google.maps.fleetengine.delivery.v1.VehicleJourneySegmentOrBuilder>(
                 remainingVehicleJourneySegments_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000080) != 0),
                 getParentForChildren(),
                 isClean());
         remainingVehicleJourneySegments_ = null;
@@ -2688,9 +2636,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute> attributes_ =
       java.util.Collections.emptyList();
     private void ensureAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         attributes_ = new java.util.ArrayList<google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute>(attributes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -2699,8 +2647,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2714,8 +2662,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2729,8 +2677,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2744,8 +2692,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2766,8 +2714,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2785,8 +2733,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2806,8 +2754,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2828,8 +2776,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2847,8 +2795,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2866,8 +2814,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2886,8 +2834,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2895,7 +2843,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAttributes() {
       if (attributesBuilder_ == null) {
         attributes_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         attributesBuilder_.clear();
@@ -2904,8 +2852,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2922,8 +2870,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2934,8 +2882,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2949,8 +2897,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2965,8 +2913,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2977,8 +2925,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -2990,8 +2938,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A list of custom Delivery Vehicle attributes. Each attribute must have a
-     * unique key.
+     * A list of custom Delivery Vehicle attributes. A Delivery Vehicle can have
+     * at most 50 attributes, and each attribute must have a unique key.
      * </pre>
      *
      * <code>repeated .maps.fleetengine.delivery.v1.DeliveryVehicleAttribute attributes = 9;</code>
@@ -3007,7 +2955,7 @@ private static final long serialVersionUID = 0L;
         attributesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute, google.maps.fleetengine.delivery.v1.DeliveryVehicleAttribute.Builder, google.maps.fleetengine.delivery.v1.DeliveryVehicleAttributeOrBuilder>(
                 attributes_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         attributes_ = null;
@@ -3047,7 +2995,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeliveryVehicle(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

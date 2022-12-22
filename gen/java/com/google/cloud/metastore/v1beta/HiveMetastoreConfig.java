@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
   }
   private HiveMetastoreConfig() {
     version_ = "";
+    endpointProtocol_ = 0;
   }
 
   @java.lang.Override
@@ -36,78 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HiveMetastoreConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            version_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              configOverrides_ = com.google.protobuf.MapField.newMapField(
-                  ConfigOverridesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            configOverrides__ = input.readMessage(
-                ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            configOverrides_.getMutableMap().put(
-                configOverrides__.getKey(), configOverrides__.getValue());
-            break;
-          }
-          case 26: {
-            com.google.cloud.metastore.v1beta.KerberosConfig.Builder subBuilder = null;
-            if (kerberosConfig_ != null) {
-              subBuilder = kerberosConfig_.toBuilder();
-            }
-            kerberosConfig_ = input.readMessage(com.google.cloud.metastore.v1beta.KerberosConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kerberosConfig_);
-              kerberosConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1beta.MetastoreProto.internal_static_google_cloud_metastore_v1beta_HiveMetastoreConfig_descriptor;
@@ -120,6 +49,8 @@ private static final long serialVersionUID = 0L;
     switch (number) {
       case 2:
         return internalGetConfigOverrides();
+      case 5:
+        return internalGetAuxiliaryVersions();
       default:
         throw new RuntimeException(
             "Invalid map field number: " + number);
@@ -133,8 +64,154 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.metastore.v1beta.HiveMetastoreConfig.class, com.google.cloud.metastore.v1beta.HiveMetastoreConfig.Builder.class);
   }
 
+  /**
+   * <pre>
+   * Protocols available for serving the metastore service endpoint.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol}
+   */
+  public enum EndpointProtocol
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * The protocol is not set.
+     * </pre>
+     *
+     * <code>ENDPOINT_PROTOCOL_UNSPECIFIED = 0;</code>
+     */
+    ENDPOINT_PROTOCOL_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Use the legacy Apache Thrift protocol for the metastore service endpoint.
+     * </pre>
+     *
+     * <code>THRIFT = 1;</code>
+     */
+    THRIFT(1),
+    /**
+     * <pre>
+     * Use the modernized gRPC protocol for the metastore service endpoint.
+     * </pre>
+     *
+     * <code>GRPC = 2;</code>
+     */
+    GRPC(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * The protocol is not set.
+     * </pre>
+     *
+     * <code>ENDPOINT_PROTOCOL_UNSPECIFIED = 0;</code>
+     */
+    public static final int ENDPOINT_PROTOCOL_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Use the legacy Apache Thrift protocol for the metastore service endpoint.
+     * </pre>
+     *
+     * <code>THRIFT = 1;</code>
+     */
+    public static final int THRIFT_VALUE = 1;
+    /**
+     * <pre>
+     * Use the modernized gRPC protocol for the metastore service endpoint.
+     * </pre>
+     *
+     * <code>GRPC = 2;</code>
+     */
+    public static final int GRPC_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static EndpointProtocol valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static EndpointProtocol forNumber(int value) {
+      switch (value) {
+        case 0: return ENDPOINT_PROTOCOL_UNSPECIFIED;
+        case 1: return THRIFT;
+        case 2: return GRPC;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<EndpointProtocol>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        EndpointProtocol> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<EndpointProtocol>() {
+            public EndpointProtocol findValueByNumber(int number) {
+              return EndpointProtocol.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.metastore.v1beta.HiveMetastoreConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final EndpointProtocol[] VALUES = values();
+
+    public static EndpointProtocol valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private EndpointProtocol(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol)
+  }
+
   public static final int VERSION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object version_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object version_ = "";
   /**
    * <pre>
    * Immutable. The Hive metastore schema version.
@@ -191,6 +268,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> configOverrides_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -201,7 +279,6 @@ private static final long serialVersionUID = 0L;
     }
     return configOverrides_;
   }
-
   public int getConfigOverridesCount() {
     return internalGetConfigOverrides().getMap().size();
   }
@@ -209,12 +286,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsConfigOverrides(
       java.lang.String key) {
@@ -233,13 +311,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
     return internalGetConfigOverrides().getMap();
   }
@@ -247,16 +326,19 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getConfigOverridesOrDefault(
+  public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetConfigOverrides().getMap();
@@ -266,13 +348,14 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A mapping of Hive metastore configuration key-value pairs to apply to the
    * Hive metastore (configured in `hive-site.xml`). The mappings
-   * override system defaults (some keys cannot be overridden).
+   * override system defaults (some keys cannot be overridden). These
+   * overrides are also applied to auxiliary versions and can be further
+   * customized in the auxiliary version's `AuxiliaryVersionConfig`.
    * </pre>
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getConfigOverridesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -331,7 +414,158 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1beta.KerberosConfigOrBuilder getKerberosConfigOrBuilder() {
-    return getKerberosConfig();
+    return kerberosConfig_ == null ? com.google.cloud.metastore.v1beta.KerberosConfig.getDefaultInstance() : kerberosConfig_;
+  }
+
+  public static final int ENDPOINT_PROTOCOL_FIELD_NUMBER = 4;
+  private int endpointProtocol_ = 0;
+  /**
+   * <pre>
+   * The protocol to use for the metastore service endpoint. If unspecified,
+   * defaults to `THRIFT`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+   * @return The enum numeric value on the wire for endpointProtocol.
+   */
+  @java.lang.Override public int getEndpointProtocolValue() {
+    return endpointProtocol_;
+  }
+  /**
+   * <pre>
+   * The protocol to use for the metastore service endpoint. If unspecified,
+   * defaults to `THRIFT`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+   * @return The endpointProtocol.
+   */
+  @java.lang.Override public com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol getEndpointProtocol() {
+    com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol result = com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol.forNumber(endpointProtocol_);
+    return result == null ? com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol.UNRECOGNIZED : result;
+  }
+
+  public static final int AUXILIARY_VERSIONS_FIELD_NUMBER = 5;
+  private static final class AuxiliaryVersionsDefaultEntryHolder {
+    static final com.google.protobuf.MapEntry<
+        java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> defaultEntry =
+            com.google.protobuf.MapEntry
+            .<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>newDefaultInstance(
+                com.google.cloud.metastore.v1beta.MetastoreProto.internal_static_google_cloud_metastore_v1beta_HiveMetastoreConfig_AuxiliaryVersionsEntry_descriptor, 
+                com.google.protobuf.WireFormat.FieldType.STRING,
+                "",
+                com.google.protobuf.WireFormat.FieldType.MESSAGE,
+                com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig.getDefaultInstance());
+  }
+  @SuppressWarnings("serial")
+  private com.google.protobuf.MapField<
+      java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> auxiliaryVersions_;
+  private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>
+  internalGetAuxiliaryVersions() {
+    if (auxiliaryVersions_ == null) {
+      return com.google.protobuf.MapField.emptyMapField(
+          AuxiliaryVersionsDefaultEntryHolder.defaultEntry);
+    }
+    return auxiliaryVersions_;
+  }
+  public int getAuxiliaryVersionsCount() {
+    return internalGetAuxiliaryVersions().getMap().size();
+  }
+  /**
+   * <pre>
+   * A mapping of Hive metastore version to the auxiliary version
+   * configuration. When specified, a secondary Hive metastore service is
+   * created along with the primary service. All auxiliary versions must be less
+   * than the service's primary version. The key is the auxiliary service name
+   * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+   * means that the first character must be a lowercase letter, and all the
+   * following characters must be hyphens, lowercase letters, or digits, except
+   * the last character, which cannot be a hyphen.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+   */
+  @java.lang.Override
+  public boolean containsAuxiliaryVersions(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    return internalGetAuxiliaryVersions().getMap().containsKey(key);
+  }
+  /**
+   * Use {@link #getAuxiliaryVersionsMap()} instead.
+   */
+  @java.lang.Override
+  @java.lang.Deprecated
+  public java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> getAuxiliaryVersions() {
+    return getAuxiliaryVersionsMap();
+  }
+  /**
+   * <pre>
+   * A mapping of Hive metastore version to the auxiliary version
+   * configuration. When specified, a secondary Hive metastore service is
+   * created along with the primary service. All auxiliary versions must be less
+   * than the service's primary version. The key is the auxiliary service name
+   * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+   * means that the first character must be a lowercase letter, and all the
+   * following characters must be hyphens, lowercase letters, or digits, except
+   * the last character, which cannot be a hyphen.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> getAuxiliaryVersionsMap() {
+    return internalGetAuxiliaryVersions().getMap();
+  }
+  /**
+   * <pre>
+   * A mapping of Hive metastore version to the auxiliary version
+   * configuration. When specified, a secondary Hive metastore service is
+   * created along with the primary service. All auxiliary versions must be less
+   * than the service's primary version. The key is the auxiliary service name
+   * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+   * means that the first character must be a lowercase letter, and all the
+   * following characters must be hyphens, lowercase letters, or digits, except
+   * the last character, which cannot be a hyphen.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+   */
+  @java.lang.Override
+  public /* nullable */
+com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
+      java.lang.String key,
+      /* nullable */
+com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig defaultValue) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> map =
+        internalGetAuxiliaryVersions().getMap();
+    return map.containsKey(key) ? map.get(key) : defaultValue;
+  }
+  /**
+   * <pre>
+   * A mapping of Hive metastore version to the auxiliary version
+   * configuration. When specified, a secondary Hive metastore service is
+   * created along with the primary service. All auxiliary versions must be less
+   * than the service's primary version. The key is the auxiliary service name
+   * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+   * means that the first character must be a lowercase letter, and all the
+   * following characters must be hyphens, lowercase letters, or digits, except
+   * the last character, which cannot be a hyphen.
+   * </pre>
+   *
+   * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig getAuxiliaryVersionsOrThrow(
+      java.lang.String key) {
+    if (key == null) { throw new NullPointerException("map key"); }
+    java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> map =
+        internalGetAuxiliaryVersions().getMap();
+    if (!map.containsKey(key)) {
+      throw new java.lang.IllegalArgumentException();
+    }
+    return map.get(key);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -360,7 +594,16 @@ private static final long serialVersionUID = 0L;
     if (kerberosConfig_ != null) {
       output.writeMessage(3, getKerberosConfig());
     }
-    unknownFields.writeTo(output);
+    if (endpointProtocol_ != com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol.ENDPOINT_PROTOCOL_UNSPECIFIED.getNumber()) {
+      output.writeEnum(4, endpointProtocol_);
+    }
+    com.google.protobuf.GeneratedMessageV3
+      .serializeStringMapTo(
+        output,
+        internalGetAuxiliaryVersions(),
+        AuxiliaryVersionsDefaultEntryHolder.defaultEntry,
+        5);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -386,7 +629,21 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getKerberosConfig());
     }
-    size += unknownFields.getSerializedSize();
+    if (endpointProtocol_ != com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol.ENDPOINT_PROTOCOL_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(4, endpointProtocol_);
+    }
+    for (java.util.Map.Entry<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> entry
+         : internalGetAuxiliaryVersions().getMap().entrySet()) {
+      com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>
+      auxiliaryVersions__ = AuxiliaryVersionsDefaultEntryHolder.defaultEntry.newBuilderForType()
+          .setKey(entry.getKey())
+          .setValue(entry.getValue())
+          .build();
+      size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, auxiliaryVersions__);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -410,7 +667,10 @@ private static final long serialVersionUID = 0L;
       if (!getKerberosConfig()
           .equals(other.getKerberosConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (endpointProtocol_ != other.endpointProtocol_) return false;
+    if (!internalGetAuxiliaryVersions().equals(
+        other.internalGetAuxiliaryVersions())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -431,7 +691,13 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + KERBEROS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getKerberosConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + ENDPOINT_PROTOCOL_FIELD_NUMBER;
+    hash = (53 * hash) + endpointProtocol_;
+    if (!internalGetAuxiliaryVersions().getMap().isEmpty()) {
+      hash = (37 * hash) + AUXILIARY_VERSIONS_FIELD_NUMBER;
+      hash = (53 * hash) + internalGetAuxiliaryVersions().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -549,6 +815,8 @@ private static final long serialVersionUID = 0L;
       switch (number) {
         case 2:
           return internalGetConfigOverrides();
+        case 5:
+          return internalGetAuxiliaryVersions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -560,6 +828,8 @@ private static final long serialVersionUID = 0L;
       switch (number) {
         case 2:
           return internalGetMutableConfigOverrides();
+        case 5:
+          return internalGetMutableAuxiliaryVersions();
         default:
           throw new RuntimeException(
               "Invalid map field number: " + number);
@@ -575,31 +845,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1beta.HiveMetastoreConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       version_ = "";
-
       internalGetMutableConfigOverrides().clear();
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-      } else {
-        kerberosConfig_ = null;
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
+      endpointProtocol_ = 0;
+      internalGetMutableAuxiliaryVersions().clear();
       return this;
     }
 
@@ -626,17 +892,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1beta.HiveMetastoreConfig buildPartial() {
       com.google.cloud.metastore.v1beta.HiveMetastoreConfig result = new com.google.cloud.metastore.v1beta.HiveMetastoreConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.version_ = version_;
-      result.configOverrides_ = internalGetConfigOverrides();
-      result.configOverrides_.makeImmutable();
-      if (kerberosConfigBuilder_ == null) {
-        result.kerberosConfig_ = kerberosConfig_;
-      } else {
-        result.kerberosConfig_ = kerberosConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1beta.HiveMetastoreConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.version_ = version_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.configOverrides_ = internalGetConfigOverrides();
+        result.configOverrides_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kerberosConfig_ = kerberosConfigBuilder_ == null
+            ? kerberosConfig_
+            : kerberosConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.endpointProtocol_ = endpointProtocol_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.auxiliaryVersions_ = internalGetAuxiliaryVersions();
+        result.auxiliaryVersions_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -685,14 +966,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.metastore.v1beta.HiveMetastoreConfig.getDefaultInstance()) return this;
       if (!other.getVersion().isEmpty()) {
         version_ = other.version_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableConfigOverrides().mergeFrom(
           other.internalGetConfigOverrides());
+      bitField0_ |= 0x00000002;
       if (other.hasKerberosConfig()) {
         mergeKerberosConfig(other.getKerberosConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.endpointProtocol_ != 0) {
+        setEndpointProtocolValue(other.getEndpointProtocolValue());
+      }
+      internalGetMutableAuxiliaryVersions().mergeFrom(
+          other.internalGetAuxiliaryVersions());
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -707,17 +996,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1beta.HiveMetastoreConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              version_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              configOverrides__ = input.readMessage(
+                  ConfigOverridesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableConfigOverrides().getMutableMap().put(
+                  configOverrides__.getKey(), configOverrides__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKerberosConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              endpointProtocol_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>
+              auxiliaryVersions__ = input.readMessage(
+                  AuxiliaryVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAuxiliaryVersions().getMutableMap().put(
+                  auxiliaryVersions__.getKey(), auxiliaryVersions__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1beta.HiveMetastoreConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -775,11 +1112,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -792,8 +1127,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVersion() {
-      
       version_ = getDefaultInstance().getVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -808,12 +1143,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       version_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -821,7 +1154,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> configOverrides_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetConfigOverrides() {
+        internalGetConfigOverrides() {
       if (configOverrides_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -829,8 +1162,7 @@ private static final long serialVersionUID = 0L;
       return configOverrides_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableConfigOverrides() {
-      onChanged();;
+        internalGetMutableConfigOverrides() {
       if (configOverrides_ == null) {
         configOverrides_ = com.google.protobuf.MapField.newMapField(
             ConfigOverridesDefaultEntryHolder.defaultEntry);
@@ -838,9 +1170,10 @@ private static final long serialVersionUID = 0L;
       if (!configOverrides_.isMutable()) {
         configOverrides_ = configOverrides_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return configOverrides_;
     }
-
     public int getConfigOverridesCount() {
       return internalGetConfigOverrides().getMap().size();
     }
@@ -848,12 +1181,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsConfigOverrides(
         java.lang.String key) {
@@ -872,13 +1206,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getConfigOverridesMap() {
       return internalGetConfigOverrides().getMap();
     }
@@ -886,16 +1221,19 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getConfigOverridesOrDefault(
+    public /* nullable */
+java.lang.String getConfigOverridesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetConfigOverrides().getMap();
@@ -905,13 +1243,14 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getConfigOverridesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -922,8 +1261,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearConfigOverrides() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableConfigOverrides().getMutableMap()
           .clear();
       return this;
@@ -932,12 +1271,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder removeConfigOverrides(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -950,14 +1290,17 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableConfigOverrides() {
+        getMutableConfigOverrides() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableConfigOverrides().getMutableMap();
     }
     /**
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
@@ -966,28 +1309,28 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableConfigOverrides().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <pre>
      * A mapping of Hive metastore configuration key-value pairs to apply to the
      * Hive metastore (configured in `hive-site.xml`). The mappings
-     * override system defaults (some keys cannot be overridden).
+     * override system defaults (some keys cannot be overridden). These
+     * overrides are also applied to auxiliary versions and can be further
+     * customized in the auxiliary version's `AuxiliaryVersionConfig`.
      * </pre>
      *
      * <code>map&lt;string, string&gt; config_overrides = 2;</code>
      */
-
     public Builder putAllConfigOverrides(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableConfigOverrides().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -1007,7 +1350,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kerberosConfig field is set.
      */
     public boolean hasKerberosConfig() {
-      return kerberosConfigBuilder_ != null || kerberosConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1045,11 +1388,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kerberosConfig_ = value;
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1067,11 +1410,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1beta.KerberosConfig.Builder builderForValue) {
       if (kerberosConfigBuilder_ == null) {
         kerberosConfig_ = builderForValue.build();
-        onChanged();
       } else {
         kerberosConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1087,17 +1430,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKerberosConfig(com.google.cloud.metastore.v1beta.KerberosConfig value) {
       if (kerberosConfigBuilder_ == null) {
-        if (kerberosConfig_ != null) {
-          kerberosConfig_ =
-            com.google.cloud.metastore.v1beta.KerberosConfig.newBuilder(kerberosConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          kerberosConfig_ != null &&
+          kerberosConfig_ != com.google.cloud.metastore.v1beta.KerberosConfig.getDefaultInstance()) {
+          getKerberosConfigBuilder().mergeFrom(value);
         } else {
           kerberosConfig_ = value;
         }
-        onChanged();
       } else {
         kerberosConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1112,14 +1456,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.KerberosConfig kerberos_config = 3;</code>
      */
     public Builder clearKerberosConfig() {
-      if (kerberosConfigBuilder_ == null) {
-        kerberosConfig_ = null;
-        onChanged();
-      } else {
-        kerberosConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      kerberosConfig_ = null;
+      if (kerberosConfigBuilder_ != null) {
+        kerberosConfigBuilder_.dispose();
         kerberosConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1134,7 +1477,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1beta.KerberosConfig kerberos_config = 3;</code>
      */
     public com.google.cloud.metastore.v1beta.KerberosConfig.Builder getKerberosConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKerberosConfigFieldBuilder().getBuilder();
     }
@@ -1181,6 +1524,288 @@ private static final long serialVersionUID = 0L;
       }
       return kerberosConfigBuilder_;
     }
+
+    private int endpointProtocol_ = 0;
+    /**
+     * <pre>
+     * The protocol to use for the metastore service endpoint. If unspecified,
+     * defaults to `THRIFT`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+     * @return The enum numeric value on the wire for endpointProtocol.
+     */
+    @java.lang.Override public int getEndpointProtocolValue() {
+      return endpointProtocol_;
+    }
+    /**
+     * <pre>
+     * The protocol to use for the metastore service endpoint. If unspecified,
+     * defaults to `THRIFT`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+     * @param value The enum numeric value on the wire for endpointProtocol to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEndpointProtocolValue(int value) {
+      endpointProtocol_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The protocol to use for the metastore service endpoint. If unspecified,
+     * defaults to `THRIFT`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+     * @return The endpointProtocol.
+     */
+    @java.lang.Override
+    public com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol getEndpointProtocol() {
+      com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol result = com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol.forNumber(endpointProtocol_);
+      return result == null ? com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * The protocol to use for the metastore service endpoint. If unspecified,
+     * defaults to `THRIFT`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+     * @param value The endpointProtocol to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEndpointProtocol(com.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000008;
+      endpointProtocol_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The protocol to use for the metastore service endpoint. If unspecified,
+     * defaults to `THRIFT`.
+     * </pre>
+     *
+     * <code>.google.cloud.metastore.v1beta.HiveMetastoreConfig.EndpointProtocol endpoint_protocol = 4;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEndpointProtocol() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      endpointProtocol_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.protobuf.MapField<
+        java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> auxiliaryVersions_;
+    private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>
+        internalGetAuxiliaryVersions() {
+      if (auxiliaryVersions_ == null) {
+        return com.google.protobuf.MapField.emptyMapField(
+            AuxiliaryVersionsDefaultEntryHolder.defaultEntry);
+      }
+      return auxiliaryVersions_;
+    }
+    private com.google.protobuf.MapField<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>
+        internalGetMutableAuxiliaryVersions() {
+      if (auxiliaryVersions_ == null) {
+        auxiliaryVersions_ = com.google.protobuf.MapField.newMapField(
+            AuxiliaryVersionsDefaultEntryHolder.defaultEntry);
+      }
+      if (!auxiliaryVersions_.isMutable()) {
+        auxiliaryVersions_ = auxiliaryVersions_.copy();
+      }
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return auxiliaryVersions_;
+    }
+    public int getAuxiliaryVersionsCount() {
+      return internalGetAuxiliaryVersions().getMap().size();
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    @java.lang.Override
+    public boolean containsAuxiliaryVersions(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      return internalGetAuxiliaryVersions().getMap().containsKey(key);
+    }
+    /**
+     * Use {@link #getAuxiliaryVersionsMap()} instead.
+     */
+    @java.lang.Override
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> getAuxiliaryVersions() {
+      return getAuxiliaryVersionsMap();
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    @java.lang.Override
+    public java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> getAuxiliaryVersionsMap() {
+      return internalGetAuxiliaryVersions().getMap();
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    @java.lang.Override
+    public /* nullable */
+com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig getAuxiliaryVersionsOrDefault(
+        java.lang.String key,
+        /* nullable */
+com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig defaultValue) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> map =
+          internalGetAuxiliaryVersions().getMap();
+      return map.containsKey(key) ? map.get(key) : defaultValue;
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig getAuxiliaryVersionsOrThrow(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> map =
+          internalGetAuxiliaryVersions().getMap();
+      if (!map.containsKey(key)) {
+        throw new java.lang.IllegalArgumentException();
+      }
+      return map.get(key);
+    }
+    public Builder clearAuxiliaryVersions() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      internalGetMutableAuxiliaryVersions().getMutableMap()
+          .clear();
+      return this;
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    public Builder removeAuxiliaryVersions(
+        java.lang.String key) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      internalGetMutableAuxiliaryVersions().getMutableMap()
+          .remove(key);
+      return this;
+    }
+    /**
+     * Use alternate mutation accessors instead.
+     */
+    @java.lang.Deprecated
+    public java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig>
+        getMutableAuxiliaryVersions() {
+      bitField0_ |= 0x00000010;
+      return internalGetMutableAuxiliaryVersions().getMutableMap();
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    public Builder putAuxiliaryVersions(
+        java.lang.String key,
+        com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig value) {
+      if (key == null) { throw new NullPointerException("map key"); }
+      if (value == null) { throw new NullPointerException("map value"); }
+      internalGetMutableAuxiliaryVersions().getMutableMap()
+          .put(key, value);
+      bitField0_ |= 0x00000010;
+      return this;
+    }
+    /**
+     * <pre>
+     * A mapping of Hive metastore version to the auxiliary version
+     * configuration. When specified, a secondary Hive metastore service is
+     * created along with the primary service. All auxiliary versions must be less
+     * than the service's primary version. The key is the auxiliary service name
+     * and it must match the regular expression [a-z]([-a-z0-9]*[a-z0-9])?. This
+     * means that the first character must be a lowercase letter, and all the
+     * following characters must be hyphens, lowercase letters, or digits, except
+     * the last character, which cannot be a hyphen.
+     * </pre>
+     *
+     * <code>map&lt;string, .google.cloud.metastore.v1beta.AuxiliaryVersionConfig&gt; auxiliary_versions = 5;</code>
+     */
+    public Builder putAllAuxiliaryVersions(
+        java.util.Map<java.lang.String, com.google.cloud.metastore.v1beta.AuxiliaryVersionConfig> values) {
+      internalGetMutableAuxiliaryVersions().getMutableMap()
+          .putAll(values);
+      bitField0_ |= 0x00000010;
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1214,7 +1839,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HiveMetastoreConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

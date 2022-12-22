@@ -35,116 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PasswordValidationPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (minLength_ != null) {
-              subBuilder = minLength_.toBuilder();
-            }
-            minLength_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minLength_);
-              minLength_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            complexity_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (reuseInterval_ != null) {
-              subBuilder = reuseInterval_.toBuilder();
-            }
-            reuseInterval_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(reuseInterval_);
-              reuseInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (disallowUsernameSubstring_ != null) {
-              subBuilder = disallowUsernameSubstring_.toBuilder();
-            }
-            disallowUsernameSubstring_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(disallowUsernameSubstring_);
-              disallowUsernameSubstring_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (passwordChangeInterval_ != null) {
-              subBuilder = passwordChangeInterval_.toBuilder();
-            }
-            passwordChangeInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(passwordChangeInterval_);
-              passwordChangeInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (enablePasswordPolicy_ != null) {
-              subBuilder = enablePasswordPolicy_.toBuilder();
-            }
-            enablePasswordPolicy_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enablePasswordPolicy_);
-              enablePasswordPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1beta4.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1beta4_PasswordValidationPolicy_descriptor;
@@ -323,11 +213,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getMinLengthOrBuilder() {
-    return getMinLength();
+    return minLength_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : minLength_;
   }
 
   public static final int COMPLEXITY_FIELD_NUMBER = 2;
-  private int complexity_;
+  private int complexity_ = 0;
   /**
    * <pre>
    * The complexity of the password.
@@ -348,8 +238,7 @@ private static final long serialVersionUID = 0L;
    * @return The complexity.
    */
   @java.lang.Override public com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity getComplexity() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity result = com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity.valueOf(complexity_);
+    com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity result = com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity.forNumber(complexity_);
     return result == null ? com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity.UNRECOGNIZED : result;
   }
 
@@ -388,7 +277,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getReuseIntervalOrBuilder() {
-    return getReuseInterval();
+    return reuseInterval_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : reuseInterval_;
   }
 
   public static final int DISALLOW_USERNAME_SUBSTRING_FIELD_NUMBER = 4;
@@ -426,7 +315,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getDisallowUsernameSubstringOrBuilder() {
-    return getDisallowUsernameSubstring();
+    return disallowUsernameSubstring_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : disallowUsernameSubstring_;
   }
 
   public static final int PASSWORD_CHANGE_INTERVAL_FIELD_NUMBER = 5;
@@ -467,7 +356,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getPasswordChangeIntervalOrBuilder() {
-    return getPasswordChangeInterval();
+    return passwordChangeInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : passwordChangeInterval_;
   }
 
   public static final int ENABLE_PASSWORD_POLICY_FIELD_NUMBER = 6;
@@ -505,7 +394,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getEnablePasswordPolicyOrBuilder() {
-    return getEnablePasswordPolicy();
+    return enablePasswordPolicy_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : enablePasswordPolicy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -540,7 +429,7 @@ private static final long serialVersionUID = 0L;
     if (enablePasswordPolicy_ != null) {
       output.writeMessage(6, getEnablePasswordPolicy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -573,7 +462,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getEnablePasswordPolicy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -614,7 +503,7 @@ private static final long serialVersionUID = 0L;
       if (!getEnablePasswordPolicy()
           .equals(other.getEnablePasswordPolicy())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -647,7 +536,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_PASSWORD_POLICY_FIELD_NUMBER;
       hash = (53 * hash) + getEnablePasswordPolicy().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -768,52 +657,42 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1beta4.PasswordValidationPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (minLengthBuilder_ == null) {
-        minLength_ = null;
-      } else {
-        minLength_ = null;
+      bitField0_ = 0;
+      minLength_ = null;
+      if (minLengthBuilder_ != null) {
+        minLengthBuilder_.dispose();
         minLengthBuilder_ = null;
       }
       complexity_ = 0;
-
-      if (reuseIntervalBuilder_ == null) {
-        reuseInterval_ = null;
-      } else {
-        reuseInterval_ = null;
+      reuseInterval_ = null;
+      if (reuseIntervalBuilder_ != null) {
+        reuseIntervalBuilder_.dispose();
         reuseIntervalBuilder_ = null;
       }
-      if (disallowUsernameSubstringBuilder_ == null) {
-        disallowUsernameSubstring_ = null;
-      } else {
-        disallowUsernameSubstring_ = null;
+      disallowUsernameSubstring_ = null;
+      if (disallowUsernameSubstringBuilder_ != null) {
+        disallowUsernameSubstringBuilder_.dispose();
         disallowUsernameSubstringBuilder_ = null;
       }
-      if (passwordChangeIntervalBuilder_ == null) {
-        passwordChangeInterval_ = null;
-      } else {
-        passwordChangeInterval_ = null;
+      passwordChangeInterval_ = null;
+      if (passwordChangeIntervalBuilder_ != null) {
+        passwordChangeIntervalBuilder_.dispose();
         passwordChangeIntervalBuilder_ = null;
       }
-      if (enablePasswordPolicyBuilder_ == null) {
-        enablePasswordPolicy_ = null;
-      } else {
-        enablePasswordPolicy_ = null;
+      enablePasswordPolicy_ = null;
+      if (enablePasswordPolicyBuilder_ != null) {
+        enablePasswordPolicyBuilder_.dispose();
         enablePasswordPolicyBuilder_ = null;
       }
       return this;
@@ -842,34 +721,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1beta4.PasswordValidationPolicy buildPartial() {
       com.google.cloud.sql.v1beta4.PasswordValidationPolicy result = new com.google.cloud.sql.v1beta4.PasswordValidationPolicy(this);
-      if (minLengthBuilder_ == null) {
-        result.minLength_ = minLength_;
-      } else {
-        result.minLength_ = minLengthBuilder_.build();
-      }
-      result.complexity_ = complexity_;
-      if (reuseIntervalBuilder_ == null) {
-        result.reuseInterval_ = reuseInterval_;
-      } else {
-        result.reuseInterval_ = reuseIntervalBuilder_.build();
-      }
-      if (disallowUsernameSubstringBuilder_ == null) {
-        result.disallowUsernameSubstring_ = disallowUsernameSubstring_;
-      } else {
-        result.disallowUsernameSubstring_ = disallowUsernameSubstringBuilder_.build();
-      }
-      if (passwordChangeIntervalBuilder_ == null) {
-        result.passwordChangeInterval_ = passwordChangeInterval_;
-      } else {
-        result.passwordChangeInterval_ = passwordChangeIntervalBuilder_.build();
-      }
-      if (enablePasswordPolicyBuilder_ == null) {
-        result.enablePasswordPolicy_ = enablePasswordPolicy_;
-      } else {
-        result.enablePasswordPolicy_ = enablePasswordPolicyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1beta4.PasswordValidationPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.minLength_ = minLengthBuilder_ == null
+            ? minLength_
+            : minLengthBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.complexity_ = complexity_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.reuseInterval_ = reuseIntervalBuilder_ == null
+            ? reuseInterval_
+            : reuseIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.disallowUsernameSubstring_ = disallowUsernameSubstringBuilder_ == null
+            ? disallowUsernameSubstring_
+            : disallowUsernameSubstringBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.passwordChangeInterval_ = passwordChangeIntervalBuilder_ == null
+            ? passwordChangeInterval_
+            : passwordChangeIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.enablePasswordPolicy_ = enablePasswordPolicyBuilder_ == null
+            ? enablePasswordPolicy_
+            : enablePasswordPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -934,7 +820,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnablePasswordPolicy()) {
         mergeEnablePasswordPolicy(other.getEnablePasswordPolicy());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -949,19 +835,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1beta4.PasswordValidationPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMinLengthFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              complexity_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getReuseIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDisallowUsernameSubstringFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getPasswordChangeIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getEnablePasswordPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1beta4.PasswordValidationPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Int32Value minLength_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -975,7 +915,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minLength field is set.
      */
     public boolean hasMinLength() {
-      return minLengthBuilder_ != null || minLength_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1005,11 +945,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minLength_ = value;
-        onChanged();
       } else {
         minLengthBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1023,11 +963,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (minLengthBuilder_ == null) {
         minLength_ = builderForValue.build();
-        onChanged();
       } else {
         minLengthBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1039,17 +979,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinLength(com.google.protobuf.Int32Value value) {
       if (minLengthBuilder_ == null) {
-        if (minLength_ != null) {
-          minLength_ =
-            com.google.protobuf.Int32Value.newBuilder(minLength_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          minLength_ != null &&
+          minLength_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getMinLengthBuilder().mergeFrom(value);
         } else {
           minLength_ = value;
         }
-        onChanged();
       } else {
         minLengthBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1060,14 +1001,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value min_length = 1;</code>
      */
     public Builder clearMinLength() {
-      if (minLengthBuilder_ == null) {
-        minLength_ = null;
-        onChanged();
-      } else {
-        minLength_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      minLength_ = null;
+      if (minLengthBuilder_ != null) {
+        minLengthBuilder_.dispose();
         minLengthBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1078,7 +1018,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value min_length = 1;</code>
      */
     public com.google.protobuf.Int32Value.Builder getMinLengthBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMinLengthFieldBuilder().getBuilder();
     }
@@ -1140,8 +1080,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setComplexityValue(int value) {
-      
       complexity_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1155,8 +1095,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity getComplexity() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity result = com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity.valueOf(complexity_);
+      com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity result = com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity.forNumber(complexity_);
       return result == null ? com.google.cloud.sql.v1beta4.PasswordValidationPolicy.Complexity.UNRECOGNIZED : result;
     }
     /**
@@ -1172,7 +1111,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       complexity_ = value.getNumber();
       onChanged();
       return this;
@@ -1186,7 +1125,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearComplexity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       complexity_ = 0;
       onChanged();
       return this;
@@ -1204,7 +1143,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the reuseInterval field is set.
      */
     public boolean hasReuseInterval() {
-      return reuseIntervalBuilder_ != null || reuseInterval_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1234,11 +1173,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         reuseInterval_ = value;
-        onChanged();
       } else {
         reuseIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1252,11 +1191,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (reuseIntervalBuilder_ == null) {
         reuseInterval_ = builderForValue.build();
-        onChanged();
       } else {
         reuseIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1268,17 +1207,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReuseInterval(com.google.protobuf.Int32Value value) {
       if (reuseIntervalBuilder_ == null) {
-        if (reuseInterval_ != null) {
-          reuseInterval_ =
-            com.google.protobuf.Int32Value.newBuilder(reuseInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          reuseInterval_ != null &&
+          reuseInterval_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getReuseIntervalBuilder().mergeFrom(value);
         } else {
           reuseInterval_ = value;
         }
-        onChanged();
       } else {
         reuseIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1289,14 +1229,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value reuse_interval = 3;</code>
      */
     public Builder clearReuseInterval() {
-      if (reuseIntervalBuilder_ == null) {
-        reuseInterval_ = null;
-        onChanged();
-      } else {
-        reuseInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      reuseInterval_ = null;
+      if (reuseIntervalBuilder_ != null) {
+        reuseIntervalBuilder_.dispose();
         reuseIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1307,7 +1246,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value reuse_interval = 3;</code>
      */
     public com.google.protobuf.Int32Value.Builder getReuseIntervalBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getReuseIntervalFieldBuilder().getBuilder();
     }
@@ -1359,7 +1298,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the disallowUsernameSubstring field is set.
      */
     public boolean hasDisallowUsernameSubstring() {
-      return disallowUsernameSubstringBuilder_ != null || disallowUsernameSubstring_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1389,11 +1328,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         disallowUsernameSubstring_ = value;
-        onChanged();
       } else {
         disallowUsernameSubstringBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1407,11 +1346,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (disallowUsernameSubstringBuilder_ == null) {
         disallowUsernameSubstring_ = builderForValue.build();
-        onChanged();
       } else {
         disallowUsernameSubstringBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1423,17 +1362,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDisallowUsernameSubstring(com.google.protobuf.BoolValue value) {
       if (disallowUsernameSubstringBuilder_ == null) {
-        if (disallowUsernameSubstring_ != null) {
-          disallowUsernameSubstring_ =
-            com.google.protobuf.BoolValue.newBuilder(disallowUsernameSubstring_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          disallowUsernameSubstring_ != null &&
+          disallowUsernameSubstring_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getDisallowUsernameSubstringBuilder().mergeFrom(value);
         } else {
           disallowUsernameSubstring_ = value;
         }
-        onChanged();
       } else {
         disallowUsernameSubstringBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1444,14 +1384,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_username_substring = 4;</code>
      */
     public Builder clearDisallowUsernameSubstring() {
-      if (disallowUsernameSubstringBuilder_ == null) {
-        disallowUsernameSubstring_ = null;
-        onChanged();
-      } else {
-        disallowUsernameSubstring_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      disallowUsernameSubstring_ = null;
+      if (disallowUsernameSubstringBuilder_ != null) {
+        disallowUsernameSubstringBuilder_.dispose();
         disallowUsernameSubstringBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1462,7 +1401,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue disallow_username_substring = 4;</code>
      */
     public com.google.protobuf.BoolValue.Builder getDisallowUsernameSubstringBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDisallowUsernameSubstringFieldBuilder().getBuilder();
     }
@@ -1515,7 +1454,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the passwordChangeInterval field is set.
      */
     public boolean hasPasswordChangeInterval() {
-      return passwordChangeIntervalBuilder_ != null || passwordChangeInterval_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1547,11 +1486,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         passwordChangeInterval_ = value;
-        onChanged();
       } else {
         passwordChangeIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1566,11 +1505,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (passwordChangeIntervalBuilder_ == null) {
         passwordChangeInterval_ = builderForValue.build();
-        onChanged();
       } else {
         passwordChangeIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1583,17 +1522,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePasswordChangeInterval(com.google.protobuf.Duration value) {
       if (passwordChangeIntervalBuilder_ == null) {
-        if (passwordChangeInterval_ != null) {
-          passwordChangeInterval_ =
-            com.google.protobuf.Duration.newBuilder(passwordChangeInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          passwordChangeInterval_ != null &&
+          passwordChangeInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getPasswordChangeIntervalBuilder().mergeFrom(value);
         } else {
           passwordChangeInterval_ = value;
         }
-        onChanged();
       } else {
         passwordChangeIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1605,14 +1545,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration password_change_interval = 5;</code>
      */
     public Builder clearPasswordChangeInterval() {
-      if (passwordChangeIntervalBuilder_ == null) {
-        passwordChangeInterval_ = null;
-        onChanged();
-      } else {
-        passwordChangeInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      passwordChangeInterval_ = null;
+      if (passwordChangeIntervalBuilder_ != null) {
+        passwordChangeIntervalBuilder_.dispose();
         passwordChangeIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1624,7 +1563,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration password_change_interval = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getPasswordChangeIntervalBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getPasswordChangeIntervalFieldBuilder().getBuilder();
     }
@@ -1678,7 +1617,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enablePasswordPolicy field is set.
      */
     public boolean hasEnablePasswordPolicy() {
-      return enablePasswordPolicyBuilder_ != null || enablePasswordPolicy_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1708,11 +1647,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enablePasswordPolicy_ = value;
-        onChanged();
       } else {
         enablePasswordPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1726,11 +1665,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (enablePasswordPolicyBuilder_ == null) {
         enablePasswordPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         enablePasswordPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1742,17 +1681,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnablePasswordPolicy(com.google.protobuf.BoolValue value) {
       if (enablePasswordPolicyBuilder_ == null) {
-        if (enablePasswordPolicy_ != null) {
-          enablePasswordPolicy_ =
-            com.google.protobuf.BoolValue.newBuilder(enablePasswordPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          enablePasswordPolicy_ != null &&
+          enablePasswordPolicy_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getEnablePasswordPolicyBuilder().mergeFrom(value);
         } else {
           enablePasswordPolicy_ = value;
         }
-        onChanged();
       } else {
         enablePasswordPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1763,14 +1703,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_password_policy = 6;</code>
      */
     public Builder clearEnablePasswordPolicy() {
-      if (enablePasswordPolicyBuilder_ == null) {
-        enablePasswordPolicy_ = null;
-        onChanged();
-      } else {
-        enablePasswordPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      enablePasswordPolicy_ = null;
+      if (enablePasswordPolicyBuilder_ != null) {
+        enablePasswordPolicyBuilder_.dispose();
         enablePasswordPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1781,7 +1720,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_password_policy = 6;</code>
      */
     public com.google.protobuf.BoolValue.Builder getEnablePasswordPolicyBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEnablePasswordPolicyFieldBuilder().getBuilder();
     }
@@ -1853,7 +1792,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PasswordValidationPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

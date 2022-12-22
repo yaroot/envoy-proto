@@ -31,8 +31,8 @@ public interface DeleteEntityRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The etag associated with the entity, which can be retrieved with a
-   * [GetEntity][] request.
+   * Required. The etag associated with the entity, which can be retrieved with
+   * a [GetEntity][] request.
    * </pre>
    *
    * <code>string etag = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -41,8 +41,8 @@ public interface DeleteEntityRequestOrBuilder extends
   java.lang.String getEtag();
   /**
    * <pre>
-   * Required. The etag associated with the entity, which can be retrieved with a
-   * [GetEntity][] request.
+   * Required. The etag associated with the entity, which can be retrieved with
+   * a [GetEntity][] request.
    * </pre>
    *
    * <code>string etag = 2 [(.google.api.field_behavior) = REQUIRED];</code>

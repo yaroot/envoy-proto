@@ -39,167 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InputDataConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            datasetId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1.FractionSplit.Builder subBuilder = null;
-            if (splitCase_ == 2) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.FractionSplit) split_).toBuilder();
-            }
-            split_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.FractionSplit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.FractionSplit) split_);
-              split_ = subBuilder.buildPartial();
-            }
-            splitCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1.FilterSplit.Builder subBuilder = null;
-            if (splitCase_ == 3) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.FilterSplit) split_).toBuilder();
-            }
-            split_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.FilterSplit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.FilterSplit) split_);
-              split_ = subBuilder.buildPartial();
-            }
-            splitCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.aiplatform.v1.PredefinedSplit.Builder subBuilder = null;
-            if (splitCase_ == 4) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.PredefinedSplit) split_).toBuilder();
-            }
-            split_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.PredefinedSplit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.PredefinedSplit) split_);
-              split_ = subBuilder.buildPartial();
-            }
-            splitCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.aiplatform.v1.TimestampSplit.Builder subBuilder = null;
-            if (splitCase_ == 5) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.TimestampSplit) split_).toBuilder();
-            }
-            split_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.TimestampSplit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.TimestampSplit) split_);
-              split_ = subBuilder.buildPartial();
-            }
-            splitCase_ = 5;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            annotationsFilter_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            savedQueryId_ = s;
-            break;
-          }
-          case 66: {
-            com.google.cloud.aiplatform.v1.GcsDestination.Builder subBuilder = null;
-            if (destinationCase_ == 8) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.GcsDestination) destination_).toBuilder();
-            }
-            destination_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.GcsDestination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.GcsDestination) destination_);
-              destination_ = subBuilder.buildPartial();
-            }
-            destinationCase_ = 8;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            annotationSchemaUri_ = s;
-            break;
-          }
-          case 82: {
-            com.google.cloud.aiplatform.v1.BigQueryDestination.Builder subBuilder = null;
-            if (destinationCase_ == 10) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.BigQueryDestination) destination_).toBuilder();
-            }
-            destination_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.BigQueryDestination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.BigQueryDestination) destination_);
-              destination_ = subBuilder.buildPartial();
-            }
-            destinationCase_ = 10;
-            break;
-          }
-          case 98: {
-            com.google.cloud.aiplatform.v1.StratifiedSplit.Builder subBuilder = null;
-            if (splitCase_ == 12) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.StratifiedSplit) split_).toBuilder();
-            }
-            split_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.StratifiedSplit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.StratifiedSplit) split_);
-              split_ = subBuilder.buildPartial();
-            }
-            splitCase_ = 12;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.TrainingPipelineProto.internal_static_google_cloud_aiplatform_v1_InputDataConfig_descriptor;
@@ -699,7 +538,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATASET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object datasetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object datasetId_ = "";
   /**
    * <pre>
    * Required. The ID of the Dataset in the same Project and Location which data will be
@@ -757,7 +597,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATIONS_FILTER_FIELD_NUMBER = 6;
-  private volatile java.lang.Object annotationsFilter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object annotationsFilter_ = "";
   /**
    * <pre>
    * Applicable only to Datasets that have DataItems and Annotations.
@@ -819,7 +660,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATION_SCHEMA_URI_FIELD_NUMBER = 9;
-  private volatile java.lang.Object annotationSchemaUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object annotationSchemaUri_ = "";
   /**
    * <pre>
    * Applicable only to custom training with Datasets that have DataItems and
@@ -895,7 +737,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAVED_QUERY_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object savedQueryId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object savedQueryId_ = "";
   /**
    * <pre>
    * Only applicable to Datasets that have SavedQueries.
@@ -956,6 +799,21 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PERSIST_ML_USE_ASSIGNMENT_FIELD_NUMBER = 11;
+  private boolean persistMlUseAssignment_ = false;
+  /**
+   * <pre>
+   * Whether to persist the ML use assignment to data item system labels.
+   * </pre>
+   *
+   * <code>bool persist_ml_use_assignment = 11;</code>
+   * @return The persistMlUseAssignment.
+   */
+  @java.lang.Override
+  public boolean getPersistMlUseAssignment() {
+    return persistMlUseAssignment_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1000,10 +858,13 @@ private static final long serialVersionUID = 0L;
     if (destinationCase_ == 10) {
       output.writeMessage(10, (com.google.cloud.aiplatform.v1.BigQueryDestination) destination_);
     }
+    if (persistMlUseAssignment_ != false) {
+      output.writeBool(11, persistMlUseAssignment_);
+    }
     if (splitCase_ == 12) {
       output.writeMessage(12, (com.google.cloud.aiplatform.v1.StratifiedSplit) split_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1048,11 +909,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(10, (com.google.cloud.aiplatform.v1.BigQueryDestination) destination_);
     }
+    if (persistMlUseAssignment_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, persistMlUseAssignment_);
+    }
     if (splitCase_ == 12) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, (com.google.cloud.aiplatform.v1.StratifiedSplit) split_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1075,6 +940,8 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAnnotationSchemaUri())) return false;
     if (!getSavedQueryId()
         .equals(other.getSavedQueryId())) return false;
+    if (getPersistMlUseAssignment()
+        != other.getPersistMlUseAssignment()) return false;
     if (!getSplitCase().equals(other.getSplitCase())) return false;
     switch (splitCase_) {
       case 2:
@@ -1113,7 +980,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1132,6 +999,9 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getAnnotationSchemaUri().hashCode();
     hash = (37 * hash) + SAVED_QUERY_ID_FIELD_NUMBER;
     hash = (53 * hash) + getSavedQueryId().hashCode();
+    hash = (37 * hash) + PERSIST_ML_USE_ASSIGNMENT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getPersistMlUseAssignment());
     switch (splitCase_) {
       case 2:
         hash = (37 * hash) + FRACTION_SPLIT_FIELD_NUMBER;
@@ -1168,7 +1038,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1290,30 +1160,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.InputDataConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (fractionSplitBuilder_ != null) {
+        fractionSplitBuilder_.clear();
+      }
+      if (filterSplitBuilder_ != null) {
+        filterSplitBuilder_.clear();
+      }
+      if (predefinedSplitBuilder_ != null) {
+        predefinedSplitBuilder_.clear();
+      }
+      if (timestampSplitBuilder_ != null) {
+        timestampSplitBuilder_.clear();
+      }
+      if (stratifiedSplitBuilder_ != null) {
+        stratifiedSplitBuilder_.clear();
+      }
+      if (gcsDestinationBuilder_ != null) {
+        gcsDestinationBuilder_.clear();
+      }
+      if (bigqueryDestinationBuilder_ != null) {
+        bigqueryDestinationBuilder_.clear();
+      }
       datasetId_ = "";
-
       annotationsFilter_ = "";
-
       annotationSchemaUri_ = "";
-
       savedQueryId_ = "";
-
+      persistMlUseAssignment_ = false;
       splitCase_ = 0;
       split_ = null;
       destinationCase_ = 0;
@@ -1344,63 +1228,64 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.InputDataConfig buildPartial() {
       com.google.cloud.aiplatform.v1.InputDataConfig result = new com.google.cloud.aiplatform.v1.InputDataConfig(this);
-      if (splitCase_ == 2) {
-        if (fractionSplitBuilder_ == null) {
-          result.split_ = split_;
-        } else {
-          result.split_ = fractionSplitBuilder_.build();
-        }
-      }
-      if (splitCase_ == 3) {
-        if (filterSplitBuilder_ == null) {
-          result.split_ = split_;
-        } else {
-          result.split_ = filterSplitBuilder_.build();
-        }
-      }
-      if (splitCase_ == 4) {
-        if (predefinedSplitBuilder_ == null) {
-          result.split_ = split_;
-        } else {
-          result.split_ = predefinedSplitBuilder_.build();
-        }
-      }
-      if (splitCase_ == 5) {
-        if (timestampSplitBuilder_ == null) {
-          result.split_ = split_;
-        } else {
-          result.split_ = timestampSplitBuilder_.build();
-        }
-      }
-      if (splitCase_ == 12) {
-        if (stratifiedSplitBuilder_ == null) {
-          result.split_ = split_;
-        } else {
-          result.split_ = stratifiedSplitBuilder_.build();
-        }
-      }
-      if (destinationCase_ == 8) {
-        if (gcsDestinationBuilder_ == null) {
-          result.destination_ = destination_;
-        } else {
-          result.destination_ = gcsDestinationBuilder_.build();
-        }
-      }
-      if (destinationCase_ == 10) {
-        if (bigqueryDestinationBuilder_ == null) {
-          result.destination_ = destination_;
-        } else {
-          result.destination_ = bigqueryDestinationBuilder_.build();
-        }
-      }
-      result.datasetId_ = datasetId_;
-      result.annotationsFilter_ = annotationsFilter_;
-      result.annotationSchemaUri_ = annotationSchemaUri_;
-      result.savedQueryId_ = savedQueryId_;
-      result.splitCase_ = splitCase_;
-      result.destinationCase_ = destinationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.InputDataConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.datasetId_ = datasetId_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.annotationsFilter_ = annotationsFilter_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.annotationSchemaUri_ = annotationSchemaUri_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.savedQueryId_ = savedQueryId_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.persistMlUseAssignment_ = persistMlUseAssignment_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1.InputDataConfig result) {
+      result.splitCase_ = splitCase_;
+      result.split_ = this.split_;
+      if (splitCase_ == 2 &&
+          fractionSplitBuilder_ != null) {
+        result.split_ = fractionSplitBuilder_.build();
+      }
+      if (splitCase_ == 3 &&
+          filterSplitBuilder_ != null) {
+        result.split_ = filterSplitBuilder_.build();
+      }
+      if (splitCase_ == 4 &&
+          predefinedSplitBuilder_ != null) {
+        result.split_ = predefinedSplitBuilder_.build();
+      }
+      if (splitCase_ == 5 &&
+          timestampSplitBuilder_ != null) {
+        result.split_ = timestampSplitBuilder_.build();
+      }
+      if (splitCase_ == 12 &&
+          stratifiedSplitBuilder_ != null) {
+        result.split_ = stratifiedSplitBuilder_.build();
+      }
+      result.destinationCase_ = destinationCase_;
+      result.destination_ = this.destination_;
+      if (destinationCase_ == 8 &&
+          gcsDestinationBuilder_ != null) {
+        result.destination_ = gcsDestinationBuilder_.build();
+      }
+      if (destinationCase_ == 10 &&
+          bigqueryDestinationBuilder_ != null) {
+        result.destination_ = bigqueryDestinationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1449,19 +1334,26 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1.InputDataConfig.getDefaultInstance()) return this;
       if (!other.getDatasetId().isEmpty()) {
         datasetId_ = other.datasetId_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getAnnotationsFilter().isEmpty()) {
         annotationsFilter_ = other.annotationsFilter_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getAnnotationSchemaUri().isEmpty()) {
         annotationSchemaUri_ = other.annotationSchemaUri_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getSavedQueryId().isEmpty()) {
         savedQueryId_ = other.savedQueryId_;
+        bitField0_ |= 0x00000400;
         onChanged();
+      }
+      if (other.getPersistMlUseAssignment() != false) {
+        setPersistMlUseAssignment(other.getPersistMlUseAssignment());
       }
       switch (other.getSplitCase()) {
         case FRACTION_SPLIT: {
@@ -1501,7 +1393,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1516,17 +1408,104 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.InputDataConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              datasetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getFractionSplitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              splitCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFilterSplitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              splitCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPredefinedSplitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              splitCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getTimestampSplitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              splitCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              annotationsFilter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 50
+            case 58: {
+              savedQueryId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getGcsDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              annotationSchemaUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getBigqueryDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationCase_ = 10;
+              break;
+            } // case 82
+            case 88: {
+              persistMlUseAssignment_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getStratifiedSplitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              splitCase_ = 12;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.InputDataConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int splitCase_ = 0;
@@ -1559,6 +1538,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.aiplatform.v1.FractionSplit, com.google.cloud.aiplatform.v1.FractionSplit.Builder, com.google.cloud.aiplatform.v1.FractionSplitOrBuilder> fractionSplitBuilder_;
@@ -1734,7 +1714,7 @@ private static final long serialVersionUID = 0L;
         split_ = null;
       }
       splitCase_ = 2;
-      onChanged();;
+      onChanged();
       return fractionSplitBuilder_;
     }
 
@@ -1912,7 +1892,7 @@ private static final long serialVersionUID = 0L;
         split_ = null;
       }
       splitCase_ = 3;
-      onChanged();;
+      onChanged();
       return filterSplitBuilder_;
     }
 
@@ -2099,7 +2079,7 @@ private static final long serialVersionUID = 0L;
         split_ = null;
       }
       splitCase_ = 4;
-      onChanged();;
+      onChanged();
       return predefinedSplitBuilder_;
     }
 
@@ -2286,7 +2266,7 @@ private static final long serialVersionUID = 0L;
         split_ = null;
       }
       splitCase_ = 5;
-      onChanged();;
+      onChanged();
       return timestampSplitBuilder_;
     }
 
@@ -2473,7 +2453,7 @@ private static final long serialVersionUID = 0L;
         split_ = null;
       }
       splitCase_ = 12;
-      onChanged();;
+      onChanged();
       return stratifiedSplitBuilder_;
     }
 
@@ -2786,7 +2766,7 @@ private static final long serialVersionUID = 0L;
         destination_ = null;
       }
       destinationCase_ = 8;
-      onChanged();;
+      onChanged();
       return gcsDestinationBuilder_;
     }
 
@@ -3090,7 +3070,7 @@ private static final long serialVersionUID = 0L;
         destination_ = null;
       }
       destinationCase_ = 10;
-      onChanged();;
+      onChanged();
       return bigqueryDestinationBuilder_;
     }
 
@@ -3165,11 +3145,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatasetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       datasetId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3188,8 +3166,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDatasetId() {
-      
       datasetId_ = getDefaultInstance().getDatasetId();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3210,12 +3188,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDatasetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       datasetId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3297,11 +3273,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationsFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       annotationsFilter_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3322,8 +3296,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnnotationsFilter() {
-      
       annotationsFilter_ = getDefaultInstance().getAnnotationsFilter();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3346,12 +3320,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationsFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       annotationsFilter_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3454,11 +3426,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSchemaUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       annotationSchemaUri_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3486,8 +3456,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnnotationSchemaUri() {
-      
       annotationSchemaUri_ = getDefaultInstance().getAnnotationSchemaUri();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3517,12 +3487,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationSchemaUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       annotationSchemaUri_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3604,11 +3572,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSavedQueryId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       savedQueryId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3629,8 +3595,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSavedQueryId() {
-      
       savedQueryId_ = getDefaultInstance().getSavedQueryId();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3653,12 +3619,54 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSavedQueryIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       savedQueryId_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+
+    private boolean persistMlUseAssignment_ ;
+    /**
+     * <pre>
+     * Whether to persist the ML use assignment to data item system labels.
+     * </pre>
+     *
+     * <code>bool persist_ml_use_assignment = 11;</code>
+     * @return The persistMlUseAssignment.
+     */
+    @java.lang.Override
+    public boolean getPersistMlUseAssignment() {
+      return persistMlUseAssignment_;
+    }
+    /**
+     * <pre>
+     * Whether to persist the ML use assignment to data item system labels.
+     * </pre>
+     *
+     * <code>bool persist_ml_use_assignment = 11;</code>
+     * @param value The persistMlUseAssignment to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPersistMlUseAssignment(boolean value) {
+      
+      persistMlUseAssignment_ = value;
+      bitField0_ |= 0x00000800;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether to persist the ML use assignment to data item system labels.
+     * </pre>
+     *
+     * <code>bool persist_ml_use_assignment = 11;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPersistMlUseAssignment() {
+      bitField0_ = (bitField0_ & ~0x00000800);
+      persistMlUseAssignment_ = false;
       onChanged();
       return this;
     }
@@ -3695,7 +3703,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InputDataConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

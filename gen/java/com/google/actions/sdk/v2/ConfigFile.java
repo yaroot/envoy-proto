@@ -37,219 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigFile(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filePath_ = s;
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.Manifest.Builder subBuilder = null;
-            if (fileCase_ == 2) {
-              subBuilder = ((com.google.actions.sdk.v2.Manifest) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.Manifest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.Manifest) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.actions.sdk.v2.Actions.Builder subBuilder = null;
-            if (fileCase_ == 3) {
-              subBuilder = ((com.google.actions.sdk.v2.Actions) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.Actions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.Actions) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.actions.sdk.v2.Settings.Builder subBuilder = null;
-            if (fileCase_ == 4) {
-              subBuilder = ((com.google.actions.sdk.v2.Settings) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.Settings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.Settings) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 4;
-            break;
-          }
-          case 50: {
-            com.google.actions.sdk.v2.Webhook.Builder subBuilder = null;
-            if (fileCase_ == 6) {
-              subBuilder = ((com.google.actions.sdk.v2.Webhook) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.Webhook.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.Webhook) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.actions.sdk.v2.interactionmodel.Intent.Builder subBuilder = null;
-            if (fileCase_ == 7) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.Intent) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.Intent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.Intent) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.actions.sdk.v2.interactionmodel.type.Type.Builder subBuilder = null;
-            if (fileCase_ == 8) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.type.Type) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.type.Type.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.type.Type) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.actions.sdk.v2.interactionmodel.GlobalIntentEvent.Builder subBuilder = null;
-            if (fileCase_ == 9) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.GlobalIntentEvent) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.GlobalIntentEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.GlobalIntentEvent) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.actions.sdk.v2.interactionmodel.Scene.Builder subBuilder = null;
-            if (fileCase_ == 10) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.Scene) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.Scene.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.Scene) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.Builder subBuilder = null;
-            if (fileCase_ == 11) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticPrompt) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (fileCase_ == 12) {
-              subBuilder = ((com.google.protobuf.Struct) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Struct) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.actions.sdk.v2.AccountLinkingSecret.Builder subBuilder = null;
-            if (fileCase_ == 13) {
-              subBuilder = ((com.google.actions.sdk.v2.AccountLinkingSecret) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.AccountLinkingSecret.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.AccountLinkingSecret) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 13;
-            break;
-          }
-          case 122: {
-            com.google.actions.sdk.v2.interactionmodel.EntitySet.Builder subBuilder = null;
-            if (fileCase_ == 15) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.EntitySet) file_).toBuilder();
-            }
-            file_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.EntitySet.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.EntitySet) file_);
-              file_ = subBuilder.buildPartial();
-            }
-            fileCase_ = 15;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.ConfigFileProto.internal_static_google_actions_sdk_v2_ConfigFile_descriptor;
@@ -325,7 +112,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object filePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filePath_ = "";
   /**
    * <pre>
    * Relative path of the config file from the project root in the SDK file
@@ -1009,7 +797,7 @@ private static final long serialVersionUID = 0L;
     if (fileCase_ == 15) {
       output.writeMessage(15, (com.google.actions.sdk.v2.interactionmodel.EntitySet) file_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1069,7 +857,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, (com.google.actions.sdk.v2.interactionmodel.EntitySet) file_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1139,7 +927,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1204,7 +992,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1327,24 +1115,55 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.ConfigFile.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       filePath_ = "";
-
+      if (manifestBuilder_ != null) {
+        manifestBuilder_.clear();
+      }
+      if (actionsBuilder_ != null) {
+        actionsBuilder_.clear();
+      }
+      if (settingsBuilder_ != null) {
+        settingsBuilder_.clear();
+      }
+      if (webhookBuilder_ != null) {
+        webhookBuilder_.clear();
+      }
+      if (intentBuilder_ != null) {
+        intentBuilder_.clear();
+      }
+      if (typeBuilder_ != null) {
+        typeBuilder_.clear();
+      }
+      if (entitySetBuilder_ != null) {
+        entitySetBuilder_.clear();
+      }
+      if (globalIntentEventBuilder_ != null) {
+        globalIntentEventBuilder_.clear();
+      }
+      if (sceneBuilder_ != null) {
+        sceneBuilder_.clear();
+      }
+      if (staticPromptBuilder_ != null) {
+        staticPromptBuilder_.clear();
+      }
+      if (accountLinkingSecretBuilder_ != null) {
+        accountLinkingSecretBuilder_.clear();
+      }
+      if (resourceBundleBuilder_ != null) {
+        resourceBundleBuilder_.clear();
+      }
       fileCase_ = 0;
       file_ = null;
       return this;
@@ -1373,94 +1192,70 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.ConfigFile buildPartial() {
       com.google.actions.sdk.v2.ConfigFile result = new com.google.actions.sdk.v2.ConfigFile(this);
-      result.filePath_ = filePath_;
-      if (fileCase_ == 2) {
-        if (manifestBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = manifestBuilder_.build();
-        }
-      }
-      if (fileCase_ == 3) {
-        if (actionsBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = actionsBuilder_.build();
-        }
-      }
-      if (fileCase_ == 4) {
-        if (settingsBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = settingsBuilder_.build();
-        }
-      }
-      if (fileCase_ == 6) {
-        if (webhookBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = webhookBuilder_.build();
-        }
-      }
-      if (fileCase_ == 7) {
-        if (intentBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = intentBuilder_.build();
-        }
-      }
-      if (fileCase_ == 8) {
-        if (typeBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = typeBuilder_.build();
-        }
-      }
-      if (fileCase_ == 15) {
-        if (entitySetBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = entitySetBuilder_.build();
-        }
-      }
-      if (fileCase_ == 9) {
-        if (globalIntentEventBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = globalIntentEventBuilder_.build();
-        }
-      }
-      if (fileCase_ == 10) {
-        if (sceneBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = sceneBuilder_.build();
-        }
-      }
-      if (fileCase_ == 11) {
-        if (staticPromptBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = staticPromptBuilder_.build();
-        }
-      }
-      if (fileCase_ == 13) {
-        if (accountLinkingSecretBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = accountLinkingSecretBuilder_.build();
-        }
-      }
-      if (fileCase_ == 12) {
-        if (resourceBundleBuilder_ == null) {
-          result.file_ = file_;
-        } else {
-          result.file_ = resourceBundleBuilder_.build();
-        }
-      }
-      result.fileCase_ = fileCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.ConfigFile result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.filePath_ = filePath_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.actions.sdk.v2.ConfigFile result) {
+      result.fileCase_ = fileCase_;
+      result.file_ = this.file_;
+      if (fileCase_ == 2 &&
+          manifestBuilder_ != null) {
+        result.file_ = manifestBuilder_.build();
+      }
+      if (fileCase_ == 3 &&
+          actionsBuilder_ != null) {
+        result.file_ = actionsBuilder_.build();
+      }
+      if (fileCase_ == 4 &&
+          settingsBuilder_ != null) {
+        result.file_ = settingsBuilder_.build();
+      }
+      if (fileCase_ == 6 &&
+          webhookBuilder_ != null) {
+        result.file_ = webhookBuilder_.build();
+      }
+      if (fileCase_ == 7 &&
+          intentBuilder_ != null) {
+        result.file_ = intentBuilder_.build();
+      }
+      if (fileCase_ == 8 &&
+          typeBuilder_ != null) {
+        result.file_ = typeBuilder_.build();
+      }
+      if (fileCase_ == 15 &&
+          entitySetBuilder_ != null) {
+        result.file_ = entitySetBuilder_.build();
+      }
+      if (fileCase_ == 9 &&
+          globalIntentEventBuilder_ != null) {
+        result.file_ = globalIntentEventBuilder_.build();
+      }
+      if (fileCase_ == 10 &&
+          sceneBuilder_ != null) {
+        result.file_ = sceneBuilder_.build();
+      }
+      if (fileCase_ == 11 &&
+          staticPromptBuilder_ != null) {
+        result.file_ = staticPromptBuilder_.build();
+      }
+      if (fileCase_ == 13 &&
+          accountLinkingSecretBuilder_ != null) {
+        result.file_ = accountLinkingSecretBuilder_.build();
+      }
+      if (fileCase_ == 12 &&
+          resourceBundleBuilder_ != null) {
+        result.file_ = resourceBundleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1509,6 +1304,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.ConfigFile.getDefaultInstance()) return this;
       if (!other.getFilePath().isEmpty()) {
         filePath_ = other.filePath_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getFileCase()) {
@@ -1564,7 +1360,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1579,17 +1375,119 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.ConfigFile parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              filePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getManifestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getActionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 4;
+              break;
+            } // case 34
+            case 50: {
+              input.readMessage(
+                  getWebhookFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getIntentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getGlobalIntentEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getSceneFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getStaticPromptFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getResourceBundleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getAccountLinkingSecretFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 13;
+              break;
+            } // case 106
+            case 122: {
+              input.readMessage(
+                  getEntitySetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              fileCase_ = 15;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.ConfigFile) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int fileCase_ = 0;
@@ -1607,6 +1505,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object filePath_ = "";
     /**
@@ -1667,11 +1566,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filePath_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1686,8 +1583,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilePath() {
-      
       filePath_ = getDefaultInstance().getFilePath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1704,12 +1601,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filePath_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1897,7 +1792,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 2;
-      onChanged();;
+      onChanged();
       return manifestBuilder_;
     }
 
@@ -2084,7 +1979,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 3;
-      onChanged();;
+      onChanged();
       return actionsBuilder_;
     }
 
@@ -2316,7 +2211,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 4;
-      onChanged();;
+      onChanged();
       return settingsBuilder_;
     }
 
@@ -2503,7 +2398,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 6;
-      onChanged();;
+      onChanged();
       return webhookBuilder_;
     }
 
@@ -2690,7 +2585,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 7;
-      onChanged();;
+      onChanged();
       return intentBuilder_;
     }
 
@@ -2877,7 +2772,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 8;
-      onChanged();;
+      onChanged();
       return typeBuilder_;
     }
 
@@ -3064,7 +2959,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 15;
-      onChanged();;
+      onChanged();
       return entitySetBuilder_;
     }
 
@@ -3269,7 +3164,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 9;
-      onChanged();;
+      onChanged();
       return globalIntentEventBuilder_;
     }
 
@@ -3456,7 +3351,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 10;
-      onChanged();;
+      onChanged();
       return sceneBuilder_;
     }
 
@@ -3643,7 +3538,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 11;
-      onChanged();;
+      onChanged();
       return staticPromptBuilder_;
     }
 
@@ -3830,7 +3725,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 13;
-      onChanged();;
+      onChanged();
       return accountLinkingSecretBuilder_;
     }
 
@@ -4044,7 +3939,7 @@ private static final long serialVersionUID = 0L;
         file_ = null;
       }
       fileCase_ = 12;
-      onChanged();;
+      onChanged();
       return resourceBundleBuilder_;
     }
     @java.lang.Override
@@ -4080,7 +3975,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigFile(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

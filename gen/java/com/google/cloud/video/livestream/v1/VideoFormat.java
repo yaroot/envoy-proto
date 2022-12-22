@@ -35,66 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private VideoFormat(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            codec_ = s;
-            break;
-          }
-          case 16: {
-
-            widthPixels_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            heightPixels_ = input.readInt32();
-            break;
-          }
-          case 33: {
-
-            frameRate_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.ResourcesProto.internal_static_google_cloud_video_livestream_v1_VideoFormat_descriptor;
@@ -109,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODEC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object codec_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object codec_ = "";
   /**
    * <pre>
    * Video codec used in this video stream.
@@ -155,7 +96,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WIDTH_PIXELS_FIELD_NUMBER = 2;
-  private int widthPixels_;
+  private int widthPixels_ = 0;
   /**
    * <pre>
    * The width of the video stream in pixels.
@@ -170,7 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEIGHT_PIXELS_FIELD_NUMBER = 3;
-  private int heightPixels_;
+  private int heightPixels_ = 0;
   /**
    * <pre>
    * The height of the video stream in pixels.
@@ -185,7 +126,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FRAME_RATE_FIELD_NUMBER = 4;
-  private double frameRate_;
+  private double frameRate_ = 0D;
   /**
    * <pre>
    * The frame rate of the input video stream.
@@ -225,7 +166,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(frameRate_) != 0) {
       output.writeDouble(4, frameRate_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +190,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(4, frameRate_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -273,7 +214,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getFrameRate())
         != java.lang.Double.doubleToLongBits(
             other.getFrameRate())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -293,7 +234,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + FRAME_RATE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getFrameRate()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -414,30 +355,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.VideoFormat.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       codec_ = "";
-
       widthPixels_ = 0;
-
       heightPixels_ = 0;
-
       frameRate_ = 0D;
-
       return this;
     }
 
@@ -464,12 +397,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.VideoFormat buildPartial() {
       com.google.cloud.video.livestream.v1.VideoFormat result = new com.google.cloud.video.livestream.v1.VideoFormat(this);
-      result.codec_ = codec_;
-      result.widthPixels_ = widthPixels_;
-      result.heightPixels_ = heightPixels_;
-      result.frameRate_ = frameRate_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.VideoFormat result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.codec_ = codec_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.widthPixels_ = widthPixels_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.heightPixels_ = heightPixels_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.frameRate_ = frameRate_;
+      }
     }
 
     @java.lang.Override
@@ -518,6 +464,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.livestream.v1.VideoFormat.getDefaultInstance()) return this;
       if (!other.getCodec().isEmpty()) {
         codec_ = other.codec_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getWidthPixels() != 0) {
@@ -529,7 +476,7 @@ private static final long serialVersionUID = 0L;
       if (other.getFrameRate() != 0D) {
         setFrameRate(other.getFrameRate());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -544,19 +491,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.VideoFormat parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              codec_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              widthPixels_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              heightPixels_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 33: {
+              frameRate_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.VideoFormat) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object codec_ = "";
     /**
@@ -611,11 +592,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodec(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -628,8 +607,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCodec() {
-      
       codec_ = getDefaultInstance().getCodec();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -644,12 +623,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCodecBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       codec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -679,6 +656,7 @@ private static final long serialVersionUID = 0L;
     public Builder setWidthPixels(int value) {
       
       widthPixels_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -691,7 +669,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWidthPixels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       widthPixels_ = 0;
       onChanged();
       return this;
@@ -722,6 +700,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHeightPixels(int value) {
       
       heightPixels_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -734,7 +713,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeightPixels() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       heightPixels_ = 0;
       onChanged();
       return this;
@@ -765,6 +744,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFrameRate(double value) {
       
       frameRate_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -777,7 +757,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFrameRate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       frameRate_ = 0D;
       onChanged();
       return this;
@@ -815,7 +795,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new VideoFormat(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

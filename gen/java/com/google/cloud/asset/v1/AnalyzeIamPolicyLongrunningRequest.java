@@ -5,8 +5,7 @@ package com.google.cloud.asset.v1;
 
 /**
  * <pre>
- * A request message for
- * [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning].
+ * A request message for [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning].
  * </pre>
  *
  * Protobuf type {@code google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest}
@@ -35,77 +34,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private AnalyzeIamPolicyLongrunningRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder subBuilder = null;
-            if (analysisQuery_ != null) {
-              subBuilder = analysisQuery_.toBuilder();
-            }
-            analysisQuery_ = input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisQuery.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(analysisQuery_);
-              analysisQuery_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.Builder subBuilder = null;
-            if (outputConfig_ != null) {
-              subBuilder = outputConfig_.toBuilder();
-            }
-            outputConfig_ = input.readMessage(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputConfig_);
-              outputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            savedAnalysisQuery_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -155,11 +83,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.asset.v1.IamPolicyAnalysisQueryOrBuilder getAnalysisQueryOrBuilder() {
-    return getAnalysisQuery();
+    return analysisQuery_ == null ? com.google.cloud.asset.v1.IamPolicyAnalysisQuery.getDefaultInstance() : analysisQuery_;
   }
 
   public static final int SAVED_ANALYSIS_QUERY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object savedAnalysisQuery_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object savedAnalysisQuery_ = "";
   /**
    * <pre>
    * Optional. The name of a saved query, which must be in the format of:
@@ -232,8 +161,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig outputConfig_;
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -245,8 +173,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -258,15 +185,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Output configuration indicating where the results will be output
-   * to.
+   * Required. Output configuration indicating where the results will be output to.
    * </pre>
    *
    * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfigOrBuilder getOutputConfigOrBuilder() {
-    return getOutputConfig();
+    return outputConfig_ == null ? com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.getDefaultInstance() : outputConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -292,7 +218,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(savedAnalysisQuery_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, savedAnalysisQuery_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +238,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(savedAnalysisQuery_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, savedAnalysisQuery_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -339,7 +265,7 @@ private static final long serialVersionUID = 0L;
       if (!getOutputConfig()
           .equals(other.getOutputConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -360,7 +286,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OUTPUT_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getOutputConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -457,8 +383,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A request message for
-   * [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning].
+   * A request message for [AssetService.AnalyzeIamPolicyLongrunning][google.cloud.asset.v1.AssetService.AnalyzeIamPolicyLongrunning].
    * </pre>
    *
    * Protobuf type {@code google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest}
@@ -482,34 +407,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (analysisQueryBuilder_ == null) {
-        analysisQuery_ = null;
-      } else {
-        analysisQuery_ = null;
+      bitField0_ = 0;
+      analysisQuery_ = null;
+      if (analysisQueryBuilder_ != null) {
+        analysisQueryBuilder_.dispose();
         analysisQueryBuilder_ = null;
       }
       savedAnalysisQuery_ = "";
-
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-      } else {
-        outputConfig_ = null;
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
       return this;
@@ -538,19 +456,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest buildPartial() {
       com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest result = new com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest(this);
-      if (analysisQueryBuilder_ == null) {
-        result.analysisQuery_ = analysisQuery_;
-      } else {
-        result.analysisQuery_ = analysisQueryBuilder_.build();
-      }
-      result.savedAnalysisQuery_ = savedAnalysisQuery_;
-      if (outputConfigBuilder_ == null) {
-        result.outputConfig_ = outputConfig_;
-      } else {
-        result.outputConfig_ = outputConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.analysisQuery_ = analysisQueryBuilder_ == null
+            ? analysisQuery_
+            : analysisQueryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.savedAnalysisQuery_ = savedAnalysisQuery_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.outputConfig_ = outputConfigBuilder_ == null
+            ? outputConfig_
+            : outputConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -602,12 +527,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSavedAnalysisQuery().isEmpty()) {
         savedAnalysisQuery_ = other.savedAnalysisQuery_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasOutputConfig()) {
         mergeOutputConfig(other.getOutputConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -622,19 +548,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAnalysisQueryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              savedAnalysisQuery_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.AnalyzeIamPolicyLongrunningRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.asset.v1.IamPolicyAnalysisQuery analysisQuery_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -648,7 +607,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the analysisQuery field is set.
      */
     public boolean hasAnalysisQuery() {
-      return analysisQueryBuilder_ != null || analysisQuery_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -678,11 +637,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         analysisQuery_ = value;
-        onChanged();
       } else {
         analysisQueryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -696,11 +655,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder builderForValue) {
       if (analysisQueryBuilder_ == null) {
         analysisQuery_ = builderForValue.build();
-        onChanged();
       } else {
         analysisQueryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -712,17 +671,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAnalysisQuery(com.google.cloud.asset.v1.IamPolicyAnalysisQuery value) {
       if (analysisQueryBuilder_ == null) {
-        if (analysisQuery_ != null) {
-          analysisQuery_ =
-            com.google.cloud.asset.v1.IamPolicyAnalysisQuery.newBuilder(analysisQuery_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          analysisQuery_ != null &&
+          analysisQuery_ != com.google.cloud.asset.v1.IamPolicyAnalysisQuery.getDefaultInstance()) {
+          getAnalysisQueryBuilder().mergeFrom(value);
         } else {
           analysisQuery_ = value;
         }
-        onChanged();
       } else {
         analysisQueryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -733,14 +693,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisQuery analysis_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAnalysisQuery() {
-      if (analysisQueryBuilder_ == null) {
-        analysisQuery_ = null;
-        onChanged();
-      } else {
-        analysisQuery_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      analysisQuery_ = null;
+      if (analysisQueryBuilder_ != null) {
+        analysisQueryBuilder_.dispose();
         analysisQueryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -751,7 +710,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisQuery analysis_query = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.asset.v1.IamPolicyAnalysisQuery.Builder getAnalysisQueryBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAnalysisQueryFieldBuilder().getBuilder();
     }
@@ -880,11 +839,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSavedAnalysisQuery(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       savedAnalysisQuery_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -909,8 +866,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSavedAnalysisQuery() {
-      
       savedAnalysisQuery_ = getDefaultInstance().getSavedAnalysisQuery();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -937,12 +894,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSavedAnalysisQueryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       savedAnalysisQuery_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -952,20 +907,18 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig, com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.Builder, com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfigOrBuilder> outputConfigBuilder_;
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the outputConfig field is set.
      */
     public boolean hasOutputConfig() {
-      return outputConfigBuilder_ != null || outputConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -980,8 +933,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -992,17 +944,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputConfig_ = value;
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1011,72 +962,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.Builder builderForValue) {
       if (outputConfigBuilder_ == null) {
         outputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeOutputConfig(com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig value) {
       if (outputConfigBuilder_ == null) {
-        if (outputConfig_ != null) {
-          outputConfig_ =
-            com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          outputConfig_ != null &&
+          outputConfig_ != com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.getDefaultInstance()) {
+          getOutputConfigBuilder().mergeFrom(value);
         } else {
           outputConfig_ = value;
         }
-        onChanged();
       } else {
         outputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearOutputConfig() {
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-        onChanged();
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig.Builder getOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getOutputConfigFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1091,8 +1038,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Output configuration indicating where the results will be output
-     * to.
+     * Required. Output configuration indicating where the results will be output to.
      * </pre>
      *
      * <code>.google.cloud.asset.v1.IamPolicyAnalysisOutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1143,7 +1089,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnalyzeIamPolicyLongrunningRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

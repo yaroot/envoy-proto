@@ -40,133 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AndroidRoboTest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.devtools.testing.v1.FileReference.Builder subBuilder = null;
-            if (appUnderTestCase_ == 1) {
-              subBuilder = ((com.google.devtools.testing.v1.FileReference) appUnderTest_).toBuilder();
-            }
-            appUnderTest_ =
-                input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.FileReference) appUnderTest_);
-              appUnderTest_ = subBuilder.buildPartial();
-            }
-            appUnderTestCase_ = 1;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appPackageId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            appInitialActivity_ = s;
-            break;
-          }
-          case 56: {
-
-            maxDepth_ = input.readInt32();
-            break;
-          }
-          case 64: {
-
-            maxSteps_ = input.readInt32();
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              roboDirectives_ = new java.util.ArrayList<com.google.devtools.testing.v1.RoboDirective>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            roboDirectives_.add(
-                input.readMessage(com.google.devtools.testing.v1.RoboDirective.parser(), extensionRegistry));
-            break;
-          }
-          case 106: {
-            com.google.devtools.testing.v1.FileReference.Builder subBuilder = null;
-            if (roboScript_ != null) {
-              subBuilder = roboScript_.toBuilder();
-            }
-            roboScript_ = input.readMessage(com.google.devtools.testing.v1.FileReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(roboScript_);
-              roboScript_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              startingIntents_ = new java.util.ArrayList<com.google.devtools.testing.v1.RoboStartingIntent>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            startingIntents_.add(
-                input.readMessage(com.google.devtools.testing.v1.RoboStartingIntent.parser(), extensionRegistry));
-            break;
-          }
-          case 130: {
-            com.google.devtools.testing.v1.AppBundle.Builder subBuilder = null;
-            if (appUnderTestCase_ == 16) {
-              subBuilder = ((com.google.devtools.testing.v1.AppBundle) appUnderTest_).toBuilder();
-            }
-            appUnderTest_ =
-                input.readMessage(com.google.devtools.testing.v1.AppBundle.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AppBundle) appUnderTest_);
-              appUnderTest_ = subBuilder.buildPartial();
-            }
-            appUnderTestCase_ = 16;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        roboDirectives_ = java.util.Collections.unmodifiableList(roboDirectives_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        startingIntents_ = java.util.Collections.unmodifiableList(startingIntents_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_AndroidRoboTest_descriptor;
@@ -308,7 +181,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APP_PACKAGE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object appPackageId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object appPackageId_ = "";
   /**
    * <pre>
    * The java package for the application under test.
@@ -356,7 +230,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int APP_INITIAL_ACTIVITY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object appInitialActivity_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object appInitialActivity_ = "";
   /**
    * <pre>
    * The initial activity that should be used to start the app.
@@ -402,7 +277,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_DEPTH_FIELD_NUMBER = 7;
-  private int maxDepth_;
+  private int maxDepth_ = 0;
   /**
    * <pre>
    * The max depth of the traversal stack Robo can explore. Needs to be at least
@@ -412,7 +287,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>int32 max_depth = 7 [deprecated = true];</code>
    * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_depth is deprecated.
-   *     See google/devtools/testing/v1/test_execution.proto;l=594
+   *     See google/devtools/testing/v1/test_execution.proto;l=593
    * @return The maxDepth.
    */
   @java.lang.Override
@@ -421,7 +296,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_STEPS_FIELD_NUMBER = 8;
-  private int maxSteps_;
+  private int maxSteps_ = 0;
   /**
    * <pre>
    * The max number of steps Robo can execute.
@@ -430,7 +305,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>int32 max_steps = 8 [deprecated = true];</code>
    * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_steps is deprecated.
-   *     See google/devtools/testing/v1/test_execution.proto;l=598
+   *     See google/devtools/testing/v1/test_execution.proto;l=597
    * @return The maxSteps.
    */
   @java.lang.Override
@@ -439,6 +314,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROBO_DIRECTIVES_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.RoboDirective> roboDirectives_;
   /**
    * <pre>
@@ -546,10 +422,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.devtools.testing.v1.FileReferenceOrBuilder getRoboScriptOrBuilder() {
-    return getRoboScript();
+    return roboScript_ == null ? com.google.devtools.testing.v1.FileReference.getDefaultInstance() : roboScript_;
   }
 
   public static final int STARTING_INTENTS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.devtools.testing.v1.RoboStartingIntent> startingIntents_;
   /**
    * <pre>
@@ -665,7 +542,7 @@ private static final long serialVersionUID = 0L;
     if (appUnderTestCase_ == 16) {
       output.writeMessage(16, (com.google.devtools.testing.v1.AppBundle) appUnderTest_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -708,7 +585,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(16, (com.google.devtools.testing.v1.AppBundle) appUnderTest_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -753,7 +630,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -796,7 +673,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -919,50 +796,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.AndroidRoboTest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRoboDirectivesFieldBuilder();
-        getStartingIntentsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (appApkBuilder_ != null) {
+        appApkBuilder_.clear();
+      }
+      if (appBundleBuilder_ != null) {
+        appBundleBuilder_.clear();
+      }
       appPackageId_ = "";
-
       appInitialActivity_ = "";
-
       maxDepth_ = 0;
-
       maxSteps_ = 0;
-
       if (roboDirectivesBuilder_ == null) {
         roboDirectives_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        roboDirectives_ = null;
         roboDirectivesBuilder_.clear();
       }
-      if (roboScriptBuilder_ == null) {
-        roboScript_ = null;
-      } else {
-        roboScript_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      roboScript_ = null;
+      if (roboScriptBuilder_ != null) {
+        roboScriptBuilder_.dispose();
         roboScriptBuilder_ = null;
       }
       if (startingIntentsBuilder_ == null) {
         startingIntents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        startingIntents_ = null;
         startingIntentsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       appUnderTestCase_ = 0;
       appUnderTest_ = null;
       return this;
@@ -991,51 +865,66 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.AndroidRoboTest buildPartial() {
       com.google.devtools.testing.v1.AndroidRoboTest result = new com.google.devtools.testing.v1.AndroidRoboTest(this);
-      int from_bitField0_ = bitField0_;
-      if (appUnderTestCase_ == 1) {
-        if (appApkBuilder_ == null) {
-          result.appUnderTest_ = appUnderTest_;
-        } else {
-          result.appUnderTest_ = appApkBuilder_.build();
-        }
-      }
-      if (appUnderTestCase_ == 16) {
-        if (appBundleBuilder_ == null) {
-          result.appUnderTest_ = appUnderTest_;
-        } else {
-          result.appUnderTest_ = appBundleBuilder_.build();
-        }
-      }
-      result.appPackageId_ = appPackageId_;
-      result.appInitialActivity_ = appInitialActivity_;
-      result.maxDepth_ = maxDepth_;
-      result.maxSteps_ = maxSteps_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.testing.v1.AndroidRoboTest result) {
       if (roboDirectivesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           roboDirectives_ = java.util.Collections.unmodifiableList(roboDirectives_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.roboDirectives_ = roboDirectives_;
       } else {
         result.roboDirectives_ = roboDirectivesBuilder_.build();
       }
-      if (roboScriptBuilder_ == null) {
-        result.roboScript_ = roboScript_;
-      } else {
-        result.roboScript_ = roboScriptBuilder_.build();
-      }
       if (startingIntentsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           startingIntents_ = java.util.Collections.unmodifiableList(startingIntents_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.startingIntents_ = startingIntents_;
       } else {
         result.startingIntents_ = startingIntentsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.AndroidRoboTest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.appPackageId_ = appPackageId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.appInitialActivity_ = appInitialActivity_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.maxDepth_ = maxDepth_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.maxSteps_ = maxSteps_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.roboScript_ = roboScriptBuilder_ == null
+            ? roboScript_
+            : roboScriptBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.devtools.testing.v1.AndroidRoboTest result) {
       result.appUnderTestCase_ = appUnderTestCase_;
-      onBuilt();
-      return result;
+      result.appUnderTest_ = this.appUnderTest_;
+      if (appUnderTestCase_ == 1 &&
+          appApkBuilder_ != null) {
+        result.appUnderTest_ = appApkBuilder_.build();
+      }
+      if (appUnderTestCase_ == 16 &&
+          appBundleBuilder_ != null) {
+        result.appUnderTest_ = appBundleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1084,10 +973,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.devtools.testing.v1.AndroidRoboTest.getDefaultInstance()) return this;
       if (!other.getAppPackageId().isEmpty()) {
         appPackageId_ = other.appPackageId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getAppInitialActivity().isEmpty()) {
         appInitialActivity_ = other.appInitialActivity_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getMaxDepth() != 0) {
@@ -1100,7 +991,7 @@ private static final long serialVersionUID = 0L;
         if (!other.roboDirectives_.isEmpty()) {
           if (roboDirectives_.isEmpty()) {
             roboDirectives_ = other.roboDirectives_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureRoboDirectivesIsMutable();
             roboDirectives_.addAll(other.roboDirectives_);
@@ -1113,7 +1004,7 @@ private static final long serialVersionUID = 0L;
             roboDirectivesBuilder_.dispose();
             roboDirectivesBuilder_ = null;
             roboDirectives_ = other.roboDirectives_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000040);
             roboDirectivesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRoboDirectivesFieldBuilder() : null;
@@ -1129,7 +1020,7 @@ private static final long serialVersionUID = 0L;
         if (!other.startingIntents_.isEmpty()) {
           if (startingIntents_.isEmpty()) {
             startingIntents_ = other.startingIntents_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureStartingIntentsIsMutable();
             startingIntents_.addAll(other.startingIntents_);
@@ -1142,7 +1033,7 @@ private static final long serialVersionUID = 0L;
             startingIntentsBuilder_.dispose();
             startingIntentsBuilder_ = null;
             startingIntents_ = other.startingIntents_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
             startingIntentsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStartingIntentsFieldBuilder() : null;
@@ -1164,7 +1055,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1179,17 +1070,97 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.AndroidRoboTest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAppApkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              appUnderTestCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              appPackageId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              appInitialActivity_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 56: {
+              maxDepth_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 56
+            case 64: {
+              maxSteps_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 64
+            case 90: {
+              com.google.devtools.testing.v1.RoboDirective m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.RoboDirective.parser(),
+                      extensionRegistry);
+              if (roboDirectivesBuilder_ == null) {
+                ensureRoboDirectivesIsMutable();
+                roboDirectives_.add(m);
+              } else {
+                roboDirectivesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 106: {
+              input.readMessage(
+                  getRoboScriptFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 106
+            case 122: {
+              com.google.devtools.testing.v1.RoboStartingIntent m =
+                  input.readMessage(
+                      com.google.devtools.testing.v1.RoboStartingIntent.parser(),
+                      extensionRegistry);
+              if (startingIntentsBuilder_ == null) {
+                ensureStartingIntentsIsMutable();
+                startingIntents_.add(m);
+              } else {
+                startingIntentsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getAppBundleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              appUnderTestCase_ = 16;
+              break;
+            } // case 130
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.AndroidRoboTest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int appUnderTestCase_ = 0;
@@ -1383,7 +1354,7 @@ private static final long serialVersionUID = 0L;
         appUnderTest_ = null;
       }
       appUnderTestCase_ = 1;
-      onChanged();;
+      onChanged();
       return appApkBuilder_;
     }
 
@@ -1561,7 +1532,7 @@ private static final long serialVersionUID = 0L;
         appUnderTest_ = null;
       }
       appUnderTestCase_ = 16;
-      onChanged();;
+      onChanged();
       return appBundleBuilder_;
     }
 
@@ -1621,11 +1592,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppPackageId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       appPackageId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1639,8 +1608,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppPackageId() {
-      
       appPackageId_ = getDefaultInstance().getAppPackageId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1656,12 +1625,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppPackageIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       appPackageId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1719,11 +1686,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppInitialActivity(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       appInitialActivity_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1736,8 +1701,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAppInitialActivity() {
-      
       appInitialActivity_ = getDefaultInstance().getAppInitialActivity();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1752,12 +1717,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAppInitialActivityBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       appInitialActivity_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1772,7 +1735,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 max_depth = 7 [deprecated = true];</code>
      * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_depth is deprecated.
-     *     See google/devtools/testing/v1/test_execution.proto;l=594
+     *     See google/devtools/testing/v1/test_execution.proto;l=593
      * @return The maxDepth.
      */
     @java.lang.Override
@@ -1788,13 +1751,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 max_depth = 7 [deprecated = true];</code>
      * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_depth is deprecated.
-     *     See google/devtools/testing/v1/test_execution.proto;l=594
+     *     See google/devtools/testing/v1/test_execution.proto;l=593
      * @param value The maxDepth to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setMaxDepth(int value) {
       
       maxDepth_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1807,11 +1771,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 max_depth = 7 [deprecated = true];</code>
      * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_depth is deprecated.
-     *     See google/devtools/testing/v1/test_execution.proto;l=594
+     *     See google/devtools/testing/v1/test_execution.proto;l=593
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearMaxDepth() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       maxDepth_ = 0;
       onChanged();
       return this;
@@ -1826,7 +1790,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 max_steps = 8 [deprecated = true];</code>
      * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_steps is deprecated.
-     *     See google/devtools/testing/v1/test_execution.proto;l=598
+     *     See google/devtools/testing/v1/test_execution.proto;l=597
      * @return The maxSteps.
      */
     @java.lang.Override
@@ -1841,13 +1805,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 max_steps = 8 [deprecated = true];</code>
      * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_steps is deprecated.
-     *     See google/devtools/testing/v1/test_execution.proto;l=598
+     *     See google/devtools/testing/v1/test_execution.proto;l=597
      * @param value The maxSteps to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setMaxSteps(int value) {
       
       maxSteps_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1859,11 +1824,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>int32 max_steps = 8 [deprecated = true];</code>
      * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_steps is deprecated.
-     *     See google/devtools/testing/v1/test_execution.proto;l=598
+     *     See google/devtools/testing/v1/test_execution.proto;l=597
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearMaxSteps() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       maxSteps_ = 0;
       onChanged();
       return this;
@@ -1872,9 +1837,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.RoboDirective> roboDirectives_ =
       java.util.Collections.emptyList();
     private void ensureRoboDirectivesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         roboDirectives_ = new java.util.ArrayList<com.google.devtools.testing.v1.RoboDirective>(roboDirectives_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -2090,7 +2055,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRoboDirectives() {
       if (roboDirectivesBuilder_ == null) {
         roboDirectives_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         roboDirectivesBuilder_.clear();
@@ -2209,7 +2174,7 @@ private static final long serialVersionUID = 0L;
         roboDirectivesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.RoboDirective, com.google.devtools.testing.v1.RoboDirective.Builder, com.google.devtools.testing.v1.RoboDirectiveOrBuilder>(
                 roboDirectives_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         roboDirectives_ = null;
@@ -2230,7 +2195,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the roboScript field is set.
      */
     public boolean hasRoboScript() {
-      return roboScriptBuilder_ != null || roboScript_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2262,11 +2227,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         roboScript_ = value;
-        onChanged();
       } else {
         roboScriptBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2281,11 +2246,11 @@ private static final long serialVersionUID = 0L;
         com.google.devtools.testing.v1.FileReference.Builder builderForValue) {
       if (roboScriptBuilder_ == null) {
         roboScript_ = builderForValue.build();
-        onChanged();
       } else {
         roboScriptBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2298,17 +2263,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRoboScript(com.google.devtools.testing.v1.FileReference value) {
       if (roboScriptBuilder_ == null) {
-        if (roboScript_ != null) {
-          roboScript_ =
-            com.google.devtools.testing.v1.FileReference.newBuilder(roboScript_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          roboScript_ != null &&
+          roboScript_ != com.google.devtools.testing.v1.FileReference.getDefaultInstance()) {
+          getRoboScriptBuilder().mergeFrom(value);
         } else {
           roboScript_ = value;
         }
-        onChanged();
       } else {
         roboScriptBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2320,14 +2286,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.FileReference robo_script = 13;</code>
      */
     public Builder clearRoboScript() {
-      if (roboScriptBuilder_ == null) {
-        roboScript_ = null;
-        onChanged();
-      } else {
-        roboScript_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      roboScript_ = null;
+      if (roboScriptBuilder_ != null) {
+        roboScriptBuilder_.dispose();
         roboScriptBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2339,7 +2304,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.devtools.testing.v1.FileReference robo_script = 13;</code>
      */
     public com.google.devtools.testing.v1.FileReference.Builder getRoboScriptBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getRoboScriptFieldBuilder().getBuilder();
     }
@@ -2384,9 +2349,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.devtools.testing.v1.RoboStartingIntent> startingIntents_ =
       java.util.Collections.emptyList();
     private void ensureStartingIntentsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         startingIntents_ = new java.util.ArrayList<com.google.devtools.testing.v1.RoboStartingIntent>(startingIntents_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -2613,7 +2578,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearStartingIntents() {
       if (startingIntentsBuilder_ == null) {
         startingIntents_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         startingIntentsBuilder_.clear();
@@ -2739,7 +2704,7 @@ private static final long serialVersionUID = 0L;
         startingIntentsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.devtools.testing.v1.RoboStartingIntent, com.google.devtools.testing.v1.RoboStartingIntent.Builder, com.google.devtools.testing.v1.RoboStartingIntentOrBuilder>(
                 startingIntents_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         startingIntents_ = null;
@@ -2779,7 +2744,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AndroidRoboTest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

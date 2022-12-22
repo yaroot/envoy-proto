@@ -9,7 +9,7 @@ public interface ApplicationSettingsOrBuilder extends
 
   /**
    * <pre>
-   * Settings to configure IAP's behavior for a CSM mesh.
+   * Settings to configure IAP's behavior for a service mesh.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -18,7 +18,7 @@ public interface ApplicationSettingsOrBuilder extends
   boolean hasCsmSettings();
   /**
    * <pre>
-   * Settings to configure IAP's behavior for a CSM mesh.
+   * Settings to configure IAP's behavior for a service mesh.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -27,7 +27,7 @@ public interface ApplicationSettingsOrBuilder extends
   com.google.cloud.iap.v1.CsmSettings getCsmSettings();
   /**
    * <pre>
-   * Settings to configure IAP's behavior for a CSM mesh.
+   * Settings to configure IAP's behavior for a service mesh.
    * </pre>
    *
    * <code>.google.cloud.iap.v1.CsmSettings csm_settings = 1;</code>
@@ -90,4 +90,31 @@ public interface ApplicationSettingsOrBuilder extends
    * <code>.google.protobuf.StringValue cookie_domain = 3;</code>
    */
   com.google.protobuf.StringValueOrBuilder getCookieDomainOrBuilder();
+
+  /**
+   * <pre>
+   * Settings to configure attribute propagation.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+   * @return Whether the attributePropagationSettings field is set.
+   */
+  boolean hasAttributePropagationSettings();
+  /**
+   * <pre>
+   * Settings to configure attribute propagation.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+   * @return The attributePropagationSettings.
+   */
+  com.google.cloud.iap.v1.AttributePropagationSettings getAttributePropagationSettings();
+  /**
+   * <pre>
+   * Settings to configure attribute propagation.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AttributePropagationSettings attribute_propagation_settings = 4;</code>
+   */
+  com.google.cloud.iap.v1.AttributePropagationSettingsOrBuilder getAttributePropagationSettingsOrBuilder();
 }

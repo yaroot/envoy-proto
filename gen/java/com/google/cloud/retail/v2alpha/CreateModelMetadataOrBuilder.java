@@ -11,7 +11,7 @@ public interface CreateModelMetadataOrBuilder extends
    * <pre>
    * The resource name of the model that this create applies to.
    * Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
    * </pre>
    *
    * <code>string model = 1;</code>
@@ -22,7 +22,7 @@ public interface CreateModelMetadataOrBuilder extends
    * <pre>
    * The resource name of the model that this create applies to.
    * Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
    * </pre>
    *
    * <code>string model = 1;</code>

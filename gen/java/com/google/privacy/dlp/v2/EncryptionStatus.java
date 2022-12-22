@@ -122,7 +122,7 @@ public enum EncryptionStatus
   }
   public static final com.google.protobuf.Descriptors.EnumDescriptor
       getDescriptor() {
-    return com.google.privacy.dlp.v2.DlpProto.getDescriptor().getEnumTypes().get(8);
+    return com.google.privacy.dlp.v2.DlpProto.getDescriptor().getEnumTypes().get(11);
   }
 
   private static final EncryptionStatus[] VALUES = values();

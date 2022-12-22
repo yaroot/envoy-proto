@@ -41,69 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Status(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            code_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            message_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              details_ = new java.util.ArrayList<com.google.protobuf.Any>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            details_.add(
-                input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        details_ = java.util.Collections.unmodifiableList(details_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.rpc.StatusProto.internal_static_google_rpc_Status_descriptor;
@@ -118,10 +55,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODE_FIELD_NUMBER = 1;
-  private int code_;
+  private int code_ = 0;
   /**
    * <pre>
-   * The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+   * The status code, which should be an enum value of
+   * [google.rpc.Code][google.rpc.Code].
    * </pre>
    *
    * <code>int32 code = 1;</code>
@@ -133,12 +71,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MESSAGE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object message_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object message_ = "";
   /**
    * <pre>
    * A developer-facing error message, which should be in English. Any
    * user-facing error message should be localized and sent in the
-   * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+   * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+   * by the client.
    * </pre>
    *
    * <code>string message = 2;</code>
@@ -161,7 +101,8 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A developer-facing error message, which should be in English. Any
    * user-facing error message should be localized and sent in the
-   * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+   * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+   * by the client.
    * </pre>
    *
    * <code>string message = 2;</code>
@@ -183,6 +124,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DETAILS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.protobuf.Any> details_;
   /**
    * <pre>
@@ -270,7 +212,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < details_.size(); i++) {
       output.writeMessage(3, details_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -290,7 +232,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, details_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -311,7 +253,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getMessage())) return false;
     if (!getDetailsList()
         .equals(other.getDetailsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -330,7 +272,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getDetailsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -456,33 +398,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.rpc.Status.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getDetailsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       code_ = 0;
-
       message_ = "";
-
       if (detailsBuilder_ == null) {
         details_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        details_ = null;
         detailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -509,20 +445,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.rpc.Status buildPartial() {
       com.google.rpc.Status result = new com.google.rpc.Status(this);
-      int from_bitField0_ = bitField0_;
-      result.code_ = code_;
-      result.message_ = message_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.rpc.Status result) {
       if (detailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           details_ = java.util.Collections.unmodifiableList(details_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.details_ = details_;
       } else {
         result.details_ = detailsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.rpc.Status result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.code_ = code_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.message_ = message_;
+      }
     }
 
     @java.lang.Override
@@ -574,13 +522,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getMessage().isEmpty()) {
         message_ = other.message_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (detailsBuilder_ == null) {
         if (!other.details_.isEmpty()) {
           if (details_.isEmpty()) {
             details_ = other.details_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureDetailsIsMutable();
             details_.addAll(other.details_);
@@ -593,7 +542,7 @@ private static final long serialVersionUID = 0L;
             detailsBuilder_.dispose();
             detailsBuilder_ = null;
             details_ = other.details_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             detailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDetailsFieldBuilder() : null;
@@ -602,7 +551,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -617,17 +566,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.rpc.Status parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              code_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              message_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.Any m =
+                  input.readMessage(
+                      com.google.protobuf.Any.parser(),
+                      extensionRegistry);
+              if (detailsBuilder_ == null) {
+                ensureDetailsIsMutable();
+                details_.add(m);
+              } else {
+                detailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.rpc.Status) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -635,7 +620,8 @@ private static final long serialVersionUID = 0L;
     private int code_ ;
     /**
      * <pre>
-     * The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+     * The status code, which should be an enum value of
+     * [google.rpc.Code][google.rpc.Code].
      * </pre>
      *
      * <code>int32 code = 1;</code>
@@ -647,7 +633,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+     * The status code, which should be an enum value of
+     * [google.rpc.Code][google.rpc.Code].
      * </pre>
      *
      * <code>int32 code = 1;</code>
@@ -657,19 +644,21 @@ private static final long serialVersionUID = 0L;
     public Builder setCode(int value) {
       
       code_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+     * The status code, which should be an enum value of
+     * [google.rpc.Code][google.rpc.Code].
      * </pre>
      *
      * <code>int32 code = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       code_ = 0;
       onChanged();
       return this;
@@ -680,7 +669,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A developer-facing error message, which should be in English. Any
      * user-facing error message should be localized and sent in the
-     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+     * by the client.
      * </pre>
      *
      * <code>string message = 2;</code>
@@ -702,7 +692,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A developer-facing error message, which should be in English. Any
      * user-facing error message should be localized and sent in the
-     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+     * by the client.
      * </pre>
      *
      * <code>string message = 2;</code>
@@ -725,7 +716,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A developer-facing error message, which should be in English. Any
      * user-facing error message should be localized and sent in the
-     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+     * by the client.
      * </pre>
      *
      * <code>string message = 2;</code>
@@ -734,11 +726,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       message_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -746,15 +736,16 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A developer-facing error message, which should be in English. Any
      * user-facing error message should be localized and sent in the
-     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+     * by the client.
      * </pre>
      *
      * <code>string message = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearMessage() {
-      
       message_ = getDefaultInstance().getMessage();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -762,7 +753,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A developer-facing error message, which should be in English. Any
      * user-facing error message should be localized and sent in the
-     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+     * [google.rpc.Status.details][google.rpc.Status.details] field, or localized
+     * by the client.
      * </pre>
      *
      * <code>string message = 2;</code>
@@ -771,12 +763,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       message_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -784,9 +774,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.protobuf.Any> details_ =
       java.util.Collections.emptyList();
     private void ensureDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         details_ = new java.util.ArrayList<com.google.protobuf.Any>(details_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -991,7 +981,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDetails() {
       if (detailsBuilder_ == null) {
         details_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         detailsBuilder_.clear();
@@ -1103,7 +1093,7 @@ private static final long serialVersionUID = 0L;
         detailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
                 details_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         details_ = null;
@@ -1143,7 +1133,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Status(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

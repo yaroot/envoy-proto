@@ -34,166 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TestSpecification(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (testTimeout_ != null) {
-              subBuilder = testTimeout_.toBuilder();
-            }
-            testTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(testTimeout_);
-              testTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.devtools.testing.v1.AndroidInstrumentationTest.Builder subBuilder = null;
-            if (testCase_ == 2) {
-              subBuilder = ((com.google.devtools.testing.v1.AndroidInstrumentationTest) test_).toBuilder();
-            }
-            test_ =
-                input.readMessage(com.google.devtools.testing.v1.AndroidInstrumentationTest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AndroidInstrumentationTest) test_);
-              test_ = subBuilder.buildPartial();
-            }
-            testCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.devtools.testing.v1.AndroidRoboTest.Builder subBuilder = null;
-            if (testCase_ == 3) {
-              subBuilder = ((com.google.devtools.testing.v1.AndroidRoboTest) test_).toBuilder();
-            }
-            test_ =
-                input.readMessage(com.google.devtools.testing.v1.AndroidRoboTest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AndroidRoboTest) test_);
-              test_ = subBuilder.buildPartial();
-            }
-            testCase_ = 3;
-            break;
-          }
-          case 50: {
-            com.google.devtools.testing.v1.TestSetup.Builder subBuilder = null;
-            if (setupCase_ == 6) {
-              subBuilder = ((com.google.devtools.testing.v1.TestSetup) setup_).toBuilder();
-            }
-            setup_ =
-                input.readMessage(com.google.devtools.testing.v1.TestSetup.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.TestSetup) setup_);
-              setup_ = subBuilder.buildPartial();
-            }
-            setupCase_ = 6;
-            break;
-          }
-          case 74: {
-            com.google.devtools.testing.v1.AndroidTestLoop.Builder subBuilder = null;
-            if (testCase_ == 9) {
-              subBuilder = ((com.google.devtools.testing.v1.AndroidTestLoop) test_).toBuilder();
-            }
-            test_ =
-                input.readMessage(com.google.devtools.testing.v1.AndroidTestLoop.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.AndroidTestLoop) test_);
-              test_ = subBuilder.buildPartial();
-            }
-            testCase_ = 9;
-            break;
-          }
-          case 80: {
-
-            disableVideoRecording_ = input.readBool();
-            break;
-          }
-          case 88: {
-
-            disablePerformanceMetrics_ = input.readBool();
-            break;
-          }
-          case 106: {
-            com.google.devtools.testing.v1.IosXcTest.Builder subBuilder = null;
-            if (testCase_ == 13) {
-              subBuilder = ((com.google.devtools.testing.v1.IosXcTest) test_).toBuilder();
-            }
-            test_ =
-                input.readMessage(com.google.devtools.testing.v1.IosXcTest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.IosXcTest) test_);
-              test_ = subBuilder.buildPartial();
-            }
-            testCase_ = 13;
-            break;
-          }
-          case 114: {
-            com.google.devtools.testing.v1.IosTestSetup.Builder subBuilder = null;
-            if (setupCase_ == 14) {
-              subBuilder = ((com.google.devtools.testing.v1.IosTestSetup) setup_).toBuilder();
-            }
-            setup_ =
-                input.readMessage(com.google.devtools.testing.v1.IosTestSetup.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.IosTestSetup) setup_);
-              setup_ = subBuilder.buildPartial();
-            }
-            setupCase_ = 14;
-            break;
-          }
-          case 122: {
-            com.google.devtools.testing.v1.IosTestLoop.Builder subBuilder = null;
-            if (testCase_ == 15) {
-              subBuilder = ((com.google.devtools.testing.v1.IosTestLoop) test_).toBuilder();
-            }
-            test_ =
-                input.readMessage(com.google.devtools.testing.v1.IosTestLoop.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.devtools.testing.v1.IosTestLoop) test_);
-              test_ = subBuilder.buildPartial();
-            }
-            testCase_ = 15;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_TestSpecification_descriptor;
@@ -336,7 +176,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTestTimeoutOrBuilder() {
-    return getTestTimeout();
+    return testTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : testTimeout_;
   }
 
   public static final int TEST_SETUP_FIELD_NUMBER = 6;
@@ -644,7 +484,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_VIDEO_RECORDING_FIELD_NUMBER = 10;
-  private boolean disableVideoRecording_;
+  private boolean disableVideoRecording_ = false;
   /**
    * <pre>
    * Disables video recording. May reduce test latency.
@@ -659,7 +499,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLE_PERFORMANCE_METRICS_FIELD_NUMBER = 11;
-  private boolean disablePerformanceMetrics_;
+  private boolean disablePerformanceMetrics_ = false;
   /**
    * <pre>
    * Disables performance metrics recording. May reduce test latency.
@@ -717,7 +557,7 @@ private static final long serialVersionUID = 0L;
     if (testCase_ == 15) {
       output.writeMessage(15, (com.google.devtools.testing.v1.IosTestLoop) test_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -766,7 +606,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(15, (com.google.devtools.testing.v1.IosTestLoop) test_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -828,7 +668,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -885,7 +725,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1006,32 +846,46 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.TestSpecification.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (testTimeoutBuilder_ == null) {
-        testTimeout_ = null;
-      } else {
-        testTimeout_ = null;
+      bitField0_ = 0;
+      testTimeout_ = null;
+      if (testTimeoutBuilder_ != null) {
+        testTimeoutBuilder_.dispose();
         testTimeoutBuilder_ = null;
       }
+      if (testSetupBuilder_ != null) {
+        testSetupBuilder_.clear();
+      }
+      if (iosTestSetupBuilder_ != null) {
+        iosTestSetupBuilder_.clear();
+      }
+      if (androidInstrumentationTestBuilder_ != null) {
+        androidInstrumentationTestBuilder_.clear();
+      }
+      if (androidRoboTestBuilder_ != null) {
+        androidRoboTestBuilder_.clear();
+      }
+      if (androidTestLoopBuilder_ != null) {
+        androidTestLoopBuilder_.clear();
+      }
+      if (iosXcTestBuilder_ != null) {
+        iosXcTestBuilder_.clear();
+      }
+      if (iosTestLoopBuilder_ != null) {
+        iosTestLoopBuilder_.clear();
+      }
       disableVideoRecording_ = false;
-
       disablePerformanceMetrics_ = false;
-
       setupCase_ = 0;
       setup_ = null;
       testCase_ = 0;
@@ -1062,66 +916,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.TestSpecification buildPartial() {
       com.google.devtools.testing.v1.TestSpecification result = new com.google.devtools.testing.v1.TestSpecification(this);
-      if (testTimeoutBuilder_ == null) {
-        result.testTimeout_ = testTimeout_;
-      } else {
-        result.testTimeout_ = testTimeoutBuilder_.build();
-      }
-      if (setupCase_ == 6) {
-        if (testSetupBuilder_ == null) {
-          result.setup_ = setup_;
-        } else {
-          result.setup_ = testSetupBuilder_.build();
-        }
-      }
-      if (setupCase_ == 14) {
-        if (iosTestSetupBuilder_ == null) {
-          result.setup_ = setup_;
-        } else {
-          result.setup_ = iosTestSetupBuilder_.build();
-        }
-      }
-      if (testCase_ == 2) {
-        if (androidInstrumentationTestBuilder_ == null) {
-          result.test_ = test_;
-        } else {
-          result.test_ = androidInstrumentationTestBuilder_.build();
-        }
-      }
-      if (testCase_ == 3) {
-        if (androidRoboTestBuilder_ == null) {
-          result.test_ = test_;
-        } else {
-          result.test_ = androidRoboTestBuilder_.build();
-        }
-      }
-      if (testCase_ == 9) {
-        if (androidTestLoopBuilder_ == null) {
-          result.test_ = test_;
-        } else {
-          result.test_ = androidTestLoopBuilder_.build();
-        }
-      }
-      if (testCase_ == 13) {
-        if (iosXcTestBuilder_ == null) {
-          result.test_ = test_;
-        } else {
-          result.test_ = iosXcTestBuilder_.build();
-        }
-      }
-      if (testCase_ == 15) {
-        if (iosTestLoopBuilder_ == null) {
-          result.test_ = test_;
-        } else {
-          result.test_ = iosTestLoopBuilder_.build();
-        }
-      }
-      result.disableVideoRecording_ = disableVideoRecording_;
-      result.disablePerformanceMetrics_ = disablePerformanceMetrics_;
-      result.setupCase_ = setupCase_;
-      result.testCase_ = testCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.TestSpecification result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.testTimeout_ = testTimeoutBuilder_ == null
+            ? testTimeout_
+            : testTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.disableVideoRecording_ = disableVideoRecording_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.disablePerformanceMetrics_ = disablePerformanceMetrics_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.devtools.testing.v1.TestSpecification result) {
+      result.setupCase_ = setupCase_;
+      result.setup_ = this.setup_;
+      if (setupCase_ == 6 &&
+          testSetupBuilder_ != null) {
+        result.setup_ = testSetupBuilder_.build();
+      }
+      if (setupCase_ == 14 &&
+          iosTestSetupBuilder_ != null) {
+        result.setup_ = iosTestSetupBuilder_.build();
+      }
+      result.testCase_ = testCase_;
+      result.test_ = this.test_;
+      if (testCase_ == 2 &&
+          androidInstrumentationTestBuilder_ != null) {
+        result.test_ = androidInstrumentationTestBuilder_.build();
+      }
+      if (testCase_ == 3 &&
+          androidRoboTestBuilder_ != null) {
+        result.test_ = androidRoboTestBuilder_.build();
+      }
+      if (testCase_ == 9 &&
+          androidTestLoopBuilder_ != null) {
+        result.test_ = androidTestLoopBuilder_.build();
+      }
+      if (testCase_ == 13 &&
+          iosXcTestBuilder_ != null) {
+        result.test_ = iosXcTestBuilder_.build();
+      }
+      if (testCase_ == 15 &&
+          iosTestLoopBuilder_ != null) {
+        result.test_ = iosTestLoopBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1215,7 +1063,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1230,17 +1078,96 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.TestSpecification parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTestTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAndroidInstrumentationTestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              testCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAndroidRoboTestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              testCase_ = 3;
+              break;
+            } // case 26
+            case 50: {
+              input.readMessage(
+                  getTestSetupFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              setupCase_ = 6;
+              break;
+            } // case 50
+            case 74: {
+              input.readMessage(
+                  getAndroidTestLoopFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              testCase_ = 9;
+              break;
+            } // case 74
+            case 80: {
+              disableVideoRecording_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            case 88: {
+              disablePerformanceMetrics_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 106: {
+              input.readMessage(
+                  getIosXcTestFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              testCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getIosTestSetupFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              setupCase_ = 14;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getIosTestLoopFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              testCase_ = 15;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.TestSpecification) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int setupCase_ = 0;
@@ -1273,6 +1200,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.Duration testTimeout_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1288,7 +1216,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the testTimeout field is set.
      */
     public boolean hasTestTimeout() {
-      return testTimeoutBuilder_ != null || testTimeout_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1322,11 +1250,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         testTimeout_ = value;
-        onChanged();
       } else {
         testTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1342,11 +1270,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (testTimeoutBuilder_ == null) {
         testTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         testTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1360,17 +1288,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTestTimeout(com.google.protobuf.Duration value) {
       if (testTimeoutBuilder_ == null) {
-        if (testTimeout_ != null) {
-          testTimeout_ =
-            com.google.protobuf.Duration.newBuilder(testTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          testTimeout_ != null &&
+          testTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTestTimeoutBuilder().mergeFrom(value);
         } else {
           testTimeout_ = value;
         }
-        onChanged();
       } else {
         testTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1383,14 +1312,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration test_timeout = 1;</code>
      */
     public Builder clearTestTimeout() {
-      if (testTimeoutBuilder_ == null) {
-        testTimeout_ = null;
-        onChanged();
-      } else {
-        testTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      testTimeout_ = null;
+      if (testTimeoutBuilder_ != null) {
+        testTimeoutBuilder_.dispose();
         testTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1403,7 +1331,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration test_timeout = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getTestTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getTestTimeoutFieldBuilder().getBuilder();
     }
@@ -1630,7 +1558,7 @@ private static final long serialVersionUID = 0L;
         setup_ = null;
       }
       setupCase_ = 6;
-      onChanged();;
+      onChanged();
       return testSetupBuilder_;
     }
 
@@ -1808,7 +1736,7 @@ private static final long serialVersionUID = 0L;
         setup_ = null;
       }
       setupCase_ = 14;
-      onChanged();;
+      onChanged();
       return iosTestSetupBuilder_;
     }
 
@@ -1986,7 +1914,7 @@ private static final long serialVersionUID = 0L;
         test_ = null;
       }
       testCase_ = 2;
-      onChanged();;
+      onChanged();
       return androidInstrumentationTestBuilder_;
     }
 
@@ -2164,7 +2092,7 @@ private static final long serialVersionUID = 0L;
         test_ = null;
       }
       testCase_ = 3;
-      onChanged();;
+      onChanged();
       return androidRoboTestBuilder_;
     }
 
@@ -2342,7 +2270,7 @@ private static final long serialVersionUID = 0L;
         test_ = null;
       }
       testCase_ = 9;
-      onChanged();;
+      onChanged();
       return androidTestLoopBuilder_;
     }
 
@@ -2520,7 +2448,7 @@ private static final long serialVersionUID = 0L;
         test_ = null;
       }
       testCase_ = 13;
-      onChanged();;
+      onChanged();
       return iosXcTestBuilder_;
     }
 
@@ -2698,7 +2626,7 @@ private static final long serialVersionUID = 0L;
         test_ = null;
       }
       testCase_ = 15;
-      onChanged();;
+      onChanged();
       return iosTestLoopBuilder_;
     }
 
@@ -2727,6 +2655,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisableVideoRecording(boolean value) {
       
       disableVideoRecording_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2739,7 +2668,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisableVideoRecording() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       disableVideoRecording_ = false;
       onChanged();
       return this;
@@ -2770,6 +2699,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDisablePerformanceMetrics(boolean value) {
       
       disablePerformanceMetrics_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2782,7 +2712,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisablePerformanceMetrics() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       disablePerformanceMetrics_ = false;
       onChanged();
       return this;
@@ -2820,7 +2750,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TestSpecification(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

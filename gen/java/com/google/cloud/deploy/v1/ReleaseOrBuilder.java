@@ -122,7 +122,6 @@ public interface ReleaseOrBuilder extends
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
    */
-
   /* nullable */
 java.lang.String getAnnotationsOrDefault(
       java.lang.String key,
@@ -138,7 +137,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; annotations = 4;</code>
    */
-
   java.lang.String getAnnotationsOrThrow(
       java.lang.String key);
 
@@ -217,7 +215,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -239,9 +236,18 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * Output only. Indicates whether this is an abandoned release.
+   * </pre>
+   *
+   * <code>bool abandoned = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The abandoned.
+   */
+  boolean getAbandoned();
 
   /**
    * <pre>
@@ -591,7 +597,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, .google.cloud.deploy.v1.TargetArtifact&gt; target_artifacts = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.deploy.v1.TargetArtifact getTargetArtifactsOrDefault(
       java.lang.String key,
@@ -605,7 +610,6 @@ com.google.cloud.deploy.v1.TargetArtifact defaultValue);
    *
    * <code>map&lt;string, .google.cloud.deploy.v1.TargetArtifact&gt; target_artifacts = 20 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.deploy.v1.TargetArtifact getTargetArtifactsOrThrow(
       java.lang.String key);
 
@@ -648,7 +652,6 @@ com.google.cloud.deploy.v1.TargetArtifact defaultValue);
    *
    * <code>map&lt;string, .google.cloud.deploy.v1.Release.TargetRender&gt; target_renders = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.deploy.v1.Release.TargetRender getTargetRendersOrDefault(
       java.lang.String key,
@@ -661,7 +664,6 @@ com.google.cloud.deploy.v1.Release.TargetRender defaultValue);
    *
    * <code>map&lt;string, .google.cloud.deploy.v1.Release.TargetRender&gt; target_renders = 22 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.deploy.v1.Release.TargetRender getTargetRendersOrThrow(
       java.lang.String key);
 }

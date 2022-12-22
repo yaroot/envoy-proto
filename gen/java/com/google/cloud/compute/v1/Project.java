@@ -29,6 +29,7 @@ private static final long serialVersionUID = 0L;
     name_ = "";
     quotas_ = java.util.Collections.emptyList();
     selfLink_ = "";
+    vmDnsSetting_ = "";
     xpnProjectStatus_ = "";
   }
 
@@ -43,149 +44,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Project(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26840: {
-            bitField0_ |= 0x00000020;
-            id_ = input.readUInt64();
-            break;
-          }
-          case 26336418: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            kind_ = s;
-            break;
-          }
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            name_ = s;
-            break;
-          }
-          case 244202930: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            creationTimestamp_ = s;
-            break;
-          }
-          case 1002735578: {
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              quotas_ = new java.util.ArrayList<com.google.cloud.compute.v1.Quota>();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            quotas_.add(
-                input.readMessage(com.google.cloud.compute.v1.Quota.parser(), extensionRegistry));
-            break;
-          }
-          case 1486352938: {
-            com.google.cloud.compute.v1.Metadata.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = commonInstanceMetadata_.toBuilder();
-            }
-            commonInstanceMetadata_ = input.readMessage(com.google.cloud.compute.v1.Metadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonInstanceMetadata_);
-              commonInstanceMetadata_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case 1827354122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            xpnProjectStatus_ = s;
-            break;
-          }
-          case -1905269462: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            defaultServiceAccount_ = s;
-            break;
-          }
-          case -1514616302: {
-            com.google.cloud.compute.v1.UsageExportLocation.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000200) != 0)) {
-              subBuilder = usageExportLocation_.toBuilder();
-            }
-            usageExportLocation_ = input.readMessage(com.google.cloud.compute.v1.UsageExportLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(usageExportLocation_);
-              usageExportLocation_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000200;
-            break;
-          }
-          case -911466526: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            description_ = s;
-            break;
-          }
-          case -645248918: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            selfLink_ = s;
-            break;
-          }
-          case -542827558: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              enabledFeatures_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            enabledFeatures_.add(s);
-            break;
-          }
-          case -520940406: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            defaultNetworkTier_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        quotas_ = java.util.Collections.unmodifiableList(quotas_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        enabledFeatures_ = enabledFeatures_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -381,6 +239,153 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
+   * [Output Only] Default internal DNS setting used by VMs running in this project.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.compute.v1.Project.VmDnsSetting}
+   */
+  public enum VmDnsSetting
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * A value indicating that the enum field is not set.
+     * </pre>
+     *
+     * <code>UNDEFINED_VM_DNS_SETTING = 0;</code>
+     */
+    UNDEFINED_VM_DNS_SETTING(0),
+    /**
+     * <code>GLOBAL_DEFAULT = 345419141;</code>
+     */
+    GLOBAL_DEFAULT(345419141),
+    /**
+     * <code>UNSPECIFIED_VM_DNS_SETTING = 35691930;</code>
+     */
+    UNSPECIFIED_VM_DNS_SETTING(35691930),
+    /**
+     * <code>ZONAL_DEFAULT = 368475782;</code>
+     */
+    ZONAL_DEFAULT(368475782),
+    /**
+     * <code>ZONAL_ONLY = 521198951;</code>
+     */
+    ZONAL_ONLY(521198951),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * A value indicating that the enum field is not set.
+     * </pre>
+     *
+     * <code>UNDEFINED_VM_DNS_SETTING = 0;</code>
+     */
+    public static final int UNDEFINED_VM_DNS_SETTING_VALUE = 0;
+    /**
+     * <code>GLOBAL_DEFAULT = 345419141;</code>
+     */
+    public static final int GLOBAL_DEFAULT_VALUE = 345419141;
+    /**
+     * <code>UNSPECIFIED_VM_DNS_SETTING = 35691930;</code>
+     */
+    public static final int UNSPECIFIED_VM_DNS_SETTING_VALUE = 35691930;
+    /**
+     * <code>ZONAL_DEFAULT = 368475782;</code>
+     */
+    public static final int ZONAL_DEFAULT_VALUE = 368475782;
+    /**
+     * <code>ZONAL_ONLY = 521198951;</code>
+     */
+    public static final int ZONAL_ONLY_VALUE = 521198951;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static VmDnsSetting valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static VmDnsSetting forNumber(int value) {
+      switch (value) {
+        case 0: return UNDEFINED_VM_DNS_SETTING;
+        case 345419141: return GLOBAL_DEFAULT;
+        case 35691930: return UNSPECIFIED_VM_DNS_SETTING;
+        case 368475782: return ZONAL_DEFAULT;
+        case 521198951: return ZONAL_ONLY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<VmDnsSetting>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        VmDnsSetting> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<VmDnsSetting>() {
+            public VmDnsSetting findValueByNumber(int number) {
+              return VmDnsSetting.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.compute.v1.Project.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final VmDnsSetting[] VALUES = values();
+
+    public static VmDnsSetting valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private VmDnsSetting(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.compute.v1.Project.VmDnsSetting)
+  }
+
+  /**
+   * <pre>
    * [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated.
    * </pre>
    *
@@ -482,7 +487,7 @@ private static final long serialVersionUID = 0L;
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.google.cloud.compute.v1.Project.getDescriptor().getEnumTypes().get(1);
+      return com.google.cloud.compute.v1.Project.getDescriptor().getEnumTypes().get(2);
     }
 
     private static final XpnProjectStatus[] VALUES = values();
@@ -548,7 +553,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CREATION_TIMESTAMP_FIELD_NUMBER = 30525366;
-  private volatile java.lang.Object creationTimestamp_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object creationTimestamp_ = "";
   /**
    * <pre>
    * [Output Only] Creation timestamp in RFC3339 text format.
@@ -606,7 +612,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_NETWORK_TIER_FIELD_NUMBER = 471753361;
-  private volatile java.lang.Object defaultNetworkTier_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultNetworkTier_ = "";
   /**
    * <pre>
    * This signifies the default network tier used for configuring resources of the project and can only take the following values: PREMIUM, STANDARD. Initially the default network tier is PREMIUM.
@@ -667,7 +674,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_SERVICE_ACCOUNT_FIELD_NUMBER = 298712229;
-  private volatile java.lang.Object defaultServiceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultServiceAccount_ = "";
   /**
    * <pre>
    * [Output Only] Default service account used by VMs running in this project.
@@ -725,7 +733,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 422937596;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * An optional textual description of the resource.
@@ -783,6 +792,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLED_FEATURES_FIELD_NUMBER = 469017467;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList enabledFeatures_;
   /**
    * <pre>
@@ -834,7 +844,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 3355;
-  private long id_;
+  private long id_ = 0L;
   /**
    * <pre>
    * [Output Only] The unique identifier for the resource. This identifier is defined by the server. This is *not* the project ID, and is just a unique ID used by Compute Engine to identify resources.
@@ -861,7 +871,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3292052;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * [Output Only] Type of the resource. Always compute#project for projects.
@@ -919,7 +930,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The project ID. For example: my-example-project. Use the project ID to make requests to Compute Engine.
@@ -977,6 +989,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUOTAS_FIELD_NUMBER = 125341947;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.Quota> quotas_;
   /**
    * <pre>
@@ -1037,7 +1050,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELF_LINK_FIELD_NUMBER = 456214797;
-  private volatile java.lang.Object selfLink_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selfLink_ = "";
   /**
    * <pre>
    * [Output Only] Server-defined URL for the resource.
@@ -1132,8 +1146,71 @@ private static final long serialVersionUID = 0L;
     return usageExportLocation_ == null ? com.google.cloud.compute.v1.UsageExportLocation.getDefaultInstance() : usageExportLocation_;
   }
 
+  public static final int VM_DNS_SETTING_FIELD_NUMBER = 58856370;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmDnsSetting_ = "";
+  /**
+   * <pre>
+   * [Output Only] Default internal DNS setting used by VMs running in this project.
+   * Check the VmDnsSetting enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string vm_dns_setting = 58856370;</code>
+   * @return Whether the vmDnsSetting field is set.
+   */
+  @java.lang.Override
+  public boolean hasVmDnsSetting() {
+    return ((bitField0_ & 0x00000400) != 0);
+  }
+  /**
+   * <pre>
+   * [Output Only] Default internal DNS setting used by VMs running in this project.
+   * Check the VmDnsSetting enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string vm_dns_setting = 58856370;</code>
+   * @return The vmDnsSetting.
+   */
+  @java.lang.Override
+  public java.lang.String getVmDnsSetting() {
+    java.lang.Object ref = vmDnsSetting_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      vmDnsSetting_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * [Output Only] Default internal DNS setting used by VMs running in this project.
+   * Check the VmDnsSetting enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string vm_dns_setting = 58856370;</code>
+   * @return The bytes for vmDnsSetting.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVmDnsSettingBytes() {
+    java.lang.Object ref = vmDnsSetting_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      vmDnsSetting_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int XPN_PROJECT_STATUS_FIELD_NUMBER = 228419265;
-  private volatile java.lang.Object xpnProjectStatus_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object xpnProjectStatus_ = "";
   /**
    * <pre>
    * [Output Only] The role this project has in a shared VPC configuration. Currently, only projects with the host role, which is specified by the value HOST, are differentiated.
@@ -1145,7 +1222,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasXpnProjectStatus() {
-    return ((bitField0_ & 0x00000400) != 0);
+    return ((bitField0_ & 0x00000800) != 0);
   }
   /**
    * <pre>
@@ -1219,13 +1296,16 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 30525366, creationTimestamp_);
     }
+    if (((bitField0_ & 0x00000400) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 58856370, vmDnsSetting_);
+    }
     for (int i = 0; i < quotas_.size(); i++) {
       output.writeMessage(125341947, quotas_.get(i));
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(185794117, getCommonInstanceMetadata());
     }
-    if (((bitField0_ & 0x00000400) != 0)) {
+    if (((bitField0_ & 0x00000800) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 228419265, xpnProjectStatus_);
     }
     if (((bitField0_ & 0x00000008) != 0)) {
@@ -1246,7 +1326,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 471753361, defaultNetworkTier_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1268,6 +1348,9 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(30525366, creationTimestamp_);
     }
+    if (((bitField0_ & 0x00000400) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(58856370, vmDnsSetting_);
+    }
     for (int i = 0; i < quotas_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(125341947, quotas_.get(i));
@@ -1276,7 +1359,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(185794117, getCommonInstanceMetadata());
     }
-    if (((bitField0_ & 0x00000400) != 0)) {
+    if (((bitField0_ & 0x00000800) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(228419265, xpnProjectStatus_);
     }
     if (((bitField0_ & 0x00000008) != 0)) {
@@ -1303,7 +1386,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(471753361, defaultNetworkTier_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1372,12 +1455,17 @@ private static final long serialVersionUID = 0L;
       if (!getUsageExportLocation()
           .equals(other.getUsageExportLocation())) return false;
     }
+    if (hasVmDnsSetting() != other.hasVmDnsSetting()) return false;
+    if (hasVmDnsSetting()) {
+      if (!getVmDnsSetting()
+          .equals(other.getVmDnsSetting())) return false;
+    }
     if (hasXpnProjectStatus() != other.hasXpnProjectStatus()) return false;
     if (hasXpnProjectStatus()) {
       if (!getXpnProjectStatus()
           .equals(other.getXpnProjectStatus())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1437,11 +1525,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USAGE_EXPORT_LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getUsageExportLocation().hashCode();
     }
+    if (hasVmDnsSetting()) {
+      hash = (37 * hash) + VM_DNS_SETTING_FIELD_NUMBER;
+      hash = (53 * hash) + getVmDnsSetting().hashCode();
+    }
     if (hasXpnProjectStatus()) {
       hash = (37 * hash) + XPN_PROJECT_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getXpnProjectStatus().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1581,44 +1673,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonInstanceMetadataBuilder_ == null) {
-        commonInstanceMetadata_ = null;
-      } else {
-        commonInstanceMetadataBuilder_.clear();
+      bitField0_ = 0;
+      commonInstanceMetadata_ = null;
+      if (commonInstanceMetadataBuilder_ != null) {
+        commonInstanceMetadataBuilder_.dispose();
+        commonInstanceMetadataBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       creationTimestamp_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       defaultNetworkTier_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       defaultServiceAccount_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       enabledFeatures_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000020);
       id_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000040);
       kind_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       if (quotasBuilder_ == null) {
         quotas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000200);
       } else {
+        quotas_ = null;
         quotasBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       selfLink_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
-      if (usageExportLocationBuilder_ == null) {
-        usageExportLocation_ = null;
-      } else {
-        usageExportLocationBuilder_.clear();
+      usageExportLocation_ = null;
+      if (usageExportLocationBuilder_ != null) {
+        usageExportLocationBuilder_.dispose();
+        usageExportLocationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000800);
+      vmDnsSetting_ = "";
       xpnProjectStatus_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -1645,49 +1729,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.Project buildPartial() {
       com.google.cloud.compute.v1.Project result = new com.google.cloud.compute.v1.Project(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (commonInstanceMetadataBuilder_ == null) {
-          result.commonInstanceMetadata_ = commonInstanceMetadata_;
-        } else {
-          result.commonInstanceMetadata_ = commonInstanceMetadataBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.creationTimestamp_ = creationTimestamp_;
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        to_bitField0_ |= 0x00000004;
-      }
-      result.defaultNetworkTier_ = defaultNetworkTier_;
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        to_bitField0_ |= 0x00000008;
-      }
-      result.defaultServiceAccount_ = defaultServiceAccount_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
-        to_bitField0_ |= 0x00000010;
-      }
-      result.description_ = description_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.Project result) {
       if (((bitField0_ & 0x00000020) != 0)) {
         enabledFeatures_ = enabledFeatures_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.enabledFeatures_ = enabledFeatures_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.id_ = id_;
-        to_bitField0_ |= 0x00000020;
-      }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        to_bitField0_ |= 0x00000040;
-      }
-      result.kind_ = kind_;
-      if (((from_bitField0_ & 0x00000100) != 0)) {
-        to_bitField0_ |= 0x00000080;
-      }
-      result.name_ = name_;
       if (quotasBuilder_ == null) {
         if (((bitField0_ & 0x00000200) != 0)) {
           quotas_ = java.util.Collections.unmodifiableList(quotas_);
@@ -1697,25 +1750,64 @@ private static final long serialVersionUID = 0L;
       } else {
         result.quotas_ = quotasBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.Project result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.commonInstanceMetadata_ = commonInstanceMetadataBuilder_ == null
+            ? commonInstanceMetadata_
+            : commonInstanceMetadataBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.creationTimestamp_ = creationTimestamp_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultNetworkTier_ = defaultNetworkTier_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.defaultServiceAccount_ = defaultServiceAccount_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.description_ = description_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.id_ = id_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.kind_ = kind_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.name_ = name_;
+        to_bitField0_ |= 0x00000080;
+      }
       if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.selfLink_ = selfLink_;
         to_bitField0_ |= 0x00000100;
       }
-      result.selfLink_ = selfLink_;
       if (((from_bitField0_ & 0x00000800) != 0)) {
-        if (usageExportLocationBuilder_ == null) {
-          result.usageExportLocation_ = usageExportLocation_;
-        } else {
-          result.usageExportLocation_ = usageExportLocationBuilder_.build();
-        }
+        result.usageExportLocation_ = usageExportLocationBuilder_ == null
+            ? usageExportLocation_
+            : usageExportLocationBuilder_.build();
         to_bitField0_ |= 0x00000200;
       }
       if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.vmDnsSetting_ = vmDnsSetting_;
         to_bitField0_ |= 0x00000400;
       }
-      result.xpnProjectStatus_ = xpnProjectStatus_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.xpnProjectStatus_ = xpnProjectStatus_;
+        to_bitField0_ |= 0x00000800;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1766,23 +1858,23 @@ private static final long serialVersionUID = 0L;
         mergeCommonInstanceMetadata(other.getCommonInstanceMetadata());
       }
       if (other.hasCreationTimestamp()) {
-        bitField0_ |= 0x00000002;
         creationTimestamp_ = other.creationTimestamp_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDefaultNetworkTier()) {
-        bitField0_ |= 0x00000004;
         defaultNetworkTier_ = other.defaultNetworkTier_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDefaultServiceAccount()) {
-        bitField0_ |= 0x00000008;
         defaultServiceAccount_ = other.defaultServiceAccount_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000010;
         description_ = other.description_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.enabledFeatures_.isEmpty()) {
@@ -1799,13 +1891,13 @@ private static final long serialVersionUID = 0L;
         setId(other.getId());
       }
       if (other.hasKind()) {
-        bitField0_ |= 0x00000080;
         kind_ = other.kind_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000100;
         name_ = other.name_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (quotasBuilder_ == null) {
@@ -1835,19 +1927,24 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasSelfLink()) {
-        bitField0_ |= 0x00000400;
         selfLink_ = other.selfLink_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasUsageExportLocation()) {
         mergeUsageExportLocation(other.getUsageExportLocation());
       }
-      if (other.hasXpnProjectStatus()) {
+      if (other.hasVmDnsSetting()) {
+        vmDnsSetting_ = other.vmDnsSetting_;
         bitField0_ |= 0x00001000;
-        xpnProjectStatus_ = other.xpnProjectStatus_;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasXpnProjectStatus()) {
+        xpnProjectStatus_ = other.xpnProjectStatus_;
+        bitField0_ |= 0x00002000;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1862,17 +1959,113 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.Project parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26840: {
+              id_ = input.readUInt64();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 26840
+            case 26336418: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 26336418
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 26989658
+            case 244202930: {
+              creationTimestamp_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 244202930
+            case 470850962: {
+              vmDnsSetting_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 470850962
+            case 1002735578: {
+              com.google.cloud.compute.v1.Quota m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.Quota.parser(),
+                      extensionRegistry);
+              if (quotasBuilder_ == null) {
+                ensureQuotasIsMutable();
+                quotas_.add(m);
+              } else {
+                quotasBuilder_.addMessage(m);
+              }
+              break;
+            } // case 1002735578
+            case 1486352938: {
+              input.readMessage(
+                  getCommonInstanceMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1486352938
+            case 1827354122: {
+              xpnProjectStatus_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 1827354122
+            case -1905269462: {
+              defaultServiceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1905269462
+            case -1514616302: {
+              input.readMessage(
+                  getUsageExportLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case -1514616302
+            case -911466526: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -911466526
+            case -645248918: {
+              selfLink_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -645248918
+            case -542827558: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEnabledFeaturesIsMutable();
+              enabledFeatures_.add(s);
+              break;
+            } // case -542827558
+            case -520940406: {
+              defaultNetworkTier_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -520940406
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.Project) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1919,11 +2112,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonInstanceMetadata_ = value;
-        onChanged();
       } else {
         commonInstanceMetadataBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1937,11 +2130,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Metadata.Builder builderForValue) {
       if (commonInstanceMetadataBuilder_ == null) {
         commonInstanceMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         commonInstanceMetadataBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1954,18 +2147,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeCommonInstanceMetadata(com.google.cloud.compute.v1.Metadata value) {
       if (commonInstanceMetadataBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            commonInstanceMetadata_ != null &&
-            commonInstanceMetadata_ != com.google.cloud.compute.v1.Metadata.getDefaultInstance()) {
-          commonInstanceMetadata_ =
-            com.google.cloud.compute.v1.Metadata.newBuilder(commonInstanceMetadata_).mergeFrom(value).buildPartial();
+          commonInstanceMetadata_ != null &&
+          commonInstanceMetadata_ != com.google.cloud.compute.v1.Metadata.getDefaultInstance()) {
+          getCommonInstanceMetadataBuilder().mergeFrom(value);
         } else {
           commonInstanceMetadata_ = value;
         }
-        onChanged();
       } else {
         commonInstanceMetadataBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1976,13 +2168,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Metadata common_instance_metadata = 185794117;</code>
      */
     public Builder clearCommonInstanceMetadata() {
-      if (commonInstanceMetadataBuilder_ == null) {
-        commonInstanceMetadata_ = null;
-        onChanged();
-      } else {
-        commonInstanceMetadataBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      commonInstanceMetadata_ = null;
+      if (commonInstanceMetadataBuilder_ != null) {
+        commonInstanceMetadataBuilder_.dispose();
+        commonInstanceMetadataBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2097,11 +2289,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestamp(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2114,8 +2304,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreationTimestamp() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       creationTimestamp_ = getDefaultInstance().getCreationTimestamp();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2130,12 +2320,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCreationTimestampBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       creationTimestamp_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2208,11 +2396,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultNetworkTier(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       defaultNetworkTier_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2226,8 +2412,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultNetworkTier() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       defaultNetworkTier_ = getDefaultInstance().getDefaultNetworkTier();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2243,12 +2429,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultNetworkTierBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultNetworkTier_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2317,11 +2501,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       defaultServiceAccount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2334,8 +2516,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultServiceAccount() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       defaultServiceAccount_ = getDefaultInstance().getDefaultServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2350,12 +2532,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultServiceAccount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2424,11 +2604,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2441,8 +2619,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2457,12 +2635,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2534,10 +2710,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnabledFeatures(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEnabledFeaturesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEnabledFeaturesIsMutable();
       enabledFeatures_.set(index, value);
       onChanged();
       return this;
@@ -2553,10 +2727,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEnabledFeatures(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEnabledFeaturesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEnabledFeaturesIsMutable();
       enabledFeatures_.add(value);
       onChanged();
       return this;
@@ -2603,10 +2775,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEnabledFeaturesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEnabledFeaturesIsMutable();
       enabledFeatures_.add(value);
       onChanged();
@@ -2648,8 +2818,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setId(long value) {
-      bitField0_ |= 0x00000040;
+      
       id_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2732,11 +2903,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2749,8 +2918,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2765,12 +2934,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2839,11 +3006,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2856,8 +3021,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2872,12 +3037,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3258,11 +3421,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLink(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       selfLink_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3275,8 +3436,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSelfLink() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       selfLink_ = getDefaultInstance().getSelfLink();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3291,12 +3452,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelfLinkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selfLink_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3343,11 +3502,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         usageExportLocation_ = value;
-        onChanged();
       } else {
         usageExportLocationBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3361,11 +3520,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.UsageExportLocation.Builder builderForValue) {
       if (usageExportLocationBuilder_ == null) {
         usageExportLocation_ = builderForValue.build();
-        onChanged();
       } else {
         usageExportLocationBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3378,18 +3537,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeUsageExportLocation(com.google.cloud.compute.v1.UsageExportLocation value) {
       if (usageExportLocationBuilder_ == null) {
         if (((bitField0_ & 0x00000800) != 0) &&
-            usageExportLocation_ != null &&
-            usageExportLocation_ != com.google.cloud.compute.v1.UsageExportLocation.getDefaultInstance()) {
-          usageExportLocation_ =
-            com.google.cloud.compute.v1.UsageExportLocation.newBuilder(usageExportLocation_).mergeFrom(value).buildPartial();
+          usageExportLocation_ != null &&
+          usageExportLocation_ != com.google.cloud.compute.v1.UsageExportLocation.getDefaultInstance()) {
+          getUsageExportLocationBuilder().mergeFrom(value);
         } else {
           usageExportLocation_ = value;
         }
-        onChanged();
       } else {
         usageExportLocationBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3400,13 +3558,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.UsageExportLocation usage_export_location = 347543874;</code>
      */
     public Builder clearUsageExportLocation() {
-      if (usageExportLocationBuilder_ == null) {
-        usageExportLocation_ = null;
-        onChanged();
-      } else {
-        usageExportLocationBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000800);
+      usageExportLocation_ = null;
+      if (usageExportLocationBuilder_ != null) {
+        usageExportLocationBuilder_.dispose();
+        usageExportLocationBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -3457,6 +3615,115 @@ private static final long serialVersionUID = 0L;
       return usageExportLocationBuilder_;
     }
 
+    private java.lang.Object vmDnsSetting_ = "";
+    /**
+     * <pre>
+     * [Output Only] Default internal DNS setting used by VMs running in this project.
+     * Check the VmDnsSetting enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string vm_dns_setting = 58856370;</code>
+     * @return Whether the vmDnsSetting field is set.
+     */
+    public boolean hasVmDnsSetting() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <pre>
+     * [Output Only] Default internal DNS setting used by VMs running in this project.
+     * Check the VmDnsSetting enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string vm_dns_setting = 58856370;</code>
+     * @return The vmDnsSetting.
+     */
+    public java.lang.String getVmDnsSetting() {
+      java.lang.Object ref = vmDnsSetting_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        vmDnsSetting_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * [Output Only] Default internal DNS setting used by VMs running in this project.
+     * Check the VmDnsSetting enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string vm_dns_setting = 58856370;</code>
+     * @return The bytes for vmDnsSetting.
+     */
+    public com.google.protobuf.ByteString
+        getVmDnsSettingBytes() {
+      java.lang.Object ref = vmDnsSetting_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vmDnsSetting_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * [Output Only] Default internal DNS setting used by VMs running in this project.
+     * Check the VmDnsSetting enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string vm_dns_setting = 58856370;</code>
+     * @param value The vmDnsSetting to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVmDnsSetting(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      vmDnsSetting_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * [Output Only] Default internal DNS setting used by VMs running in this project.
+     * Check the VmDnsSetting enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string vm_dns_setting = 58856370;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVmDnsSetting() {
+      vmDnsSetting_ = getDefaultInstance().getVmDnsSetting();
+      bitField0_ = (bitField0_ & ~0x00001000);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * [Output Only] Default internal DNS setting used by VMs running in this project.
+     * Check the VmDnsSetting enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string vm_dns_setting = 58856370;</code>
+     * @param value The bytes for vmDnsSetting to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVmDnsSettingBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      vmDnsSetting_ = value;
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+
     private java.lang.Object xpnProjectStatus_ = "";
     /**
      * <pre>
@@ -3468,7 +3735,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the xpnProjectStatus field is set.
      */
     public boolean hasXpnProjectStatus() {
-      return ((bitField0_ & 0x00001000) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3525,11 +3792,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setXpnProjectStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       xpnProjectStatus_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3543,8 +3808,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearXpnProjectStatus() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       xpnProjectStatus_ = getDefaultInstance().getXpnProjectStatus();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3560,12 +3825,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setXpnProjectStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       xpnProjectStatus_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3602,7 +3865,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Project(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateCustomClassRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customClassId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.speech.v1p1beta1.CustomClass.Builder subBuilder = null;
-            if (customClass_ != null) {
-              subBuilder = customClass_.toBuilder();
-            }
-            customClass_ = input.readMessage(com.google.cloud.speech.v1p1beta1.CustomClass.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(customClass_);
-              customClass_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.speech.v1p1beta1.SpeechAdaptationProto.internal_static_google_cloud_speech_v1p1beta1_CreateCustomClassRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource where this custom class will be created. Format:
@@ -172,7 +109,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_CLASS_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object customClassId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customClassId_ = "";
   /**
    * <pre>
    * Required. The ID to use for the custom class, which will become the final
@@ -258,7 +196,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.speech.v1p1beta1.CustomClassOrBuilder getCustomClassOrBuilder() {
-    return getCustomClass();
+    return customClass_ == null ? com.google.cloud.speech.v1p1beta1.CustomClass.getDefaultInstance() : customClass_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -284,7 +222,7 @@ private static final long serialVersionUID = 0L;
     if (customClass_ != null) {
       output.writeMessage(3, getCustomClass());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -303,7 +241,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getCustomClass());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -327,7 +265,7 @@ private static final long serialVersionUID = 0L;
       if (!getCustomClass()
           .equals(other.getCustomClass())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -346,7 +284,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CUSTOM_CLASS_FIELD_NUMBER;
       hash = (53 * hash) + getCustomClass().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -467,30 +405,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       customClassId_ = "";
-
-      if (customClassBuilder_ == null) {
-        customClass_ = null;
-      } else {
-        customClass_ = null;
+      customClass_ = null;
+      if (customClassBuilder_ != null) {
+        customClassBuilder_.dispose();
         customClassBuilder_ = null;
       }
       return this;
@@ -519,15 +450,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest buildPartial() {
       com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest result = new com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest(this);
-      result.parent_ = parent_;
-      result.customClassId_ = customClassId_;
-      if (customClassBuilder_ == null) {
-        result.customClass_ = customClass_;
-      } else {
-        result.customClass_ = customClassBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.customClassId_ = customClassId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.customClass_ = customClassBuilder_ == null
+            ? customClass_
+            : customClassBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -576,16 +516,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getCustomClassId().isEmpty()) {
         customClassId_ = other.customClassId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCustomClass()) {
         mergeCustomClass(other.getCustomClass());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -600,19 +542,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              customClassId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getCustomClassFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.speech.v1p1beta1.CreateCustomClassRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -685,11 +658,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -708,8 +679,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -730,12 +701,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -802,11 +771,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomClassId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customClassId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -822,8 +789,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomClassId() {
-      
       customClassId_ = getDefaultInstance().getCustomClassId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -841,12 +808,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomClassIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customClassId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -863,7 +828,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customClass field is set.
      */
     public boolean hasCustomClass() {
-      return customClassBuilder_ != null || customClass_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -893,11 +858,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         customClass_ = value;
-        onChanged();
       } else {
         customClassBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -911,11 +876,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.speech.v1p1beta1.CustomClass.Builder builderForValue) {
       if (customClassBuilder_ == null) {
         customClass_ = builderForValue.build();
-        onChanged();
       } else {
         customClassBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -927,17 +892,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCustomClass(com.google.cloud.speech.v1p1beta1.CustomClass value) {
       if (customClassBuilder_ == null) {
-        if (customClass_ != null) {
-          customClass_ =
-            com.google.cloud.speech.v1p1beta1.CustomClass.newBuilder(customClass_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          customClass_ != null &&
+          customClass_ != com.google.cloud.speech.v1p1beta1.CustomClass.getDefaultInstance()) {
+          getCustomClassBuilder().mergeFrom(value);
         } else {
           customClass_ = value;
         }
-        onChanged();
       } else {
         customClassBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -948,14 +914,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.speech.v1p1beta1.CustomClass custom_class = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCustomClass() {
-      if (customClassBuilder_ == null) {
-        customClass_ = null;
-        onChanged();
-      } else {
-        customClass_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      customClass_ = null;
+      if (customClassBuilder_ != null) {
+        customClassBuilder_.dispose();
         customClassBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -966,7 +931,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.speech.v1p1beta1.CustomClass custom_class = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.speech.v1p1beta1.CustomClass.Builder getCustomClassBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCustomClassFieldBuilder().getBuilder();
     }
@@ -1038,7 +1003,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateCustomClassRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

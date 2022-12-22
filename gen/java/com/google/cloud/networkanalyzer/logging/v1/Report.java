@@ -43,147 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Report(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            priority_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (firstReportTime_ != null) {
-              subBuilder = firstReportTime_.toBuilder();
-            }
-            firstReportTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(firstReportTime_);
-              firstReportTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            causeCode_ = rawValue;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceName_ = s;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            location_ = s;
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            reportDocumentationUri_ = s;
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              reportGroups_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            reportGroups_.add(rawValue);
-            break;
-          }
-          case 146: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                reportGroups_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              reportGroups_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 154: {
-            com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.Builder subBuilder = null;
-            if (contentCase_ == 19) {
-              subBuilder = ((com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo) content_).toBuilder();
-            }
-            content_ =
-                input.readMessage(com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo) content_);
-              content_ = subBuilder.buildPartial();
-            }
-            contentCase_ = 19;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        reportGroups_ = java.util.Collections.unmodifiableList(reportGroups_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networkanalyzer.logging.v1.AnalyzerLogProto.internal_static_google_cloud_networkanalyzer_logging_v1_Report_descriptor;
@@ -784,7 +643,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The unique identifier of the report.
@@ -830,7 +690,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIORITY_FIELD_NUMBER = 2;
-  private int priority_;
+  private int priority_ = 0;
   /**
    * <pre>
    * Priority of the report.
@@ -851,13 +711,12 @@ private static final long serialVersionUID = 0L;
    * @return The priority.
    */
   @java.lang.Override public com.google.cloud.networkanalyzer.logging.v1.Report.Priority getPriority() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkanalyzer.logging.v1.Report.Priority result = com.google.cloud.networkanalyzer.logging.v1.Report.Priority.valueOf(priority_);
+    com.google.cloud.networkanalyzer.logging.v1.Report.Priority result = com.google.cloud.networkanalyzer.logging.v1.Report.Priority.forNumber(priority_);
     return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.Priority.UNRECOGNIZED : result;
   }
 
   public static final int TYPE_FIELD_NUMBER = 3;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Type of the report.
@@ -878,13 +737,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.networkanalyzer.logging.v1.Report.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkanalyzer.logging.v1.Report.Type result = com.google.cloud.networkanalyzer.logging.v1.Report.Type.valueOf(type_);
+    com.google.cloud.networkanalyzer.logging.v1.Report.Type result = com.google.cloud.networkanalyzer.logging.v1.Report.Type.forNumber(type_);
     return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.Type.UNRECOGNIZED : result;
   }
 
   public static final int STATUS_FIELD_NUMBER = 4;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Status of the report.
@@ -905,8 +763,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus result = com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus.valueOf(status_);
+    com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus result = com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus.forNumber(status_);
     return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus.UNRECOGNIZED : result;
   }
 
@@ -945,11 +802,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getFirstReportTimeOrBuilder() {
-    return getFirstReportTime();
+    return firstReportTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : firstReportTime_;
   }
 
   public static final int CAUSE_CODE_FIELD_NUMBER = 12;
-  private int causeCode_;
+  private int causeCode_ = 0;
   /**
    * <pre>
    * Cause code of the report.
@@ -970,13 +827,13 @@ private static final long serialVersionUID = 0L;
    * @return The causeCode.
    */
   @java.lang.Override public com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode getCauseCode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode result = com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode.valueOf(causeCode_);
+    com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode result = com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode.forNumber(causeCode_);
     return result == null ? com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode.UNRECOGNIZED : result;
   }
 
   public static final int RESOURCE_NAME_FIELD_NUMBER = 15;
-  private volatile java.lang.Object resourceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceName_ = "";
   /**
    * <pre>
    * The resource that are reported with the report.
@@ -1028,7 +885,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FIELD_NUMBER = 16;
-  private volatile java.lang.Object location_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
   /**
    * <pre>
    * Location associated with the report. It can be global or GCP regions
@@ -1076,7 +934,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPORT_DOCUMENTATION_URI_FIELD_NUMBER = 17;
-  private volatile java.lang.Object reportDocumentationUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object reportDocumentationUri_ = "";
   /**
    * <pre>
    * URI to the documentation of the report.
@@ -1122,14 +981,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPORT_GROUPS_FIELD_NUMBER = 18;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> reportGroups_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup> reportGroups_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup>() {
             public com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup result = com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup.valueOf(from);
+              com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup result = com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup.forNumber(from);
               return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.ReportGroup.UNRECOGNIZED : result;
             }
           };
@@ -1282,7 +1141,7 @@ private static final long serialVersionUID = 0L;
     if (contentCase_ == 19) {
       output.writeMessage(19, (com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo) content_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1339,7 +1198,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(19, (com.google.cloud.networkanalyzer.logging.v1.IpUtilizationInfo) content_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1381,7 +1240,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1424,7 +1283,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1545,46 +1404,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkanalyzer.logging.v1.Report.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       priority_ = 0;
-
       type_ = 0;
-
       status_ = 0;
-
-      if (firstReportTimeBuilder_ == null) {
-        firstReportTime_ = null;
-      } else {
-        firstReportTime_ = null;
+      firstReportTime_ = null;
+      if (firstReportTimeBuilder_ != null) {
+        firstReportTimeBuilder_.dispose();
         firstReportTimeBuilder_ = null;
       }
       causeCode_ = 0;
-
       resourceName_ = "";
-
       location_ = "";
-
       reportDocumentationUri_ = "";
-
       reportGroups_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000200);
+      if (ipUtilizationInfoBuilder_ != null) {
+        ipUtilizationInfoBuilder_.clear();
+      }
       contentCase_ = 0;
       content_ = null;
       return this;
@@ -1613,35 +1462,61 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkanalyzer.logging.v1.Report buildPartial() {
       com.google.cloud.networkanalyzer.logging.v1.Report result = new com.google.cloud.networkanalyzer.logging.v1.Report(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.priority_ = priority_;
-      result.type_ = type_;
-      result.status_ = status_;
-      if (firstReportTimeBuilder_ == null) {
-        result.firstReportTime_ = firstReportTime_;
-      } else {
-        result.firstReportTime_ = firstReportTimeBuilder_.build();
-      }
-      result.causeCode_ = causeCode_;
-      result.resourceName_ = resourceName_;
-      result.location_ = location_;
-      result.reportDocumentationUri_ = reportDocumentationUri_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        reportGroups_ = java.util.Collections.unmodifiableList(reportGroups_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.reportGroups_ = reportGroups_;
-      if (contentCase_ == 19) {
-        if (ipUtilizationInfoBuilder_ == null) {
-          result.content_ = content_;
-        } else {
-          result.content_ = ipUtilizationInfoBuilder_.build();
-        }
-      }
-      result.contentCase_ = contentCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.networkanalyzer.logging.v1.Report result) {
+      if (((bitField0_ & 0x00000200) != 0)) {
+        reportGroups_ = java.util.Collections.unmodifiableList(reportGroups_);
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.reportGroups_ = reportGroups_;
+    }
+
+    private void buildPartial0(com.google.cloud.networkanalyzer.logging.v1.Report result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.priority_ = priority_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.firstReportTime_ = firstReportTimeBuilder_ == null
+            ? firstReportTime_
+            : firstReportTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.causeCode_ = causeCode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.resourceName_ = resourceName_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.location_ = location_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.reportDocumentationUri_ = reportDocumentationUri_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.networkanalyzer.logging.v1.Report result) {
+      result.contentCase_ = contentCase_;
+      result.content_ = this.content_;
+      if (contentCase_ == 19 &&
+          ipUtilizationInfoBuilder_ != null) {
+        result.content_ = ipUtilizationInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1690,6 +1565,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networkanalyzer.logging.v1.Report.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.priority_ != 0) {
@@ -1709,20 +1585,23 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getResourceName().isEmpty()) {
         resourceName_ = other.resourceName_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getLocation().isEmpty()) {
         location_ = other.location_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getReportDocumentationUri().isEmpty()) {
         reportDocumentationUri_ = other.reportDocumentationUri_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.reportGroups_.isEmpty()) {
         if (reportGroups_.isEmpty()) {
           reportGroups_ = other.reportGroups_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureReportGroupsIsMutable();
           reportGroups_.addAll(other.reportGroups_);
@@ -1738,7 +1617,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1753,17 +1632,101 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkanalyzer.logging.v1.Report parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              priority_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 74: {
+              input.readMessage(
+                  getFirstReportTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 74
+            case 96: {
+              causeCode_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 96
+            case 122: {
+              resourceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 122
+            case 130: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 130
+            case 138: {
+              reportDocumentationUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 138
+            case 144: {
+              int tmpRaw = input.readEnum();
+              ensureReportGroupsIsMutable();
+              reportGroups_.add(tmpRaw);
+              break;
+            } // case 144
+            case 146: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureReportGroupsIsMutable();
+                reportGroups_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getIpUtilizationInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              contentCase_ = 19;
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkanalyzer.logging.v1.Report) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int contentCase_ = 0;
@@ -1836,11 +1799,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1853,8 +1814,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1869,12 +1830,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1901,8 +1860,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPriorityValue(int value) {
-      
       priority_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1916,8 +1875,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkanalyzer.logging.v1.Report.Priority getPriority() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkanalyzer.logging.v1.Report.Priority result = com.google.cloud.networkanalyzer.logging.v1.Report.Priority.valueOf(priority_);
+      com.google.cloud.networkanalyzer.logging.v1.Report.Priority result = com.google.cloud.networkanalyzer.logging.v1.Report.Priority.forNumber(priority_);
       return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.Priority.UNRECOGNIZED : result;
     }
     /**
@@ -1933,7 +1891,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       priority_ = value.getNumber();
       onChanged();
       return this;
@@ -1947,7 +1905,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPriority() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       priority_ = 0;
       onChanged();
       return this;
@@ -1975,8 +1933,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1990,8 +1948,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkanalyzer.logging.v1.Report.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkanalyzer.logging.v1.Report.Type result = com.google.cloud.networkanalyzer.logging.v1.Report.Type.valueOf(type_);
+      com.google.cloud.networkanalyzer.logging.v1.Report.Type result = com.google.cloud.networkanalyzer.logging.v1.Report.Type.forNumber(type_);
       return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.Type.UNRECOGNIZED : result;
     }
     /**
@@ -2007,7 +1964,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -2021,7 +1978,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       type_ = 0;
       onChanged();
       return this;
@@ -2049,8 +2006,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2064,8 +2021,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus result = com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus.valueOf(status_);
+      com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus result = com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus.forNumber(status_);
       return result == null ? com.google.cloud.networkanalyzer.logging.v1.Report.ReportStatus.UNRECOGNIZED : result;
     }
     /**
@@ -2081,7 +2037,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -2095,7 +2051,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       status_ = 0;
       onChanged();
       return this;
@@ -2113,7 +2069,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the firstReportTime field is set.
      */
     public boolean hasFirstReportTime() {
-      return firstReportTimeBuilder_ != null || firstReportTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2143,11 +2099,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         firstReportTime_ = value;
-        onChanged();
       } else {
         firstReportTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2161,11 +2117,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (firstReportTimeBuilder_ == null) {
         firstReportTime_ = builderForValue.build();
-        onChanged();
       } else {
         firstReportTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2177,17 +2133,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFirstReportTime(com.google.protobuf.Timestamp value) {
       if (firstReportTimeBuilder_ == null) {
-        if (firstReportTime_ != null) {
-          firstReportTime_ =
-            com.google.protobuf.Timestamp.newBuilder(firstReportTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          firstReportTime_ != null &&
+          firstReportTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getFirstReportTimeBuilder().mergeFrom(value);
         } else {
           firstReportTime_ = value;
         }
-        onChanged();
       } else {
         firstReportTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2198,14 +2155,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp first_report_time = 9;</code>
      */
     public Builder clearFirstReportTime() {
-      if (firstReportTimeBuilder_ == null) {
-        firstReportTime_ = null;
-        onChanged();
-      } else {
-        firstReportTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      firstReportTime_ = null;
+      if (firstReportTimeBuilder_ != null) {
+        firstReportTimeBuilder_.dispose();
         firstReportTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2216,7 +2172,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp first_report_time = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getFirstReportTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getFirstReportTimeFieldBuilder().getBuilder();
     }
@@ -2278,8 +2234,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCauseCodeValue(int value) {
-      
       causeCode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2293,8 +2249,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode getCauseCode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode result = com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode.valueOf(causeCode_);
+      com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode result = com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode.forNumber(causeCode_);
       return result == null ? com.google.cloud.networkanalyzer.logging.v1.ReportCauseCode.UNRECOGNIZED : result;
     }
     /**
@@ -2310,7 +2265,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       causeCode_ = value.getNumber();
       onChanged();
       return this;
@@ -2324,7 +2279,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCauseCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       causeCode_ = 0;
       onChanged();
       return this;
@@ -2392,11 +2347,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2412,8 +2365,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceName() {
-      
       resourceName_ = getDefaultInstance().getResourceName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2431,12 +2384,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceName_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2497,11 +2448,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       location_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2515,8 +2464,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
-      
       location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2532,12 +2481,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       location_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2595,11 +2542,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReportDocumentationUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reportDocumentationUri_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2612,8 +2557,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReportDocumentationUri() {
-      
       reportDocumentationUri_ = getDefaultInstance().getReportDocumentationUri();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2628,12 +2573,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReportDocumentationUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       reportDocumentationUri_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2641,9 +2584,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> reportGroups_ =
       java.util.Collections.emptyList();
     private void ensureReportGroupsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         reportGroups_ = new java.util.ArrayList<java.lang.Integer>(reportGroups_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000200;
       }
     }
     /**
@@ -2747,7 +2690,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearReportGroups() {
       reportGroups_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2964,7 +2907,7 @@ private static final long serialVersionUID = 0L;
         content_ = null;
       }
       contentCase_ = 19;
-      onChanged();;
+      onChanged();
       return ipUtilizationInfoBuilder_;
     }
     @java.lang.Override
@@ -3000,7 +2943,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Report(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

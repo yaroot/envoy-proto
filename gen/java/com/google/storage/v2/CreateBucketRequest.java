@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateBucketRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.storage.v2.Bucket.Builder subBuilder = null;
-            if (bucket_ != null) {
-              subBuilder = bucket_.toBuilder();
-            }
-            bucket_ = input.readMessage(com.google.storage.v2.Bucket.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bucket_);
-              bucket_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            bucketId_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predefinedAcl_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predefinedDefaultObjectAcl_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_CreateBucketRequest_descriptor;
@@ -128,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The project to which this bucket will belong.
@@ -177,13 +102,13 @@ private static final long serialVersionUID = 0L;
   private com.google.storage.v2.Bucket bucket_;
   /**
    * <pre>
-   * Required. Properties of the new bucket being inserted.
+   * Properties of the new bucket being inserted.
    * The project and name of the bucket are specified in the parent and
    * bucket_id fields, respectively. Populating those fields in `bucket` will
    * result in an error.
    * </pre>
    *
-   * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>.google.storage.v2.Bucket bucket = 2;</code>
    * @return Whether the bucket field is set.
    */
   @java.lang.Override
@@ -192,13 +117,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Properties of the new bucket being inserted.
+   * Properties of the new bucket being inserted.
    * The project and name of the bucket are specified in the parent and
    * bucket_id fields, respectively. Populating those fields in `bucket` will
    * result in an error.
    * </pre>
    *
-   * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>.google.storage.v2.Bucket bucket = 2;</code>
    * @return The bucket.
    */
   @java.lang.Override
@@ -207,26 +132,27 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Properties of the new bucket being inserted.
+   * Properties of the new bucket being inserted.
    * The project and name of the bucket are specified in the parent and
    * bucket_id fields, respectively. Populating those fields in `bucket` will
    * result in an error.
    * </pre>
    *
-   * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>.google.storage.v2.Bucket bucket = 2;</code>
    */
   @java.lang.Override
   public com.google.storage.v2.BucketOrBuilder getBucketOrBuilder() {
-    return getBucket();
+    return bucket_ == null ? com.google.storage.v2.Bucket.getDefaultInstance() : bucket_;
   }
 
   public static final int BUCKET_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object bucketId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bucketId_ = "";
   /**
    * <pre>
-   * Required. The ID to use for this bucket, which will become the final component of
-   * the bucket's resource name. For example, the value `foo` might result in
-   * a bucket with the name `projects/123456/buckets/foo`.
+   * Required. The ID to use for this bucket, which will become the final
+   * component of the bucket's resource name. For example, the value `foo` might
+   * result in a bucket with the name `projects/123456/buckets/foo`.
    * </pre>
    *
    * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -247,9 +173,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The ID to use for this bucket, which will become the final component of
-   * the bucket's resource name. For example, the value `foo` might result in
-   * a bucket with the name `projects/123456/buckets/foo`.
+   * Required. The ID to use for this bucket, which will become the final
+   * component of the bucket's resource name. For example, the value `foo` might
+   * result in a bucket with the name `projects/123456/buckets/foo`.
    * </pre>
    *
    * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -271,7 +197,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREDEFINED_ACL_FIELD_NUMBER = 6;
-  private volatile java.lang.Object predefinedAcl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predefinedAcl_ = "";
   /**
    * <pre>
    * Apply a predefined set of access controls to this bucket.
@@ -321,7 +248,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREDEFINED_DEFAULT_OBJECT_ACL_FIELD_NUMBER = 7;
-  private volatile java.lang.Object predefinedDefaultObjectAcl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predefinedDefaultObjectAcl_ = "";
   /**
    * <pre>
    * Apply a predefined set of default object access controls to this bucket.
@@ -399,7 +327,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predefinedDefaultObjectAcl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, predefinedDefaultObjectAcl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -424,7 +352,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predefinedDefaultObjectAcl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, predefinedDefaultObjectAcl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -452,7 +380,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPredefinedAcl())) return false;
     if (!getPredefinedDefaultObjectAcl()
         .equals(other.getPredefinedDefaultObjectAcl())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -475,7 +403,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPredefinedAcl().hashCode();
     hash = (37 * hash) + PREDEFINED_DEFAULT_OBJECT_ACL_FIELD_NUMBER;
     hash = (53 * hash) + getPredefinedDefaultObjectAcl().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -596,36 +524,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v2.CreateBucketRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (bucketBuilder_ == null) {
-        bucket_ = null;
-      } else {
-        bucket_ = null;
+      bucket_ = null;
+      if (bucketBuilder_ != null) {
+        bucketBuilder_.dispose();
         bucketBuilder_ = null;
       }
       bucketId_ = "";
-
       predefinedAcl_ = "";
-
       predefinedDefaultObjectAcl_ = "";
-
       return this;
     }
 
@@ -652,17 +571,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.CreateBucketRequest buildPartial() {
       com.google.storage.v2.CreateBucketRequest result = new com.google.storage.v2.CreateBucketRequest(this);
-      result.parent_ = parent_;
-      if (bucketBuilder_ == null) {
-        result.bucket_ = bucket_;
-      } else {
-        result.bucket_ = bucketBuilder_.build();
-      }
-      result.bucketId_ = bucketId_;
-      result.predefinedAcl_ = predefinedAcl_;
-      result.predefinedDefaultObjectAcl_ = predefinedDefaultObjectAcl_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v2.CreateBucketRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.bucket_ = bucketBuilder_ == null
+            ? bucket_
+            : bucketBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.bucketId_ = bucketId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.predefinedAcl_ = predefinedAcl_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.predefinedDefaultObjectAcl_ = predefinedDefaultObjectAcl_;
+      }
     }
 
     @java.lang.Override
@@ -711,6 +643,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.storage.v2.CreateBucketRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasBucket()) {
@@ -718,17 +651,20 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBucketId().isEmpty()) {
         bucketId_ = other.bucketId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPredefinedAcl().isEmpty()) {
         predefinedAcl_ = other.predefinedAcl_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getPredefinedDefaultObjectAcl().isEmpty()) {
         predefinedDefaultObjectAcl_ = other.predefinedDefaultObjectAcl_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -743,19 +679,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.CreateBucketRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getBucketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              bucketId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 50: {
+              predefinedAcl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              predefinedDefaultObjectAcl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.CreateBucketRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -810,11 +787,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -827,8 +802,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -843,12 +818,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -858,27 +831,27 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v2.Bucket, com.google.storage.v2.Bucket.Builder, com.google.storage.v2.BucketOrBuilder> bucketBuilder_;
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      * @return Whether the bucket field is set.
      */
     public boolean hasBucket() {
-      return bucketBuilder_ != null || bucket_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      * @return The bucket.
      */
     public com.google.storage.v2.Bucket getBucket() {
@@ -890,13 +863,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     public Builder setBucket(com.google.storage.v2.Bucket value) {
       if (bucketBuilder_ == null) {
@@ -904,104 +877,104 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bucket_ = value;
-        onChanged();
       } else {
         bucketBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     public Builder setBucket(
         com.google.storage.v2.Bucket.Builder builderForValue) {
       if (bucketBuilder_ == null) {
         bucket_ = builderForValue.build();
-        onChanged();
       } else {
         bucketBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     public Builder mergeBucket(com.google.storage.v2.Bucket value) {
       if (bucketBuilder_ == null) {
-        if (bucket_ != null) {
-          bucket_ =
-            com.google.storage.v2.Bucket.newBuilder(bucket_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          bucket_ != null &&
+          bucket_ != com.google.storage.v2.Bucket.getDefaultInstance()) {
+          getBucketBuilder().mergeFrom(value);
         } else {
           bucket_ = value;
         }
-        onChanged();
       } else {
         bucketBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     public Builder clearBucket() {
-      if (bucketBuilder_ == null) {
-        bucket_ = null;
-        onChanged();
-      } else {
-        bucket_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      bucket_ = null;
+      if (bucketBuilder_ != null) {
+        bucketBuilder_.dispose();
         bucketBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     public com.google.storage.v2.Bucket.Builder getBucketBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getBucketFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     public com.google.storage.v2.BucketOrBuilder getBucketOrBuilder() {
       if (bucketBuilder_ != null) {
@@ -1013,13 +986,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Properties of the new bucket being inserted.
+     * Properties of the new bucket being inserted.
      * The project and name of the bucket are specified in the parent and
      * bucket_id fields, respectively. Populating those fields in `bucket` will
      * result in an error.
      * </pre>
      *
-     * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * <code>.google.storage.v2.Bucket bucket = 2;</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.storage.v2.Bucket, com.google.storage.v2.Bucket.Builder, com.google.storage.v2.BucketOrBuilder> 
@@ -1038,9 +1011,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object bucketId_ = "";
     /**
      * <pre>
-     * Required. The ID to use for this bucket, which will become the final component of
-     * the bucket's resource name. For example, the value `foo` might result in
-     * a bucket with the name `projects/123456/buckets/foo`.
+     * Required. The ID to use for this bucket, which will become the final
+     * component of the bucket's resource name. For example, the value `foo` might
+     * result in a bucket with the name `projects/123456/buckets/foo`.
      * </pre>
      *
      * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1060,9 +1033,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The ID to use for this bucket, which will become the final component of
-     * the bucket's resource name. For example, the value `foo` might result in
-     * a bucket with the name `projects/123456/buckets/foo`.
+     * Required. The ID to use for this bucket, which will become the final
+     * component of the bucket's resource name. For example, the value `foo` might
+     * result in a bucket with the name `projects/123456/buckets/foo`.
      * </pre>
      *
      * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1083,9 +1056,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The ID to use for this bucket, which will become the final component of
-     * the bucket's resource name. For example, the value `foo` might result in
-     * a bucket with the name `projects/123456/buckets/foo`.
+     * Required. The ID to use for this bucket, which will become the final
+     * component of the bucket's resource name. For example, the value `foo` might
+     * result in a bucket with the name `projects/123456/buckets/foo`.
      * </pre>
      *
      * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1094,35 +1067,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       bucketId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The ID to use for this bucket, which will become the final component of
-     * the bucket's resource name. For example, the value `foo` might result in
-     * a bucket with the name `projects/123456/buckets/foo`.
+     * Required. The ID to use for this bucket, which will become the final
+     * component of the bucket's resource name. For example, the value `foo` might
+     * result in a bucket with the name `projects/123456/buckets/foo`.
      * </pre>
      *
      * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return This builder for chaining.
      */
     public Builder clearBucketId() {
-      
       bucketId_ = getDefaultInstance().getBucketId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The ID to use for this bucket, which will become the final component of
-     * the bucket's resource name. For example, the value `foo` might result in
-     * a bucket with the name `projects/123456/buckets/foo`.
+     * Required. The ID to use for this bucket, which will become the final
+     * component of the bucket's resource name. For example, the value `foo` might
+     * result in a bucket with the name `projects/123456/buckets/foo`.
      * </pre>
      *
      * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1131,12 +1102,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBucketIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bucketId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1200,11 +1169,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedAcl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predefinedAcl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1219,8 +1186,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredefinedAcl() {
-      
       predefinedAcl_ = getDefaultInstance().getPredefinedAcl();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1237,12 +1204,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedAclBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predefinedAcl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1306,11 +1271,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedDefaultObjectAcl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predefinedDefaultObjectAcl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1325,8 +1288,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredefinedDefaultObjectAcl() {
-      
       predefinedDefaultObjectAcl_ = getDefaultInstance().getPredefinedDefaultObjectAcl();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1343,12 +1306,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedDefaultObjectAclBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predefinedDefaultObjectAcl_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1385,7 +1346,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateBucketRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

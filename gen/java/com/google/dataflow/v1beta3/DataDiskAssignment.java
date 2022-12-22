@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataDiskAssignment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vmInstance_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              dataDisks_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            dataDisks_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        dataDisks_ = dataDisks_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.StreamingProto.internal_static_google_dataflow_v1beta3_DataDiskAssignment_descriptor;
@@ -108,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VM_INSTANCE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object vmInstance_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vmInstance_ = "";
   /**
    * <pre>
    * VM instance name the data disks mounted to, for example
@@ -156,6 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_DISKS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList dataDisks_;
   /**
    * <pre>
@@ -238,7 +182,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < dataDisks_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, dataDisks_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -258,7 +202,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getDataDisksList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -277,7 +221,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getVmInstance())) return false;
     if (!getDataDisksList()
         .equals(other.getDataDisksList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -294,7 +238,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATA_DISKS_FIELD_NUMBER;
       hash = (53 * hash) + getDataDisksList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -415,26 +359,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.DataDiskAssignment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vmInstance_ = "";
-
       dataDisks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -461,15 +400,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.DataDiskAssignment buildPartial() {
       com.google.dataflow.v1beta3.DataDiskAssignment result = new com.google.dataflow.v1beta3.DataDiskAssignment(this);
-      int from_bitField0_ = bitField0_;
-      result.vmInstance_ = vmInstance_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        dataDisks_ = dataDisks_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.dataDisks_ = dataDisks_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.dataflow.v1beta3.DataDiskAssignment result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        dataDisks_ = dataDisks_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.dataDisks_ = dataDisks_;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.DataDiskAssignment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vmInstance_ = vmInstance_;
+      }
     }
 
     @java.lang.Override
@@ -518,19 +467,20 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.dataflow.v1beta3.DataDiskAssignment.getDefaultInstance()) return this;
       if (!other.getVmInstance().isEmpty()) {
         vmInstance_ = other.vmInstance_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.dataDisks_.isEmpty()) {
         if (dataDisks_.isEmpty()) {
           dataDisks_ = other.dataDisks_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureDataDisksIsMutable();
           dataDisks_.addAll(other.dataDisks_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -545,17 +495,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.DataDiskAssignment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              vmInstance_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDataDisksIsMutable();
+              dataDisks_.add(s);
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.DataDiskAssignment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -616,11 +590,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmInstance(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vmInstance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -634,8 +606,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVmInstance() {
-      
       vmInstance_ = getDefaultInstance().getVmInstance();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -651,21 +623,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVmInstanceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vmInstance_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList dataDisks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDataDisksIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         dataDisks_ = new com.google.protobuf.LazyStringArrayList(dataDisks_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -743,10 +713,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataDisks(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataDisksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDataDisksIsMutable();
       dataDisks_.set(index, value);
       onChanged();
       return this;
@@ -765,10 +733,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDataDisks(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDataDisksIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDataDisksIsMutable();
       dataDisks_.add(value);
       onChanged();
       return this;
@@ -806,7 +772,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDataDisks() {
       dataDisks_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -824,10 +790,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDataDisksBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDataDisksIsMutable();
       dataDisks_.add(value);
       onChanged();
@@ -866,7 +830,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataDiskAssignment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

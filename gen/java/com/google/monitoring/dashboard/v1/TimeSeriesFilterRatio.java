@@ -36,112 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimeSeriesFilterRatio(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.Builder subBuilder = null;
-            if (numerator_ != null) {
-              subBuilder = numerator_.toBuilder();
-            }
-            numerator_ = input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(numerator_);
-              numerator_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.Builder subBuilder = null;
-            if (denominator_ != null) {
-              subBuilder = denominator_.toBuilder();
-            }
-            denominator_ = input.readMessage(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(denominator_);
-              denominator_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.monitoring.dashboard.v1.Aggregation.Builder subBuilder = null;
-            if (secondaryAggregation_ != null) {
-              subBuilder = secondaryAggregation_.toBuilder();
-            }
-            secondaryAggregation_ = input.readMessage(com.google.monitoring.dashboard.v1.Aggregation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(secondaryAggregation_);
-              secondaryAggregation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.Builder subBuilder = null;
-            if (outputFilterCase_ == 4) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.PickTimeSeriesFilter) outputFilter_).toBuilder();
-            }
-            outputFilter_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.PickTimeSeriesFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.PickTimeSeriesFilter) outputFilter_);
-              outputFilter_ = subBuilder.buildPartial();
-            }
-            outputFilterCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter.Builder subBuilder = null;
-            if (outputFilterCase_ == 5) {
-              subBuilder = ((com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter) outputFilter_).toBuilder();
-            }
-            outputFilter_ =
-                input.readMessage(com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter) outputFilter_);
-              outputFilter_ = subBuilder.buildPartial();
-            }
-            outputFilterCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.MetricsProto.internal_static_google_monitoring_dashboard_v1_TimeSeriesFilterRatio_descriptor;
@@ -249,64 +143,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RatioPart(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              filter_ = s;
-              break;
-            }
-            case 18: {
-              com.google.monitoring.dashboard.v1.Aggregation.Builder subBuilder = null;
-              if (aggregation_ != null) {
-                subBuilder = aggregation_.toBuilder();
-              }
-              aggregation_ = input.readMessage(com.google.monitoring.dashboard.v1.Aggregation.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(aggregation_);
-                aggregation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.monitoring.dashboard.v1.MetricsProto.internal_static_google_monitoring_dashboard_v1_TimeSeriesFilterRatio_RatioPart_descriptor;
@@ -321,7 +157,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FILTER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object filter_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object filter_ = "";
     /**
      * <pre>
      * Required. The [monitoring
@@ -411,7 +248,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.AggregationOrBuilder getAggregationOrBuilder() {
-      return getAggregation();
+      return aggregation_ == null ? com.google.monitoring.dashboard.v1.Aggregation.getDefaultInstance() : aggregation_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -434,7 +271,7 @@ private static final long serialVersionUID = 0L;
       if (aggregation_ != null) {
         output.writeMessage(2, getAggregation());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -450,7 +287,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getAggregation());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -472,7 +309,7 @@ private static final long serialVersionUID = 0L;
         if (!getAggregation()
             .equals(other.getAggregation())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -489,7 +326,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + AGGREGATION_FIELD_NUMBER;
         hash = (53 * hash) + getAggregation().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -611,28 +448,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         filter_ = "";
-
-        if (aggregationBuilder_ == null) {
-          aggregation_ = null;
-        } else {
-          aggregation_ = null;
+        aggregation_ = null;
+        if (aggregationBuilder_ != null) {
+          aggregationBuilder_.dispose();
           aggregationBuilder_ = null;
         }
         return this;
@@ -661,14 +492,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart buildPartial() {
         com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart result = new com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart(this);
-        result.filter_ = filter_;
-        if (aggregationBuilder_ == null) {
-          result.aggregation_ = aggregation_;
-        } else {
-          result.aggregation_ = aggregationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.filter_ = filter_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.aggregation_ = aggregationBuilder_ == null
+              ? aggregation_
+              : aggregationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -717,12 +555,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.getDefaultInstance()) return this;
         if (!other.getFilter().isEmpty()) {
           filter_ = other.filter_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasAggregation()) {
           mergeAggregation(other.getAggregation());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -737,19 +576,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                filter_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getAggregationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object filter_ = "";
       /**
@@ -810,11 +675,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFilter(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         filter_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -829,8 +692,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFilter() {
-        
         filter_ = getDefaultInstance().getFilter();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -847,12 +710,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFilterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         filter_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -871,7 +732,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the aggregation field is set.
        */
       public boolean hasAggregation() {
-        return aggregationBuilder_ != null || aggregation_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -905,11 +766,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           aggregation_ = value;
-          onChanged();
         } else {
           aggregationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -925,11 +786,11 @@ private static final long serialVersionUID = 0L;
           com.google.monitoring.dashboard.v1.Aggregation.Builder builderForValue) {
         if (aggregationBuilder_ == null) {
           aggregation_ = builderForValue.build();
-          onChanged();
         } else {
           aggregationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -943,17 +804,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAggregation(com.google.monitoring.dashboard.v1.Aggregation value) {
         if (aggregationBuilder_ == null) {
-          if (aggregation_ != null) {
-            aggregation_ =
-              com.google.monitoring.dashboard.v1.Aggregation.newBuilder(aggregation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            aggregation_ != null &&
+            aggregation_ != com.google.monitoring.dashboard.v1.Aggregation.getDefaultInstance()) {
+            getAggregationBuilder().mergeFrom(value);
           } else {
             aggregation_ = value;
           }
-          onChanged();
         } else {
           aggregationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -966,14 +828,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.dashboard.v1.Aggregation aggregation = 2;</code>
        */
       public Builder clearAggregation() {
-        if (aggregationBuilder_ == null) {
-          aggregation_ = null;
-          onChanged();
-        } else {
-          aggregation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        aggregation_ = null;
+        if (aggregationBuilder_ != null) {
+          aggregationBuilder_.dispose();
           aggregationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -986,7 +847,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.monitoring.dashboard.v1.Aggregation aggregation = 2;</code>
        */
       public com.google.monitoring.dashboard.v1.Aggregation.Builder getAggregationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getAggregationFieldBuilder().getBuilder();
       }
@@ -1062,7 +923,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RatioPart(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1158,7 +1030,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPartOrBuilder getNumeratorOrBuilder() {
-    return getNumerator();
+    return numerator_ == null ? com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.getDefaultInstance() : numerator_;
   }
 
   public static final int DENOMINATOR_FIELD_NUMBER = 2;
@@ -1196,7 +1068,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPartOrBuilder getDenominatorOrBuilder() {
-    return getDenominator();
+    return denominator_ == null ? com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.getDefaultInstance() : denominator_;
   }
 
   public static final int SECONDARY_AGGREGATION_FIELD_NUMBER = 3;
@@ -1234,7 +1106,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.dashboard.v1.AggregationOrBuilder getSecondaryAggregationOrBuilder() {
-    return getSecondaryAggregation();
+    return secondaryAggregation_ == null ? com.google.monitoring.dashboard.v1.Aggregation.getDefaultInstance() : secondaryAggregation_;
   }
 
   public static final int PICK_TIME_SERIES_FILTER_FIELD_NUMBER = 4;
@@ -1289,7 +1161,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
    * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilterRatio.statistical_time_series_filter is deprecated.
-   *     See google/monitoring/dashboard/v1/metrics.proto;l=115
+   *     See google/monitoring/dashboard/v1/metrics.proto;l=118
    * @return Whether the statisticalTimeSeriesFilter field is set.
    */
   @java.lang.Override
@@ -1304,7 +1176,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
    * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilterRatio.statistical_time_series_filter is deprecated.
-   *     See google/monitoring/dashboard/v1/metrics.proto;l=115
+   *     See google/monitoring/dashboard/v1/metrics.proto;l=118
    * @return The statisticalTimeSeriesFilter.
    */
   @java.lang.Override
@@ -1359,7 +1231,7 @@ private static final long serialVersionUID = 0L;
     if (outputFilterCase_ == 5) {
       output.writeMessage(5, (com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter) outputFilter_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1388,7 +1260,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter) outputFilter_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1431,7 +1303,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1466,7 +1338,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1589,39 +1461,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (numeratorBuilder_ == null) {
-        numerator_ = null;
-      } else {
-        numerator_ = null;
+      bitField0_ = 0;
+      numerator_ = null;
+      if (numeratorBuilder_ != null) {
+        numeratorBuilder_.dispose();
         numeratorBuilder_ = null;
       }
-      if (denominatorBuilder_ == null) {
-        denominator_ = null;
-      } else {
-        denominator_ = null;
+      denominator_ = null;
+      if (denominatorBuilder_ != null) {
+        denominatorBuilder_.dispose();
         denominatorBuilder_ = null;
       }
-      if (secondaryAggregationBuilder_ == null) {
-        secondaryAggregation_ = null;
-      } else {
-        secondaryAggregation_ = null;
+      secondaryAggregation_ = null;
+      if (secondaryAggregationBuilder_ != null) {
+        secondaryAggregationBuilder_.dispose();
         secondaryAggregationBuilder_ = null;
+      }
+      if (pickTimeSeriesFilterBuilder_ != null) {
+        pickTimeSeriesFilterBuilder_.clear();
+      }
+      if (statisticalTimeSeriesFilterBuilder_ != null) {
+        statisticalTimeSeriesFilterBuilder_.clear();
       }
       outputFilterCase_ = 0;
       outputFilter_ = null;
@@ -1651,38 +1522,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio buildPartial() {
       com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio result = new com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio(this);
-      if (numeratorBuilder_ == null) {
-        result.numerator_ = numerator_;
-      } else {
-        result.numerator_ = numeratorBuilder_.build();
-      }
-      if (denominatorBuilder_ == null) {
-        result.denominator_ = denominator_;
-      } else {
-        result.denominator_ = denominatorBuilder_.build();
-      }
-      if (secondaryAggregationBuilder_ == null) {
-        result.secondaryAggregation_ = secondaryAggregation_;
-      } else {
-        result.secondaryAggregation_ = secondaryAggregationBuilder_.build();
-      }
-      if (outputFilterCase_ == 4) {
-        if (pickTimeSeriesFilterBuilder_ == null) {
-          result.outputFilter_ = outputFilter_;
-        } else {
-          result.outputFilter_ = pickTimeSeriesFilterBuilder_.build();
-        }
-      }
-      if (outputFilterCase_ == 5) {
-        if (statisticalTimeSeriesFilterBuilder_ == null) {
-          result.outputFilter_ = outputFilter_;
-        } else {
-          result.outputFilter_ = statisticalTimeSeriesFilterBuilder_.build();
-        }
-      }
-      result.outputFilterCase_ = outputFilterCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.numerator_ = numeratorBuilder_ == null
+            ? numerator_
+            : numeratorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.denominator_ = denominatorBuilder_ == null
+            ? denominator_
+            : denominatorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.secondaryAggregation_ = secondaryAggregationBuilder_ == null
+            ? secondaryAggregation_
+            : secondaryAggregationBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio result) {
+      result.outputFilterCase_ = outputFilterCase_;
+      result.outputFilter_ = this.outputFilter_;
+      if (outputFilterCase_ == 4 &&
+          pickTimeSeriesFilterBuilder_ != null) {
+        result.outputFilter_ = pickTimeSeriesFilterBuilder_.build();
+      }
+      if (outputFilterCase_ == 5 &&
+          statisticalTimeSeriesFilterBuilder_ != null) {
+        result.outputFilter_ = statisticalTimeSeriesFilterBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1751,7 +1626,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1766,17 +1641,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNumeratorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDenominatorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSecondaryAggregationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPickTimeSeriesFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              outputFilterCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getStatisticalTimeSeriesFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              outputFilterCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int outputFilterCase_ = 0;
@@ -1794,6 +1717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart numerator_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1807,7 +1731,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the numerator field is set.
      */
     public boolean hasNumerator() {
-      return numeratorBuilder_ != null || numerator_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1837,11 +1761,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         numerator_ = value;
-        onChanged();
       } else {
         numeratorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1855,11 +1779,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.Builder builderForValue) {
       if (numeratorBuilder_ == null) {
         numerator_ = builderForValue.build();
-        onChanged();
       } else {
         numeratorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1871,17 +1795,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNumerator(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart value) {
       if (numeratorBuilder_ == null) {
-        if (numerator_ != null) {
-          numerator_ =
-            com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.newBuilder(numerator_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          numerator_ != null &&
+          numerator_ != com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.getDefaultInstance()) {
+          getNumeratorBuilder().mergeFrom(value);
         } else {
           numerator_ = value;
         }
-        onChanged();
       } else {
         numeratorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1892,14 +1817,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart numerator = 1;</code>
      */
     public Builder clearNumerator() {
-      if (numeratorBuilder_ == null) {
-        numerator_ = null;
-        onChanged();
-      } else {
-        numerator_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      numerator_ = null;
+      if (numeratorBuilder_ != null) {
+        numeratorBuilder_.dispose();
         numeratorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1910,7 +1834,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart numerator = 1;</code>
      */
     public com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.Builder getNumeratorBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNumeratorFieldBuilder().getBuilder();
     }
@@ -1962,7 +1886,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the denominator field is set.
      */
     public boolean hasDenominator() {
-      return denominatorBuilder_ != null || denominator_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1992,11 +1916,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         denominator_ = value;
-        onChanged();
       } else {
         denominatorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2010,11 +1934,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.Builder builderForValue) {
       if (denominatorBuilder_ == null) {
         denominator_ = builderForValue.build();
-        onChanged();
       } else {
         denominatorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2026,17 +1950,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDenominator(com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart value) {
       if (denominatorBuilder_ == null) {
-        if (denominator_ != null) {
-          denominator_ =
-            com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.newBuilder(denominator_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          denominator_ != null &&
+          denominator_ != com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.getDefaultInstance()) {
+          getDenominatorBuilder().mergeFrom(value);
         } else {
           denominator_ = value;
         }
-        onChanged();
       } else {
         denominatorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2047,14 +1972,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart denominator = 2;</code>
      */
     public Builder clearDenominator() {
-      if (denominatorBuilder_ == null) {
-        denominator_ = null;
-        onChanged();
-      } else {
-        denominator_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      denominator_ = null;
+      if (denominatorBuilder_ != null) {
+        denominatorBuilder_.dispose();
         denominatorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2065,7 +1989,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart denominator = 2;</code>
      */
     public com.google.monitoring.dashboard.v1.TimeSeriesFilterRatio.RatioPart.Builder getDenominatorBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDenominatorFieldBuilder().getBuilder();
     }
@@ -2117,7 +2041,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the secondaryAggregation field is set.
      */
     public boolean hasSecondaryAggregation() {
-      return secondaryAggregationBuilder_ != null || secondaryAggregation_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2147,11 +2071,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         secondaryAggregation_ = value;
-        onChanged();
       } else {
         secondaryAggregationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2165,11 +2089,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.dashboard.v1.Aggregation.Builder builderForValue) {
       if (secondaryAggregationBuilder_ == null) {
         secondaryAggregation_ = builderForValue.build();
-        onChanged();
       } else {
         secondaryAggregationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2181,17 +2105,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecondaryAggregation(com.google.monitoring.dashboard.v1.Aggregation value) {
       if (secondaryAggregationBuilder_ == null) {
-        if (secondaryAggregation_ != null) {
-          secondaryAggregation_ =
-            com.google.monitoring.dashboard.v1.Aggregation.newBuilder(secondaryAggregation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          secondaryAggregation_ != null &&
+          secondaryAggregation_ != com.google.monitoring.dashboard.v1.Aggregation.getDefaultInstance()) {
+          getSecondaryAggregationBuilder().mergeFrom(value);
         } else {
           secondaryAggregation_ = value;
         }
-        onChanged();
       } else {
         secondaryAggregationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2202,14 +2127,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.Aggregation secondary_aggregation = 3;</code>
      */
     public Builder clearSecondaryAggregation() {
-      if (secondaryAggregationBuilder_ == null) {
-        secondaryAggregation_ = null;
-        onChanged();
-      } else {
-        secondaryAggregation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      secondaryAggregation_ = null;
+      if (secondaryAggregationBuilder_ != null) {
+        secondaryAggregationBuilder_.dispose();
         secondaryAggregationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2220,7 +2144,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.dashboard.v1.Aggregation secondary_aggregation = 3;</code>
      */
     public com.google.monitoring.dashboard.v1.Aggregation.Builder getSecondaryAggregationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSecondaryAggregationFieldBuilder().getBuilder();
     }
@@ -2434,7 +2358,7 @@ private static final long serialVersionUID = 0L;
         outputFilter_ = null;
       }
       outputFilterCase_ = 4;
-      onChanged();;
+      onChanged();
       return pickTimeSeriesFilterBuilder_;
     }
 
@@ -2448,7 +2372,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
      * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilterRatio.statistical_time_series_filter is deprecated.
-     *     See google/monitoring/dashboard/v1/metrics.proto;l=115
+     *     See google/monitoring/dashboard/v1/metrics.proto;l=118
      * @return Whether the statisticalTimeSeriesFilter field is set.
      */
     @java.lang.Override
@@ -2463,7 +2387,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.monitoring.dashboard.v1.StatisticalTimeSeriesFilter statistical_time_series_filter = 5 [deprecated = true];</code>
      * @deprecated google.monitoring.dashboard.v1.TimeSeriesFilterRatio.statistical_time_series_filter is deprecated.
-     *     See google/monitoring/dashboard/v1/metrics.proto;l=115
+     *     See google/monitoring/dashboard/v1/metrics.proto;l=118
      * @return The statisticalTimeSeriesFilter.
      */
     @java.lang.Override
@@ -2625,7 +2549,7 @@ private static final long serialVersionUID = 0L;
         outputFilter_ = null;
       }
       outputFilterCase_ = 5;
-      onChanged();;
+      onChanged();
       return statisticalTimeSeriesFilterBuilder_;
     }
     @java.lang.Override
@@ -2661,7 +2585,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeSeriesFilterRatio(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

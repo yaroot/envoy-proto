@@ -34,7 +34,8 @@ public interface ReferenceOrBuilder extends
    * If the list has more than one element, overload resolution among the
    * presented candidates must happen at runtime because of dynamic types. The
    * type checker attempts to narrow down this list as much as possible.
-   * Empty if this is not a reference to a [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
+   * Empty if this is not a reference to a
+   * [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
    * </pre>
    *
    * <code>repeated string overload_id = 3;</code>
@@ -49,7 +50,8 @@ public interface ReferenceOrBuilder extends
    * If the list has more than one element, overload resolution among the
    * presented candidates must happen at runtime because of dynamic types. The
    * type checker attempts to narrow down this list as much as possible.
-   * Empty if this is not a reference to a [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
+   * Empty if this is not a reference to a
+   * [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
    * </pre>
    *
    * <code>repeated string overload_id = 3;</code>
@@ -63,7 +65,8 @@ public interface ReferenceOrBuilder extends
    * If the list has more than one element, overload resolution among the
    * presented candidates must happen at runtime because of dynamic types. The
    * type checker attempts to narrow down this list as much as possible.
-   * Empty if this is not a reference to a [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
+   * Empty if this is not a reference to a
+   * [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
    * </pre>
    *
    * <code>repeated string overload_id = 3;</code>
@@ -78,7 +81,8 @@ public interface ReferenceOrBuilder extends
    * If the list has more than one element, overload resolution among the
    * presented candidates must happen at runtime because of dynamic types. The
    * type checker attempts to narrow down this list as much as possible.
-   * Empty if this is not a reference to a [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
+   * Empty if this is not a reference to a
+   * [Decl.FunctionDecl][google.api.expr.v1alpha1.Decl.FunctionDecl].
    * </pre>
    *
    * <code>repeated string overload_id = 3;</code>

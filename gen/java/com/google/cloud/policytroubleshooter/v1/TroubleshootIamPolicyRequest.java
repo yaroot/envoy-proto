@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TroubleshootIamPolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.Builder subBuilder = null;
-            if (accessTuple_ != null) {
-              subBuilder = accessTuple_.toBuilder();
-            }
-            accessTuple_ = input.readMessage(google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accessTuple_);
-              accessTuple_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.policytroubleshooter.v1.IAMCheckerProto.internal_static_google_cloud_policytroubleshooter_v1_TroubleshootIamPolicyRequest_descriptor;
@@ -137,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.cloud.policytroubleshooter.v1.Explanations.AccessTupleOrBuilder getAccessTupleOrBuilder() {
-    return getAccessTuple();
+    return accessTuple_ == null ? google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.getDefaultInstance() : accessTuple_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -157,7 +105,7 @@ private static final long serialVersionUID = 0L;
     if (accessTuple_ != null) {
       output.writeMessage(1, getAccessTuple());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -170,7 +118,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getAccessTuple());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -190,7 +138,7 @@ private static final long serialVersionUID = 0L;
       if (!getAccessTuple()
           .equals(other.getAccessTuple())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -205,7 +153,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACCESS_TUPLE_FIELD_NUMBER;
       hash = (53 * hash) + getAccessTuple().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -326,26 +274,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (accessTupleBuilder_ == null) {
-        accessTuple_ = null;
-      } else {
-        accessTuple_ = null;
+      bitField0_ = 0;
+      accessTuple_ = null;
+      if (accessTupleBuilder_ != null) {
+        accessTupleBuilder_.dispose();
         accessTupleBuilder_ = null;
       }
       return this;
@@ -374,13 +317,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest buildPartial() {
       com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest result = new com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest(this);
-      if (accessTupleBuilder_ == null) {
-        result.accessTuple_ = accessTuple_;
-      } else {
-        result.accessTuple_ = accessTupleBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.accessTuple_ = accessTupleBuilder_ == null
+            ? accessTuple_
+            : accessTupleBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -430,7 +378,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAccessTuple()) {
         mergeAccessTuple(other.getAccessTuple());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -445,19 +393,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAccessTupleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.policytroubleshooter.v1.TroubleshootIamPolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.cloud.policytroubleshooter.v1.Explanations.AccessTuple accessTuple_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accessTuple field is set.
      */
     public boolean hasAccessTuple() {
-      return accessTupleBuilder_ != null || accessTuple_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -504,11 +473,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accessTuple_ = value;
-        onChanged();
       } else {
         accessTupleBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -523,11 +492,11 @@ private static final long serialVersionUID = 0L;
         google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.Builder builderForValue) {
       if (accessTupleBuilder_ == null) {
         accessTuple_ = builderForValue.build();
-        onChanged();
       } else {
         accessTupleBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -540,17 +509,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccessTuple(google.cloud.policytroubleshooter.v1.Explanations.AccessTuple value) {
       if (accessTupleBuilder_ == null) {
-        if (accessTuple_ != null) {
-          accessTuple_ =
-            google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.newBuilder(accessTuple_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          accessTuple_ != null &&
+          accessTuple_ != google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.getDefaultInstance()) {
+          getAccessTupleBuilder().mergeFrom(value);
         } else {
           accessTuple_ = value;
         }
-        onChanged();
       } else {
         accessTupleBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -562,14 +532,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.policytroubleshooter.v1.AccessTuple access_tuple = 1;</code>
      */
     public Builder clearAccessTuple() {
-      if (accessTupleBuilder_ == null) {
-        accessTuple_ = null;
-        onChanged();
-      } else {
-        accessTuple_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      accessTuple_ = null;
+      if (accessTupleBuilder_ != null) {
+        accessTupleBuilder_.dispose();
         accessTupleBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -581,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.policytroubleshooter.v1.AccessTuple access_tuple = 1;</code>
      */
     public google.cloud.policytroubleshooter.v1.Explanations.AccessTuple.Builder getAccessTupleBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAccessTupleFieldBuilder().getBuilder();
     }
@@ -655,7 +624,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TroubleshootIamPolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

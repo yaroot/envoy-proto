@@ -49,135 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LegacyResponsiveDisplayAdInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 104: {
-            int rawValue = input.readEnum();
-
-            formatSetting_ = rawValue;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            shortHeadline_ = s;
-            break;
-          }
-          case 138: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            longHeadline_ = s;
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            description_ = s;
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            businessName_ = s;
-            break;
-          }
-          case 160: {
-            bitField0_ |= 0x00000010;
-            allowFlexibleColor_ = input.readBool();
-            break;
-          }
-          case 170: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            accentColor_ = s;
-            break;
-          }
-          case 178: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            mainColor_ = s;
-            break;
-          }
-          case 186: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            callToActionText_ = s;
-            break;
-          }
-          case 194: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000100;
-            logoImage_ = s;
-            break;
-          }
-          case 202: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            squareLogoImage_ = s;
-            break;
-          }
-          case 210: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            marketingImage_ = s;
-            break;
-          }
-          case 218: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            squareMarketingImage_ = s;
-            break;
-          }
-          case 226: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00001000;
-            pricePrefix_ = s;
-            break;
-          }
-          case 234: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00002000;
-            promoText_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AdTypeInfosProto.internal_static_google_ads_googleads_v10_common_LegacyResponsiveDisplayAdInfo_descriptor;
@@ -193,7 +64,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int SHORT_HEADLINE_FIELD_NUMBER = 16;
-  private volatile java.lang.Object shortHeadline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object shortHeadline_ = "";
   /**
    * <pre>
    * The short version of the ad's headline.
@@ -251,7 +123,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LONG_HEADLINE_FIELD_NUMBER = 17;
-  private volatile java.lang.Object longHeadline_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object longHeadline_ = "";
   /**
    * <pre>
    * The long version of the ad's headline.
@@ -309,7 +182,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 18;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The description of the ad.
@@ -367,7 +241,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUSINESS_NAME_FIELD_NUMBER = 19;
-  private volatile java.lang.Object businessName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object businessName_ = "";
   /**
    * <pre>
    * The business name in the ad.
@@ -425,7 +300,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_FLEXIBLE_COLOR_FIELD_NUMBER = 20;
-  private boolean allowFlexibleColor_;
+  private boolean allowFlexibleColor_ = false;
   /**
    * <pre>
    * Advertiser's consent to allow flexible color. When true, the ad may be
@@ -460,7 +335,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCENT_COLOR_FIELD_NUMBER = 21;
-  private volatile java.lang.Object accentColor_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object accentColor_ = "";
   /**
    * <pre>
    * The accent color of the ad in hexadecimal, e.g. #ffffff for white.
@@ -524,7 +400,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAIN_COLOR_FIELD_NUMBER = 22;
-  private volatile java.lang.Object mainColor_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mainColor_ = "";
   /**
    * <pre>
    * The main color of the ad in hexadecimal, e.g. #ffffff for white.
@@ -588,7 +465,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CALL_TO_ACTION_TEXT_FIELD_NUMBER = 23;
-  private volatile java.lang.Object callToActionText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object callToActionText_ = "";
   /**
    * <pre>
    * The call-to-action text for the ad.
@@ -646,7 +524,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOGO_IMAGE_FIELD_NUMBER = 24;
-  private volatile java.lang.Object logoImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object logoImage_ = "";
   /**
    * <pre>
    * The MediaFile resource name of the logo image used in the ad.
@@ -704,7 +583,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SQUARE_LOGO_IMAGE_FIELD_NUMBER = 25;
-  private volatile java.lang.Object squareLogoImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object squareLogoImage_ = "";
   /**
    * <pre>
    * The MediaFile resource name of the square logo image used in the ad.
@@ -762,7 +642,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MARKETING_IMAGE_FIELD_NUMBER = 26;
-  private volatile java.lang.Object marketingImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object marketingImage_ = "";
   /**
    * <pre>
    * The MediaFile resource name of the marketing image used in the ad.
@@ -820,7 +701,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SQUARE_MARKETING_IMAGE_FIELD_NUMBER = 27;
-  private volatile java.lang.Object squareMarketingImage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object squareMarketingImage_ = "";
   /**
    * <pre>
    * The MediaFile resource name of the square marketing image used in the ad.
@@ -878,7 +760,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_SETTING_FIELD_NUMBER = 13;
-  private int formatSetting_;
+  private int formatSetting_ = 0;
   /**
    * <pre>
    * Specifies which format the ad will be served in. Default is ALL_FORMATS.
@@ -899,13 +781,13 @@ private static final long serialVersionUID = 0L;
    * @return The formatSetting.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting getFormatSetting() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting result = com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting.valueOf(formatSetting_);
+    com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting result = com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting.forNumber(formatSetting_);
     return result == null ? com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting.UNRECOGNIZED : result;
   }
 
   public static final int PRICE_PREFIX_FIELD_NUMBER = 28;
-  private volatile java.lang.Object pricePrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pricePrefix_ = "";
   /**
    * <pre>
    * Prefix before price. E.g. 'as low as'.
@@ -963,7 +845,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROMO_TEXT_FIELD_NUMBER = 29;
-  private volatile java.lang.Object promoText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object promoText_ = "";
   /**
    * <pre>
    * Promotion text used for dynamic formats of responsive ads. For example
@@ -1082,7 +965,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00002000) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 29, promoText_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1138,7 +1021,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00002000) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(29, promoText_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1224,7 +1107,7 @@ private static final long serialVersionUID = 0L;
       if (!getPromoText()
           .equals(other.getPromoText())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1294,7 +1177,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PROMO_TEXT_FIELD_NUMBER;
       hash = (53 * hash) + getPromoText().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1416,52 +1299,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       shortHeadline_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       longHeadline_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       description_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       businessName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       allowFlexibleColor_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       accentColor_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       mainColor_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       callToActionText_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       logoImage_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       squareLogoImage_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       marketingImage_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       squareMarketingImage_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       formatSetting_ = 0;
-
       pricePrefix_ = "";
-      bitField0_ = (bitField0_ & ~0x00001000);
       promoText_ = "";
-      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -1488,68 +1352,74 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo buildPartial() {
       com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo result = new com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.shortHeadline_ = shortHeadline_;
         to_bitField0_ |= 0x00000001;
       }
-      result.shortHeadline_ = shortHeadline_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.longHeadline_ = longHeadline_;
         to_bitField0_ |= 0x00000002;
       }
-      result.longHeadline_ = longHeadline_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
         to_bitField0_ |= 0x00000004;
       }
-      result.description_ = description_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.businessName_ = businessName_;
         to_bitField0_ |= 0x00000008;
       }
-      result.businessName_ = businessName_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.allowFlexibleColor_ = allowFlexibleColor_;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.accentColor_ = accentColor_;
         to_bitField0_ |= 0x00000020;
       }
-      result.accentColor_ = accentColor_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.mainColor_ = mainColor_;
         to_bitField0_ |= 0x00000040;
       }
-      result.mainColor_ = mainColor_;
       if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.callToActionText_ = callToActionText_;
         to_bitField0_ |= 0x00000080;
       }
-      result.callToActionText_ = callToActionText_;
       if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.logoImage_ = logoImage_;
         to_bitField0_ |= 0x00000100;
       }
-      result.logoImage_ = logoImage_;
       if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.squareLogoImage_ = squareLogoImage_;
         to_bitField0_ |= 0x00000200;
       }
-      result.squareLogoImage_ = squareLogoImage_;
       if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.marketingImage_ = marketingImage_;
         to_bitField0_ |= 0x00000400;
       }
-      result.marketingImage_ = marketingImage_;
       if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.squareMarketingImage_ = squareMarketingImage_;
         to_bitField0_ |= 0x00000800;
       }
-      result.squareMarketingImage_ = squareMarketingImage_;
-      result.formatSetting_ = formatSetting_;
       if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.formatSetting_ = formatSetting_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.pricePrefix_ = pricePrefix_;
         to_bitField0_ |= 0x00001000;
       }
-      result.pricePrefix_ = pricePrefix_;
-      if (((from_bitField0_ & 0x00002000) != 0)) {
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.promoText_ = promoText_;
         to_bitField0_ |= 0x00002000;
       }
-      result.promoText_ = promoText_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1597,77 +1467,77 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo other) {
       if (other == com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo.getDefaultInstance()) return this;
       if (other.hasShortHeadline()) {
-        bitField0_ |= 0x00000001;
         shortHeadline_ = other.shortHeadline_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasLongHeadline()) {
-        bitField0_ |= 0x00000002;
         longHeadline_ = other.longHeadline_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDescription()) {
-        bitField0_ |= 0x00000004;
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasBusinessName()) {
-        bitField0_ |= 0x00000008;
         businessName_ = other.businessName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasAllowFlexibleColor()) {
         setAllowFlexibleColor(other.getAllowFlexibleColor());
       }
       if (other.hasAccentColor()) {
-        bitField0_ |= 0x00000020;
         accentColor_ = other.accentColor_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasMainColor()) {
-        bitField0_ |= 0x00000040;
         mainColor_ = other.mainColor_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasCallToActionText()) {
-        bitField0_ |= 0x00000080;
         callToActionText_ = other.callToActionText_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasLogoImage()) {
-        bitField0_ |= 0x00000100;
         logoImage_ = other.logoImage_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasSquareLogoImage()) {
-        bitField0_ |= 0x00000200;
         squareLogoImage_ = other.squareLogoImage_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasMarketingImage()) {
-        bitField0_ |= 0x00000400;
         marketingImage_ = other.marketingImage_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasSquareMarketingImage()) {
-        bitField0_ |= 0x00000800;
         squareMarketingImage_ = other.squareMarketingImage_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.formatSetting_ != 0) {
         setFormatSettingValue(other.getFormatSettingValue());
       }
       if (other.hasPricePrefix()) {
-        bitField0_ |= 0x00001000;
         pricePrefix_ = other.pricePrefix_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasPromoText()) {
-        bitField0_ |= 0x00002000;
         promoText_ = other.promoText_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1682,17 +1552,105 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 104: {
+              formatSetting_ = input.readEnum();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 130: {
+              shortHeadline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 130
+            case 138: {
+              longHeadline_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 138
+            case 146: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 146
+            case 154: {
+              businessName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 154
+            case 160: {
+              allowFlexibleColor_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 160
+            case 170: {
+              accentColor_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 170
+            case 178: {
+              mainColor_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 178
+            case 186: {
+              callToActionText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 186
+            case 194: {
+              logoImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 194
+            case 202: {
+              squareLogoImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 202
+            case 210: {
+              marketingImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 210
+            case 218: {
+              squareMarketingImage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 218
+            case 226: {
+              pricePrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 226
+            case 234: {
+              promoText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 234
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.LegacyResponsiveDisplayAdInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1761,11 +1719,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setShortHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       shortHeadline_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1778,8 +1734,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearShortHeadline() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       shortHeadline_ = getDefaultInstance().getShortHeadline();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1794,12 +1750,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setShortHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       shortHeadline_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1868,11 +1822,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongHeadline(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       longHeadline_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1885,8 +1837,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLongHeadline() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       longHeadline_ = getDefaultInstance().getLongHeadline();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1901,12 +1853,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLongHeadlineBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       longHeadline_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1975,11 +1925,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1992,8 +1940,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2008,12 +1956,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2082,11 +2028,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       businessName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2099,8 +2043,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBusinessName() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       businessName_ = getDefaultInstance().getBusinessName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2115,12 +2059,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBusinessNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       businessName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2172,8 +2114,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAllowFlexibleColor(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       allowFlexibleColor_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2268,11 +2211,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccentColor(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       accentColor_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2287,8 +2228,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccentColor() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       accentColor_ = getDefaultInstance().getAccentColor();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2305,12 +2246,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAccentColorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       accentColor_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2387,11 +2326,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMainColor(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       mainColor_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2406,8 +2343,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMainColor() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       mainColor_ = getDefaultInstance().getMainColor();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2424,12 +2361,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMainColorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mainColor_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2498,11 +2433,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallToActionText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       callToActionText_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2515,8 +2448,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCallToActionText() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       callToActionText_ = getDefaultInstance().getCallToActionText();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2531,12 +2464,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCallToActionTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       callToActionText_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2605,11 +2536,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogoImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       logoImage_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2622,8 +2551,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLogoImage() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       logoImage_ = getDefaultInstance().getLogoImage();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2638,12 +2567,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLogoImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       logoImage_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2712,11 +2639,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSquareLogoImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       squareLogoImage_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2729,8 +2654,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSquareLogoImage() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       squareLogoImage_ = getDefaultInstance().getSquareLogoImage();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2745,12 +2670,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSquareLogoImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       squareLogoImage_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2819,11 +2742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMarketingImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       marketingImage_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2836,8 +2757,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMarketingImage() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       marketingImage_ = getDefaultInstance().getMarketingImage();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2852,12 +2773,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMarketingImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       marketingImage_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2926,11 +2845,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSquareMarketingImage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       squareMarketingImage_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2943,8 +2860,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSquareMarketingImage() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       squareMarketingImage_ = getDefaultInstance().getSquareMarketingImage();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2959,12 +2876,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSquareMarketingImageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       squareMarketingImage_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2991,8 +2906,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormatSettingValue(int value) {
-      
       formatSetting_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -3006,8 +2921,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting getFormatSetting() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting result = com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting.valueOf(formatSetting_);
+      com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting result = com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting.forNumber(formatSetting_);
       return result == null ? com.google.ads.googleads.v10.enums.DisplayAdFormatSettingEnum.DisplayAdFormatSetting.UNRECOGNIZED : result;
     }
     /**
@@ -3023,7 +2937,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00001000;
       formatSetting_ = value.getNumber();
       onChanged();
       return this;
@@ -3037,7 +2951,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormatSetting() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       formatSetting_ = 0;
       onChanged();
       return this;
@@ -3053,7 +2967,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pricePrefix field is set.
      */
     public boolean hasPricePrefix() {
-      return ((bitField0_ & 0x00001000) != 0);
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3107,11 +3021,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPricePrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
       pricePrefix_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3124,8 +3036,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPricePrefix() {
-      bitField0_ = (bitField0_ & ~0x00001000);
       pricePrefix_ = getDefaultInstance().getPricePrefix();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3140,12 +3052,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPricePrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00001000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pricePrefix_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3161,7 +3071,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the promoText field is set.
      */
     public boolean hasPromoText() {
-      return ((bitField0_ & 0x00002000) != 0);
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3218,11 +3128,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPromoText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
       promoText_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3236,8 +3144,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPromoText() {
-      bitField0_ = (bitField0_ & ~0x00002000);
       promoText_ = getDefaultInstance().getPromoText();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -3253,12 +3161,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPromoTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00002000;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       promoText_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -3295,7 +3201,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LegacyResponsiveDisplayAdInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

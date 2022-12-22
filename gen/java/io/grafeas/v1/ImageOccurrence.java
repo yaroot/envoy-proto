@@ -38,82 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImageOccurrence(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.grafeas.v1.Fingerprint.Builder subBuilder = null;
-            if (fingerprint_ != null) {
-              subBuilder = fingerprint_.toBuilder();
-            }
-            fingerprint_ = input.readMessage(io.grafeas.v1.Fingerprint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fingerprint_);
-              fingerprint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            distance_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              layerInfo_ = new java.util.ArrayList<io.grafeas.v1.Layer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            layerInfo_.add(
-                input.readMessage(io.grafeas.v1.Layer.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            baseResourceUrl_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        layerInfo_ = java.util.Collections.unmodifiableList(layerInfo_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.Image.internal_static_grafeas_v1_ImageOccurrence_descriptor;
@@ -162,11 +86,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1.FingerprintOrBuilder getFingerprintOrBuilder() {
-    return getFingerprint();
+    return fingerprint_ == null ? io.grafeas.v1.Fingerprint.getDefaultInstance() : fingerprint_;
   }
 
   public static final int DISTANCE_FIELD_NUMBER = 2;
-  private int distance_;
+  private int distance_ = 0;
   /**
    * <pre>
    * Output only. The number of layers by which this image differs from the
@@ -182,6 +106,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LAYER_INFO_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.grafeas.v1.Layer> layerInfo_;
   /**
    * <pre>
@@ -252,7 +177,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BASE_RESOURCE_URL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object baseResourceUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object baseResourceUrl_ = "";
   /**
    * <pre>
    * Output only. This contains the base image URL for the derived image
@@ -325,7 +251,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseResourceUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, baseResourceUrl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -349,7 +275,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(baseResourceUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, baseResourceUrl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -375,7 +301,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLayerInfoList())) return false;
     if (!getBaseResourceUrl()
         .equals(other.getBaseResourceUrl())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -398,7 +324,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + BASE_RESOURCE_URL_FIELD_NUMBER;
     hash = (53 * hash) + getBaseResourceUrl().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -521,39 +447,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.ImageOccurrence.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLayerInfoFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (fingerprintBuilder_ == null) {
-        fingerprint_ = null;
-      } else {
-        fingerprint_ = null;
+      bitField0_ = 0;
+      fingerprint_ = null;
+      if (fingerprintBuilder_ != null) {
+        fingerprintBuilder_.dispose();
         fingerprintBuilder_ = null;
       }
       distance_ = 0;
-
       if (layerInfoBuilder_ == null) {
         layerInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        layerInfo_ = null;
         layerInfoBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       baseResourceUrl_ = "";
-
       return this;
     }
 
@@ -580,25 +499,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.ImageOccurrence buildPartial() {
       io.grafeas.v1.ImageOccurrence result = new io.grafeas.v1.ImageOccurrence(this);
-      int from_bitField0_ = bitField0_;
-      if (fingerprintBuilder_ == null) {
-        result.fingerprint_ = fingerprint_;
-      } else {
-        result.fingerprint_ = fingerprintBuilder_.build();
-      }
-      result.distance_ = distance_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.grafeas.v1.ImageOccurrence result) {
       if (layerInfoBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           layerInfo_ = java.util.Collections.unmodifiableList(layerInfo_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.layerInfo_ = layerInfo_;
       } else {
         result.layerInfo_ = layerInfoBuilder_.build();
       }
-      result.baseResourceUrl_ = baseResourceUrl_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1.ImageOccurrence result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.fingerprint_ = fingerprintBuilder_ == null
+            ? fingerprint_
+            : fingerprintBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.distance_ = distance_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.baseResourceUrl_ = baseResourceUrl_;
+      }
     }
 
     @java.lang.Override
@@ -655,7 +586,7 @@ private static final long serialVersionUID = 0L;
         if (!other.layerInfo_.isEmpty()) {
           if (layerInfo_.isEmpty()) {
             layerInfo_ = other.layerInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureLayerInfoIsMutable();
             layerInfo_.addAll(other.layerInfo_);
@@ -668,7 +599,7 @@ private static final long serialVersionUID = 0L;
             layerInfoBuilder_.dispose();
             layerInfoBuilder_ = null;
             layerInfo_ = other.layerInfo_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             layerInfoBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLayerInfoFieldBuilder() : null;
@@ -679,9 +610,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getBaseResourceUrl().isEmpty()) {
         baseResourceUrl_ = other.baseResourceUrl_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -696,17 +628,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.ImageOccurrence parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getFingerprintFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              distance_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              io.grafeas.v1.Layer m =
+                  input.readMessage(
+                      io.grafeas.v1.Layer.parser(),
+                      extensionRegistry);
+              if (layerInfoBuilder_ == null) {
+                ensureLayerInfoIsMutable();
+                layerInfo_.add(m);
+              } else {
+                layerInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              baseResourceUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.ImageOccurrence) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -723,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fingerprint field is set.
      */
     public boolean hasFingerprint() {
-      return fingerprintBuilder_ != null || fingerprint_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -753,11 +728,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fingerprint_ = value;
-        onChanged();
       } else {
         fingerprintBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -771,11 +746,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1.Fingerprint.Builder builderForValue) {
       if (fingerprintBuilder_ == null) {
         fingerprint_ = builderForValue.build();
-        onChanged();
       } else {
         fingerprintBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -787,17 +762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFingerprint(io.grafeas.v1.Fingerprint value) {
       if (fingerprintBuilder_ == null) {
-        if (fingerprint_ != null) {
-          fingerprint_ =
-            io.grafeas.v1.Fingerprint.newBuilder(fingerprint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          fingerprint_ != null &&
+          fingerprint_ != io.grafeas.v1.Fingerprint.getDefaultInstance()) {
+          getFingerprintBuilder().mergeFrom(value);
         } else {
           fingerprint_ = value;
         }
-        onChanged();
       } else {
         fingerprintBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -808,14 +784,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.Fingerprint fingerprint = 1;</code>
      */
     public Builder clearFingerprint() {
-      if (fingerprintBuilder_ == null) {
-        fingerprint_ = null;
-        onChanged();
-      } else {
-        fingerprint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      fingerprint_ = null;
+      if (fingerprintBuilder_ != null) {
+        fingerprintBuilder_.dispose();
         fingerprintBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -826,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1.Fingerprint fingerprint = 1;</code>
      */
     public io.grafeas.v1.Fingerprint.Builder getFingerprintBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getFingerprintFieldBuilder().getBuilder();
     }
@@ -893,6 +868,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDistance(int value) {
       
       distance_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -906,7 +882,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDistance() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       distance_ = 0;
       onChanged();
       return this;
@@ -915,9 +891,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.grafeas.v1.Layer> layerInfo_ =
       java.util.Collections.emptyList();
     private void ensureLayerInfoIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         layerInfo_ = new java.util.ArrayList<io.grafeas.v1.Layer>(layerInfo_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1133,7 +1109,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLayerInfo() {
       if (layerInfoBuilder_ == null) {
         layerInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         layerInfoBuilder_.clear();
@@ -1252,7 +1228,7 @@ private static final long serialVersionUID = 0L;
         layerInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.grafeas.v1.Layer, io.grafeas.v1.Layer.Builder, io.grafeas.v1.LayerOrBuilder>(
                 layerInfo_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         layerInfo_ = null;
@@ -1316,11 +1292,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseResourceUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       baseResourceUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1334,8 +1308,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBaseResourceUrl() {
-      
       baseResourceUrl_ = getDefaultInstance().getBaseResourceUrl();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1351,12 +1325,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBaseResourceUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       baseResourceUrl_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1393,7 +1365,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImageOccurrence(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

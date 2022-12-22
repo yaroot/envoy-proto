@@ -31,64 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EndpointHealth(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.endpoint.v3.Endpoint.Builder subBuilder = null;
-            if (endpoint_ != null) {
-              subBuilder = endpoint_.toBuilder();
-            }
-            endpoint_ = input.readMessage(io.envoyproxy.envoy.config.endpoint.v3.Endpoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endpoint_);
-              endpoint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            healthStatus_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.health.v3.HdsProto.internal_static_envoy_service_health_v3_EndpointHealth_descriptor;
@@ -125,11 +67,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.endpoint.v3.EndpointOrBuilder getEndpointOrBuilder() {
-    return getEndpoint();
+    return endpoint_ == null ? io.envoyproxy.envoy.config.endpoint.v3.Endpoint.getDefaultInstance() : endpoint_;
   }
 
   public static final int HEALTH_STATUS_FIELD_NUMBER = 2;
-  private int healthStatus_;
+  private int healthStatus_ = 0;
   /**
    * <code>.envoy.config.core.v3.HealthStatus health_status = 2;</code>
    * @return The enum numeric value on the wire for healthStatus.
@@ -142,8 +84,7 @@ private static final long serialVersionUID = 0L;
    * @return The healthStatus.
    */
   @java.lang.Override public io.envoyproxy.envoy.config.core.v3.HealthStatus getHealthStatus() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.config.core.v3.HealthStatus result = io.envoyproxy.envoy.config.core.v3.HealthStatus.valueOf(healthStatus_);
+    io.envoyproxy.envoy.config.core.v3.HealthStatus result = io.envoyproxy.envoy.config.core.v3.HealthStatus.forNumber(healthStatus_);
     return result == null ? io.envoyproxy.envoy.config.core.v3.HealthStatus.UNRECOGNIZED : result;
   }
 
@@ -167,7 +108,7 @@ private static final long serialVersionUID = 0L;
     if (healthStatus_ != io.envoyproxy.envoy.config.core.v3.HealthStatus.UNKNOWN.getNumber()) {
       output.writeEnum(2, healthStatus_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -184,7 +125,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, healthStatus_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -205,7 +146,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getEndpoint())) return false;
     }
     if (healthStatus_ != other.healthStatus_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -222,7 +163,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + HEALTH_STATUS_FIELD_NUMBER;
     hash = (53 * hash) + healthStatus_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -339,30 +280,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.health.v3.EndpointHealth.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (endpointBuilder_ == null) {
-        endpoint_ = null;
-      } else {
-        endpoint_ = null;
+      bitField0_ = 0;
+      endpoint_ = null;
+      if (endpointBuilder_ != null) {
+        endpointBuilder_.dispose();
         endpointBuilder_ = null;
       }
       healthStatus_ = 0;
-
       return this;
     }
 
@@ -389,14 +324,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.health.v3.EndpointHealth buildPartial() {
       io.envoyproxy.envoy.service.health.v3.EndpointHealth result = new io.envoyproxy.envoy.service.health.v3.EndpointHealth(this);
-      if (endpointBuilder_ == null) {
-        result.endpoint_ = endpoint_;
-      } else {
-        result.endpoint_ = endpointBuilder_.build();
-      }
-      result.healthStatus_ = healthStatus_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.health.v3.EndpointHealth result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.endpoint_ = endpointBuilder_ == null
+            ? endpoint_
+            : endpointBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.healthStatus_ = healthStatus_;
+      }
     }
 
     @java.lang.Override
@@ -449,7 +391,7 @@ private static final long serialVersionUID = 0L;
       if (other.healthStatus_ != 0) {
         setHealthStatusValue(other.getHealthStatusValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -464,19 +406,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.health.v3.EndpointHealth parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEndpointFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              healthStatus_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.health.v3.EndpointHealth) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.endpoint.v3.Endpoint endpoint_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -486,7 +454,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the endpoint field is set.
      */
     public boolean hasEndpoint() {
-      return endpointBuilder_ != null || endpoint_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.envoy.config.endpoint.v3.Endpoint endpoint = 1;</code>
@@ -508,11 +476,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         endpoint_ = value;
-        onChanged();
       } else {
         endpointBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -522,11 +490,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.endpoint.v3.Endpoint.Builder builderForValue) {
       if (endpointBuilder_ == null) {
         endpoint_ = builderForValue.build();
-        onChanged();
       } else {
         endpointBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -534,38 +502,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEndpoint(io.envoyproxy.envoy.config.endpoint.v3.Endpoint value) {
       if (endpointBuilder_ == null) {
-        if (endpoint_ != null) {
-          endpoint_ =
-            io.envoyproxy.envoy.config.endpoint.v3.Endpoint.newBuilder(endpoint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          endpoint_ != null &&
+          endpoint_ != io.envoyproxy.envoy.config.endpoint.v3.Endpoint.getDefaultInstance()) {
+          getEndpointBuilder().mergeFrom(value);
         } else {
           endpoint_ = value;
         }
-        onChanged();
       } else {
         endpointBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.endpoint.v3.Endpoint endpoint = 1;</code>
      */
     public Builder clearEndpoint() {
-      if (endpointBuilder_ == null) {
-        endpoint_ = null;
-        onChanged();
-      } else {
-        endpoint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      endpoint_ = null;
+      if (endpointBuilder_ != null) {
+        endpointBuilder_.dispose();
         endpointBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.envoy.config.endpoint.v3.Endpoint endpoint = 1;</code>
      */
     public io.envoyproxy.envoy.config.endpoint.v3.Endpoint.Builder getEndpointBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEndpointFieldBuilder().getBuilder();
     }
@@ -611,8 +579,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHealthStatusValue(int value) {
-      
       healthStatus_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -622,8 +590,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.HealthStatus getHealthStatus() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.config.core.v3.HealthStatus result = io.envoyproxy.envoy.config.core.v3.HealthStatus.valueOf(healthStatus_);
+      io.envoyproxy.envoy.config.core.v3.HealthStatus result = io.envoyproxy.envoy.config.core.v3.HealthStatus.forNumber(healthStatus_);
       return result == null ? io.envoyproxy.envoy.config.core.v3.HealthStatus.UNRECOGNIZED : result;
     }
     /**
@@ -635,7 +602,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       healthStatus_ = value.getNumber();
       onChanged();
       return this;
@@ -645,7 +612,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       healthStatus_ = 0;
       onChanged();
       return this;
@@ -683,7 +650,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EndpointHealth(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

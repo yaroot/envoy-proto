@@ -15,7 +15,7 @@ public interface StatusConditionOrBuilder extends
    *
    * <code>.google.container.v1beta1.StatusCondition.Code code = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.StatusCondition.code is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=4334
+   *     See google/container/v1beta1/cluster_service.proto;l=4405
    * @return The enum numeric value on the wire for code.
    */
   @java.lang.Deprecated int getCodeValue();
@@ -27,7 +27,7 @@ public interface StatusConditionOrBuilder extends
    *
    * <code>.google.container.v1beta1.StatusCondition.Code code = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.StatusCondition.code is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=4334
+   *     See google/container/v1beta1/cluster_service.proto;l=4405
    * @return The code.
    */
   @java.lang.Deprecated com.google.container.v1beta1.StatusCondition.Code getCode();

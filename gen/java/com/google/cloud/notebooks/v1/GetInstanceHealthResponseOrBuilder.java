@@ -97,7 +97,6 @@ public interface GetInstanceHealthResponseOrBuilder extends
    *
    * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 java.lang.String getHealthInfoOrDefault(
       java.lang.String key,
@@ -118,7 +117,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; health_info = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   java.lang.String getHealthInfoOrThrow(
       java.lang.String key);
 }

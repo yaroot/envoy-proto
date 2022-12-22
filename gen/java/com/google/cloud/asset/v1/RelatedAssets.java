@@ -38,71 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RelatedAssets(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.asset.v1.RelationshipAttributes.Builder subBuilder = null;
-            if (relationshipAttributes_ != null) {
-              subBuilder = relationshipAttributes_.toBuilder();
-            }
-            relationshipAttributes_ = input.readMessage(com.google.cloud.asset.v1.RelationshipAttributes.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(relationshipAttributes_);
-              relationshipAttributes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              assets_ = new java.util.ArrayList<com.google.cloud.asset.v1.RelatedAsset>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            assets_.add(
-                input.readMessage(com.google.cloud.asset.v1.RelatedAsset.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        assets_ = java.util.Collections.unmodifiableList(assets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.asset.v1.AssetProto.internal_static_google_cloud_asset_v1_RelatedAssets_descriptor;
@@ -151,10 +86,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.asset.v1.RelationshipAttributesOrBuilder getRelationshipAttributesOrBuilder() {
-    return getRelationshipAttributes();
+    return relationshipAttributes_ == null ? com.google.cloud.asset.v1.RelationshipAttributes.getDefaultInstance() : relationshipAttributes_;
   }
 
   public static final int ASSETS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.asset.v1.RelatedAsset> assets_;
   /**
    * <pre>
@@ -234,7 +170,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < assets_.size(); i++) {
       output.writeMessage(2, assets_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -251,7 +187,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, assets_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -273,7 +209,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAssetsList()
         .equals(other.getAssetsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -292,7 +228,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ASSETS_FIELD_NUMBER;
       hash = (53 * hash) + getAssetsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -416,35 +352,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.asset.v1.RelatedAssets.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAssetsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (relationshipAttributesBuilder_ == null) {
-        relationshipAttributes_ = null;
-      } else {
-        relationshipAttributes_ = null;
+      bitField0_ = 0;
+      relationshipAttributes_ = null;
+      if (relationshipAttributesBuilder_ != null) {
+        relationshipAttributesBuilder_.dispose();
         relationshipAttributesBuilder_ = null;
       }
       if (assetsBuilder_ == null) {
         assets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        assets_ = null;
         assetsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -471,23 +402,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.asset.v1.RelatedAssets buildPartial() {
       com.google.cloud.asset.v1.RelatedAssets result = new com.google.cloud.asset.v1.RelatedAssets(this);
-      int from_bitField0_ = bitField0_;
-      if (relationshipAttributesBuilder_ == null) {
-        result.relationshipAttributes_ = relationshipAttributes_;
-      } else {
-        result.relationshipAttributes_ = relationshipAttributesBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.asset.v1.RelatedAssets result) {
       if (assetsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           assets_ = java.util.Collections.unmodifiableList(assets_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.assets_ = assets_;
       } else {
         result.assets_ = assetsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.asset.v1.RelatedAssets result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.relationshipAttributes_ = relationshipAttributesBuilder_ == null
+            ? relationshipAttributes_
+            : relationshipAttributesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -541,7 +480,7 @@ private static final long serialVersionUID = 0L;
         if (!other.assets_.isEmpty()) {
           if (assets_.isEmpty()) {
             assets_ = other.assets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureAssetsIsMutable();
             assets_.addAll(other.assets_);
@@ -554,7 +493,7 @@ private static final long serialVersionUID = 0L;
             assetsBuilder_.dispose();
             assetsBuilder_ = null;
             assets_ = other.assets_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             assetsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAssetsFieldBuilder() : null;
@@ -563,7 +502,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -578,17 +517,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.asset.v1.RelatedAssets parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRelationshipAttributesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.asset.v1.RelatedAsset m =
+                  input.readMessage(
+                      com.google.cloud.asset.v1.RelatedAsset.parser(),
+                      extensionRegistry);
+              if (assetsBuilder_ == null) {
+                ensureAssetsIsMutable();
+                assets_.add(m);
+              } else {
+                assetsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.asset.v1.RelatedAssets) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -605,7 +577,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the relationshipAttributes field is set.
      */
     public boolean hasRelationshipAttributes() {
-      return relationshipAttributesBuilder_ != null || relationshipAttributes_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -635,11 +607,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         relationshipAttributes_ = value;
-        onChanged();
       } else {
         relationshipAttributesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -653,11 +625,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.asset.v1.RelationshipAttributes.Builder builderForValue) {
       if (relationshipAttributesBuilder_ == null) {
         relationshipAttributes_ = builderForValue.build();
-        onChanged();
       } else {
         relationshipAttributesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -669,17 +641,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRelationshipAttributes(com.google.cloud.asset.v1.RelationshipAttributes value) {
       if (relationshipAttributesBuilder_ == null) {
-        if (relationshipAttributes_ != null) {
-          relationshipAttributes_ =
-            com.google.cloud.asset.v1.RelationshipAttributes.newBuilder(relationshipAttributes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          relationshipAttributes_ != null &&
+          relationshipAttributes_ != com.google.cloud.asset.v1.RelationshipAttributes.getDefaultInstance()) {
+          getRelationshipAttributesBuilder().mergeFrom(value);
         } else {
           relationshipAttributes_ = value;
         }
-        onChanged();
       } else {
         relationshipAttributesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -690,14 +663,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.RelationshipAttributes relationship_attributes = 1;</code>
      */
     public Builder clearRelationshipAttributes() {
-      if (relationshipAttributesBuilder_ == null) {
-        relationshipAttributes_ = null;
-        onChanged();
-      } else {
-        relationshipAttributes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      relationshipAttributes_ = null;
+      if (relationshipAttributesBuilder_ != null) {
+        relationshipAttributesBuilder_.dispose();
         relationshipAttributesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -708,7 +680,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.asset.v1.RelationshipAttributes relationship_attributes = 1;</code>
      */
     public com.google.cloud.asset.v1.RelationshipAttributes.Builder getRelationshipAttributesBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRelationshipAttributesFieldBuilder().getBuilder();
     }
@@ -751,9 +723,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.asset.v1.RelatedAsset> assets_ =
       java.util.Collections.emptyList();
     private void ensureAssetsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         assets_ = new java.util.ArrayList<com.google.cloud.asset.v1.RelatedAsset>(assets_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -947,7 +919,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAssets() {
       if (assetsBuilder_ == null) {
         assets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         assetsBuilder_.clear();
@@ -1052,7 +1024,7 @@ private static final long serialVersionUID = 0L;
         assetsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.asset.v1.RelatedAsset, com.google.cloud.asset.v1.RelatedAsset.Builder, com.google.cloud.asset.v1.RelatedAssetOrBuilder>(
                 assets_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         assets_ = null;
@@ -1092,7 +1064,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RelatedAssets(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

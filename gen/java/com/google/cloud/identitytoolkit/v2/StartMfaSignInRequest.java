@@ -37,77 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StartMfaSignInRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mfaPendingCredential_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mfaEnrollmentId_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo.Builder subBuilder = null;
-            if (signInInfoCase_ == 4) {
-              subBuilder = ((com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo) signInInfo_).toBuilder();
-            }
-            signInInfo_ =
-                input.readMessage(com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.identitytoolkit.v2.StartMfaPhoneRequestInfo) signInInfo_);
-              signInInfo_ = subBuilder.buildPartial();
-            }
-            signInInfoCase_ = 4;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tenantId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.identitytoolkit.v2.AuthenticationServiceOuterClass.internal_static_google_cloud_identitytoolkit_v2_StartMfaSignInRequest_descriptor;
@@ -161,7 +90,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MFA_PENDING_CREDENTIAL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object mfaPendingCredential_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mfaPendingCredential_ = "";
   /**
    * <pre>
    * Required. Pending credential from first factor sign-in.
@@ -207,7 +137,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MFA_ENROLLMENT_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object mfaEnrollmentId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mfaEnrollmentId_ = "";
   /**
    * <pre>
    * Required. MFA enrollment id from the user's list of current MFA enrollments.
@@ -296,7 +227,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TENANT_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object tenantId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tenantId_ = "";
   /**
    * <pre>
    * The ID of the Identity Platform tenant the user is signing in to. If not
@@ -369,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tenantId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, tenantId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -391,7 +323,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tenantId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, tenantId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -421,7 +353,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -446,7 +378,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -567,28 +499,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       mfaPendingCredential_ = "";
-
       mfaEnrollmentId_ = "";
-
+      if (phoneSignInInfoBuilder_ != null) {
+        phoneSignInInfoBuilder_.clear();
+      }
       tenantId_ = "";
-
       signInInfoCase_ = 0;
       signInInfo_ = null;
       return this;
@@ -617,19 +545,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest buildPartial() {
       com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest result = new com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest(this);
-      result.mfaPendingCredential_ = mfaPendingCredential_;
-      result.mfaEnrollmentId_ = mfaEnrollmentId_;
-      if (signInInfoCase_ == 4) {
-        if (phoneSignInInfoBuilder_ == null) {
-          result.signInInfo_ = signInInfo_;
-        } else {
-          result.signInInfo_ = phoneSignInInfoBuilder_.build();
-        }
-      }
-      result.tenantId_ = tenantId_;
-      result.signInInfoCase_ = signInInfoCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mfaPendingCredential_ = mfaPendingCredential_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.mfaEnrollmentId_ = mfaEnrollmentId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tenantId_ = tenantId_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest result) {
+      result.signInInfoCase_ = signInInfoCase_;
+      result.signInInfo_ = this.signInInfo_;
+      if (signInInfoCase_ == 4 &&
+          phoneSignInInfoBuilder_ != null) {
+        result.signInInfo_ = phoneSignInInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -678,14 +619,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest.getDefaultInstance()) return this;
       if (!other.getMfaPendingCredential().isEmpty()) {
         mfaPendingCredential_ = other.mfaPendingCredential_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMfaEnrollmentId().isEmpty()) {
         mfaEnrollmentId_ = other.mfaEnrollmentId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getTenantId().isEmpty()) {
         tenantId_ = other.tenantId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       switch (other.getSignInInfoCase()) {
@@ -697,7 +641,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -712,17 +656,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              mfaPendingCredential_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            case 26: {
+              mfaEnrollmentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPhoneSignInInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              signInInfoCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              tenantId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.identitytoolkit.v2.StartMfaSignInRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int signInInfoCase_ = 0;
@@ -740,6 +719,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object mfaPendingCredential_ = "";
     /**
@@ -794,11 +774,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMfaPendingCredential(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mfaPendingCredential_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -811,8 +789,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMfaPendingCredential() {
-      
       mfaPendingCredential_ = getDefaultInstance().getMfaPendingCredential();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -827,12 +805,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMfaPendingCredentialBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mfaPendingCredential_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -890,11 +866,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMfaEnrollmentId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mfaEnrollmentId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -907,8 +881,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMfaEnrollmentId() {
-      
       mfaEnrollmentId_ = getDefaultInstance().getMfaEnrollmentId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -923,12 +897,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMfaEnrollmentIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mfaEnrollmentId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1107,7 +1079,7 @@ private static final long serialVersionUID = 0L;
         signInInfo_ = null;
       }
       signInInfoCase_ = 4;
-      onChanged();;
+      onChanged();
       return phoneSignInInfoBuilder_;
     }
 
@@ -1167,11 +1139,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTenantId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tenantId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1185,8 +1155,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTenantId() {
-      
       tenantId_ = getDefaultInstance().getTenantId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1202,12 +1172,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTenantIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tenantId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1244,7 +1212,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StartMfaSignInRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

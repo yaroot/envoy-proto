@@ -40,81 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProcessingMode(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            requestHeaderMode_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            responseHeaderMode_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            requestBodyMode_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            responseBodyMode_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            requestTrailerMode_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            responseTrailerMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingModeProto.internal_static_envoy_extensions_filters_http_ext_proc_v3_ProcessingMode_descriptor;
@@ -450,7 +375,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_HEADER_MODE_FIELD_NUMBER = 1;
-  private int requestHeaderMode_;
+  private int requestHeaderMode_ = 0;
   /**
    * <pre>
    * How to handle the request header. Default is "SEND".
@@ -471,13 +396,12 @@ private static final long serialVersionUID = 0L;
    * @return The requestHeaderMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getRequestHeaderMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(requestHeaderMode_);
+    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(requestHeaderMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
   }
 
   public static final int RESPONSE_HEADER_MODE_FIELD_NUMBER = 2;
-  private int responseHeaderMode_;
+  private int responseHeaderMode_ = 0;
   /**
    * <pre>
    * How to handle the response header. Default is "SEND".
@@ -498,13 +422,12 @@ private static final long serialVersionUID = 0L;
    * @return The responseHeaderMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getResponseHeaderMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(responseHeaderMode_);
+    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(responseHeaderMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
   }
 
   public static final int REQUEST_BODY_MODE_FIELD_NUMBER = 3;
-  private int requestBodyMode_;
+  private int requestBodyMode_ = 0;
   /**
    * <pre>
    * How to handle the request body. Default is "NONE".
@@ -525,13 +448,12 @@ private static final long serialVersionUID = 0L;
    * @return The requestBodyMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode getRequestBodyMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.valueOf(requestBodyMode_);
+    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.forNumber(requestBodyMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.UNRECOGNIZED : result;
   }
 
   public static final int RESPONSE_BODY_MODE_FIELD_NUMBER = 4;
-  private int responseBodyMode_;
+  private int responseBodyMode_ = 0;
   /**
    * <pre>
    * How do handle the response body. Default is "NONE".
@@ -552,13 +474,12 @@ private static final long serialVersionUID = 0L;
    * @return The responseBodyMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode getResponseBodyMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.valueOf(responseBodyMode_);
+    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.forNumber(responseBodyMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.UNRECOGNIZED : result;
   }
 
   public static final int REQUEST_TRAILER_MODE_FIELD_NUMBER = 5;
-  private int requestTrailerMode_;
+  private int requestTrailerMode_ = 0;
   /**
    * <pre>
    * How to handle the request trailers. Default is "SKIP".
@@ -579,13 +500,12 @@ private static final long serialVersionUID = 0L;
    * @return The requestTrailerMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getRequestTrailerMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(requestTrailerMode_);
+    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(requestTrailerMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
   }
 
   public static final int RESPONSE_TRAILER_MODE_FIELD_NUMBER = 6;
-  private int responseTrailerMode_;
+  private int responseTrailerMode_ = 0;
   /**
    * <pre>
    * How to handle the response trailers. Default is "SKIP".
@@ -606,8 +526,7 @@ private static final long serialVersionUID = 0L;
    * @return The responseTrailerMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getResponseTrailerMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(responseTrailerMode_);
+    io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(responseTrailerMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
   }
 
@@ -643,7 +562,7 @@ private static final long serialVersionUID = 0L;
     if (responseTrailerMode_ != io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.DEFAULT.getNumber()) {
       output.writeEnum(6, responseTrailerMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -676,7 +595,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, responseTrailerMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -697,7 +616,7 @@ private static final long serialVersionUID = 0L;
     if (responseBodyMode_ != other.responseBodyMode_) return false;
     if (requestTrailerMode_ != other.requestTrailerMode_) return false;
     if (responseTrailerMode_ != other.responseTrailerMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -720,7 +639,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + requestTrailerMode_;
     hash = (37 * hash) + RESPONSE_TRAILER_MODE_FIELD_NUMBER;
     hash = (53 * hash) + responseTrailerMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -841,34 +760,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       requestHeaderMode_ = 0;
-
       responseHeaderMode_ = 0;
-
       requestBodyMode_ = 0;
-
       responseBodyMode_ = 0;
-
       requestTrailerMode_ = 0;
-
       responseTrailerMode_ = 0;
-
       return this;
     }
 
@@ -895,14 +804,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode result = new io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode(this);
-      result.requestHeaderMode_ = requestHeaderMode_;
-      result.responseHeaderMode_ = responseHeaderMode_;
-      result.requestBodyMode_ = requestBodyMode_;
-      result.responseBodyMode_ = responseBodyMode_;
-      result.requestTrailerMode_ = requestTrailerMode_;
-      result.responseTrailerMode_ = responseTrailerMode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.requestHeaderMode_ = requestHeaderMode_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.responseHeaderMode_ = responseHeaderMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestBodyMode_ = requestBodyMode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.responseBodyMode_ = responseBodyMode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.requestTrailerMode_ = requestTrailerMode_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.responseTrailerMode_ = responseTrailerMode_;
+      }
     }
 
     @java.lang.Override
@@ -967,7 +893,7 @@ private static final long serialVersionUID = 0L;
       if (other.responseTrailerMode_ != 0) {
         setResponseTrailerModeValue(other.getResponseTrailerModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -982,19 +908,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              requestHeaderMode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              responseHeaderMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              requestBodyMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              responseBodyMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              requestTrailerMode_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              responseTrailerMode_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int requestHeaderMode_ = 0;
     /**
@@ -1018,8 +988,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequestHeaderModeValue(int value) {
-      
       requestHeaderMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1033,8 +1003,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getRequestHeaderMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(requestHeaderMode_);
+      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(requestHeaderMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
     }
     /**
@@ -1050,7 +1019,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       requestHeaderMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1064,7 +1033,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestHeaderMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       requestHeaderMode_ = 0;
       onChanged();
       return this;
@@ -1092,8 +1061,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResponseHeaderModeValue(int value) {
-      
       responseHeaderMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1107,8 +1076,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getResponseHeaderMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(responseHeaderMode_);
+      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(responseHeaderMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
     }
     /**
@@ -1124,7 +1092,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       responseHeaderMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1138,7 +1106,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseHeaderMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       responseHeaderMode_ = 0;
       onChanged();
       return this;
@@ -1166,8 +1134,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequestBodyModeValue(int value) {
-      
       requestBodyMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1181,8 +1149,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode getRequestBodyMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.valueOf(requestBodyMode_);
+      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.forNumber(requestBodyMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.UNRECOGNIZED : result;
     }
     /**
@@ -1198,7 +1165,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       requestBodyMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1212,7 +1179,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestBodyMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       requestBodyMode_ = 0;
       onChanged();
       return this;
@@ -1240,8 +1207,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResponseBodyModeValue(int value) {
-      
       responseBodyMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1255,8 +1222,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode getResponseBodyMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.valueOf(responseBodyMode_);
+      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.forNumber(responseBodyMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.BodySendMode.UNRECOGNIZED : result;
     }
     /**
@@ -1272,7 +1238,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       responseBodyMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1286,7 +1252,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseBodyMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       responseBodyMode_ = 0;
       onChanged();
       return this;
@@ -1314,8 +1280,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRequestTrailerModeValue(int value) {
-      
       requestTrailerMode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1329,8 +1295,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getRequestTrailerMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(requestTrailerMode_);
+      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(requestTrailerMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
     }
     /**
@@ -1346,7 +1311,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       requestTrailerMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1360,7 +1325,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestTrailerMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       requestTrailerMode_ = 0;
       onChanged();
       return this;
@@ -1388,8 +1353,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResponseTrailerModeValue(int value) {
-      
       responseTrailerMode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1403,8 +1368,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode getResponseTrailerMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.valueOf(responseTrailerMode_);
+      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode result = io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.forNumber(responseTrailerMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.HeaderSendMode.UNRECOGNIZED : result;
     }
     /**
@@ -1420,7 +1384,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       responseTrailerMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1434,7 +1398,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseTrailerMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       responseTrailerMode_ = 0;
       onChanged();
       return this;
@@ -1472,7 +1436,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProcessingMode(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

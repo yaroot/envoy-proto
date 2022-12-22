@@ -34,123 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PreprocessingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.Builder subBuilder = null;
-            if (color_ != null) {
-              subBuilder = color_.toBuilder();
-            }
-            color_ = input.readMessage(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(color_);
-              color_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.Builder subBuilder = null;
-            if (denoise_ != null) {
-              subBuilder = denoise_.toBuilder();
-            }
-            denoise_ = input.readMessage(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(denoise_);
-              denoise_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.Builder subBuilder = null;
-            if (deblock_ != null) {
-              subBuilder = deblock_.toBuilder();
-            }
-            deblock_ = input.readMessage(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deblock_);
-              deblock_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.Builder subBuilder = null;
-            if (audio_ != null) {
-              subBuilder = audio_.toBuilder();
-            }
-            audio_ = input.readMessage(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audio_);
-              audio_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.Builder subBuilder = null;
-            if (crop_ != null) {
-              subBuilder = crop_.toBuilder();
-            }
-            crop_ = input.readMessage(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(crop_);
-              crop_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.Builder subBuilder = null;
-            if (pad_ != null) {
-              subBuilder = pad_.toBuilder();
-            }
-            pad_ = input.readMessage(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pad_);
-              pad_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_descriptor;
@@ -236,60 +119,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Color(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              saturation_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              contrast_ = input.readDouble();
-              break;
-            }
-            case 25: {
-
-              brightness_ = input.readDouble();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Color_descriptor;
@@ -304,7 +133,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SATURATION_FIELD_NUMBER = 1;
-    private double saturation_;
+    private double saturation_ = 0D;
     /**
      * <pre>
      * Control color saturation of the video. Enter a value between -1 and 1,
@@ -321,7 +150,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CONTRAST_FIELD_NUMBER = 2;
-    private double contrast_;
+    private double contrast_ = 0D;
     /**
      * <pre>
      * Control black and white contrast of the video. Enter a value between -1
@@ -338,7 +167,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BRIGHTNESS_FIELD_NUMBER = 3;
-    private double brightness_;
+    private double brightness_ = 0D;
     /**
      * <pre>
      * Control brightness of the video. Enter a value between -1 and 1, where -1
@@ -377,7 +206,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToRawLongBits(brightness_) != 0) {
         output.writeDouble(3, brightness_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -398,7 +227,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeDoubleSize(3, brightness_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -422,7 +251,7 @@ private static final long serialVersionUID = 0L;
       if (java.lang.Double.doubleToLongBits(getBrightness())
           != java.lang.Double.doubleToLongBits(
               other.getBrightness())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -442,7 +271,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BRIGHTNESS_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           java.lang.Double.doubleToLongBits(getBrightness()));
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -564,28 +393,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         saturation_ = 0D;
-
         contrast_ = 0D;
-
         brightness_ = 0D;
-
         return this;
       }
 
@@ -612,11 +434,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color buildPartial() {
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color(this);
-        result.saturation_ = saturation_;
-        result.contrast_ = contrast_;
-        result.brightness_ = brightness_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.saturation_ = saturation_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.contrast_ = contrast_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.brightness_ = brightness_;
+        }
       }
 
       @java.lang.Override
@@ -672,7 +505,7 @@ private static final long serialVersionUID = 0L;
         if (other.getBrightness() != 0D) {
           setBrightness(other.getBrightness());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -687,19 +520,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                saturation_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                contrast_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 25: {
+                brightness_ = input.readDouble();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 25
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double saturation_ ;
       /**
@@ -730,6 +592,7 @@ private static final long serialVersionUID = 0L;
       public Builder setSaturation(double value) {
         
         saturation_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -744,7 +607,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSaturation() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         saturation_ = 0D;
         onChanged();
         return this;
@@ -779,6 +642,7 @@ private static final long serialVersionUID = 0L;
       public Builder setContrast(double value) {
         
         contrast_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -793,7 +657,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearContrast() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         contrast_ = 0D;
         onChanged();
         return this;
@@ -828,6 +692,7 @@ private static final long serialVersionUID = 0L;
       public Builder setBrightness(double value) {
         
         brightness_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -842,7 +707,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBrightness() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         brightness_ = 0D;
         onChanged();
         return this;
@@ -880,7 +745,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Color(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -974,56 +850,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Denoise(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              strength_ = input.readDouble();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tune_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Denoise_descriptor;
@@ -1038,7 +864,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STRENGTH_FIELD_NUMBER = 1;
-    private double strength_;
+    private double strength_ = 0D;
     /**
      * <pre>
      * Set strength of the denoise. Enter a value between 0 and 1. The higher
@@ -1054,7 +880,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TUNE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object tune_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object tune_ = "";
     /**
      * <pre>
      * Set the denoiser mode. The default is `standard`.
@@ -1125,7 +952,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tune_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tune_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1141,7 +968,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tune_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tune_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1161,7 +988,7 @@ private static final long serialVersionUID = 0L;
               other.getStrength())) return false;
       if (!getTune()
           .equals(other.getTune())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1177,7 +1004,7 @@ private static final long serialVersionUID = 0L;
           java.lang.Double.doubleToLongBits(getStrength()));
       hash = (37 * hash) + TUNE_FIELD_NUMBER;
       hash = (53 * hash) + getTune().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1299,26 +1126,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         strength_ = 0D;
-
         tune_ = "";
-
         return this;
       }
 
@@ -1345,10 +1166,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise buildPartial() {
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise(this);
-        result.strength_ = strength_;
-        result.tune_ = tune_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.strength_ = strength_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.tune_ = tune_;
+        }
       }
 
       @java.lang.Override
@@ -1400,9 +1230,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getTune().isEmpty()) {
           tune_ = other.tune_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1417,19 +1248,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                strength_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 18: {
+                tune_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double strength_ ;
       /**
@@ -1458,6 +1313,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStrength(double value) {
         
         strength_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1471,7 +1327,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStrength() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         strength_ = 0D;
         onChanged();
         return this;
@@ -1539,11 +1395,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTune(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         tune_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1559,8 +1413,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTune() {
-        
         tune_ = getDefaultInstance().getTune();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1578,12 +1432,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setTuneBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         tune_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1620,7 +1472,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Denoise(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1698,55 +1561,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Deblock(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              strength_ = input.readDouble();
-              break;
-            }
-            case 16: {
-
-              enabled_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deblock_descriptor;
@@ -1761,7 +1575,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int STRENGTH_FIELD_NUMBER = 1;
-    private double strength_;
+    private double strength_ = 0D;
     /**
      * <pre>
      * Set strength of the deblocker. Enter a value between 0 and 1. The higher
@@ -1778,7 +1592,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENABLED_FIELD_NUMBER = 2;
-    private boolean enabled_;
+    private boolean enabled_ = false;
     /**
      * <pre>
      * Enable deblocker. The default is `false`.
@@ -1812,7 +1626,7 @@ private static final long serialVersionUID = 0L;
       if (enabled_ != false) {
         output.writeBool(2, enabled_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1829,7 +1643,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, enabled_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1849,7 +1663,7 @@ private static final long serialVersionUID = 0L;
               other.getStrength())) return false;
       if (getEnabled()
           != other.getEnabled()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1866,7 +1680,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getEnabled());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1988,26 +1802,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         strength_ = 0D;
-
         enabled_ = false;
-
         return this;
       }
 
@@ -2034,10 +1842,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock buildPartial() {
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock(this);
-        result.strength_ = strength_;
-        result.enabled_ = enabled_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.strength_ = strength_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.enabled_ = enabled_;
+        }
       }
 
       @java.lang.Override
@@ -2090,7 +1907,7 @@ private static final long serialVersionUID = 0L;
         if (other.getEnabled() != false) {
           setEnabled(other.getEnabled());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2105,19 +1922,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                strength_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 16: {
+                enabled_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double strength_ ;
       /**
@@ -2148,6 +1989,7 @@ private static final long serialVersionUID = 0L;
       public Builder setStrength(double value) {
         
         strength_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2162,7 +2004,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearStrength() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         strength_ = 0D;
         onChanged();
         return this;
@@ -2193,6 +2035,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnabled(boolean value) {
         
         enabled_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2205,7 +2048,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         enabled_ = false;
         onChanged();
         return this;
@@ -2243,7 +2086,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Deblock(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2339,60 +2193,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Audio(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              lufs_ = input.readDouble();
-              break;
-            }
-            case 16: {
-
-              highBoost_ = input.readBool();
-              break;
-            }
-            case 24: {
-
-              lowBoost_ = input.readBool();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Audio_descriptor;
@@ -2407,7 +2207,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LUFS_FIELD_NUMBER = 1;
-    private double lufs_;
+    private double lufs_ = 0D;
     /**
      * <pre>
      * Specify audio loudness normalization in loudness units relative to full
@@ -2431,7 +2231,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HIGH_BOOST_FIELD_NUMBER = 2;
-    private boolean highBoost_;
+    private boolean highBoost_ = false;
     /**
      * <pre>
      * Enable boosting high frequency components. The default is `false`.
@@ -2447,7 +2247,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOW_BOOST_FIELD_NUMBER = 3;
-    private boolean lowBoost_;
+    private boolean lowBoost_ = false;
     /**
      * <pre>
      * Enable boosting low frequency components. The default is `false`.
@@ -2485,7 +2285,7 @@ private static final long serialVersionUID = 0L;
       if (lowBoost_ != false) {
         output.writeBool(3, lowBoost_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2506,7 +2306,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(3, lowBoost_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2528,7 +2328,7 @@ private static final long serialVersionUID = 0L;
           != other.getHighBoost()) return false;
       if (getLowBoost()
           != other.getLowBoost()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2548,7 +2348,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOW_BOOST_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getLowBoost());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2669,28 +2469,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         lufs_ = 0D;
-
         highBoost_ = false;
-
         lowBoost_ = false;
-
         return this;
       }
 
@@ -2717,11 +2510,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio buildPartial() {
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio(this);
-        result.lufs_ = lufs_;
-        result.highBoost_ = highBoost_;
-        result.lowBoost_ = lowBoost_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.lufs_ = lufs_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.highBoost_ = highBoost_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lowBoost_ = lowBoost_;
+        }
       }
 
       @java.lang.Override
@@ -2777,7 +2581,7 @@ private static final long serialVersionUID = 0L;
         if (other.getLowBoost() != false) {
           setLowBoost(other.getLowBoost());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2792,19 +2596,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                lufs_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 16: {
+                highBoost_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                lowBoost_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double lufs_ ;
       /**
@@ -2849,6 +2682,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLufs(double value) {
         
         lufs_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2870,7 +2704,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLufs() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         lufs_ = 0D;
         onChanged();
         return this;
@@ -2903,6 +2737,7 @@ private static final long serialVersionUID = 0L;
       public Builder setHighBoost(boolean value) {
         
         highBoost_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -2916,7 +2751,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHighBoost() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         highBoost_ = false;
         onChanged();
         return this;
@@ -2949,6 +2784,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLowBoost(boolean value) {
         
         lowBoost_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -2962,7 +2798,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLowBoost() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         lowBoost_ = false;
         onChanged();
         return this;
@@ -3000,7 +2836,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Audio(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3096,65 +2943,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Crop(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              topPixels_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              bottomPixels_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              leftPixels_ = input.readInt32();
-              break;
-            }
-            case 32: {
-
-              rightPixels_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Crop_descriptor;
@@ -3169,7 +2957,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TOP_PIXELS_FIELD_NUMBER = 1;
-    private int topPixels_;
+    private int topPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to crop from the top. The default is 0.
@@ -3184,7 +2972,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BOTTOM_PIXELS_FIELD_NUMBER = 2;
-    private int bottomPixels_;
+    private int bottomPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to crop from the bottom. The default is 0.
@@ -3199,7 +2987,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LEFT_PIXELS_FIELD_NUMBER = 3;
-    private int leftPixels_;
+    private int leftPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to crop from the left. The default is 0.
@@ -3214,7 +3002,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RIGHT_PIXELS_FIELD_NUMBER = 4;
-    private int rightPixels_;
+    private int rightPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to crop from the right. The default is 0.
@@ -3254,7 +3042,7 @@ private static final long serialVersionUID = 0L;
       if (rightPixels_ != 0) {
         output.writeInt32(4, rightPixels_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3279,7 +3067,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, rightPixels_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3302,7 +3090,7 @@ private static final long serialVersionUID = 0L;
           != other.getLeftPixels()) return false;
       if (getRightPixels()
           != other.getRightPixels()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3321,7 +3109,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getLeftPixels();
       hash = (37 * hash) + RIGHT_PIXELS_FIELD_NUMBER;
       hash = (53 * hash) + getRightPixels();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3443,30 +3231,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         topPixels_ = 0;
-
         bottomPixels_ = 0;
-
         leftPixels_ = 0;
-
         rightPixels_ = 0;
-
         return this;
       }
 
@@ -3493,12 +3273,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop buildPartial() {
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop(this);
-        result.topPixels_ = topPixels_;
-        result.bottomPixels_ = bottomPixels_;
-        result.leftPixels_ = leftPixels_;
-        result.rightPixels_ = rightPixels_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.topPixels_ = topPixels_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.bottomPixels_ = bottomPixels_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.leftPixels_ = leftPixels_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.rightPixels_ = rightPixels_;
+        }
       }
 
       @java.lang.Override
@@ -3557,7 +3350,7 @@ private static final long serialVersionUID = 0L;
         if (other.getRightPixels() != 0) {
           setRightPixels(other.getRightPixels());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3572,19 +3365,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                topPixels_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                bottomPixels_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                leftPixels_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                rightPixels_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int topPixels_ ;
       /**
@@ -3611,6 +3438,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTopPixels(int value) {
         
         topPixels_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3623,7 +3451,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTopPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         topPixels_ = 0;
         onChanged();
         return this;
@@ -3654,6 +3482,7 @@ private static final long serialVersionUID = 0L;
       public Builder setBottomPixels(int value) {
         
         bottomPixels_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3666,7 +3495,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBottomPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         bottomPixels_ = 0;
         onChanged();
         return this;
@@ -3697,6 +3526,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLeftPixels(int value) {
         
         leftPixels_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3709,7 +3539,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLeftPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         leftPixels_ = 0;
         onChanged();
         return this;
@@ -3740,6 +3570,7 @@ private static final long serialVersionUID = 0L;
       public Builder setRightPixels(int value) {
         
         rightPixels_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3752,7 +3583,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRightPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         rightPixels_ = 0;
         onChanged();
         return this;
@@ -3790,7 +3621,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Crop(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3886,65 +3728,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Pad(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              topPixels_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              bottomPixels_ = input.readInt32();
-              break;
-            }
-            case 24: {
-
-              leftPixels_ = input.readInt32();
-              break;
-            }
-            case 32: {
-
-              rightPixels_ = input.readInt32();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Pad_descriptor;
@@ -3959,7 +3742,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TOP_PIXELS_FIELD_NUMBER = 1;
-    private int topPixels_;
+    private int topPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to add to the top. The default is 0.
@@ -3974,7 +3757,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BOTTOM_PIXELS_FIELD_NUMBER = 2;
-    private int bottomPixels_;
+    private int bottomPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to add to the bottom. The default is 0.
@@ -3989,7 +3772,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LEFT_PIXELS_FIELD_NUMBER = 3;
-    private int leftPixels_;
+    private int leftPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to add to the left. The default is 0.
@@ -4004,7 +3787,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int RIGHT_PIXELS_FIELD_NUMBER = 4;
-    private int rightPixels_;
+    private int rightPixels_ = 0;
     /**
      * <pre>
      * The number of pixels to add to the right. The default is 0.
@@ -4044,7 +3827,7 @@ private static final long serialVersionUID = 0L;
       if (rightPixels_ != 0) {
         output.writeInt32(4, rightPixels_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4069,7 +3852,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, rightPixels_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4092,7 +3875,7 @@ private static final long serialVersionUID = 0L;
           != other.getLeftPixels()) return false;
       if (getRightPixels()
           != other.getRightPixels()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4111,7 +3894,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getLeftPixels();
       hash = (37 * hash) + RIGHT_PIXELS_FIELD_NUMBER;
       hash = (53 * hash) + getRightPixels();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4233,30 +4016,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         topPixels_ = 0;
-
         bottomPixels_ = 0;
-
         leftPixels_ = 0;
-
         rightPixels_ = 0;
-
         return this;
       }
 
@@ -4283,12 +4058,25 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad buildPartial() {
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad(this);
-        result.topPixels_ = topPixels_;
-        result.bottomPixels_ = bottomPixels_;
-        result.leftPixels_ = leftPixels_;
-        result.rightPixels_ = rightPixels_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.topPixels_ = topPixels_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.bottomPixels_ = bottomPixels_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.leftPixels_ = leftPixels_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.rightPixels_ = rightPixels_;
+        }
       }
 
       @java.lang.Override
@@ -4347,7 +4135,7 @@ private static final long serialVersionUID = 0L;
         if (other.getRightPixels() != 0) {
           setRightPixels(other.getRightPixels());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -4362,19 +4150,53 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                topPixels_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                bottomPixels_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                leftPixels_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                rightPixels_ = input.readInt32();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int topPixels_ ;
       /**
@@ -4401,6 +4223,7 @@ private static final long serialVersionUID = 0L;
       public Builder setTopPixels(int value) {
         
         topPixels_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4413,7 +4236,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearTopPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         topPixels_ = 0;
         onChanged();
         return this;
@@ -4444,6 +4267,7 @@ private static final long serialVersionUID = 0L;
       public Builder setBottomPixels(int value) {
         
         bottomPixels_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -4456,7 +4280,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBottomPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         bottomPixels_ = 0;
         onChanged();
         return this;
@@ -4487,6 +4311,7 @@ private static final long serialVersionUID = 0L;
       public Builder setLeftPixels(int value) {
         
         leftPixels_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -4499,7 +4324,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearLeftPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         leftPixels_ = 0;
         onChanged();
         return this;
@@ -4530,6 +4355,7 @@ private static final long serialVersionUID = 0L;
       public Builder setRightPixels(int value) {
         
         rightPixels_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -4542,7 +4368,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRightPixels() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         rightPixels_ = 0;
         onChanged();
         return this;
@@ -4580,7 +4406,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Pad(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4595,6 +4432,3085 @@ private static final long serialVersionUID = 0L;
 
     @java.lang.Override
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DeinterlaceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * Specifies the Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+     * @return Whether the yadif field is set.
+     */
+    boolean hasYadif();
+    /**
+     * <pre>
+     * Specifies the Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+     * @return The yadif.
+     */
+    com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig getYadif();
+    /**
+     * <pre>
+     * Specifies the Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+     */
+    com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder getYadifOrBuilder();
+
+    /**
+     * <pre>
+     * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+     * @return Whether the bwdif field is set.
+     */
+    boolean hasBwdif();
+    /**
+     * <pre>
+     * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+     * @return The bwdif.
+     */
+    com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig getBwdif();
+    /**
+     * <pre>
+     * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+     */
+    com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder getBwdifOrBuilder();
+
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.DeinterlacingFilterCase getDeinterlacingFilterCase();
+  }
+  /**
+   * <pre>
+   * Deinterlace configuration for input video.
+   * </pre>
+   *
+   * Protobuf type {@code google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace}
+   */
+  public static final class Deinterlace extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)
+      DeinterlaceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Deinterlace.newBuilder() to construct.
+    private Deinterlace(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Deinterlace() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Deinterlace();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.class, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder.class);
+    }
+
+    public interface YadifConfigOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The mode.
+       */
+      java.lang.String getMode();
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The bytes for mode.
+       */
+      com.google.protobuf.ByteString
+          getModeBytes();
+
+      /**
+       * <pre>
+       * Disable spacial interlacing.
+       * The default is `false`.
+       * </pre>
+       *
+       * <code>bool disable_spatial_interlacing = 2;</code>
+       * @return The disableSpatialInterlacing.
+       */
+      boolean getDisableSpatialInterlacing();
+
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 3;</code>
+       * @return The parity.
+       */
+      java.lang.String getParity();
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 3;</code>
+       * @return The bytes for parity.
+       */
+      com.google.protobuf.ByteString
+          getParityBytes();
+
+      /**
+       * <pre>
+       * Deinterlace all frames rather than just the frames identified as
+       * interlaced. The default is `false`.
+       * </pre>
+       *
+       * <code>bool deinterlace_all_frames = 4;</code>
+       * @return The deinterlaceAllFrames.
+       */
+      boolean getDeinterlaceAllFrames();
+    }
+    /**
+     * <pre>
+     * Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig}
+     */
+    public static final class YadifConfig extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)
+        YadifConfigOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use YadifConfig.newBuilder() to construct.
+      private YadifConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private YadifConfig() {
+        mode_ = "";
+        parity_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new YadifConfig();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_YadifConfig_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_YadifConfig_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.class, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder.class);
+      }
+
+      public static final int MODE_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object mode_ = "";
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The mode.
+       */
+      @java.lang.Override
+      public java.lang.String getMode() {
+        java.lang.Object ref = mode_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          mode_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The bytes for mode.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getModeBytes() {
+        java.lang.Object ref = mode_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          mode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int DISABLE_SPATIAL_INTERLACING_FIELD_NUMBER = 2;
+      private boolean disableSpatialInterlacing_ = false;
+      /**
+       * <pre>
+       * Disable spacial interlacing.
+       * The default is `false`.
+       * </pre>
+       *
+       * <code>bool disable_spatial_interlacing = 2;</code>
+       * @return The disableSpatialInterlacing.
+       */
+      @java.lang.Override
+      public boolean getDisableSpatialInterlacing() {
+        return disableSpatialInterlacing_;
+      }
+
+      public static final int PARITY_FIELD_NUMBER = 3;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object parity_ = "";
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 3;</code>
+       * @return The parity.
+       */
+      @java.lang.Override
+      public java.lang.String getParity() {
+        java.lang.Object ref = parity_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          parity_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 3;</code>
+       * @return The bytes for parity.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getParityBytes() {
+        java.lang.Object ref = parity_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          parity_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int DEINTERLACE_ALL_FRAMES_FIELD_NUMBER = 4;
+      private boolean deinterlaceAllFrames_ = false;
+      /**
+       * <pre>
+       * Deinterlace all frames rather than just the frames identified as
+       * interlaced. The default is `false`.
+       * </pre>
+       *
+       * <code>bool deinterlace_all_frames = 4;</code>
+       * @return The deinterlaceAllFrames.
+       */
+      @java.lang.Override
+      public boolean getDeinterlaceAllFrames() {
+        return deinterlaceAllFrames_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mode_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mode_);
+        }
+        if (disableSpatialInterlacing_ != false) {
+          output.writeBool(2, disableSpatialInterlacing_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parity_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, parity_);
+        }
+        if (deinterlaceAllFrames_ != false) {
+          output.writeBool(4, deinterlaceAllFrames_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mode_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mode_);
+        }
+        if (disableSpatialInterlacing_ != false) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBoolSize(2, disableSpatialInterlacing_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parity_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, parity_);
+        }
+        if (deinterlaceAllFrames_ != false) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBoolSize(4, deinterlaceAllFrames_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)) {
+          return super.equals(obj);
+        }
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig other = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) obj;
+
+        if (!getMode()
+            .equals(other.getMode())) return false;
+        if (getDisableSpatialInterlacing()
+            != other.getDisableSpatialInterlacing()) return false;
+        if (!getParity()
+            .equals(other.getParity())) return false;
+        if (getDeinterlaceAllFrames()
+            != other.getDeinterlaceAllFrames()) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + MODE_FIELD_NUMBER;
+        hash = (53 * hash) + getMode().hashCode();
+        hash = (37 * hash) + DISABLE_SPATIAL_INTERLACING_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getDisableSpatialInterlacing());
+        hash = (37 * hash) + PARITY_FIELD_NUMBER;
+        hash = (53 * hash) + getParity().hashCode();
+        hash = (37 * hash) + DEINTERLACE_ALL_FRAMES_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getDeinterlaceAllFrames());
+        hash = (29 * hash) + getUnknownFields().hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       * Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * Protobuf type {@code google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_YadifConfig_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_YadifConfig_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.class, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder.class);
+        }
+
+        // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.newBuilder()
+        private Builder() {
+
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          bitField0_ = 0;
+          mode_ = "";
+          disableSpatialInterlacing_ = false;
+          parity_ = "";
+          deinterlaceAllFrames_ = false;
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_YadifConfig_descriptor;
+        }
+
+        @java.lang.Override
+        public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig getDefaultInstanceForType() {
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig build() {
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig buildPartial() {
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.mode_ = mode_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.disableSpatialInterlacing_ = disableSpatialInterlacing_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.parity_ = parity_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.deinterlaceAllFrames_ = deinterlaceAllFrames_;
+          }
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) {
+            return mergeFrom((com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig other) {
+          if (other == com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance()) return this;
+          if (!other.getMode().isEmpty()) {
+            mode_ = other.mode_;
+            bitField0_ |= 0x00000001;
+            onChanged();
+          }
+          if (other.getDisableSpatialInterlacing() != false) {
+            setDisableSpatialInterlacing(other.getDisableSpatialInterlacing());
+          }
+          if (!other.getParity().isEmpty()) {
+            parity_ = other.parity_;
+            bitField0_ |= 0x00000004;
+            onChanged();
+          }
+          if (other.getDeinterlaceAllFrames() != false) {
+            setDeinterlaceAllFrames(other.getDeinterlaceAllFrames());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  mode_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  disableSpatialInterlacing_ = input.readBool();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                case 26: {
+                  parity_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+                case 32: {
+                  deinterlaceAllFrames_ = input.readBool();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.unwrapIOException();
+          } finally {
+            onChanged();
+          } // finally
+          return this;
+        }
+        private int bitField0_;
+
+        private java.lang.Object mode_ = "";
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @return The mode.
+         */
+        public java.lang.String getMode() {
+          java.lang.Object ref = mode_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            mode_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @return The bytes for mode.
+         */
+        public com.google.protobuf.ByteString
+            getModeBytes() {
+          java.lang.Object ref = mode_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            mode_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @param value The mode to set.
+         * @return This builder for chaining.
+         */
+        public Builder setMode(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          mode_ = value;
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearMode() {
+          mode_ = getDefaultInstance().getMode();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @param value The bytes for mode to set.
+         * @return This builder for chaining.
+         */
+        public Builder setModeBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          mode_ = value;
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+
+        private boolean disableSpatialInterlacing_ ;
+        /**
+         * <pre>
+         * Disable spacial interlacing.
+         * The default is `false`.
+         * </pre>
+         *
+         * <code>bool disable_spatial_interlacing = 2;</code>
+         * @return The disableSpatialInterlacing.
+         */
+        @java.lang.Override
+        public boolean getDisableSpatialInterlacing() {
+          return disableSpatialInterlacing_;
+        }
+        /**
+         * <pre>
+         * Disable spacial interlacing.
+         * The default is `false`.
+         * </pre>
+         *
+         * <code>bool disable_spatial_interlacing = 2;</code>
+         * @param value The disableSpatialInterlacing to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDisableSpatialInterlacing(boolean value) {
+          
+          disableSpatialInterlacing_ = value;
+          bitField0_ |= 0x00000002;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Disable spacial interlacing.
+         * The default is `false`.
+         * </pre>
+         *
+         * <code>bool disable_spatial_interlacing = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDisableSpatialInterlacing() {
+          bitField0_ = (bitField0_ & ~0x00000002);
+          disableSpatialInterlacing_ = false;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object parity_ = "";
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 3;</code>
+         * @return The parity.
+         */
+        public java.lang.String getParity() {
+          java.lang.Object ref = parity_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            parity_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 3;</code>
+         * @return The bytes for parity.
+         */
+        public com.google.protobuf.ByteString
+            getParityBytes() {
+          java.lang.Object ref = parity_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            parity_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 3;</code>
+         * @param value The parity to set.
+         * @return This builder for chaining.
+         */
+        public Builder setParity(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          parity_ = value;
+          bitField0_ |= 0x00000004;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearParity() {
+          parity_ = getDefaultInstance().getParity();
+          bitField0_ = (bitField0_ & ~0x00000004);
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 3;</code>
+         * @param value The bytes for parity to set.
+         * @return This builder for chaining.
+         */
+        public Builder setParityBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          parity_ = value;
+          bitField0_ |= 0x00000004;
+          onChanged();
+          return this;
+        }
+
+        private boolean deinterlaceAllFrames_ ;
+        /**
+         * <pre>
+         * Deinterlace all frames rather than just the frames identified as
+         * interlaced. The default is `false`.
+         * </pre>
+         *
+         * <code>bool deinterlace_all_frames = 4;</code>
+         * @return The deinterlaceAllFrames.
+         */
+        @java.lang.Override
+        public boolean getDeinterlaceAllFrames() {
+          return deinterlaceAllFrames_;
+        }
+        /**
+         * <pre>
+         * Deinterlace all frames rather than just the frames identified as
+         * interlaced. The default is `false`.
+         * </pre>
+         *
+         * <code>bool deinterlace_all_frames = 4;</code>
+         * @param value The deinterlaceAllFrames to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDeinterlaceAllFrames(boolean value) {
+          
+          deinterlaceAllFrames_ = value;
+          bitField0_ |= 0x00000008;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Deinterlace all frames rather than just the frames identified as
+         * interlaced. The default is `false`.
+         * </pre>
+         *
+         * <code>bool deinterlace_all_frames = 4;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDeinterlaceAllFrames() {
+          bitField0_ = (bitField0_ & ~0x00000008);
+          deinterlaceAllFrames_ = false;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)
+      }
+
+      // @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig)
+      private static final com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig();
+      }
+
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<YadifConfig>
+          PARSER = new com.google.protobuf.AbstractParser<YadifConfig>() {
+        @java.lang.Override
+        public YadifConfig parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+      };
+
+      public static com.google.protobuf.Parser<YadifConfig> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<YadifConfig> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public interface BwdifConfigOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The mode.
+       */
+      java.lang.String getMode();
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The bytes for mode.
+       */
+      com.google.protobuf.ByteString
+          getModeBytes();
+
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 2;</code>
+       * @return The parity.
+       */
+      java.lang.String getParity();
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 2;</code>
+       * @return The bytes for parity.
+       */
+      com.google.protobuf.ByteString
+          getParityBytes();
+
+      /**
+       * <pre>
+       * Deinterlace all frames rather than just the frames identified as
+       * interlaced. The default is `false`.
+       * </pre>
+       *
+       * <code>bool deinterlace_all_frames = 3;</code>
+       * @return The deinterlaceAllFrames.
+       */
+      boolean getDeinterlaceAllFrames();
+    }
+    /**
+     * <pre>
+     * Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig}
+     */
+    public static final class BwdifConfig extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)
+        BwdifConfigOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use BwdifConfig.newBuilder() to construct.
+      private BwdifConfig(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private BwdifConfig() {
+        mode_ = "";
+        parity_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new BwdifConfig();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_BwdifConfig_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_BwdifConfig_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.class, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder.class);
+      }
+
+      public static final int MODE_FIELD_NUMBER = 1;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object mode_ = "";
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The mode.
+       */
+      @java.lang.Override
+      public java.lang.String getMode() {
+        java.lang.Object ref = mode_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          mode_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the deinterlacing mode to adopt.
+       * The default is `send_frame`.
+       * Supported values:
+       * - `send_frame`: Output one frame for each frame
+       * - `send_field`: Output one frame for each field
+       * </pre>
+       *
+       * <code>string mode = 1;</code>
+       * @return The bytes for mode.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getModeBytes() {
+        java.lang.Object ref = mode_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          mode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int PARITY_FIELD_NUMBER = 2;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object parity_ = "";
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 2;</code>
+       * @return The parity.
+       */
+      @java.lang.Override
+      public java.lang.String getParity() {
+        java.lang.Object ref = parity_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          parity_ = s;
+          return s;
+        }
+      }
+      /**
+       * <pre>
+       * The picture field parity assumed for the input interlaced video.
+       * The default is `auto`.
+       * Supported values:
+       * - `tff`: Assume the top field is first
+       * - `bff`: Assume the bottom field is first
+       * - `auto`: Enable automatic detection of field parity
+       * </pre>
+       *
+       * <code>string parity = 2;</code>
+       * @return The bytes for parity.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getParityBytes() {
+        java.lang.Object ref = parity_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          parity_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int DEINTERLACE_ALL_FRAMES_FIELD_NUMBER = 3;
+      private boolean deinterlaceAllFrames_ = false;
+      /**
+       * <pre>
+       * Deinterlace all frames rather than just the frames identified as
+       * interlaced. The default is `false`.
+       * </pre>
+       *
+       * <code>bool deinterlace_all_frames = 3;</code>
+       * @return The deinterlaceAllFrames.
+       */
+      @java.lang.Override
+      public boolean getDeinterlaceAllFrames() {
+        return deinterlaceAllFrames_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mode_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 1, mode_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parity_)) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 2, parity_);
+        }
+        if (deinterlaceAllFrames_ != false) {
+          output.writeBool(3, deinterlaceAllFrames_);
+        }
+        getUnknownFields().writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(mode_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, mode_);
+        }
+        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(parity_)) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, parity_);
+        }
+        if (deinterlaceAllFrames_ != false) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeBoolSize(3, deinterlaceAllFrames_);
+        }
+        size += getUnknownFields().getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)) {
+          return super.equals(obj);
+        }
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig other = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) obj;
+
+        if (!getMode()
+            .equals(other.getMode())) return false;
+        if (!getParity()
+            .equals(other.getParity())) return false;
+        if (getDeinterlaceAllFrames()
+            != other.getDeinterlaceAllFrames()) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + MODE_FIELD_NUMBER;
+        hash = (53 * hash) + getMode().hashCode();
+        hash = (37 * hash) + PARITY_FIELD_NUMBER;
+        hash = (53 * hash) + getParity().hashCode();
+        hash = (37 * hash) + DEINTERLACE_ALL_FRAMES_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+            getDeinterlaceAllFrames());
+        hash = (29 * hash) + getUnknownFields().hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * <pre>
+       * Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * Protobuf type {@code google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_BwdifConfig_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_BwdifConfig_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.class, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder.class);
+        }
+
+        // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.newBuilder()
+        private Builder() {
+
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          bitField0_ = 0;
+          mode_ = "";
+          parity_ = "";
+          deinterlaceAllFrames_ = false;
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_BwdifConfig_descriptor;
+        }
+
+        @java.lang.Override
+        public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig getDefaultInstanceForType() {
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig build() {
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig buildPartial() {
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig(this);
+          if (bitField0_ != 0) { buildPartial0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.mode_ = mode_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.parity_ = parity_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.deinterlaceAllFrames_ = deinterlaceAllFrames_;
+          }
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) {
+            return mergeFrom((com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig other) {
+          if (other == com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance()) return this;
+          if (!other.getMode().isEmpty()) {
+            mode_ = other.mode_;
+            bitField0_ |= 0x00000001;
+            onChanged();
+          }
+          if (!other.getParity().isEmpty()) {
+            parity_ = other.parity_;
+            bitField0_ |= 0x00000002;
+            onChanged();
+          }
+          if (other.getDeinterlaceAllFrames() != false) {
+            setDeinterlaceAllFrames(other.getDeinterlaceAllFrames());
+          }
+          this.mergeUnknownFields(other.getUnknownFields());
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
+          try {
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  mode_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 18: {
+                  parity_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 24: {
+                  deinterlaceAllFrames_ = input.readBool();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.unwrapIOException();
+          } finally {
+            onChanged();
+          } // finally
+          return this;
+        }
+        private int bitField0_;
+
+        private java.lang.Object mode_ = "";
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @return The mode.
+         */
+        public java.lang.String getMode() {
+          java.lang.Object ref = mode_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            mode_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @return The bytes for mode.
+         */
+        public com.google.protobuf.ByteString
+            getModeBytes() {
+          java.lang.Object ref = mode_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            mode_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @param value The mode to set.
+         * @return This builder for chaining.
+         */
+        public Builder setMode(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          mode_ = value;
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearMode() {
+          mode_ = getDefaultInstance().getMode();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Specifies the deinterlacing mode to adopt.
+         * The default is `send_frame`.
+         * Supported values:
+         * - `send_frame`: Output one frame for each frame
+         * - `send_field`: Output one frame for each field
+         * </pre>
+         *
+         * <code>string mode = 1;</code>
+         * @param value The bytes for mode to set.
+         * @return This builder for chaining.
+         */
+        public Builder setModeBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          mode_ = value;
+          bitField0_ |= 0x00000001;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object parity_ = "";
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 2;</code>
+         * @return The parity.
+         */
+        public java.lang.String getParity() {
+          java.lang.Object ref = parity_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            parity_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 2;</code>
+         * @return The bytes for parity.
+         */
+        public com.google.protobuf.ByteString
+            getParityBytes() {
+          java.lang.Object ref = parity_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            parity_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 2;</code>
+         * @param value The parity to set.
+         * @return This builder for chaining.
+         */
+        public Builder setParity(
+            java.lang.String value) {
+          if (value == null) { throw new NullPointerException(); }
+          parity_ = value;
+          bitField0_ |= 0x00000002;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearParity() {
+          parity_ = getDefaultInstance().getParity();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * The picture field parity assumed for the input interlaced video.
+         * The default is `auto`.
+         * Supported values:
+         * - `tff`: Assume the top field is first
+         * - `bff`: Assume the bottom field is first
+         * - `auto`: Enable automatic detection of field parity
+         * </pre>
+         *
+         * <code>string parity = 2;</code>
+         * @param value The bytes for parity to set.
+         * @return This builder for chaining.
+         */
+        public Builder setParityBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
+          parity_ = value;
+          bitField0_ |= 0x00000002;
+          onChanged();
+          return this;
+        }
+
+        private boolean deinterlaceAllFrames_ ;
+        /**
+         * <pre>
+         * Deinterlace all frames rather than just the frames identified as
+         * interlaced. The default is `false`.
+         * </pre>
+         *
+         * <code>bool deinterlace_all_frames = 3;</code>
+         * @return The deinterlaceAllFrames.
+         */
+        @java.lang.Override
+        public boolean getDeinterlaceAllFrames() {
+          return deinterlaceAllFrames_;
+        }
+        /**
+         * <pre>
+         * Deinterlace all frames rather than just the frames identified as
+         * interlaced. The default is `false`.
+         * </pre>
+         *
+         * <code>bool deinterlace_all_frames = 3;</code>
+         * @param value The deinterlaceAllFrames to set.
+         * @return This builder for chaining.
+         */
+        public Builder setDeinterlaceAllFrames(boolean value) {
+          
+          deinterlaceAllFrames_ = value;
+          bitField0_ |= 0x00000004;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * Deinterlace all frames rather than just the frames identified as
+         * interlaced. The default is `false`.
+         * </pre>
+         *
+         * <code>bool deinterlace_all_frames = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearDeinterlaceAllFrames() {
+          bitField0_ = (bitField0_ & ~0x00000004);
+          deinterlaceAllFrames_ = false;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)
+      }
+
+      // @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig)
+      private static final com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig();
+      }
+
+      public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<BwdifConfig>
+          PARSER = new com.google.protobuf.AbstractParser<BwdifConfig>() {
+        @java.lang.Override
+        public BwdifConfig parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+      };
+
+      public static com.google.protobuf.Parser<BwdifConfig> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<BwdifConfig> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    private int deinterlacingFilterCase_ = 0;
+    private java.lang.Object deinterlacingFilter_;
+    public enum DeinterlacingFilterCase
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+      YADIF(1),
+      BWDIF(2),
+      DEINTERLACINGFILTER_NOT_SET(0);
+      private final int value;
+      private DeinterlacingFilterCase(int value) {
+        this.value = value;
+      }
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static DeinterlacingFilterCase valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static DeinterlacingFilterCase forNumber(int value) {
+        switch (value) {
+          case 1: return YADIF;
+          case 2: return BWDIF;
+          case 0: return DEINTERLACINGFILTER_NOT_SET;
+          default: return null;
+        }
+      }
+      public int getNumber() {
+        return this.value;
+      }
+    };
+
+    public DeinterlacingFilterCase
+    getDeinterlacingFilterCase() {
+      return DeinterlacingFilterCase.forNumber(
+          deinterlacingFilterCase_);
+    }
+
+    public static final int YADIF_FIELD_NUMBER = 1;
+    /**
+     * <pre>
+     * Specifies the Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+     * @return Whether the yadif field is set.
+     */
+    @java.lang.Override
+    public boolean hasYadif() {
+      return deinterlacingFilterCase_ == 1;
+    }
+    /**
+     * <pre>
+     * Specifies the Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+     * @return The yadif.
+     */
+    @java.lang.Override
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig getYadif() {
+      if (deinterlacingFilterCase_ == 1) {
+         return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_;
+      }
+      return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * Specifies the Yet Another Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder getYadifOrBuilder() {
+      if (deinterlacingFilterCase_ == 1) {
+         return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_;
+      }
+      return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+    }
+
+    public static final int BWDIF_FIELD_NUMBER = 2;
+    /**
+     * <pre>
+     * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+     * @return Whether the bwdif field is set.
+     */
+    @java.lang.Override
+    public boolean hasBwdif() {
+      return deinterlacingFilterCase_ == 2;
+    }
+    /**
+     * <pre>
+     * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+     * @return The bwdif.
+     */
+    @java.lang.Override
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig getBwdif() {
+      if (deinterlacingFilterCase_ == 2) {
+         return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_;
+      }
+      return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+    }
+    /**
+     * <pre>
+     * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder getBwdifOrBuilder() {
+      if (deinterlacingFilterCase_ == 2) {
+         return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_;
+      }
+      return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (deinterlacingFilterCase_ == 1) {
+        output.writeMessage(1, (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_);
+      }
+      if (deinterlacingFilterCase_ == 2) {
+        output.writeMessage(2, (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (deinterlacingFilterCase_ == 1) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_);
+      }
+      if (deinterlacingFilterCase_ == 2) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)) {
+        return super.equals(obj);
+      }
+      com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace other = (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace) obj;
+
+      if (!getDeinterlacingFilterCase().equals(other.getDeinterlacingFilterCase())) return false;
+      switch (deinterlacingFilterCase_) {
+        case 1:
+          if (!getYadif()
+              .equals(other.getYadif())) return false;
+          break;
+        case 2:
+          if (!getBwdif()
+              .equals(other.getBwdif())) return false;
+          break;
+        case 0:
+        default:
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      switch (deinterlacingFilterCase_) {
+        case 1:
+          hash = (37 * hash) + YADIF_FIELD_NUMBER;
+          hash = (53 * hash) + getYadif().hashCode();
+          break;
+        case 2:
+          hash = (37 * hash) + BWDIF_FIELD_NUMBER;
+          hash = (53 * hash) + getBwdif().hashCode();
+          break;
+        case 0:
+        default:
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * Deinterlace configuration for input video.
+     * </pre>
+     *
+     * Protobuf type {@code google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.class, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder.class);
+      }
+
+      // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        if (yadifBuilder_ != null) {
+          yadifBuilder_.clear();
+        }
+        if (bwdifBuilder_ != null) {
+          bwdifBuilder_.clear();
+        }
+        deinterlacingFilterCase_ = 0;
+        deinterlacingFilter_ = null;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.google.cloud.video.transcoder.v1.ResourcesProto.internal_static_google_cloud_video_transcoder_v1_PreprocessingConfig_Deinterlace_descriptor;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace getDefaultInstanceForType() {
+        return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace build() {
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace buildPartial() {
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace result) {
+        result.deinterlacingFilterCase_ = deinterlacingFilterCase_;
+        result.deinterlacingFilter_ = this.deinterlacingFilter_;
+        if (deinterlacingFilterCase_ == 1 &&
+            yadifBuilder_ != null) {
+          result.deinterlacingFilter_ = yadifBuilder_.build();
+        }
+        if (deinterlacingFilterCase_ == 2 &&
+            bwdifBuilder_ != null) {
+          result.deinterlacingFilter_ = bwdifBuilder_.build();
+        }
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace) {
+          return mergeFrom((com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace other) {
+        if (other == com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance()) return this;
+        switch (other.getDeinterlacingFilterCase()) {
+          case YADIF: {
+            mergeYadif(other.getYadif());
+            break;
+          }
+          case BWDIF: {
+            mergeBwdif(other.getBwdif());
+            break;
+          }
+          case DEINTERLACINGFILTER_NOT_SET: {
+            break;
+          }
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getYadifFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                deinterlacingFilterCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getBwdifFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                deinterlacingFilterCase_ = 2;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int deinterlacingFilterCase_ = 0;
+      private java.lang.Object deinterlacingFilter_;
+      public DeinterlacingFilterCase
+          getDeinterlacingFilterCase() {
+        return DeinterlacingFilterCase.forNumber(
+            deinterlacingFilterCase_);
+      }
+
+      public Builder clearDeinterlacingFilter() {
+        deinterlacingFilterCase_ = 0;
+        deinterlacingFilter_ = null;
+        onChanged();
+        return this;
+      }
+
+      private int bitField0_;
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder> yadifBuilder_;
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       * @return Whether the yadif field is set.
+       */
+      @java.lang.Override
+      public boolean hasYadif() {
+        return deinterlacingFilterCase_ == 1;
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       * @return The yadif.
+       */
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig getYadif() {
+        if (yadifBuilder_ == null) {
+          if (deinterlacingFilterCase_ == 1) {
+            return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_;
+          }
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+        } else {
+          if (deinterlacingFilterCase_ == 1) {
+            return yadifBuilder_.getMessage();
+          }
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      public Builder setYadif(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig value) {
+        if (yadifBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          deinterlacingFilter_ = value;
+          onChanged();
+        } else {
+          yadifBuilder_.setMessage(value);
+        }
+        deinterlacingFilterCase_ = 1;
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      public Builder setYadif(
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder builderForValue) {
+        if (yadifBuilder_ == null) {
+          deinterlacingFilter_ = builderForValue.build();
+          onChanged();
+        } else {
+          yadifBuilder_.setMessage(builderForValue.build());
+        }
+        deinterlacingFilterCase_ = 1;
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      public Builder mergeYadif(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig value) {
+        if (yadifBuilder_ == null) {
+          if (deinterlacingFilterCase_ == 1 &&
+              deinterlacingFilter_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance()) {
+            deinterlacingFilter_ = com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.newBuilder((com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            deinterlacingFilter_ = value;
+          }
+          onChanged();
+        } else {
+          if (deinterlacingFilterCase_ == 1) {
+            yadifBuilder_.mergeFrom(value);
+          } else {
+            yadifBuilder_.setMessage(value);
+          }
+        }
+        deinterlacingFilterCase_ = 1;
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      public Builder clearYadif() {
+        if (yadifBuilder_ == null) {
+          if (deinterlacingFilterCase_ == 1) {
+            deinterlacingFilterCase_ = 0;
+            deinterlacingFilter_ = null;
+            onChanged();
+          }
+        } else {
+          if (deinterlacingFilterCase_ == 1) {
+            deinterlacingFilterCase_ = 0;
+            deinterlacingFilter_ = null;
+          }
+          yadifBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder getYadifBuilder() {
+        return getYadifFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder getYadifOrBuilder() {
+        if ((deinterlacingFilterCase_ == 1) && (yadifBuilder_ != null)) {
+          return yadifBuilder_.getMessageOrBuilder();
+        } else {
+          if (deinterlacingFilterCase_ == 1) {
+            return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_;
+          }
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the Yet Another Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig yadif = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder> 
+          getYadifFieldBuilder() {
+        if (yadifBuilder_ == null) {
+          if (!(deinterlacingFilterCase_ == 1)) {
+            deinterlacingFilter_ = com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.getDefaultInstance();
+          }
+          yadifBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfigOrBuilder>(
+                  (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.YadifConfig) deinterlacingFilter_,
+                  getParentForChildren(),
+                  isClean());
+          deinterlacingFilter_ = null;
+        }
+        deinterlacingFilterCase_ = 1;
+        onChanged();
+        return yadifBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder> bwdifBuilder_;
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       * @return Whether the bwdif field is set.
+       */
+      @java.lang.Override
+      public boolean hasBwdif() {
+        return deinterlacingFilterCase_ == 2;
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       * @return The bwdif.
+       */
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig getBwdif() {
+        if (bwdifBuilder_ == null) {
+          if (deinterlacingFilterCase_ == 2) {
+            return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_;
+          }
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+        } else {
+          if (deinterlacingFilterCase_ == 2) {
+            return bwdifBuilder_.getMessage();
+          }
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      public Builder setBwdif(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig value) {
+        if (bwdifBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          deinterlacingFilter_ = value;
+          onChanged();
+        } else {
+          bwdifBuilder_.setMessage(value);
+        }
+        deinterlacingFilterCase_ = 2;
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      public Builder setBwdif(
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder builderForValue) {
+        if (bwdifBuilder_ == null) {
+          deinterlacingFilter_ = builderForValue.build();
+          onChanged();
+        } else {
+          bwdifBuilder_.setMessage(builderForValue.build());
+        }
+        deinterlacingFilterCase_ = 2;
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      public Builder mergeBwdif(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig value) {
+        if (bwdifBuilder_ == null) {
+          if (deinterlacingFilterCase_ == 2 &&
+              deinterlacingFilter_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance()) {
+            deinterlacingFilter_ = com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.newBuilder((com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            deinterlacingFilter_ = value;
+          }
+          onChanged();
+        } else {
+          if (deinterlacingFilterCase_ == 2) {
+            bwdifBuilder_.mergeFrom(value);
+          } else {
+            bwdifBuilder_.setMessage(value);
+          }
+        }
+        deinterlacingFilterCase_ = 2;
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      public Builder clearBwdif() {
+        if (bwdifBuilder_ == null) {
+          if (deinterlacingFilterCase_ == 2) {
+            deinterlacingFilterCase_ = 0;
+            deinterlacingFilter_ = null;
+            onChanged();
+          }
+        } else {
+          if (deinterlacingFilterCase_ == 2) {
+            deinterlacingFilterCase_ = 0;
+            deinterlacingFilter_ = null;
+          }
+          bwdifBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder getBwdifBuilder() {
+        return getBwdifFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      @java.lang.Override
+      public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder getBwdifOrBuilder() {
+        if ((deinterlacingFilterCase_ == 2) && (bwdifBuilder_ != null)) {
+          return bwdifBuilder_.getMessageOrBuilder();
+        } else {
+          if (deinterlacingFilterCase_ == 2) {
+            return (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_;
+          }
+          return com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+        }
+      }
+      /**
+       * <pre>
+       * Specifies the Bob Weaver Deinterlacing Filter Configuration.
+       * </pre>
+       *
+       * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig bwdif = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder> 
+          getBwdifFieldBuilder() {
+        if (bwdifBuilder_ == null) {
+          if (!(deinterlacingFilterCase_ == 2)) {
+            deinterlacingFilter_ = com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.getDefaultInstance();
+          }
+          bwdifBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfigOrBuilder>(
+                  (com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.BwdifConfig) deinterlacingFilter_,
+                  getParentForChildren(),
+                  isClean());
+          deinterlacingFilter_ = null;
+        }
+        deinterlacingFilterCase_ = 2;
+        onChanged();
+        return bwdifBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)
+    }
+
+    // @@protoc_insertion_point(class_scope:google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace)
+    private static final com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace();
+    }
+
+    public static com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Deinterlace>
+        PARSER = new com.google.protobuf.AbstractParser<Deinterlace>() {
+      @java.lang.Override
+      public Deinterlace parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<Deinterlace> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Deinterlace> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4635,7 +7551,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PreprocessingConfig.ColorOrBuilder getColorOrBuilder() {
-    return getColor();
+    return color_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.getDefaultInstance() : color_;
   }
 
   public static final int DENOISE_FIELD_NUMBER = 2;
@@ -4673,7 +7589,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PreprocessingConfig.DenoiseOrBuilder getDenoiseOrBuilder() {
-    return getDenoise();
+    return denoise_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.getDefaultInstance() : denoise_;
   }
 
   public static final int DEBLOCK_FIELD_NUMBER = 3;
@@ -4711,7 +7627,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeblockOrBuilder getDeblockOrBuilder() {
-    return getDeblock();
+    return deblock_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.getDefaultInstance() : deblock_;
   }
 
   public static final int AUDIO_FIELD_NUMBER = 4;
@@ -4749,7 +7665,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PreprocessingConfig.AudioOrBuilder getAudioOrBuilder() {
-    return getAudio();
+    return audio_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.getDefaultInstance() : audio_;
   }
 
   public static final int CROP_FIELD_NUMBER = 5;
@@ -4787,7 +7703,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PreprocessingConfig.CropOrBuilder getCropOrBuilder() {
-    return getCrop();
+    return crop_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.getDefaultInstance() : crop_;
   }
 
   public static final int PAD_FIELD_NUMBER = 6;
@@ -4825,7 +7741,45 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.video.transcoder.v1.PreprocessingConfig.PadOrBuilder getPadOrBuilder() {
-    return getPad();
+    return pad_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.getDefaultInstance() : pad_;
+  }
+
+  public static final int DEINTERLACE_FIELD_NUMBER = 7;
+  private com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace_;
+  /**
+   * <pre>
+   * Specify the video deinterlace configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+   * @return Whether the deinterlace field is set.
+   */
+  @java.lang.Override
+  public boolean hasDeinterlace() {
+    return deinterlace_ != null;
+  }
+  /**
+   * <pre>
+   * Specify the video deinterlace configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+   * @return The deinterlace.
+   */
+  @java.lang.Override
+  public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace getDeinterlace() {
+    return deinterlace_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance() : deinterlace_;
+  }
+  /**
+   * <pre>
+   * Specify the video deinterlace configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder getDeinterlaceOrBuilder() {
+    return deinterlace_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance() : deinterlace_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -4860,7 +7814,10 @@ private static final long serialVersionUID = 0L;
     if (pad_ != null) {
       output.writeMessage(6, getPad());
     }
-    unknownFields.writeTo(output);
+    if (deinterlace_ != null) {
+      output.writeMessage(7, getDeinterlace());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4893,7 +7850,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getPad());
     }
-    size += unknownFields.getSerializedSize();
+    if (deinterlace_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(7, getDeinterlace());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4938,7 +7899,12 @@ private static final long serialVersionUID = 0L;
       if (!getPad()
           .equals(other.getPad())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasDeinterlace() != other.hasDeinterlace()) return false;
+    if (hasDeinterlace()) {
+      if (!getDeinterlace()
+          .equals(other.getDeinterlace())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4973,7 +7939,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PAD_FIELD_NUMBER;
       hash = (53 * hash) + getPad().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasDeinterlace()) {
+      hash = (37 * hash) + DEINTERLACE_FIELD_NUMBER;
+      hash = (53 * hash) + getDeinterlace().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -5094,57 +8064,52 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.transcoder.v1.PreprocessingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (colorBuilder_ == null) {
-        color_ = null;
-      } else {
-        color_ = null;
+      bitField0_ = 0;
+      color_ = null;
+      if (colorBuilder_ != null) {
+        colorBuilder_.dispose();
         colorBuilder_ = null;
       }
-      if (denoiseBuilder_ == null) {
-        denoise_ = null;
-      } else {
-        denoise_ = null;
+      denoise_ = null;
+      if (denoiseBuilder_ != null) {
+        denoiseBuilder_.dispose();
         denoiseBuilder_ = null;
       }
-      if (deblockBuilder_ == null) {
-        deblock_ = null;
-      } else {
-        deblock_ = null;
+      deblock_ = null;
+      if (deblockBuilder_ != null) {
+        deblockBuilder_.dispose();
         deblockBuilder_ = null;
       }
-      if (audioBuilder_ == null) {
-        audio_ = null;
-      } else {
-        audio_ = null;
+      audio_ = null;
+      if (audioBuilder_ != null) {
+        audioBuilder_.dispose();
         audioBuilder_ = null;
       }
-      if (cropBuilder_ == null) {
-        crop_ = null;
-      } else {
-        crop_ = null;
+      crop_ = null;
+      if (cropBuilder_ != null) {
+        cropBuilder_.dispose();
         cropBuilder_ = null;
       }
-      if (padBuilder_ == null) {
-        pad_ = null;
-      } else {
-        pad_ = null;
+      pad_ = null;
+      if (padBuilder_ != null) {
+        padBuilder_.dispose();
         padBuilder_ = null;
+      }
+      deinterlace_ = null;
+      if (deinterlaceBuilder_ != null) {
+        deinterlaceBuilder_.dispose();
+        deinterlaceBuilder_ = null;
       }
       return this;
     }
@@ -5172,38 +8137,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig buildPartial() {
       com.google.cloud.video.transcoder.v1.PreprocessingConfig result = new com.google.cloud.video.transcoder.v1.PreprocessingConfig(this);
-      if (colorBuilder_ == null) {
-        result.color_ = color_;
-      } else {
-        result.color_ = colorBuilder_.build();
-      }
-      if (denoiseBuilder_ == null) {
-        result.denoise_ = denoise_;
-      } else {
-        result.denoise_ = denoiseBuilder_.build();
-      }
-      if (deblockBuilder_ == null) {
-        result.deblock_ = deblock_;
-      } else {
-        result.deblock_ = deblockBuilder_.build();
-      }
-      if (audioBuilder_ == null) {
-        result.audio_ = audio_;
-      } else {
-        result.audio_ = audioBuilder_.build();
-      }
-      if (cropBuilder_ == null) {
-        result.crop_ = crop_;
-      } else {
-        result.crop_ = cropBuilder_.build();
-      }
-      if (padBuilder_ == null) {
-        result.pad_ = pad_;
-      } else {
-        result.pad_ = padBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.transcoder.v1.PreprocessingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.color_ = colorBuilder_ == null
+            ? color_
+            : colorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.denoise_ = denoiseBuilder_ == null
+            ? denoise_
+            : denoiseBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deblock_ = deblockBuilder_ == null
+            ? deblock_
+            : deblockBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.audio_ = audioBuilder_ == null
+            ? audio_
+            : audioBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.crop_ = cropBuilder_ == null
+            ? crop_
+            : cropBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.pad_ = padBuilder_ == null
+            ? pad_
+            : padBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.deinterlace_ = deinterlaceBuilder_ == null
+            ? deinterlace_
+            : deinterlaceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -5268,7 +8243,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasPad()) {
         mergePad(other.getPad());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasDeinterlace()) {
+        mergeDeinterlace(other.getDeinterlace());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5283,19 +8261,82 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.transcoder.v1.PreprocessingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getColorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDenoiseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDeblockFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAudioFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getCropFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getPadFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDeinterlaceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.transcoder.v1.PreprocessingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color color_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -5309,7 +8350,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the color field is set.
      */
     public boolean hasColor() {
-      return colorBuilder_ != null || color_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -5339,11 +8380,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         color_ = value;
-        onChanged();
       } else {
         colorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -5357,11 +8398,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.Builder builderForValue) {
       if (colorBuilder_ == null) {
         color_ = builderForValue.build();
-        onChanged();
       } else {
         colorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -5373,17 +8414,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeColor(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color value) {
       if (colorBuilder_ == null) {
-        if (color_ != null) {
-          color_ =
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.newBuilder(color_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          color_ != null &&
+          color_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.getDefaultInstance()) {
+          getColorBuilder().mergeFrom(value);
         } else {
           color_ = value;
         }
-        onChanged();
       } else {
         colorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -5394,14 +8436,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Color color = 1;</code>
      */
     public Builder clearColor() {
-      if (colorBuilder_ == null) {
-        color_ = null;
-        onChanged();
-      } else {
-        color_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      color_ = null;
+      if (colorBuilder_ != null) {
+        colorBuilder_.dispose();
         colorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5412,7 +8453,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Color color = 1;</code>
      */
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Color.Builder getColorBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getColorFieldBuilder().getBuilder();
     }
@@ -5464,7 +8505,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the denoise field is set.
      */
     public boolean hasDenoise() {
-      return denoiseBuilder_ != null || denoise_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -5494,11 +8535,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         denoise_ = value;
-        onChanged();
       } else {
         denoiseBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5512,11 +8553,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.Builder builderForValue) {
       if (denoiseBuilder_ == null) {
         denoise_ = builderForValue.build();
-        onChanged();
       } else {
         denoiseBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5528,17 +8569,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDenoise(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise value) {
       if (denoiseBuilder_ == null) {
-        if (denoise_ != null) {
-          denoise_ =
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.newBuilder(denoise_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          denoise_ != null &&
+          denoise_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.getDefaultInstance()) {
+          getDenoiseBuilder().mergeFrom(value);
         } else {
           denoise_ = value;
         }
-        onChanged();
       } else {
         denoiseBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5549,14 +8591,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise denoise = 2;</code>
      */
     public Builder clearDenoise() {
-      if (denoiseBuilder_ == null) {
-        denoise_ = null;
-        onChanged();
-      } else {
-        denoise_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      denoise_ = null;
+      if (denoiseBuilder_ != null) {
+        denoiseBuilder_.dispose();
         denoiseBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5567,7 +8608,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise denoise = 2;</code>
      */
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Denoise.Builder getDenoiseBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDenoiseFieldBuilder().getBuilder();
     }
@@ -5619,7 +8660,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deblock field is set.
      */
     public boolean hasDeblock() {
-      return deblockBuilder_ != null || deblock_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -5649,11 +8690,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deblock_ = value;
-        onChanged();
       } else {
         deblockBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -5667,11 +8708,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.Builder builderForValue) {
       if (deblockBuilder_ == null) {
         deblock_ = builderForValue.build();
-        onChanged();
       } else {
         deblockBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -5683,17 +8724,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeblock(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock value) {
       if (deblockBuilder_ == null) {
-        if (deblock_ != null) {
-          deblock_ =
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.newBuilder(deblock_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          deblock_ != null &&
+          deblock_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.getDefaultInstance()) {
+          getDeblockBuilder().mergeFrom(value);
         } else {
           deblock_ = value;
         }
-        onChanged();
       } else {
         deblockBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -5704,14 +8746,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock deblock = 3;</code>
      */
     public Builder clearDeblock() {
-      if (deblockBuilder_ == null) {
-        deblock_ = null;
-        onChanged();
-      } else {
-        deblock_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      deblock_ = null;
+      if (deblockBuilder_ != null) {
+        deblockBuilder_.dispose();
         deblockBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5722,7 +8763,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock deblock = 3;</code>
      */
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deblock.Builder getDeblockBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDeblockFieldBuilder().getBuilder();
     }
@@ -5774,7 +8815,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audio field is set.
      */
     public boolean hasAudio() {
-      return audioBuilder_ != null || audio_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -5804,11 +8845,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audio_ = value;
-        onChanged();
       } else {
         audioBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -5822,11 +8863,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.Builder builderForValue) {
       if (audioBuilder_ == null) {
         audio_ = builderForValue.build();
-        onChanged();
       } else {
         audioBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -5838,17 +8879,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudio(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio value) {
       if (audioBuilder_ == null) {
-        if (audio_ != null) {
-          audio_ =
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.newBuilder(audio_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          audio_ != null &&
+          audio_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.getDefaultInstance()) {
+          getAudioBuilder().mergeFrom(value);
         } else {
           audio_ = value;
         }
-        onChanged();
       } else {
         audioBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -5859,14 +8901,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio audio = 4;</code>
      */
     public Builder clearAudio() {
-      if (audioBuilder_ == null) {
-        audio_ = null;
-        onChanged();
-      } else {
-        audio_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      audio_ = null;
+      if (audioBuilder_ != null) {
+        audioBuilder_.dispose();
         audioBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5877,7 +8918,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio audio = 4;</code>
      */
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Audio.Builder getAudioBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAudioFieldBuilder().getBuilder();
     }
@@ -5929,7 +8970,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the crop field is set.
      */
     public boolean hasCrop() {
-      return cropBuilder_ != null || crop_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -5959,11 +9000,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         crop_ = value;
-        onChanged();
       } else {
         cropBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -5977,11 +9018,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.Builder builderForValue) {
       if (cropBuilder_ == null) {
         crop_ = builderForValue.build();
-        onChanged();
       } else {
         cropBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -5993,17 +9034,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCrop(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop value) {
       if (cropBuilder_ == null) {
-        if (crop_ != null) {
-          crop_ =
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.newBuilder(crop_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          crop_ != null &&
+          crop_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.getDefaultInstance()) {
+          getCropBuilder().mergeFrom(value);
         } else {
           crop_ = value;
         }
-        onChanged();
       } else {
         cropBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -6014,14 +9056,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop crop = 5;</code>
      */
     public Builder clearCrop() {
-      if (cropBuilder_ == null) {
-        crop_ = null;
-        onChanged();
-      } else {
-        crop_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      crop_ = null;
+      if (cropBuilder_ != null) {
+        cropBuilder_.dispose();
         cropBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6032,7 +9073,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop crop = 5;</code>
      */
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Crop.Builder getCropBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCropFieldBuilder().getBuilder();
     }
@@ -6084,7 +9125,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pad field is set.
      */
     public boolean hasPad() {
-      return padBuilder_ != null || pad_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -6114,11 +9155,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pad_ = value;
-        onChanged();
       } else {
         padBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -6132,11 +9173,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.Builder builderForValue) {
       if (padBuilder_ == null) {
         pad_ = builderForValue.build();
-        onChanged();
       } else {
         padBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -6148,17 +9189,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePad(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad value) {
       if (padBuilder_ == null) {
-        if (pad_ != null) {
-          pad_ =
-            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.newBuilder(pad_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          pad_ != null &&
+          pad_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.getDefaultInstance()) {
+          getPadBuilder().mergeFrom(value);
         } else {
           pad_ = value;
         }
-        onChanged();
       } else {
         padBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -6169,14 +9211,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad pad = 6;</code>
      */
     public Builder clearPad() {
-      if (padBuilder_ == null) {
-        pad_ = null;
-        onChanged();
-      } else {
-        pad_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      pad_ = null;
+      if (padBuilder_ != null) {
+        padBuilder_.dispose();
         padBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6187,7 +9228,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad pad = 6;</code>
      */
     public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Pad.Builder getPadBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPadFieldBuilder().getBuilder();
     }
@@ -6226,6 +9267,161 @@ private static final long serialVersionUID = 0L;
       }
       return padBuilder_;
     }
+
+    private com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder> deinterlaceBuilder_;
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     * @return Whether the deinterlace field is set.
+     */
+    public boolean hasDeinterlace() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     * @return The deinterlace.
+     */
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace getDeinterlace() {
+      if (deinterlaceBuilder_ == null) {
+        return deinterlace_ == null ? com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance() : deinterlace_;
+      } else {
+        return deinterlaceBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    public Builder setDeinterlace(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace value) {
+      if (deinterlaceBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        deinterlace_ = value;
+      } else {
+        deinterlaceBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    public Builder setDeinterlace(
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder builderForValue) {
+      if (deinterlaceBuilder_ == null) {
+        deinterlace_ = builderForValue.build();
+      } else {
+        deinterlaceBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    public Builder mergeDeinterlace(com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace value) {
+      if (deinterlaceBuilder_ == null) {
+        if (((bitField0_ & 0x00000040) != 0) &&
+          deinterlace_ != null &&
+          deinterlace_ != com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance()) {
+          getDeinterlaceBuilder().mergeFrom(value);
+        } else {
+          deinterlace_ = value;
+        }
+      } else {
+        deinterlaceBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    public Builder clearDeinterlace() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      deinterlace_ = null;
+      if (deinterlaceBuilder_ != null) {
+        deinterlaceBuilder_.dispose();
+        deinterlaceBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder getDeinterlaceBuilder() {
+      bitField0_ |= 0x00000040;
+      onChanged();
+      return getDeinterlaceFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    public com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder getDeinterlaceOrBuilder() {
+      if (deinterlaceBuilder_ != null) {
+        return deinterlaceBuilder_.getMessageOrBuilder();
+      } else {
+        return deinterlace_ == null ?
+            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.getDefaultInstance() : deinterlace_;
+      }
+    }
+    /**
+     * <pre>
+     * Specify the video deinterlace configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace deinterlace = 7;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder> 
+        getDeinterlaceFieldBuilder() {
+      if (deinterlaceBuilder_ == null) {
+        deinterlaceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace, com.google.cloud.video.transcoder.v1.PreprocessingConfig.Deinterlace.Builder, com.google.cloud.video.transcoder.v1.PreprocessingConfig.DeinterlaceOrBuilder>(
+                getDeinterlace(),
+                getParentForChildren(),
+                isClean());
+        deinterlace_ = null;
+      }
+      return deinterlaceBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -6259,7 +9455,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PreprocessingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -46,7 +46,6 @@ public interface StructOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; fields = 1;</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getFieldsOrDefault(
       java.lang.String key,
@@ -59,7 +58,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; fields = 1;</code>
    */
-
   com.google.protobuf.Value getFieldsOrThrow(
       java.lang.String key);
 }

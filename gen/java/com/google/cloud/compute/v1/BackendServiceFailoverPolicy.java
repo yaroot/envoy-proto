@@ -34,61 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BackendServiceFailoverPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 898315424: {
-            bitField0_ |= 0x00000002;
-            dropTrafficIfUnhealthy_ = input.readBool();
-            break;
-          }
-          case 1457206024: {
-            bitField0_ |= 0x00000001;
-            disableConnectionDrainOnFailover_ = input.readBool();
-            break;
-          }
-          case 1701336053: {
-            bitField0_ |= 0x00000004;
-            failoverRatio_ = input.readFloat();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BackendServiceFailoverPolicy_descriptor;
@@ -104,7 +49,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int DISABLE_CONNECTION_DRAIN_ON_FAILOVER_FIELD_NUMBER = 182150753;
-  private boolean disableConnectionDrainOnFailover_;
+  private boolean disableConnectionDrainOnFailover_ = false;
   /**
    * <pre>
    * This can be set to true only if the protocol is TCP. The default is false.
@@ -131,7 +76,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DROP_TRAFFIC_IF_UNHEALTHY_FIELD_NUMBER = 112289428;
-  private boolean dropTrafficIfUnhealthy_;
+  private boolean dropTrafficIfUnhealthy_ = false;
   /**
    * <pre>
    * If set to true, connections to the load balancer are dropped when all primary and all backup backend VMs are unhealthy.If set to false, connections are distributed among all primary VMs when all primary and all backup backend VMs are unhealthy. For load balancers that have configurable failover: [Internal TCP/UDP Load Balancing](https://cloud.google.com/load-balancing/docs/internal/failover-overview) and [external TCP/UDP Load Balancing](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview). The default is false.
@@ -158,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAILOVER_RATIO_FIELD_NUMBER = 212667006;
-  private float failoverRatio_;
+  private float failoverRatio_ = 0F;
   /**
    * <pre>
    * The value of the field must be in the range [0, 1]. If the value is 0, the load balancer performs a failover when the number of healthy primary VMs equals zero. For all other values, the load balancer performs a failover when the total number of healthy primary VMs is less than this ratio. For load balancers that have configurable failover: [Internal TCP/UDP Load Balancing](https://cloud.google.com/load-balancing/docs/internal/failover-overview) and [external TCP/UDP Load Balancing](https://cloud.google.com/load-balancing/docs/network/networklb-failover-overview).
@@ -207,7 +152,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeFloat(212667006, failoverRatio_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +173,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeFloatSize(212667006, failoverRatio_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -259,7 +204,7 @@ private static final long serialVersionUID = 0L;
           != java.lang.Float.floatToIntBits(
               other.getFailoverRatio())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -285,7 +230,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getFailoverRatio());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -406,28 +351,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.BackendServiceFailoverPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       disableConnectionDrainOnFailover_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       dropTrafficIfUnhealthy_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       failoverRatio_ = 0F;
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -454,6 +392,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BackendServiceFailoverPolicy buildPartial() {
       com.google.cloud.compute.v1.BackendServiceFailoverPolicy result = new com.google.cloud.compute.v1.BackendServiceFailoverPolicy(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BackendServiceFailoverPolicy result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -468,9 +412,7 @@ private static final long serialVersionUID = 0L;
         result.failoverRatio_ = failoverRatio_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -526,7 +468,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasFailoverRatio()) {
         setFailoverRatio(other.getFailoverRatio());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -541,17 +483,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BackendServiceFailoverPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 898315424: {
+              dropTrafficIfUnhealthy_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 898315424
+            case 1457206024: {
+              disableConnectionDrainOnFailover_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1457206024
+            case 1701336053: {
+              failoverRatio_ = input.readFloat();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1701336053
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BackendServiceFailoverPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -591,8 +561,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDisableConnectionDrainOnFailover(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       disableConnectionDrainOnFailover_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -646,8 +617,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDropTrafficIfUnhealthy(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       dropTrafficIfUnhealthy_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -701,8 +673,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFailoverRatio(float value) {
-      bitField0_ |= 0x00000004;
+      
       failoverRatio_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -753,7 +726,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BackendServiceFailoverPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

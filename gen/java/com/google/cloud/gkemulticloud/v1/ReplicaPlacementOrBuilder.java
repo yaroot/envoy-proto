@@ -9,9 +9,9 @@ public interface ReplicaPlacementOrBuilder extends
 
   /**
    * <pre>
-   * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-   * deployed. Make sure it's a subnet under the virtual network in the cluster
-   * configuration.
+   * Required. For a given replica, the ARM ID of the subnet where the control
+   * plane VM is deployed. Make sure it's a subnet under the virtual network in
+   * the cluster configuration.
    * </pre>
    *
    * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -20,9 +20,9 @@ public interface ReplicaPlacementOrBuilder extends
   java.lang.String getSubnetId();
   /**
    * <pre>
-   * Required. For a given replica, the ARM ID of the subnet where the control plane VM is
-   * deployed. Make sure it's a subnet under the virtual network in the cluster
-   * configuration.
+   * Required. For a given replica, the ARM ID of the subnet where the control
+   * plane VM is deployed. Make sure it's a subnet under the virtual network in
+   * the cluster configuration.
    * </pre>
    *
    * <code>string subnet_id = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -33,8 +33,8 @@ public interface ReplicaPlacementOrBuilder extends
 
   /**
    * <pre>
-   * Required. For a given replica, the Azure availability zone where to provision the
-   * control plane VM and the ETCD disk.
+   * Required. For a given replica, the Azure availability zone where to
+   * provision the control plane VM and the ETCD disk.
    * </pre>
    *
    * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -43,8 +43,8 @@ public interface ReplicaPlacementOrBuilder extends
   java.lang.String getAzureAvailabilityZone();
   /**
    * <pre>
-   * Required. For a given replica, the Azure availability zone where to provision the
-   * control plane VM and the ETCD disk.
+   * Required. For a given replica, the Azure availability zone where to
+   * provision the control plane VM and the ETCD disk.
    * </pre>
    *
    * <code>string azure_availability_zone = 2 [(.google.api.field_behavior) = REQUIRED];</code>

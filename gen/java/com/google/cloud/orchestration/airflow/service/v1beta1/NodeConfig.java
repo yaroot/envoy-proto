@@ -42,123 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NodeConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            location_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            machineType_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subnetwork_ = s;
-            break;
-          }
-          case 40: {
-
-            diskSizeGb_ = input.readInt32();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              oauthScopes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            oauthScopes_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              tags_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            tags_.add(s);
-            break;
-          }
-          case 74: {
-            com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.Builder subBuilder = null;
-            if (ipAllocationPolicy_ != null) {
-              subBuilder = ipAllocationPolicy_.toBuilder();
-            }
-            ipAllocationPolicy_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ipAllocationPolicy_);
-              ipAllocationPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-
-            maxPodsPerNode_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        oauthScopes_ = oauthScopes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_NodeConfig_descriptor;
@@ -173,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object location_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object location_ = "";
   /**
    * <pre>
    * Optional. The Compute Engine [zone](/compute/docs/regions-zones) in which
@@ -189,6 +73,8 @@ private static final long serialVersionUID = 0L;
    * both fields. If only one field (`location` or `nodeConfig.machineType`) is
    * specified, the location information from the specified field will be
    * propagated to the unspecified field.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -222,6 +108,8 @@ private static final long serialVersionUID = 0L;
    * both fields. If only one field (`location` or `nodeConfig.machineType`) is
    * specified, the location information from the specified field will be
    * propagated to the unspecified field.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -243,7 +131,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MACHINE_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object machineType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object machineType_ = "";
   /**
    * <pre>
    * Optional. The Compute Engine
@@ -264,6 +153,8 @@ private static final long serialVersionUID = 0L;
    * type](/compute/docs/machine-types#sharedcore).
    * If this field is unspecified, the `machineTypeId` defaults
    * to "n1-standard-1".
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -302,6 +193,8 @@ private static final long serialVersionUID = 0L;
    * type](/compute/docs/machine-types#sharedcore).
    * If this field is unspecified, the `machineTypeId` defaults
    * to "n1-standard-1".
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -323,7 +216,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 3;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * Optional. The Compute Engine network to be used for machine
@@ -387,7 +281,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNETWORK_FIELD_NUMBER = 4;
-  private volatile java.lang.Object subnetwork_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subnetwork_ = "";
   /**
    * <pre>
    * Optional. The Compute Engine subnetwork to be used for machine
@@ -447,11 +342,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_SIZE_GB_FIELD_NUMBER = 5;
-  private int diskSizeGb_;
+  private int diskSizeGb_ = 0;
   /**
    * <pre>
-   * Optional. The disk size in GB used for node VMs. Minimum size is 20GB.
+   * Optional. The disk size in GB used for node VMs. Minimum size is 30GB.
    * If unspecified, defaults to 100GB. Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>int32 disk_size_gb = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -463,12 +360,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OAUTH_SCOPES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList oauthScopes_;
   /**
    * <pre>
    * Optional. The set of Google API scopes to be made available on all
    * node VMs. If `oauth_scopes` is empty, defaults to
    * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -483,6 +383,8 @@ private static final long serialVersionUID = 0L;
    * Optional. The set of Google API scopes to be made available on all
    * node VMs. If `oauth_scopes` is empty, defaults to
    * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -496,6 +398,8 @@ private static final long serialVersionUID = 0L;
    * Optional. The set of Google API scopes to be made available on all
    * node VMs. If `oauth_scopes` is empty, defaults to
    * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -510,6 +414,8 @@ private static final long serialVersionUID = 0L;
    * Optional. The set of Google API scopes to be made available on all
    * node VMs. If `oauth_scopes` is empty, defaults to
    * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -522,7 +428,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 7;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * Optional. The Google Cloud Platform Service Account to be used by the workloads. If a
@@ -572,6 +479,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TAGS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList tags_;
   /**
    * <pre>
@@ -579,6 +487,8 @@ private static final long serialVersionUID = 0L;
    * to identify valid sources or targets for network firewalls. Each tag within
    * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
    * Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -594,6 +504,8 @@ private static final long serialVersionUID = 0L;
    * to identify valid sources or targets for network firewalls. Each tag within
    * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
    * Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -608,6 +520,8 @@ private static final long serialVersionUID = 0L;
    * to identify valid sources or targets for network firewalls. Each tag within
    * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
    * Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -623,6 +537,8 @@ private static final long serialVersionUID = 0L;
    * to identify valid sources or targets for network firewalls. Each tag within
    * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
    * Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -669,11 +585,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicyOrBuilder getIpAllocationPolicyOrBuilder() {
-    return getIpAllocationPolicy();
+    return ipAllocationPolicy_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.getDefaultInstance() : ipAllocationPolicy_;
   }
 
   public static final int MAX_PODS_PER_NODE_FIELD_NUMBER = 10;
-  private int maxPodsPerNode_;
+  private int maxPodsPerNode_ = 0;
   /**
    * <pre>
    * Optional. The maximum number of pods per node in the Cloud Composer GKE cluster.
@@ -686,6 +602,8 @@ private static final long serialVersionUID = 0L;
    * For more information, see [Optimizing IP address allocation]
    * (https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr).
    * Cannot be updated.
+   * This field is supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*.
    * </pre>
    *
    * <code>int32 max_pods_per_node = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -694,6 +612,25 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public int getMaxPodsPerNode() {
     return maxPodsPerNode_;
+  }
+
+  public static final int ENABLE_IP_MASQ_AGENT_FIELD_NUMBER = 11;
+  private boolean enableIpMasqAgent_ = false;
+  /**
+   * <pre>
+   * Optional. Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines
+   * nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for
+   * all destination addresses, except between pods traffic.
+   * See:
+   * https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent
+   * </pre>
+   *
+   * <code>bool enable_ip_masq_agent = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The enableIpMasqAgent.
+   */
+  @java.lang.Override
+  public boolean getEnableIpMasqAgent() {
+    return enableIpMasqAgent_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -740,7 +677,10 @@ private static final long serialVersionUID = 0L;
     if (maxPodsPerNode_ != 0) {
       output.writeInt32(10, maxPodsPerNode_);
     }
-    unknownFields.writeTo(output);
+    if (enableIpMasqAgent_ != false) {
+      output.writeBool(11, enableIpMasqAgent_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -792,7 +732,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(10, maxPodsPerNode_);
     }
-    size += unknownFields.getSerializedSize();
+    if (enableIpMasqAgent_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(11, enableIpMasqAgent_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -830,7 +774,9 @@ private static final long serialVersionUID = 0L;
     }
     if (getMaxPodsPerNode()
         != other.getMaxPodsPerNode()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (getEnableIpMasqAgent()
+        != other.getEnableIpMasqAgent()) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -867,7 +813,10 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MAX_PODS_PER_NODE_FIELD_NUMBER;
     hash = (53 * hash) + getMaxPodsPerNode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + ENABLE_IP_MASQ_AGENT_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getEnableIpMasqAgent());
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -989,46 +938,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       location_ = "";
-
       machineType_ = "";
-
       network_ = "";
-
       subnetwork_ = "";
-
       diskSizeGb_ = 0;
-
       oauthScopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       serviceAccount_ = "";
-
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (ipAllocationPolicyBuilder_ == null) {
-        ipAllocationPolicy_ = null;
-      } else {
-        ipAllocationPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      ipAllocationPolicy_ = null;
+      if (ipAllocationPolicyBuilder_ != null) {
+        ipAllocationPolicyBuilder_.dispose();
         ipAllocationPolicyBuilder_ = null;
       }
       maxPodsPerNode_ = 0;
-
+      enableIpMasqAgent_ = false;
       return this;
     }
 
@@ -1055,31 +993,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig result = new com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.location_ = location_;
-      result.machineType_ = machineType_;
-      result.network_ = network_;
-      result.subnetwork_ = subnetwork_;
-      result.diskSizeGb_ = diskSizeGb_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        oauthScopes_ = oauthScopes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.oauthScopes_ = oauthScopes_;
-      result.serviceAccount_ = serviceAccount_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        tags_ = tags_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.tags_ = tags_;
-      if (ipAllocationPolicyBuilder_ == null) {
-        result.ipAllocationPolicy_ = ipAllocationPolicy_;
-      } else {
-        result.ipAllocationPolicy_ = ipAllocationPolicyBuilder_.build();
-      }
-      result.maxPodsPerNode_ = maxPodsPerNode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        oauthScopes_ = oauthScopes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.oauthScopes_ = oauthScopes_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        tags_ = tags_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.tags_ = tags_;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.location_ = location_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.machineType_ = machineType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.subnetwork_ = subnetwork_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.diskSizeGb_ = diskSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.ipAllocationPolicy_ = ipAllocationPolicyBuilder_ == null
+            ? ipAllocationPolicy_
+            : ipAllocationPolicyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.maxPodsPerNode_ = maxPodsPerNode_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.enableIpMasqAgent_ = enableIpMasqAgent_;
+      }
     }
 
     @java.lang.Override
@@ -1128,18 +1091,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig.getDefaultInstance()) return this;
       if (!other.getLocation().isEmpty()) {
         location_ = other.location_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMachineType().isEmpty()) {
         machineType_ = other.machineType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getSubnetwork().isEmpty()) {
         subnetwork_ = other.subnetwork_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getDiskSizeGb() != 0) {
@@ -1148,7 +1115,7 @@ private static final long serialVersionUID = 0L;
       if (!other.oauthScopes_.isEmpty()) {
         if (oauthScopes_.isEmpty()) {
           oauthScopes_ = other.oauthScopes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureOauthScopesIsMutable();
           oauthScopes_.addAll(other.oauthScopes_);
@@ -1157,12 +1124,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.tags_.isEmpty()) {
         if (tags_.isEmpty()) {
           tags_ = other.tags_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureTagsIsMutable();
           tags_.addAll(other.tags_);
@@ -1175,7 +1143,10 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxPodsPerNode() != 0) {
         setMaxPodsPerNode(other.getMaxPodsPerNode());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.getEnableIpMasqAgent() != false) {
+        setEnableIpMasqAgent(other.getEnableIpMasqAgent());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1190,17 +1161,89 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              location_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              machineType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              subnetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              diskSizeGb_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureOauthScopesIsMutable();
+              oauthScopes_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTagsIsMutable();
+              tags_.add(s);
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getIpAllocationPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              maxPodsPerNode_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              enableIpMasqAgent_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.NodeConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1221,6 +1264,8 @@ private static final long serialVersionUID = 0L;
      * both fields. If only one field (`location` or `nodeConfig.machineType`) is
      * specified, the location information from the specified field will be
      * propagated to the unspecified field.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1253,6 +1298,8 @@ private static final long serialVersionUID = 0L;
      * both fields. If only one field (`location` or `nodeConfig.machineType`) is
      * specified, the location information from the specified field will be
      * propagated to the unspecified field.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1286,6 +1333,8 @@ private static final long serialVersionUID = 0L;
      * both fields. If only one field (`location` or `nodeConfig.machineType`) is
      * specified, the location information from the specified field will be
      * propagated to the unspecified field.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1294,11 +1343,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       location_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1317,14 +1364,16 @@ private static final long serialVersionUID = 0L;
      * both fields. If only one field (`location` or `nodeConfig.machineType`) is
      * specified, the location information from the specified field will be
      * propagated to the unspecified field.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearLocation() {
-      
       location_ = getDefaultInstance().getLocation();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1343,6 +1392,8 @@ private static final long serialVersionUID = 0L;
      * both fields. If only one field (`location` or `nodeConfig.machineType`) is
      * specified, the location information from the specified field will be
      * propagated to the unspecified field.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string location = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1351,12 +1402,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       location_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1382,6 +1431,8 @@ private static final long serialVersionUID = 0L;
      * type](/compute/docs/machine-types#sharedcore).
      * If this field is unspecified, the `machineTypeId` defaults
      * to "n1-standard-1".
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1419,6 +1470,8 @@ private static final long serialVersionUID = 0L;
      * type](/compute/docs/machine-types#sharedcore).
      * If this field is unspecified, the `machineTypeId` defaults
      * to "n1-standard-1".
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1457,6 +1510,8 @@ private static final long serialVersionUID = 0L;
      * type](/compute/docs/machine-types#sharedcore).
      * If this field is unspecified, the `machineTypeId` defaults
      * to "n1-standard-1".
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1465,11 +1520,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       machineType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1493,14 +1546,16 @@ private static final long serialVersionUID = 0L;
      * type](/compute/docs/machine-types#sharedcore).
      * If this field is unspecified, the `machineTypeId` defaults
      * to "n1-standard-1".
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearMachineType() {
-      
       machineType_ = getDefaultInstance().getMachineType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1524,6 +1579,8 @@ private static final long serialVersionUID = 0L;
      * type](/compute/docs/machine-types#sharedcore).
      * If this field is unspecified, the `machineTypeId` defaults
      * to "n1-standard-1".
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>string machine_type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1532,12 +1589,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       machineType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1622,11 +1677,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1648,8 +1701,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1673,12 +1726,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1757,11 +1808,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subnetwork_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1781,8 +1830,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubnetwork() {
-      
       subnetwork_ = getDefaultInstance().getSubnetwork();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1804,12 +1853,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subnetwork_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1817,8 +1864,10 @@ private static final long serialVersionUID = 0L;
     private int diskSizeGb_ ;
     /**
      * <pre>
-     * Optional. The disk size in GB used for node VMs. Minimum size is 20GB.
+     * Optional. The disk size in GB used for node VMs. Minimum size is 30GB.
      * If unspecified, defaults to 100GB. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 disk_size_gb = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1830,8 +1879,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The disk size in GB used for node VMs. Minimum size is 20GB.
+     * Optional. The disk size in GB used for node VMs. Minimum size is 30GB.
      * If unspecified, defaults to 100GB. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 disk_size_gb = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1841,20 +1892,23 @@ private static final long serialVersionUID = 0L;
     public Builder setDiskSizeGb(int value) {
       
       diskSizeGb_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The disk size in GB used for node VMs. Minimum size is 20GB.
+     * Optional. The disk size in GB used for node VMs. Minimum size is 30GB.
      * If unspecified, defaults to 100GB. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 disk_size_gb = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearDiskSizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       diskSizeGb_ = 0;
       onChanged();
       return this;
@@ -1862,9 +1916,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList oauthScopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureOauthScopesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         oauthScopes_ = new com.google.protobuf.LazyStringArrayList(oauthScopes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1872,6 +1926,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1886,6 +1942,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1899,6 +1957,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1913,6 +1973,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1928,6 +1990,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1937,10 +2001,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOauthScopes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOauthScopesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOauthScopesIsMutable();
       oauthScopes_.set(index, value);
       onChanged();
       return this;
@@ -1950,6 +2012,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1958,10 +2022,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOauthScopes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOauthScopesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOauthScopesIsMutable();
       oauthScopes_.add(value);
       onChanged();
       return this;
@@ -1971,6 +2033,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1990,6 +2054,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1997,7 +2063,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearOauthScopes() {
       oauthScopes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2006,6 +2072,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The set of Google API scopes to be made available on all
      * node VMs. If `oauth_scopes` is empty, defaults to
      * ["https://www.googleapis.com/auth/cloud-platform"]. Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string oauth_scopes = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2014,10 +2082,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOauthScopesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureOauthScopesIsMutable();
       oauthScopes_.add(value);
       onChanged();
@@ -2083,11 +2149,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2102,8 +2166,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2120,21 +2184,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTagsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -2143,6 +2205,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2158,6 +2222,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2172,6 +2238,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2187,6 +2255,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2203,6 +2273,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2212,10 +2284,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTags(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.set(index, value);
       onChanged();
       return this;
@@ -2226,6 +2296,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2234,10 +2306,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTags(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
       return this;
@@ -2248,6 +2318,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2268,6 +2340,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2275,7 +2349,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTags() {
       tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2285,6 +2359,8 @@ private static final long serialVersionUID = 0L;
      * to identify valid sources or targets for network firewalls. Each tag within
      * the list must comply with [RFC1035](https://www.ietf.org/rfc/rfc1035.txt).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>repeated string tags = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2293,10 +2369,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTagsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTagsIsMutable();
       tags_.add(value);
       onChanged();
@@ -2315,7 +2389,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ipAllocationPolicy field is set.
      */
     public boolean hasIpAllocationPolicy() {
-      return ipAllocationPolicyBuilder_ != null || ipAllocationPolicy_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2345,11 +2419,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ipAllocationPolicy_ = value;
-        onChanged();
       } else {
         ipAllocationPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2363,11 +2437,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.Builder builderForValue) {
       if (ipAllocationPolicyBuilder_ == null) {
         ipAllocationPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         ipAllocationPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2379,17 +2453,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIpAllocationPolicy(com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy value) {
       if (ipAllocationPolicyBuilder_ == null) {
-        if (ipAllocationPolicy_ != null) {
-          ipAllocationPolicy_ =
-            com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.newBuilder(ipAllocationPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          ipAllocationPolicy_ != null &&
+          ipAllocationPolicy_ != com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.getDefaultInstance()) {
+          getIpAllocationPolicyBuilder().mergeFrom(value);
         } else {
           ipAllocationPolicy_ = value;
         }
-        onChanged();
       } else {
         ipAllocationPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2400,14 +2475,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy ip_allocation_policy = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearIpAllocationPolicy() {
-      if (ipAllocationPolicyBuilder_ == null) {
-        ipAllocationPolicy_ = null;
-        onChanged();
-      } else {
-        ipAllocationPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      ipAllocationPolicy_ = null;
+      if (ipAllocationPolicyBuilder_ != null) {
+        ipAllocationPolicyBuilder_.dispose();
         ipAllocationPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2418,7 +2492,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy ip_allocation_policy = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.Builder getIpAllocationPolicyBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getIpAllocationPolicyFieldBuilder().getBuilder();
     }
@@ -2471,6 +2545,8 @@ private static final long serialVersionUID = 0L;
      * For more information, see [Optimizing IP address allocation]
      * (https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 max_pods_per_node = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2492,6 +2568,8 @@ private static final long serialVersionUID = 0L;
      * For more information, see [Optimizing IP address allocation]
      * (https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 max_pods_per_node = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2501,6 +2579,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxPodsPerNode(int value) {
       
       maxPodsPerNode_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2516,14 +2595,72 @@ private static final long serialVersionUID = 0L;
      * For more information, see [Optimizing IP address allocation]
      * (https://cloud.google.com/kubernetes-engine/docs/how-to/flexible-pod-cidr).
      * Cannot be updated.
+     * This field is supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*.
      * </pre>
      *
      * <code>int32 max_pods_per_node = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearMaxPodsPerNode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       maxPodsPerNode_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private boolean enableIpMasqAgent_ ;
+    /**
+     * <pre>
+     * Optional. Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines
+     * nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for
+     * all destination addresses, except between pods traffic.
+     * See:
+     * https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent
+     * </pre>
+     *
+     * <code>bool enable_ip_masq_agent = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The enableIpMasqAgent.
+     */
+    @java.lang.Override
+    public boolean getEnableIpMasqAgent() {
+      return enableIpMasqAgent_;
+    }
+    /**
+     * <pre>
+     * Optional. Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines
+     * nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for
+     * all destination addresses, except between pods traffic.
+     * See:
+     * https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent
+     * </pre>
+     *
+     * <code>bool enable_ip_masq_agent = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The enableIpMasqAgent to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnableIpMasqAgent(boolean value) {
+      
+      enableIpMasqAgent_ = value;
+      bitField0_ |= 0x00000400;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Deploys 'ip-masq-agent' daemon set in the GKE cluster and defines
+     * nonMasqueradeCIDRs equals to pod IP range so IP masquerading is used for
+     * all destination addresses, except between pods traffic.
+     * See:
+     * https://cloud.google.com/kubernetes-engine/docs/how-to/ip-masquerade-agent
+     * </pre>
+     *
+     * <code>bool enable_ip_masq_agent = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnableIpMasqAgent() {
+      bitField0_ = (bitField0_ & ~0x00000400);
+      enableIpMasqAgent_ = false;
       onChanged();
       return this;
     }
@@ -2560,7 +2697,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NodeConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

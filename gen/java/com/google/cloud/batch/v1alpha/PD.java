@@ -5,7 +5,7 @@ package com.google.cloud.batch.v1alpha;
 
 /**
  * <pre>
- * Represents a GCP persistent disk
+ * Deprecated: please use device_name instead.
  * </pre>
  *
  * Protobuf type {@code google.cloud.batch.v1alpha.PD}
@@ -36,62 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PD(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            disk_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            device_ = s;
-            break;
-          }
-          case 24: {
-
-            existing_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1alpha.VolumeProto.internal_static_google_cloud_batch_v1alpha_PD_descriptor;
@@ -106,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_FIELD_NUMBER = 1;
-  private volatile java.lang.Object disk_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object disk_ = "";
   /**
    * <pre>
    * PD disk name, e.g. pd-1.
@@ -152,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object device_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object device_ = "";
   /**
    * <pre>
    * PD device name, e.g. persistent-disk-1.
@@ -198,7 +144,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXISTING_FIELD_NUMBER = 3;
-  private boolean existing_;
+  private boolean existing_ = false;
   /**
    * <pre>
    * Whether this is an existing PD. Default is false. If false, i.e., new
@@ -209,7 +155,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>bool existing = 3 [deprecated = true];</code>
    * @deprecated google.cloud.batch.v1alpha.PD.existing is deprecated.
-   *     See google/cloud/batch/v1alpha/volume.proto;l=81
+   *     See google/cloud/batch/v1alpha/volume.proto;l=85
    * @return The existing.
    */
   @java.lang.Override
@@ -240,7 +186,7 @@ private static final long serialVersionUID = 0L;
     if (existing_ != false) {
       output.writeBool(3, existing_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -259,7 +205,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(3, existing_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -280,7 +226,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDevice())) return false;
     if (getExisting()
         != other.getExisting()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -298,7 +244,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + EXISTING_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getExisting());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -395,7 +341,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Represents a GCP persistent disk
+   * Deprecated: please use device_name instead.
    * </pre>
    *
    * Protobuf type {@code google.cloud.batch.v1alpha.PD}
@@ -419,28 +365,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1alpha.PD.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       disk_ = "";
-
       device_ = "";
-
       existing_ = false;
-
       return this;
     }
 
@@ -467,11 +406,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.PD buildPartial() {
       com.google.cloud.batch.v1alpha.PD result = new com.google.cloud.batch.v1alpha.PD(this);
-      result.disk_ = disk_;
-      result.device_ = device_;
-      result.existing_ = existing_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.PD result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.disk_ = disk_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.device_ = device_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.existing_ = existing_;
+      }
     }
 
     @java.lang.Override
@@ -520,16 +470,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.batch.v1alpha.PD.getDefaultInstance()) return this;
       if (!other.getDisk().isEmpty()) {
         disk_ = other.disk_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDevice().isEmpty()) {
         device_ = other.device_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getExisting() != false) {
         setExisting(other.getExisting());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -544,19 +496,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.PD parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              disk_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              device_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              existing_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.PD) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object disk_ = "";
     /**
@@ -611,11 +592,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisk(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       disk_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -628,8 +607,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisk() {
-      
       disk_ = getDefaultInstance().getDisk();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -644,12 +623,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiskBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       disk_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -707,11 +684,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDevice(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       device_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -724,8 +699,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDevice() {
-      
       device_ = getDefaultInstance().getDevice();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -740,12 +715,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeviceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       device_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -761,7 +734,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool existing = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.PD.existing is deprecated.
-     *     See google/cloud/batch/v1alpha/volume.proto;l=81
+     *     See google/cloud/batch/v1alpha/volume.proto;l=85
      * @return The existing.
      */
     @java.lang.Override
@@ -778,13 +751,14 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool existing = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.PD.existing is deprecated.
-     *     See google/cloud/batch/v1alpha/volume.proto;l=81
+     *     See google/cloud/batch/v1alpha/volume.proto;l=85
      * @param value The existing to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setExisting(boolean value) {
       
       existing_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -798,11 +772,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>bool existing = 3 [deprecated = true];</code>
      * @deprecated google.cloud.batch.v1alpha.PD.existing is deprecated.
-     *     See google/cloud/batch/v1alpha/volume.proto;l=81
+     *     See google/cloud/batch/v1alpha/volume.proto;l=85
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearExisting() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       existing_ = false;
       onChanged();
       return this;
@@ -840,7 +814,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PD(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

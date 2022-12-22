@@ -38,81 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TCPHealthCheck(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 27575304: {
-            bitField0_ |= 0x00000001;
-            port_ = input.readInt32();
-            break;
-          }
-          case 175608954: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            request_ = s;
-            break;
-          }
-          case 332274762: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            portName_ = s;
-            break;
-          }
-          case 412724778: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            portSpecification_ = s;
-            break;
-          }
-          case 1282993138: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            proxyHeader_ = s;
-            break;
-          }
-          case 1572381194: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            response_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_TCPHealthCheck_descriptor;
@@ -128,7 +53,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+   * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.compute.v1.TCPHealthCheck.PortSpecification}
@@ -145,7 +70,7 @@ private static final long serialVersionUID = 0L;
     UNDEFINED_PORT_SPECIFICATION(0),
     /**
      * <pre>
-     * The port number in port is used for health checking.
+     * The port number in the health check's port is used for health checking. Applies to network endpoint group and instance group backends.
      * </pre>
      *
      * <code>USE_FIXED_PORT = 190235748;</code>
@@ -153,7 +78,7 @@ private static final long serialVersionUID = 0L;
     USE_FIXED_PORT(190235748),
     /**
      * <pre>
-     * The portName is used for health checking.
+     * Not supported.
      * </pre>
      *
      * <code>USE_NAMED_PORT = 349300671;</code>
@@ -161,7 +86,7 @@ private static final long serialVersionUID = 0L;
     USE_NAMED_PORT(349300671),
     /**
      * <pre>
-     * For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking.
+     * For network endpoint group backends, the health check uses the port number specified on each endpoint in the network endpoint group. For instance group backends, the health check uses the port number specified for the backend service's named port defined in the instance group's named ports.
      * </pre>
      *
      * <code>USE_SERVING_PORT = 362637516;</code>
@@ -180,7 +105,7 @@ private static final long serialVersionUID = 0L;
     public static final int UNDEFINED_PORT_SPECIFICATION_VALUE = 0;
     /**
      * <pre>
-     * The port number in port is used for health checking.
+     * The port number in the health check's port is used for health checking. Applies to network endpoint group and instance group backends.
      * </pre>
      *
      * <code>USE_FIXED_PORT = 190235748;</code>
@@ -188,7 +113,7 @@ private static final long serialVersionUID = 0L;
     public static final int USE_FIXED_PORT_VALUE = 190235748;
     /**
      * <pre>
-     * The portName is used for health checking.
+     * Not supported.
      * </pre>
      *
      * <code>USE_NAMED_PORT = 349300671;</code>
@@ -196,7 +121,7 @@ private static final long serialVersionUID = 0L;
     public static final int USE_NAMED_PORT_VALUE = 349300671;
     /**
      * <pre>
-     * For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking.
+     * For network endpoint group backends, the health check uses the port number specified on each endpoint in the network endpoint group. For instance group backends, the health check uses the port number specified for the backend service's named port defined in the instance group's named ports.
      * </pre>
      *
      * <code>USE_SERVING_PORT = 362637516;</code>
@@ -419,10 +344,10 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int PORT_FIELD_NUMBER = 3446913;
-  private int port_;
+  private int port_ = 0;
   /**
    * <pre>
-   * The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535.
+   * The TCP port number to which the health check prober sends packets. The default value is 80. Valid values are 1 through 65535.
    * </pre>
    *
    * <code>optional int32 port = 3446913;</code>
@@ -434,7 +359,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535.
+   * The TCP port number to which the health check prober sends packets. The default value is 80. Valid values are 1 through 65535.
    * </pre>
    *
    * <code>optional int32 port = 3446913;</code>
@@ -446,10 +371,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_NAME_FIELD_NUMBER = 41534345;
-  private volatile java.lang.Object portName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object portName_ = "";
   /**
    * <pre>
-   * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+   * Not supported.
    * </pre>
    *
    * <code>optional string port_name = 41534345;</code>
@@ -461,7 +387,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+   * Not supported.
    * </pre>
    *
    * <code>optional string port_name = 41534345;</code>
@@ -482,7 +408,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+   * Not supported.
    * </pre>
    *
    * <code>optional string port_name = 41534345;</code>
@@ -504,10 +430,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_SPECIFICATION_FIELD_NUMBER = 51590597;
-  private volatile java.lang.Object portSpecification_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object portSpecification_ = "";
   /**
    * <pre>
-   * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+   * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
    * Check the PortSpecification enum for the list of possible values.
    * </pre>
    *
@@ -520,7 +447,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+   * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
    * Check the PortSpecification enum for the list of possible values.
    * </pre>
    *
@@ -542,7 +469,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+   * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
    * Check the PortSpecification enum for the list of possible values.
    * </pre>
    *
@@ -565,7 +492,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROXY_HEADER_FIELD_NUMBER = 160374142;
-  private volatile java.lang.Object proxyHeader_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object proxyHeader_ = "";
   /**
    * <pre>
    * Specifies the type of proxy header to append before sending data to the backend, either NONE or PROXY_V1. The default is NONE.
@@ -626,10 +554,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_FIELD_NUMBER = 21951119;
-  private volatile java.lang.Object request_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object request_ = "";
   /**
    * <pre>
-   * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+   * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
    * </pre>
    *
    * <code>optional string request = 21951119;</code>
@@ -641,7 +570,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+   * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
    * </pre>
    *
    * <code>optional string request = 21951119;</code>
@@ -662,7 +591,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+   * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
    * </pre>
    *
    * <code>optional string request = 21951119;</code>
@@ -684,10 +613,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_FIELD_NUMBER = 196547649;
-  private volatile java.lang.Object response_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object response_ = "";
   /**
    * <pre>
-   * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+   * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
    * </pre>
    *
    * <code>optional string response = 196547649;</code>
@@ -699,7 +629,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+   * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
    * </pre>
    *
    * <code>optional string response = 196547649;</code>
@@ -720,7 +650,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+   * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
    * </pre>
    *
    * <code>optional string response = 196547649;</code>
@@ -773,7 +703,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 196547649, response_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -801,7 +731,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(196547649, response_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -846,7 +776,7 @@ private static final long serialVersionUID = 0L;
       if (!getResponse()
           .equals(other.getResponse())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -881,7 +811,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESPONSE_FIELD_NUMBER;
       hash = (53 * hash) + getResponse().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1001,34 +931,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.TCPHealthCheck.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       port_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
       portName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       portSpecification_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
       proxyHeader_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       request_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       response_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -1055,6 +975,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.TCPHealthCheck buildPartial() {
       com.google.cloud.compute.v1.TCPHealthCheck result = new com.google.cloud.compute.v1.TCPHealthCheck(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.TCPHealthCheck result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1062,28 +988,26 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.portName_ = portName_;
         to_bitField0_ |= 0x00000002;
       }
-      result.portName_ = portName_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.portSpecification_ = portSpecification_;
         to_bitField0_ |= 0x00000004;
       }
-      result.portSpecification_ = portSpecification_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.proxyHeader_ = proxyHeader_;
         to_bitField0_ |= 0x00000008;
       }
-      result.proxyHeader_ = proxyHeader_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.request_ = request_;
         to_bitField0_ |= 0x00000010;
       }
-      result.request_ = request_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.response_ = response_;
         to_bitField0_ |= 0x00000020;
       }
-      result.response_ = response_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1134,31 +1058,31 @@ private static final long serialVersionUID = 0L;
         setPort(other.getPort());
       }
       if (other.hasPortName()) {
-        bitField0_ |= 0x00000002;
         portName_ = other.portName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasPortSpecification()) {
-        bitField0_ |= 0x00000004;
         portSpecification_ = other.portSpecification_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasProxyHeader()) {
-        bitField0_ |= 0x00000008;
         proxyHeader_ = other.proxyHeader_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasRequest()) {
-        bitField0_ |= 0x00000010;
         request_ = other.request_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasResponse()) {
-        bitField0_ |= 0x00000020;
         response_ = other.response_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1173,17 +1097,60 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.TCPHealthCheck parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 27575304: {
+              port_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 27575304
+            case 175608954: {
+              request_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 175608954
+            case 332274762: {
+              portName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 332274762
+            case 412724778: {
+              portSpecification_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 412724778
+            case 1282993138: {
+              proxyHeader_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1282993138
+            case 1572381194: {
+              response_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1572381194
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.TCPHealthCheck) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1191,7 +1158,7 @@ private static final long serialVersionUID = 0L;
     private int port_ ;
     /**
      * <pre>
-     * The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535.
+     * The TCP port number to which the health check prober sends packets. The default value is 80. Valid values are 1 through 65535.
      * </pre>
      *
      * <code>optional int32 port = 3446913;</code>
@@ -1203,7 +1170,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535.
+     * The TCP port number to which the health check prober sends packets. The default value is 80. Valid values are 1 through 65535.
      * </pre>
      *
      * <code>optional int32 port = 3446913;</code>
@@ -1215,7 +1182,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535.
+     * The TCP port number to which the health check prober sends packets. The default value is 80. Valid values are 1 through 65535.
      * </pre>
      *
      * <code>optional int32 port = 3446913;</code>
@@ -1223,14 +1190,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPort(int value) {
-      bitField0_ |= 0x00000001;
+      
       port_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The TCP port number for the health check request. The default value is 80. Valid values are 1 through 65535.
+     * The TCP port number to which the health check prober sends packets. The default value is 80. Valid values are 1 through 65535.
      * </pre>
      *
      * <code>optional int32 port = 3446913;</code>
@@ -1246,7 +1214,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object portName_ = "";
     /**
      * <pre>
-     * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+     * Not supported.
      * </pre>
      *
      * <code>optional string port_name = 41534345;</code>
@@ -1257,7 +1225,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+     * Not supported.
      * </pre>
      *
      * <code>optional string port_name = 41534345;</code>
@@ -1277,7 +1245,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+     * Not supported.
      * </pre>
      *
      * <code>optional string port_name = 41534345;</code>
@@ -1298,7 +1266,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+     * Not supported.
      * </pre>
      *
      * <code>optional string port_name = 41534345;</code>
@@ -1307,31 +1275,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPortName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       portName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+     * Not supported.
      * </pre>
      *
      * <code>optional string port_name = 41534345;</code>
      * @return This builder for chaining.
      */
     public Builder clearPortName() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       portName_ = getDefaultInstance().getPortName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Port name as defined in InstanceGroup#NamedPort#name. If both port and port_name are defined, port takes precedence.
+     * Not supported.
      * </pre>
      *
      * <code>optional string port_name = 41534345;</code>
@@ -1340,12 +1306,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPortNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       portName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1353,7 +1317,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object portSpecification_ = "";
     /**
      * <pre>
-     * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+     * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
      * Check the PortSpecification enum for the list of possible values.
      * </pre>
      *
@@ -1365,7 +1329,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+     * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
      * Check the PortSpecification enum for the list of possible values.
      * </pre>
      *
@@ -1386,7 +1350,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+     * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
      * Check the PortSpecification enum for the list of possible values.
      * </pre>
      *
@@ -1408,7 +1372,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+     * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
      * Check the PortSpecification enum for the list of possible values.
      * </pre>
      *
@@ -1418,17 +1382,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPortSpecification(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       portSpecification_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+     * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
      * Check the PortSpecification enum for the list of possible values.
      * </pre>
      *
@@ -1436,14 +1398,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPortSpecification() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       portSpecification_ = getDefaultInstance().getPortSpecification();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Specifies how port is selected for health checking, can be one of following values: USE_FIXED_PORT: The port number in port is used for health checking. USE_NAMED_PORT: The portName is used for health checking. USE_SERVING_PORT: For NetworkEndpointGroup, the port specified for each network endpoint is used for health checking. For other backends, the port or named port specified in the Backend Service is used for health checking. If not specified, TCP health check follows behavior specified in port and portName fields.
+     * Specifies how a port is selected for health checking. Can be one of the following values: USE_FIXED_PORT: Specifies a port number explicitly using the port field in the health check. Supported by backend services for pass-through load balancers and backend services for proxy load balancers. Not supported by target pools. The health check supports all backends supported by the backend service provided the backend can be health checked. For example, GCE_VM_IP network endpoint groups, GCE_VM_IP_PORT network endpoint groups, and instance group backends. USE_NAMED_PORT: Not supported. USE_SERVING_PORT: Provides an indirect method of specifying the health check port by referring to the backend service. Only supported by backend services for proxy load balancers. Not supported by target pools. Not supported by backend services for pass-through load balancers. Supports all backends that can be health checked; for example, GCE_VM_IP_PORT network endpoint groups and instance group backends. For GCE_VM_IP_PORT network endpoint group backends, the health check uses the port number specified for each endpoint in the network endpoint group. For instance group backends, the health check uses the port number determined by looking up the backend service's named port in the instance group's list of named ports.
      * Check the PortSpecification enum for the list of possible values.
      * </pre>
      *
@@ -1453,12 +1415,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPortSpecificationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       portSpecification_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1531,11 +1491,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProxyHeader(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       proxyHeader_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1549,8 +1507,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProxyHeader() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       proxyHeader_ = getDefaultInstance().getProxyHeader();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1566,12 +1524,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProxyHeaderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       proxyHeader_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1579,7 +1535,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object request_ = "";
     /**
      * <pre>
-     * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+     * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
      * </pre>
      *
      * <code>optional string request = 21951119;</code>
@@ -1590,7 +1546,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+     * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
      * </pre>
      *
      * <code>optional string request = 21951119;</code>
@@ -1610,7 +1566,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+     * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
      * </pre>
      *
      * <code>optional string request = 21951119;</code>
@@ -1631,7 +1587,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+     * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
      * </pre>
      *
      * <code>optional string request = 21951119;</code>
@@ -1640,31 +1596,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequest(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       request_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+     * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
      * </pre>
      *
      * <code>optional string request = 21951119;</code>
      * @return This builder for chaining.
      */
     public Builder clearRequest() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       request_ = getDefaultInstance().getRequest();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The application data to send once the TCP connection has been established (default value is empty). If both request and response are empty, the connection establishment alone will indicate health. The request data can only be ASCII.
+     * Instructs the health check prober to send this exact ASCII string, up to 1024 bytes in length, after establishing the TCP connection.
      * </pre>
      *
      * <code>optional string request = 21951119;</code>
@@ -1673,12 +1627,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       request_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1686,7 +1638,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object response_ = "";
     /**
      * <pre>
-     * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+     * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
      * </pre>
      *
      * <code>optional string response = 196547649;</code>
@@ -1697,7 +1649,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+     * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
      * </pre>
      *
      * <code>optional string response = 196547649;</code>
@@ -1717,7 +1669,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+     * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
      * </pre>
      *
      * <code>optional string response = 196547649;</code>
@@ -1738,7 +1690,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+     * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
      * </pre>
      *
      * <code>optional string response = 196547649;</code>
@@ -1747,31 +1699,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponse(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       response_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+     * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
      * </pre>
      *
      * <code>optional string response = 196547649;</code>
      * @return This builder for chaining.
      */
     public Builder clearResponse() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       response_ = getDefaultInstance().getResponse();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The bytes to match against the beginning of the response data. If left empty (the default value), any response will indicate health. The response data can only be ASCII.
+     * Creates a content-based TCP health check. In addition to establishing a TCP connection, you can configure the health check to pass only when the backend sends this exact response ASCII string, up to 1024 bytes in length. For details, see: https://cloud.google.com/load-balancing/docs/health-check-concepts#criteria-protocol-ssl-tcp
      * </pre>
      *
      * <code>optional string response = 196547649;</code>
@@ -1780,12 +1730,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       response_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1822,7 +1770,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TCPHealthCheck(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

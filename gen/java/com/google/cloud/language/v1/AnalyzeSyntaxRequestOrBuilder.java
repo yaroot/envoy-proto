@@ -9,7 +9,7 @@ public interface AnalyzeSyntaxRequestOrBuilder extends
 
   /**
    * <pre>
-   * Input document.
+   * Required. Input document.
    * </pre>
    *
    * <code>.google.cloud.language.v1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -18,7 +18,7 @@ public interface AnalyzeSyntaxRequestOrBuilder extends
   boolean hasDocument();
   /**
    * <pre>
-   * Input document.
+   * Required. Input document.
    * </pre>
    *
    * <code>.google.cloud.language.v1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -27,7 +27,7 @@ public interface AnalyzeSyntaxRequestOrBuilder extends
   com.google.cloud.language.v1.Document getDocument();
   /**
    * <pre>
-   * Input document.
+   * Required. Input document.
    * </pre>
    *
    * <code>.google.cloud.language.v1.Document document = 1 [(.google.api.field_behavior) = REQUIRED];</code>

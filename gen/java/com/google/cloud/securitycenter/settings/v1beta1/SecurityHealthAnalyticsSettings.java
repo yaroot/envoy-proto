@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SecurityHealthAnalyticsSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.Builder subBuilder = null;
-            if (nonOrgIamMemberSettings_ != null) {
-              subBuilder = nonOrgIamMemberSettings_.toBuilder();
-            }
-            nonOrgIamMemberSettings_ = input.readMessage(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nonOrgIamMemberSettings_);
-              nonOrgIamMemberSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.Builder subBuilder = null;
-            if (adminServiceAccountSettings_ != null) {
-              subBuilder = adminServiceAccountSettings_.toBuilder();
-            }
-            adminServiceAccountSettings_ = input.readMessage(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adminServiceAccountSettings_);
-              adminServiceAccountSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.securitycenter.settings.v1beta1.ComponentSettingsProto.internal_static_google_cloud_securitycenter_settings_v1beta1_SecurityHealthAnalyticsSettings_descriptor;
@@ -229,58 +164,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private NonOrgIamMemberSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                approvedIdentities_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              approvedIdentities_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          approvedIdentities_ = approvedIdentities_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.securitycenter.settings.v1beta1.ComponentSettingsProto.internal_static_google_cloud_securitycenter_settings_v1beta1_SecurityHealthAnalyticsSettings_NonOrgIamMemberSettings_descriptor;
@@ -295,6 +178,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int APPROVED_IDENTITIES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList approvedIdentities_;
     /**
      * <pre>
@@ -402,7 +286,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < approvedIdentities_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, approvedIdentities_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -419,7 +303,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getApprovedIdentitiesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -436,7 +320,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getApprovedIdentitiesList()
           .equals(other.getApprovedIdentitiesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -451,7 +335,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + APPROVED_IDENTITIES_FIELD_NUMBER;
         hash = (53 * hash) + getApprovedIdentitiesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -572,22 +456,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         approvedIdentities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -616,14 +496,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings buildPartial() {
         com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings result = new com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           approvedIdentities_ = approvedIdentities_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.approvedIdentities_ = approvedIdentities_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -680,7 +568,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -695,17 +583,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureApprovedIdentitiesIsMutable();
+                approvedIdentities_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -827,10 +734,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setApprovedIdentities(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApprovedIdentitiesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureApprovedIdentitiesIsMutable();
         approvedIdentities_.set(index, value);
         onChanged();
         return this;
@@ -856,10 +761,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addApprovedIdentities(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApprovedIdentitiesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureApprovedIdentitiesIsMutable();
         approvedIdentities_.add(value);
         onChanged();
         return this;
@@ -936,10 +839,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addApprovedIdentitiesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureApprovedIdentitiesIsMutable();
         approvedIdentities_.add(value);
         onChanged();
@@ -978,7 +879,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NonOrgIamMemberSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1111,58 +1023,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AdminServiceAccountSettings(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                approvedIdentities_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              approvedIdentities_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          approvedIdentities_ = approvedIdentities_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.securitycenter.settings.v1beta1.ComponentSettingsProto.internal_static_google_cloud_securitycenter_settings_v1beta1_SecurityHealthAnalyticsSettings_AdminServiceAccountSettings_descriptor;
@@ -1177,6 +1037,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int APPROVED_IDENTITIES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList approvedIdentities_;
     /**
      * <pre>
@@ -1280,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < approvedIdentities_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, approvedIdentities_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1297,7 +1158,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getApprovedIdentitiesList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1314,7 +1175,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getApprovedIdentitiesList()
           .equals(other.getApprovedIdentitiesList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1329,7 +1190,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + APPROVED_IDENTITIES_FIELD_NUMBER;
         hash = (53 * hash) + getApprovedIdentitiesList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1450,22 +1311,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         approvedIdentities_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -1494,14 +1351,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings buildPartial() {
         com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings result = new com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           approvedIdentities_ = approvedIdentities_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.approvedIdentities_ = approvedIdentities_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -1558,7 +1423,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1573,17 +1438,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureApprovedIdentitiesIsMutable();
+                approvedIdentities_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1700,10 +1584,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setApprovedIdentities(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApprovedIdentitiesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureApprovedIdentitiesIsMutable();
         approvedIdentities_.set(index, value);
         onChanged();
         return this;
@@ -1728,10 +1610,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addApprovedIdentities(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureApprovedIdentitiesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureApprovedIdentitiesIsMutable();
         approvedIdentities_.add(value);
         onChanged();
         return this;
@@ -1805,10 +1685,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addApprovedIdentitiesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureApprovedIdentitiesIsMutable();
         approvedIdentities_.add(value);
         onChanged();
@@ -1847,7 +1725,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AdminServiceAccountSettings(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1902,7 +1791,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettingsOrBuilder getNonOrgIamMemberSettingsOrBuilder() {
-    return getNonOrgIamMemberSettings();
+    return nonOrgIamMemberSettings_ == null ? com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.getDefaultInstance() : nonOrgIamMemberSettings_;
   }
 
   public static final int ADMIN_SERVICE_ACCOUNT_SETTINGS_FIELD_NUMBER = 2;
@@ -1940,7 +1829,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettingsOrBuilder getAdminServiceAccountSettingsOrBuilder() {
-    return getAdminServiceAccountSettings();
+    return adminServiceAccountSettings_ == null ? com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.getDefaultInstance() : adminServiceAccountSettings_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1963,7 +1852,7 @@ private static final long serialVersionUID = 0L;
     if (adminServiceAccountSettings_ != null) {
       output.writeMessage(2, getAdminServiceAccountSettings());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1980,7 +1869,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getAdminServiceAccountSettings());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2005,7 +1894,7 @@ private static final long serialVersionUID = 0L;
       if (!getAdminServiceAccountSettings()
           .equals(other.getAdminServiceAccountSettings())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2024,7 +1913,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADMIN_SERVICE_ACCOUNT_SETTINGS_FIELD_NUMBER;
       hash = (53 * hash) + getAdminServiceAccountSettings().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2145,32 +2034,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nonOrgIamMemberSettingsBuilder_ == null) {
-        nonOrgIamMemberSettings_ = null;
-      } else {
-        nonOrgIamMemberSettings_ = null;
+      bitField0_ = 0;
+      nonOrgIamMemberSettings_ = null;
+      if (nonOrgIamMemberSettingsBuilder_ != null) {
+        nonOrgIamMemberSettingsBuilder_.dispose();
         nonOrgIamMemberSettingsBuilder_ = null;
       }
-      if (adminServiceAccountSettingsBuilder_ == null) {
-        adminServiceAccountSettings_ = null;
-      } else {
-        adminServiceAccountSettings_ = null;
+      adminServiceAccountSettings_ = null;
+      if (adminServiceAccountSettingsBuilder_ != null) {
+        adminServiceAccountSettingsBuilder_.dispose();
         adminServiceAccountSettingsBuilder_ = null;
       }
       return this;
@@ -2199,18 +2082,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings buildPartial() {
       com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings result = new com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings(this);
-      if (nonOrgIamMemberSettingsBuilder_ == null) {
-        result.nonOrgIamMemberSettings_ = nonOrgIamMemberSettings_;
-      } else {
-        result.nonOrgIamMemberSettings_ = nonOrgIamMemberSettingsBuilder_.build();
-      }
-      if (adminServiceAccountSettingsBuilder_ == null) {
-        result.adminServiceAccountSettings_ = adminServiceAccountSettings_;
-      } else {
-        result.adminServiceAccountSettings_ = adminServiceAccountSettingsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nonOrgIamMemberSettings_ = nonOrgIamMemberSettingsBuilder_ == null
+            ? nonOrgIamMemberSettings_
+            : nonOrgIamMemberSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.adminServiceAccountSettings_ = adminServiceAccountSettingsBuilder_ == null
+            ? adminServiceAccountSettings_
+            : adminServiceAccountSettingsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2263,7 +2151,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAdminServiceAccountSettings()) {
         mergeAdminServiceAccountSettings(other.getAdminServiceAccountSettings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2278,19 +2166,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNonOrgIamMemberSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAdminServiceAccountSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings nonOrgIamMemberSettings_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -2304,7 +2220,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nonOrgIamMemberSettings field is set.
      */
     public boolean hasNonOrgIamMemberSettings() {
-      return nonOrgIamMemberSettingsBuilder_ != null || nonOrgIamMemberSettings_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2334,11 +2250,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nonOrgIamMemberSettings_ = value;
-        onChanged();
       } else {
         nonOrgIamMemberSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2352,11 +2268,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.Builder builderForValue) {
       if (nonOrgIamMemberSettingsBuilder_ == null) {
         nonOrgIamMemberSettings_ = builderForValue.build();
-        onChanged();
       } else {
         nonOrgIamMemberSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2368,17 +2284,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNonOrgIamMemberSettings(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings value) {
       if (nonOrgIamMemberSettingsBuilder_ == null) {
-        if (nonOrgIamMemberSettings_ != null) {
-          nonOrgIamMemberSettings_ =
-            com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.newBuilder(nonOrgIamMemberSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          nonOrgIamMemberSettings_ != null &&
+          nonOrgIamMemberSettings_ != com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.getDefaultInstance()) {
+          getNonOrgIamMemberSettingsBuilder().mergeFrom(value);
         } else {
           nonOrgIamMemberSettings_ = value;
         }
-        onChanged();
       } else {
         nonOrgIamMemberSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2389,14 +2306,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings non_org_iam_member_settings = 1;</code>
      */
     public Builder clearNonOrgIamMemberSettings() {
-      if (nonOrgIamMemberSettingsBuilder_ == null) {
-        nonOrgIamMemberSettings_ = null;
-        onChanged();
-      } else {
-        nonOrgIamMemberSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      nonOrgIamMemberSettings_ = null;
+      if (nonOrgIamMemberSettingsBuilder_ != null) {
+        nonOrgIamMemberSettingsBuilder_.dispose();
         nonOrgIamMemberSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2407,7 +2323,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings non_org_iam_member_settings = 1;</code>
      */
     public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings.Builder getNonOrgIamMemberSettingsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNonOrgIamMemberSettingsFieldBuilder().getBuilder();
     }
@@ -2459,7 +2375,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the adminServiceAccountSettings field is set.
      */
     public boolean hasAdminServiceAccountSettings() {
-      return adminServiceAccountSettingsBuilder_ != null || adminServiceAccountSettings_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2489,11 +2405,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adminServiceAccountSettings_ = value;
-        onChanged();
       } else {
         adminServiceAccountSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2507,11 +2423,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.Builder builderForValue) {
       if (adminServiceAccountSettingsBuilder_ == null) {
         adminServiceAccountSettings_ = builderForValue.build();
-        onChanged();
       } else {
         adminServiceAccountSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2523,17 +2439,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdminServiceAccountSettings(com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings value) {
       if (adminServiceAccountSettingsBuilder_ == null) {
-        if (adminServiceAccountSettings_ != null) {
-          adminServiceAccountSettings_ =
-            com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.newBuilder(adminServiceAccountSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          adminServiceAccountSettings_ != null &&
+          adminServiceAccountSettings_ != com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.getDefaultInstance()) {
+          getAdminServiceAccountSettingsBuilder().mergeFrom(value);
         } else {
           adminServiceAccountSettings_ = value;
         }
-        onChanged();
       } else {
         adminServiceAccountSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2544,14 +2461,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings admin_service_account_settings = 2;</code>
      */
     public Builder clearAdminServiceAccountSettings() {
-      if (adminServiceAccountSettingsBuilder_ == null) {
-        adminServiceAccountSettings_ = null;
-        onChanged();
-      } else {
-        adminServiceAccountSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      adminServiceAccountSettings_ = null;
+      if (adminServiceAccountSettingsBuilder_ != null) {
+        adminServiceAccountSettingsBuilder_.dispose();
         adminServiceAccountSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2562,7 +2478,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings admin_service_account_settings = 2;</code>
      */
     public com.google.cloud.securitycenter.settings.v1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings.Builder getAdminServiceAccountSettingsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAdminServiceAccountSettingsFieldBuilder().getBuilder();
     }
@@ -2634,7 +2550,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SecurityHealthAnalyticsSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

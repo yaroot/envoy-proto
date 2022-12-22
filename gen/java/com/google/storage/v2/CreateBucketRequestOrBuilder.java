@@ -29,45 +29,45 @@ public interface CreateBucketRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Properties of the new bucket being inserted.
+   * Properties of the new bucket being inserted.
    * The project and name of the bucket are specified in the parent and
    * bucket_id fields, respectively. Populating those fields in `bucket` will
    * result in an error.
    * </pre>
    *
-   * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>.google.storage.v2.Bucket bucket = 2;</code>
    * @return Whether the bucket field is set.
    */
   boolean hasBucket();
   /**
    * <pre>
-   * Required. Properties of the new bucket being inserted.
+   * Properties of the new bucket being inserted.
    * The project and name of the bucket are specified in the parent and
    * bucket_id fields, respectively. Populating those fields in `bucket` will
    * result in an error.
    * </pre>
    *
-   * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>.google.storage.v2.Bucket bucket = 2;</code>
    * @return The bucket.
    */
   com.google.storage.v2.Bucket getBucket();
   /**
    * <pre>
-   * Required. Properties of the new bucket being inserted.
+   * Properties of the new bucket being inserted.
    * The project and name of the bucket are specified in the parent and
    * bucket_id fields, respectively. Populating those fields in `bucket` will
    * result in an error.
    * </pre>
    *
-   * <code>.google.storage.v2.Bucket bucket = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+   * <code>.google.storage.v2.Bucket bucket = 2;</code>
    */
   com.google.storage.v2.BucketOrBuilder getBucketOrBuilder();
 
   /**
    * <pre>
-   * Required. The ID to use for this bucket, which will become the final component of
-   * the bucket's resource name. For example, the value `foo` might result in
-   * a bucket with the name `projects/123456/buckets/foo`.
+   * Required. The ID to use for this bucket, which will become the final
+   * component of the bucket's resource name. For example, the value `foo` might
+   * result in a bucket with the name `projects/123456/buckets/foo`.
    * </pre>
    *
    * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -76,9 +76,9 @@ public interface CreateBucketRequestOrBuilder extends
   java.lang.String getBucketId();
   /**
    * <pre>
-   * Required. The ID to use for this bucket, which will become the final component of
-   * the bucket's resource name. For example, the value `foo` might result in
-   * a bucket with the name `projects/123456/buckets/foo`.
+   * Required. The ID to use for this bucket, which will become the final
+   * component of the bucket's resource name. For example, the value `foo` might
+   * result in a bucket with the name `projects/123456/buckets/foo`.
    * </pre>
    *
    * <code>string bucket_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>

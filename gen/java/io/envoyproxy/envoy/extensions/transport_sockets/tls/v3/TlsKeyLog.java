@@ -38,76 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TlsKeyLog(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              localAddressRange_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.CidrRange>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            localAddressRange_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.CidrRange.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              remoteAddressRange_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.CidrRange>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            remoteAddressRange_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.CidrRange.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        localAddressRange_ = java.util.Collections.unmodifiableList(localAddressRange_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        remoteAddressRange_ = java.util.Collections.unmodifiableList(remoteAddressRange_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsProto.internal_static_envoy_extensions_transport_sockets_tls_v3_TlsKeyLog_descriptor;
@@ -122,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 1;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <pre>
    * The path to save the TLS key log.
@@ -168,6 +99,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_ADDRESS_RANGE_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.CidrRange> localAddressRange_;
   /**
    * <pre>
@@ -233,6 +165,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REMOTE_ADDRESS_RANGE_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.CidrRange> remoteAddressRange_;
   /**
    * <pre>
@@ -320,7 +253,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < remoteAddressRange_.size(); i++) {
       output.writeMessage(3, remoteAddressRange_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -340,7 +273,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, remoteAddressRange_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -361,7 +294,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLocalAddressRangeList())) return false;
     if (!getRemoteAddressRangeList()
         .equals(other.getRemoteAddressRangeList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -382,7 +315,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REMOTE_ADDRESS_RANGE_FIELD_NUMBER;
       hash = (53 * hash) + getRemoteAddressRangeList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -504,38 +437,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLocalAddressRangeFieldBuilder();
-        getRemoteAddressRangeFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       path_ = "";
-
       if (localAddressRangeBuilder_ == null) {
         localAddressRange_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        localAddressRange_ = null;
         localAddressRangeBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (remoteAddressRangeBuilder_ == null) {
         remoteAddressRange_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        remoteAddressRange_ = null;
         remoteAddressRangeBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -562,28 +490,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog(this);
-      int from_bitField0_ = bitField0_;
-      result.path_ = path_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog result) {
       if (localAddressRangeBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           localAddressRange_ = java.util.Collections.unmodifiableList(localAddressRange_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.localAddressRange_ = localAddressRange_;
       } else {
         result.localAddressRange_ = localAddressRangeBuilder_.build();
       }
       if (remoteAddressRangeBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           remoteAddressRange_ = java.util.Collections.unmodifiableList(remoteAddressRange_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.remoteAddressRange_ = remoteAddressRange_;
       } else {
         result.remoteAddressRange_ = remoteAddressRangeBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.path_ = path_;
+      }
     }
 
     @java.lang.Override
@@ -632,13 +570,14 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog.getDefaultInstance()) return this;
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (localAddressRangeBuilder_ == null) {
         if (!other.localAddressRange_.isEmpty()) {
           if (localAddressRange_.isEmpty()) {
             localAddressRange_ = other.localAddressRange_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureLocalAddressRangeIsMutable();
             localAddressRange_.addAll(other.localAddressRange_);
@@ -651,7 +590,7 @@ private static final long serialVersionUID = 0L;
             localAddressRangeBuilder_.dispose();
             localAddressRangeBuilder_ = null;
             localAddressRange_ = other.localAddressRange_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             localAddressRangeBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getLocalAddressRangeFieldBuilder() : null;
@@ -664,7 +603,7 @@ private static final long serialVersionUID = 0L;
         if (!other.remoteAddressRange_.isEmpty()) {
           if (remoteAddressRange_.isEmpty()) {
             remoteAddressRange_ = other.remoteAddressRange_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureRemoteAddressRangeIsMutable();
             remoteAddressRange_.addAll(other.remoteAddressRange_);
@@ -677,7 +616,7 @@ private static final long serialVersionUID = 0L;
             remoteAddressRangeBuilder_.dispose();
             remoteAddressRangeBuilder_ = null;
             remoteAddressRange_ = other.remoteAddressRange_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             remoteAddressRangeBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getRemoteAddressRangeFieldBuilder() : null;
@@ -686,7 +625,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -701,17 +640,61 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.config.core.v3.CidrRange m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.CidrRange.parser(),
+                      extensionRegistry);
+              if (localAddressRangeBuilder_ == null) {
+                ensureLocalAddressRangeIsMutable();
+                localAddressRange_.add(m);
+              } else {
+                localAddressRangeBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              io.envoyproxy.envoy.config.core.v3.CidrRange m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.CidrRange.parser(),
+                      extensionRegistry);
+              if (remoteAddressRangeBuilder_ == null) {
+                ensureRemoteAddressRangeIsMutable();
+                remoteAddressRange_.add(m);
+              } else {
+                remoteAddressRangeBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsKeyLog) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -769,11 +752,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -786,8 +767,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -802,12 +783,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -815,9 +794,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.CidrRange> localAddressRange_ =
       java.util.Collections.emptyList();
     private void ensureLocalAddressRangeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         localAddressRange_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.CidrRange>(localAddressRange_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1022,7 +1001,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearLocalAddressRange() {
       if (localAddressRangeBuilder_ == null) {
         localAddressRange_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         localAddressRangeBuilder_.clear();
@@ -1134,7 +1113,7 @@ private static final long serialVersionUID = 0L;
         localAddressRangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.CidrRange, io.envoyproxy.envoy.config.core.v3.CidrRange.Builder, io.envoyproxy.envoy.config.core.v3.CidrRangeOrBuilder>(
                 localAddressRange_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         localAddressRange_ = null;
@@ -1145,9 +1124,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.CidrRange> remoteAddressRange_ =
       java.util.Collections.emptyList();
     private void ensureRemoteAddressRangeIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         remoteAddressRange_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.CidrRange>(remoteAddressRange_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1352,7 +1331,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearRemoteAddressRange() {
       if (remoteAddressRangeBuilder_ == null) {
         remoteAddressRange_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         remoteAddressRangeBuilder_.clear();
@@ -1464,7 +1443,7 @@ private static final long serialVersionUID = 0L;
         remoteAddressRangeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.CidrRange, io.envoyproxy.envoy.config.core.v3.CidrRange.Builder, io.envoyproxy.envoy.config.core.v3.CidrRangeOrBuilder>(
                 remoteAddressRange_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         remoteAddressRange_ = null;
@@ -1504,7 +1483,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TlsKeyLog(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

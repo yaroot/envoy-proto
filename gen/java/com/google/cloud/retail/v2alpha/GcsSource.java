@@ -6,7 +6,6 @@ package com.google.cloud.retail.v2alpha;
 /**
  * <pre>
  * Google Cloud Storage location for input content.
- * format.
  * </pre>
  *
  * Protobuf type {@code google.cloud.retail.v2alpha.GcsSource}
@@ -37,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GcsSource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              inputUris_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            inputUris_.add(s);
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dataSchema_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        inputUris_ = inputUris_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2alpha.ImportConfigProto.internal_static_google_cloud_retail_v2alpha_GcsSource_descriptor;
@@ -109,6 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_URIS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList inputUris_;
   /**
    * <pre>
@@ -188,7 +130,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_SCHEMA_FIELD_NUMBER = 2;
-  private volatile java.lang.Object dataSchema_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dataSchema_ = "";
   /**
    * <pre>
    * The schema to use when parsing the data from the source.
@@ -204,10 +147,10 @@ private static final long serialVersionUID = 0L;
    * * `user_event_ga360`: Using
    *   https://support.google.com/analytics/answer/3437719.
    * Supported values for control imports:
-   * * 'control' (default): One JSON
+   * * `control` (default): One JSON
    * [Control][google.cloud.retail.v2alpha.Control] per line.
    * Supported values for catalog attribute imports:
-   * * 'catalog_attribute' (default): One CSV
+   * * `catalog_attribute` (default): One CSV
    * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
    * </pre>
    *
@@ -242,10 +185,10 @@ private static final long serialVersionUID = 0L;
    * * `user_event_ga360`: Using
    *   https://support.google.com/analytics/answer/3437719.
    * Supported values for control imports:
-   * * 'control' (default): One JSON
+   * * `control` (default): One JSON
    * [Control][google.cloud.retail.v2alpha.Control] per line.
    * Supported values for catalog attribute imports:
-   * * 'catalog_attribute' (default): One CSV
+   * * `catalog_attribute` (default): One CSV
    * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
    * </pre>
    *
@@ -287,7 +230,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataSchema_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, dataSchema_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -307,7 +250,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataSchema_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, dataSchema_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -326,7 +269,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getInputUrisList())) return false;
     if (!getDataSchema()
         .equals(other.getDataSchema())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -343,7 +286,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DATA_SCHEMA_FIELD_NUMBER;
     hash = (53 * hash) + getDataSchema().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -441,7 +384,6 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Google Cloud Storage location for input content.
-   * format.
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.v2alpha.GcsSource}
@@ -465,26 +407,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.GcsSource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       inputUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       dataSchema_ = "";
-
       return this;
     }
 
@@ -511,15 +448,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.GcsSource buildPartial() {
       com.google.cloud.retail.v2alpha.GcsSource result = new com.google.cloud.retail.v2alpha.GcsSource(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.GcsSource result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         inputUris_ = inputUris_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.inputUris_ = inputUris_;
-      result.dataSchema_ = dataSchema_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.GcsSource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataSchema_ = dataSchema_;
+      }
     }
 
     @java.lang.Override
@@ -578,9 +525,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDataSchema().isEmpty()) {
         dataSchema_ = other.dataSchema_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -595,17 +543,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.GcsSource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInputUrisIsMutable();
+              inputUris_.add(s);
+              break;
+            } // case 10
+            case 18: {
+              dataSchema_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.GcsSource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -712,10 +684,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInputUris(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInputUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInputUrisIsMutable();
       inputUris_.set(index, value);
       onChanged();
       return this;
@@ -738,10 +708,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInputUris(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInputUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInputUrisIsMutable();
       inputUris_.add(value);
       onChanged();
       return this;
@@ -809,10 +777,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInputUrisBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInputUrisIsMutable();
       inputUris_.add(value);
       onChanged();
@@ -835,10 +801,10 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`: Using
      *   https://support.google.com/analytics/answer/3437719.
      * Supported values for control imports:
-     * * 'control' (default): One JSON
+     * * `control` (default): One JSON
      * [Control][google.cloud.retail.v2alpha.Control] per line.
      * Supported values for catalog attribute imports:
-     * * 'catalog_attribute' (default): One CSV
+     * * `catalog_attribute` (default): One CSV
      * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
      * </pre>
      *
@@ -872,10 +838,10 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`: Using
      *   https://support.google.com/analytics/answer/3437719.
      * Supported values for control imports:
-     * * 'control' (default): One JSON
+     * * `control` (default): One JSON
      * [Control][google.cloud.retail.v2alpha.Control] per line.
      * Supported values for catalog attribute imports:
-     * * 'catalog_attribute' (default): One CSV
+     * * `catalog_attribute` (default): One CSV
      * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
      * </pre>
      *
@@ -910,10 +876,10 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`: Using
      *   https://support.google.com/analytics/answer/3437719.
      * Supported values for control imports:
-     * * 'control' (default): One JSON
+     * * `control` (default): One JSON
      * [Control][google.cloud.retail.v2alpha.Control] per line.
      * Supported values for catalog attribute imports:
-     * * 'catalog_attribute' (default): One CSV
+     * * `catalog_attribute` (default): One CSV
      * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
      * </pre>
      *
@@ -923,11 +889,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataSchema(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dataSchema_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -946,10 +910,10 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`: Using
      *   https://support.google.com/analytics/answer/3437719.
      * Supported values for control imports:
-     * * 'control' (default): One JSON
+     * * `control` (default): One JSON
      * [Control][google.cloud.retail.v2alpha.Control] per line.
      * Supported values for catalog attribute imports:
-     * * 'catalog_attribute' (default): One CSV
+     * * `catalog_attribute` (default): One CSV
      * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
      * </pre>
      *
@@ -957,8 +921,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDataSchema() {
-      
       dataSchema_ = getDefaultInstance().getDataSchema();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -977,10 +941,10 @@ private static final long serialVersionUID = 0L;
      * * `user_event_ga360`: Using
      *   https://support.google.com/analytics/answer/3437719.
      * Supported values for control imports:
-     * * 'control' (default): One JSON
+     * * `control` (default): One JSON
      * [Control][google.cloud.retail.v2alpha.Control] per line.
      * Supported values for catalog attribute imports:
-     * * 'catalog_attribute' (default): One CSV
+     * * `catalog_attribute` (default): One CSV
      * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute] per line.
      * </pre>
      *
@@ -990,12 +954,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDataSchemaBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dataSchema_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1032,7 +994,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GcsSource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -106,7 +106,6 @@ public interface BteqOptionsOrBuilder extends
    *
    * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
    */
-
   /* nullable */
 java.lang.String getFileReplacementMapOrDefault(
       java.lang.String key,
@@ -121,7 +120,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; file_replacement_map = 3;</code>
    */
-
   java.lang.String getFileReplacementMapOrThrow(
       java.lang.String key);
 }

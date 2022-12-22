@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateNoteRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            noteId_ = s;
-            break;
-          }
-          case 26: {
-            io.grafeas.v1beta1.Note.Builder subBuilder = null;
-            if (note_ != null) {
-              subBuilder = note_.toBuilder();
-            }
-            note_ = input.readMessage(io.grafeas.v1beta1.Note.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(note_);
-              note_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1beta1.Grafeas.internal_static_grafeas_v1beta1_CreateNoteRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * The name of the project in the form of `projects/[PROJECT_ID]`, under which
@@ -162,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOTE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object noteId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object noteId_ = "";
   /**
    * <pre>
    * The ID to use for this note.
@@ -242,7 +180,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.grafeas.v1beta1.NoteOrBuilder getNoteOrBuilder() {
-    return getNote();
+    return note_ == null ? io.grafeas.v1beta1.Note.getDefaultInstance() : note_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -268,7 +206,7 @@ private static final long serialVersionUID = 0L;
     if (note_ != null) {
       output.writeMessage(3, getNote());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -287,7 +225,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getNote());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -311,7 +249,7 @@ private static final long serialVersionUID = 0L;
       if (!getNote()
           .equals(other.getNote())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -330,7 +268,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NOTE_FIELD_NUMBER;
       hash = (53 * hash) + getNote().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -451,30 +389,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1beta1.CreateNoteRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       noteId_ = "";
-
-      if (noteBuilder_ == null) {
-        note_ = null;
-      } else {
-        note_ = null;
+      note_ = null;
+      if (noteBuilder_ != null) {
+        noteBuilder_.dispose();
         noteBuilder_ = null;
       }
       return this;
@@ -503,15 +434,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1beta1.CreateNoteRequest buildPartial() {
       io.grafeas.v1beta1.CreateNoteRequest result = new io.grafeas.v1beta1.CreateNoteRequest(this);
-      result.parent_ = parent_;
-      result.noteId_ = noteId_;
-      if (noteBuilder_ == null) {
-        result.note_ = note_;
-      } else {
-        result.note_ = noteBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.grafeas.v1beta1.CreateNoteRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.noteId_ = noteId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.note_ = noteBuilder_ == null
+            ? note_
+            : noteBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -560,16 +500,18 @@ private static final long serialVersionUID = 0L;
       if (other == io.grafeas.v1beta1.CreateNoteRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getNoteId().isEmpty()) {
         noteId_ = other.noteId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasNote()) {
         mergeNote(other.getNote());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -584,19 +526,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1beta1.CreateNoteRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              noteId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNoteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1beta1.CreateNoteRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -654,11 +627,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -672,8 +643,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -689,12 +660,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -752,11 +721,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNoteId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       noteId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -769,8 +736,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoteId() {
-      
       noteId_ = getDefaultInstance().getNoteId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -785,12 +752,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNoteIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       noteId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -807,7 +772,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the note field is set.
      */
     public boolean hasNote() {
-      return noteBuilder_ != null || note_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -837,11 +802,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         note_ = value;
-        onChanged();
       } else {
         noteBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -855,11 +820,11 @@ private static final long serialVersionUID = 0L;
         io.grafeas.v1beta1.Note.Builder builderForValue) {
       if (noteBuilder_ == null) {
         note_ = builderForValue.build();
-        onChanged();
       } else {
         noteBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -871,17 +836,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNote(io.grafeas.v1beta1.Note value) {
       if (noteBuilder_ == null) {
-        if (note_ != null) {
-          note_ =
-            io.grafeas.v1beta1.Note.newBuilder(note_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          note_ != null &&
+          note_ != io.grafeas.v1beta1.Note.getDefaultInstance()) {
+          getNoteBuilder().mergeFrom(value);
         } else {
           note_ = value;
         }
-        onChanged();
       } else {
         noteBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -892,14 +858,13 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1beta1.Note note = 3;</code>
      */
     public Builder clearNote() {
-      if (noteBuilder_ == null) {
-        note_ = null;
-        onChanged();
-      } else {
-        note_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      note_ = null;
+      if (noteBuilder_ != null) {
+        noteBuilder_.dispose();
         noteBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -910,7 +875,7 @@ private static final long serialVersionUID = 0L;
      * <code>.grafeas.v1beta1.Note note = 3;</code>
      */
     public io.grafeas.v1beta1.Note.Builder getNoteBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNoteFieldBuilder().getBuilder();
     }
@@ -982,7 +947,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateNoteRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

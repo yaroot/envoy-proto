@@ -460,7 +460,6 @@ public interface VersionOrBuilder extends
    *
    * <code>map&lt;string, string&gt; beta_settings = 13;</code>
    */
-
   /* nullable */
 java.lang.String getBetaSettingsOrDefault(
       java.lang.String key,
@@ -474,7 +473,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; beta_settings = 13;</code>
    */
-
   java.lang.String getBetaSettingsOrThrow(
       java.lang.String key);
 
@@ -893,7 +891,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; env_variables = 104;</code>
    */
-
   /* nullable */
 java.lang.String getEnvVariablesOrDefault(
       java.lang.String key,
@@ -907,7 +904,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; env_variables = 104;</code>
    */
-
   java.lang.String getEnvVariablesOrThrow(
       java.lang.String key);
 
@@ -954,7 +950,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; build_env_variables = 125;</code>
    */
-
   /* nullable */
 java.lang.String getBuildEnvVariablesOrDefault(
       java.lang.String key,
@@ -968,7 +963,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; build_env_variables = 125;</code>
    */
-
   java.lang.String getBuildEnvVariablesOrThrow(
       java.lang.String key);
 

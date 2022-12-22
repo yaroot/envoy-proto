@@ -39,65 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Secret(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKeyName_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              secretEnv_ = com.google.protobuf.MapField.newMapField(
-                  SecretEnvDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
-            secretEnv__ = input.readMessage(
-                SecretEnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            secretEnv_.getMutableMap().put(
-                secretEnv__.getKey(), secretEnv__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloudbuild.v1.Cloudbuild.internal_static_google_devtools_cloudbuild_v1_Secret_descriptor;
@@ -124,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KMS_KEY_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kmsKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
   /**
    * <pre>
    * Cloud KMS key name to use to decrypt these envs.
@@ -181,6 +123,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.BYTES,
                 com.google.protobuf.ByteString.EMPTY);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.ByteString> secretEnv_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
@@ -191,7 +134,6 @@ private static final long serialVersionUID = 0L;
     }
     return secretEnv_;
   }
-
   public int getSecretEnvCount() {
     return internalGetSecretEnv().getMap().size();
   }
@@ -206,7 +148,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsSecretEnv(
       java.lang.String key) {
@@ -233,7 +174,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getSecretEnvMap() {
     return internalGetSecretEnv().getMap();
   }
@@ -249,10 +189,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.ByteString getSecretEnvOrDefault(
+  public /* nullable */
+com.google.protobuf.ByteString getSecretEnvOrDefault(
       java.lang.String key,
-      com.google.protobuf.ByteString defaultValue) {
+      /* nullable */
+com.google.protobuf.ByteString defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
         internalGetSecretEnv().getMap();
@@ -270,7 +211,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.ByteString getSecretEnvOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -305,7 +245,7 @@ private static final long serialVersionUID = 0L;
         internalGetSecretEnv(),
         SecretEnvDefaultEntryHolder.defaultEntry,
         3);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -327,7 +267,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, secretEnv__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -346,7 +286,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getKmsKeyName())) return false;
     if (!internalGetSecretEnv().equals(
         other.internalGetSecretEnv())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -363,7 +303,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SECRET_ENV_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSecretEnv().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -510,24 +450,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloudbuild.v1.Secret.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kmsKeyName_ = "";
-
       internalGetMutableSecretEnv().clear();
       return this;
     }
@@ -555,12 +490,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloudbuild.v1.Secret buildPartial() {
       com.google.cloudbuild.v1.Secret result = new com.google.cloudbuild.v1.Secret(this);
-      int from_bitField0_ = bitField0_;
-      result.kmsKeyName_ = kmsKeyName_;
-      result.secretEnv_ = internalGetSecretEnv();
-      result.secretEnv_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloudbuild.v1.Secret result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.secretEnv_ = internalGetSecretEnv();
+        result.secretEnv_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -609,11 +552,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloudbuild.v1.Secret.getDefaultInstance()) return this;
       if (!other.getKmsKeyName().isEmpty()) {
         kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       internalGetMutableSecretEnv().mergeFrom(
           other.internalGetSecretEnv());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -628,17 +573,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloudbuild.v1.Secret parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+              secretEnv__ = input.readMessage(
+                  SecretEnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSecretEnv().getMutableMap().put(
+                  secretEnv__.getKey(), secretEnv__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloudbuild.v1.Secret) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -696,11 +668,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -713,8 +683,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyName() {
-      
       kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -729,12 +699,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -742,7 +710,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.ByteString> secretEnv_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-    internalGetSecretEnv() {
+        internalGetSecretEnv() {
       if (secretEnv_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SecretEnvDefaultEntryHolder.defaultEntry);
@@ -750,8 +718,7 @@ private static final long serialVersionUID = 0L;
       return secretEnv_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
-    internalGetMutableSecretEnv() {
-      onChanged();;
+        internalGetMutableSecretEnv() {
       if (secretEnv_ == null) {
         secretEnv_ = com.google.protobuf.MapField.newMapField(
             SecretEnvDefaultEntryHolder.defaultEntry);
@@ -759,9 +726,10 @@ private static final long serialVersionUID = 0L;
       if (!secretEnv_.isMutable()) {
         secretEnv_ = secretEnv_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return secretEnv_;
     }
-
     public int getSecretEnvCount() {
       return internalGetSecretEnv().getMap().size();
     }
@@ -776,7 +744,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsSecretEnv(
         java.lang.String key) {
@@ -803,7 +770,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.ByteString> getSecretEnvMap() {
       return internalGetSecretEnv().getMap();
     }
@@ -819,10 +785,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.ByteString getSecretEnvOrDefault(
+    public /* nullable */
+com.google.protobuf.ByteString getSecretEnvOrDefault(
         java.lang.String key,
-        com.google.protobuf.ByteString defaultValue) {
+        /* nullable */
+com.google.protobuf.ByteString defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.ByteString> map =
           internalGetSecretEnv().getMap();
@@ -840,7 +807,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.ByteString getSecretEnvOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -851,8 +817,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSecretEnv() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableSecretEnv().getMutableMap()
           .clear();
       return this;
@@ -868,7 +834,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
      */
-
     public Builder removeSecretEnv(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -881,7 +846,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.ByteString>
-    getMutableSecretEnv() {
+        getMutableSecretEnv() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableSecretEnv().getMutableMap();
     }
     /**
@@ -899,12 +865,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.ByteString value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableSecretEnv().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -918,11 +882,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, bytes&gt; secret_env = 3;</code>
      */
-
     public Builder putAllSecretEnv(
         java.util.Map<java.lang.String, com.google.protobuf.ByteString> values) {
       internalGetMutableSecretEnv().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -958,7 +922,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Secret(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

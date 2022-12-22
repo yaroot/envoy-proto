@@ -37,80 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NfsExportOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ipRanges_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ipRanges_.add(s);
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            accessMode_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            squashMode_ = rawValue;
-            break;
-          }
-          case 32: {
-
-            anonUid_ = input.readInt64();
-            break;
-          }
-          case 40: {
-
-            anonGid_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ipRanges_ = ipRanges_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.filestore.v1beta1.CloudFilestoreServiceProto.internal_static_google_cloud_filestore_v1beta1_NfsExportOptions_descriptor;
@@ -415,6 +341,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_RANGES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ipRanges_;
   /**
    * <pre>
@@ -494,7 +421,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_MODE_FIELD_NUMBER = 2;
-  private int accessMode_;
+  private int accessMode_ = 0;
   /**
    * <pre>
    * Either READ_ONLY, for allowing only read requests on the exported
@@ -519,13 +446,12 @@ private static final long serialVersionUID = 0L;
    * @return The accessMode.
    */
   @java.lang.Override public com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode getAccessMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode.valueOf(accessMode_);
+    com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode.forNumber(accessMode_);
     return result == null ? com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode.UNRECOGNIZED : result;
   }
 
   public static final int SQUASH_MODE_FIELD_NUMBER = 3;
-  private int squashMode_;
+  private int squashMode_ = 0;
   /**
    * <pre>
    * Either NO_ROOT_SQUASH, for allowing root access on the exported directory,
@@ -550,13 +476,12 @@ private static final long serialVersionUID = 0L;
    * @return The squashMode.
    */
   @java.lang.Override public com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode getSquashMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode.valueOf(squashMode_);
+    com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode.forNumber(squashMode_);
     return result == null ? com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode.UNRECOGNIZED : result;
   }
 
   public static final int ANON_UID_FIELD_NUMBER = 4;
-  private long anonUid_;
+  private long anonUid_ = 0L;
   /**
    * <pre>
    * An integer representing the anonymous user id with a default value of
@@ -574,7 +499,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANON_GID_FIELD_NUMBER = 5;
-  private long anonGid_;
+  private long anonGid_ = 0L;
   /**
    * <pre>
    * An integer representing the anonymous group id with a default value of
@@ -620,7 +545,7 @@ private static final long serialVersionUID = 0L;
     if (anonGid_ != 0L) {
       output.writeInt64(5, anonGid_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -653,7 +578,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(5, anonGid_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -676,7 +601,7 @@ private static final long serialVersionUID = 0L;
         != other.getAnonUid()) return false;
     if (getAnonGid()
         != other.getAnonGid()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -701,7 +626,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ANON_GID_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getAnonGid());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -822,32 +747,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.filestore.v1beta1.NfsExportOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ipRanges_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       accessMode_ = 0;
-
       squashMode_ = 0;
-
       anonUid_ = 0L;
-
       anonGid_ = 0L;
-
       return this;
     }
 
@@ -874,18 +791,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.NfsExportOptions buildPartial() {
       com.google.cloud.filestore.v1beta1.NfsExportOptions result = new com.google.cloud.filestore.v1beta1.NfsExportOptions(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.filestore.v1beta1.NfsExportOptions result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         ipRanges_ = ipRanges_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.ipRanges_ = ipRanges_;
-      result.accessMode_ = accessMode_;
-      result.squashMode_ = squashMode_;
-      result.anonUid_ = anonUid_;
-      result.anonGid_ = anonGid_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.filestore.v1beta1.NfsExportOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.accessMode_ = accessMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.squashMode_ = squashMode_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.anonUid_ = anonUid_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.anonGid_ = anonGid_;
+      }
     }
 
     @java.lang.Override
@@ -954,7 +887,7 @@ private static final long serialVersionUID = 0L;
       if (other.getAnonGid() != 0L) {
         setAnonGid(other.getAnonGid());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -969,17 +902,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.filestore.v1beta1.NfsExportOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIpRangesIsMutable();
+              ipRanges_.add(s);
+              break;
+            } // case 10
+            case 16: {
+              accessMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              squashMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              anonUid_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              anonGid_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.filestore.v1beta1.NfsExportOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1086,10 +1058,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIpRanges(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpRangesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpRangesIsMutable();
       ipRanges_.set(index, value);
       onChanged();
       return this;
@@ -1112,10 +1082,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpRanges(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIpRangesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIpRangesIsMutable();
       ipRanges_.add(value);
       onChanged();
       return this;
@@ -1183,10 +1151,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIpRangesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIpRangesIsMutable();
       ipRanges_.add(value);
       onChanged();
@@ -1219,8 +1185,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAccessModeValue(int value) {
-      
       accessMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1236,8 +1202,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode getAccessMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode.valueOf(accessMode_);
+      com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode.forNumber(accessMode_);
       return result == null ? com.google.cloud.filestore.v1beta1.NfsExportOptions.AccessMode.UNRECOGNIZED : result;
     }
     /**
@@ -1255,7 +1220,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       accessMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1271,7 +1236,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccessMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       accessMode_ = 0;
       onChanged();
       return this;
@@ -1303,8 +1268,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSquashModeValue(int value) {
-      
       squashMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1320,8 +1285,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode getSquashMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode.valueOf(squashMode_);
+      com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode result = com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode.forNumber(squashMode_);
       return result == null ? com.google.cloud.filestore.v1beta1.NfsExportOptions.SquashMode.UNRECOGNIZED : result;
     }
     /**
@@ -1339,7 +1303,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       squashMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1355,7 +1319,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSquashMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       squashMode_ = 0;
       onChanged();
       return this;
@@ -1392,6 +1356,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAnonUid(long value) {
       
       anonUid_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1407,7 +1372,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnonUid() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       anonUid_ = 0L;
       onChanged();
       return this;
@@ -1444,6 +1409,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAnonGid(long value) {
       
       anonGid_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1459,7 +1425,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnonGid() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       anonGid_ = 0L;
       onChanged();
       return this;
@@ -1497,7 +1463,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NfsExportOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

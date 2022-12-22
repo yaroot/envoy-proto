@@ -36,87 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Address(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder subBuilder = null;
-            if (addressCase_ == 1) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.SocketAddress) address_).toBuilder();
-            }
-            address_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.SocketAddress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.SocketAddress) address_);
-              address_ = subBuilder.buildPartial();
-            }
-            addressCase_ = 1;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.Pipe.Builder subBuilder = null;
-            if (addressCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.Pipe) address_).toBuilder();
-            }
-            address_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.Pipe.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.Pipe) address_);
-              address_ = subBuilder.buildPartial();
-            }
-            addressCase_ = 2;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress.Builder subBuilder = null;
-            if (addressCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress) address_).toBuilder();
-            }
-            address_ =
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress) address_);
-              address_ = subBuilder.buildPartial();
-            }
-            addressCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.core.v3.AddressProto.internal_static_envoy_config_core_v3_Address_descriptor;
@@ -238,7 +157,8 @@ private static final long serialVersionUID = 0L;
   public static final int ENVOY_INTERNAL_ADDRESS_FIELD_NUMBER = 3;
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * Specifies a user-space address handled by :ref:`internal listeners
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -250,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * Specifies a user-space address handled by :ref:`internal listeners
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -265,7 +186,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * Specifies a user-space address handled by :ref:`internal listeners
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
    * </pre>
    *
    * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -301,7 +223,7 @@ private static final long serialVersionUID = 0L;
     if (addressCase_ == 3) {
       output.writeMessage(3, (io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress) address_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -322,7 +244,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress) address_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -354,7 +276,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -381,7 +303,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -504,22 +426,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.Address.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (socketAddressBuilder_ != null) {
+        socketAddressBuilder_.clear();
+      }
+      if (pipeBuilder_ != null) {
+        pipeBuilder_.clear();
+      }
+      if (envoyInternalAddressBuilder_ != null) {
+        envoyInternalAddressBuilder_.clear();
+      }
       addressCase_ = 0;
       address_ = null;
       return this;
@@ -548,30 +475,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Address buildPartial() {
       io.envoyproxy.envoy.config.core.v3.Address result = new io.envoyproxy.envoy.config.core.v3.Address(this);
-      if (addressCase_ == 1) {
-        if (socketAddressBuilder_ == null) {
-          result.address_ = address_;
-        } else {
-          result.address_ = socketAddressBuilder_.build();
-        }
-      }
-      if (addressCase_ == 2) {
-        if (pipeBuilder_ == null) {
-          result.address_ = address_;
-        } else {
-          result.address_ = pipeBuilder_.build();
-        }
-      }
-      if (addressCase_ == 3) {
-        if (envoyInternalAddressBuilder_ == null) {
-          result.address_ = address_;
-        } else {
-          result.address_ = envoyInternalAddressBuilder_.build();
-        }
-      }
-      result.addressCase_ = addressCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.Address result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.core.v3.Address result) {
+      result.addressCase_ = addressCase_;
+      result.address_ = this.address_;
+      if (addressCase_ == 1 &&
+          socketAddressBuilder_ != null) {
+        result.address_ = socketAddressBuilder_.build();
+      }
+      if (addressCase_ == 2 &&
+          pipeBuilder_ != null) {
+        result.address_ = pipeBuilder_.build();
+      }
+      if (addressCase_ == 3 &&
+          envoyInternalAddressBuilder_ != null) {
+        result.address_ = envoyInternalAddressBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -635,7 +563,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -650,17 +578,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.Address parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSocketAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              addressCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPipeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              addressCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getEnvoyInternalAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              addressCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.Address) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int addressCase_ = 0;
@@ -678,6 +640,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         io.envoyproxy.envoy.config.core.v3.SocketAddress, io.envoyproxy.envoy.config.core.v3.SocketAddress.Builder, io.envoyproxy.envoy.config.core.v3.SocketAddressOrBuilder> socketAddressBuilder_;
@@ -817,7 +780,7 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       addressCase_ = 1;
-      onChanged();;
+      onChanged();
       return socketAddressBuilder_;
     }
 
@@ -959,7 +922,7 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       addressCase_ = 2;
-      onChanged();;
+      onChanged();
       return pipeBuilder_;
     }
 
@@ -967,7 +930,8 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress, io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress.Builder, io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddressOrBuilder> envoyInternalAddressBuilder_;
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -979,7 +943,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1001,7 +966,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1021,7 +987,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1039,7 +1006,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1066,7 +1034,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1089,7 +1058,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1099,7 +1069,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1117,7 +1088,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * Specifies a user-space address handled by :ref:`internal listeners
+     * &lt;envoy_v3_api_field_config.listener.v3.Listener.internal_listener&gt;`.
      * </pre>
      *
      * <code>.envoy.config.core.v3.EnvoyInternalAddress envoy_internal_address = 3;</code>
@@ -1137,7 +1109,7 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       addressCase_ = 3;
-      onChanged();;
+      onChanged();
       return envoyInternalAddressBuilder_;
     }
     @java.lang.Override
@@ -1173,7 +1145,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Address(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

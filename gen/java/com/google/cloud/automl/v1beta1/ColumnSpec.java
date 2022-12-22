@@ -41,102 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ColumnSpec(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.automl.v1beta1.DataType.Builder subBuilder = null;
-            if (dataType_ != null) {
-              subBuilder = dataType_.toBuilder();
-            }
-            dataType_ = input.readMessage(com.google.cloud.automl.v1beta1.DataType.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataType_);
-              dataType_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.automl.v1beta1.DataStats.Builder subBuilder = null;
-            if (dataStats_ != null) {
-              subBuilder = dataStats_.toBuilder();
-            }
-            dataStats_ = input.readMessage(com.google.cloud.automl.v1beta1.DataStats.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataStats_);
-              dataStats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              topCorrelatedColumns_ = new java.util.ArrayList<com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            topCorrelatedColumns_.add(
-                input.readMessage(com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            etag_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        topCorrelatedColumns_ = java.util.Collections.unmodifiableList(topCorrelatedColumns_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.ColumnSpecOuterClass.internal_static_google_cloud_automl_v1beta1_ColumnSpec_descriptor;
@@ -236,64 +140,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CorrelatedColumn(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              columnSpecId_ = s;
-              break;
-            }
-            case 18: {
-              com.google.cloud.automl.v1beta1.CorrelationStats.Builder subBuilder = null;
-              if (correlationStats_ != null) {
-                subBuilder = correlationStats_.toBuilder();
-              }
-              correlationStats_ = input.readMessage(com.google.cloud.automl.v1beta1.CorrelationStats.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(correlationStats_);
-                correlationStats_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1beta1.ColumnSpecOuterClass.internal_static_google_cloud_automl_v1beta1_ColumnSpec_CorrelatedColumn_descriptor;
@@ -308,7 +154,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COLUMN_SPEC_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object columnSpecId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object columnSpecId_ = "";
     /**
      * <pre>
      * The column_spec_id of the correlated column, which belongs to the same
@@ -390,7 +237,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.CorrelationStatsOrBuilder getCorrelationStatsOrBuilder() {
-      return getCorrelationStats();
+      return correlationStats_ == null ? com.google.cloud.automl.v1beta1.CorrelationStats.getDefaultInstance() : correlationStats_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -413,7 +260,7 @@ private static final long serialVersionUID = 0L;
       if (correlationStats_ != null) {
         output.writeMessage(2, getCorrelationStats());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -429,7 +276,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getCorrelationStats());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -451,7 +298,7 @@ private static final long serialVersionUID = 0L;
         if (!getCorrelationStats()
             .equals(other.getCorrelationStats())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -468,7 +315,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + CORRELATION_STATS_FIELD_NUMBER;
         hash = (53 * hash) + getCorrelationStats().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -590,28 +437,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         columnSpecId_ = "";
-
-        if (correlationStatsBuilder_ == null) {
-          correlationStats_ = null;
-        } else {
-          correlationStats_ = null;
+        correlationStats_ = null;
+        if (correlationStatsBuilder_ != null) {
+          correlationStatsBuilder_.dispose();
           correlationStatsBuilder_ = null;
         }
         return this;
@@ -640,14 +481,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn buildPartial() {
         com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn result = new com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn(this);
-        result.columnSpecId_ = columnSpecId_;
-        if (correlationStatsBuilder_ == null) {
-          result.correlationStats_ = correlationStats_;
-        } else {
-          result.correlationStats_ = correlationStatsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.columnSpecId_ = columnSpecId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.correlationStats_ = correlationStatsBuilder_ == null
+              ? correlationStats_
+              : correlationStatsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -696,12 +544,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn.getDefaultInstance()) return this;
         if (!other.getColumnSpecId().isEmpty()) {
           columnSpecId_ = other.columnSpecId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasCorrelationStats()) {
           mergeCorrelationStats(other.getCorrelationStats());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -716,19 +565,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                columnSpecId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getCorrelationStatsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object columnSpecId_ = "";
       /**
@@ -786,11 +661,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setColumnSpecId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         columnSpecId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -804,8 +677,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearColumnSpecId() {
-        
         columnSpecId_ = getDefaultInstance().getColumnSpecId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -821,12 +694,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setColumnSpecIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         columnSpecId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -843,7 +714,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the correlationStats field is set.
        */
       public boolean hasCorrelationStats() {
-        return correlationStatsBuilder_ != null || correlationStats_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -873,11 +744,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           correlationStats_ = value;
-          onChanged();
         } else {
           correlationStatsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -891,11 +762,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.automl.v1beta1.CorrelationStats.Builder builderForValue) {
         if (correlationStatsBuilder_ == null) {
           correlationStats_ = builderForValue.build();
-          onChanged();
         } else {
           correlationStatsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -907,17 +778,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCorrelationStats(com.google.cloud.automl.v1beta1.CorrelationStats value) {
         if (correlationStatsBuilder_ == null) {
-          if (correlationStats_ != null) {
-            correlationStats_ =
-              com.google.cloud.automl.v1beta1.CorrelationStats.newBuilder(correlationStats_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            correlationStats_ != null &&
+            correlationStats_ != com.google.cloud.automl.v1beta1.CorrelationStats.getDefaultInstance()) {
+            getCorrelationStatsBuilder().mergeFrom(value);
           } else {
             correlationStats_ = value;
           }
-          onChanged();
         } else {
           correlationStatsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -928,14 +800,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.automl.v1beta1.CorrelationStats correlation_stats = 2;</code>
        */
       public Builder clearCorrelationStats() {
-        if (correlationStatsBuilder_ == null) {
-          correlationStats_ = null;
-          onChanged();
-        } else {
-          correlationStats_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        correlationStats_ = null;
+        if (correlationStatsBuilder_ != null) {
+          correlationStatsBuilder_.dispose();
           correlationStatsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -946,7 +817,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.automl.v1beta1.CorrelationStats correlation_stats = 2;</code>
        */
       public com.google.cloud.automl.v1beta1.CorrelationStats.Builder getCorrelationStatsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getCorrelationStatsFieldBuilder().getBuilder();
       }
@@ -1018,7 +889,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CorrelatedColumn(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1039,7 +921,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the column specs.
@@ -1123,11 +1006,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1beta1.DataTypeOrBuilder getDataTypeOrBuilder() {
-    return getDataType();
+    return dataType_ == null ? com.google.cloud.automl.v1beta1.DataType.getDefaultInstance() : dataType_;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Output only. The name of the column to show in the interface. The name can
@@ -1222,10 +1106,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.automl.v1beta1.DataStatsOrBuilder getDataStatsOrBuilder() {
-    return getDataStats();
+    return dataStats_ == null ? com.google.cloud.automl.v1beta1.DataStats.getDefaultInstance() : dataStats_;
   }
 
   public static final int TOP_CORRELATED_COLUMNS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn> topCorrelatedColumns_;
   /**
    * <pre>
@@ -1286,7 +1171,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETAG_FIELD_NUMBER = 6;
-  private volatile java.lang.Object etag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object etag_ = "";
   /**
    * <pre>
    * Used to perform consistent read-modify-write updates. If not set, a blind
@@ -1365,7 +1251,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, etag_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1395,7 +1281,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(etag_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, etag_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1428,7 +1314,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getTopCorrelatedColumnsList())) return false;
     if (!getEtag()
         .equals(other.getEtag())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1457,7 +1343,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ETAG_FIELD_NUMBER;
     hash = (53 * hash) + getEtag().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1581,47 +1467,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.ColumnSpec.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTopCorrelatedColumnsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (dataTypeBuilder_ == null) {
-        dataType_ = null;
-      } else {
-        dataType_ = null;
+      dataType_ = null;
+      if (dataTypeBuilder_ != null) {
+        dataTypeBuilder_.dispose();
         dataTypeBuilder_ = null;
       }
       displayName_ = "";
-
-      if (dataStatsBuilder_ == null) {
-        dataStats_ = null;
-      } else {
-        dataStats_ = null;
+      dataStats_ = null;
+      if (dataStatsBuilder_ != null) {
+        dataStatsBuilder_.dispose();
         dataStatsBuilder_ = null;
       }
       if (topCorrelatedColumnsBuilder_ == null) {
         topCorrelatedColumns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        topCorrelatedColumns_ = null;
         topCorrelatedColumnsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       etag_ = "";
-
       return this;
     }
 
@@ -1648,31 +1525,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.ColumnSpec buildPartial() {
       com.google.cloud.automl.v1beta1.ColumnSpec result = new com.google.cloud.automl.v1beta1.ColumnSpec(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (dataTypeBuilder_ == null) {
-        result.dataType_ = dataType_;
-      } else {
-        result.dataType_ = dataTypeBuilder_.build();
-      }
-      result.displayName_ = displayName_;
-      if (dataStatsBuilder_ == null) {
-        result.dataStats_ = dataStats_;
-      } else {
-        result.dataStats_ = dataStatsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.automl.v1beta1.ColumnSpec result) {
       if (topCorrelatedColumnsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           topCorrelatedColumns_ = java.util.Collections.unmodifiableList(topCorrelatedColumns_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.topCorrelatedColumns_ = topCorrelatedColumns_;
       } else {
         result.topCorrelatedColumns_ = topCorrelatedColumnsBuilder_.build();
       }
-      result.etag_ = etag_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.ColumnSpec result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataType_ = dataTypeBuilder_ == null
+            ? dataType_
+            : dataTypeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.dataStats_ = dataStatsBuilder_ == null
+            ? dataStats_
+            : dataStatsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.etag_ = etag_;
+      }
     }
 
     @java.lang.Override
@@ -1721,6 +1612,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.automl.v1beta1.ColumnSpec.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDataType()) {
@@ -1728,6 +1620,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasDataStats()) {
@@ -1737,7 +1630,7 @@ private static final long serialVersionUID = 0L;
         if (!other.topCorrelatedColumns_.isEmpty()) {
           if (topCorrelatedColumns_.isEmpty()) {
             topCorrelatedColumns_ = other.topCorrelatedColumns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureTopCorrelatedColumnsIsMutable();
             topCorrelatedColumns_.addAll(other.topCorrelatedColumns_);
@@ -1750,7 +1643,7 @@ private static final long serialVersionUID = 0L;
             topCorrelatedColumnsBuilder_.dispose();
             topCorrelatedColumnsBuilder_ = null;
             topCorrelatedColumns_ = other.topCorrelatedColumns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             topCorrelatedColumnsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTopCorrelatedColumnsFieldBuilder() : null;
@@ -1761,9 +1654,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getEtag().isEmpty()) {
         etag_ = other.etag_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1778,17 +1672,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.ColumnSpec parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDataTypeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDataStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn m =
+                  input.readMessage(
+                      com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn.parser(),
+                      extensionRegistry);
+              if (topCorrelatedColumnsBuilder_ == null) {
+                ensureTopCorrelatedColumnsIsMutable();
+                topCorrelatedColumns_.add(m);
+              } else {
+                topCorrelatedColumnsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              etag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.ColumnSpec) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1852,11 +1801,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1871,8 +1818,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1889,12 +1836,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1911,7 +1856,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dataType field is set.
      */
     public boolean hasDataType() {
-      return dataTypeBuilder_ != null || dataType_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1941,11 +1886,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataType_ = value;
-        onChanged();
       } else {
         dataTypeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1959,11 +1904,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1beta1.DataType.Builder builderForValue) {
       if (dataTypeBuilder_ == null) {
         dataType_ = builderForValue.build();
-        onChanged();
       } else {
         dataTypeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1975,17 +1920,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDataType(com.google.cloud.automl.v1beta1.DataType value) {
       if (dataTypeBuilder_ == null) {
-        if (dataType_ != null) {
-          dataType_ =
-            com.google.cloud.automl.v1beta1.DataType.newBuilder(dataType_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dataType_ != null &&
+          dataType_ != com.google.cloud.automl.v1beta1.DataType.getDefaultInstance()) {
+          getDataTypeBuilder().mergeFrom(value);
         } else {
           dataType_ = value;
         }
-        onChanged();
       } else {
         dataTypeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1996,14 +1942,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1beta1.DataType data_type = 2;</code>
      */
     public Builder clearDataType() {
-      if (dataTypeBuilder_ == null) {
-        dataType_ = null;
-        onChanged();
-      } else {
-        dataType_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dataType_ = null;
+      if (dataTypeBuilder_ != null) {
+        dataTypeBuilder_.dispose();
         dataTypeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2014,7 +1959,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1beta1.DataType data_type = 2;</code>
      */
     public com.google.cloud.automl.v1beta1.DataType.Builder getDataTypeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDataTypeFieldBuilder().getBuilder();
     }
@@ -2116,11 +2061,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2136,8 +2079,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2155,12 +2098,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2180,7 +2121,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dataStats field is set.
      */
     public boolean hasDataStats() {
-      return dataStatsBuilder_ != null || dataStats_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2216,11 +2157,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataStats_ = value;
-        onChanged();
       } else {
         dataStatsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2237,11 +2178,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.automl.v1beta1.DataStats.Builder builderForValue) {
       if (dataStatsBuilder_ == null) {
         dataStats_ = builderForValue.build();
-        onChanged();
       } else {
         dataStatsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2256,17 +2197,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDataStats(com.google.cloud.automl.v1beta1.DataStats value) {
       if (dataStatsBuilder_ == null) {
-        if (dataStats_ != null) {
-          dataStats_ =
-            com.google.cloud.automl.v1beta1.DataStats.newBuilder(dataStats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          dataStats_ != null &&
+          dataStats_ != com.google.cloud.automl.v1beta1.DataStats.getDefaultInstance()) {
+          getDataStatsBuilder().mergeFrom(value);
         } else {
           dataStats_ = value;
         }
-        onChanged();
       } else {
         dataStatsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2280,14 +2222,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1beta1.DataStats data_stats = 4;</code>
      */
     public Builder clearDataStats() {
-      if (dataStatsBuilder_ == null) {
-        dataStats_ = null;
-        onChanged();
-      } else {
-        dataStats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      dataStats_ = null;
+      if (dataStatsBuilder_ != null) {
+        dataStatsBuilder_.dispose();
         dataStatsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2301,7 +2242,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.automl.v1beta1.DataStats data_stats = 4;</code>
      */
     public com.google.cloud.automl.v1beta1.DataStats.Builder getDataStatsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDataStatsFieldBuilder().getBuilder();
     }
@@ -2350,9 +2291,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn> topCorrelatedColumns_ =
       java.util.Collections.emptyList();
     private void ensureTopCorrelatedColumnsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         topCorrelatedColumns_ = new java.util.ArrayList<com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn>(topCorrelatedColumns_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2546,7 +2487,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTopCorrelatedColumns() {
       if (topCorrelatedColumnsBuilder_ == null) {
         topCorrelatedColumns_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         topCorrelatedColumnsBuilder_.clear();
@@ -2651,7 +2592,7 @@ private static final long serialVersionUID = 0L;
         topCorrelatedColumnsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn, com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumn.Builder, com.google.cloud.automl.v1beta1.ColumnSpec.CorrelatedColumnOrBuilder>(
                 topCorrelatedColumns_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         topCorrelatedColumns_ = null;
@@ -2715,11 +2656,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       etag_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2733,8 +2672,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEtag() {
-      
       etag_ = getDefaultInstance().getEtag();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2750,12 +2689,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEtagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       etag_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2792,7 +2729,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ColumnSpec(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

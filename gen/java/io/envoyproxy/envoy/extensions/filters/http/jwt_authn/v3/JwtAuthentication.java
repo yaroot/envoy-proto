@@ -70,102 +70,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JwtAuthentication(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              providers_ = com.google.protobuf.MapField.newMapField(
-                  ProvidersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider>
-            providers__ = input.readMessage(
-                ProvidersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            providers_.getMutableMap().put(
-                providers__.getKey(), providers__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              rules_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RequirementRule>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            rules_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RequirementRule.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.Builder subBuilder = null;
-            if (filterStateRules_ != null) {
-              subBuilder = filterStateRules_.toBuilder();
-            }
-            filterStateRules_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterStateRules_);
-              filterStateRules_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            bypassCorsPreflight_ = input.readBool();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              requirementMap_ = com.google.protobuf.MapField.newMapField(
-                  RequirementMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement>
-            requirementMap__ = input.readMessage(
-                RequirementMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            requirementMap_.getMutableMap().put(
-                requirementMap__.getKey(), requirementMap__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        rules_ = java.util.Collections.unmodifiableList(rules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.ConfigProto.internal_static_envoy_extensions_filters_http_jwt_authn_v3_JwtAuthentication_descriptor;
@@ -205,6 +109,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> providers_;
   private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider>
@@ -215,7 +120,6 @@ private static final long serialVersionUID = 0L;
     }
     return providers_;
   }
-
   public int getProvidersCount() {
     return internalGetProviders().getMap().size();
   }
@@ -242,7 +146,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsProviders(
       java.lang.String key) {
@@ -281,7 +184,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> getProvidersMap() {
     return internalGetProviders().getMap();
   }
@@ -309,10 +211,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
    */
   @java.lang.Override
-
-  public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrDefault(
+  public /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrDefault(
       java.lang.String key,
-      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider defaultValue) {
+      /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> map =
         internalGetProviders().getMap();
@@ -342,7 +245,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
    */
   @java.lang.Override
-
   public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -355,6 +257,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RULES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RequirementRule> rules_;
   /**
    * <pre>
@@ -578,11 +481,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRuleOrBuilder getFilterStateRulesOrBuilder() {
-    return getFilterStateRules();
+    return filterStateRules_ == null ? io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.getDefaultInstance() : filterStateRules_;
   }
 
   public static final int BYPASS_CORS_PREFLIGHT_FIELD_NUMBER = 4;
-  private boolean bypassCorsPreflight_;
+  private boolean bypassCorsPreflight_ = false;
   /**
    * <pre>
    * When set to true, bypass the `CORS preflight request
@@ -610,6 +513,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> requirementMap_;
   private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement>
@@ -620,7 +524,6 @@ private static final long serialVersionUID = 0L;
     }
     return requirementMap_;
   }
-
   public int getRequirementMapCount() {
     return internalGetRequirementMap().getMap().size();
   }
@@ -633,7 +536,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsRequirementMap(
       java.lang.String key) {
@@ -658,7 +560,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> getRequirementMapMap() {
     return internalGetRequirementMap().getMap();
   }
@@ -672,10 +573,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
    */
   @java.lang.Override
-
-  public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrDefault(
+  public /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrDefault(
       java.lang.String key,
-      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement defaultValue) {
+      /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> map =
         internalGetRequirementMap().getMap();
@@ -691,7 +593,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
    */
   @java.lang.Override
-
   public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -738,7 +639,7 @@ private static final long serialVersionUID = 0L;
         internalGetRequirementMap(),
         RequirementMapDefaultEntryHolder.defaultEntry,
         5);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -779,7 +680,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, requirementMap__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -807,7 +708,7 @@ private static final long serialVersionUID = 0L;
         != other.getBypassCorsPreflight()) return false;
     if (!internalGetRequirementMap().equals(
         other.internalGetRequirementMap())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -837,7 +738,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + REQUIREMENT_MAP_FIELD_NUMBER;
       hash = (53 * hash) + internalGetRequirementMap().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1019,38 +920,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableProviders().clear();
       if (rulesBuilder_ == null) {
         rules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        rules_ = null;
         rulesBuilder_.clear();
       }
-      if (filterStateRulesBuilder_ == null) {
-        filterStateRules_ = null;
-      } else {
-        filterStateRules_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      filterStateRules_ = null;
+      if (filterStateRulesBuilder_ != null) {
+        filterStateRulesBuilder_.dispose();
         filterStateRulesBuilder_ = null;
       }
       bypassCorsPreflight_ = false;
-
       internalGetMutableRequirementMap().clear();
       return this;
     }
@@ -1078,9 +973,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication result = new io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication(this);
-      int from_bitField0_ = bitField0_;
-      result.providers_ = internalGetProviders();
-      result.providers_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication result) {
       if (rulesBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0)) {
           rules_ = java.util.Collections.unmodifiableList(rules_);
@@ -1090,16 +989,26 @@ private static final long serialVersionUID = 0L;
       } else {
         result.rules_ = rulesBuilder_.build();
       }
-      if (filterStateRulesBuilder_ == null) {
-        result.filterStateRules_ = filterStateRules_;
-      } else {
-        result.filterStateRules_ = filterStateRulesBuilder_.build();
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.providers_ = internalGetProviders();
+        result.providers_.makeImmutable();
       }
-      result.bypassCorsPreflight_ = bypassCorsPreflight_;
-      result.requirementMap_ = internalGetRequirementMap();
-      result.requirementMap_.makeImmutable();
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.filterStateRules_ = filterStateRulesBuilder_ == null
+            ? filterStateRules_
+            : filterStateRulesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.bypassCorsPreflight_ = bypassCorsPreflight_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.requirementMap_ = internalGetRequirementMap();
+        result.requirementMap_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1148,6 +1057,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication.getDefaultInstance()) return this;
       internalGetMutableProviders().mergeFrom(
           other.internalGetProviders());
+      bitField0_ |= 0x00000001;
       if (rulesBuilder_ == null) {
         if (!other.rules_.isEmpty()) {
           if (rules_.isEmpty()) {
@@ -1182,7 +1092,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableRequirementMap().mergeFrom(
           other.internalGetRequirementMap());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1197,17 +1108,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider>
+              providers__ = input.readMessage(
+                  ProvidersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableProviders().getMutableMap().put(
+                  providers__.getKey(), providers__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RequirementRule m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.RequirementRule.parser(),
+                      extensionRegistry);
+              if (rulesBuilder_ == null) {
+                ensureRulesIsMutable();
+                rules_.add(m);
+              } else {
+                rulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFilterStateRulesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              bypassCorsPreflight_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement>
+              requirementMap__ = input.readMessage(
+                  RequirementMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRequirementMap().getMutableMap().put(
+                  requirementMap__.getKey(), requirementMap__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1215,7 +1182,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> providers_;
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider>
-    internalGetProviders() {
+        internalGetProviders() {
       if (providers_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ProvidersDefaultEntryHolder.defaultEntry);
@@ -1223,8 +1190,7 @@ private static final long serialVersionUID = 0L;
       return providers_;
     }
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider>
-    internalGetMutableProviders() {
-      onChanged();;
+        internalGetMutableProviders() {
       if (providers_ == null) {
         providers_ = com.google.protobuf.MapField.newMapField(
             ProvidersDefaultEntryHolder.defaultEntry);
@@ -1232,9 +1198,10 @@ private static final long serialVersionUID = 0L;
       if (!providers_.isMutable()) {
         providers_ = providers_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return providers_;
     }
-
     public int getProvidersCount() {
       return internalGetProviders().getMap().size();
     }
@@ -1261,7 +1228,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsProviders(
         java.lang.String key) {
@@ -1300,7 +1266,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> getProvidersMap() {
       return internalGetProviders().getMap();
     }
@@ -1328,10 +1293,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
      */
     @java.lang.Override
-
-    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrDefault(
+    public /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrDefault(
         java.lang.String key,
-        io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider defaultValue) {
+        /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> map =
           internalGetProviders().getMap();
@@ -1361,7 +1327,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
      */
     @java.lang.Override
-
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider getProvidersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1372,8 +1337,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearProviders() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableProviders().getMutableMap()
           .clear();
       return this;
@@ -1401,7 +1366,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
      */
-
     public Builder removeProviders(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1414,7 +1378,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider>
-    getMutableProviders() {
+        getMutableProviders() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableProviders().getMutableMap();
     }
     /**
@@ -1444,12 +1409,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableProviders().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1475,11 +1438,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtProvider&gt; providers = 1;</code>
      */
-
     public Builder putAllProviders(
         java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtProvider> values) {
       internalGetMutableProviders().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
@@ -2242,7 +2205,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterStateRules field is set.
      */
     public boolean hasFilterStateRules() {
-      return filterStateRulesBuilder_ != null || filterStateRules_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2278,11 +2241,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterStateRules_ = value;
-        onChanged();
       } else {
         filterStateRulesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2299,11 +2262,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.Builder builderForValue) {
       if (filterStateRulesBuilder_ == null) {
         filterStateRules_ = builderForValue.build();
-        onChanged();
       } else {
         filterStateRulesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2318,17 +2281,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterStateRules(io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule value) {
       if (filterStateRulesBuilder_ == null) {
-        if (filterStateRules_ != null) {
-          filterStateRules_ =
-            io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.newBuilder(filterStateRules_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          filterStateRules_ != null &&
+          filterStateRules_ != io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.getDefaultInstance()) {
+          getFilterStateRulesBuilder().mergeFrom(value);
         } else {
           filterStateRules_ = value;
         }
-        onChanged();
       } else {
         filterStateRulesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2342,14 +2306,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule filter_state_rules = 3;</code>
      */
     public Builder clearFilterStateRules() {
-      if (filterStateRulesBuilder_ == null) {
-        filterStateRules_ = null;
-        onChanged();
-      } else {
-        filterStateRules_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      filterStateRules_ = null;
+      if (filterStateRulesBuilder_ != null) {
+        filterStateRulesBuilder_.dispose();
         filterStateRulesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2363,7 +2326,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule filter_state_rules = 3;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.FilterStateRule.Builder getFilterStateRulesBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFilterStateRulesFieldBuilder().getBuilder();
     }
@@ -2438,6 +2401,7 @@ private static final long serialVersionUID = 0L;
     public Builder setBypassCorsPreflight(boolean value) {
       
       bypassCorsPreflight_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2452,7 +2416,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBypassCorsPreflight() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       bypassCorsPreflight_ = false;
       onChanged();
       return this;
@@ -2461,7 +2425,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> requirementMap_;
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement>
-    internalGetRequirementMap() {
+        internalGetRequirementMap() {
       if (requirementMap_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RequirementMapDefaultEntryHolder.defaultEntry);
@@ -2469,8 +2433,7 @@ private static final long serialVersionUID = 0L;
       return requirementMap_;
     }
     private com.google.protobuf.MapField<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement>
-    internalGetMutableRequirementMap() {
-      onChanged();;
+        internalGetMutableRequirementMap() {
       if (requirementMap_ == null) {
         requirementMap_ = com.google.protobuf.MapField.newMapField(
             RequirementMapDefaultEntryHolder.defaultEntry);
@@ -2478,9 +2441,10 @@ private static final long serialVersionUID = 0L;
       if (!requirementMap_.isMutable()) {
         requirementMap_ = requirementMap_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return requirementMap_;
     }
-
     public int getRequirementMapCount() {
       return internalGetRequirementMap().getMap().size();
     }
@@ -2493,7 +2457,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsRequirementMap(
         java.lang.String key) {
@@ -2518,7 +2481,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> getRequirementMapMap() {
       return internalGetRequirementMap().getMap();
     }
@@ -2532,10 +2494,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
      */
     @java.lang.Override
-
-    public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrDefault(
+    public /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrDefault(
         java.lang.String key,
-        io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement defaultValue) {
+        /* nullable */
+io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> map =
           internalGetRequirementMap().getMap();
@@ -2551,7 +2514,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
      */
     @java.lang.Override
-
     public io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement getRequirementMapOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2562,8 +2524,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearRequirementMap() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableRequirementMap().getMutableMap()
           .clear();
       return this;
@@ -2577,7 +2539,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
      */
-
     public Builder removeRequirementMap(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2590,7 +2551,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement>
-    getMutableRequirementMap() {
+        getMutableRequirementMap() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableRequirementMap().getMutableMap();
     }
     /**
@@ -2606,12 +2568,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableRequirementMap().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -2623,11 +2583,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement&gt; requirement_map = 5;</code>
      */
-
     public Builder putAllRequirementMap(
         java.util.Map<java.lang.String, io.envoyproxy.envoy.extensions.filters.http.jwt_authn.v3.JwtRequirement> values) {
       internalGetMutableRequirementMap().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -2663,7 +2623,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JwtAuthentication(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

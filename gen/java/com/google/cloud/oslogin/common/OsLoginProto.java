@@ -395,108 +395,6 @@ public final class OsLoginProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PosixAccount(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              primary_ = input.readBool();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              username_ = s;
-              break;
-            }
-            case 24: {
-
-              uid_ = input.readInt64();
-              break;
-            }
-            case 32: {
-
-              gid_ = input.readInt64();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              homeDirectory_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              shell_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gecos_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              systemId_ = s;
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              accountId_ = s;
-              break;
-            }
-            case 80: {
-              int rawValue = input.readEnum();
-
-              operatingSystemType_ = rawValue;
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.oslogin.common.OsLoginProto.internal_static_google_cloud_oslogin_common_PosixAccount_descriptor;
@@ -511,7 +409,7 @@ public final class OsLoginProto {
     }
 
     public static final int PRIMARY_FIELD_NUMBER = 1;
-    private boolean primary_;
+    private boolean primary_ = false;
     /**
      * <pre>
      * Only one POSIX account can be marked as primary.
@@ -526,7 +424,8 @@ public final class OsLoginProto {
     }
 
     public static final int USERNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object username_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object username_ = "";
     /**
      * <pre>
      * The username of the POSIX account.
@@ -572,7 +471,7 @@ public final class OsLoginProto {
     }
 
     public static final int UID_FIELD_NUMBER = 3;
-    private long uid_;
+    private long uid_ = 0L;
     /**
      * <pre>
      * The user ID.
@@ -587,7 +486,7 @@ public final class OsLoginProto {
     }
 
     public static final int GID_FIELD_NUMBER = 4;
-    private long gid_;
+    private long gid_ = 0L;
     /**
      * <pre>
      * The default group ID.
@@ -602,7 +501,8 @@ public final class OsLoginProto {
     }
 
     public static final int HOME_DIRECTORY_FIELD_NUMBER = 5;
-    private volatile java.lang.Object homeDirectory_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object homeDirectory_ = "";
     /**
      * <pre>
      * The path to the home directory for this account.
@@ -648,7 +548,8 @@ public final class OsLoginProto {
     }
 
     public static final int SHELL_FIELD_NUMBER = 6;
-    private volatile java.lang.Object shell_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object shell_ = "";
     /**
      * <pre>
      * The path to the logic shell for this account.
@@ -694,7 +595,8 @@ public final class OsLoginProto {
     }
 
     public static final int GECOS_FIELD_NUMBER = 7;
-    private volatile java.lang.Object gecos_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object gecos_ = "";
     /**
      * <pre>
      * The GECOS (user information) entry for this account.
@@ -740,7 +642,8 @@ public final class OsLoginProto {
     }
 
     public static final int SYSTEM_ID_FIELD_NUMBER = 8;
-    private volatile java.lang.Object systemId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object systemId_ = "";
     /**
      * <pre>
      * System identifier for which account the username or uid applies to.
@@ -788,7 +691,8 @@ public final class OsLoginProto {
     }
 
     public static final int ACCOUNT_ID_FIELD_NUMBER = 9;
-    private volatile java.lang.Object accountId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object accountId_ = "";
     /**
      * <pre>
      * Output only. A POSIX account identifier.
@@ -834,7 +738,7 @@ public final class OsLoginProto {
     }
 
     public static final int OPERATING_SYSTEM_TYPE_FIELD_NUMBER = 10;
-    private int operatingSystemType_;
+    private int operatingSystemType_ = 0;
     /**
      * <pre>
      * The operating system type where this account applies.
@@ -855,13 +759,13 @@ public final class OsLoginProto {
      * @return The operatingSystemType.
      */
     @java.lang.Override public com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType getOperatingSystemType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType result = com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType.valueOf(operatingSystemType_);
+      com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType result = com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType.forNumber(operatingSystemType_);
       return result == null ? com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType.UNRECOGNIZED : result;
     }
 
     public static final int NAME_FIELD_NUMBER = 11;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Output only. The canonical resource name.
@@ -953,7 +857,7 @@ public final class OsLoginProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 11, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -999,7 +903,7 @@ public final class OsLoginProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(11, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1035,7 +939,7 @@ public final class OsLoginProto {
       if (operatingSystemType_ != other.operatingSystemType_) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1071,7 +975,7 @@ public final class OsLoginProto {
       hash = (53 * hash) + operatingSystemType_;
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1192,44 +1096,29 @@ public final class OsLoginProto {
 
       // Construct using com.google.cloud.oslogin.common.OsLoginProto.PosixAccount.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         primary_ = false;
-
         username_ = "";
-
         uid_ = 0L;
-
         gid_ = 0L;
-
         homeDirectory_ = "";
-
         shell_ = "";
-
         gecos_ = "";
-
         systemId_ = "";
-
         accountId_ = "";
-
         operatingSystemType_ = 0;
-
         name_ = "";
-
         return this;
       }
 
@@ -1256,19 +1145,46 @@ public final class OsLoginProto {
       @java.lang.Override
       public com.google.cloud.oslogin.common.OsLoginProto.PosixAccount buildPartial() {
         com.google.cloud.oslogin.common.OsLoginProto.PosixAccount result = new com.google.cloud.oslogin.common.OsLoginProto.PosixAccount(this);
-        result.primary_ = primary_;
-        result.username_ = username_;
-        result.uid_ = uid_;
-        result.gid_ = gid_;
-        result.homeDirectory_ = homeDirectory_;
-        result.shell_ = shell_;
-        result.gecos_ = gecos_;
-        result.systemId_ = systemId_;
-        result.accountId_ = accountId_;
-        result.operatingSystemType_ = operatingSystemType_;
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.oslogin.common.OsLoginProto.PosixAccount result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.primary_ = primary_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.username_ = username_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.uid_ = uid_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.gid_ = gid_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.homeDirectory_ = homeDirectory_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.shell_ = shell_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.gecos_ = gecos_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.systemId_ = systemId_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.accountId_ = accountId_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.operatingSystemType_ = operatingSystemType_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -1320,6 +1236,7 @@ public final class OsLoginProto {
         }
         if (!other.getUsername().isEmpty()) {
           username_ = other.username_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.getUid() != 0L) {
@@ -1330,22 +1247,27 @@ public final class OsLoginProto {
         }
         if (!other.getHomeDirectory().isEmpty()) {
           homeDirectory_ = other.homeDirectory_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getShell().isEmpty()) {
           shell_ = other.shell_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getGecos().isEmpty()) {
           gecos_ = other.gecos_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getSystemId().isEmpty()) {
           systemId_ = other.systemId_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (!other.getAccountId().isEmpty()) {
           accountId_ = other.accountId_;
+          bitField0_ |= 0x00000100;
           onChanged();
         }
         if (other.operatingSystemType_ != 0) {
@@ -1353,9 +1275,10 @@ public final class OsLoginProto {
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000400;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1370,19 +1293,88 @@ public final class OsLoginProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.oslogin.common.OsLoginProto.PosixAccount parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                primary_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                username_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                uid_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                gid_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 42: {
+                homeDirectory_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                shell_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                gecos_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                systemId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                accountId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 80: {
+                operatingSystemType_ = input.readEnum();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              case 90: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.oslogin.common.OsLoginProto.PosixAccount) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private boolean primary_ ;
       /**
@@ -1409,6 +1401,7 @@ public final class OsLoginProto {
       public Builder setPrimary(boolean value) {
         
         primary_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1421,7 +1414,7 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearPrimary() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         primary_ = false;
         onChanged();
         return this;
@@ -1480,11 +1473,9 @@ public final class OsLoginProto {
        */
       public Builder setUsername(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         username_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1497,8 +1488,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearUsername() {
-        
         username_ = getDefaultInstance().getUsername();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1513,12 +1504,10 @@ public final class OsLoginProto {
        */
       public Builder setUsernameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         username_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1548,6 +1537,7 @@ public final class OsLoginProto {
       public Builder setUid(long value) {
         
         uid_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1560,7 +1550,7 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearUid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         uid_ = 0L;
         onChanged();
         return this;
@@ -1591,6 +1581,7 @@ public final class OsLoginProto {
       public Builder setGid(long value) {
         
         gid_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1603,7 +1594,7 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearGid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         gid_ = 0L;
         onChanged();
         return this;
@@ -1662,11 +1653,9 @@ public final class OsLoginProto {
        */
       public Builder setHomeDirectory(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         homeDirectory_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1679,8 +1668,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearHomeDirectory() {
-        
         homeDirectory_ = getDefaultInstance().getHomeDirectory();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1695,12 +1684,10 @@ public final class OsLoginProto {
        */
       public Builder setHomeDirectoryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         homeDirectory_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1758,11 +1745,9 @@ public final class OsLoginProto {
        */
       public Builder setShell(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         shell_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1775,8 +1760,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearShell() {
-        
         shell_ = getDefaultInstance().getShell();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -1791,12 +1776,10 @@ public final class OsLoginProto {
        */
       public Builder setShellBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         shell_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1854,11 +1837,9 @@ public final class OsLoginProto {
        */
       public Builder setGecos(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         gecos_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1871,8 +1852,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearGecos() {
-        
         gecos_ = getDefaultInstance().getGecos();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -1887,12 +1868,10 @@ public final class OsLoginProto {
        */
       public Builder setGecosBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         gecos_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1953,11 +1932,9 @@ public final class OsLoginProto {
        */
       public Builder setSystemId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         systemId_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1971,8 +1948,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearSystemId() {
-        
         systemId_ = getDefaultInstance().getSystemId();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -1988,12 +1965,10 @@ public final class OsLoginProto {
        */
       public Builder setSystemIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         systemId_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -2051,11 +2026,9 @@ public final class OsLoginProto {
        */
       public Builder setAccountId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         accountId_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -2068,8 +2041,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearAccountId() {
-        
         accountId_ = getDefaultInstance().getAccountId();
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
@@ -2084,12 +2057,10 @@ public final class OsLoginProto {
        */
       public Builder setAccountIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         accountId_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -2116,8 +2087,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder setOperatingSystemTypeValue(int value) {
-        
         operatingSystemType_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -2131,8 +2102,7 @@ public final class OsLoginProto {
        */
       @java.lang.Override
       public com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType getOperatingSystemType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType result = com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType.valueOf(operatingSystemType_);
+        com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType result = com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType.forNumber(operatingSystemType_);
         return result == null ? com.google.cloud.oslogin.common.OsLoginProto.OperatingSystemType.UNRECOGNIZED : result;
       }
       /**
@@ -2148,7 +2118,7 @@ public final class OsLoginProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000200;
         operatingSystemType_ = value.getNumber();
         onChanged();
         return this;
@@ -2162,7 +2132,7 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearOperatingSystemType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000200);
         operatingSystemType_ = 0;
         onChanged();
         return this;
@@ -2221,11 +2191,9 @@ public final class OsLoginProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -2238,8 +2206,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
       }
@@ -2254,12 +2222,10 @@ public final class OsLoginProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -2296,7 +2262,18 @@ public final class OsLoginProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PosixAccount(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2428,68 +2405,6 @@ public final class OsLoginProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SshPublicKey(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              key_ = s;
-              break;
-            }
-            case 16: {
-
-              expirationTimeUsec_ = input.readInt64();
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              fingerprint_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.oslogin.common.OsLoginProto.internal_static_google_cloud_oslogin_common_SshPublicKey_descriptor;
@@ -2504,7 +2419,8 @@ public final class OsLoginProto {
     }
 
     public static final int KEY_FIELD_NUMBER = 1;
-    private volatile java.lang.Object key_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object key_ = "";
     /**
      * <pre>
      * Public key text in SSH format, defined by
@@ -2554,7 +2470,7 @@ public final class OsLoginProto {
     }
 
     public static final int EXPIRATION_TIME_USEC_FIELD_NUMBER = 2;
-    private long expirationTimeUsec_;
+    private long expirationTimeUsec_ = 0L;
     /**
      * <pre>
      * An expiration time in microseconds since epoch.
@@ -2569,7 +2485,8 @@ public final class OsLoginProto {
     }
 
     public static final int FINGERPRINT_FIELD_NUMBER = 3;
-    private volatile java.lang.Object fingerprint_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object fingerprint_ = "";
     /**
      * <pre>
      * Output only. The SHA-256 fingerprint of the SSH public key.
@@ -2615,7 +2532,8 @@ public final class OsLoginProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 4;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Output only. The canonical resource name.
@@ -2686,7 +2604,7 @@ public final class OsLoginProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, name_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2708,7 +2626,7 @@ public final class OsLoginProto {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, name_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2731,7 +2649,7 @@ public final class OsLoginProto {
           .equals(other.getFingerprint())) return false;
       if (!getName()
           .equals(other.getName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2751,7 +2669,7 @@ public final class OsLoginProto {
       hash = (53 * hash) + getFingerprint().hashCode();
       hash = (37 * hash) + NAME_FIELD_NUMBER;
       hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2872,30 +2790,22 @@ public final class OsLoginProto {
 
       // Construct using com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         key_ = "";
-
         expirationTimeUsec_ = 0L;
-
         fingerprint_ = "";
-
         name_ = "";
-
         return this;
       }
 
@@ -2922,12 +2832,25 @@ public final class OsLoginProto {
       @java.lang.Override
       public com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey buildPartial() {
         com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey result = new com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey(this);
-        result.key_ = key_;
-        result.expirationTimeUsec_ = expirationTimeUsec_;
-        result.fingerprint_ = fingerprint_;
-        result.name_ = name_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.key_ = key_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.expirationTimeUsec_ = expirationTimeUsec_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.fingerprint_ = fingerprint_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.name_ = name_;
+        }
       }
 
       @java.lang.Override
@@ -2976,6 +2899,7 @@ public final class OsLoginProto {
         if (other == com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey.getDefaultInstance()) return this;
         if (!other.getKey().isEmpty()) {
           key_ = other.key_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getExpirationTimeUsec() != 0L) {
@@ -2983,13 +2907,15 @@ public final class OsLoginProto {
         }
         if (!other.getFingerprint().isEmpty()) {
           fingerprint_ = other.fingerprint_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3004,19 +2930,53 @@ public final class OsLoginProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                key_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                expirationTimeUsec_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                fingerprint_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object key_ = "";
       /**
@@ -3077,11 +3037,9 @@ public final class OsLoginProto {
        */
       public Builder setKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         key_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3096,8 +3054,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearKey() {
-        
         key_ = getDefaultInstance().getKey();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3114,12 +3072,10 @@ public final class OsLoginProto {
        */
       public Builder setKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         key_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3149,6 +3105,7 @@ public final class OsLoginProto {
       public Builder setExpirationTimeUsec(long value) {
         
         expirationTimeUsec_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3161,7 +3118,7 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearExpirationTimeUsec() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         expirationTimeUsec_ = 0L;
         onChanged();
         return this;
@@ -3220,11 +3177,9 @@ public final class OsLoginProto {
        */
       public Builder setFingerprint(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         fingerprint_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3237,8 +3192,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearFingerprint() {
-        
         fingerprint_ = getDefaultInstance().getFingerprint();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -3253,12 +3208,10 @@ public final class OsLoginProto {
        */
       public Builder setFingerprintBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         fingerprint_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3316,11 +3269,9 @@ public final class OsLoginProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3333,8 +3284,8 @@ public final class OsLoginProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -3349,12 +3300,10 @@ public final class OsLoginProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -3391,7 +3340,18 @@ public final class OsLoginProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SshPublicKey(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

@@ -21,4 +21,49 @@ public interface AdditionalAddressOrBuilder extends
    * <code>.envoy.config.core.v3.Address address = 1;</code>
    */
   io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder();
+
+  /**
+   * <pre>
+   * Additional socket options that may not be present in Envoy source code or
+   * precompiled binaries. If specified, this will override the
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+   * in the listener. If specified with no
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+   * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+   * it means no socket option will apply.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+   * @return Whether the socketOptions field is set.
+   */
+  boolean hasSocketOptions();
+  /**
+   * <pre>
+   * Additional socket options that may not be present in Envoy source code or
+   * precompiled binaries. If specified, this will override the
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+   * in the listener. If specified with no
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+   * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+   * it means no socket option will apply.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+   * @return The socketOptions.
+   */
+  io.envoyproxy.envoy.config.core.v3.SocketOptionsOverride getSocketOptions();
+  /**
+   * <pre>
+   * Additional socket options that may not be present in Envoy source code or
+   * precompiled binaries. If specified, this will override the
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.listener.v3.Listener.socket_options&gt;`
+   * in the listener. If specified with no
+   * :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`
+   * or an empty list of :ref:`socket_options &lt;envoy_v3_api_field_config.core.v3.SocketOptionsOverride.socket_options&gt;`,
+   * it means no socket option will apply.
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.SocketOptionsOverride socket_options = 2;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.SocketOptionsOverrideOrBuilder getSocketOptionsOrBuilder();
 }

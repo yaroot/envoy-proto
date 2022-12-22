@@ -15,7 +15,7 @@ from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior_
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#google/cloud/retail/v2/common.proto\x12\x16google.cloud.retail.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"/\n\x08\x41udience\x12\x0f\n\x07genders\x18\x01 \x03(\t\x12\x12\n\nage_groups\x18\x02 \x03(\t\"3\n\tColorInfo\x12\x16\n\x0e\x63olor_families\x18\x01 \x03(\t\x12\x0e\n\x06\x63olors\x18\x02 \x03(\t\"\x86\x01\n\x0f\x43ustomAttribute\x12\x0c\n\x04text\x18\x01 \x03(\t\x12\x0f\n\x07numbers\x18\x02 \x03(\x01\x12\x1b\n\nsearchable\x18\x03 \x01(\x08\x42\x02\x18\x01H\x00\x88\x01\x01\x12\x1a\n\tindexable\x18\x04 \x01(\x08\x42\x02\x18\x01H\x01\x88\x01\x01\x42\r\n\x0b_searchableB\x0c\n\n_indexable\"2\n\x0f\x46ulfillmentInfo\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x11\n\tplace_ids\x18\x02 \x03(\t\"8\n\x05Image\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\"x\n\x08Interval\x12\x11\n\x07minimum\x18\x01 \x01(\x01H\x00\x12\x1b\n\x11\x65xclusive_minimum\x18\x02 \x01(\x01H\x00\x12\x11\n\x07maximum\x18\x03 \x01(\x01H\x01\x12\x1b\n\x11\x65xclusive_maximum\x18\x04 \x01(\x01H\x01\x42\x05\n\x03minB\x05\n\x03max\"\x89\x03\n\tPriceInfo\x12\x15\n\rcurrency_code\x18\x01 \x01(\t\x12\r\n\x05price\x18\x02 \x01(\x02\x12\x16\n\x0eoriginal_price\x18\x03 \x01(\x02\x12\x0c\n\x04\x63ost\x18\x04 \x01(\x02\x12\x38\n\x14price_effective_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x11price_expire_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x46\n\x0bprice_range\x18\x07 \x01(\x0b\x32,.google.cloud.retail.v2.PriceInfo.PriceRangeB\x03\xe0\x41\x03\x1aw\n\nPriceRange\x12/\n\x05price\x18\x01 \x01(\x0b\x32 .google.cloud.retail.v2.Interval\x12\x38\n\x0eoriginal_price\x18\x02 \x01(\x0b\x32 .google.cloud.retail.v2.Interval\"P\n\x06Rating\x12\x14\n\x0crating_count\x18\x01 \x01(\x05\x12\x16\n\x0e\x61verage_rating\x18\x02 \x01(\x02\x12\x18\n\x10rating_histogram\x18\x03 \x03(\x05\"`\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x12\n\nuser_agent\x18\x03 \x01(\t\x12\x1b\n\x13\x64irect_user_request\x18\x04 \x01(\x08\"\xa1\x02\n\x0eLocalInventory\x12\x10\n\x08place_id\x18\x01 \x01(\t\x12\x35\n\nprice_info\x18\x02 \x01(\x0b\x32!.google.cloud.retail.v2.PriceInfo\x12J\n\nattributes\x18\x03 \x03(\x0b\x32\x36.google.cloud.retail.v2.LocalInventory.AttributesEntry\x12\x1e\n\x11\x66ulfillment_types\x18\x04 \x03(\tB\x03\xe0\x41\x04\x1aZ\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.google.cloud.retail.v2.CustomAttribute:\x02\x38\x01\x42\xc0\x01\n\x1a\x63om.google.cloud.retail.v2B\x0b\x43ommonProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#google/cloud/retail/v2/common.proto\x12\x16google.cloud.retail.v2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xb0\x02\n\tCondition\x12@\n\x0bquery_terms\x18\x01 \x03(\x0b\x32+.google.cloud.retail.v2.Condition.QueryTerm\x12\x46\n\x11\x61\x63tive_time_range\x18\x03 \x03(\x0b\x32+.google.cloud.retail.v2.Condition.TimeRange\x1a.\n\tQueryTerm\x12\r\n\x05value\x18\x01 \x01(\t\x12\x12\n\nfull_match\x18\x02 \x01(\x08\x1ai\n\tTimeRange\x12.\n\nstart_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xfd\x08\n\x04Rule\x12@\n\x0c\x62oost_action\x18\x02 \x01(\x0b\x32(.google.cloud.retail.v2.Rule.BoostActionH\x00\x12\x46\n\x0fredirect_action\x18\x03 \x01(\x0b\x32+.google.cloud.retail.v2.Rule.RedirectActionH\x00\x12S\n\x16oneway_synonyms_action\x18\x06 \x01(\x0b\x32\x31.google.cloud.retail.v2.Rule.OnewaySynonymsActionH\x00\x12T\n\x17\x64o_not_associate_action\x18\x07 \x01(\x0b\x32\x31.google.cloud.retail.v2.Rule.DoNotAssociateActionH\x00\x12L\n\x12replacement_action\x18\x08 \x01(\x0b\x32..google.cloud.retail.v2.Rule.ReplacementActionH\x00\x12\x42\n\rignore_action\x18\t \x01(\x0b\x32).google.cloud.retail.v2.Rule.IgnoreActionH\x00\x12\x42\n\rfilter_action\x18\n \x01(\x0b\x32).google.cloud.retail.v2.Rule.FilterActionH\x00\x12S\n\x16twoway_synonyms_action\x18\x0b \x01(\x0b\x32\x31.google.cloud.retail.v2.Rule.TwowaySynonymsActionH\x00\x12\x39\n\tcondition\x18\x01 \x01(\x0b\x32!.google.cloud.retail.v2.ConditionB\x03\xe0\x41\x02\x1a\x35\n\x0b\x42oostAction\x12\r\n\x05\x62oost\x18\x01 \x01(\x02\x12\x17\n\x0fproducts_filter\x18\x02 \x01(\t\x1a\x1e\n\x0c\x46ilterAction\x12\x0e\n\x06\x66ilter\x18\x01 \x01(\t\x1a&\n\x0eRedirectAction\x12\x14\n\x0credirect_uri\x18\x01 \x01(\t\x1a(\n\x14TwowaySynonymsAction\x12\x10\n\x08synonyms\x18\x01 \x03(\t\x1aS\n\x14OnewaySynonymsAction\x12\x13\n\x0bquery_terms\x18\x03 \x03(\t\x12\x10\n\x08synonyms\x18\x04 \x03(\t\x12\x14\n\x0coneway_terms\x18\x02 \x03(\t\x1aZ\n\x14\x44oNotAssociateAction\x12\x13\n\x0bquery_terms\x18\x02 \x03(\t\x12\x1e\n\x16\x64o_not_associate_terms\x18\x03 \x03(\t\x12\r\n\x05terms\x18\x01 \x03(\t\x1aP\n\x11ReplacementAction\x12\x13\n\x0bquery_terms\x18\x02 \x03(\t\x12\x18\n\x10replacement_term\x18\x03 \x01(\t\x12\x0c\n\x04term\x18\x01 \x01(\t\x1a$\n\x0cIgnoreAction\x12\x14\n\x0cignore_terms\x18\x01 \x03(\tB\x08\n\x06\x61\x63tion\"/\n\x08\x41udience\x12\x0f\n\x07genders\x18\x01 \x03(\t\x12\x12\n\nage_groups\x18\x02 \x03(\t\"3\n\tColorInfo\x12\x16\n\x0e\x63olor_families\x18\x01 \x03(\t\x12\x0e\n\x06\x63olors\x18\x02 \x03(\t\"\x86\x01\n\x0f\x43ustomAttribute\x12\x0c\n\x04text\x18\x01 \x03(\t\x12\x0f\n\x07numbers\x18\x02 \x03(\x01\x12\x1b\n\nsearchable\x18\x03 \x01(\x08\x42\x02\x18\x01H\x00\x88\x01\x01\x12\x1a\n\tindexable\x18\x04 \x01(\x08\x42\x02\x18\x01H\x01\x88\x01\x01\x42\r\n\x0b_searchableB\x0c\n\n_indexable\"2\n\x0f\x46ulfillmentInfo\x12\x0c\n\x04type\x18\x01 \x01(\t\x12\x11\n\tplace_ids\x18\x02 \x03(\t\"8\n\x05Image\x12\x10\n\x03uri\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x0e\n\x06height\x18\x02 \x01(\x05\x12\r\n\x05width\x18\x03 \x01(\x05\"x\n\x08Interval\x12\x11\n\x07minimum\x18\x01 \x01(\x01H\x00\x12\x1b\n\x11\x65xclusive_minimum\x18\x02 \x01(\x01H\x00\x12\x11\n\x07maximum\x18\x03 \x01(\x01H\x01\x12\x1b\n\x11\x65xclusive_maximum\x18\x04 \x01(\x01H\x01\x42\x05\n\x03minB\x05\n\x03max\"\x89\x03\n\tPriceInfo\x12\x15\n\rcurrency_code\x18\x01 \x01(\t\x12\r\n\x05price\x18\x02 \x01(\x02\x12\x16\n\x0eoriginal_price\x18\x03 \x01(\x02\x12\x0c\n\x04\x63ost\x18\x04 \x01(\x02\x12\x38\n\x14price_effective_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x35\n\x11price_expire_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x46\n\x0bprice_range\x18\x07 \x01(\x0b\x32,.google.cloud.retail.v2.PriceInfo.PriceRangeB\x03\xe0\x41\x03\x1aw\n\nPriceRange\x12/\n\x05price\x18\x01 \x01(\x0b\x32 .google.cloud.retail.v2.Interval\x12\x38\n\x0eoriginal_price\x18\x02 \x01(\x0b\x32 .google.cloud.retail.v2.Interval\"P\n\x06Rating\x12\x14\n\x0crating_count\x18\x01 \x01(\x05\x12\x16\n\x0e\x61verage_rating\x18\x02 \x01(\x02\x12\x18\n\x10rating_histogram\x18\x03 \x03(\x05\"`\n\x08UserInfo\x12\x0f\n\x07user_id\x18\x01 \x01(\t\x12\x12\n\nip_address\x18\x02 \x01(\t\x12\x12\n\nuser_agent\x18\x03 \x01(\t\x12\x1b\n\x13\x64irect_user_request\x18\x04 \x01(\x08\"\xa1\x02\n\x0eLocalInventory\x12\x10\n\x08place_id\x18\x01 \x01(\t\x12\x35\n\nprice_info\x18\x02 \x01(\x0b\x32!.google.cloud.retail.v2.PriceInfo\x12J\n\nattributes\x18\x03 \x03(\x0b\x32\x36.google.cloud.retail.v2.LocalInventory.AttributesEntry\x12\x1e\n\x11\x66ulfillment_types\x18\x04 \x03(\tB\x03\xe0\x41\x04\x1aZ\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x36\n\x05value\x18\x02 \x01(\x0b\x32\'.google.cloud.retail.v2.CustomAttribute:\x02\x38\x01*\x86\x01\n\x14\x41ttributeConfigLevel\x12&\n\"ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED\x10\x00\x12\"\n\x1ePRODUCT_LEVEL_ATTRIBUTE_CONFIG\x10\x01\x12\"\n\x1e\x43\x41TALOG_LEVEL_ATTRIBUTE_CONFIG\x10\x02*i\n\x0cSolutionType\x12\x1d\n\x19SOLUTION_TYPE_UNSPECIFIED\x10\x00\x12 \n\x1cSOLUTION_TYPE_RECOMMENDATION\x10\x01\x12\x18\n\x14SOLUTION_TYPE_SEARCH\x10\x02*\x8b\x01\n\x15SearchSolutionUseCase\x12(\n$SEARCH_SOLUTION_USE_CASE_UNSPECIFIED\x10\x00\x12#\n\x1fSEARCH_SOLUTION_USE_CASE_SEARCH\x10\x01\x12#\n\x1fSEARCH_SOLUTION_USE_CASE_BROWSE\x10\x02\x42\xc0\x01\n\x1a\x63om.google.cloud.retail.v2B\x0b\x43ommonProtoP\x01Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\xa2\x02\x06RETAIL\xaa\x02\x16Google.Cloud.Retail.V2\xca\x02\x16Google\\Cloud\\Retail\\V2\xea\x02\x19Google::Cloud::Retail::V2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.retail.v2.common_pb2', globals())
@@ -23,6 +23,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.google.cloud.retail.v2B\013CommonProtoP\001Z<google.golang.org/genproto/googleapis/cloud/retail/v2;retail\242\002\006RETAIL\252\002\026Google.Cloud.Retail.V2\312\002\026Google\\Cloud\\Retail\\V2\352\002\031Google::Cloud::Retail::V2'
+  _RULE.fields_by_name['condition']._options = None
+  _RULE.fields_by_name['condition']._serialized_options = b'\340A\002'
   _CUSTOMATTRIBUTE.fields_by_name['searchable']._options = None
   _CUSTOMATTRIBUTE.fields_by_name['searchable']._serialized_options = b'\030\001'
   _CUSTOMATTRIBUTE.fields_by_name['indexable']._options = None
@@ -35,28 +37,58 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LOCALINVENTORY_ATTRIBUTESENTRY._serialized_options = b'8\001'
   _LOCALINVENTORY.fields_by_name['fulfillment_types']._options = None
   _LOCALINVENTORY.fields_by_name['fulfillment_types']._serialized_options = b'\340A\004'
-  _AUDIENCE._serialized_start=129
-  _AUDIENCE._serialized_end=176
-  _COLORINFO._serialized_start=178
-  _COLORINFO._serialized_end=229
-  _CUSTOMATTRIBUTE._serialized_start=232
-  _CUSTOMATTRIBUTE._serialized_end=366
-  _FULFILLMENTINFO._serialized_start=368
-  _FULFILLMENTINFO._serialized_end=418
-  _IMAGE._serialized_start=420
-  _IMAGE._serialized_end=476
-  _INTERVAL._serialized_start=478
-  _INTERVAL._serialized_end=598
-  _PRICEINFO._serialized_start=601
-  _PRICEINFO._serialized_end=994
-  _PRICEINFO_PRICERANGE._serialized_start=875
-  _PRICEINFO_PRICERANGE._serialized_end=994
-  _RATING._serialized_start=996
-  _RATING._serialized_end=1076
-  _USERINFO._serialized_start=1078
-  _USERINFO._serialized_end=1174
-  _LOCALINVENTORY._serialized_start=1177
-  _LOCALINVENTORY._serialized_end=1466
-  _LOCALINVENTORY_ATTRIBUTESENTRY._serialized_start=1376
-  _LOCALINVENTORY_ATTRIBUTESENTRY._serialized_end=1466
+  _ATTRIBUTECONFIGLEVEL._serialized_start=2928
+  _ATTRIBUTECONFIGLEVEL._serialized_end=3062
+  _SOLUTIONTYPE._serialized_start=3064
+  _SOLUTIONTYPE._serialized_end=3169
+  _SEARCHSOLUTIONUSECASE._serialized_start=3172
+  _SEARCHSOLUTIONUSECASE._serialized_end=3311
+  _CONDITION._serialized_start=130
+  _CONDITION._serialized_end=434
+  _CONDITION_QUERYTERM._serialized_start=281
+  _CONDITION_QUERYTERM._serialized_end=327
+  _CONDITION_TIMERANGE._serialized_start=329
+  _CONDITION_TIMERANGE._serialized_end=434
+  _RULE._serialized_start=437
+  _RULE._serialized_end=1586
+  _RULE_BOOSTACTION._serialized_start=1112
+  _RULE_BOOSTACTION._serialized_end=1165
+  _RULE_FILTERACTION._serialized_start=1167
+  _RULE_FILTERACTION._serialized_end=1197
+  _RULE_REDIRECTACTION._serialized_start=1199
+  _RULE_REDIRECTACTION._serialized_end=1237
+  _RULE_TWOWAYSYNONYMSACTION._serialized_start=1239
+  _RULE_TWOWAYSYNONYMSACTION._serialized_end=1279
+  _RULE_ONEWAYSYNONYMSACTION._serialized_start=1281
+  _RULE_ONEWAYSYNONYMSACTION._serialized_end=1364
+  _RULE_DONOTASSOCIATEACTION._serialized_start=1366
+  _RULE_DONOTASSOCIATEACTION._serialized_end=1456
+  _RULE_REPLACEMENTACTION._serialized_start=1458
+  _RULE_REPLACEMENTACTION._serialized_end=1538
+  _RULE_IGNOREACTION._serialized_start=1540
+  _RULE_IGNOREACTION._serialized_end=1576
+  _AUDIENCE._serialized_start=1588
+  _AUDIENCE._serialized_end=1635
+  _COLORINFO._serialized_start=1637
+  _COLORINFO._serialized_end=1688
+  _CUSTOMATTRIBUTE._serialized_start=1691
+  _CUSTOMATTRIBUTE._serialized_end=1825
+  _FULFILLMENTINFO._serialized_start=1827
+  _FULFILLMENTINFO._serialized_end=1877
+  _IMAGE._serialized_start=1879
+  _IMAGE._serialized_end=1935
+  _INTERVAL._serialized_start=1937
+  _INTERVAL._serialized_end=2057
+  _PRICEINFO._serialized_start=2060
+  _PRICEINFO._serialized_end=2453
+  _PRICEINFO_PRICERANGE._serialized_start=2334
+  _PRICEINFO_PRICERANGE._serialized_end=2453
+  _RATING._serialized_start=2455
+  _RATING._serialized_end=2535
+  _USERINFO._serialized_start=2537
+  _USERINFO._serialized_end=2633
+  _LOCALINVENTORY._serialized_start=2636
+  _LOCALINVENTORY._serialized_end=2925
+  _LOCALINVENTORY_ATTRIBUTESENTRY._serialized_start=2835
+  _LOCALINVENTORY_ATTRIBUTESENTRY._serialized_end=2925
 # @@protoc_insertion_point(module_scope)

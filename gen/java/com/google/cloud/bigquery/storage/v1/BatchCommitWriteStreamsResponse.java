@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchCommitWriteStreamsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (commitTime_ != null) {
-              subBuilder = commitTime_.toBuilder();
-            }
-            commitTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commitTime_);
-              commitTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              streamErrors_ = new java.util.ArrayList<com.google.cloud.bigquery.storage.v1.StorageError>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            streamErrors_.add(
-                input.readMessage(com.google.cloud.bigquery.storage.v1.StorageError.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        streamErrors_ = java.util.Collections.unmodifiableList(streamErrors_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.storage.v1.StorageProto.internal_static_google_cloud_bigquery_storage_v1_BatchCommitWriteStreamsResponse_descriptor;
@@ -154,10 +89,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCommitTimeOrBuilder() {
-    return getCommitTime();
+    return commitTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : commitTime_;
   }
 
   public static final int STREAM_ERRORS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.bigquery.storage.v1.StorageError> streamErrors_;
   /**
    * <pre>
@@ -257,7 +193,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < streamErrors_.size(); i++) {
       output.writeMessage(2, streamErrors_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -274,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, streamErrors_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -296,7 +232,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getStreamErrorsList()
         .equals(other.getStreamErrorsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -315,7 +251,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STREAM_ERRORS_FIELD_NUMBER;
       hash = (53 * hash) + getStreamErrorsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -436,35 +372,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getStreamErrorsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commitTimeBuilder_ == null) {
-        commitTime_ = null;
-      } else {
-        commitTime_ = null;
+      bitField0_ = 0;
+      commitTime_ = null;
+      if (commitTimeBuilder_ != null) {
+        commitTimeBuilder_.dispose();
         commitTimeBuilder_ = null;
       }
       if (streamErrorsBuilder_ == null) {
         streamErrors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        streamErrors_ = null;
         streamErrorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -491,23 +422,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse buildPartial() {
       com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse result = new com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse(this);
-      int from_bitField0_ = bitField0_;
-      if (commitTimeBuilder_ == null) {
-        result.commitTime_ = commitTime_;
-      } else {
-        result.commitTime_ = commitTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse result) {
       if (streamErrorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           streamErrors_ = java.util.Collections.unmodifiableList(streamErrors_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.streamErrors_ = streamErrors_;
       } else {
         result.streamErrors_ = streamErrorsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.commitTime_ = commitTimeBuilder_ == null
+            ? commitTime_
+            : commitTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -561,7 +500,7 @@ private static final long serialVersionUID = 0L;
         if (!other.streamErrors_.isEmpty()) {
           if (streamErrors_.isEmpty()) {
             streamErrors_ = other.streamErrors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureStreamErrorsIsMutable();
             streamErrors_.addAll(other.streamErrors_);
@@ -574,7 +513,7 @@ private static final long serialVersionUID = 0L;
             streamErrorsBuilder_.dispose();
             streamErrorsBuilder_ = null;
             streamErrors_ = other.streamErrors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             streamErrorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getStreamErrorsFieldBuilder() : null;
@@ -583,7 +522,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -598,17 +537,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCommitTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.bigquery.storage.v1.StorageError m =
+                  input.readMessage(
+                      com.google.cloud.bigquery.storage.v1.StorageError.parser(),
+                      extensionRegistry);
+              if (streamErrorsBuilder_ == null) {
+                ensureStreamErrorsIsMutable();
+                streamErrors_.add(m);
+              } else {
+                streamErrorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.storage.v1.BatchCommitWriteStreamsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -627,7 +599,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commitTime field is set.
      */
     public boolean hasCommitTime() {
-      return commitTimeBuilder_ != null || commitTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -661,11 +633,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commitTime_ = value;
-        onChanged();
       } else {
         commitTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -681,11 +653,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (commitTimeBuilder_ == null) {
         commitTime_ = builderForValue.build();
-        onChanged();
       } else {
         commitTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -699,17 +671,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommitTime(com.google.protobuf.Timestamp value) {
       if (commitTimeBuilder_ == null) {
-        if (commitTime_ != null) {
-          commitTime_ =
-            com.google.protobuf.Timestamp.newBuilder(commitTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          commitTime_ != null &&
+          commitTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCommitTimeBuilder().mergeFrom(value);
         } else {
           commitTime_ = value;
         }
-        onChanged();
       } else {
         commitTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -722,14 +695,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commit_time = 1;</code>
      */
     public Builder clearCommitTime() {
-      if (commitTimeBuilder_ == null) {
-        commitTime_ = null;
-        onChanged();
-      } else {
-        commitTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      commitTime_ = null;
+      if (commitTimeBuilder_ != null) {
+        commitTimeBuilder_.dispose();
         commitTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -742,7 +714,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp commit_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCommitTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCommitTimeFieldBuilder().getBuilder();
     }
@@ -789,9 +761,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.bigquery.storage.v1.StorageError> streamErrors_ =
       java.util.Collections.emptyList();
     private void ensureStreamErrorsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         streamErrors_ = new java.util.ArrayList<com.google.cloud.bigquery.storage.v1.StorageError>(streamErrors_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1029,7 +1001,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearStreamErrors() {
       if (streamErrorsBuilder_ == null) {
         streamErrors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         streamErrorsBuilder_.clear();
@@ -1162,7 +1134,7 @@ private static final long serialVersionUID = 0L;
         streamErrorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.bigquery.storage.v1.StorageError, com.google.cloud.bigquery.storage.v1.StorageError.Builder, com.google.cloud.bigquery.storage.v1.StorageErrorOrBuilder>(
                 streamErrors_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         streamErrors_ = null;
@@ -1202,7 +1174,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchCommitWriteStreamsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

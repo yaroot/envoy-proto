@@ -362,8 +362,7 @@ public interface MandateTransactionOrBuilder extends
 
   /**
    * <pre>
-   * Output only. The last time at which the mandate resource was modified by the issuer
-   * switch.
+   * Output only.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -372,8 +371,7 @@ public interface MandateTransactionOrBuilder extends
   boolean hasLastUpdateTime();
   /**
    * <pre>
-   * Output only. The last time at which the mandate resource was modified by the issuer
-   * switch.
+   * Output only.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -382,8 +380,7 @@ public interface MandateTransactionOrBuilder extends
   com.google.protobuf.Timestamp getLastUpdateTime();
   /**
    * <pre>
-   * Output only. The last time at which the mandate resource was modified by the issuer
-   * switch.
+   * Output only.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp last_update_time = 19 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

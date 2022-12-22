@@ -37,99 +37,108 @@ public enum TransactionType
    * `BALANCE_ENQUIRY` API type. Maps to UPI's `BalChk` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_BALANCE_CHECK = 3;</code>
+   * <code>TRANSACTION_TYPE_BALANCE_CHECK = 2;</code>
    */
-  TRANSACTION_TYPE_BALANCE_CHECK(3),
+  TRANSACTION_TYPE_BALANCE_CHECK(2),
   /**
    * <pre>
    * Balance enquiry transaction type. This is associated with the
    * `BALANCE_ENQUIRY` API type. Maps to UPI's `BalEnq` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_BALANCE_ENQUIRY = 4;</code>
+   * <code>TRANSACTION_TYPE_BALANCE_ENQUIRY = 3;</code>
    */
-  TRANSACTION_TYPE_BALANCE_ENQUIRY(4),
+  TRANSACTION_TYPE_BALANCE_ENQUIRY(3),
   /**
    * <pre>
    * Check status transaction type. This is associated with the `COMPLAINT` API
    * type. Maps to UPI's `CHECKSTATUS` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CHECK_STATUS = 5;</code>
+   * <code>TRANSACTION_TYPE_CHECK_STATUS = 4;</code>
    */
-  TRANSACTION_TYPE_CHECK_STATUS(5),
+  TRANSACTION_TYPE_CHECK_STATUS(4),
   /**
    * <pre>
    * Check transaction type. This is associated with the `CHECK_STATUS` API
    * type. Maps to UPI's `ChkTxn` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CHECK_TRANSACTION = 6;</code>
+   * <code>TRANSACTION_TYPE_CHECK_TRANSACTION = 5;</code>
    */
-  TRANSACTION_TYPE_CHECK_TRANSACTION(6),
+  TRANSACTION_TYPE_CHECK_TRANSACTION(5),
   /**
    * <pre>
    * Complaint transaction type. This is associated with the `COMPLAINT` API
    * type. Maps to UPI's `COMPLAINT` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_COMPLAINT = 7;</code>
+   * <code>TRANSACTION_TYPE_COMPLAINT = 6;</code>
    */
-  TRANSACTION_TYPE_COMPLAINT(7),
+  TRANSACTION_TYPE_COMPLAINT(6),
   /**
    * <pre>
    * Create transaction type. This is associated with the `MANDATE` API type.
    * Maps to UPI's `CREATE` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CREATE = 8;</code>
+   * <code>TRANSACTION_TYPE_CREATE = 7;</code>
    */
-  TRANSACTION_TYPE_CREATE(8),
+  TRANSACTION_TYPE_CREATE(7),
   /**
    * <pre>
    * Credit transaction type. This is associated with the `SETTLE_PAYMENT` API
    * type. Maps to UPI's `CREDIT` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CREDIT = 9;</code>
+   * <code>TRANSACTION_TYPE_CREDIT = 8;</code>
    */
-  TRANSACTION_TYPE_CREDIT(9),
+  TRANSACTION_TYPE_CREDIT(8),
   /**
    * <pre>
    * Debit transaction type. This is associated with the `SETTLE_PAYMENT` API
    * type. Maps to UPI's `DEBIT` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_DEBIT = 10;</code>
+   * <code>TRANSACTION_TYPE_DEBIT = 9;</code>
    */
-  TRANSACTION_TYPE_DEBIT(10),
+  TRANSACTION_TYPE_DEBIT(9),
   /**
    * <pre>
    * Dispute transaction type. This is associated with the `COMPLAINT` API
    * type. Maps to UPI's `DISPUTE` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_DISPUTE = 11;</code>
+   * <code>TRANSACTION_TYPE_DISPUTE = 10;</code>
    */
-  TRANSACTION_TYPE_DISPUTE(11),
+  TRANSACTION_TYPE_DISPUTE(10),
   /**
    * <pre>
    * Heart beat transaction type. This is associated with `HEART_BEAT` API type.
    * Maps to UPI's `Hbt` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_HEART_BEAT = 12;</code>
+   * <code>TRANSACTION_TYPE_HEART_BEAT = 11;</code>
    */
-  TRANSACTION_TYPE_HEART_BEAT(12),
+  TRANSACTION_TYPE_HEART_BEAT(11),
   /**
    * <pre>
    * List accounts transaction type. This is associated with `LIST_ACCOUNTS` API
    * type. Maps to UPI's `ListAccount` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_LIST_ACCOUNTS = 13;</code>
+   * <code>TRANSACTION_TYPE_LIST_ACCOUNTS = 12;</code>
    */
-  TRANSACTION_TYPE_LIST_ACCOUNTS(13),
+  TRANSACTION_TYPE_LIST_ACCOUNTS(12),
+  /**
+   * <pre>
+   * Mandate notification transaction type. This is associated with the
+   * `VALIDATE_CUSTOMER` API type. Maps to UPI's `MandateNotification` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_MANDATE_NOTIFICATION = 13;</code>
+   */
+  TRANSACTION_TYPE_MANDATE_NOTIFICATION(13),
   /**
    * <pre>
    * OTP transaction type. This is associated with the `INITIATE_REGISTRATION`
@@ -141,76 +150,103 @@ public enum TransactionType
   TRANSACTION_TYPE_OTP(14),
   /**
    * <pre>
-   * Register mobile transaction type. This is associated with the
-   * `VALIDATE_REGISTRATION` API type. Maps to UPI's `RegMob` type.
+   * Pause transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `PAUSE` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_REGISTER_MOBILE = 15;</code>
+   * <code>TRANSACTION_TYPE_PAUSE = 15;</code>
    */
-  TRANSACTION_TYPE_REGISTER_MOBILE(15),
-  /**
-   * <pre>
-   * Refund transaction type. This is associated with the `COMPLAINT` API
-   * type. Maps to UPI's `REFUND` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_REFUND = 16;</code>
-   */
-  TRANSACTION_TYPE_REFUND(16),
-  /**
-   * <pre>
-   * Reversal transaction type. This is associated with the `SETTLE_PAYMENT` and
-   * `COMPLAINT` API types. Maps to UPI's `REVERSAL` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_REVERSAL = 17;</code>
-   */
-  TRANSACTION_TYPE_REVERSAL(17),
-  /**
-   * <pre>
-   * Revoke transaction type. This is associated with the `MANDATE` API type.
-   * Maps to UPI's `REVOKE` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_REVOKE = 18;</code>
-   */
-  TRANSACTION_TYPE_REVOKE(18),
-  /**
-   * <pre>
-   * Status update transaction type. This is associated with the `COMPLAINT` API
-   * type. Maps to UPI's `STATUSUPDATE` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_STATUS_UPDATE = 19;</code>
-   */
-  TRANSACTION_TYPE_STATUS_UPDATE(19),
-  /**
-   * <pre>
-   * Update transaction type. This is associated with the `MANDATE` API type.
-   * Maps to UPI's `UPDATE` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_UPDATE = 20;</code>
-   */
-  TRANSACTION_TYPE_UPDATE(20),
-  /**
-   * <pre>
-   * Update credentials transaction type. This is associated with
-   * `UPDATE_CREDENTIALS` API type. Maps to UPI's `SetCre` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_UPDATE_CREDENTIALS = 21;</code>
-   */
-  TRANSACTION_TYPE_UPDATE_CREDENTIALS(21),
+  TRANSACTION_TYPE_PAUSE(15),
   /**
    * <pre>
    * Redeem transaction type. This is associated with the `VOUCHER_CONFIRMATION`
    * API type. Maps to UPI's `REDEEM` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_REDEEM = 22;</code>
+   * <code>TRANSACTION_TYPE_REDEEM = 16;</code>
    */
-  TRANSACTION_TYPE_REDEEM(22),
+  TRANSACTION_TYPE_REDEEM(16),
+  /**
+   * <pre>
+   * Refund transaction type. This is associated with the `COMPLAINT` API
+   * type. Maps to UPI's `REFUND` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REFUND = 17;</code>
+   */
+  TRANSACTION_TYPE_REFUND(17),
+  /**
+   * <pre>
+   * Register mobile transaction type. This is associated with the
+   * `VALIDATE_REGISTRATION` API type. Maps to UPI's `RegMob` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REGISTER_MOBILE = 18;</code>
+   */
+  TRANSACTION_TYPE_REGISTER_MOBILE(18),
+  /**
+   * <pre>
+   * Reversal transaction type. This is associated with the `SETTLE_PAYMENT` and
+   * `COMPLAINT` API types. Maps to UPI's `REVERSAL` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REVERSAL = 19;</code>
+   */
+  TRANSACTION_TYPE_REVERSAL(19),
+  /**
+   * <pre>
+   * Revoke transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `REVOKE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REVOKE = 20;</code>
+   */
+  TRANSACTION_TYPE_REVOKE(20),
+  /**
+   * <pre>
+   * Status update transaction type. This is associated with the `COMPLAINT` API
+   * type. Maps to UPI's `STATUSUPDATE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_STATUS_UPDATE = 21;</code>
+   */
+  TRANSACTION_TYPE_STATUS_UPDATE(21),
+  /**
+   * <pre>
+   * Update transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `UNPAUSE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_UNPAUSE = 22;</code>
+   */
+  TRANSACTION_TYPE_UNPAUSE(22),
+  /**
+   * <pre>
+   * Update transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `UPDATE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_UPDATE = 23;</code>
+   */
+  TRANSACTION_TYPE_UPDATE(23),
+  /**
+   * <pre>
+   * Update credentials transaction type. This is associated with
+   * `UPDATE_CREDENTIALS` API type. Maps to UPI's `SetCre` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_UPDATE_CREDENTIALS = 24;</code>
+   */
+  TRANSACTION_TYPE_UPDATE_CREDENTIALS(24),
+  /**
+   * <pre>
+   * Validate customer transaction type. This is associated with
+   * `VALIDATE_CUSTOMER` API type. Maps to UPI's `ValCust` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_VALIDATE_CUSTOMER = 25;</code>
+   */
+  TRANSACTION_TYPE_VALIDATE_CUSTOMER(25),
   UNRECOGNIZED(-1),
   ;
 
@@ -237,99 +273,108 @@ public enum TransactionType
    * `BALANCE_ENQUIRY` API type. Maps to UPI's `BalChk` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_BALANCE_CHECK = 3;</code>
+   * <code>TRANSACTION_TYPE_BALANCE_CHECK = 2;</code>
    */
-  public static final int TRANSACTION_TYPE_BALANCE_CHECK_VALUE = 3;
+  public static final int TRANSACTION_TYPE_BALANCE_CHECK_VALUE = 2;
   /**
    * <pre>
    * Balance enquiry transaction type. This is associated with the
    * `BALANCE_ENQUIRY` API type. Maps to UPI's `BalEnq` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_BALANCE_ENQUIRY = 4;</code>
+   * <code>TRANSACTION_TYPE_BALANCE_ENQUIRY = 3;</code>
    */
-  public static final int TRANSACTION_TYPE_BALANCE_ENQUIRY_VALUE = 4;
+  public static final int TRANSACTION_TYPE_BALANCE_ENQUIRY_VALUE = 3;
   /**
    * <pre>
    * Check status transaction type. This is associated with the `COMPLAINT` API
    * type. Maps to UPI's `CHECKSTATUS` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CHECK_STATUS = 5;</code>
+   * <code>TRANSACTION_TYPE_CHECK_STATUS = 4;</code>
    */
-  public static final int TRANSACTION_TYPE_CHECK_STATUS_VALUE = 5;
+  public static final int TRANSACTION_TYPE_CHECK_STATUS_VALUE = 4;
   /**
    * <pre>
    * Check transaction type. This is associated with the `CHECK_STATUS` API
    * type. Maps to UPI's `ChkTxn` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CHECK_TRANSACTION = 6;</code>
+   * <code>TRANSACTION_TYPE_CHECK_TRANSACTION = 5;</code>
    */
-  public static final int TRANSACTION_TYPE_CHECK_TRANSACTION_VALUE = 6;
+  public static final int TRANSACTION_TYPE_CHECK_TRANSACTION_VALUE = 5;
   /**
    * <pre>
    * Complaint transaction type. This is associated with the `COMPLAINT` API
    * type. Maps to UPI's `COMPLAINT` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_COMPLAINT = 7;</code>
+   * <code>TRANSACTION_TYPE_COMPLAINT = 6;</code>
    */
-  public static final int TRANSACTION_TYPE_COMPLAINT_VALUE = 7;
+  public static final int TRANSACTION_TYPE_COMPLAINT_VALUE = 6;
   /**
    * <pre>
    * Create transaction type. This is associated with the `MANDATE` API type.
    * Maps to UPI's `CREATE` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CREATE = 8;</code>
+   * <code>TRANSACTION_TYPE_CREATE = 7;</code>
    */
-  public static final int TRANSACTION_TYPE_CREATE_VALUE = 8;
+  public static final int TRANSACTION_TYPE_CREATE_VALUE = 7;
   /**
    * <pre>
    * Credit transaction type. This is associated with the `SETTLE_PAYMENT` API
    * type. Maps to UPI's `CREDIT` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_CREDIT = 9;</code>
+   * <code>TRANSACTION_TYPE_CREDIT = 8;</code>
    */
-  public static final int TRANSACTION_TYPE_CREDIT_VALUE = 9;
+  public static final int TRANSACTION_TYPE_CREDIT_VALUE = 8;
   /**
    * <pre>
    * Debit transaction type. This is associated with the `SETTLE_PAYMENT` API
    * type. Maps to UPI's `DEBIT` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_DEBIT = 10;</code>
+   * <code>TRANSACTION_TYPE_DEBIT = 9;</code>
    */
-  public static final int TRANSACTION_TYPE_DEBIT_VALUE = 10;
+  public static final int TRANSACTION_TYPE_DEBIT_VALUE = 9;
   /**
    * <pre>
    * Dispute transaction type. This is associated with the `COMPLAINT` API
    * type. Maps to UPI's `DISPUTE` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_DISPUTE = 11;</code>
+   * <code>TRANSACTION_TYPE_DISPUTE = 10;</code>
    */
-  public static final int TRANSACTION_TYPE_DISPUTE_VALUE = 11;
+  public static final int TRANSACTION_TYPE_DISPUTE_VALUE = 10;
   /**
    * <pre>
    * Heart beat transaction type. This is associated with `HEART_BEAT` API type.
    * Maps to UPI's `Hbt` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_HEART_BEAT = 12;</code>
+   * <code>TRANSACTION_TYPE_HEART_BEAT = 11;</code>
    */
-  public static final int TRANSACTION_TYPE_HEART_BEAT_VALUE = 12;
+  public static final int TRANSACTION_TYPE_HEART_BEAT_VALUE = 11;
   /**
    * <pre>
    * List accounts transaction type. This is associated with `LIST_ACCOUNTS` API
    * type. Maps to UPI's `ListAccount` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_LIST_ACCOUNTS = 13;</code>
+   * <code>TRANSACTION_TYPE_LIST_ACCOUNTS = 12;</code>
    */
-  public static final int TRANSACTION_TYPE_LIST_ACCOUNTS_VALUE = 13;
+  public static final int TRANSACTION_TYPE_LIST_ACCOUNTS_VALUE = 12;
+  /**
+   * <pre>
+   * Mandate notification transaction type. This is associated with the
+   * `VALIDATE_CUSTOMER` API type. Maps to UPI's `MandateNotification` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_MANDATE_NOTIFICATION = 13;</code>
+   */
+  public static final int TRANSACTION_TYPE_MANDATE_NOTIFICATION_VALUE = 13;
   /**
    * <pre>
    * OTP transaction type. This is associated with the `INITIATE_REGISTRATION`
@@ -341,76 +386,103 @@ public enum TransactionType
   public static final int TRANSACTION_TYPE_OTP_VALUE = 14;
   /**
    * <pre>
-   * Register mobile transaction type. This is associated with the
-   * `VALIDATE_REGISTRATION` API type. Maps to UPI's `RegMob` type.
+   * Pause transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `PAUSE` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_REGISTER_MOBILE = 15;</code>
+   * <code>TRANSACTION_TYPE_PAUSE = 15;</code>
    */
-  public static final int TRANSACTION_TYPE_REGISTER_MOBILE_VALUE = 15;
-  /**
-   * <pre>
-   * Refund transaction type. This is associated with the `COMPLAINT` API
-   * type. Maps to UPI's `REFUND` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_REFUND = 16;</code>
-   */
-  public static final int TRANSACTION_TYPE_REFUND_VALUE = 16;
-  /**
-   * <pre>
-   * Reversal transaction type. This is associated with the `SETTLE_PAYMENT` and
-   * `COMPLAINT` API types. Maps to UPI's `REVERSAL` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_REVERSAL = 17;</code>
-   */
-  public static final int TRANSACTION_TYPE_REVERSAL_VALUE = 17;
-  /**
-   * <pre>
-   * Revoke transaction type. This is associated with the `MANDATE` API type.
-   * Maps to UPI's `REVOKE` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_REVOKE = 18;</code>
-   */
-  public static final int TRANSACTION_TYPE_REVOKE_VALUE = 18;
-  /**
-   * <pre>
-   * Status update transaction type. This is associated with the `COMPLAINT` API
-   * type. Maps to UPI's `STATUSUPDATE` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_STATUS_UPDATE = 19;</code>
-   */
-  public static final int TRANSACTION_TYPE_STATUS_UPDATE_VALUE = 19;
-  /**
-   * <pre>
-   * Update transaction type. This is associated with the `MANDATE` API type.
-   * Maps to UPI's `UPDATE` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_UPDATE = 20;</code>
-   */
-  public static final int TRANSACTION_TYPE_UPDATE_VALUE = 20;
-  /**
-   * <pre>
-   * Update credentials transaction type. This is associated with
-   * `UPDATE_CREDENTIALS` API type. Maps to UPI's `SetCre` type.
-   * </pre>
-   *
-   * <code>TRANSACTION_TYPE_UPDATE_CREDENTIALS = 21;</code>
-   */
-  public static final int TRANSACTION_TYPE_UPDATE_CREDENTIALS_VALUE = 21;
+  public static final int TRANSACTION_TYPE_PAUSE_VALUE = 15;
   /**
    * <pre>
    * Redeem transaction type. This is associated with the `VOUCHER_CONFIRMATION`
    * API type. Maps to UPI's `REDEEM` type.
    * </pre>
    *
-   * <code>TRANSACTION_TYPE_REDEEM = 22;</code>
+   * <code>TRANSACTION_TYPE_REDEEM = 16;</code>
    */
-  public static final int TRANSACTION_TYPE_REDEEM_VALUE = 22;
+  public static final int TRANSACTION_TYPE_REDEEM_VALUE = 16;
+  /**
+   * <pre>
+   * Refund transaction type. This is associated with the `COMPLAINT` API
+   * type. Maps to UPI's `REFUND` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REFUND = 17;</code>
+   */
+  public static final int TRANSACTION_TYPE_REFUND_VALUE = 17;
+  /**
+   * <pre>
+   * Register mobile transaction type. This is associated with the
+   * `VALIDATE_REGISTRATION` API type. Maps to UPI's `RegMob` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REGISTER_MOBILE = 18;</code>
+   */
+  public static final int TRANSACTION_TYPE_REGISTER_MOBILE_VALUE = 18;
+  /**
+   * <pre>
+   * Reversal transaction type. This is associated with the `SETTLE_PAYMENT` and
+   * `COMPLAINT` API types. Maps to UPI's `REVERSAL` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REVERSAL = 19;</code>
+   */
+  public static final int TRANSACTION_TYPE_REVERSAL_VALUE = 19;
+  /**
+   * <pre>
+   * Revoke transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `REVOKE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_REVOKE = 20;</code>
+   */
+  public static final int TRANSACTION_TYPE_REVOKE_VALUE = 20;
+  /**
+   * <pre>
+   * Status update transaction type. This is associated with the `COMPLAINT` API
+   * type. Maps to UPI's `STATUSUPDATE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_STATUS_UPDATE = 21;</code>
+   */
+  public static final int TRANSACTION_TYPE_STATUS_UPDATE_VALUE = 21;
+  /**
+   * <pre>
+   * Update transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `UNPAUSE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_UNPAUSE = 22;</code>
+   */
+  public static final int TRANSACTION_TYPE_UNPAUSE_VALUE = 22;
+  /**
+   * <pre>
+   * Update transaction type. This is associated with the `MANDATE` API type.
+   * Maps to UPI's `UPDATE` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_UPDATE = 23;</code>
+   */
+  public static final int TRANSACTION_TYPE_UPDATE_VALUE = 23;
+  /**
+   * <pre>
+   * Update credentials transaction type. This is associated with
+   * `UPDATE_CREDENTIALS` API type. Maps to UPI's `SetCre` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_UPDATE_CREDENTIALS = 24;</code>
+   */
+  public static final int TRANSACTION_TYPE_UPDATE_CREDENTIALS_VALUE = 24;
+  /**
+   * <pre>
+   * Validate customer transaction type. This is associated with
+   * `VALIDATE_CUSTOMER` API type. Maps to UPI's `ValCust` type.
+   * </pre>
+   *
+   * <code>TRANSACTION_TYPE_VALIDATE_CUSTOMER = 25;</code>
+   */
+  public static final int TRANSACTION_TYPE_VALIDATE_CUSTOMER_VALUE = 25;
 
 
   public final int getNumber() {
@@ -439,26 +511,30 @@ public enum TransactionType
     switch (value) {
       case 0: return TRANSACTION_TYPE_UNSPECIFIED;
       case 1: return TRANSACTION_TYPE_AUTOUPDATE;
-      case 3: return TRANSACTION_TYPE_BALANCE_CHECK;
-      case 4: return TRANSACTION_TYPE_BALANCE_ENQUIRY;
-      case 5: return TRANSACTION_TYPE_CHECK_STATUS;
-      case 6: return TRANSACTION_TYPE_CHECK_TRANSACTION;
-      case 7: return TRANSACTION_TYPE_COMPLAINT;
-      case 8: return TRANSACTION_TYPE_CREATE;
-      case 9: return TRANSACTION_TYPE_CREDIT;
-      case 10: return TRANSACTION_TYPE_DEBIT;
-      case 11: return TRANSACTION_TYPE_DISPUTE;
-      case 12: return TRANSACTION_TYPE_HEART_BEAT;
-      case 13: return TRANSACTION_TYPE_LIST_ACCOUNTS;
+      case 2: return TRANSACTION_TYPE_BALANCE_CHECK;
+      case 3: return TRANSACTION_TYPE_BALANCE_ENQUIRY;
+      case 4: return TRANSACTION_TYPE_CHECK_STATUS;
+      case 5: return TRANSACTION_TYPE_CHECK_TRANSACTION;
+      case 6: return TRANSACTION_TYPE_COMPLAINT;
+      case 7: return TRANSACTION_TYPE_CREATE;
+      case 8: return TRANSACTION_TYPE_CREDIT;
+      case 9: return TRANSACTION_TYPE_DEBIT;
+      case 10: return TRANSACTION_TYPE_DISPUTE;
+      case 11: return TRANSACTION_TYPE_HEART_BEAT;
+      case 12: return TRANSACTION_TYPE_LIST_ACCOUNTS;
+      case 13: return TRANSACTION_TYPE_MANDATE_NOTIFICATION;
       case 14: return TRANSACTION_TYPE_OTP;
-      case 15: return TRANSACTION_TYPE_REGISTER_MOBILE;
-      case 16: return TRANSACTION_TYPE_REFUND;
-      case 17: return TRANSACTION_TYPE_REVERSAL;
-      case 18: return TRANSACTION_TYPE_REVOKE;
-      case 19: return TRANSACTION_TYPE_STATUS_UPDATE;
-      case 20: return TRANSACTION_TYPE_UPDATE;
-      case 21: return TRANSACTION_TYPE_UPDATE_CREDENTIALS;
-      case 22: return TRANSACTION_TYPE_REDEEM;
+      case 15: return TRANSACTION_TYPE_PAUSE;
+      case 16: return TRANSACTION_TYPE_REDEEM;
+      case 17: return TRANSACTION_TYPE_REFUND;
+      case 18: return TRANSACTION_TYPE_REGISTER_MOBILE;
+      case 19: return TRANSACTION_TYPE_REVERSAL;
+      case 20: return TRANSACTION_TYPE_REVOKE;
+      case 21: return TRANSACTION_TYPE_STATUS_UPDATE;
+      case 22: return TRANSACTION_TYPE_UNPAUSE;
+      case 23: return TRANSACTION_TYPE_UPDATE;
+      case 24: return TRANSACTION_TYPE_UPDATE_CREDENTIALS;
+      case 25: return TRANSACTION_TYPE_VALIDATE_CUSTOMER;
       default: return null;
     }
   }

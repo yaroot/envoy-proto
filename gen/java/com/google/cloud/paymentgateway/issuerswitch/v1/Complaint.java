@@ -35,103 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Complaint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.Builder subBuilder = null;
-            if (raiseComplaintAdjustment_ != null) {
-              subBuilder = raiseComplaintAdjustment_.toBuilder();
-            }
-            raiseComplaintAdjustment_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(raiseComplaintAdjustment_);
-              raiseComplaintAdjustment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.Builder subBuilder = null;
-            if (details_ != null) {
-              subBuilder = details_.toBuilder();
-            }
-            details_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(details_);
-              details_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.Builder subBuilder = null;
-            if (response_ != null) {
-              subBuilder = response_.toBuilder();
-            }
-            response_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(response_);
-              response_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.Builder subBuilder = null;
-            if (resolveComplaintAdjustment_ != null) {
-              subBuilder = resolveComplaintAdjustment_.toBuilder();
-            }
-            resolveComplaintAdjustment_ = input.readMessage(com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resolveComplaintAdjustment_);
-              resolveComplaintAdjustment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.ResolutionsProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_Complaint_descriptor;
@@ -146,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the complaint. This uniquely identifies the complaint.
@@ -236,7 +140,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustmentOrBuilder getRaiseComplaintAdjustmentOrBuilder() {
-    return getRaiseComplaintAdjustment();
+    return raiseComplaintAdjustment_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.getDefaultInstance() : raiseComplaintAdjustment_;
   }
 
   public static final int DETAILS_FIELD_NUMBER = 4;
@@ -274,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetailsOrBuilder getDetailsOrBuilder() {
-    return getDetails();
+    return details_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.getDefaultInstance() : details_;
   }
 
   public static final int RESPONSE_FIELD_NUMBER = 5;
@@ -312,7 +216,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponseOrBuilder getResponseOrBuilder() {
-    return getResponse();
+    return response_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.getDefaultInstance() : response_;
   }
 
   public static final int RESOLVE_COMPLAINT_ADJUSTMENT_FIELD_NUMBER = 6;
@@ -368,7 +272,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustmentOrBuilder getResolveComplaintAdjustmentOrBuilder() {
-    return getResolveComplaintAdjustment();
+    return resolveComplaintAdjustment_ == null ? com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.getDefaultInstance() : resolveComplaintAdjustment_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -400,7 +304,7 @@ private static final long serialVersionUID = 0L;
     if (resolveComplaintAdjustment_ != null) {
       output.writeMessage(6, getResolveComplaintAdjustment());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -428,7 +332,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getResolveComplaintAdjustment());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -465,7 +369,7 @@ private static final long serialVersionUID = 0L;
       if (!getResolveComplaintAdjustment()
           .equals(other.getResolveComplaintAdjustment())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -494,7 +398,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESOLVE_COMPLAINT_ADJUSTMENT_FIELD_NUMBER;
       hash = (53 * hash) + getResolveComplaintAdjustment().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -615,46 +519,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.Complaint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (raiseComplaintAdjustmentBuilder_ == null) {
-        raiseComplaintAdjustment_ = null;
-      } else {
-        raiseComplaintAdjustment_ = null;
+      raiseComplaintAdjustment_ = null;
+      if (raiseComplaintAdjustmentBuilder_ != null) {
+        raiseComplaintAdjustmentBuilder_.dispose();
         raiseComplaintAdjustmentBuilder_ = null;
       }
-      if (detailsBuilder_ == null) {
-        details_ = null;
-      } else {
-        details_ = null;
+      details_ = null;
+      if (detailsBuilder_ != null) {
+        detailsBuilder_.dispose();
         detailsBuilder_ = null;
       }
-      if (responseBuilder_ == null) {
-        response_ = null;
-      } else {
-        response_ = null;
+      response_ = null;
+      if (responseBuilder_ != null) {
+        responseBuilder_.dispose();
         responseBuilder_ = null;
       }
-      if (resolveComplaintAdjustmentBuilder_ == null) {
-        resolveComplaintAdjustment_ = null;
-      } else {
-        resolveComplaintAdjustment_ = null;
+      resolveComplaintAdjustment_ = null;
+      if (resolveComplaintAdjustmentBuilder_ != null) {
+        resolveComplaintAdjustmentBuilder_.dispose();
         resolveComplaintAdjustmentBuilder_ = null;
       }
       return this;
@@ -683,29 +578,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.Complaint buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.Complaint result = new com.google.cloud.paymentgateway.issuerswitch.v1.Complaint(this);
-      result.name_ = name_;
-      if (raiseComplaintAdjustmentBuilder_ == null) {
-        result.raiseComplaintAdjustment_ = raiseComplaintAdjustment_;
-      } else {
-        result.raiseComplaintAdjustment_ = raiseComplaintAdjustmentBuilder_.build();
-      }
-      if (detailsBuilder_ == null) {
-        result.details_ = details_;
-      } else {
-        result.details_ = detailsBuilder_.build();
-      }
-      if (responseBuilder_ == null) {
-        result.response_ = response_;
-      } else {
-        result.response_ = responseBuilder_.build();
-      }
-      if (resolveComplaintAdjustmentBuilder_ == null) {
-        result.resolveComplaintAdjustment_ = resolveComplaintAdjustment_;
-      } else {
-        result.resolveComplaintAdjustment_ = resolveComplaintAdjustmentBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.Complaint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.raiseComplaintAdjustment_ = raiseComplaintAdjustmentBuilder_ == null
+            ? raiseComplaintAdjustment_
+            : raiseComplaintAdjustmentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.details_ = detailsBuilder_ == null
+            ? details_
+            : detailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.response_ = responseBuilder_ == null
+            ? response_
+            : responseBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.resolveComplaintAdjustment_ = resolveComplaintAdjustmentBuilder_ == null
+            ? resolveComplaintAdjustment_
+            : resolveComplaintAdjustmentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -754,6 +656,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.Complaint.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasRaiseComplaintAdjustment()) {
@@ -768,7 +671,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasResolveComplaintAdjustment()) {
         mergeResolveComplaintAdjustment(other.getResolveComplaintAdjustment());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -783,19 +686,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.Complaint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getRaiseComplaintAdjustmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getResponseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getResolveComplaintAdjustmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.Complaint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -856,11 +806,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -875,8 +823,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -893,12 +841,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -917,7 +863,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the raiseComplaintAdjustment field is set.
      */
     public boolean hasRaiseComplaintAdjustment() {
-      return raiseComplaintAdjustmentBuilder_ != null || raiseComplaintAdjustment_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -951,11 +897,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         raiseComplaintAdjustment_ = value;
-        onChanged();
       } else {
         raiseComplaintAdjustmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -971,11 +917,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.Builder builderForValue) {
       if (raiseComplaintAdjustmentBuilder_ == null) {
         raiseComplaintAdjustment_ = builderForValue.build();
-        onChanged();
       } else {
         raiseComplaintAdjustmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -989,17 +935,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRaiseComplaintAdjustment(com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment value) {
       if (raiseComplaintAdjustmentBuilder_ == null) {
-        if (raiseComplaintAdjustment_ != null) {
-          raiseComplaintAdjustment_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.newBuilder(raiseComplaintAdjustment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          raiseComplaintAdjustment_ != null &&
+          raiseComplaintAdjustment_ != com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.getDefaultInstance()) {
+          getRaiseComplaintAdjustmentBuilder().mergeFrom(value);
         } else {
           raiseComplaintAdjustment_ = value;
         }
-        onChanged();
       } else {
         raiseComplaintAdjustmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1012,14 +959,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment raise_complaint_adjustment = 2;</code>
      */
     public Builder clearRaiseComplaintAdjustment() {
-      if (raiseComplaintAdjustmentBuilder_ == null) {
-        raiseComplaintAdjustment_ = null;
-        onChanged();
-      } else {
-        raiseComplaintAdjustment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      raiseComplaintAdjustment_ = null;
+      if (raiseComplaintAdjustmentBuilder_ != null) {
+        raiseComplaintAdjustmentBuilder_.dispose();
         raiseComplaintAdjustmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1032,7 +978,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment raise_complaint_adjustment = 2;</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.RaiseComplaintAdjustment.Builder getRaiseComplaintAdjustmentBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRaiseComplaintAdjustmentFieldBuilder().getBuilder();
     }
@@ -1088,7 +1034,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the details field is set.
      */
     public boolean hasDetails() {
-      return detailsBuilder_ != null || details_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1118,11 +1064,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         details_ = value;
-        onChanged();
       } else {
         detailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1136,11 +1082,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.Builder builderForValue) {
       if (detailsBuilder_ == null) {
         details_ = builderForValue.build();
-        onChanged();
       } else {
         detailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1152,17 +1098,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDetails(com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails value) {
       if (detailsBuilder_ == null) {
-        if (details_ != null) {
-          details_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.newBuilder(details_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          details_ != null &&
+          details_ != com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.getDefaultInstance()) {
+          getDetailsBuilder().mergeFrom(value);
         } else {
           details_ = value;
         }
-        onChanged();
       } else {
         detailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1173,14 +1120,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails details = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDetails() {
-      if (detailsBuilder_ == null) {
-        details_ = null;
-        onChanged();
-      } else {
-        details_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      details_ = null;
+      if (detailsBuilder_ != null) {
+        detailsBuilder_.dispose();
         detailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1191,7 +1137,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails details = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.CaseDetails.Builder getDetailsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDetailsFieldBuilder().getBuilder();
     }
@@ -1243,7 +1189,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the response field is set.
      */
     public boolean hasResponse() {
-      return responseBuilder_ != null || response_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1273,11 +1219,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         response_ = value;
-        onChanged();
       } else {
         responseBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1291,11 +1237,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.Builder builderForValue) {
       if (responseBuilder_ == null) {
         response_ = builderForValue.build();
-        onChanged();
       } else {
         responseBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1307,17 +1253,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResponse(com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse value) {
       if (responseBuilder_ == null) {
-        if (response_ != null) {
-          response_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.newBuilder(response_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          response_ != null &&
+          response_ != com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.getDefaultInstance()) {
+          getResponseBuilder().mergeFrom(value);
         } else {
           response_ = value;
         }
-        onChanged();
       } else {
         responseBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1328,14 +1275,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse response = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearResponse() {
-      if (responseBuilder_ == null) {
-        response_ = null;
-        onChanged();
-      } else {
-        response_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      response_ = null;
+      if (responseBuilder_ != null) {
+        responseBuilder_.dispose();
         responseBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1346,7 +1292,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse response = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.CaseResponse.Builder getResponseBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getResponseFieldBuilder().getBuilder();
     }
@@ -1404,7 +1350,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resolveComplaintAdjustment field is set.
      */
     public boolean hasResolveComplaintAdjustment() {
-      return resolveComplaintAdjustmentBuilder_ != null || resolveComplaintAdjustment_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1446,11 +1392,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resolveComplaintAdjustment_ = value;
-        onChanged();
       } else {
         resolveComplaintAdjustmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1470,11 +1416,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.Builder builderForValue) {
       if (resolveComplaintAdjustmentBuilder_ == null) {
         resolveComplaintAdjustment_ = builderForValue.build();
-        onChanged();
       } else {
         resolveComplaintAdjustmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1492,17 +1438,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResolveComplaintAdjustment(com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment value) {
       if (resolveComplaintAdjustmentBuilder_ == null) {
-        if (resolveComplaintAdjustment_ != null) {
-          resolveComplaintAdjustment_ =
-            com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.newBuilder(resolveComplaintAdjustment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          resolveComplaintAdjustment_ != null &&
+          resolveComplaintAdjustment_ != com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.getDefaultInstance()) {
+          getResolveComplaintAdjustmentBuilder().mergeFrom(value);
         } else {
           resolveComplaintAdjustment_ = value;
         }
-        onChanged();
       } else {
         resolveComplaintAdjustmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1519,14 +1466,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment resolve_complaint_adjustment = 6;</code>
      */
     public Builder clearResolveComplaintAdjustment() {
-      if (resolveComplaintAdjustmentBuilder_ == null) {
-        resolveComplaintAdjustment_ = null;
-        onChanged();
-      } else {
-        resolveComplaintAdjustment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      resolveComplaintAdjustment_ = null;
+      if (resolveComplaintAdjustmentBuilder_ != null) {
+        resolveComplaintAdjustmentBuilder_.dispose();
         resolveComplaintAdjustmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1543,7 +1489,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment resolve_complaint_adjustment = 6;</code>
      */
     public com.google.cloud.paymentgateway.issuerswitch.v1.ResolveComplaintAdjustment.Builder getResolveComplaintAdjustmentBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getResolveComplaintAdjustmentFieldBuilder().getBuilder();
     }
@@ -1627,7 +1573,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Complaint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

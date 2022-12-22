@@ -34,31 +34,28 @@ public final class OperationProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\'google/appengine/v1beta/operation.prot" +
-      "o\022\027google.appengine.v1beta\032\036google/proto" +
-      "buf/duration.proto\032\037google/protobuf/time" +
-      "stamp.proto\032\034google/api/annotations.prot" +
-      "o\"\276\002\n\027OperationMetadataV1Beta\022\016\n\006method\030" +
-      "\001 \001(\t\022/\n\013insert_time\030\002 \001(\0132\032.google.prot" +
-      "obuf.Timestamp\022,\n\010end_time\030\003 \001(\0132\032.googl" +
-      "e.protobuf.Timestamp\022\014\n\004user\030\004 \001(\t\022\016\n\006ta" +
-      "rget\030\005 \001(\t\022\031\n\021ephemeral_message\030\006 \001(\t\022\017\n" +
-      "\007warning\030\007 \003(\t\022W\n\027create_version_metadat" +
-      "a\030\010 \001(\01324.google.appengine.v1beta.Create" +
-      "VersionMetadataV1BetaH\000B\021\n\017method_metada" +
-      "ta\"5\n\033CreateVersionMetadataV1Beta\022\026\n\016clo" +
-      "ud_build_id\030\001 \001(\tB\324\001\n\033com.google.appengi" +
-      "ne.v1betaB\016OperationProtoP\001Z@google.gola" +
-      "ng.org/genproto/googleapis/appengine/v1b" +
-      "eta;appengine\252\002\035Google.Cloud.AppEngine.V" +
-      "1Beta\312\002\035Google\\Cloud\\AppEngine\\V1beta\352\002 " +
-      "Google::Cloud::AppEngine::V1betab\006proto3"
+      "o\022\027google.appengine.v1beta\032\037google/proto" +
+      "buf/timestamp.proto\"\276\002\n\027OperationMetadat" +
+      "aV1Beta\022\016\n\006method\030\001 \001(\t\022/\n\013insert_time\030\002" +
+      " \001(\0132\032.google.protobuf.Timestamp\022,\n\010end_" +
+      "time\030\003 \001(\0132\032.google.protobuf.Timestamp\022\014" +
+      "\n\004user\030\004 \001(\t\022\016\n\006target\030\005 \001(\t\022\031\n\021ephemera" +
+      "l_message\030\006 \001(\t\022\017\n\007warning\030\007 \003(\t\022W\n\027crea" +
+      "te_version_metadata\030\010 \001(\01324.google.appen" +
+      "gine.v1beta.CreateVersionMetadataV1BetaH" +
+      "\000B\021\n\017method_metadata\"5\n\033CreateVersionMet" +
+      "adataV1Beta\022\026\n\016cloud_build_id\030\001 \001(\tB\324\001\n\033" +
+      "com.google.appengine.v1betaB\016OperationPr" +
+      "otoP\001Z@google.golang.org/genproto/google" +
+      "apis/appengine/v1beta;appengine\252\002\035Google" +
+      ".Cloud.AppEngine.V1Beta\312\002\035Google\\Cloud\\A" +
+      "ppEngine\\V1beta\352\002 Google::Cloud::AppEngi" +
+      "ne::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_OperationMetadataV1Beta_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -72,9 +69,7 @@ public final class OperationProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_appengine_v1beta_CreateVersionMetadataV1Beta_descriptor,
         new java.lang.String[] { "CloudBuildId", });
-    com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

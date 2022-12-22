@@ -45,121 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Pipeline(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 42: {
-            com.google.genomics.v1a.DockerExecutor.Builder subBuilder = null;
-            if (executorCase_ == 5) {
-              subBuilder = ((com.google.genomics.v1a.DockerExecutor) executor_).toBuilder();
-            }
-            executor_ =
-                input.readMessage(com.google.genomics.v1a.DockerExecutor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.genomics.v1a.DockerExecutor) executor_);
-              executor_ = subBuilder.buildPartial();
-            }
-            executorCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.genomics.v1a.PipelineResources.Builder subBuilder = null;
-            if (resources_ != null) {
-              subBuilder = resources_.toBuilder();
-            }
-            resources_ = input.readMessage(com.google.genomics.v1a.PipelineResources.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resources_);
-              resources_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pipelineId_ = s;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              inputParameters_ = new java.util.ArrayList<com.google.genomics.v1a.PipelineParameter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            inputParameters_.add(
-                input.readMessage(com.google.genomics.v1a.PipelineParameter.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              outputParameters_ = new java.util.ArrayList<com.google.genomics.v1a.PipelineParameter>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            outputParameters_.add(
-                input.readMessage(com.google.genomics.v1a.PipelineParameter.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        inputParameters_ = java.util.Collections.unmodifiableList(inputParameters_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        outputParameters_ = java.util.Collections.unmodifiableList(outputParameters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_Pipeline_descriptor;
@@ -213,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Required. The project in which to create the pipeline. The caller must have
@@ -261,7 +147,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. A user specified pipeline name that does not have to be unique.
@@ -309,7 +196,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * User-specified description.
@@ -355,6 +243,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_PARAMETERS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.genomics.v1a.PipelineParameter> inputParameters_;
   /**
    * <pre>
@@ -415,6 +304,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTPUT_PARAMETERS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.genomics.v1a.PipelineParameter> outputParameters_;
   /**
    * <pre>
@@ -567,11 +457,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1a.PipelineResourcesOrBuilder getResourcesOrBuilder() {
-    return getResources();
+    return resources_ == null ? com.google.genomics.v1a.PipelineResources.getDefaultInstance() : resources_;
   }
 
   public static final int PIPELINE_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object pipelineId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pipelineId_ = "";
   /**
    * <pre>
    * Unique pipeline id that is generated by the service when CreatePipeline
@@ -662,7 +553,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < outputParameters_.size(); i++) {
       output.writeMessage(9, outputParameters_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -699,7 +590,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, outputParameters_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -740,7 +631,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -779,7 +670,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -905,50 +796,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1a.Pipeline.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInputParametersFieldBuilder();
-        getOutputParametersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       projectId_ = "";
-
       name_ = "";
-
       description_ = "";
-
       if (inputParametersBuilder_ == null) {
         inputParameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        inputParameters_ = null;
         inputParametersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (outputParametersBuilder_ == null) {
         outputParameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        outputParameters_ = null;
         outputParametersBuilder_.clear();
       }
-      if (resourcesBuilder_ == null) {
-        resources_ = null;
-      } else {
-        resources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      if (dockerBuilder_ != null) {
+        dockerBuilder_.clear();
+      }
+      resources_ = null;
+      if (resourcesBuilder_ != null) {
+        resourcesBuilder_.dispose();
         resourcesBuilder_ = null;
       }
       pipelineId_ = "";
-
       executorCase_ = 0;
       executor_ = null;
       return this;
@@ -977,44 +862,62 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1a.Pipeline buildPartial() {
       com.google.genomics.v1a.Pipeline result = new com.google.genomics.v1a.Pipeline(this);
-      int from_bitField0_ = bitField0_;
-      result.projectId_ = projectId_;
-      result.name_ = name_;
-      result.description_ = description_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1a.Pipeline result) {
       if (inputParametersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           inputParameters_ = java.util.Collections.unmodifiableList(inputParameters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.inputParameters_ = inputParameters_;
       } else {
         result.inputParameters_ = inputParametersBuilder_.build();
       }
       if (outputParametersBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           outputParameters_ = java.util.Collections.unmodifiableList(outputParameters_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.outputParameters_ = outputParameters_;
       } else {
         result.outputParameters_ = outputParametersBuilder_.build();
       }
-      if (executorCase_ == 5) {
-        if (dockerBuilder_ == null) {
-          result.executor_ = executor_;
-        } else {
-          result.executor_ = dockerBuilder_.build();
-        }
+    }
+
+    private void buildPartial0(com.google.genomics.v1a.Pipeline result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.projectId_ = projectId_;
       }
-      if (resourcesBuilder_ == null) {
-        result.resources_ = resources_;
-      } else {
-        result.resources_ = resourcesBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
       }
-      result.pipelineId_ = pipelineId_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.resources_ = resourcesBuilder_ == null
+            ? resources_
+            : resourcesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.pipelineId_ = pipelineId_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.genomics.v1a.Pipeline result) {
       result.executorCase_ = executorCase_;
-      onBuilt();
-      return result;
+      result.executor_ = this.executor_;
+      if (executorCase_ == 5 &&
+          dockerBuilder_ != null) {
+        result.executor_ = dockerBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1063,21 +966,24 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1a.Pipeline.getDefaultInstance()) return this;
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (inputParametersBuilder_ == null) {
         if (!other.inputParameters_.isEmpty()) {
           if (inputParameters_.isEmpty()) {
             inputParameters_ = other.inputParameters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureInputParametersIsMutable();
             inputParameters_.addAll(other.inputParameters_);
@@ -1090,7 +996,7 @@ private static final long serialVersionUID = 0L;
             inputParametersBuilder_.dispose();
             inputParametersBuilder_ = null;
             inputParameters_ = other.inputParameters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             inputParametersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInputParametersFieldBuilder() : null;
@@ -1103,7 +1009,7 @@ private static final long serialVersionUID = 0L;
         if (!other.outputParameters_.isEmpty()) {
           if (outputParameters_.isEmpty()) {
             outputParameters_ = other.outputParameters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureOutputParametersIsMutable();
             outputParameters_.addAll(other.outputParameters_);
@@ -1116,7 +1022,7 @@ private static final long serialVersionUID = 0L;
             outputParametersBuilder_.dispose();
             outputParametersBuilder_ = null;
             outputParameters_ = other.outputParameters_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             outputParametersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getOutputParametersFieldBuilder() : null;
@@ -1130,6 +1036,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPipelineId().isEmpty()) {
         pipelineId_ = other.pipelineId_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       switch (other.getExecutorCase()) {
@@ -1141,7 +1048,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1156,17 +1063,90 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1a.Pipeline parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getDockerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              executorCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getResourcesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              pipelineId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              com.google.genomics.v1a.PipelineParameter m =
+                  input.readMessage(
+                      com.google.genomics.v1a.PipelineParameter.parser(),
+                      extensionRegistry);
+              if (inputParametersBuilder_ == null) {
+                ensureInputParametersIsMutable();
+                inputParameters_.add(m);
+              } else {
+                inputParametersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              com.google.genomics.v1a.PipelineParameter m =
+                  input.readMessage(
+                      com.google.genomics.v1a.PipelineParameter.parser(),
+                      extensionRegistry);
+              if (outputParametersBuilder_ == null) {
+                ensureOutputParametersIsMutable();
+                outputParameters_.add(m);
+              } else {
+                outputParametersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1a.Pipeline) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int executorCase_ = 0;
@@ -1242,11 +1222,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1260,8 +1238,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1277,12 +1255,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1343,11 +1319,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1361,8 +1335,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1378,12 +1352,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1441,11 +1413,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1458,8 +1428,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1474,12 +1444,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1487,9 +1455,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.genomics.v1a.PipelineParameter> inputParameters_ =
       java.util.Collections.emptyList();
     private void ensureInputParametersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         inputParameters_ = new java.util.ArrayList<com.google.genomics.v1a.PipelineParameter>(inputParameters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1683,7 +1651,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInputParameters() {
       if (inputParametersBuilder_ == null) {
         inputParameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         inputParametersBuilder_.clear();
@@ -1788,7 +1756,7 @@ private static final long serialVersionUID = 0L;
         inputParametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.genomics.v1a.PipelineParameter, com.google.genomics.v1a.PipelineParameter.Builder, com.google.genomics.v1a.PipelineParameterOrBuilder>(
                 inputParameters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         inputParameters_ = null;
@@ -1799,9 +1767,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.genomics.v1a.PipelineParameter> outputParameters_ =
       java.util.Collections.emptyList();
     private void ensureOutputParametersIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         outputParameters_ = new java.util.ArrayList<com.google.genomics.v1a.PipelineParameter>(outputParameters_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1995,7 +1963,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearOutputParameters() {
       if (outputParametersBuilder_ == null) {
         outputParameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         outputParametersBuilder_.clear();
@@ -2100,7 +2068,7 @@ private static final long serialVersionUID = 0L;
         outputParametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.genomics.v1a.PipelineParameter, com.google.genomics.v1a.PipelineParameter.Builder, com.google.genomics.v1a.PipelineParameterOrBuilder>(
                 outputParameters_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         outputParameters_ = null;
@@ -2282,7 +2250,7 @@ private static final long serialVersionUID = 0L;
         executor_ = null;
       }
       executorCase_ = 5;
-      onChanged();;
+      onChanged();
       return dockerBuilder_;
     }
 
@@ -2303,7 +2271,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resources field is set.
      */
     public boolean hasResources() {
-      return resourcesBuilder_ != null || resources_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2343,11 +2311,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resources_ = value;
-        onChanged();
       } else {
         resourcesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2366,11 +2334,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1a.PipelineResources.Builder builderForValue) {
       if (resourcesBuilder_ == null) {
         resources_ = builderForValue.build();
-        onChanged();
       } else {
         resourcesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2387,17 +2355,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResources(com.google.genomics.v1a.PipelineResources value) {
       if (resourcesBuilder_ == null) {
-        if (resources_ != null) {
-          resources_ =
-            com.google.genomics.v1a.PipelineResources.newBuilder(resources_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          resources_ != null &&
+          resources_ != com.google.genomics.v1a.PipelineResources.getDefaultInstance()) {
+          getResourcesBuilder().mergeFrom(value);
         } else {
           resources_ = value;
         }
-        onChanged();
       } else {
         resourcesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2413,14 +2382,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1alpha2.PipelineResources resources = 6;</code>
      */
     public Builder clearResources() {
-      if (resourcesBuilder_ == null) {
-        resources_ = null;
-        onChanged();
-      } else {
-        resources_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      resources_ = null;
+      if (resourcesBuilder_ != null) {
+        resourcesBuilder_.dispose();
         resourcesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2436,7 +2404,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1alpha2.PipelineResources resources = 6;</code>
      */
     public com.google.genomics.v1a.PipelineResources.Builder getResourcesBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getResourcesFieldBuilder().getBuilder();
     }
@@ -2551,11 +2519,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPipelineId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pipelineId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2572,8 +2538,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPipelineId() {
-      
       pipelineId_ = getDefaultInstance().getPipelineId();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2592,12 +2558,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPipelineIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pipelineId_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2634,7 +2598,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Pipeline(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

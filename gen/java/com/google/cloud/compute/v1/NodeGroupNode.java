@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     accelerators_ = java.util.Collections.emptyList();
     cpuOvercommitType_ = "";
     disks_ = java.util.Collections.emptyList();
+    instanceConsumptionData_ = java.util.Collections.emptyList();
     instances_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     name_ = "";
     nodeType_ = "";
@@ -40,130 +41,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private NodeGroupNode(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            name_ = s;
-            break;
-          }
-          case 232780786: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              instances_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            instances_.add(s);
-            break;
-          }
-          case 764752818: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              disks_ = new java.util.ArrayList<com.google.cloud.compute.v1.LocalDisk>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            disks_.add(
-                input.readMessage(com.google.cloud.compute.v1.LocalDisk.parser(), extensionRegistry));
-            break;
-          }
-          case 1450082194: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            status_ = s;
-            break;
-          }
-          case 1665436746: {
-            com.google.cloud.compute.v1.ServerBinding.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = serverBinding_.toBuilder();
-            }
-            serverBinding_ = input.readMessage(com.google.cloud.compute.v1.ServerBinding.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serverBinding_);
-              serverBinding_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          case 1981823674: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            cpuOvercommitType_ = s;
-            break;
-          }
-          case -2138350782: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              accelerators_ = new java.util.ArrayList<com.google.cloud.compute.v1.AcceleratorConfig>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            accelerators_.add(
-                input.readMessage(com.google.cloud.compute.v1.AcceleratorConfig.parser(), extensionRegistry));
-            break;
-          }
-          case -1579500358: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            serverId_ = s;
-            break;
-          }
-          case -568304966: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            nodeType_ = s;
-            break;
-          }
-          case -447253160: {
-            bitField0_ |= 0x00000008;
-            satisfiesPzs_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        instances_ = instances_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        disks_ = java.util.Collections.unmodifiableList(disks_);
-      }
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        accelerators_ = java.util.Collections.unmodifiableList(accelerators_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -473,6 +350,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ACCELERATORS_FIELD_NUMBER = 269577064;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.AcceleratorConfig> accelerators_;
   /**
    * <pre>
@@ -532,8 +410,47 @@ private static final long serialVersionUID = 0L;
     return accelerators_.get(index);
   }
 
+  public static final int CONSUMED_RESOURCES_FIELD_NUMBER = 334527118;
+  private com.google.cloud.compute.v1.InstanceConsumptionInfo consumedResources_;
+  /**
+   * <pre>
+   * Node resources that are reserved by all instances.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+   * @return Whether the consumedResources field is set.
+   */
+  @java.lang.Override
+  public boolean hasConsumedResources() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Node resources that are reserved by all instances.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+   * @return The consumedResources.
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.InstanceConsumptionInfo getConsumedResources() {
+    return consumedResources_ == null ? com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : consumedResources_;
+  }
+  /**
+   * <pre>
+   * Node resources that are reserved by all instances.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder getConsumedResourcesOrBuilder() {
+    return consumedResources_ == null ? com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : consumedResources_;
+  }
+
   public static final int CPU_OVERCOMMIT_TYPE_FIELD_NUMBER = 247727959;
-  private volatile java.lang.Object cpuOvercommitType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cpuOvercommitType_ = "";
   /**
    * <pre>
    * CPU overcommit.
@@ -545,7 +462,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasCpuOvercommitType() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
    * <pre>
@@ -594,6 +511,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISKS_FIELD_NUMBER = 95594102;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.LocalDisk> disks_;
   /**
    * <pre>
@@ -653,7 +571,69 @@ private static final long serialVersionUID = 0L;
     return disks_.get(index);
   }
 
+  public static final int INSTANCE_CONSUMPTION_DATA_FIELD_NUMBER = 84715576;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.cloud.compute.v1.InstanceConsumptionData> instanceConsumptionData_;
+  /**
+   * <pre>
+   * Instance data that shows consumed resources on the node.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.cloud.compute.v1.InstanceConsumptionData> getInstanceConsumptionDataList() {
+    return instanceConsumptionData_;
+  }
+  /**
+   * <pre>
+   * Instance data that shows consumed resources on the node.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder> 
+      getInstanceConsumptionDataOrBuilderList() {
+    return instanceConsumptionData_;
+  }
+  /**
+   * <pre>
+   * Instance data that shows consumed resources on the node.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+   */
+  @java.lang.Override
+  public int getInstanceConsumptionDataCount() {
+    return instanceConsumptionData_.size();
+  }
+  /**
+   * <pre>
+   * Instance data that shows consumed resources on the node.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.InstanceConsumptionData getInstanceConsumptionData(int index) {
+    return instanceConsumptionData_.get(index);
+  }
+  /**
+   * <pre>
+   * Instance data that shows consumed resources on the node.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder getInstanceConsumptionDataOrBuilder(
+      int index) {
+    return instanceConsumptionData_.get(index);
+  }
+
   public static final int INSTANCES_FIELD_NUMBER = 29097598;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList instances_;
   /**
    * <pre>
@@ -705,7 +685,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the node.
@@ -716,7 +697,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasName() {
-    return ((bitField0_ & 0x00000002) != 0);
+    return ((bitField0_ & 0x00000004) != 0);
   }
   /**
    * <pre>
@@ -763,7 +744,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NODE_TYPE_FIELD_NUMBER = 465832791;
-  private volatile java.lang.Object nodeType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object nodeType_ = "";
   /**
    * <pre>
    * The type of this node.
@@ -774,7 +756,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasNodeType() {
-    return ((bitField0_ & 0x00000004) != 0);
+    return ((bitField0_ & 0x00000008) != 0);
   }
   /**
    * <pre>
@@ -821,7 +803,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SATISFIES_PZS_FIELD_NUMBER = 480964267;
-  private boolean satisfiesPzs_;
+  private boolean satisfiesPzs_ = false;
   /**
    * <pre>
    * [Output Only] Reserved for future use.
@@ -832,7 +814,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasSatisfiesPzs() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <pre>
@@ -859,7 +841,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasServerBinding() {
-    return ((bitField0_ & 0x00000010) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <pre>
@@ -886,7 +868,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVER_ID_FIELD_NUMBER = 339433367;
-  private volatile java.lang.Object serverId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serverId_ = "";
   /**
    * <pre>
    * Server ID associated with this node.
@@ -897,7 +880,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasServerId() {
-    return ((bitField0_ & 0x00000020) != 0);
+    return ((bitField0_ & 0x00000040) != 0);
   }
   /**
    * <pre>
@@ -944,7 +927,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 181260274;
-  private volatile java.lang.Object status_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object status_ = "";
   /**
    * <pre>
    * 
@@ -956,7 +940,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasStatus() {
-    return ((bitField0_ & 0x00000040) != 0);
+    return ((bitField0_ & 0x00000080) != 0);
   }
   /**
    * <pre>
@@ -1004,6 +988,44 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int TOTAL_RESOURCES_FIELD_NUMBER = 97406698;
+  private com.google.cloud.compute.v1.InstanceConsumptionInfo totalResources_;
+  /**
+   * <pre>
+   * Total amount of available resources on the node.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+   * @return Whether the totalResources field is set.
+   */
+  @java.lang.Override
+  public boolean hasTotalResources() {
+    return ((bitField0_ & 0x00000100) != 0);
+  }
+  /**
+   * <pre>
+   * Total amount of available resources on the node.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+   * @return The totalResources.
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.InstanceConsumptionInfo getTotalResources() {
+    return totalResources_ == null ? com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : totalResources_;
+  }
+  /**
+   * <pre>
+   * Total amount of available resources on the node.
+   * </pre>
+   *
+   * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder getTotalResourcesOrBuilder() {
+    return totalResources_ == null ? com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : totalResources_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -1018,37 +1040,46 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3373707, name_);
     }
     for (int i = 0; i < instances_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 29097598, instances_.getRaw(i));
     }
+    for (int i = 0; i < instanceConsumptionData_.size(); i++) {
+      output.writeMessage(84715576, instanceConsumptionData_.get(i));
+    }
     for (int i = 0; i < disks_.size(); i++) {
       output.writeMessage(95594102, disks_.get(i));
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
+      output.writeMessage(97406698, getTotalResources());
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 181260274, status_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeMessage(208179593, getServerBinding());
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 247727959, cpuOvercommitType_);
     }
     for (int i = 0; i < accelerators_.size(); i++) {
       output.writeMessage(269577064, accelerators_.get(i));
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeMessage(334527118, getConsumedResources());
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 339433367, serverId_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 465832791, nodeType_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeBool(480964267, satisfiesPzs_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1057,7 +1088,7 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (((bitField0_ & 0x00000002) != 0)) {
+    if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3373707, name_);
     }
     {
@@ -1068,35 +1099,47 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 4 * getInstancesList().size();
     }
+    for (int i = 0; i < instanceConsumptionData_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(84715576, instanceConsumptionData_.get(i));
+    }
     for (int i = 0; i < disks_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(95594102, disks_.get(i));
     }
-    if (((bitField0_ & 0x00000040) != 0)) {
+    if (((bitField0_ & 0x00000100) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(97406698, getTotalResources());
+    }
+    if (((bitField0_ & 0x00000080) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(181260274, status_);
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(208179593, getServerBinding());
     }
-    if (((bitField0_ & 0x00000001) != 0)) {
+    if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(247727959, cpuOvercommitType_);
     }
     for (int i = 0; i < accelerators_.size(); i++) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(269577064, accelerators_.get(i));
     }
-    if (((bitField0_ & 0x00000020) != 0)) {
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(334527118, getConsumedResources());
+    }
+    if (((bitField0_ & 0x00000040) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(339433367, serverId_);
     }
-    if (((bitField0_ & 0x00000004) != 0)) {
+    if (((bitField0_ & 0x00000008) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(465832791, nodeType_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(480964267, satisfiesPzs_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1113,6 +1156,11 @@ private static final long serialVersionUID = 0L;
 
     if (!getAcceleratorsList()
         .equals(other.getAcceleratorsList())) return false;
+    if (hasConsumedResources() != other.hasConsumedResources()) return false;
+    if (hasConsumedResources()) {
+      if (!getConsumedResources()
+          .equals(other.getConsumedResources())) return false;
+    }
     if (hasCpuOvercommitType() != other.hasCpuOvercommitType()) return false;
     if (hasCpuOvercommitType()) {
       if (!getCpuOvercommitType()
@@ -1120,6 +1168,8 @@ private static final long serialVersionUID = 0L;
     }
     if (!getDisksList()
         .equals(other.getDisksList())) return false;
+    if (!getInstanceConsumptionDataList()
+        .equals(other.getInstanceConsumptionDataList())) return false;
     if (!getInstancesList()
         .equals(other.getInstancesList())) return false;
     if (hasName() != other.hasName()) return false;
@@ -1152,7 +1202,12 @@ private static final long serialVersionUID = 0L;
       if (!getStatus()
           .equals(other.getStatus())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasTotalResources() != other.hasTotalResources()) return false;
+    if (hasTotalResources()) {
+      if (!getTotalResources()
+          .equals(other.getTotalResources())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1167,6 +1222,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACCELERATORS_FIELD_NUMBER;
       hash = (53 * hash) + getAcceleratorsList().hashCode();
     }
+    if (hasConsumedResources()) {
+      hash = (37 * hash) + CONSUMED_RESOURCES_FIELD_NUMBER;
+      hash = (53 * hash) + getConsumedResources().hashCode();
+    }
     if (hasCpuOvercommitType()) {
       hash = (37 * hash) + CPU_OVERCOMMIT_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getCpuOvercommitType().hashCode();
@@ -1174,6 +1233,10 @@ private static final long serialVersionUID = 0L;
     if (getDisksCount() > 0) {
       hash = (37 * hash) + DISKS_FIELD_NUMBER;
       hash = (53 * hash) + getDisksList().hashCode();
+    }
+    if (getInstanceConsumptionDataCount() > 0) {
+      hash = (37 * hash) + INSTANCE_CONSUMPTION_DATA_FIELD_NUMBER;
+      hash = (53 * hash) + getInstanceConsumptionDataList().hashCode();
     }
     if (getInstancesCount() > 0) {
       hash = (37 * hash) + INSTANCES_FIELD_NUMBER;
@@ -1204,7 +1267,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getStatus().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasTotalResources()) {
+      hash = (37 * hash) + TOTAL_RESOURCES_FIELD_NUMBER;
+      hash = (53 * hash) + getTotalResources().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1336,45 +1403,61 @@ private static final long serialVersionUID = 0L;
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
         getAcceleratorsFieldBuilder();
+        getConsumedResourcesFieldBuilder();
         getDisksFieldBuilder();
+        getInstanceConsumptionDataFieldBuilder();
         getServerBindingFieldBuilder();
+        getTotalResourcesFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (acceleratorsBuilder_ == null) {
         accelerators_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        accelerators_ = null;
         acceleratorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
+      consumedResources_ = null;
+      if (consumedResourcesBuilder_ != null) {
+        consumedResourcesBuilder_.dispose();
+        consumedResourcesBuilder_ = null;
+      }
       cpuOvercommitType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (disksBuilder_ == null) {
         disks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        disks_ = null;
         disksBuilder_.clear();
       }
-      instances_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
-      name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
-      nodeType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
-      satisfiesPzs_ = false;
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (serverBindingBuilder_ == null) {
-        serverBinding_ = null;
+      if (instanceConsumptionDataBuilder_ == null) {
+        instanceConsumptionData_ = java.util.Collections.emptyList();
       } else {
-        serverBindingBuilder_.clear();
+        instanceConsumptionData_ = null;
+        instanceConsumptionDataBuilder_.clear();
       }
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000010);
+      instances_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      name_ = "";
+      nodeType_ = "";
+      satisfiesPzs_ = false;
+      serverBinding_ = null;
+      if (serverBindingBuilder_ != null) {
+        serverBindingBuilder_.dispose();
+        serverBindingBuilder_ = null;
+      }
       serverId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000100);
       status_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
+      totalResources_ = null;
+      if (totalResourcesBuilder_ != null) {
+        totalResourcesBuilder_.dispose();
+        totalResourcesBuilder_ = null;
+      }
       return this;
     }
 
@@ -1401,8 +1484,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.NodeGroupNode buildPartial() {
       com.google.cloud.compute.v1.NodeGroupNode result = new com.google.cloud.compute.v1.NodeGroupNode(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.NodeGroupNode result) {
       if (acceleratorsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           accelerators_ = java.util.Collections.unmodifiableList(accelerators_);
@@ -1412,55 +1500,77 @@ private static final long serialVersionUID = 0L;
       } else {
         result.accelerators_ = acceleratorsBuilder_.build();
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.cpuOvercommitType_ = cpuOvercommitType_;
       if (disksBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           disks_ = java.util.Collections.unmodifiableList(disks_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.disks_ = disks_;
       } else {
         result.disks_ = disksBuilder_.build();
       }
-      if (((bitField0_ & 0x00000008) != 0)) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          instanceConsumptionData_ = java.util.Collections.unmodifiableList(instanceConsumptionData_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.instanceConsumptionData_ = instanceConsumptionData_;
+      } else {
+        result.instanceConsumptionData_ = instanceConsumptionDataBuilder_.build();
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
         instances_ = instances_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
       }
       result.instances_ = instances_;
-      if (((from_bitField0_ & 0x00000010) != 0)) {
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.NodeGroupNode result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.consumedResources_ = consumedResourcesBuilder_ == null
+            ? consumedResources_
+            : consumedResourcesBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cpuOvercommitType_ = cpuOvercommitType_;
         to_bitField0_ |= 0x00000002;
       }
-      result.name_ = name_;
-      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000004;
       }
-      result.nodeType_ = nodeType_;
-      if (((from_bitField0_ & 0x00000040) != 0)) {
-        result.satisfiesPzs_ = satisfiesPzs_;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.nodeType_ = nodeType_;
         to_bitField0_ |= 0x00000008;
       }
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        if (serverBindingBuilder_ == null) {
-          result.serverBinding_ = serverBinding_;
-        } else {
-          result.serverBinding_ = serverBindingBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.satisfiesPzs_ = satisfiesPzs_;
         to_bitField0_ |= 0x00000010;
       }
-      if (((from_bitField0_ & 0x00000100) != 0)) {
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.serverBinding_ = serverBindingBuilder_ == null
+            ? serverBinding_
+            : serverBindingBuilder_.build();
         to_bitField0_ |= 0x00000020;
       }
-      result.serverId_ = serverId_;
-      if (((from_bitField0_ & 0x00000200) != 0)) {
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.serverId_ = serverId_;
         to_bitField0_ |= 0x00000040;
       }
-      result.status_ = status_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.status_ = status_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.totalResources_ = totalResourcesBuilder_ == null
+            ? totalResources_
+            : totalResourcesBuilder_.build();
+        to_bitField0_ |= 0x00000100;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1533,16 +1643,19 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (other.hasConsumedResources()) {
+        mergeConsumedResources(other.getConsumedResources());
+      }
       if (other.hasCpuOvercommitType()) {
-        bitField0_ |= 0x00000002;
         cpuOvercommitType_ = other.cpuOvercommitType_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (disksBuilder_ == null) {
         if (!other.disks_.isEmpty()) {
           if (disks_.isEmpty()) {
             disks_ = other.disks_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureDisksIsMutable();
             disks_.addAll(other.disks_);
@@ -1555,7 +1668,7 @@ private static final long serialVersionUID = 0L;
             disksBuilder_.dispose();
             disksBuilder_ = null;
             disks_ = other.disks_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             disksBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDisksFieldBuilder() : null;
@@ -1564,10 +1677,36 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
+      if (instanceConsumptionDataBuilder_ == null) {
+        if (!other.instanceConsumptionData_.isEmpty()) {
+          if (instanceConsumptionData_.isEmpty()) {
+            instanceConsumptionData_ = other.instanceConsumptionData_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureInstanceConsumptionDataIsMutable();
+            instanceConsumptionData_.addAll(other.instanceConsumptionData_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.instanceConsumptionData_.isEmpty()) {
+          if (instanceConsumptionDataBuilder_.isEmpty()) {
+            instanceConsumptionDataBuilder_.dispose();
+            instanceConsumptionDataBuilder_ = null;
+            instanceConsumptionData_ = other.instanceConsumptionData_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            instanceConsumptionDataBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getInstanceConsumptionDataFieldBuilder() : null;
+          } else {
+            instanceConsumptionDataBuilder_.addAllMessages(other.instanceConsumptionData_);
+          }
+        }
+      }
       if (!other.instances_.isEmpty()) {
         if (instances_.isEmpty()) {
           instances_ = other.instances_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureInstancesIsMutable();
           instances_.addAll(other.instances_);
@@ -1575,13 +1714,13 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000010;
         name_ = other.name_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasNodeType()) {
-        bitField0_ |= 0x00000020;
         nodeType_ = other.nodeType_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasSatisfiesPzs()) {
@@ -1591,16 +1730,19 @@ private static final long serialVersionUID = 0L;
         mergeServerBinding(other.getServerBinding());
       }
       if (other.hasServerId()) {
-        bitField0_ |= 0x00000100;
         serverId_ = other.serverId_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasStatus()) {
-        bitField0_ |= 0x00000200;
         status_ = other.status_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasTotalResources()) {
+        mergeTotalResources(other.getTotalResources());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1615,17 +1757,126 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.NodeGroupNode parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 26989658
+            case 232780786: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInstancesIsMutable();
+              instances_.add(s);
+              break;
+            } // case 232780786
+            case 677724610: {
+              com.google.cloud.compute.v1.InstanceConsumptionData m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.InstanceConsumptionData.parser(),
+                      extensionRegistry);
+              if (instanceConsumptionDataBuilder_ == null) {
+                ensureInstanceConsumptionDataIsMutable();
+                instanceConsumptionData_.add(m);
+              } else {
+                instanceConsumptionDataBuilder_.addMessage(m);
+              }
+              break;
+            } // case 677724610
+            case 764752818: {
+              com.google.cloud.compute.v1.LocalDisk m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.LocalDisk.parser(),
+                      extensionRegistry);
+              if (disksBuilder_ == null) {
+                ensureDisksIsMutable();
+                disks_.add(m);
+              } else {
+                disksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 764752818
+            case 779253586: {
+              input.readMessage(
+                  getTotalResourcesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 779253586
+            case 1450082194: {
+              status_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 1450082194
+            case 1665436746: {
+              input.readMessage(
+                  getServerBindingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1665436746
+            case 1981823674: {
+              cpuOvercommitType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1981823674
+            case -2138350782: {
+              com.google.cloud.compute.v1.AcceleratorConfig m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.AcceleratorConfig.parser(),
+                      extensionRegistry);
+              if (acceleratorsBuilder_ == null) {
+                ensureAcceleratorsIsMutable();
+                accelerators_.add(m);
+              } else {
+                acceleratorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case -2138350782
+            case -1618750350: {
+              input.readMessage(
+                  getConsumedResourcesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1618750350
+            case -1579500358: {
+              serverId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case -1579500358
+            case -568304966: {
+              nodeType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -568304966
+            case -447253160: {
+              satisfiesPzs_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -447253160
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.NodeGroupNode) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1942,6 +2193,161 @@ private static final long serialVersionUID = 0L;
       return acceleratorsBuilder_;
     }
 
+    private com.google.cloud.compute.v1.InstanceConsumptionInfo consumedResources_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.InstanceConsumptionInfo, com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder, com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder> consumedResourcesBuilder_;
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     * @return Whether the consumedResources field is set.
+     */
+    public boolean hasConsumedResources() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     * @return The consumedResources.
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionInfo getConsumedResources() {
+      if (consumedResourcesBuilder_ == null) {
+        return consumedResources_ == null ? com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : consumedResources_;
+      } else {
+        return consumedResourcesBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    public Builder setConsumedResources(com.google.cloud.compute.v1.InstanceConsumptionInfo value) {
+      if (consumedResourcesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        consumedResources_ = value;
+      } else {
+        consumedResourcesBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    public Builder setConsumedResources(
+        com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder builderForValue) {
+      if (consumedResourcesBuilder_ == null) {
+        consumedResources_ = builderForValue.build();
+      } else {
+        consumedResourcesBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    public Builder mergeConsumedResources(com.google.cloud.compute.v1.InstanceConsumptionInfo value) {
+      if (consumedResourcesBuilder_ == null) {
+        if (((bitField0_ & 0x00000002) != 0) &&
+          consumedResources_ != null &&
+          consumedResources_ != com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance()) {
+          getConsumedResourcesBuilder().mergeFrom(value);
+        } else {
+          consumedResources_ = value;
+        }
+      } else {
+        consumedResourcesBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    public Builder clearConsumedResources() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      consumedResources_ = null;
+      if (consumedResourcesBuilder_ != null) {
+        consumedResourcesBuilder_.dispose();
+        consumedResourcesBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder getConsumedResourcesBuilder() {
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return getConsumedResourcesFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder getConsumedResourcesOrBuilder() {
+      if (consumedResourcesBuilder_ != null) {
+        return consumedResourcesBuilder_.getMessageOrBuilder();
+      } else {
+        return consumedResources_ == null ?
+            com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : consumedResources_;
+      }
+    }
+    /**
+     * <pre>
+     * Node resources that are reserved by all instances.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo consumed_resources = 334527118;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.InstanceConsumptionInfo, com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder, com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder> 
+        getConsumedResourcesFieldBuilder() {
+      if (consumedResourcesBuilder_ == null) {
+        consumedResourcesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.compute.v1.InstanceConsumptionInfo, com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder, com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder>(
+                getConsumedResources(),
+                getParentForChildren(),
+                isClean());
+        consumedResources_ = null;
+      }
+      return consumedResourcesBuilder_;
+    }
+
     private java.lang.Object cpuOvercommitType_ = "";
     /**
      * <pre>
@@ -1953,7 +2359,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cpuOvercommitType field is set.
      */
     public boolean hasCpuOvercommitType() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2010,11 +2416,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCpuOvercommitType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       cpuOvercommitType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2028,8 +2432,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCpuOvercommitType() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       cpuOvercommitType_ = getDefaultInstance().getCpuOvercommitType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2045,12 +2449,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCpuOvercommitTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cpuOvercommitType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2058,9 +2460,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.compute.v1.LocalDisk> disks_ =
       java.util.Collections.emptyList();
     private void ensureDisksIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         disks_ = new java.util.ArrayList<com.google.cloud.compute.v1.LocalDisk>(disks_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2254,7 +2656,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDisks() {
       if (disksBuilder_ == null) {
         disks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         disksBuilder_.clear();
@@ -2359,7 +2761,7 @@ private static final long serialVersionUID = 0L;
         disksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.compute.v1.LocalDisk, com.google.cloud.compute.v1.LocalDisk.Builder, com.google.cloud.compute.v1.LocalDiskOrBuilder>(
                 disks_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         disks_ = null;
@@ -2367,11 +2769,323 @@ private static final long serialVersionUID = 0L;
       return disksBuilder_;
     }
 
+    private java.util.List<com.google.cloud.compute.v1.InstanceConsumptionData> instanceConsumptionData_ =
+      java.util.Collections.emptyList();
+    private void ensureInstanceConsumptionDataIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        instanceConsumptionData_ = new java.util.ArrayList<com.google.cloud.compute.v1.InstanceConsumptionData>(instanceConsumptionData_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.compute.v1.InstanceConsumptionData, com.google.cloud.compute.v1.InstanceConsumptionData.Builder, com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder> instanceConsumptionDataBuilder_;
+
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public java.util.List<com.google.cloud.compute.v1.InstanceConsumptionData> getInstanceConsumptionDataList() {
+      if (instanceConsumptionDataBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(instanceConsumptionData_);
+      } else {
+        return instanceConsumptionDataBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public int getInstanceConsumptionDataCount() {
+      if (instanceConsumptionDataBuilder_ == null) {
+        return instanceConsumptionData_.size();
+      } else {
+        return instanceConsumptionDataBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionData getInstanceConsumptionData(int index) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        return instanceConsumptionData_.get(index);
+      } else {
+        return instanceConsumptionDataBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder setInstanceConsumptionData(
+        int index, com.google.cloud.compute.v1.InstanceConsumptionData value) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.set(index, value);
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder setInstanceConsumptionData(
+        int index, com.google.cloud.compute.v1.InstanceConsumptionData.Builder builderForValue) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder addInstanceConsumptionData(com.google.cloud.compute.v1.InstanceConsumptionData value) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.add(value);
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder addInstanceConsumptionData(
+        int index, com.google.cloud.compute.v1.InstanceConsumptionData value) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.add(index, value);
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder addInstanceConsumptionData(
+        com.google.cloud.compute.v1.InstanceConsumptionData.Builder builderForValue) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.add(builderForValue.build());
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder addInstanceConsumptionData(
+        int index, com.google.cloud.compute.v1.InstanceConsumptionData.Builder builderForValue) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder addAllInstanceConsumptionData(
+        java.lang.Iterable<? extends com.google.cloud.compute.v1.InstanceConsumptionData> values) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        ensureInstanceConsumptionDataIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, instanceConsumptionData_);
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder clearInstanceConsumptionData() {
+      if (instanceConsumptionDataBuilder_ == null) {
+        instanceConsumptionData_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public Builder removeInstanceConsumptionData(int index) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        ensureInstanceConsumptionDataIsMutable();
+        instanceConsumptionData_.remove(index);
+        onChanged();
+      } else {
+        instanceConsumptionDataBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionData.Builder getInstanceConsumptionDataBuilder(
+        int index) {
+      return getInstanceConsumptionDataFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder getInstanceConsumptionDataOrBuilder(
+        int index) {
+      if (instanceConsumptionDataBuilder_ == null) {
+        return instanceConsumptionData_.get(index);  } else {
+        return instanceConsumptionDataBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public java.util.List<? extends com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder> 
+         getInstanceConsumptionDataOrBuilderList() {
+      if (instanceConsumptionDataBuilder_ != null) {
+        return instanceConsumptionDataBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(instanceConsumptionData_);
+      }
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionData.Builder addInstanceConsumptionDataBuilder() {
+      return getInstanceConsumptionDataFieldBuilder().addBuilder(
+          com.google.cloud.compute.v1.InstanceConsumptionData.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionData.Builder addInstanceConsumptionDataBuilder(
+        int index) {
+      return getInstanceConsumptionDataFieldBuilder().addBuilder(
+          index, com.google.cloud.compute.v1.InstanceConsumptionData.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Instance data that shows consumed resources on the node.
+     * </pre>
+     *
+     * <code>repeated .google.cloud.compute.v1.InstanceConsumptionData instance_consumption_data = 84715576;</code>
+     */
+    public java.util.List<com.google.cloud.compute.v1.InstanceConsumptionData.Builder> 
+         getInstanceConsumptionDataBuilderList() {
+      return getInstanceConsumptionDataFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.cloud.compute.v1.InstanceConsumptionData, com.google.cloud.compute.v1.InstanceConsumptionData.Builder, com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder> 
+        getInstanceConsumptionDataFieldBuilder() {
+      if (instanceConsumptionDataBuilder_ == null) {
+        instanceConsumptionDataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.cloud.compute.v1.InstanceConsumptionData, com.google.cloud.compute.v1.InstanceConsumptionData.Builder, com.google.cloud.compute.v1.InstanceConsumptionDataOrBuilder>(
+                instanceConsumptionData_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        instanceConsumptionData_ = null;
+      }
+      return instanceConsumptionDataBuilder_;
+    }
+
     private com.google.protobuf.LazyStringList instances_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureInstancesIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         instances_ = new com.google.protobuf.LazyStringArrayList(instances_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -2434,10 +3148,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstances(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstancesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstancesIsMutable();
       instances_.set(index, value);
       onChanged();
       return this;
@@ -2453,10 +3165,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInstances(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstancesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstancesIsMutable();
       instances_.add(value);
       onChanged();
       return this;
@@ -2488,7 +3198,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearInstances() {
       instances_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2503,10 +3213,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInstancesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInstancesIsMutable();
       instances_.add(value);
       onChanged();
@@ -2523,7 +3231,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2577,11 +3285,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2594,8 +3300,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2610,12 +3316,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2630,7 +3334,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nodeType field is set.
      */
     public boolean hasNodeType() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2684,11 +3388,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       nodeType_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2701,8 +3403,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNodeType() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       nodeType_ = getDefaultInstance().getNodeType();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2717,12 +3419,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNodeTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       nodeType_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2738,7 +3438,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasSatisfiesPzs() {
-      return ((bitField0_ & 0x00000040) != 0);
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2762,8 +3462,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSatisfiesPzs(boolean value) {
-      bitField0_ |= 0x00000040;
+      
       satisfiesPzs_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2776,7 +3477,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSatisfiesPzs() {
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000100);
       satisfiesPzs_ = false;
       onChanged();
       return this;
@@ -2794,7 +3495,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serverBinding field is set.
      */
     public boolean hasServerBinding() {
-      return ((bitField0_ & 0x00000080) != 0);
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2824,11 +3525,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serverBinding_ = value;
-        onChanged();
       } else {
         serverBindingBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2842,11 +3543,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ServerBinding.Builder builderForValue) {
       if (serverBindingBuilder_ == null) {
         serverBinding_ = builderForValue.build();
-        onChanged();
       } else {
         serverBindingBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2858,19 +3559,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServerBinding(com.google.cloud.compute.v1.ServerBinding value) {
       if (serverBindingBuilder_ == null) {
-        if (((bitField0_ & 0x00000080) != 0) &&
-            serverBinding_ != null &&
-            serverBinding_ != com.google.cloud.compute.v1.ServerBinding.getDefaultInstance()) {
-          serverBinding_ =
-            com.google.cloud.compute.v1.ServerBinding.newBuilder(serverBinding_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          serverBinding_ != null &&
+          serverBinding_ != com.google.cloud.compute.v1.ServerBinding.getDefaultInstance()) {
+          getServerBindingBuilder().mergeFrom(value);
         } else {
           serverBinding_ = value;
         }
-        onChanged();
       } else {
         serverBindingBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2881,13 +3581,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ServerBinding server_binding = 208179593;</code>
      */
     public Builder clearServerBinding() {
-      if (serverBindingBuilder_ == null) {
-        serverBinding_ = null;
-        onChanged();
-      } else {
-        serverBindingBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000200);
+      serverBinding_ = null;
+      if (serverBindingBuilder_ != null) {
+        serverBindingBuilder_.dispose();
+        serverBindingBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000080);
+      onChanged();
       return this;
     }
     /**
@@ -2898,7 +3598,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ServerBinding server_binding = 208179593;</code>
      */
     public com.google.cloud.compute.v1.ServerBinding.Builder getServerBindingBuilder() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
       onChanged();
       return getServerBindingFieldBuilder().getBuilder();
     }
@@ -2948,7 +3648,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serverId field is set.
      */
     public boolean hasServerId() {
-      return ((bitField0_ & 0x00000100) != 0);
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3002,11 +3702,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
       serverId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3019,8 +3717,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServerId() {
-      bitField0_ = (bitField0_ & ~0x00000100);
       serverId_ = getDefaultInstance().getServerId();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3035,12 +3733,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000100;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serverId_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3056,7 +3752,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return ((bitField0_ & 0x00000200) != 0);
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3113,11 +3809,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatus(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       status_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3131,8 +3825,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       status_ = getDefaultInstance().getStatus();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3148,14 +3842,167 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatusBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       status_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.compute.v1.InstanceConsumptionInfo totalResources_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.InstanceConsumptionInfo, com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder, com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder> totalResourcesBuilder_;
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     * @return Whether the totalResources field is set.
+     */
+    public boolean hasTotalResources() {
+      return ((bitField0_ & 0x00001000) != 0);
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     * @return The totalResources.
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionInfo getTotalResources() {
+      if (totalResourcesBuilder_ == null) {
+        return totalResources_ == null ? com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : totalResources_;
+      } else {
+        return totalResourcesBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    public Builder setTotalResources(com.google.cloud.compute.v1.InstanceConsumptionInfo value) {
+      if (totalResourcesBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        totalResources_ = value;
+      } else {
+        totalResourcesBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    public Builder setTotalResources(
+        com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder builderForValue) {
+      if (totalResourcesBuilder_ == null) {
+        totalResources_ = builderForValue.build();
+      } else {
+        totalResourcesBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    public Builder mergeTotalResources(com.google.cloud.compute.v1.InstanceConsumptionInfo value) {
+      if (totalResourcesBuilder_ == null) {
+        if (((bitField0_ & 0x00001000) != 0) &&
+          totalResources_ != null &&
+          totalResources_ != com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance()) {
+          getTotalResourcesBuilder().mergeFrom(value);
+        } else {
+          totalResources_ = value;
+        }
+      } else {
+        totalResourcesBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    public Builder clearTotalResources() {
+      bitField0_ = (bitField0_ & ~0x00001000);
+      totalResources_ = null;
+      if (totalResourcesBuilder_ != null) {
+        totalResourcesBuilder_.dispose();
+        totalResourcesBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder getTotalResourcesBuilder() {
+      bitField0_ |= 0x00001000;
+      onChanged();
+      return getTotalResourcesFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    public com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder getTotalResourcesOrBuilder() {
+      if (totalResourcesBuilder_ != null) {
+        return totalResourcesBuilder_.getMessageOrBuilder();
+      } else {
+        return totalResources_ == null ?
+            com.google.cloud.compute.v1.InstanceConsumptionInfo.getDefaultInstance() : totalResources_;
+      }
+    }
+    /**
+     * <pre>
+     * Total amount of available resources on the node.
+     * </pre>
+     *
+     * <code>optional .google.cloud.compute.v1.InstanceConsumptionInfo total_resources = 97406698;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.InstanceConsumptionInfo, com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder, com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder> 
+        getTotalResourcesFieldBuilder() {
+      if (totalResourcesBuilder_ == null) {
+        totalResourcesBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.compute.v1.InstanceConsumptionInfo, com.google.cloud.compute.v1.InstanceConsumptionInfo.Builder, com.google.cloud.compute.v1.InstanceConsumptionInfoOrBuilder>(
+                getTotalResources(),
+                getParentForChildren(),
+                isClean());
+        totalResources_ = null;
+      }
+      return totalResourcesBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -3190,7 +4037,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NodeGroupNode(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

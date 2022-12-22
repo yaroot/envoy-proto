@@ -5,7 +5,9 @@ package com.google.cloud.optimization.v1;
 
 /**
  * <pre>
- * Aggregated metrics for [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute] (resp. for [OptimizeToursResponse][google.cloud.optimization.v1.OptimizeToursResponse]
+ * Aggregated metrics for
+ * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute] (resp. for
+ * [OptimizeToursResponse][google.cloud.optimization.v1.OptimizeToursResponse]
  * over all [Transition][google.cloud.optimization.v1.ShipmentRoute.Transition]
  * and/or [Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] (resp. over
  * all [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute]) elements.
@@ -37,165 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AggregatedMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            performedShipmentCount_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (travelDuration_ != null) {
-              subBuilder = travelDuration_.toBuilder();
-            }
-            travelDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(travelDuration_);
-              travelDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (waitDuration_ != null) {
-              subBuilder = waitDuration_.toBuilder();
-            }
-            waitDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(waitDuration_);
-              waitDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (delayDuration_ != null) {
-              subBuilder = delayDuration_.toBuilder();
-            }
-            delayDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(delayDuration_);
-              delayDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (breakDuration_ != null) {
-              subBuilder = breakDuration_.toBuilder();
-            }
-            breakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(breakDuration_);
-              breakDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (visitDuration_ != null) {
-              subBuilder = visitDuration_.toBuilder();
-            }
-            visitDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(visitDuration_);
-              visitDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (totalDuration_ != null) {
-              subBuilder = totalDuration_.toBuilder();
-            }
-            totalDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(totalDuration_);
-              totalDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 65: {
-
-            travelDistanceMeters_ = input.readDouble();
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              maxLoads_ = com.google.protobuf.MapField.newMapField(
-                  MaxLoadsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-            maxLoads__ = input.readMessage(
-                MaxLoadsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            maxLoads_.getMutableMap().put(
-                maxLoads__.getKey(), maxLoads__.getValue());
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              costs_ = com.google.protobuf.MapField.newMapField(
-                  CostsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
-            costs__ = input.readMessage(
-                CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            costs_.getMutableMap().put(
-                costs__.getKey(), costs__.getValue());
-            break;
-          }
-          case 89: {
-
-            totalCost_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_AggregatedMetrics_descriptor;
@@ -224,7 +67,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERFORMED_SHIPMENT_COUNT_FIELD_NUMBER = 1;
-  private int performedShipmentCount_;
+  private int performedShipmentCount_ = 0;
   /**
    * <pre>
    * Number of shipments performed. Note that a pickup and delivery pair only
@@ -274,7 +117,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTravelDurationOrBuilder() {
-    return getTravelDuration();
+    return travelDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : travelDuration_;
   }
 
   public static final int WAIT_DURATION_FIELD_NUMBER = 3;
@@ -312,7 +155,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getWaitDurationOrBuilder() {
-    return getWaitDuration();
+    return waitDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : waitDuration_;
   }
 
   public static final int DELAY_DURATION_FIELD_NUMBER = 4;
@@ -350,7 +193,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDelayDurationOrBuilder() {
-    return getDelayDuration();
+    return delayDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : delayDuration_;
   }
 
   public static final int BREAK_DURATION_FIELD_NUMBER = 5;
@@ -388,7 +231,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getBreakDurationOrBuilder() {
-    return getBreakDuration();
+    return breakDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : breakDuration_;
   }
 
   public static final int VISIT_DURATION_FIELD_NUMBER = 6;
@@ -426,7 +269,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getVisitDurationOrBuilder() {
-    return getVisitDuration();
+    return visitDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : visitDuration_;
   }
 
   public static final int TOTAL_DURATION_FIELD_NUMBER = 7;
@@ -434,7 +277,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The total duration should be equal to the sum of all durations above.
-   * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+   * For routes, it also corresponds to
+   * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+   * -
    * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
    * </pre>
    *
@@ -448,7 +293,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The total duration should be equal to the sum of all durations above.
-   * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+   * For routes, it also corresponds to
+   * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+   * -
    * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
    * </pre>
    *
@@ -462,7 +309,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The total duration should be equal to the sum of all durations above.
-   * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+   * For routes, it also corresponds to
+   * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+   * -
    * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
    * </pre>
    *
@@ -470,11 +319,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTotalDurationOrBuilder() {
-    return getTotalDuration();
+    return totalDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : totalDuration_;
   }
 
   public static final int TRAVEL_DISTANCE_METERS_FIELD_NUMBER = 8;
-  private double travelDistanceMeters_;
+  private double travelDistanceMeters_ = 0D;
   /**
    * <pre>
    * Total travel distance for a route or a solution.
@@ -500,6 +349,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> maxLoads_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
@@ -510,7 +360,6 @@ private static final long serialVersionUID = 0L;
     }
     return maxLoads_;
   }
-
   public int getMaxLoadsCount() {
     return internalGetMaxLoads().getMap().size();
   }
@@ -526,7 +375,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
    */
-
   @java.lang.Override
   public boolean containsMaxLoads(
       java.lang.String key) {
@@ -554,7 +402,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> getMaxLoadsMap() {
     return internalGetMaxLoads().getMap();
   }
@@ -571,10 +418,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getMaxLoadsOrDefault(
+  public /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getMaxLoadsOrDefault(
       java.lang.String key,
-      com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
+      /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> map =
         internalGetMaxLoads().getMap();
@@ -593,7 +441,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getMaxLoadsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -617,6 +464,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.DOUBLE,
                 0D);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Double> costs_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
@@ -627,20 +475,19 @@ private static final long serialVersionUID = 0L;
     }
     return costs_;
   }
-  @java.lang.Deprecated 
-  public int getCostsCount() {
+  @java.lang.Deprecated public int getCostsCount() {
     return internalGetCosts().getMap().size();
   }
   /**
    * <pre>
-   * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+   * Deprecated: Use [ShipmentRoute.route_costs][] and
+   * [OptimizeToursResponse.Metrics.costs][] instead.
    * </pre>
    *
    * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
    */
-  @java.lang.Deprecated 
   @java.lang.Override
-  public boolean containsCosts(
+  @java.lang.Deprecated public boolean containsCosts(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     return internalGetCosts().getMap().containsKey(key);
@@ -655,26 +502,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+   * Deprecated: Use [ShipmentRoute.route_costs][] and
+   * [OptimizeToursResponse.Metrics.costs][] instead.
    * </pre>
    *
    * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public java.util.Map<java.lang.String, java.lang.Double> getCostsMap() {
+  @java.lang.Deprecated public java.util.Map<java.lang.String, java.lang.Double> getCostsMap() {
     return internalGetCosts().getMap();
   }
   /**
    * <pre>
-   * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+   * Deprecated: Use [ShipmentRoute.route_costs][] and
+   * [OptimizeToursResponse.Metrics.costs][] instead.
    * </pre>
    *
    * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public double getCostsOrDefault(
+  @java.lang.Deprecated public double getCostsOrDefault(
       java.lang.String key,
       double defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -684,14 +531,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+   * Deprecated: Use [ShipmentRoute.route_costs][] and
+   * [OptimizeToursResponse.Metrics.costs][] instead.
    * </pre>
    *
    * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
    */
   @java.lang.Override
-  @java.lang.Deprecated 
-  public double getCostsOrThrow(
+  @java.lang.Deprecated public double getCostsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.Double> map =
@@ -703,15 +550,16 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_COST_FIELD_NUMBER = 11;
-  private double totalCost_;
+  private double totalCost_ = 0D;
   /**
    * <pre>
-   * Deprecated: Use [ShipmentRoute.route_total_cost][] and [OptimizeToursResponse.Metrics.total_cost][] instead.
+   * Deprecated: Use [ShipmentRoute.route_total_cost][] and
+   * [OptimizeToursResponse.Metrics.total_cost][] instead.
    * </pre>
    *
    * <code>double total_cost = 11 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.AggregatedMetrics.total_cost is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2206
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2296
    * @return The totalCost.
    */
   @java.lang.Override
@@ -772,7 +620,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToRawLongBits(totalCost_) != 0) {
       output.writeDouble(11, totalCost_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -837,7 +685,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(11, totalCost_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -894,7 +742,7 @@ private static final long serialVersionUID = 0L;
     if (java.lang.Double.doubleToLongBits(getTotalCost())
         != java.lang.Double.doubleToLongBits(
             other.getTotalCost())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -945,7 +793,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TOTAL_COST_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         java.lang.Double.doubleToLongBits(getTotalCost()));
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1042,7 +890,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Aggregated metrics for [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute] (resp. for [OptimizeToursResponse][google.cloud.optimization.v1.OptimizeToursResponse]
+   * Aggregated metrics for
+   * [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute] (resp. for
+   * [OptimizeToursResponse][google.cloud.optimization.v1.OptimizeToursResponse]
    * over all [Transition][google.cloud.optimization.v1.ShipmentRoute.Transition]
    * and/or [Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] (resp. over
    * all [ShipmentRoute][google.cloud.optimization.v1.ShipmentRoute]) elements.
@@ -1095,66 +945,53 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.AggregatedMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       performedShipmentCount_ = 0;
-
-      if (travelDurationBuilder_ == null) {
-        travelDuration_ = null;
-      } else {
-        travelDuration_ = null;
+      travelDuration_ = null;
+      if (travelDurationBuilder_ != null) {
+        travelDurationBuilder_.dispose();
         travelDurationBuilder_ = null;
       }
-      if (waitDurationBuilder_ == null) {
-        waitDuration_ = null;
-      } else {
-        waitDuration_ = null;
+      waitDuration_ = null;
+      if (waitDurationBuilder_ != null) {
+        waitDurationBuilder_.dispose();
         waitDurationBuilder_ = null;
       }
-      if (delayDurationBuilder_ == null) {
-        delayDuration_ = null;
-      } else {
-        delayDuration_ = null;
+      delayDuration_ = null;
+      if (delayDurationBuilder_ != null) {
+        delayDurationBuilder_.dispose();
         delayDurationBuilder_ = null;
       }
-      if (breakDurationBuilder_ == null) {
-        breakDuration_ = null;
-      } else {
-        breakDuration_ = null;
+      breakDuration_ = null;
+      if (breakDurationBuilder_ != null) {
+        breakDurationBuilder_.dispose();
         breakDurationBuilder_ = null;
       }
-      if (visitDurationBuilder_ == null) {
-        visitDuration_ = null;
-      } else {
-        visitDuration_ = null;
+      visitDuration_ = null;
+      if (visitDurationBuilder_ != null) {
+        visitDurationBuilder_.dispose();
         visitDurationBuilder_ = null;
       }
-      if (totalDurationBuilder_ == null) {
-        totalDuration_ = null;
-      } else {
-        totalDuration_ = null;
+      totalDuration_ = null;
+      if (totalDurationBuilder_ != null) {
+        totalDurationBuilder_.dispose();
         totalDurationBuilder_ = null;
       }
       travelDistanceMeters_ = 0D;
-
       internalGetMutableMaxLoads().clear();
       internalGetMutableCosts().clear();
       totalCost_ = 0D;
-
       return this;
     }
 
@@ -1181,46 +1018,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.AggregatedMetrics buildPartial() {
       com.google.cloud.optimization.v1.AggregatedMetrics result = new com.google.cloud.optimization.v1.AggregatedMetrics(this);
-      int from_bitField0_ = bitField0_;
-      result.performedShipmentCount_ = performedShipmentCount_;
-      if (travelDurationBuilder_ == null) {
-        result.travelDuration_ = travelDuration_;
-      } else {
-        result.travelDuration_ = travelDurationBuilder_.build();
-      }
-      if (waitDurationBuilder_ == null) {
-        result.waitDuration_ = waitDuration_;
-      } else {
-        result.waitDuration_ = waitDurationBuilder_.build();
-      }
-      if (delayDurationBuilder_ == null) {
-        result.delayDuration_ = delayDuration_;
-      } else {
-        result.delayDuration_ = delayDurationBuilder_.build();
-      }
-      if (breakDurationBuilder_ == null) {
-        result.breakDuration_ = breakDuration_;
-      } else {
-        result.breakDuration_ = breakDurationBuilder_.build();
-      }
-      if (visitDurationBuilder_ == null) {
-        result.visitDuration_ = visitDuration_;
-      } else {
-        result.visitDuration_ = visitDurationBuilder_.build();
-      }
-      if (totalDurationBuilder_ == null) {
-        result.totalDuration_ = totalDuration_;
-      } else {
-        result.totalDuration_ = totalDurationBuilder_.build();
-      }
-      result.travelDistanceMeters_ = travelDistanceMeters_;
-      result.maxLoads_ = internalGetMaxLoads();
-      result.maxLoads_.makeImmutable();
-      result.costs_ = internalGetCosts();
-      result.costs_.makeImmutable();
-      result.totalCost_ = totalCost_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.AggregatedMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.performedShipmentCount_ = performedShipmentCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.travelDuration_ = travelDurationBuilder_ == null
+            ? travelDuration_
+            : travelDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.waitDuration_ = waitDurationBuilder_ == null
+            ? waitDuration_
+            : waitDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.delayDuration_ = delayDurationBuilder_ == null
+            ? delayDuration_
+            : delayDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.breakDuration_ = breakDurationBuilder_ == null
+            ? breakDuration_
+            : breakDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.visitDuration_ = visitDurationBuilder_ == null
+            ? visitDuration_
+            : visitDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.totalDuration_ = totalDurationBuilder_ == null
+            ? totalDuration_
+            : totalDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.travelDistanceMeters_ = travelDistanceMeters_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.maxLoads_ = internalGetMaxLoads();
+        result.maxLoads_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.costs_ = internalGetCosts();
+        result.costs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.totalCost_ = totalCost_;
+      }
     }
 
     @java.lang.Override
@@ -1293,12 +1144,14 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableMaxLoads().mergeFrom(
           other.internalGetMaxLoads());
+      bitField0_ |= 0x00000100;
       internalGetMutableCosts().mergeFrom(
           other.internalGetCosts());
+      bitField0_ |= 0x00000200;
       if (other.getTotalCost() != 0D) {
         setTotalCost(other.getTotalCost());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1313,17 +1166,105 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.AggregatedMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              performedShipmentCount_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getTravelDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getWaitDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getDelayDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getBreakDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getVisitDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getTotalDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 65: {
+              travelDistanceMeters_ = input.readDouble();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 65
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
+              maxLoads__ = input.readMessage(
+                  MaxLoadsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMaxLoads().getMutableMap().put(
+                  maxLoads__.getKey(), maxLoads__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
+              costs__ = input.readMessage(
+                  CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCosts().getMutableMap().put(
+                  costs__.getKey(), costs__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 89: {
+              totalCost_ = input.readDouble();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 89
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.AggregatedMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1355,6 +1296,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPerformedShipmentCount(int value) {
       
       performedShipmentCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1368,7 +1310,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPerformedShipmentCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       performedShipmentCount_ = 0;
       onChanged();
       return this;
@@ -1386,7 +1328,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the travelDuration field is set.
      */
     public boolean hasTravelDuration() {
-      return travelDurationBuilder_ != null || travelDuration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1416,11 +1358,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         travelDuration_ = value;
-        onChanged();
       } else {
         travelDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1434,11 +1376,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (travelDurationBuilder_ == null) {
         travelDuration_ = builderForValue.build();
-        onChanged();
       } else {
         travelDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1450,17 +1392,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTravelDuration(com.google.protobuf.Duration value) {
       if (travelDurationBuilder_ == null) {
-        if (travelDuration_ != null) {
-          travelDuration_ =
-            com.google.protobuf.Duration.newBuilder(travelDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          travelDuration_ != null &&
+          travelDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTravelDurationBuilder().mergeFrom(value);
         } else {
           travelDuration_ = value;
         }
-        onChanged();
       } else {
         travelDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1471,14 +1414,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration travel_duration = 2;</code>
      */
     public Builder clearTravelDuration() {
-      if (travelDurationBuilder_ == null) {
-        travelDuration_ = null;
-        onChanged();
-      } else {
-        travelDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      travelDuration_ = null;
+      if (travelDurationBuilder_ != null) {
+        travelDurationBuilder_.dispose();
         travelDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1489,7 +1431,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration travel_duration = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getTravelDurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTravelDurationFieldBuilder().getBuilder();
     }
@@ -1541,7 +1483,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the waitDuration field is set.
      */
     public boolean hasWaitDuration() {
-      return waitDurationBuilder_ != null || waitDuration_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1571,11 +1513,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         waitDuration_ = value;
-        onChanged();
       } else {
         waitDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1589,11 +1531,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (waitDurationBuilder_ == null) {
         waitDuration_ = builderForValue.build();
-        onChanged();
       } else {
         waitDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1605,17 +1547,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWaitDuration(com.google.protobuf.Duration value) {
       if (waitDurationBuilder_ == null) {
-        if (waitDuration_ != null) {
-          waitDuration_ =
-            com.google.protobuf.Duration.newBuilder(waitDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          waitDuration_ != null &&
+          waitDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getWaitDurationBuilder().mergeFrom(value);
         } else {
           waitDuration_ = value;
         }
-        onChanged();
       } else {
         waitDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1626,14 +1569,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration wait_duration = 3;</code>
      */
     public Builder clearWaitDuration() {
-      if (waitDurationBuilder_ == null) {
-        waitDuration_ = null;
-        onChanged();
-      } else {
-        waitDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      waitDuration_ = null;
+      if (waitDurationBuilder_ != null) {
+        waitDurationBuilder_.dispose();
         waitDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1644,7 +1586,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration wait_duration = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getWaitDurationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getWaitDurationFieldBuilder().getBuilder();
     }
@@ -1696,7 +1638,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the delayDuration field is set.
      */
     public boolean hasDelayDuration() {
-      return delayDurationBuilder_ != null || delayDuration_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1726,11 +1668,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         delayDuration_ = value;
-        onChanged();
       } else {
         delayDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1744,11 +1686,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (delayDurationBuilder_ == null) {
         delayDuration_ = builderForValue.build();
-        onChanged();
       } else {
         delayDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1760,17 +1702,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDelayDuration(com.google.protobuf.Duration value) {
       if (delayDurationBuilder_ == null) {
-        if (delayDuration_ != null) {
-          delayDuration_ =
-            com.google.protobuf.Duration.newBuilder(delayDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          delayDuration_ != null &&
+          delayDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDelayDurationBuilder().mergeFrom(value);
         } else {
           delayDuration_ = value;
         }
-        onChanged();
       } else {
         delayDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1781,14 +1724,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration delay_duration = 4;</code>
      */
     public Builder clearDelayDuration() {
-      if (delayDurationBuilder_ == null) {
-        delayDuration_ = null;
-        onChanged();
-      } else {
-        delayDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      delayDuration_ = null;
+      if (delayDurationBuilder_ != null) {
+        delayDurationBuilder_.dispose();
         delayDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1799,7 +1741,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration delay_duration = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getDelayDurationBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getDelayDurationFieldBuilder().getBuilder();
     }
@@ -1851,7 +1793,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the breakDuration field is set.
      */
     public boolean hasBreakDuration() {
-      return breakDurationBuilder_ != null || breakDuration_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1881,11 +1823,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         breakDuration_ = value;
-        onChanged();
       } else {
         breakDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1899,11 +1841,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (breakDurationBuilder_ == null) {
         breakDuration_ = builderForValue.build();
-        onChanged();
       } else {
         breakDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1915,17 +1857,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBreakDuration(com.google.protobuf.Duration value) {
       if (breakDurationBuilder_ == null) {
-        if (breakDuration_ != null) {
-          breakDuration_ =
-            com.google.protobuf.Duration.newBuilder(breakDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          breakDuration_ != null &&
+          breakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getBreakDurationBuilder().mergeFrom(value);
         } else {
           breakDuration_ = value;
         }
-        onChanged();
       } else {
         breakDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1936,14 +1879,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration break_duration = 5;</code>
      */
     public Builder clearBreakDuration() {
-      if (breakDurationBuilder_ == null) {
-        breakDuration_ = null;
-        onChanged();
-      } else {
-        breakDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      breakDuration_ = null;
+      if (breakDurationBuilder_ != null) {
+        breakDurationBuilder_.dispose();
         breakDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1954,7 +1896,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration break_duration = 5;</code>
      */
     public com.google.protobuf.Duration.Builder getBreakDurationBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getBreakDurationFieldBuilder().getBuilder();
     }
@@ -2006,7 +1948,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the visitDuration field is set.
      */
     public boolean hasVisitDuration() {
-      return visitDurationBuilder_ != null || visitDuration_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2036,11 +1978,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         visitDuration_ = value;
-        onChanged();
       } else {
         visitDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2054,11 +1996,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (visitDurationBuilder_ == null) {
         visitDuration_ = builderForValue.build();
-        onChanged();
       } else {
         visitDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2070,17 +2012,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVisitDuration(com.google.protobuf.Duration value) {
       if (visitDurationBuilder_ == null) {
-        if (visitDuration_ != null) {
-          visitDuration_ =
-            com.google.protobuf.Duration.newBuilder(visitDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          visitDuration_ != null &&
+          visitDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getVisitDurationBuilder().mergeFrom(value);
         } else {
           visitDuration_ = value;
         }
-        onChanged();
       } else {
         visitDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2091,14 +2034,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration visit_duration = 6;</code>
      */
     public Builder clearVisitDuration() {
-      if (visitDurationBuilder_ == null) {
-        visitDuration_ = null;
-        onChanged();
-      } else {
-        visitDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      visitDuration_ = null;
+      if (visitDurationBuilder_ != null) {
+        visitDurationBuilder_.dispose();
         visitDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2109,7 +2051,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration visit_duration = 6;</code>
      */
     public com.google.protobuf.Duration.Builder getVisitDurationBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getVisitDurationFieldBuilder().getBuilder();
     }
@@ -2155,7 +2097,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2163,12 +2107,14 @@ private static final long serialVersionUID = 0L;
      * @return Whether the totalDuration field is set.
      */
     public boolean hasTotalDuration() {
-      return totalDurationBuilder_ != null || totalDuration_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2185,7 +2131,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2197,17 +2145,19 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         totalDuration_ = value;
-        onChanged();
       } else {
         totalDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2217,17 +2167,19 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (totalDurationBuilder_ == null) {
         totalDuration_ = builderForValue.build();
-        onChanged();
       } else {
         totalDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2235,57 +2187,63 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTotalDuration(com.google.protobuf.Duration value) {
       if (totalDurationBuilder_ == null) {
-        if (totalDuration_ != null) {
-          totalDuration_ =
-            com.google.protobuf.Duration.newBuilder(totalDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          totalDuration_ != null &&
+          totalDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTotalDurationBuilder().mergeFrom(value);
         } else {
           totalDuration_ = value;
         }
-        onChanged();
       } else {
         totalDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Duration total_duration = 7;</code>
      */
     public Builder clearTotalDuration() {
-      if (totalDurationBuilder_ == null) {
-        totalDuration_ = null;
-        onChanged();
-      } else {
-        totalDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      totalDuration_ = null;
+      if (totalDurationBuilder_ != null) {
+        totalDurationBuilder_.dispose();
         totalDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
      * <code>.google.protobuf.Duration total_duration = 7;</code>
      */
     public com.google.protobuf.Duration.Builder getTotalDurationBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getTotalDurationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2302,7 +2260,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The total duration should be equal to the sum of all durations above.
-     * For routes, it also corresponds to [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time] -
+     * For routes, it also corresponds to
+     * [ShipmentRoute.vehicle_end_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_end_time]
+     * -
      * [ShipmentRoute.vehicle_start_time][google.cloud.optimization.v1.ShipmentRoute.vehicle_start_time].
      * </pre>
      *
@@ -2347,6 +2307,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTravelDistanceMeters(double value) {
       
       travelDistanceMeters_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2359,7 +2320,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTravelDistanceMeters() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       travelDistanceMeters_ = 0D;
       onChanged();
       return this;
@@ -2368,7 +2329,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> maxLoads_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-    internalGetMaxLoads() {
+        internalGetMaxLoads() {
       if (maxLoads_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MaxLoadsDefaultEntryHolder.defaultEntry);
@@ -2376,8 +2337,7 @@ private static final long serialVersionUID = 0L;
       return maxLoads_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-    internalGetMutableMaxLoads() {
-      onChanged();;
+        internalGetMutableMaxLoads() {
       if (maxLoads_ == null) {
         maxLoads_ = com.google.protobuf.MapField.newMapField(
             MaxLoadsDefaultEntryHolder.defaultEntry);
@@ -2385,9 +2345,10 @@ private static final long serialVersionUID = 0L;
       if (!maxLoads_.isMutable()) {
         maxLoads_ = maxLoads_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return maxLoads_;
     }
-
     public int getMaxLoadsCount() {
       return internalGetMaxLoads().getMap().size();
     }
@@ -2403,7 +2364,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
      */
-
     @java.lang.Override
     public boolean containsMaxLoads(
         java.lang.String key) {
@@ -2431,7 +2391,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> getMaxLoadsMap() {
       return internalGetMaxLoads().getMap();
     }
@@ -2448,10 +2407,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getMaxLoadsOrDefault(
+    public /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getMaxLoadsOrDefault(
         java.lang.String key,
-        com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
+        /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> map =
           internalGetMaxLoads().getMap();
@@ -2470,7 +2430,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getMaxLoadsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2481,8 +2440,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMaxLoads() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableMaxLoads().getMutableMap()
           .clear();
       return this;
@@ -2499,7 +2458,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
      */
-
     public Builder removeMaxLoads(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2512,7 +2470,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-    getMutableMaxLoads() {
+        getMutableMaxLoads() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableMaxLoads().getMutableMap();
     }
     /**
@@ -2531,12 +2490,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMaxLoads().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -2551,27 +2508,26 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; max_loads = 9;</code>
      */
-
     public Builder putAllMaxLoads(
         java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> values) {
       internalGetMutableMaxLoads().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Double> costs_;
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetCosts() {
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
+        internalGetCosts() {
       if (costs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CostsDefaultEntryHolder.defaultEntry);
       }
       return costs_;
     }
-    private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetMutableCosts() {
-      onChanged();;
+    @java.lang.Deprecated private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
+        internalGetMutableCosts() {
       if (costs_ == null) {
         costs_ = com.google.protobuf.MapField.newMapField(
             CostsDefaultEntryHolder.defaultEntry);
@@ -2579,22 +2535,23 @@ private static final long serialVersionUID = 0L;
       if (!costs_.isMutable()) {
         costs_ = costs_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return costs_;
     }
-    @java.lang.Deprecated 
-    public int getCostsCount() {
+    @java.lang.Deprecated public int getCostsCount() {
       return internalGetCosts().getMap().size();
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
     @java.lang.Override
-    public boolean containsCosts(
+    @java.lang.Deprecated public boolean containsCosts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       return internalGetCosts().getMap().containsKey(key);
@@ -2609,26 +2566,26 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public java.util.Map<java.lang.String, java.lang.Double> getCostsMap() {
+    @java.lang.Deprecated public java.util.Map<java.lang.String, java.lang.Double> getCostsMap() {
       return internalGetCosts().getMap();
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public double getCostsOrDefault(
+    @java.lang.Deprecated public double getCostsOrDefault(
         java.lang.String key,
         double defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2638,14 +2595,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
      */
     @java.lang.Override
-    @java.lang.Deprecated 
-    public double getCostsOrThrow(
+    @java.lang.Deprecated public double getCostsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.Double> map =
@@ -2655,21 +2612,21 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-    @java.lang.Deprecated 
-    public Builder clearCosts() {
+    @java.lang.Deprecated public Builder clearCosts() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutableCosts().getMutableMap()
           .clear();
       return this;
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder removeCosts(
+    @java.lang.Deprecated public Builder removeCosts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
       internalGetMutableCosts().getMutableMap()
@@ -2681,12 +2638,14 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Double>
-    getMutableCosts() {
+        getMutableCosts() {
+      bitField0_ |= 0x00000200;
       return internalGetMutableCosts().getMutableMap();
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
@@ -2698,32 +2657,35 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableCosts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_costs][] and [OptimizeToursResponse.Metrics.costs][] instead.
+     * Deprecated: Use [ShipmentRoute.route_costs][] and
+     * [OptimizeToursResponse.Metrics.costs][] instead.
      * </pre>
      *
      * <code>map&lt;string, double&gt; costs = 10 [deprecated = true];</code>
      */
-    @java.lang.Deprecated 
-    public Builder putAllCosts(
+    @java.lang.Deprecated public Builder putAllCosts(
         java.util.Map<java.lang.String, java.lang.Double> values) {
       internalGetMutableCosts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
       return this;
     }
 
     private double totalCost_ ;
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_total_cost][] and [OptimizeToursResponse.Metrics.total_cost][] instead.
+     * Deprecated: Use [ShipmentRoute.route_total_cost][] and
+     * [OptimizeToursResponse.Metrics.total_cost][] instead.
      * </pre>
      *
      * <code>double total_cost = 11 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.AggregatedMetrics.total_cost is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2206
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2296
      * @return The totalCost.
      */
     @java.lang.Override
@@ -2732,33 +2694,36 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_total_cost][] and [OptimizeToursResponse.Metrics.total_cost][] instead.
+     * Deprecated: Use [ShipmentRoute.route_total_cost][] and
+     * [OptimizeToursResponse.Metrics.total_cost][] instead.
      * </pre>
      *
      * <code>double total_cost = 11 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.AggregatedMetrics.total_cost is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2206
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2296
      * @param value The totalCost to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setTotalCost(double value) {
       
       totalCost_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Deprecated: Use [ShipmentRoute.route_total_cost][] and [OptimizeToursResponse.Metrics.total_cost][] instead.
+     * Deprecated: Use [ShipmentRoute.route_total_cost][] and
+     * [OptimizeToursResponse.Metrics.total_cost][] instead.
      * </pre>
      *
      * <code>double total_cost = 11 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.AggregatedMetrics.total_cost is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2206
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2296
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearTotalCost() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       totalCost_ = 0D;
       onChanged();
       return this;
@@ -2796,7 +2761,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AggregatedMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

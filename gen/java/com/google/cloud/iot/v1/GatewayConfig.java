@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GatewayConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            gatewayType_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            gatewayAuthMethod_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lastAccessedGatewayId_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastAccessedGatewayTime_ != null) {
-              subBuilder = lastAccessedGatewayTime_.toBuilder();
-            }
-            lastAccessedGatewayTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastAccessedGatewayTime_);
-              lastAccessedGatewayTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iot.v1.ResourcesProto.internal_static_google_cloud_iot_v1_GatewayConfig_descriptor;
@@ -121,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GATEWAY_TYPE_FIELD_NUMBER = 1;
-  private int gatewayType_;
+  private int gatewayType_ = 0;
   /**
    * <pre>
    * Indicates whether the device is a gateway.
@@ -142,13 +72,12 @@ private static final long serialVersionUID = 0L;
    * @return The gatewayType.
    */
   @java.lang.Override public com.google.cloud.iot.v1.GatewayType getGatewayType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.iot.v1.GatewayType result = com.google.cloud.iot.v1.GatewayType.valueOf(gatewayType_);
+    com.google.cloud.iot.v1.GatewayType result = com.google.cloud.iot.v1.GatewayType.forNumber(gatewayType_);
     return result == null ? com.google.cloud.iot.v1.GatewayType.UNRECOGNIZED : result;
   }
 
   public static final int GATEWAY_AUTH_METHOD_FIELD_NUMBER = 2;
-  private int gatewayAuthMethod_;
+  private int gatewayAuthMethod_ = 0;
   /**
    * <pre>
    * Indicates how to authorize and/or authenticate devices to access the
@@ -171,13 +100,13 @@ private static final long serialVersionUID = 0L;
    * @return The gatewayAuthMethod.
    */
   @java.lang.Override public com.google.cloud.iot.v1.GatewayAuthMethod getGatewayAuthMethod() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.iot.v1.GatewayAuthMethod result = com.google.cloud.iot.v1.GatewayAuthMethod.valueOf(gatewayAuthMethod_);
+    com.google.cloud.iot.v1.GatewayAuthMethod result = com.google.cloud.iot.v1.GatewayAuthMethod.forNumber(gatewayAuthMethod_);
     return result == null ? com.google.cloud.iot.v1.GatewayAuthMethod.UNRECOGNIZED : result;
   }
 
   public static final int LAST_ACCESSED_GATEWAY_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object lastAccessedGatewayId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lastAccessedGatewayId_ = "";
   /**
    * <pre>
    * [Output only] The ID of the gateway the device accessed most recently.
@@ -260,7 +189,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastAccessedGatewayTimeOrBuilder() {
-    return getLastAccessedGatewayTime();
+    return lastAccessedGatewayTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastAccessedGatewayTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -289,7 +218,7 @@ private static final long serialVersionUID = 0L;
     if (lastAccessedGatewayTime_ != null) {
       output.writeMessage(4, getLastAccessedGatewayTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -313,7 +242,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getLastAccessedGatewayTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -337,7 +266,7 @@ private static final long serialVersionUID = 0L;
       if (!getLastAccessedGatewayTime()
           .equals(other.getLastAccessedGatewayTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -358,7 +287,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LAST_ACCESSED_GATEWAY_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getLastAccessedGatewayTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -479,32 +408,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iot.v1.GatewayConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       gatewayType_ = 0;
-
       gatewayAuthMethod_ = 0;
-
       lastAccessedGatewayId_ = "";
-
-      if (lastAccessedGatewayTimeBuilder_ == null) {
-        lastAccessedGatewayTime_ = null;
-      } else {
-        lastAccessedGatewayTime_ = null;
+      lastAccessedGatewayTime_ = null;
+      if (lastAccessedGatewayTimeBuilder_ != null) {
+        lastAccessedGatewayTimeBuilder_.dispose();
         lastAccessedGatewayTimeBuilder_ = null;
       }
       return this;
@@ -533,16 +454,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iot.v1.GatewayConfig buildPartial() {
       com.google.cloud.iot.v1.GatewayConfig result = new com.google.cloud.iot.v1.GatewayConfig(this);
-      result.gatewayType_ = gatewayType_;
-      result.gatewayAuthMethod_ = gatewayAuthMethod_;
-      result.lastAccessedGatewayId_ = lastAccessedGatewayId_;
-      if (lastAccessedGatewayTimeBuilder_ == null) {
-        result.lastAccessedGatewayTime_ = lastAccessedGatewayTime_;
-      } else {
-        result.lastAccessedGatewayTime_ = lastAccessedGatewayTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iot.v1.GatewayConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.gatewayType_ = gatewayType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.gatewayAuthMethod_ = gatewayAuthMethod_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.lastAccessedGatewayId_ = lastAccessedGatewayId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.lastAccessedGatewayTime_ = lastAccessedGatewayTimeBuilder_ == null
+            ? lastAccessedGatewayTime_
+            : lastAccessedGatewayTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -597,12 +529,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLastAccessedGatewayId().isEmpty()) {
         lastAccessedGatewayId_ = other.lastAccessedGatewayId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasLastAccessedGatewayTime()) {
         mergeLastAccessedGatewayTime(other.getLastAccessedGatewayTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -617,19 +550,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iot.v1.GatewayConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              gatewayType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              gatewayAuthMethod_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              lastAccessedGatewayId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getLastAccessedGatewayTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iot.v1.GatewayConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int gatewayType_ = 0;
     /**
@@ -653,8 +622,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGatewayTypeValue(int value) {
-      
       gatewayType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -668,8 +637,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.iot.v1.GatewayType getGatewayType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.iot.v1.GatewayType result = com.google.cloud.iot.v1.GatewayType.valueOf(gatewayType_);
+      com.google.cloud.iot.v1.GatewayType result = com.google.cloud.iot.v1.GatewayType.forNumber(gatewayType_);
       return result == null ? com.google.cloud.iot.v1.GatewayType.UNRECOGNIZED : result;
     }
     /**
@@ -685,7 +653,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       gatewayType_ = value.getNumber();
       onChanged();
       return this;
@@ -699,7 +667,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGatewayType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       gatewayType_ = 0;
       onChanged();
       return this;
@@ -729,8 +697,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGatewayAuthMethodValue(int value) {
-      
       gatewayAuthMethod_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -745,8 +713,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.iot.v1.GatewayAuthMethod getGatewayAuthMethod() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.iot.v1.GatewayAuthMethod result = com.google.cloud.iot.v1.GatewayAuthMethod.valueOf(gatewayAuthMethod_);
+      com.google.cloud.iot.v1.GatewayAuthMethod result = com.google.cloud.iot.v1.GatewayAuthMethod.forNumber(gatewayAuthMethod_);
       return result == null ? com.google.cloud.iot.v1.GatewayAuthMethod.UNRECOGNIZED : result;
     }
     /**
@@ -763,7 +730,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       gatewayAuthMethod_ = value.getNumber();
       onChanged();
       return this;
@@ -778,7 +745,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGatewayAuthMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       gatewayAuthMethod_ = 0;
       onChanged();
       return this;
@@ -837,11 +804,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastAccessedGatewayId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lastAccessedGatewayId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -854,8 +819,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLastAccessedGatewayId() {
-      
       lastAccessedGatewayId_ = getDefaultInstance().getLastAccessedGatewayId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -870,12 +835,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastAccessedGatewayIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lastAccessedGatewayId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -893,7 +856,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastAccessedGatewayTime field is set.
      */
     public boolean hasLastAccessedGatewayTime() {
-      return lastAccessedGatewayTimeBuilder_ != null || lastAccessedGatewayTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -925,11 +888,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastAccessedGatewayTime_ = value;
-        onChanged();
       } else {
         lastAccessedGatewayTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -944,11 +907,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastAccessedGatewayTimeBuilder_ == null) {
         lastAccessedGatewayTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastAccessedGatewayTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -961,17 +924,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastAccessedGatewayTime(com.google.protobuf.Timestamp value) {
       if (lastAccessedGatewayTimeBuilder_ == null) {
-        if (lastAccessedGatewayTime_ != null) {
-          lastAccessedGatewayTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastAccessedGatewayTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          lastAccessedGatewayTime_ != null &&
+          lastAccessedGatewayTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastAccessedGatewayTimeBuilder().mergeFrom(value);
         } else {
           lastAccessedGatewayTime_ = value;
         }
-        onChanged();
       } else {
         lastAccessedGatewayTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -983,14 +947,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_accessed_gateway_time = 4;</code>
      */
     public Builder clearLastAccessedGatewayTime() {
-      if (lastAccessedGatewayTimeBuilder_ == null) {
-        lastAccessedGatewayTime_ = null;
-        onChanged();
-      } else {
-        lastAccessedGatewayTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      lastAccessedGatewayTime_ = null;
+      if (lastAccessedGatewayTimeBuilder_ != null) {
+        lastAccessedGatewayTimeBuilder_.dispose();
         lastAccessedGatewayTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1002,7 +965,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_accessed_gateway_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastAccessedGatewayTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getLastAccessedGatewayTimeFieldBuilder().getBuilder();
     }
@@ -1076,7 +1039,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GatewayConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

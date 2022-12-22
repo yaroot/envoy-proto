@@ -17,7 +17,7 @@ from udpa.annotations import versioning_pb2 as udpa_dot_annotations_dot_versioni
 from validate import validate_pb2 as validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#envoy/config/trace/v3/datadog.proto\x12\x15\x65nvoy.config.trace.v3\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"~\n\rDatadogConfig\x12\"\n\x11\x63ollector_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x1d\n\x0cservice_name\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01:*\x9a\xc5\x88\x1e%\n#envoy.config.trace.v2.DatadogConfigB\xb3\x01\n#io.envoyproxy.envoy.config.trace.v3B\x0c\x44\x61tadogProtoP\x01ZDgithub.com/envoyproxy/go-control-plane/envoy/config/trace/v3;tracev3\xf2\x98\xfe\x8f\x05*\x12(envoy.extensions.tracers.datadog.v4alpha\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#envoy/config/trace/v3/datadog.proto\x12\x15\x65nvoy.config.trace.v3\x1a\x1eudpa/annotations/migrate.proto\x1a\x1dudpa/annotations/status.proto\x1a!udpa/annotations/versioning.proto\x1a\x17validate/validate.proto\"\x9a\x01\n\rDatadogConfig\x12\"\n\x11\x63ollector_cluster\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x1d\n\x0cservice_name\x18\x02 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\x12\x1a\n\x12\x63ollector_hostname\x18\x03 \x01(\t:*\x9a\xc5\x88\x1e%\n#envoy.config.trace.v2.DatadogConfigB\xb3\x01\n#io.envoyproxy.envoy.config.trace.v3B\x0c\x44\x61tadogProtoP\x01ZDgithub.com/envoyproxy/go-control-plane/envoy/config/trace/v3;tracev3\xf2\x98\xfe\x8f\x05*\x12(envoy.extensions.tracers.datadog.v4alpha\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'envoy.config.trace.v3.datadog_pb2', globals())
@@ -31,6 +31,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _DATADOGCONFIG.fields_by_name['service_name']._serialized_options = b'\372B\004r\002\020\001'
   _DATADOGCONFIG._options = None
   _DATADOGCONFIG._serialized_options = b'\232\305\210\036%\n#envoy.config.trace.v2.DatadogConfig'
-  _DATADOGCONFIG._serialized_start=185
-  _DATADOGCONFIG._serialized_end=311
+  _DATADOGCONFIG._serialized_start=186
+  _DATADOGCONFIG._serialized_end=340
 # @@protoc_insertion_point(module_scope)

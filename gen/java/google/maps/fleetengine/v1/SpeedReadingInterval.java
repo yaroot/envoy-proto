@@ -37,61 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SpeedReadingInterval(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            startPolylinePointIndex_ = input.readInt32();
-            break;
-          }
-          case 16: {
-
-            endPolylinePointIndex_ = input.readInt32();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            speed_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.TrafficProto.internal_static_maps_fleetengine_v1_SpeedReadingInterval_descriptor;
@@ -268,7 +213,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_POLYLINE_POINT_INDEX_FIELD_NUMBER = 1;
-  private int startPolylinePointIndex_;
+  private int startPolylinePointIndex_ = 0;
   /**
    * <pre>
    * The starting index of this interval in the path.
@@ -284,7 +229,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_POLYLINE_POINT_INDEX_FIELD_NUMBER = 2;
-  private int endPolylinePointIndex_;
+  private int endPolylinePointIndex_ = 0;
   /**
    * <pre>
    * The ending index of this interval in the path.
@@ -300,7 +245,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SPEED_FIELD_NUMBER = 3;
-  private int speed_;
+  private int speed_ = 0;
   /**
    * <pre>
    * Traffic speed in this interval.
@@ -321,8 +266,7 @@ private static final long serialVersionUID = 0L;
    * @return The speed.
    */
   @java.lang.Override public google.maps.fleetengine.v1.SpeedReadingInterval.Speed getSpeed() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.SpeedReadingInterval.Speed result = google.maps.fleetengine.v1.SpeedReadingInterval.Speed.valueOf(speed_);
+    google.maps.fleetengine.v1.SpeedReadingInterval.Speed result = google.maps.fleetengine.v1.SpeedReadingInterval.Speed.forNumber(speed_);
     return result == null ? google.maps.fleetengine.v1.SpeedReadingInterval.Speed.UNRECOGNIZED : result;
   }
 
@@ -349,7 +293,7 @@ private static final long serialVersionUID = 0L;
     if (speed_ != google.maps.fleetengine.v1.SpeedReadingInterval.Speed.SPEED_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, speed_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -370,7 +314,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, speed_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -390,7 +334,7 @@ private static final long serialVersionUID = 0L;
     if (getEndPolylinePointIndex()
         != other.getEndPolylinePointIndex()) return false;
     if (speed_ != other.speed_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -407,7 +351,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getEndPolylinePointIndex();
     hash = (37 * hash) + SPEED_FIELD_NUMBER;
     hash = (53 * hash) + speed_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -530,28 +474,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.SpeedReadingInterval.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       startPolylinePointIndex_ = 0;
-
       endPolylinePointIndex_ = 0;
-
       speed_ = 0;
-
       return this;
     }
 
@@ -578,11 +515,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.SpeedReadingInterval buildPartial() {
       google.maps.fleetengine.v1.SpeedReadingInterval result = new google.maps.fleetengine.v1.SpeedReadingInterval(this);
-      result.startPolylinePointIndex_ = startPolylinePointIndex_;
-      result.endPolylinePointIndex_ = endPolylinePointIndex_;
-      result.speed_ = speed_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.SpeedReadingInterval result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.startPolylinePointIndex_ = startPolylinePointIndex_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endPolylinePointIndex_ = endPolylinePointIndex_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.speed_ = speed_;
+      }
     }
 
     @java.lang.Override
@@ -638,7 +586,7 @@ private static final long serialVersionUID = 0L;
       if (other.speed_ != 0) {
         setSpeedValue(other.getSpeedValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -653,19 +601,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.SpeedReadingInterval parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              startPolylinePointIndex_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              endPolylinePointIndex_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              speed_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.SpeedReadingInterval) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int startPolylinePointIndex_ ;
     /**
@@ -694,6 +671,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStartPolylinePointIndex(int value) {
       
       startPolylinePointIndex_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -707,7 +685,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartPolylinePointIndex() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       startPolylinePointIndex_ = 0;
       onChanged();
       return this;
@@ -740,6 +718,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEndPolylinePointIndex(int value) {
       
       endPolylinePointIndex_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -753,7 +732,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndPolylinePointIndex() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       endPolylinePointIndex_ = 0;
       onChanged();
       return this;
@@ -781,8 +760,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSpeedValue(int value) {
-      
       speed_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -796,8 +775,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.SpeedReadingInterval.Speed getSpeed() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.SpeedReadingInterval.Speed result = google.maps.fleetengine.v1.SpeedReadingInterval.Speed.valueOf(speed_);
+      google.maps.fleetengine.v1.SpeedReadingInterval.Speed result = google.maps.fleetengine.v1.SpeedReadingInterval.Speed.forNumber(speed_);
       return result == null ? google.maps.fleetengine.v1.SpeedReadingInterval.Speed.UNRECOGNIZED : result;
     }
     /**
@@ -813,7 +791,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       speed_ = value.getNumber();
       onChanged();
       return this;
@@ -827,7 +805,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSpeed() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       speed_ = 0;
       onChanged();
       return this;
@@ -865,7 +843,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SpeedReadingInterval(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

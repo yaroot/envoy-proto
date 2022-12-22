@@ -14,7 +14,7 @@ public interface KalmConfigOrBuilder extends
    *
    * <code>bool enabled = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.KalmConfig.enabled is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=1110
+   *     See google/container/v1beta1/cluster_service.proto;l=1133
    * @return The enabled.
    */
   @java.lang.Deprecated boolean getEnabled();

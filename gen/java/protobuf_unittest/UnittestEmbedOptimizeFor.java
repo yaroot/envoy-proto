@@ -100,71 +100,6 @@ public final class UnittestEmbedOptimizeFor {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TestEmbedOptimizedForSize(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000001) != 0)) {
-                subBuilder = optionalMessage_.toBuilder();
-              }
-              optionalMessage_ = input.readMessage(protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(optionalMessage_);
-                optionalMessage_ = subBuilder.buildPartial();
-              }
-              bitField0_ |= 0x00000001;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                repeatedMessage_ = new java.util.ArrayList<protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              repeatedMessage_.add(
-                  input.readMessage(protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.PARSER, extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          repeatedMessage_ = java.util.Collections.unmodifiableList(repeatedMessage_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return protobuf_unittest.UnittestEmbedOptimizeFor.internal_static_protobuf_unittest_TestEmbedOptimizedForSize_descriptor;
@@ -221,6 +156,7 @@ public final class UnittestEmbedOptimizeFor {
     }
 
     public static final int REPEATED_MESSAGE_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize> repeatedMessage_;
     /**
      * <code>repeated .protobuf_unittest.TestOptimizedForSize repeated_message = 2;</code>
@@ -292,7 +228,7 @@ public final class UnittestEmbedOptimizeFor {
       for (int i = 0; i < repeatedMessage_.size(); i++) {
         output.writeMessage(2, repeatedMessage_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -309,7 +245,7 @@ public final class UnittestEmbedOptimizeFor {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, repeatedMessage_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -331,7 +267,7 @@ public final class UnittestEmbedOptimizeFor {
       }
       if (!getRepeatedMessageList()
           .equals(other.getRepeatedMessageList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -350,7 +286,7 @@ public final class UnittestEmbedOptimizeFor {
         hash = (37 * hash) + REPEATED_MESSAGE_FIELD_NUMBER;
         hash = (53 * hash) + getRepeatedMessageList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -485,18 +421,19 @@ public final class UnittestEmbedOptimizeFor {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (optionalMessageBuilder_ == null) {
-          optionalMessage_ = null;
-        } else {
-          optionalMessageBuilder_.clear();
+        bitField0_ = 0;
+        optionalMessage_ = null;
+        if (optionalMessageBuilder_ != null) {
+          optionalMessageBuilder_.dispose();
+          optionalMessageBuilder_ = null;
         }
-        bitField0_ = (bitField0_ & ~0x00000001);
         if (repeatedMessageBuilder_ == null) {
           repeatedMessage_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          repeatedMessage_ = null;
           repeatedMessageBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -523,16 +460,13 @@ public final class UnittestEmbedOptimizeFor {
       @java.lang.Override
       public protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize buildPartial() {
         protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize result = new protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          if (optionalMessageBuilder_ == null) {
-            result.optionalMessage_ = optionalMessage_;
-          } else {
-            result.optionalMessage_ = optionalMessageBuilder_.build();
-          }
-          to_bitField0_ |= 0x00000001;
-        }
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize result) {
         if (repeatedMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000002) != 0)) {
             repeatedMessage_ = java.util.Collections.unmodifiableList(repeatedMessage_);
@@ -542,9 +476,18 @@ public final class UnittestEmbedOptimizeFor {
         } else {
           result.repeatedMessage_ = repeatedMessageBuilder_.build();
         }
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.optionalMessage_ = optionalMessageBuilder_ == null
+              ? optionalMessage_
+              : optionalMessageBuilder_.build();
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -620,7 +563,7 @@ public final class UnittestEmbedOptimizeFor {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -645,17 +588,50 @@ public final class UnittestEmbedOptimizeFor {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getOptionalMessageFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize m =
+                    input.readMessage(
+                        protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.PARSER,
+                        extensionRegistry);
+                if (repeatedMessageBuilder_ == null) {
+                  ensureRepeatedMessageIsMutable();
+                  repeatedMessage_.add(m);
+                } else {
+                  repeatedMessageBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (protobuf_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -705,11 +681,11 @@ public final class UnittestEmbedOptimizeFor {
             throw new NullPointerException();
           }
           optionalMessage_ = value;
-          onChanged();
         } else {
           optionalMessageBuilder_.setMessage(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -724,11 +700,11 @@ public final class UnittestEmbedOptimizeFor {
           protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder builderForValue) {
         if (optionalMessageBuilder_ == null) {
           optionalMessage_ = builderForValue.build();
-          onChanged();
         } else {
           optionalMessageBuilder_.setMessage(builderForValue.build());
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -742,18 +718,17 @@ public final class UnittestEmbedOptimizeFor {
       public Builder mergeOptionalMessage(protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize value) {
         if (optionalMessageBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0) &&
-              optionalMessage_ != null &&
-              optionalMessage_ != protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.getDefaultInstance()) {
-            optionalMessage_ =
-              protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.newBuilder(optionalMessage_).mergeFrom(value).buildPartial();
+            optionalMessage_ != null &&
+            optionalMessage_ != protobuf_unittest.UnittestOptimizeFor.TestOptimizedForSize.getDefaultInstance()) {
+            getOptionalMessageBuilder().mergeFrom(value);
           } else {
             optionalMessage_ = value;
           }
-          onChanged();
         } else {
           optionalMessageBuilder_.mergeFrom(value);
         }
         bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -765,13 +740,13 @@ public final class UnittestEmbedOptimizeFor {
        * <code>optional .protobuf_unittest.TestOptimizedForSize optional_message = 1;</code>
        */
       public Builder clearOptionalMessage() {
-        if (optionalMessageBuilder_ == null) {
-          optionalMessage_ = null;
-          onChanged();
-        } else {
-          optionalMessageBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000001);
+        optionalMessage_ = null;
+        if (optionalMessageBuilder_ != null) {
+          optionalMessageBuilder_.dispose();
+          optionalMessageBuilder_ = null;
+        }
+        onChanged();
         return this;
       }
       /**
@@ -1097,7 +1072,18 @@ public final class UnittestEmbedOptimizeFor {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TestEmbedOptimizedForSize(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

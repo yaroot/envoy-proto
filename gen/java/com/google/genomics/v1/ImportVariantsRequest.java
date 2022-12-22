@@ -37,88 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportVariantsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            variantSetId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              sourceUris_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            sourceUris_.add(s);
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            format_ = rawValue;
-            break;
-          }
-          case 40: {
-
-            normalizeReferenceNames_ = input.readBool();
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              infoMergeConfig_ = com.google.protobuf.MapField.newMapField(
-                  InfoMergeConfigDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            infoMergeConfig__ = input.readMessage(
-                InfoMergeConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            infoMergeConfig_.getMutableMap().put(
-                infoMergeConfig__.getKey(), infoMergeConfig__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        sourceUris_ = sourceUris_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1.VariantsProto.internal_static_google_genomics_v1_ImportVariantsRequest_descriptor;
@@ -282,7 +200,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VARIANT_SET_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object variantSetId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object variantSetId_ = "";
   /**
    * <pre>
    * Required. The variant set to which variant data should be imported.
@@ -328,6 +247,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_URIS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList sourceUris_;
   /**
    * <pre>
@@ -391,7 +311,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 3;
-  private int format_;
+  private int format_ = 0;
   /**
    * <pre>
    * The format of the variant data being imported. If unspecified, defaults to
@@ -414,13 +334,12 @@ private static final long serialVersionUID = 0L;
    * @return The format.
    */
   @java.lang.Override public com.google.genomics.v1.ImportVariantsRequest.Format getFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.genomics.v1.ImportVariantsRequest.Format result = com.google.genomics.v1.ImportVariantsRequest.Format.valueOf(format_);
+    com.google.genomics.v1.ImportVariantsRequest.Format result = com.google.genomics.v1.ImportVariantsRequest.Format.forNumber(format_);
     return result == null ? com.google.genomics.v1.ImportVariantsRequest.Format.UNRECOGNIZED : result;
   }
 
   public static final int NORMALIZE_REFERENCE_NAMES_FIELD_NUMBER = 5;
-  private boolean normalizeReferenceNames_;
+  private boolean normalizeReferenceNames_ = false;
   /**
    * <pre>
    * Convert reference names to the canonical representation.
@@ -453,6 +372,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.ENUM,
                 com.google.genomics.v1.InfoMergeOperation.INFO_MERGE_OPERATION_UNSPECIFIED.getNumber());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> infoMergeConfig_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -476,7 +396,6 @@ private static final long serialVersionUID = 0L;
         java.lang.String, com.google.genomics.v1.InfoMergeOperation, java.lang.Integer>(
             map, infoMergeConfigValueConverter);
   }
-
   public int getInfoMergeConfigCount() {
     return internalGetInfoMergeConfig().getMap().size();
   }
@@ -489,7 +408,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsInfoMergeConfig(
       java.lang.String key) {
@@ -515,7 +433,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.genomics.v1.InfoMergeOperation>
   getInfoMergeConfigMap() {
     return internalGetAdaptedInfoMergeConfigMap(
@@ -530,7 +447,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
   @java.lang.Override
-
   public /* nullable */
 com.google.genomics.v1.InfoMergeOperation getInfoMergeConfigOrDefault(
       java.lang.String key,
@@ -553,7 +469,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
   @java.lang.Override
-
   public com.google.genomics.v1.InfoMergeOperation getInfoMergeConfigOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -583,7 +498,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer>
   getInfoMergeConfigValueMap() {
     return internalGetInfoMergeConfig().getMap();
@@ -598,7 +512,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
   @java.lang.Override
-
   public int getInfoMergeConfigValueOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -617,7 +530,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
    * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
    */
   @java.lang.Override
-
   public int getInfoMergeConfigValueOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -661,7 +573,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
         internalGetInfoMergeConfig(),
         InfoMergeConfigDefaultEntryHolder.defaultEntry,
         6);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -699,7 +611,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, infoMergeConfig__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -723,7 +635,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
         != other.getNormalizeReferenceNames()) return false;
     if (!internalGetInfoMergeConfig().equals(
         other.internalGetInfoMergeConfig())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -749,7 +661,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       hash = (37 * hash) + INFO_MERGE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + internalGetInfoMergeConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -892,30 +804,23 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
 
     // Construct using com.google.genomics.v1.ImportVariantsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       variantSetId_ = "";
-
       sourceUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       format_ = 0;
-
       normalizeReferenceNames_ = false;
-
       internalGetMutableInfoMergeConfig().clear();
       return this;
     }
@@ -943,19 +848,35 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
     @java.lang.Override
     public com.google.genomics.v1.ImportVariantsRequest buildPartial() {
       com.google.genomics.v1.ImportVariantsRequest result = new com.google.genomics.v1.ImportVariantsRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.variantSetId_ = variantSetId_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        sourceUris_ = sourceUris_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.sourceUris_ = sourceUris_;
-      result.format_ = format_;
-      result.normalizeReferenceNames_ = normalizeReferenceNames_;
-      result.infoMergeConfig_ = internalGetInfoMergeConfig();
-      result.infoMergeConfig_.makeImmutable();
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.genomics.v1.ImportVariantsRequest result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        sourceUris_ = sourceUris_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.sourceUris_ = sourceUris_;
+    }
+
+    private void buildPartial0(com.google.genomics.v1.ImportVariantsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.variantSetId_ = variantSetId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.format_ = format_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.normalizeReferenceNames_ = normalizeReferenceNames_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.infoMergeConfig_ = internalGetInfoMergeConfig();
+        result.infoMergeConfig_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1004,12 +925,13 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       if (other == com.google.genomics.v1.ImportVariantsRequest.getDefaultInstance()) return this;
       if (!other.getVariantSetId().isEmpty()) {
         variantSetId_ = other.variantSetId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.sourceUris_.isEmpty()) {
         if (sourceUris_.isEmpty()) {
           sourceUris_ = other.sourceUris_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureSourceUrisIsMutable();
           sourceUris_.addAll(other.sourceUris_);
@@ -1024,7 +946,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       }
       internalGetMutableInfoMergeConfig().mergeFrom(
           other.internalGetInfoMergeConfig());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1039,17 +962,60 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1.ImportVariantsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              variantSetId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSourceUrisIsMutable();
+              sourceUris_.add(s);
+              break;
+            } // case 18
+            case 24: {
+              format_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 40: {
+              normalizeReferenceNames_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              infoMergeConfig__ = input.readMessage(
+                  InfoMergeConfigDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInfoMergeConfig().getMutableMap().put(
+                  infoMergeConfig__.getKey(), infoMergeConfig__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1.ImportVariantsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1107,11 +1073,9 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     public Builder setVariantSetId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       variantSetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1124,8 +1088,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearVariantSetId() {
-      
       variantSetId_ = getDefaultInstance().getVariantSetId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1140,21 +1104,19 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     public Builder setVariantSetIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       variantSetId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList sourceUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSourceUrisIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         sourceUris_ = new com.google.protobuf.LazyStringArrayList(sourceUris_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1232,10 +1194,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     public Builder setSourceUris(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSourceUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSourceUrisIsMutable();
       sourceUris_.set(index, value);
       onChanged();
       return this;
@@ -1254,10 +1214,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     public Builder addSourceUris(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSourceUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSourceUrisIsMutable();
       sourceUris_.add(value);
       onChanged();
       return this;
@@ -1295,7 +1253,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     public Builder clearSourceUris() {
       sourceUris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1313,10 +1271,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     public Builder addSourceUrisBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSourceUrisIsMutable();
       sourceUris_.add(value);
       onChanged();
@@ -1347,8 +1303,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * @return This builder for chaining.
      */
     public Builder setFormatValue(int value) {
-      
       format_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1363,8 +1319,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     @java.lang.Override
     public com.google.genomics.v1.ImportVariantsRequest.Format getFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.genomics.v1.ImportVariantsRequest.Format result = com.google.genomics.v1.ImportVariantsRequest.Format.valueOf(format_);
+      com.google.genomics.v1.ImportVariantsRequest.Format result = com.google.genomics.v1.ImportVariantsRequest.Format.forNumber(format_);
       return result == null ? com.google.genomics.v1.ImportVariantsRequest.Format.UNRECOGNIZED : result;
     }
     /**
@@ -1381,7 +1336,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       format_ = value.getNumber();
       onChanged();
       return this;
@@ -1396,7 +1351,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       format_ = 0;
       onChanged();
       return this;
@@ -1441,6 +1396,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
     public Builder setNormalizeReferenceNames(boolean value) {
       
       normalizeReferenceNames_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1460,7 +1416,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * @return This builder for chaining.
      */
     public Builder clearNormalizeReferenceNames() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       normalizeReferenceNames_ = false;
       onChanged();
       return this;
@@ -1469,7 +1425,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> infoMergeConfig_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetInfoMergeConfig() {
+        internalGetInfoMergeConfig() {
       if (infoMergeConfig_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             InfoMergeConfigDefaultEntryHolder.defaultEntry);
@@ -1477,8 +1433,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       return infoMergeConfig_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableInfoMergeConfig() {
-      onChanged();;
+        internalGetMutableInfoMergeConfig() {
       if (infoMergeConfig_ == null) {
         infoMergeConfig_ = com.google.protobuf.MapField.newMapField(
             InfoMergeConfigDefaultEntryHolder.defaultEntry);
@@ -1486,9 +1441,10 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       if (!infoMergeConfig_.isMutable()) {
         infoMergeConfig_ = infoMergeConfig_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return infoMergeConfig_;
     }
-
     public int getInfoMergeConfigCount() {
       return internalGetInfoMergeConfig().getMap().size();
     }
@@ -1501,7 +1457,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      *
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsInfoMergeConfig(
         java.lang.String key) {
@@ -1527,7 +1482,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.genomics.v1.InfoMergeOperation>
     getInfoMergeConfigMap() {
       return internalGetAdaptedInfoMergeConfigMap(
@@ -1542,7 +1496,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 com.google.genomics.v1.InfoMergeOperation getInfoMergeConfigOrDefault(
         java.lang.String key,
@@ -1565,7 +1518,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
     @java.lang.Override
-
     public com.google.genomics.v1.InfoMergeOperation getInfoMergeConfigOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1595,7 +1547,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer>
     getInfoMergeConfigValueMap() {
       return internalGetInfoMergeConfig().getMap();
@@ -1610,7 +1561,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
     @java.lang.Override
-
     public int getInfoMergeConfigValueOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -1629,7 +1579,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
     @java.lang.Override
-
     public int getInfoMergeConfigValueOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1640,8 +1589,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       }
       return map.get(key);
     }
-
     public Builder clearInfoMergeConfig() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableInfoMergeConfig().getMutableMap()
           .clear();
       return this;
@@ -1655,7 +1604,6 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      *
      * <code>map&lt;string, .google.genomics.v1.InfoMergeOperation&gt; info_merge_config = 6;</code>
      */
-
     public Builder removeInfoMergeConfig(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1668,7 +1616,8 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.genomics.v1.InfoMergeOperation>
-    getMutableInfoMergeConfig() {
+        getMutableInfoMergeConfig() {
+      bitField0_ |= 0x00000010;
       return internalGetAdaptedInfoMergeConfigMap(
            internalGetMutableInfoMergeConfig().getMutableMap());
     }
@@ -1688,6 +1637,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       
       internalGetMutableInfoMergeConfig().getMutableMap()
           .put(key, infoMergeConfigValueConverter.doBackward(value));
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1704,6 +1654,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       internalGetAdaptedInfoMergeConfigMap(
           internalGetMutableInfoMergeConfig().getMutableMap())
               .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1712,6 +1663,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMutableInfoMergeConfigValue() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableInfoMergeConfig().getMutableMap();
     }
     /**
@@ -1730,6 +1682,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
       
       internalGetMutableInfoMergeConfig().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1745,6 +1698,7 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableInfoMergeConfig().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1780,7 +1734,18 @@ com.google.genomics.v1.InfoMergeOperation defaultValue) {
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportVariantsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

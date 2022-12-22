@@ -9,8 +9,8 @@ public interface NetworkConfigOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -19,8 +19,8 @@ public interface NetworkConfigOrBuilder extends
       getConsumersList();
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -28,8 +28,8 @@ public interface NetworkConfigOrBuilder extends
   com.google.cloud.metastore.v1alpha.NetworkConfig.Consumer getConsumers(int index);
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -37,8 +37,8 @@ public interface NetworkConfigOrBuilder extends
   int getConsumersCount();
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -47,8 +47,8 @@ public interface NetworkConfigOrBuilder extends
       getConsumersOrBuilderList();
   /**
    * <pre>
-   * Immutable. The consumer-side network configuration for the Dataproc Metastore
-   * instance.
+   * Immutable. The consumer-side network configuration for the Dataproc
+   * Metastore instance.
    * </pre>
    *
    * <code>repeated .google.cloud.metastore.v1alpha.NetworkConfig.Consumer consumers = 1 [(.google.api.field_behavior) = IMMUTABLE];</code>

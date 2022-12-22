@@ -30,72 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AdaptiveConcurrency(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.Builder subBuilder = null;
-            if (concurrencyControllerConfigCase_ == 1) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig) concurrencyControllerConfig_).toBuilder();
-            }
-            concurrencyControllerConfig_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig) concurrencyControllerConfig_);
-              concurrencyControllerConfig_ = subBuilder.buildPartial();
-            }
-            concurrencyControllerConfigCase_ = 1;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder subBuilder = null;
-            if (enabled_ != null) {
-              subBuilder = enabled_.toBuilder();
-            }
-            enabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enabled_);
-              enabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrencyProto.internal_static_envoy_extensions_filters_http_adaptive_concurrency_v3_AdaptiveConcurrency_descriptor;
@@ -229,7 +163,57 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getEnabledOrBuilder() {
-    return getEnabled();
+    return enabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance() : enabled_;
+  }
+
+  public static final int CONCURRENCY_LIMIT_EXCEEDED_STATUS_FIELD_NUMBER = 3;
+  private io.envoyproxy.envoy.type.v3.HttpStatus concurrencyLimitExceededStatus_;
+  /**
+   * <pre>
+   * This field allows for a custom HTTP response status code to the downstream client when
+   * the concurrency limit has been exceeded.
+   * Defaults to 503 (Service Unavailable).
+   * .. note::
+   *   If this is set to &lt; 400, 503 will be used instead.
+   * </pre>
+   *
+   * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+   * @return Whether the concurrencyLimitExceededStatus field is set.
+   */
+  @java.lang.Override
+  public boolean hasConcurrencyLimitExceededStatus() {
+    return concurrencyLimitExceededStatus_ != null;
+  }
+  /**
+   * <pre>
+   * This field allows for a custom HTTP response status code to the downstream client when
+   * the concurrency limit has been exceeded.
+   * Defaults to 503 (Service Unavailable).
+   * .. note::
+   *   If this is set to &lt; 400, 503 will be used instead.
+   * </pre>
+   *
+   * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+   * @return The concurrencyLimitExceededStatus.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.type.v3.HttpStatus getConcurrencyLimitExceededStatus() {
+    return concurrencyLimitExceededStatus_ == null ? io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : concurrencyLimitExceededStatus_;
+  }
+  /**
+   * <pre>
+   * This field allows for a custom HTTP response status code to the downstream client when
+   * the concurrency limit has been exceeded.
+   * Defaults to 503 (Service Unavailable).
+   * .. note::
+   *   If this is set to &lt; 400, 503 will be used instead.
+   * </pre>
+   *
+   * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getConcurrencyLimitExceededStatusOrBuilder() {
+    return concurrencyLimitExceededStatus_ == null ? io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : concurrencyLimitExceededStatus_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -252,7 +236,10 @@ private static final long serialVersionUID = 0L;
     if (enabled_ != null) {
       output.writeMessage(2, getEnabled());
     }
-    unknownFields.writeTo(output);
+    if (concurrencyLimitExceededStatus_ != null) {
+      output.writeMessage(3, getConcurrencyLimitExceededStatus());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -269,7 +256,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getEnabled());
     }
-    size += unknownFields.getSerializedSize();
+    if (concurrencyLimitExceededStatus_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(3, getConcurrencyLimitExceededStatus());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -289,6 +280,11 @@ private static final long serialVersionUID = 0L;
       if (!getEnabled()
           .equals(other.getEnabled())) return false;
     }
+    if (hasConcurrencyLimitExceededStatus() != other.hasConcurrencyLimitExceededStatus()) return false;
+    if (hasConcurrencyLimitExceededStatus()) {
+      if (!getConcurrencyLimitExceededStatus()
+          .equals(other.getConcurrencyLimitExceededStatus())) return false;
+    }
     if (!getConcurrencyControllerConfigCase().equals(other.getConcurrencyControllerConfigCase())) return false;
     switch (concurrencyControllerConfigCase_) {
       case 1:
@@ -298,7 +294,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -313,6 +309,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + getEnabled().hashCode();
     }
+    if (hasConcurrencyLimitExceededStatus()) {
+      hash = (37 * hash) + CONCURRENCY_LIMIT_EXCEEDED_STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getConcurrencyLimitExceededStatus().hashCode();
+    }
     switch (concurrencyControllerConfigCase_) {
       case 1:
         hash = (37 * hash) + GRADIENT_CONTROLLER_CONFIG_FIELD_NUMBER;
@@ -321,7 +321,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -438,27 +438,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (enabledBuilder_ == null) {
-        enabled_ = null;
-      } else {
-        enabled_ = null;
+      bitField0_ = 0;
+      if (gradientControllerConfigBuilder_ != null) {
+        gradientControllerConfigBuilder_.clear();
+      }
+      enabled_ = null;
+      if (enabledBuilder_ != null) {
+        enabledBuilder_.dispose();
         enabledBuilder_ = null;
+      }
+      concurrencyLimitExceededStatus_ = null;
+      if (concurrencyLimitExceededStatusBuilder_ != null) {
+        concurrencyLimitExceededStatusBuilder_.dispose();
+        concurrencyLimitExceededStatusBuilder_ = null;
       }
       concurrencyControllerConfigCase_ = 0;
       concurrencyControllerConfig_ = null;
@@ -488,21 +491,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency result = new io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency(this);
-      if (concurrencyControllerConfigCase_ == 1) {
-        if (gradientControllerConfigBuilder_ == null) {
-          result.concurrencyControllerConfig_ = concurrencyControllerConfig_;
-        } else {
-          result.concurrencyControllerConfig_ = gradientControllerConfigBuilder_.build();
-        }
-      }
-      if (enabledBuilder_ == null) {
-        result.enabled_ = enabled_;
-      } else {
-        result.enabled_ = enabledBuilder_.build();
-      }
-      result.concurrencyControllerConfigCase_ = concurrencyControllerConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enabled_ = enabledBuilder_ == null
+            ? enabled_
+            : enabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.concurrencyLimitExceededStatus_ = concurrencyLimitExceededStatusBuilder_ == null
+            ? concurrencyLimitExceededStatus_
+            : concurrencyLimitExceededStatusBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency result) {
+      result.concurrencyControllerConfigCase_ = concurrencyControllerConfigCase_;
+      result.concurrencyControllerConfig_ = this.concurrencyControllerConfig_;
+      if (concurrencyControllerConfigCase_ == 1 &&
+          gradientControllerConfigBuilder_ != null) {
+        result.concurrencyControllerConfig_ = gradientControllerConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -552,6 +567,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnabled()) {
         mergeEnabled(other.getEnabled());
       }
+      if (other.hasConcurrencyLimitExceededStatus()) {
+        mergeConcurrencyLimitExceededStatus(other.getConcurrencyLimitExceededStatus());
+      }
       switch (other.getConcurrencyControllerConfigCase()) {
         case GRADIENT_CONTROLLER_CONFIG: {
           mergeGradientControllerConfig(other.getGradientControllerConfig());
@@ -561,7 +579,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -576,17 +594,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGradientControllerConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              concurrencyControllerConfigCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getConcurrencyLimitExceededStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.AdaptiveConcurrency) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int concurrencyControllerConfigCase_ = 0;
@@ -604,6 +656,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig, io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfig.Builder, io.envoyproxy.envoy.extensions.filters.http.adaptive_concurrency.v3.GradientControllerConfigOrBuilder> gradientControllerConfigBuilder_;
@@ -779,7 +832,7 @@ private static final long serialVersionUID = 0L;
         concurrencyControllerConfig_ = null;
       }
       concurrencyControllerConfigCase_ = 1;
-      onChanged();;
+      onChanged();
       return gradientControllerConfigBuilder_;
     }
 
@@ -796,7 +849,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enabled field is set.
      */
     public boolean hasEnabled() {
-      return enabledBuilder_ != null || enabled_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -828,11 +881,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enabled_ = value;
-        onChanged();
       } else {
         enabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -847,11 +900,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder builderForValue) {
       if (enabledBuilder_ == null) {
         enabled_ = builderForValue.build();
-        onChanged();
       } else {
         enabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +917,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag value) {
       if (enabledBuilder_ == null) {
-        if (enabled_ != null) {
-          enabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.newBuilder(enabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          enabled_ != null &&
+          enabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance()) {
+          getEnabledBuilder().mergeFrom(value);
         } else {
           enabled_ = value;
         }
-        onChanged();
       } else {
         enabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -886,14 +940,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 2;</code>
      */
     public Builder clearEnabled() {
-      if (enabledBuilder_ == null) {
-        enabled_ = null;
-        onChanged();
-      } else {
-        enabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      enabled_ = null;
+      if (enabledBuilder_ != null) {
+        enabledBuilder_.dispose();
         enabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -905,7 +958,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag enabled = 2;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder getEnabledBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEnabledFieldBuilder().getBuilder();
     }
@@ -946,6 +999,197 @@ private static final long serialVersionUID = 0L;
       }
       return enabledBuilder_;
     }
+
+    private io.envoyproxy.envoy.type.v3.HttpStatus concurrencyLimitExceededStatus_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.type.v3.HttpStatus, io.envoyproxy.envoy.type.v3.HttpStatus.Builder, io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder> concurrencyLimitExceededStatusBuilder_;
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     * @return Whether the concurrencyLimitExceededStatus field is set.
+     */
+    public boolean hasConcurrencyLimitExceededStatus() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     * @return The concurrencyLimitExceededStatus.
+     */
+    public io.envoyproxy.envoy.type.v3.HttpStatus getConcurrencyLimitExceededStatus() {
+      if (concurrencyLimitExceededStatusBuilder_ == null) {
+        return concurrencyLimitExceededStatus_ == null ? io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : concurrencyLimitExceededStatus_;
+      } else {
+        return concurrencyLimitExceededStatusBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    public Builder setConcurrencyLimitExceededStatus(io.envoyproxy.envoy.type.v3.HttpStatus value) {
+      if (concurrencyLimitExceededStatusBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        concurrencyLimitExceededStatus_ = value;
+      } else {
+        concurrencyLimitExceededStatusBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    public Builder setConcurrencyLimitExceededStatus(
+        io.envoyproxy.envoy.type.v3.HttpStatus.Builder builderForValue) {
+      if (concurrencyLimitExceededStatusBuilder_ == null) {
+        concurrencyLimitExceededStatus_ = builderForValue.build();
+      } else {
+        concurrencyLimitExceededStatusBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    public Builder mergeConcurrencyLimitExceededStatus(io.envoyproxy.envoy.type.v3.HttpStatus value) {
+      if (concurrencyLimitExceededStatusBuilder_ == null) {
+        if (((bitField0_ & 0x00000004) != 0) &&
+          concurrencyLimitExceededStatus_ != null &&
+          concurrencyLimitExceededStatus_ != io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance()) {
+          getConcurrencyLimitExceededStatusBuilder().mergeFrom(value);
+        } else {
+          concurrencyLimitExceededStatus_ = value;
+        }
+      } else {
+        concurrencyLimitExceededStatusBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    public Builder clearConcurrencyLimitExceededStatus() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      concurrencyLimitExceededStatus_ = null;
+      if (concurrencyLimitExceededStatusBuilder_ != null) {
+        concurrencyLimitExceededStatusBuilder_.dispose();
+        concurrencyLimitExceededStatusBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    public io.envoyproxy.envoy.type.v3.HttpStatus.Builder getConcurrencyLimitExceededStatusBuilder() {
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return getConcurrencyLimitExceededStatusFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    public io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder getConcurrencyLimitExceededStatusOrBuilder() {
+      if (concurrencyLimitExceededStatusBuilder_ != null) {
+        return concurrencyLimitExceededStatusBuilder_.getMessageOrBuilder();
+      } else {
+        return concurrencyLimitExceededStatus_ == null ?
+            io.envoyproxy.envoy.type.v3.HttpStatus.getDefaultInstance() : concurrencyLimitExceededStatus_;
+      }
+    }
+    /**
+     * <pre>
+     * This field allows for a custom HTTP response status code to the downstream client when
+     * the concurrency limit has been exceeded.
+     * Defaults to 503 (Service Unavailable).
+     * .. note::
+     *   If this is set to &lt; 400, 503 will be used instead.
+     * </pre>
+     *
+     * <code>.envoy.type.v3.HttpStatus concurrency_limit_exceeded_status = 3;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.type.v3.HttpStatus, io.envoyproxy.envoy.type.v3.HttpStatus.Builder, io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder> 
+        getConcurrencyLimitExceededStatusFieldBuilder() {
+      if (concurrencyLimitExceededStatusBuilder_ == null) {
+        concurrencyLimitExceededStatusBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.type.v3.HttpStatus, io.envoyproxy.envoy.type.v3.HttpStatus.Builder, io.envoyproxy.envoy.type.v3.HttpStatusOrBuilder>(
+                getConcurrencyLimitExceededStatus(),
+                getParentForChildren(),
+                isClean());
+        concurrencyLimitExceededStatus_ = null;
+      }
+      return concurrencyLimitExceededStatusBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -979,7 +1223,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AdaptiveConcurrency(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

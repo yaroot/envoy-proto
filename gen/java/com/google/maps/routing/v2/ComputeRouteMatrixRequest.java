@@ -38,95 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComputeRouteMatrixRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              origins_ = new java.util.ArrayList<com.google.maps.routing.v2.RouteMatrixOrigin>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            origins_.add(
-                input.readMessage(com.google.maps.routing.v2.RouteMatrixOrigin.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              destinations_ = new java.util.ArrayList<com.google.maps.routing.v2.RouteMatrixDestination>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            destinations_.add(
-                input.readMessage(com.google.maps.routing.v2.RouteMatrixDestination.parser(), extensionRegistry));
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            travelMode_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            routingPreference_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (departureTime_ != null) {
-              subBuilder = departureTime_.toBuilder();
-            }
-            departureTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(departureTime_);
-              departureTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        origins_ = java.util.Collections.unmodifiableList(origins_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        destinations_ = java.util.Collections.unmodifiableList(destinations_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routing.v2.RoutesServiceProto.internal_static_google_maps_routing_v2_ComputeRouteMatrixRequest_descriptor;
@@ -141,11 +52,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORIGINS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routing.v2.RouteMatrixOrigin> origins_;
   /**
    * <pre>
-   * Required. Array of origins, which determines the rows of the response matrix.
-   * Several size restrictions apply to the cardinality of origins and
+   * Required. Array of origins, which determines the rows of the response
+   * matrix. Several size restrictions apply to the cardinality of origins and
    * destinations:
    * * The number of elements (origins × destinations) must be no greater than
    * 625 in any case.
@@ -163,8 +75,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of origins, which determines the rows of the response matrix.
-   * Several size restrictions apply to the cardinality of origins and
+   * Required. Array of origins, which determines the rows of the response
+   * matrix. Several size restrictions apply to the cardinality of origins and
    * destinations:
    * * The number of elements (origins × destinations) must be no greater than
    * 625 in any case.
@@ -183,8 +95,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of origins, which determines the rows of the response matrix.
-   * Several size restrictions apply to the cardinality of origins and
+   * Required. Array of origins, which determines the rows of the response
+   * matrix. Several size restrictions apply to the cardinality of origins and
    * destinations:
    * * The number of elements (origins × destinations) must be no greater than
    * 625 in any case.
@@ -202,8 +114,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of origins, which determines the rows of the response matrix.
-   * Several size restrictions apply to the cardinality of origins and
+   * Required. Array of origins, which determines the rows of the response
+   * matrix. Several size restrictions apply to the cardinality of origins and
    * destinations:
    * * The number of elements (origins × destinations) must be no greater than
    * 625 in any case.
@@ -221,8 +133,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of origins, which determines the rows of the response matrix.
-   * Several size restrictions apply to the cardinality of origins and
+   * Required. Array of origins, which determines the rows of the response
+   * matrix. Several size restrictions apply to the cardinality of origins and
    * destinations:
    * * The number of elements (origins × destinations) must be no greater than
    * 625 in any case.
@@ -241,10 +153,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routing.v2.RouteMatrixDestination> destinations_;
   /**
    * <pre>
-   * Required. Array of destinations, which determines the columns of the response matrix.
+   * Required. Array of destinations, which determines the columns of the
+   * response matrix.
    * </pre>
    *
    * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -255,7 +169,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of destinations, which determines the columns of the response matrix.
+   * Required. Array of destinations, which determines the columns of the
+   * response matrix.
    * </pre>
    *
    * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -267,7 +182,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of destinations, which determines the columns of the response matrix.
+   * Required. Array of destinations, which determines the columns of the
+   * response matrix.
    * </pre>
    *
    * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -278,7 +194,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of destinations, which determines the columns of the response matrix.
+   * Required. Array of destinations, which determines the columns of the
+   * response matrix.
    * </pre>
    *
    * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -289,7 +206,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Array of destinations, which determines the columns of the response matrix.
+   * Required. Array of destinations, which determines the columns of the
+   * response matrix.
    * </pre>
    *
    * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -301,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAVEL_MODE_FIELD_NUMBER = 3;
-  private int travelMode_;
+  private int travelMode_ = 0;
   /**
    * <pre>
    * Optional. Specifies the mode of transportation.
@@ -322,22 +240,19 @@ private static final long serialVersionUID = 0L;
    * @return The travelMode.
    */
   @java.lang.Override public com.google.maps.routing.v2.RouteTravelMode getTravelMode() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routing.v2.RouteTravelMode result = com.google.maps.routing.v2.RouteTravelMode.valueOf(travelMode_);
+    com.google.maps.routing.v2.RouteTravelMode result = com.google.maps.routing.v2.RouteTravelMode.forNumber(travelMode_);
     return result == null ? com.google.maps.routing.v2.RouteTravelMode.UNRECOGNIZED : result;
   }
 
   public static final int ROUTING_PREFERENCE_FIELD_NUMBER = 4;
-  private int routingPreference_;
+  private int routingPreference_ = 0;
   /**
    * <pre>
-   * Optional. Specifies how to compute the route. The server attempts to use the selected
-   * routing preference to compute the route. If the routing preference results
-   * in an error or an extra long latency, an error is returned. In the future,
-   * we might implement a fallback mechanism to use a different option when the
-   * preferred option does not give a valid result. You can specify this option
-   * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-   * request fails.
+   * Optional. Specifies how to compute the route. The server attempts to use
+   * the selected routing preference to compute the route. If the routing
+   * preference results in an error or an extra long latency, an error is
+   * returned. You can specify this option only when the `travel_mode` is
+   * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
    * </pre>
    *
    * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -348,21 +263,18 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Specifies how to compute the route. The server attempts to use the selected
-   * routing preference to compute the route. If the routing preference results
-   * in an error or an extra long latency, an error is returned. In the future,
-   * we might implement a fallback mechanism to use a different option when the
-   * preferred option does not give a valid result. You can specify this option
-   * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-   * request fails.
+   * Optional. Specifies how to compute the route. The server attempts to use
+   * the selected routing preference to compute the route. If the routing
+   * preference results in an error or an extra long latency, an error is
+   * returned. You can specify this option only when the `travel_mode` is
+   * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
    * </pre>
    *
    * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The routingPreference.
    */
   @java.lang.Override public com.google.maps.routing.v2.RoutingPreference getRoutingPreference() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routing.v2.RoutingPreference result = com.google.maps.routing.v2.RoutingPreference.valueOf(routingPreference_);
+    com.google.maps.routing.v2.RoutingPreference result = com.google.maps.routing.v2.RoutingPreference.forNumber(routingPreference_);
     return result == null ? com.google.maps.routing.v2.RoutingPreference.UNRECOGNIZED : result;
   }
 
@@ -370,9 +282,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Timestamp departureTime_;
   /**
    * <pre>
-   * Optional. The departure time. If you don't set this value, this defaults to the time
-   * that you made the request. If you set this value to a time that has already
-   * occurred, the request fails.
+   * Optional. The departure time. If you don't set this value, this defaults to
+   * the time that you made the request. If you set this value to a time that
+   * has already occurred, the request fails.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -384,9 +296,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The departure time. If you don't set this value, this defaults to the time
-   * that you made the request. If you set this value to a time that has already
-   * occurred, the request fails.
+   * Optional. The departure time. If you don't set this value, this defaults to
+   * the time that you made the request. If you set this value to a time that
+   * has already occurred, the request fails.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -398,16 +310,16 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The departure time. If you don't set this value, this defaults to the time
-   * that you made the request. If you set this value to a time that has already
-   * occurred, the request fails.
+   * Optional. The departure time. If you don't set this value, this defaults to
+   * the time that you made the request. If you set this value to a time that
+   * has already occurred, the request fails.
    * </pre>
    *
    * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDepartureTimeOrBuilder() {
-    return getDepartureTime();
+    return departureTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : departureTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -439,7 +351,7 @@ private static final long serialVersionUID = 0L;
     if (departureTime_ != null) {
       output.writeMessage(5, getDepartureTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -468,7 +380,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getDepartureTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -494,7 +406,7 @@ private static final long serialVersionUID = 0L;
       if (!getDepartureTime()
           .equals(other.getDepartureTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -521,7 +433,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DEPARTURE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getDepartureTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -642,44 +554,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routing.v2.ComputeRouteMatrixRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getOriginsFieldBuilder();
-        getDestinationsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (originsBuilder_ == null) {
         origins_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        origins_ = null;
         originsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (destinationsBuilder_ == null) {
         destinations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        destinations_ = null;
         destinationsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       travelMode_ = 0;
-
       routingPreference_ = 0;
-
-      if (departureTimeBuilder_ == null) {
-        departureTime_ = null;
-      } else {
-        departureTime_ = null;
+      departureTime_ = null;
+      if (departureTimeBuilder_ != null) {
+        departureTimeBuilder_.dispose();
         departureTimeBuilder_ = null;
       }
       return this;
@@ -708,7 +613,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routing.v2.ComputeRouteMatrixRequest buildPartial() {
       com.google.maps.routing.v2.ComputeRouteMatrixRequest result = new com.google.maps.routing.v2.ComputeRouteMatrixRequest(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routing.v2.ComputeRouteMatrixRequest result) {
       if (originsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           origins_ = java.util.Collections.unmodifiableList(origins_);
@@ -727,15 +638,21 @@ private static final long serialVersionUID = 0L;
       } else {
         result.destinations_ = destinationsBuilder_.build();
       }
-      result.travelMode_ = travelMode_;
-      result.routingPreference_ = routingPreference_;
-      if (departureTimeBuilder_ == null) {
-        result.departureTime_ = departureTime_;
-      } else {
-        result.departureTime_ = departureTimeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.maps.routing.v2.ComputeRouteMatrixRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.travelMode_ = travelMode_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.routingPreference_ = routingPreference_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.departureTime_ = departureTimeBuilder_ == null
+            ? departureTime_
+            : departureTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -843,7 +760,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDepartureTime()) {
         mergeDepartureTime(other.getDepartureTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -858,17 +775,73 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routing.v2.ComputeRouteMatrixRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.maps.routing.v2.RouteMatrixOrigin m =
+                  input.readMessage(
+                      com.google.maps.routing.v2.RouteMatrixOrigin.parser(),
+                      extensionRegistry);
+              if (originsBuilder_ == null) {
+                ensureOriginsIsMutable();
+                origins_.add(m);
+              } else {
+                originsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.maps.routing.v2.RouteMatrixDestination m =
+                  input.readMessage(
+                      com.google.maps.routing.v2.RouteMatrixDestination.parser(),
+                      extensionRegistry);
+              if (destinationsBuilder_ == null) {
+                ensureDestinationsIsMutable();
+                destinations_.add(m);
+              } else {
+                destinationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 24: {
+              travelMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              routingPreference_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getDepartureTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routing.v2.ComputeRouteMatrixRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -887,8 +860,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -909,8 +882,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -931,8 +904,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -953,8 +926,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -982,8 +955,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1008,8 +981,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1036,8 +1009,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1065,8 +1038,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1091,8 +1064,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1117,8 +1090,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1144,8 +1117,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1169,8 +1142,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1194,8 +1167,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1213,8 +1186,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1235,8 +1208,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1258,8 +1231,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1277,8 +1250,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1297,8 +1270,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of origins, which determines the rows of the response matrix.
-     * Several size restrictions apply to the cardinality of origins and
+     * Required. Array of origins, which determines the rows of the response
+     * matrix. Several size restrictions apply to the cardinality of origins and
      * destinations:
      * * The number of elements (origins × destinations) must be no greater than
      * 625 in any case.
@@ -1343,7 +1316,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1357,7 +1331,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1371,7 +1346,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1385,7 +1361,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1406,7 +1383,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1424,7 +1402,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1444,7 +1423,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1465,7 +1445,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1483,7 +1464,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1501,7 +1483,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1520,7 +1503,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1537,7 +1521,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1554,7 +1539,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1565,7 +1551,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1579,7 +1566,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1594,7 +1582,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1605,7 +1594,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1617,7 +1607,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Array of destinations, which determines the columns of the response matrix.
+     * Required. Array of destinations, which determines the columns of the
+     * response matrix.
      * </pre>
      *
      * <code>repeated .google.maps.routing.v2.RouteMatrixDestination destinations = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1663,8 +1654,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTravelModeValue(int value) {
-      
       travelMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1678,8 +1669,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routing.v2.RouteTravelMode getTravelMode() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routing.v2.RouteTravelMode result = com.google.maps.routing.v2.RouteTravelMode.valueOf(travelMode_);
+      com.google.maps.routing.v2.RouteTravelMode result = com.google.maps.routing.v2.RouteTravelMode.forNumber(travelMode_);
       return result == null ? com.google.maps.routing.v2.RouteTravelMode.UNRECOGNIZED : result;
     }
     /**
@@ -1695,7 +1685,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       travelMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1709,7 +1699,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTravelMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       travelMode_ = 0;
       onChanged();
       return this;
@@ -1718,13 +1708,11 @@ private static final long serialVersionUID = 0L;
     private int routingPreference_ = 0;
     /**
      * <pre>
-     * Optional. Specifies how to compute the route. The server attempts to use the selected
-     * routing preference to compute the route. If the routing preference results
-     * in an error or an extra long latency, an error is returned. In the future,
-     * we might implement a fallback mechanism to use a different option when the
-     * preferred option does not give a valid result. You can specify this option
-     * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-     * request fails.
+     * Optional. Specifies how to compute the route. The server attempts to use
+     * the selected routing preference to compute the route. If the routing
+     * preference results in an error or an extra long latency, an error is
+     * returned. You can specify this option only when the `travel_mode` is
+     * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
      * </pre>
      *
      * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1735,13 +1723,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Specifies how to compute the route. The server attempts to use the selected
-     * routing preference to compute the route. If the routing preference results
-     * in an error or an extra long latency, an error is returned. In the future,
-     * we might implement a fallback mechanism to use a different option when the
-     * preferred option does not give a valid result. You can specify this option
-     * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-     * request fails.
+     * Optional. Specifies how to compute the route. The server attempts to use
+     * the selected routing preference to compute the route. If the routing
+     * preference results in an error or an extra long latency, an error is
+     * returned. You can specify this option only when the `travel_mode` is
+     * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
      * </pre>
      *
      * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1749,20 +1735,18 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRoutingPreferenceValue(int value) {
-      
       routingPreference_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Specifies how to compute the route. The server attempts to use the selected
-     * routing preference to compute the route. If the routing preference results
-     * in an error or an extra long latency, an error is returned. In the future,
-     * we might implement a fallback mechanism to use a different option when the
-     * preferred option does not give a valid result. You can specify this option
-     * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-     * request fails.
+     * Optional. Specifies how to compute the route. The server attempts to use
+     * the selected routing preference to compute the route. If the routing
+     * preference results in an error or an extra long latency, an error is
+     * returned. You can specify this option only when the `travel_mode` is
+     * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
      * </pre>
      *
      * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1770,19 +1754,16 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routing.v2.RoutingPreference getRoutingPreference() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routing.v2.RoutingPreference result = com.google.maps.routing.v2.RoutingPreference.valueOf(routingPreference_);
+      com.google.maps.routing.v2.RoutingPreference result = com.google.maps.routing.v2.RoutingPreference.forNumber(routingPreference_);
       return result == null ? com.google.maps.routing.v2.RoutingPreference.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Optional. Specifies how to compute the route. The server attempts to use the selected
-     * routing preference to compute the route. If the routing preference results
-     * in an error or an extra long latency, an error is returned. In the future,
-     * we might implement a fallback mechanism to use a different option when the
-     * preferred option does not give a valid result. You can specify this option
-     * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-     * request fails.
+     * Optional. Specifies how to compute the route. The server attempts to use
+     * the selected routing preference to compute the route. If the routing
+     * preference results in an error or an extra long latency, an error is
+     * returned. You can specify this option only when the `travel_mode` is
+     * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
      * </pre>
      *
      * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1793,27 +1774,25 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       routingPreference_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Specifies how to compute the route. The server attempts to use the selected
-     * routing preference to compute the route. If the routing preference results
-     * in an error or an extra long latency, an error is returned. In the future,
-     * we might implement a fallback mechanism to use a different option when the
-     * preferred option does not give a valid result. You can specify this option
-     * only when the `travel_mode` is `DRIVE` or `TWO_WHEELER`, otherwise the
-     * request fails.
+     * Optional. Specifies how to compute the route. The server attempts to use
+     * the selected routing preference to compute the route. If the routing
+     * preference results in an error or an extra long latency, an error is
+     * returned. You can specify this option only when the `travel_mode` is
+     * `DRIVE` or `TWO_WHEELER`, otherwise the request fails.
      * </pre>
      *
      * <code>.google.maps.routing.v2.RoutingPreference routing_preference = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearRoutingPreference() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       routingPreference_ = 0;
       onChanged();
       return this;
@@ -1824,22 +1803,22 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> departureTimeBuilder_;
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the departureTime field is set.
      */
     public boolean hasDepartureTime() {
-      return departureTimeBuilder_ != null || departureTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1854,9 +1833,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1867,18 +1846,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         departureTime_ = value;
-        onChanged();
       } else {
         departureTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1887,76 +1866,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (departureTimeBuilder_ == null) {
         departureTime_ = builderForValue.build();
-        onChanged();
       } else {
         departureTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeDepartureTime(com.google.protobuf.Timestamp value) {
       if (departureTimeBuilder_ == null) {
-        if (departureTime_ != null) {
-          departureTime_ =
-            com.google.protobuf.Timestamp.newBuilder(departureTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          departureTime_ != null &&
+          departureTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDepartureTimeBuilder().mergeFrom(value);
         } else {
           departureTime_ = value;
         }
-        onChanged();
       } else {
         departureTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDepartureTime() {
-      if (departureTimeBuilder_ == null) {
-        departureTime_ = null;
-        onChanged();
-      } else {
-        departureTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      departureTime_ = null;
+      if (departureTimeBuilder_ != null) {
+        departureTimeBuilder_.dispose();
         departureTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Timestamp.Builder getDepartureTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getDepartureTimeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1971,9 +1950,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The departure time. If you don't set this value, this defaults to the time
-     * that you made the request. If you set this value to a time that has already
-     * occurred, the request fails.
+     * Optional. The departure time. If you don't set this value, this defaults to
+     * the time that you made the request. If you set this value to a time that
+     * has already occurred, the request fails.
      * </pre>
      *
      * <code>.google.protobuf.Timestamp departure_time = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2024,7 +2003,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComputeRouteMatrixRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

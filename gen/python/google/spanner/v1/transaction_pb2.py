@@ -15,7 +15,7 @@ from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#google/spanner/v1/transaction.proto\x12\x11google.spanner.v1\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xc3\x04\n\x12TransactionOptions\x12\x45\n\nread_write\x18\x01 \x01(\x0b\x32/.google.spanner.v1.TransactionOptions.ReadWriteH\x00\x12O\n\x0fpartitioned_dml\x18\x03 \x01(\x0b\x32\x34.google.spanner.v1.TransactionOptions.PartitionedDmlH\x00\x12\x43\n\tread_only\x18\x02 \x01(\x0b\x32..google.spanner.v1.TransactionOptions.ReadOnlyH\x00\x1a\x0b\n\tReadWrite\x1a\x10\n\x0ePartitionedDml\x1a\xa8\x02\n\x08ReadOnly\x12\x10\n\x06strong\x18\x01 \x01(\x08H\x00\x12\x38\n\x12min_read_timestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x32\n\rmax_staleness\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x34\n\x0eread_timestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x34\n\x0f\x65xact_staleness\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x1d\n\x15return_read_timestamp\x18\x06 \x01(\x08\x42\x11\n\x0ftimestamp_boundB\x06\n\x04mode\"M\n\x0bTransaction\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\x32\n\x0eread_timestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa4\x01\n\x13TransactionSelector\x12;\n\nsingle_use\x18\x01 \x01(\x0b\x32%.google.spanner.v1.TransactionOptionsH\x00\x12\x0c\n\x02id\x18\x02 \x01(\x0cH\x00\x12\x36\n\x05\x62\x65gin\x18\x03 \x01(\x0b\x32%.google.spanner.v1.TransactionOptionsH\x00\x42\n\n\x08selectorB\xb6\x01\n\x15\x63om.google.spanner.v1B\x10TransactionProtoP\x01Z8google.golang.org/genproto/googleapis/spanner/v1;spanner\xaa\x02\x17Google.Cloud.Spanner.V1\xca\x02\x17Google\\Cloud\\Spanner\\V1\xea\x02\x1aGoogle::Cloud::Spanner::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n#google/spanner/v1/transaction.proto\x12\x11google.spanner.v1\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xeb\x05\n\x12TransactionOptions\x12\x45\n\nread_write\x18\x01 \x01(\x0b\x32/.google.spanner.v1.TransactionOptions.ReadWriteH\x00\x12O\n\x0fpartitioned_dml\x18\x03 \x01(\x0b\x32\x34.google.spanner.v1.TransactionOptions.PartitionedDmlH\x00\x12\x43\n\tread_only\x18\x02 \x01(\x0b\x32..google.spanner.v1.TransactionOptions.ReadOnlyH\x00\x1a\xb2\x01\n\tReadWrite\x12T\n\x0eread_lock_mode\x18\x01 \x01(\x0e\x32<.google.spanner.v1.TransactionOptions.ReadWrite.ReadLockMode\"O\n\x0cReadLockMode\x12\x1e\n\x1aREAD_LOCK_MODE_UNSPECIFIED\x10\x00\x12\x0f\n\x0bPESSIMISTIC\x10\x01\x12\x0e\n\nOPTIMISTIC\x10\x02\x1a\x10\n\x0ePartitionedDml\x1a\xa8\x02\n\x08ReadOnly\x12\x10\n\x06strong\x18\x01 \x01(\x08H\x00\x12\x38\n\x12min_read_timestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x32\n\rmax_staleness\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x34\n\x0eread_timestamp\x18\x04 \x01(\x0b\x32\x1a.google.protobuf.TimestampH\x00\x12\x34\n\x0f\x65xact_staleness\x18\x05 \x01(\x0b\x32\x19.google.protobuf.DurationH\x00\x12\x1d\n\x15return_read_timestamp\x18\x06 \x01(\x08\x42\x11\n\x0ftimestamp_boundB\x06\n\x04mode\"M\n\x0bTransaction\x12\n\n\x02id\x18\x01 \x01(\x0c\x12\x32\n\x0eread_timestamp\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\"\xa4\x01\n\x13TransactionSelector\x12;\n\nsingle_use\x18\x01 \x01(\x0b\x32%.google.spanner.v1.TransactionOptionsH\x00\x12\x0c\n\x02id\x18\x02 \x01(\x0cH\x00\x12\x36\n\x05\x62\x65gin\x18\x03 \x01(\x0b\x32%.google.spanner.v1.TransactionOptionsH\x00\x42\n\n\x08selectorB\xb6\x01\n\x15\x63om.google.spanner.v1B\x10TransactionProtoP\x01Z8google.golang.org/genproto/googleapis/spanner/v1;spanner\xaa\x02\x17Google.Cloud.Spanner.V1\xca\x02\x17Google\\Cloud\\Spanner\\V1\xea\x02\x1aGoogle::Cloud::Spanner::V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.spanner.v1.transaction_pb2', globals())
@@ -24,15 +24,17 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\025com.google.spanner.v1B\020TransactionProtoP\001Z8google.golang.org/genproto/googleapis/spanner/v1;spanner\252\002\027Google.Cloud.Spanner.V1\312\002\027Google\\Cloud\\Spanner\\V1\352\002\032Google::Cloud::Spanner::V1'
   _TRANSACTIONOPTIONS._serialized_start=124
-  _TRANSACTIONOPTIONS._serialized_end=703
-  _TRANSACTIONOPTIONS_READWRITE._serialized_start=367
-  _TRANSACTIONOPTIONS_READWRITE._serialized_end=378
-  _TRANSACTIONOPTIONS_PARTITIONEDDML._serialized_start=380
-  _TRANSACTIONOPTIONS_PARTITIONEDDML._serialized_end=396
-  _TRANSACTIONOPTIONS_READONLY._serialized_start=399
-  _TRANSACTIONOPTIONS_READONLY._serialized_end=695
-  _TRANSACTION._serialized_start=705
-  _TRANSACTION._serialized_end=782
-  _TRANSACTIONSELECTOR._serialized_start=785
-  _TRANSACTIONSELECTOR._serialized_end=949
+  _TRANSACTIONOPTIONS._serialized_end=871
+  _TRANSACTIONOPTIONS_READWRITE._serialized_start=368
+  _TRANSACTIONOPTIONS_READWRITE._serialized_end=546
+  _TRANSACTIONOPTIONS_READWRITE_READLOCKMODE._serialized_start=467
+  _TRANSACTIONOPTIONS_READWRITE_READLOCKMODE._serialized_end=546
+  _TRANSACTIONOPTIONS_PARTITIONEDDML._serialized_start=548
+  _TRANSACTIONOPTIONS_PARTITIONEDDML._serialized_end=564
+  _TRANSACTIONOPTIONS_READONLY._serialized_start=567
+  _TRANSACTIONOPTIONS_READONLY._serialized_end=863
+  _TRANSACTION._serialized_start=873
+  _TRANSACTION._serialized_end=950
+  _TRANSACTIONSELECTOR._serialized_start=953
+  _TRANSACTIONSELECTOR._serialized_end=1117
 # @@protoc_insertion_point(module_scope)

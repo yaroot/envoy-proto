@@ -39,99 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpHeaderMatch(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 539486728: {
-            bitField0_ |= 0x00000010;
-            presentMatch_ = input.readBool();
-            break;
-          }
-          case 777953818: {
-            com.google.cloud.compute.v1.Int64RangeMatch.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000020) != 0)) {
-              subBuilder = rangeMatch_.toBuilder();
-            }
-            rangeMatch_ = input.readMessage(com.google.cloud.compute.v1.Int64RangeMatch.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rangeMatch_);
-              rangeMatch_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000020;
-            break;
-          }
-          case 859102826: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            regexMatch_ = s;
-            break;
-          }
-          case 881788906: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            headerName_ = s;
-            break;
-          }
-          case 2063191746: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            prefixMatch_ = s;
-            break;
-          }
-          case -883057990: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            suffixMatch_ = s;
-            break;
-          }
-          case -633838550: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            exactMatch_ = s;
-            break;
-          }
-          case -285925152: {
-            bitField0_ |= 0x00000004;
-            invertMatch_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_HttpHeaderMatch_descriptor;
@@ -147,7 +54,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int EXACT_MATCH_FIELD_NUMBER = 457641093;
-  private volatile java.lang.Object exactMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object exactMatch_ = "";
   /**
    * <pre>
    * The value should exactly match contents of exactMatch. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set.
@@ -205,7 +113,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADER_NAME_FIELD_NUMBER = 110223613;
-  private volatile java.lang.Object headerName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object headerName_ = "";
   /**
    * <pre>
    * The name of the HTTP header to match. For matching against the HTTP request's authority, use a headerMatch with the header name ":authority". For matching a request's method, use the headerName ":method". When the URL map is bound to a target gRPC proxy that has the validateForProxyless field set to true, only non-binary user-specified custom metadata and the `content-type` header are supported. The following transport-level headers cannot be used in header matching rules: `:authority`, `:method`, `:path`, `:scheme`, `user-agent`, `accept-encoding`, `content-encoding`, `grpc-accept-encoding`, `grpc-encoding`, `grpc-previous-rpc-attempts`, `grpc-tags-bin`, `grpc-timeout` and `grpc-trace-bin`.
@@ -263,7 +172,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVERT_MATCH_FIELD_NUMBER = 501130268;
-  private boolean invertMatch_;
+  private boolean invertMatch_ = false;
   /**
    * <pre>
    * If set to false, the headerMatch is considered a match if the preceding match criteria are met. If set to true, the headerMatch is considered a match if the preceding match criteria are NOT met. The default setting is false. 
@@ -290,7 +199,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREFIX_MATCH_FIELD_NUMBER = 257898968;
-  private volatile java.lang.Object prefixMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object prefixMatch_ = "";
   /**
    * <pre>
    * The value of the header must start with the contents of prefixMatch. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set.
@@ -348,7 +258,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRESENT_MATCH_FIELD_NUMBER = 67435841;
-  private boolean presentMatch_;
+  private boolean presentMatch_ = false;
   /**
    * <pre>
    * A header with the contents of headerName must exist. The match takes place whether or not the request's header has a value. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set.
@@ -413,10 +323,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGEX_MATCH_FIELD_NUMBER = 107387853;
-  private volatile java.lang.Object regexMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object regexMatch_ = "";
   /**
    * <pre>
-   * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+   * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
    * </pre>
    *
    * <code>optional string regex_match = 107387853;</code>
@@ -428,7 +339,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+   * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
    * </pre>
    *
    * <code>optional string regex_match = 107387853;</code>
@@ -449,7 +360,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+   * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
    * </pre>
    *
    * <code>optional string regex_match = 107387853;</code>
@@ -471,7 +382,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUFFIX_MATCH_FIELD_NUMBER = 426488663;
-  private volatile java.lang.Object suffixMatch_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object suffixMatch_ = "";
   /**
    * <pre>
    * The value of the header must end with the contents of suffixMatch. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set.
@@ -566,7 +478,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeBool(501130268, invertMatch_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -602,7 +514,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(501130268, invertMatch_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -657,7 +569,7 @@ private static final long serialVersionUID = 0L;
       if (!getSuffixMatch()
           .equals(other.getSuffixMatch())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -702,7 +614,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUFFIX_MATCH_FIELD_NUMBER;
       hash = (53 * hash) + getSuffixMatch().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -840,26 +752,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       exactMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       headerName_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       invertMatch_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       prefixMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       presentMatch_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (rangeMatchBuilder_ == null) {
-        rangeMatch_ = null;
-      } else {
-        rangeMatchBuilder_.clear();
+      rangeMatch_ = null;
+      if (rangeMatchBuilder_ != null) {
+        rangeMatchBuilder_.dispose();
+        rangeMatchBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000020);
       regexMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       suffixMatch_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       return this;
     }
 
@@ -886,47 +791,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.HttpHeaderMatch buildPartial() {
       com.google.cloud.compute.v1.HttpHeaderMatch result = new com.google.cloud.compute.v1.HttpHeaderMatch(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.HttpHeaderMatch result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.exactMatch_ = exactMatch_;
         to_bitField0_ |= 0x00000001;
       }
-      result.exactMatch_ = exactMatch_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.headerName_ = headerName_;
         to_bitField0_ |= 0x00000002;
       }
-      result.headerName_ = headerName_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.invertMatch_ = invertMatch_;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.prefixMatch_ = prefixMatch_;
         to_bitField0_ |= 0x00000008;
       }
-      result.prefixMatch_ = prefixMatch_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.presentMatch_ = presentMatch_;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        if (rangeMatchBuilder_ == null) {
-          result.rangeMatch_ = rangeMatch_;
-        } else {
-          result.rangeMatch_ = rangeMatchBuilder_.build();
-        }
+        result.rangeMatch_ = rangeMatchBuilder_ == null
+            ? rangeMatch_
+            : rangeMatchBuilder_.build();
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.regexMatch_ = regexMatch_;
         to_bitField0_ |= 0x00000040;
       }
-      result.regexMatch_ = regexMatch_;
       if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.suffixMatch_ = suffixMatch_;
         to_bitField0_ |= 0x00000080;
       }
-      result.suffixMatch_ = suffixMatch_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -974,21 +881,21 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.HttpHeaderMatch other) {
       if (other == com.google.cloud.compute.v1.HttpHeaderMatch.getDefaultInstance()) return this;
       if (other.hasExactMatch()) {
-        bitField0_ |= 0x00000001;
         exactMatch_ = other.exactMatch_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasHeaderName()) {
-        bitField0_ |= 0x00000002;
         headerName_ = other.headerName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasInvertMatch()) {
         setInvertMatch(other.getInvertMatch());
       }
       if (other.hasPrefixMatch()) {
-        bitField0_ |= 0x00000008;
         prefixMatch_ = other.prefixMatch_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasPresentMatch()) {
@@ -998,16 +905,16 @@ private static final long serialVersionUID = 0L;
         mergeRangeMatch(other.getRangeMatch());
       }
       if (other.hasRegexMatch()) {
-        bitField0_ |= 0x00000040;
         regexMatch_ = other.regexMatch_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasSuffixMatch()) {
-        bitField0_ |= 0x00000080;
         suffixMatch_ = other.suffixMatch_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1022,17 +929,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.HttpHeaderMatch parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 539486728: {
+              presentMatch_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 539486728
+            case 777953818: {
+              input.readMessage(
+                  getRangeMatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 777953818
+            case 859102826: {
+              regexMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 859102826
+            case 881788906: {
+              headerName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 881788906
+            case 2063191746: {
+              prefixMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 2063191746
+            case -883057990: {
+              suffixMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -883057990
+            case -633838550: {
+              exactMatch_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case -633838550
+            case -285925152: {
+              invertMatch_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -285925152
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.HttpHeaderMatch) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1101,11 +1063,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExactMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       exactMatch_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1118,8 +1078,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExactMatch() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       exactMatch_ = getDefaultInstance().getExactMatch();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1134,12 +1094,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExactMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       exactMatch_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1208,11 +1166,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeaderName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       headerName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1225,8 +1181,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeaderName() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       headerName_ = getDefaultInstance().getHeaderName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1241,12 +1197,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHeaderNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       headerName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1286,8 +1240,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInvertMatch(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       invertMatch_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1370,11 +1325,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       prefixMatch_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1387,8 +1340,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrefixMatch() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       prefixMatch_ = getDefaultInstance().getPrefixMatch();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1403,12 +1356,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrefixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       prefixMatch_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1448,8 +1399,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPresentMatch(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       presentMatch_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1510,11 +1462,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rangeMatch_ = value;
-        onChanged();
       } else {
         rangeMatchBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1528,11 +1480,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Int64RangeMatch.Builder builderForValue) {
       if (rangeMatchBuilder_ == null) {
         rangeMatch_ = builderForValue.build();
-        onChanged();
       } else {
         rangeMatchBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1545,18 +1497,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRangeMatch(com.google.cloud.compute.v1.Int64RangeMatch value) {
       if (rangeMatchBuilder_ == null) {
         if (((bitField0_ & 0x00000020) != 0) &&
-            rangeMatch_ != null &&
-            rangeMatch_ != com.google.cloud.compute.v1.Int64RangeMatch.getDefaultInstance()) {
-          rangeMatch_ =
-            com.google.cloud.compute.v1.Int64RangeMatch.newBuilder(rangeMatch_).mergeFrom(value).buildPartial();
+          rangeMatch_ != null &&
+          rangeMatch_ != com.google.cloud.compute.v1.Int64RangeMatch.getDefaultInstance()) {
+          getRangeMatchBuilder().mergeFrom(value);
         } else {
           rangeMatch_ = value;
         }
-        onChanged();
       } else {
         rangeMatchBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1567,13 +1518,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.Int64RangeMatch range_match = 97244227;</code>
      */
     public Builder clearRangeMatch() {
-      if (rangeMatchBuilder_ == null) {
-        rangeMatch_ = null;
-        onChanged();
-      } else {
-        rangeMatchBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000020);
+      rangeMatch_ = null;
+      if (rangeMatchBuilder_ != null) {
+        rangeMatchBuilder_.dispose();
+        rangeMatchBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1627,7 +1578,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object regexMatch_ = "";
     /**
      * <pre>
-     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -1638,7 +1589,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -1658,7 +1609,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -1679,7 +1630,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -1688,31 +1639,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegexMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       regexMatch_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
      * @return This builder for chaining.
      */
     public Builder clearRegexMatch() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       regexMatch_ = getDefaultInstance().getRegexMatch();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. regexMatch only applies to load balancers that have loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+     * The value of the header must match the regular expression specified in regexMatch. For more information about regular expression syntax, see Syntax. For matching against a port specified in the HTTP request, use a headerMatch with headerName set to PORT and a regular expression that satisfies the RFC2616 Host header's port specifier. Only one of exactMatch, prefixMatch, suffixMatch, regexMatch, presentMatch or rangeMatch must be set. Regular expressions can only be used when the loadBalancingScheme is set to INTERNAL_SELF_MANAGED.
      * </pre>
      *
      * <code>optional string regex_match = 107387853;</code>
@@ -1721,12 +1670,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegexMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       regexMatch_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1795,11 +1742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuffixMatch(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       suffixMatch_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1812,8 +1757,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSuffixMatch() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       suffixMatch_ = getDefaultInstance().getSuffixMatch();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -1828,12 +1773,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSuffixMatchBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       suffixMatch_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -1870,7 +1813,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpHeaderMatch(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

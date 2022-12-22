@@ -38,96 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TablesDatasetMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryTableSpecId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            targetColumnSpecId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            weightColumnSpecId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            mlUseColumnSpecId_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              targetColumnCorrelations_ = com.google.protobuf.MapField.newMapField(
-                  TargetColumnCorrelationsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats>
-            targetColumnCorrelations__ = input.readMessage(
-                TargetColumnCorrelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            targetColumnCorrelations_.getMutableMap().put(
-                targetColumnCorrelations__.getKey(), targetColumnCorrelations__.getValue());
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (statsUpdateTime_ != null) {
-              subBuilder = statsUpdateTime_.toBuilder();
-            }
-            statsUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(statsUpdateTime_);
-              statsUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.Tables.internal_static_google_cloud_automl_v1beta1_TablesDatasetMetadata_descriptor;
@@ -154,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_TABLE_SPEC_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object primaryTableSpecId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryTableSpecId_ = "";
   /**
    * <pre>
    * Output only. The table_spec_id of the primary table of this dataset.
@@ -200,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_COLUMN_SPEC_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object targetColumnSpecId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object targetColumnSpecId_ = "";
   /**
    * <pre>
    * column_spec_id of the primary table's column that should be used as the
@@ -264,7 +176,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int WEIGHT_COLUMN_SPEC_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object weightColumnSpecId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object weightColumnSpecId_ = "";
   /**
    * <pre>
    * column_spec_id of the primary table's column that should be used as the
@@ -326,7 +239,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ML_USE_COLUMN_SPEC_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object mlUseColumnSpecId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mlUseColumnSpecId_ = "";
   /**
    * <pre>
    * column_spec_id of the primary table column which specifies a possible ML
@@ -407,6 +321,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.automl.v1beta1.CorrelationStats.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> targetColumnCorrelations_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats>
@@ -417,7 +332,6 @@ private static final long serialVersionUID = 0L;
     }
     return targetColumnCorrelations_;
   }
-
   public int getTargetColumnCorrelationsCount() {
     return internalGetTargetColumnCorrelations().getMap().size();
   }
@@ -435,7 +349,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsTargetColumnCorrelations(
       java.lang.String key) {
@@ -465,7 +378,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> getTargetColumnCorrelationsMap() {
     return internalGetTargetColumnCorrelations().getMap();
   }
@@ -484,10 +396,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrDefault(
+  public /* nullable */
+com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrDefault(
       java.lang.String key,
-      com.google.cloud.automl.v1beta1.CorrelationStats defaultValue) {
+      /* nullable */
+com.google.cloud.automl.v1beta1.CorrelationStats defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> map =
         internalGetTargetColumnCorrelations().getMap();
@@ -508,7 +421,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -570,7 +482,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getStatsUpdateTimeOrBuilder() {
-    return getStatsUpdateTime();
+    return statsUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : statsUpdateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -608,7 +520,7 @@ private static final long serialVersionUID = 0L;
     if (statsUpdateTime_ != null) {
       output.writeMessage(7, getStatsUpdateTime());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -643,7 +555,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getStatsUpdateTime());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -673,7 +585,7 @@ private static final long serialVersionUID = 0L;
       if (!getStatsUpdateTime()
           .equals(other.getStatsUpdateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -700,7 +612,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STATS_UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getStatsUpdateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -843,35 +755,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.TablesDatasetMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       primaryTableSpecId_ = "";
-
       targetColumnSpecId_ = "";
-
       weightColumnSpecId_ = "";
-
       mlUseColumnSpecId_ = "";
-
       internalGetMutableTargetColumnCorrelations().clear();
-      if (statsUpdateTimeBuilder_ == null) {
-        statsUpdateTime_ = null;
-      } else {
-        statsUpdateTime_ = null;
+      statsUpdateTime_ = null;
+      if (statsUpdateTimeBuilder_ != null) {
+        statsUpdateTimeBuilder_.dispose();
         statsUpdateTimeBuilder_ = null;
       }
       return this;
@@ -900,20 +803,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.TablesDatasetMetadata buildPartial() {
       com.google.cloud.automl.v1beta1.TablesDatasetMetadata result = new com.google.cloud.automl.v1beta1.TablesDatasetMetadata(this);
-      int from_bitField0_ = bitField0_;
-      result.primaryTableSpecId_ = primaryTableSpecId_;
-      result.targetColumnSpecId_ = targetColumnSpecId_;
-      result.weightColumnSpecId_ = weightColumnSpecId_;
-      result.mlUseColumnSpecId_ = mlUseColumnSpecId_;
-      result.targetColumnCorrelations_ = internalGetTargetColumnCorrelations();
-      result.targetColumnCorrelations_.makeImmutable();
-      if (statsUpdateTimeBuilder_ == null) {
-        result.statsUpdateTime_ = statsUpdateTime_;
-      } else {
-        result.statsUpdateTime_ = statsUpdateTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.TablesDatasetMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.primaryTableSpecId_ = primaryTableSpecId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.targetColumnSpecId_ = targetColumnSpecId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.weightColumnSpecId_ = weightColumnSpecId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.mlUseColumnSpecId_ = mlUseColumnSpecId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.targetColumnCorrelations_ = internalGetTargetColumnCorrelations();
+        result.targetColumnCorrelations_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.statsUpdateTime_ = statsUpdateTimeBuilder_ == null
+            ? statsUpdateTime_
+            : statsUpdateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -962,26 +879,31 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.automl.v1beta1.TablesDatasetMetadata.getDefaultInstance()) return this;
       if (!other.getPrimaryTableSpecId().isEmpty()) {
         primaryTableSpecId_ = other.primaryTableSpecId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getTargetColumnSpecId().isEmpty()) {
         targetColumnSpecId_ = other.targetColumnSpecId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getWeightColumnSpecId().isEmpty()) {
         weightColumnSpecId_ = other.weightColumnSpecId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getMlUseColumnSpecId().isEmpty()) {
         mlUseColumnSpecId_ = other.mlUseColumnSpecId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       internalGetMutableTargetColumnCorrelations().mergeFrom(
           other.internalGetTargetColumnCorrelations());
+      bitField0_ |= 0x00000010;
       if (other.hasStatsUpdateTime()) {
         mergeStatsUpdateTime(other.getStatsUpdateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -996,17 +918,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.TablesDatasetMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              primaryTableSpecId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              targetColumnSpecId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              weightColumnSpecId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              mlUseColumnSpecId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats>
+              targetColumnCorrelations__ = input.readMessage(
+                  TargetColumnCorrelationsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTargetColumnCorrelations().getMutableMap().put(
+                  targetColumnCorrelations__.getKey(), targetColumnCorrelations__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getStatsUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.TablesDatasetMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1064,11 +1035,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryTableSpecId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       primaryTableSpecId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1081,8 +1050,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryTableSpecId() {
-      
       primaryTableSpecId_ = getDefaultInstance().getPrimaryTableSpecId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1097,12 +1066,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryTableSpecIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       primaryTableSpecId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1187,11 +1154,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetColumnSpecId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       targetColumnSpecId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1213,8 +1178,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetColumnSpecId() {
-      
       targetColumnSpecId_ = getDefaultInstance().getTargetColumnSpecId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1238,12 +1203,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetColumnSpecIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       targetColumnSpecId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1325,11 +1288,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWeightColumnSpecId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       weightColumnSpecId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1350,8 +1311,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWeightColumnSpecId() {
-      
       weightColumnSpecId_ = getDefaultInstance().getWeightColumnSpecId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1374,12 +1335,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWeightColumnSpecIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       weightColumnSpecId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1473,11 +1432,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMlUseColumnSpecId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       mlUseColumnSpecId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1502,8 +1459,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMlUseColumnSpecId() {
-      
       mlUseColumnSpecId_ = getDefaultInstance().getMlUseColumnSpecId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1530,12 +1487,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMlUseColumnSpecIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mlUseColumnSpecId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1543,7 +1498,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> targetColumnCorrelations_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats>
-    internalGetTargetColumnCorrelations() {
+        internalGetTargetColumnCorrelations() {
       if (targetColumnCorrelations_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TargetColumnCorrelationsDefaultEntryHolder.defaultEntry);
@@ -1551,8 +1506,7 @@ private static final long serialVersionUID = 0L;
       return targetColumnCorrelations_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats>
-    internalGetMutableTargetColumnCorrelations() {
-      onChanged();;
+        internalGetMutableTargetColumnCorrelations() {
       if (targetColumnCorrelations_ == null) {
         targetColumnCorrelations_ = com.google.protobuf.MapField.newMapField(
             TargetColumnCorrelationsDefaultEntryHolder.defaultEntry);
@@ -1560,9 +1514,10 @@ private static final long serialVersionUID = 0L;
       if (!targetColumnCorrelations_.isMutable()) {
         targetColumnCorrelations_ = targetColumnCorrelations_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return targetColumnCorrelations_;
     }
-
     public int getTargetColumnCorrelationsCount() {
       return internalGetTargetColumnCorrelations().getMap().size();
     }
@@ -1580,7 +1535,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsTargetColumnCorrelations(
         java.lang.String key) {
@@ -1610,7 +1564,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> getTargetColumnCorrelationsMap() {
       return internalGetTargetColumnCorrelations().getMap();
     }
@@ -1629,10 +1582,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrDefault(
+    public /* nullable */
+com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrDefault(
         java.lang.String key,
-        com.google.cloud.automl.v1beta1.CorrelationStats defaultValue) {
+        /* nullable */
+com.google.cloud.automl.v1beta1.CorrelationStats defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> map =
           internalGetTargetColumnCorrelations().getMap();
@@ -1653,7 +1607,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.automl.v1beta1.CorrelationStats getTargetColumnCorrelationsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1664,8 +1617,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTargetColumnCorrelations() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutableTargetColumnCorrelations().getMutableMap()
           .clear();
       return this;
@@ -1684,7 +1637,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
      */
-
     public Builder removeTargetColumnCorrelations(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1697,7 +1649,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats>
-    getMutableTargetColumnCorrelations() {
+        getMutableTargetColumnCorrelations() {
+      bitField0_ |= 0x00000010;
       return internalGetMutableTargetColumnCorrelations().getMutableMap();
     }
     /**
@@ -1718,12 +1671,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.automl.v1beta1.CorrelationStats value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableTargetColumnCorrelations().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1740,11 +1691,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.automl.v1beta1.CorrelationStats&gt; target_column_correlations = 6;</code>
      */
-
     public Builder putAllTargetColumnCorrelations(
         java.util.Map<java.lang.String, com.google.cloud.automl.v1beta1.CorrelationStats> values) {
       internalGetMutableTargetColumnCorrelations().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
 
@@ -1765,7 +1716,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the statsUpdateTime field is set.
      */
     public boolean hasStatsUpdateTime() {
-      return statsUpdateTimeBuilder_ != null || statsUpdateTime_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1805,11 +1756,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         statsUpdateTime_ = value;
-        onChanged();
       } else {
         statsUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1828,11 +1779,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (statsUpdateTimeBuilder_ == null) {
         statsUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         statsUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1849,17 +1800,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatsUpdateTime(com.google.protobuf.Timestamp value) {
       if (statsUpdateTimeBuilder_ == null) {
-        if (statsUpdateTime_ != null) {
-          statsUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(statsUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          statsUpdateTime_ != null &&
+          statsUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getStatsUpdateTimeBuilder().mergeFrom(value);
         } else {
           statsUpdateTime_ = value;
         }
-        onChanged();
       } else {
         statsUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1875,14 +1827,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp stats_update_time = 7;</code>
      */
     public Builder clearStatsUpdateTime() {
-      if (statsUpdateTimeBuilder_ == null) {
-        statsUpdateTime_ = null;
-        onChanged();
-      } else {
-        statsUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      statsUpdateTime_ = null;
+      if (statsUpdateTimeBuilder_ != null) {
+        statsUpdateTimeBuilder_.dispose();
         statsUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1898,7 +1849,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp stats_update_time = 7;</code>
      */
     public com.google.protobuf.Timestamp.Builder getStatsUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getStatsUpdateTimeFieldBuilder().getBuilder();
     }
@@ -1980,7 +1931,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TablesDatasetMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

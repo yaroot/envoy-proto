@@ -75,7 +75,6 @@ public interface NodeGroupAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NodeGroupsScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.NodeGroupsScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.NodeGroupsScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.NodeGroupsScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.NodeGroupsScopedList getItemsOrThrow(
       java.lang.String key);
 

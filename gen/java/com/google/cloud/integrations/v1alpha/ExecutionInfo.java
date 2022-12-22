@@ -45,157 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecutionInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            eventExecutionInfoId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            integration_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            integrationVersion_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            triggerId_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requestParams_ = com.google.protobuf.MapField.newMapField(
-                  RequestParamsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-            requestParams__ = input.readMessage(
-                RequestParamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            requestParams_.getMutableMap().put(
-                requestParams__.getKey(), requestParams__.getValue());
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              responseParams_ = com.google.protobuf.MapField.newMapField(
-                  ResponseParamsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-            responseParams__ = input.readMessage(
-                ResponseParamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            responseParams_.getMutableMap().put(
-                responseParams__.getKey(), responseParams__.getValue());
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            postMethod_ = rawValue;
-            break;
-          }
-          case 74: {
-            com.google.cloud.integrations.v1alpha.EventExecutionDetails.Builder subBuilder = null;
-            if (eventExecutionDetails_ != null) {
-              subBuilder = eventExecutionDetails_.toBuilder();
-            }
-            eventExecutionDetails_ = input.readMessage(com.google.cloud.integrations.v1alpha.EventExecutionDetails.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(eventExecutionDetails_);
-              eventExecutionDetails_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              errors_ = new java.util.ArrayList<com.google.cloud.integrations.v1alpha.ErrorDetail>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            errors_.add(
-                input.readMessage(com.google.cloud.integrations.v1alpha.ErrorDetail.parser(), extensionRegistry));
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            product_ = rawValue;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              taskConfigs_ = new java.util.ArrayList<com.google.cloud.integrations.v1alpha.TaskConfig>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            taskConfigs_.add(
-                input.readMessage(com.google.cloud.integrations.v1alpha.TaskConfig.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        errors_ = java.util.Collections.unmodifiableList(errors_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        taskConfigs_ = java.util.Collections.unmodifiableList(taskConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.integrations.v1alpha.LogEntriesProto.internal_static_google_cloud_integrations_v1alpha_ExecutionInfo_descriptor;
@@ -369,7 +218,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_EXECUTION_INFO_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object eventExecutionInfoId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object eventExecutionInfoId_ = "";
   /**
    * <pre>
    * Auto-generated primary key.
@@ -415,7 +265,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTEGRATION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object integration_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object integration_ = "";
   /**
    * <pre>
    * Name of the integration.
@@ -461,7 +312,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTEGRATION_VERSION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object integrationVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object integrationVersion_ = "";
   /**
    * <pre>
    * Pointer to the active version it is executing.
@@ -507,7 +359,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * The event data user sends as request.
@@ -553,7 +406,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRIGGER_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object triggerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object triggerId_ = "";
   /**
    * <pre>
    * The trigger id of the integration trigger config. If both trigger_id
@@ -616,6 +470,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.integrations.v1alpha.EventParameter.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> requestParams_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
@@ -626,7 +481,6 @@ private static final long serialVersionUID = 0L;
     }
     return requestParams_;
   }
-
   public int getRequestParamsCount() {
     return internalGetRequestParams().getMap().size();
   }
@@ -637,7 +491,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsRequestParams(
       java.lang.String key) {
@@ -660,7 +513,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> getRequestParamsMap() {
     return internalGetRequestParams().getMap();
   }
@@ -672,10 +524,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrDefault(
+  public /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrDefault(
       java.lang.String key,
-      com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
+      /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> map =
         internalGetRequestParams().getMap();
@@ -689,7 +542,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -713,6 +565,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.integrations.v1alpha.EventParameter.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> responseParams_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
@@ -723,7 +576,6 @@ private static final long serialVersionUID = 0L;
     }
     return responseParams_;
   }
-
   public int getResponseParamsCount() {
     return internalGetResponseParams().getMap().size();
   }
@@ -734,7 +586,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
    */
-
   @java.lang.Override
   public boolean containsResponseParams(
       java.lang.String key) {
@@ -757,7 +608,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> getResponseParamsMap() {
     return internalGetResponseParams().getMap();
   }
@@ -769,10 +619,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrDefault(
+  public /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrDefault(
       java.lang.String key,
-      com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
+      /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> map =
         internalGetResponseParams().getMap();
@@ -786,7 +637,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -799,7 +649,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_METHOD_FIELD_NUMBER = 8;
-  private int postMethod_;
+  private int postMethod_ = 0;
   /**
    * <pre>
    * The ways user posts this event.
@@ -820,8 +670,7 @@ private static final long serialVersionUID = 0L;
    * @return The postMethod.
    */
   @java.lang.Override public com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod getPostMethod() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod result = com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod.valueOf(postMethod_);
+    com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod result = com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod.forNumber(postMethod_);
     return result == null ? com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod.UNRECOGNIZED : result;
   }
 
@@ -860,10 +709,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.integrations.v1alpha.EventExecutionDetailsOrBuilder getEventExecutionDetailsOrBuilder() {
-    return getEventExecutionDetails();
+    return eventExecutionDetails_ == null ? com.google.cloud.integrations.v1alpha.EventExecutionDetails.getDefaultInstance() : eventExecutionDetails_;
   }
 
   public static final int ERRORS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.integrations.v1alpha.ErrorDetail> errors_;
   /**
    * <pre>
@@ -934,7 +784,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRODUCT_FIELD_NUMBER = 11;
-  private int product_;
+  private int product_ = 0;
   /**
    * <pre>
    * Which Google product the execution_info belongs to. If not set, the
@@ -957,13 +807,13 @@ private static final long serialVersionUID = 0L;
    * @return The product.
    */
   @java.lang.Override public com.google.cloud.integrations.v1alpha.Product getProduct() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.integrations.v1alpha.Product result = com.google.cloud.integrations.v1alpha.Product.valueOf(product_);
+    com.google.cloud.integrations.v1alpha.Product result = com.google.cloud.integrations.v1alpha.Product.forNumber(product_);
     return result == null ? com.google.cloud.integrations.v1alpha.Product.UNRECOGNIZED : result;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 12;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * This is used to de-dup incoming request.
@@ -1009,6 +859,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TASK_CONFIGS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.integrations.v1alpha.TaskConfig> taskConfigs_;
   /**
    * <pre>
@@ -1127,7 +978,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < taskConfigs_.size(); i++) {
       output.writeMessage(13, taskConfigs_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1194,7 +1045,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(13, taskConfigs_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1236,7 +1087,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRequestId())) return false;
     if (!getTaskConfigsList()
         .equals(other.getTaskConfigsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1283,7 +1134,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TASK_CONFIGS_FIELD_NUMBER;
       hash = (53 * hash) + getTaskConfigsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1431,60 +1282,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.integrations.v1alpha.ExecutionInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getErrorsFieldBuilder();
-        getTaskConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       eventExecutionInfoId_ = "";
-
       integration_ = "";
-
       integrationVersion_ = "";
-
       projectId_ = "";
-
       triggerId_ = "";
-
       internalGetMutableRequestParams().clear();
       internalGetMutableResponseParams().clear();
       postMethod_ = 0;
-
-      if (eventExecutionDetailsBuilder_ == null) {
-        eventExecutionDetails_ = null;
-      } else {
-        eventExecutionDetails_ = null;
+      eventExecutionDetails_ = null;
+      if (eventExecutionDetailsBuilder_ != null) {
+        eventExecutionDetailsBuilder_.dispose();
         eventExecutionDetailsBuilder_ = null;
       }
       if (errorsBuilder_ == null) {
         errors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        errors_ = null;
         errorsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000200);
       product_ = 0;
-
       requestId_ = "";
-
       if (taskConfigsBuilder_ == null) {
         taskConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        taskConfigs_ = null;
         taskConfigsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00001000);
       return this;
     }
 
@@ -1511,44 +1349,72 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.integrations.v1alpha.ExecutionInfo buildPartial() {
       com.google.cloud.integrations.v1alpha.ExecutionInfo result = new com.google.cloud.integrations.v1alpha.ExecutionInfo(this);
-      int from_bitField0_ = bitField0_;
-      result.eventExecutionInfoId_ = eventExecutionInfoId_;
-      result.integration_ = integration_;
-      result.integrationVersion_ = integrationVersion_;
-      result.projectId_ = projectId_;
-      result.triggerId_ = triggerId_;
-      result.requestParams_ = internalGetRequestParams();
-      result.requestParams_.makeImmutable();
-      result.responseParams_ = internalGetResponseParams();
-      result.responseParams_.makeImmutable();
-      result.postMethod_ = postMethod_;
-      if (eventExecutionDetailsBuilder_ == null) {
-        result.eventExecutionDetails_ = eventExecutionDetails_;
-      } else {
-        result.eventExecutionDetails_ = eventExecutionDetailsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.integrations.v1alpha.ExecutionInfo result) {
       if (errorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           errors_ = java.util.Collections.unmodifiableList(errors_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.errors_ = errors_;
       } else {
         result.errors_ = errorsBuilder_.build();
       }
-      result.product_ = product_;
-      result.requestId_ = requestId_;
       if (taskConfigsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00001000) != 0)) {
           taskConfigs_ = java.util.Collections.unmodifiableList(taskConfigs_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00001000);
         }
         result.taskConfigs_ = taskConfigs_;
       } else {
         result.taskConfigs_ = taskConfigsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.integrations.v1alpha.ExecutionInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.eventExecutionInfoId_ = eventExecutionInfoId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.integration_ = integration_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.integrationVersion_ = integrationVersion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.triggerId_ = triggerId_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requestParams_ = internalGetRequestParams();
+        result.requestParams_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.responseParams_ = internalGetResponseParams();
+        result.responseParams_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.postMethod_ = postMethod_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.eventExecutionDetails_ = eventExecutionDetailsBuilder_ == null
+            ? eventExecutionDetails_
+            : eventExecutionDetailsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.product_ = product_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -1597,28 +1463,35 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.integrations.v1alpha.ExecutionInfo.getDefaultInstance()) return this;
       if (!other.getEventExecutionInfoId().isEmpty()) {
         eventExecutionInfoId_ = other.eventExecutionInfoId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getIntegration().isEmpty()) {
         integration_ = other.integration_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getIntegrationVersion().isEmpty()) {
         integrationVersion_ = other.integrationVersion_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getTriggerId().isEmpty()) {
         triggerId_ = other.triggerId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       internalGetMutableRequestParams().mergeFrom(
           other.internalGetRequestParams());
+      bitField0_ |= 0x00000020;
       internalGetMutableResponseParams().mergeFrom(
           other.internalGetResponseParams());
+      bitField0_ |= 0x00000040;
       if (other.postMethod_ != 0) {
         setPostMethodValue(other.getPostMethodValue());
       }
@@ -1629,7 +1502,7 @@ private static final long serialVersionUID = 0L;
         if (!other.errors_.isEmpty()) {
           if (errors_.isEmpty()) {
             errors_ = other.errors_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureErrorsIsMutable();
             errors_.addAll(other.errors_);
@@ -1642,7 +1515,7 @@ private static final long serialVersionUID = 0L;
             errorsBuilder_.dispose();
             errorsBuilder_ = null;
             errors_ = other.errors_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000200);
             errorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getErrorsFieldBuilder() : null;
@@ -1656,13 +1529,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (taskConfigsBuilder_ == null) {
         if (!other.taskConfigs_.isEmpty()) {
           if (taskConfigs_.isEmpty()) {
             taskConfigs_ = other.taskConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00001000);
           } else {
             ensureTaskConfigsIsMutable();
             taskConfigs_.addAll(other.taskConfigs_);
@@ -1675,7 +1549,7 @@ private static final long serialVersionUID = 0L;
             taskConfigsBuilder_.dispose();
             taskConfigsBuilder_ = null;
             taskConfigs_ = other.taskConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00001000);
             taskConfigsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTaskConfigsFieldBuilder() : null;
@@ -1684,7 +1558,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1699,17 +1573,121 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.integrations.v1alpha.ExecutionInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              eventExecutionInfoId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              integration_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              integrationVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              triggerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
+              requestParams__ = input.readMessage(
+                  RequestParamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRequestParams().getMutableMap().put(
+                  requestParams__.getKey(), requestParams__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
+              responseParams__ = input.readMessage(
+                  ResponseParamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableResponseParams().getMutableMap().put(
+                  responseParams__.getKey(), responseParams__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              postMethod_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getEventExecutionDetailsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.cloud.integrations.v1alpha.ErrorDetail m =
+                  input.readMessage(
+                      com.google.cloud.integrations.v1alpha.ErrorDetail.parser(),
+                      extensionRegistry);
+              if (errorsBuilder_ == null) {
+                ensureErrorsIsMutable();
+                errors_.add(m);
+              } else {
+                errorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 82
+            case 88: {
+              product_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              com.google.cloud.integrations.v1alpha.TaskConfig m =
+                  input.readMessage(
+                      com.google.cloud.integrations.v1alpha.TaskConfig.parser(),
+                      extensionRegistry);
+              if (taskConfigsBuilder_ == null) {
+                ensureTaskConfigsIsMutable();
+                taskConfigs_.add(m);
+              } else {
+                taskConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.integrations.v1alpha.ExecutionInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1767,11 +1745,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventExecutionInfoId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       eventExecutionInfoId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1784,8 +1760,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEventExecutionInfoId() {
-      
       eventExecutionInfoId_ = getDefaultInstance().getEventExecutionInfoId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1800,12 +1776,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventExecutionInfoIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       eventExecutionInfoId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1863,11 +1837,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntegration(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       integration_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1880,8 +1852,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIntegration() {
-      
       integration_ = getDefaultInstance().getIntegration();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1896,12 +1868,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntegrationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       integration_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1959,11 +1929,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntegrationVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       integrationVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1976,8 +1944,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIntegrationVersion() {
-      
       integrationVersion_ = getDefaultInstance().getIntegrationVersion();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1992,12 +1960,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntegrationVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       integrationVersion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2055,11 +2021,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2072,8 +2036,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2088,12 +2052,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2160,11 +2122,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTriggerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       triggerId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2180,8 +2140,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTriggerId() {
-      
       triggerId_ = getDefaultInstance().getTriggerId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2199,12 +2159,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTriggerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       triggerId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2212,7 +2170,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> requestParams_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-    internalGetRequestParams() {
+        internalGetRequestParams() {
       if (requestParams_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RequestParamsDefaultEntryHolder.defaultEntry);
@@ -2220,8 +2178,7 @@ private static final long serialVersionUID = 0L;
       return requestParams_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-    internalGetMutableRequestParams() {
-      onChanged();;
+        internalGetMutableRequestParams() {
       if (requestParams_ == null) {
         requestParams_ = com.google.protobuf.MapField.newMapField(
             RequestParamsDefaultEntryHolder.defaultEntry);
@@ -2229,9 +2186,10 @@ private static final long serialVersionUID = 0L;
       if (!requestParams_.isMutable()) {
         requestParams_ = requestParams_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return requestParams_;
     }
-
     public int getRequestParamsCount() {
       return internalGetRequestParams().getMap().size();
     }
@@ -2242,7 +2200,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsRequestParams(
         java.lang.String key) {
@@ -2265,7 +2222,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> getRequestParamsMap() {
       return internalGetRequestParams().getMap();
     }
@@ -2277,10 +2233,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrDefault(
+    public /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrDefault(
         java.lang.String key,
-        com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
+        /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> map =
           internalGetRequestParams().getMap();
@@ -2294,7 +2251,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2305,8 +2261,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearRequestParams() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableRequestParams().getMutableMap()
           .clear();
       return this;
@@ -2318,7 +2274,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
      */
-
     public Builder removeRequestParams(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2331,7 +2286,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-    getMutableRequestParams() {
+        getMutableRequestParams() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableRequestParams().getMutableMap();
     }
     /**
@@ -2345,12 +2301,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.integrations.v1alpha.EventParameter value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableRequestParams().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -2360,18 +2314,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
      */
-
     public Builder putAllRequestParams(
         java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> values) {
       internalGetMutableRequestParams().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> responseParams_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-    internalGetResponseParams() {
+        internalGetResponseParams() {
       if (responseParams_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ResponseParamsDefaultEntryHolder.defaultEntry);
@@ -2379,8 +2333,7 @@ private static final long serialVersionUID = 0L;
       return responseParams_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-    internalGetMutableResponseParams() {
-      onChanged();;
+        internalGetMutableResponseParams() {
       if (responseParams_ == null) {
         responseParams_ = com.google.protobuf.MapField.newMapField(
             ResponseParamsDefaultEntryHolder.defaultEntry);
@@ -2388,9 +2341,10 @@ private static final long serialVersionUID = 0L;
       if (!responseParams_.isMutable()) {
         responseParams_ = responseParams_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return responseParams_;
     }
-
     public int getResponseParamsCount() {
       return internalGetResponseParams().getMap().size();
     }
@@ -2401,7 +2355,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsResponseParams(
         java.lang.String key) {
@@ -2424,7 +2377,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> getResponseParamsMap() {
       return internalGetResponseParams().getMap();
     }
@@ -2436,10 +2388,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrDefault(
+    public /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrDefault(
         java.lang.String key,
-        com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
+        /* nullable */
+com.google.cloud.integrations.v1alpha.EventParameter defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> map =
           internalGetResponseParams().getMap();
@@ -2453,7 +2406,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2464,8 +2416,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearResponseParams() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableResponseParams().getMutableMap()
           .clear();
       return this;
@@ -2477,7 +2429,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
      */
-
     public Builder removeResponseParams(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2490,7 +2441,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter>
-    getMutableResponseParams() {
+        getMutableResponseParams() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableResponseParams().getMutableMap();
     }
     /**
@@ -2504,12 +2456,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.integrations.v1alpha.EventParameter value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableResponseParams().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -2519,11 +2469,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
      */
-
     public Builder putAllResponseParams(
         java.util.Map<java.lang.String, com.google.cloud.integrations.v1alpha.EventParameter> values) {
       internalGetMutableResponseParams().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
@@ -2549,8 +2499,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPostMethodValue(int value) {
-      
       postMethod_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2564,8 +2514,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod getPostMethod() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod result = com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod.valueOf(postMethod_);
+      com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod result = com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod.forNumber(postMethod_);
       return result == null ? com.google.cloud.integrations.v1alpha.ExecutionInfo.PostMethod.UNRECOGNIZED : result;
     }
     /**
@@ -2581,7 +2530,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       postMethod_ = value.getNumber();
       onChanged();
       return this;
@@ -2595,7 +2544,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPostMethod() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       postMethod_ = 0;
       onChanged();
       return this;
@@ -2613,7 +2562,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventExecutionDetails field is set.
      */
     public boolean hasEventExecutionDetails() {
-      return eventExecutionDetailsBuilder_ != null || eventExecutionDetails_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2643,11 +2592,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         eventExecutionDetails_ = value;
-        onChanged();
       } else {
         eventExecutionDetailsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2661,11 +2610,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.integrations.v1alpha.EventExecutionDetails.Builder builderForValue) {
       if (eventExecutionDetailsBuilder_ == null) {
         eventExecutionDetails_ = builderForValue.build();
-        onChanged();
       } else {
         eventExecutionDetailsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2677,17 +2626,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEventExecutionDetails(com.google.cloud.integrations.v1alpha.EventExecutionDetails value) {
       if (eventExecutionDetailsBuilder_ == null) {
-        if (eventExecutionDetails_ != null) {
-          eventExecutionDetails_ =
-            com.google.cloud.integrations.v1alpha.EventExecutionDetails.newBuilder(eventExecutionDetails_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          eventExecutionDetails_ != null &&
+          eventExecutionDetails_ != com.google.cloud.integrations.v1alpha.EventExecutionDetails.getDefaultInstance()) {
+          getEventExecutionDetailsBuilder().mergeFrom(value);
         } else {
           eventExecutionDetails_ = value;
         }
-        onChanged();
       } else {
         eventExecutionDetailsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2698,14 +2648,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.integrations.v1alpha.EventExecutionDetails event_execution_details = 9;</code>
      */
     public Builder clearEventExecutionDetails() {
-      if (eventExecutionDetailsBuilder_ == null) {
-        eventExecutionDetails_ = null;
-        onChanged();
-      } else {
-        eventExecutionDetails_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      eventExecutionDetails_ = null;
+      if (eventExecutionDetailsBuilder_ != null) {
+        eventExecutionDetailsBuilder_.dispose();
         eventExecutionDetailsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2716,7 +2665,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.integrations.v1alpha.EventExecutionDetails event_execution_details = 9;</code>
      */
     public com.google.cloud.integrations.v1alpha.EventExecutionDetails.Builder getEventExecutionDetailsBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getEventExecutionDetailsFieldBuilder().getBuilder();
     }
@@ -2759,9 +2708,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.integrations.v1alpha.ErrorDetail> errors_ =
       java.util.Collections.emptyList();
     private void ensureErrorsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         errors_ = new java.util.ArrayList<com.google.cloud.integrations.v1alpha.ErrorDetail>(errors_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000200;
        }
     }
 
@@ -2977,7 +2926,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearErrors() {
       if (errorsBuilder_ == null) {
         errors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
       } else {
         errorsBuilder_.clear();
@@ -3096,7 +3045,7 @@ private static final long serialVersionUID = 0L;
         errorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.integrations.v1alpha.ErrorDetail, com.google.cloud.integrations.v1alpha.ErrorDetail.Builder, com.google.cloud.integrations.v1alpha.ErrorDetailOrBuilder>(
                 errors_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000200) != 0),
                 getParentForChildren(),
                 isClean());
         errors_ = null;
@@ -3128,8 +3077,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProductValue(int value) {
-      
       product_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3144,8 +3093,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.integrations.v1alpha.Product getProduct() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.integrations.v1alpha.Product result = com.google.cloud.integrations.v1alpha.Product.valueOf(product_);
+      com.google.cloud.integrations.v1alpha.Product result = com.google.cloud.integrations.v1alpha.Product.forNumber(product_);
       return result == null ? com.google.cloud.integrations.v1alpha.Product.UNRECOGNIZED : result;
     }
     /**
@@ -3162,7 +3110,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       product_ = value.getNumber();
       onChanged();
       return this;
@@ -3177,7 +3125,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProduct() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       product_ = 0;
       onChanged();
       return this;
@@ -3236,11 +3184,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3253,8 +3199,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3269,12 +3215,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3282,9 +3226,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.integrations.v1alpha.TaskConfig> taskConfigs_ =
       java.util.Collections.emptyList();
     private void ensureTaskConfigsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         taskConfigs_ = new java.util.ArrayList<com.google.cloud.integrations.v1alpha.TaskConfig>(taskConfigs_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00001000;
        }
     }
 
@@ -3478,7 +3422,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTaskConfigs() {
       if (taskConfigsBuilder_ == null) {
         taskConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
       } else {
         taskConfigsBuilder_.clear();
@@ -3583,7 +3527,7 @@ private static final long serialVersionUID = 0L;
         taskConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.integrations.v1alpha.TaskConfig, com.google.cloud.integrations.v1alpha.TaskConfig.Builder, com.google.cloud.integrations.v1alpha.TaskConfigOrBuilder>(
                 taskConfigs_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00001000) != 0),
                 getParentForChildren(),
                 isClean());
         taskConfigs_ = null;
@@ -3623,7 +3567,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecutionInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

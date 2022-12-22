@@ -355,7 +355,6 @@ public interface RouteOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 13;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getTypedPerFilterConfigOrDefault(
       java.lang.String key,
@@ -378,7 +377,6 @@ com.google.protobuf.Any defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Any&gt; typed_per_filter_config = 13;</code>
    */
-
   com.google.protobuf.Any getTypedPerFilterConfigOrThrow(
       java.lang.String key);
 

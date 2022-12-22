@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.UpdateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink]
+ * Request message for
+ * [CloudChannelService.UpdateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink]
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.UpdateChannelPartnerLinkRequest}
@@ -35,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateChannelPartnerLinkRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.channel.v1.ChannelPartnerLink.Builder subBuilder = null;
-            if (channelPartnerLink_ != null) {
-              subBuilder = channelPartnerLink_.toBuilder();
-            }
-            channelPartnerLink_ = input.readMessage(com.google.cloud.channel.v1.ChannelPartnerLink.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(channelPartnerLink_);
-              channelPartnerLink_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_UpdateChannelPartnerLinkRequest_descriptor;
@@ -120,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the channel partner link to cancel.
@@ -173,8 +104,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.channel.v1.ChannelPartnerLink channelPartnerLink_;
   /**
    * <pre>
-   * Required. The channel partner link to update. Only channel_partner_link.link_state
-   * is allowed for updates.
+   * Required. The channel partner link to update. Only
+   * channel_partner_link.link_state is allowed for updates.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -186,8 +117,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The channel partner link to update. Only channel_partner_link.link_state
-   * is allowed for updates.
+   * Required. The channel partner link to update. Only
+   * channel_partner_link.link_state is allowed for updates.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -199,15 +130,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The channel partner link to update. Only channel_partner_link.link_state
-   * is allowed for updates.
+   * Required. The channel partner link to update. Only
+   * channel_partner_link.link_state is allowed for updates.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.ChannelPartnerLinkOrBuilder getChannelPartnerLinkOrBuilder() {
-    return getChannelPartnerLink();
+    return channelPartnerLink_ == null ? com.google.cloud.channel.v1.ChannelPartnerLink.getDefaultInstance() : channelPartnerLink_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 3;
@@ -251,7 +182,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -277,7 +208,7 @@ private static final long serialVersionUID = 0L;
     if (updateMask_ != null) {
       output.writeMessage(3, getUpdateMask());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -297,7 +228,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getUpdateMask());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -324,7 +255,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateMask()
           .equals(other.getUpdateMask())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -345,7 +276,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateMask().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -442,7 +373,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.UpdateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink]
+   * Request message for
+   * [CloudChannelService.UpdateChannelPartnerLink][google.cloud.channel.v1.CloudChannelService.UpdateChannelPartnerLink]
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.UpdateChannelPartnerLinkRequest}
@@ -466,34 +398,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (channelPartnerLinkBuilder_ == null) {
-        channelPartnerLink_ = null;
-      } else {
-        channelPartnerLink_ = null;
+      channelPartnerLink_ = null;
+      if (channelPartnerLinkBuilder_ != null) {
+        channelPartnerLinkBuilder_.dispose();
         channelPartnerLinkBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       return this;
@@ -522,19 +447,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest buildPartial() {
       com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest result = new com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest(this);
-      result.name_ = name_;
-      if (channelPartnerLinkBuilder_ == null) {
-        result.channelPartnerLink_ = channelPartnerLink_;
-      } else {
-        result.channelPartnerLink_ = channelPartnerLinkBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.channelPartnerLink_ = channelPartnerLinkBuilder_ == null
+            ? channelPartnerLink_
+            : channelPartnerLinkBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -583,6 +515,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasChannelPartnerLink()) {
@@ -591,7 +524,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateMask()) {
         mergeUpdateMask(other.getUpdateMask());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -606,19 +539,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getChannelPartnerLinkFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.UpdateChannelPartnerLinkRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -679,11 +645,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -698,8 +662,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -716,12 +680,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -731,20 +693,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.ChannelPartnerLink, com.google.cloud.channel.v1.ChannelPartnerLink.Builder, com.google.cloud.channel.v1.ChannelPartnerLinkOrBuilder> channelPartnerLinkBuilder_;
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the channelPartnerLink field is set.
      */
     public boolean hasChannelPartnerLink() {
-      return channelPartnerLinkBuilder_ != null || channelPartnerLink_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -759,8 +721,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -771,17 +733,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         channelPartnerLink_ = value;
-        onChanged();
       } else {
         channelPartnerLinkBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -790,72 +752,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.ChannelPartnerLink.Builder builderForValue) {
       if (channelPartnerLinkBuilder_ == null) {
         channelPartnerLink_ = builderForValue.build();
-        onChanged();
       } else {
         channelPartnerLinkBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeChannelPartnerLink(com.google.cloud.channel.v1.ChannelPartnerLink value) {
       if (channelPartnerLinkBuilder_ == null) {
-        if (channelPartnerLink_ != null) {
-          channelPartnerLink_ =
-            com.google.cloud.channel.v1.ChannelPartnerLink.newBuilder(channelPartnerLink_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          channelPartnerLink_ != null &&
+          channelPartnerLink_ != com.google.cloud.channel.v1.ChannelPartnerLink.getDefaultInstance()) {
+          getChannelPartnerLinkBuilder().mergeFrom(value);
         } else {
           channelPartnerLink_ = value;
         }
-        onChanged();
       } else {
         channelPartnerLinkBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearChannelPartnerLink() {
-      if (channelPartnerLinkBuilder_ == null) {
-        channelPartnerLink_ = null;
-        onChanged();
-      } else {
-        channelPartnerLink_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      channelPartnerLink_ = null;
+      if (channelPartnerLinkBuilder_ != null) {
+        channelPartnerLinkBuilder_.dispose();
         channelPartnerLinkBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.channel.v1.ChannelPartnerLink.Builder getChannelPartnerLinkBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getChannelPartnerLinkFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -870,8 +832,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The channel partner link to update. Only channel_partner_link.link_state
-     * is allowed for updates.
+     * Required. The channel partner link to update. Only
+     * channel_partner_link.link_state is allowed for updates.
      * </pre>
      *
      * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -904,7 +866,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -938,11 +900,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -958,11 +920,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -976,17 +938,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -999,14 +962,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1019,7 +981,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -1095,7 +1057,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateChannelPartnerLinkRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

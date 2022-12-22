@@ -358,7 +358,6 @@ public interface EvaluationJobConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; bigquery_import_keys = 9;</code>
    */
-
   /* nullable */
 java.lang.String getBigqueryImportKeysOrDefault(
       java.lang.String key,
@@ -386,7 +385,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; bigquery_import_keys = 9;</code>
    */
-
   java.lang.String getBigqueryImportKeysOrThrow(
       java.lang.String key);
 

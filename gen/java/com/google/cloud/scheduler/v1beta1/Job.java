@@ -6,7 +6,7 @@ package com.google.cloud.scheduler.v1beta1;
 /**
  * <pre>
  * Configuration for a job.
- * The maximum allowed size for a job is 100KB.
+ * The maximum allowed size for a job is 1MB.
  * </pre>
  *
  * Protobuf type {@code google.cloud.scheduler.v1beta1.Job}
@@ -39,195 +39,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Job(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.scheduler.v1beta1.PubsubTarget.Builder subBuilder = null;
-            if (targetCase_ == 4) {
-              subBuilder = ((com.google.cloud.scheduler.v1beta1.PubsubTarget) target_).toBuilder();
-            }
-            target_ =
-                input.readMessage(com.google.cloud.scheduler.v1beta1.PubsubTarget.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.scheduler.v1beta1.PubsubTarget) target_);
-              target_ = subBuilder.buildPartial();
-            }
-            targetCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.scheduler.v1beta1.AppEngineHttpTarget.Builder subBuilder = null;
-            if (targetCase_ == 5) {
-              subBuilder = ((com.google.cloud.scheduler.v1beta1.AppEngineHttpTarget) target_).toBuilder();
-            }
-            target_ =
-                input.readMessage(com.google.cloud.scheduler.v1beta1.AppEngineHttpTarget.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.scheduler.v1beta1.AppEngineHttpTarget) target_);
-              target_ = subBuilder.buildPartial();
-            }
-            targetCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.scheduler.v1beta1.HttpTarget.Builder subBuilder = null;
-            if (targetCase_ == 6) {
-              subBuilder = ((com.google.cloud.scheduler.v1beta1.HttpTarget) target_).toBuilder();
-            }
-            target_ =
-                input.readMessage(com.google.cloud.scheduler.v1beta1.HttpTarget.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.scheduler.v1beta1.HttpTarget) target_);
-              target_ = subBuilder.buildPartial();
-            }
-            targetCase_ = 6;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (userUpdateTime_ != null) {
-              subBuilder = userUpdateTime_.toBuilder();
-            }
-            userUpdateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userUpdateTime_);
-              userUpdateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 90: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (status_ != null) {
-              subBuilder = status_.toBuilder();
-            }
-            status_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(status_);
-              status_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (scheduleTime_ != null) {
-              subBuilder = scheduleTime_.toBuilder();
-            }
-            scheduleTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(scheduleTime_);
-              scheduleTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastAttemptTime_ != null) {
-              subBuilder = lastAttemptTime_.toBuilder();
-            }
-            lastAttemptTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastAttemptTime_);
-              lastAttemptTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.cloud.scheduler.v1beta1.RetryConfig.Builder subBuilder = null;
-            if (retryConfig_ != null) {
-              subBuilder = retryConfig_.toBuilder();
-            }
-            retryConfig_ = input.readMessage(com.google.cloud.scheduler.v1beta1.RetryConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(retryConfig_);
-              retryConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            schedule_ = s;
-            break;
-          }
-          case 170: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            timeZone_ = s;
-            break;
-          }
-          case 178: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (attemptDeadline_ != null) {
-              subBuilder = attemptDeadline_.toBuilder();
-            }
-            attemptDeadline_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(attemptDeadline_);
-              attemptDeadline_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -288,9 +99,11 @@ private static final long serialVersionUID = 0L;
     DISABLED(3),
     /**
      * <pre>
-     * The job state resulting from a failed [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob]
+     * The job state resulting from a failed
+     * [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob]
      * operation. To recover a job from this state, retry
-     * [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob] until a successful response is received.
+     * [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob]
+     * until a successful response is received.
      * </pre>
      *
      * <code>UPDATE_FAILED = 4;</code>
@@ -336,9 +149,11 @@ private static final long serialVersionUID = 0L;
     public static final int DISABLED_VALUE = 3;
     /**
      * <pre>
-     * The job state resulting from a failed [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob]
+     * The job state resulting from a failed
+     * [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob]
      * operation. To recover a job from this state, retry
-     * [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob] until a successful response is received.
+     * [CloudScheduler.UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob]
+     * until a successful response is received.
      * </pre>
      *
      * <code>UPDATE_FAILED = 4;</code>
@@ -475,10 +290,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+   * Optionally caller-specified in
+   * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
    * which it becomes output only.
    * The job name. For example:
    * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -513,7 +330,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+   * Optionally caller-specified in
+   * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
    * which it becomes output only.
    * The job name. For example:
    * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -549,10 +367,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
-   * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+   * Optionally caller-specified in
+   * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
    * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
    * A human-readable description for the job. This string must not contain
    * more than 500 characters.
@@ -576,7 +396,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+   * Optionally caller-specified in
+   * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
    * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
    * A human-readable description for the job. This string must not contain
    * more than 500 characters.
@@ -730,13 +551,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEDULE_FIELD_NUMBER = 20;
-  private volatile java.lang.Object schedule_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schedule_ = "";
   /**
    * <pre>
-   * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+   * Required, except when used with
+   * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
    * Describes the schedule on which the job will be executed.
    * The schedule can be either of the following types:
-   * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+   * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
    * * English-like
    * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
    * As a general rule, execution `n + 1` of a job will not begin
@@ -747,8 +570,9 @@ private static final long serialVersionUID = 0L;
    * execution will not start until `16:15`.
    * A scheduled start time will be delayed if the previous
    * execution has not ended when its scheduled time occurs.
-   * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-   * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+   * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+   * 0 and a job attempt fails, the job will be tried a total of
+   * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
    * times, with exponential backoff, until the next scheduled start
    * time.
    * </pre>
@@ -771,10 +595,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+   * Required, except when used with
+   * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
    * Describes the schedule on which the job will be executed.
    * The schedule can be either of the following types:
-   * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+   * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
    * * English-like
    * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
    * As a general rule, execution `n + 1` of a job will not begin
@@ -785,8 +610,9 @@ private static final long serialVersionUID = 0L;
    * execution will not start until `16:15`.
    * A scheduled start time will be delayed if the previous
    * execution has not ended when its scheduled time occurs.
-   * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-   * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+   * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+   * 0 and a job attempt fails, the job will be tried a total of
+   * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
    * times, with exponential backoff, until the next scheduled start
    * time.
    * </pre>
@@ -810,12 +636,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_ZONE_FIELD_NUMBER = 21;
-  private volatile java.lang.Object timeZone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timeZone_ = "";
   /**
    * <pre>
    * Specifies the time zone to be used in interpreting
-   * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-   * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+   * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+   * field must be a time zone name from the [tz
+   * database](http://en.wikipedia.org/wiki/Tz_database).
    * Note that some time zones include a provision for
    * daylight savings time. The rules for daylight saving time are
    * determined by the chosen tz. For UTC use the string "utc". If a
@@ -842,8 +670,9 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Specifies the time zone to be used in interpreting
-   * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-   * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+   * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+   * field must be a time zone name from the [tz
+   * database](http://en.wikipedia.org/wiki/Tz_database).
    * Note that some time zones include a provision for
    * daylight savings time. The rules for daylight saving time are
    * determined by the chosen tz. For UTC use the string "utc". If a
@@ -904,11 +733,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUserUpdateTimeOrBuilder() {
-    return getUserUpdateTime();
+    return userUpdateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : userUpdateTime_;
   }
 
   public static final int STATE_FIELD_NUMBER = 10;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. State of the job.
@@ -929,8 +758,7 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.scheduler.v1beta1.Job.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.scheduler.v1beta1.Job.State result = com.google.cloud.scheduler.v1beta1.Job.State.valueOf(state_);
+    com.google.cloud.scheduler.v1beta1.Job.State result = com.google.cloud.scheduler.v1beta1.Job.State.forNumber(state_);
     return result == null ? com.google.cloud.scheduler.v1beta1.Job.State.UNRECOGNIZED : result;
   }
 
@@ -969,7 +797,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getStatusOrBuilder() {
-    return getStatus();
+    return status_ == null ? com.google.rpc.Status.getDefaultInstance() : status_;
   }
 
   public static final int SCHEDULE_TIME_FIELD_NUMBER = 17;
@@ -1013,7 +841,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getScheduleTimeOrBuilder() {
-    return getScheduleTime();
+    return scheduleTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : scheduleTime_;
   }
 
   public static final int LAST_ATTEMPT_TIME_FIELD_NUMBER = 18;
@@ -1051,7 +879,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastAttemptTimeOrBuilder() {
-    return getLastAttemptTime();
+    return lastAttemptTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastAttemptTime_;
   }
 
   public static final int RETRY_CONFIG_FIELD_NUMBER = 19;
@@ -1089,7 +917,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.scheduler.v1beta1.RetryConfigOrBuilder getRetryConfigOrBuilder() {
-    return getRetryConfig();
+    return retryConfig_ == null ? com.google.cloud.scheduler.v1beta1.RetryConfig.getDefaultInstance() : retryConfig_;
   }
 
   public static final int ATTEMPT_DEADLINE_FIELD_NUMBER = 22;
@@ -1101,11 +929,19 @@ private static final long serialVersionUID = 0L;
    * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
    * execution logs. Cloud Scheduler will retry the job according
    * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-   * The allowed duration for this deadline is:
-   * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-   * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-   *   seconds and 24 hours.
-   * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+   * The default and the allowed values depend on the type of target:
+   * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+   * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+   * minutes].
+   * * For [App Engine HTTP
+   * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+   * indicates that the request has the default deadline. The default deadline
+   * depends on the scaling type of the service: 10 minutes for standard apps
+   * with automatic scaling, 24 hours for standard apps with manual and basic
+   * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+   * must be in the interval [15 seconds, 24 hours 15 seconds].
+   * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+   * this field is ignored.
    * </pre>
    *
    * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -1122,11 +958,19 @@ private static final long serialVersionUID = 0L;
    * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
    * execution logs. Cloud Scheduler will retry the job according
    * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-   * The allowed duration for this deadline is:
-   * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-   * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-   *   seconds and 24 hours.
-   * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+   * The default and the allowed values depend on the type of target:
+   * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+   * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+   * minutes].
+   * * For [App Engine HTTP
+   * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+   * indicates that the request has the default deadline. The default deadline
+   * depends on the scaling type of the service: 10 minutes for standard apps
+   * with automatic scaling, 24 hours for standard apps with manual and basic
+   * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+   * must be in the interval [15 seconds, 24 hours 15 seconds].
+   * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+   * this field is ignored.
    * </pre>
    *
    * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -1143,18 +987,45 @@ private static final long serialVersionUID = 0L;
    * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
    * execution logs. Cloud Scheduler will retry the job according
    * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-   * The allowed duration for this deadline is:
-   * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-   * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-   *   seconds and 24 hours.
-   * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+   * The default and the allowed values depend on the type of target:
+   * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+   * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+   * minutes].
+   * * For [App Engine HTTP
+   * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+   * indicates that the request has the default deadline. The default deadline
+   * depends on the scaling type of the service: 10 minutes for standard apps
+   * with automatic scaling, 24 hours for standard apps with manual and basic
+   * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+   * must be in the interval [15 seconds, 24 hours 15 seconds].
+   * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+   * this field is ignored.
    * </pre>
    *
    * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAttemptDeadlineOrBuilder() {
-    return getAttemptDeadline();
+    return attemptDeadline_ == null ? com.google.protobuf.Duration.getDefaultInstance() : attemptDeadline_;
+  }
+
+  public static final int LEGACY_APP_ENGINE_CRON_FIELD_NUMBER = 23;
+  private boolean legacyAppEngineCron_ = false;
+  /**
+   * <pre>
+   * Immutable. This field is used to manage the legacy App Engine Cron jobs
+   * using the Cloud Scheduler API. If the field is set to true, the job will be
+   * considered a legacy job. Note that App Engine Cron jobs have fewer
+   * features than Cloud Scheduler jobs, e.g., are only limited to App Engine
+   * targets.
+   * </pre>
+   *
+   * <code>bool legacy_app_engine_cron = 23 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The legacyAppEngineCron.
+   */
+  @java.lang.Override
+  public boolean getLegacyAppEngineCron() {
+    return legacyAppEngineCron_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1213,7 +1084,10 @@ private static final long serialVersionUID = 0L;
     if (attemptDeadline_ != null) {
       output.writeMessage(22, getAttemptDeadline());
     }
-    unknownFields.writeTo(output);
+    if (legacyAppEngineCron_ != false) {
+      output.writeBool(23, legacyAppEngineCron_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1274,7 +1148,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(22, getAttemptDeadline());
     }
-    size += unknownFields.getSerializedSize();
+    if (legacyAppEngineCron_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(23, legacyAppEngineCron_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1328,6 +1206,8 @@ private static final long serialVersionUID = 0L;
       if (!getAttemptDeadline()
           .equals(other.getAttemptDeadline())) return false;
     }
+    if (getLegacyAppEngineCron()
+        != other.getLegacyAppEngineCron()) return false;
     if (!getTargetCase().equals(other.getTargetCase())) return false;
     switch (targetCase_) {
       case 4:
@@ -1345,7 +1225,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1390,6 +1270,9 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ATTEMPT_DEADLINE_FIELD_NUMBER;
       hash = (53 * hash) + getAttemptDeadline().hashCode();
     }
+    hash = (37 * hash) + LEGACY_APP_ENGINE_CRON_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getLegacyAppEngineCron());
     switch (targetCase_) {
       case 4:
         hash = (37 * hash) + PUBSUB_TARGET_FIELD_NUMBER;
@@ -1406,7 +1289,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1504,7 +1387,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Configuration for a job.
-   * The maximum allowed size for a job is 100KB.
+   * The maximum allowed size for a job is 1MB.
    * </pre>
    *
    * Protobuf type {@code google.cloud.scheduler.v1beta1.Job}
@@ -1528,68 +1411,63 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.scheduler.v1beta1.Job.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
+      if (pubsubTargetBuilder_ != null) {
+        pubsubTargetBuilder_.clear();
+      }
+      if (appEngineHttpTargetBuilder_ != null) {
+        appEngineHttpTargetBuilder_.clear();
+      }
+      if (httpTargetBuilder_ != null) {
+        httpTargetBuilder_.clear();
+      }
       schedule_ = "";
-
       timeZone_ = "";
-
-      if (userUpdateTimeBuilder_ == null) {
-        userUpdateTime_ = null;
-      } else {
-        userUpdateTime_ = null;
+      userUpdateTime_ = null;
+      if (userUpdateTimeBuilder_ != null) {
+        userUpdateTimeBuilder_.dispose();
         userUpdateTimeBuilder_ = null;
       }
       state_ = 0;
-
-      if (statusBuilder_ == null) {
-        status_ = null;
-      } else {
-        status_ = null;
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-      if (scheduleTimeBuilder_ == null) {
-        scheduleTime_ = null;
-      } else {
-        scheduleTime_ = null;
+      scheduleTime_ = null;
+      if (scheduleTimeBuilder_ != null) {
+        scheduleTimeBuilder_.dispose();
         scheduleTimeBuilder_ = null;
       }
-      if (lastAttemptTimeBuilder_ == null) {
-        lastAttemptTime_ = null;
-      } else {
-        lastAttemptTime_ = null;
+      lastAttemptTime_ = null;
+      if (lastAttemptTimeBuilder_ != null) {
+        lastAttemptTimeBuilder_.dispose();
         lastAttemptTimeBuilder_ = null;
       }
-      if (retryConfigBuilder_ == null) {
-        retryConfig_ = null;
-      } else {
-        retryConfig_ = null;
+      retryConfig_ = null;
+      if (retryConfigBuilder_ != null) {
+        retryConfigBuilder_.dispose();
         retryConfigBuilder_ = null;
       }
-      if (attemptDeadlineBuilder_ == null) {
-        attemptDeadline_ = null;
-      } else {
-        attemptDeadline_ = null;
+      attemptDeadline_ = null;
+      if (attemptDeadlineBuilder_ != null) {
+        attemptDeadlineBuilder_.dispose();
         attemptDeadlineBuilder_ = null;
       }
+      legacyAppEngineCron_ = false;
       targetCase_ = 0;
       target_ = null;
       return this;
@@ -1618,65 +1496,79 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.scheduler.v1beta1.Job buildPartial() {
       com.google.cloud.scheduler.v1beta1.Job result = new com.google.cloud.scheduler.v1beta1.Job(this);
-      result.name_ = name_;
-      result.description_ = description_;
-      if (targetCase_ == 4) {
-        if (pubsubTargetBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = pubsubTargetBuilder_.build();
-        }
-      }
-      if (targetCase_ == 5) {
-        if (appEngineHttpTargetBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = appEngineHttpTargetBuilder_.build();
-        }
-      }
-      if (targetCase_ == 6) {
-        if (httpTargetBuilder_ == null) {
-          result.target_ = target_;
-        } else {
-          result.target_ = httpTargetBuilder_.build();
-        }
-      }
-      result.schedule_ = schedule_;
-      result.timeZone_ = timeZone_;
-      if (userUpdateTimeBuilder_ == null) {
-        result.userUpdateTime_ = userUpdateTime_;
-      } else {
-        result.userUpdateTime_ = userUpdateTimeBuilder_.build();
-      }
-      result.state_ = state_;
-      if (statusBuilder_ == null) {
-        result.status_ = status_;
-      } else {
-        result.status_ = statusBuilder_.build();
-      }
-      if (scheduleTimeBuilder_ == null) {
-        result.scheduleTime_ = scheduleTime_;
-      } else {
-        result.scheduleTime_ = scheduleTimeBuilder_.build();
-      }
-      if (lastAttemptTimeBuilder_ == null) {
-        result.lastAttemptTime_ = lastAttemptTime_;
-      } else {
-        result.lastAttemptTime_ = lastAttemptTimeBuilder_.build();
-      }
-      if (retryConfigBuilder_ == null) {
-        result.retryConfig_ = retryConfig_;
-      } else {
-        result.retryConfig_ = retryConfigBuilder_.build();
-      }
-      if (attemptDeadlineBuilder_ == null) {
-        result.attemptDeadline_ = attemptDeadline_;
-      } else {
-        result.attemptDeadline_ = attemptDeadlineBuilder_.build();
-      }
-      result.targetCase_ = targetCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.scheduler.v1beta1.Job result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.schedule_ = schedule_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.timeZone_ = timeZone_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.userUpdateTime_ = userUpdateTimeBuilder_ == null
+            ? userUpdateTime_
+            : userUpdateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.status_ = statusBuilder_ == null
+            ? status_
+            : statusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.scheduleTime_ = scheduleTimeBuilder_ == null
+            ? scheduleTime_
+            : scheduleTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.lastAttemptTime_ = lastAttemptTimeBuilder_ == null
+            ? lastAttemptTime_
+            : lastAttemptTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.retryConfig_ = retryConfigBuilder_ == null
+            ? retryConfig_
+            : retryConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.attemptDeadline_ = attemptDeadlineBuilder_ == null
+            ? attemptDeadline_
+            : attemptDeadlineBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.legacyAppEngineCron_ = legacyAppEngineCron_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.scheduler.v1beta1.Job result) {
+      result.targetCase_ = targetCase_;
+      result.target_ = this.target_;
+      if (targetCase_ == 4 &&
+          pubsubTargetBuilder_ != null) {
+        result.target_ = pubsubTargetBuilder_.build();
+      }
+      if (targetCase_ == 5 &&
+          appEngineHttpTargetBuilder_ != null) {
+        result.target_ = appEngineHttpTargetBuilder_.build();
+      }
+      if (targetCase_ == 6 &&
+          httpTargetBuilder_ != null) {
+        result.target_ = httpTargetBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1725,18 +1617,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.scheduler.v1beta1.Job.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getSchedule().isEmpty()) {
         schedule_ = other.schedule_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getTimeZone().isEmpty()) {
         timeZone_ = other.timeZone_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasUserUpdateTime()) {
@@ -1760,6 +1656,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasAttemptDeadline()) {
         mergeAttemptDeadline(other.getAttemptDeadline());
       }
+      if (other.getLegacyAppEngineCron() != false) {
+        setLegacyAppEngineCron(other.getLegacyAppEngineCron());
+      }
       switch (other.getTargetCase()) {
         case PUBSUB_TARGET: {
           mergePubsubTarget(other.getPubsubTarget());
@@ -1777,7 +1676,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1792,17 +1691,123 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.scheduler.v1beta1.Job parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 34: {
+              input.readMessage(
+                  getPubsubTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAppEngineHttpTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getHttpTargetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              targetCase_ = 6;
+              break;
+            } // case 50
+            case 74: {
+              input.readMessage(
+                  getUserUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 74
+            case 80: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 138: {
+              input.readMessage(
+                  getScheduleTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getLastAttemptTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getRetryConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 154
+            case 162: {
+              schedule_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 162
+            case 170: {
+              timeZone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getAttemptDeadlineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 178
+            case 184: {
+              legacyAppEngineCron_ = input.readBool();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 184
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.scheduler.v1beta1.Job) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int targetCase_ = 0;
@@ -1820,11 +1825,13 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
      * which it becomes output only.
      * The job name. For example:
      * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -1858,7 +1865,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
      * which it becomes output only.
      * The job name. For example:
      * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -1893,7 +1901,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
      * which it becomes output only.
      * The job name. For example:
      * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -1916,17 +1925,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
      * which it becomes output only.
      * The job name. For example:
      * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -1947,14 +1955,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob], after
      * which it becomes output only.
      * The job name. For example:
      * `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`.
@@ -1977,12 +1986,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1990,7 +1997,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
      * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * A human-readable description for the job. This string must not contain
      * more than 500 characters.
@@ -2013,7 +2021,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
      * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * A human-readable description for the job. This string must not contain
      * more than 500 characters.
@@ -2037,7 +2046,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
      * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * A human-readable description for the job. This string must not contain
      * more than 500 characters.
@@ -2049,17 +2059,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
      * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * A human-readable description for the job. This string must not contain
      * more than 500 characters.
@@ -2069,14 +2078,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optionally caller-specified in [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
+     * Optionally caller-specified in
+     * [CreateJob][google.cloud.scheduler.v1beta1.CloudScheduler.CreateJob] or
      * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * A human-readable description for the job. This string must not contain
      * more than 500 characters.
@@ -2088,12 +2098,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2272,7 +2280,7 @@ private static final long serialVersionUID = 0L;
         target_ = null;
       }
       targetCase_ = 4;
-      onChanged();;
+      onChanged();
       return pubsubTargetBuilder_;
     }
 
@@ -2450,7 +2458,7 @@ private static final long serialVersionUID = 0L;
         target_ = null;
       }
       targetCase_ = 5;
-      onChanged();;
+      onChanged();
       return appEngineHttpTargetBuilder_;
     }
 
@@ -2628,17 +2636,18 @@ private static final long serialVersionUID = 0L;
         target_ = null;
       }
       targetCase_ = 6;
-      onChanged();;
+      onChanged();
       return httpTargetBuilder_;
     }
 
     private java.lang.Object schedule_ = "";
     /**
      * <pre>
-     * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+     * Required, except when used with
+     * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * Describes the schedule on which the job will be executed.
      * The schedule can be either of the following types:
-     * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+     * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
      * * English-like
      * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
      * As a general rule, execution `n + 1` of a job will not begin
@@ -2649,8 +2658,9 @@ private static final long serialVersionUID = 0L;
      * execution will not start until `16:15`.
      * A scheduled start time will be delayed if the previous
      * execution has not ended when its scheduled time occurs.
-     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-     * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+     * 0 and a job attempt fails, the job will be tried a total of
+     * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
      * times, with exponential backoff, until the next scheduled start
      * time.
      * </pre>
@@ -2672,10 +2682,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+     * Required, except when used with
+     * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * Describes the schedule on which the job will be executed.
      * The schedule can be either of the following types:
-     * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+     * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
      * * English-like
      * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
      * As a general rule, execution `n + 1` of a job will not begin
@@ -2686,8 +2697,9 @@ private static final long serialVersionUID = 0L;
      * execution will not start until `16:15`.
      * A scheduled start time will be delayed if the previous
      * execution has not ended when its scheduled time occurs.
-     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-     * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+     * 0 and a job attempt fails, the job will be tried a total of
+     * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
      * times, with exponential backoff, until the next scheduled start
      * time.
      * </pre>
@@ -2710,10 +2722,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+     * Required, except when used with
+     * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * Describes the schedule on which the job will be executed.
      * The schedule can be either of the following types:
-     * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+     * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
      * * English-like
      * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
      * As a general rule, execution `n + 1` of a job will not begin
@@ -2724,8 +2737,9 @@ private static final long serialVersionUID = 0L;
      * execution will not start until `16:15`.
      * A scheduled start time will be delayed if the previous
      * execution has not ended when its scheduled time occurs.
-     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-     * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+     * 0 and a job attempt fails, the job will be tried a total of
+     * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
      * times, with exponential backoff, until the next scheduled start
      * time.
      * </pre>
@@ -2736,20 +2750,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchedule(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       schedule_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+     * Required, except when used with
+     * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * Describes the schedule on which the job will be executed.
      * The schedule can be either of the following types:
-     * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+     * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
      * * English-like
      * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
      * As a general rule, execution `n + 1` of a job will not begin
@@ -2760,8 +2773,9 @@ private static final long serialVersionUID = 0L;
      * execution will not start until `16:15`.
      * A scheduled start time will be delayed if the previous
      * execution has not ended when its scheduled time occurs.
-     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-     * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+     * 0 and a job attempt fails, the job will be tried a total of
+     * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
      * times, with exponential backoff, until the next scheduled start
      * time.
      * </pre>
@@ -2770,17 +2784,18 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSchedule() {
-      
       schedule_ = getDefaultInstance().getSchedule();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required, except when used with [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
+     * Required, except when used with
+     * [UpdateJob][google.cloud.scheduler.v1beta1.CloudScheduler.UpdateJob].
      * Describes the schedule on which the job will be executed.
      * The schedule can be either of the following types:
-     * * [Crontab](http://en.wikipedia.org/wiki/Cron#Overview)
+     * * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview)
      * * English-like
      * [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
      * As a general rule, execution `n + 1` of a job will not begin
@@ -2791,8 +2806,9 @@ private static final long serialVersionUID = 0L;
      * execution will not start until `16:15`.
      * A scheduled start time will be delayed if the previous
      * execution has not ended when its scheduled time occurs.
-     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt; 0 and a job attempt fails,
-     * the job will be tried a total of [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
+     * If [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count] &gt;
+     * 0 and a job attempt fails, the job will be tried a total of
+     * [retry_count][google.cloud.scheduler.v1beta1.RetryConfig.retry_count]
      * times, with exponential backoff, until the next scheduled start
      * time.
      * </pre>
@@ -2803,12 +2819,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setScheduleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       schedule_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2817,8 +2831,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the time zone to be used in interpreting
-     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-     * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+     * field must be a time zone name from the [tz
+     * database](http://en.wikipedia.org/wiki/Tz_database).
      * Note that some time zones include a provision for
      * daylight savings time. The rules for daylight saving time are
      * determined by the chosen tz. For UTC use the string "utc". If a
@@ -2844,8 +2859,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the time zone to be used in interpreting
-     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-     * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+     * field must be a time zone name from the [tz
+     * database](http://en.wikipedia.org/wiki/Tz_database).
      * Note that some time zones include a provision for
      * daylight savings time. The rules for daylight saving time are
      * determined by the chosen tz. For UTC use the string "utc". If a
@@ -2872,8 +2888,9 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Specifies the time zone to be used in interpreting
-     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-     * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+     * field must be a time zone name from the [tz
+     * database](http://en.wikipedia.org/wiki/Tz_database).
      * Note that some time zones include a provision for
      * daylight savings time. The rules for daylight saving time are
      * determined by the chosen tz. For UTC use the string "utc". If a
@@ -2887,19 +2904,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       timeZone_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies the time zone to be used in interpreting
-     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-     * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+     * field must be a time zone name from the [tz
+     * database](http://en.wikipedia.org/wiki/Tz_database).
      * Note that some time zones include a provision for
      * daylight savings time. The rules for daylight saving time are
      * determined by the chosen tz. For UTC use the string "utc". If a
@@ -2911,16 +2927,17 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeZone() {
-      
       timeZone_ = getDefaultInstance().getTimeZone();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies the time zone to be used in interpreting
-     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this field must be a time
-     * zone name from the [tz database](http://en.wikipedia.org/wiki/Tz_database).
+     * [schedule][google.cloud.scheduler.v1beta1.Job.schedule]. The value of this
+     * field must be a time zone name from the [tz
+     * database](http://en.wikipedia.org/wiki/Tz_database).
      * Note that some time zones include a provision for
      * daylight savings time. The rules for daylight saving time are
      * determined by the chosen tz. For UTC use the string "utc". If a
@@ -2934,12 +2951,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       timeZone_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2956,7 +2971,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the userUpdateTime field is set.
      */
     public boolean hasUserUpdateTime() {
-      return userUpdateTimeBuilder_ != null || userUpdateTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2986,11 +3001,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         userUpdateTime_ = value;
-        onChanged();
       } else {
         userUpdateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3004,11 +3019,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (userUpdateTimeBuilder_ == null) {
         userUpdateTime_ = builderForValue.build();
-        onChanged();
       } else {
         userUpdateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3020,17 +3035,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUserUpdateTime(com.google.protobuf.Timestamp value) {
       if (userUpdateTimeBuilder_ == null) {
-        if (userUpdateTime_ != null) {
-          userUpdateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(userUpdateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          userUpdateTime_ != null &&
+          userUpdateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUserUpdateTimeBuilder().mergeFrom(value);
         } else {
           userUpdateTime_ = value;
         }
-        onChanged();
       } else {
         userUpdateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3041,14 +3057,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp user_update_time = 9;</code>
      */
     public Builder clearUserUpdateTime() {
-      if (userUpdateTimeBuilder_ == null) {
-        userUpdateTime_ = null;
-        onChanged();
-      } else {
-        userUpdateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      userUpdateTime_ = null;
+      if (userUpdateTimeBuilder_ != null) {
+        userUpdateTimeBuilder_.dispose();
         userUpdateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3059,7 +3074,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp user_update_time = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUserUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getUserUpdateTimeFieldBuilder().getBuilder();
     }
@@ -3121,8 +3136,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3136,8 +3151,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.scheduler.v1beta1.Job.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.scheduler.v1beta1.Job.State result = com.google.cloud.scheduler.v1beta1.Job.State.valueOf(state_);
+      com.google.cloud.scheduler.v1beta1.Job.State result = com.google.cloud.scheduler.v1beta1.Job.State.forNumber(state_);
       return result == null ? com.google.cloud.scheduler.v1beta1.Job.State.UNRECOGNIZED : result;
     }
     /**
@@ -3153,7 +3167,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -3167,7 +3181,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       state_ = 0;
       onChanged();
       return this;
@@ -3185,7 +3199,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the status field is set.
      */
     public boolean hasStatus() {
-      return statusBuilder_ != null || status_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -3215,11 +3229,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         status_ = value;
-        onChanged();
       } else {
         statusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3233,11 +3247,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (statusBuilder_ == null) {
         status_ = builderForValue.build();
-        onChanged();
       } else {
         statusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3249,17 +3263,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStatus(com.google.rpc.Status value) {
       if (statusBuilder_ == null) {
-        if (status_ != null) {
-          status_ =
-            com.google.rpc.Status.newBuilder(status_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          status_ != null &&
+          status_ != com.google.rpc.Status.getDefaultInstance()) {
+          getStatusBuilder().mergeFrom(value);
         } else {
           status_ = value;
         }
-        onChanged();
       } else {
         statusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -3270,14 +3285,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status status = 11;</code>
      */
     public Builder clearStatus() {
-      if (statusBuilder_ == null) {
-        status_ = null;
-        onChanged();
-      } else {
-        status_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      status_ = null;
+      if (statusBuilder_ != null) {
+        statusBuilder_.dispose();
         statusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3288,7 +3302,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status status = 11;</code>
      */
     public com.google.rpc.Status.Builder getStatusBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getStatusFieldBuilder().getBuilder();
     }
@@ -3342,7 +3356,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the scheduleTime field is set.
      */
     public boolean hasScheduleTime() {
-      return scheduleTimeBuilder_ != null || scheduleTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3376,11 +3390,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         scheduleTime_ = value;
-        onChanged();
       } else {
         scheduleTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3396,11 +3410,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (scheduleTimeBuilder_ == null) {
         scheduleTime_ = builderForValue.build();
-        onChanged();
       } else {
         scheduleTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3414,17 +3428,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScheduleTime(com.google.protobuf.Timestamp value) {
       if (scheduleTimeBuilder_ == null) {
-        if (scheduleTime_ != null) {
-          scheduleTime_ =
-            com.google.protobuf.Timestamp.newBuilder(scheduleTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          scheduleTime_ != null &&
+          scheduleTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getScheduleTimeBuilder().mergeFrom(value);
         } else {
           scheduleTime_ = value;
         }
-        onChanged();
       } else {
         scheduleTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3437,14 +3452,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp schedule_time = 17;</code>
      */
     public Builder clearScheduleTime() {
-      if (scheduleTimeBuilder_ == null) {
-        scheduleTime_ = null;
-        onChanged();
-      } else {
-        scheduleTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      scheduleTime_ = null;
+      if (scheduleTimeBuilder_ != null) {
+        scheduleTimeBuilder_.dispose();
         scheduleTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3457,7 +3471,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp schedule_time = 17;</code>
      */
     public com.google.protobuf.Timestamp.Builder getScheduleTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getScheduleTimeFieldBuilder().getBuilder();
     }
@@ -3513,7 +3527,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastAttemptTime field is set.
      */
     public boolean hasLastAttemptTime() {
-      return lastAttemptTimeBuilder_ != null || lastAttemptTime_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3543,11 +3557,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastAttemptTime_ = value;
-        onChanged();
       } else {
         lastAttemptTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3561,11 +3575,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastAttemptTimeBuilder_ == null) {
         lastAttemptTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastAttemptTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3577,17 +3591,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastAttemptTime(com.google.protobuf.Timestamp value) {
       if (lastAttemptTimeBuilder_ == null) {
-        if (lastAttemptTime_ != null) {
-          lastAttemptTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastAttemptTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          lastAttemptTime_ != null &&
+          lastAttemptTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastAttemptTimeBuilder().mergeFrom(value);
         } else {
           lastAttemptTime_ = value;
         }
-        onChanged();
       } else {
         lastAttemptTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3598,14 +3613,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_attempt_time = 18;</code>
      */
     public Builder clearLastAttemptTime() {
-      if (lastAttemptTimeBuilder_ == null) {
-        lastAttemptTime_ = null;
-        onChanged();
-      } else {
-        lastAttemptTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      lastAttemptTime_ = null;
+      if (lastAttemptTimeBuilder_ != null) {
+        lastAttemptTimeBuilder_.dispose();
         lastAttemptTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3616,7 +3630,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_attempt_time = 18;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastAttemptTimeBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getLastAttemptTimeFieldBuilder().getBuilder();
     }
@@ -3668,7 +3682,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the retryConfig field is set.
      */
     public boolean hasRetryConfig() {
-      return retryConfigBuilder_ != null || retryConfig_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3698,11 +3712,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         retryConfig_ = value;
-        onChanged();
       } else {
         retryConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3716,11 +3730,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.scheduler.v1beta1.RetryConfig.Builder builderForValue) {
       if (retryConfigBuilder_ == null) {
         retryConfig_ = builderForValue.build();
-        onChanged();
       } else {
         retryConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3732,17 +3746,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRetryConfig(com.google.cloud.scheduler.v1beta1.RetryConfig value) {
       if (retryConfigBuilder_ == null) {
-        if (retryConfig_ != null) {
-          retryConfig_ =
-            com.google.cloud.scheduler.v1beta1.RetryConfig.newBuilder(retryConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          retryConfig_ != null &&
+          retryConfig_ != com.google.cloud.scheduler.v1beta1.RetryConfig.getDefaultInstance()) {
+          getRetryConfigBuilder().mergeFrom(value);
         } else {
           retryConfig_ = value;
         }
-        onChanged();
       } else {
         retryConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3753,14 +3768,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.scheduler.v1beta1.RetryConfig retry_config = 19;</code>
      */
     public Builder clearRetryConfig() {
-      if (retryConfigBuilder_ == null) {
-        retryConfig_ = null;
-        onChanged();
-      } else {
-        retryConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      retryConfig_ = null;
+      if (retryConfigBuilder_ != null) {
+        retryConfigBuilder_.dispose();
         retryConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3771,7 +3785,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.scheduler.v1beta1.RetryConfig retry_config = 19;</code>
      */
     public com.google.cloud.scheduler.v1beta1.RetryConfig.Builder getRetryConfigBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getRetryConfigFieldBuilder().getBuilder();
     }
@@ -3821,18 +3835,26 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
      * @return Whether the attemptDeadline field is set.
      */
     public boolean hasAttemptDeadline() {
-      return attemptDeadlineBuilder_ != null || attemptDeadline_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -3841,11 +3863,19 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -3865,11 +3895,19 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -3880,11 +3918,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         attemptDeadline_ = value;
-        onChanged();
       } else {
         attemptDeadlineBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3894,11 +3932,19 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -3907,11 +3953,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (attemptDeadlineBuilder_ == null) {
         attemptDeadline_ = builderForValue.build();
-        onChanged();
       } else {
         attemptDeadlineBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3921,28 +3967,37 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
      */
     public Builder mergeAttemptDeadline(com.google.protobuf.Duration value) {
       if (attemptDeadlineBuilder_ == null) {
-        if (attemptDeadline_ != null) {
-          attemptDeadline_ =
-            com.google.protobuf.Duration.newBuilder(attemptDeadline_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          attemptDeadline_ != null &&
+          attemptDeadline_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAttemptDeadlineBuilder().mergeFrom(value);
         } else {
           attemptDeadline_ = value;
         }
-        onChanged();
       } else {
         attemptDeadlineBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -3952,24 +4007,31 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
      */
     public Builder clearAttemptDeadline() {
-      if (attemptDeadlineBuilder_ == null) {
-        attemptDeadline_ = null;
-        onChanged();
-      } else {
-        attemptDeadline_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      attemptDeadline_ = null;
+      if (attemptDeadlineBuilder_ != null) {
+        attemptDeadlineBuilder_.dispose();
         attemptDeadlineBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3979,17 +4041,25 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
      */
     public com.google.protobuf.Duration.Builder getAttemptDeadlineBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getAttemptDeadlineFieldBuilder().getBuilder();
     }
@@ -4000,11 +4070,19 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -4024,11 +4102,19 @@ private static final long serialVersionUID = 0L;
      * `DEADLINE_EXCEEDED` failure. The failed attempt can be viewed in
      * execution logs. Cloud Scheduler will retry the job according
      * to the [RetryConfig][google.cloud.scheduler.v1beta1.RetryConfig].
-     * The allowed duration for this deadline is:
-     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], between 15 seconds and 30 minutes.
-     * * For [App Engine HTTP targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], between 15
-     *   seconds and 24 hours.
-     * * For [PubSub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target], this field is ignored.
+     * The default and the allowed values depend on the type of target:
+     * * For [HTTP targets][google.cloud.scheduler.v1beta1.Job.http_target], the
+     * default is 3 minutes. The deadline must be in the interval [15 seconds, 30
+     * minutes].
+     * * For [App Engine HTTP
+     * targets][google.cloud.scheduler.v1beta1.Job.app_engine_http_target], 0
+     * indicates that the request has the default deadline. The default deadline
+     * depends on the scaling type of the service: 10 minutes for standard apps
+     * with automatic scaling, 24 hours for standard apps with manual and basic
+     * scaling, and 60 minutes for flex apps. If the request deadline is set, it
+     * must be in the interval [15 seconds, 24 hours 15 seconds].
+     * * For [Pub/Sub targets][google.cloud.scheduler.v1beta1.Job.pubsub_target],
+     * this field is ignored.
      * </pre>
      *
      * <code>.google.protobuf.Duration attempt_deadline = 22;</code>
@@ -4045,6 +4131,62 @@ private static final long serialVersionUID = 0L;
         attemptDeadline_ = null;
       }
       return attemptDeadlineBuilder_;
+    }
+
+    private boolean legacyAppEngineCron_ ;
+    /**
+     * <pre>
+     * Immutable. This field is used to manage the legacy App Engine Cron jobs
+     * using the Cloud Scheduler API. If the field is set to true, the job will be
+     * considered a legacy job. Note that App Engine Cron jobs have fewer
+     * features than Cloud Scheduler jobs, e.g., are only limited to App Engine
+     * targets.
+     * </pre>
+     *
+     * <code>bool legacy_app_engine_cron = 23 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return The legacyAppEngineCron.
+     */
+    @java.lang.Override
+    public boolean getLegacyAppEngineCron() {
+      return legacyAppEngineCron_;
+    }
+    /**
+     * <pre>
+     * Immutable. This field is used to manage the legacy App Engine Cron jobs
+     * using the Cloud Scheduler API. If the field is set to true, the job will be
+     * considered a legacy job. Note that App Engine Cron jobs have fewer
+     * features than Cloud Scheduler jobs, e.g., are only limited to App Engine
+     * targets.
+     * </pre>
+     *
+     * <code>bool legacy_app_engine_cron = 23 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @param value The legacyAppEngineCron to set.
+     * @return This builder for chaining.
+     */
+    public Builder setLegacyAppEngineCron(boolean value) {
+      
+      legacyAppEngineCron_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Immutable. This field is used to manage the legacy App Engine Cron jobs
+     * using the Cloud Scheduler API. If the field is set to true, the job will be
+     * considered a legacy job. Note that App Engine Cron jobs have fewer
+     * features than Cloud Scheduler jobs, e.g., are only limited to App Engine
+     * targets.
+     * </pre>
+     *
+     * <code>bool legacy_app_engine_cron = 23 [(.google.api.field_behavior) = IMMUTABLE];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearLegacyAppEngineCron() {
+      bitField0_ = (bitField0_ & ~0x00004000);
+      legacyAppEngineCron_ = false;
+      onChanged();
+      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -4079,7 +4221,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Job(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

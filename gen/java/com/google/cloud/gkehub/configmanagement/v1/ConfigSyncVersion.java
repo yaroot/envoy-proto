@@ -40,81 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConfigSyncVersion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            importer_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            syncer_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gitSync_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            monitor_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            reconcilerManager_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            rootReconciler_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.configmanagement.v1.ConfigManagementProto.internal_static_google_cloud_gkehub_configmanagement_v1_ConfigSyncVersion_descriptor;
@@ -129,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPORTER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object importer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object importer_ = "";
   /**
    * <pre>
    * Version of the deployed importer pod
@@ -175,7 +101,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYNCER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object syncer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object syncer_ = "";
   /**
    * <pre>
    * Version of the deployed syncer pod
@@ -221,7 +148,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GIT_SYNC_FIELD_NUMBER = 3;
-  private volatile java.lang.Object gitSync_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gitSync_ = "";
   /**
    * <pre>
    * Version of the deployed git-sync pod
@@ -267,7 +195,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MONITOR_FIELD_NUMBER = 4;
-  private volatile java.lang.Object monitor_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object monitor_ = "";
   /**
    * <pre>
    * Version of the deployed monitor pod
@@ -313,7 +242,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECONCILER_MANAGER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object reconcilerManager_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object reconcilerManager_ = "";
   /**
    * <pre>
    * Version of the deployed reconciler-manager pod
@@ -359,7 +289,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROOT_RECONCILER_FIELD_NUMBER = 6;
-  private volatile java.lang.Object rootReconciler_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rootReconciler_ = "";
   /**
    * <pre>
    * Version of the deployed reconciler container in root-reconciler pod
@@ -436,7 +367,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootReconciler_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, rootReconciler_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -463,7 +394,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rootReconciler_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, rootReconciler_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -490,7 +421,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getReconcilerManager())) return false;
     if (!getRootReconciler()
         .equals(other.getRootReconciler())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -513,7 +444,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getReconcilerManager().hashCode();
     hash = (37 * hash) + ROOT_RECONCILER_FIELD_NUMBER;
     hash = (53 * hash) + getRootReconciler().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -634,34 +565,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       importer_ = "";
-
       syncer_ = "";
-
       gitSync_ = "";
-
       monitor_ = "";
-
       reconcilerManager_ = "";
-
       rootReconciler_ = "";
-
       return this;
     }
 
@@ -688,14 +609,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion buildPartial() {
       com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion result = new com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion(this);
-      result.importer_ = importer_;
-      result.syncer_ = syncer_;
-      result.gitSync_ = gitSync_;
-      result.monitor_ = monitor_;
-      result.reconcilerManager_ = reconcilerManager_;
-      result.rootReconciler_ = rootReconciler_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.importer_ = importer_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.syncer_ = syncer_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gitSync_ = gitSync_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.monitor_ = monitor_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.reconcilerManager_ = reconcilerManager_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.rootReconciler_ = rootReconciler_;
+      }
     }
 
     @java.lang.Override
@@ -744,29 +682,35 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion.getDefaultInstance()) return this;
       if (!other.getImporter().isEmpty()) {
         importer_ = other.importer_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSyncer().isEmpty()) {
         syncer_ = other.syncer_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getGitSync().isEmpty()) {
         gitSync_ = other.gitSync_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getMonitor().isEmpty()) {
         monitor_ = other.monitor_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getReconcilerManager().isEmpty()) {
         reconcilerManager_ = other.reconcilerManager_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getRootReconciler().isEmpty()) {
         rootReconciler_ = other.rootReconciler_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -781,19 +725,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              importer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              syncer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              gitSync_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              monitor_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              reconcilerManager_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              rootReconciler_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.configmanagement.v1.ConfigSyncVersion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object importer_ = "";
     /**
@@ -848,11 +836,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImporter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       importer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -865,8 +851,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImporter() {
-      
       importer_ = getDefaultInstance().getImporter();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -881,12 +867,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImporterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       importer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -944,11 +928,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       syncer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -961,8 +943,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSyncer() {
-      
       syncer_ = getDefaultInstance().getSyncer();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -977,12 +959,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSyncerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       syncer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1040,11 +1020,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGitSync(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gitSync_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1057,8 +1035,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGitSync() {
-      
       gitSync_ = getDefaultInstance().getGitSync();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1073,12 +1051,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGitSyncBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gitSync_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1136,11 +1112,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMonitor(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       monitor_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1153,8 +1127,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMonitor() {
-      
       monitor_ = getDefaultInstance().getMonitor();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1169,12 +1143,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMonitorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       monitor_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1232,11 +1204,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReconcilerManager(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       reconcilerManager_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1249,8 +1219,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReconcilerManager() {
-      
       reconcilerManager_ = getDefaultInstance().getReconcilerManager();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1265,12 +1235,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReconcilerManagerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       reconcilerManager_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1328,11 +1296,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRootReconciler(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       rootReconciler_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1345,8 +1311,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRootReconciler() {
-      
       rootReconciler_ = getDefaultInstance().getRootReconciler();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1361,12 +1327,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRootReconcilerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       rootReconciler_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1403,7 +1367,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConfigSyncVersion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

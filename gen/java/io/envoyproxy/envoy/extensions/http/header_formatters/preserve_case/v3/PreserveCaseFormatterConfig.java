@@ -37,56 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PreserveCaseFormatterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            forwardReasonPhrase_ = input.readBool();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            formatterTypeOnEnvoyHeaders_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseProto.internal_static_envoy_extensions_http_header_formatters_preserve_case_v3_PreserveCaseFormatterConfig_descriptor;
@@ -229,7 +179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORWARD_REASON_PHRASE_FIELD_NUMBER = 1;
-  private boolean forwardReasonPhrase_;
+  private boolean forwardReasonPhrase_ = false;
   /**
    * <pre>
    * Allows forwarding reason phrase text.
@@ -245,7 +195,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMATTER_TYPE_ON_ENVOY_HEADERS_FIELD_NUMBER = 2;
-  private int formatterTypeOnEnvoyHeaders_;
+  private int formatterTypeOnEnvoyHeaders_ = 0;
   /**
    * <pre>
    * Type of formatter to use on headers which are added by Envoy (which are lower case by default).
@@ -268,8 +218,7 @@ private static final long serialVersionUID = 0L;
    * @return The formatterTypeOnEnvoyHeaders.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders getFormatterTypeOnEnvoyHeaders() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders result = io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.valueOf(formatterTypeOnEnvoyHeaders_);
+    io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders result = io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.forNumber(formatterTypeOnEnvoyHeaders_);
     return result == null ? io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.UNRECOGNIZED : result;
   }
 
@@ -293,7 +242,7 @@ private static final long serialVersionUID = 0L;
     if (formatterTypeOnEnvoyHeaders_ != io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.DEFAULT.getNumber()) {
       output.writeEnum(2, formatterTypeOnEnvoyHeaders_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -310,7 +259,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, formatterTypeOnEnvoyHeaders_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -328,7 +277,7 @@ private static final long serialVersionUID = 0L;
     if (getForwardReasonPhrase()
         != other.getForwardReasonPhrase()) return false;
     if (formatterTypeOnEnvoyHeaders_ != other.formatterTypeOnEnvoyHeaders_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -344,7 +293,7 @@ private static final long serialVersionUID = 0L;
         getForwardReasonPhrase());
     hash = (37 * hash) + FORMATTER_TYPE_ON_ENVOY_HEADERS_FIELD_NUMBER;
     hash = (53 * hash) + formatterTypeOnEnvoyHeaders_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -467,26 +416,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       forwardReasonPhrase_ = false;
-
       formatterTypeOnEnvoyHeaders_ = 0;
-
       return this;
     }
 
@@ -513,10 +456,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig buildPartial() {
       io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig result = new io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig(this);
-      result.forwardReasonPhrase_ = forwardReasonPhrase_;
-      result.formatterTypeOnEnvoyHeaders_ = formatterTypeOnEnvoyHeaders_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.forwardReasonPhrase_ = forwardReasonPhrase_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.formatterTypeOnEnvoyHeaders_ = formatterTypeOnEnvoyHeaders_;
+      }
     }
 
     @java.lang.Override
@@ -569,7 +521,7 @@ private static final long serialVersionUID = 0L;
       if (other.formatterTypeOnEnvoyHeaders_ != 0) {
         setFormatterTypeOnEnvoyHeadersValue(other.getFormatterTypeOnEnvoyHeadersValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -584,19 +536,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              forwardReasonPhrase_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              formatterTypeOnEnvoyHeaders_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean forwardReasonPhrase_ ;
     /**
@@ -625,6 +601,7 @@ private static final long serialVersionUID = 0L;
     public Builder setForwardReasonPhrase(boolean value) {
       
       forwardReasonPhrase_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -638,7 +615,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearForwardReasonPhrase() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       forwardReasonPhrase_ = false;
       onChanged();
       return this;
@@ -668,8 +645,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormatterTypeOnEnvoyHeadersValue(int value) {
-      
       formatterTypeOnEnvoyHeaders_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -684,8 +661,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders getFormatterTypeOnEnvoyHeaders() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders result = io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.valueOf(formatterTypeOnEnvoyHeaders_);
+      io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders result = io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.forNumber(formatterTypeOnEnvoyHeaders_);
       return result == null ? io.envoyproxy.envoy.extensions.http.header_formatters.preserve_case.v3.PreserveCaseFormatterConfig.FormatterTypeOnEnvoyHeaders.UNRECOGNIZED : result;
     }
     /**
@@ -702,7 +678,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       formatterTypeOnEnvoyHeaders_ = value.getNumber();
       onChanged();
       return this;
@@ -717,7 +693,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormatterTypeOnEnvoyHeaders() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       formatterTypeOnEnvoyHeaders_ = 0;
       onChanged();
       return this;
@@ -755,7 +731,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PreserveCaseFormatterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

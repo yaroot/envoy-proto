@@ -37,81 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Schema(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            userManaged_ = input.readBool();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              fields_ = new java.util.ArrayList<com.google.cloud.dataplex.v1.Schema.SchemaField>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            fields_.add(
-                input.readMessage(com.google.cloud.dataplex.v1.Schema.SchemaField.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              partitionFields_ = new java.util.ArrayList<com.google.cloud.dataplex.v1.Schema.PartitionField>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            partitionFields_.add(
-                input.readMessage(com.google.cloud.dataplex.v1.Schema.PartitionField.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            partitionStyle_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        fields_ = java.util.Collections.unmodifiableList(fields_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        partitionFields_ = java.util.Collections.unmodifiableList(partitionFields_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_Schema_descriptor;
@@ -817,8 +742,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. User friendly field description. Must be less than or equal to 1024
-     * characters.
+     * Optional. User friendly field description. Must be less than or equal to
+     * 1024 characters.
      * </pre>
      *
      * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -827,8 +752,8 @@ private static final long serialVersionUID = 0L;
     java.lang.String getDescription();
     /**
      * <pre>
-     * Optional. User friendly field description. Must be less than or equal to 1024
-     * characters.
+     * Optional. User friendly field description. Must be less than or equal to
+     * 1024 characters.
      * </pre>
      *
      * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -955,82 +880,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SchemaField(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              description_ = s;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-
-              mode_ = rawValue;
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                fields_ = new java.util.ArrayList<com.google.cloud.dataplex.v1.Schema.SchemaField>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              fields_.add(
-                  input.readMessage(com.google.cloud.dataplex.v1.Schema.SchemaField.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          fields_ = java.util.Collections.unmodifiableList(fields_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_Schema_SchemaField_descriptor;
@@ -1045,7 +894,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Required. The name of the field. Must contain only letters, numbers and
@@ -1095,11 +945,12 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DESCRIPTION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object description_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object description_ = "";
     /**
      * <pre>
-     * Optional. User friendly field description. Must be less than or equal to 1024
-     * characters.
+     * Optional. User friendly field description. Must be less than or equal to
+     * 1024 characters.
      * </pre>
      *
      * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1120,8 +971,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. User friendly field description. Must be less than or equal to 1024
-     * characters.
+     * Optional. User friendly field description. Must be less than or equal to
+     * 1024 characters.
      * </pre>
      *
      * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1143,7 +994,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 3;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Required. The type of field.
@@ -1164,13 +1015,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.dataplex.v1.Schema.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.valueOf(type_);
+      com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.forNumber(type_);
       return result == null ? com.google.cloud.dataplex.v1.Schema.Type.UNRECOGNIZED : result;
     }
 
     public static final int MODE_FIELD_NUMBER = 4;
-    private int mode_;
+    private int mode_ = 0;
     /**
      * <pre>
      * Required. Additional field semantics.
@@ -1191,12 +1041,12 @@ private static final long serialVersionUID = 0L;
      * @return The mode.
      */
     @java.lang.Override public com.google.cloud.dataplex.v1.Schema.Mode getMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.Schema.Mode result = com.google.cloud.dataplex.v1.Schema.Mode.valueOf(mode_);
+      com.google.cloud.dataplex.v1.Schema.Mode result = com.google.cloud.dataplex.v1.Schema.Mode.forNumber(mode_);
       return result == null ? com.google.cloud.dataplex.v1.Schema.Mode.UNRECOGNIZED : result;
     }
 
     public static final int FIELDS_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.dataplex.v1.Schema.SchemaField> fields_;
     /**
      * <pre>
@@ -1285,7 +1135,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < fields_.size(); i++) {
         output.writeMessage(10, fields_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1312,7 +1162,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(10, fields_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1335,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       if (mode_ != other.mode_) return false;
       if (!getFieldsList()
           .equals(other.getFieldsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1358,7 +1208,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + FIELDS_FIELD_NUMBER;
         hash = (53 * hash) + getFieldsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1479,37 +1329,29 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.Schema.SchemaField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getFieldsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         description_ = "";
-
         type_ = 0;
-
         mode_ = 0;
-
         if (fieldsBuilder_ == null) {
           fields_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          fields_ = null;
           fieldsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -1536,22 +1378,38 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Schema.SchemaField buildPartial() {
         com.google.cloud.dataplex.v1.Schema.SchemaField result = new com.google.cloud.dataplex.v1.Schema.SchemaField(this);
-        int from_bitField0_ = bitField0_;
-        result.name_ = name_;
-        result.description_ = description_;
-        result.type_ = type_;
-        result.mode_ = mode_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataplex.v1.Schema.SchemaField result) {
         if (fieldsBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) != 0)) {
+          if (((bitField0_ & 0x00000010) != 0)) {
             fields_ = java.util.Collections.unmodifiableList(fields_);
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           }
           result.fields_ = fields_;
         } else {
           result.fields_ = fieldsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.Schema.SchemaField result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.description_ = description_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.mode_ = mode_;
+        }
       }
 
       @java.lang.Override
@@ -1600,10 +1458,12 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dataplex.v1.Schema.SchemaField.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDescription().isEmpty()) {
           description_ = other.description_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.type_ != 0) {
@@ -1616,7 +1476,7 @@ private static final long serialVersionUID = 0L;
           if (!other.fields_.isEmpty()) {
             if (fields_.isEmpty()) {
               fields_ = other.fields_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000010);
             } else {
               ensureFieldsIsMutable();
               fields_.addAll(other.fields_);
@@ -1629,7 +1489,7 @@ private static final long serialVersionUID = 0L;
               fieldsBuilder_.dispose();
               fieldsBuilder_ = null;
               fields_ = other.fields_;
-              bitField0_ = (bitField0_ & ~0x00000001);
+              bitField0_ = (bitField0_ & ~0x00000010);
               fieldsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getFieldsFieldBuilder() : null;
@@ -1638,7 +1498,7 @@ private static final long serialVersionUID = 0L;
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1653,17 +1513,63 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.Schema.SchemaField parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                description_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                mode_ = input.readEnum();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 82: {
+                com.google.cloud.dataplex.v1.Schema.SchemaField m =
+                    input.readMessage(
+                        com.google.cloud.dataplex.v1.Schema.SchemaField.parser(),
+                        extensionRegistry);
+                if (fieldsBuilder_ == null) {
+                  ensureFieldsIsMutable();
+                  fields_.add(m);
+                } else {
+                  fieldsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.Schema.SchemaField) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1727,11 +1633,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1746,8 +1650,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1764,12 +1668,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1777,8 +1679,8 @@ private static final long serialVersionUID = 0L;
       private java.lang.Object description_ = "";
       /**
        * <pre>
-       * Optional. User friendly field description. Must be less than or equal to 1024
-       * characters.
+       * Optional. User friendly field description. Must be less than or equal to
+       * 1024 characters.
        * </pre>
        *
        * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1798,8 +1700,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. User friendly field description. Must be less than or equal to 1024
-       * characters.
+       * Optional. User friendly field description. Must be less than or equal to
+       * 1024 characters.
        * </pre>
        *
        * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1820,8 +1722,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. User friendly field description. Must be less than or equal to 1024
-       * characters.
+       * Optional. User friendly field description. Must be less than or equal to
+       * 1024 characters.
        * </pre>
        *
        * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1830,33 +1732,31 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescription(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. User friendly field description. Must be less than or equal to 1024
-       * characters.
+       * Optional. User friendly field description. Must be less than or equal to
+       * 1024 characters.
        * </pre>
        *
        * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        * @return This builder for chaining.
        */
       public Builder clearDescription() {
-        
         description_ = getDefaultInstance().getDescription();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. User friendly field description. Must be less than or equal to 1024
-       * characters.
+       * Optional. User friendly field description. Must be less than or equal to
+       * 1024 characters.
        * </pre>
        *
        * <code>string description = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1865,12 +1765,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDescriptionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         description_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1897,8 +1795,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1912,8 +1810,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Schema.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.valueOf(type_);
+        com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.forNumber(type_);
         return result == null ? com.google.cloud.dataplex.v1.Schema.Type.UNRECOGNIZED : result;
       }
       /**
@@ -1929,7 +1826,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1943,7 +1840,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         type_ = 0;
         onChanged();
         return this;
@@ -1971,8 +1868,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setModeValue(int value) {
-        
         mode_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1986,8 +1883,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Schema.Mode getMode() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataplex.v1.Schema.Mode result = com.google.cloud.dataplex.v1.Schema.Mode.valueOf(mode_);
+        com.google.cloud.dataplex.v1.Schema.Mode result = com.google.cloud.dataplex.v1.Schema.Mode.forNumber(mode_);
         return result == null ? com.google.cloud.dataplex.v1.Schema.Mode.UNRECOGNIZED : result;
       }
       /**
@@ -2003,7 +1899,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000008;
         mode_ = value.getNumber();
         onChanged();
         return this;
@@ -2017,7 +1913,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         mode_ = 0;
         onChanged();
         return this;
@@ -2026,9 +1922,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.cloud.dataplex.v1.Schema.SchemaField> fields_ =
         java.util.Collections.emptyList();
       private void ensureFieldsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           fields_ = new java.util.ArrayList<com.google.cloud.dataplex.v1.Schema.SchemaField>(fields_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000010;
          }
       }
 
@@ -2222,7 +2118,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearFields() {
         if (fieldsBuilder_ == null) {
           fields_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
           onChanged();
         } else {
           fieldsBuilder_.clear();
@@ -2327,7 +2223,7 @@ private static final long serialVersionUID = 0L;
           fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.dataplex.v1.Schema.SchemaField, com.google.cloud.dataplex.v1.Schema.SchemaField.Builder, com.google.cloud.dataplex.v1.Schema.SchemaFieldOrBuilder>(
                   fields_,
-                  ((bitField0_ & 0x00000001) != 0),
+                  ((bitField0_ & 0x00000010) != 0),
                   getParentForChildren(),
                   isClean());
           fields_ = null;
@@ -2367,7 +2263,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SchemaField(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2393,9 +2300,9 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. Partition field name must consist of letters, numbers, and underscores
-     * only, with a maximum of length of 256 characters,
-     * and must begin with a letter or underscore..
+     * Required. Partition field name must consist of letters, numbers, and
+     * underscores only, with a maximum of length of 256 characters, and must
+     * begin with a letter or underscore..
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2404,9 +2311,9 @@ private static final long serialVersionUID = 0L;
     java.lang.String getName();
     /**
      * <pre>
-     * Required. Partition field name must consist of letters, numbers, and underscores
-     * only, with a maximum of length of 256 characters,
-     * and must begin with a letter or underscore..
+     * Required. Partition field name must consist of letters, numbers, and
+     * underscores only, with a maximum of length of 256 characters, and must
+     * begin with a letter or underscore..
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2470,57 +2377,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PartitionField(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataplex.v1.MetadataProto.internal_static_google_cloud_dataplex_v1_Schema_PartitionField_descriptor;
@@ -2535,12 +2391,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
-     * Required. Partition field name must consist of letters, numbers, and underscores
-     * only, with a maximum of length of 256 characters,
-     * and must begin with a letter or underscore..
+     * Required. Partition field name must consist of letters, numbers, and
+     * underscores only, with a maximum of length of 256 characters, and must
+     * begin with a letter or underscore..
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2561,9 +2418,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Partition field name must consist of letters, numbers, and underscores
-     * only, with a maximum of length of 256 characters,
-     * and must begin with a letter or underscore..
+     * Required. Partition field name must consist of letters, numbers, and
+     * underscores only, with a maximum of length of 256 characters, and must
+     * begin with a letter or underscore..
      * </pre>
      *
      * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2585,7 +2442,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 2;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Required. Immutable. The type of field.
@@ -2606,8 +2463,7 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.dataplex.v1.Schema.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.valueOf(type_);
+      com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.forNumber(type_);
       return result == null ? com.google.cloud.dataplex.v1.Schema.Type.UNRECOGNIZED : result;
     }
 
@@ -2631,7 +2487,7 @@ private static final long serialVersionUID = 0L;
       if (type_ != com.google.cloud.dataplex.v1.Schema.Type.TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(2, type_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2647,7 +2503,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2665,7 +2521,7 @@ private static final long serialVersionUID = 0L;
       if (!getName()
           .equals(other.getName())) return false;
       if (type_ != other.type_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2680,7 +2536,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getName().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2804,26 +2660,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.Schema.PartitionField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
         type_ = 0;
-
         return this;
       }
 
@@ -2850,10 +2700,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Schema.PartitionField buildPartial() {
         com.google.cloud.dataplex.v1.Schema.PartitionField result = new com.google.cloud.dataplex.v1.Schema.PartitionField(this);
-        result.name_ = name_;
-        result.type_ = type_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.Schema.PartitionField result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.type_ = type_;
+        }
       }
 
       @java.lang.Override
@@ -2902,12 +2761,13 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.dataplex.v1.Schema.PartitionField.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2922,26 +2782,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.Schema.PartitionField parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 16: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.Schema.PartitionField) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
        * <pre>
-       * Required. Partition field name must consist of letters, numbers, and underscores
-       * only, with a maximum of length of 256 characters,
-       * and must begin with a letter or underscore..
+       * Required. Partition field name must consist of letters, numbers, and
+       * underscores only, with a maximum of length of 256 characters, and must
+       * begin with a letter or underscore..
        * </pre>
        *
        * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2961,9 +2845,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Partition field name must consist of letters, numbers, and underscores
-       * only, with a maximum of length of 256 characters,
-       * and must begin with a letter or underscore..
+       * Required. Partition field name must consist of letters, numbers, and
+       * underscores only, with a maximum of length of 256 characters, and must
+       * begin with a letter or underscore..
        * </pre>
        *
        * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2984,9 +2868,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Partition field name must consist of letters, numbers, and underscores
-       * only, with a maximum of length of 256 characters,
-       * and must begin with a letter or underscore..
+       * Required. Partition field name must consist of letters, numbers, and
+       * underscores only, with a maximum of length of 256 characters, and must
+       * begin with a letter or underscore..
        * </pre>
        *
        * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2995,35 +2879,33 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Partition field name must consist of letters, numbers, and underscores
-       * only, with a maximum of length of 256 characters,
-       * and must begin with a letter or underscore..
+       * Required. Partition field name must consist of letters, numbers, and
+       * underscores only, with a maximum of length of 256 characters, and must
+       * begin with a letter or underscore..
        * </pre>
        *
        * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Partition field name must consist of letters, numbers, and underscores
-       * only, with a maximum of length of 256 characters,
-       * and must begin with a letter or underscore..
+       * Required. Partition field name must consist of letters, numbers, and
+       * underscores only, with a maximum of length of 256 characters, and must
+       * begin with a letter or underscore..
        * </pre>
        *
        * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -3032,12 +2914,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3064,8 +2944,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3079,8 +2959,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Schema.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.valueOf(type_);
+        com.google.cloud.dataplex.v1.Schema.Type result = com.google.cloud.dataplex.v1.Schema.Type.forNumber(type_);
         return result == null ? com.google.cloud.dataplex.v1.Schema.Type.UNRECOGNIZED : result;
       }
       /**
@@ -3096,7 +2975,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -3110,7 +2989,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         type_ = 0;
         onChanged();
         return this;
@@ -3148,7 +3027,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PartitionField(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3169,11 +3059,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_MANAGED_FIELD_NUMBER = 1;
-  private boolean userManaged_;
+  private boolean userManaged_ = false;
   /**
    * <pre>
-   * Required. Set to `true` if user-managed or `false` if managed by Dataplex. The
-   * default is `false` (managed by Dataplex).
+   * Required. Set to `true` if user-managed or `false` if managed by Dataplex.
+   * The default is `false` (managed by Dataplex).
    * - Set to `false`to enable Dataplex discovery to update the schema.
    *   including new data discovery, schema inference, and schema evolution.
    *   Users retain the ability to input and edit the schema. Dataplex
@@ -3194,6 +3084,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FIELDS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataplex.v1.Schema.SchemaField> fields_;
   /**
    * <pre>
@@ -3259,11 +3150,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTITION_FIELDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.dataplex.v1.Schema.PartitionField> partitionFields_;
   /**
    * <pre>
-   * Optional. The sequence of fields describing the partition structure in entities.
-   * If this field is empty, there are no partitions within the data.
+   * Optional. The sequence of fields describing the partition structure in
+   * entities. If this field is empty, there are no partitions within the data.
    * </pre>
    *
    * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3274,8 +3166,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The sequence of fields describing the partition structure in entities.
-   * If this field is empty, there are no partitions within the data.
+   * Optional. The sequence of fields describing the partition structure in
+   * entities. If this field is empty, there are no partitions within the data.
    * </pre>
    *
    * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3287,8 +3179,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The sequence of fields describing the partition structure in entities.
-   * If this field is empty, there are no partitions within the data.
+   * Optional. The sequence of fields describing the partition structure in
+   * entities. If this field is empty, there are no partitions within the data.
    * </pre>
    *
    * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3299,8 +3191,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The sequence of fields describing the partition structure in entities.
-   * If this field is empty, there are no partitions within the data.
+   * Optional. The sequence of fields describing the partition structure in
+   * entities. If this field is empty, there are no partitions within the data.
    * </pre>
    *
    * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3311,8 +3203,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The sequence of fields describing the partition structure in entities.
-   * If this field is empty, there are no partitions within the data.
+   * Optional. The sequence of fields describing the partition structure in
+   * entities. If this field is empty, there are no partitions within the data.
    * </pre>
    *
    * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3324,10 +3216,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTITION_STYLE_FIELD_NUMBER = 4;
-  private int partitionStyle_;
+  private int partitionStyle_ = 0;
   /**
    * <pre>
-   * Optional. The structure of paths containing partition data within the entity.
+   * Optional. The structure of paths containing partition data within the
+   * entity.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3338,15 +3231,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The structure of paths containing partition data within the entity.
+   * Optional. The structure of paths containing partition data within the
+   * entity.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The partitionStyle.
    */
   @java.lang.Override public com.google.cloud.dataplex.v1.Schema.PartitionStyle getPartitionStyle() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataplex.v1.Schema.PartitionStyle result = com.google.cloud.dataplex.v1.Schema.PartitionStyle.valueOf(partitionStyle_);
+    com.google.cloud.dataplex.v1.Schema.PartitionStyle result = com.google.cloud.dataplex.v1.Schema.PartitionStyle.forNumber(partitionStyle_);
     return result == null ? com.google.cloud.dataplex.v1.Schema.PartitionStyle.UNRECOGNIZED : result;
   }
 
@@ -3376,7 +3269,7 @@ private static final long serialVersionUID = 0L;
     if (partitionStyle_ != com.google.cloud.dataplex.v1.Schema.PartitionStyle.PARTITION_STYLE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, partitionStyle_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3401,7 +3294,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, partitionStyle_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3423,7 +3316,7 @@ private static final long serialVersionUID = 0L;
     if (!getPartitionFieldsList()
         .equals(other.getPartitionFieldsList())) return false;
     if (partitionStyle_ != other.partitionStyle_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3447,7 +3340,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PARTITION_STYLE_FIELD_NUMBER;
     hash = (53 * hash) + partitionStyle_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3568,40 +3461,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataplex.v1.Schema.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getFieldsFieldBuilder();
-        getPartitionFieldsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       userManaged_ = false;
-
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        fields_ = null;
         fieldsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (partitionFieldsBuilder_ == null) {
         partitionFields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        partitionFields_ = null;
         partitionFieldsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       partitionStyle_ = 0;
-
       return this;
     }
 
@@ -3628,29 +3515,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataplex.v1.Schema buildPartial() {
       com.google.cloud.dataplex.v1.Schema result = new com.google.cloud.dataplex.v1.Schema(this);
-      int from_bitField0_ = bitField0_;
-      result.userManaged_ = userManaged_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.dataplex.v1.Schema result) {
       if (fieldsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           fields_ = java.util.Collections.unmodifiableList(fields_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.fields_ = fields_;
       } else {
         result.fields_ = fieldsBuilder_.build();
       }
       if (partitionFieldsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           partitionFields_ = java.util.Collections.unmodifiableList(partitionFields_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.partitionFields_ = partitionFields_;
       } else {
         result.partitionFields_ = partitionFieldsBuilder_.build();
       }
-      result.partitionStyle_ = partitionStyle_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataplex.v1.Schema result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.userManaged_ = userManaged_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.partitionStyle_ = partitionStyle_;
+      }
     }
 
     @java.lang.Override
@@ -3704,7 +3603,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fields_.isEmpty()) {
           if (fields_.isEmpty()) {
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureFieldsIsMutable();
             fields_.addAll(other.fields_);
@@ -3717,7 +3616,7 @@ private static final long serialVersionUID = 0L;
             fieldsBuilder_.dispose();
             fieldsBuilder_ = null;
             fields_ = other.fields_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             fieldsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFieldsFieldBuilder() : null;
@@ -3730,7 +3629,7 @@ private static final long serialVersionUID = 0L;
         if (!other.partitionFields_.isEmpty()) {
           if (partitionFields_.isEmpty()) {
             partitionFields_ = other.partitionFields_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensurePartitionFieldsIsMutable();
             partitionFields_.addAll(other.partitionFields_);
@@ -3743,7 +3642,7 @@ private static final long serialVersionUID = 0L;
             partitionFieldsBuilder_.dispose();
             partitionFieldsBuilder_ = null;
             partitionFields_ = other.partitionFields_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             partitionFieldsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPartitionFieldsFieldBuilder() : null;
@@ -3755,7 +3654,7 @@ private static final long serialVersionUID = 0L;
       if (other.partitionStyle_ != 0) {
         setPartitionStyleValue(other.getPartitionStyleValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3770,17 +3669,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataplex.v1.Schema parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              userManaged_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.cloud.dataplex.v1.Schema.SchemaField m =
+                  input.readMessage(
+                      com.google.cloud.dataplex.v1.Schema.SchemaField.parser(),
+                      extensionRegistry);
+              if (fieldsBuilder_ == null) {
+                ensureFieldsIsMutable();
+                fields_.add(m);
+              } else {
+                fieldsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.dataplex.v1.Schema.PartitionField m =
+                  input.readMessage(
+                      com.google.cloud.dataplex.v1.Schema.PartitionField.parser(),
+                      extensionRegistry);
+              if (partitionFieldsBuilder_ == null) {
+                ensurePartitionFieldsIsMutable();
+                partitionFields_.add(m);
+              } else {
+                partitionFieldsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              partitionStyle_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataplex.v1.Schema) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3788,8 +3736,8 @@ private static final long serialVersionUID = 0L;
     private boolean userManaged_ ;
     /**
      * <pre>
-     * Required. Set to `true` if user-managed or `false` if managed by Dataplex. The
-     * default is `false` (managed by Dataplex).
+     * Required. Set to `true` if user-managed or `false` if managed by Dataplex.
+     * The default is `false` (managed by Dataplex).
      * - Set to `false`to enable Dataplex discovery to update the schema.
      *   including new data discovery, schema inference, and schema evolution.
      *   Users retain the ability to input and edit the schema. Dataplex
@@ -3810,8 +3758,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Set to `true` if user-managed or `false` if managed by Dataplex. The
-     * default is `false` (managed by Dataplex).
+     * Required. Set to `true` if user-managed or `false` if managed by Dataplex.
+     * The default is `false` (managed by Dataplex).
      * - Set to `false`to enable Dataplex discovery to update the schema.
      *   including new data discovery, schema inference, and schema evolution.
      *   Users retain the ability to input and edit the schema. Dataplex
@@ -3830,13 +3778,14 @@ private static final long serialVersionUID = 0L;
     public Builder setUserManaged(boolean value) {
       
       userManaged_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Set to `true` if user-managed or `false` if managed by Dataplex. The
-     * default is `false` (managed by Dataplex).
+     * Required. Set to `true` if user-managed or `false` if managed by Dataplex.
+     * The default is `false` (managed by Dataplex).
      * - Set to `false`to enable Dataplex discovery to update the schema.
      *   including new data discovery, schema inference, and schema evolution.
      *   Users retain the ability to input and edit the schema. Dataplex
@@ -3852,7 +3801,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserManaged() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       userManaged_ = false;
       onChanged();
       return this;
@@ -3861,9 +3810,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataplex.v1.Schema.SchemaField> fields_ =
       java.util.Collections.emptyList();
     private void ensureFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         fields_ = new java.util.ArrayList<com.google.cloud.dataplex.v1.Schema.SchemaField>(fields_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -4068,7 +4017,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFields() {
       if (fieldsBuilder_ == null) {
         fields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         fieldsBuilder_.clear();
@@ -4180,7 +4129,7 @@ private static final long serialVersionUID = 0L;
         fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataplex.v1.Schema.SchemaField, com.google.cloud.dataplex.v1.Schema.SchemaField.Builder, com.google.cloud.dataplex.v1.Schema.SchemaFieldOrBuilder>(
                 fields_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         fields_ = null;
@@ -4191,9 +4140,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.dataplex.v1.Schema.PartitionField> partitionFields_ =
       java.util.Collections.emptyList();
     private void ensurePartitionFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         partitionFields_ = new java.util.ArrayList<com.google.cloud.dataplex.v1.Schema.PartitionField>(partitionFields_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -4202,8 +4151,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4217,8 +4166,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4232,8 +4181,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4247,8 +4196,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4269,8 +4218,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4288,8 +4237,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4309,8 +4258,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4331,8 +4280,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4350,8 +4299,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4369,8 +4318,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4389,8 +4338,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4398,7 +4347,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPartitionFields() {
       if (partitionFieldsBuilder_ == null) {
         partitionFields_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         partitionFieldsBuilder_.clear();
@@ -4407,8 +4356,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4425,8 +4374,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4437,8 +4386,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4452,8 +4401,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4468,8 +4417,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4480,8 +4429,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4493,8 +4442,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The sequence of fields describing the partition structure in entities.
-     * If this field is empty, there are no partitions within the data.
+     * Optional. The sequence of fields describing the partition structure in
+     * entities. If this field is empty, there are no partitions within the data.
      * </pre>
      *
      * <code>repeated .google.cloud.dataplex.v1.Schema.PartitionField partition_fields = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4510,7 +4459,7 @@ private static final long serialVersionUID = 0L;
         partitionFieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.dataplex.v1.Schema.PartitionField, com.google.cloud.dataplex.v1.Schema.PartitionField.Builder, com.google.cloud.dataplex.v1.Schema.PartitionFieldOrBuilder>(
                 partitionFields_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         partitionFields_ = null;
@@ -4521,7 +4470,8 @@ private static final long serialVersionUID = 0L;
     private int partitionStyle_ = 0;
     /**
      * <pre>
-     * Optional. The structure of paths containing partition data within the entity.
+     * Optional. The structure of paths containing partition data within the
+     * entity.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4532,7 +4482,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The structure of paths containing partition data within the entity.
+     * Optional. The structure of paths containing partition data within the
+     * entity.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4540,14 +4491,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPartitionStyleValue(int value) {
-      
       partitionStyle_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The structure of paths containing partition data within the entity.
+     * Optional. The structure of paths containing partition data within the
+     * entity.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4555,13 +4507,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.Schema.PartitionStyle getPartitionStyle() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.Schema.PartitionStyle result = com.google.cloud.dataplex.v1.Schema.PartitionStyle.valueOf(partitionStyle_);
+      com.google.cloud.dataplex.v1.Schema.PartitionStyle result = com.google.cloud.dataplex.v1.Schema.PartitionStyle.forNumber(partitionStyle_);
       return result == null ? com.google.cloud.dataplex.v1.Schema.PartitionStyle.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Optional. The structure of paths containing partition data within the entity.
+     * Optional. The structure of paths containing partition data within the
+     * entity.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4572,21 +4524,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       partitionStyle_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The structure of paths containing partition data within the entity.
+     * Optional. The structure of paths containing partition data within the
+     * entity.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Schema.PartitionStyle partition_style = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearPartitionStyle() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       partitionStyle_ = 0;
       onChanged();
       return this;
@@ -4624,7 +4577,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Schema(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

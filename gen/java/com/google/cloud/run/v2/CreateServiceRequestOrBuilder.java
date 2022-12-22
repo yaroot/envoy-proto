@@ -10,7 +10,8 @@ public interface CreateServiceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The location and project in which this service should be created.
-   * Format: projects/{projectnumber}/locations/{location}
+   * Format: projects/{project}/locations/{location}, where {project} can be
+   * project id or number. Only lowercase characters, digits, and hyphens.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +21,8 @@ public interface CreateServiceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The location and project in which this service should be created.
-   * Format: projects/{projectnumber}/locations/{location}
+   * Format: projects/{project}/locations/{location}, where {project} can be
+   * project id or number. Only lowercase characters, digits, and hyphens.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -58,8 +60,9 @@ public interface CreateServiceRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The unique identifier for the Service. The name of the service becomes
-   * {parent}/services/{service_id}.
+   * Required. The unique identifier for the Service. It must begin with letter,
+   * and cannot end with hyphen; must contain fewer than 50 characters.
+   * The name of the service becomes {parent}/services/{service_id}.
    * </pre>
    *
    * <code>string service_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -68,8 +71,9 @@ public interface CreateServiceRequestOrBuilder extends
   java.lang.String getServiceId();
   /**
    * <pre>
-   * Required. The unique identifier for the Service. The name of the service becomes
-   * {parent}/services/{service_id}.
+   * Required. The unique identifier for the Service. It must begin with letter,
+   * and cannot end with hyphen; must contain fewer than 50 characters.
+   * The name of the service becomes {parent}/services/{service_id}.
    * </pre>
    *
    * <code>string service_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>

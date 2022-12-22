@@ -35,129 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProcessDocumentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.documentai.v1beta1.InputConfig.Builder subBuilder = null;
-            if (inputConfig_ != null) {
-              subBuilder = inputConfig_.toBuilder();
-            }
-            inputConfig_ = input.readMessage(com.google.cloud.documentai.v1beta1.InputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputConfig_);
-              inputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.documentai.v1beta1.OutputConfig.Builder subBuilder = null;
-            if (outputConfig_ != null) {
-              subBuilder = outputConfig_.toBuilder();
-            }
-            outputConfig_ = input.readMessage(com.google.cloud.documentai.v1beta1.OutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputConfig_);
-              outputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            documentType_ = s;
-            break;
-          }
-          case 34: {
-            com.google.cloud.documentai.v1beta1.TableExtractionParams.Builder subBuilder = null;
-            if (tableExtractionParams_ != null) {
-              subBuilder = tableExtractionParams_.toBuilder();
-            }
-            tableExtractionParams_ = input.readMessage(com.google.cloud.documentai.v1beta1.TableExtractionParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tableExtractionParams_);
-              tableExtractionParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.cloud.documentai.v1beta1.FormExtractionParams.Builder subBuilder = null;
-            if (formExtractionParams_ != null) {
-              subBuilder = formExtractionParams_.toBuilder();
-            }
-            formExtractionParams_ = input.readMessage(com.google.cloud.documentai.v1beta1.FormExtractionParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(formExtractionParams_);
-              formExtractionParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.cloud.documentai.v1beta1.EntityExtractionParams.Builder subBuilder = null;
-            if (entityExtractionParams_ != null) {
-              subBuilder = entityExtractionParams_.toBuilder();
-            }
-            entityExtractionParams_ = input.readMessage(com.google.cloud.documentai.v1beta1.EntityExtractionParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(entityExtractionParams_);
-              entityExtractionParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.cloud.documentai.v1beta1.OcrParams.Builder subBuilder = null;
-            if (ocrParams_ != null) {
-              subBuilder = ocrParams_.toBuilder();
-            }
-            ocrParams_ = input.readMessage(com.google.cloud.documentai.v1beta1.OcrParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(ocrParams_);
-              ocrParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.documentai.v1beta1.DocumentAiProto.internal_static_google_cloud_documentai_v1beta1_ProcessDocumentRequest_descriptor;
@@ -206,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta1.InputConfigOrBuilder getInputConfigOrBuilder() {
-    return getInputConfig();
+    return inputConfig_ == null ? com.google.cloud.documentai.v1beta1.InputConfig.getDefaultInstance() : inputConfig_;
   }
 
   public static final int OUTPUT_CONFIG_FIELD_NUMBER = 2;
@@ -244,11 +121,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta1.OutputConfigOrBuilder getOutputConfigOrBuilder() {
-    return getOutputConfig();
+    return outputConfig_ == null ? com.google.cloud.documentai.v1beta1.OutputConfig.getDefaultInstance() : outputConfig_;
   }
 
   public static final int DOCUMENT_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object documentType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object documentType_ = "";
   /**
    * <pre>
    * Specifies a known document type for deeper structure detection. Valid
@@ -335,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta1.TableExtractionParamsOrBuilder getTableExtractionParamsOrBuilder() {
-    return getTableExtractionParams();
+    return tableExtractionParams_ == null ? com.google.cloud.documentai.v1beta1.TableExtractionParams.getDefaultInstance() : tableExtractionParams_;
   }
 
   public static final int FORM_EXTRACTION_PARAMS_FIELD_NUMBER = 5;
@@ -376,7 +254,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta1.FormExtractionParamsOrBuilder getFormExtractionParamsOrBuilder() {
-    return getFormExtractionParams();
+    return formExtractionParams_ == null ? com.google.cloud.documentai.v1beta1.FormExtractionParams.getDefaultInstance() : formExtractionParams_;
   }
 
   public static final int ENTITY_EXTRACTION_PARAMS_FIELD_NUMBER = 6;
@@ -417,7 +295,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta1.EntityExtractionParamsOrBuilder getEntityExtractionParamsOrBuilder() {
-    return getEntityExtractionParams();
+    return entityExtractionParams_ == null ? com.google.cloud.documentai.v1beta1.EntityExtractionParams.getDefaultInstance() : entityExtractionParams_;
   }
 
   public static final int OCR_PARAMS_FIELD_NUMBER = 7;
@@ -458,7 +336,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.documentai.v1beta1.OcrParamsOrBuilder getOcrParamsOrBuilder() {
-    return getOcrParams();
+    return ocrParams_ == null ? com.google.cloud.documentai.v1beta1.OcrParams.getDefaultInstance() : ocrParams_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -496,7 +374,7 @@ private static final long serialVersionUID = 0L;
     if (ocrParams_ != null) {
       output.writeMessage(7, getOcrParams());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -532,7 +410,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getOcrParams());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -579,7 +457,7 @@ private static final long serialVersionUID = 0L;
       if (!getOcrParams()
           .equals(other.getOcrParams())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -616,7 +494,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OCR_PARAMS_FIELD_NUMBER;
       hash = (53 * hash) + getOcrParams().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -737,58 +615,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.documentai.v1beta1.ProcessDocumentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-      } else {
-        inputConfig_ = null;
+      bitField0_ = 0;
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-      } else {
-        outputConfig_ = null;
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
       documentType_ = "";
-
-      if (tableExtractionParamsBuilder_ == null) {
-        tableExtractionParams_ = null;
-      } else {
-        tableExtractionParams_ = null;
+      tableExtractionParams_ = null;
+      if (tableExtractionParamsBuilder_ != null) {
+        tableExtractionParamsBuilder_.dispose();
         tableExtractionParamsBuilder_ = null;
       }
-      if (formExtractionParamsBuilder_ == null) {
-        formExtractionParams_ = null;
-      } else {
-        formExtractionParams_ = null;
+      formExtractionParams_ = null;
+      if (formExtractionParamsBuilder_ != null) {
+        formExtractionParamsBuilder_.dispose();
         formExtractionParamsBuilder_ = null;
       }
-      if (entityExtractionParamsBuilder_ == null) {
-        entityExtractionParams_ = null;
-      } else {
-        entityExtractionParams_ = null;
+      entityExtractionParams_ = null;
+      if (entityExtractionParamsBuilder_ != null) {
+        entityExtractionParamsBuilder_.dispose();
         entityExtractionParamsBuilder_ = null;
       }
-      if (ocrParamsBuilder_ == null) {
-        ocrParams_ = null;
-      } else {
-        ocrParams_ = null;
+      ocrParams_ = null;
+      if (ocrParamsBuilder_ != null) {
+        ocrParamsBuilder_.dispose();
         ocrParamsBuilder_ = null;
       }
       return this;
@@ -817,39 +684,46 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.documentai.v1beta1.ProcessDocumentRequest buildPartial() {
       com.google.cloud.documentai.v1beta1.ProcessDocumentRequest result = new com.google.cloud.documentai.v1beta1.ProcessDocumentRequest(this);
-      if (inputConfigBuilder_ == null) {
-        result.inputConfig_ = inputConfig_;
-      } else {
-        result.inputConfig_ = inputConfigBuilder_.build();
-      }
-      if (outputConfigBuilder_ == null) {
-        result.outputConfig_ = outputConfig_;
-      } else {
-        result.outputConfig_ = outputConfigBuilder_.build();
-      }
-      result.documentType_ = documentType_;
-      if (tableExtractionParamsBuilder_ == null) {
-        result.tableExtractionParams_ = tableExtractionParams_;
-      } else {
-        result.tableExtractionParams_ = tableExtractionParamsBuilder_.build();
-      }
-      if (formExtractionParamsBuilder_ == null) {
-        result.formExtractionParams_ = formExtractionParams_;
-      } else {
-        result.formExtractionParams_ = formExtractionParamsBuilder_.build();
-      }
-      if (entityExtractionParamsBuilder_ == null) {
-        result.entityExtractionParams_ = entityExtractionParams_;
-      } else {
-        result.entityExtractionParams_ = entityExtractionParamsBuilder_.build();
-      }
-      if (ocrParamsBuilder_ == null) {
-        result.ocrParams_ = ocrParams_;
-      } else {
-        result.ocrParams_ = ocrParamsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.documentai.v1beta1.ProcessDocumentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inputConfig_ = inputConfigBuilder_ == null
+            ? inputConfig_
+            : inputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.outputConfig_ = outputConfigBuilder_ == null
+            ? outputConfig_
+            : outputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.documentType_ = documentType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.tableExtractionParams_ = tableExtractionParamsBuilder_ == null
+            ? tableExtractionParams_
+            : tableExtractionParamsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.formExtractionParams_ = formExtractionParamsBuilder_ == null
+            ? formExtractionParams_
+            : formExtractionParamsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.entityExtractionParams_ = entityExtractionParamsBuilder_ == null
+            ? entityExtractionParams_
+            : entityExtractionParamsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.ocrParams_ = ocrParamsBuilder_ == null
+            ? ocrParams_
+            : ocrParamsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -904,6 +778,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDocumentType().isEmpty()) {
         documentType_ = other.documentType_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasTableExtractionParams()) {
@@ -918,7 +793,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOcrParams()) {
         mergeOcrParams(other.getOcrParams());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -933,19 +808,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.documentai.v1beta1.ProcessDocumentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              documentType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTableExtractionParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getFormExtractionParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getEntityExtractionParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getOcrParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.documentai.v1beta1.ProcessDocumentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.documentai.v1beta1.InputConfig inputConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -959,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputConfig field is set.
      */
     public boolean hasInputConfig() {
-      return inputConfigBuilder_ != null || inputConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -989,11 +925,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputConfig_ = value;
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1007,11 +943,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta1.InputConfig.Builder builderForValue) {
       if (inputConfigBuilder_ == null) {
         inputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1023,17 +959,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputConfig(com.google.cloud.documentai.v1beta1.InputConfig value) {
       if (inputConfigBuilder_ == null) {
-        if (inputConfig_ != null) {
-          inputConfig_ =
-            com.google.cloud.documentai.v1beta1.InputConfig.newBuilder(inputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          inputConfig_ != null &&
+          inputConfig_ != com.google.cloud.documentai.v1beta1.InputConfig.getDefaultInstance()) {
+          getInputConfigBuilder().mergeFrom(value);
         } else {
           inputConfig_ = value;
         }
-        onChanged();
       } else {
         inputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1044,14 +981,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.InputConfig input_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInputConfig() {
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-        onChanged();
-      } else {
-        inputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1062,7 +998,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.InputConfig input_config = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.documentai.v1beta1.InputConfig.Builder getInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getInputConfigFieldBuilder().getBuilder();
     }
@@ -1114,7 +1050,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputConfig field is set.
      */
     public boolean hasOutputConfig() {
-      return outputConfigBuilder_ != null || outputConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1144,11 +1080,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputConfig_ = value;
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1162,11 +1098,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta1.OutputConfig.Builder builderForValue) {
       if (outputConfigBuilder_ == null) {
         outputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1178,17 +1114,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputConfig(com.google.cloud.documentai.v1beta1.OutputConfig value) {
       if (outputConfigBuilder_ == null) {
-        if (outputConfig_ != null) {
-          outputConfig_ =
-            com.google.cloud.documentai.v1beta1.OutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          outputConfig_ != null &&
+          outputConfig_ != com.google.cloud.documentai.v1beta1.OutputConfig.getDefaultInstance()) {
+          getOutputConfigBuilder().mergeFrom(value);
         } else {
           outputConfig_ = value;
         }
-        onChanged();
       } else {
         outputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1199,14 +1136,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.OutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearOutputConfig() {
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-        onChanged();
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1217,7 +1153,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.OutputConfig output_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.documentai.v1beta1.OutputConfig.Builder getOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOutputConfigFieldBuilder().getBuilder();
     }
@@ -1316,11 +1252,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDocumentType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       documentType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1335,8 +1269,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDocumentType() {
-      
       documentType_ = getDefaultInstance().getDocumentType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1353,12 +1287,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDocumentTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       documentType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1376,7 +1308,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tableExtractionParams field is set.
      */
     public boolean hasTableExtractionParams() {
-      return tableExtractionParamsBuilder_ != null || tableExtractionParams_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1408,11 +1340,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tableExtractionParams_ = value;
-        onChanged();
       } else {
         tableExtractionParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1427,11 +1359,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta1.TableExtractionParams.Builder builderForValue) {
       if (tableExtractionParamsBuilder_ == null) {
         tableExtractionParams_ = builderForValue.build();
-        onChanged();
       } else {
         tableExtractionParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1444,17 +1376,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTableExtractionParams(com.google.cloud.documentai.v1beta1.TableExtractionParams value) {
       if (tableExtractionParamsBuilder_ == null) {
-        if (tableExtractionParams_ != null) {
-          tableExtractionParams_ =
-            com.google.cloud.documentai.v1beta1.TableExtractionParams.newBuilder(tableExtractionParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          tableExtractionParams_ != null &&
+          tableExtractionParams_ != com.google.cloud.documentai.v1beta1.TableExtractionParams.getDefaultInstance()) {
+          getTableExtractionParamsBuilder().mergeFrom(value);
         } else {
           tableExtractionParams_ = value;
         }
-        onChanged();
       } else {
         tableExtractionParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1466,14 +1399,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.TableExtractionParams table_extraction_params = 4;</code>
      */
     public Builder clearTableExtractionParams() {
-      if (tableExtractionParamsBuilder_ == null) {
-        tableExtractionParams_ = null;
-        onChanged();
-      } else {
-        tableExtractionParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      tableExtractionParams_ = null;
+      if (tableExtractionParamsBuilder_ != null) {
+        tableExtractionParamsBuilder_.dispose();
         tableExtractionParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1485,7 +1417,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.TableExtractionParams table_extraction_params = 4;</code>
      */
     public com.google.cloud.documentai.v1beta1.TableExtractionParams.Builder getTableExtractionParamsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTableExtractionParamsFieldBuilder().getBuilder();
     }
@@ -1540,7 +1472,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the formExtractionParams field is set.
      */
     public boolean hasFormExtractionParams() {
-      return formExtractionParamsBuilder_ != null || formExtractionParams_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1572,11 +1504,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         formExtractionParams_ = value;
-        onChanged();
       } else {
         formExtractionParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1591,11 +1523,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta1.FormExtractionParams.Builder builderForValue) {
       if (formExtractionParamsBuilder_ == null) {
         formExtractionParams_ = builderForValue.build();
-        onChanged();
       } else {
         formExtractionParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1608,17 +1540,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFormExtractionParams(com.google.cloud.documentai.v1beta1.FormExtractionParams value) {
       if (formExtractionParamsBuilder_ == null) {
-        if (formExtractionParams_ != null) {
-          formExtractionParams_ =
-            com.google.cloud.documentai.v1beta1.FormExtractionParams.newBuilder(formExtractionParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          formExtractionParams_ != null &&
+          formExtractionParams_ != com.google.cloud.documentai.v1beta1.FormExtractionParams.getDefaultInstance()) {
+          getFormExtractionParamsBuilder().mergeFrom(value);
         } else {
           formExtractionParams_ = value;
         }
-        onChanged();
       } else {
         formExtractionParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1630,14 +1563,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.FormExtractionParams form_extraction_params = 5;</code>
      */
     public Builder clearFormExtractionParams() {
-      if (formExtractionParamsBuilder_ == null) {
-        formExtractionParams_ = null;
-        onChanged();
-      } else {
-        formExtractionParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      formExtractionParams_ = null;
+      if (formExtractionParamsBuilder_ != null) {
+        formExtractionParamsBuilder_.dispose();
         formExtractionParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1649,7 +1581,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.FormExtractionParams form_extraction_params = 5;</code>
      */
     public com.google.cloud.documentai.v1beta1.FormExtractionParams.Builder getFormExtractionParamsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getFormExtractionParamsFieldBuilder().getBuilder();
     }
@@ -1704,7 +1636,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the entityExtractionParams field is set.
      */
     public boolean hasEntityExtractionParams() {
-      return entityExtractionParamsBuilder_ != null || entityExtractionParams_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1736,11 +1668,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         entityExtractionParams_ = value;
-        onChanged();
       } else {
         entityExtractionParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1755,11 +1687,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta1.EntityExtractionParams.Builder builderForValue) {
       if (entityExtractionParamsBuilder_ == null) {
         entityExtractionParams_ = builderForValue.build();
-        onChanged();
       } else {
         entityExtractionParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1772,17 +1704,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEntityExtractionParams(com.google.cloud.documentai.v1beta1.EntityExtractionParams value) {
       if (entityExtractionParamsBuilder_ == null) {
-        if (entityExtractionParams_ != null) {
-          entityExtractionParams_ =
-            com.google.cloud.documentai.v1beta1.EntityExtractionParams.newBuilder(entityExtractionParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          entityExtractionParams_ != null &&
+          entityExtractionParams_ != com.google.cloud.documentai.v1beta1.EntityExtractionParams.getDefaultInstance()) {
+          getEntityExtractionParamsBuilder().mergeFrom(value);
         } else {
           entityExtractionParams_ = value;
         }
-        onChanged();
       } else {
         entityExtractionParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1794,14 +1727,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.EntityExtractionParams entity_extraction_params = 6;</code>
      */
     public Builder clearEntityExtractionParams() {
-      if (entityExtractionParamsBuilder_ == null) {
-        entityExtractionParams_ = null;
-        onChanged();
-      } else {
-        entityExtractionParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      entityExtractionParams_ = null;
+      if (entityExtractionParamsBuilder_ != null) {
+        entityExtractionParamsBuilder_.dispose();
         entityExtractionParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1813,7 +1745,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.EntityExtractionParams entity_extraction_params = 6;</code>
      */
     public com.google.cloud.documentai.v1beta1.EntityExtractionParams.Builder getEntityExtractionParamsBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getEntityExtractionParamsFieldBuilder().getBuilder();
     }
@@ -1868,7 +1800,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the ocrParams field is set.
      */
     public boolean hasOcrParams() {
-      return ocrParamsBuilder_ != null || ocrParams_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1900,11 +1832,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         ocrParams_ = value;
-        onChanged();
       } else {
         ocrParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1919,11 +1851,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.documentai.v1beta1.OcrParams.Builder builderForValue) {
       if (ocrParamsBuilder_ == null) {
         ocrParams_ = builderForValue.build();
-        onChanged();
       } else {
         ocrParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1936,17 +1868,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOcrParams(com.google.cloud.documentai.v1beta1.OcrParams value) {
       if (ocrParamsBuilder_ == null) {
-        if (ocrParams_ != null) {
-          ocrParams_ =
-            com.google.cloud.documentai.v1beta1.OcrParams.newBuilder(ocrParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          ocrParams_ != null &&
+          ocrParams_ != com.google.cloud.documentai.v1beta1.OcrParams.getDefaultInstance()) {
+          getOcrParamsBuilder().mergeFrom(value);
         } else {
           ocrParams_ = value;
         }
-        onChanged();
       } else {
         ocrParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1958,14 +1891,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.OcrParams ocr_params = 7;</code>
      */
     public Builder clearOcrParams() {
-      if (ocrParamsBuilder_ == null) {
-        ocrParams_ = null;
-        onChanged();
-      } else {
-        ocrParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      ocrParams_ = null;
+      if (ocrParamsBuilder_ != null) {
+        ocrParamsBuilder_.dispose();
         ocrParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1977,7 +1909,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.documentai.v1beta1.OcrParams ocr_params = 7;</code>
      */
     public com.google.cloud.documentai.v1beta1.OcrParams.Builder getOcrParamsBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getOcrParamsFieldBuilder().getBuilder();
     }
@@ -2051,7 +1983,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProcessDocumentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

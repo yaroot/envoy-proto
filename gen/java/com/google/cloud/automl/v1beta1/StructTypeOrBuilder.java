@@ -54,7 +54,6 @@ public interface StructTypeOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.DataType&gt; fields = 1;</code>
    */
-
   /* nullable */
 com.google.cloud.automl.v1beta1.DataType getFieldsOrDefault(
       java.lang.String key,
@@ -69,7 +68,6 @@ com.google.cloud.automl.v1beta1.DataType defaultValue);
    *
    * <code>map&lt;string, .google.cloud.automl.v1beta1.DataType&gt; fields = 1;</code>
    */
-
   com.google.cloud.automl.v1beta1.DataType getFieldsOrThrow(
       java.lang.String key);
 }

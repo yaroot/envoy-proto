@@ -67,11 +67,13 @@ public final class RatelimitProto {
       "B\005\222\001\002\010\001\022:\n\014token_bucket\030\002 \001(\0132\032.envoy.ty" +
       "pe.v3.TokenBucketB\010\372B\005\212\001\002\020\001*<\n\033XRateLimi" +
       "tHeadersRFCVersion\022\007\n\003OFF\020\000\022\024\n\020DRAFT_VER" +
-      "SION_03\020\001B\247\001\n2io.envoyproxy.envoy.extens" +
-      "ions.common.ratelimit.v3B\016RatelimitProto" +
-      "P\001ZWgithub.com/envoyproxy/go-control-pla" +
-      "ne/envoy/extensions/common/ratelimit/v3;" +
-      "ratelimitv3\272\200\310\321\006\002\020\002b\006proto3"
+      "SION_03\020\001*<\n\023VhRateLimitsOptions\022\014\n\010OVER" +
+      "RIDE\020\000\022\013\n\007INCLUDE\020\001\022\n\n\006IGNORE\020\002B\247\001\n2io.e" +
+      "nvoyproxy.envoy.extensions.common.rateli" +
+      "mit.v3B\016RatelimitProtoP\001ZWgithub.com/env" +
+      "oyproxy/go-control-plane/envoy/extension" +
+      "s/common/ratelimit/v3;ratelimitv3\272\200\310\321\006\002\020" +
+      "\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

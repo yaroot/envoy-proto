@@ -252,196 +252,6 @@ public final class UnittestPreserveUnknownEnum2 {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private MyMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-              proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(1, rawValue);
-              } else {
-                bitField0_ |= 0x00000001;
-                e_ = rawValue;
-              }
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(2, rawValue);
-              } else {
-                if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                  repeatedE_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000002;
-                }
-                repeatedE_.add(rawValue);
-              }
-              break;
-            }
-            case 18: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(2, rawValue);
-                } else {
-                  if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                    repeatedE_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField0_ |= 0x00000002;
-                  }
-                  repeatedE_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(3, rawValue);
-              } else {
-                if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                  repeatedPackedE_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000004;
-                }
-                repeatedPackedE_.add(rawValue);
-              }
-              break;
-            }
-            case 26: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(3, rawValue);
-                } else {
-                  if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                    repeatedPackedE_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField0_ |= 0x00000004;
-                  }
-                  repeatedPackedE_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(4, rawValue);
-              } else {
-                if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                  repeatedPackedUnexpectedE_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000008;
-                }
-                repeatedPackedUnexpectedE_.add(rawValue);
-              }
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                @SuppressWarnings("deprecation")
-                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-                if (value == null) {
-                  unknownFields.mergeVarintField(4, rawValue);
-                } else {
-                  if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                    repeatedPackedUnexpectedE_ = new java.util.ArrayList<java.lang.Integer>();
-                    mutable_bitField0_ |= 0x00000008;
-                  }
-                  repeatedPackedUnexpectedE_.add(rawValue);
-                }
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 40: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(5, rawValue);
-              } else {
-                oCase_ = 5;
-                o_ = rawValue;
-              }
-              break;
-            }
-            case 48: {
-              int rawValue = input.readEnum();
-              @SuppressWarnings("deprecation")
-              proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(rawValue);
-              if (value == null) {
-                unknownFields.mergeVarintField(6, rawValue);
-              } else {
-                oCase_ = 6;
-                o_ = rawValue;
-              }
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          repeatedE_ = java.util.Collections.unmodifiableList(repeatedE_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          repeatedPackedE_ = java.util.Collections.unmodifiableList(repeatedPackedE_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          repeatedPackedUnexpectedE_ = java.util.Collections.unmodifiableList(repeatedPackedUnexpectedE_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.internal_static_proto2_preserve_unknown_enum_unittest_MyMessage_descriptor;
@@ -498,7 +308,7 @@ public final class UnittestPreserveUnknownEnum2 {
     }
 
     public static final int E_FIELD_NUMBER = 1;
-    private int e_;
+    private int e_ = 0;
     /**
      * <code>optional .proto2_preserve_unknown_enum_unittest.MyEnum e = 1;</code>
      * @return Whether the e field is set.
@@ -511,20 +321,19 @@ public final class UnittestPreserveUnknownEnum2 {
      * @return The e.
      */
     @java.lang.Override public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum getE() {
-      @SuppressWarnings("deprecation")
-      proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(e_);
+      proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(e_);
       return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
     }
 
     public static final int REPEATED_E_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> repeatedE_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum> repeatedE_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum>() {
               public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(from);
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(from);
                 return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
               }
             };
@@ -556,14 +365,14 @@ public final class UnittestPreserveUnknownEnum2 {
     }
 
     public static final int REPEATED_PACKED_E_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> repeatedPackedE_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum> repeatedPackedE_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum>() {
               public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(from);
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(from);
                 return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
               }
             };
@@ -596,14 +405,14 @@ public final class UnittestPreserveUnknownEnum2 {
     private int repeatedPackedEMemoizedSerializedSize;
 
     public static final int REPEATED_PACKED_UNEXPECTED_E_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> repeatedPackedUnexpectedE_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum> repeatedPackedUnexpectedE_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum>() {
               public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(from);
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(from);
                 return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
               }
             };
@@ -660,8 +469,7 @@ public final class UnittestPreserveUnknownEnum2 {
      */
     public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum getOneofE1() {
       if (oCase_ == 5) {
-        @SuppressWarnings("deprecation")
-        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(
+        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(
             (java.lang.Integer) o_);
         return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
       }
@@ -682,8 +490,7 @@ public final class UnittestPreserveUnknownEnum2 {
      */
     public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum getOneofE2() {
       if (oCase_ == 6) {
-        @SuppressWarnings("deprecation")
-        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(
+        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(
             (java.lang.Integer) o_);
         return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
       }
@@ -727,7 +534,7 @@ public final class UnittestPreserveUnknownEnum2 {
       if (oCase_ == 6) {
         output.writeEnum(6, ((java.lang.Integer) o_));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -778,7 +585,7 @@ public final class UnittestPreserveUnknownEnum2 {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(6, ((java.lang.Integer) o_));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -813,7 +620,7 @@ public final class UnittestPreserveUnknownEnum2 {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -852,7 +659,7 @@ public final class UnittestPreserveUnknownEnum2 {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -969,24 +776,19 @@ public final class UnittestPreserveUnknownEnum2 {
 
       // Construct using proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         e_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         repeatedE_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000002);
         repeatedPackedE_ = java.util.Collections.emptyList();
@@ -1021,12 +823,14 @@ public final class UnittestPreserveUnknownEnum2 {
       @java.lang.Override
       public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage buildPartial() {
         proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage result = new proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
-        if (((from_bitField0_ & 0x00000001) != 0)) {
-          to_bitField0_ |= 0x00000001;
-        }
-        result.e_ = e_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage result) {
         if (((bitField0_ & 0x00000002) != 0)) {
           repeatedE_ = java.util.Collections.unmodifiableList(repeatedE_);
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -1042,16 +846,21 @@ public final class UnittestPreserveUnknownEnum2 {
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.repeatedPackedUnexpectedE_ = repeatedPackedUnexpectedE_;
-        if (oCase_ == 5) {
-          result.o_ = o_;
+      }
+
+      private void buildPartial0(proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.e_ = e_;
+          to_bitField0_ |= 0x00000001;
         }
-        if (oCase_ == 6) {
-          result.o_ = o_;
-        }
-        result.bitField0_ = to_bitField0_;
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private void buildPartialOneofs(proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage result) {
         result.oCase_ = oCase_;
-        onBuilt();
-        return result;
+        result.o_ = this.o_;
       }
 
       @java.lang.Override
@@ -1144,7 +953,7 @@ public final class UnittestPreserveUnknownEnum2 {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1159,17 +968,153 @@ public final class UnittestPreserveUnknownEnum2 {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                    proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(1, tmpRaw);
+                } else {
+                  e_ = tmpRaw;
+                  bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 8
+              case 16: {
+                int tmpRaw = input.readEnum();
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                    proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(2, tmpRaw);
+                } else {
+                  ensureRepeatedEIsMutable();
+                  repeatedE_.add(tmpRaw);
+                }
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                      proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(2, tmpRaw);
+                  } else {
+                    ensureRepeatedEIsMutable();
+                    repeatedE_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                    proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(3, tmpRaw);
+                } else {
+                  ensureRepeatedPackedEIsMutable();
+                  repeatedPackedE_.add(tmpRaw);
+                }
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                      proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(3, tmpRaw);
+                  } else {
+                    ensureRepeatedPackedEIsMutable();
+                    repeatedPackedE_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 26
+              case 32: {
+                int tmpRaw = input.readEnum();
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                    proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  mergeUnknownVarintField(4, tmpRaw);
+                } else {
+                  ensureRepeatedPackedUnexpectedEIsMutable();
+                  repeatedPackedUnexpectedE_.add(tmpRaw);
+                }
+                break;
+              } // case 32
+              case 34: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum tmpValue =
+                      proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    mergeUnknownVarintField(4, tmpRaw);
+                  } else {
+                    ensureRepeatedPackedUnexpectedEIsMutable();
+                    repeatedPackedUnexpectedE_.add(tmpRaw);
+                  }
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 34
+              case 40: {
+                int rawValue = input.readEnum();
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value =
+                    proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(rawValue);
+                if (value == null) {
+                  mergeUnknownVarintField(5, rawValue);
+                } else {
+                  oCase_ = 5;
+                  o_ = rawValue;
+                }
+                break;
+              } // case 40
+              case 48: {
+                int rawValue = input.readEnum();
+                proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum value =
+                    proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(rawValue);
+                if (value == null) {
+                  mergeUnknownVarintField(6, rawValue);
+                } else {
+                  oCase_ = 6;
+                  o_ = rawValue;
+                }
+                break;
+              } // case 48
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int oCase_ = 0;
@@ -1203,8 +1148,7 @@ public final class UnittestPreserveUnknownEnum2 {
        */
       @java.lang.Override
       public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum getE() {
-        @SuppressWarnings("deprecation")
-        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(e_);
+        proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(e_);
         return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
       }
       /**
@@ -1533,8 +1477,7 @@ public final class UnittestPreserveUnknownEnum2 {
       @java.lang.Override
       public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum getOneofE1() {
         if (oCase_ == 5) {
-          @SuppressWarnings("deprecation")
-          proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(
+          proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(
               (java.lang.Integer) o_);
           return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
         }
@@ -1582,8 +1525,7 @@ public final class UnittestPreserveUnknownEnum2 {
       @java.lang.Override
       public proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum getOneofE2() {
         if (oCase_ == 6) {
-          @SuppressWarnings("deprecation")
-          proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.valueOf(
+          proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum result = proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.forNumber(
               (java.lang.Integer) o_);
           return result == null ? proto2_preserve_unknown_enum_unittest.UnittestPreserveUnknownEnum2.MyEnum.FOO : result;
         }
@@ -1648,7 +1590,18 @@ public final class UnittestPreserveUnknownEnum2 {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new MyMessage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

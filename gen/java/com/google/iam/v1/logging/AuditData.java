@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AuditData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.iam.v1.PolicyDelta.Builder subBuilder = null;
-            if (policyDelta_ != null) {
-              subBuilder = policyDelta_.toBuilder();
-            }
-            policyDelta_ = input.readMessage(com.google.iam.v1.PolicyDelta.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(policyDelta_);
-              policyDelta_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.iam.v1.logging.AuditDataProto.internal_static_google_iam_v1_logging_AuditData_descriptor;
@@ -136,7 +84,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.iam.v1.PolicyDeltaOrBuilder getPolicyDeltaOrBuilder() {
-    return getPolicyDelta();
+    return policyDelta_ == null ? com.google.iam.v1.PolicyDelta.getDefaultInstance() : policyDelta_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -156,7 +104,7 @@ private static final long serialVersionUID = 0L;
     if (policyDelta_ != null) {
       output.writeMessage(2, getPolicyDelta());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -169,7 +117,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPolicyDelta());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -189,7 +137,7 @@ private static final long serialVersionUID = 0L;
       if (!getPolicyDelta()
           .equals(other.getPolicyDelta())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -204,7 +152,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + POLICY_DELTA_FIELD_NUMBER;
       hash = (53 * hash) + getPolicyDelta().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -327,26 +275,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.iam.v1.logging.AuditData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (policyDeltaBuilder_ == null) {
-        policyDelta_ = null;
-      } else {
-        policyDelta_ = null;
+      bitField0_ = 0;
+      policyDelta_ = null;
+      if (policyDeltaBuilder_ != null) {
+        policyDeltaBuilder_.dispose();
         policyDeltaBuilder_ = null;
       }
       return this;
@@ -375,13 +318,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.v1.logging.AuditData buildPartial() {
       com.google.iam.v1.logging.AuditData result = new com.google.iam.v1.logging.AuditData(this);
-      if (policyDeltaBuilder_ == null) {
-        result.policyDelta_ = policyDelta_;
-      } else {
-        result.policyDelta_ = policyDeltaBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.v1.logging.AuditData result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.policyDelta_ = policyDeltaBuilder_ == null
+            ? policyDelta_
+            : policyDeltaBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -431,7 +379,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPolicyDelta()) {
         mergePolicyDelta(other.getPolicyDelta());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -446,19 +394,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.v1.logging.AuditData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getPolicyDeltaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.v1.logging.AuditData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.iam.v1.PolicyDelta policyDelta_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the policyDelta field is set.
      */
     public boolean hasPolicyDelta() {
-      return policyDeltaBuilder_ != null || policyDelta_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -502,11 +471,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         policyDelta_ = value;
-        onChanged();
       } else {
         policyDeltaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -520,11 +489,11 @@ private static final long serialVersionUID = 0L;
         com.google.iam.v1.PolicyDelta.Builder builderForValue) {
       if (policyDeltaBuilder_ == null) {
         policyDelta_ = builderForValue.build();
-        onChanged();
       } else {
         policyDeltaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -536,17 +505,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePolicyDelta(com.google.iam.v1.PolicyDelta value) {
       if (policyDeltaBuilder_ == null) {
-        if (policyDelta_ != null) {
-          policyDelta_ =
-            com.google.iam.v1.PolicyDelta.newBuilder(policyDelta_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          policyDelta_ != null &&
+          policyDelta_ != com.google.iam.v1.PolicyDelta.getDefaultInstance()) {
+          getPolicyDeltaBuilder().mergeFrom(value);
         } else {
           policyDelta_ = value;
         }
-        onChanged();
       } else {
         policyDeltaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -557,14 +527,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.v1.PolicyDelta policy_delta = 2;</code>
      */
     public Builder clearPolicyDelta() {
-      if (policyDeltaBuilder_ == null) {
-        policyDelta_ = null;
-        onChanged();
-      } else {
-        policyDelta_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      policyDelta_ = null;
+      if (policyDeltaBuilder_ != null) {
+        policyDeltaBuilder_.dispose();
         policyDeltaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -575,7 +544,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.iam.v1.PolicyDelta policy_delta = 2;</code>
      */
     public com.google.iam.v1.PolicyDelta.Builder getPolicyDeltaBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPolicyDeltaFieldBuilder().getBuilder();
     }
@@ -647,7 +616,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AuditData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,82 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateCustomerClientRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customerId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.resources.Customer.Builder subBuilder = null;
-            if (customerClient_ != null) {
-              subBuilder = customerClient_.toBuilder();
-            }
-            customerClient_ = input.readMessage(com.google.ads.googleads.v11.resources.Customer.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(customerClient_);
-              customerClient_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            accessRole_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            emailAddress_ = s;
-            break;
-          }
-          case 48: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.CustomerServiceProto.internal_static_google_ads_googleads_v11_services_CreateCustomerClientRequest_descriptor;
@@ -128,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int CUSTOMER_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object customerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerId_ = "";
   /**
    * <pre>
    * Required. The ID of the Manager under whom client customer is being created.
@@ -211,11 +136,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.resources.CustomerOrBuilder getCustomerClientOrBuilder() {
-    return getCustomerClient();
+    return customerClient_ == null ? com.google.ads.googleads.v11.resources.Customer.getDefaultInstance() : customerClient_;
   }
 
   public static final int EMAIL_ADDRESS_FIELD_NUMBER = 5;
-  private volatile java.lang.Object emailAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object emailAddress_ = "";
   /**
    * <pre>
    * Email address of the user who should be invited on the created client
@@ -276,7 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCESS_ROLE_FIELD_NUMBER = 4;
-  private int accessRole_;
+  private int accessRole_ = 0;
   /**
    * <pre>
    * The proposed role of user on the created client customer.
@@ -299,13 +225,12 @@ private static final long serialVersionUID = 0L;
    * @return The accessRole.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole getAccessRole() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.valueOf(accessRole_);
+    com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.forNumber(accessRole_);
     return result == null ? com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.UNRECOGNIZED : result;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 6;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * If true, the request is validated but not executed. Only errors are
@@ -349,7 +274,7 @@ private static final long serialVersionUID = 0L;
     if (validateOnly_ != false) {
       output.writeBool(6, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -376,7 +301,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -406,7 +331,7 @@ private static final long serialVersionUID = 0L;
     if (accessRole_ != other.accessRole_) return false;
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -432,7 +357,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -553,36 +478,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.CreateCustomerClientRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       customerId_ = "";
-
-      if (customerClientBuilder_ == null) {
-        customerClient_ = null;
-      } else {
-        customerClient_ = null;
+      customerClient_ = null;
+      if (customerClientBuilder_ != null) {
+        customerClientBuilder_.dispose();
         customerClientBuilder_ = null;
       }
       emailAddress_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       accessRole_ = 0;
-
       validateOnly_ = false;
-
       return this;
     }
 
@@ -609,23 +525,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.CreateCustomerClientRequest buildPartial() {
       com.google.ads.googleads.v11.services.CreateCustomerClientRequest result = new com.google.ads.googleads.v11.services.CreateCustomerClientRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.customerId_ = customerId_;
-      if (customerClientBuilder_ == null) {
-        result.customerClient_ = customerClient_;
-      } else {
-        result.customerClient_ = customerClientBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.emailAddress_ = emailAddress_;
-      result.accessRole_ = accessRole_;
-      result.validateOnly_ = validateOnly_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.CreateCustomerClientRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.customerId_ = customerId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.customerClient_ = customerClientBuilder_ == null
+            ? customerClient_
+            : customerClientBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.emailAddress_ = emailAddress_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.accessRole_ = accessRole_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -674,14 +600,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.services.CreateCustomerClientRequest.getDefaultInstance()) return this;
       if (!other.getCustomerId().isEmpty()) {
         customerId_ = other.customerId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasCustomerClient()) {
         mergeCustomerClient(other.getCustomerClient());
       }
       if (other.hasEmailAddress()) {
-        bitField0_ |= 0x00000001;
         emailAddress_ = other.emailAddress_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.accessRole_ != 0) {
@@ -690,7 +617,7 @@ private static final long serialVersionUID = 0L;
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -705,17 +632,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.CreateCustomerClientRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              customerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCustomerClientFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 32: {
+              accessRole_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              emailAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 48: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.CreateCustomerClientRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -773,11 +740,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -790,8 +755,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerId() {
-      
       customerId_ = getDefaultInstance().getCustomerId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -806,12 +771,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -829,7 +792,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customerClient field is set.
      */
     public boolean hasCustomerClient() {
-      return customerClientBuilder_ != null || customerClient_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -861,11 +824,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         customerClient_ = value;
-        onChanged();
       } else {
         customerClientBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -880,11 +843,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.resources.Customer.Builder builderForValue) {
       if (customerClientBuilder_ == null) {
         customerClient_ = builderForValue.build();
-        onChanged();
       } else {
         customerClientBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -897,17 +860,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCustomerClient(com.google.ads.googleads.v11.resources.Customer value) {
       if (customerClientBuilder_ == null) {
-        if (customerClient_ != null) {
-          customerClient_ =
-            com.google.ads.googleads.v11.resources.Customer.newBuilder(customerClient_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          customerClient_ != null &&
+          customerClient_ != com.google.ads.googleads.v11.resources.Customer.getDefaultInstance()) {
+          getCustomerClientBuilder().mergeFrom(value);
         } else {
           customerClient_ = value;
         }
-        onChanged();
       } else {
         customerClientBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -919,14 +883,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.Customer customer_client = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCustomerClient() {
-      if (customerClientBuilder_ == null) {
-        customerClient_ = null;
-        onChanged();
-      } else {
-        customerClient_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      customerClient_ = null;
+      if (customerClientBuilder_ != null) {
+        customerClientBuilder_.dispose();
         customerClientBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -938,7 +901,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.resources.Customer customer_client = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.ads.googleads.v11.resources.Customer.Builder getCustomerClientBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCustomerClientFieldBuilder().getBuilder();
     }
@@ -991,7 +954,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the emailAddress field is set.
      */
     public boolean hasEmailAddress() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1048,11 +1011,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       emailAddress_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1066,8 +1027,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEmailAddress() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       emailAddress_ = getDefaultInstance().getEmailAddress();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1083,12 +1044,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEmailAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       emailAddress_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1117,8 +1076,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAccessRoleValue(int value) {
-      
       accessRole_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1133,8 +1092,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole getAccessRole() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.valueOf(accessRole_);
+      com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole result = com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.forNumber(accessRole_);
       return result == null ? com.google.ads.googleads.v11.enums.AccessRoleEnum.AccessRole.UNRECOGNIZED : result;
     }
     /**
@@ -1151,7 +1109,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       accessRole_ = value.getNumber();
       onChanged();
       return this;
@@ -1166,7 +1124,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAccessRole() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       accessRole_ = 0;
       onChanged();
       return this;
@@ -1199,6 +1157,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1212,7 +1171,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -1250,7 +1209,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateCustomerClientRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

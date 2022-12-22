@@ -54,13 +54,13 @@ public interface CatalogAttributeOrBuilder extends
    * [CatalogService.UpdateAttributesConfig][google.cloud.retail.v2alpha.CatalogService.UpdateAttributesConfig]
    * APIs. This field is `False` for pre-loaded
    * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute]s.
-   * Only pre-loaded
-   * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute]s that are
-   * neither in use by products nor predefined can be deleted.
-   * [CatalogAttribute][google.cloud.retail.v2alpha.CatalogAttribute]s that are
-   * either in use by products or are predefined cannot be deleted; however,
-   * their configuration properties will reset to default values upon removal
-   * request.
+   * Only pre-loaded [catalog
+   * attributes][google.cloud.retail.v2alpha.CatalogAttribute] that are neither
+   * in use by products nor predefined can be deleted. [Catalog
+   * attributes][google.cloud.retail.v2alpha.CatalogAttribute] that are
+   * either in use by products or are predefined attributes cannot be deleted;
+   * however, their configuration properties will reset to default values upon
+   * removal request.
    * After catalog changes, it takes about 10 minutes for this field to update.
    * </pre>
    *
@@ -97,6 +97,7 @@ public interface CatalogAttributeOrBuilder extends
    * is CATALOG_LEVEL_ATTRIBUTE_CONFIG, if INDEXABLE_ENABLED attribute values
    * are indexed so that it can be filtered, faceted, or boosted in
    * [SearchService.Search][google.cloud.retail.v2alpha.SearchService.Search].
+   * Must be specified, otherwise throws INVALID_FORMAT error.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.CatalogAttribute.IndexableOption indexable_option = 5;</code>
@@ -110,6 +111,7 @@ public interface CatalogAttributeOrBuilder extends
    * is CATALOG_LEVEL_ATTRIBUTE_CONFIG, if INDEXABLE_ENABLED attribute values
    * are indexed so that it can be filtered, faceted, or boosted in
    * [SearchService.Search][google.cloud.retail.v2alpha.SearchService.Search].
+   * Must be specified, otherwise throws INVALID_FORMAT error.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.CatalogAttribute.IndexableOption indexable_option = 5;</code>
@@ -123,6 +125,7 @@ public interface CatalogAttributeOrBuilder extends
    * facet. Could only be DYNAMIC_FACETABLE_DISABLED if
    * [CatalogAttribute.indexable_option][google.cloud.retail.v2alpha.CatalogAttribute.indexable_option]
    * is INDEXABLE_DISABLED. Otherwise, an INVALID_ARGUMENT error is returned.
+   * Must be specified, otherwise throws INVALID_FORMAT error.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.CatalogAttribute.DynamicFacetableOption dynamic_facetable_option = 6;</code>
@@ -135,6 +138,7 @@ public interface CatalogAttributeOrBuilder extends
    * facet. Could only be DYNAMIC_FACETABLE_DISABLED if
    * [CatalogAttribute.indexable_option][google.cloud.retail.v2alpha.CatalogAttribute.indexable_option]
    * is INDEXABLE_DISABLED. Otherwise, an INVALID_ARGUMENT error is returned.
+   * Must be specified, otherwise throws INVALID_FORMAT error.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.CatalogAttribute.DynamicFacetableOption dynamic_facetable_option = 6;</code>
@@ -153,6 +157,7 @@ public interface CatalogAttributeOrBuilder extends
    * will not be searchable by text queries in
    * [SearchService.Search][google.cloud.retail.v2alpha.SearchService.Search],
    * as there are no text values associated to numerical attributes.
+   * Must be specified, otherwise throws INVALID_FORMAT error.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.CatalogAttribute.SearchableOption searchable_option = 7;</code>
@@ -170,6 +175,7 @@ public interface CatalogAttributeOrBuilder extends
    * will not be searchable by text queries in
    * [SearchService.Search][google.cloud.retail.v2alpha.SearchService.Search],
    * as there are no text values associated to numerical attributes.
+   * Must be specified, otherwise throws INVALID_FORMAT error.
    * </pre>
    *
    * <code>.google.cloud.retail.v2alpha.CatalogAttribute.SearchableOption searchable_option = 7;</code>
@@ -205,4 +211,48 @@ public interface CatalogAttributeOrBuilder extends
    * @return The recommendationsFilteringOption.
    */
   com.google.cloud.retail.v2alpha.RecommendationsFilteringOption getRecommendationsFilteringOption();
+
+  /**
+   * <pre>
+   * If EXACT_SEARCHABLE_ENABLED, attribute values will be exact searchable.
+   * This property only applies to textual custom attributes and requires
+   * indexable set to enabled to enable exact-searchable.
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.CatalogAttribute.ExactSearchableOption exact_searchable_option = 11;</code>
+   * @return The enum numeric value on the wire for exactSearchableOption.
+   */
+  int getExactSearchableOptionValue();
+  /**
+   * <pre>
+   * If EXACT_SEARCHABLE_ENABLED, attribute values will be exact searchable.
+   * This property only applies to textual custom attributes and requires
+   * indexable set to enabled to enable exact-searchable.
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.CatalogAttribute.ExactSearchableOption exact_searchable_option = 11;</code>
+   * @return The exactSearchableOption.
+   */
+  com.google.cloud.retail.v2alpha.CatalogAttribute.ExactSearchableOption getExactSearchableOption();
+
+  /**
+   * <pre>
+   * If RETRIEVABLE_ENABLED, attribute values are retrievable in the search
+   * results.
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.CatalogAttribute.RetrievableOption retrievable_option = 12;</code>
+   * @return The enum numeric value on the wire for retrievableOption.
+   */
+  int getRetrievableOptionValue();
+  /**
+   * <pre>
+   * If RETRIEVABLE_ENABLED, attribute values are retrievable in the search
+   * results.
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.CatalogAttribute.RetrievableOption retrievable_option = 12;</code>
+   * @return The retrievableOption.
+   */
+  com.google.cloud.retail.v2alpha.CatalogAttribute.RetrievableOption getRetrievableOption();
 }

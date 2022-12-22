@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserSegmentExclusion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            userExclusionDuration_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1alpha.UserSegmentCriteria.Builder subBuilder = null;
-            if (userExclusionCriteria_ != null) {
-              subBuilder = userExclusionCriteria_.toBuilder();
-            }
-            userExclusionCriteria_ = input.readMessage(com.google.analytics.data.v1alpha.UserSegmentCriteria.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userExclusionCriteria_);
-              userExclusionCriteria_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_UserSegmentExclusion_descriptor;
@@ -107,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_EXCLUSION_DURATION_FIELD_NUMBER = 1;
-  private int userExclusionDuration_;
+  private int userExclusionDuration_ = 0;
   /**
    * <pre>
    * Specifies how long an exclusion will last if a user matches the
@@ -134,8 +76,7 @@ private static final long serialVersionUID = 0L;
    * @return The userExclusionDuration.
    */
   @java.lang.Override public com.google.analytics.data.v1alpha.UserExclusionDuration getUserExclusionDuration() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.data.v1alpha.UserExclusionDuration result = com.google.analytics.data.v1alpha.UserExclusionDuration.valueOf(userExclusionDuration_);
+    com.google.analytics.data.v1alpha.UserExclusionDuration result = com.google.analytics.data.v1alpha.UserExclusionDuration.forNumber(userExclusionDuration_);
     return result == null ? com.google.analytics.data.v1alpha.UserExclusionDuration.UNRECOGNIZED : result;
   }
 
@@ -177,7 +118,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.UserSegmentCriteriaOrBuilder getUserExclusionCriteriaOrBuilder() {
-    return getUserExclusionCriteria();
+    return userExclusionCriteria_ == null ? com.google.analytics.data.v1alpha.UserSegmentCriteria.getDefaultInstance() : userExclusionCriteria_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -200,7 +141,7 @@ private static final long serialVersionUID = 0L;
     if (userExclusionCriteria_ != null) {
       output.writeMessage(2, getUserExclusionCriteria());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -217,7 +158,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getUserExclusionCriteria());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -238,7 +179,7 @@ private static final long serialVersionUID = 0L;
       if (!getUserExclusionCriteria()
           .equals(other.getUserExclusionCriteria())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -255,7 +196,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_EXCLUSION_CRITERIA_FIELD_NUMBER;
       hash = (53 * hash) + getUserExclusionCriteria().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -376,28 +317,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.UserSegmentExclusion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       userExclusionDuration_ = 0;
-
-      if (userExclusionCriteriaBuilder_ == null) {
-        userExclusionCriteria_ = null;
-      } else {
-        userExclusionCriteria_ = null;
+      userExclusionCriteria_ = null;
+      if (userExclusionCriteriaBuilder_ != null) {
+        userExclusionCriteriaBuilder_.dispose();
         userExclusionCriteriaBuilder_ = null;
       }
       return this;
@@ -426,14 +361,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.UserSegmentExclusion buildPartial() {
       com.google.analytics.data.v1alpha.UserSegmentExclusion result = new com.google.analytics.data.v1alpha.UserSegmentExclusion(this);
-      result.userExclusionDuration_ = userExclusionDuration_;
-      if (userExclusionCriteriaBuilder_ == null) {
-        result.userExclusionCriteria_ = userExclusionCriteria_;
-      } else {
-        result.userExclusionCriteria_ = userExclusionCriteriaBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.UserSegmentExclusion result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.userExclusionDuration_ = userExclusionDuration_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userExclusionCriteria_ = userExclusionCriteriaBuilder_ == null
+            ? userExclusionCriteria_
+            : userExclusionCriteriaBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -486,7 +428,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUserExclusionCriteria()) {
         mergeUserExclusionCriteria(other.getUserExclusionCriteria());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -501,19 +443,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.UserSegmentExclusion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              userExclusionDuration_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getUserExclusionCriteriaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.UserSegmentExclusion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int userExclusionDuration_ = 0;
     /**
@@ -543,8 +511,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUserExclusionDurationValue(int value) {
-      
       userExclusionDuration_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -561,8 +529,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.data.v1alpha.UserExclusionDuration getUserExclusionDuration() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.data.v1alpha.UserExclusionDuration result = com.google.analytics.data.v1alpha.UserExclusionDuration.valueOf(userExclusionDuration_);
+      com.google.analytics.data.v1alpha.UserExclusionDuration result = com.google.analytics.data.v1alpha.UserExclusionDuration.forNumber(userExclusionDuration_);
       return result == null ? com.google.analytics.data.v1alpha.UserExclusionDuration.UNRECOGNIZED : result;
     }
     /**
@@ -581,7 +548,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       userExclusionDuration_ = value.getNumber();
       onChanged();
       return this;
@@ -598,7 +565,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserExclusionDuration() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       userExclusionDuration_ = 0;
       onChanged();
       return this;
@@ -617,7 +584,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the userExclusionCriteria field is set.
      */
     public boolean hasUserExclusionCriteria() {
-      return userExclusionCriteriaBuilder_ != null || userExclusionCriteria_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -649,11 +616,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         userExclusionCriteria_ = value;
-        onChanged();
       } else {
         userExclusionCriteriaBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -668,11 +635,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.UserSegmentCriteria.Builder builderForValue) {
       if (userExclusionCriteriaBuilder_ == null) {
         userExclusionCriteria_ = builderForValue.build();
-        onChanged();
       } else {
         userExclusionCriteriaBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -685,17 +652,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUserExclusionCriteria(com.google.analytics.data.v1alpha.UserSegmentCriteria value) {
       if (userExclusionCriteriaBuilder_ == null) {
-        if (userExclusionCriteria_ != null) {
-          userExclusionCriteria_ =
-            com.google.analytics.data.v1alpha.UserSegmentCriteria.newBuilder(userExclusionCriteria_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          userExclusionCriteria_ != null &&
+          userExclusionCriteria_ != com.google.analytics.data.v1alpha.UserSegmentCriteria.getDefaultInstance()) {
+          getUserExclusionCriteriaBuilder().mergeFrom(value);
         } else {
           userExclusionCriteria_ = value;
         }
-        onChanged();
       } else {
         userExclusionCriteriaBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -707,14 +675,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.UserSegmentCriteria user_exclusion_criteria = 2;</code>
      */
     public Builder clearUserExclusionCriteria() {
-      if (userExclusionCriteriaBuilder_ == null) {
-        userExclusionCriteria_ = null;
-        onChanged();
-      } else {
-        userExclusionCriteria_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      userExclusionCriteria_ = null;
+      if (userExclusionCriteriaBuilder_ != null) {
+        userExclusionCriteriaBuilder_.dispose();
         userExclusionCriteriaBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -726,7 +693,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.UserSegmentCriteria user_exclusion_criteria = 2;</code>
      */
     public com.google.analytics.data.v1alpha.UserSegmentCriteria.Builder getUserExclusionCriteriaBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUserExclusionCriteriaFieldBuilder().getBuilder();
     }
@@ -800,7 +767,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserSegmentExclusion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

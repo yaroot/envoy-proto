@@ -113,6 +113,38 @@ public interface BackendServiceOrBuilder extends
   com.google.cloud.compute.v1.CircuitBreakersOrBuilder getCircuitBreakersOrBuilder();
 
   /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * Check the CompressionMode enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string compression_mode = 95520988;</code>
+   * @return Whether the compressionMode field is set.
+   */
+  boolean hasCompressionMode();
+  /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * Check the CompressionMode enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string compression_mode = 95520988;</code>
+   * @return The compressionMode.
+   */
+  java.lang.String getCompressionMode();
+  /**
+   * <pre>
+   * Compress text responses using Brotli or gzip compression, based on the client's Accept-Encoding header.
+   * Check the CompressionMode enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string compression_mode = 95520988;</code>
+   * @return The bytes for compressionMode.
+   */
+  com.google.protobuf.ByteString
+      getCompressionModeBytes();
+
+  /**
    * <code>optional .google.cloud.compute.v1.ConnectionDraining connection_draining = 461096747;</code>
    * @return Whether the connectionDraining field is set.
    */
@@ -763,7 +795,7 @@ public interface BackendServiceOrBuilder extends
 
   /**
    * <pre>
-   * Settings controlling the eviction of unhealthy hosts from the load balancing pool for the backend service. If not set, this feature is considered disabled. This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
+   * Settings controlling the eviction of unhealthy hosts from the load balancing pool for the backend service. If not set, this feature is considered disabled. This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, HTTP2, or GRPC, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. 
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.OutlierDetection outlier_detection = 354625086;</code>
@@ -772,7 +804,7 @@ public interface BackendServiceOrBuilder extends
   boolean hasOutlierDetection();
   /**
    * <pre>
-   * Settings controlling the eviction of unhealthy hosts from the load balancing pool for the backend service. If not set, this feature is considered disabled. This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
+   * Settings controlling the eviction of unhealthy hosts from the load balancing pool for the backend service. If not set, this feature is considered disabled. This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, HTTP2, or GRPC, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. 
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.OutlierDetection outlier_detection = 354625086;</code>
@@ -781,7 +813,7 @@ public interface BackendServiceOrBuilder extends
   com.google.cloud.compute.v1.OutlierDetection getOutlierDetection();
   /**
    * <pre>
-   * Settings controlling the eviction of unhealthy hosts from the load balancing pool for the backend service. If not set, this feature is considered disabled. This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, or HTTP2, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. Not supported when the backend service is referenced by a URL map that is bound to target gRPC proxy that has validateForProxyless field set to true.
+   * Settings controlling the eviction of unhealthy hosts from the load balancing pool for the backend service. If not set, this feature is considered disabled. This field is applicable to either: - A regional backend service with the service_protocol set to HTTP, HTTPS, HTTP2, or GRPC, and load_balancing_scheme set to INTERNAL_MANAGED. - A global backend service with the load_balancing_scheme set to INTERNAL_SELF_MANAGED. 
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.OutlierDetection outlier_detection = 354625086;</code>

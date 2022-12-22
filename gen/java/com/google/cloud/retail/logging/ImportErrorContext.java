@@ -5,9 +5,9 @@ package com.google.cloud.retail.logging;
 
 /**
  * <pre>
- * The error payload that is populated on LRO import APIs. Including:
- *   "google.cloud.retail.v2.ProductService.ImportProducts"
- *   "google.cloud.retail.v2.EventService.ImportUserEvents"
+ * The error payload that is populated on LRO import APIs, including
+ *   "google.cloud.retail.v2.ProductService.ImportProducts" and
+ *   "google.cloud.retail.v2.EventService.ImportUserEvents".
  * </pre>
  *
  * Protobuf type {@code google.cloud.retail.logging.ImportErrorContext}
@@ -38,81 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ImportErrorContext(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            operationName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gcsPath_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lineNumber_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            lineContentCase_ = 4;
-            lineContent_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            lineContentCase_ = 5;
-            lineContent_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            lineContentCase_ = 6;
-            lineContent_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -171,7 +96,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATION_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object operationName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operationName_ = "";
   /**
    * <pre>
    * The operation resource name of the LRO.
@@ -217,7 +143,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GCS_PATH_FIELD_NUMBER = 2;
-  private volatile java.lang.Object gcsPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gcsPath_ = "";
   /**
    * <pre>
    * Cloud Storage file path of the import source.
@@ -265,7 +192,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINE_NUMBER_FIELD_NUMBER = 3;
-  private volatile java.lang.Object lineNumber_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lineNumber_ = "";
   /**
    * <pre>
    * Line number of the content in file.
@@ -536,7 +464,7 @@ private static final long serialVersionUID = 0L;
     if (lineContentCase_ == 6) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, lineContent_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -563,7 +491,7 @@ private static final long serialVersionUID = 0L;
     if (lineContentCase_ == 6) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, lineContent_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -601,7 +529,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -634,7 +562,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -731,9 +659,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The error payload that is populated on LRO import APIs. Including:
-   *   "google.cloud.retail.v2.ProductService.ImportProducts"
-   *   "google.cloud.retail.v2.EventService.ImportUserEvents"
+   * The error payload that is populated on LRO import APIs, including
+   *   "google.cloud.retail.v2.ProductService.ImportProducts" and
+   *   "google.cloud.retail.v2.EventService.ImportUserEvents".
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.logging.ImportErrorContext}
@@ -757,28 +685,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.logging.ImportErrorContext.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       operationName_ = "";
-
       gcsPath_ = "";
-
       lineNumber_ = "";
-
       lineContentCase_ = 0;
       lineContent_ = null;
       return this;
@@ -807,21 +728,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.logging.ImportErrorContext buildPartial() {
       com.google.cloud.retail.logging.ImportErrorContext result = new com.google.cloud.retail.logging.ImportErrorContext(this);
-      result.operationName_ = operationName_;
-      result.gcsPath_ = gcsPath_;
-      result.lineNumber_ = lineNumber_;
-      if (lineContentCase_ == 4) {
-        result.lineContent_ = lineContent_;
-      }
-      if (lineContentCase_ == 5) {
-        result.lineContent_ = lineContent_;
-      }
-      if (lineContentCase_ == 6) {
-        result.lineContent_ = lineContent_;
-      }
-      result.lineContentCase_ = lineContentCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.logging.ImportErrorContext result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.operationName_ = operationName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.gcsPath_ = gcsPath_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.lineNumber_ = lineNumber_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.retail.logging.ImportErrorContext result) {
+      result.lineContentCase_ = lineContentCase_;
+      result.lineContent_ = this.lineContent_;
     }
 
     @java.lang.Override
@@ -870,14 +798,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.logging.ImportErrorContext.getDefaultInstance()) return this;
       if (!other.getOperationName().isEmpty()) {
         operationName_ = other.operationName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getGcsPath().isEmpty()) {
         gcsPath_ = other.gcsPath_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getLineNumber().isEmpty()) {
         lineNumber_ = other.lineNumber_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getLineContentCase()) {
@@ -903,7 +834,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -918,17 +849,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.logging.ImportErrorContext parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              operationName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              gcsPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              lineNumber_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              lineContentCase_ = 4;
+              lineContent_ = s;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              lineContentCase_ = 5;
+              lineContent_ = s;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              lineContentCase_ = 6;
+              lineContent_ = s;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.logging.ImportErrorContext) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int lineContentCase_ = 0;
@@ -946,6 +923,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object operationName_ = "";
     /**
@@ -1000,11 +978,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       operationName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1017,8 +993,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOperationName() {
-      
       operationName_ = getDefaultInstance().getOperationName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1033,12 +1009,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOperationNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       operationName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1099,11 +1073,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gcsPath_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1117,8 +1089,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGcsPath() {
-      
       gcsPath_ = getDefaultInstance().getGcsPath();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1134,12 +1106,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGcsPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gcsPath_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1200,11 +1170,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLineNumber(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lineNumber_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1218,8 +1186,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLineNumber() {
-      
       lineNumber_ = getDefaultInstance().getLineNumber();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1235,12 +1203,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLineNumberBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lineNumber_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1321,10 +1287,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCatalogItem(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  lineContentCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      lineContentCase_ = 4;
       lineContent_ = value;
       onChanged();
       return this;
@@ -1356,10 +1320,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCatalogItemBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lineContentCase_ = 4;
       lineContent_ = value;
       onChanged();
@@ -1442,10 +1404,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProduct(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  lineContentCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      lineContentCase_ = 5;
       lineContent_ = value;
       onChanged();
       return this;
@@ -1477,10 +1437,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProductBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lineContentCase_ = 5;
       lineContent_ = value;
       onChanged();
@@ -1563,10 +1521,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserEvent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  lineContentCase_ = 6;
+      if (value == null) { throw new NullPointerException(); }
+      lineContentCase_ = 6;
       lineContent_ = value;
       onChanged();
       return this;
@@ -1598,10 +1554,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserEventBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lineContentCase_ = 6;
       lineContent_ = value;
       onChanged();
@@ -1640,7 +1594,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportErrorContext(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

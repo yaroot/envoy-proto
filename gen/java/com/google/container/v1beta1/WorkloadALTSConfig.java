@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private WorkloadALTSConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (enableAlts_ != null) {
-              subBuilder = enableAlts_.toBuilder();
-            }
-            enableAlts_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(enableAlts_);
-              enableAlts_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_WorkloadALTSConfig_descriptor;
@@ -146,7 +94,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getEnableAltsOrBuilder() {
-    return getEnableAlts();
+    return enableAlts_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : enableAlts_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -166,7 +114,7 @@ private static final long serialVersionUID = 0L;
     if (enableAlts_ != null) {
       output.writeMessage(1, getEnableAlts());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -179,7 +127,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getEnableAlts());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -199,7 +147,7 @@ private static final long serialVersionUID = 0L;
       if (!getEnableAlts()
           .equals(other.getEnableAlts())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -214,7 +162,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ENABLE_ALTS_FIELD_NUMBER;
       hash = (53 * hash) + getEnableAlts().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -335,26 +283,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.WorkloadALTSConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (enableAltsBuilder_ == null) {
-        enableAlts_ = null;
-      } else {
-        enableAlts_ = null;
+      bitField0_ = 0;
+      enableAlts_ = null;
+      if (enableAltsBuilder_ != null) {
+        enableAltsBuilder_.dispose();
         enableAltsBuilder_ = null;
       }
       return this;
@@ -383,13 +326,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.WorkloadALTSConfig buildPartial() {
       com.google.container.v1beta1.WorkloadALTSConfig result = new com.google.container.v1beta1.WorkloadALTSConfig(this);
-      if (enableAltsBuilder_ == null) {
-        result.enableAlts_ = enableAlts_;
-      } else {
-        result.enableAlts_ = enableAltsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.WorkloadALTSConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableAlts_ = enableAltsBuilder_ == null
+            ? enableAlts_
+            : enableAltsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -439,7 +387,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasEnableAlts()) {
         mergeEnableAlts(other.getEnableAlts());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -454,19 +402,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.WorkloadALTSConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEnableAltsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.WorkloadALTSConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.BoolValue enableAlts_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -484,7 +453,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the enableAlts field is set.
      */
     public boolean hasEnableAlts() {
-      return enableAltsBuilder_ != null || enableAlts_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -522,11 +491,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         enableAlts_ = value;
-        onChanged();
       } else {
         enableAltsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -544,11 +513,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (enableAltsBuilder_ == null) {
         enableAlts_ = builderForValue.build();
-        onChanged();
       } else {
         enableAltsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -564,17 +533,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnableAlts(com.google.protobuf.BoolValue value) {
       if (enableAltsBuilder_ == null) {
-        if (enableAlts_ != null) {
-          enableAlts_ =
-            com.google.protobuf.BoolValue.newBuilder(enableAlts_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          enableAlts_ != null &&
+          enableAlts_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getEnableAltsBuilder().mergeFrom(value);
         } else {
           enableAlts_ = value;
         }
-        onChanged();
       } else {
         enableAltsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -589,14 +559,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_alts = 1;</code>
      */
     public Builder clearEnableAlts() {
-      if (enableAltsBuilder_ == null) {
-        enableAlts_ = null;
-        onChanged();
-      } else {
-        enableAlts_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      enableAlts_ = null;
+      if (enableAltsBuilder_ != null) {
+        enableAltsBuilder_.dispose();
         enableAltsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -611,7 +580,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue enable_alts = 1;</code>
      */
     public com.google.protobuf.BoolValue.Builder getEnableAltsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getEnableAltsFieldBuilder().getBuilder();
     }
@@ -691,7 +660,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new WorkloadALTSConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

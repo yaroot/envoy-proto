@@ -34,65 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KeywordPlanForecastPeriod(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            intervalCase_ = 1;
-            interval_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.common.DateRange.Builder subBuilder = null;
-            if (intervalCase_ == 2) {
-              subBuilder = ((com.google.ads.googleads.v11.common.DateRange) interval_).toBuilder();
-            }
-            interval_ =
-                input.readMessage(com.google.ads.googleads.v11.common.DateRange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.common.DateRange) interval_);
-              interval_ = subBuilder.buildPartial();
-            }
-            intervalCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.resources.KeywordPlanProto.internal_static_google_ads_googleads_v11_resources_KeywordPlanForecastPeriod_descriptor;
@@ -183,8 +124,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval getDateInterval() {
     if (intervalCase_ == 1) {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval result = com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval.valueOf(
+      com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval result = com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval.forNumber(
           (java.lang.Integer) interval_);
       return result == null ? com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval.UNRECOGNIZED : result;
     }
@@ -266,7 +206,7 @@ private static final long serialVersionUID = 0L;
     if (intervalCase_ == 2) {
       output.writeMessage(2, (com.google.ads.googleads.v11.common.DateRange) interval_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -283,7 +223,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.ads.googleads.v11.common.DateRange) interval_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -311,7 +251,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -334,7 +274,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -455,22 +395,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (dateRangeBuilder_ != null) {
+        dateRangeBuilder_.clear();
+      }
       intervalCase_ = 0;
       interval_ = null;
       return this;
@@ -499,19 +438,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod buildPartial() {
       com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod result = new com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod(this);
-      if (intervalCase_ == 1) {
-        result.interval_ = interval_;
-      }
-      if (intervalCase_ == 2) {
-        if (dateRangeBuilder_ == null) {
-          result.interval_ = interval_;
-        } else {
-          result.interval_ = dateRangeBuilder_.build();
-        }
-      }
-      result.intervalCase_ = intervalCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod result) {
+      result.intervalCase_ = intervalCase_;
+      result.interval_ = this.interval_;
+      if (intervalCase_ == 2 &&
+          dateRangeBuilder_ != null) {
+        result.interval_ = dateRangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -571,7 +514,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -586,17 +529,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+              intervalCase_ = 1;
+              interval_ = rawValue;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getDateRangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              intervalCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.resources.KeywordPlanForecastPeriod) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int intervalCase_ = 0;
@@ -614,6 +583,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -668,8 +638,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval getDateInterval() {
       if (intervalCase_ == 1) {
-        @SuppressWarnings("deprecation")
-        com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval result = com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval.valueOf(
+        com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval result = com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval.forNumber(
             (java.lang.Integer) interval_);
         return result == null ? com.google.ads.googleads.v11.enums.KeywordPlanForecastIntervalEnum.KeywordPlanForecastInterval.UNRECOGNIZED : result;
       }
@@ -920,7 +889,7 @@ private static final long serialVersionUID = 0L;
         interval_ = null;
       }
       intervalCase_ = 2;
-      onChanged();;
+      onChanged();
       return dateRangeBuilder_;
     }
     @java.lang.Override
@@ -956,7 +925,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KeywordPlanForecastPeriod(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

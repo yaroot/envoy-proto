@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
     genders_ = java.util.Collections.emptyList();
     devices_ = java.util.Collections.emptyList();
     networks_ = java.util.Collections.emptyList();
+    youtubeSelectLineups_ = java.util.Collections.emptyList();
   }
 
   @java.lang.Override
@@ -37,122 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private PlannableTargeting(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              ageRanges_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            ageRanges_.add(rawValue);
-            break;
-          }
-          case 10: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                ageRanges_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              ageRanges_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              genders_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.GenderInfo>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            genders_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.GenderInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              devices_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.DeviceInfo>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            devices_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.DeviceInfo.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              networks_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            networks_.add(rawValue);
-            break;
-          }
-          case 34: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                networks_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              networks_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        ageRanges_ = java.util.Collections.unmodifiableList(ageRanges_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        genders_ = java.util.Collections.unmodifiableList(genders_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        devices_ = java.util.Collections.unmodifiableList(devices_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        networks_ = java.util.Collections.unmodifiableList(networks_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -168,14 +53,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AGE_RANGES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> ageRanges_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange> ageRanges_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange>() {
             public com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange result = com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange.valueOf(from);
+              com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange result = com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange.forNumber(from);
               return result == null ? com.google.ads.googleads.v11.enums.ReachPlanAgeRangeEnum.ReachPlanAgeRange.UNRECOGNIZED : result;
             }
           };
@@ -256,6 +141,7 @@ private static final long serialVersionUID = 0L;
   private int ageRangesMemoizedSerializedSize;
 
   public static final int GENDERS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.GenderInfo> genders_;
   /**
    * <pre>
@@ -316,6 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEVICES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.DeviceInfo> devices_;
   /**
    * <pre>
@@ -391,14 +278,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORKS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> networks_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork> networks_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork>() {
             public com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork result = com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork.valueOf(from);
+              com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork result = com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork.forNumber(from);
               return result == null ? com.google.ads.googleads.v11.enums.ReachPlanNetworkEnum.ReachPlanNetwork.UNRECOGNIZED : result;
             }
           };
@@ -468,6 +355,67 @@ private static final long serialVersionUID = 0L;
   }
   private int networksMemoizedSerializedSize;
 
+  public static final int YOUTUBE_SELECT_LINEUPS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private java.util.List<com.google.ads.googleads.v11.services.YouTubeSelectLineUp> youtubeSelectLineups_;
+  /**
+   * <pre>
+   * Targetable YouTube Select Lineups for the ad product.
+   * </pre>
+   *
+   * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<com.google.ads.googleads.v11.services.YouTubeSelectLineUp> getYoutubeSelectLineupsList() {
+    return youtubeSelectLineups_;
+  }
+  /**
+   * <pre>
+   * Targetable YouTube Select Lineups for the ad product.
+   * </pre>
+   *
+   * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+   */
+  @java.lang.Override
+  public java.util.List<? extends com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder> 
+      getYoutubeSelectLineupsOrBuilderList() {
+    return youtubeSelectLineups_;
+  }
+  /**
+   * <pre>
+   * Targetable YouTube Select Lineups for the ad product.
+   * </pre>
+   *
+   * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+   */
+  @java.lang.Override
+  public int getYoutubeSelectLineupsCount() {
+    return youtubeSelectLineups_.size();
+  }
+  /**
+   * <pre>
+   * Targetable YouTube Select Lineups for the ad product.
+   * </pre>
+   *
+   * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.ads.googleads.v11.services.YouTubeSelectLineUp getYoutubeSelectLineups(int index) {
+    return youtubeSelectLineups_.get(index);
+  }
+  /**
+   * <pre>
+   * Targetable YouTube Select Lineups for the ad product.
+   * </pre>
+   *
+   * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+   */
+  @java.lang.Override
+  public com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder getYoutubeSelectLineupsOrBuilder(
+      int index) {
+    return youtubeSelectLineups_.get(index);
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -503,7 +451,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < networks_.size(); i++) {
       output.writeEnumNoTag(networks_.get(i));
     }
-    unknownFields.writeTo(output);
+    for (int i = 0; i < youtubeSelectLineups_.size(); i++) {
+      output.writeMessage(5, youtubeSelectLineups_.get(i));
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -544,7 +495,11 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }networksMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    for (int i = 0; i < youtubeSelectLineups_.size(); i++) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(5, youtubeSelectLineups_.get(i));
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -565,7 +520,9 @@ private static final long serialVersionUID = 0L;
     if (!getDevicesList()
         .equals(other.getDevicesList())) return false;
     if (!networks_.equals(other.networks_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getYoutubeSelectLineupsList()
+        .equals(other.getYoutubeSelectLineupsList())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -592,7 +549,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NETWORKS_FIELD_NUMBER;
       hash = (53 * hash) + networks_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (getYoutubeSelectLineupsCount() > 0) {
+      hash = (37 * hash) + YOUTUBE_SELECT_LINEUPS_FIELD_NUMBER;
+      hash = (53 * hash) + getYoutubeSelectLineupsList().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -713,40 +674,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.PlannableTargeting.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getGendersFieldBuilder();
-        getDevicesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       ageRanges_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000001);
       if (gendersBuilder_ == null) {
         genders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        genders_ = null;
         gendersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (devicesBuilder_ == null) {
         devices_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        devices_ = null;
         devicesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       networks_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000008);
+      if (youtubeSelectLineupsBuilder_ == null) {
+        youtubeSelectLineups_ = java.util.Collections.emptyList();
+      } else {
+        youtubeSelectLineups_ = null;
+        youtubeSelectLineupsBuilder_.clear();
+      }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -773,7 +737,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.PlannableTargeting buildPartial() {
       com.google.ads.googleads.v11.services.PlannableTargeting result = new com.google.ads.googleads.v11.services.PlannableTargeting(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.services.PlannableTargeting result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         ageRanges_ = java.util.Collections.unmodifiableList(ageRanges_);
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -802,8 +772,19 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.networks_ = networks_;
-      onBuilt();
-      return result;
+      if (youtubeSelectLineupsBuilder_ == null) {
+        if (((bitField0_ & 0x00000010) != 0)) {
+          youtubeSelectLineups_ = java.util.Collections.unmodifiableList(youtubeSelectLineups_);
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.youtubeSelectLineups_ = youtubeSelectLineups_;
+      } else {
+        result.youtubeSelectLineups_ = youtubeSelectLineupsBuilder_.build();
+      }
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.PlannableTargeting result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -922,7 +903,33 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (youtubeSelectLineupsBuilder_ == null) {
+        if (!other.youtubeSelectLineups_.isEmpty()) {
+          if (youtubeSelectLineups_.isEmpty()) {
+            youtubeSelectLineups_ = other.youtubeSelectLineups_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureYoutubeSelectLineupsIsMutable();
+            youtubeSelectLineups_.addAll(other.youtubeSelectLineups_);
+          }
+          onChanged();
+        }
+      } else {
+        if (!other.youtubeSelectLineups_.isEmpty()) {
+          if (youtubeSelectLineupsBuilder_.isEmpty()) {
+            youtubeSelectLineupsBuilder_.dispose();
+            youtubeSelectLineupsBuilder_ = null;
+            youtubeSelectLineups_ = other.youtubeSelectLineups_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+            youtubeSelectLineupsBuilder_ = 
+              com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                 getYoutubeSelectLineupsFieldBuilder() : null;
+          } else {
+            youtubeSelectLineupsBuilder_.addAllMessages(other.youtubeSelectLineups_);
+          }
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -937,17 +944,103 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.PlannableTargeting parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              ensureAgeRangesIsMutable();
+              ageRanges_.add(tmpRaw);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureAgeRangesIsMutable();
+                ageRanges_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 10
+            case 18: {
+              com.google.ads.googleads.v11.common.GenderInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.GenderInfo.parser(),
+                      extensionRegistry);
+              if (gendersBuilder_ == null) {
+                ensureGendersIsMutable();
+                genders_.add(m);
+              } else {
+                gendersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.ads.googleads.v11.common.DeviceInfo m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.DeviceInfo.parser(),
+                      extensionRegistry);
+              if (devicesBuilder_ == null) {
+                ensureDevicesIsMutable();
+                devices_.add(m);
+              } else {
+                devicesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensureNetworksIsMutable();
+              networks_.add(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureNetworksIsMutable();
+                networks_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 34
+            case 42: {
+              com.google.ads.googleads.v11.services.YouTubeSelectLineUp m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.services.YouTubeSelectLineUp.parser(),
+                      extensionRegistry);
+              if (youtubeSelectLineupsBuilder_ == null) {
+                ensureYoutubeSelectLineupsIsMutable();
+                youtubeSelectLineups_.add(m);
+              } else {
+                youtubeSelectLineupsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.PlannableTargeting) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2029,6 +2122,318 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+
+    private java.util.List<com.google.ads.googleads.v11.services.YouTubeSelectLineUp> youtubeSelectLineups_ =
+      java.util.Collections.emptyList();
+    private void ensureYoutubeSelectLineupsIsMutable() {
+      if (!((bitField0_ & 0x00000010) != 0)) {
+        youtubeSelectLineups_ = new java.util.ArrayList<com.google.ads.googleads.v11.services.YouTubeSelectLineUp>(youtubeSelectLineups_);
+        bitField0_ |= 0x00000010;
+       }
+    }
+
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.ads.googleads.v11.services.YouTubeSelectLineUp, com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder, com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder> youtubeSelectLineupsBuilder_;
+
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public java.util.List<com.google.ads.googleads.v11.services.YouTubeSelectLineUp> getYoutubeSelectLineupsList() {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        return java.util.Collections.unmodifiableList(youtubeSelectLineups_);
+      } else {
+        return youtubeSelectLineupsBuilder_.getMessageList();
+      }
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public int getYoutubeSelectLineupsCount() {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        return youtubeSelectLineups_.size();
+      } else {
+        return youtubeSelectLineupsBuilder_.getCount();
+      }
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public com.google.ads.googleads.v11.services.YouTubeSelectLineUp getYoutubeSelectLineups(int index) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        return youtubeSelectLineups_.get(index);
+      } else {
+        return youtubeSelectLineupsBuilder_.getMessage(index);
+      }
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder setYoutubeSelectLineups(
+        int index, com.google.ads.googleads.v11.services.YouTubeSelectLineUp value) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.set(index, value);
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.setMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder setYoutubeSelectLineups(
+        int index, com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder builderForValue) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.set(index, builderForValue.build());
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.setMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder addYoutubeSelectLineups(com.google.ads.googleads.v11.services.YouTubeSelectLineUp value) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.add(value);
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.addMessage(value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder addYoutubeSelectLineups(
+        int index, com.google.ads.googleads.v11.services.YouTubeSelectLineUp value) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.add(index, value);
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.addMessage(index, value);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder addYoutubeSelectLineups(
+        com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder builderForValue) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.add(builderForValue.build());
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.addMessage(builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder addYoutubeSelectLineups(
+        int index, com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder builderForValue) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.add(index, builderForValue.build());
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.addMessage(index, builderForValue.build());
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder addAllYoutubeSelectLineups(
+        java.lang.Iterable<? extends com.google.ads.googleads.v11.services.YouTubeSelectLineUp> values) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        ensureYoutubeSelectLineupsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, youtubeSelectLineups_);
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.addAllMessages(values);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder clearYoutubeSelectLineups() {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        youtubeSelectLineups_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public Builder removeYoutubeSelectLineups(int index) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        ensureYoutubeSelectLineupsIsMutable();
+        youtubeSelectLineups_.remove(index);
+        onChanged();
+      } else {
+        youtubeSelectLineupsBuilder_.remove(index);
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder getYoutubeSelectLineupsBuilder(
+        int index) {
+      return getYoutubeSelectLineupsFieldBuilder().getBuilder(index);
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder getYoutubeSelectLineupsOrBuilder(
+        int index) {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        return youtubeSelectLineups_.get(index);  } else {
+        return youtubeSelectLineupsBuilder_.getMessageOrBuilder(index);
+      }
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public java.util.List<? extends com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder> 
+         getYoutubeSelectLineupsOrBuilderList() {
+      if (youtubeSelectLineupsBuilder_ != null) {
+        return youtubeSelectLineupsBuilder_.getMessageOrBuilderList();
+      } else {
+        return java.util.Collections.unmodifiableList(youtubeSelectLineups_);
+      }
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder addYoutubeSelectLineupsBuilder() {
+      return getYoutubeSelectLineupsFieldBuilder().addBuilder(
+          com.google.ads.googleads.v11.services.YouTubeSelectLineUp.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder addYoutubeSelectLineupsBuilder(
+        int index) {
+      return getYoutubeSelectLineupsFieldBuilder().addBuilder(
+          index, com.google.ads.googleads.v11.services.YouTubeSelectLineUp.getDefaultInstance());
+    }
+    /**
+     * <pre>
+     * Targetable YouTube Select Lineups for the ad product.
+     * </pre>
+     *
+     * <code>repeated .google.ads.googleads.v11.services.YouTubeSelectLineUp youtube_select_lineups = 5;</code>
+     */
+    public java.util.List<com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder> 
+         getYoutubeSelectLineupsBuilderList() {
+      return getYoutubeSelectLineupsFieldBuilder().getBuilderList();
+    }
+    private com.google.protobuf.RepeatedFieldBuilderV3<
+        com.google.ads.googleads.v11.services.YouTubeSelectLineUp, com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder, com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder> 
+        getYoutubeSelectLineupsFieldBuilder() {
+      if (youtubeSelectLineupsBuilder_ == null) {
+        youtubeSelectLineupsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+            com.google.ads.googleads.v11.services.YouTubeSelectLineUp, com.google.ads.googleads.v11.services.YouTubeSelectLineUp.Builder, com.google.ads.googleads.v11.services.YouTubeSelectLineUpOrBuilder>(
+                youtubeSelectLineups_,
+                ((bitField0_ & 0x00000010) != 0),
+                getParentForChildren(),
+                isClean());
+        youtubeSelectLineups_ = null;
+      }
+      return youtubeSelectLineupsBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -2062,7 +2467,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PlannableTargeting(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Endpoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.Address.Builder subBuilder = null;
-            if (address_ != null) {
-              subBuilder = address_.toBuilder();
-            }
-            address_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Address.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(address_);
-              address_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.Builder subBuilder = null;
-            if (healthCheckConfig_ != null) {
-              subBuilder = healthCheckConfig_.toBuilder();
-            }
-            healthCheckConfig_ = input.readMessage(io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(healthCheckConfig_);
-              healthCheckConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostname_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.endpoint.v3.EndpointComponentsProto.internal_static_envoy_config_endpoint_v3_Endpoint_descriptor;
@@ -164,6 +93,50 @@ private static final long serialVersionUID = 0L;
      */
     com.google.protobuf.ByteString
         getHostnameBytes();
+
+    /**
+     * <pre>
+     * Optional alternative health check host address.
+     * .. attention::
+     *   The form of the health check host address is expected to be a direct IP address.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.Address address = 3;</code>
+     * @return Whether the address field is set.
+     */
+    boolean hasAddress();
+    /**
+     * <pre>
+     * Optional alternative health check host address.
+     * .. attention::
+     *   The form of the health check host address is expected to be a direct IP address.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.Address address = 3;</code>
+     * @return The address.
+     */
+    io.envoyproxy.envoy.config.core.v3.Address getAddress();
+    /**
+     * <pre>
+     * Optional alternative health check host address.
+     * .. attention::
+     *   The form of the health check host address is expected to be a direct IP address.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.Address address = 3;</code>
+     */
+    io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder();
+
+    /**
+     * <pre>
+     * Optional flag to control if perform active health check for this endpoint.
+     * Active health check is enabled by default if there is a health checker.
+     * </pre>
+     *
+     * <code>bool disable_active_health_check = 4;</code>
+     * @return The disableActiveHealthCheck.
+     */
+    boolean getDisableActiveHealthCheck();
   }
   /**
    * <pre>
@@ -197,56 +170,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private HealthCheckConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              portValue_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              hostname_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.config.endpoint.v3.EndpointComponentsProto.internal_static_envoy_config_endpoint_v3_Endpoint_HealthCheckConfig_descriptor;
@@ -261,7 +184,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PORT_VALUE_FIELD_NUMBER = 1;
-    private int portValue_;
+    private int portValue_ = 0;
     /**
      * <pre>
      * Optional alternative health check port value.
@@ -280,7 +203,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int HOSTNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object hostname_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object hostname_ = "";
     /**
      * <pre>
      * By default, the host header for L7 health checks is controlled by cluster level configuration
@@ -333,6 +257,66 @@ private static final long serialVersionUID = 0L;
       }
     }
 
+    public static final int ADDRESS_FIELD_NUMBER = 3;
+    private io.envoyproxy.envoy.config.core.v3.Address address_;
+    /**
+     * <pre>
+     * Optional alternative health check host address.
+     * .. attention::
+     *   The form of the health check host address is expected to be a direct IP address.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.Address address = 3;</code>
+     * @return Whether the address field is set.
+     */
+    @java.lang.Override
+    public boolean hasAddress() {
+      return address_ != null;
+    }
+    /**
+     * <pre>
+     * Optional alternative health check host address.
+     * .. attention::
+     *   The form of the health check host address is expected to be a direct IP address.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.Address address = 3;</code>
+     * @return The address.
+     */
+    @java.lang.Override
+    public io.envoyproxy.envoy.config.core.v3.Address getAddress() {
+      return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
+    }
+    /**
+     * <pre>
+     * Optional alternative health check host address.
+     * .. attention::
+     *   The form of the health check host address is expected to be a direct IP address.
+     * </pre>
+     *
+     * <code>.envoy.config.core.v3.Address address = 3;</code>
+     */
+    @java.lang.Override
+    public io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder() {
+      return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
+    }
+
+    public static final int DISABLE_ACTIVE_HEALTH_CHECK_FIELD_NUMBER = 4;
+    private boolean disableActiveHealthCheck_ = false;
+    /**
+     * <pre>
+     * Optional flag to control if perform active health check for this endpoint.
+     * Active health check is enabled by default if there is a health checker.
+     * </pre>
+     *
+     * <code>bool disable_active_health_check = 4;</code>
+     * @return The disableActiveHealthCheck.
+     */
+    @java.lang.Override
+    public boolean getDisableActiveHealthCheck() {
+      return disableActiveHealthCheck_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -353,7 +337,13 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostname_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hostname_);
       }
-      unknownFields.writeTo(output);
+      if (address_ != null) {
+        output.writeMessage(3, getAddress());
+      }
+      if (disableActiveHealthCheck_ != false) {
+        output.writeBool(4, disableActiveHealthCheck_);
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -369,7 +359,15 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostname_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, hostname_);
       }
-      size += unknownFields.getSerializedSize();
+      if (address_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getAddress());
+      }
+      if (disableActiveHealthCheck_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, disableActiveHealthCheck_);
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -388,7 +386,14 @@ private static final long serialVersionUID = 0L;
           != other.getPortValue()) return false;
       if (!getHostname()
           .equals(other.getHostname())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (hasAddress() != other.hasAddress()) return false;
+      if (hasAddress()) {
+        if (!getAddress()
+            .equals(other.getAddress())) return false;
+      }
+      if (getDisableActiveHealthCheck()
+          != other.getDisableActiveHealthCheck()) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -403,7 +408,14 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getPortValue();
       hash = (37 * hash) + HOSTNAME_FIELD_NUMBER;
       hash = (53 * hash) + getHostname().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (hasAddress()) {
+        hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+        hash = (53 * hash) + getAddress().hashCode();
+      }
+      hash = (37 * hash) + DISABLE_ACTIVE_HEALTH_CHECK_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDisableActiveHealthCheck());
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -524,26 +536,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         portValue_ = 0;
-
         hostname_ = "";
-
+        address_ = null;
+        if (addressBuilder_ != null) {
+          addressBuilder_.dispose();
+          addressBuilder_ = null;
+        }
+        disableActiveHealthCheck_ = false;
         return this;
       }
 
@@ -570,10 +582,27 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig buildPartial() {
         io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig result = new io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig(this);
-        result.portValue_ = portValue_;
-        result.hostname_ = hostname_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.portValue_ = portValue_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.hostname_ = hostname_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.address_ = addressBuilder_ == null
+              ? address_
+              : addressBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.disableActiveHealthCheck_ = disableActiveHealthCheck_;
+        }
       }
 
       @java.lang.Override
@@ -625,9 +654,16 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getHostname().isEmpty()) {
           hostname_ = other.hostname_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (other.hasAddress()) {
+          mergeAddress(other.getAddress());
+        }
+        if (other.getDisableActiveHealthCheck() != false) {
+          setDisableActiveHealthCheck(other.getDisableActiveHealthCheck());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -642,19 +678,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                portValue_ = input.readUInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                hostname_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getAddressFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                disableActiveHealthCheck_ = input.readBool();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int portValue_ ;
       /**
@@ -689,6 +761,7 @@ private static final long serialVersionUID = 0L;
       public Builder setPortValue(int value) {
         
         portValue_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -705,7 +778,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPortValue() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         portValue_ = 0;
         onChanged();
         return this;
@@ -776,11 +849,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostname(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         hostname_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -797,8 +868,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearHostname() {
-        
         hostname_ = getDefaultInstance().getHostname();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -817,12 +888,230 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setHostnameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         hostname_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private io.envoyproxy.envoy.config.core.v3.Address address_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.envoyproxy.envoy.config.core.v3.Address, io.envoyproxy.envoy.config.core.v3.Address.Builder, io.envoyproxy.envoy.config.core.v3.AddressOrBuilder> addressBuilder_;
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       * @return Whether the address field is set.
+       */
+      public boolean hasAddress() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       * @return The address.
+       */
+      public io.envoyproxy.envoy.config.core.v3.Address getAddress() {
+        if (addressBuilder_ == null) {
+          return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
+        } else {
+          return addressBuilder_.getMessage();
+        }
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      public Builder setAddress(io.envoyproxy.envoy.config.core.v3.Address value) {
+        if (addressBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          address_ = value;
+        } else {
+          addressBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      public Builder setAddress(
+          io.envoyproxy.envoy.config.core.v3.Address.Builder builderForValue) {
+        if (addressBuilder_ == null) {
+          address_ = builderForValue.build();
+        } else {
+          addressBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      public Builder mergeAddress(io.envoyproxy.envoy.config.core.v3.Address value) {
+        if (addressBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) != 0) &&
+            address_ != null &&
+            address_ != io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance()) {
+            getAddressBuilder().mergeFrom(value);
+          } else {
+            address_ = value;
+          }
+        } else {
+          addressBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      public Builder clearAddress() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        address_ = null;
+        if (addressBuilder_ != null) {
+          addressBuilder_.dispose();
+          addressBuilder_ = null;
+        }
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      public io.envoyproxy.envoy.config.core.v3.Address.Builder getAddressBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getAddressFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      public io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder() {
+        if (addressBuilder_ != null) {
+          return addressBuilder_.getMessageOrBuilder();
+        } else {
+          return address_ == null ?
+              io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
+        }
+      }
+      /**
+       * <pre>
+       * Optional alternative health check host address.
+       * .. attention::
+       *   The form of the health check host address is expected to be a direct IP address.
+       * </pre>
+       *
+       * <code>.envoy.config.core.v3.Address address = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          io.envoyproxy.envoy.config.core.v3.Address, io.envoyproxy.envoy.config.core.v3.Address.Builder, io.envoyproxy.envoy.config.core.v3.AddressOrBuilder> 
+          getAddressFieldBuilder() {
+        if (addressBuilder_ == null) {
+          addressBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              io.envoyproxy.envoy.config.core.v3.Address, io.envoyproxy.envoy.config.core.v3.Address.Builder, io.envoyproxy.envoy.config.core.v3.AddressOrBuilder>(
+                  getAddress(),
+                  getParentForChildren(),
+                  isClean());
+          address_ = null;
+        }
+        return addressBuilder_;
+      }
+
+      private boolean disableActiveHealthCheck_ ;
+      /**
+       * <pre>
+       * Optional flag to control if perform active health check for this endpoint.
+       * Active health check is enabled by default if there is a health checker.
+       * </pre>
+       *
+       * <code>bool disable_active_health_check = 4;</code>
+       * @return The disableActiveHealthCheck.
+       */
+      @java.lang.Override
+      public boolean getDisableActiveHealthCheck() {
+        return disableActiveHealthCheck_;
+      }
+      /**
+       * <pre>
+       * Optional flag to control if perform active health check for this endpoint.
+       * Active health check is enabled by default if there is a health checker.
+       * </pre>
+       *
+       * <code>bool disable_active_health_check = 4;</code>
+       * @param value The disableActiveHealthCheck to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDisableActiveHealthCheck(boolean value) {
+        
+        disableActiveHealthCheck_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Optional flag to control if perform active health check for this endpoint.
+       * Active health check is enabled by default if there is a health checker.
+       * </pre>
+       *
+       * <code>bool disable_active_health_check = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDisableActiveHealthCheck() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        disableActiveHealthCheck_ = false;
         onChanged();
         return this;
       }
@@ -859,7 +1148,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HealthCheckConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -932,7 +1232,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.AddressOrBuilder getAddressOrBuilder() {
-    return getAddress();
+    return address_ == null ? io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance() : address_;
   }
 
   public static final int HEALTH_CHECK_CONFIG_FIELD_NUMBER = 2;
@@ -982,11 +1282,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfigOrBuilder getHealthCheckConfigOrBuilder() {
-    return getHealthCheckConfig();
+    return healthCheckConfig_ == null ? io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.getDefaultInstance() : healthCheckConfig_;
   }
 
   public static final int HOSTNAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object hostname_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostname_ = "";
   /**
    * <pre>
    * The hostname associated with this endpoint. This hostname is not used for routing or address
@@ -1060,7 +1361,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostname_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, hostname_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1080,7 +1381,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hostname_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, hostname_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1107,7 +1408,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getHostname()
         .equals(other.getHostname())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1128,7 +1429,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + HOSTNAME_FIELD_NUMBER;
     hash = (53 * hash) + getHostname().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1249,36 +1550,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.endpoint.v3.Endpoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (addressBuilder_ == null) {
-        address_ = null;
-      } else {
-        address_ = null;
+      bitField0_ = 0;
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
-      if (healthCheckConfigBuilder_ == null) {
-        healthCheckConfig_ = null;
-      } else {
-        healthCheckConfig_ = null;
+      healthCheckConfig_ = null;
+      if (healthCheckConfigBuilder_ != null) {
+        healthCheckConfigBuilder_.dispose();
         healthCheckConfigBuilder_ = null;
       }
       hostname_ = "";
-
       return this;
     }
 
@@ -1305,19 +1599,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.endpoint.v3.Endpoint buildPartial() {
       io.envoyproxy.envoy.config.endpoint.v3.Endpoint result = new io.envoyproxy.envoy.config.endpoint.v3.Endpoint(this);
-      if (addressBuilder_ == null) {
-        result.address_ = address_;
-      } else {
-        result.address_ = addressBuilder_.build();
-      }
-      if (healthCheckConfigBuilder_ == null) {
-        result.healthCheckConfig_ = healthCheckConfig_;
-      } else {
-        result.healthCheckConfig_ = healthCheckConfigBuilder_.build();
-      }
-      result.hostname_ = hostname_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.endpoint.v3.Endpoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.address_ = addressBuilder_ == null
+            ? address_
+            : addressBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.healthCheckConfig_ = healthCheckConfigBuilder_ == null
+            ? healthCheckConfig_
+            : healthCheckConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.hostname_ = hostname_;
+      }
     }
 
     @java.lang.Override
@@ -1372,9 +1673,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHostname().isEmpty()) {
         hostname_ = other.hostname_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1389,19 +1691,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.endpoint.v3.Endpoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getHealthCheckConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              hostname_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.endpoint.v3.Endpoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.core.v3.Address address_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1421,7 +1756,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the address field is set.
      */
     public boolean hasAddress() {
-      return addressBuilder_ != null || address_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1463,11 +1798,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         address_ = value;
-        onChanged();
       } else {
         addressBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1487,11 +1822,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.Address.Builder builderForValue) {
       if (addressBuilder_ == null) {
         address_ = builderForValue.build();
-        onChanged();
       } else {
         addressBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1509,17 +1844,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAddress(io.envoyproxy.envoy.config.core.v3.Address value) {
       if (addressBuilder_ == null) {
-        if (address_ != null) {
-          address_ =
-            io.envoyproxy.envoy.config.core.v3.Address.newBuilder(address_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          address_ != null &&
+          address_ != io.envoyproxy.envoy.config.core.v3.Address.getDefaultInstance()) {
+          getAddressBuilder().mergeFrom(value);
         } else {
           address_ = value;
         }
-        onChanged();
       } else {
         addressBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1536,14 +1872,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.Address address = 1;</code>
      */
     public Builder clearAddress() {
-      if (addressBuilder_ == null) {
-        address_ = null;
-        onChanged();
-      } else {
-        address_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      address_ = null;
+      if (addressBuilder_ != null) {
+        addressBuilder_.dispose();
         addressBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1560,7 +1895,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.Address address = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.Address.Builder getAddressBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAddressFieldBuilder().getBuilder();
     }
@@ -1628,7 +1963,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the healthCheckConfig field is set.
      */
     public boolean hasHealthCheckConfig() {
-      return healthCheckConfigBuilder_ != null || healthCheckConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1666,11 +2001,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         healthCheckConfig_ = value;
-        onChanged();
       } else {
         healthCheckConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1688,11 +2023,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.Builder builderForValue) {
       if (healthCheckConfigBuilder_ == null) {
         healthCheckConfig_ = builderForValue.build();
-        onChanged();
       } else {
         healthCheckConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1708,17 +2043,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHealthCheckConfig(io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig value) {
       if (healthCheckConfigBuilder_ == null) {
-        if (healthCheckConfig_ != null) {
-          healthCheckConfig_ =
-            io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.newBuilder(healthCheckConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          healthCheckConfig_ != null &&
+          healthCheckConfig_ != io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.getDefaultInstance()) {
+          getHealthCheckConfigBuilder().mergeFrom(value);
         } else {
           healthCheckConfig_ = value;
         }
-        onChanged();
       } else {
         healthCheckConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1733,14 +2069,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig health_check_config = 2;</code>
      */
     public Builder clearHealthCheckConfig() {
-      if (healthCheckConfigBuilder_ == null) {
-        healthCheckConfig_ = null;
-        onChanged();
-      } else {
-        healthCheckConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      healthCheckConfig_ = null;
+      if (healthCheckConfigBuilder_ != null) {
+        healthCheckConfigBuilder_.dispose();
         healthCheckConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1755,7 +2090,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig health_check_config = 2;</code>
      */
     public io.envoyproxy.envoy.config.endpoint.v3.Endpoint.HealthCheckConfig.Builder getHealthCheckConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getHealthCheckConfigFieldBuilder().getBuilder();
     }
@@ -1865,11 +2200,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostname(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostname_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1885,8 +2218,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostname() {
-      
       hostname_ = getDefaultInstance().getHostname();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1904,12 +2237,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostnameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostname_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1946,7 +2277,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Endpoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

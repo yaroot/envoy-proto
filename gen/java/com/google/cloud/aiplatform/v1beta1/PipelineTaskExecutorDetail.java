@@ -34,73 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineTaskExecutorDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail.Builder subBuilder = null;
-            if (detailsCase_ == 1) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail.Builder subBuilder = null;
-            if (detailsCase_ == 2) {
-              subBuilder = ((com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail) details_).toBuilder();
-            }
-            details_ =
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail) details_);
-              details_ = subBuilder.buildPartial();
-            }
-            detailsCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.Pipeline.internal_static_google_cloud_aiplatform_v1beta1_PipelineTaskExecutorDetail_descriptor;
@@ -163,6 +96,108 @@ private static final long serialVersionUID = 0L;
      */
     com.google.protobuf.ByteString
         getPreCachingCheckJobBytes();
+
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the failedMainJobs.
+     */
+    java.util.List<java.lang.String>
+        getFailedMainJobsList();
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The count of failedMainJobs.
+     */
+    int getFailedMainJobsCount();
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the element to return.
+     * @return The failedMainJobs at the given index.
+     */
+    java.lang.String getFailedMainJobs(int index);
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the failedMainJobs at the given index.
+     */
+    com.google.protobuf.ByteString
+        getFailedMainJobsBytes(int index);
+
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the failedPreCachingCheckJobs.
+     */
+    java.util.List<java.lang.String>
+        getFailedPreCachingCheckJobsList();
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The count of failedPreCachingCheckJobs.
+     */
+    int getFailedPreCachingCheckJobsCount();
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the element to return.
+     * @return The failedPreCachingCheckJobs at the given index.
+     */
+    java.lang.String getFailedPreCachingCheckJobs(int index);
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the failedPreCachingCheckJobs at the given index.
+     */
+    com.google.protobuf.ByteString
+        getFailedPreCachingCheckJobsBytes(int index);
   }
   /**
    * <pre>
@@ -184,6 +219,8 @@ private static final long serialVersionUID = 0L;
     private ContainerDetail() {
       mainJob_ = "";
       preCachingCheckJob_ = "";
+      failedMainJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      failedPreCachingCheckJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -197,57 +234,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ContainerDetail(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              mainJob_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              preCachingCheckJob_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -263,7 +249,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAIN_JOB_FIELD_NUMBER = 1;
-    private volatile java.lang.Object mainJob_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object mainJob_ = "";
     /**
      * <pre>
      * Output only. The name of the [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container execution.
@@ -309,7 +296,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PRE_CACHING_CHECK_JOB_FIELD_NUMBER = 2;
-    private volatile java.lang.Object preCachingCheckJob_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object preCachingCheckJob_ = "";
     /**
      * <pre>
      * Output only. The name of the [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the pre-caching-check container
@@ -360,6 +348,130 @@ private static final long serialVersionUID = 0L;
       }
     }
 
+    public static final int FAILED_MAIN_JOBS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringList failedMainJobs_;
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the failedMainJobs.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFailedMainJobsList() {
+      return failedMainJobs_;
+    }
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The count of failedMainJobs.
+     */
+    public int getFailedMainJobsCount() {
+      return failedMainJobs_.size();
+    }
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the element to return.
+     * @return The failedMainJobs at the given index.
+     */
+    public java.lang.String getFailedMainJobs(int index) {
+      return failedMainJobs_.get(index);
+    }
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+     * executions. The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the failedMainJobs at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getFailedMainJobsBytes(int index) {
+      return failedMainJobs_.getByteString(index);
+    }
+
+    public static final int FAILED_PRE_CACHING_CHECK_JOBS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
+    private com.google.protobuf.LazyStringList failedPreCachingCheckJobs_;
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return A list containing the failedPreCachingCheckJobs.
+     */
+    public com.google.protobuf.ProtocolStringList
+        getFailedPreCachingCheckJobsList() {
+      return failedPreCachingCheckJobs_;
+    }
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The count of failedPreCachingCheckJobs.
+     */
+    public int getFailedPreCachingCheckJobsCount() {
+      return failedPreCachingCheckJobs_.size();
+    }
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the element to return.
+     * @return The failedPreCachingCheckJobs at the given index.
+     */
+    public java.lang.String getFailedPreCachingCheckJobs(int index) {
+      return failedPreCachingCheckJobs_.get(index);
+    }
+    /**
+     * <pre>
+     * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+     * pre-caching-check container executions. This job will be available if the
+     * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+     * the lifecycle events.
+     * The list includes the all attempts in chronological order.
+     * </pre>
+     *
+     * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param index The index of the value to return.
+     * @return The bytes of the failedPreCachingCheckJobs at the given index.
+     */
+    public com.google.protobuf.ByteString
+        getFailedPreCachingCheckJobsBytes(int index) {
+      return failedPreCachingCheckJobs_.getByteString(index);
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -380,7 +492,13 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preCachingCheckJob_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, preCachingCheckJob_);
       }
-      unknownFields.writeTo(output);
+      for (int i = 0; i < failedMainJobs_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, failedMainJobs_.getRaw(i));
+      }
+      for (int i = 0; i < failedPreCachingCheckJobs_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, failedPreCachingCheckJobs_.getRaw(i));
+      }
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -395,7 +513,23 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(preCachingCheckJob_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, preCachingCheckJob_);
       }
-      size += unknownFields.getSerializedSize();
+      {
+        int dataSize = 0;
+        for (int i = 0; i < failedMainJobs_.size(); i++) {
+          dataSize += computeStringSizeNoTag(failedMainJobs_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFailedMainJobsList().size();
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < failedPreCachingCheckJobs_.size(); i++) {
+          dataSize += computeStringSizeNoTag(failedPreCachingCheckJobs_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getFailedPreCachingCheckJobsList().size();
+      }
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -414,7 +548,11 @@ private static final long serialVersionUID = 0L;
           .equals(other.getMainJob())) return false;
       if (!getPreCachingCheckJob()
           .equals(other.getPreCachingCheckJob())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getFailedMainJobsList()
+          .equals(other.getFailedMainJobsList())) return false;
+      if (!getFailedPreCachingCheckJobsList()
+          .equals(other.getFailedPreCachingCheckJobsList())) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -429,7 +567,15 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getMainJob().hashCode();
       hash = (37 * hash) + PRE_CACHING_CHECK_JOB_FIELD_NUMBER;
       hash = (53 * hash) + getPreCachingCheckJob().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      if (getFailedMainJobsCount() > 0) {
+        hash = (37 * hash) + FAILED_MAIN_JOBS_FIELD_NUMBER;
+        hash = (53 * hash) + getFailedMainJobsList().hashCode();
+      }
+      if (getFailedPreCachingCheckJobsCount() > 0) {
+        hash = (37 * hash) + FAILED_PRE_CACHING_CHECK_JOBS_FIELD_NUMBER;
+        hash = (53 * hash) + getFailedPreCachingCheckJobsList().hashCode();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -551,26 +697,24 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         mainJob_ = "";
-
         preCachingCheckJob_ = "";
-
+        failedMainJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        failedPreCachingCheckJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -597,10 +741,33 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail buildPartial() {
         com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail result = new com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail(this);
-        result.mainJob_ = mainJob_;
-        result.preCachingCheckJob_ = preCachingCheckJob_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail result) {
+        if (((bitField0_ & 0x00000004) != 0)) {
+          failedMainJobs_ = failedMainJobs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.failedMainJobs_ = failedMainJobs_;
+        if (((bitField0_ & 0x00000008) != 0)) {
+          failedPreCachingCheckJobs_ = failedPreCachingCheckJobs_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.failedPreCachingCheckJobs_ = failedPreCachingCheckJobs_;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.mainJob_ = mainJob_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.preCachingCheckJob_ = preCachingCheckJob_;
+        }
       }
 
       @java.lang.Override
@@ -649,13 +816,35 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail.getDefaultInstance()) return this;
         if (!other.getMainJob().isEmpty()) {
           mainJob_ = other.mainJob_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getPreCachingCheckJob().isEmpty()) {
           preCachingCheckJob_ = other.preCachingCheckJob_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        if (!other.failedMainJobs_.isEmpty()) {
+          if (failedMainJobs_.isEmpty()) {
+            failedMainJobs_ = other.failedMainJobs_;
+            bitField0_ = (bitField0_ & ~0x00000004);
+          } else {
+            ensureFailedMainJobsIsMutable();
+            failedMainJobs_.addAll(other.failedMainJobs_);
+          }
+          onChanged();
+        }
+        if (!other.failedPreCachingCheckJobs_.isEmpty()) {
+          if (failedPreCachingCheckJobs_.isEmpty()) {
+            failedPreCachingCheckJobs_ = other.failedPreCachingCheckJobs_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureFailedPreCachingCheckJobsIsMutable();
+            failedPreCachingCheckJobs_.addAll(other.failedPreCachingCheckJobs_);
+          }
+          onChanged();
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -670,19 +859,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                mainJob_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                preCachingCheckJob_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureFailedMainJobsIsMutable();
+                failedMainJobs_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureFailedPreCachingCheckJobsIsMutable();
+                failedPreCachingCheckJobs_.add(s);
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object mainJob_ = "";
       /**
@@ -737,11 +962,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMainJob(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         mainJob_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -754,8 +977,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMainJob() {
-        
         mainJob_ = getDefaultInstance().getMainJob();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -770,12 +993,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setMainJobBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         mainJob_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -842,11 +1063,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPreCachingCheckJob(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         preCachingCheckJob_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -862,8 +1081,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPreCachingCheckJob() {
-        
         preCachingCheckJob_ = getDefaultInstance().getPreCachingCheckJob();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -881,12 +1100,335 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPreCachingCheckJobBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         preCachingCheckJob_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList failedMainJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFailedMainJobsIsMutable() {
+        if (!((bitField0_ & 0x00000004) != 0)) {
+          failedMainJobs_ = new com.google.protobuf.LazyStringArrayList(failedMainJobs_);
+          bitField0_ |= 0x00000004;
+         }
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return A list containing the failedMainJobs.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFailedMainJobsList() {
+        return failedMainJobs_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The count of failedMainJobs.
+       */
+      public int getFailedMainJobsCount() {
+        return failedMainJobs_.size();
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param index The index of the element to return.
+       * @return The failedMainJobs at the given index.
+       */
+      public java.lang.String getFailedMainJobs(int index) {
+        return failedMainJobs_.get(index);
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the failedMainJobs at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getFailedMainJobsBytes(int index) {
+        return failedMainJobs_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param index The index to set the value at.
+       * @param value The failedMainJobs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFailedMainJobs(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureFailedMainJobsIsMutable();
+        failedMainJobs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The failedMainJobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFailedMainJobs(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureFailedMainJobsIsMutable();
+        failedMainJobs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param values The failedMainJobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllFailedMainJobs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFailedMainJobsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, failedMainJobs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFailedMainJobs() {
+        failedMainJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the main container
+       * executions. The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_main_jobs = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The bytes of the failedMainJobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFailedMainJobsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureFailedMainJobsIsMutable();
+        failedMainJobs_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList failedPreCachingCheckJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureFailedPreCachingCheckJobsIsMutable() {
+        if (!((bitField0_ & 0x00000008) != 0)) {
+          failedPreCachingCheckJobs_ = new com.google.protobuf.LazyStringArrayList(failedPreCachingCheckJobs_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return A list containing the failedPreCachingCheckJobs.
+       */
+      public com.google.protobuf.ProtocolStringList
+          getFailedPreCachingCheckJobsList() {
+        return failedPreCachingCheckJobs_.getUnmodifiableView();
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return The count of failedPreCachingCheckJobs.
+       */
+      public int getFailedPreCachingCheckJobsCount() {
+        return failedPreCachingCheckJobs_.size();
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param index The index of the element to return.
+       * @return The failedPreCachingCheckJobs at the given index.
+       */
+      public java.lang.String getFailedPreCachingCheckJobs(int index) {
+        return failedPreCachingCheckJobs_.get(index);
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param index The index of the value to return.
+       * @return The bytes of the failedPreCachingCheckJobs at the given index.
+       */
+      public com.google.protobuf.ByteString
+          getFailedPreCachingCheckJobsBytes(int index) {
+        return failedPreCachingCheckJobs_.getByteString(index);
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param index The index to set the value at.
+       * @param value The failedPreCachingCheckJobs to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFailedPreCachingCheckJobs(
+          int index, java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureFailedPreCachingCheckJobsIsMutable();
+        failedPreCachingCheckJobs_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The failedPreCachingCheckJobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFailedPreCachingCheckJobs(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        ensureFailedPreCachingCheckJobsIsMutable();
+        failedPreCachingCheckJobs_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param values The failedPreCachingCheckJobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllFailedPreCachingCheckJobs(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureFailedPreCachingCheckJobsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, failedPreCachingCheckJobs_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFailedPreCachingCheckJobs() {
+        failedPreCachingCheckJobs_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * Output only. The names of the previously failed [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob] for the
+       * pre-caching-check container executions. This job will be available if the
+       * [PipelineJob.pipeline_spec][google.cloud.aiplatform.v1beta1.PipelineJob.pipeline_spec] specifies the `pre_caching_check` hook in
+       * the lifecycle events.
+       * The list includes the all attempts in chronological order.
+       * </pre>
+       *
+       * <code>repeated string failed_pre_caching_check_jobs = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+       * @param value The bytes of the failedPreCachingCheckJobs to add.
+       * @return This builder for chaining.
+       */
+      public Builder addFailedPreCachingCheckJobsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        ensureFailedPreCachingCheckJobsIsMutable();
+        failedPreCachingCheckJobs_.add(value);
         onChanged();
         return this;
       }
@@ -923,7 +1465,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ContainerDetail(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -999,51 +1552,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CustomJobDetail(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              job_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.Pipeline.internal_static_google_cloud_aiplatform_v1beta1_PipelineTaskExecutorDetail_CustomJobDetail_descriptor;
@@ -1058,7 +1566,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int JOB_FIELD_NUMBER = 1;
-    private volatile java.lang.Object job_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object job_ = "";
     /**
      * <pre>
      * Output only. The name of the [CustomJob][google.cloud.aiplatform.v1beta1.CustomJob].
@@ -1120,7 +1629,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(job_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, job_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1132,7 +1641,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(job_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, job_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1149,7 +1658,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getJob()
           .equals(other.getJob())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1162,7 +1671,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + JOB_FIELD_NUMBER;
       hash = (53 * hash) + getJob().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1283,24 +1792,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         job_ = "";
-
         return this;
       }
 
@@ -1327,9 +1831,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail buildPartial() {
         com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail result = new com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail(this);
-        result.job_ = job_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.job_ = job_;
+        }
       }
 
       @java.lang.Override
@@ -1378,9 +1889,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail.getDefaultInstance()) return this;
         if (!other.getJob().isEmpty()) {
           job_ = other.job_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1395,19 +1907,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                job_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object job_ = "";
       /**
@@ -1462,11 +1993,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setJob(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         job_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1479,8 +2008,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearJob() {
-        
         job_ = getDefaultInstance().getJob();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1495,12 +2024,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setJobBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         job_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1537,7 +2064,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CustomJobDetail(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1649,7 +2187,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail custom_job_detail = 2 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.custom_job_detail is deprecated.
-   *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=343
+   *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=370
    * @return Whether the customJobDetail field is set.
    */
   @java.lang.Override
@@ -1663,7 +2201,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail custom_job_detail = 2 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @deprecated google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.custom_job_detail is deprecated.
-   *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=343
+   *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=370
    * @return The customJobDetail.
    */
   @java.lang.Override
@@ -1708,7 +2246,7 @@ private static final long serialVersionUID = 0L;
     if (detailsCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail) details_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1725,7 +2263,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail) details_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1753,7 +2291,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1776,7 +2314,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1897,22 +2435,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (containerDetailBuilder_ != null) {
+        containerDetailBuilder_.clear();
+      }
+      if (customJobDetailBuilder_ != null) {
+        customJobDetailBuilder_.clear();
+      }
       detailsCase_ = 0;
       details_ = null;
       return this;
@@ -1941,23 +2481,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail buildPartial() {
       com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail result = new com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail(this);
-      if (detailsCase_ == 1) {
-        if (containerDetailBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = containerDetailBuilder_.build();
-        }
-      }
-      if (detailsCase_ == 2) {
-        if (customJobDetailBuilder_ == null) {
-          result.details_ = details_;
-        } else {
-          result.details_ = customJobDetailBuilder_.build();
-        }
-      }
-      result.detailsCase_ = detailsCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail result) {
+      result.detailsCase_ = detailsCase_;
+      result.details_ = this.details_;
+      if (detailsCase_ == 1 &&
+          containerDetailBuilder_ != null) {
+        result.details_ = containerDetailBuilder_.build();
+      }
+      if (detailsCase_ == 2 &&
+          customJobDetailBuilder_ != null) {
+        result.details_ = customJobDetailBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2017,7 +2561,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2032,17 +2576,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getContainerDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCustomJobDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              detailsCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int detailsCase_ = 0;
@@ -2060,6 +2631,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail, com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetail.Builder, com.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.ContainerDetailOrBuilder> containerDetailBuilder_;
@@ -2235,7 +2807,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 1;
-      onChanged();;
+      onChanged();
       return containerDetailBuilder_;
     }
 
@@ -2248,7 +2820,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail custom_job_detail = 2 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.custom_job_detail is deprecated.
-     *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=343
+     *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=370
      * @return Whether the customJobDetail field is set.
      */
     @java.lang.Override
@@ -2262,7 +2834,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>.google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.CustomJobDetail custom_job_detail = 2 [deprecated = true, (.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @deprecated google.cloud.aiplatform.v1beta1.PipelineTaskExecutorDetail.custom_job_detail is deprecated.
-     *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=343
+     *     See google/cloud/aiplatform/v1beta1/pipeline_job.proto;l=370
      * @return The customJobDetail.
      */
     @java.lang.Override
@@ -2417,7 +2989,7 @@ private static final long serialVersionUID = 0L;
         details_ = null;
       }
       detailsCase_ = 2;
-      onChanged();;
+      onChanged();
       return customJobDetailBuilder_;
     }
     @java.lang.Override
@@ -2453,7 +3025,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineTaskExecutorDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

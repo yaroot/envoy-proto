@@ -10,10 +10,18 @@ public interface SpeedReadingIntervalOrBuilder extends
   /**
    * <pre>
    * The starting index of this interval in the polyline.
-   * In JSON, when the index is 0, the field appears to be unpopulated.
    * </pre>
    *
-   * <code>int32 start_polyline_point_index = 1;</code>
+   * <code>optional int32 start_polyline_point_index = 1;</code>
+   * @return Whether the startPolylinePointIndex field is set.
+   */
+  boolean hasStartPolylinePointIndex();
+  /**
+   * <pre>
+   * The starting index of this interval in the polyline.
+   * </pre>
+   *
+   * <code>optional int32 start_polyline_point_index = 1;</code>
    * @return The startPolylinePointIndex.
    */
   int getStartPolylinePointIndex();
@@ -21,10 +29,18 @@ public interface SpeedReadingIntervalOrBuilder extends
   /**
    * <pre>
    * The ending index of this interval in the polyline.
-   * In JSON, when the index is 0, the field appears to be unpopulated.
    * </pre>
    *
-   * <code>int32 end_polyline_point_index = 2;</code>
+   * <code>optional int32 end_polyline_point_index = 2;</code>
+   * @return Whether the endPolylinePointIndex field is set.
+   */
+  boolean hasEndPolylinePointIndex();
+  /**
+   * <pre>
+   * The ending index of this interval in the polyline.
+   * </pre>
+   *
+   * <code>optional int32 end_polyline_point_index = 2;</code>
    * @return The endPolylinePointIndex.
    */
   int getEndPolylinePointIndex();

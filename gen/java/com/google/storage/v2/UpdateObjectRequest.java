@@ -35,111 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateObjectRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.storage.v2.Object.Builder subBuilder = null;
-            if (object_ != null) {
-              subBuilder = object_.toBuilder();
-            }
-            object_ = input.readMessage(com.google.storage.v2.Object.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(object_);
-              object_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            bitField0_ |= 0x00000001;
-            ifGenerationMatch_ = input.readInt64();
-            break;
-          }
-          case 24: {
-            bitField0_ |= 0x00000002;
-            ifGenerationNotMatch_ = input.readInt64();
-            break;
-          }
-          case 32: {
-            bitField0_ |= 0x00000004;
-            ifMetagenerationMatch_ = input.readInt64();
-            break;
-          }
-          case 40: {
-            bitField0_ |= 0x00000008;
-            ifMetagenerationNotMatch_ = input.readInt64();
-            break;
-          }
-          case 58: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.storage.v2.CommonObjectRequestParams.Builder subBuilder = null;
-            if (commonObjectRequestParams_ != null) {
-              subBuilder = commonObjectRequestParams_.toBuilder();
-            }
-            commonObjectRequestParams_ = input.readMessage(com.google.storage.v2.CommonObjectRequestParams.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonObjectRequestParams_);
-              commonObjectRequestParams_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predefinedAcl_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_UpdateObjectRequest_descriptor;
@@ -158,14 +53,14 @@ private static final long serialVersionUID = 0L;
   private com.google.storage.v2.Object object_;
   /**
    * <pre>
-   * The object to update.
+   * Required. The object to update.
    * The object's bucket and name fields are used to identify the object to
    * update. If present, the object's generation field selects a specific
    * revision of this object whose metadata should be updated. Otherwise,
    * assumes the live version of the object.
    * </pre>
    *
-   * <code>.google.storage.v2.Object object = 1;</code>
+   * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the object field is set.
    */
   @java.lang.Override
@@ -174,14 +69,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The object to update.
+   * Required. The object to update.
    * The object's bucket and name fields are used to identify the object to
    * update. If present, the object's generation field selects a specific
    * revision of this object whose metadata should be updated. Otherwise,
    * assumes the live version of the object.
    * </pre>
    *
-   * <code>.google.storage.v2.Object object = 1;</code>
+   * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The object.
    */
   @java.lang.Override
@@ -190,22 +85,22 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The object to update.
+   * Required. The object to update.
    * The object's bucket and name fields are used to identify the object to
    * update. If present, the object's generation field selects a specific
    * revision of this object whose metadata should be updated. Otherwise,
    * assumes the live version of the object.
    * </pre>
    *
-   * <code>.google.storage.v2.Object object = 1;</code>
+   * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.storage.v2.ObjectOrBuilder getObjectOrBuilder() {
-    return getObject();
+    return object_ == null ? com.google.storage.v2.Object.getDefaultInstance() : object_;
   }
 
   public static final int IF_GENERATION_MATCH_FIELD_NUMBER = 2;
-  private long ifGenerationMatch_;
+  private long ifGenerationMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's current generation
@@ -236,7 +131,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_GENERATION_NOT_MATCH_FIELD_NUMBER = 3;
-  private long ifGenerationNotMatch_;
+  private long ifGenerationNotMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's live generation
@@ -269,7 +164,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_METAGENERATION_MATCH_FIELD_NUMBER = 4;
-  private long ifMetagenerationMatch_;
+  private long ifMetagenerationMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's current
@@ -298,7 +193,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IF_METAGENERATION_NOT_MATCH_FIELD_NUMBER = 5;
-  private long ifMetagenerationNotMatch_;
+  private long ifMetagenerationNotMatch_ = 0L;
   /**
    * <pre>
    * Makes the operation conditional on whether the object's current
@@ -327,7 +222,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREDEFINED_ACL_FIELD_NUMBER = 10;
-  private volatile java.lang.Object predefinedAcl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predefinedAcl_ = "";
   /**
    * <pre>
    * Apply a predefined set of access controls to this object.
@@ -380,7 +276,7 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.FieldMask updateMask_;
   /**
    * <pre>
-   * List of fields to be updated.
+   * Required. List of fields to be updated.
    * To specify ALL fields, equivalent to the JSON API's "update" function,
    * specify a single field with the value `*`. Note: not recommended. If a new
    * field is introduced at a later time, an older client updating with the `*`
@@ -390,7 +286,7 @@ private static final long serialVersionUID = 0L;
    * an error.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return Whether the updateMask field is set.
    */
   @java.lang.Override
@@ -399,7 +295,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of fields to be updated.
+   * Required. List of fields to be updated.
    * To specify ALL fields, equivalent to the JSON API's "update" function,
    * specify a single field with the value `*`. Note: not recommended. If a new
    * field is introduced at a later time, an older client updating with the `*`
@@ -409,7 +305,7 @@ private static final long serialVersionUID = 0L;
    * an error.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
    * @return The updateMask.
    */
   @java.lang.Override
@@ -418,7 +314,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of fields to be updated.
+   * Required. List of fields to be updated.
    * To specify ALL fields, equivalent to the JSON API's "update" function,
    * specify a single field with the value `*`. Note: not recommended. If a new
    * field is introduced at a later time, an older client updating with the `*`
@@ -428,11 +324,11 @@ private static final long serialVersionUID = 0L;
    * an error.
    * </pre>
    *
-   * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+   * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int COMMON_OBJECT_REQUEST_PARAMS_FIELD_NUMBER = 8;
@@ -470,7 +366,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.storage.v2.CommonObjectRequestParamsOrBuilder getCommonObjectRequestParamsOrBuilder() {
-    return getCommonObjectRequestParams();
+    return commonObjectRequestParams_ == null ? com.google.storage.v2.CommonObjectRequestParams.getDefaultInstance() : commonObjectRequestParams_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -511,7 +407,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predefinedAcl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 10, predefinedAcl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -551,7 +447,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(predefinedAcl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, predefinedAcl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -603,7 +499,7 @@ private static final long serialVersionUID = 0L;
       if (!getCommonObjectRequestParams()
           .equals(other.getCommonObjectRequestParams())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -648,7 +544,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COMMON_OBJECT_REQUEST_PARAMS_FIELD_NUMBER;
       hash = (53 * hash) + getCommonObjectRequestParams().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -769,48 +665,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v2.UpdateObjectRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (objectBuilder_ == null) {
-        object_ = null;
-      } else {
-        object_ = null;
+      bitField0_ = 0;
+      object_ = null;
+      if (objectBuilder_ != null) {
+        objectBuilder_.dispose();
         objectBuilder_ = null;
       }
       ifGenerationMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       ifGenerationNotMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       ifMetagenerationMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000004);
       ifMetagenerationNotMatch_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000008);
       predefinedAcl_ = "";
-
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-      if (commonObjectRequestParamsBuilder_ == null) {
-        commonObjectRequestParams_ = null;
-      } else {
-        commonObjectRequestParams_ = null;
+      commonObjectRequestParams_ = null;
+      if (commonObjectRequestParamsBuilder_ != null) {
+        commonObjectRequestParamsBuilder_.dispose();
         commonObjectRequestParamsBuilder_ = null;
       }
       return this;
@@ -839,43 +723,49 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.UpdateObjectRequest buildPartial() {
       com.google.storage.v2.UpdateObjectRequest result = new com.google.storage.v2.UpdateObjectRequest(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.storage.v2.UpdateObjectRequest result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (objectBuilder_ == null) {
-        result.object_ = object_;
-      } else {
-        result.object_ = objectBuilder_.build();
-      }
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.object_ = objectBuilder_ == null
+            ? object_
+            : objectBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
         result.ifGenerationMatch_ = ifGenerationMatch_;
         to_bitField0_ |= 0x00000001;
       }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (((from_bitField0_ & 0x00000004) != 0)) {
         result.ifGenerationNotMatch_ = ifGenerationNotMatch_;
         to_bitField0_ |= 0x00000002;
       }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (((from_bitField0_ & 0x00000008) != 0)) {
         result.ifMetagenerationMatch_ = ifMetagenerationMatch_;
         to_bitField0_ |= 0x00000004;
       }
-      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (((from_bitField0_ & 0x00000010) != 0)) {
         result.ifMetagenerationNotMatch_ = ifMetagenerationNotMatch_;
         to_bitField0_ |= 0x00000008;
       }
-      result.predefinedAcl_ = predefinedAcl_;
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.predefinedAcl_ = predefinedAcl_;
       }
-      if (commonObjectRequestParamsBuilder_ == null) {
-        result.commonObjectRequestParams_ = commonObjectRequestParams_;
-      } else {
-        result.commonObjectRequestParams_ = commonObjectRequestParamsBuilder_.build();
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.commonObjectRequestParams_ = commonObjectRequestParamsBuilder_ == null
+            ? commonObjectRequestParams_
+            : commonObjectRequestParamsBuilder_.build();
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -939,6 +829,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPredefinedAcl().isEmpty()) {
         predefinedAcl_ = other.predefinedAcl_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasUpdateMask()) {
@@ -947,7 +838,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCommonObjectRequestParams()) {
         mergeCommonObjectRequestParams(other.getCommonObjectRequestParams());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -962,17 +853,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.UpdateObjectRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getObjectFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              ifGenerationMatch_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              ifGenerationNotMatch_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              ifMetagenerationMatch_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              ifMetagenerationNotMatch_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 58: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getCommonObjectRequestParamsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 82: {
+              predefinedAcl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 82
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.UpdateObjectRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -982,29 +932,29 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v2.Object, com.google.storage.v2.Object.Builder, com.google.storage.v2.ObjectOrBuilder> objectBuilder_;
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the object field is set.
      */
     public boolean hasObject() {
-      return objectBuilder_ != null || object_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The object.
      */
     public com.google.storage.v2.Object getObject() {
@@ -1016,14 +966,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setObject(com.google.storage.v2.Object value) {
       if (objectBuilder_ == null) {
@@ -1031,109 +981,109 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         object_ = value;
-        onChanged();
       } else {
         objectBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setObject(
         com.google.storage.v2.Object.Builder builderForValue) {
       if (objectBuilder_ == null) {
         object_ = builderForValue.build();
-        onChanged();
       } else {
         objectBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeObject(com.google.storage.v2.Object value) {
       if (objectBuilder_ == null) {
-        if (object_ != null) {
-          object_ =
-            com.google.storage.v2.Object.newBuilder(object_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          object_ != null &&
+          object_ != com.google.storage.v2.Object.getDefaultInstance()) {
+          getObjectBuilder().mergeFrom(value);
         } else {
           object_ = value;
         }
-        onChanged();
       } else {
         objectBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearObject() {
-      if (objectBuilder_ == null) {
-        object_ = null;
-        onChanged();
-      } else {
-        object_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      object_ = null;
+      if (objectBuilder_ != null) {
+        objectBuilder_.dispose();
         objectBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.storage.v2.Object.Builder getObjectBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getObjectFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.storage.v2.ObjectOrBuilder getObjectOrBuilder() {
       if (objectBuilder_ != null) {
@@ -1145,14 +1095,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The object to update.
+     * Required. The object to update.
      * The object's bucket and name fields are used to identify the object to
      * update. If present, the object's generation field selects a specific
      * revision of this object whose metadata should be updated. Otherwise,
      * assumes the live version of the object.
      * </pre>
      *
-     * <code>.google.storage.v2.Object object = 1;</code>
+     * <code>.google.storage.v2.Object object = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.storage.v2.Object, com.google.storage.v2.Object.Builder, com.google.storage.v2.ObjectOrBuilder> 
@@ -1181,7 +1131,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfGenerationMatch() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1209,8 +1159,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfGenerationMatch(long value) {
-      bitField0_ |= 0x00000001;
+      
       ifGenerationMatch_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1225,7 +1176,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfGenerationMatch() {
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       ifGenerationMatch_ = 0L;
       onChanged();
       return this;
@@ -1245,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfGenerationNotMatch() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1275,8 +1226,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfGenerationNotMatch(long value) {
-      bitField0_ |= 0x00000002;
+      
       ifGenerationNotMatch_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1292,7 +1244,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfGenerationNotMatch() {
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       ifGenerationNotMatch_ = 0L;
       onChanged();
       return this;
@@ -1310,7 +1262,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfMetagenerationMatch() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1336,8 +1288,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfMetagenerationMatch(long value) {
-      bitField0_ |= 0x00000004;
+      
       ifMetagenerationMatch_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1351,7 +1304,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfMetagenerationMatch() {
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000008);
       ifMetagenerationMatch_ = 0L;
       onChanged();
       return this;
@@ -1369,7 +1322,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public boolean hasIfMetagenerationNotMatch() {
-      return ((bitField0_ & 0x00000008) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1395,8 +1348,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIfMetagenerationNotMatch(long value) {
-      bitField0_ |= 0x00000008;
+      
       ifMetagenerationNotMatch_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1410,7 +1364,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIfMetagenerationNotMatch() {
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000010);
       ifMetagenerationNotMatch_ = 0L;
       onChanged();
       return this;
@@ -1475,11 +1429,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedAcl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predefinedAcl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1494,8 +1446,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredefinedAcl() {
-      
       predefinedAcl_ = getDefaultInstance().getPredefinedAcl();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1512,12 +1464,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredefinedAclBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predefinedAcl_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1527,7 +1477,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1537,15 +1487,15 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1555,7 +1505,7 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return The updateMask.
      */
     public com.google.protobuf.FieldMask getUpdateMask() {
@@ -1567,7 +1517,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1577,7 +1527,7 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
@@ -1585,16 +1535,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1604,22 +1554,22 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder setUpdateMask(
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1629,26 +1579,27 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1658,22 +1609,21 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1683,16 +1633,16 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1702,7 +1652,7 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
       if (updateMaskBuilder_ != null) {
@@ -1714,7 +1664,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of fields to be updated.
+     * Required. List of fields to be updated.
      * To specify ALL fields, equivalent to the JSON API's "update" function,
      * specify a single field with the value `*`. Note: not recommended. If a new
      * field is introduced at a later time, an older client updating with the `*`
@@ -1724,7 +1674,7 @@ private static final long serialVersionUID = 0L;
      * an error.
      * </pre>
      *
-     * <code>.google.protobuf.FieldMask update_mask = 7;</code>
+     * <code>.google.protobuf.FieldMask update_mask = 7 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
@@ -1752,7 +1702,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commonObjectRequestParams field is set.
      */
     public boolean hasCommonObjectRequestParams() {
-      return commonObjectRequestParamsBuilder_ != null || commonObjectRequestParams_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1782,11 +1732,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonObjectRequestParams_ = value;
-        onChanged();
       } else {
         commonObjectRequestParamsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1800,11 +1750,11 @@ private static final long serialVersionUID = 0L;
         com.google.storage.v2.CommonObjectRequestParams.Builder builderForValue) {
       if (commonObjectRequestParamsBuilder_ == null) {
         commonObjectRequestParams_ = builderForValue.build();
-        onChanged();
       } else {
         commonObjectRequestParamsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1816,17 +1766,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommonObjectRequestParams(com.google.storage.v2.CommonObjectRequestParams value) {
       if (commonObjectRequestParamsBuilder_ == null) {
-        if (commonObjectRequestParams_ != null) {
-          commonObjectRequestParams_ =
-            com.google.storage.v2.CommonObjectRequestParams.newBuilder(commonObjectRequestParams_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          commonObjectRequestParams_ != null &&
+          commonObjectRequestParams_ != com.google.storage.v2.CommonObjectRequestParams.getDefaultInstance()) {
+          getCommonObjectRequestParamsBuilder().mergeFrom(value);
         } else {
           commonObjectRequestParams_ = value;
         }
-        onChanged();
       } else {
         commonObjectRequestParamsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1837,14 +1788,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v2.CommonObjectRequestParams common_object_request_params = 8;</code>
      */
     public Builder clearCommonObjectRequestParams() {
-      if (commonObjectRequestParamsBuilder_ == null) {
-        commonObjectRequestParams_ = null;
-        onChanged();
-      } else {
-        commonObjectRequestParams_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      commonObjectRequestParams_ = null;
+      if (commonObjectRequestParamsBuilder_ != null) {
+        commonObjectRequestParamsBuilder_.dispose();
         commonObjectRequestParamsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1855,7 +1805,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.storage.v2.CommonObjectRequestParams common_object_request_params = 8;</code>
      */
     public com.google.storage.v2.CommonObjectRequestParams.Builder getCommonObjectRequestParamsBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getCommonObjectRequestParamsFieldBuilder().getBuilder();
     }
@@ -1927,7 +1877,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateObjectRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

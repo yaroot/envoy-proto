@@ -7,8 +7,6 @@ package com.google.cloud.retail.v2alpha;
  * <pre>
  * Configures metadata that is used to generate serving time results (e.g.
  * search results or recommendation predictions).
- * The ServingConfig is passed in the search and predict request and together
- * with the Catalog.default_branch, generates results.
  * </pre>
  *
  * Protobuf type {@code google.cloud.retail.v2alpha.ServingConfig}
@@ -37,6 +35,7 @@ private static final long serialVersionUID = 0L;
     replacementControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     ignoreControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     diversityLevel_ = "";
+    diversityType_ = 0;
     enableCategoryFilterLevel_ = "";
     solutionTypes_ = java.util.Collections.emptyList();
   }
@@ -53,229 +52,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ServingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            modelId_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            priceRerankingLevel_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              facetControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            facetControlIds_.add(s);
-            break;
-          }
-          case 50: {
-            com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.Builder subBuilder = null;
-            if (dynamicFacetSpec_ != null) {
-              subBuilder = dynamicFacetSpec_.toBuilder();
-            }
-            dynamicFacetSpec_ = input.readMessage(com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dynamicFacetSpec_);
-              dynamicFacetSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              boostControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            boostControlIds_.add(s);
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            diversityLevel_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              filterControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            filterControlIds_.add(s);
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              redirectControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            redirectControlIds_.add(s);
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              onewaySynonymsControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            onewaySynonymsControlIds_.add(s);
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              doNotAssociateControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            doNotAssociateControlIds_.add(s);
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              replacementControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            replacementControlIds_.add(s);
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              ignoreControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            ignoreControlIds_.add(s);
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            enableCategoryFilterLevel_ = s;
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              twowaySynonymsControlIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            twowaySynonymsControlIds_.add(s);
-            break;
-          }
-          case 152: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-              solutionTypes_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000200;
-            }
-            solutionTypes_.add(rawValue);
-            break;
-          }
-          case 154: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000200) != 0)) {
-                solutionTypes_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000200;
-              }
-              solutionTypes_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        facetControlIds_ = facetControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        boostControlIds_ = boostControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        filterControlIds_ = filterControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        redirectControlIds_ = redirectControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        onewaySynonymsControlIds_ = onewaySynonymsControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        doNotAssociateControlIds_ = doNotAssociateControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        replacementControlIds_ = replacementControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        ignoreControlIds_ = ignoreControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        twowaySynonymsControlIds_ = twowaySynonymsControlIds_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000200) != 0)) {
-        solutionTypes_ = java.util.Collections.unmodifiableList(solutionTypes_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2alpha.ServingConfigProto.internal_static_google_cloud_retail_v2alpha_ServingConfig_descriptor;
@@ -289,8 +65,155 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.retail.v2alpha.ServingConfig.class, com.google.cloud.retail.v2alpha.ServingConfig.Builder.class);
   }
 
+  /**
+   * <pre>
+   * What type of diversity - data or rule based.
+   * If none is specified, default to rule based.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.retail.v2alpha.ServingConfig.DiversityType}
+   */
+  public enum DiversityType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * Default value.
+     * </pre>
+     *
+     * <code>DIVERSITY_TYPE_UNSPECIFIED = 0;</code>
+     */
+    DIVERSITY_TYPE_UNSPECIFIED(0),
+    /**
+     * <pre>
+     * Rule based diversity.
+     * </pre>
+     *
+     * <code>RULE_BASED_DIVERSITY = 2;</code>
+     */
+    RULE_BASED_DIVERSITY(2),
+    /**
+     * <pre>
+     * Data driven diversity.
+     * </pre>
+     *
+     * <code>DATA_DRIVEN_DIVERSITY = 3;</code>
+     */
+    DATA_DRIVEN_DIVERSITY(3),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * Default value.
+     * </pre>
+     *
+     * <code>DIVERSITY_TYPE_UNSPECIFIED = 0;</code>
+     */
+    public static final int DIVERSITY_TYPE_UNSPECIFIED_VALUE = 0;
+    /**
+     * <pre>
+     * Rule based diversity.
+     * </pre>
+     *
+     * <code>RULE_BASED_DIVERSITY = 2;</code>
+     */
+    public static final int RULE_BASED_DIVERSITY_VALUE = 2;
+    /**
+     * <pre>
+     * Data driven diversity.
+     * </pre>
+     *
+     * <code>DATA_DRIVEN_DIVERSITY = 3;</code>
+     */
+    public static final int DATA_DRIVEN_DIVERSITY_VALUE = 3;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static DiversityType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static DiversityType forNumber(int value) {
+      switch (value) {
+        case 0: return DIVERSITY_TYPE_UNSPECIFIED;
+        case 2: return RULE_BASED_DIVERSITY;
+        case 3: return DATA_DRIVEN_DIVERSITY;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<DiversityType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        DiversityType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<DiversityType>() {
+            public DiversityType findValueByNumber(int number) {
+              return DiversityType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.retail.v2alpha.ServingConfig.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final DiversityType[] VALUES = values();
+
+    public static DiversityType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private DiversityType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.retail.v2alpha.ServingConfig.DiversityType)
+  }
+
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Immutable. Fully qualified name
@@ -338,7 +261,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. The human readable serving config display name. Used in Retail
@@ -390,10 +314,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODEL_ID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object modelId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object modelId_ = "";
   /**
    * <pre>
-   * The id of the model to use at serving time.
+   * The id of the model in the same
+   * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
    * Currently only RecommendationModels are supported:
    * https://cloud.google.com/retail/recommendations-ai/docs/create-models
    * Can be changed but only to a compatible model (e.g.
@@ -422,7 +348,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The id of the model to use at serving time.
+   * The id of the model in the same
+   * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
    * Currently only RecommendationModels are supported:
    * https://cloud.google.com/retail/recommendations-ai/docs/create-models
    * Can be changed but only to a compatible model (e.g.
@@ -452,7 +379,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRICE_RERANKING_LEVEL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object priceRerankingLevel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object priceRerankingLevel_ = "";
   /**
    * <pre>
    * How much price ranking we want in serving results.
@@ -461,12 +389,12 @@ private static final long serialVersionUID = 0L;
    * highest-priced items first. This setting could result in a decrease in
    * click-through and conversion rates.
    *  Allowed values are:
-   * * 'no-price-reranking'
-   * * 'low-price-raranking'
-   * * 'medium-price-reranking'
-   * * 'high-price-reranking'
+   * * `no-price-reranking`
+   * * `low-price-raranking`
+   * * `medium-price-reranking`
+   * * `high-price-reranking`
    * If not specified, we choose default based on model type. Default value:
-   * 'no-price-reranking'.
+   * `no-price-reranking`.
    * Can only be set if
    * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
    * is
@@ -497,12 +425,12 @@ private static final long serialVersionUID = 0L;
    * highest-priced items first. This setting could result in a decrease in
    * click-through and conversion rates.
    *  Allowed values are:
-   * * 'no-price-reranking'
-   * * 'low-price-raranking'
-   * * 'medium-price-reranking'
-   * * 'high-price-reranking'
+   * * `no-price-reranking`
+   * * `low-price-raranking`
+   * * `medium-price-reranking`
+   * * `high-price-reranking`
    * If not specified, we choose default based on model type. Default value:
-   * 'no-price-reranking'.
+   * `no-price-reranking`.
    * Can only be set if
    * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
    * is
@@ -528,6 +456,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FACET_CONTROL_IDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList facetControlIds_;
   /**
    * <pre>
@@ -668,10 +597,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpecOrBuilder getDynamicFacetSpecOrBuilder() {
-    return getDynamicFacetSpec();
+    return dynamicFacetSpec_ == null ? com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.getDefaultInstance() : dynamicFacetSpec_;
   }
 
   public static final int BOOST_CONTROL_IDS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList boostControlIds_;
   /**
    * <pre>
@@ -779,6 +709,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_CONTROL_IDS_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList filterControlIds_;
   /**
    * <pre>
@@ -858,6 +789,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDIRECT_CONTROL_IDS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList redirectControlIds_;
   /**
    * <pre>
@@ -933,6 +865,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TWOWAY_SYNONYMS_CONTROL_IDS_FIELD_NUMBER = 18;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList twowaySynonymsControlIds_;
   /**
    * <pre>
@@ -1012,6 +945,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ONEWAY_SYNONYMS_CONTROL_IDS_FIELD_NUMBER = 12;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList onewaySynonymsControlIds_;
   /**
    * <pre>
@@ -1091,6 +1025,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DO_NOT_ASSOCIATE_CONTROL_IDS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList doNotAssociateControlIds_;
   /**
    * <pre>
@@ -1174,6 +1109,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPLACEMENT_CONTROL_IDS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList replacementControlIds_;
   /**
    * <pre>
@@ -1253,6 +1189,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IGNORE_CONTROL_IDS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ignoreControlIds_;
   /**
    * <pre>
@@ -1336,18 +1273,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIVERSITY_LEVEL_FIELD_NUMBER = 8;
-  private volatile java.lang.Object diversityLevel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object diversityLevel_ = "";
   /**
    * <pre>
    * How much diversity to use in recommendation model results e.g.
-   * 'medium-diversity' or 'high-diversity'. Currently supported values:
-   * * 'no-diversity'
-   * * 'low-diversity'
-   * * 'medium-diversity'
-   * * 'high-diversity'
-   * * 'auto-diversity'
+   * `medium-diversity` or `high-diversity`. Currently supported values:
+   * * `no-diversity`
+   * * `low-diversity`
+   * * `medium-diversity`
+   * * `high-diversity`
+   * * `auto-diversity`
    * If not specified, we choose default based on recommendation model
-   * type. Default value: 'no-diversity'.
+   * type. Default value: `no-diversity`.
    * Can only be set if
    * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
    * is
@@ -1373,14 +1311,14 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * How much diversity to use in recommendation model results e.g.
-   * 'medium-diversity' or 'high-diversity'. Currently supported values:
-   * * 'no-diversity'
-   * * 'low-diversity'
-   * * 'medium-diversity'
-   * * 'high-diversity'
-   * * 'auto-diversity'
+   * `medium-diversity` or `high-diversity`. Currently supported values:
+   * * `no-diversity`
+   * * `low-diversity`
+   * * `medium-diversity`
+   * * `high-diversity`
+   * * `auto-diversity`
    * If not specified, we choose default based on recommendation model
-   * type. Default value: 'no-diversity'.
+   * type. Default value: `no-diversity`.
    * Can only be set if
    * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
    * is
@@ -1405,16 +1343,43 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int ENABLE_CATEGORY_FILTER_LEVEL_FIELD_NUMBER = 16;
-  private volatile java.lang.Object enableCategoryFilterLevel_;
+  public static final int DIVERSITY_TYPE_FIELD_NUMBER = 20;
+  private int diversityType_ = 0;
   /**
    * <pre>
-   * Whether to add additional category filters on the 'similar-items' model.
+   * What kind of diversity to use - data driven or rule based.
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+   * @return The enum numeric value on the wire for diversityType.
+   */
+  @java.lang.Override public int getDiversityTypeValue() {
+    return diversityType_;
+  }
+  /**
+   * <pre>
+   * What kind of diversity to use - data driven or rule based.
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+   * @return The diversityType.
+   */
+  @java.lang.Override public com.google.cloud.retail.v2alpha.ServingConfig.DiversityType getDiversityType() {
+    com.google.cloud.retail.v2alpha.ServingConfig.DiversityType result = com.google.cloud.retail.v2alpha.ServingConfig.DiversityType.forNumber(diversityType_);
+    return result == null ? com.google.cloud.retail.v2alpha.ServingConfig.DiversityType.UNRECOGNIZED : result;
+  }
+
+  public static final int ENABLE_CATEGORY_FILTER_LEVEL_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object enableCategoryFilterLevel_ = "";
+  /**
+   * <pre>
+   * Whether to add additional category filters on the `similar-items` model.
    * If not specified, we enable it by default.
    *  Allowed values are:
-   * * 'no-category-match': No additional filtering of original results from
+   * * `no-category-match`: No additional filtering of original results from
    *   the model and the customer's filters.
-   * * 'relaxed-category-match': Only keep results with categories that match
+   * * `relaxed-category-match`: Only keep results with categories that match
    *   at least one item categories in the PredictRequests's context item.
    *   * If customer also sends filters in the PredictRequest, then the results
    *   will satisfy both conditions (user given and category match).
@@ -1442,12 +1407,12 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Whether to add additional category filters on the 'similar-items' model.
+   * Whether to add additional category filters on the `similar-items` model.
    * If not specified, we enable it by default.
    *  Allowed values are:
-   * * 'no-category-match': No additional filtering of original results from
+   * * `no-category-match`: No additional filtering of original results from
    *   the model and the customer's filters.
-   * * 'relaxed-category-match': Only keep results with categories that match
+   * * `relaxed-category-match`: Only keep results with categories that match
    *   at least one item categories in the PredictRequests's context item.
    *   * If customer also sends filters in the PredictRequest, then the results
    *   will satisfy both conditions (user given and category match).
@@ -1475,15 +1440,89 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int PERSONALIZATION_SPEC_FIELD_NUMBER = 21;
+  private com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalizationSpec_;
+  /**
+   * <pre>
+   * The specification for personalization spec.
+   * Can only be set if
+   * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+   * is
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+   * Notice that if both
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+   * and
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * are set.
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * will override
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+   * @return Whether the personalizationSpec field is set.
+   */
+  @java.lang.Override
+  public boolean hasPersonalizationSpec() {
+    return personalizationSpec_ != null;
+  }
+  /**
+   * <pre>
+   * The specification for personalization spec.
+   * Can only be set if
+   * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+   * is
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+   * Notice that if both
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+   * and
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * are set.
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * will override
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+   * @return The personalizationSpec.
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec getPersonalizationSpec() {
+    return personalizationSpec_ == null ? com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.getDefaultInstance() : personalizationSpec_;
+  }
+  /**
+   * <pre>
+   * The specification for personalization spec.
+   * Can only be set if
+   * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+   * is
+   * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+   * Notice that if both
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+   * and
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * are set.
+   * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+   * will override
+   * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+   * </pre>
+   *
+   * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpecOrBuilder getPersonalizationSpecOrBuilder() {
+    return personalizationSpec_ == null ? com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.getDefaultInstance() : personalizationSpec_;
+  }
+
   public static final int SOLUTION_TYPES_FIELD_NUMBER = 19;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> solutionTypes_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.cloud.retail.v2alpha.SolutionType> solutionTypes_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.cloud.retail.v2alpha.SolutionType>() {
             public com.google.cloud.retail.v2alpha.SolutionType convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.retail.v2alpha.SolutionType result = com.google.cloud.retail.v2alpha.SolutionType.valueOf(from);
+              com.google.cloud.retail.v2alpha.SolutionType result = com.google.cloud.retail.v2alpha.SolutionType.forNumber(from);
               return result == null ? com.google.cloud.retail.v2alpha.SolutionType.UNRECOGNIZED : result;
             }
           };
@@ -1628,7 +1667,13 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < solutionTypes_.size(); i++) {
       output.writeEnumNoTag(solutionTypes_.get(i));
     }
-    unknownFields.writeTo(output);
+    if (diversityType_ != com.google.cloud.retail.v2alpha.ServingConfig.DiversityType.DIVERSITY_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(20, diversityType_);
+    }
+    if (personalizationSpec_ != null) {
+      output.writeMessage(21, getPersonalizationSpec());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1743,7 +1788,15 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }solutionTypesMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    if (diversityType_ != com.google.cloud.retail.v2alpha.ServingConfig.DiversityType.DIVERSITY_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(20, diversityType_);
+    }
+    if (personalizationSpec_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(21, getPersonalizationSpec());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1791,10 +1844,16 @@ private static final long serialVersionUID = 0L;
         .equals(other.getIgnoreControlIdsList())) return false;
     if (!getDiversityLevel()
         .equals(other.getDiversityLevel())) return false;
+    if (diversityType_ != other.diversityType_) return false;
     if (!getEnableCategoryFilterLevel()
         .equals(other.getEnableCategoryFilterLevel())) return false;
+    if (hasPersonalizationSpec() != other.hasPersonalizationSpec()) return false;
+    if (hasPersonalizationSpec()) {
+      if (!getPersonalizationSpec()
+          .equals(other.getPersonalizationSpec())) return false;
+    }
     if (!solutionTypes_.equals(other.solutionTypes_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1855,13 +1914,19 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + DIVERSITY_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getDiversityLevel().hashCode();
+    hash = (37 * hash) + DIVERSITY_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + diversityType_;
     hash = (37 * hash) + ENABLE_CATEGORY_FILTER_LEVEL_FIELD_NUMBER;
     hash = (53 * hash) + getEnableCategoryFilterLevel().hashCode();
+    if (hasPersonalizationSpec()) {
+      hash = (37 * hash) + PERSONALIZATION_SPEC_FIELD_NUMBER;
+      hash = (53 * hash) + getPersonalizationSpec().hashCode();
+    }
     if (getSolutionTypesCount() > 0) {
       hash = (37 * hash) + SOLUTION_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + solutionTypes_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1960,8 +2025,6 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Configures metadata that is used to generate serving time results (e.g.
    * search results or recommendation predictions).
-   * The ServingConfig is passed in the search and predict request and together
-   * with the Catalog.default_branch, generates results.
    * </pre>
    *
    * Protobuf type {@code google.cloud.retail.v2alpha.ServingConfig}
@@ -1985,60 +2048,55 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.ServingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       modelId_ = "";
-
       priceRerankingLevel_ = "";
-
       facetControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (dynamicFacetSpecBuilder_ == null) {
-        dynamicFacetSpec_ = null;
-      } else {
-        dynamicFacetSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      dynamicFacetSpec_ = null;
+      if (dynamicFacetSpecBuilder_ != null) {
+        dynamicFacetSpecBuilder_.dispose();
         dynamicFacetSpecBuilder_ = null;
       }
       boostControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      filterControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
-      redirectControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
-      twowaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
-      onewaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
-      doNotAssociateControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000040);
-      replacementControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      filterControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000080);
-      ignoreControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      redirectControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000100);
-      diversityLevel_ = "";
-
-      enableCategoryFilterLevel_ = "";
-
-      solutionTypes_ = java.util.Collections.emptyList();
+      twowaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000200);
+      onewaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      doNotAssociateControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      replacementControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      ignoreControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      diversityLevel_ = "";
+      diversityType_ = 0;
+      enableCategoryFilterLevel_ = "";
+      personalizationSpec_ = null;
+      if (personalizationSpecBuilder_ != null) {
+        personalizationSpecBuilder_.dispose();
+        personalizationSpecBuilder_ = null;
+      }
+      solutionTypes_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00040000);
       return this;
     }
 
@@ -2065,70 +2123,98 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.ServingConfig buildPartial() {
       com.google.cloud.retail.v2alpha.ServingConfig result = new com.google.cloud.retail.v2alpha.ServingConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.modelId_ = modelId_;
-      result.priceRerankingLevel_ = priceRerankingLevel_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        facetControlIds_ = facetControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.facetControlIds_ = facetControlIds_;
-      if (dynamicFacetSpecBuilder_ == null) {
-        result.dynamicFacetSpec_ = dynamicFacetSpec_;
-      } else {
-        result.dynamicFacetSpec_ = dynamicFacetSpecBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
-        boostControlIds_ = boostControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.boostControlIds_ = boostControlIds_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        filterControlIds_ = filterControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.filterControlIds_ = filterControlIds_;
-      if (((bitField0_ & 0x00000008) != 0)) {
-        redirectControlIds_ = redirectControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.redirectControlIds_ = redirectControlIds_;
-      if (((bitField0_ & 0x00000010) != 0)) {
-        twowaySynonymsControlIds_ = twowaySynonymsControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000010);
-      }
-      result.twowaySynonymsControlIds_ = twowaySynonymsControlIds_;
-      if (((bitField0_ & 0x00000020) != 0)) {
-        onewaySynonymsControlIds_ = onewaySynonymsControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000020);
-      }
-      result.onewaySynonymsControlIds_ = onewaySynonymsControlIds_;
-      if (((bitField0_ & 0x00000040) != 0)) {
-        doNotAssociateControlIds_ = doNotAssociateControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000040);
-      }
-      result.doNotAssociateControlIds_ = doNotAssociateControlIds_;
-      if (((bitField0_ & 0x00000080) != 0)) {
-        replacementControlIds_ = replacementControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000080);
-      }
-      result.replacementControlIds_ = replacementControlIds_;
-      if (((bitField0_ & 0x00000100) != 0)) {
-        ignoreControlIds_ = ignoreControlIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000100);
-      }
-      result.ignoreControlIds_ = ignoreControlIds_;
-      result.diversityLevel_ = diversityLevel_;
-      result.enableCategoryFilterLevel_ = enableCategoryFilterLevel_;
-      if (((bitField0_ & 0x00000200) != 0)) {
-        solutionTypes_ = java.util.Collections.unmodifiableList(solutionTypes_);
-        bitField0_ = (bitField0_ & ~0x00000200);
-      }
-      result.solutionTypes_ = solutionTypes_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.ServingConfig result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        facetControlIds_ = facetControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.facetControlIds_ = facetControlIds_;
+      if (((bitField0_ & 0x00000040) != 0)) {
+        boostControlIds_ = boostControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.boostControlIds_ = boostControlIds_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        filterControlIds_ = filterControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.filterControlIds_ = filterControlIds_;
+      if (((bitField0_ & 0x00000100) != 0)) {
+        redirectControlIds_ = redirectControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000100);
+      }
+      result.redirectControlIds_ = redirectControlIds_;
+      if (((bitField0_ & 0x00000200) != 0)) {
+        twowaySynonymsControlIds_ = twowaySynonymsControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.twowaySynonymsControlIds_ = twowaySynonymsControlIds_;
+      if (((bitField0_ & 0x00000400) != 0)) {
+        onewaySynonymsControlIds_ = onewaySynonymsControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000400);
+      }
+      result.onewaySynonymsControlIds_ = onewaySynonymsControlIds_;
+      if (((bitField0_ & 0x00000800) != 0)) {
+        doNotAssociateControlIds_ = doNotAssociateControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000800);
+      }
+      result.doNotAssociateControlIds_ = doNotAssociateControlIds_;
+      if (((bitField0_ & 0x00001000) != 0)) {
+        replacementControlIds_ = replacementControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.replacementControlIds_ = replacementControlIds_;
+      if (((bitField0_ & 0x00002000) != 0)) {
+        ignoreControlIds_ = ignoreControlIds_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00002000);
+      }
+      result.ignoreControlIds_ = ignoreControlIds_;
+      if (((bitField0_ & 0x00040000) != 0)) {
+        solutionTypes_ = java.util.Collections.unmodifiableList(solutionTypes_);
+        bitField0_ = (bitField0_ & ~0x00040000);
+      }
+      result.solutionTypes_ = solutionTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.ServingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.modelId_ = modelId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.priceRerankingLevel_ = priceRerankingLevel_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.dynamicFacetSpec_ = dynamicFacetSpecBuilder_ == null
+            ? dynamicFacetSpec_
+            : dynamicFacetSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.diversityLevel_ = diversityLevel_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.diversityType_ = diversityType_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.enableCategoryFilterLevel_ = enableCategoryFilterLevel_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.personalizationSpec_ = personalizationSpecBuilder_ == null
+            ? personalizationSpec_
+            : personalizationSpecBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2177,24 +2263,28 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2alpha.ServingConfig.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getModelId().isEmpty()) {
         modelId_ = other.modelId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPriceRerankingLevel().isEmpty()) {
         priceRerankingLevel_ = other.priceRerankingLevel_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.facetControlIds_.isEmpty()) {
         if (facetControlIds_.isEmpty()) {
           facetControlIds_ = other.facetControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureFacetControlIdsIsMutable();
           facetControlIds_.addAll(other.facetControlIds_);
@@ -2207,7 +2297,7 @@ private static final long serialVersionUID = 0L;
       if (!other.boostControlIds_.isEmpty()) {
         if (boostControlIds_.isEmpty()) {
           boostControlIds_ = other.boostControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureBoostControlIdsIsMutable();
           boostControlIds_.addAll(other.boostControlIds_);
@@ -2217,7 +2307,7 @@ private static final long serialVersionUID = 0L;
       if (!other.filterControlIds_.isEmpty()) {
         if (filterControlIds_.isEmpty()) {
           filterControlIds_ = other.filterControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureFilterControlIdsIsMutable();
           filterControlIds_.addAll(other.filterControlIds_);
@@ -2227,7 +2317,7 @@ private static final long serialVersionUID = 0L;
       if (!other.redirectControlIds_.isEmpty()) {
         if (redirectControlIds_.isEmpty()) {
           redirectControlIds_ = other.redirectControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureRedirectControlIdsIsMutable();
           redirectControlIds_.addAll(other.redirectControlIds_);
@@ -2237,7 +2327,7 @@ private static final long serialVersionUID = 0L;
       if (!other.twowaySynonymsControlIds_.isEmpty()) {
         if (twowaySynonymsControlIds_.isEmpty()) {
           twowaySynonymsControlIds_ = other.twowaySynonymsControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureTwowaySynonymsControlIdsIsMutable();
           twowaySynonymsControlIds_.addAll(other.twowaySynonymsControlIds_);
@@ -2247,7 +2337,7 @@ private static final long serialVersionUID = 0L;
       if (!other.onewaySynonymsControlIds_.isEmpty()) {
         if (onewaySynonymsControlIds_.isEmpty()) {
           onewaySynonymsControlIds_ = other.onewaySynonymsControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000400);
         } else {
           ensureOnewaySynonymsControlIdsIsMutable();
           onewaySynonymsControlIds_.addAll(other.onewaySynonymsControlIds_);
@@ -2257,7 +2347,7 @@ private static final long serialVersionUID = 0L;
       if (!other.doNotAssociateControlIds_.isEmpty()) {
         if (doNotAssociateControlIds_.isEmpty()) {
           doNotAssociateControlIds_ = other.doNotAssociateControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000800);
         } else {
           ensureDoNotAssociateControlIdsIsMutable();
           doNotAssociateControlIds_.addAll(other.doNotAssociateControlIds_);
@@ -2267,7 +2357,7 @@ private static final long serialVersionUID = 0L;
       if (!other.replacementControlIds_.isEmpty()) {
         if (replacementControlIds_.isEmpty()) {
           replacementControlIds_ = other.replacementControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           ensureReplacementControlIdsIsMutable();
           replacementControlIds_.addAll(other.replacementControlIds_);
@@ -2277,7 +2367,7 @@ private static final long serialVersionUID = 0L;
       if (!other.ignoreControlIds_.isEmpty()) {
         if (ignoreControlIds_.isEmpty()) {
           ignoreControlIds_ = other.ignoreControlIds_;
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00002000);
         } else {
           ensureIgnoreControlIdsIsMutable();
           ignoreControlIds_.addAll(other.ignoreControlIds_);
@@ -2286,23 +2376,31 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDiversityLevel().isEmpty()) {
         diversityLevel_ = other.diversityLevel_;
+        bitField0_ |= 0x00004000;
         onChanged();
+      }
+      if (other.diversityType_ != 0) {
+        setDiversityTypeValue(other.getDiversityTypeValue());
       }
       if (!other.getEnableCategoryFilterLevel().isEmpty()) {
         enableCategoryFilterLevel_ = other.enableCategoryFilterLevel_;
+        bitField0_ |= 0x00010000;
         onChanged();
+      }
+      if (other.hasPersonalizationSpec()) {
+        mergePersonalizationSpec(other.getPersonalizationSpec());
       }
       if (!other.solutionTypes_.isEmpty()) {
         if (solutionTypes_.isEmpty()) {
           solutionTypes_ = other.solutionTypes_;
-          bitField0_ = (bitField0_ & ~0x00000200);
+          bitField0_ = (bitField0_ & ~0x00040000);
         } else {
           ensureSolutionTypesIsMutable();
           solutionTypes_.addAll(other.solutionTypes_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2317,17 +2415,150 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.ServingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              modelId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              priceRerankingLevel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFacetControlIdsIsMutable();
+              facetControlIds_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDynamicFacetSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureBoostControlIdsIsMutable();
+              boostControlIds_.add(s);
+              break;
+            } // case 58
+            case 66: {
+              diversityLevel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFilterControlIdsIsMutable();
+              filterControlIds_.add(s);
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRedirectControlIdsIsMutable();
+              redirectControlIds_.add(s);
+              break;
+            } // case 82
+            case 98: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureOnewaySynonymsControlIdsIsMutable();
+              onewaySynonymsControlIds_.add(s);
+              break;
+            } // case 98
+            case 106: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDoNotAssociateControlIdsIsMutable();
+              doNotAssociateControlIds_.add(s);
+              break;
+            } // case 106
+            case 114: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureReplacementControlIdsIsMutable();
+              replacementControlIds_.add(s);
+              break;
+            } // case 114
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIgnoreControlIdsIsMutable();
+              ignoreControlIds_.add(s);
+              break;
+            } // case 122
+            case 130: {
+              enableCategoryFilterLevel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 130
+            case 146: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTwowaySynonymsControlIdsIsMutable();
+              twowaySynonymsControlIds_.add(s);
+              break;
+            } // case 146
+            case 152: {
+              int tmpRaw = input.readEnum();
+              ensureSolutionTypesIsMutable();
+              solutionTypes_.add(tmpRaw);
+              break;
+            } // case 152
+            case 154: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureSolutionTypesIsMutable();
+                solutionTypes_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 154
+            case 160: {
+              diversityType_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 160
+            case 170: {
+              input.readMessage(
+                  getPersonalizationSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 170
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.ServingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2388,11 +2619,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2406,8 +2635,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2423,12 +2652,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2495,11 +2722,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2515,8 +2740,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2534,12 +2759,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2547,7 +2770,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object modelId_ = "";
     /**
      * <pre>
-     * The id of the model to use at serving time.
+     * The id of the model in the same
+     * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
      * Currently only RecommendationModels are supported:
      * https://cloud.google.com/retail/recommendations-ai/docs/create-models
      * Can be changed but only to a compatible model (e.g.
@@ -2575,7 +2799,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The id of the model to use at serving time.
+     * The id of the model in the same
+     * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
      * Currently only RecommendationModels are supported:
      * https://cloud.google.com/retail/recommendations-ai/docs/create-models
      * Can be changed but only to a compatible model (e.g.
@@ -2604,7 +2829,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The id of the model to use at serving time.
+     * The id of the model in the same
+     * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
      * Currently only RecommendationModels are supported:
      * https://cloud.google.com/retail/recommendations-ai/docs/create-models
      * Can be changed but only to a compatible model (e.g.
@@ -2621,17 +2847,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       modelId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The id of the model to use at serving time.
+     * The id of the model in the same
+     * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
      * Currently only RecommendationModels are supported:
      * https://cloud.google.com/retail/recommendations-ai/docs/create-models
      * Can be changed but only to a compatible model (e.g.
@@ -2646,14 +2871,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModelId() {
-      
       modelId_ = getDefaultInstance().getModelId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The id of the model to use at serving time.
+     * The id of the model in the same
+     * [Catalog][google.cloud.retail.v2alpha.Catalog] to use at serving time.
      * Currently only RecommendationModels are supported:
      * https://cloud.google.com/retail/recommendations-ai/docs/create-models
      * Can be changed but only to a compatible model (e.g.
@@ -2670,12 +2896,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModelIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       modelId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2689,12 +2913,12 @@ private static final long serialVersionUID = 0L;
      * highest-priced items first. This setting could result in a decrease in
      * click-through and conversion rates.
      *  Allowed values are:
-     * * 'no-price-reranking'
-     * * 'low-price-raranking'
-     * * 'medium-price-reranking'
-     * * 'high-price-reranking'
+     * * `no-price-reranking`
+     * * `low-price-raranking`
+     * * `medium-price-reranking`
+     * * `high-price-reranking`
      * If not specified, we choose default based on model type. Default value:
-     * 'no-price-reranking'.
+     * `no-price-reranking`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -2724,12 +2948,12 @@ private static final long serialVersionUID = 0L;
      * highest-priced items first. This setting could result in a decrease in
      * click-through and conversion rates.
      *  Allowed values are:
-     * * 'no-price-reranking'
-     * * 'low-price-raranking'
-     * * 'medium-price-reranking'
-     * * 'high-price-reranking'
+     * * `no-price-reranking`
+     * * `low-price-raranking`
+     * * `medium-price-reranking`
+     * * `high-price-reranking`
      * If not specified, we choose default based on model type. Default value:
-     * 'no-price-reranking'.
+     * `no-price-reranking`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -2760,12 +2984,12 @@ private static final long serialVersionUID = 0L;
      * highest-priced items first. This setting could result in a decrease in
      * click-through and conversion rates.
      *  Allowed values are:
-     * * 'no-price-reranking'
-     * * 'low-price-raranking'
-     * * 'medium-price-reranking'
-     * * 'high-price-reranking'
+     * * `no-price-reranking`
+     * * `low-price-raranking`
+     * * `medium-price-reranking`
+     * * `high-price-reranking`
      * If not specified, we choose default based on model type. Default value:
-     * 'no-price-reranking'.
+     * `no-price-reranking`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -2778,11 +3002,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPriceRerankingLevel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       priceRerankingLevel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2794,12 +3016,12 @@ private static final long serialVersionUID = 0L;
      * highest-priced items first. This setting could result in a decrease in
      * click-through and conversion rates.
      *  Allowed values are:
-     * * 'no-price-reranking'
-     * * 'low-price-raranking'
-     * * 'medium-price-reranking'
-     * * 'high-price-reranking'
+     * * `no-price-reranking`
+     * * `low-price-raranking`
+     * * `medium-price-reranking`
+     * * `high-price-reranking`
      * If not specified, we choose default based on model type. Default value:
-     * 'no-price-reranking'.
+     * `no-price-reranking`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -2810,8 +3032,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPriceRerankingLevel() {
-      
       priceRerankingLevel_ = getDefaultInstance().getPriceRerankingLevel();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2823,12 +3045,12 @@ private static final long serialVersionUID = 0L;
      * highest-priced items first. This setting could result in a decrease in
      * click-through and conversion rates.
      *  Allowed values are:
-     * * 'no-price-reranking'
-     * * 'low-price-raranking'
-     * * 'medium-price-reranking'
-     * * 'high-price-reranking'
+     * * `no-price-reranking`
+     * * `low-price-raranking`
+     * * `medium-price-reranking`
+     * * `high-price-reranking`
      * If not specified, we choose default based on model type. Default value:
-     * 'no-price-reranking'.
+     * `no-price-reranking`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -2841,21 +3063,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPriceRerankingLevelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       priceRerankingLevel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList facetControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFacetControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         facetControlIds_ = new com.google.protobuf.LazyStringArrayList(facetControlIds_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -2968,10 +3188,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFacetControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFacetControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFacetControlIdsIsMutable();
       facetControlIds_.set(index, value);
       onChanged();
       return this;
@@ -2997,10 +3215,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFacetControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFacetControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFacetControlIdsIsMutable();
       facetControlIds_.add(value);
       onChanged();
       return this;
@@ -3052,7 +3268,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFacetControlIds() {
       facetControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3077,10 +3293,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFacetControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFacetControlIdsIsMutable();
       facetControlIds_.add(value);
       onChanged();
@@ -3104,7 +3318,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dynamicFacetSpec field is set.
      */
     public boolean hasDynamicFacetSpec() {
-      return dynamicFacetSpecBuilder_ != null || dynamicFacetSpec_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3144,11 +3358,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dynamicFacetSpec_ = value;
-        onChanged();
       } else {
         dynamicFacetSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3167,11 +3381,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.Builder builderForValue) {
       if (dynamicFacetSpecBuilder_ == null) {
         dynamicFacetSpec_ = builderForValue.build();
-        onChanged();
       } else {
         dynamicFacetSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3188,17 +3402,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDynamicFacetSpec(com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec value) {
       if (dynamicFacetSpecBuilder_ == null) {
-        if (dynamicFacetSpec_ != null) {
-          dynamicFacetSpec_ =
-            com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.newBuilder(dynamicFacetSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          dynamicFacetSpec_ != null &&
+          dynamicFacetSpec_ != com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.getDefaultInstance()) {
+          getDynamicFacetSpecBuilder().mergeFrom(value);
         } else {
           dynamicFacetSpec_ = value;
         }
-        onChanged();
       } else {
         dynamicFacetSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3214,14 +3429,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec dynamic_facet_spec = 6;</code>
      */
     public Builder clearDynamicFacetSpec() {
-      if (dynamicFacetSpecBuilder_ == null) {
-        dynamicFacetSpec_ = null;
-        onChanged();
-      } else {
-        dynamicFacetSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      dynamicFacetSpec_ = null;
+      if (dynamicFacetSpecBuilder_ != null) {
+        dynamicFacetSpecBuilder_.dispose();
         dynamicFacetSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3237,7 +3451,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec dynamic_facet_spec = 6;</code>
      */
     public com.google.cloud.retail.v2alpha.SearchRequest.DynamicFacetSpec.Builder getDynamicFacetSpecBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDynamicFacetSpecFieldBuilder().getBuilder();
     }
@@ -3289,9 +3503,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList boostControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureBoostControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         boostControlIds_ = new com.google.protobuf.LazyStringArrayList(boostControlIds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -3424,10 +3638,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBoostControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBoostControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureBoostControlIdsIsMutable();
       boostControlIds_.set(index, value);
       onChanged();
       return this;
@@ -3457,10 +3669,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addBoostControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureBoostControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureBoostControlIdsIsMutable();
       boostControlIds_.add(value);
       onChanged();
       return this;
@@ -3520,7 +3730,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearBoostControlIds() {
       boostControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3549,10 +3759,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addBoostControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureBoostControlIdsIsMutable();
       boostControlIds_.add(value);
       onChanged();
@@ -3561,9 +3769,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList filterControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFilterControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         filterControlIds_ = new com.google.protobuf.LazyStringArrayList(filterControlIds_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000080;
        }
     }
     /**
@@ -3661,10 +3869,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFilterControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFilterControlIdsIsMutable();
       filterControlIds_.set(index, value);
       onChanged();
       return this;
@@ -3687,10 +3893,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFilterControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFilterControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFilterControlIdsIsMutable();
       filterControlIds_.add(value);
       onChanged();
       return this;
@@ -3736,7 +3940,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFilterControlIds() {
       filterControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3758,10 +3962,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFilterControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFilterControlIdsIsMutable();
       filterControlIds_.add(value);
       onChanged();
@@ -3770,9 +3972,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList redirectControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRedirectControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         redirectControlIds_ = new com.google.protobuf.LazyStringArrayList(redirectControlIds_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -3865,10 +4067,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedirectControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRedirectControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRedirectControlIdsIsMutable();
       redirectControlIds_.set(index, value);
       onChanged();
       return this;
@@ -3890,10 +4090,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRedirectControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRedirectControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRedirectControlIdsIsMutable();
       redirectControlIds_.add(value);
       onChanged();
       return this;
@@ -3937,7 +4135,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRedirectControlIds() {
       redirectControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3958,10 +4156,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRedirectControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRedirectControlIdsIsMutable();
       redirectControlIds_.add(value);
       onChanged();
@@ -3970,9 +4166,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList twowaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTwowaySynonymsControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         twowaySynonymsControlIds_ = new com.google.protobuf.LazyStringArrayList(twowaySynonymsControlIds_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000200;
        }
     }
     /**
@@ -4070,10 +4266,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTwowaySynonymsControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTwowaySynonymsControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTwowaySynonymsControlIdsIsMutable();
       twowaySynonymsControlIds_.set(index, value);
       onChanged();
       return this;
@@ -4096,10 +4290,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTwowaySynonymsControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTwowaySynonymsControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTwowaySynonymsControlIdsIsMutable();
       twowaySynonymsControlIds_.add(value);
       onChanged();
       return this;
@@ -4145,7 +4337,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTwowaySynonymsControlIds() {
       twowaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -4167,10 +4359,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTwowaySynonymsControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTwowaySynonymsControlIdsIsMutable();
       twowaySynonymsControlIds_.add(value);
       onChanged();
@@ -4179,9 +4369,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList onewaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureOnewaySynonymsControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000400) != 0)) {
         onewaySynonymsControlIds_ = new com.google.protobuf.LazyStringArrayList(onewaySynonymsControlIds_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000400;
        }
     }
     /**
@@ -4279,10 +4469,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOnewaySynonymsControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOnewaySynonymsControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOnewaySynonymsControlIdsIsMutable();
       onewaySynonymsControlIds_.set(index, value);
       onChanged();
       return this;
@@ -4305,10 +4493,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOnewaySynonymsControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureOnewaySynonymsControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureOnewaySynonymsControlIdsIsMutable();
       onewaySynonymsControlIds_.add(value);
       onChanged();
       return this;
@@ -4354,7 +4540,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearOnewaySynonymsControlIds() {
       onewaySynonymsControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -4376,10 +4562,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addOnewaySynonymsControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureOnewaySynonymsControlIdsIsMutable();
       onewaySynonymsControlIds_.add(value);
       onChanged();
@@ -4388,9 +4572,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList doNotAssociateControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDoNotAssociateControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000800) != 0)) {
         doNotAssociateControlIds_ = new com.google.protobuf.LazyStringArrayList(doNotAssociateControlIds_);
-        bitField0_ |= 0x00000040;
+        bitField0_ |= 0x00000800;
        }
     }
     /**
@@ -4493,10 +4677,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDoNotAssociateControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDoNotAssociateControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDoNotAssociateControlIdsIsMutable();
       doNotAssociateControlIds_.set(index, value);
       onChanged();
       return this;
@@ -4520,10 +4702,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDoNotAssociateControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDoNotAssociateControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDoNotAssociateControlIdsIsMutable();
       doNotAssociateControlIds_.add(value);
       onChanged();
       return this;
@@ -4571,7 +4751,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDoNotAssociateControlIds() {
       doNotAssociateControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -4594,10 +4774,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDoNotAssociateControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDoNotAssociateControlIdsIsMutable();
       doNotAssociateControlIds_.add(value);
       onChanged();
@@ -4606,9 +4784,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList replacementControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureReplacementControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         replacementControlIds_ = new com.google.protobuf.LazyStringArrayList(replacementControlIds_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00001000;
        }
     }
     /**
@@ -4706,10 +4884,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setReplacementControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureReplacementControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureReplacementControlIdsIsMutable();
       replacementControlIds_.set(index, value);
       onChanged();
       return this;
@@ -4732,10 +4908,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addReplacementControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureReplacementControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureReplacementControlIdsIsMutable();
       replacementControlIds_.add(value);
       onChanged();
       return this;
@@ -4781,7 +4955,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearReplacementControlIds() {
       replacementControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -4803,10 +4977,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addReplacementControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureReplacementControlIdsIsMutable();
       replacementControlIds_.add(value);
       onChanged();
@@ -4815,9 +4987,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList ignoreControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureIgnoreControlIdsIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         ignoreControlIds_ = new com.google.protobuf.LazyStringArrayList(ignoreControlIds_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00002000;
        }
     }
     /**
@@ -4920,10 +5092,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIgnoreControlIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIgnoreControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIgnoreControlIdsIsMutable();
       ignoreControlIds_.set(index, value);
       onChanged();
       return this;
@@ -4947,10 +5117,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIgnoreControlIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIgnoreControlIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIgnoreControlIdsIsMutable();
       ignoreControlIds_.add(value);
       onChanged();
       return this;
@@ -4998,7 +5166,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIgnoreControlIds() {
       ignoreControlIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -5021,10 +5189,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIgnoreControlIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIgnoreControlIdsIsMutable();
       ignoreControlIds_.add(value);
       onChanged();
@@ -5035,14 +5201,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * How much diversity to use in recommendation model results e.g.
-     * 'medium-diversity' or 'high-diversity'. Currently supported values:
-     * * 'no-diversity'
-     * * 'low-diversity'
-     * * 'medium-diversity'
-     * * 'high-diversity'
-     * * 'auto-diversity'
+     * `medium-diversity` or `high-diversity`. Currently supported values:
+     * * `no-diversity`
+     * * `low-diversity`
+     * * `medium-diversity`
+     * * `high-diversity`
+     * * `auto-diversity`
      * If not specified, we choose default based on recommendation model
-     * type. Default value: 'no-diversity'.
+     * type. Default value: `no-diversity`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -5067,14 +5233,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * How much diversity to use in recommendation model results e.g.
-     * 'medium-diversity' or 'high-diversity'. Currently supported values:
-     * * 'no-diversity'
-     * * 'low-diversity'
-     * * 'medium-diversity'
-     * * 'high-diversity'
-     * * 'auto-diversity'
+     * `medium-diversity` or `high-diversity`. Currently supported values:
+     * * `no-diversity`
+     * * `low-diversity`
+     * * `medium-diversity`
+     * * `high-diversity`
+     * * `auto-diversity`
      * If not specified, we choose default based on recommendation model
-     * type. Default value: 'no-diversity'.
+     * type. Default value: `no-diversity`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -5100,14 +5266,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * How much diversity to use in recommendation model results e.g.
-     * 'medium-diversity' or 'high-diversity'. Currently supported values:
-     * * 'no-diversity'
-     * * 'low-diversity'
-     * * 'medium-diversity'
-     * * 'high-diversity'
-     * * 'auto-diversity'
+     * `medium-diversity` or `high-diversity`. Currently supported values:
+     * * `no-diversity`
+     * * `low-diversity`
+     * * `medium-diversity`
+     * * `high-diversity`
+     * * `auto-diversity`
      * If not specified, we choose default based on recommendation model
-     * type. Default value: 'no-diversity'.
+     * type. Default value: `no-diversity`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -5120,25 +5286,23 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiversityLevel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       diversityLevel_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * How much diversity to use in recommendation model results e.g.
-     * 'medium-diversity' or 'high-diversity'. Currently supported values:
-     * * 'no-diversity'
-     * * 'low-diversity'
-     * * 'medium-diversity'
-     * * 'high-diversity'
-     * * 'auto-diversity'
+     * `medium-diversity` or `high-diversity`. Currently supported values:
+     * * `no-diversity`
+     * * `low-diversity`
+     * * `medium-diversity`
+     * * `high-diversity`
+     * * `auto-diversity`
      * If not specified, we choose default based on recommendation model
-     * type. Default value: 'no-diversity'.
+     * type. Default value: `no-diversity`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -5149,22 +5313,22 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiversityLevel() {
-      
       diversityLevel_ = getDefaultInstance().getDiversityLevel();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * How much diversity to use in recommendation model results e.g.
-     * 'medium-diversity' or 'high-diversity'. Currently supported values:
-     * * 'no-diversity'
-     * * 'low-diversity'
-     * * 'medium-diversity'
-     * * 'high-diversity'
-     * * 'auto-diversity'
+     * `medium-diversity` or `high-diversity`. Currently supported values:
+     * * `no-diversity`
+     * * `low-diversity`
+     * * `medium-diversity`
+     * * `high-diversity`
+     * * `auto-diversity`
      * If not specified, we choose default based on recommendation model
-     * type. Default value: 'no-diversity'.
+     * type. Default value: `no-diversity`.
      * Can only be set if
      * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
      * is
@@ -5177,12 +5341,83 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDiversityLevelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       diversityLevel_ = value;
+      bitField0_ |= 0x00004000;
+      onChanged();
+      return this;
+    }
+
+    private int diversityType_ = 0;
+    /**
+     * <pre>
+     * What kind of diversity to use - data driven or rule based.
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+     * @return The enum numeric value on the wire for diversityType.
+     */
+    @java.lang.Override public int getDiversityTypeValue() {
+      return diversityType_;
+    }
+    /**
+     * <pre>
+     * What kind of diversity to use - data driven or rule based.
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+     * @param value The enum numeric value on the wire for diversityType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDiversityTypeValue(int value) {
+      diversityType_ = value;
+      bitField0_ |= 0x00008000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * What kind of diversity to use - data driven or rule based.
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+     * @return The diversityType.
+     */
+    @java.lang.Override
+    public com.google.cloud.retail.v2alpha.ServingConfig.DiversityType getDiversityType() {
+      com.google.cloud.retail.v2alpha.ServingConfig.DiversityType result = com.google.cloud.retail.v2alpha.ServingConfig.DiversityType.forNumber(diversityType_);
+      return result == null ? com.google.cloud.retail.v2alpha.ServingConfig.DiversityType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * What kind of diversity to use - data driven or rule based.
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+     * @param value The diversityType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDiversityType(com.google.cloud.retail.v2alpha.ServingConfig.DiversityType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00008000;
+      diversityType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * What kind of diversity to use - data driven or rule based.
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.ServingConfig.DiversityType diversity_type = 20;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDiversityType() {
+      bitField0_ = (bitField0_ & ~0x00008000);
+      diversityType_ = 0;
       onChanged();
       return this;
     }
@@ -5190,12 +5425,12 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object enableCategoryFilterLevel_ = "";
     /**
      * <pre>
-     * Whether to add additional category filters on the 'similar-items' model.
+     * Whether to add additional category filters on the `similar-items` model.
      * If not specified, we enable it by default.
      *  Allowed values are:
-     * * 'no-category-match': No additional filtering of original results from
+     * * `no-category-match`: No additional filtering of original results from
      *   the model and the customer's filters.
-     * * 'relaxed-category-match': Only keep results with categories that match
+     * * `relaxed-category-match`: Only keep results with categories that match
      *   at least one item categories in the PredictRequests's context item.
      *   * If customer also sends filters in the PredictRequest, then the results
      *   will satisfy both conditions (user given and category match).
@@ -5222,12 +5457,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether to add additional category filters on the 'similar-items' model.
+     * Whether to add additional category filters on the `similar-items` model.
      * If not specified, we enable it by default.
      *  Allowed values are:
-     * * 'no-category-match': No additional filtering of original results from
+     * * `no-category-match`: No additional filtering of original results from
      *   the model and the customer's filters.
-     * * 'relaxed-category-match': Only keep results with categories that match
+     * * `relaxed-category-match`: Only keep results with categories that match
      *   at least one item categories in the PredictRequests's context item.
      *   * If customer also sends filters in the PredictRequest, then the results
      *   will satisfy both conditions (user given and category match).
@@ -5255,12 +5490,12 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Whether to add additional category filters on the 'similar-items' model.
+     * Whether to add additional category filters on the `similar-items` model.
      * If not specified, we enable it by default.
      *  Allowed values are:
-     * * 'no-category-match': No additional filtering of original results from
+     * * `no-category-match`: No additional filtering of original results from
      *   the model and the customer's filters.
-     * * 'relaxed-category-match': Only keep results with categories that match
+     * * `relaxed-category-match`: Only keep results with categories that match
      *   at least one item categories in the PredictRequests's context item.
      *   * If customer also sends filters in the PredictRequest, then the results
      *   will satisfy both conditions (user given and category match).
@@ -5276,22 +5511,20 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnableCategoryFilterLevel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       enableCategoryFilterLevel_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether to add additional category filters on the 'similar-items' model.
+     * Whether to add additional category filters on the `similar-items` model.
      * If not specified, we enable it by default.
      *  Allowed values are:
-     * * 'no-category-match': No additional filtering of original results from
+     * * `no-category-match`: No additional filtering of original results from
      *   the model and the customer's filters.
-     * * 'relaxed-category-match': Only keep results with categories that match
+     * * `relaxed-category-match`: Only keep results with categories that match
      *   at least one item categories in the PredictRequests's context item.
      *   * If customer also sends filters in the PredictRequest, then the results
      *   will satisfy both conditions (user given and category match).
@@ -5305,19 +5538,19 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableCategoryFilterLevel() {
-      
       enableCategoryFilterLevel_ = getDefaultInstance().getEnableCategoryFilterLevel();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Whether to add additional category filters on the 'similar-items' model.
+     * Whether to add additional category filters on the `similar-items` model.
      * If not specified, we enable it by default.
      *  Allowed values are:
-     * * 'no-category-match': No additional filtering of original results from
+     * * `no-category-match`: No additional filtering of original results from
      *   the model and the customer's filters.
-     * * 'relaxed-category-match': Only keep results with categories that match
+     * * `relaxed-category-match`: Only keep results with categories that match
      *   at least one item categories in the PredictRequests's context item.
      *   * If customer also sends filters in the PredictRequest, then the results
      *   will satisfy both conditions (user given and category match).
@@ -5333,22 +5566,283 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnableCategoryFilterLevelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       enableCategoryFilterLevel_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
+    }
+
+    private com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalizationSpec_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec, com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.Builder, com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpecOrBuilder> personalizationSpecBuilder_;
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     * @return Whether the personalizationSpec field is set.
+     */
+    public boolean hasPersonalizationSpec() {
+      return ((bitField0_ & 0x00020000) != 0);
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     * @return The personalizationSpec.
+     */
+    public com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec getPersonalizationSpec() {
+      if (personalizationSpecBuilder_ == null) {
+        return personalizationSpec_ == null ? com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.getDefaultInstance() : personalizationSpec_;
+      } else {
+        return personalizationSpecBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    public Builder setPersonalizationSpec(com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec value) {
+      if (personalizationSpecBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        personalizationSpec_ = value;
+      } else {
+        personalizationSpecBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    public Builder setPersonalizationSpec(
+        com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.Builder builderForValue) {
+      if (personalizationSpecBuilder_ == null) {
+        personalizationSpec_ = builderForValue.build();
+      } else {
+        personalizationSpecBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    public Builder mergePersonalizationSpec(com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec value) {
+      if (personalizationSpecBuilder_ == null) {
+        if (((bitField0_ & 0x00020000) != 0) &&
+          personalizationSpec_ != null &&
+          personalizationSpec_ != com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.getDefaultInstance()) {
+          getPersonalizationSpecBuilder().mergeFrom(value);
+        } else {
+          personalizationSpec_ = value;
+        }
+      } else {
+        personalizationSpecBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    public Builder clearPersonalizationSpec() {
+      bitField0_ = (bitField0_ & ~0x00020000);
+      personalizationSpec_ = null;
+      if (personalizationSpecBuilder_ != null) {
+        personalizationSpecBuilder_.dispose();
+        personalizationSpecBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    public com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.Builder getPersonalizationSpecBuilder() {
+      bitField0_ |= 0x00020000;
+      onChanged();
+      return getPersonalizationSpecFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    public com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpecOrBuilder getPersonalizationSpecOrBuilder() {
+      if (personalizationSpecBuilder_ != null) {
+        return personalizationSpecBuilder_.getMessageOrBuilder();
+      } else {
+        return personalizationSpec_ == null ?
+            com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.getDefaultInstance() : personalizationSpec_;
+      }
+    }
+    /**
+     * <pre>
+     * The specification for personalization spec.
+     * Can only be set if
+     * [solution_types][google.cloud.retail.v2alpha.ServingConfig.solution_types]
+     * is
+     * [SOLUTION_TYPE_SEARCH][google.cloud.retail.v2main.SolutionType.SOLUTION_TYPE_SEARCH].
+     * Notice that if both
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec]
+     * and
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * are set.
+     * [SearchRequest.personalization_spec][google.cloud.retail.v2alpha.SearchRequest.personalization_spec]
+     * will override
+     * [ServingConfig.personalization_spec][google.cloud.retail.v2alpha.ServingConfig.personalization_spec].
+     * </pre>
+     *
+     * <code>.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec personalization_spec = 21;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec, com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.Builder, com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpecOrBuilder> 
+        getPersonalizationSpecFieldBuilder() {
+      if (personalizationSpecBuilder_ == null) {
+        personalizationSpecBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec, com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpec.Builder, com.google.cloud.retail.v2alpha.SearchRequest.PersonalizationSpecOrBuilder>(
+                getPersonalizationSpec(),
+                getParentForChildren(),
+                isClean());
+        personalizationSpec_ = null;
+      }
+      return personalizationSpecBuilder_;
     }
 
     private java.util.List<java.lang.Integer> solutionTypes_ =
       java.util.Collections.emptyList();
     private void ensureSolutionTypesIsMutable() {
-      if (!((bitField0_ & 0x00000200) != 0)) {
+      if (!((bitField0_ & 0x00040000) != 0)) {
         solutionTypes_ = new java.util.ArrayList<java.lang.Integer>(solutionTypes_);
-        bitField0_ |= 0x00000200;
+        bitField0_ |= 0x00040000;
       }
     }
     /**
@@ -5459,7 +5953,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSolutionTypes() {
       solutionTypes_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000200);
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
@@ -5575,7 +6069,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ServingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

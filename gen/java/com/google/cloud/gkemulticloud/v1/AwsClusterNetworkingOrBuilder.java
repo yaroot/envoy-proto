@@ -33,9 +33,9 @@ public interface AwsClusterNetworkingOrBuilder extends
 
   /**
    * <pre>
-   * Required. All pods in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All pods in the cluster are assigned an IPv4 address from these
+   * ranges. Only a single range is supported. This field cannot be changed
+   * after creation.
    * </pre>
    *
    * <code>repeated string pod_address_cidr_blocks = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -45,9 +45,9 @@ public interface AwsClusterNetworkingOrBuilder extends
       getPodAddressCidrBlocksList();
   /**
    * <pre>
-   * Required. All pods in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All pods in the cluster are assigned an IPv4 address from these
+   * ranges. Only a single range is supported. This field cannot be changed
+   * after creation.
    * </pre>
    *
    * <code>repeated string pod_address_cidr_blocks = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -56,9 +56,9 @@ public interface AwsClusterNetworkingOrBuilder extends
   int getPodAddressCidrBlocksCount();
   /**
    * <pre>
-   * Required. All pods in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All pods in the cluster are assigned an IPv4 address from these
+   * ranges. Only a single range is supported. This field cannot be changed
+   * after creation.
    * </pre>
    *
    * <code>repeated string pod_address_cidr_blocks = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -68,9 +68,9 @@ public interface AwsClusterNetworkingOrBuilder extends
   java.lang.String getPodAddressCidrBlocks(int index);
   /**
    * <pre>
-   * Required. All pods in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All pods in the cluster are assigned an IPv4 address from these
+   * ranges. Only a single range is supported. This field cannot be changed
+   * after creation.
    * </pre>
    *
    * <code>repeated string pod_address_cidr_blocks = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -82,9 +82,9 @@ public interface AwsClusterNetworkingOrBuilder extends
 
   /**
    * <pre>
-   * Required. All services in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All services in the cluster are assigned an IPv4 address from
+   * these ranges. Only a single range is supported. This field cannot be
+   * changed after creation.
    * </pre>
    *
    * <code>repeated string service_address_cidr_blocks = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -94,9 +94,9 @@ public interface AwsClusterNetworkingOrBuilder extends
       getServiceAddressCidrBlocksList();
   /**
    * <pre>
-   * Required. All services in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All services in the cluster are assigned an IPv4 address from
+   * these ranges. Only a single range is supported. This field cannot be
+   * changed after creation.
    * </pre>
    *
    * <code>repeated string service_address_cidr_blocks = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -105,9 +105,9 @@ public interface AwsClusterNetworkingOrBuilder extends
   int getServiceAddressCidrBlocksCount();
   /**
    * <pre>
-   * Required. All services in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All services in the cluster are assigned an IPv4 address from
+   * these ranges. Only a single range is supported. This field cannot be
+   * changed after creation.
    * </pre>
    *
    * <code>repeated string service_address_cidr_blocks = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -117,9 +117,9 @@ public interface AwsClusterNetworkingOrBuilder extends
   java.lang.String getServiceAddressCidrBlocks(int index);
   /**
    * <pre>
-   * Required. All services in the cluster are assigned an IPv4 address from these ranges.
-   * Only a single range is supported.
-   * This field cannot be changed after creation.
+   * Required. All services in the cluster are assigned an IPv4 address from
+   * these ranges. Only a single range is supported. This field cannot be
+   * changed after creation.
    * </pre>
    *
    * <code>repeated string service_address_cidr_blocks = 3 [(.google.api.field_behavior) = REQUIRED];</code>

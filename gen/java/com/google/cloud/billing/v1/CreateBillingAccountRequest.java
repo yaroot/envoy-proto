@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateBillingAccountRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.billing.v1.BillingAccount.Builder subBuilder = null;
-            if (billingAccount_ != null) {
-              subBuilder = billingAccount_.toBuilder();
-            }
-            billingAccount_ = input.readMessage(com.google.cloud.billing.v1.BillingAccount.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(billingAccount_);
-              billingAccount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.billing.v1.CloudBillingProto.internal_static_google_cloud_billing_v1_CreateBillingAccountRequest_descriptor;
@@ -105,7 +53,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The billing account resource to create.
    * Currently CreateBillingAccount only supports subaccount creation, so
-   * any created billing accounts must be under a provided master billing
+   * any created billing accounts must be under a provided parent billing
    * account.
    * </pre>
    *
@@ -120,7 +68,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The billing account resource to create.
    * Currently CreateBillingAccount only supports subaccount creation, so
-   * any created billing accounts must be under a provided master billing
+   * any created billing accounts must be under a provided parent billing
    * account.
    * </pre>
    *
@@ -135,7 +83,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The billing account resource to create.
    * Currently CreateBillingAccount only supports subaccount creation, so
-   * any created billing accounts must be under a provided master billing
+   * any created billing accounts must be under a provided parent billing
    * account.
    * </pre>
    *
@@ -143,7 +91,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.billing.v1.BillingAccountOrBuilder getBillingAccountOrBuilder() {
-    return getBillingAccount();
+    return billingAccount_ == null ? com.google.cloud.billing.v1.BillingAccount.getDefaultInstance() : billingAccount_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -163,7 +111,7 @@ private static final long serialVersionUID = 0L;
     if (billingAccount_ != null) {
       output.writeMessage(1, getBillingAccount());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -176,7 +124,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getBillingAccount());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -196,7 +144,7 @@ private static final long serialVersionUID = 0L;
       if (!getBillingAccount()
           .equals(other.getBillingAccount())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -211,7 +159,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BILLING_ACCOUNT_FIELD_NUMBER;
       hash = (53 * hash) + getBillingAccount().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -332,26 +280,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.billing.v1.CreateBillingAccountRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (billingAccountBuilder_ == null) {
-        billingAccount_ = null;
-      } else {
-        billingAccount_ = null;
+      bitField0_ = 0;
+      billingAccount_ = null;
+      if (billingAccountBuilder_ != null) {
+        billingAccountBuilder_.dispose();
         billingAccountBuilder_ = null;
       }
       return this;
@@ -380,13 +323,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.billing.v1.CreateBillingAccountRequest buildPartial() {
       com.google.cloud.billing.v1.CreateBillingAccountRequest result = new com.google.cloud.billing.v1.CreateBillingAccountRequest(this);
-      if (billingAccountBuilder_ == null) {
-        result.billingAccount_ = billingAccount_;
-      } else {
-        result.billingAccount_ = billingAccountBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.billing.v1.CreateBillingAccountRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.billingAccount_ = billingAccountBuilder_ == null
+            ? billingAccount_
+            : billingAccountBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -436,7 +384,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBillingAccount()) {
         mergeBillingAccount(other.getBillingAccount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -451,19 +399,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.billing.v1.CreateBillingAccountRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getBillingAccountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.billing.v1.CreateBillingAccountRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.billing.v1.BillingAccount billingAccount_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -480,13 +449,13 @@ private static final long serialVersionUID = 0L;
      * @return Whether the billingAccount field is set.
      */
     public boolean hasBillingAccount() {
-      return billingAccountBuilder_ != null || billingAccount_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -504,7 +473,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -516,18 +485,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         billingAccount_ = value;
-        onChanged();
       } else {
         billingAccountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -537,18 +506,18 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.billing.v1.BillingAccount.Builder builderForValue) {
       if (billingAccountBuilder_ == null) {
         billingAccount_ = builderForValue.build();
-        onChanged();
       } else {
         billingAccountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -556,52 +525,52 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBillingAccount(com.google.cloud.billing.v1.BillingAccount value) {
       if (billingAccountBuilder_ == null) {
-        if (billingAccount_ != null) {
-          billingAccount_ =
-            com.google.cloud.billing.v1.BillingAccount.newBuilder(billingAccount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          billingAccount_ != null &&
+          billingAccount_ != com.google.cloud.billing.v1.BillingAccount.getDefaultInstance()) {
+          getBillingAccountBuilder().mergeFrom(value);
         } else {
           billingAccount_ = value;
         }
-        onChanged();
       } else {
         billingAccountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
      * <code>.google.cloud.billing.v1.BillingAccount billing_account = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearBillingAccount() {
-      if (billingAccountBuilder_ == null) {
-        billingAccount_ = null;
-        onChanged();
-      } else {
-        billingAccount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      billingAccount_ = null;
+      if (billingAccountBuilder_ != null) {
+        billingAccountBuilder_.dispose();
         billingAccountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
      * <code>.google.cloud.billing.v1.BillingAccount billing_account = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.billing.v1.BillingAccount.Builder getBillingAccountBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getBillingAccountFieldBuilder().getBuilder();
     }
@@ -609,7 +578,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -627,7 +596,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The billing account resource to create.
      * Currently CreateBillingAccount only supports subaccount creation, so
-     * any created billing accounts must be under a provided master billing
+     * any created billing accounts must be under a provided parent billing
      * account.
      * </pre>
      *
@@ -679,7 +648,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateBillingAccountRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

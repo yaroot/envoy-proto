@@ -140,144 +140,142 @@ public final class AlertCenterProto {
     java.lang.String[] descriptorData = {
       "\n1google/apps/alertcenter/v1beta1/alertc" +
       "enter.proto\022\037google.apps.alertcenter.v1b" +
-      "eta1\032\034google/api/annotations.proto\032\037goog" +
-      "le/api/field_behavior.proto\032\031google/prot" +
-      "obuf/any.proto\032\033google/protobuf/empty.pr" +
-      "oto\032\037google/protobuf/timestamp.proto\032\027go" +
-      "ogle/rpc/status.proto\032\027google/api/client" +
-      ".proto\"\273\003\n\005Alert\022\023\n\013customer_id\030\001 \001(\t\022\020\n" +
-      "\010alert_id\030\002 \001(\t\022/\n\013create_time\030\003 \001(\0132\032.g" +
-      "oogle.protobuf.Timestamp\022.\n\nstart_time\030\004" +
-      " \001(\0132\032.google.protobuf.Timestamp\022,\n\010end_" +
-      "time\030\005 \001(\0132\032.google.protobuf.Timestamp\022\014" +
-      "\n\004type\030\006 \001(\t\022\016\n\006source\030\007 \001(\t\022\"\n\004data\030\010 \001" +
-      "(\0132\024.google.protobuf.Any\022(\n security_inv" +
-      "estigation_tool_link\030\t \001(\t\022\017\n\007deleted\030\013 " +
-      "\001(\010\022@\n\010metadata\030\014 \001(\0132..google.apps.aler" +
-      "tcenter.v1beta1.AlertMetadata\022/\n\013update_" +
-      "time\030\r \001(\0132\032.google.protobuf.Timestamp\022\014" +
-      "\n\004etag\030\016 \001(\t\"\315\001\n\rAlertFeedback\022\023\n\013custom" +
-      "er_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\022\023\n\013feedbac" +
-      "k_id\030\003 \001(\t\022/\n\013create_time\030\004 \001(\0132\032.google" +
-      ".protobuf.Timestamp\022@\n\004type\030\005 \001(\01622.goog" +
-      "le.apps.alertcenter.v1beta1.AlertFeedbac" +
-      "kType\022\r\n\005email\030\006 \001(\t\"\251\001\n\rAlertMetadata\022\023" +
-      "\n\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\022\016\n" +
-      "\006status\030\004 \001(\t\022\020\n\010assignee\030\005 \001(\t\022/\n\013updat" +
-      "e_time\030\006 \001(\0132\032.google.protobuf.Timestamp" +
-      "\022\020\n\010severity\030\007 \001(\t\022\014\n\004etag\030\010 \001(\t\"\242\003\n\010Set" +
-      "tings\022M\n\rnotifications\030\001 \003(\01326.google.ap" +
-      "ps.alertcenter.v1beta1.Settings.Notifica" +
-      "tion\032\306\002\n\014Notification\022e\n\022cloud_pubsub_to" +
-      "pic\030\001 \001(\0132G.google.apps.alertcenter.v1be" +
-      "ta1.Settings.Notification.CloudPubsubTop" +
-      "icH\000\032\204\001\n\020CloudPubsubTopic\022\022\n\ntopic_name\030" +
-      "\001 \001(\t\022\\\n\016payload_format\030\002 \001(\0162D.google.a" +
-      "pps.alertcenter.v1beta1.Settings.Notific" +
-      "ation.PayloadFormat\"9\n\rPayloadFormat\022\036\n\032" +
-      "PAYLOAD_FORMAT_UNSPECIFIED\020\000\022\010\n\004JSON\020\001B\r" +
-      "\n\013destination\"A\n\030BatchDeleteAlertsReques" +
-      "t\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \003(\t" +
-      "\"\364\001\n\031BatchDeleteAlertsResponse\022\031\n\021succes" +
-      "s_alert_ids\030\001 \003(\t\022n\n\023failed_alert_status" +
-      "\030\002 \003(\0132Q.google.apps.alertcenter.v1beta1" +
-      ".BatchDeleteAlertsResponse.FailedAlertSt" +
-      "atusEntry\032L\n\026FailedAlertStatusEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.google.rpc.Sta" +
-      "tus:\0028\001\"C\n\032BatchUndeleteAlertsRequest\022\023\n" +
-      "\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \003(\t\"\370\001\n" +
-      "\033BatchUndeleteAlertsResponse\022\031\n\021success_" +
-      "alert_ids\030\001 \003(\t\022p\n\023failed_alert_status\030\002" +
-      " \003(\0132S.google.apps.alertcenter.v1beta1.B" +
-      "atchUndeleteAlertsResponse.FailedAlertSt" +
-      "atusEntry\032L\n\026FailedAlertStatusEntry\022\013\n\003k" +
-      "ey\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.google.rpc.Sta" +
-      "tus:\0028\001\"q\n\021ListAlertsRequest\022\023\n\013customer" +
-      "_id\030\001 \001(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\npage_tok" +
-      "en\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\022\020\n\010order_by\030\005 \001" +
-      "(\t\"e\n\022ListAlertsResponse\0226\n\006alerts\030\001 \003(\013" +
-      "2&.google.apps.alertcenter.v1beta1.Alert" +
-      "\022\027\n\017next_page_token\030\002 \001(\t\"8\n\017GetAlertReq" +
+      "eta1\032\034google/api/annotations.proto\032\031goog" +
+      "le/protobuf/any.proto\032\033google/protobuf/e" +
+      "mpty.proto\032\037google/protobuf/timestamp.pr" +
+      "oto\032\027google/rpc/status.proto\032\027google/api" +
+      "/client.proto\"\273\003\n\005Alert\022\023\n\013customer_id\030\001" +
+      " \001(\t\022\020\n\010alert_id\030\002 \001(\t\022/\n\013create_time\030\003 " +
+      "\001(\0132\032.google.protobuf.Timestamp\022.\n\nstart" +
+      "_time\030\004 \001(\0132\032.google.protobuf.Timestamp\022" +
+      ",\n\010end_time\030\005 \001(\0132\032.google.protobuf.Time" +
+      "stamp\022\014\n\004type\030\006 \001(\t\022\016\n\006source\030\007 \001(\t\022\"\n\004d" +
+      "ata\030\010 \001(\0132\024.google.protobuf.Any\022(\n secur" +
+      "ity_investigation_tool_link\030\t \001(\t\022\017\n\007del" +
+      "eted\030\013 \001(\010\022@\n\010metadata\030\014 \001(\0132..google.ap" +
+      "ps.alertcenter.v1beta1.AlertMetadata\022/\n\013" +
+      "update_time\030\r \001(\0132\032.google.protobuf.Time" +
+      "stamp\022\014\n\004etag\030\016 \001(\t\"\315\001\n\rAlertFeedback\022\023\n" +
+      "\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\022\023\n\013" +
+      "feedback_id\030\003 \001(\t\022/\n\013create_time\030\004 \001(\0132\032" +
+      ".google.protobuf.Timestamp\022@\n\004type\030\005 \001(\016" +
+      "22.google.apps.alertcenter.v1beta1.Alert" +
+      "FeedbackType\022\r\n\005email\030\006 \001(\t\"\251\001\n\rAlertMet" +
+      "adata\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002" +
+      " \001(\t\022\016\n\006status\030\004 \001(\t\022\020\n\010assignee\030\005 \001(\t\022/" +
+      "\n\013update_time\030\006 \001(\0132\032.google.protobuf.Ti" +
+      "mestamp\022\020\n\010severity\030\007 \001(\t\022\014\n\004etag\030\010 \001(\t\"" +
+      "\242\003\n\010Settings\022M\n\rnotifications\030\001 \003(\01326.go" +
+      "ogle.apps.alertcenter.v1beta1.Settings.N" +
+      "otification\032\306\002\n\014Notification\022e\n\022cloud_pu" +
+      "bsub_topic\030\001 \001(\0132G.google.apps.alertcent" +
+      "er.v1beta1.Settings.Notification.CloudPu" +
+      "bsubTopicH\000\032\204\001\n\020CloudPubsubTopic\022\022\n\ntopi" +
+      "c_name\030\001 \001(\t\022\\\n\016payload_format\030\002 \001(\0162D.g" +
+      "oogle.apps.alertcenter.v1beta1.Settings." +
+      "Notification.PayloadFormat\"9\n\rPayloadFor" +
+      "mat\022\036\n\032PAYLOAD_FORMAT_UNSPECIFIED\020\000\022\010\n\004J" +
+      "SON\020\001B\r\n\013destination\"A\n\030BatchDeleteAlert" +
+      "sRequest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010alert_i" +
+      "d\030\002 \003(\t\"\364\001\n\031BatchDeleteAlertsResponse\022\031\n" +
+      "\021success_alert_ids\030\001 \003(\t\022n\n\023failed_alert" +
+      "_status\030\002 \003(\0132Q.google.apps.alertcenter." +
+      "v1beta1.BatchDeleteAlertsResponse.Failed" +
+      "AlertStatusEntry\032L\n\026FailedAlertStatusEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.google." +
+      "rpc.Status:\0028\001\"C\n\032BatchUndeleteAlertsReq" +
       "uest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 " +
-      "\001(\t\";\n\022DeleteAlertRequest\022\023\n\013customer_id" +
-      "\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\"=\n\024UndeleteAler" +
-      "tRequest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010alert_i" +
-      "d\030\002 \001(\t\"\205\001\n\032CreateAlertFeedbackRequest\022\023" +
-      "\n\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\022@\n" +
-      "\010feedback\030\003 \001(\0132..google.apps.alertcente" +
-      "r.v1beta1.AlertFeedback\"Q\n\030ListAlertFeed" +
-      "backRequest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010aler" +
-      "t_id\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\"]\n\031ListAlertF" +
-      "eedbackResponse\022@\n\010feedback\030\001 \003(\0132..goog" +
-      "le.apps.alertcenter.v1beta1.AlertFeedbac" +
-      "k\"@\n\027GetAlertMetadataRequest\022\023\n\013customer" +
-      "_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\")\n\022GetSettin" +
-      "gsRequest\022\023\n\013customer_id\030\001 \001(\t\"i\n\025Update" +
-      "SettingsRequest\022\023\n\013customer_id\030\001 \001(\t\022;\n\010" +
-      "settings\030\002 \001(\0132).google.apps.alertcenter" +
-      ".v1beta1.Settings*n\n\021AlertFeedbackType\022#" +
-      "\n\037ALERT_FEEDBACK_TYPE_UNSPECIFIED\020\000\022\016\n\nN" +
-      "OT_USEFUL\020\001\022\023\n\017SOMEWHAT_USEFUL\020\002\022\017\n\013VERY" +
-      "_USEFUL\020\0032\330\016\n\022AlertCenterService\022\216\001\n\nLis" +
-      "tAlerts\0222.google.apps.alertcenter.v1beta" +
-      "1.ListAlertsRequest\0323.google.apps.alertc" +
-      "enter.v1beta1.ListAlertsResponse\"\027\202\323\344\223\002\021" +
-      "\022\017/v1beta1/alerts\022\210\001\n\010GetAlert\0220.google." +
-      "apps.alertcenter.v1beta1.GetAlertRequest" +
-      "\032&.google.apps.alertcenter.v1beta1.Alert" +
-      "\"\"\202\323\344\223\002\034\022\032/v1beta1/alerts/{alert_id}\022~\n\013" +
-      "DeleteAlert\0223.google.apps.alertcenter.v1" +
-      "beta1.DeleteAlertRequest\032\026.google.protob" +
-      "uf.Empty\"\"\202\323\344\223\002\034*\032/v1beta1/alerts/{alert" +
-      "_id}\022\236\001\n\rUndeleteAlert\0225.google.apps.ale" +
-      "rtcenter.v1beta1.UndeleteAlertRequest\032&." +
-      "google.apps.alertcenter.v1beta1.Alert\".\202" +
-      "\323\344\223\002(\"#/v1beta1/alerts/{alert_id}:undele" +
-      "te:\001*\022\271\001\n\023CreateAlertFeedback\022;.google.a" +
-      "pps.alertcenter.v1beta1.CreateAlertFeedb" +
-      "ackRequest\032..google.apps.alertcenter.v1b" +
-      "eta1.AlertFeedback\"5\202\323\344\223\002/\"#/v1beta1/ale" +
-      "rts/{alert_id}/feedback:\010feedback\022\267\001\n\021Li" +
-      "stAlertFeedback\0229.google.apps.alertcente" +
-      "r.v1beta1.ListAlertFeedbackRequest\032:.goo" +
-      "gle.apps.alertcenter.v1beta1.ListAlertFe" +
-      "edbackResponse\"+\202\323\344\223\002%\022#/v1beta1/alerts/" +
-      "{alert_id}/feedback\022\251\001\n\020GetAlertMetadata" +
-      "\0228.google.apps.alertcenter.v1beta1.GetAl" +
-      "ertMetadataRequest\032..google.apps.alertce" +
-      "nter.v1beta1.AlertMetadata\"+\202\323\344\223\002%\022#/v1b" +
-      "eta1/alerts/{alert_id}/metadata\022\210\001\n\013GetS" +
-      "ettings\0223.google.apps.alertcenter.v1beta" +
-      "1.GetSettingsRequest\032).google.apps.alert" +
-      "center.v1beta1.Settings\"\031\202\323\344\223\002\023\022\021/v1beta" +
-      "1/settings\022\230\001\n\016UpdateSettings\0226.google.a" +
-      "pps.alertcenter.v1beta1.UpdateSettingsRe" +
-      "quest\032).google.apps.alertcenter.v1beta1." +
-      "Settings\"#\202\323\344\223\002\0352\021/v1beta1/settings:\010set" +
-      "tings\022\262\001\n\021BatchDeleteAlerts\0229.google.app" +
-      "s.alertcenter.v1beta1.BatchDeleteAlertsR" +
-      "equest\032:.google.apps.alertcenter.v1beta1" +
-      ".BatchDeleteAlertsResponse\"&\202\323\344\223\002 \"\033/v1b" +
-      "eta1/alerts:batchDelete:\001*\022\272\001\n\023BatchUnde" +
-      "leteAlerts\022;.google.apps.alertcenter.v1b" +
-      "eta1.BatchUndeleteAlertsRequest\032<.google" +
-      ".apps.alertcenter.v1beta1.BatchUndeleteA" +
-      "lertsResponse\"(\202\323\344\223\002\"\"\035/v1beta1/alerts:b" +
-      "atchUndelete:\001*\032K\312A\032alertcenter.googleap" +
-      "is.com\322A+https://www.googleapis.com/auth" +
-      "/apps.alertsB\365\001\n#com.google.apps.alertce" +
-      "nter.v1beta1B\020AlertCenterProtoP\001ZJgoogle" +
-      ".golang.org/genproto/googleapis/apps/ale" +
-      "rtcenter/v1beta1;alertcenter\242\002\004GAIC\252\002\037Go" +
-      "ogle.Apps.AlertCenter.V1Beta1\312\002\037Google\\A" +
-      "pps\\AlertCenter\\V1beta1\352\002\"Google::Apps::" +
-      "AlertCenter::V1beta1b\006proto3"
+      "\003(\t\"\370\001\n\033BatchUndeleteAlertsResponse\022\031\n\021s" +
+      "uccess_alert_ids\030\001 \003(\t\022p\n\023failed_alert_s" +
+      "tatus\030\002 \003(\0132S.google.apps.alertcenter.v1" +
+      "beta1.BatchUndeleteAlertsResponse.Failed" +
+      "AlertStatusEntry\032L\n\026FailedAlertStatusEnt" +
+      "ry\022\013\n\003key\030\001 \001(\t\022!\n\005value\030\002 \001(\0132\022.google." +
+      "rpc.Status:\0028\001\"q\n\021ListAlertsRequest\022\023\n\013c" +
+      "ustomer_id\030\001 \001(\t\022\021\n\tpage_size\030\002 \001(\005\022\022\n\np" +
+      "age_token\030\003 \001(\t\022\016\n\006filter\030\004 \001(\t\022\020\n\010order" +
+      "_by\030\005 \001(\t\"e\n\022ListAlertsResponse\0226\n\006alert" +
+      "s\030\001 \003(\0132&.google.apps.alertcenter.v1beta" +
+      "1.Alert\022\027\n\017next_page_token\030\002 \001(\t\"8\n\017GetA" +
+      "lertRequest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010aler" +
+      "t_id\030\002 \001(\t\";\n\022DeleteAlertRequest\022\023\n\013cust" +
+      "omer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\"=\n\024Undel" +
+      "eteAlertRequest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010" +
+      "alert_id\030\002 \001(\t\"\205\001\n\032CreateAlertFeedbackRe" +
+      "quest\022\023\n\013customer_id\030\001 \001(\t\022\020\n\010alert_id\030\002" +
+      " \001(\t\022@\n\010feedback\030\003 \001(\0132..google.apps.ale" +
+      "rtcenter.v1beta1.AlertFeedback\"Q\n\030ListAl" +
+      "ertFeedbackRequest\022\023\n\013customer_id\030\001 \001(\t\022" +
+      "\020\n\010alert_id\030\002 \001(\t\022\016\n\006filter\030\003 \001(\t\"]\n\031Lis" +
+      "tAlertFeedbackResponse\022@\n\010feedback\030\001 \003(\013" +
+      "2..google.apps.alertcenter.v1beta1.Alert" +
+      "Feedback\"@\n\027GetAlertMetadataRequest\022\023\n\013c" +
+      "ustomer_id\030\001 \001(\t\022\020\n\010alert_id\030\002 \001(\t\")\n\022Ge" +
+      "tSettingsRequest\022\023\n\013customer_id\030\001 \001(\t\"i\n" +
+      "\025UpdateSettingsRequest\022\023\n\013customer_id\030\001 " +
+      "\001(\t\022;\n\010settings\030\002 \001(\0132).google.apps.aler" +
+      "tcenter.v1beta1.Settings*n\n\021AlertFeedbac" +
+      "kType\022#\n\037ALERT_FEEDBACK_TYPE_UNSPECIFIED" +
+      "\020\000\022\016\n\nNOT_USEFUL\020\001\022\023\n\017SOMEWHAT_USEFUL\020\002\022" +
+      "\017\n\013VERY_USEFUL\020\0032\330\016\n\022AlertCenterService\022" +
+      "\216\001\n\nListAlerts\0222.google.apps.alertcenter" +
+      ".v1beta1.ListAlertsRequest\0323.google.apps" +
+      ".alertcenter.v1beta1.ListAlertsResponse\"" +
+      "\027\202\323\344\223\002\021\022\017/v1beta1/alerts\022\210\001\n\010GetAlert\0220." +
+      "google.apps.alertcenter.v1beta1.GetAlert" +
+      "Request\032&.google.apps.alertcenter.v1beta" +
+      "1.Alert\"\"\202\323\344\223\002\034\022\032/v1beta1/alerts/{alert_" +
+      "id}\022~\n\013DeleteAlert\0223.google.apps.alertce" +
+      "nter.v1beta1.DeleteAlertRequest\032\026.google" +
+      ".protobuf.Empty\"\"\202\323\344\223\002\034*\032/v1beta1/alerts" +
+      "/{alert_id}\022\236\001\n\rUndeleteAlert\0225.google.a" +
+      "pps.alertcenter.v1beta1.UndeleteAlertReq" +
+      "uest\032&.google.apps.alertcenter.v1beta1.A" +
+      "lert\".\202\323\344\223\002(\"#/v1beta1/alerts/{alert_id}" +
+      ":undelete:\001*\022\271\001\n\023CreateAlertFeedback\022;.g" +
+      "oogle.apps.alertcenter.v1beta1.CreateAle" +
+      "rtFeedbackRequest\032..google.apps.alertcen" +
+      "ter.v1beta1.AlertFeedback\"5\202\323\344\223\002/\"#/v1be" +
+      "ta1/alerts/{alert_id}/feedback:\010feedback" +
+      "\022\267\001\n\021ListAlertFeedback\0229.google.apps.ale" +
+      "rtcenter.v1beta1.ListAlertFeedbackReques" +
+      "t\032:.google.apps.alertcenter.v1beta1.List" +
+      "AlertFeedbackResponse\"+\202\323\344\223\002%\022#/v1beta1/" +
+      "alerts/{alert_id}/feedback\022\251\001\n\020GetAlertM" +
+      "etadata\0228.google.apps.alertcenter.v1beta" +
+      "1.GetAlertMetadataRequest\032..google.apps." +
+      "alertcenter.v1beta1.AlertMetadata\"+\202\323\344\223\002" +
+      "%\022#/v1beta1/alerts/{alert_id}/metadata\022\210" +
+      "\001\n\013GetSettings\0223.google.apps.alertcenter" +
+      ".v1beta1.GetSettingsRequest\032).google.app" +
+      "s.alertcenter.v1beta1.Settings\"\031\202\323\344\223\002\023\022\021" +
+      "/v1beta1/settings\022\230\001\n\016UpdateSettings\0226.g" +
+      "oogle.apps.alertcenter.v1beta1.UpdateSet" +
+      "tingsRequest\032).google.apps.alertcenter.v" +
+      "1beta1.Settings\"#\202\323\344\223\002\0352\021/v1beta1/settin" +
+      "gs:\010settings\022\262\001\n\021BatchDeleteAlerts\0229.goo" +
+      "gle.apps.alertcenter.v1beta1.BatchDelete" +
+      "AlertsRequest\032:.google.apps.alertcenter." +
+      "v1beta1.BatchDeleteAlertsResponse\"&\202\323\344\223\002" +
+      " \"\033/v1beta1/alerts:batchDelete:\001*\022\272\001\n\023Ba" +
+      "tchUndeleteAlerts\022;.google.apps.alertcen" +
+      "ter.v1beta1.BatchUndeleteAlertsRequest\032<" +
+      ".google.apps.alertcenter.v1beta1.BatchUn" +
+      "deleteAlertsResponse\"(\202\323\344\223\002\"\"\035/v1beta1/a" +
+      "lerts:batchUndelete:\001*\032K\312A\032alertcenter.g" +
+      "oogleapis.com\322A+https://www.googleapis.c" +
+      "om/auth/apps.alertsB\365\001\n#com.google.apps." +
+      "alertcenter.v1beta1B\020AlertCenterProtoP\001Z" +
+      "Jgoogle.golang.org/genproto/googleapis/a" +
+      "pps/alertcenter/v1beta1;alertcenter\242\002\004GA" +
+      "IC\252\002\037Google.Apps.AlertCenter.V1Beta1\312\002\037G" +
+      "oogle\\Apps\\AlertCenter\\V1beta1\352\002\"Google:" +
+      ":Apps::AlertCenter::V1beta1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
-          com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
           com.google.protobuf.EmptyProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
@@ -430,7 +428,6 @@ public final class AlertCenterProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
-    com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.protobuf.AnyProto.getDescriptor();
     com.google.protobuf.EmptyProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();

@@ -9,7 +9,7 @@ public interface VirtualClusterConfigOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A Storage bucket used to stage job
+   * Optional. A Cloud Storage bucket used to stage job
    * dependencies, config files, and job driver console output.
    * If you do not specify a staging bucket, Cloud
    * Dataproc will determine a Cloud Storage location (US,
@@ -28,7 +28,7 @@ public interface VirtualClusterConfigOrBuilder extends
   java.lang.String getStagingBucket();
   /**
    * <pre>
-   * Optional. A Storage bucket used to stage job
+   * Optional. A Cloud Storage bucket used to stage job
    * dependencies, config files, and job driver console output.
    * If you do not specify a staging bucket, Cloud
    * Dataproc will determine a Cloud Storage location (US,
@@ -49,7 +49,8 @@ public interface VirtualClusterConfigOrBuilder extends
 
   /**
    * <pre>
-   * Required. The configuration for running the Dataproc cluster on Kubernetes.
+   * Required. The configuration for running the Dataproc cluster on
+   * Kubernetes.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -58,7 +59,8 @@ public interface VirtualClusterConfigOrBuilder extends
   boolean hasKubernetesClusterConfig();
   /**
    * <pre>
-   * Required. The configuration for running the Dataproc cluster on Kubernetes.
+   * Required. The configuration for running the Dataproc cluster on
+   * Kubernetes.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -67,7 +69,8 @@ public interface VirtualClusterConfigOrBuilder extends
   com.google.cloud.dataproc.v1.KubernetesClusterConfig getKubernetesClusterConfig();
   /**
    * <pre>
-   * Required. The configuration for running the Dataproc cluster on Kubernetes.
+   * Required. The configuration for running the Dataproc cluster on
+   * Kubernetes.
    * </pre>
    *
    * <code>.google.cloud.dataproc.v1.KubernetesClusterConfig kubernetes_cluster_config = 6 [(.google.api.field_behavior) = REQUIRED];</code>

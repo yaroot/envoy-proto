@@ -37,77 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttestorPublicKey(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            comment_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            publicKeyCase_ = 3;
-            publicKey_ = s;
-            break;
-          }
-          case 42: {
-            com.google.cloud.binaryauthorization.v1beta1.PkixPublicKey.Builder subBuilder = null;
-            if (publicKeyCase_ == 5) {
-              subBuilder = ((com.google.cloud.binaryauthorization.v1beta1.PkixPublicKey) publicKey_).toBuilder();
-            }
-            publicKey_ =
-                input.readMessage(com.google.cloud.binaryauthorization.v1beta1.PkixPublicKey.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.binaryauthorization.v1beta1.PkixPublicKey) publicKey_);
-              publicKey_ = subBuilder.buildPartial();
-            }
-            publicKeyCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.binaryauthorization.v1beta1.BinaryAuthorizationResourcesProto.internal_static_google_cloud_binaryauthorization_v1beta1_AttestorPublicKey_descriptor;
@@ -163,7 +92,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COMMENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object comment_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object comment_ = "";
   /**
    * <pre>
    * Optional. A descriptive comment. This field may be updated.
@@ -209,7 +139,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * The ID of this public key.
@@ -432,7 +363,7 @@ private static final long serialVersionUID = 0L;
     if (publicKeyCase_ == 5) {
       output.writeMessage(5, (com.google.cloud.binaryauthorization.v1beta1.PkixPublicKey) publicKey_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -454,7 +385,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.cloud.binaryauthorization.v1beta1.PkixPublicKey) publicKey_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -486,7 +417,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -513,7 +444,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -635,26 +566,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       comment_ = "";
-
       id_ = "";
-
+      if (pkixPublicKeyBuilder_ != null) {
+        pkixPublicKeyBuilder_.clear();
+      }
       publicKeyCase_ = 0;
       publicKey_ = null;
       return this;
@@ -683,21 +611,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey buildPartial() {
       com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey result = new com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey(this);
-      result.comment_ = comment_;
-      result.id_ = id_;
-      if (publicKeyCase_ == 3) {
-        result.publicKey_ = publicKey_;
-      }
-      if (publicKeyCase_ == 5) {
-        if (pkixPublicKeyBuilder_ == null) {
-          result.publicKey_ = publicKey_;
-        } else {
-          result.publicKey_ = pkixPublicKeyBuilder_.build();
-        }
-      }
-      result.publicKeyCase_ = publicKeyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.comment_ = comment_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.id_ = id_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey result) {
+      result.publicKeyCase_ = publicKeyCase_;
+      result.publicKey_ = this.publicKey_;
+      if (publicKeyCase_ == 5 &&
+          pkixPublicKeyBuilder_ != null) {
+        result.publicKey_ = pkixPublicKeyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -746,10 +682,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey.getDefaultInstance()) return this;
       if (!other.getComment().isEmpty()) {
         comment_ = other.comment_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       switch (other.getPublicKeyCase()) {
@@ -767,7 +705,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -782,17 +720,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              comment_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              publicKeyCase_ = 3;
+              publicKey_ = s;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getPkixPublicKeyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              publicKeyCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.binaryauthorization.v1beta1.AttestorPublicKey) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int publicKeyCase_ = 0;
@@ -810,6 +784,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object comment_ = "";
     /**
@@ -864,11 +839,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setComment(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       comment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -881,8 +854,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearComment() {
-      
       comment_ = getDefaultInstance().getComment();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -897,12 +870,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       comment_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -978,11 +949,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1001,8 +970,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1023,12 +992,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1137,10 +1104,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAsciiArmoredPgpPublicKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  publicKeyCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      publicKeyCase_ = 3;
       publicKey_ = value;
       onChanged();
       return this;
@@ -1186,10 +1151,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAsciiArmoredPgpPublicKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       publicKeyCase_ = 3;
       publicKey_ = value;
       onChanged();
@@ -1406,7 +1369,7 @@ private static final long serialVersionUID = 0L;
         publicKey_ = null;
       }
       publicKeyCase_ = 5;
-      onChanged();;
+      onChanged();
       return pkixPublicKeyBuilder_;
     }
     @java.lang.Override
@@ -1442,7 +1405,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttestorPublicKey(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

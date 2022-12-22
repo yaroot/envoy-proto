@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OutputStorageConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.BigQueryTable.Builder subBuilder = null;
-            if (typeCase_ == 1) {
-              subBuilder = ((com.google.privacy.dlp.v2.BigQueryTable) type_).toBuilder();
-            }
-            type_ =
-                input.readMessage(com.google.privacy.dlp.v2.BigQueryTable.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.privacy.dlp.v2.BigQueryTable) type_);
-              type_ = subBuilder.buildPartial();
-            }
-            typeCase_ = 1;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            outputSchema_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_OutputStorageConfig_descriptor;
@@ -136,7 +77,7 @@ private static final long serialVersionUID = 0L;
     BASIC_COLUMNS(1),
     /**
      * <pre>
-     * Schema tailored to findings from scanning Google Cloud Storage.
+     * Schema tailored to findings from scanning Cloud Storage.
      * </pre>
      *
      * <code>GCS_COLUMNS = 2;</code>
@@ -188,7 +129,7 @@ private static final long serialVersionUID = 0L;
     public static final int BASIC_COLUMNS_VALUE = 1;
     /**
      * <pre>
-     * Schema tailored to findings from scanning Google Cloud Storage.
+     * Schema tailored to findings from scanning Cloud Storage.
      * </pre>
      *
      * <code>GCS_COLUMNS = 2;</code>
@@ -351,8 +292,8 @@ private static final long serialVersionUID = 0L;
    * Store findings in an existing table or a new table in an existing
    * dataset. If table_id is not set a new one will be generated
    * for you with the following format:
-   * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-   * generating the date details.
+   * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+   * for generating the date details.
    * For Inspect, each column in an existing output table must have the same
    * name, type, and mode of a field in the `Finding` object.
    * For Risk, an existing output table should be the output of a previous
@@ -374,8 +315,8 @@ private static final long serialVersionUID = 0L;
    * Store findings in an existing table or a new table in an existing
    * dataset. If table_id is not set a new one will be generated
    * for you with the following format:
-   * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-   * generating the date details.
+   * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+   * for generating the date details.
    * For Inspect, each column in an existing output table must have the same
    * name, type, and mode of a field in the `Finding` object.
    * For Risk, an existing output table should be the output of a previous
@@ -400,8 +341,8 @@ private static final long serialVersionUID = 0L;
    * Store findings in an existing table or a new table in an existing
    * dataset. If table_id is not set a new one will be generated
    * for you with the following format:
-   * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-   * generating the date details.
+   * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+   * for generating the date details.
    * For Inspect, each column in an existing output table must have the same
    * name, type, and mode of a field in the `Finding` object.
    * For Risk, an existing output table should be the output of a previous
@@ -422,7 +363,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OUTPUT_SCHEMA_FIELD_NUMBER = 3;
-  private int outputSchema_;
+  private int outputSchema_ = 0;
   /**
    * <pre>
    * Schema used for writing the findings for Inspect jobs. This field is only
@@ -459,8 +400,7 @@ private static final long serialVersionUID = 0L;
    * @return The outputSchema.
    */
   @java.lang.Override public com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema getOutputSchema() {
-    @SuppressWarnings("deprecation")
-    com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema result = com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.valueOf(outputSchema_);
+    com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema result = com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.forNumber(outputSchema_);
     return result == null ? com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.UNRECOGNIZED : result;
   }
 
@@ -484,7 +424,7 @@ private static final long serialVersionUID = 0L;
     if (outputSchema_ != com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.OUTPUT_SCHEMA_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, outputSchema_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -501,7 +441,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, outputSchema_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -526,7 +466,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -547,7 +487,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -668,24 +608,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.OutputStorageConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (tableBuilder_ != null) {
+        tableBuilder_.clear();
+      }
       outputSchema_ = 0;
-
       typeCase_ = 0;
       type_ = null;
       return this;
@@ -714,17 +652,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.OutputStorageConfig buildPartial() {
       com.google.privacy.dlp.v2.OutputStorageConfig result = new com.google.privacy.dlp.v2.OutputStorageConfig(this);
-      if (typeCase_ == 1) {
-        if (tableBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = tableBuilder_.build();
-        }
-      }
-      result.outputSchema_ = outputSchema_;
-      result.typeCase_ = typeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.OutputStorageConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.outputSchema_ = outputSchema_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.OutputStorageConfig result) {
+      result.typeCase_ = typeCase_;
+      result.type_ = this.type_;
+      if (typeCase_ == 1 &&
+          tableBuilder_ != null) {
+        result.type_ = tableBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -783,7 +730,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -798,17 +745,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.OutputStorageConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getTableFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              typeCase_ = 1;
+              break;
+            } // case 10
+            case 24: {
+              outputSchema_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.OutputStorageConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int typeCase_ = 0;
@@ -826,6 +798,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.privacy.dlp.v2.BigQueryTable, com.google.privacy.dlp.v2.BigQueryTable.Builder, com.google.privacy.dlp.v2.BigQueryTableOrBuilder> tableBuilder_;
@@ -834,8 +807,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -857,8 +830,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -890,8 +863,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -921,8 +894,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -950,8 +923,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -988,8 +961,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -1022,8 +995,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -1043,8 +1016,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -1072,8 +1045,8 @@ private static final long serialVersionUID = 0L;
      * Store findings in an existing table or a new table in an existing
      * dataset. If table_id is not set a new one will be generated
      * for you with the following format:
-     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific timezone will be used for
-     * generating the date details.
+     * dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone will be used
+     * for generating the date details.
      * For Inspect, each column in an existing output table must have the same
      * name, type, and mode of a field in the `Finding` object.
      * For Risk, an existing output table should be the output of a previous
@@ -1100,7 +1073,7 @@ private static final long serialVersionUID = 0L;
         type_ = null;
       }
       typeCase_ = 1;
-      onChanged();;
+      onChanged();
       return tableBuilder_;
     }
 
@@ -1142,8 +1115,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOutputSchemaValue(int value) {
-      
       outputSchema_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1165,8 +1138,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema getOutputSchema() {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema result = com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.valueOf(outputSchema_);
+      com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema result = com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.forNumber(outputSchema_);
       return result == null ? com.google.privacy.dlp.v2.OutputStorageConfig.OutputSchema.UNRECOGNIZED : result;
     }
     /**
@@ -1190,7 +1162,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       outputSchema_ = value.getNumber();
       onChanged();
       return this;
@@ -1212,7 +1184,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOutputSchema() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       outputSchema_ = 0;
       onChanged();
       return this;
@@ -1250,7 +1222,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutputStorageConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -38,70 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Page(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            content_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              subpages_ = new java.util.ArrayList<com.google.api.Page>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            subpages_.add(
-                input.readMessage(com.google.api.Page.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        subpages_ = java.util.Collections.unmodifiableList(subpages_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.DocumentationProto.internal_static_google_api_Page_descriptor;
@@ -116,7 +52,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The name of the page. It will be used as an identity of the page to
@@ -188,11 +125,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object content_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object content_ = "";
   /**
    * <pre>
    * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+   * used to produce the documentation page such as HTML format page.
    * </pre>
    *
    * <code>string content = 2;</code>
@@ -214,7 +153,8 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+   * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+   * used to produce the documentation page such as HTML format page.
    * </pre>
    *
    * <code>string content = 2;</code>
@@ -236,6 +176,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBPAGES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.Page> subpages_;
   /**
    * <pre>
@@ -323,7 +264,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < subpages_.size(); i++) {
       output.writeMessage(3, subpages_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -342,7 +283,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, subpages_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -363,7 +304,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getContent())) return false;
     if (!getSubpagesList()
         .equals(other.getSubpagesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -382,7 +323,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUBPAGES_FIELD_NUMBER;
       hash = (53 * hash) + getSubpagesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -504,33 +445,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.Page.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSubpagesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       content_ = "";
-
       if (subpagesBuilder_ == null) {
         subpages_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        subpages_ = null;
         subpagesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -557,20 +492,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.Page buildPartial() {
       com.google.api.Page result = new com.google.api.Page(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.content_ = content_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.Page result) {
       if (subpagesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           subpages_ = java.util.Collections.unmodifiableList(subpages_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.subpages_ = subpages_;
       } else {
         result.subpages_ = subpagesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.api.Page result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.content_ = content_;
+      }
     }
 
     @java.lang.Override
@@ -619,17 +566,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.Page.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getContent().isEmpty()) {
         content_ = other.content_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (subpagesBuilder_ == null) {
         if (!other.subpages_.isEmpty()) {
           if (subpages_.isEmpty()) {
             subpages_ = other.subpages_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureSubpagesIsMutable();
             subpages_.addAll(other.subpages_);
@@ -642,7 +591,7 @@ private static final long serialVersionUID = 0L;
             subpagesBuilder_.dispose();
             subpagesBuilder_ = null;
             subpages_ = other.subpages_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             subpagesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSubpagesFieldBuilder() : null;
@@ -651,7 +600,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -666,17 +615,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.Page parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              content_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.api.Page m =
+                  input.readMessage(
+                      com.google.api.Page.parser(),
+                      extensionRegistry);
+              if (subpagesBuilder_ == null) {
+                ensureSubpagesIsMutable();
+                subpages_.add(m);
+              } else {
+                subpagesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.Page) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -773,11 +758,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -803,8 +786,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -832,12 +815,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -846,7 +827,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+     * used to produce the documentation page such as HTML format page.
      * </pre>
      *
      * <code>string content = 2;</code>
@@ -867,7 +849,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+     * used to produce the documentation page such as HTML format page.
      * </pre>
      *
      * <code>string content = 2;</code>
@@ -889,7 +872,8 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+     * used to produce the documentation page such as HTML format page.
      * </pre>
      *
      * <code>string content = 2;</code>
@@ -898,33 +882,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       content_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+     * used to produce the documentation page such as HTML format page.
      * </pre>
      *
      * <code>string content = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearContent() {
-      
       content_ = getDefaultInstance().getContent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The Markdown content of the page. You can use &lt;code&gt;&amp;#40;== include {path}
-     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file.
+     * ==&amp;#41;&lt;/code&gt; to include content from a Markdown file. The content can be
+     * used to produce the documentation page such as HTML format page.
      * </pre>
      *
      * <code>string content = 2;</code>
@@ -933,12 +917,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setContentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       content_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -946,9 +928,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.api.Page> subpages_ =
       java.util.Collections.emptyList();
     private void ensureSubpagesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         subpages_ = new java.util.ArrayList<com.google.api.Page>(subpages_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1153,7 +1135,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSubpages() {
       if (subpagesBuilder_ == null) {
         subpages_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         subpagesBuilder_.clear();
@@ -1265,7 +1247,7 @@ private static final long serialVersionUID = 0L;
         subpagesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.api.Page, com.google.api.Page.Builder, com.google.api.PageOrBuilder>(
                 subpages_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         subpages_ = null;
@@ -1305,7 +1287,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Page(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

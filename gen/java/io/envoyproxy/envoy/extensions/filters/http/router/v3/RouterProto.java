@@ -31,32 +31,38 @@ public final class RouterProto {
       "\n4envoy/extensions/filters/http/router/v" +
       "3/router.proto\022\'envoy.extensions.filters" +
       ".http.router.v3\032)envoy/config/accesslog/" +
-      "v3/accesslog.proto\032\036google/protobuf/wrap" +
-      "pers.proto\032\035udpa/annotations/status.prot" +
-      "o\032!udpa/annotations/versioning.proto\032\027va" +
-      "lidate/validate.proto\"\360\003\n\006Router\0221\n\rdyna" +
-      "mic_stats\030\001 \001(\0132\032.google.protobuf.BoolVa" +
-      "lue\022\030\n\020start_child_span\030\002 \001(\010\022:\n\014upstrea" +
-      "m_log\030\003 \003(\0132$.envoy.config.accesslog.v3." +
-      "AccessLog\022\036\n\026suppress_envoy_headers\030\004 \001(" +
-      "\010\022\263\001\n\024strict_check_headers\030\005 \003(\tB\224\001\372B\220\001\222" +
-      "\001\214\001\"\211\001r\206\001R\036x-envoy-upstream-rq-timeout-m" +
-      "sR&x-envoy-upstream-rq-per-try-timeout-m" +
-      "sR\023x-envoy-max-retriesR\025x-envoy-retry-gr" +
-      "pc-onR\020x-envoy-retry-on\022#\n\033respect_expec" +
-      "ted_rq_timeout\030\006 \001(\010\0220\n(suppress_grpc_re" +
-      "quest_failure_code_stats\030\007 \001(\010:0\232\305\210\036+\n)e" +
-      "nvoy.config.filter.http.router.v2.Router" +
-      "B\247\001\n5io.envoyproxy.envoy.extensions.filt" +
-      "ers.http.router.v3B\013RouterProtoP\001ZWgithu" +
-      "b.com/envoyproxy/go-control-plane/envoy/" +
-      "extensions/filters/http/router/v3;router" +
-      "v3\272\200\310\321\006\002\020\002b\006proto3"
+      "v3/accesslog.proto\032Yenvoy/extensions/fil" +
+      "ters/network/http_connection_manager/v3/" +
+      "http_connection_manager.proto\032\036google/pr" +
+      "otobuf/wrappers.proto\032\035udpa/annotations/" +
+      "status.proto\032!udpa/annotations/versionin" +
+      "g.proto\032\027validate/validate.proto\"\330\004\n\006Rou" +
+      "ter\0221\n\rdynamic_stats\030\001 \001(\0132\032.google.prot" +
+      "obuf.BoolValue\022\030\n\020start_child_span\030\002 \001(\010" +
+      "\022:\n\014upstream_log\030\003 \003(\0132$.envoy.config.ac" +
+      "cesslog.v3.AccessLog\022\036\n\026suppress_envoy_h" +
+      "eaders\030\004 \001(\010\022\263\001\n\024strict_check_headers\030\005 " +
+      "\003(\tB\224\001\372B\220\001\222\001\214\001\"\211\001r\206\001R\036x-envoy-upstream-r" +
+      "q-timeout-msR&x-envoy-upstream-rq-per-tr" +
+      "y-timeout-msR\023x-envoy-max-retriesR\025x-env" +
+      "oy-retry-grpc-onR\020x-envoy-retry-on\022#\n\033re" +
+      "spect_expected_rq_timeout\030\006 \001(\010\0220\n(suppr" +
+      "ess_grpc_request_failure_code_stats\030\007 \001(" +
+      "\010\022f\n\025upstream_http_filters\030\010 \003(\0132G.envoy" +
+      ".extensions.filters.network.http_connect" +
+      "ion_manager.v3.HttpFilter:0\232\305\210\036+\n)envoy." +
+      "config.filter.http.router.v2.RouterB\247\001\n5" +
+      "io.envoyproxy.envoy.extensions.filters.h" +
+      "ttp.router.v3B\013RouterProtoP\001ZWgithub.com" +
+      "/envoyproxy/go-control-plane/envoy/exten" +
+      "sions/filters/http/router/v3;routerv3\272\200\310" +
+      "\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.envoyproxy.envoy.config.accesslog.v3.AccesslogProto.getDescriptor(),
+          io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManagerProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
           udpa.annotations.Versioning.getDescriptor(),
@@ -67,7 +73,7 @@ public final class RouterProto {
     internal_static_envoy_extensions_filters_http_router_v3_Router_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_http_router_v3_Router_descriptor,
-        new java.lang.String[] { "DynamicStats", "StartChildSpan", "UpstreamLog", "SuppressEnvoyHeaders", "StrictCheckHeaders", "RespectExpectedRqTimeout", "SuppressGrpcRequestFailureCodeStats", });
+        new java.lang.String[] { "DynamicStats", "StartChildSpan", "UpstreamLog", "SuppressEnvoyHeaders", "StrictCheckHeaders", "RespectExpectedRqTimeout", "SuppressGrpcRequestFailureCodeStats", "UpstreamHttpFilters", });
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
@@ -76,6 +82,7 @@ public final class RouterProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     io.envoyproxy.envoy.config.accesslog.v3.AccesslogProto.getDescriptor();
+    io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManagerProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
     udpa.annotations.Versioning.getDescriptor();

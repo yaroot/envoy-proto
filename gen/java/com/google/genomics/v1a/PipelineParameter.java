@@ -109,76 +109,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineParameter(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultValue_ = s;
-            break;
-          }
-          case 50: {
-            com.google.genomics.v1a.PipelineParameter.LocalCopy.Builder subBuilder = null;
-            if (localCopy_ != null) {
-              subBuilder = localCopy_.toBuilder();
-            }
-            localCopy_ = input.readMessage(com.google.genomics.v1a.PipelineParameter.LocalCopy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(localCopy_);
-              localCopy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_PipelineParameter_descriptor;
@@ -279,57 +209,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private LocalCopy(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              path_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              disk_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.genomics.v1a.PipelinesProto.internal_static_google_genomics_v1alpha2_PipelineParameter_LocalCopy_descriptor;
@@ -344,7 +223,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PATH_FIELD_NUMBER = 1;
-    private volatile java.lang.Object path_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object path_ = "";
     /**
      * <pre>
      * Required. The path within the user's docker container where
@@ -394,7 +274,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISK_FIELD_NUMBER = 2;
-    private volatile java.lang.Object disk_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object disk_ = "";
     /**
      * <pre>
      * Required. The name of the disk where this parameter is
@@ -465,7 +346,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(disk_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, disk_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -480,7 +361,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(disk_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, disk_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -499,7 +380,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getPath())) return false;
       if (!getDisk()
           .equals(other.getDisk())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -514,7 +395,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getPath().hashCode();
       hash = (37 * hash) + DISK_FIELD_NUMBER;
       hash = (53 * hash) + getDisk().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -635,26 +516,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.genomics.v1a.PipelineParameter.LocalCopy.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         path_ = "";
-
         disk_ = "";
-
         return this;
       }
 
@@ -681,10 +556,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.genomics.v1a.PipelineParameter.LocalCopy buildPartial() {
         com.google.genomics.v1a.PipelineParameter.LocalCopy result = new com.google.genomics.v1a.PipelineParameter.LocalCopy(this);
-        result.path_ = path_;
-        result.disk_ = disk_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.genomics.v1a.PipelineParameter.LocalCopy result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.path_ = path_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.disk_ = disk_;
+        }
       }
 
       @java.lang.Override
@@ -733,13 +617,15 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.genomics.v1a.PipelineParameter.LocalCopy.getDefaultInstance()) return this;
         if (!other.getPath().isEmpty()) {
           path_ = other.path_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getDisk().isEmpty()) {
           disk_ = other.disk_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -754,19 +640,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.genomics.v1a.PipelineParameter.LocalCopy parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                path_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                disk_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.genomics.v1a.PipelineParameter.LocalCopy) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object path_ = "";
       /**
@@ -827,11 +737,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPath(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         path_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -846,8 +754,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPath() {
-        
         path_ = getDefaultInstance().getPath();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -864,12 +772,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPathBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         path_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -936,11 +842,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisk(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         disk_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -956,8 +860,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDisk() {
-        
         disk_ = getDefaultInstance().getDisk();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -975,12 +879,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDiskBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         disk_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1017,7 +919,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LocalCopy(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1038,7 +951,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Name of the parameter - the pipeline runner uses this string
@@ -1086,7 +1000,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Human-readable description.
@@ -1132,7 +1047,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_VALUE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object defaultValue_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultValue_ = "";
   /**
    * <pre>
    * The default value for this parameter. Can be overridden at runtime.
@@ -1225,7 +1141,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.genomics.v1a.PipelineParameter.LocalCopyOrBuilder getLocalCopyOrBuilder() {
-    return getLocalCopy();
+    return localCopy_ == null ? com.google.genomics.v1a.PipelineParameter.LocalCopy.getDefaultInstance() : localCopy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1254,7 +1170,7 @@ private static final long serialVersionUID = 0L;
     if (localCopy_ != null) {
       output.writeMessage(6, getLocalCopy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1276,7 +1192,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getLocalCopy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1302,7 +1218,7 @@ private static final long serialVersionUID = 0L;
       if (!getLocalCopy()
           .equals(other.getLocalCopy())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1323,7 +1239,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOCAL_COPY_FIELD_NUMBER;
       hash = (53 * hash) + getLocalCopy().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1516,32 +1432,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.genomics.v1a.PipelineParameter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
       defaultValue_ = "";
-
-      if (localCopyBuilder_ == null) {
-        localCopy_ = null;
-      } else {
-        localCopy_ = null;
+      localCopy_ = null;
+      if (localCopyBuilder_ != null) {
+        localCopyBuilder_.dispose();
         localCopyBuilder_ = null;
       }
       return this;
@@ -1570,16 +1478,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.genomics.v1a.PipelineParameter buildPartial() {
       com.google.genomics.v1a.PipelineParameter result = new com.google.genomics.v1a.PipelineParameter(this);
-      result.name_ = name_;
-      result.description_ = description_;
-      result.defaultValue_ = defaultValue_;
-      if (localCopyBuilder_ == null) {
-        result.localCopy_ = localCopy_;
-      } else {
-        result.localCopy_ = localCopyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.genomics.v1a.PipelineParameter result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.defaultValue_ = defaultValue_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.localCopy_ = localCopyBuilder_ == null
+            ? localCopy_
+            : localCopyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1628,20 +1547,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.genomics.v1a.PipelineParameter.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDefaultValue().isEmpty()) {
         defaultValue_ = other.defaultValue_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasLocalCopy()) {
         mergeLocalCopy(other.getLocalCopy());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1656,19 +1578,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.genomics.v1a.PipelineParameter parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              defaultValue_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getLocalCopyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.genomics.v1a.PipelineParameter) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1726,11 +1684,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1744,8 +1700,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1761,12 +1717,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1824,11 +1778,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1841,8 +1793,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1857,12 +1809,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1926,11 +1876,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       defaultValue_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1945,8 +1893,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultValue() {
-      
       defaultValue_ = getDefaultInstance().getDefaultValue();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1963,12 +1911,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultValue_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1988,7 +1934,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the localCopy field is set.
      */
     public boolean hasLocalCopy() {
-      return localCopyBuilder_ != null || localCopy_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2024,11 +1970,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         localCopy_ = value;
-        onChanged();
       } else {
         localCopyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2045,11 +1991,11 @@ private static final long serialVersionUID = 0L;
         com.google.genomics.v1a.PipelineParameter.LocalCopy.Builder builderForValue) {
       if (localCopyBuilder_ == null) {
         localCopy_ = builderForValue.build();
-        onChanged();
       } else {
         localCopyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2064,17 +2010,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocalCopy(com.google.genomics.v1a.PipelineParameter.LocalCopy value) {
       if (localCopyBuilder_ == null) {
-        if (localCopy_ != null) {
-          localCopy_ =
-            com.google.genomics.v1a.PipelineParameter.LocalCopy.newBuilder(localCopy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          localCopy_ != null &&
+          localCopy_ != com.google.genomics.v1a.PipelineParameter.LocalCopy.getDefaultInstance()) {
+          getLocalCopyBuilder().mergeFrom(value);
         } else {
           localCopy_ = value;
         }
-        onChanged();
       } else {
         localCopyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2088,14 +2035,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1alpha2.PipelineParameter.LocalCopy local_copy = 6;</code>
      */
     public Builder clearLocalCopy() {
-      if (localCopyBuilder_ == null) {
-        localCopy_ = null;
-        onChanged();
-      } else {
-        localCopy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      localCopy_ = null;
+      if (localCopyBuilder_ != null) {
+        localCopyBuilder_.dispose();
         localCopyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2109,7 +2055,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.genomics.v1alpha2.PipelineParameter.LocalCopy local_copy = 6;</code>
      */
     public com.google.genomics.v1a.PipelineParameter.LocalCopy.Builder getLocalCopyBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getLocalCopyFieldBuilder().getBuilder();
     }
@@ -2187,7 +2133,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineParameter(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

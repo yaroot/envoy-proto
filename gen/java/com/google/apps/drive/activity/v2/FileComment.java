@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FileComment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            legacyCommentId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            legacyDiscussionId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            linkToDiscussion_ = s;
-            break;
-          }
-          case 34: {
-            com.google.apps.drive.activity.v2.DriveItem.Builder subBuilder = null;
-            if (parent_ != null) {
-              subBuilder = parent_.toBuilder();
-            }
-            parent_ = input.readMessage(com.google.apps.drive.activity.v2.DriveItem.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(parent_);
-              parent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.drive.activity.v2.TargetProto.internal_static_google_apps_drive_activity_v2_FileComment_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEGACY_COMMENT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object legacyCommentId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object legacyCommentId_ = "";
   /**
    * <pre>
    * The comment in the discussion thread. This identifier is an opaque string
@@ -171,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEGACY_DISCUSSION_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object legacyDiscussionId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object legacyDiscussionId_ = "";
   /**
    * <pre>
    * The discussion thread to which the comment was added. This identifier is an
@@ -223,7 +155,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LINK_TO_DISCUSSION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object linkToDiscussion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object linkToDiscussion_ = "";
   /**
    * <pre>
    * The link to the discussion thread containing this comment, for example,
@@ -305,7 +238,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.drive.activity.v2.DriveItemOrBuilder getParentOrBuilder() {
-    return getParent();
+    return parent_ == null ? com.google.apps.drive.activity.v2.DriveItem.getDefaultInstance() : parent_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -334,7 +267,7 @@ private static final long serialVersionUID = 0L;
     if (parent_ != null) {
       output.writeMessage(4, getParent());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -356,7 +289,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getParent());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -382,7 +315,7 @@ private static final long serialVersionUID = 0L;
       if (!getParent()
           .equals(other.getParent())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -403,7 +336,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PARENT_FIELD_NUMBER;
       hash = (53 * hash) + getParent().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,32 +457,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.drive.activity.v2.FileComment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       legacyCommentId_ = "";
-
       legacyDiscussionId_ = "";
-
       linkToDiscussion_ = "";
-
-      if (parentBuilder_ == null) {
-        parent_ = null;
-      } else {
-        parent_ = null;
+      parent_ = null;
+      if (parentBuilder_ != null) {
+        parentBuilder_.dispose();
         parentBuilder_ = null;
       }
       return this;
@@ -578,16 +503,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.drive.activity.v2.FileComment buildPartial() {
       com.google.apps.drive.activity.v2.FileComment result = new com.google.apps.drive.activity.v2.FileComment(this);
-      result.legacyCommentId_ = legacyCommentId_;
-      result.legacyDiscussionId_ = legacyDiscussionId_;
-      result.linkToDiscussion_ = linkToDiscussion_;
-      if (parentBuilder_ == null) {
-        result.parent_ = parent_;
-      } else {
-        result.parent_ = parentBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.apps.drive.activity.v2.FileComment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.legacyCommentId_ = legacyCommentId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.legacyDiscussionId_ = legacyDiscussionId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.linkToDiscussion_ = linkToDiscussion_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.parent_ = parentBuilder_ == null
+            ? parent_
+            : parentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -636,20 +572,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.apps.drive.activity.v2.FileComment.getDefaultInstance()) return this;
       if (!other.getLegacyCommentId().isEmpty()) {
         legacyCommentId_ = other.legacyCommentId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getLegacyDiscussionId().isEmpty()) {
         legacyDiscussionId_ = other.legacyDiscussionId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getLinkToDiscussion().isEmpty()) {
         linkToDiscussion_ = other.linkToDiscussion_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasParent()) {
         mergeParent(other.getParent());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -664,19 +603,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.drive.activity.v2.FileComment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              legacyCommentId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              legacyDiscussionId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              linkToDiscussion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getParentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.drive.activity.v2.FileComment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object legacyCommentId_ = "";
     /**
@@ -737,11 +712,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLegacyCommentId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       legacyCommentId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -756,8 +729,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLegacyCommentId() {
-      
       legacyCommentId_ = getDefaultInstance().getLegacyCommentId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -774,12 +747,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLegacyCommentIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       legacyCommentId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -846,11 +817,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLegacyDiscussionId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       legacyDiscussionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -866,8 +835,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLegacyDiscussionId() {
-      
       legacyDiscussionId_ = getDefaultInstance().getLegacyDiscussionId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -885,12 +854,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLegacyDiscussionIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       legacyDiscussionId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -951,11 +918,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLinkToDiscussion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       linkToDiscussion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -969,8 +934,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLinkToDiscussion() {
-      
       linkToDiscussion_ = getDefaultInstance().getLinkToDiscussion();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -986,12 +951,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLinkToDiscussionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       linkToDiscussion_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1008,7 +971,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the parent field is set.
      */
     public boolean hasParent() {
-      return parentBuilder_ != null || parent_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1038,11 +1001,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         parent_ = value;
-        onChanged();
       } else {
         parentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1056,11 +1019,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.drive.activity.v2.DriveItem.Builder builderForValue) {
       if (parentBuilder_ == null) {
         parent_ = builderForValue.build();
-        onChanged();
       } else {
         parentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1072,17 +1035,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeParent(com.google.apps.drive.activity.v2.DriveItem value) {
       if (parentBuilder_ == null) {
-        if (parent_ != null) {
-          parent_ =
-            com.google.apps.drive.activity.v2.DriveItem.newBuilder(parent_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          parent_ != null &&
+          parent_ != com.google.apps.drive.activity.v2.DriveItem.getDefaultInstance()) {
+          getParentBuilder().mergeFrom(value);
         } else {
           parent_ = value;
         }
-        onChanged();
       } else {
         parentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1093,14 +1057,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.DriveItem parent = 4;</code>
      */
     public Builder clearParent() {
-      if (parentBuilder_ == null) {
-        parent_ = null;
-        onChanged();
-      } else {
-        parent_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      parent_ = null;
+      if (parentBuilder_ != null) {
+        parentBuilder_.dispose();
         parentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1111,7 +1074,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.DriveItem parent = 4;</code>
      */
     public com.google.apps.drive.activity.v2.DriveItem.Builder getParentBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getParentFieldBuilder().getBuilder();
     }
@@ -1183,7 +1146,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FileComment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

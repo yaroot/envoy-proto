@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/bigquery/storage/v1/avro.proto\x12 google.cloud.bigquery.storage.v1\"\x1c\n\nAvroSchema\x12\x0e\n\x06schema\x18\x01 \x01(\t\"A\n\x08\x41vroRows\x12\x1e\n\x16serialized_binary_rows\x18\x01 \x01(\x0c\x12\x15\n\trow_count\x18\x02 \x01(\x03\x42\x02\x18\x01\x42\xc2\x01\n$com.google.cloud.bigquery.storage.v1B\tAvroProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\xaa\x02 Google.Cloud.BigQuery.Storage.V1\xca\x02 Google\\Cloud\\BigQuery\\Storage\\V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/bigquery/storage/v1/avro.proto\x12 google.cloud.bigquery.storage.v1\"\x1c\n\nAvroSchema\x12\x0e\n\x06schema\x18\x01 \x01(\t\"A\n\x08\x41vroRows\x12\x1e\n\x16serialized_binary_rows\x18\x01 \x01(\x0c\x12\x15\n\trow_count\x18\x02 \x01(\x03\x42\x02\x18\x01\"A\n\x18\x41vroSerializationOptions\x12%\n\x1d\x65nable_display_name_attribute\x18\x01 \x01(\x08\x42\xc2\x01\n$com.google.cloud.bigquery.storage.v1B\tAvroProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/bigquery/storage/v1;storage\xaa\x02 Google.Cloud.BigQuery.Storage.V1\xca\x02 Google\\Cloud\\BigQuery\\Storage\\V1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.bigquery.storage.v1.avro_pb2', globals())
@@ -27,4 +27,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _AVROSCHEMA._serialized_end=109
   _AVROROWS._serialized_start=111
   _AVROROWS._serialized_end=176
+  _AVROSERIALIZATIONOPTIONS._serialized_start=178
+  _AVROSERIALIZATIONOPTIONS._serialized_end=243
 # @@protoc_insertion_point(module_scope)

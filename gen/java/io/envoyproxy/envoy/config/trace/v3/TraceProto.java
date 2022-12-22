@@ -27,14 +27,15 @@ public final class TraceProto {
       "oy.config.trace.v3\032#envoy/config/trace/v" +
       "3/datadog.proto\032&envoy/config/trace/v3/d" +
       "ynamic_ot.proto\032\'envoy/config/trace/v3/h" +
-      "ttp_tracer.proto\032&envoy/config/trace/v3/" +
-      "opencensus.proto\032)envoy/config/trace/v3/" +
-      "opentelemetry.proto\032#envoy/config/trace/" +
-      "v3/service.proto\032\"envoy/config/trace/v3/" +
-      "zipkin.protoBy\n#io.envoyproxy.envoy.conf" +
-      "ig.trace.v3B\nTraceProtoP\001ZDgithub.com/en" +
-      "voyproxy/go-control-plane/envoy/config/t" +
-      "race/v3;tracev3P\000P\001P\002P\003P\004P\005P\006b\006proto3"
+      "ttp_tracer.proto\032%envoy/config/trace/v3/" +
+      "lightstep.proto\032&envoy/config/trace/v3/o" +
+      "pencensus.proto\032)envoy/config/trace/v3/o" +
+      "pentelemetry.proto\032#envoy/config/trace/v" +
+      "3/service.proto\032\"envoy/config/trace/v3/z" +
+      "ipkin.protoBy\n#io.envoyproxy.envoy.confi" +
+      "g.trace.v3B\nTraceProtoP\001ZDgithub.com/env" +
+      "oyproxy/go-control-plane/envoy/config/tr" +
+      "ace/v3;tracev3P\000P\001P\002P\003P\004P\005P\006P\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -42,6 +43,7 @@ public final class TraceProto {
           io.envoyproxy.envoy.config.trace.v3.DatadogProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v3.DynamicOtProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v3.HttpTracerProto.getDescriptor(),
+          io.envoyproxy.envoy.config.trace.v3.LightstepProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v3.OpencensusProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v3.OpentelemetryProto.getDescriptor(),
           io.envoyproxy.envoy.config.trace.v3.ServiceProto.getDescriptor(),
@@ -50,6 +52,7 @@ public final class TraceProto {
     io.envoyproxy.envoy.config.trace.v3.DatadogProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v3.DynamicOtProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v3.HttpTracerProto.getDescriptor();
+    io.envoyproxy.envoy.config.trace.v3.LightstepProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v3.OpencensusProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v3.OpentelemetryProto.getDescriptor();
     io.envoyproxy.envoy.config.trace.v3.ServiceProto.getDescriptor();

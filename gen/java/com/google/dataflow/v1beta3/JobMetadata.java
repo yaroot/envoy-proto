@@ -41,131 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.dataflow.v1beta3.SdkVersion.Builder subBuilder = null;
-            if (sdkVersion_ != null) {
-              subBuilder = sdkVersion_.toBuilder();
-            }
-            sdkVersion_ = input.readMessage(com.google.dataflow.v1beta3.SdkVersion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sdkVersion_);
-              sdkVersion_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              spannerDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.SpannerIODetails>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            spannerDetails_.add(
-                input.readMessage(com.google.dataflow.v1beta3.SpannerIODetails.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              bigqueryDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.BigQueryIODetails>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            bigqueryDetails_.add(
-                input.readMessage(com.google.dataflow.v1beta3.BigQueryIODetails.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              bigTableDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.BigTableIODetails>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            bigTableDetails_.add(
-                input.readMessage(com.google.dataflow.v1beta3.BigTableIODetails.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              pubsubDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.PubSubIODetails>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            pubsubDetails_.add(
-                input.readMessage(com.google.dataflow.v1beta3.PubSubIODetails.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              fileDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.FileIODetails>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            fileDetails_.add(
-                input.readMessage(com.google.dataflow.v1beta3.FileIODetails.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              datastoreDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.DatastoreIODetails>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            datastoreDetails_.add(
-                input.readMessage(com.google.dataflow.v1beta3.DatastoreIODetails.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        spannerDetails_ = java.util.Collections.unmodifiableList(spannerDetails_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        bigqueryDetails_ = java.util.Collections.unmodifiableList(bigqueryDetails_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        bigTableDetails_ = java.util.Collections.unmodifiableList(bigTableDetails_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        pubsubDetails_ = java.util.Collections.unmodifiableList(pubsubDetails_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        fileDetails_ = java.util.Collections.unmodifiableList(fileDetails_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        datastoreDetails_ = java.util.Collections.unmodifiableList(datastoreDetails_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.JobsProto.internal_static_google_dataflow_v1beta3_JobMetadata_descriptor;
@@ -214,10 +89,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.SdkVersionOrBuilder getSdkVersionOrBuilder() {
-    return getSdkVersion();
+    return sdkVersion_ == null ? com.google.dataflow.v1beta3.SdkVersion.getDefaultInstance() : sdkVersion_;
   }
 
   public static final int SPANNER_DETAILS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.SpannerIODetails> spannerDetails_;
   /**
    * <pre>
@@ -278,6 +154,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BIGQUERY_DETAILS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.BigQueryIODetails> bigqueryDetails_;
   /**
    * <pre>
@@ -338,6 +215,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BIG_TABLE_DETAILS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.BigTableIODetails> bigTableDetails_;
   /**
    * <pre>
@@ -398,6 +276,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBSUB_DETAILS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.PubSubIODetails> pubsubDetails_;
   /**
    * <pre>
@@ -458,6 +337,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILE_DETAILS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.FileIODetails> fileDetails_;
   /**
    * <pre>
@@ -518,6 +398,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATASTORE_DETAILS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.dataflow.v1beta3.DatastoreIODetails> datastoreDetails_;
   /**
    * <pre>
@@ -612,7 +493,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < datastoreDetails_.size(); i++) {
       output.writeMessage(7, datastoreDetails_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -649,7 +530,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, datastoreDetails_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -681,7 +562,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFileDetailsList())) return false;
     if (!getDatastoreDetailsList()
         .equals(other.getDatastoreDetailsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -720,7 +601,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATASTORE_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getDatastoreDetailsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -842,70 +723,65 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.JobMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSpannerDetailsFieldBuilder();
-        getBigqueryDetailsFieldBuilder();
-        getBigTableDetailsFieldBuilder();
-        getPubsubDetailsFieldBuilder();
-        getFileDetailsFieldBuilder();
-        getDatastoreDetailsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (sdkVersionBuilder_ == null) {
-        sdkVersion_ = null;
-      } else {
-        sdkVersion_ = null;
+      bitField0_ = 0;
+      sdkVersion_ = null;
+      if (sdkVersionBuilder_ != null) {
+        sdkVersionBuilder_.dispose();
         sdkVersionBuilder_ = null;
       }
       if (spannerDetailsBuilder_ == null) {
         spannerDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        spannerDetails_ = null;
         spannerDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (bigqueryDetailsBuilder_ == null) {
         bigqueryDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        bigqueryDetails_ = null;
         bigqueryDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (bigTableDetailsBuilder_ == null) {
         bigTableDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        bigTableDetails_ = null;
         bigTableDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (pubsubDetailsBuilder_ == null) {
         pubsubDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        pubsubDetails_ = null;
         pubsubDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (fileDetailsBuilder_ == null) {
         fileDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        fileDetails_ = null;
         fileDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       if (datastoreDetailsBuilder_ == null) {
         datastoreDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        datastoreDetails_ = null;
         datastoreDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -932,68 +808,76 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.JobMetadata buildPartial() {
       com.google.dataflow.v1beta3.JobMetadata result = new com.google.dataflow.v1beta3.JobMetadata(this);
-      int from_bitField0_ = bitField0_;
-      if (sdkVersionBuilder_ == null) {
-        result.sdkVersion_ = sdkVersion_;
-      } else {
-        result.sdkVersion_ = sdkVersionBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.dataflow.v1beta3.JobMetadata result) {
       if (spannerDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           spannerDetails_ = java.util.Collections.unmodifiableList(spannerDetails_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.spannerDetails_ = spannerDetails_;
       } else {
         result.spannerDetails_ = spannerDetailsBuilder_.build();
       }
       if (bigqueryDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           bigqueryDetails_ = java.util.Collections.unmodifiableList(bigqueryDetails_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.bigqueryDetails_ = bigqueryDetails_;
       } else {
         result.bigqueryDetails_ = bigqueryDetailsBuilder_.build();
       }
       if (bigTableDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           bigTableDetails_ = java.util.Collections.unmodifiableList(bigTableDetails_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.bigTableDetails_ = bigTableDetails_;
       } else {
         result.bigTableDetails_ = bigTableDetailsBuilder_.build();
       }
       if (pubsubDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           pubsubDetails_ = java.util.Collections.unmodifiableList(pubsubDetails_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.pubsubDetails_ = pubsubDetails_;
       } else {
         result.pubsubDetails_ = pubsubDetailsBuilder_.build();
       }
       if (fileDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           fileDetails_ = java.util.Collections.unmodifiableList(fileDetails_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.fileDetails_ = fileDetails_;
       } else {
         result.fileDetails_ = fileDetailsBuilder_.build();
       }
       if (datastoreDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00000040) != 0)) {
           datastoreDetails_ = java.util.Collections.unmodifiableList(datastoreDetails_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         }
         result.datastoreDetails_ = datastoreDetails_;
       } else {
         result.datastoreDetails_ = datastoreDetailsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.JobMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sdkVersion_ = sdkVersionBuilder_ == null
+            ? sdkVersion_
+            : sdkVersionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1047,7 +931,7 @@ private static final long serialVersionUID = 0L;
         if (!other.spannerDetails_.isEmpty()) {
           if (spannerDetails_.isEmpty()) {
             spannerDetails_ = other.spannerDetails_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSpannerDetailsIsMutable();
             spannerDetails_.addAll(other.spannerDetails_);
@@ -1060,7 +944,7 @@ private static final long serialVersionUID = 0L;
             spannerDetailsBuilder_.dispose();
             spannerDetailsBuilder_ = null;
             spannerDetails_ = other.spannerDetails_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             spannerDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSpannerDetailsFieldBuilder() : null;
@@ -1073,7 +957,7 @@ private static final long serialVersionUID = 0L;
         if (!other.bigqueryDetails_.isEmpty()) {
           if (bigqueryDetails_.isEmpty()) {
             bigqueryDetails_ = other.bigqueryDetails_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureBigqueryDetailsIsMutable();
             bigqueryDetails_.addAll(other.bigqueryDetails_);
@@ -1086,7 +970,7 @@ private static final long serialVersionUID = 0L;
             bigqueryDetailsBuilder_.dispose();
             bigqueryDetailsBuilder_ = null;
             bigqueryDetails_ = other.bigqueryDetails_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             bigqueryDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getBigqueryDetailsFieldBuilder() : null;
@@ -1099,7 +983,7 @@ private static final long serialVersionUID = 0L;
         if (!other.bigTableDetails_.isEmpty()) {
           if (bigTableDetails_.isEmpty()) {
             bigTableDetails_ = other.bigTableDetails_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureBigTableDetailsIsMutable();
             bigTableDetails_.addAll(other.bigTableDetails_);
@@ -1112,7 +996,7 @@ private static final long serialVersionUID = 0L;
             bigTableDetailsBuilder_.dispose();
             bigTableDetailsBuilder_ = null;
             bigTableDetails_ = other.bigTableDetails_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             bigTableDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getBigTableDetailsFieldBuilder() : null;
@@ -1125,7 +1009,7 @@ private static final long serialVersionUID = 0L;
         if (!other.pubsubDetails_.isEmpty()) {
           if (pubsubDetails_.isEmpty()) {
             pubsubDetails_ = other.pubsubDetails_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensurePubsubDetailsIsMutable();
             pubsubDetails_.addAll(other.pubsubDetails_);
@@ -1138,7 +1022,7 @@ private static final long serialVersionUID = 0L;
             pubsubDetailsBuilder_.dispose();
             pubsubDetailsBuilder_ = null;
             pubsubDetails_ = other.pubsubDetails_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             pubsubDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPubsubDetailsFieldBuilder() : null;
@@ -1151,7 +1035,7 @@ private static final long serialVersionUID = 0L;
         if (!other.fileDetails_.isEmpty()) {
           if (fileDetails_.isEmpty()) {
             fileDetails_ = other.fileDetails_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureFileDetailsIsMutable();
             fileDetails_.addAll(other.fileDetails_);
@@ -1164,7 +1048,7 @@ private static final long serialVersionUID = 0L;
             fileDetailsBuilder_.dispose();
             fileDetailsBuilder_ = null;
             fileDetails_ = other.fileDetails_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000020);
             fileDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getFileDetailsFieldBuilder() : null;
@@ -1177,7 +1061,7 @@ private static final long serialVersionUID = 0L;
         if (!other.datastoreDetails_.isEmpty()) {
           if (datastoreDetails_.isEmpty()) {
             datastoreDetails_ = other.datastoreDetails_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
           } else {
             ensureDatastoreDetailsIsMutable();
             datastoreDetails_.addAll(other.datastoreDetails_);
@@ -1190,7 +1074,7 @@ private static final long serialVersionUID = 0L;
             datastoreDetailsBuilder_.dispose();
             datastoreDetailsBuilder_ = null;
             datastoreDetails_ = other.datastoreDetails_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00000040);
             datastoreDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDatastoreDetailsFieldBuilder() : null;
@@ -1199,7 +1083,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1214,17 +1098,115 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.JobMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSdkVersionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.dataflow.v1beta3.SpannerIODetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.SpannerIODetails.parser(),
+                      extensionRegistry);
+              if (spannerDetailsBuilder_ == null) {
+                ensureSpannerDetailsIsMutable();
+                spannerDetails_.add(m);
+              } else {
+                spannerDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.dataflow.v1beta3.BigQueryIODetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.BigQueryIODetails.parser(),
+                      extensionRegistry);
+              if (bigqueryDetailsBuilder_ == null) {
+                ensureBigqueryDetailsIsMutable();
+                bigqueryDetails_.add(m);
+              } else {
+                bigqueryDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.dataflow.v1beta3.BigTableIODetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.BigTableIODetails.parser(),
+                      extensionRegistry);
+              if (bigTableDetailsBuilder_ == null) {
+                ensureBigTableDetailsIsMutable();
+                bigTableDetails_.add(m);
+              } else {
+                bigTableDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              com.google.dataflow.v1beta3.PubSubIODetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.PubSubIODetails.parser(),
+                      extensionRegistry);
+              if (pubsubDetailsBuilder_ == null) {
+                ensurePubsubDetailsIsMutable();
+                pubsubDetails_.add(m);
+              } else {
+                pubsubDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              com.google.dataflow.v1beta3.FileIODetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.FileIODetails.parser(),
+                      extensionRegistry);
+              if (fileDetailsBuilder_ == null) {
+                ensureFileDetailsIsMutable();
+                fileDetails_.add(m);
+              } else {
+                fileDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              com.google.dataflow.v1beta3.DatastoreIODetails m =
+                  input.readMessage(
+                      com.google.dataflow.v1beta3.DatastoreIODetails.parser(),
+                      extensionRegistry);
+              if (datastoreDetailsBuilder_ == null) {
+                ensureDatastoreDetailsIsMutable();
+                datastoreDetails_.add(m);
+              } else {
+                datastoreDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.JobMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1241,7 +1223,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sdkVersion field is set.
      */
     public boolean hasSdkVersion() {
-      return sdkVersionBuilder_ != null || sdkVersion_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1271,11 +1253,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sdkVersion_ = value;
-        onChanged();
       } else {
         sdkVersionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1289,11 +1271,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.SdkVersion.Builder builderForValue) {
       if (sdkVersionBuilder_ == null) {
         sdkVersion_ = builderForValue.build();
-        onChanged();
       } else {
         sdkVersionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1305,17 +1287,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSdkVersion(com.google.dataflow.v1beta3.SdkVersion value) {
       if (sdkVersionBuilder_ == null) {
-        if (sdkVersion_ != null) {
-          sdkVersion_ =
-            com.google.dataflow.v1beta3.SdkVersion.newBuilder(sdkVersion_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          sdkVersion_ != null &&
+          sdkVersion_ != com.google.dataflow.v1beta3.SdkVersion.getDefaultInstance()) {
+          getSdkVersionBuilder().mergeFrom(value);
         } else {
           sdkVersion_ = value;
         }
-        onChanged();
       } else {
         sdkVersionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1326,14 +1309,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.SdkVersion sdk_version = 1;</code>
      */
     public Builder clearSdkVersion() {
-      if (sdkVersionBuilder_ == null) {
-        sdkVersion_ = null;
-        onChanged();
-      } else {
-        sdkVersion_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      sdkVersion_ = null;
+      if (sdkVersionBuilder_ != null) {
+        sdkVersionBuilder_.dispose();
         sdkVersionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1344,7 +1326,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.SdkVersion sdk_version = 1;</code>
      */
     public com.google.dataflow.v1beta3.SdkVersion.Builder getSdkVersionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSdkVersionFieldBuilder().getBuilder();
     }
@@ -1387,9 +1369,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.SpannerIODetails> spannerDetails_ =
       java.util.Collections.emptyList();
     private void ensureSpannerDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         spannerDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.SpannerIODetails>(spannerDetails_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1583,7 +1565,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSpannerDetails() {
       if (spannerDetailsBuilder_ == null) {
         spannerDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         spannerDetailsBuilder_.clear();
@@ -1688,7 +1670,7 @@ private static final long serialVersionUID = 0L;
         spannerDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.SpannerIODetails, com.google.dataflow.v1beta3.SpannerIODetails.Builder, com.google.dataflow.v1beta3.SpannerIODetailsOrBuilder>(
                 spannerDetails_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         spannerDetails_ = null;
@@ -1699,9 +1681,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.BigQueryIODetails> bigqueryDetails_ =
       java.util.Collections.emptyList();
     private void ensureBigqueryDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         bigqueryDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.BigQueryIODetails>(bigqueryDetails_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1895,7 +1877,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearBigqueryDetails() {
       if (bigqueryDetailsBuilder_ == null) {
         bigqueryDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         bigqueryDetailsBuilder_.clear();
@@ -2000,7 +1982,7 @@ private static final long serialVersionUID = 0L;
         bigqueryDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.BigQueryIODetails, com.google.dataflow.v1beta3.BigQueryIODetails.Builder, com.google.dataflow.v1beta3.BigQueryIODetailsOrBuilder>(
                 bigqueryDetails_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         bigqueryDetails_ = null;
@@ -2011,9 +1993,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.BigTableIODetails> bigTableDetails_ =
       java.util.Collections.emptyList();
     private void ensureBigTableDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         bigTableDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.BigTableIODetails>(bigTableDetails_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2207,7 +2189,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearBigTableDetails() {
       if (bigTableDetailsBuilder_ == null) {
         bigTableDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         bigTableDetailsBuilder_.clear();
@@ -2312,7 +2294,7 @@ private static final long serialVersionUID = 0L;
         bigTableDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.BigTableIODetails, com.google.dataflow.v1beta3.BigTableIODetails.Builder, com.google.dataflow.v1beta3.BigTableIODetailsOrBuilder>(
                 bigTableDetails_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         bigTableDetails_ = null;
@@ -2323,9 +2305,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.PubSubIODetails> pubsubDetails_ =
       java.util.Collections.emptyList();
     private void ensurePubsubDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         pubsubDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.PubSubIODetails>(pubsubDetails_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2519,7 +2501,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPubsubDetails() {
       if (pubsubDetailsBuilder_ == null) {
         pubsubDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         pubsubDetailsBuilder_.clear();
@@ -2624,7 +2606,7 @@ private static final long serialVersionUID = 0L;
         pubsubDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.PubSubIODetails, com.google.dataflow.v1beta3.PubSubIODetails.Builder, com.google.dataflow.v1beta3.PubSubIODetailsOrBuilder>(
                 pubsubDetails_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         pubsubDetails_ = null;
@@ -2635,9 +2617,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.FileIODetails> fileDetails_ =
       java.util.Collections.emptyList();
     private void ensureFileDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         fileDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.FileIODetails>(fileDetails_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2831,7 +2813,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearFileDetails() {
       if (fileDetailsBuilder_ == null) {
         fileDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         fileDetailsBuilder_.clear();
@@ -2936,7 +2918,7 @@ private static final long serialVersionUID = 0L;
         fileDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.FileIODetails, com.google.dataflow.v1beta3.FileIODetails.Builder, com.google.dataflow.v1beta3.FileIODetailsOrBuilder>(
                 fileDetails_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         fileDetails_ = null;
@@ -2947,9 +2929,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.dataflow.v1beta3.DatastoreIODetails> datastoreDetails_ =
       java.util.Collections.emptyList();
     private void ensureDatastoreDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         datastoreDetails_ = new java.util.ArrayList<com.google.dataflow.v1beta3.DatastoreIODetails>(datastoreDetails_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00000040;
        }
     }
 
@@ -3143,7 +3125,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDatastoreDetails() {
       if (datastoreDetailsBuilder_ == null) {
         datastoreDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
       } else {
         datastoreDetailsBuilder_.clear();
@@ -3248,7 +3230,7 @@ private static final long serialVersionUID = 0L;
         datastoreDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.dataflow.v1beta3.DatastoreIODetails, com.google.dataflow.v1beta3.DatastoreIODetails.Builder, com.google.dataflow.v1beta3.DatastoreIODetailsOrBuilder>(
                 datastoreDetails_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00000040) != 0),
                 getParentForChildren(),
                 isClean());
         datastoreDetails_ = null;
@@ -3288,7 +3270,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -40,135 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Query(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              projection_ = new java.util.ArrayList<com.google.datastore.v1beta3.Projection>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            projection_.add(
-                input.readMessage(com.google.datastore.v1beta3.Projection.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              kind_ = new java.util.ArrayList<com.google.datastore.v1beta3.KindExpression>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            kind_.add(
-                input.readMessage(com.google.datastore.v1beta3.KindExpression.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.datastore.v1beta3.Filter.Builder subBuilder = null;
-            if (filter_ != null) {
-              subBuilder = filter_.toBuilder();
-            }
-            filter_ = input.readMessage(com.google.datastore.v1beta3.Filter.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filter_);
-              filter_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              order_ = new java.util.ArrayList<com.google.datastore.v1beta3.PropertyOrder>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            order_.add(
-                input.readMessage(com.google.datastore.v1beta3.PropertyOrder.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              distinctOn_ = new java.util.ArrayList<com.google.datastore.v1beta3.PropertyReference>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            distinctOn_.add(
-                input.readMessage(com.google.datastore.v1beta3.PropertyReference.parser(), extensionRegistry));
-            break;
-          }
-          case 58: {
-
-            startCursor_ = input.readBytes();
-            break;
-          }
-          case 66: {
-
-            endCursor_ = input.readBytes();
-            break;
-          }
-          case 80: {
-
-            offset_ = input.readInt32();
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (limit_ != null) {
-              subBuilder = limit_.toBuilder();
-            }
-            limit_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(limit_);
-              limit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        projection_ = java.util.Collections.unmodifiableList(projection_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        kind_ = java.util.Collections.unmodifiableList(kind_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        order_ = java.util.Collections.unmodifiableList(order_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        distinctOn_ = java.util.Collections.unmodifiableList(distinctOn_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.datastore.v1beta3.QueryProto.internal_static_google_datastore_v1beta3_Query_descriptor;
@@ -183,6 +54,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECTION_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.datastore.v1beta3.Projection> projection_;
   /**
    * <pre>
@@ -243,6 +115,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KIND_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.datastore.v1beta3.KindExpression> kind_;
   /**
    * <pre>
@@ -342,10 +215,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.datastore.v1beta3.FilterOrBuilder getFilterOrBuilder() {
-    return getFilter();
+    return filter_ == null ? com.google.datastore.v1beta3.Filter.getDefaultInstance() : filter_;
   }
 
   public static final int ORDER_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.datastore.v1beta3.PropertyOrder> order_;
   /**
    * <pre>
@@ -406,6 +280,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISTINCT_ON_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.datastore.v1beta3.PropertyReference> distinctOn_;
   /**
    * <pre>
@@ -476,7 +351,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_CURSOR_FIELD_NUMBER = 7;
-  private com.google.protobuf.ByteString startCursor_;
+  private com.google.protobuf.ByteString startCursor_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * A starting point for the query results. Query cursors are
@@ -494,7 +369,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_CURSOR_FIELD_NUMBER = 8;
-  private com.google.protobuf.ByteString endCursor_;
+  private com.google.protobuf.ByteString endCursor_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * An ending point for the query results. Query cursors are
@@ -512,7 +387,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OFFSET_FIELD_NUMBER = 10;
-  private int offset_;
+  private int offset_ = 0;
   /**
    * <pre>
    * The number of results to skip. Applies before limit, but after all other
@@ -571,7 +446,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getLimitOrBuilder() {
-    return getLimit();
+    return limit_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : limit_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -615,7 +490,7 @@ private static final long serialVersionUID = 0L;
     if (limit_ != null) {
       output.writeMessage(12, getLimit());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -660,7 +535,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getLimit());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -699,7 +574,7 @@ private static final long serialVersionUID = 0L;
       if (!getLimit()
           .equals(other.getLimit())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -740,7 +615,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LIMIT_FIELD_NUMBER;
       hash = (53 * hash) + getLimit().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -861,66 +736,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.datastore.v1beta3.Query.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getProjectionFieldBuilder();
-        getKindFieldBuilder();
-        getOrderFieldBuilder();
-        getDistinctOnFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (projectionBuilder_ == null) {
         projection_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        projection_ = null;
         projectionBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (kindBuilder_ == null) {
         kind_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        kind_ = null;
         kindBuilder_.clear();
       }
-      if (filterBuilder_ == null) {
-        filter_ = null;
-      } else {
-        filter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      filter_ = null;
+      if (filterBuilder_ != null) {
+        filterBuilder_.dispose();
         filterBuilder_ = null;
       }
       if (orderBuilder_ == null) {
         order_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        order_ = null;
         orderBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (distinctOnBuilder_ == null) {
         distinctOn_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        distinctOn_ = null;
         distinctOnBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       startCursor_ = com.google.protobuf.ByteString.EMPTY;
-
       endCursor_ = com.google.protobuf.ByteString.EMPTY;
-
       offset_ = 0;
-
-      if (limitBuilder_ == null) {
-        limit_ = null;
-      } else {
-        limit_ = null;
+      limit_ = null;
+      if (limitBuilder_ != null) {
+        limitBuilder_.dispose();
         limitBuilder_ = null;
       }
       return this;
@@ -949,7 +815,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.datastore.v1beta3.Query buildPartial() {
       com.google.datastore.v1beta3.Query result = new com.google.datastore.v1beta3.Query(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.datastore.v1beta3.Query result) {
       if (projectionBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           projection_ = java.util.Collections.unmodifiableList(projection_);
@@ -968,39 +840,47 @@ private static final long serialVersionUID = 0L;
       } else {
         result.kind_ = kindBuilder_.build();
       }
-      if (filterBuilder_ == null) {
-        result.filter_ = filter_;
-      } else {
-        result.filter_ = filterBuilder_.build();
-      }
       if (orderBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           order_ = java.util.Collections.unmodifiableList(order_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.order_ = order_;
       } else {
         result.order_ = orderBuilder_.build();
       }
       if (distinctOnBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           distinctOn_ = java.util.Collections.unmodifiableList(distinctOn_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.distinctOn_ = distinctOn_;
       } else {
         result.distinctOn_ = distinctOnBuilder_.build();
       }
-      result.startCursor_ = startCursor_;
-      result.endCursor_ = endCursor_;
-      result.offset_ = offset_;
-      if (limitBuilder_ == null) {
-        result.limit_ = limit_;
-      } else {
-        result.limit_ = limitBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.datastore.v1beta3.Query result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.filter_ = filterBuilder_ == null
+            ? filter_
+            : filterBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.startCursor_ = startCursor_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.endCursor_ = endCursor_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.offset_ = offset_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.limit_ = limitBuilder_ == null
+            ? limit_
+            : limitBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1106,7 +986,7 @@ private static final long serialVersionUID = 0L;
         if (!other.order_.isEmpty()) {
           if (order_.isEmpty()) {
             order_ = other.order_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureOrderIsMutable();
             order_.addAll(other.order_);
@@ -1119,7 +999,7 @@ private static final long serialVersionUID = 0L;
             orderBuilder_.dispose();
             orderBuilder_ = null;
             order_ = other.order_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000008);
             orderBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getOrderFieldBuilder() : null;
@@ -1132,7 +1012,7 @@ private static final long serialVersionUID = 0L;
         if (!other.distinctOn_.isEmpty()) {
           if (distinctOn_.isEmpty()) {
             distinctOn_ = other.distinctOn_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureDistinctOnIsMutable();
             distinctOn_.addAll(other.distinctOn_);
@@ -1145,7 +1025,7 @@ private static final long serialVersionUID = 0L;
             distinctOnBuilder_.dispose();
             distinctOnBuilder_ = null;
             distinctOn_ = other.distinctOn_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
             distinctOnBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDistinctOnFieldBuilder() : null;
@@ -1166,7 +1046,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLimit()) {
         mergeLimit(other.getLimit());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1181,17 +1061,111 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.datastore.v1beta3.Query parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.datastore.v1beta3.Projection m =
+                  input.readMessage(
+                      com.google.datastore.v1beta3.Projection.parser(),
+                      extensionRegistry);
+              if (projectionBuilder_ == null) {
+                ensureProjectionIsMutable();
+                projection_.add(m);
+              } else {
+                projectionBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.datastore.v1beta3.KindExpression m =
+                  input.readMessage(
+                      com.google.datastore.v1beta3.KindExpression.parser(),
+                      extensionRegistry);
+              if (kindBuilder_ == null) {
+                ensureKindIsMutable();
+                kind_.add(m);
+              } else {
+                kindBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getFilterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 42: {
+              com.google.datastore.v1beta3.PropertyOrder m =
+                  input.readMessage(
+                      com.google.datastore.v1beta3.PropertyOrder.parser(),
+                      extensionRegistry);
+              if (orderBuilder_ == null) {
+                ensureOrderIsMutable();
+                order_.add(m);
+              } else {
+                orderBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              com.google.datastore.v1beta3.PropertyReference m =
+                  input.readMessage(
+                      com.google.datastore.v1beta3.PropertyReference.parser(),
+                      extensionRegistry);
+              if (distinctOnBuilder_ == null) {
+                ensureDistinctOnIsMutable();
+                distinctOn_.add(m);
+              } else {
+                distinctOnBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            case 58: {
+              startCursor_ = input.readBytes();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              endCursor_ = input.readBytes();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            case 80: {
+              offset_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 80
+            case 98: {
+              input.readMessage(
+                  getLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.datastore.v1beta3.Query) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1850,7 +1824,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filter field is set.
      */
     public boolean hasFilter() {
-      return filterBuilder_ != null || filter_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1880,11 +1854,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filter_ = value;
-        onChanged();
       } else {
         filterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1898,11 +1872,11 @@ private static final long serialVersionUID = 0L;
         com.google.datastore.v1beta3.Filter.Builder builderForValue) {
       if (filterBuilder_ == null) {
         filter_ = builderForValue.build();
-        onChanged();
       } else {
         filterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1914,17 +1888,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilter(com.google.datastore.v1beta3.Filter value) {
       if (filterBuilder_ == null) {
-        if (filter_ != null) {
-          filter_ =
-            com.google.datastore.v1beta3.Filter.newBuilder(filter_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          filter_ != null &&
+          filter_ != com.google.datastore.v1beta3.Filter.getDefaultInstance()) {
+          getFilterBuilder().mergeFrom(value);
         } else {
           filter_ = value;
         }
-        onChanged();
       } else {
         filterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1935,14 +1910,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.v1beta3.Filter filter = 4;</code>
      */
     public Builder clearFilter() {
-      if (filterBuilder_ == null) {
-        filter_ = null;
-        onChanged();
-      } else {
-        filter_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      filter_ = null;
+      if (filterBuilder_ != null) {
+        filterBuilder_.dispose();
         filterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1953,7 +1927,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.datastore.v1beta3.Filter filter = 4;</code>
      */
     public com.google.datastore.v1beta3.Filter.Builder getFilterBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getFilterFieldBuilder().getBuilder();
     }
@@ -1996,9 +1970,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.datastore.v1beta3.PropertyOrder> order_ =
       java.util.Collections.emptyList();
     private void ensureOrderIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         order_ = new java.util.ArrayList<com.google.datastore.v1beta3.PropertyOrder>(order_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -2192,7 +2166,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearOrder() {
       if (orderBuilder_ == null) {
         order_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         orderBuilder_.clear();
@@ -2297,7 +2271,7 @@ private static final long serialVersionUID = 0L;
         orderBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.datastore.v1beta3.PropertyOrder, com.google.datastore.v1beta3.PropertyOrder.Builder, com.google.datastore.v1beta3.PropertyOrderOrBuilder>(
                 order_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         order_ = null;
@@ -2308,9 +2282,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.datastore.v1beta3.PropertyReference> distinctOn_ =
       java.util.Collections.emptyList();
     private void ensureDistinctOnIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         distinctOn_ = new java.util.ArrayList<com.google.datastore.v1beta3.PropertyReference>(distinctOn_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2526,7 +2500,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearDistinctOn() {
       if (distinctOnBuilder_ == null) {
         distinctOn_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         distinctOnBuilder_.clear();
@@ -2645,7 +2619,7 @@ private static final long serialVersionUID = 0L;
         distinctOnBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.datastore.v1beta3.PropertyReference, com.google.datastore.v1beta3.PropertyReference.Builder, com.google.datastore.v1beta3.PropertyReferenceOrBuilder>(
                 distinctOn_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         distinctOn_ = null;
@@ -2682,11 +2656,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStartCursor(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       startCursor_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2702,7 +2674,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartCursor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       startCursor_ = getDefaultInstance().getStartCursor();
       onChanged();
       return this;
@@ -2737,11 +2709,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEndCursor(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       endCursor_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2757,7 +2727,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndCursor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       endCursor_ = getDefaultInstance().getEndCursor();
       onChanged();
       return this;
@@ -2790,6 +2760,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOffset(int value) {
       
       offset_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2803,7 +2774,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       offset_ = 0;
       onChanged();
       return this;
@@ -2824,7 +2795,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the limit field is set.
      */
     public boolean hasLimit() {
-      return limitBuilder_ != null || limit_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2860,11 +2831,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         limit_ = value;
-        onChanged();
       } else {
         limitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2881,11 +2852,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (limitBuilder_ == null) {
         limit_ = builderForValue.build();
-        onChanged();
       } else {
         limitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2900,17 +2871,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLimit(com.google.protobuf.Int32Value value) {
       if (limitBuilder_ == null) {
-        if (limit_ != null) {
-          limit_ =
-            com.google.protobuf.Int32Value.newBuilder(limit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          limit_ != null &&
+          limit_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getLimitBuilder().mergeFrom(value);
         } else {
           limit_ = value;
         }
-        onChanged();
       } else {
         limitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2924,14 +2896,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value limit = 12;</code>
      */
     public Builder clearLimit() {
-      if (limitBuilder_ == null) {
-        limit_ = null;
-        onChanged();
-      } else {
-        limit_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      limit_ = null;
+      if (limitBuilder_ != null) {
+        limitBuilder_.dispose();
         limitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2945,7 +2916,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value limit = 12;</code>
      */
     public com.google.protobuf.Int32Value.Builder getLimitBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getLimitFieldBuilder().getBuilder();
     }
@@ -3023,7 +2994,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Query(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

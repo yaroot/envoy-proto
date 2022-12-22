@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateAuthorizationPolicyRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authorizationPolicyId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.networksecurity.v1.AuthorizationPolicy.Builder subBuilder = null;
-            if (authorizationPolicy_ != null) {
-              subBuilder = authorizationPolicy_.toBuilder();
-            }
-            authorizationPolicy_ = input.readMessage(com.google.cloud.networksecurity.v1.AuthorizationPolicy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(authorizationPolicy_);
-              authorizationPolicy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.networksecurity.v1.AuthorizationPolicyProto.internal_static_google_cloud_networksecurity_v1_CreateAuthorizationPolicyRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource of the AuthorizationPolicy. Must be in the
@@ -162,7 +99,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTHORIZATION_POLICY_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object authorizationPolicyId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authorizationPolicyId_ = "";
   /**
    * <pre>
    * Required. Short name of the AuthorizationPolicy resource to be created.
@@ -248,7 +186,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.networksecurity.v1.AuthorizationPolicyOrBuilder getAuthorizationPolicyOrBuilder() {
-    return getAuthorizationPolicy();
+    return authorizationPolicy_ == null ? com.google.cloud.networksecurity.v1.AuthorizationPolicy.getDefaultInstance() : authorizationPolicy_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -274,7 +212,7 @@ private static final long serialVersionUID = 0L;
     if (authorizationPolicy_ != null) {
       output.writeMessage(3, getAuthorizationPolicy());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -293,7 +231,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getAuthorizationPolicy());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -317,7 +255,7 @@ private static final long serialVersionUID = 0L;
       if (!getAuthorizationPolicy()
           .equals(other.getAuthorizationPolicy())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +274,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUTHORIZATION_POLICY_FIELD_NUMBER;
       hash = (53 * hash) + getAuthorizationPolicy().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -457,30 +395,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       authorizationPolicyId_ = "";
-
-      if (authorizationPolicyBuilder_ == null) {
-        authorizationPolicy_ = null;
-      } else {
-        authorizationPolicy_ = null;
+      authorizationPolicy_ = null;
+      if (authorizationPolicyBuilder_ != null) {
+        authorizationPolicyBuilder_.dispose();
         authorizationPolicyBuilder_ = null;
       }
       return this;
@@ -509,15 +440,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest buildPartial() {
       com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest result = new com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest(this);
-      result.parent_ = parent_;
-      result.authorizationPolicyId_ = authorizationPolicyId_;
-      if (authorizationPolicyBuilder_ == null) {
-        result.authorizationPolicy_ = authorizationPolicy_;
-      } else {
-        result.authorizationPolicy_ = authorizationPolicyBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.authorizationPolicyId_ = authorizationPolicyId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.authorizationPolicy_ = authorizationPolicyBuilder_ == null
+            ? authorizationPolicy_
+            : authorizationPolicyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -566,16 +506,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAuthorizationPolicyId().isEmpty()) {
         authorizationPolicyId_ = other.authorizationPolicyId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasAuthorizationPolicy()) {
         mergeAuthorizationPolicy(other.getAuthorizationPolicy());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -590,19 +532,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              authorizationPolicyId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAuthorizationPolicyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networksecurity.v1.CreateAuthorizationPolicyRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -660,11 +633,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -678,8 +649,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -695,12 +666,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -767,11 +736,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationPolicyId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authorizationPolicyId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -787,8 +754,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthorizationPolicyId() {
-      
       authorizationPolicyId_ = getDefaultInstance().getAuthorizationPolicyId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -806,12 +773,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthorizationPolicyIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authorizationPolicyId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -828,7 +793,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the authorizationPolicy field is set.
      */
     public boolean hasAuthorizationPolicy() {
-      return authorizationPolicyBuilder_ != null || authorizationPolicy_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -858,11 +823,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         authorizationPolicy_ = value;
-        onChanged();
       } else {
         authorizationPolicyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -876,11 +841,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.networksecurity.v1.AuthorizationPolicy.Builder builderForValue) {
       if (authorizationPolicyBuilder_ == null) {
         authorizationPolicy_ = builderForValue.build();
-        onChanged();
       } else {
         authorizationPolicyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -892,17 +857,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAuthorizationPolicy(com.google.cloud.networksecurity.v1.AuthorizationPolicy value) {
       if (authorizationPolicyBuilder_ == null) {
-        if (authorizationPolicy_ != null) {
-          authorizationPolicy_ =
-            com.google.cloud.networksecurity.v1.AuthorizationPolicy.newBuilder(authorizationPolicy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          authorizationPolicy_ != null &&
+          authorizationPolicy_ != com.google.cloud.networksecurity.v1.AuthorizationPolicy.getDefaultInstance()) {
+          getAuthorizationPolicyBuilder().mergeFrom(value);
         } else {
           authorizationPolicy_ = value;
         }
-        onChanged();
       } else {
         authorizationPolicyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -913,14 +879,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networksecurity.v1.AuthorizationPolicy authorization_policy = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAuthorizationPolicy() {
-      if (authorizationPolicyBuilder_ == null) {
-        authorizationPolicy_ = null;
-        onChanged();
-      } else {
-        authorizationPolicy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      authorizationPolicy_ = null;
+      if (authorizationPolicyBuilder_ != null) {
+        authorizationPolicyBuilder_.dispose();
         authorizationPolicyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -931,7 +896,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.networksecurity.v1.AuthorizationPolicy authorization_policy = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.networksecurity.v1.AuthorizationPolicy.Builder getAuthorizationPolicyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAuthorizationPolicyFieldBuilder().getBuilder();
     }
@@ -1003,7 +968,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateAuthorizationPolicyRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

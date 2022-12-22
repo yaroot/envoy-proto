@@ -291,7 +291,7 @@ public interface NodePoolOrBuilder extends
    *
    * <code>string status_message = 104 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.NodePool.status_message is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=3452
+   *     See google/container/v1beta1/cluster_service.proto;l=3523
    * @return The statusMessage.
    */
   @java.lang.Deprecated java.lang.String getStatusMessage();
@@ -304,7 +304,7 @@ public interface NodePoolOrBuilder extends
    *
    * <code>string status_message = 104 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.NodePool.status_message is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=3452
+   *     See google/container/v1beta1/cluster_service.proto;l=3523
    * @return The bytes for statusMessage.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

@@ -20,9 +20,9 @@ package io.envoyproxy.envoy.extensions.transport_sockets.tls.v3;
  *       - name: envoy.com
  *         trust_bundle:
  *           filename: "envoy.pem"
- * In this example, a presented peer certificate whose SAN matches ``spiffe//foo.com/&#42;*`` is validated against
+ * In this example, a presented peer certificate whose SAN matches ``spiffe://foo.com/&#42;*`` is validated against
  * the "foo.pem" x.509 certificate. All the trust bundles are isolated from each other, so no trust domain can mint
- * a SVID belonging to another trust domain. That means, in this example, a SVID signed by ``envoy.com``'s CA with ``spiffe//foo.com/&#42;*``
+ * a SVID belonging to another trust domain. That means, in this example, a SVID signed by ``envoy.com``'s CA with ``spiffe://foo.com/&#42;*``
  * SAN would be rejected since Envoy selects the trust bundle according to the presented SAN before validate the certificate.
  * Note that SPIFFE validator inherits and uses the following options from :ref:`CertificateValidationContext &lt;envoy_v3_api_msg_extensions.transport_sockets.tls.v3.CertificateValidationContext&gt;`.
  * - :ref:`allow_expired_certificate &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.allow_expired_certificate&gt;` to allow expired certificates.
@@ -55,58 +55,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private SPIFFECertValidatorConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              trustDomains_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            trustDomains_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        trustDomains_ = java.util.Collections.unmodifiableList(trustDomains_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -202,64 +150,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TrustDomain(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.config.core.v3.DataSource.Builder subBuilder = null;
-              if (trustBundle_ != null) {
-                subBuilder = trustBundle_.toBuilder();
-              }
-              trustBundle_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.DataSource.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(trustBundle_);
-                trustBundle_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsSpiffeValidatorConfigProto.internal_static_envoy_extensions_transport_sockets_tls_v3_SPIFFECertValidatorConfig_TrustDomain_descriptor;
@@ -274,7 +164,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Name of the trust domain, ``example.com``, ``foo.bar.gov`` for example.
@@ -356,7 +247,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.DataSourceOrBuilder getTrustBundleOrBuilder() {
-      return getTrustBundle();
+      return trustBundle_ == null ? io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance() : trustBundle_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -379,7 +270,7 @@ private static final long serialVersionUID = 0L;
       if (trustBundle_ != null) {
         output.writeMessage(2, getTrustBundle());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -395,7 +286,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getTrustBundle());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -417,7 +308,7 @@ private static final long serialVersionUID = 0L;
         if (!getTrustBundle()
             .equals(other.getTrustBundle())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -434,7 +325,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + TRUST_BUNDLE_FIELD_NUMBER;
         hash = (53 * hash) + getTrustBundle().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -551,28 +442,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
-        if (trustBundleBuilder_ == null) {
-          trustBundle_ = null;
-        } else {
-          trustBundle_ = null;
+        trustBundle_ = null;
+        if (trustBundleBuilder_ != null) {
+          trustBundleBuilder_.dispose();
           trustBundleBuilder_ = null;
         }
         return this;
@@ -601,14 +486,21 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain buildPartial() {
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain(this);
-        result.name_ = name_;
-        if (trustBundleBuilder_ == null) {
-          result.trustBundle_ = trustBundle_;
-        } else {
-          result.trustBundle_ = trustBundleBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.trustBundle_ = trustBundleBuilder_ == null
+              ? trustBundle_
+              : trustBundleBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -657,12 +549,13 @@ private static final long serialVersionUID = 0L;
         if (other == io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasTrustBundle()) {
           mergeTrustBundle(other.getTrustBundle());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -677,19 +570,45 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getTrustBundleFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -747,11 +666,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -765,8 +682,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -782,12 +699,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -804,7 +719,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the trustBundle field is set.
        */
       public boolean hasTrustBundle() {
-        return trustBundleBuilder_ != null || trustBundle_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -834,11 +749,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           trustBundle_ = value;
-          onChanged();
         } else {
           trustBundleBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -852,11 +767,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.DataSource.Builder builderForValue) {
         if (trustBundleBuilder_ == null) {
           trustBundle_ = builderForValue.build();
-          onChanged();
         } else {
           trustBundleBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -868,17 +783,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeTrustBundle(io.envoyproxy.envoy.config.core.v3.DataSource value) {
         if (trustBundleBuilder_ == null) {
-          if (trustBundle_ != null) {
-            trustBundle_ =
-              io.envoyproxy.envoy.config.core.v3.DataSource.newBuilder(trustBundle_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            trustBundle_ != null &&
+            trustBundle_ != io.envoyproxy.envoy.config.core.v3.DataSource.getDefaultInstance()) {
+            getTrustBundleBuilder().mergeFrom(value);
           } else {
             trustBundle_ = value;
           }
-          onChanged();
         } else {
           trustBundleBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -889,14 +805,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.DataSource trust_bundle = 2;</code>
        */
       public Builder clearTrustBundle() {
-        if (trustBundleBuilder_ == null) {
-          trustBundle_ = null;
-          onChanged();
-        } else {
-          trustBundle_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        trustBundle_ = null;
+        if (trustBundleBuilder_ != null) {
+          trustBundleBuilder_.dispose();
           trustBundleBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -907,7 +822,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.DataSource trust_bundle = 2;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.DataSource.Builder getTrustBundleBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getTrustBundleFieldBuilder().getBuilder();
       }
@@ -979,7 +894,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TrustDomain(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1000,6 +926,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRUST_DOMAINS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain> trustDomains_;
   /**
    * <pre>
@@ -1076,7 +1003,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < trustDomains_.size(); i++) {
       output.writeMessage(1, trustDomains_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1089,7 +1016,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, trustDomains_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1106,7 +1033,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getTrustDomainsList()
         .equals(other.getTrustDomainsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1121,7 +1048,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRUST_DOMAINS_FIELD_NUMBER;
       hash = (53 * hash) + getTrustDomainsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1233,9 +1160,9 @@ private static final long serialVersionUID = 0L;
    *       - name: envoy.com
    *         trust_bundle:
    *           filename: "envoy.pem"
-   * In this example, a presented peer certificate whose SAN matches ``spiffe//foo.com/&#42;*`` is validated against
+   * In this example, a presented peer certificate whose SAN matches ``spiffe://foo.com/&#42;*`` is validated against
    * the "foo.pem" x.509 certificate. All the trust bundles are isolated from each other, so no trust domain can mint
-   * a SVID belonging to another trust domain. That means, in this example, a SVID signed by ``envoy.com``'s CA with ``spiffe//foo.com/&#42;*``
+   * a SVID belonging to another trust domain. That means, in this example, a SVID signed by ``envoy.com``'s CA with ``spiffe://foo.com/&#42;*``
    * SAN would be rejected since Envoy selects the trust bundle according to the presented SAN before validate the certificate.
    * Note that SPIFFE validator inherits and uses the following options from :ref:`CertificateValidationContext &lt;envoy_v3_api_msg_extensions.transport_sockets.tls.v3.CertificateValidationContext&gt;`.
    * - :ref:`allow_expired_certificate &lt;envoy_v3_api_field_extensions.transport_sockets.tls.v3.CertificateValidationContext.allow_expired_certificate&gt;` to allow expired certificates.
@@ -1263,29 +1190,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTrustDomainsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (trustDomainsBuilder_ == null) {
         trustDomains_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        trustDomains_ = null;
         trustDomainsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1312,7 +1235,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig result) {
       if (trustDomainsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           trustDomains_ = java.util.Collections.unmodifiableList(trustDomains_);
@@ -1322,8 +1251,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.trustDomains_ = trustDomainsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1396,7 +1327,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1411,17 +1342,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig.TrustDomain.parser(),
+                      extensionRegistry);
+              if (trustDomainsBuilder_ == null) {
+                ensureTrustDomainsIsMutable();
+                trustDomains_.add(m);
+              } else {
+                trustDomainsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SPIFFECertValidatorConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1770,7 +1727,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SPIFFECertValidatorConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

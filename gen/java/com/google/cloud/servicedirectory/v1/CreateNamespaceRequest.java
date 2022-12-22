@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateNamespaceRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            namespaceId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.servicedirectory.v1.Namespace.Builder subBuilder = null;
-            if (namespace_ != null) {
-              subBuilder = namespace_.toBuilder();
-            }
-            namespace_ = input.readMessage(com.google.cloud.servicedirectory.v1.Namespace.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(namespace_);
-              namespace_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.servicedirectory.v1.RegistrationServiceProto.internal_static_google_cloud_servicedirectory_v1_CreateNamespaceRequest_descriptor;
@@ -115,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the project and location the namespace
@@ -163,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAMESPACE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object namespaceId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object namespaceId_ = "";
   /**
    * <pre>
    * Required. The Resource ID must be 1-63 characters long, and comply with
@@ -255,7 +193,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.servicedirectory.v1.NamespaceOrBuilder getNamespaceOrBuilder() {
-    return getNamespace();
+    return namespace_ == null ? com.google.cloud.servicedirectory.v1.Namespace.getDefaultInstance() : namespace_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -281,7 +219,7 @@ private static final long serialVersionUID = 0L;
     if (namespace_ != null) {
       output.writeMessage(3, getNamespace());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -300,7 +238,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getNamespace());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -324,7 +262,7 @@ private static final long serialVersionUID = 0L;
       if (!getNamespace()
           .equals(other.getNamespace())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -343,7 +281,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
       hash = (53 * hash) + getNamespace().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -465,30 +403,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.servicedirectory.v1.CreateNamespaceRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       namespaceId_ = "";
-
-      if (namespaceBuilder_ == null) {
-        namespace_ = null;
-      } else {
-        namespace_ = null;
+      namespace_ = null;
+      if (namespaceBuilder_ != null) {
+        namespaceBuilder_.dispose();
         namespaceBuilder_ = null;
       }
       return this;
@@ -517,15 +448,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.servicedirectory.v1.CreateNamespaceRequest buildPartial() {
       com.google.cloud.servicedirectory.v1.CreateNamespaceRequest result = new com.google.cloud.servicedirectory.v1.CreateNamespaceRequest(this);
-      result.parent_ = parent_;
-      result.namespaceId_ = namespaceId_;
-      if (namespaceBuilder_ == null) {
-        result.namespace_ = namespace_;
-      } else {
-        result.namespace_ = namespaceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.servicedirectory.v1.CreateNamespaceRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.namespaceId_ = namespaceId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.namespace_ = namespaceBuilder_ == null
+            ? namespace_
+            : namespaceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -574,16 +514,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.servicedirectory.v1.CreateNamespaceRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getNamespaceId().isEmpty()) {
         namespaceId_ = other.namespaceId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasNamespace()) {
         mergeNamespace(other.getNamespace());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -598,19 +540,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.servicedirectory.v1.CreateNamespaceRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              namespaceId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getNamespaceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.servicedirectory.v1.CreateNamespaceRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -668,11 +641,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -686,8 +657,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -703,12 +674,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -784,11 +753,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNamespaceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       namespaceId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -807,8 +774,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNamespaceId() {
-      
       namespaceId_ = getDefaultInstance().getNamespaceId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -829,12 +796,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNamespaceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       namespaceId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -851,7 +816,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the namespace field is set.
      */
     public boolean hasNamespace() {
-      return namespaceBuilder_ != null || namespace_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -881,11 +846,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         namespace_ = value;
-        onChanged();
       } else {
         namespaceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -899,11 +864,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.servicedirectory.v1.Namespace.Builder builderForValue) {
       if (namespaceBuilder_ == null) {
         namespace_ = builderForValue.build();
-        onChanged();
       } else {
         namespaceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -915,17 +880,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNamespace(com.google.cloud.servicedirectory.v1.Namespace value) {
       if (namespaceBuilder_ == null) {
-        if (namespace_ != null) {
-          namespace_ =
-            com.google.cloud.servicedirectory.v1.Namespace.newBuilder(namespace_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          namespace_ != null &&
+          namespace_ != com.google.cloud.servicedirectory.v1.Namespace.getDefaultInstance()) {
+          getNamespaceBuilder().mergeFrom(value);
         } else {
           namespace_ = value;
         }
-        onChanged();
       } else {
         namespaceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -936,14 +902,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.servicedirectory.v1.Namespace namespace = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearNamespace() {
-      if (namespaceBuilder_ == null) {
-        namespace_ = null;
-        onChanged();
-      } else {
-        namespace_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      namespace_ = null;
+      if (namespaceBuilder_ != null) {
+        namespaceBuilder_.dispose();
         namespaceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -954,7 +919,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.servicedirectory.v1.Namespace namespace = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.servicedirectory.v1.Namespace.Builder getNamespaceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getNamespaceFieldBuilder().getBuilder();
     }
@@ -1026,7 +991,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateNamespaceRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

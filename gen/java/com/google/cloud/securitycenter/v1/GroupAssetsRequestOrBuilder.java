@@ -9,7 +9,7 @@ public interface GroupAssetsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Name of the organization to groupBy. Its format is
+   * Required. The name of the parent to group the assets by. Its format is
    * "organizations/[organization_id], folders/[folder_id], or
    * projects/[project_id]".
    * </pre>
@@ -20,7 +20,7 @@ public interface GroupAssetsRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. Name of the organization to groupBy. Its format is
+   * Required. The name of the parent to group the assets by. Its format is
    * "organizations/[organization_id], folders/[folder_id], or
    * projects/[project_id]".
    * </pre>
@@ -145,9 +145,9 @@ public interface GroupAssetsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Expression that defines what assets fields to use for grouping. The string
-   * value should follow SQL syntax: comma separated list of fields. For
-   * example:
+   * Required. Expression that defines what assets fields to use for grouping.
+   * The string value should follow SQL syntax: comma separated list of fields.
+   * For example:
    * "security_center_properties.resource_project,security_center_properties.project".
    * The following fields are supported when compare_duration is not set:
    * * security_center_properties.resource_project
@@ -167,9 +167,9 @@ public interface GroupAssetsRequestOrBuilder extends
   java.lang.String getGroupBy();
   /**
    * <pre>
-   * Required. Expression that defines what assets fields to use for grouping. The string
-   * value should follow SQL syntax: comma separated list of fields. For
-   * example:
+   * Required. Expression that defines what assets fields to use for grouping.
+   * The string value should follow SQL syntax: comma separated list of fields.
+   * For example:
    * "security_center_properties.resource_project,security_center_properties.project".
    * The following fields are supported when compare_duration is not set:
    * * security_center_properties.resource_project

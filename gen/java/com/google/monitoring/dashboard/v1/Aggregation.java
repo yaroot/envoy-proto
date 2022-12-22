@@ -59,83 +59,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Aggregation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (alignmentPeriod_ != null) {
-              subBuilder = alignmentPeriod_.toBuilder();
-            }
-            alignmentPeriod_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(alignmentPeriod_);
-              alignmentPeriod_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            perSeriesAligner_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            crossSeriesReducer_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              groupByFields_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            groupByFields_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        groupByFields_ = groupByFields_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.CommonProto.internal_static_google_monitoring_dashboard_v1_Aggregation_descriptor;
@@ -1233,11 +1156,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getAlignmentPeriodOrBuilder() {
-    return getAlignmentPeriod();
+    return alignmentPeriod_ == null ? com.google.protobuf.Duration.getDefaultInstance() : alignmentPeriod_;
   }
 
   public static final int PER_SERIES_ALIGNER_FIELD_NUMBER = 2;
-  private int perSeriesAligner_;
+  private int perSeriesAligner_ = 0;
   /**
    * <pre>
    * An `Aligner` describes how to bring the data points in a single
@@ -1284,13 +1207,12 @@ private static final long serialVersionUID = 0L;
    * @return The perSeriesAligner.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.Aggregation.Aligner getPerSeriesAligner() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.Aggregation.Aligner result = com.google.monitoring.dashboard.v1.Aggregation.Aligner.valueOf(perSeriesAligner_);
+    com.google.monitoring.dashboard.v1.Aggregation.Aligner result = com.google.monitoring.dashboard.v1.Aggregation.Aligner.forNumber(perSeriesAligner_);
     return result == null ? com.google.monitoring.dashboard.v1.Aggregation.Aligner.UNRECOGNIZED : result;
   }
 
   public static final int CROSS_SERIES_REDUCER_FIELD_NUMBER = 4;
-  private int crossSeriesReducer_;
+  private int crossSeriesReducer_ = 0;
   /**
    * <pre>
    * The reduction operation to be used to combine time series into a single
@@ -1333,12 +1255,12 @@ private static final long serialVersionUID = 0L;
    * @return The crossSeriesReducer.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.Aggregation.Reducer getCrossSeriesReducer() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.Aggregation.Reducer result = com.google.monitoring.dashboard.v1.Aggregation.Reducer.valueOf(crossSeriesReducer_);
+    com.google.monitoring.dashboard.v1.Aggregation.Reducer result = com.google.monitoring.dashboard.v1.Aggregation.Reducer.forNumber(crossSeriesReducer_);
     return result == null ? com.google.monitoring.dashboard.v1.Aggregation.Reducer.UNRECOGNIZED : result;
   }
 
   public static final int GROUP_BY_FIELDS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList groupByFields_;
   /**
    * <pre>
@@ -1467,7 +1389,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < groupByFields_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, groupByFields_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1496,7 +1418,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getGroupByFieldsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1520,7 +1442,7 @@ private static final long serialVersionUID = 0L;
     if (crossSeriesReducer_ != other.crossSeriesReducer_) return false;
     if (!getGroupByFieldsList()
         .equals(other.getGroupByFieldsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1543,7 +1465,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GROUP_BY_FIELDS_FIELD_NUMBER;
       hash = (53 * hash) + getGroupByFieldsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1686,34 +1608,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.Aggregation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (alignmentPeriodBuilder_ == null) {
-        alignmentPeriod_ = null;
-      } else {
-        alignmentPeriod_ = null;
+      bitField0_ = 0;
+      alignmentPeriod_ = null;
+      if (alignmentPeriodBuilder_ != null) {
+        alignmentPeriodBuilder_.dispose();
         alignmentPeriodBuilder_ = null;
       }
       perSeriesAligner_ = 0;
-
       crossSeriesReducer_ = 0;
-
       groupByFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -1740,21 +1655,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Aggregation buildPartial() {
       com.google.monitoring.dashboard.v1.Aggregation result = new com.google.monitoring.dashboard.v1.Aggregation(this);
-      int from_bitField0_ = bitField0_;
-      if (alignmentPeriodBuilder_ == null) {
-        result.alignmentPeriod_ = alignmentPeriod_;
-      } else {
-        result.alignmentPeriod_ = alignmentPeriodBuilder_.build();
-      }
-      result.perSeriesAligner_ = perSeriesAligner_;
-      result.crossSeriesReducer_ = crossSeriesReducer_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        groupByFields_ = groupByFields_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.groupByFields_ = groupByFields_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.dashboard.v1.Aggregation result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        groupByFields_ = groupByFields_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.groupByFields_ = groupByFields_;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.Aggregation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.alignmentPeriod_ = alignmentPeriodBuilder_ == null
+            ? alignmentPeriod_
+            : alignmentPeriodBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.perSeriesAligner_ = perSeriesAligner_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.crossSeriesReducer_ = crossSeriesReducer_;
+      }
     }
 
     @java.lang.Override
@@ -1813,14 +1740,14 @@ private static final long serialVersionUID = 0L;
       if (!other.groupByFields_.isEmpty()) {
         if (groupByFields_.isEmpty()) {
           groupByFields_ = other.groupByFields_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureGroupByFieldsIsMutable();
           groupByFields_.addAll(other.groupByFields_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1835,17 +1762,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.Aggregation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAlignmentPeriodFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              perSeriesAligner_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 32: {
+              crossSeriesReducer_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureGroupByFieldsIsMutable();
+              groupByFields_.add(s);
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.Aggregation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1871,7 +1834,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the alignmentPeriod field is set.
      */
     public boolean hasAlignmentPeriod() {
-      return alignmentPeriodBuilder_ != null || alignmentPeriod_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1919,11 +1882,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         alignmentPeriod_ = value;
-        onChanged();
       } else {
         alignmentPeriodBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1946,11 +1909,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (alignmentPeriodBuilder_ == null) {
         alignmentPeriod_ = builderForValue.build();
-        onChanged();
       } else {
         alignmentPeriodBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1971,17 +1934,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAlignmentPeriod(com.google.protobuf.Duration value) {
       if (alignmentPeriodBuilder_ == null) {
-        if (alignmentPeriod_ != null) {
-          alignmentPeriod_ =
-            com.google.protobuf.Duration.newBuilder(alignmentPeriod_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          alignmentPeriod_ != null &&
+          alignmentPeriod_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getAlignmentPeriodBuilder().mergeFrom(value);
         } else {
           alignmentPeriod_ = value;
         }
-        onChanged();
       } else {
         alignmentPeriodBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2001,14 +1965,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration alignment_period = 1;</code>
      */
     public Builder clearAlignmentPeriod() {
-      if (alignmentPeriodBuilder_ == null) {
-        alignmentPeriod_ = null;
-        onChanged();
-      } else {
-        alignmentPeriod_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      alignmentPeriod_ = null;
+      if (alignmentPeriodBuilder_ != null) {
+        alignmentPeriodBuilder_.dispose();
         alignmentPeriodBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2028,7 +1991,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration alignment_period = 1;</code>
      */
     public com.google.protobuf.Duration.Builder getAlignmentPeriodBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAlignmentPeriodFieldBuilder().getBuilder();
     }
@@ -2134,8 +2097,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPerSeriesAlignerValue(int value) {
-      
       perSeriesAligner_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2162,8 +2125,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Aggregation.Aligner getPerSeriesAligner() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.Aggregation.Aligner result = com.google.monitoring.dashboard.v1.Aggregation.Aligner.valueOf(perSeriesAligner_);
+      com.google.monitoring.dashboard.v1.Aggregation.Aligner result = com.google.monitoring.dashboard.v1.Aggregation.Aligner.forNumber(perSeriesAligner_);
       return result == null ? com.google.monitoring.dashboard.v1.Aggregation.Aligner.UNRECOGNIZED : result;
     }
     /**
@@ -2192,7 +2154,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       perSeriesAligner_ = value.getNumber();
       onChanged();
       return this;
@@ -2219,7 +2181,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPerSeriesAligner() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       perSeriesAligner_ = 0;
       onChanged();
       return this;
@@ -2269,8 +2231,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCrossSeriesReducerValue(int value) {
-      
       crossSeriesReducer_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2295,8 +2257,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Aggregation.Reducer getCrossSeriesReducer() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.Aggregation.Reducer result = com.google.monitoring.dashboard.v1.Aggregation.Reducer.valueOf(crossSeriesReducer_);
+      com.google.monitoring.dashboard.v1.Aggregation.Reducer result = com.google.monitoring.dashboard.v1.Aggregation.Reducer.forNumber(crossSeriesReducer_);
       return result == null ? com.google.monitoring.dashboard.v1.Aggregation.Reducer.UNRECOGNIZED : result;
     }
     /**
@@ -2323,7 +2284,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       crossSeriesReducer_ = value.getNumber();
       onChanged();
       return this;
@@ -2348,7 +2309,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCrossSeriesReducer() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       crossSeriesReducer_ = 0;
       onChanged();
       return this;
@@ -2356,9 +2317,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList groupByFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureGroupByFieldsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         groupByFields_ = new com.google.protobuf.LazyStringArrayList(groupByFields_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -2486,10 +2447,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGroupByFields(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGroupByFieldsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureGroupByFieldsIsMutable();
       groupByFields_.set(index, value);
       onChanged();
       return this;
@@ -2518,10 +2477,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addGroupByFields(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGroupByFieldsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureGroupByFieldsIsMutable();
       groupByFields_.add(value);
       onChanged();
       return this;
@@ -2579,7 +2536,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGroupByFields() {
       groupByFields_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2607,10 +2564,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addGroupByFieldsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureGroupByFieldsIsMutable();
       groupByFields_.add(value);
       onChanged();
@@ -2649,7 +2604,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Aggregation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,25 +9,25 @@ public interface BillingAccountOrBuilder extends
 
   /**
    * <pre>
-   * The resource name of the billing account. The resource name has the form
+   * Output only. The resource name of the billing account. The resource name has the form
    * `billingAccounts/{billing_account_id}`. For example,
    * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
    * billing account `012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
    * @return The name.
    */
   java.lang.String getName();
   /**
    * <pre>
-   * The resource name of the billing account. The resource name has the form
+   * Output only. The resource name of the billing account. The resource name has the form
    * `billingAccounts/{billing_account_id}`. For example,
    * `billingAccounts/012345-567890-ABCDEF` would be the resource name for
    * billing account `012345-567890-ABCDEF`.
    * </pre>
    *
-   * <code>string name = 1 [(.google.api.resource_reference) = { ... }</code>
+   * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
    * @return The bytes for name.
    */
   com.google.protobuf.ByteString
@@ -48,7 +48,7 @@ public interface BillingAccountOrBuilder extends
   /**
    * <pre>
    * The display name given to the billing account, such as `My Billing
-   * Account`. This name is displayed in the GCP Console.
+   * Account`. This name is displayed in the Google Cloud Console.
    * </pre>
    *
    * <code>string display_name = 3;</code>
@@ -58,7 +58,7 @@ public interface BillingAccountOrBuilder extends
   /**
    * <pre>
    * The display name given to the billing account, such as `My Billing
-   * Account`. This name is displayed in the GCP Console.
+   * Account`. This name is displayed in the Google Cloud Console.
    * </pre>
    *
    * <code>string display_name = 3;</code>
@@ -71,7 +71,7 @@ public interface BillingAccountOrBuilder extends
    * <pre>
    * If this account is a
    * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-   * will be the resource name of the master billing account that it is being
+   * will be the resource name of the parent billing account that it is being
    * resold through.
    * Otherwise this will be empty.
    * </pre>
@@ -84,7 +84,7 @@ public interface BillingAccountOrBuilder extends
    * <pre>
    * If this account is a
    * [subaccount](https://cloud.google.com/billing/docs/concepts), then this
-   * will be the resource name of the master billing account that it is being
+   * will be the resource name of the parent billing account that it is being
    * resold through.
    * Otherwise this will be empty.
    * </pre>

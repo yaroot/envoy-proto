@@ -45,166 +45,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecutionTemplate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            scaleTier_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            masterType_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.Builder subBuilder = null;
-            if (acceleratorConfig_ != null) {
-              subBuilder = acceleratorConfig_.toBuilder();
-            }
-            acceleratorConfig_ = input.readMessage(com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(acceleratorConfig_);
-              acceleratorConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            inputNotebookFile_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            containerImageUri_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            outputNotebookFolder_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            paramsYamlFile_ = s;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parameters_ = s;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            jobType_ = rawValue;
-            break;
-          }
-          case 98: {
-            com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.Builder subBuilder = null;
-            if (jobParametersCase_ == 12) {
-              subBuilder = ((com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters) jobParameters_).toBuilder();
-            }
-            jobParameters_ =
-                input.readMessage(com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters) jobParameters_);
-              jobParameters_ = subBuilder.buildPartial();
-            }
-            jobParametersCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters.Builder subBuilder = null;
-            if (jobParametersCase_ == 13) {
-              subBuilder = ((com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters) jobParameters_).toBuilder();
-            }
-            jobParameters_ =
-                input.readMessage(com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters) jobParameters_);
-              jobParameters_ = subBuilder.buildPartial();
-            }
-            jobParametersCase_ = 13;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kernelSpec_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tensorboard_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.notebooks.v1.ExecutionProto.internal_static_google_cloud_notebooks_v1_ExecutionTemplate_descriptor;
@@ -920,56 +760,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SchedulerAcceleratorConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              coreCount_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.notebooks.v1.ExecutionProto.internal_static_google_cloud_notebooks_v1_ExecutionTemplate_SchedulerAcceleratorConfig_descriptor;
@@ -984,7 +774,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Type of this accelerator.
@@ -1005,13 +795,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType result = com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType.valueOf(type_);
+      com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType result = com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType.forNumber(type_);
       return result == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType.UNRECOGNIZED : result;
     }
 
     public static final int CORE_COUNT_FIELD_NUMBER = 2;
-    private long coreCount_;
+    private long coreCount_ = 0L;
     /**
      * <pre>
      * Count of cores of this accelerator.
@@ -1045,7 +834,7 @@ private static final long serialVersionUID = 0L;
       if (coreCount_ != 0L) {
         output.writeInt64(2, coreCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1062,7 +851,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, coreCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1080,7 +869,7 @@ private static final long serialVersionUID = 0L;
       if (type_ != other.type_) return false;
       if (getCoreCount()
           != other.getCoreCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1096,7 +885,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CORE_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCoreCount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1220,26 +1009,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         coreCount_ = 0L;
-
         return this;
       }
 
@@ -1266,10 +1049,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig buildPartial() {
         com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig result = new com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig(this);
-        result.type_ = type_;
-        result.coreCount_ = coreCount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.coreCount_ = coreCount_;
+        }
       }
 
       @java.lang.Override
@@ -1322,7 +1114,7 @@ private static final long serialVersionUID = 0L;
         if (other.getCoreCount() != 0L) {
           setCoreCount(other.getCoreCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1337,19 +1129,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                coreCount_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -1373,8 +1189,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1388,8 +1204,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType result = com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType.valueOf(type_);
+        com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType result = com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType.forNumber(type_);
         return result == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorType.UNRECOGNIZED : result;
       }
       /**
@@ -1405,7 +1220,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1419,7 +1234,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -1450,6 +1265,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCoreCount(long value) {
         
         coreCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1462,7 +1278,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCoreCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         coreCount_ = 0L;
         onChanged();
         return this;
@@ -1500,7 +1316,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new SchedulerAcceleratorConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1578,51 +1405,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DataprocParameters(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              cluster_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.notebooks.v1.ExecutionProto.internal_static_google_cloud_notebooks_v1_ExecutionTemplate_DataprocParameters_descriptor;
@@ -1637,7 +1419,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int CLUSTER_FIELD_NUMBER = 1;
-    private volatile java.lang.Object cluster_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object cluster_ = "";
     /**
      * <pre>
      * URI for cluster used to run Dataproc execution.
@@ -1701,7 +1484,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cluster_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, cluster_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1713,7 +1496,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cluster_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, cluster_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1730,7 +1513,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getCluster()
           .equals(other.getCluster())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1743,7 +1526,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + CLUSTER_FIELD_NUMBER;
       hash = (53 * hash) + getCluster().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1864,24 +1647,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         cluster_ = "";
-
         return this;
       }
 
@@ -1908,9 +1686,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters buildPartial() {
         com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters result = new com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters(this);
-        result.cluster_ = cluster_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.cluster_ = cluster_;
+        }
       }
 
       @java.lang.Override
@@ -1959,9 +1744,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters.getDefaultInstance()) return this;
         if (!other.getCluster().isEmpty()) {
           cluster_ = other.cluster_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1976,19 +1762,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                cluster_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.notebooks.v1.ExecutionTemplate.DataprocParameters) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object cluster_ = "";
       /**
@@ -2046,11 +1851,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setCluster(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         cluster_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2064,8 +1867,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCluster() {
-        
         cluster_ = getDefaultInstance().getCluster();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2081,12 +1884,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setClusterBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         cluster_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2123,7 +1924,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DataprocParameters(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2230,7 +2042,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; env = 2;</code>
      */
-
     /* nullable */
 java.lang.String getEnvOrDefault(
         java.lang.String key,
@@ -2245,7 +2056,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; env = 2;</code>
      */
-
     java.lang.String getEnvOrThrow(
         java.lang.String key);
   }
@@ -2281,65 +2091,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private VertexAIParameters(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              network_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                env_ = com.google.protobuf.MapField.newMapField(
-                    EnvDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              env__ = input.readMessage(
-                  EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              env_.getMutableMap().put(
-                  env__.getKey(), env__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.notebooks.v1.ExecutionProto.internal_static_google_cloud_notebooks_v1_ExecutionTemplate_VertexAIParameters_descriptor;
@@ -2366,7 +2117,8 @@ java.lang.String defaultValue);
     }
 
     public static final int NETWORK_FIELD_NUMBER = 1;
-    private volatile java.lang.Object network_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object network_ = "";
     /**
      * <pre>
      * The full name of the Compute Engine
@@ -2439,6 +2191,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> env_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2449,7 +2202,6 @@ java.lang.String defaultValue);
       }
       return env_;
     }
-
     public int getEnvCount() {
       return internalGetEnv().getMap().size();
     }
@@ -2462,7 +2214,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; env = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsEnv(
         java.lang.String key) {
@@ -2487,7 +2238,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; env = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
       return internalGetEnv().getMap();
     }
@@ -2501,10 +2251,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; env = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getEnvOrDefault(
+    public /* nullable */
+java.lang.String getEnvOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetEnv().getMap();
@@ -2520,7 +2271,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; env = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getEnvOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2555,7 +2305,7 @@ java.lang.String defaultValue);
           internalGetEnv(),
           EnvDefaultEntryHolder.defaultEntry,
           2);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2577,7 +2327,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, env__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2596,7 +2346,7 @@ java.lang.String defaultValue);
           .equals(other.getNetwork())) return false;
       if (!internalGetEnv().equals(
           other.internalGetEnv())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2613,7 +2363,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + ENV_FIELD_NUMBER;
         hash = (53 * hash) + internalGetEnv().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2756,24 +2506,19 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         network_ = "";
-
         internalGetMutableEnv().clear();
         return this;
       }
@@ -2801,12 +2546,20 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters buildPartial() {
         com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters result = new com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters(this);
-        int from_bitField0_ = bitField0_;
-        result.network_ = network_;
-        result.env_ = internalGetEnv();
-        result.env_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.network_ = network_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.env_ = internalGetEnv();
+          result.env_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -2855,11 +2608,13 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters.getDefaultInstance()) return this;
         if (!other.getNetwork().isEmpty()) {
           network_ = other.network_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         internalGetMutableEnv().mergeFrom(
             other.internalGetEnv());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000002;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2874,17 +2629,44 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                network_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                env__ = input.readMessage(
+                    EnvDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableEnv().getMutableMap().put(
+                    env__.getKey(), env__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.notebooks.v1.ExecutionTemplate.VertexAIParameters) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2966,11 +2748,9 @@ java.lang.String defaultValue);
        */
       public Builder setNetwork(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         network_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2991,8 +2771,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearNetwork() {
-        
         network_ = getDefaultInstance().getNetwork();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -3015,12 +2795,10 @@ java.lang.String defaultValue);
        */
       public Builder setNetworkBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         network_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -3028,7 +2806,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> env_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetEnv() {
+          internalGetEnv() {
         if (env_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               EnvDefaultEntryHolder.defaultEntry);
@@ -3036,8 +2814,7 @@ java.lang.String defaultValue);
         return env_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableEnv() {
-        onChanged();;
+          internalGetMutableEnv() {
         if (env_ == null) {
           env_ = com.google.protobuf.MapField.newMapField(
               EnvDefaultEntryHolder.defaultEntry);
@@ -3045,9 +2822,10 @@ java.lang.String defaultValue);
         if (!env_.isMutable()) {
           env_ = env_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return env_;
       }
-
       public int getEnvCount() {
         return internalGetEnv().getMap().size();
       }
@@ -3060,7 +2838,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; env = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsEnv(
           java.lang.String key) {
@@ -3085,7 +2862,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; env = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getEnvMap() {
         return internalGetEnv().getMap();
       }
@@ -3099,10 +2875,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; env = 2;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getEnvOrDefault(
+      public /* nullable */
+java.lang.String getEnvOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetEnv().getMap();
@@ -3118,7 +2895,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; env = 2;</code>
        */
       @java.lang.Override
-
       public java.lang.String getEnvOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3129,8 +2905,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearEnv() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableEnv().getMutableMap()
             .clear();
         return this;
@@ -3144,7 +2920,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; env = 2;</code>
        */
-
       public Builder removeEnv(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3157,7 +2932,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableEnv() {
+          getMutableEnv() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableEnv().getMutableMap();
       }
       /**
@@ -3173,12 +2949,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableEnv().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -3190,11 +2964,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; env = 2;</code>
        */
-
       public Builder putAllEnv(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableEnv().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
       @java.lang.Override
@@ -3230,7 +3004,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VertexAIParameters(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3292,7 +3077,7 @@ java.lang.String defaultValue);
   }
 
   public static final int SCALE_TIER_FIELD_NUMBER = 1;
-  private int scaleTier_;
+  private int scaleTier_ = 0;
   /**
    * <pre>
    * Required. Scale tier of the hardware used for notebook execution.
@@ -3319,13 +3104,13 @@ java.lang.String defaultValue);
    * @return The scaleTier.
    */
   @java.lang.Override @java.lang.Deprecated public com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier getScaleTier() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier result = com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier.valueOf(scaleTier_);
+    com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier result = com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier.forNumber(scaleTier_);
     return result == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier.UNRECOGNIZED : result;
   }
 
   public static final int MASTER_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object masterType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object masterType_ = "";
   /**
    * <pre>
    * Specifies the type of virtual machine to use for your training
@@ -3488,7 +3273,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfigOrBuilder getAcceleratorConfigOrBuilder() {
-    return getAcceleratorConfig();
+    return acceleratorConfig_ == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.getDefaultInstance() : acceleratorConfig_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 4;
@@ -3503,6 +3288,7 @@ java.lang.String defaultValue);
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -3513,7 +3299,6 @@ java.lang.String defaultValue);
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -3528,7 +3313,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -3555,7 +3339,6 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -3571,10 +3354,11 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -3592,7 +3376,6 @@ java.lang.String defaultValue);
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -3605,7 +3388,8 @@ java.lang.String defaultValue);
   }
 
   public static final int INPUT_NOTEBOOK_FILE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object inputNotebookFile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object inputNotebookFile_ = "";
   /**
    * <pre>
    * Path to the notebook file to execute.
@@ -3657,7 +3441,8 @@ java.lang.String defaultValue);
   }
 
   public static final int CONTAINER_IMAGE_URI_FIELD_NUMBER = 6;
-  private volatile java.lang.Object containerImageUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object containerImageUri_ = "";
   /**
    * <pre>
    * Container Image URI to a DLVM
@@ -3709,7 +3494,8 @@ java.lang.String defaultValue);
   }
 
   public static final int OUTPUT_NOTEBOOK_FOLDER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object outputNotebookFolder_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object outputNotebookFolder_ = "";
   /**
    * <pre>
    * Path to the notebook folder to write to.
@@ -3761,7 +3547,8 @@ java.lang.String defaultValue);
   }
 
   public static final int PARAMS_YAML_FILE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object paramsYamlFile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object paramsYamlFile_ = "";
   /**
    * <pre>
    * Parameters to be overridden in the notebook during execution.
@@ -3815,7 +3602,8 @@ java.lang.String defaultValue);
   }
 
   public static final int PARAMETERS_FIELD_NUMBER = 9;
-  private volatile java.lang.Object parameters_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parameters_ = "";
   /**
    * <pre>
    * Parameters used within the 'input_notebook_file' notebook.
@@ -3861,7 +3649,8 @@ java.lang.String defaultValue);
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 10;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * The email address of a service account to use when running the execution.
@@ -3911,7 +3700,7 @@ java.lang.String defaultValue);
   }
 
   public static final int JOB_TYPE_FIELD_NUMBER = 11;
-  private int jobType_;
+  private int jobType_ = 0;
   /**
    * <pre>
    * The type of Job to be used on this execution.
@@ -3932,8 +3721,7 @@ java.lang.String defaultValue);
    * @return The jobType.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1.ExecutionTemplate.JobType getJobType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1.ExecutionTemplate.JobType result = com.google.cloud.notebooks.v1.ExecutionTemplate.JobType.valueOf(jobType_);
+    com.google.cloud.notebooks.v1.ExecutionTemplate.JobType result = com.google.cloud.notebooks.v1.ExecutionTemplate.JobType.forNumber(jobType_);
     return result == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.JobType.UNRECOGNIZED : result;
   }
 
@@ -4024,7 +3812,8 @@ java.lang.String defaultValue);
   }
 
   public static final int KERNEL_SPEC_FIELD_NUMBER = 14;
-  private volatile java.lang.Object kernelSpec_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kernelSpec_ = "";
   /**
    * <pre>
    * Name of the kernel spec to use. This must be specified if the
@@ -4074,7 +3863,8 @@ java.lang.String defaultValue);
   }
 
   public static final int TENSORBOARD_FIELD_NUMBER = 15;
-  private volatile java.lang.Object tensorboard_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tensorboard_ = "";
   /**
    * <pre>
    * The name of a Vertex AI [Tensorboard] resource to which this execution
@@ -4187,7 +3977,7 @@ java.lang.String defaultValue);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tensorboard_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 15, tensorboard_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4253,7 +4043,7 @@ java.lang.String defaultValue);
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(tensorboard_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(15, tensorboard_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4308,7 +4098,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4361,7 +4151,7 @@ java.lang.String defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4504,51 +4294,41 @@ java.lang.String defaultValue);
 
     // Construct using com.google.cloud.notebooks.v1.ExecutionTemplate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       scaleTier_ = 0;
-
       masterType_ = "";
-
-      if (acceleratorConfigBuilder_ == null) {
-        acceleratorConfig_ = null;
-      } else {
-        acceleratorConfig_ = null;
+      acceleratorConfig_ = null;
+      if (acceleratorConfigBuilder_ != null) {
+        acceleratorConfigBuilder_.dispose();
         acceleratorConfigBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       inputNotebookFile_ = "";
-
       containerImageUri_ = "";
-
       outputNotebookFolder_ = "";
-
       paramsYamlFile_ = "";
-
       parameters_ = "";
-
       serviceAccount_ = "";
-
       jobType_ = 0;
-
+      if (dataprocParametersBuilder_ != null) {
+        dataprocParametersBuilder_.clear();
+      }
+      if (vertexAiParametersBuilder_ != null) {
+        vertexAiParametersBuilder_.clear();
+      }
       kernelSpec_ = "";
-
       tensorboard_ = "";
-
       jobParametersCase_ = 0;
       jobParameters_ = null;
       return this;
@@ -4577,42 +4357,69 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.cloud.notebooks.v1.ExecutionTemplate buildPartial() {
       com.google.cloud.notebooks.v1.ExecutionTemplate result = new com.google.cloud.notebooks.v1.ExecutionTemplate(this);
-      int from_bitField0_ = bitField0_;
-      result.scaleTier_ = scaleTier_;
-      result.masterType_ = masterType_;
-      if (acceleratorConfigBuilder_ == null) {
-        result.acceleratorConfig_ = acceleratorConfig_;
-      } else {
-        result.acceleratorConfig_ = acceleratorConfigBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.inputNotebookFile_ = inputNotebookFile_;
-      result.containerImageUri_ = containerImageUri_;
-      result.outputNotebookFolder_ = outputNotebookFolder_;
-      result.paramsYamlFile_ = paramsYamlFile_;
-      result.parameters_ = parameters_;
-      result.serviceAccount_ = serviceAccount_;
-      result.jobType_ = jobType_;
-      if (jobParametersCase_ == 12) {
-        if (dataprocParametersBuilder_ == null) {
-          result.jobParameters_ = jobParameters_;
-        } else {
-          result.jobParameters_ = dataprocParametersBuilder_.build();
-        }
-      }
-      if (jobParametersCase_ == 13) {
-        if (vertexAiParametersBuilder_ == null) {
-          result.jobParameters_ = jobParameters_;
-        } else {
-          result.jobParameters_ = vertexAiParametersBuilder_.build();
-        }
-      }
-      result.kernelSpec_ = kernelSpec_;
-      result.tensorboard_ = tensorboard_;
-      result.jobParametersCase_ = jobParametersCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1.ExecutionTemplate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.scaleTier_ = scaleTier_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.masterType_ = masterType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.acceleratorConfig_ = acceleratorConfigBuilder_ == null
+            ? acceleratorConfig_
+            : acceleratorConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.inputNotebookFile_ = inputNotebookFile_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.containerImageUri_ = containerImageUri_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.outputNotebookFolder_ = outputNotebookFolder_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.paramsYamlFile_ = paramsYamlFile_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.parameters_ = parameters_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.jobType_ = jobType_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.kernelSpec_ = kernelSpec_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.tensorboard_ = tensorboard_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.notebooks.v1.ExecutionTemplate result) {
+      result.jobParametersCase_ = jobParametersCase_;
+      result.jobParameters_ = this.jobParameters_;
+      if (jobParametersCase_ == 12 &&
+          dataprocParametersBuilder_ != null) {
+        result.jobParameters_ = dataprocParametersBuilder_.build();
+      }
+      if (jobParametersCase_ == 13 &&
+          vertexAiParametersBuilder_ != null) {
+        result.jobParameters_ = vertexAiParametersBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4664,6 +4471,7 @@ java.lang.String defaultValue);
       }
       if (!other.getMasterType().isEmpty()) {
         masterType_ = other.masterType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasAcceleratorConfig()) {
@@ -4671,28 +4479,35 @@ java.lang.String defaultValue);
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000008;
       if (!other.getInputNotebookFile().isEmpty()) {
         inputNotebookFile_ = other.inputNotebookFile_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getContainerImageUri().isEmpty()) {
         containerImageUri_ = other.containerImageUri_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getOutputNotebookFolder().isEmpty()) {
         outputNotebookFolder_ = other.outputNotebookFolder_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getParamsYamlFile().isEmpty()) {
         paramsYamlFile_ = other.paramsYamlFile_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getParameters().isEmpty()) {
         parameters_ = other.parameters_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.jobType_ != 0) {
@@ -4700,10 +4515,12 @@ java.lang.String defaultValue);
       }
       if (!other.getKernelSpec().isEmpty()) {
         kernelSpec_ = other.kernelSpec_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (!other.getTensorboard().isEmpty()) {
         tensorboard_ = other.tensorboard_;
+        bitField0_ |= 0x00004000;
         onChanged();
       }
       switch (other.getJobParametersCase()) {
@@ -4719,7 +4536,7 @@ java.lang.String defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4734,17 +4551,115 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1.ExecutionTemplate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              scaleTier_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              masterType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAcceleratorConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              inputNotebookFile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              containerImageUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              outputNotebookFolder_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              paramsYamlFile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              parameters_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 88: {
+              jobType_ = input.readEnum();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getDataprocParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              jobParametersCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getVertexAiParametersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              jobParametersCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              kernelSpec_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              tensorboard_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1.ExecutionTemplate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int jobParametersCase_ = 0;
@@ -4792,8 +4707,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setScaleTierValue(int value) {
-      
       scaleTier_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4810,8 +4725,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier getScaleTier() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier result = com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier.valueOf(scaleTier_);
+      com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier result = com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier.forNumber(scaleTier_);
       return result == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.ScaleTier.UNRECOGNIZED : result;
     }
     /**
@@ -4830,7 +4744,7 @@ java.lang.String defaultValue);
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       scaleTier_ = value.getNumber();
       onChanged();
       return this;
@@ -4847,7 +4761,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearScaleTier() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       scaleTier_ = 0;
       onChanged();
       return this;
@@ -5026,11 +4940,9 @@ java.lang.String defaultValue);
      */
     public Builder setMasterType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       masterType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -5083,8 +4995,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearMasterType() {
-      
       masterType_ = getDefaultInstance().getMasterType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -5139,12 +5051,10 @@ java.lang.String defaultValue);
      */
     public Builder setMasterTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       masterType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -5162,7 +5072,7 @@ java.lang.String defaultValue);
      * @return Whether the acceleratorConfig field is set.
      */
     public boolean hasAcceleratorConfig() {
-      return acceleratorConfigBuilder_ != null || acceleratorConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -5194,11 +5104,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         acceleratorConfig_ = value;
-        onChanged();
       } else {
         acceleratorConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -5213,11 +5123,11 @@ java.lang.String defaultValue);
         com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.Builder builderForValue) {
       if (acceleratorConfigBuilder_ == null) {
         acceleratorConfig_ = builderForValue.build();
-        onChanged();
       } else {
         acceleratorConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -5230,17 +5140,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeAcceleratorConfig(com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig value) {
       if (acceleratorConfigBuilder_ == null) {
-        if (acceleratorConfig_ != null) {
-          acceleratorConfig_ =
-            com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.newBuilder(acceleratorConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          acceleratorConfig_ != null &&
+          acceleratorConfig_ != com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.getDefaultInstance()) {
+          getAcceleratorConfigBuilder().mergeFrom(value);
         } else {
           acceleratorConfig_ = value;
         }
-        onChanged();
       } else {
         acceleratorConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -5252,14 +5163,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig accelerator_config = 3;</code>
      */
     public Builder clearAcceleratorConfig() {
-      if (acceleratorConfigBuilder_ == null) {
-        acceleratorConfig_ = null;
-        onChanged();
-      } else {
-        acceleratorConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      acceleratorConfig_ = null;
+      if (acceleratorConfigBuilder_ != null) {
+        acceleratorConfigBuilder_.dispose();
         acceleratorConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5271,7 +5181,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig accelerator_config = 3;</code>
      */
     public com.google.cloud.notebooks.v1.ExecutionTemplate.SchedulerAcceleratorConfig.Builder getAcceleratorConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAcceleratorConfigFieldBuilder().getBuilder();
     }
@@ -5316,7 +5226,7 @@ java.lang.String defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -5324,8 +5234,7 @@ java.lang.String defaultValue);
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -5333,9 +5242,10 @@ java.lang.String defaultValue);
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -5350,7 +5260,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -5377,7 +5286,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -5393,10 +5301,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -5414,7 +5323,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5425,8 +5333,8 @@ java.lang.String defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -5442,7 +5350,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -5455,7 +5362,8 @@ java.lang.String defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -5473,12 +5381,10 @@ java.lang.String defaultValue);
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -5492,11 +5398,11 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; labels = 4;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -5562,11 +5468,9 @@ java.lang.String defaultValue);
      */
     public Builder setInputNotebookFile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       inputNotebookFile_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5582,8 +5486,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearInputNotebookFile() {
-      
       inputNotebookFile_ = getDefaultInstance().getInputNotebookFile();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -5601,12 +5505,10 @@ java.lang.String defaultValue);
      */
     public Builder setInputNotebookFileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       inputNotebookFile_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -5673,11 +5575,9 @@ java.lang.String defaultValue);
      */
     public Builder setContainerImageUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       containerImageUri_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5693,8 +5593,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearContainerImageUri() {
-      
       containerImageUri_ = getDefaultInstance().getContainerImageUri();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -5712,12 +5612,10 @@ java.lang.String defaultValue);
      */
     public Builder setContainerImageUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       containerImageUri_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -5784,11 +5682,9 @@ java.lang.String defaultValue);
      */
     public Builder setOutputNotebookFolder(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       outputNotebookFolder_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -5804,8 +5700,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearOutputNotebookFolder() {
-      
       outputNotebookFolder_ = getDefaultInstance().getOutputNotebookFolder();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -5823,12 +5719,10 @@ java.lang.String defaultValue);
      */
     public Builder setOutputNotebookFolderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       outputNotebookFolder_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -5898,11 +5792,9 @@ java.lang.String defaultValue);
      */
     public Builder setParamsYamlFile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       paramsYamlFile_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -5919,8 +5811,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearParamsYamlFile() {
-      
       paramsYamlFile_ = getDefaultInstance().getParamsYamlFile();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -5939,12 +5831,10 @@ java.lang.String defaultValue);
      */
     public Builder setParamsYamlFileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       paramsYamlFile_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -6002,11 +5892,9 @@ java.lang.String defaultValue);
      */
     public Builder setParameters(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parameters_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -6019,8 +5907,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearParameters() {
-      
       parameters_ = getDefaultInstance().getParameters();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -6035,12 +5923,10 @@ java.lang.String defaultValue);
      */
     public Builder setParametersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parameters_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -6104,11 +5990,9 @@ java.lang.String defaultValue);
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6123,8 +6007,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -6141,12 +6025,10 @@ java.lang.String defaultValue);
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6173,8 +6055,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder setJobTypeValue(int value) {
-      
       jobType_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -6188,8 +6070,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1.ExecutionTemplate.JobType getJobType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1.ExecutionTemplate.JobType result = com.google.cloud.notebooks.v1.ExecutionTemplate.JobType.valueOf(jobType_);
+      com.google.cloud.notebooks.v1.ExecutionTemplate.JobType result = com.google.cloud.notebooks.v1.ExecutionTemplate.JobType.forNumber(jobType_);
       return result == null ? com.google.cloud.notebooks.v1.ExecutionTemplate.JobType.UNRECOGNIZED : result;
     }
     /**
@@ -6205,7 +6086,7 @@ java.lang.String defaultValue);
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000400;
       jobType_ = value.getNumber();
       onChanged();
       return this;
@@ -6219,7 +6100,7 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearJobType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       jobType_ = 0;
       onChanged();
       return this;
@@ -6399,7 +6280,7 @@ java.lang.String defaultValue);
         jobParameters_ = null;
       }
       jobParametersCase_ = 12;
-      onChanged();;
+      onChanged();
       return dataprocParametersBuilder_;
     }
 
@@ -6577,7 +6458,7 @@ java.lang.String defaultValue);
         jobParameters_ = null;
       }
       jobParametersCase_ = 13;
-      onChanged();;
+      onChanged();
       return vertexAiParametersBuilder_;
     }
 
@@ -6640,11 +6521,9 @@ java.lang.String defaultValue);
      */
     public Builder setKernelSpec(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kernelSpec_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -6659,8 +6538,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearKernelSpec() {
-      
       kernelSpec_ = getDefaultInstance().getKernelSpec();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -6677,12 +6556,10 @@ java.lang.String defaultValue);
      */
     public Builder setKernelSpecBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kernelSpec_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -6749,11 +6626,9 @@ java.lang.String defaultValue);
      */
     public Builder setTensorboard(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tensorboard_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -6769,8 +6644,8 @@ java.lang.String defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearTensorboard() {
-      
       tensorboard_ = getDefaultInstance().getTensorboard();
+      bitField0_ = (bitField0_ & ~0x00004000);
       onChanged();
       return this;
     }
@@ -6788,12 +6663,10 @@ java.lang.String defaultValue);
      */
     public Builder setTensorboardBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tensorboard_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -6830,7 +6703,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecutionTemplate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

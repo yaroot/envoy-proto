@@ -182,4 +182,31 @@ public interface ListPipelineJobsRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getOrderByBytes();
+
+  /**
+   * <pre>
+   * Mask specifying which fields to read.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask read_mask = 7;</code>
+   * @return Whether the readMask field is set.
+   */
+  boolean hasReadMask();
+  /**
+   * <pre>
+   * Mask specifying which fields to read.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask read_mask = 7;</code>
+   * @return The readMask.
+   */
+  com.google.protobuf.FieldMask getReadMask();
+  /**
+   * <pre>
+   * Mask specifying which fields to read.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask read_mask = 7;</code>
+   */
+  com.google.protobuf.FieldMaskOrBuilder getReadMaskOrBuilder();
 }

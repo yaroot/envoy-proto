@@ -36,59 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobDependency(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              items_ = com.google.protobuf.MapField.newMapField(
-                  ItemsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
-            items__ = input.readMessage(
-                ItemsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            items_.getMutableMap().put(
-                items__.getKey(), items__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_JobDependency_descriptor;
@@ -288,6 +235,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.ENUM,
                 com.google.cloud.batch.v1alpha.JobDependency.Type.TYPE_UNSPECIFIED.getNumber());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Integer> items_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
@@ -311,7 +259,6 @@ private static final long serialVersionUID = 0L;
         java.lang.String, com.google.cloud.batch.v1alpha.JobDependency.Type, java.lang.Integer>(
             map, itemsValueConverter);
   }
-
   public int getItemsCount() {
     return internalGetItems().getMap().size();
   }
@@ -326,7 +273,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsItems(
       java.lang.String key) {
@@ -354,7 +300,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.batch.v1alpha.JobDependency.Type>
   getItemsMap() {
     return internalGetAdaptedItemsMap(
@@ -371,7 +316,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
   @java.lang.Override
-
   public /* nullable */
 com.google.cloud.batch.v1alpha.JobDependency.Type getItemsOrDefault(
       java.lang.String key,
@@ -396,7 +340,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.batch.v1alpha.JobDependency.Type getItemsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -428,7 +371,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Integer>
   getItemsValueMap() {
     return internalGetItems().getMap();
@@ -445,7 +387,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
   @java.lang.Override
-
   public int getItemsValueOrDefault(
       java.lang.String key,
       int defaultValue) {
@@ -466,7 +407,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
    * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
    */
   @java.lang.Override
-
   public int getItemsValueOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -498,7 +438,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
         internalGetItems(),
         ItemsDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -517,7 +457,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, items__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -534,7 +474,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
 
     if (!internalGetItems().equals(
         other.internalGetItems())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -549,7 +489,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       hash = (37 * hash) + ITEMS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetItems().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -694,22 +634,18 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
 
     // Construct using com.google.cloud.batch.v1alpha.JobDependency.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableItems().clear();
       return this;
     }
@@ -737,11 +673,17 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.JobDependency buildPartial() {
       com.google.cloud.batch.v1alpha.JobDependency result = new com.google.cloud.batch.v1alpha.JobDependency(this);
-      int from_bitField0_ = bitField0_;
-      result.items_ = internalGetItems();
-      result.items_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.JobDependency result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.items_ = internalGetItems();
+        result.items_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -790,7 +732,8 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       if (other == com.google.cloud.batch.v1alpha.JobDependency.getDefaultInstance()) return this;
       internalGetMutableItems().mergeFrom(
           other.internalGetItems());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -805,17 +748,39 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.JobDependency parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              items__ = input.readMessage(
+                  ItemsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableItems().getMutableMap().put(
+                  items__.getKey(), items__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.JobDependency) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -823,7 +788,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Integer> items_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetItems() {
+        internalGetItems() {
       if (items_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ItemsDefaultEntryHolder.defaultEntry);
@@ -831,8 +796,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       return items_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
-    internalGetMutableItems() {
-      onChanged();;
+        internalGetMutableItems() {
       if (items_ == null) {
         items_ = com.google.protobuf.MapField.newMapField(
             ItemsDefaultEntryHolder.defaultEntry);
@@ -840,9 +804,10 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       if (!items_.isMutable()) {
         items_ = items_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return items_;
     }
-
     public int getItemsCount() {
       return internalGetItems().getMap().size();
     }
@@ -857,7 +822,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      *
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsItems(
         java.lang.String key) {
@@ -885,7 +849,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.batch.v1alpha.JobDependency.Type>
     getItemsMap() {
       return internalGetAdaptedItemsMap(
@@ -902,7 +865,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
     @java.lang.Override
-
     public /* nullable */
 com.google.cloud.batch.v1alpha.JobDependency.Type getItemsOrDefault(
         java.lang.String key,
@@ -927,7 +889,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.batch.v1alpha.JobDependency.Type getItemsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -959,7 +920,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Integer>
     getItemsValueMap() {
       return internalGetItems().getMap();
@@ -976,7 +936,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
     @java.lang.Override
-
     public int getItemsValueOrDefault(
         java.lang.String key,
         int defaultValue) {
@@ -997,7 +956,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
     @java.lang.Override
-
     public int getItemsValueOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1008,8 +966,8 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       }
       return map.get(key);
     }
-
     public Builder clearItems() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableItems().getMutableMap()
           .clear();
       return this;
@@ -1025,7 +983,6 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      *
      * <code>map&lt;string, .google.cloud.batch.v1alpha.JobDependency.Type&gt; items = 1;</code>
      */
-
     public Builder removeItems(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1038,7 +995,8 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.batch.v1alpha.JobDependency.Type>
-    getMutableItems() {
+        getMutableItems() {
+      bitField0_ |= 0x00000001;
       return internalGetAdaptedItemsMap(
            internalGetMutableItems().getMutableMap());
     }
@@ -1060,6 +1018,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       
       internalGetMutableItems().getMutableMap()
           .put(key, itemsValueConverter.doBackward(value));
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1078,6 +1037,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       internalGetAdaptedItemsMap(
           internalGetMutableItems().getMutableMap())
               .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1086,6 +1046,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Integer>
     getMutableItemsValue() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableItems().getMutableMap();
     }
     /**
@@ -1106,6 +1067,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
       
       internalGetMutableItems().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -1123,6 +1085,7 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
         java.util.Map<java.lang.String, java.lang.Integer> values) {
       internalGetMutableItems().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -1158,7 +1121,18 @@ com.google.cloud.batch.v1alpha.JobDependency.Type defaultValue) {
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobDependency(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

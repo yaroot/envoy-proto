@@ -36,69 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RedactImageResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-
-            redactedImage_ = input.readBytes();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            extractedText_ = s;
-            break;
-          }
-          case 26: {
-            com.google.privacy.dlp.v2.InspectResult.Builder subBuilder = null;
-            if (inspectResult_ != null) {
-              subBuilder = inspectResult_.toBuilder();
-            }
-            inspectResult_ = input.readMessage(com.google.privacy.dlp.v2.InspectResult.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inspectResult_);
-              inspectResult_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_RedactImageResponse_descriptor;
@@ -113,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REDACTED_IMAGE_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString redactedImage_;
+  private com.google.protobuf.ByteString redactedImage_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The redacted image. The type will be the same as the original image.
@@ -128,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXTRACTED_TEXT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object extractedText_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object extractedText_ = "";
   /**
    * <pre>
    * If an image was being inspected and the InspectConfig's include_quote was
@@ -212,7 +150,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.InspectResultOrBuilder getInspectResultOrBuilder() {
-    return getInspectResult();
+    return inspectResult_ == null ? com.google.privacy.dlp.v2.InspectResult.getDefaultInstance() : inspectResult_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -238,7 +176,7 @@ private static final long serialVersionUID = 0L;
     if (inspectResult_ != null) {
       output.writeMessage(3, getInspectResult());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -258,7 +196,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getInspectResult());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -282,7 +220,7 @@ private static final long serialVersionUID = 0L;
       if (!getInspectResult()
           .equals(other.getInspectResult())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -301,7 +239,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + INSPECT_RESULT_FIELD_NUMBER;
       hash = (53 * hash) + getInspectResult().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -422,30 +360,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.RedactImageResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       redactedImage_ = com.google.protobuf.ByteString.EMPTY;
-
       extractedText_ = "";
-
-      if (inspectResultBuilder_ == null) {
-        inspectResult_ = null;
-      } else {
-        inspectResult_ = null;
+      inspectResult_ = null;
+      if (inspectResultBuilder_ != null) {
+        inspectResultBuilder_.dispose();
         inspectResultBuilder_ = null;
       }
       return this;
@@ -474,15 +405,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.RedactImageResponse buildPartial() {
       com.google.privacy.dlp.v2.RedactImageResponse result = new com.google.privacy.dlp.v2.RedactImageResponse(this);
-      result.redactedImage_ = redactedImage_;
-      result.extractedText_ = extractedText_;
-      if (inspectResultBuilder_ == null) {
-        result.inspectResult_ = inspectResult_;
-      } else {
-        result.inspectResult_ = inspectResultBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.RedactImageResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.redactedImage_ = redactedImage_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.extractedText_ = extractedText_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.inspectResult_ = inspectResultBuilder_ == null
+            ? inspectResult_
+            : inspectResultBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -534,12 +474,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getExtractedText().isEmpty()) {
         extractedText_ = other.extractedText_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasInspectResult()) {
         mergeInspectResult(other.getInspectResult());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -554,19 +495,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.RedactImageResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              redactedImage_ = input.readBytes();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              extractedText_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getInspectResultFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.RedactImageResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.ByteString redactedImage_ = com.google.protobuf.ByteString.EMPTY;
     /**
@@ -591,11 +563,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRedactedImage(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       redactedImage_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -608,7 +578,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRedactedImage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       redactedImage_ = getDefaultInstance().getRedactedImage();
       onChanged();
       return this;
@@ -673,11 +643,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExtractedText(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       extractedText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -692,8 +660,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExtractedText() {
-      
       extractedText_ = getDefaultInstance().getExtractedText();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -710,12 +678,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExtractedTextBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       extractedText_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -732,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inspectResult field is set.
      */
     public boolean hasInspectResult() {
-      return inspectResultBuilder_ != null || inspectResult_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -762,11 +728,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inspectResult_ = value;
-        onChanged();
       } else {
         inspectResultBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -780,11 +746,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.InspectResult.Builder builderForValue) {
       if (inspectResultBuilder_ == null) {
         inspectResult_ = builderForValue.build();
-        onChanged();
       } else {
         inspectResultBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -796,17 +762,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInspectResult(com.google.privacy.dlp.v2.InspectResult value) {
       if (inspectResultBuilder_ == null) {
-        if (inspectResult_ != null) {
-          inspectResult_ =
-            com.google.privacy.dlp.v2.InspectResult.newBuilder(inspectResult_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          inspectResult_ != null &&
+          inspectResult_ != com.google.privacy.dlp.v2.InspectResult.getDefaultInstance()) {
+          getInspectResultBuilder().mergeFrom(value);
         } else {
           inspectResult_ = value;
         }
-        onChanged();
       } else {
         inspectResultBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -817,14 +784,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.InspectResult inspect_result = 3;</code>
      */
     public Builder clearInspectResult() {
-      if (inspectResultBuilder_ == null) {
-        inspectResult_ = null;
-        onChanged();
-      } else {
-        inspectResult_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      inspectResult_ = null;
+      if (inspectResultBuilder_ != null) {
+        inspectResultBuilder_.dispose();
         inspectResultBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -835,7 +801,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.InspectResult inspect_result = 3;</code>
      */
     public com.google.privacy.dlp.v2.InspectResult.Builder getInspectResultBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getInspectResultFieldBuilder().getBuilder();
     }
@@ -907,7 +873,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RedactImageResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

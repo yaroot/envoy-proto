@@ -36,92 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Float64Stats(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 9: {
-
-            mean_ = input.readDouble();
-            break;
-          }
-          case 17: {
-
-            standardDeviation_ = input.readDouble();
-            break;
-          }
-          case 25: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              quantiles_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            quantiles_.addDouble(input.readDouble());
-            break;
-          }
-          case 26: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              quantiles_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              quantiles_.addDouble(input.readDouble());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              histogramBuckets_ = new java.util.ArrayList<com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            histogramBuckets_.add(
-                input.readMessage(com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        quantiles_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        histogramBuckets_ = java.util.Collections.unmodifiableList(histogramBuckets_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.automl.v1beta1.DataStatsOuterClass.internal_static_google_cloud_automl_v1beta1_Float64Stats_descriptor;
@@ -202,60 +116,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private HistogramBucket(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 9: {
-
-              min_ = input.readDouble();
-              break;
-            }
-            case 17: {
-
-              max_ = input.readDouble();
-              break;
-            }
-            case 24: {
-
-              count_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1beta1.DataStatsOuterClass.internal_static_google_cloud_automl_v1beta1_Float64Stats_HistogramBucket_descriptor;
@@ -270,7 +130,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MIN_FIELD_NUMBER = 1;
-    private double min_;
+    private double min_ = 0D;
     /**
      * <pre>
      * The minimum value of the bucket, inclusive.
@@ -285,7 +145,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int MAX_FIELD_NUMBER = 2;
-    private double max_;
+    private double max_ = 0D;
     /**
      * <pre>
      * The maximum value of the bucket, exclusive unless max = `"Infinity"`, in
@@ -301,7 +161,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int COUNT_FIELD_NUMBER = 3;
-    private long count_;
+    private long count_ = 0L;
     /**
      * <pre>
      * The number of data values that are in the bucket, i.e. are between
@@ -339,7 +199,7 @@ private static final long serialVersionUID = 0L;
       if (count_ != 0L) {
         output.writeInt64(3, count_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -360,7 +220,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, count_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -383,7 +243,7 @@ private static final long serialVersionUID = 0L;
               other.getMax())) return false;
       if (getCount()
           != other.getCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -403,7 +263,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -524,28 +384,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         min_ = 0D;
-
         max_ = 0D;
-
         count_ = 0L;
-
         return this;
       }
 
@@ -572,11 +425,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket buildPartial() {
         com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket result = new com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket(this);
-        result.min_ = min_;
-        result.max_ = max_;
-        result.count_ = count_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.min_ = min_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.max_ = max_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.count_ = count_;
+        }
       }
 
       @java.lang.Override
@@ -632,7 +496,7 @@ private static final long serialVersionUID = 0L;
         if (other.getCount() != 0L) {
           setCount(other.getCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -647,19 +511,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                min_ = input.readDouble();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              case 17: {
+                max_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 24: {
+                count_ = input.readInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private double min_ ;
       /**
@@ -686,6 +579,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMin(double value) {
         
         min_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -698,7 +592,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMin() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         min_ = 0D;
         onChanged();
         return this;
@@ -731,6 +625,7 @@ private static final long serialVersionUID = 0L;
       public Builder setMax(double value) {
         
         max_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -744,7 +639,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearMax() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         max_ = 0D;
         onChanged();
         return this;
@@ -777,6 +672,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCount(long value) {
         
         count_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -790,7 +686,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         count_ = 0L;
         onChanged();
         return this;
@@ -828,7 +724,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new HistogramBucket(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -849,7 +756,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEAN_FIELD_NUMBER = 1;
-  private double mean_;
+  private double mean_ = 0D;
   /**
    * <pre>
    * The mean of the series.
@@ -864,7 +771,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STANDARD_DEVIATION_FIELD_NUMBER = 2;
-  private double standardDeviation_;
+  private double standardDeviation_ = 0D;
   /**
    * <pre>
    * The standard deviation of the series.
@@ -879,6 +786,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUANTILES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.DoubleList quantiles_;
   /**
    * <pre>
@@ -928,6 +836,7 @@ private static final long serialVersionUID = 0L;
   private int quantilesMemoizedSerializedSize = -1;
 
   public static final int HISTOGRAM_BUCKETS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket> histogramBuckets_;
   /**
    * <pre>
@@ -1038,7 +947,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < histogramBuckets_.size(); i++) {
       output.writeMessage(4, histogramBuckets_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1070,7 +979,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, histogramBuckets_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1095,7 +1004,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getQuantilesList())) return false;
     if (!getHistogramBucketsList()
         .equals(other.getHistogramBucketsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1120,7 +1029,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HISTOGRAM_BUCKETS_FIELD_NUMBER;
       hash = (53 * hash) + getHistogramBucketsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1241,35 +1150,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.automl.v1beta1.Float64Stats.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHistogramBucketsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       mean_ = 0D;
-
       standardDeviation_ = 0D;
-
       quantiles_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (histogramBucketsBuilder_ == null) {
         histogramBuckets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        histogramBuckets_ = null;
         histogramBucketsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -1296,25 +1198,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.automl.v1beta1.Float64Stats buildPartial() {
       com.google.cloud.automl.v1beta1.Float64Stats result = new com.google.cloud.automl.v1beta1.Float64Stats(this);
-      int from_bitField0_ = bitField0_;
-      result.mean_ = mean_;
-      result.standardDeviation_ = standardDeviation_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.automl.v1beta1.Float64Stats result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         quantiles_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.quantiles_ = quantiles_;
       if (histogramBucketsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           histogramBuckets_ = java.util.Collections.unmodifiableList(histogramBuckets_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.histogramBuckets_ = histogramBuckets_;
       } else {
         result.histogramBuckets_ = histogramBucketsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.automl.v1beta1.Float64Stats result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.mean_ = mean_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.standardDeviation_ = standardDeviation_;
+      }
     }
 
     @java.lang.Override
@@ -1370,7 +1284,7 @@ private static final long serialVersionUID = 0L;
       if (!other.quantiles_.isEmpty()) {
         if (quantiles_.isEmpty()) {
           quantiles_ = other.quantiles_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureQuantilesIsMutable();
           quantiles_.addAll(other.quantiles_);
@@ -1381,7 +1295,7 @@ private static final long serialVersionUID = 0L;
         if (!other.histogramBuckets_.isEmpty()) {
           if (histogramBuckets_.isEmpty()) {
             histogramBuckets_ = other.histogramBuckets_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureHistogramBucketsIsMutable();
             histogramBuckets_.addAll(other.histogramBuckets_);
@@ -1394,7 +1308,7 @@ private static final long serialVersionUID = 0L;
             histogramBucketsBuilder_.dispose();
             histogramBucketsBuilder_ = null;
             histogramBuckets_ = other.histogramBuckets_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             histogramBucketsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHistogramBucketsFieldBuilder() : null;
@@ -1403,7 +1317,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1418,17 +1332,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.automl.v1beta1.Float64Stats parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 9: {
+              mean_ = input.readDouble();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 9
+            case 17: {
+              standardDeviation_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 25: {
+              double v = input.readDouble();
+              ensureQuantilesIsMutable();
+              quantiles_.addDouble(v);
+              break;
+            } // case 25
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureQuantilesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                quantiles_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket m =
+                  input.readMessage(
+                      com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket.parser(),
+                      extensionRegistry);
+              if (histogramBucketsBuilder_ == null) {
+                ensureHistogramBucketsIsMutable();
+                histogramBuckets_.add(m);
+              } else {
+                histogramBucketsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.automl.v1beta1.Float64Stats) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1458,6 +1424,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMean(double value) {
       
       mean_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1470,7 +1437,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMean() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       mean_ = 0D;
       onChanged();
       return this;
@@ -1501,6 +1468,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStandardDeviation(double value) {
       
       standardDeviation_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1513,7 +1481,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStandardDeviation() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       standardDeviation_ = 0D;
       onChanged();
       return this;
@@ -1521,10 +1489,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.DoubleList quantiles_ = emptyDoubleList();
     private void ensureQuantilesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         quantiles_ = mutableCopy(quantiles_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000004;
+      }
     }
     /**
      * <pre>
@@ -1539,7 +1507,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Double>
         getQuantilesList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000004) != 0) ?
                java.util.Collections.unmodifiableList(quantiles_) : quantiles_;
     }
     /**
@@ -1586,6 +1554,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setQuantiles(
         int index, double value) {
+      
       ensureQuantilesIsMutable();
       quantiles_.setDouble(index, value);
       onChanged();
@@ -1604,6 +1573,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addQuantiles(double value) {
+      
       ensureQuantilesIsMutable();
       quantiles_.addDouble(value);
       onChanged();
@@ -1642,7 +1612,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearQuantiles() {
       quantiles_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1650,9 +1620,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket> histogramBuckets_ =
       java.util.Collections.emptyList();
     private void ensureHistogramBucketsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         histogramBuckets_ = new java.util.ArrayList<com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket>(histogramBuckets_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1890,7 +1860,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHistogramBuckets() {
       if (histogramBucketsBuilder_ == null) {
         histogramBuckets_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         histogramBucketsBuilder_.clear();
@@ -2023,7 +1993,7 @@ private static final long serialVersionUID = 0L;
         histogramBucketsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket, com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucket.Builder, com.google.cloud.automl.v1beta1.Float64Stats.HistogramBucketOrBuilder>(
                 histogramBuckets_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         histogramBuckets_ = null;
@@ -2063,7 +2033,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Float64Stats(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -42,70 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AdmissionRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            evaluationMode_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requireAttestationsBy_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            requireAttestationsBy_.add(s);
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            enforcementMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        requireAttestationsBy_ = requireAttestationsBy_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.binaryauthorization.v1beta1.BinaryAuthorizationResourcesProto.internal_static_google_cloud_binaryauthorization_v1beta1_AdmissionRule_descriptor;
@@ -430,7 +366,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVALUATION_MODE_FIELD_NUMBER = 1;
-  private int evaluationMode_;
+  private int evaluationMode_ = 0;
   /**
    * <pre>
    * Required. How this admission rule will be evaluated.
@@ -451,12 +387,12 @@ private static final long serialVersionUID = 0L;
    * @return The evaluationMode.
    */
   @java.lang.Override public com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode getEvaluationMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode.valueOf(evaluationMode_);
+    com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode.forNumber(evaluationMode_);
     return result == null ? com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode.UNRECOGNIZED : result;
   }
 
   public static final int REQUIRE_ATTESTATIONS_BY_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requireAttestationsBy_;
   /**
    * <pre>
@@ -532,7 +468,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENFORCEMENT_MODE_FIELD_NUMBER = 3;
-  private int enforcementMode_;
+  private int enforcementMode_ = 0;
   /**
    * <pre>
    * Required. The action when a pod creation is denied by the admission rule.
@@ -553,8 +489,7 @@ private static final long serialVersionUID = 0L;
    * @return The enforcementMode.
    */
   @java.lang.Override public com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode getEnforcementMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.valueOf(enforcementMode_);
+    com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.forNumber(enforcementMode_);
     return result == null ? com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.UNRECOGNIZED : result;
   }
 
@@ -581,7 +516,7 @@ private static final long serialVersionUID = 0L;
     if (enforcementMode_ != com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.ENFORCEMENT_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(3, enforcementMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -606,7 +541,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, enforcementMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -625,7 +560,7 @@ private static final long serialVersionUID = 0L;
     if (!getRequireAttestationsByList()
         .equals(other.getRequireAttestationsByList())) return false;
     if (enforcementMode_ != other.enforcementMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -644,7 +579,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ENFORCEMENT_MODE_FIELD_NUMBER;
     hash = (53 * hash) + enforcementMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -770,28 +705,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       evaluationMode_ = 0;
-
       requireAttestationsBy_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       enforcementMode_ = 0;
-
       return this;
     }
 
@@ -818,16 +747,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.binaryauthorization.v1beta1.AdmissionRule buildPartial() {
       com.google.cloud.binaryauthorization.v1beta1.AdmissionRule result = new com.google.cloud.binaryauthorization.v1beta1.AdmissionRule(this);
-      int from_bitField0_ = bitField0_;
-      result.evaluationMode_ = evaluationMode_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        requireAttestationsBy_ = requireAttestationsBy_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.requireAttestationsBy_ = requireAttestationsBy_;
-      result.enforcementMode_ = enforcementMode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.binaryauthorization.v1beta1.AdmissionRule result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
+        requireAttestationsBy_ = requireAttestationsBy_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000002);
+      }
+      result.requireAttestationsBy_ = requireAttestationsBy_;
+    }
+
+    private void buildPartial0(com.google.cloud.binaryauthorization.v1beta1.AdmissionRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.evaluationMode_ = evaluationMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.enforcementMode_ = enforcementMode_;
+      }
     }
 
     @java.lang.Override
@@ -880,7 +821,7 @@ private static final long serialVersionUID = 0L;
       if (!other.requireAttestationsBy_.isEmpty()) {
         if (requireAttestationsBy_.isEmpty()) {
           requireAttestationsBy_ = other.requireAttestationsBy_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureRequireAttestationsByIsMutable();
           requireAttestationsBy_.addAll(other.requireAttestationsBy_);
@@ -890,7 +831,7 @@ private static final long serialVersionUID = 0L;
       if (other.enforcementMode_ != 0) {
         setEnforcementModeValue(other.getEnforcementModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -905,17 +846,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.binaryauthorization.v1beta1.AdmissionRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              evaluationMode_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequireAttestationsByIsMutable();
+              requireAttestationsBy_.add(s);
+              break;
+            } // case 18
+            case 24: {
+              enforcementMode_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.binaryauthorization.v1beta1.AdmissionRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -942,8 +912,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEvaluationModeValue(int value) {
-      
       evaluationMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -957,8 +927,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode getEvaluationMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode.valueOf(evaluationMode_);
+      com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode.forNumber(evaluationMode_);
       return result == null ? com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EvaluationMode.UNRECOGNIZED : result;
     }
     /**
@@ -974,7 +943,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       evaluationMode_ = value.getNumber();
       onChanged();
       return this;
@@ -988,7 +957,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEvaluationMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       evaluationMode_ = 0;
       onChanged();
       return this;
@@ -996,9 +965,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requireAttestationsBy_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequireAttestationsByIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         requireAttestationsBy_ = new com.google.protobuf.LazyStringArrayList(requireAttestationsBy_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
     /**
@@ -1091,10 +1060,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequireAttestationsBy(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequireAttestationsByIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequireAttestationsByIsMutable();
       requireAttestationsBy_.set(index, value);
       onChanged();
       return this;
@@ -1116,10 +1083,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequireAttestationsBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequireAttestationsByIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequireAttestationsByIsMutable();
       requireAttestationsBy_.add(value);
       onChanged();
       return this;
@@ -1163,7 +1128,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequireAttestationsBy() {
       requireAttestationsBy_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1184,10 +1149,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequireAttestationsByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequireAttestationsByIsMutable();
       requireAttestationsBy_.add(value);
       onChanged();
@@ -1216,8 +1179,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnforcementModeValue(int value) {
-      
       enforcementMode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1231,8 +1194,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode getEnforcementMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.valueOf(enforcementMode_);
+      com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode result = com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.forNumber(enforcementMode_);
       return result == null ? com.google.cloud.binaryauthorization.v1beta1.AdmissionRule.EnforcementMode.UNRECOGNIZED : result;
     }
     /**
@@ -1248,7 +1210,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       enforcementMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1262,7 +1224,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnforcementMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       enforcementMode_ = 0;
       onChanged();
       return this;
@@ -1300,7 +1262,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AdmissionRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

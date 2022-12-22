@@ -35,63 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InfoTypeCategory(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-            categoryCase_ = 1;
-            category_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-            categoryCase_ = 2;
-            category_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-            categoryCase_ = 3;
-            category_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_InfoTypeCategory_descriptor;
@@ -444,6 +387,14 @@ private static final long serialVersionUID = 0L;
      * <code>INTERNAL = 40;</code>
      */
     INTERNAL(40),
+    /**
+     * <pre>
+     * The infoType is typically used in New Zealand.
+     * </pre>
+     *
+     * <code>NEW_ZEALAND = 41;</code>
+     */
+    NEW_ZEALAND(41),
     UNRECOGNIZED(-1),
     ;
 
@@ -776,6 +727,14 @@ private static final long serialVersionUID = 0L;
      * <code>INTERNAL = 40;</code>
      */
     public static final int INTERNAL_VALUE = 40;
+    /**
+     * <pre>
+     * The infoType is typically used in New Zealand.
+     * </pre>
+     *
+     * <code>NEW_ZEALAND = 41;</code>
+     */
+    public static final int NEW_ZEALAND_VALUE = 41;
 
 
     public final int getNumber() {
@@ -843,6 +802,7 @@ private static final long serialVersionUID = 0L;
         case 38: return URUGUAY;
         case 39: return VENEZUELA;
         case 40: return INTERNAL;
+        case 41: return NEW_ZEALAND;
         default: return null;
       }
     }
@@ -1383,8 +1343,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory getLocationCategory() {
     if (categoryCase_ == 1) {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory.valueOf(
+      com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory.forNumber(
           (java.lang.Integer) category_);
       return result == null ? com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory.UNRECOGNIZED : result;
     }
@@ -1427,8 +1386,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory getIndustryCategory() {
     if (categoryCase_ == 2) {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory.valueOf(
+      com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory.forNumber(
           (java.lang.Integer) category_);
       return result == null ? com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory.UNRECOGNIZED : result;
     }
@@ -1471,8 +1429,7 @@ private static final long serialVersionUID = 0L;
    */
   public com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory getTypeCategory() {
     if (categoryCase_ == 3) {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory.valueOf(
+      com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory.forNumber(
           (java.lang.Integer) category_);
       return result == null ? com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory.UNRECOGNIZED : result;
     }
@@ -1502,7 +1459,7 @@ private static final long serialVersionUID = 0L;
     if (categoryCase_ == 3) {
       output.writeEnum(3, ((java.lang.Integer) category_));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1523,7 +1480,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(3, ((java.lang.Integer) category_));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1555,7 +1512,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1582,7 +1539,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1704,22 +1661,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.InfoTypeCategory.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       categoryCase_ = 0;
       category_ = null;
       return this;
@@ -1748,18 +1701,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.InfoTypeCategory buildPartial() {
       com.google.privacy.dlp.v2.InfoTypeCategory result = new com.google.privacy.dlp.v2.InfoTypeCategory(this);
-      if (categoryCase_ == 1) {
-        result.category_ = category_;
-      }
-      if (categoryCase_ == 2) {
-        result.category_ = category_;
-      }
-      if (categoryCase_ == 3) {
-        result.category_ = category_;
-      }
-      result.categoryCase_ = categoryCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.InfoTypeCategory result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.privacy.dlp.v2.InfoTypeCategory result) {
+      result.categoryCase_ = categoryCase_;
+      result.category_ = this.category_;
     }
 
     @java.lang.Override
@@ -1823,7 +1777,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1838,17 +1792,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.InfoTypeCategory parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int rawValue = input.readEnum();
+              categoryCase_ = 1;
+              category_ = rawValue;
+              break;
+            } // case 8
+            case 16: {
+              int rawValue = input.readEnum();
+              categoryCase_ = 2;
+              category_ = rawValue;
+              break;
+            } // case 16
+            case 24: {
+              int rawValue = input.readEnum();
+              categoryCase_ = 3;
+              category_ = rawValue;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.InfoTypeCategory) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int categoryCase_ = 0;
@@ -1866,6 +1851,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1924,8 +1910,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory getLocationCategory() {
       if (categoryCase_ == 1) {
-        @SuppressWarnings("deprecation")
-        com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory.valueOf(
+        com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory.forNumber(
             (java.lang.Integer) category_);
         return result == null ? com.google.privacy.dlp.v2.InfoTypeCategory.LocationCategory.UNRECOGNIZED : result;
       }
@@ -2021,8 +2006,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory getIndustryCategory() {
       if (categoryCase_ == 2) {
-        @SuppressWarnings("deprecation")
-        com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory.valueOf(
+        com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory.forNumber(
             (java.lang.Integer) category_);
         return result == null ? com.google.privacy.dlp.v2.InfoTypeCategory.IndustryCategory.UNRECOGNIZED : result;
       }
@@ -2116,8 +2100,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory getTypeCategory() {
       if (categoryCase_ == 3) {
-        @SuppressWarnings("deprecation")
-        com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory.valueOf(
+        com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory result = com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory.forNumber(
             (java.lang.Integer) category_);
         return result == null ? com.google.privacy.dlp.v2.InfoTypeCategory.TypeCategory.UNRECOGNIZED : result;
       }
@@ -2190,7 +2173,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InfoTypeCategory(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

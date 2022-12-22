@@ -37,380 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeliveryVehicleLocation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (location_ != null) {
-              subBuilder = location_.toBuilder();
-            }
-            location_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(location_);
-              location_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (heading_ != null) {
-              subBuilder = heading_.toBuilder();
-            }
-            heading_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(heading_);
-              heading_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (speedKmph_ != null) {
-              subBuilder = speedKmph_.toBuilder();
-            }
-            speedKmph_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(speedKmph_);
-              speedKmph_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (altitude_ != null) {
-              subBuilder = altitude_.toBuilder();
-            }
-            altitude_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(altitude_);
-              altitude_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (speed_ != null) {
-              subBuilder = speed_.toBuilder();
-            }
-            speed_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(speed_);
-              speed_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (speedAccuracy_ != null) {
-              subBuilder = speedAccuracy_.toBuilder();
-            }
-            speedAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(speedAccuracy_);
-              speedAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (horizontalAccuracy_ != null) {
-              subBuilder = horizontalAccuracy_.toBuilder();
-            }
-            horizontalAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(horizontalAccuracy_);
-              horizontalAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (verticalAccuracy_ != null) {
-              subBuilder = verticalAccuracy_.toBuilder();
-            }
-            verticalAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(verticalAccuracy_);
-              verticalAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (bearingAccuracy_ != null) {
-              subBuilder = bearingAccuracy_.toBuilder();
-            }
-            bearingAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bearingAccuracy_);
-              bearingAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            locationSensor_ = rawValue;
-            break;
-          }
-          case 98: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (isGpsSensorEnabled_ != null) {
-              subBuilder = isGpsSensorEnabled_.toBuilder();
-            }
-            isGpsSensorEnabled_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(isGpsSensorEnabled_);
-              isGpsSensorEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (serverTime_ != null) {
-              subBuilder = serverTime_.toBuilder();
-            }
-            serverTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(serverTime_);
-              serverTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (timeSinceUpdate_ != null) {
-              subBuilder = timeSinceUpdate_.toBuilder();
-            }
-            timeSinceUpdate_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeSinceUpdate_);
-              timeSinceUpdate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (numStaleUpdates_ != null) {
-              subBuilder = numStaleUpdates_.toBuilder();
-            }
-            numStaleUpdates_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(numStaleUpdates_);
-              numStaleUpdates_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (rawLocation_ != null) {
-              subBuilder = rawLocation_.toBuilder();
-            }
-            rawLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rawLocation_);
-              rawLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (rawLocationTime_ != null) {
-              subBuilder = rawLocationTime_.toBuilder();
-            }
-            rawLocationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rawLocationTime_);
-              rawLocationTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 146: {
-            com.google.type.LatLng.Builder subBuilder = null;
-            if (supplementalLocation_ != null) {
-              subBuilder = supplementalLocation_.toBuilder();
-            }
-            supplementalLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(supplementalLocation_);
-              supplementalLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (supplementalLocationTime_ != null) {
-              subBuilder = supplementalLocationTime_.toBuilder();
-            }
-            supplementalLocationTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(supplementalLocationTime_);
-              supplementalLocationTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 160: {
-            int rawValue = input.readEnum();
-
-            supplementalLocationSensor_ = rawValue;
-            break;
-          }
-          case 170: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (supplementalLocationAccuracy_ != null) {
-              subBuilder = supplementalLocationAccuracy_.toBuilder();
-            }
-            supplementalLocationAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(supplementalLocationAccuracy_);
-              supplementalLocationAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (latlngAccuracy_ != null) {
-              subBuilder = latlngAccuracy_.toBuilder();
-            }
-            latlngAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(latlngAccuracy_);
-              latlngAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 186: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (headingAccuracy_ != null) {
-              subBuilder = headingAccuracy_.toBuilder();
-            }
-            headingAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(headingAccuracy_);
-              headingAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 194: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (altitudeAccuracy_ != null) {
-              subBuilder = altitudeAccuracy_.toBuilder();
-            }
-            altitudeAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(altitudeAccuracy_);
-              altitudeAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 202: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (rawLocationAccuracy_ != null) {
-              subBuilder = rawLocationAccuracy_.toBuilder();
-            }
-            rawLocationAccuracy_ = input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rawLocationAccuracy_);
-              rawLocationAccuracy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 208: {
-
-            roadSnapped_ = input.readBool();
-            break;
-          }
-          case 218: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (isRoadSnapped_ != null) {
-              subBuilder = isRoadSnapped_.toBuilder();
-            }
-            isRoadSnapped_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(isRoadSnapped_);
-              isRoadSnapped_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 224: {
-            int rawValue = input.readEnum();
-
-            rawLocationSensor_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.delivery.v1.Common.internal_static_maps_fleetengine_delivery_v1_DeliveryVehicleLocation_descriptor;
@@ -471,7 +97,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getLocationOrBuilder() {
-    return getLocation();
+    return location_ == null ? com.google.type.LatLng.getDefaultInstance() : location_;
   }
 
   public static final int HORIZONTAL_ACCURACY_FIELD_NUMBER = 8;
@@ -513,7 +139,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.DoubleValueOrBuilder getHorizontalAccuracyOrBuilder() {
-    return getHorizontalAccuracy();
+    return horizontalAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : horizontalAccuracy_;
   }
 
   public static final int LATLNG_ACCURACY_FIELD_NUMBER = 22;
@@ -551,7 +177,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getLatlngAccuracyOrBuilder() {
-    return getLatlngAccuracy();
+    return latlngAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : latlngAccuracy_;
   }
 
   public static final int HEADING_FIELD_NUMBER = 2;
@@ -592,7 +218,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getHeadingOrBuilder() {
-    return getHeading();
+    return heading_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : heading_;
   }
 
   public static final int BEARING_ACCURACY_FIELD_NUMBER = 10;
@@ -634,7 +260,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.DoubleValueOrBuilder getBearingAccuracyOrBuilder() {
-    return getBearingAccuracy();
+    return bearingAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : bearingAccuracy_;
   }
 
   public static final int HEADING_ACCURACY_FIELD_NUMBER = 23;
@@ -672,7 +298,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getHeadingAccuracyOrBuilder() {
-    return getHeadingAccuracy();
+    return headingAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : headingAccuracy_;
   }
 
   public static final int ALTITUDE_FIELD_NUMBER = 5;
@@ -710,7 +336,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getAltitudeOrBuilder() {
-    return getAltitude();
+    return altitude_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : altitude_;
   }
 
   public static final int VERTICAL_ACCURACY_FIELD_NUMBER = 9;
@@ -752,7 +378,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.DoubleValueOrBuilder getVerticalAccuracyOrBuilder() {
-    return getVerticalAccuracy();
+    return verticalAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : verticalAccuracy_;
   }
 
   public static final int ALTITUDE_ACCURACY_FIELD_NUMBER = 24;
@@ -790,7 +416,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getAltitudeAccuracyOrBuilder() {
-    return getAltitudeAccuracy();
+    return altitudeAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : altitudeAccuracy_;
   }
 
   public static final int SPEED_KMPH_FIELD_NUMBER = 3;
@@ -835,7 +461,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.Int32ValueOrBuilder getSpeedKmphOrBuilder() {
-    return getSpeedKmph();
+    return speedKmph_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : speedKmph_;
   }
 
   public static final int SPEED_FIELD_NUMBER = 6;
@@ -873,7 +499,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getSpeedOrBuilder() {
-    return getSpeed();
+    return speed_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : speed_;
   }
 
   public static final int SPEED_ACCURACY_FIELD_NUMBER = 7;
@@ -911,7 +537,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getSpeedAccuracyOrBuilder() {
-    return getSpeedAccuracy();
+    return speedAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : speedAccuracy_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 4;
@@ -952,7 +578,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int SERVER_TIME_FIELD_NUMBER = 13;
@@ -990,11 +616,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getServerTimeOrBuilder() {
-    return getServerTime();
+    return serverTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : serverTime_;
   }
 
   public static final int LOCATION_SENSOR_FIELD_NUMBER = 11;
-  private int locationSensor_;
+  private int locationSensor_ = 0;
   /**
    * <pre>
    * Provider of location data (for example, `GPS`).
@@ -1015,8 +641,7 @@ private static final long serialVersionUID = 0L;
    * @return The locationSensor.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor getLocationSensor() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.valueOf(locationSensor_);
+    google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.forNumber(locationSensor_);
     return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNRECOGNIZED : result;
   }
 
@@ -1055,7 +680,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getIsRoadSnappedOrBuilder() {
-    return getIsRoadSnapped();
+    return isRoadSnapped_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : isRoadSnapped_;
   }
 
   public static final int IS_GPS_SENSOR_ENABLED_FIELD_NUMBER = 12;
@@ -1093,7 +718,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getIsGpsSensorEnabledOrBuilder() {
-    return getIsGpsSensorEnabled();
+    return isGpsSensorEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : isGpsSensorEnabled_;
   }
 
   public static final int TIME_SINCE_UPDATE_FIELD_NUMBER = 14;
@@ -1137,7 +762,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getTimeSinceUpdateOrBuilder() {
-    return getTimeSinceUpdate();
+    return timeSinceUpdate_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : timeSinceUpdate_;
   }
 
   public static final int NUM_STALE_UPDATES_FIELD_NUMBER = 15;
@@ -1178,7 +803,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getNumStaleUpdatesOrBuilder() {
-    return getNumStaleUpdates();
+    return numStaleUpdates_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : numStaleUpdates_;
   }
 
   public static final int RAW_LOCATION_FIELD_NUMBER = 16;
@@ -1216,7 +841,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getRawLocationOrBuilder() {
-    return getRawLocation();
+    return rawLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : rawLocation_;
   }
 
   public static final int RAW_LOCATION_TIME_FIELD_NUMBER = 17;
@@ -1254,11 +879,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRawLocationTimeOrBuilder() {
-    return getRawLocationTime();
+    return rawLocationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : rawLocationTime_;
   }
 
   public static final int RAW_LOCATION_SENSOR_FIELD_NUMBER = 28;
-  private int rawLocationSensor_;
+  private int rawLocationSensor_ = 0;
   /**
    * <pre>
    * Input only. Source of the raw location.
@@ -1279,8 +904,7 @@ private static final long serialVersionUID = 0L;
    * @return The rawLocationSensor.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor getRawLocationSensor() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.valueOf(rawLocationSensor_);
+    google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.forNumber(rawLocationSensor_);
     return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNRECOGNIZED : result;
   }
 
@@ -1319,7 +943,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getRawLocationAccuracyOrBuilder() {
-    return getRawLocationAccuracy();
+    return rawLocationAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : rawLocationAccuracy_;
   }
 
   public static final int SUPPLEMENTAL_LOCATION_FIELD_NUMBER = 18;
@@ -1357,7 +981,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.type.LatLngOrBuilder getSupplementalLocationOrBuilder() {
-    return getSupplementalLocation();
+    return supplementalLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : supplementalLocation_;
   }
 
   public static final int SUPPLEMENTAL_LOCATION_TIME_FIELD_NUMBER = 19;
@@ -1395,11 +1019,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getSupplementalLocationTimeOrBuilder() {
-    return getSupplementalLocationTime();
+    return supplementalLocationTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : supplementalLocationTime_;
   }
 
   public static final int SUPPLEMENTAL_LOCATION_SENSOR_FIELD_NUMBER = 20;
-  private int supplementalLocationSensor_;
+  private int supplementalLocationSensor_ = 0;
   /**
    * <pre>
    * Input only. Source of the supplemental location.
@@ -1420,8 +1044,7 @@ private static final long serialVersionUID = 0L;
    * @return The supplementalLocationSensor.
    */
   @java.lang.Override public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor getSupplementalLocationSensor() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.valueOf(supplementalLocationSensor_);
+    google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.forNumber(supplementalLocationSensor_);
     return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNRECOGNIZED : result;
   }
 
@@ -1460,11 +1083,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DoubleValueOrBuilder getSupplementalLocationAccuracyOrBuilder() {
-    return getSupplementalLocationAccuracy();
+    return supplementalLocationAccuracy_ == null ? com.google.protobuf.DoubleValue.getDefaultInstance() : supplementalLocationAccuracy_;
   }
 
   public static final int ROAD_SNAPPED_FIELD_NUMBER = 26;
-  private boolean roadSnapped_;
+  private boolean roadSnapped_ = false;
   /**
    * <pre>
    * Deprecated: Use `is_road_snapped` instead.
@@ -1578,7 +1201,7 @@ private static final long serialVersionUID = 0L;
     if (rawLocationSensor_ != google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNKNOWN_SENSOR.getNumber()) {
       output.writeEnum(28, rawLocationSensor_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1699,7 +1322,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(28, rawLocationSensor_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1839,7 +1462,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getRoadSnapped()
         != other.getRoadSnapped()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1955,7 +1578,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ROAD_SNAPPED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getRoadSnapped());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2076,174 +1699,142 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (locationBuilder_ == null) {
-        location_ = null;
-      } else {
-        location_ = null;
+      bitField0_ = 0;
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-      if (horizontalAccuracyBuilder_ == null) {
-        horizontalAccuracy_ = null;
-      } else {
-        horizontalAccuracy_ = null;
+      horizontalAccuracy_ = null;
+      if (horizontalAccuracyBuilder_ != null) {
+        horizontalAccuracyBuilder_.dispose();
         horizontalAccuracyBuilder_ = null;
       }
-      if (latlngAccuracyBuilder_ == null) {
-        latlngAccuracy_ = null;
-      } else {
-        latlngAccuracy_ = null;
+      latlngAccuracy_ = null;
+      if (latlngAccuracyBuilder_ != null) {
+        latlngAccuracyBuilder_.dispose();
         latlngAccuracyBuilder_ = null;
       }
-      if (headingBuilder_ == null) {
-        heading_ = null;
-      } else {
-        heading_ = null;
+      heading_ = null;
+      if (headingBuilder_ != null) {
+        headingBuilder_.dispose();
         headingBuilder_ = null;
       }
-      if (bearingAccuracyBuilder_ == null) {
-        bearingAccuracy_ = null;
-      } else {
-        bearingAccuracy_ = null;
+      bearingAccuracy_ = null;
+      if (bearingAccuracyBuilder_ != null) {
+        bearingAccuracyBuilder_.dispose();
         bearingAccuracyBuilder_ = null;
       }
-      if (headingAccuracyBuilder_ == null) {
-        headingAccuracy_ = null;
-      } else {
-        headingAccuracy_ = null;
+      headingAccuracy_ = null;
+      if (headingAccuracyBuilder_ != null) {
+        headingAccuracyBuilder_.dispose();
         headingAccuracyBuilder_ = null;
       }
-      if (altitudeBuilder_ == null) {
-        altitude_ = null;
-      } else {
-        altitude_ = null;
+      altitude_ = null;
+      if (altitudeBuilder_ != null) {
+        altitudeBuilder_.dispose();
         altitudeBuilder_ = null;
       }
-      if (verticalAccuracyBuilder_ == null) {
-        verticalAccuracy_ = null;
-      } else {
-        verticalAccuracy_ = null;
+      verticalAccuracy_ = null;
+      if (verticalAccuracyBuilder_ != null) {
+        verticalAccuracyBuilder_.dispose();
         verticalAccuracyBuilder_ = null;
       }
-      if (altitudeAccuracyBuilder_ == null) {
-        altitudeAccuracy_ = null;
-      } else {
-        altitudeAccuracy_ = null;
+      altitudeAccuracy_ = null;
+      if (altitudeAccuracyBuilder_ != null) {
+        altitudeAccuracyBuilder_.dispose();
         altitudeAccuracyBuilder_ = null;
       }
-      if (speedKmphBuilder_ == null) {
-        speedKmph_ = null;
-      } else {
-        speedKmph_ = null;
+      speedKmph_ = null;
+      if (speedKmphBuilder_ != null) {
+        speedKmphBuilder_.dispose();
         speedKmphBuilder_ = null;
       }
-      if (speedBuilder_ == null) {
-        speed_ = null;
-      } else {
-        speed_ = null;
+      speed_ = null;
+      if (speedBuilder_ != null) {
+        speedBuilder_.dispose();
         speedBuilder_ = null;
       }
-      if (speedAccuracyBuilder_ == null) {
-        speedAccuracy_ = null;
-      } else {
-        speedAccuracy_ = null;
+      speedAccuracy_ = null;
+      if (speedAccuracyBuilder_ != null) {
+        speedAccuracyBuilder_.dispose();
         speedAccuracyBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-      if (serverTimeBuilder_ == null) {
-        serverTime_ = null;
-      } else {
-        serverTime_ = null;
+      serverTime_ = null;
+      if (serverTimeBuilder_ != null) {
+        serverTimeBuilder_.dispose();
         serverTimeBuilder_ = null;
       }
       locationSensor_ = 0;
-
-      if (isRoadSnappedBuilder_ == null) {
-        isRoadSnapped_ = null;
-      } else {
-        isRoadSnapped_ = null;
+      isRoadSnapped_ = null;
+      if (isRoadSnappedBuilder_ != null) {
+        isRoadSnappedBuilder_.dispose();
         isRoadSnappedBuilder_ = null;
       }
-      if (isGpsSensorEnabledBuilder_ == null) {
-        isGpsSensorEnabled_ = null;
-      } else {
-        isGpsSensorEnabled_ = null;
+      isGpsSensorEnabled_ = null;
+      if (isGpsSensorEnabledBuilder_ != null) {
+        isGpsSensorEnabledBuilder_.dispose();
         isGpsSensorEnabledBuilder_ = null;
       }
-      if (timeSinceUpdateBuilder_ == null) {
-        timeSinceUpdate_ = null;
-      } else {
-        timeSinceUpdate_ = null;
+      timeSinceUpdate_ = null;
+      if (timeSinceUpdateBuilder_ != null) {
+        timeSinceUpdateBuilder_.dispose();
         timeSinceUpdateBuilder_ = null;
       }
-      if (numStaleUpdatesBuilder_ == null) {
-        numStaleUpdates_ = null;
-      } else {
-        numStaleUpdates_ = null;
+      numStaleUpdates_ = null;
+      if (numStaleUpdatesBuilder_ != null) {
+        numStaleUpdatesBuilder_.dispose();
         numStaleUpdatesBuilder_ = null;
       }
-      if (rawLocationBuilder_ == null) {
-        rawLocation_ = null;
-      } else {
-        rawLocation_ = null;
+      rawLocation_ = null;
+      if (rawLocationBuilder_ != null) {
+        rawLocationBuilder_.dispose();
         rawLocationBuilder_ = null;
       }
-      if (rawLocationTimeBuilder_ == null) {
-        rawLocationTime_ = null;
-      } else {
-        rawLocationTime_ = null;
+      rawLocationTime_ = null;
+      if (rawLocationTimeBuilder_ != null) {
+        rawLocationTimeBuilder_.dispose();
         rawLocationTimeBuilder_ = null;
       }
       rawLocationSensor_ = 0;
-
-      if (rawLocationAccuracyBuilder_ == null) {
-        rawLocationAccuracy_ = null;
-      } else {
-        rawLocationAccuracy_ = null;
+      rawLocationAccuracy_ = null;
+      if (rawLocationAccuracyBuilder_ != null) {
+        rawLocationAccuracyBuilder_.dispose();
         rawLocationAccuracyBuilder_ = null;
       }
-      if (supplementalLocationBuilder_ == null) {
-        supplementalLocation_ = null;
-      } else {
-        supplementalLocation_ = null;
+      supplementalLocation_ = null;
+      if (supplementalLocationBuilder_ != null) {
+        supplementalLocationBuilder_.dispose();
         supplementalLocationBuilder_ = null;
       }
-      if (supplementalLocationTimeBuilder_ == null) {
-        supplementalLocationTime_ = null;
-      } else {
-        supplementalLocationTime_ = null;
+      supplementalLocationTime_ = null;
+      if (supplementalLocationTimeBuilder_ != null) {
+        supplementalLocationTimeBuilder_.dispose();
         supplementalLocationTimeBuilder_ = null;
       }
       supplementalLocationSensor_ = 0;
-
-      if (supplementalLocationAccuracyBuilder_ == null) {
-        supplementalLocationAccuracy_ = null;
-      } else {
-        supplementalLocationAccuracy_ = null;
+      supplementalLocationAccuracy_ = null;
+      if (supplementalLocationAccuracyBuilder_ != null) {
+        supplementalLocationAccuracyBuilder_.dispose();
         supplementalLocationAccuracyBuilder_ = null;
       }
       roadSnapped_ = false;
-
       return this;
     }
 
@@ -2270,132 +1861,145 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation buildPartial() {
       google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation result = new google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation(this);
-      if (locationBuilder_ == null) {
-        result.location_ = location_;
-      } else {
-        result.location_ = locationBuilder_.build();
-      }
-      if (horizontalAccuracyBuilder_ == null) {
-        result.horizontalAccuracy_ = horizontalAccuracy_;
-      } else {
-        result.horizontalAccuracy_ = horizontalAccuracyBuilder_.build();
-      }
-      if (latlngAccuracyBuilder_ == null) {
-        result.latlngAccuracy_ = latlngAccuracy_;
-      } else {
-        result.latlngAccuracy_ = latlngAccuracyBuilder_.build();
-      }
-      if (headingBuilder_ == null) {
-        result.heading_ = heading_;
-      } else {
-        result.heading_ = headingBuilder_.build();
-      }
-      if (bearingAccuracyBuilder_ == null) {
-        result.bearingAccuracy_ = bearingAccuracy_;
-      } else {
-        result.bearingAccuracy_ = bearingAccuracyBuilder_.build();
-      }
-      if (headingAccuracyBuilder_ == null) {
-        result.headingAccuracy_ = headingAccuracy_;
-      } else {
-        result.headingAccuracy_ = headingAccuracyBuilder_.build();
-      }
-      if (altitudeBuilder_ == null) {
-        result.altitude_ = altitude_;
-      } else {
-        result.altitude_ = altitudeBuilder_.build();
-      }
-      if (verticalAccuracyBuilder_ == null) {
-        result.verticalAccuracy_ = verticalAccuracy_;
-      } else {
-        result.verticalAccuracy_ = verticalAccuracyBuilder_.build();
-      }
-      if (altitudeAccuracyBuilder_ == null) {
-        result.altitudeAccuracy_ = altitudeAccuracy_;
-      } else {
-        result.altitudeAccuracy_ = altitudeAccuracyBuilder_.build();
-      }
-      if (speedKmphBuilder_ == null) {
-        result.speedKmph_ = speedKmph_;
-      } else {
-        result.speedKmph_ = speedKmphBuilder_.build();
-      }
-      if (speedBuilder_ == null) {
-        result.speed_ = speed_;
-      } else {
-        result.speed_ = speedBuilder_.build();
-      }
-      if (speedAccuracyBuilder_ == null) {
-        result.speedAccuracy_ = speedAccuracy_;
-      } else {
-        result.speedAccuracy_ = speedAccuracyBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      if (serverTimeBuilder_ == null) {
-        result.serverTime_ = serverTime_;
-      } else {
-        result.serverTime_ = serverTimeBuilder_.build();
-      }
-      result.locationSensor_ = locationSensor_;
-      if (isRoadSnappedBuilder_ == null) {
-        result.isRoadSnapped_ = isRoadSnapped_;
-      } else {
-        result.isRoadSnapped_ = isRoadSnappedBuilder_.build();
-      }
-      if (isGpsSensorEnabledBuilder_ == null) {
-        result.isGpsSensorEnabled_ = isGpsSensorEnabled_;
-      } else {
-        result.isGpsSensorEnabled_ = isGpsSensorEnabledBuilder_.build();
-      }
-      if (timeSinceUpdateBuilder_ == null) {
-        result.timeSinceUpdate_ = timeSinceUpdate_;
-      } else {
-        result.timeSinceUpdate_ = timeSinceUpdateBuilder_.build();
-      }
-      if (numStaleUpdatesBuilder_ == null) {
-        result.numStaleUpdates_ = numStaleUpdates_;
-      } else {
-        result.numStaleUpdates_ = numStaleUpdatesBuilder_.build();
-      }
-      if (rawLocationBuilder_ == null) {
-        result.rawLocation_ = rawLocation_;
-      } else {
-        result.rawLocation_ = rawLocationBuilder_.build();
-      }
-      if (rawLocationTimeBuilder_ == null) {
-        result.rawLocationTime_ = rawLocationTime_;
-      } else {
-        result.rawLocationTime_ = rawLocationTimeBuilder_.build();
-      }
-      result.rawLocationSensor_ = rawLocationSensor_;
-      if (rawLocationAccuracyBuilder_ == null) {
-        result.rawLocationAccuracy_ = rawLocationAccuracy_;
-      } else {
-        result.rawLocationAccuracy_ = rawLocationAccuracyBuilder_.build();
-      }
-      if (supplementalLocationBuilder_ == null) {
-        result.supplementalLocation_ = supplementalLocation_;
-      } else {
-        result.supplementalLocation_ = supplementalLocationBuilder_.build();
-      }
-      if (supplementalLocationTimeBuilder_ == null) {
-        result.supplementalLocationTime_ = supplementalLocationTime_;
-      } else {
-        result.supplementalLocationTime_ = supplementalLocationTimeBuilder_.build();
-      }
-      result.supplementalLocationSensor_ = supplementalLocationSensor_;
-      if (supplementalLocationAccuracyBuilder_ == null) {
-        result.supplementalLocationAccuracy_ = supplementalLocationAccuracy_;
-      } else {
-        result.supplementalLocationAccuracy_ = supplementalLocationAccuracyBuilder_.build();
-      }
-      result.roadSnapped_ = roadSnapped_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.location_ = locationBuilder_ == null
+            ? location_
+            : locationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.horizontalAccuracy_ = horizontalAccuracyBuilder_ == null
+            ? horizontalAccuracy_
+            : horizontalAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.latlngAccuracy_ = latlngAccuracyBuilder_ == null
+            ? latlngAccuracy_
+            : latlngAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.heading_ = headingBuilder_ == null
+            ? heading_
+            : headingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.bearingAccuracy_ = bearingAccuracyBuilder_ == null
+            ? bearingAccuracy_
+            : bearingAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.headingAccuracy_ = headingAccuracyBuilder_ == null
+            ? headingAccuracy_
+            : headingAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.altitude_ = altitudeBuilder_ == null
+            ? altitude_
+            : altitudeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.verticalAccuracy_ = verticalAccuracyBuilder_ == null
+            ? verticalAccuracy_
+            : verticalAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.altitudeAccuracy_ = altitudeAccuracyBuilder_ == null
+            ? altitudeAccuracy_
+            : altitudeAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.speedKmph_ = speedKmphBuilder_ == null
+            ? speedKmph_
+            : speedKmphBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.speed_ = speedBuilder_ == null
+            ? speed_
+            : speedBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.speedAccuracy_ = speedAccuracyBuilder_ == null
+            ? speedAccuracy_
+            : speedAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.serverTime_ = serverTimeBuilder_ == null
+            ? serverTime_
+            : serverTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.locationSensor_ = locationSensor_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.isRoadSnapped_ = isRoadSnappedBuilder_ == null
+            ? isRoadSnapped_
+            : isRoadSnappedBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.isGpsSensorEnabled_ = isGpsSensorEnabledBuilder_ == null
+            ? isGpsSensorEnabled_
+            : isGpsSensorEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.timeSinceUpdate_ = timeSinceUpdateBuilder_ == null
+            ? timeSinceUpdate_
+            : timeSinceUpdateBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.numStaleUpdates_ = numStaleUpdatesBuilder_ == null
+            ? numStaleUpdates_
+            : numStaleUpdatesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.rawLocation_ = rawLocationBuilder_ == null
+            ? rawLocation_
+            : rawLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.rawLocationTime_ = rawLocationTimeBuilder_ == null
+            ? rawLocationTime_
+            : rawLocationTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.rawLocationSensor_ = rawLocationSensor_;
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.rawLocationAccuracy_ = rawLocationAccuracyBuilder_ == null
+            ? rawLocationAccuracy_
+            : rawLocationAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.supplementalLocation_ = supplementalLocationBuilder_ == null
+            ? supplementalLocation_
+            : supplementalLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.supplementalLocationTime_ = supplementalLocationTimeBuilder_ == null
+            ? supplementalLocationTime_
+            : supplementalLocationTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.supplementalLocationSensor_ = supplementalLocationSensor_;
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.supplementalLocationAccuracy_ = supplementalLocationAccuracyBuilder_ == null
+            ? supplementalLocationAccuracy_
+            : supplementalLocationAccuracyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.roadSnapped_ = roadSnapped_;
+      }
     }
 
     @java.lang.Override
@@ -2526,7 +2130,7 @@ private static final long serialVersionUID = 0L;
       if (other.getRoadSnapped() != false) {
         setRoadSnapped(other.getRoadSnapped());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2541,19 +2145,221 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getHeadingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getSpeedKmphFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAltitudeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSpeedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getSpeedAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getHorizontalAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getVerticalAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getBearingAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 82
+            case 88: {
+              locationSensor_ = input.readEnum();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 88
+            case 98: {
+              input.readMessage(
+                  getIsGpsSensorEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getServerTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getTimeSinceUpdateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getNumStaleUpdatesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getRawLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getRawLocationTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getSupplementalLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 146
+            case 154: {
+              input.readMessage(
+                  getSupplementalLocationTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 154
+            case 160: {
+              supplementalLocationSensor_ = input.readEnum();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 160
+            case 170: {
+              input.readMessage(
+                  getSupplementalLocationAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getLatlngAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getHeadingAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getAltitudeAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 194
+            case 202: {
+              input.readMessage(
+                  getRawLocationAccuracyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 202
+            case 208: {
+              roadSnapped_ = input.readBool();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 208
+            case 218: {
+              input.readMessage(
+                  getIsRoadSnappedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 218
+            case 224: {
+              rawLocationSensor_ = input.readEnum();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 224
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.delivery.v1.DeliveryVehicleLocation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.type.LatLng location_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -2571,7 +2377,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the location field is set.
      */
     public boolean hasLocation() {
-      return locationBuilder_ != null || location_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -2609,11 +2415,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         location_ = value;
-        onChanged();
       } else {
         locationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2631,11 +2437,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (locationBuilder_ == null) {
         location_ = builderForValue.build();
-        onChanged();
       } else {
         locationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2651,17 +2457,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocation(com.google.type.LatLng value) {
       if (locationBuilder_ == null) {
-        if (location_ != null) {
-          location_ =
-            com.google.type.LatLng.newBuilder(location_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          location_ != null &&
+          location_ != com.google.type.LatLng.getDefaultInstance()) {
+          getLocationBuilder().mergeFrom(value);
         } else {
           location_ = value;
         }
-        onChanged();
       } else {
         locationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -2676,14 +2483,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng location = 1;</code>
      */
     public Builder clearLocation() {
-      if (locationBuilder_ == null) {
-        location_ = null;
-        onChanged();
-      } else {
-        location_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      location_ = null;
+      if (locationBuilder_ != null) {
+        locationBuilder_.dispose();
         locationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2698,7 +2504,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng location = 1;</code>
      */
     public com.google.type.LatLng.Builder getLocationBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLocationFieldBuilder().getBuilder();
     }
@@ -2760,7 +2566,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the horizontalAccuracy field is set.
      */
     @java.lang.Deprecated public boolean hasHorizontalAccuracy() {
-      return horizontalAccuracyBuilder_ != null || horizontalAccuracy_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2792,11 +2598,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         horizontalAccuracy_ = value;
-        onChanged();
       } else {
         horizontalAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2810,11 +2616,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (horizontalAccuracyBuilder_ == null) {
         horizontalAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         horizontalAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2826,17 +2632,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeHorizontalAccuracy(com.google.protobuf.DoubleValue value) {
       if (horizontalAccuracyBuilder_ == null) {
-        if (horizontalAccuracy_ != null) {
-          horizontalAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(horizontalAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          horizontalAccuracy_ != null &&
+          horizontalAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getHorizontalAccuracyBuilder().mergeFrom(value);
         } else {
           horizontalAccuracy_ = value;
         }
-        onChanged();
       } else {
         horizontalAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2847,14 +2654,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue horizontal_accuracy = 8 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearHorizontalAccuracy() {
-      if (horizontalAccuracyBuilder_ == null) {
-        horizontalAccuracy_ = null;
-        onChanged();
-      } else {
-        horizontalAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      horizontalAccuracy_ = null;
+      if (horizontalAccuracyBuilder_ != null) {
+        horizontalAccuracyBuilder_.dispose();
         horizontalAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2865,7 +2671,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue horizontal_accuracy = 8 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.DoubleValue.Builder getHorizontalAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getHorizontalAccuracyFieldBuilder().getBuilder();
     }
@@ -2917,7 +2723,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the latlngAccuracy field is set.
      */
     public boolean hasLatlngAccuracy() {
-      return latlngAccuracyBuilder_ != null || latlngAccuracy_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2947,11 +2753,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         latlngAccuracy_ = value;
-        onChanged();
       } else {
         latlngAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2965,11 +2771,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (latlngAccuracyBuilder_ == null) {
         latlngAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         latlngAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2981,17 +2787,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLatlngAccuracy(com.google.protobuf.DoubleValue value) {
       if (latlngAccuracyBuilder_ == null) {
-        if (latlngAccuracy_ != null) {
-          latlngAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(latlngAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          latlngAccuracy_ != null &&
+          latlngAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getLatlngAccuracyBuilder().mergeFrom(value);
         } else {
           latlngAccuracy_ = value;
         }
-        onChanged();
       } else {
         latlngAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3002,14 +2809,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue latlng_accuracy = 22;</code>
      */
     public Builder clearLatlngAccuracy() {
-      if (latlngAccuracyBuilder_ == null) {
-        latlngAccuracy_ = null;
-        onChanged();
-      } else {
-        latlngAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      latlngAccuracy_ = null;
+      if (latlngAccuracyBuilder_ != null) {
+        latlngAccuracyBuilder_.dispose();
         latlngAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3020,7 +2826,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue latlng_accuracy = 22;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getLatlngAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getLatlngAccuracyFieldBuilder().getBuilder();
     }
@@ -3073,7 +2879,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the heading field is set.
      */
     public boolean hasHeading() {
-      return headingBuilder_ != null || heading_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -3105,11 +2911,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         heading_ = value;
-        onChanged();
       } else {
         headingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3124,11 +2930,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (headingBuilder_ == null) {
         heading_ = builderForValue.build();
-        onChanged();
       } else {
         headingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3141,17 +2947,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeading(com.google.protobuf.Int32Value value) {
       if (headingBuilder_ == null) {
-        if (heading_ != null) {
-          heading_ =
-            com.google.protobuf.Int32Value.newBuilder(heading_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          heading_ != null &&
+          heading_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getHeadingBuilder().mergeFrom(value);
         } else {
           heading_ = value;
         }
-        onChanged();
       } else {
         headingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -3163,14 +2970,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value heading = 2;</code>
      */
     public Builder clearHeading() {
-      if (headingBuilder_ == null) {
-        heading_ = null;
-        onChanged();
-      } else {
-        heading_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      heading_ = null;
+      if (headingBuilder_ != null) {
+        headingBuilder_.dispose();
         headingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3182,7 +2988,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value heading = 2;</code>
      */
     public com.google.protobuf.Int32Value.Builder getHeadingBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getHeadingFieldBuilder().getBuilder();
     }
@@ -3238,7 +3044,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the bearingAccuracy field is set.
      */
     @java.lang.Deprecated public boolean hasBearingAccuracy() {
-      return bearingAccuracyBuilder_ != null || bearingAccuracy_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -3270,11 +3076,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bearingAccuracy_ = value;
-        onChanged();
       } else {
         bearingAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3288,11 +3094,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (bearingAccuracyBuilder_ == null) {
         bearingAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         bearingAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3304,17 +3110,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeBearingAccuracy(com.google.protobuf.DoubleValue value) {
       if (bearingAccuracyBuilder_ == null) {
-        if (bearingAccuracy_ != null) {
-          bearingAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(bearingAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          bearingAccuracy_ != null &&
+          bearingAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getBearingAccuracyBuilder().mergeFrom(value);
         } else {
           bearingAccuracy_ = value;
         }
-        onChanged();
       } else {
         bearingAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -3325,14 +3132,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue bearing_accuracy = 10 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearBearingAccuracy() {
-      if (bearingAccuracyBuilder_ == null) {
-        bearingAccuracy_ = null;
-        onChanged();
-      } else {
-        bearingAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      bearingAccuracy_ = null;
+      if (bearingAccuracyBuilder_ != null) {
+        bearingAccuracyBuilder_.dispose();
         bearingAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3343,7 +3149,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue bearing_accuracy = 10 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.DoubleValue.Builder getBearingAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getBearingAccuracyFieldBuilder().getBuilder();
     }
@@ -3395,7 +3201,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the headingAccuracy field is set.
      */
     public boolean hasHeadingAccuracy() {
-      return headingAccuracyBuilder_ != null || headingAccuracy_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3425,11 +3231,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         headingAccuracy_ = value;
-        onChanged();
       } else {
         headingAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3443,11 +3249,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (headingAccuracyBuilder_ == null) {
         headingAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         headingAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3459,17 +3265,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeadingAccuracy(com.google.protobuf.DoubleValue value) {
       if (headingAccuracyBuilder_ == null) {
-        if (headingAccuracy_ != null) {
-          headingAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(headingAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          headingAccuracy_ != null &&
+          headingAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getHeadingAccuracyBuilder().mergeFrom(value);
         } else {
           headingAccuracy_ = value;
         }
-        onChanged();
       } else {
         headingAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3480,14 +3287,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue heading_accuracy = 23;</code>
      */
     public Builder clearHeadingAccuracy() {
-      if (headingAccuracyBuilder_ == null) {
-        headingAccuracy_ = null;
-        onChanged();
-      } else {
-        headingAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      headingAccuracy_ = null;
+      if (headingAccuracyBuilder_ != null) {
+        headingAccuracyBuilder_.dispose();
         headingAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3498,7 +3304,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue heading_accuracy = 23;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getHeadingAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getHeadingAccuracyFieldBuilder().getBuilder();
     }
@@ -3550,7 +3356,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the altitude field is set.
      */
     public boolean hasAltitude() {
-      return altitudeBuilder_ != null || altitude_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3580,11 +3386,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         altitude_ = value;
-        onChanged();
       } else {
         altitudeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3598,11 +3404,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (altitudeBuilder_ == null) {
         altitude_ = builderForValue.build();
-        onChanged();
       } else {
         altitudeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3614,17 +3420,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAltitude(com.google.protobuf.DoubleValue value) {
       if (altitudeBuilder_ == null) {
-        if (altitude_ != null) {
-          altitude_ =
-            com.google.protobuf.DoubleValue.newBuilder(altitude_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          altitude_ != null &&
+          altitude_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getAltitudeBuilder().mergeFrom(value);
         } else {
           altitude_ = value;
         }
-        onChanged();
       } else {
         altitudeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3635,14 +3442,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue altitude = 5;</code>
      */
     public Builder clearAltitude() {
-      if (altitudeBuilder_ == null) {
-        altitude_ = null;
-        onChanged();
-      } else {
-        altitude_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      altitude_ = null;
+      if (altitudeBuilder_ != null) {
+        altitudeBuilder_.dispose();
         altitudeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3653,7 +3459,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue altitude = 5;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getAltitudeBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getAltitudeFieldBuilder().getBuilder();
     }
@@ -3707,7 +3513,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the verticalAccuracy field is set.
      */
     @java.lang.Deprecated public boolean hasVerticalAccuracy() {
-      return verticalAccuracyBuilder_ != null || verticalAccuracy_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -3739,11 +3545,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         verticalAccuracy_ = value;
-        onChanged();
       } else {
         verticalAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3757,11 +3563,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (verticalAccuracyBuilder_ == null) {
         verticalAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         verticalAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3773,17 +3579,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeVerticalAccuracy(com.google.protobuf.DoubleValue value) {
       if (verticalAccuracyBuilder_ == null) {
-        if (verticalAccuracy_ != null) {
-          verticalAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(verticalAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          verticalAccuracy_ != null &&
+          verticalAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getVerticalAccuracyBuilder().mergeFrom(value);
         } else {
           verticalAccuracy_ = value;
         }
-        onChanged();
       } else {
         verticalAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -3794,14 +3601,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue vertical_accuracy = 9 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearVerticalAccuracy() {
-      if (verticalAccuracyBuilder_ == null) {
-        verticalAccuracy_ = null;
-        onChanged();
-      } else {
-        verticalAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      verticalAccuracy_ = null;
+      if (verticalAccuracyBuilder_ != null) {
+        verticalAccuracyBuilder_.dispose();
         verticalAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3812,7 +3618,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue vertical_accuracy = 9 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.DoubleValue.Builder getVerticalAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getVerticalAccuracyFieldBuilder().getBuilder();
     }
@@ -3864,7 +3670,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the altitudeAccuracy field is set.
      */
     public boolean hasAltitudeAccuracy() {
-      return altitudeAccuracyBuilder_ != null || altitudeAccuracy_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3894,11 +3700,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         altitudeAccuracy_ = value;
-        onChanged();
       } else {
         altitudeAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3912,11 +3718,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (altitudeAccuracyBuilder_ == null) {
         altitudeAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         altitudeAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3928,17 +3734,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAltitudeAccuracy(com.google.protobuf.DoubleValue value) {
       if (altitudeAccuracyBuilder_ == null) {
-        if (altitudeAccuracy_ != null) {
-          altitudeAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(altitudeAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          altitudeAccuracy_ != null &&
+          altitudeAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getAltitudeAccuracyBuilder().mergeFrom(value);
         } else {
           altitudeAccuracy_ = value;
         }
-        onChanged();
       } else {
         altitudeAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3949,14 +3756,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue altitude_accuracy = 24;</code>
      */
     public Builder clearAltitudeAccuracy() {
-      if (altitudeAccuracyBuilder_ == null) {
-        altitudeAccuracy_ = null;
-        onChanged();
-      } else {
-        altitudeAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      altitudeAccuracy_ = null;
+      if (altitudeAccuracyBuilder_ != null) {
+        altitudeAccuracyBuilder_.dispose();
         altitudeAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3967,7 +3773,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue altitude_accuracy = 24;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getAltitudeAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getAltitudeAccuracyFieldBuilder().getBuilder();
     }
@@ -4022,7 +3828,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the speedKmph field is set.
      */
     @java.lang.Deprecated public boolean hasSpeedKmph() {
-      return speedKmphBuilder_ != null || speedKmph_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -4056,11 +3862,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         speedKmph_ = value;
-        onChanged();
       } else {
         speedKmphBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4075,11 +3881,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (speedKmphBuilder_ == null) {
         speedKmph_ = builderForValue.build();
-        onChanged();
       } else {
         speedKmphBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4092,17 +3898,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeSpeedKmph(com.google.protobuf.Int32Value value) {
       if (speedKmphBuilder_ == null) {
-        if (speedKmph_ != null) {
-          speedKmph_ =
-            com.google.protobuf.Int32Value.newBuilder(speedKmph_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          speedKmph_ != null &&
+          speedKmph_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getSpeedKmphBuilder().mergeFrom(value);
         } else {
           speedKmph_ = value;
         }
-        onChanged();
       } else {
         speedKmphBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -4114,14 +3921,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value speed_kmph = 3 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearSpeedKmph() {
-      if (speedKmphBuilder_ == null) {
-        speedKmph_ = null;
-        onChanged();
-      } else {
-        speedKmph_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      speedKmph_ = null;
+      if (speedKmphBuilder_ != null) {
+        speedKmphBuilder_.dispose();
         speedKmphBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4133,7 +3939,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value speed_kmph = 3 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.Int32Value.Builder getSpeedKmphBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getSpeedKmphFieldBuilder().getBuilder();
     }
@@ -4187,7 +3993,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the speed field is set.
      */
     public boolean hasSpeed() {
-      return speedBuilder_ != null || speed_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -4217,11 +4023,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         speed_ = value;
-        onChanged();
       } else {
         speedBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4235,11 +4041,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (speedBuilder_ == null) {
         speed_ = builderForValue.build();
-        onChanged();
       } else {
         speedBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4251,17 +4057,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpeed(com.google.protobuf.DoubleValue value) {
       if (speedBuilder_ == null) {
-        if (speed_ != null) {
-          speed_ =
-            com.google.protobuf.DoubleValue.newBuilder(speed_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          speed_ != null &&
+          speed_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getSpeedBuilder().mergeFrom(value);
         } else {
           speed_ = value;
         }
-        onChanged();
       } else {
         speedBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4272,14 +4079,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue speed = 6;</code>
      */
     public Builder clearSpeed() {
-      if (speedBuilder_ == null) {
-        speed_ = null;
-        onChanged();
-      } else {
-        speed_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      speed_ = null;
+      if (speedBuilder_ != null) {
+        speedBuilder_.dispose();
         speedBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4290,7 +4096,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue speed = 6;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getSpeedBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getSpeedFieldBuilder().getBuilder();
     }
@@ -4342,7 +4148,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the speedAccuracy field is set.
      */
     public boolean hasSpeedAccuracy() {
-      return speedAccuracyBuilder_ != null || speedAccuracy_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -4372,11 +4178,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         speedAccuracy_ = value;
-        onChanged();
       } else {
         speedAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4390,11 +4196,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (speedAccuracyBuilder_ == null) {
         speedAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         speedAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4406,17 +4212,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSpeedAccuracy(com.google.protobuf.DoubleValue value) {
       if (speedAccuracyBuilder_ == null) {
-        if (speedAccuracy_ != null) {
-          speedAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(speedAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          speedAccuracy_ != null &&
+          speedAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getSpeedAccuracyBuilder().mergeFrom(value);
         } else {
           speedAccuracy_ = value;
         }
-        onChanged();
       } else {
         speedAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4427,14 +4234,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue speed_accuracy = 7;</code>
      */
     public Builder clearSpeedAccuracy() {
-      if (speedAccuracyBuilder_ == null) {
-        speedAccuracy_ = null;
-        onChanged();
-      } else {
-        speedAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      speedAccuracy_ = null;
+      if (speedAccuracyBuilder_ != null) {
+        speedAccuracyBuilder_.dispose();
         speedAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4445,7 +4251,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue speed_accuracy = 7;</code>
      */
     public com.google.protobuf.DoubleValue.Builder getSpeedAccuracyBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getSpeedAccuracyFieldBuilder().getBuilder();
     }
@@ -4498,7 +4304,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -4530,11 +4336,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4549,11 +4355,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4566,17 +4372,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4588,14 +4395,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 4;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4607,7 +4413,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 4;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -4661,7 +4467,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the serverTime field is set.
      */
     public boolean hasServerTime() {
-      return serverTimeBuilder_ != null || serverTime_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -4691,11 +4497,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         serverTime_ = value;
-        onChanged();
       } else {
         serverTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4709,11 +4515,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (serverTimeBuilder_ == null) {
         serverTime_ = builderForValue.build();
-        onChanged();
       } else {
         serverTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4725,17 +4531,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeServerTime(com.google.protobuf.Timestamp value) {
       if (serverTimeBuilder_ == null) {
-        if (serverTime_ != null) {
-          serverTime_ =
-            com.google.protobuf.Timestamp.newBuilder(serverTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          serverTime_ != null &&
+          serverTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getServerTimeBuilder().mergeFrom(value);
         } else {
           serverTime_ = value;
         }
-        onChanged();
       } else {
         serverTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4746,14 +4553,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp server_time = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearServerTime() {
-      if (serverTimeBuilder_ == null) {
-        serverTime_ = null;
-        onChanged();
-      } else {
-        serverTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      serverTime_ = null;
+      if (serverTimeBuilder_ != null) {
+        serverTimeBuilder_.dispose();
         serverTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4764,7 +4570,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp server_time = 13 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getServerTimeBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getServerTimeFieldBuilder().getBuilder();
     }
@@ -4826,8 +4632,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLocationSensorValue(int value) {
-      
       locationSensor_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4841,8 +4647,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor getLocationSensor() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.valueOf(locationSensor_);
+      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.forNumber(locationSensor_);
       return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNRECOGNIZED : result;
     }
     /**
@@ -4858,7 +4663,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00004000;
       locationSensor_ = value.getNumber();
       onChanged();
       return this;
@@ -4872,7 +4677,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationSensor() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       locationSensor_ = 0;
       onChanged();
       return this;
@@ -4890,7 +4695,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the isRoadSnapped field is set.
      */
     public boolean hasIsRoadSnapped() {
-      return isRoadSnappedBuilder_ != null || isRoadSnapped_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -4920,11 +4725,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         isRoadSnapped_ = value;
-        onChanged();
       } else {
         isRoadSnappedBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4938,11 +4743,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (isRoadSnappedBuilder_ == null) {
         isRoadSnapped_ = builderForValue.build();
-        onChanged();
       } else {
         isRoadSnappedBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4954,17 +4759,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIsRoadSnapped(com.google.protobuf.BoolValue value) {
       if (isRoadSnappedBuilder_ == null) {
-        if (isRoadSnapped_ != null) {
-          isRoadSnapped_ =
-            com.google.protobuf.BoolValue.newBuilder(isRoadSnapped_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          isRoadSnapped_ != null &&
+          isRoadSnapped_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getIsRoadSnappedBuilder().mergeFrom(value);
         } else {
           isRoadSnapped_ = value;
         }
-        onChanged();
       } else {
         isRoadSnappedBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -4975,14 +4781,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue is_road_snapped = 27;</code>
      */
     public Builder clearIsRoadSnapped() {
-      if (isRoadSnappedBuilder_ == null) {
-        isRoadSnapped_ = null;
-        onChanged();
-      } else {
-        isRoadSnapped_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      isRoadSnapped_ = null;
+      if (isRoadSnappedBuilder_ != null) {
+        isRoadSnappedBuilder_.dispose();
         isRoadSnappedBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4993,7 +4798,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue is_road_snapped = 27;</code>
      */
     public com.google.protobuf.BoolValue.Builder getIsRoadSnappedBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getIsRoadSnappedFieldBuilder().getBuilder();
     }
@@ -5045,7 +4850,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the isGpsSensorEnabled field is set.
      */
     public boolean hasIsGpsSensorEnabled() {
-      return isGpsSensorEnabledBuilder_ != null || isGpsSensorEnabled_ != null;
+      return ((bitField0_ & 0x00010000) != 0);
     }
     /**
      * <pre>
@@ -5075,11 +4880,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         isGpsSensorEnabled_ = value;
-        onChanged();
       } else {
         isGpsSensorEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5093,11 +4898,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (isGpsSensorEnabledBuilder_ == null) {
         isGpsSensorEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         isGpsSensorEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5109,17 +4914,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeIsGpsSensorEnabled(com.google.protobuf.BoolValue value) {
       if (isGpsSensorEnabledBuilder_ == null) {
-        if (isGpsSensorEnabled_ != null) {
-          isGpsSensorEnabled_ =
-            com.google.protobuf.BoolValue.newBuilder(isGpsSensorEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00010000) != 0) &&
+          isGpsSensorEnabled_ != null &&
+          isGpsSensorEnabled_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getIsGpsSensorEnabledBuilder().mergeFrom(value);
         } else {
           isGpsSensorEnabled_ = value;
         }
-        onChanged();
       } else {
         isGpsSensorEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00010000;
+      onChanged();
       return this;
     }
     /**
@@ -5130,14 +4936,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue is_gps_sensor_enabled = 12 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearIsGpsSensorEnabled() {
-      if (isGpsSensorEnabledBuilder_ == null) {
-        isGpsSensorEnabled_ = null;
-        onChanged();
-      } else {
-        isGpsSensorEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00010000);
+      isGpsSensorEnabled_ = null;
+      if (isGpsSensorEnabledBuilder_ != null) {
+        isGpsSensorEnabledBuilder_.dispose();
         isGpsSensorEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5148,7 +4953,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue is_gps_sensor_enabled = 12 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.BoolValue.Builder getIsGpsSensorEnabledBuilder() {
-      
+      bitField0_ |= 0x00010000;
       onChanged();
       return getIsGpsSensorEnabledFieldBuilder().getBuilder();
     }
@@ -5202,7 +5007,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeSinceUpdate field is set.
      */
     public boolean hasTimeSinceUpdate() {
-      return timeSinceUpdateBuilder_ != null || timeSinceUpdate_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -5236,11 +5041,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeSinceUpdate_ = value;
-        onChanged();
       } else {
         timeSinceUpdateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5256,11 +5061,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (timeSinceUpdateBuilder_ == null) {
         timeSinceUpdate_ = builderForValue.build();
-        onChanged();
       } else {
         timeSinceUpdateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5274,17 +5079,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeSinceUpdate(com.google.protobuf.Int32Value value) {
       if (timeSinceUpdateBuilder_ == null) {
-        if (timeSinceUpdate_ != null) {
-          timeSinceUpdate_ =
-            com.google.protobuf.Int32Value.newBuilder(timeSinceUpdate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          timeSinceUpdate_ != null &&
+          timeSinceUpdate_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getTimeSinceUpdateBuilder().mergeFrom(value);
         } else {
           timeSinceUpdate_ = value;
         }
-        onChanged();
       } else {
         timeSinceUpdateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5297,14 +5103,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value time_since_update = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearTimeSinceUpdate() {
-      if (timeSinceUpdateBuilder_ == null) {
-        timeSinceUpdate_ = null;
-        onChanged();
-      } else {
-        timeSinceUpdate_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      timeSinceUpdate_ = null;
+      if (timeSinceUpdateBuilder_ != null) {
+        timeSinceUpdateBuilder_.dispose();
         timeSinceUpdateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5317,7 +5122,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value time_since_update = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.Int32Value.Builder getTimeSinceUpdateBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getTimeSinceUpdateFieldBuilder().getBuilder();
     }
@@ -5374,7 +5179,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the numStaleUpdates field is set.
      */
     public boolean hasNumStaleUpdates() {
-      return numStaleUpdatesBuilder_ != null || numStaleUpdates_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
@@ -5406,11 +5211,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         numStaleUpdates_ = value;
-        onChanged();
       } else {
         numStaleUpdatesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5425,11 +5230,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (numStaleUpdatesBuilder_ == null) {
         numStaleUpdates_ = builderForValue.build();
-        onChanged();
       } else {
         numStaleUpdatesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5442,17 +5247,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNumStaleUpdates(com.google.protobuf.Int32Value value) {
       if (numStaleUpdatesBuilder_ == null) {
-        if (numStaleUpdates_ != null) {
-          numStaleUpdates_ =
-            com.google.protobuf.Int32Value.newBuilder(numStaleUpdates_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          numStaleUpdates_ != null &&
+          numStaleUpdates_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getNumStaleUpdatesBuilder().mergeFrom(value);
         } else {
           numStaleUpdates_ = value;
         }
-        onChanged();
       } else {
         numStaleUpdatesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5464,14 +5270,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value num_stale_updates = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearNumStaleUpdates() {
-      if (numStaleUpdatesBuilder_ == null) {
-        numStaleUpdates_ = null;
-        onChanged();
-      } else {
-        numStaleUpdates_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      numStaleUpdates_ = null;
+      if (numStaleUpdatesBuilder_ != null) {
+        numStaleUpdatesBuilder_.dispose();
         numStaleUpdatesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5483,7 +5288,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value num_stale_updates = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.Int32Value.Builder getNumStaleUpdatesBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getNumStaleUpdatesFieldBuilder().getBuilder();
     }
@@ -5537,7 +5342,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rawLocation field is set.
      */
     public boolean hasRawLocation() {
-      return rawLocationBuilder_ != null || rawLocation_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -5567,11 +5372,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rawLocation_ = value;
-        onChanged();
       } else {
         rawLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5585,11 +5390,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (rawLocationBuilder_ == null) {
         rawLocation_ = builderForValue.build();
-        onChanged();
       } else {
         rawLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5601,17 +5406,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRawLocation(com.google.type.LatLng value) {
       if (rawLocationBuilder_ == null) {
-        if (rawLocation_ != null) {
-          rawLocation_ =
-            com.google.type.LatLng.newBuilder(rawLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          rawLocation_ != null &&
+          rawLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+          getRawLocationBuilder().mergeFrom(value);
         } else {
           rawLocation_ = value;
         }
-        onChanged();
       } else {
         rawLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5622,14 +5428,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng raw_location = 16;</code>
      */
     public Builder clearRawLocation() {
-      if (rawLocationBuilder_ == null) {
-        rawLocation_ = null;
-        onChanged();
-      } else {
-        rawLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      rawLocation_ = null;
+      if (rawLocationBuilder_ != null) {
+        rawLocationBuilder_.dispose();
         rawLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5640,7 +5445,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng raw_location = 16;</code>
      */
     public com.google.type.LatLng.Builder getRawLocationBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getRawLocationFieldBuilder().getBuilder();
     }
@@ -5692,7 +5497,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rawLocationTime field is set.
      */
     public boolean hasRawLocationTime() {
-      return rawLocationTimeBuilder_ != null || rawLocationTime_ != null;
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <pre>
@@ -5722,11 +5527,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rawLocationTime_ = value;
-        onChanged();
       } else {
         rawLocationTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -5740,11 +5545,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (rawLocationTimeBuilder_ == null) {
         rawLocationTime_ = builderForValue.build();
-        onChanged();
       } else {
         rawLocationTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -5756,17 +5561,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRawLocationTime(com.google.protobuf.Timestamp value) {
       if (rawLocationTimeBuilder_ == null) {
-        if (rawLocationTime_ != null) {
-          rawLocationTime_ =
-            com.google.protobuf.Timestamp.newBuilder(rawLocationTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00100000) != 0) &&
+          rawLocationTime_ != null &&
+          rawLocationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRawLocationTimeBuilder().mergeFrom(value);
         } else {
           rawLocationTime_ = value;
         }
-        onChanged();
       } else {
         rawLocationTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -5777,14 +5583,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp raw_location_time = 17 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearRawLocationTime() {
-      if (rawLocationTimeBuilder_ == null) {
-        rawLocationTime_ = null;
-        onChanged();
-      } else {
-        rawLocationTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00100000);
+      rawLocationTime_ = null;
+      if (rawLocationTimeBuilder_ != null) {
+        rawLocationTimeBuilder_.dispose();
         rawLocationTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5795,7 +5600,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp raw_location_time = 17 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getRawLocationTimeBuilder() {
-      
+      bitField0_ |= 0x00100000;
       onChanged();
       return getRawLocationTimeFieldBuilder().getBuilder();
     }
@@ -5857,8 +5662,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRawLocationSensorValue(int value) {
-      
       rawLocationSensor_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -5872,8 +5677,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor getRawLocationSensor() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.valueOf(rawLocationSensor_);
+      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.forNumber(rawLocationSensor_);
       return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNRECOGNIZED : result;
     }
     /**
@@ -5889,7 +5693,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00200000;
       rawLocationSensor_ = value.getNumber();
       onChanged();
       return this;
@@ -5903,7 +5707,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRawLocationSensor() {
-      
+      bitField0_ = (bitField0_ & ~0x00200000);
       rawLocationSensor_ = 0;
       onChanged();
       return this;
@@ -5921,7 +5725,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rawLocationAccuracy field is set.
      */
     public boolean hasRawLocationAccuracy() {
-      return rawLocationAccuracyBuilder_ != null || rawLocationAccuracy_ != null;
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <pre>
@@ -5951,11 +5755,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rawLocationAccuracy_ = value;
-        onChanged();
       } else {
         rawLocationAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -5969,11 +5773,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (rawLocationAccuracyBuilder_ == null) {
         rawLocationAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         rawLocationAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -5985,17 +5789,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRawLocationAccuracy(com.google.protobuf.DoubleValue value) {
       if (rawLocationAccuracyBuilder_ == null) {
-        if (rawLocationAccuracy_ != null) {
-          rawLocationAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(rawLocationAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00400000) != 0) &&
+          rawLocationAccuracy_ != null &&
+          rawLocationAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getRawLocationAccuracyBuilder().mergeFrom(value);
         } else {
           rawLocationAccuracy_ = value;
         }
-        onChanged();
       } else {
         rawLocationAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6006,14 +5811,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue raw_location_accuracy = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearRawLocationAccuracy() {
-      if (rawLocationAccuracyBuilder_ == null) {
-        rawLocationAccuracy_ = null;
-        onChanged();
-      } else {
-        rawLocationAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      rawLocationAccuracy_ = null;
+      if (rawLocationAccuracyBuilder_ != null) {
+        rawLocationAccuracyBuilder_.dispose();
         rawLocationAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6024,7 +5828,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue raw_location_accuracy = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.DoubleValue.Builder getRawLocationAccuracyBuilder() {
-      
+      bitField0_ |= 0x00400000;
       onChanged();
       return getRawLocationAccuracyFieldBuilder().getBuilder();
     }
@@ -6076,7 +5880,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the supplementalLocation field is set.
      */
     public boolean hasSupplementalLocation() {
-      return supplementalLocationBuilder_ != null || supplementalLocation_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -6106,11 +5910,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         supplementalLocation_ = value;
-        onChanged();
       } else {
         supplementalLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6124,11 +5928,11 @@ private static final long serialVersionUID = 0L;
         com.google.type.LatLng.Builder builderForValue) {
       if (supplementalLocationBuilder_ == null) {
         supplementalLocation_ = builderForValue.build();
-        onChanged();
       } else {
         supplementalLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6140,17 +5944,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSupplementalLocation(com.google.type.LatLng value) {
       if (supplementalLocationBuilder_ == null) {
-        if (supplementalLocation_ != null) {
-          supplementalLocation_ =
-            com.google.type.LatLng.newBuilder(supplementalLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          supplementalLocation_ != null &&
+          supplementalLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+          getSupplementalLocationBuilder().mergeFrom(value);
         } else {
           supplementalLocation_ = value;
         }
-        onChanged();
       } else {
         supplementalLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6161,14 +5966,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng supplemental_location = 18 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearSupplementalLocation() {
-      if (supplementalLocationBuilder_ == null) {
-        supplementalLocation_ = null;
-        onChanged();
-      } else {
-        supplementalLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      supplementalLocation_ = null;
+      if (supplementalLocationBuilder_ != null) {
+        supplementalLocationBuilder_.dispose();
         supplementalLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6179,7 +5983,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.type.LatLng supplemental_location = 18 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.type.LatLng.Builder getSupplementalLocationBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getSupplementalLocationFieldBuilder().getBuilder();
     }
@@ -6231,7 +6035,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the supplementalLocationTime field is set.
      */
     public boolean hasSupplementalLocationTime() {
-      return supplementalLocationTimeBuilder_ != null || supplementalLocationTime_ != null;
+      return ((bitField0_ & 0x01000000) != 0);
     }
     /**
      * <pre>
@@ -6261,11 +6065,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         supplementalLocationTime_ = value;
-        onChanged();
       } else {
         supplementalLocationTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -6279,11 +6083,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (supplementalLocationTimeBuilder_ == null) {
         supplementalLocationTime_ = builderForValue.build();
-        onChanged();
       } else {
         supplementalLocationTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -6295,17 +6099,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSupplementalLocationTime(com.google.protobuf.Timestamp value) {
       if (supplementalLocationTimeBuilder_ == null) {
-        if (supplementalLocationTime_ != null) {
-          supplementalLocationTime_ =
-            com.google.protobuf.Timestamp.newBuilder(supplementalLocationTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x01000000) != 0) &&
+          supplementalLocationTime_ != null &&
+          supplementalLocationTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getSupplementalLocationTimeBuilder().mergeFrom(value);
         } else {
           supplementalLocationTime_ = value;
         }
-        onChanged();
       } else {
         supplementalLocationTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x01000000;
+      onChanged();
       return this;
     }
     /**
@@ -6316,14 +6121,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp supplemental_location_time = 19 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearSupplementalLocationTime() {
-      if (supplementalLocationTimeBuilder_ == null) {
-        supplementalLocationTime_ = null;
-        onChanged();
-      } else {
-        supplementalLocationTime_ = null;
+      bitField0_ = (bitField0_ & ~0x01000000);
+      supplementalLocationTime_ = null;
+      if (supplementalLocationTimeBuilder_ != null) {
+        supplementalLocationTimeBuilder_.dispose();
         supplementalLocationTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6334,7 +6138,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp supplemental_location_time = 19 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getSupplementalLocationTimeBuilder() {
-      
+      bitField0_ |= 0x01000000;
       onChanged();
       return getSupplementalLocationTimeFieldBuilder().getBuilder();
     }
@@ -6396,8 +6200,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSupplementalLocationSensorValue(int value) {
-      
       supplementalLocationSensor_ = value;
+      bitField0_ |= 0x02000000;
       onChanged();
       return this;
     }
@@ -6411,8 +6215,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor getSupplementalLocationSensor() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.valueOf(supplementalLocationSensor_);
+      google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor result = google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.forNumber(supplementalLocationSensor_);
       return result == null ? google.maps.fleetengine.delivery.v1.DeliveryVehicleLocationSensor.UNRECOGNIZED : result;
     }
     /**
@@ -6428,7 +6231,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x02000000;
       supplementalLocationSensor_ = value.getNumber();
       onChanged();
       return this;
@@ -6442,7 +6245,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSupplementalLocationSensor() {
-      
+      bitField0_ = (bitField0_ & ~0x02000000);
       supplementalLocationSensor_ = 0;
       onChanged();
       return this;
@@ -6460,7 +6263,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the supplementalLocationAccuracy field is set.
      */
     public boolean hasSupplementalLocationAccuracy() {
-      return supplementalLocationAccuracyBuilder_ != null || supplementalLocationAccuracy_ != null;
+      return ((bitField0_ & 0x04000000) != 0);
     }
     /**
      * <pre>
@@ -6490,11 +6293,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         supplementalLocationAccuracy_ = value;
-        onChanged();
       } else {
         supplementalLocationAccuracyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -6508,11 +6311,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.DoubleValue.Builder builderForValue) {
       if (supplementalLocationAccuracyBuilder_ == null) {
         supplementalLocationAccuracy_ = builderForValue.build();
-        onChanged();
       } else {
         supplementalLocationAccuracyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -6524,17 +6327,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSupplementalLocationAccuracy(com.google.protobuf.DoubleValue value) {
       if (supplementalLocationAccuracyBuilder_ == null) {
-        if (supplementalLocationAccuracy_ != null) {
-          supplementalLocationAccuracy_ =
-            com.google.protobuf.DoubleValue.newBuilder(supplementalLocationAccuracy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x04000000) != 0) &&
+          supplementalLocationAccuracy_ != null &&
+          supplementalLocationAccuracy_ != com.google.protobuf.DoubleValue.getDefaultInstance()) {
+          getSupplementalLocationAccuracyBuilder().mergeFrom(value);
         } else {
           supplementalLocationAccuracy_ = value;
         }
-        onChanged();
       } else {
         supplementalLocationAccuracyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -6545,14 +6349,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue supplemental_location_accuracy = 21 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public Builder clearSupplementalLocationAccuracy() {
-      if (supplementalLocationAccuracyBuilder_ == null) {
-        supplementalLocationAccuracy_ = null;
-        onChanged();
-      } else {
-        supplementalLocationAccuracy_ = null;
+      bitField0_ = (bitField0_ & ~0x04000000);
+      supplementalLocationAccuracy_ = null;
+      if (supplementalLocationAccuracyBuilder_ != null) {
+        supplementalLocationAccuracyBuilder_.dispose();
         supplementalLocationAccuracyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6563,7 +6366,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.DoubleValue supplemental_location_accuracy = 21 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      */
     public com.google.protobuf.DoubleValue.Builder getSupplementalLocationAccuracyBuilder() {
-      
+      bitField0_ |= 0x04000000;
       onChanged();
       return getSupplementalLocationAccuracyFieldBuilder().getBuilder();
     }
@@ -6632,6 +6435,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder setRoadSnapped(boolean value) {
       
       roadSnapped_ = value;
+      bitField0_ |= 0x08000000;
       onChanged();
       return this;
     }
@@ -6646,7 +6450,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearRoadSnapped() {
-      
+      bitField0_ = (bitField0_ & ~0x08000000);
       roadSnapped_ = false;
       onChanged();
       return this;
@@ -6684,7 +6488,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeliveryVehicleLocation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

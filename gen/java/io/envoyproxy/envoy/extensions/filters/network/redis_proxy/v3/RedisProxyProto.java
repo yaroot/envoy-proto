@@ -61,93 +61,98 @@ public final class RedisProxyProto {
       "\nAenvoy/extensions/filters/network/redis" +
       "_proxy/v3/redis_proxy.proto\022/envoy.exten" +
       "sions.filters.network.redis_proxy.v3\032\037en" +
-      "voy/config/core/v3/base.proto\032\036google/pr" +
-      "otobuf/duration.proto\032\036google/protobuf/w" +
-      "rappers.proto\032#envoy/annotations/depreca" +
-      "tion.proto\032\036udpa/annotations/migrate.pro" +
-      "to\032 udpa/annotations/sensitive.proto\032\035ud" +
-      "pa/annotations/status.proto\032!udpa/annota" +
-      "tions/versioning.proto\032\027validate/validat" +
-      "e.proto\"\362\023\n\nRedisProxy\022\034\n\013stat_prefix\030\001 " +
-      "\001(\tB\007\372B\004r\002\020\001\022h\n\010settings\030\003 \001(\0132L.envoy.e" +
+      "voy/config/core/v3/base.proto\032@envoy/ext" +
+      "ensions/common/dynamic_forward_proxy/v3/" +
+      "dns_cache.proto\032\036google/protobuf/duratio" +
+      "n.proto\032\036google/protobuf/wrappers.proto\032" +
+      "#envoy/annotations/deprecation.proto\032\036ud" +
+      "pa/annotations/migrate.proto\032 udpa/annot" +
+      "ations/sensitive.proto\032\035udpa/annotations" +
+      "/status.proto\032!udpa/annotations/versioni" +
+      "ng.proto\032\027validate/validate.proto\"\316\024\n\nRe" +
+      "disProxy\022\034\n\013stat_prefix\030\001 \001(\tB\007\372B\004r\002\020\001\022h" +
+      "\n\010settings\030\003 \001(\0132L.envoy.extensions.filt" +
+      "ers.network.redis_proxy.v3.RedisProxy.Co" +
+      "nnPoolSettingsB\010\372B\005\212\001\002\020\001\022\031\n\021latency_in_m" +
+      "icros\030\004 \001(\010\022_\n\rprefix_routes\030\005 \001(\0132H.env" +
+      "oy.extensions.filters.network.redis_prox" +
+      "y.v3.RedisProxy.PrefixRoutes\022U\n\030downstre" +
+      "am_auth_password\030\006 \001(\0132 .envoy.config.co" +
+      "re.v3.DataSourceB\021\030\001\270\267\213\244\002\001\222\307\206\330\004\0033.0\022K\n\031d" +
+      "ownstream_auth_passwords\030\t \003(\0132 .envoy.c" +
+      "onfig.core.v3.DataSourceB\006\270\267\213\244\002\001\022V\n\006faul" +
+      "ts\030\010 \003(\0132F.envoy.extensions.filters.netw" +
+      "ork.redis_proxy.v3.RedisProxy.RedisFault" +
+      "\022J\n\030downstream_auth_username\030\007 \001(\0132 .env" +
+      "oy.config.core.v3.DataSourceB\006\270\267\213\244\002\001\032\353\005\n" +
+      "\020ConnPoolSettings\0227\n\nop_timeout\030\001 \001(\0132\031." +
+      "google.protobuf.DurationB\010\372B\005\252\001\002\010\001\022\032\n\022en" +
+      "able_hashtagging\030\002 \001(\010\022\032\n\022enable_redirec" +
+      "tion\030\003 \001(\010\022Z\n\020dns_cache_config\030\t \001(\0132@.e" +
+      "nvoy.extensions.common.dynamic_forward_p" +
+      "roxy.v3.DnsCacheConfig\022$\n\034max_buffer_siz" +
+      "e_before_flush\030\004 \001(\r\0227\n\024buffer_flush_tim" +
+      "eout\030\005 \001(\0132\031.google.protobuf.Duration\022F\n" +
+      " max_upstream_unknown_connections\030\006 \001(\0132" +
+      "\034.google.protobuf.UInt32Value\022\034\n\024enable_" +
+      "command_stats\030\010 \001(\010\022v\n\013read_policy\030\007 \001(\016" +
+      "2W.envoy.extensions.filters.network.redi" +
+      "s_proxy.v3.RedisProxy.ConnPoolSettings.R" +
+      "eadPolicyB\010\372B\005\202\001\002\020\001\"~\n\nReadPolicy\022\033\n\006MAS" +
+      "TER\020\000\032\017\362\230\376\217\005\t\n\007PRIMARY\022)\n\rPREFER_MASTER\020" +
+      "\001\032\026\362\230\376\217\005\020\n\016PREFER_PRIMARY\022\013\n\007REPLICA\020\002\022\022" +
+      "\n\016PREFER_REPLICA\020\003\022\007\n\003ANY\020\004:M\232\305\210\036H\nFenvo" +
+      "y.config.filter.network.redis_proxy.v2.R" +
+      "edisProxy.ConnPoolSettings\032\377\006\n\014PrefixRou" +
+      "tes\022^\n\006routes\030\001 \003(\0132N.envoy.extensions.f" +
+      "ilters.network.redis_proxy.v3.RedisProxy" +
+      ".PrefixRoutes.Route\022\030\n\020case_insensitive\030" +
+      "\002 \001(\010\022g\n\017catch_all_route\030\004 \001(\0132N.envoy.e" +
       "xtensions.filters.network.redis_proxy.v3" +
-      ".RedisProxy.ConnPoolSettingsB\010\372B\005\212\001\002\020\001\022\031" +
-      "\n\021latency_in_micros\030\004 \001(\010\022_\n\rprefix_rout" +
-      "es\030\005 \001(\0132H.envoy.extensions.filters.netw" +
-      "ork.redis_proxy.v3.RedisProxy.PrefixRout" +
-      "es\022U\n\030downstream_auth_password\030\006 \001(\0132 .e" +
-      "nvoy.config.core.v3.DataSourceB\021\030\001\270\267\213\244\002\001" +
-      "\222\307\206\330\004\0033.0\022K\n\031downstream_auth_passwords\030\t" +
-      " \003(\0132 .envoy.config.core.v3.DataSourceB\006" +
-      "\270\267\213\244\002\001\022V\n\006faults\030\010 \003(\0132F.envoy.extension" +
-      "s.filters.network.redis_proxy.v3.RedisPr" +
-      "oxy.RedisFault\022J\n\030downstream_auth_userna" +
-      "me\030\007 \001(\0132 .envoy.config.core.v3.DataSour" +
-      "ceB\006\270\267\213\244\002\001\032\217\005\n\020ConnPoolSettings\0227\n\nop_ti" +
-      "meout\030\001 \001(\0132\031.google.protobuf.DurationB\010" +
-      "\372B\005\252\001\002\010\001\022\032\n\022enable_hashtagging\030\002 \001(\010\022\032\n\022" +
-      "enable_redirection\030\003 \001(\010\022$\n\034max_buffer_s" +
-      "ize_before_flush\030\004 \001(\r\0227\n\024buffer_flush_t" +
-      "imeout\030\005 \001(\0132\031.google.protobuf.Duration\022" +
-      "F\n max_upstream_unknown_connections\030\006 \001(" +
-      "\0132\034.google.protobuf.UInt32Value\022\034\n\024enabl" +
-      "e_command_stats\030\010 \001(\010\022v\n\013read_policy\030\007 \001" +
-      "(\0162W.envoy.extensions.filters.network.re" +
-      "dis_proxy.v3.RedisProxy.ConnPoolSettings" +
-      ".ReadPolicyB\010\372B\005\202\001\002\020\001\"~\n\nReadPolicy\022\033\n\006M" +
-      "ASTER\020\000\032\017\362\230\376\217\005\t\n\007PRIMARY\022)\n\rPREFER_MASTE" +
-      "R\020\001\032\026\362\230\376\217\005\020\n\016PREFER_PRIMARY\022\013\n\007REPLICA\020\002" +
-      "\022\022\n\016PREFER_REPLICA\020\003\022\007\n\003ANY\020\004:M\232\305\210\036H\nFen" +
+      ".RedisProxy.PrefixRoutes.Route\032\247\004\n\005Route" +
+      "\022\030\n\006prefix\030\001 \001(\tB\010\372B\005r\003(\350\007\022\025\n\rremove_pre" +
+      "fix\030\002 \001(\010\022\030\n\007cluster\030\003 \001(\tB\007\372B\004r\002\020\001\022\201\001\n\025" +
+      "request_mirror_policy\030\004 \003(\0132b.envoy.exte" +
+      "nsions.filters.network.redis_proxy.v3.Re" +
+      "disProxy.PrefixRoutes.Route.RequestMirro" +
+      "rPolicy\032\375\001\n\023RequestMirrorPolicy\022\030\n\007clust" +
+      "er\030\001 \001(\tB\007\372B\004r\002\020\001\022H\n\020runtime_fraction\030\002 " +
+      "\001(\0132..envoy.config.core.v3.RuntimeFracti" +
+      "onalPercent\022\035\n\025exclude_read_commands\030\003 \001" +
+      "(\010:c\232\305\210\036^\n\\envoy.config.filter.network.r" +
+      "edis_proxy.v2.RedisProxy.PrefixRoutes.Ro" +
+      "ute.RequestMirrorPolicy:O\232\305\210\036J\nHenvoy.co" +
+      "nfig.filter.network.redis_proxy.v2.Redis" +
+      "Proxy.PrefixRoutes.Route:I\232\305\210\036D\nBenvoy.c" +
+      "onfig.filter.network.redis_proxy.v2.Redi" +
+      "sProxy.PrefixRoutesJ\004\010\003\020\004R\021catch_all_clu" +
+      "ster\032\266\002\n\nRedisFault\022s\n\nfault_type\030\001 \001(\0162" +
+      "U.envoy.extensions.filters.network.redis" +
+      "_proxy.v3.RedisProxy.RedisFault.RedisFau" +
+      "ltTypeB\010\372B\005\202\001\002\020\001\022O\n\rfault_enabled\030\002 \001(\0132" +
+      "..envoy.config.core.v3.RuntimeFractional" +
+      "PercentB\010\372B\005\212\001\002\020\001\022(\n\005delay\030\003 \001(\0132\031.googl" +
+      "e.protobuf.Duration\022\020\n\010commands\030\004 \003(\t\"&\n" +
+      "\016RedisFaultType\022\t\n\005DELAY\020\000\022\t\n\005ERROR\020\001:<\232" +
+      "\305\210\0367\n5envoy.config.filter.network.redis_" +
+      "proxy.v2.RedisProxyJ\004\010\002\020\003R\007cluster\"\340\001\n\024R" +
+      "edisProtocolOptions\022?\n\rauth_password\030\001 \001" +
+      "(\0132 .envoy.config.core.v3.DataSourceB\006\270\267" +
+      "\213\244\002\001\022?\n\rauth_username\030\002 \001(\0132 .envoy.conf" +
+      "ig.core.v3.DataSourceB\006\270\267\213\244\002\001:F\232\305\210\036A\n?en" +
       "voy.config.filter.network.redis_proxy.v2" +
-      ".RedisProxy.ConnPoolSettings\032\377\006\n\014PrefixR" +
-      "outes\022^\n\006routes\030\001 \003(\0132N.envoy.extensions" +
-      ".filters.network.redis_proxy.v3.RedisPro" +
-      "xy.PrefixRoutes.Route\022\030\n\020case_insensitiv" +
-      "e\030\002 \001(\010\022g\n\017catch_all_route\030\004 \001(\0132N.envoy" +
-      ".extensions.filters.network.redis_proxy." +
-      "v3.RedisProxy.PrefixRoutes.Route\032\247\004\n\005Rou" +
-      "te\022\030\n\006prefix\030\001 \001(\tB\010\372B\005r\003(\350\007\022\025\n\rremove_p" +
-      "refix\030\002 \001(\010\022\030\n\007cluster\030\003 \001(\tB\007\372B\004r\002\020\001\022\201\001" +
-      "\n\025request_mirror_policy\030\004 \003(\0132b.envoy.ex" +
-      "tensions.filters.network.redis_proxy.v3." +
-      "RedisProxy.PrefixRoutes.Route.RequestMir" +
-      "rorPolicy\032\375\001\n\023RequestMirrorPolicy\022\030\n\007clu" +
-      "ster\030\001 \001(\tB\007\372B\004r\002\020\001\022H\n\020runtime_fraction\030" +
-      "\002 \001(\0132..envoy.config.core.v3.RuntimeFrac" +
-      "tionalPercent\022\035\n\025exclude_read_commands\030\003" +
-      " \001(\010:c\232\305\210\036^\n\\envoy.config.filter.network" +
-      ".redis_proxy.v2.RedisProxy.PrefixRoutes." +
-      "Route.RequestMirrorPolicy:O\232\305\210\036J\nHenvoy." +
-      "config.filter.network.redis_proxy.v2.Red" +
-      "isProxy.PrefixRoutes.Route:I\232\305\210\036D\nBenvoy" +
-      ".config.filter.network.redis_proxy.v2.Re" +
-      "disProxy.PrefixRoutesJ\004\010\003\020\004R\021catch_all_c" +
-      "luster\032\266\002\n\nRedisFault\022s\n\nfault_type\030\001 \001(" +
-      "\0162U.envoy.extensions.filters.network.red" +
-      "is_proxy.v3.RedisProxy.RedisFault.RedisF" +
-      "aultTypeB\010\372B\005\202\001\002\020\001\022O\n\rfault_enabled\030\002 \001(" +
-      "\0132..envoy.config.core.v3.RuntimeFraction" +
-      "alPercentB\010\372B\005\212\001\002\020\001\022(\n\005delay\030\003 \001(\0132\031.goo" +
-      "gle.protobuf.Duration\022\020\n\010commands\030\004 \003(\t\"" +
-      "&\n\016RedisFaultType\022\t\n\005DELAY\020\000\022\t\n\005ERROR\020\001:" +
-      "<\232\305\210\0367\n5envoy.config.filter.network.redi" +
-      "s_proxy.v2.RedisProxyJ\004\010\002\020\003R\007cluster\"\340\001\n" +
-      "\024RedisProtocolOptions\022?\n\rauth_password\030\001" +
-      " \001(\0132 .envoy.config.core.v3.DataSourceB\006" +
-      "\270\267\213\244\002\001\022?\n\rauth_username\030\002 \001(\0132 .envoy.co" +
-      "nfig.core.v3.DataSourceB\006\270\267\213\244\002\001:F\232\305\210\036A\n?" +
-      "envoy.config.filter.network.redis_proxy." +
-      "v2.RedisProtocolOptionsB\300\001\n=io.envoyprox" +
-      "y.envoy.extensions.filters.network.redis" +
-      "_proxy.v3B\017RedisProxyProtoP\001Zdgithub.com" +
-      "/envoyproxy/go-control-plane/envoy/exten" +
-      "sions/filters/network/redis_proxy/v3;red" +
-      "is_proxyv3\272\200\310\321\006\002\020\002b\006proto3"
+      ".RedisProtocolOptionsB\300\001\n=io.envoyproxy." +
+      "envoy.extensions.filters.network.redis_p" +
+      "roxy.v3B\017RedisProxyProtoP\001Zdgithub.com/e" +
+      "nvoyproxy/go-control-plane/envoy/extensi" +
+      "ons/filters/network/redis_proxy/v3;redis" +
+      "_proxyv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
+          io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheProto.getDescriptor(),
           com.google.protobuf.DurationProto.getDescriptor(),
           com.google.protobuf.WrappersProto.getDescriptor(),
           envoy.annotations.Deprecation.getDescriptor(),
@@ -168,7 +173,7 @@ public final class RedisProxyProto {
     internal_static_envoy_extensions_filters_network_redis_proxy_v3_RedisProxy_ConnPoolSettings_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_network_redis_proxy_v3_RedisProxy_ConnPoolSettings_descriptor,
-        new java.lang.String[] { "OpTimeout", "EnableHashtagging", "EnableRedirection", "MaxBufferSizeBeforeFlush", "BufferFlushTimeout", "MaxUpstreamUnknownConnections", "EnableCommandStats", "ReadPolicy", });
+        new java.lang.String[] { "OpTimeout", "EnableHashtagging", "EnableRedirection", "DnsCacheConfig", "MaxBufferSizeBeforeFlush", "BufferFlushTimeout", "MaxUpstreamUnknownConnections", "EnableCommandStats", "ReadPolicy", });
     internal_static_envoy_extensions_filters_network_redis_proxy_v3_RedisProxy_PrefixRoutes_descriptor =
       internal_static_envoy_extensions_filters_network_redis_proxy_v3_RedisProxy_descriptor.getNestedTypes().get(1);
     internal_static_envoy_extensions_filters_network_redis_proxy_v3_RedisProxy_PrefixRoutes_fieldAccessorTable = new
@@ -210,6 +215,7 @@ public final class RedisProxyProto {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
+    io.envoyproxy.envoy.extensions.common.dynamic_forward_proxy.v3.DnsCacheProto.getDescriptor();
     com.google.protobuf.DurationProto.getDescriptor();
     com.google.protobuf.WrappersProto.getDescriptor();
     envoy.annotations.Deprecation.getDescriptor();

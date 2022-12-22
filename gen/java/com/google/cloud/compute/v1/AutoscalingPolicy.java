@@ -36,131 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoscalingPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26856730: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000020;
-            mode_ = s;
-            break;
-          }
-          case 498619000: {
-            bitField0_ |= 0x00000008;
-            maxNumReplicas_ = input.readInt32();
-            break;
-          }
-          case 861543632: {
-            bitField0_ |= 0x00000001;
-            coolDownPeriodSec_ = input.readInt32();
-            break;
-          }
-          case 1055782802: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              customMetricUtilizations_ = new java.util.ArrayList<com.google.cloud.compute.v1.AutoscalingPolicyCustomMetricUtilization>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            customMetricUtilizations_.add(
-                input.readMessage(com.google.cloud.compute.v1.AutoscalingPolicyCustomMetricUtilization.parser(), extensionRegistry));
-            break;
-          }
-          case -1451634654: {
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              scalingSchedules_ = com.google.protobuf.MapField.newMapField(
-                  ScalingSchedulesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000100;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule>
-            scalingSchedules__ = input.readMessage(
-                ScalingSchedulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            scalingSchedules_.getMutableMap().put(
-                scalingSchedules__.getKey(), scalingSchedules__.getValue());
-            break;
-          }
-          case -1245278118: {
-            com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = cpuUtilization_.toBuilder();
-            }
-            cpuUtilization_ = input.readMessage(com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cpuUtilization_);
-              cpuUtilization_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case -856996070: {
-            com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = loadBalancingUtilization_.toBuilder();
-            }
-            loadBalancingUtilization_ = input.readMessage(com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(loadBalancingUtilization_);
-              loadBalancingUtilization_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -73600318: {
-            com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000040) != 0)) {
-              subBuilder = scaleInControl_.toBuilder();
-            }
-            scaleInControl_ = input.readMessage(com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(scaleInControl_);
-              scaleInControl_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000040;
-            break;
-          }
-          case -12328696: {
-            bitField0_ |= 0x00000010;
-            minNumReplicas_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        customMetricUtilizations_ = java.util.Collections.unmodifiableList(customMetricUtilizations_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AutoscalingPolicy_descriptor;
@@ -367,7 +242,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int COOL_DOWN_PERIOD_SEC_FIELD_NUMBER = 107692954;
-  private int coolDownPeriodSec_;
+  private int coolDownPeriodSec_ = 0;
   /**
    * <pre>
    * The number of seconds that the autoscaler waits before it starts collecting information from a new instance. This prevents the autoscaler from collecting information when the instance is initializing, during which the collected usage would not be reliable. The default time autoscaler waits is 60 seconds. Virtual machine initialization times might vary because of numerous factors. We recommend that you test how long an instance may take to initialize. To do this, create an instance and time the startup process.
@@ -432,6 +307,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_METRIC_UTILIZATIONS_FIELD_NUMBER = 131972850;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.AutoscalingPolicyCustomMetricUtilization> customMetricUtilizations_;
   /**
    * <pre>
@@ -530,7 +406,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_NUM_REPLICAS_FIELD_NUMBER = 62327375;
-  private int maxNumReplicas_;
+  private int maxNumReplicas_ = 0;
   /**
    * <pre>
    * The maximum number of instances that the autoscaler can scale out to. This is required when creating or updating an autoscaler. The maximum number of replicas must not be lower than minimal number of replicas.
@@ -557,7 +433,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_NUM_REPLICAS_FIELD_NUMBER = 535329825;
-  private int minNumReplicas_;
+  private int minNumReplicas_ = 0;
   /**
    * <pre>
    * The minimum number of replicas that the autoscaler can scale in to. This cannot be less than 0. If not provided, autoscaler chooses a default value depending on maximum number of instances allowed.
@@ -584,7 +460,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODE_FIELD_NUMBER = 3357091;
-  private volatile java.lang.Object mode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object mode_ = "";
   /**
    * <pre>
    * Defines operating mode for this policy.
@@ -682,6 +559,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> scalingSchedules_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule>
@@ -692,7 +570,6 @@ private static final long serialVersionUID = 0L;
     }
     return scalingSchedules_;
   }
-
   public int getScalingSchedulesCount() {
     return internalGetScalingSchedules().getMap().size();
   }
@@ -703,7 +580,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
    */
-
   @java.lang.Override
   public boolean containsScalingSchedules(
       java.lang.String key) {
@@ -726,7 +602,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> getScalingSchedulesMap() {
     return internalGetScalingSchedules().getMap();
   }
@@ -738,10 +613,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrDefault(
+  public /* nullable */
+com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrDefault(
       java.lang.String key,
-      com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule defaultValue) {
+      /* nullable */
+com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> map =
         internalGetScalingSchedules().getMap();
@@ -755,7 +631,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -811,7 +686,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000010) != 0)) {
       output.writeInt32(535329825, minNumReplicas_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -861,7 +736,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(535329825, minNumReplicas_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -915,7 +790,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetScalingSchedules().equals(
         other.internalGetScalingSchedules())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -962,7 +837,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SCALING_SCHEDULES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetScalingSchedules().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1125,38 +1000,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       coolDownPeriodSec_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (cpuUtilizationBuilder_ == null) {
-        cpuUtilization_ = null;
-      } else {
-        cpuUtilizationBuilder_.clear();
+      cpuUtilization_ = null;
+      if (cpuUtilizationBuilder_ != null) {
+        cpuUtilizationBuilder_.dispose();
+        cpuUtilizationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (customMetricUtilizationsBuilder_ == null) {
         customMetricUtilizations_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        customMetricUtilizations_ = null;
         customMetricUtilizationsBuilder_.clear();
       }
-      if (loadBalancingUtilizationBuilder_ == null) {
-        loadBalancingUtilization_ = null;
-      } else {
-        loadBalancingUtilizationBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      loadBalancingUtilization_ = null;
+      if (loadBalancingUtilizationBuilder_ != null) {
+        loadBalancingUtilizationBuilder_.dispose();
+        loadBalancingUtilizationBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
       maxNumReplicas_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000010);
       minNumReplicas_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000020);
       mode_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (scaleInControlBuilder_ == null) {
-        scaleInControl_ = null;
-      } else {
-        scaleInControlBuilder_.clear();
+      scaleInControl_ = null;
+      if (scaleInControlBuilder_ != null) {
+        scaleInControlBuilder_.dispose();
+        scaleInControlBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableScalingSchedules().clear();
       return this;
     }
@@ -1184,20 +1054,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AutoscalingPolicy buildPartial() {
       com.google.cloud.compute.v1.AutoscalingPolicy result = new com.google.cloud.compute.v1.AutoscalingPolicy(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        result.coolDownPeriodSec_ = coolDownPeriodSec_;
-        to_bitField0_ |= 0x00000001;
-      }
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (cpuUtilizationBuilder_ == null) {
-          result.cpuUtilization_ = cpuUtilization_;
-        } else {
-          result.cpuUtilization_ = cpuUtilizationBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000002;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.AutoscalingPolicy result) {
       if (customMetricUtilizationsBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           customMetricUtilizations_ = java.util.Collections.unmodifiableList(customMetricUtilizations_);
@@ -1207,12 +1070,25 @@ private static final long serialVersionUID = 0L;
       } else {
         result.customMetricUtilizations_ = customMetricUtilizationsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AutoscalingPolicy result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.coolDownPeriodSec_ = coolDownPeriodSec_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.cpuUtilization_ = cpuUtilizationBuilder_ == null
+            ? cpuUtilization_
+            : cpuUtilizationBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (loadBalancingUtilizationBuilder_ == null) {
-          result.loadBalancingUtilization_ = loadBalancingUtilization_;
-        } else {
-          result.loadBalancingUtilization_ = loadBalancingUtilizationBuilder_.build();
-        }
+        result.loadBalancingUtilization_ = loadBalancingUtilizationBuilder_ == null
+            ? loadBalancingUtilization_
+            : loadBalancingUtilizationBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
@@ -1224,22 +1100,20 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000010;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.mode_ = mode_;
         to_bitField0_ |= 0x00000020;
       }
-      result.mode_ = mode_;
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        if (scaleInControlBuilder_ == null) {
-          result.scaleInControl_ = scaleInControl_;
-        } else {
-          result.scaleInControl_ = scaleInControlBuilder_.build();
-        }
+        result.scaleInControl_ = scaleInControlBuilder_ == null
+            ? scaleInControl_
+            : scaleInControlBuilder_.build();
         to_bitField0_ |= 0x00000040;
       }
-      result.scalingSchedules_ = internalGetScalingSchedules();
-      result.scalingSchedules_.makeImmutable();
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.scalingSchedules_ = internalGetScalingSchedules();
+        result.scalingSchedules_.makeImmutable();
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1328,8 +1202,8 @@ private static final long serialVersionUID = 0L;
         setMinNumReplicas(other.getMinNumReplicas());
       }
       if (other.hasMode()) {
-        bitField0_ |= 0x00000040;
         mode_ = other.mode_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasScaleInControl()) {
@@ -1337,7 +1211,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableScalingSchedules().mergeFrom(
           other.internalGetScalingSchedules());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000100;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1352,17 +1227,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AutoscalingPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26856730: {
+              mode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 26856730
+            case 498619000: {
+              maxNumReplicas_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 498619000
+            case 861543632: {
+              coolDownPeriodSec_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 861543632
+            case 1055782802: {
+              com.google.cloud.compute.v1.AutoscalingPolicyCustomMetricUtilization m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.AutoscalingPolicyCustomMetricUtilization.parser(),
+                      extensionRegistry);
+              if (customMetricUtilizationsBuilder_ == null) {
+                ensureCustomMetricUtilizationsIsMutable();
+                customMetricUtilizations_.add(m);
+              } else {
+                customMetricUtilizationsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 1055782802
+            case -1451634654: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule>
+              scalingSchedules__ = input.readMessage(
+                  ScalingSchedulesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableScalingSchedules().getMutableMap().put(
+                  scalingSchedules__.getKey(), scalingSchedules__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case -1451634654
+            case -1245278118: {
+              input.readMessage(
+                  getCpuUtilizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1245278118
+            case -856996070: {
+              input.readMessage(
+                  getLoadBalancingUtilizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -856996070
+            case -73600318: {
+              input.readMessage(
+                  getScaleInControlFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -73600318
+            case -12328696: {
+              minNumReplicas_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case -12328696
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AutoscalingPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1402,8 +1353,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCoolDownPeriodSec(int value) {
-      bitField0_ |= 0x00000001;
+      
       coolDownPeriodSec_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1464,11 +1416,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cpuUtilization_ = value;
-        onChanged();
       } else {
         cpuUtilizationBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1482,11 +1434,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization.Builder builderForValue) {
       if (cpuUtilizationBuilder_ == null) {
         cpuUtilization_ = builderForValue.build();
-        onChanged();
       } else {
         cpuUtilizationBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1499,18 +1451,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeCpuUtilization(com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization value) {
       if (cpuUtilizationBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            cpuUtilization_ != null &&
-            cpuUtilization_ != com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization.getDefaultInstance()) {
-          cpuUtilization_ =
-            com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization.newBuilder(cpuUtilization_).mergeFrom(value).buildPartial();
+          cpuUtilization_ != null &&
+          cpuUtilization_ != com.google.cloud.compute.v1.AutoscalingPolicyCpuUtilization.getDefaultInstance()) {
+          getCpuUtilizationBuilder().mergeFrom(value);
         } else {
           cpuUtilization_ = value;
         }
-        onChanged();
       } else {
         cpuUtilizationBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1521,13 +1472,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.AutoscalingPolicyCpuUtilization cpu_utilization = 381211147;</code>
      */
     public Builder clearCpuUtilization() {
-      if (cpuUtilizationBuilder_ == null) {
-        cpuUtilization_ = null;
-        onChanged();
-      } else {
-        cpuUtilizationBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      cpuUtilization_ = null;
+      if (cpuUtilizationBuilder_ != null) {
+        cpuUtilizationBuilder_.dispose();
+        cpuUtilizationBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1932,11 +1883,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         loadBalancingUtilization_ = value;
-        onChanged();
       } else {
         loadBalancingUtilizationBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1950,11 +1901,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization.Builder builderForValue) {
       if (loadBalancingUtilizationBuilder_ == null) {
         loadBalancingUtilization_ = builderForValue.build();
-        onChanged();
       } else {
         loadBalancingUtilizationBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1967,18 +1918,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeLoadBalancingUtilization(com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization value) {
       if (loadBalancingUtilizationBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            loadBalancingUtilization_ != null &&
-            loadBalancingUtilization_ != com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization.getDefaultInstance()) {
-          loadBalancingUtilization_ =
-            com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization.newBuilder(loadBalancingUtilization_).mergeFrom(value).buildPartial();
+          loadBalancingUtilization_ != null &&
+          loadBalancingUtilization_ != com.google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization.getDefaultInstance()) {
+          getLoadBalancingUtilizationBuilder().mergeFrom(value);
         } else {
           loadBalancingUtilization_ = value;
         }
-        onChanged();
       } else {
         loadBalancingUtilizationBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1989,13 +1939,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.AutoscalingPolicyLoadBalancingUtilization load_balancing_utilization = 429746403;</code>
      */
     public Builder clearLoadBalancingUtilization() {
-      if (loadBalancingUtilizationBuilder_ == null) {
-        loadBalancingUtilization_ = null;
-        onChanged();
-      } else {
-        loadBalancingUtilizationBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      loadBalancingUtilization_ = null;
+      if (loadBalancingUtilizationBuilder_ != null) {
+        loadBalancingUtilizationBuilder_.dispose();
+        loadBalancingUtilizationBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2081,8 +2031,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxNumReplicas(int value) {
-      bitField0_ |= 0x00000010;
+      
       maxNumReplicas_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2136,8 +2087,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMinNumReplicas(int value) {
-      bitField0_ |= 0x00000020;
+      
       minNumReplicas_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2224,11 +2176,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       mode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2242,8 +2192,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMode() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       mode_ = getDefaultInstance().getMode();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -2259,12 +2209,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setModeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       mode_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2299,11 +2247,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         scaleInControl_ = value;
-        onChanged();
       } else {
         scaleInControlBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2313,11 +2261,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl.Builder builderForValue) {
       if (scaleInControlBuilder_ == null) {
         scaleInControl_ = builderForValue.build();
-        onChanged();
       } else {
         scaleInControlBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2326,31 +2274,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeScaleInControl(com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl value) {
       if (scaleInControlBuilder_ == null) {
         if (((bitField0_ & 0x00000080) != 0) &&
-            scaleInControl_ != null &&
-            scaleInControl_ != com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl.getDefaultInstance()) {
-          scaleInControl_ =
-            com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl.newBuilder(scaleInControl_).mergeFrom(value).buildPartial();
+          scaleInControl_ != null &&
+          scaleInControl_ != com.google.cloud.compute.v1.AutoscalingPolicyScaleInControl.getDefaultInstance()) {
+          getScaleInControlBuilder().mergeFrom(value);
         } else {
           scaleInControl_ = value;
         }
-        onChanged();
       } else {
         scaleInControlBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.AutoscalingPolicyScaleInControl scale_in_control = 527670872;</code>
      */
     public Builder clearScaleInControl() {
-      if (scaleInControlBuilder_ == null) {
-        scaleInControl_ = null;
-        onChanged();
-      } else {
-        scaleInControlBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000080);
+      scaleInControl_ = null;
+      if (scaleInControlBuilder_ != null) {
+        scaleInControlBuilder_.dispose();
+        scaleInControlBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2392,7 +2339,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> scalingSchedules_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule>
-    internalGetScalingSchedules() {
+        internalGetScalingSchedules() {
       if (scalingSchedules_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ScalingSchedulesDefaultEntryHolder.defaultEntry);
@@ -2400,8 +2347,7 @@ private static final long serialVersionUID = 0L;
       return scalingSchedules_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule>
-    internalGetMutableScalingSchedules() {
-      onChanged();;
+        internalGetMutableScalingSchedules() {
       if (scalingSchedules_ == null) {
         scalingSchedules_ = com.google.protobuf.MapField.newMapField(
             ScalingSchedulesDefaultEntryHolder.defaultEntry);
@@ -2409,9 +2355,10 @@ private static final long serialVersionUID = 0L;
       if (!scalingSchedules_.isMutable()) {
         scalingSchedules_ = scalingSchedules_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return scalingSchedules_;
     }
-
     public int getScalingSchedulesCount() {
       return internalGetScalingSchedules().getMap().size();
     }
@@ -2422,7 +2369,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
      */
-
     @java.lang.Override
     public boolean containsScalingSchedules(
         java.lang.String key) {
@@ -2445,7 +2391,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> getScalingSchedulesMap() {
       return internalGetScalingSchedules().getMap();
     }
@@ -2457,10 +2402,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrDefault(
+    public /* nullable */
+com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrDefault(
         java.lang.String key,
-        com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule defaultValue) {
+        /* nullable */
+com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> map =
           internalGetScalingSchedules().getMap();
@@ -2474,7 +2420,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule getScalingSchedulesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2485,8 +2430,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearScalingSchedules() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutableScalingSchedules().getMutableMap()
           .clear();
       return this;
@@ -2498,7 +2443,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
      */
-
     public Builder removeScalingSchedules(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2511,7 +2455,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule>
-    getMutableScalingSchedules() {
+        getMutableScalingSchedules() {
+      bitField0_ |= 0x00000100;
       return internalGetMutableScalingSchedules().getMutableMap();
     }
     /**
@@ -2525,12 +2470,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableScalingSchedules().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -2540,11 +2483,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.AutoscalingPolicyScalingSchedule&gt; scaling_schedules = 355416580;</code>
      */
-
     public Builder putAllScalingSchedules(
         java.util.Map<java.lang.String, com.google.cloud.compute.v1.AutoscalingPolicyScalingSchedule> values) {
       internalGetMutableScalingSchedules().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
     @java.lang.Override
@@ -2580,7 +2523,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoscalingPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -71,7 +71,7 @@ public interface RegexMatchAndSubstituteOrBuilder extends
    * to capture group 2.
    * </pre>
    *
-   * <code>string substitution = 2;</code>
+   * <code>string substitution = 2 [(.validate.rules) = { ... }</code>
    * @return The substitution.
    */
   java.lang.String getSubstitution();
@@ -88,7 +88,7 @@ public interface RegexMatchAndSubstituteOrBuilder extends
    * to capture group 2.
    * </pre>
    *
-   * <code>string substitution = 2;</code>
+   * <code>string substitution = 2 [(.validate.rules) = { ... }</code>
    * @return The bytes for substitution.
    */
   com.google.protobuf.ByteString

@@ -104,7 +104,6 @@ public interface EvalRequestOrBuilder extends
    *
    * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
    */
-
   /* nullable */
 com.google.api.expr.v1alpha1.ExprValue getBindingsOrDefault(
       java.lang.String key,
@@ -118,7 +117,6 @@ com.google.api.expr.v1alpha1.ExprValue defaultValue);
    *
    * <code>map&lt;string, .google.api.expr.v1alpha1.ExprValue&gt; bindings = 3;</code>
    */
-
   com.google.api.expr.v1alpha1.ExprValue getBindingsOrThrow(
       java.lang.String key);
 

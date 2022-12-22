@@ -36,58 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CustomLayerInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              areaInfo_ = new java.util.ArrayList<com.google.maps.routes.v1.CustomLayerInfo.AreaInfo>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            areaInfo_.add(
-                input.readMessage(com.google.maps.routes.v1.CustomLayerInfo.AreaInfo.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        areaInfo_ = java.util.Collections.unmodifiableList(areaInfo_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.RouteProto.internal_static_google_maps_routes_v1_CustomLayerInfo_descriptor;
@@ -208,69 +156,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AreaInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              areaId_ = s;
-              break;
-            }
-            case 21: {
-
-              distanceInAreaMeters_ = input.readFloat();
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (durationInArea_ != null) {
-                subBuilder = durationInArea_.toBuilder();
-              }
-              durationInArea_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(durationInArea_);
-                durationInArea_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.maps.routes.v1.RouteProto.internal_static_google_maps_routes_v1_CustomLayerInfo_AreaInfo_descriptor;
@@ -285,7 +170,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int AREA_ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object areaId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object areaId_ = "";
     /**
      * <pre>
      * ID of an area inside a customer provided dataset. An area represents a
@@ -345,7 +231,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DISTANCE_IN_AREA_METERS_FIELD_NUMBER = 2;
-    private float distanceInAreaMeters_;
+    private float distanceInAreaMeters_ = 0F;
     /**
      * <pre>
      * Total distance traveled in the area (in meters).
@@ -394,7 +280,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationInAreaOrBuilder() {
-      return getDurationInArea();
+      return durationInArea_ == null ? com.google.protobuf.Duration.getDefaultInstance() : durationInArea_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -420,7 +306,7 @@ private static final long serialVersionUID = 0L;
       if (durationInArea_ != null) {
         output.writeMessage(3, getDurationInArea());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -440,7 +326,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getDurationInArea());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -465,7 +351,7 @@ private static final long serialVersionUID = 0L;
         if (!getDurationInArea()
             .equals(other.getDurationInArea())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -485,7 +371,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DURATION_IN_AREA_FIELD_NUMBER;
         hash = (53 * hash) + getDurationInArea().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -606,30 +492,23 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.maps.routes.v1.CustomLayerInfo.AreaInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         areaId_ = "";
-
         distanceInAreaMeters_ = 0F;
-
-        if (durationInAreaBuilder_ == null) {
-          durationInArea_ = null;
-        } else {
-          durationInArea_ = null;
+        durationInArea_ = null;
+        if (durationInAreaBuilder_ != null) {
+          durationInAreaBuilder_.dispose();
           durationInAreaBuilder_ = null;
         }
         return this;
@@ -658,15 +537,24 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.maps.routes.v1.CustomLayerInfo.AreaInfo buildPartial() {
         com.google.maps.routes.v1.CustomLayerInfo.AreaInfo result = new com.google.maps.routes.v1.CustomLayerInfo.AreaInfo(this);
-        result.areaId_ = areaId_;
-        result.distanceInAreaMeters_ = distanceInAreaMeters_;
-        if (durationInAreaBuilder_ == null) {
-          result.durationInArea_ = durationInArea_;
-        } else {
-          result.durationInArea_ = durationInAreaBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.maps.routes.v1.CustomLayerInfo.AreaInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.areaId_ = areaId_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.distanceInAreaMeters_ = distanceInAreaMeters_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.durationInArea_ = durationInAreaBuilder_ == null
+              ? durationInArea_
+              : durationInAreaBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -715,6 +603,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.maps.routes.v1.CustomLayerInfo.AreaInfo.getDefaultInstance()) return this;
         if (!other.getAreaId().isEmpty()) {
           areaId_ = other.areaId_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.getDistanceInAreaMeters() != 0F) {
@@ -723,7 +612,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasDurationInArea()) {
           mergeDurationInArea(other.getDurationInArea());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -738,19 +627,50 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.maps.routes.v1.CustomLayerInfo.AreaInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                areaId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 21: {
+                distanceInAreaMeters_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 26: {
+                input.readMessage(
+                    getDurationInAreaFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.maps.routes.v1.CustomLayerInfo.AreaInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object areaId_ = "";
       /**
@@ -826,11 +746,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAreaId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         areaId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -850,8 +768,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearAreaId() {
-        
         areaId_ = getDefaultInstance().getAreaId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -873,12 +791,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setAreaIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         areaId_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -908,6 +824,7 @@ private static final long serialVersionUID = 0L;
       public Builder setDistanceInAreaMeters(float value) {
         
         distanceInAreaMeters_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -920,7 +837,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDistanceInAreaMeters() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         distanceInAreaMeters_ = 0F;
         onChanged();
         return this;
@@ -938,7 +855,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the durationInArea field is set.
        */
       public boolean hasDurationInArea() {
-        return durationInAreaBuilder_ != null || durationInArea_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -968,11 +885,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           durationInArea_ = value;
-          onChanged();
         } else {
           durationInAreaBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -986,11 +903,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationInAreaBuilder_ == null) {
           durationInArea_ = builderForValue.build();
-          onChanged();
         } else {
           durationInAreaBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1002,17 +919,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDurationInArea(com.google.protobuf.Duration value) {
         if (durationInAreaBuilder_ == null) {
-          if (durationInArea_ != null) {
-            durationInArea_ =
-              com.google.protobuf.Duration.newBuilder(durationInArea_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            durationInArea_ != null &&
+            durationInArea_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationInAreaBuilder().mergeFrom(value);
           } else {
             durationInArea_ = value;
           }
-          onChanged();
         } else {
           durationInAreaBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1023,14 +941,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration duration_in_area = 3;</code>
        */
       public Builder clearDurationInArea() {
-        if (durationInAreaBuilder_ == null) {
-          durationInArea_ = null;
-          onChanged();
-        } else {
-          durationInArea_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        durationInArea_ = null;
+        if (durationInAreaBuilder_ != null) {
+          durationInAreaBuilder_.dispose();
           durationInAreaBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1041,7 +958,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration duration_in_area = 3;</code>
        */
       public com.google.protobuf.Duration.Builder getDurationInAreaBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getDurationInAreaFieldBuilder().getBuilder();
       }
@@ -1113,7 +1030,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AreaInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1134,6 +1062,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AREA_INFO_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routes.v1.CustomLayerInfo.AreaInfo> areaInfo_;
   /**
    * <pre>
@@ -1220,7 +1149,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < areaInfo_.size(); i++) {
       output.writeMessage(1, areaInfo_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1233,7 +1162,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, areaInfo_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1250,7 +1179,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getAreaInfoList()
         .equals(other.getAreaInfoList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1265,7 +1194,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AREA_INFO_FIELD_NUMBER;
       hash = (53 * hash) + getAreaInfoList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1387,29 +1316,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.CustomLayerInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAreaInfoFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (areaInfoBuilder_ == null) {
         areaInfo_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        areaInfo_ = null;
         areaInfoBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1436,7 +1361,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.CustomLayerInfo buildPartial() {
       com.google.maps.routes.v1.CustomLayerInfo result = new com.google.maps.routes.v1.CustomLayerInfo(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routes.v1.CustomLayerInfo result) {
       if (areaInfoBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           areaInfo_ = java.util.Collections.unmodifiableList(areaInfo_);
@@ -1446,8 +1377,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.areaInfo_ = areaInfoBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.CustomLayerInfo result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -1520,7 +1453,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1535,17 +1468,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.CustomLayerInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.maps.routes.v1.CustomLayerInfo.AreaInfo m =
+                  input.readMessage(
+                      com.google.maps.routes.v1.CustomLayerInfo.AreaInfo.parser(),
+                      extensionRegistry);
+              if (areaInfoBuilder_ == null) {
+                ensureAreaInfoIsMutable();
+                areaInfo_.add(m);
+              } else {
+                areaInfoBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.CustomLayerInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1930,7 +1889,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CustomLayerInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

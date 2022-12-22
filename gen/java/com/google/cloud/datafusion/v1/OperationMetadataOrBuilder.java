@@ -205,7 +205,6 @@ public interface OperationMetadataOrBuilder extends
    *
    * <code>map&lt;string, string&gt; additional_status = 8;</code>
    */
-
   /* nullable */
 java.lang.String getAdditionalStatusOrDefault(
       java.lang.String key,
@@ -221,7 +220,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; additional_status = 8;</code>
    */
-
   java.lang.String getAdditionalStatusOrThrow(
       java.lang.String key);
 }

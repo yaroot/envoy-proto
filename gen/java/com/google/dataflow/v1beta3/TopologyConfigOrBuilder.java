@@ -134,7 +134,6 @@ public interface TopologyConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
    */
-
   /* nullable */
 java.lang.String getUserStageToComputationNameMapOrDefault(
       java.lang.String key,
@@ -147,7 +146,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; user_stage_to_computation_name_map = 3;</code>
    */
-
   java.lang.String getUserStageToComputationNameMapOrThrow(
       java.lang.String key);
 

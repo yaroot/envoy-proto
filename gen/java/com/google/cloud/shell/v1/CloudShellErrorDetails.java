@@ -36,51 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CloudShellErrorDetails(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            code_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.shell.v1.CloudShellProto.internal_static_google_cloud_shell_v1_CloudShellErrorDetails_descriptor;
@@ -147,6 +102,15 @@ private static final long serialVersionUID = 0L;
      * <code>QUOTA_EXCEEDED = 5;</code>
      */
     QUOTA_EXCEEDED(5),
+    /**
+     * <pre>
+     * The Cloud Shell environment is unavailable and cannot be connected to at
+     * the moment.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_UNAVAILABLE = 6;</code>
+     */
+    ENVIRONMENT_UNAVAILABLE(6),
     UNRECOGNIZED(-1),
     ;
 
@@ -194,6 +158,15 @@ private static final long serialVersionUID = 0L;
      * <code>QUOTA_EXCEEDED = 5;</code>
      */
     public static final int QUOTA_EXCEEDED_VALUE = 5;
+    /**
+     * <pre>
+     * The Cloud Shell environment is unavailable and cannot be connected to at
+     * the moment.
+     * </pre>
+     *
+     * <code>ENVIRONMENT_UNAVAILABLE = 6;</code>
+     */
+    public static final int ENVIRONMENT_UNAVAILABLE_VALUE = 6;
 
 
     public final int getNumber() {
@@ -225,6 +198,7 @@ private static final long serialVersionUID = 0L;
         case 2: return CLOUD_SHELL_DISABLED;
         case 4: return TOS_VIOLATION;
         case 5: return QUOTA_EXCEEDED;
+        case 6: return ENVIRONMENT_UNAVAILABLE;
         default: return null;
       }
     }
@@ -282,7 +256,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CODE_FIELD_NUMBER = 1;
-  private int code_;
+  private int code_ = 0;
   /**
    * <pre>
    * Code indicating the specific error the occurred.
@@ -303,8 +277,7 @@ private static final long serialVersionUID = 0L;
    * @return The code.
    */
   @java.lang.Override public com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode getCode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode result = com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.valueOf(code_);
+    com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode result = com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.forNumber(code_);
     return result == null ? com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.UNRECOGNIZED : result;
   }
 
@@ -325,7 +298,7 @@ private static final long serialVersionUID = 0L;
     if (code_ != com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.CLOUD_SHELL_ERROR_CODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, code_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -338,7 +311,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, code_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -354,7 +327,7 @@ private static final long serialVersionUID = 0L;
     com.google.cloud.shell.v1.CloudShellErrorDetails other = (com.google.cloud.shell.v1.CloudShellErrorDetails) obj;
 
     if (code_ != other.code_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -367,7 +340,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CODE_FIELD_NUMBER;
     hash = (53 * hash) + code_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -489,24 +462,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.shell.v1.CloudShellErrorDetails.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       code_ = 0;
-
       return this;
     }
 
@@ -533,9 +501,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.shell.v1.CloudShellErrorDetails buildPartial() {
       com.google.cloud.shell.v1.CloudShellErrorDetails result = new com.google.cloud.shell.v1.CloudShellErrorDetails(this);
-      result.code_ = code_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.shell.v1.CloudShellErrorDetails result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.code_ = code_;
+      }
     }
 
     @java.lang.Override
@@ -585,7 +560,7 @@ private static final long serialVersionUID = 0L;
       if (other.code_ != 0) {
         setCodeValue(other.getCodeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -600,19 +575,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.shell.v1.CloudShellErrorDetails parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              code_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.shell.v1.CloudShellErrorDetails) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int code_ = 0;
     /**
@@ -636,8 +630,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCodeValue(int value) {
-      
       code_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -651,8 +645,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode getCode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode result = com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.valueOf(code_);
+      com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode result = com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.forNumber(code_);
       return result == null ? com.google.cloud.shell.v1.CloudShellErrorDetails.CloudShellErrorCode.UNRECOGNIZED : result;
     }
     /**
@@ -668,7 +661,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       code_ = value.getNumber();
       onChanged();
       return this;
@@ -682,7 +675,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       code_ = 0;
       onChanged();
       return this;
@@ -720,7 +713,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CloudShellErrorDetails(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

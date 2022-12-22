@@ -42,57 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Fleet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            membership_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkemulticloud.v1.CommonResourcesProto.internal_static_google_cloud_gkemulticloud_v1_Fleet_descriptor;
@@ -107,10 +56,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
-   * Required. The name of the Fleet host project where this cluster will be registered.
+   * Required. The name of the Fleet host project where this cluster will be
+   * registered.
    * Project names are formatted as
    * `projects/&lt;project-number&gt;`.
    * </pre>
@@ -133,7 +84,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The name of the Fleet host project where this cluster will be registered.
+   * Required. The name of the Fleet host project where this cluster will be
+   * registered.
    * Project names are formatted as
    * `projects/&lt;project-number&gt;`.
    * </pre>
@@ -157,10 +109,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMBERSHIP_FIELD_NUMBER = 2;
-  private volatile java.lang.Object membership_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object membership_ = "";
   /**
    * <pre>
-   * Output only. The name of the managed Hub Membership resource associated to this cluster.
+   * Output only. The name of the managed Hub Membership resource associated to
+   * this cluster.
    * Membership names are formatted as
    * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
    * </pre>
@@ -183,7 +137,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The name of the managed Hub Membership resource associated to this cluster.
+   * Output only. The name of the managed Hub Membership resource associated to
+   * this cluster.
    * Membership names are formatted as
    * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
    * </pre>
@@ -226,7 +181,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(membership_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, membership_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -241,7 +196,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(membership_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, membership_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -260,7 +215,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getProject())) return false;
     if (!getMembership()
         .equals(other.getMembership())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -275,7 +230,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getProject().hashCode();
     hash = (37 * hash) + MEMBERSHIP_FIELD_NUMBER;
     hash = (53 * hash) + getMembership().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -402,26 +357,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkemulticloud.v1.Fleet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
       membership_ = "";
-
       return this;
     }
 
@@ -448,10 +397,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkemulticloud.v1.Fleet buildPartial() {
       com.google.cloud.gkemulticloud.v1.Fleet result = new com.google.cloud.gkemulticloud.v1.Fleet(this);
-      result.project_ = project_;
-      result.membership_ = membership_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkemulticloud.v1.Fleet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.membership_ = membership_;
+      }
     }
 
     @java.lang.Override
@@ -500,13 +458,15 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkemulticloud.v1.Fleet.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMembership().isEmpty()) {
         membership_ = other.membership_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -521,24 +481,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkemulticloud.v1.Fleet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              membership_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkemulticloud.v1.Fleet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
      * <pre>
-     * Required. The name of the Fleet host project where this cluster will be registered.
+     * Required. The name of the Fleet host project where this cluster will be
+     * registered.
      * Project names are formatted as
      * `projects/&lt;project-number&gt;`.
      * </pre>
@@ -560,7 +545,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The name of the Fleet host project where this cluster will be registered.
+     * Required. The name of the Fleet host project where this cluster will be
+     * registered.
      * Project names are formatted as
      * `projects/&lt;project-number&gt;`.
      * </pre>
@@ -583,7 +569,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The name of the Fleet host project where this cluster will be registered.
+     * Required. The name of the Fleet host project where this cluster will be
+     * registered.
      * Project names are formatted as
      * `projects/&lt;project-number&gt;`.
      * </pre>
@@ -594,17 +581,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The name of the Fleet host project where this cluster will be registered.
+     * Required. The name of the Fleet host project where this cluster will be
+     * registered.
      * Project names are formatted as
      * `projects/&lt;project-number&gt;`.
      * </pre>
@@ -613,14 +599,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The name of the Fleet host project where this cluster will be registered.
+     * Required. The name of the Fleet host project where this cluster will be
+     * registered.
      * Project names are formatted as
      * `projects/&lt;project-number&gt;`.
      * </pre>
@@ -631,12 +618,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -644,7 +629,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object membership_ = "";
     /**
      * <pre>
-     * Output only. The name of the managed Hub Membership resource associated to this cluster.
+     * Output only. The name of the managed Hub Membership resource associated to
+     * this cluster.
      * Membership names are formatted as
      * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
      * </pre>
@@ -666,7 +652,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The name of the managed Hub Membership resource associated to this cluster.
+     * Output only. The name of the managed Hub Membership resource associated to
+     * this cluster.
      * Membership names are formatted as
      * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
      * </pre>
@@ -689,7 +676,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The name of the managed Hub Membership resource associated to this cluster.
+     * Output only. The name of the managed Hub Membership resource associated to
+     * this cluster.
      * Membership names are formatted as
      * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
      * </pre>
@@ -700,17 +688,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMembership(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       membership_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The name of the managed Hub Membership resource associated to this cluster.
+     * Output only. The name of the managed Hub Membership resource associated to
+     * this cluster.
      * Membership names are formatted as
      * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
      * </pre>
@@ -719,14 +706,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMembership() {
-      
       membership_ = getDefaultInstance().getMembership();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The name of the managed Hub Membership resource associated to this cluster.
+     * Output only. The name of the managed Hub Membership resource associated to
+     * this cluster.
      * Membership names are formatted as
      * `projects/&lt;project-number&gt;/locations/global/membership/&lt;cluster-id&gt;`.
      * </pre>
@@ -737,12 +725,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMembershipBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       membership_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -779,7 +765,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Fleet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

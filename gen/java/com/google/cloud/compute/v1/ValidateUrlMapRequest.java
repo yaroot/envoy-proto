@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ValidateUrlMapRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case -1358801822: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            urlMap_ = s;
-            break;
-          }
-          case -1127659654: {
-            com.google.cloud.compute.v1.UrlMapsValidateRequest.Builder subBuilder = null;
-            if (urlMapsValidateRequestResource_ != null) {
-              subBuilder = urlMapsValidateRequestResource_.toBuilder();
-            }
-            urlMapsValidateRequestResource_ = input.readMessage(com.google.cloud.compute.v1.UrlMapsValidateRequest.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(urlMapsValidateRequestResource_);
-              urlMapsValidateRequestResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ValidateUrlMapRequest_descriptor;
@@ -114,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -160,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URL_MAP_FIELD_NUMBER = 367020684;
-  private volatile java.lang.Object urlMap_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object urlMap_ = "";
   /**
    * <pre>
    * Name of the UrlMap resource to be validated as.
@@ -240,7 +178,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.UrlMapsValidateRequestOrBuilder getUrlMapsValidateRequestResourceOrBuilder() {
-    return getUrlMapsValidateRequestResource();
+    return urlMapsValidateRequestResource_ == null ? com.google.cloud.compute.v1.UrlMapsValidateRequest.getDefaultInstance() : urlMapsValidateRequestResource_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
     if (urlMapsValidateRequestResource_ != null) {
       output.writeMessage(395913455, getUrlMapsValidateRequestResource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -285,7 +223,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(395913455, getUrlMapsValidateRequestResource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +247,7 @@ private static final long serialVersionUID = 0L;
       if (!getUrlMapsValidateRequestResource()
           .equals(other.getUrlMapsValidateRequestResource())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -328,7 +266,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + URL_MAPS_VALIDATE_REQUEST_RESOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getUrlMapsValidateRequestResource().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -449,30 +387,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.ValidateUrlMapRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
       urlMap_ = "";
-
-      if (urlMapsValidateRequestResourceBuilder_ == null) {
-        urlMapsValidateRequestResource_ = null;
-      } else {
-        urlMapsValidateRequestResource_ = null;
+      urlMapsValidateRequestResource_ = null;
+      if (urlMapsValidateRequestResourceBuilder_ != null) {
+        urlMapsValidateRequestResourceBuilder_.dispose();
         urlMapsValidateRequestResourceBuilder_ = null;
       }
       return this;
@@ -501,15 +432,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ValidateUrlMapRequest buildPartial() {
       com.google.cloud.compute.v1.ValidateUrlMapRequest result = new com.google.cloud.compute.v1.ValidateUrlMapRequest(this);
-      result.project_ = project_;
-      result.urlMap_ = urlMap_;
-      if (urlMapsValidateRequestResourceBuilder_ == null) {
-        result.urlMapsValidateRequestResource_ = urlMapsValidateRequestResource_;
-      } else {
-        result.urlMapsValidateRequestResource_ = urlMapsValidateRequestResourceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ValidateUrlMapRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.urlMap_ = urlMap_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.urlMapsValidateRequestResource_ = urlMapsValidateRequestResourceBuilder_ == null
+            ? urlMapsValidateRequestResource_
+            : urlMapsValidateRequestResourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -558,16 +498,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.ValidateUrlMapRequest.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getUrlMap().isEmpty()) {
         urlMap_ = other.urlMap_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasUrlMapsValidateRequestResource()) {
         mergeUrlMapsValidateRequestResource(other.getUrlMapsValidateRequestResource());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,19 +524,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ValidateUrlMapRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1820481738
+            case -1358801822: {
+              urlMap_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1358801822
+            case -1127659654: {
+              input.readMessage(
+                  getUrlMapsValidateRequestResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1127659654
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ValidateUrlMapRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
@@ -649,11 +622,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -666,8 +637,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -682,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -745,11 +714,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlMap(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       urlMap_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -762,8 +729,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUrlMap() {
-      
       urlMap_ = getDefaultInstance().getUrlMap();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -778,12 +745,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUrlMapBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       urlMap_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -800,7 +765,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the urlMapsValidateRequestResource field is set.
      */
     public boolean hasUrlMapsValidateRequestResource() {
-      return urlMapsValidateRequestResourceBuilder_ != null || urlMapsValidateRequestResource_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -830,11 +795,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         urlMapsValidateRequestResource_ = value;
-        onChanged();
       } else {
         urlMapsValidateRequestResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -848,11 +813,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.UrlMapsValidateRequest.Builder builderForValue) {
       if (urlMapsValidateRequestResourceBuilder_ == null) {
         urlMapsValidateRequestResource_ = builderForValue.build();
-        onChanged();
       } else {
         urlMapsValidateRequestResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +829,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUrlMapsValidateRequestResource(com.google.cloud.compute.v1.UrlMapsValidateRequest value) {
       if (urlMapsValidateRequestResourceBuilder_ == null) {
-        if (urlMapsValidateRequestResource_ != null) {
-          urlMapsValidateRequestResource_ =
-            com.google.cloud.compute.v1.UrlMapsValidateRequest.newBuilder(urlMapsValidateRequestResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          urlMapsValidateRequestResource_ != null &&
+          urlMapsValidateRequestResource_ != com.google.cloud.compute.v1.UrlMapsValidateRequest.getDefaultInstance()) {
+          getUrlMapsValidateRequestResourceBuilder().mergeFrom(value);
         } else {
           urlMapsValidateRequestResource_ = value;
         }
-        onChanged();
       } else {
         urlMapsValidateRequestResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -885,14 +851,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.UrlMapsValidateRequest url_maps_validate_request_resource = 395913455 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUrlMapsValidateRequestResource() {
-      if (urlMapsValidateRequestResourceBuilder_ == null) {
-        urlMapsValidateRequestResource_ = null;
-        onChanged();
-      } else {
-        urlMapsValidateRequestResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      urlMapsValidateRequestResource_ = null;
+      if (urlMapsValidateRequestResourceBuilder_ != null) {
+        urlMapsValidateRequestResourceBuilder_.dispose();
         urlMapsValidateRequestResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -903,7 +868,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.UrlMapsValidateRequest url_maps_validate_request_resource = 395913455 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.UrlMapsValidateRequest.Builder getUrlMapsValidateRequestResourceBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUrlMapsValidateRequestResourceFieldBuilder().getBuilder();
     }
@@ -975,7 +940,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ValidateUrlMapRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

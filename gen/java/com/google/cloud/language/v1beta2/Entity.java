@@ -39,101 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Entity(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              metadata_ = com.google.protobuf.MapField.newMapField(
-                  MetadataDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            metadata__ = input.readMessage(
-                MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            metadata_.getMutableMap().put(
-                metadata__.getKey(), metadata__.getValue());
-            break;
-          }
-          case 37: {
-
-            salience_ = input.readFloat();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              mentions_ = new java.util.ArrayList<com.google.cloud.language.v1beta2.EntityMention>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            mentions_.add(
-                input.readMessage(com.google.cloud.language.v1beta2.EntityMention.parser(), extensionRegistry));
-            break;
-          }
-          case 50: {
-            com.google.cloud.language.v1beta2.Sentiment.Builder subBuilder = null;
-            if (sentiment_ != null) {
-              subBuilder = sentiment_.toBuilder();
-            }
-            sentiment_ = input.readMessage(com.google.cloud.language.v1beta2.Sentiment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(sentiment_);
-              sentiment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        mentions_ = java.util.Collections.unmodifiableList(mentions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.language.v1beta2.LanguageServiceProto.internal_static_google_cloud_language_v1beta2_Entity_descriptor;
@@ -530,7 +435,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The representative name for the entity.
@@ -576,7 +482,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 2;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * The entity type.
@@ -597,8 +503,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.language.v1beta2.Entity.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.language.v1beta2.Entity.Type result = com.google.cloud.language.v1beta2.Entity.Type.valueOf(type_);
+    com.google.cloud.language.v1beta2.Entity.Type result = com.google.cloud.language.v1beta2.Entity.Type.forNumber(type_);
     return result == null ? com.google.cloud.language.v1beta2.Entity.Type.UNRECOGNIZED : result;
   }
 
@@ -614,6 +519,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> metadata_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -624,7 +530,6 @@ private static final long serialVersionUID = 0L;
     }
     return metadata_;
   }
-
   public int getMetadataCount() {
     return internalGetMetadata().getMap().size();
   }
@@ -638,7 +543,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; metadata = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsMetadata(
       java.lang.String key) {
@@ -664,7 +568,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; metadata = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
     return internalGetMetadata().getMap();
   }
@@ -679,10 +582,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; metadata = 3;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getMetadataOrDefault(
+  public /* nullable */
+java.lang.String getMetadataOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetMetadata().getMap();
@@ -699,7 +603,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; metadata = 3;</code>
    */
   @java.lang.Override
-
   public java.lang.String getMetadataOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -712,7 +615,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SALIENCE_FIELD_NUMBER = 4;
-  private float salience_;
+  private float salience_ = 0F;
   /**
    * <pre>
    * The salience score associated with the entity in the [0, 1.0] range.
@@ -731,6 +634,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MENTIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.language.v1beta2.EntityMention> mentions_;
   /**
    * <pre>
@@ -839,7 +743,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.language.v1beta2.SentimentOrBuilder getSentimentOrBuilder() {
-    return getSentiment();
+    return sentiment_ == null ? com.google.cloud.language.v1beta2.Sentiment.getDefaultInstance() : sentiment_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -877,7 +781,7 @@ private static final long serialVersionUID = 0L;
     if (sentiment_ != null) {
       output.writeMessage(6, getSentiment());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -915,7 +819,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getSentiment());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -945,7 +849,7 @@ private static final long serialVersionUID = 0L;
       if (!getSentiment()
           .equals(other.getSentiment())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -975,7 +879,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SENTIMENT_FIELD_NUMBER;
       hash = (53 * hash) + getSentiment().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1120,40 +1024,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.language.v1beta2.Entity.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMentionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       type_ = 0;
-
       internalGetMutableMetadata().clear();
       salience_ = 0F;
-
       if (mentionsBuilder_ == null) {
         mentions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        mentions_ = null;
         mentionsBuilder_.clear();
       }
-      if (sentimentBuilder_ == null) {
-        sentiment_ = null;
-      } else {
-        sentiment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      sentiment_ = null;
+      if (sentimentBuilder_ != null) {
+        sentimentBuilder_.dispose();
         sentimentBuilder_ = null;
       }
       return this;
@@ -1182,28 +1078,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.language.v1beta2.Entity buildPartial() {
       com.google.cloud.language.v1beta2.Entity result = new com.google.cloud.language.v1beta2.Entity(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.type_ = type_;
-      result.metadata_ = internalGetMetadata();
-      result.metadata_.makeImmutable();
-      result.salience_ = salience_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.language.v1beta2.Entity result) {
       if (mentionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           mentions_ = java.util.Collections.unmodifiableList(mentions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.mentions_ = mentions_;
       } else {
         result.mentions_ = mentionsBuilder_.build();
       }
-      if (sentimentBuilder_ == null) {
-        result.sentiment_ = sentiment_;
-      } else {
-        result.sentiment_ = sentimentBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.language.v1beta2.Entity result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.metadata_ = internalGetMetadata();
+        result.metadata_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.salience_ = salience_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sentiment_ = sentimentBuilder_ == null
+            ? sentiment_
+            : sentimentBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1252,6 +1164,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.language.v1beta2.Entity.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.type_ != 0) {
@@ -1259,6 +1172,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
+      bitField0_ |= 0x00000004;
       if (other.getSalience() != 0F) {
         setSalience(other.getSalience());
       }
@@ -1266,7 +1180,7 @@ private static final long serialVersionUID = 0L;
         if (!other.mentions_.isEmpty()) {
           if (mentions_.isEmpty()) {
             mentions_ = other.mentions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureMentionsIsMutable();
             mentions_.addAll(other.mentions_);
@@ -1279,7 +1193,7 @@ private static final long serialVersionUID = 0L;
             mentionsBuilder_.dispose();
             mentionsBuilder_ = null;
             mentions_ = other.mentions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
             mentionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMentionsFieldBuilder() : null;
@@ -1291,7 +1205,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSentiment()) {
         mergeSentiment(other.getSentiment());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1306,17 +1220,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.language.v1beta2.Entity parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              metadata__ = input.readMessage(
+                  MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMetadata().getMutableMap().put(
+                  metadata__.getKey(), metadata__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 37: {
+              salience_ = input.readFloat();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 37
+            case 42: {
+              com.google.cloud.language.v1beta2.EntityMention m =
+                  input.readMessage(
+                      com.google.cloud.language.v1beta2.EntityMention.parser(),
+                      extensionRegistry);
+              if (mentionsBuilder_ == null) {
+                ensureMentionsIsMutable();
+                mentions_.add(m);
+              } else {
+                mentionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSentimentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.language.v1beta2.Entity) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1374,11 +1345,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1391,8 +1360,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1407,12 +1376,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1439,8 +1406,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1454,8 +1421,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.language.v1beta2.Entity.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.language.v1beta2.Entity.Type result = com.google.cloud.language.v1beta2.Entity.Type.valueOf(type_);
+      com.google.cloud.language.v1beta2.Entity.Type result = com.google.cloud.language.v1beta2.Entity.Type.forNumber(type_);
       return result == null ? com.google.cloud.language.v1beta2.Entity.Type.UNRECOGNIZED : result;
     }
     /**
@@ -1471,7 +1437,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -1485,7 +1451,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       type_ = 0;
       onChanged();
       return this;
@@ -1494,7 +1460,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> metadata_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMetadata() {
+        internalGetMetadata() {
       if (metadata_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -1502,8 +1468,7 @@ private static final long serialVersionUID = 0L;
       return metadata_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableMetadata() {
-      onChanged();;
+        internalGetMutableMetadata() {
       if (metadata_ == null) {
         metadata_ = com.google.protobuf.MapField.newMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -1511,9 +1476,10 @@ private static final long serialVersionUID = 0L;
       if (!metadata_.isMutable()) {
         metadata_ = metadata_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return metadata_;
     }
-
     public int getMetadataCount() {
       return internalGetMetadata().getMap().size();
     }
@@ -1527,7 +1493,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; metadata = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsMetadata(
         java.lang.String key) {
@@ -1553,7 +1518,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; metadata = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
       return internalGetMetadata().getMap();
     }
@@ -1568,10 +1532,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; metadata = 3;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getMetadataOrDefault(
+    public /* nullable */
+java.lang.String getMetadataOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMetadata().getMap();
@@ -1588,7 +1553,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; metadata = 3;</code>
      */
     @java.lang.Override
-
     public java.lang.String getMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1599,8 +1563,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMetadata() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableMetadata().getMutableMap()
           .clear();
       return this;
@@ -1615,7 +1579,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; metadata = 3;</code>
      */
-
     public Builder removeMetadata(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1628,7 +1591,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableMetadata() {
+        getMutableMetadata() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableMetadata().getMutableMap();
     }
     /**
@@ -1645,12 +1609,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMetadata().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1663,11 +1625,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; metadata = 3;</code>
      */
-
     public Builder putAllMetadata(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableMetadata().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -1704,6 +1666,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSalience(float value) {
       
       salience_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1720,7 +1683,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSalience() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       salience_ = 0F;
       onChanged();
       return this;
@@ -1729,9 +1692,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.language.v1beta2.EntityMention> mentions_ =
       java.util.Collections.emptyList();
     private void ensureMentionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         mentions_ = new java.util.ArrayList<com.google.cloud.language.v1beta2.EntityMention>(mentions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1936,7 +1899,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMentions() {
       if (mentionsBuilder_ == null) {
         mentions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         mentionsBuilder_.clear();
@@ -2048,7 +2011,7 @@ private static final long serialVersionUID = 0L;
         mentionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.language.v1beta2.EntityMention, com.google.cloud.language.v1beta2.EntityMention.Builder, com.google.cloud.language.v1beta2.EntityMentionOrBuilder>(
                 mentions_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         mentions_ = null;
@@ -2071,7 +2034,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the sentiment field is set.
      */
     public boolean hasSentiment() {
-      return sentimentBuilder_ != null || sentiment_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2107,11 +2070,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         sentiment_ = value;
-        onChanged();
       } else {
         sentimentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2128,11 +2091,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.language.v1beta2.Sentiment.Builder builderForValue) {
       if (sentimentBuilder_ == null) {
         sentiment_ = builderForValue.build();
-        onChanged();
       } else {
         sentimentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2147,17 +2110,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSentiment(com.google.cloud.language.v1beta2.Sentiment value) {
       if (sentimentBuilder_ == null) {
-        if (sentiment_ != null) {
-          sentiment_ =
-            com.google.cloud.language.v1beta2.Sentiment.newBuilder(sentiment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          sentiment_ != null &&
+          sentiment_ != com.google.cloud.language.v1beta2.Sentiment.getDefaultInstance()) {
+          getSentimentBuilder().mergeFrom(value);
         } else {
           sentiment_ = value;
         }
-        onChanged();
       } else {
         sentimentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2171,14 +2135,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.language.v1beta2.Sentiment sentiment = 6;</code>
      */
     public Builder clearSentiment() {
-      if (sentimentBuilder_ == null) {
-        sentiment_ = null;
-        onChanged();
-      } else {
-        sentiment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      sentiment_ = null;
+      if (sentimentBuilder_ != null) {
+        sentimentBuilder_.dispose();
         sentimentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2192,7 +2155,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.language.v1beta2.Sentiment sentiment = 6;</code>
      */
     public com.google.cloud.language.v1beta2.Sentiment.Builder getSentimentBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSentimentFieldBuilder().getBuilder();
     }
@@ -2270,7 +2233,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Entity(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

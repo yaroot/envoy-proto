@@ -33,85 +33,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ErrorDetails(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 25590282: {
-            com.google.cloud.compute.v1.Help.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000002) != 0)) {
-              subBuilder = help_.toBuilder();
-            }
-            help_ = input.readMessage(com.google.cloud.compute.v1.Help.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(help_);
-              help_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000002;
-            break;
-          }
-          case 202015786: {
-            com.google.cloud.compute.v1.ErrorInfo.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = errorInfo_.toBuilder();
-            }
-            errorInfo_ = input.readMessage(com.google.cloud.compute.v1.ErrorInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(errorInfo_);
-              errorInfo_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          case -1058670054: {
-            com.google.cloud.compute.v1.LocalizedMessage.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = localizedMessage_.toBuilder();
-            }
-            localizedMessage_ = input.readMessage(com.google.cloud.compute.v1.LocalizedMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(localizedMessage_);
-              localizedMessage_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ErrorDetails_descriptor;
@@ -204,6 +125,32 @@ private static final long serialVersionUID = 0L;
     return localizedMessage_ == null ? com.google.cloud.compute.v1.LocalizedMessage.getDefaultInstance() : localizedMessage_;
   }
 
+  public static final int QUOTA_INFO_FIELD_NUMBER = 93923861;
+  private com.google.cloud.compute.v1.QuotaExceededInfo quotaInfo_;
+  /**
+   * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+   * @return Whether the quotaInfo field is set.
+   */
+  @java.lang.Override
+  public boolean hasQuotaInfo() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+   * @return The quotaInfo.
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.QuotaExceededInfo getQuotaInfo() {
+    return quotaInfo_ == null ? com.google.cloud.compute.v1.QuotaExceededInfo.getDefaultInstance() : quotaInfo_;
+  }
+  /**
+   * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.compute.v1.QuotaExceededInfoOrBuilder getQuotaInfoOrBuilder() {
+    return quotaInfo_ == null ? com.google.cloud.compute.v1.QuotaExceededInfo.getDefaultInstance() : quotaInfo_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -224,10 +171,13 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(25251973, getErrorInfo());
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeMessage(93923861, getQuotaInfo());
+    }
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(404537155, getLocalizedMessage());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -244,11 +194,15 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(25251973, getErrorInfo());
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(93923861, getQuotaInfo());
+    }
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(404537155, getLocalizedMessage());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -278,7 +232,12 @@ private static final long serialVersionUID = 0L;
       if (!getLocalizedMessage()
           .equals(other.getLocalizedMessage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasQuotaInfo() != other.hasQuotaInfo()) return false;
+    if (hasQuotaInfo()) {
+      if (!getQuotaInfo()
+          .equals(other.getQuotaInfo())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -301,7 +260,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOCALIZED_MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getLocalizedMessage().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasQuotaInfo()) {
+      hash = (37 * hash) + QUOTA_INFO_FIELD_NUMBER;
+      hash = (53 * hash) + getQuotaInfo().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -435,29 +398,33 @@ private static final long serialVersionUID = 0L;
         getErrorInfoFieldBuilder();
         getHelpFieldBuilder();
         getLocalizedMessageFieldBuilder();
+        getQuotaInfoFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (errorInfoBuilder_ == null) {
-        errorInfo_ = null;
-      } else {
-        errorInfoBuilder_.clear();
+      bitField0_ = 0;
+      errorInfo_ = null;
+      if (errorInfoBuilder_ != null) {
+        errorInfoBuilder_.dispose();
+        errorInfoBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (helpBuilder_ == null) {
-        help_ = null;
-      } else {
-        helpBuilder_.clear();
+      help_ = null;
+      if (helpBuilder_ != null) {
+        helpBuilder_.dispose();
+        helpBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (localizedMessageBuilder_ == null) {
-        localizedMessage_ = null;
-      } else {
-        localizedMessageBuilder_.clear();
+      localizedMessage_ = null;
+      if (localizedMessageBuilder_ != null) {
+        localizedMessageBuilder_.dispose();
+        localizedMessageBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
+      quotaInfo_ = null;
+      if (quotaInfoBuilder_ != null) {
+        quotaInfoBuilder_.dispose();
+        quotaInfoBuilder_ = null;
+      }
       return this;
     }
 
@@ -484,35 +451,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ErrorDetails buildPartial() {
       com.google.cloud.compute.v1.ErrorDetails result = new com.google.cloud.compute.v1.ErrorDetails(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ErrorDetails result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (errorInfoBuilder_ == null) {
-          result.errorInfo_ = errorInfo_;
-        } else {
-          result.errorInfo_ = errorInfoBuilder_.build();
-        }
+        result.errorInfo_ = errorInfoBuilder_ == null
+            ? errorInfo_
+            : errorInfoBuilder_.build();
         to_bitField0_ |= 0x00000001;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
-        if (helpBuilder_ == null) {
-          result.help_ = help_;
-        } else {
-          result.help_ = helpBuilder_.build();
-        }
+        result.help_ = helpBuilder_ == null
+            ? help_
+            : helpBuilder_.build();
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (localizedMessageBuilder_ == null) {
-          result.localizedMessage_ = localizedMessage_;
-        } else {
-          result.localizedMessage_ = localizedMessageBuilder_.build();
-        }
+        result.localizedMessage_ = localizedMessageBuilder_ == null
+            ? localizedMessage_
+            : localizedMessageBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.quotaInfo_ = quotaInfoBuilder_ == null
+            ? quotaInfo_
+            : quotaInfoBuilder_.build();
+        to_bitField0_ |= 0x00000008;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -568,7 +539,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasLocalizedMessage()) {
         mergeLocalizedMessage(other.getLocalizedMessage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasQuotaInfo()) {
+        mergeQuotaInfo(other.getQuotaInfo());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -583,17 +557,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ErrorDetails parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 25590282: {
+              input.readMessage(
+                  getHelpFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 25590282
+            case 202015786: {
+              input.readMessage(
+                  getErrorInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 202015786
+            case 751390890: {
+              input.readMessage(
+                  getQuotaInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 751390890
+            case -1058670054: {
+              input.readMessage(
+                  getLocalizedMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1058670054
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ErrorDetails) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -628,11 +643,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         errorInfo_ = value;
-        onChanged();
       } else {
         errorInfoBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -642,11 +657,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ErrorInfo.Builder builderForValue) {
       if (errorInfoBuilder_ == null) {
         errorInfo_ = builderForValue.build();
-        onChanged();
       } else {
         errorInfoBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -655,31 +670,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeErrorInfo(com.google.cloud.compute.v1.ErrorInfo value) {
       if (errorInfoBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0) &&
-            errorInfo_ != null &&
-            errorInfo_ != com.google.cloud.compute.v1.ErrorInfo.getDefaultInstance()) {
-          errorInfo_ =
-            com.google.cloud.compute.v1.ErrorInfo.newBuilder(errorInfo_).mergeFrom(value).buildPartial();
+          errorInfo_ != null &&
+          errorInfo_ != com.google.cloud.compute.v1.ErrorInfo.getDefaultInstance()) {
+          getErrorInfoBuilder().mergeFrom(value);
         } else {
           errorInfo_ = value;
         }
-        onChanged();
       } else {
         errorInfoBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.ErrorInfo error_info = 25251973;</code>
      */
     public Builder clearErrorInfo() {
-      if (errorInfoBuilder_ == null) {
-        errorInfo_ = null;
-        onChanged();
-      } else {
-        errorInfoBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000001);
+      errorInfo_ = null;
+      if (errorInfoBuilder_ != null) {
+        errorInfoBuilder_.dispose();
+        errorInfoBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -748,11 +762,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         help_ = value;
-        onChanged();
       } else {
         helpBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -762,11 +776,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Help.Builder builderForValue) {
       if (helpBuilder_ == null) {
         help_ = builderForValue.build();
-        onChanged();
       } else {
         helpBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -775,31 +789,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeHelp(com.google.cloud.compute.v1.Help value) {
       if (helpBuilder_ == null) {
         if (((bitField0_ & 0x00000002) != 0) &&
-            help_ != null &&
-            help_ != com.google.cloud.compute.v1.Help.getDefaultInstance()) {
-          help_ =
-            com.google.cloud.compute.v1.Help.newBuilder(help_).mergeFrom(value).buildPartial();
+          help_ != null &&
+          help_ != com.google.cloud.compute.v1.Help.getDefaultInstance()) {
+          getHelpBuilder().mergeFrom(value);
         } else {
           help_ = value;
         }
-        onChanged();
       } else {
         helpBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.Help help = 3198785;</code>
      */
     public Builder clearHelp() {
-      if (helpBuilder_ == null) {
-        help_ = null;
-        onChanged();
-      } else {
-        helpBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000002);
+      help_ = null;
+      if (helpBuilder_ != null) {
+        helpBuilder_.dispose();
+        helpBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -868,11 +881,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         localizedMessage_ = value;
-        onChanged();
       } else {
         localizedMessageBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -882,11 +895,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.LocalizedMessage.Builder builderForValue) {
       if (localizedMessageBuilder_ == null) {
         localizedMessage_ = builderForValue.build();
-        onChanged();
       } else {
         localizedMessageBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -895,31 +908,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeLocalizedMessage(com.google.cloud.compute.v1.LocalizedMessage value) {
       if (localizedMessageBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            localizedMessage_ != null &&
-            localizedMessage_ != com.google.cloud.compute.v1.LocalizedMessage.getDefaultInstance()) {
-          localizedMessage_ =
-            com.google.cloud.compute.v1.LocalizedMessage.newBuilder(localizedMessage_).mergeFrom(value).buildPartial();
+          localizedMessage_ != null &&
+          localizedMessage_ != com.google.cloud.compute.v1.LocalizedMessage.getDefaultInstance()) {
+          getLocalizedMessageBuilder().mergeFrom(value);
         } else {
           localizedMessage_ = value;
         }
-        onChanged();
       } else {
         localizedMessageBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.LocalizedMessage localized_message = 404537155;</code>
      */
     public Builder clearLocalizedMessage() {
-      if (localizedMessageBuilder_ == null) {
-        localizedMessage_ = null;
-        onChanged();
-      } else {
-        localizedMessageBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      localizedMessage_ = null;
+      if (localizedMessageBuilder_ != null) {
+        localizedMessageBuilder_.dispose();
+        localizedMessageBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -957,6 +969,125 @@ private static final long serialVersionUID = 0L;
       }
       return localizedMessageBuilder_;
     }
+
+    private com.google.cloud.compute.v1.QuotaExceededInfo quotaInfo_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.QuotaExceededInfo, com.google.cloud.compute.v1.QuotaExceededInfo.Builder, com.google.cloud.compute.v1.QuotaExceededInfoOrBuilder> quotaInfoBuilder_;
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     * @return Whether the quotaInfo field is set.
+     */
+    public boolean hasQuotaInfo() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     * @return The quotaInfo.
+     */
+    public com.google.cloud.compute.v1.QuotaExceededInfo getQuotaInfo() {
+      if (quotaInfoBuilder_ == null) {
+        return quotaInfo_ == null ? com.google.cloud.compute.v1.QuotaExceededInfo.getDefaultInstance() : quotaInfo_;
+      } else {
+        return quotaInfoBuilder_.getMessage();
+      }
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    public Builder setQuotaInfo(com.google.cloud.compute.v1.QuotaExceededInfo value) {
+      if (quotaInfoBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        quotaInfo_ = value;
+      } else {
+        quotaInfoBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    public Builder setQuotaInfo(
+        com.google.cloud.compute.v1.QuotaExceededInfo.Builder builderForValue) {
+      if (quotaInfoBuilder_ == null) {
+        quotaInfo_ = builderForValue.build();
+      } else {
+        quotaInfoBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    public Builder mergeQuotaInfo(com.google.cloud.compute.v1.QuotaExceededInfo value) {
+      if (quotaInfoBuilder_ == null) {
+        if (((bitField0_ & 0x00000008) != 0) &&
+          quotaInfo_ != null &&
+          quotaInfo_ != com.google.cloud.compute.v1.QuotaExceededInfo.getDefaultInstance()) {
+          getQuotaInfoBuilder().mergeFrom(value);
+        } else {
+          quotaInfo_ = value;
+        }
+      } else {
+        quotaInfoBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    public Builder clearQuotaInfo() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      quotaInfo_ = null;
+      if (quotaInfoBuilder_ != null) {
+        quotaInfoBuilder_.dispose();
+        quotaInfoBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    public com.google.cloud.compute.v1.QuotaExceededInfo.Builder getQuotaInfoBuilder() {
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return getQuotaInfoFieldBuilder().getBuilder();
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    public com.google.cloud.compute.v1.QuotaExceededInfoOrBuilder getQuotaInfoOrBuilder() {
+      if (quotaInfoBuilder_ != null) {
+        return quotaInfoBuilder_.getMessageOrBuilder();
+      } else {
+        return quotaInfo_ == null ?
+            com.google.cloud.compute.v1.QuotaExceededInfo.getDefaultInstance() : quotaInfo_;
+      }
+    }
+    /**
+     * <code>optional .google.cloud.compute.v1.QuotaExceededInfo quota_info = 93923861;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.compute.v1.QuotaExceededInfo, com.google.cloud.compute.v1.QuotaExceededInfo.Builder, com.google.cloud.compute.v1.QuotaExceededInfoOrBuilder> 
+        getQuotaInfoFieldBuilder() {
+      if (quotaInfoBuilder_ == null) {
+        quotaInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.compute.v1.QuotaExceededInfo, com.google.cloud.compute.v1.QuotaExceededInfo.Builder, com.google.cloud.compute.v1.QuotaExceededInfoOrBuilder>(
+                getQuotaInfo(),
+                getParentForChildren(),
+                isClean());
+        quotaInfo_ = null;
+      }
+      return quotaInfoBuilder_;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -990,7 +1121,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ErrorDetails(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

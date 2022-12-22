@@ -92,7 +92,6 @@ public interface TaskConfigOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 com.google.cloud.integrations.v1alpha.EventParameter getParametersOrDefault(
       java.lang.String key,
@@ -105,7 +104,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   com.google.cloud.integrations.v1alpha.EventParameter getParametersOrThrow(
       java.lang.String key);
 

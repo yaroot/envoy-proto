@@ -68,145 +68,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeltaDiscoveryRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.Node.Builder subBuilder = null;
-            if (node_ != null) {
-              subBuilder = node_.toBuilder();
-            }
-            node_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Node.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(node_);
-              node_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            typeUrl_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              resourceNamesSubscribe_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            resourceNamesSubscribe_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              resourceNamesUnsubscribe_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            resourceNamesUnsubscribe_.add(s);
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              initialResourceVersions_ = com.google.protobuf.MapField.newMapField(
-                  InitialResourceVersionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000010;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            initialResourceVersions__ = input.readMessage(
-                InitialResourceVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            initialResourceVersions_.getMutableMap().put(
-                initialResourceVersions__.getKey(), initialResourceVersions__.getValue());
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            responseNonce_ = s;
-            break;
-          }
-          case 58: {
-            com.google.rpc.Status.Builder subBuilder = null;
-            if (errorDetail_ != null) {
-              subBuilder = errorDetail_.toBuilder();
-            }
-            errorDetail_ = input.readMessage(com.google.rpc.Status.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(errorDetail_);
-              errorDetail_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              resourceLocatorsSubscribe_ = new java.util.ArrayList<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            resourceLocatorsSubscribe_.add(
-                input.readMessage(io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              resourceLocatorsUnsubscribe_ = new java.util.ArrayList<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            resourceLocatorsUnsubscribe_.add(
-                input.readMessage(io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        resourceNamesSubscribe_ = resourceNamesSubscribe_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        resourceNamesUnsubscribe_ = resourceNamesUnsubscribe_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        resourceLocatorsSubscribe_ = java.util.Collections.unmodifiableList(resourceLocatorsSubscribe_);
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        resourceLocatorsUnsubscribe_ = java.util.Collections.unmodifiableList(resourceLocatorsUnsubscribe_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.service.discovery.v3.DiscoveryProto.internal_static_envoy_service_discovery_v3_DeltaDiscoveryRequest_descriptor;
@@ -267,11 +128,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.NodeOrBuilder getNodeOrBuilder() {
-    return getNode();
+    return node_ == null ? io.envoyproxy.envoy.config.core.v3.Node.getDefaultInstance() : node_;
   }
 
   public static final int TYPE_URL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object typeUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object typeUrl_ = "";
   /**
    * <pre>
    * Type of the resource that is being requested, e.g.
@@ -323,6 +185,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAMES_SUBSCRIBE_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList resourceNamesSubscribe_;
   /**
    * <pre>
@@ -438,6 +301,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_NAMES_UNSUBSCRIBE_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList resourceNamesUnsubscribe_;
   /**
    * <pre>
@@ -489,6 +353,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_LOCATORS_SUBSCRIBE_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator> resourceLocatorsSubscribe_;
   /**
    * <pre>
@@ -569,6 +434,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_LOCATORS_UNSUBSCRIBE_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator> resourceLocatorsUnsubscribe_;
   /**
    * <pre>
@@ -660,6 +526,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> initialResourceVersions_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -670,7 +537,6 @@ private static final long serialVersionUID = 0L;
     }
     return initialResourceVersions_;
   }
-
   public int getInitialResourceVersionsCount() {
     return internalGetInitialResourceVersions().getMap().size();
   }
@@ -688,7 +554,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
    */
-
   @java.lang.Override
   public boolean containsInitialResourceVersions(
       java.lang.String key) {
@@ -718,7 +583,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getInitialResourceVersionsMap() {
     return internalGetInitialResourceVersions().getMap();
   }
@@ -737,10 +601,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getInitialResourceVersionsOrDefault(
+  public /* nullable */
+java.lang.String getInitialResourceVersionsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetInitialResourceVersions().getMap();
@@ -761,7 +626,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
    */
   @java.lang.Override
-
   public java.lang.String getInitialResourceVersionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -774,7 +638,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_NONCE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object responseNonce_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object responseNonce_ = "";
   /**
    * <pre>
    * When the DeltaDiscoveryRequest is a ACK or NACK message in response
@@ -866,7 +731,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.rpc.StatusOrBuilder getErrorDetailOrBuilder() {
-    return getErrorDetail();
+    return errorDetail_ == null ? com.google.rpc.Status.getDefaultInstance() : errorDetail_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -913,7 +778,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < resourceLocatorsUnsubscribe_.size(); i++) {
       output.writeMessage(9, resourceLocatorsUnsubscribe_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -970,7 +835,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, resourceLocatorsUnsubscribe_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1009,7 +874,7 @@ private static final long serialVersionUID = 0L;
       if (!getErrorDetail()
           .equals(other.getErrorDetail())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1052,7 +917,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ERROR_DETAIL_FIELD_NUMBER;
       hash = (53 * hash) + getErrorDetail().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1223,55 +1088,47 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getResourceLocatorsSubscribeFieldBuilder();
-        getResourceLocatorsUnsubscribeFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nodeBuilder_ == null) {
-        node_ = null;
-      } else {
-        node_ = null;
+      bitField0_ = 0;
+      node_ = null;
+      if (nodeBuilder_ != null) {
+        nodeBuilder_.dispose();
         nodeBuilder_ = null;
       }
       typeUrl_ = "";
-
       resourceNamesSubscribe_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       resourceNamesUnsubscribe_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       if (resourceLocatorsSubscribeBuilder_ == null) {
         resourceLocatorsSubscribe_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        resourceLocatorsSubscribe_ = null;
         resourceLocatorsSubscribeBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (resourceLocatorsUnsubscribeBuilder_ == null) {
         resourceLocatorsUnsubscribe_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        resourceLocatorsUnsubscribe_ = null;
         resourceLocatorsUnsubscribeBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableInitialResourceVersions().clear();
       responseNonce_ = "";
-
-      if (errorDetailBuilder_ == null) {
-        errorDetail_ = null;
-      } else {
-        errorDetail_ = null;
+      errorDetail_ = null;
+      if (errorDetailBuilder_ != null) {
+        errorDetailBuilder_.dispose();
         errorDetailBuilder_ = null;
       }
       return this;
@@ -1300,51 +1157,65 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest buildPartial() {
       io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest result = new io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (nodeBuilder_ == null) {
-        result.node_ = node_;
-      } else {
-        result.node_ = nodeBuilder_.build();
-      }
-      result.typeUrl_ = typeUrl_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         resourceNamesSubscribe_ = resourceNamesSubscribe_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.resourceNamesSubscribe_ = resourceNamesSubscribe_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000008) != 0)) {
         resourceNamesUnsubscribe_ = resourceNamesUnsubscribe_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
       }
       result.resourceNamesUnsubscribe_ = resourceNamesUnsubscribe_;
       if (resourceLocatorsSubscribeBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           resourceLocatorsSubscribe_ = java.util.Collections.unmodifiableList(resourceLocatorsSubscribe_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.resourceLocatorsSubscribe_ = resourceLocatorsSubscribe_;
       } else {
         result.resourceLocatorsSubscribe_ = resourceLocatorsSubscribeBuilder_.build();
       }
       if (resourceLocatorsUnsubscribeBuilder_ == null) {
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           resourceLocatorsUnsubscribe_ = java.util.Collections.unmodifiableList(resourceLocatorsUnsubscribe_);
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.resourceLocatorsUnsubscribe_ = resourceLocatorsUnsubscribe_;
       } else {
         result.resourceLocatorsUnsubscribe_ = resourceLocatorsUnsubscribeBuilder_.build();
       }
-      result.initialResourceVersions_ = internalGetInitialResourceVersions();
-      result.initialResourceVersions_.makeImmutable();
-      result.responseNonce_ = responseNonce_;
-      if (errorDetailBuilder_ == null) {
-        result.errorDetail_ = errorDetail_;
-      } else {
-        result.errorDetail_ = errorDetailBuilder_.build();
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.node_ = nodeBuilder_ == null
+            ? node_
+            : nodeBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.typeUrl_ = typeUrl_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.initialResourceVersions_ = internalGetInitialResourceVersions();
+        result.initialResourceVersions_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.responseNonce_ = responseNonce_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.errorDetail_ = errorDetailBuilder_ == null
+            ? errorDetail_
+            : errorDetailBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1396,12 +1267,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTypeUrl().isEmpty()) {
         typeUrl_ = other.typeUrl_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.resourceNamesSubscribe_.isEmpty()) {
         if (resourceNamesSubscribe_.isEmpty()) {
           resourceNamesSubscribe_ = other.resourceNamesSubscribe_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureResourceNamesSubscribeIsMutable();
           resourceNamesSubscribe_.addAll(other.resourceNamesSubscribe_);
@@ -1411,7 +1283,7 @@ private static final long serialVersionUID = 0L;
       if (!other.resourceNamesUnsubscribe_.isEmpty()) {
         if (resourceNamesUnsubscribe_.isEmpty()) {
           resourceNamesUnsubscribe_ = other.resourceNamesUnsubscribe_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureResourceNamesUnsubscribeIsMutable();
           resourceNamesUnsubscribe_.addAll(other.resourceNamesUnsubscribe_);
@@ -1422,7 +1294,7 @@ private static final long serialVersionUID = 0L;
         if (!other.resourceLocatorsSubscribe_.isEmpty()) {
           if (resourceLocatorsSubscribe_.isEmpty()) {
             resourceLocatorsSubscribe_ = other.resourceLocatorsSubscribe_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureResourceLocatorsSubscribeIsMutable();
             resourceLocatorsSubscribe_.addAll(other.resourceLocatorsSubscribe_);
@@ -1435,7 +1307,7 @@ private static final long serialVersionUID = 0L;
             resourceLocatorsSubscribeBuilder_.dispose();
             resourceLocatorsSubscribeBuilder_ = null;
             resourceLocatorsSubscribe_ = other.resourceLocatorsSubscribe_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000010);
             resourceLocatorsSubscribeBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResourceLocatorsSubscribeFieldBuilder() : null;
@@ -1448,7 +1320,7 @@ private static final long serialVersionUID = 0L;
         if (!other.resourceLocatorsUnsubscribe_.isEmpty()) {
           if (resourceLocatorsUnsubscribe_.isEmpty()) {
             resourceLocatorsUnsubscribe_ = other.resourceLocatorsUnsubscribe_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureResourceLocatorsUnsubscribeIsMutable();
             resourceLocatorsUnsubscribe_.addAll(other.resourceLocatorsUnsubscribe_);
@@ -1461,7 +1333,7 @@ private static final long serialVersionUID = 0L;
             resourceLocatorsUnsubscribeBuilder_.dispose();
             resourceLocatorsUnsubscribeBuilder_ = null;
             resourceLocatorsUnsubscribe_ = other.resourceLocatorsUnsubscribe_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000020);
             resourceLocatorsUnsubscribeBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResourceLocatorsUnsubscribeFieldBuilder() : null;
@@ -1472,14 +1344,16 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableInitialResourceVersions().mergeFrom(
           other.internalGetInitialResourceVersions());
+      bitField0_ |= 0x00000040;
       if (!other.getResponseNonce().isEmpty()) {
         responseNonce_ = other.responseNonce_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasErrorDetail()) {
         mergeErrorDetail(other.getErrorDetail());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1494,17 +1368,101 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNodeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              typeUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureResourceNamesSubscribeIsMutable();
+              resourceNamesSubscribe_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureResourceNamesUnsubscribeIsMutable();
+              resourceNamesUnsubscribe_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              initialResourceVersions__ = input.readMessage(
+                  InitialResourceVersionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInitialResourceVersions().getMutableMap().put(
+                  initialResourceVersions__.getKey(), initialResourceVersions__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 42
+            case 50: {
+              responseNonce_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getErrorDetailFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 58
+            case 66: {
+              io.envoyproxy.envoy.service.discovery.v3.ResourceLocator m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.parser(),
+                      extensionRegistry);
+              if (resourceLocatorsSubscribeBuilder_ == null) {
+                ensureResourceLocatorsSubscribeIsMutable();
+                resourceLocatorsSubscribe_.add(m);
+              } else {
+                resourceLocatorsSubscribeBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              io.envoyproxy.envoy.service.discovery.v3.ResourceLocator m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.parser(),
+                      extensionRegistry);
+              if (resourceLocatorsUnsubscribeBuilder_ == null) {
+                ensureResourceLocatorsUnsubscribeIsMutable();
+                resourceLocatorsUnsubscribe_.add(m);
+              } else {
+                resourceLocatorsUnsubscribeBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.service.discovery.v3.DeltaDiscoveryRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1521,7 +1479,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the node field is set.
      */
     public boolean hasNode() {
-      return nodeBuilder_ != null || node_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1551,11 +1509,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         node_ = value;
-        onChanged();
       } else {
         nodeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1569,11 +1527,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.Node.Builder builderForValue) {
       if (nodeBuilder_ == null) {
         node_ = builderForValue.build();
-        onChanged();
       } else {
         nodeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1585,17 +1543,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNode(io.envoyproxy.envoy.config.core.v3.Node value) {
       if (nodeBuilder_ == null) {
-        if (node_ != null) {
-          node_ =
-            io.envoyproxy.envoy.config.core.v3.Node.newBuilder(node_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          node_ != null &&
+          node_ != io.envoyproxy.envoy.config.core.v3.Node.getDefaultInstance()) {
+          getNodeBuilder().mergeFrom(value);
         } else {
           node_ = value;
         }
-        onChanged();
       } else {
         nodeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1606,14 +1565,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.Node node = 1;</code>
      */
     public Builder clearNode() {
-      if (nodeBuilder_ == null) {
-        node_ = null;
-        onChanged();
-      } else {
-        node_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      node_ = null;
+      if (nodeBuilder_ != null) {
+        nodeBuilder_.dispose();
         nodeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1624,7 +1582,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.Node node = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.Node.Builder getNodeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNodeFieldBuilder().getBuilder();
     }
@@ -1726,11 +1684,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       typeUrl_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1746,8 +1702,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTypeUrl() {
-      
       typeUrl_ = getDefaultInstance().getTypeUrl();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1765,21 +1721,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       typeUrl_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList resourceNamesSubscribe_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureResourceNamesSubscribeIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         resourceNamesSubscribe_ = new com.google.protobuf.LazyStringArrayList(resourceNamesSubscribe_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1922,10 +1876,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNamesSubscribe(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResourceNamesSubscribeIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResourceNamesSubscribeIsMutable();
       resourceNamesSubscribe_.set(index, value);
       onChanged();
       return this;
@@ -1957,10 +1909,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResourceNamesSubscribe(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResourceNamesSubscribeIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResourceNamesSubscribeIsMutable();
       resourceNamesSubscribe_.add(value);
       onChanged();
       return this;
@@ -2024,7 +1974,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearResourceNamesSubscribe() {
       resourceNamesSubscribe_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2055,10 +2005,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResourceNamesSubscribeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureResourceNamesSubscribeIsMutable();
       resourceNamesSubscribe_.add(value);
       onChanged();
@@ -2067,9 +2015,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList resourceNamesUnsubscribe_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureResourceNamesUnsubscribeIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         resourceNamesUnsubscribe_ = new com.google.protobuf.LazyStringArrayList(resourceNamesUnsubscribe_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -2132,10 +2080,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceNamesUnsubscribe(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResourceNamesUnsubscribeIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResourceNamesUnsubscribeIsMutable();
       resourceNamesUnsubscribe_.set(index, value);
       onChanged();
       return this;
@@ -2151,10 +2097,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResourceNamesUnsubscribe(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResourceNamesUnsubscribeIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResourceNamesUnsubscribeIsMutable();
       resourceNamesUnsubscribe_.add(value);
       onChanged();
       return this;
@@ -2186,7 +2130,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearResourceNamesUnsubscribe() {
       resourceNamesUnsubscribe_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2201,10 +2145,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResourceNamesUnsubscribeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureResourceNamesUnsubscribeIsMutable();
       resourceNamesUnsubscribe_.add(value);
       onChanged();
@@ -2214,9 +2156,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator> resourceLocatorsSubscribe_ =
       java.util.Collections.emptyList();
     private void ensureResourceLocatorsSubscribeIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         resourceLocatorsSubscribe_ = new java.util.ArrayList<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator>(resourceLocatorsSubscribe_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -2454,7 +2396,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearResourceLocatorsSubscribe() {
       if (resourceLocatorsSubscribeBuilder_ == null) {
         resourceLocatorsSubscribe_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         resourceLocatorsSubscribeBuilder_.clear();
@@ -2587,7 +2529,7 @@ private static final long serialVersionUID = 0L;
         resourceLocatorsSubscribeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.service.discovery.v3.ResourceLocator, io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.Builder, io.envoyproxy.envoy.service.discovery.v3.ResourceLocatorOrBuilder>(
                 resourceLocatorsSubscribe_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         resourceLocatorsSubscribe_ = null;
@@ -2598,9 +2540,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator> resourceLocatorsUnsubscribe_ =
       java.util.Collections.emptyList();
     private void ensureResourceLocatorsUnsubscribeIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         resourceLocatorsUnsubscribe_ = new java.util.ArrayList<io.envoyproxy.envoy.service.discovery.v3.ResourceLocator>(resourceLocatorsUnsubscribe_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -2838,7 +2780,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearResourceLocatorsUnsubscribe() {
       if (resourceLocatorsUnsubscribeBuilder_ == null) {
         resourceLocatorsUnsubscribe_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         resourceLocatorsUnsubscribeBuilder_.clear();
@@ -2971,7 +2913,7 @@ private static final long serialVersionUID = 0L;
         resourceLocatorsUnsubscribeBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.service.discovery.v3.ResourceLocator, io.envoyproxy.envoy.service.discovery.v3.ResourceLocator.Builder, io.envoyproxy.envoy.service.discovery.v3.ResourceLocatorOrBuilder>(
                 resourceLocatorsUnsubscribe_,
-                ((bitField0_ & 0x00000008) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         resourceLocatorsUnsubscribe_ = null;
@@ -2982,7 +2924,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> initialResourceVersions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetInitialResourceVersions() {
+        internalGetInitialResourceVersions() {
       if (initialResourceVersions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             InitialResourceVersionsDefaultEntryHolder.defaultEntry);
@@ -2990,8 +2932,7 @@ private static final long serialVersionUID = 0L;
       return initialResourceVersions_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableInitialResourceVersions() {
-      onChanged();;
+        internalGetMutableInitialResourceVersions() {
       if (initialResourceVersions_ == null) {
         initialResourceVersions_ = com.google.protobuf.MapField.newMapField(
             InitialResourceVersionsDefaultEntryHolder.defaultEntry);
@@ -2999,9 +2940,10 @@ private static final long serialVersionUID = 0L;
       if (!initialResourceVersions_.isMutable()) {
         initialResourceVersions_ = initialResourceVersions_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return initialResourceVersions_;
     }
-
     public int getInitialResourceVersionsCount() {
       return internalGetInitialResourceVersions().getMap().size();
     }
@@ -3019,7 +2961,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
      */
-
     @java.lang.Override
     public boolean containsInitialResourceVersions(
         java.lang.String key) {
@@ -3049,7 +2990,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getInitialResourceVersionsMap() {
       return internalGetInitialResourceVersions().getMap();
     }
@@ -3068,10 +3008,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getInitialResourceVersionsOrDefault(
+    public /* nullable */
+java.lang.String getInitialResourceVersionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetInitialResourceVersions().getMap();
@@ -3092,7 +3033,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
      */
     @java.lang.Override
-
     public java.lang.String getInitialResourceVersionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3103,8 +3043,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInitialResourceVersions() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableInitialResourceVersions().getMutableMap()
           .clear();
       return this;
@@ -3123,7 +3063,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
      */
-
     public Builder removeInitialResourceVersions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3136,7 +3075,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableInitialResourceVersions() {
+        getMutableInitialResourceVersions() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableInitialResourceVersions().getMutableMap();
     }
     /**
@@ -3157,12 +3097,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInitialResourceVersions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -3179,11 +3117,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; initial_resource_versions = 5;</code>
      */
-
     public Builder putAllInitialResourceVersions(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableInitialResourceVersions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
@@ -3249,11 +3187,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseNonce(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       responseNonce_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3269,8 +3205,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseNonce() {
-      
       responseNonce_ = getDefaultInstance().getResponseNonce();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3288,12 +3224,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseNonceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       responseNonce_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3312,7 +3246,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the errorDetail field is set.
      */
     public boolean hasErrorDetail() {
-      return errorDetailBuilder_ != null || errorDetail_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -3346,11 +3280,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         errorDetail_ = value;
-        onChanged();
       } else {
         errorDetailBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3366,11 +3300,11 @@ private static final long serialVersionUID = 0L;
         com.google.rpc.Status.Builder builderForValue) {
       if (errorDetailBuilder_ == null) {
         errorDetail_ = builderForValue.build();
-        onChanged();
       } else {
         errorDetailBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3384,17 +3318,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeErrorDetail(com.google.rpc.Status value) {
       if (errorDetailBuilder_ == null) {
-        if (errorDetail_ != null) {
-          errorDetail_ =
-            com.google.rpc.Status.newBuilder(errorDetail_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          errorDetail_ != null &&
+          errorDetail_ != com.google.rpc.Status.getDefaultInstance()) {
+          getErrorDetailBuilder().mergeFrom(value);
         } else {
           errorDetail_ = value;
         }
-        onChanged();
       } else {
         errorDetailBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -3407,14 +3342,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error_detail = 7;</code>
      */
     public Builder clearErrorDetail() {
-      if (errorDetailBuilder_ == null) {
-        errorDetail_ = null;
-        onChanged();
-      } else {
-        errorDetail_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      errorDetail_ = null;
+      if (errorDetailBuilder_ != null) {
+        errorDetailBuilder_.dispose();
         errorDetailBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3427,7 +3361,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.rpc.Status error_detail = 7;</code>
      */
     public com.google.rpc.Status.Builder getErrorDetailBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getErrorDetailFieldBuilder().getBuilder();
     }
@@ -3503,7 +3437,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeltaDiscoveryRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

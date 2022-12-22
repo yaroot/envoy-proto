@@ -124,4 +124,14 @@ public interface RouteTravelAdvisoryOrBuilder extends
    */
   com.google.maps.routing.v2.SpeedReadingIntervalOrBuilder getSpeedReadingIntervalsOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * The fuel consumption prediction in microliters.
+   * </pre>
+   *
+   * <code>int64 fuel_consumption_microliters = 5;</code>
+   * @return The fuelConsumptionMicroliters.
+   */
+  long getFuelConsumptionMicroliters();
 }

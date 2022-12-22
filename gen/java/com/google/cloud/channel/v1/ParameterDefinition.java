@@ -38,101 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ParameterDefinition(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            parameterType_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.cloud.channel.v1.Value.Builder subBuilder = null;
-            if (minValue_ != null) {
-              subBuilder = minValue_.toBuilder();
-            }
-            minValue_ = input.readMessage(com.google.cloud.channel.v1.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minValue_);
-              minValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.channel.v1.Value.Builder subBuilder = null;
-            if (maxValue_ != null) {
-              subBuilder = maxValue_.toBuilder();
-            }
-            maxValue_ = input.readMessage(com.google.cloud.channel.v1.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxValue_);
-              maxValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              allowedValues_ = new java.util.ArrayList<com.google.cloud.channel.v1.Value>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            allowedValues_.add(
-                input.readMessage(com.google.cloud.channel.v1.Value.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-
-            optional_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        allowedValues_ = java.util.Collections.unmodifiableList(allowedValues_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.OffersProto.internal_static_google_cloud_channel_v1_ParameterDefinition_descriptor;
@@ -309,7 +214,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of the parameter.
@@ -355,7 +261,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARAMETER_TYPE_FIELD_NUMBER = 2;
-  private int parameterType_;
+  private int parameterType_ = 0;
   /**
    * <pre>
    * Data type of the parameter. Minimal value, Maximum value and allowed values
@@ -378,8 +284,7 @@ private static final long serialVersionUID = 0L;
    * @return The parameterType.
    */
   @java.lang.Override public com.google.cloud.channel.v1.ParameterDefinition.ParameterType getParameterType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.ParameterDefinition.ParameterType result = com.google.cloud.channel.v1.ParameterDefinition.ParameterType.valueOf(parameterType_);
+    com.google.cloud.channel.v1.ParameterDefinition.ParameterType result = com.google.cloud.channel.v1.ParameterDefinition.ParameterType.forNumber(parameterType_);
     return result == null ? com.google.cloud.channel.v1.ParameterDefinition.ParameterType.UNRECOGNIZED : result;
   }
 
@@ -424,7 +329,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.ValueOrBuilder getMinValueOrBuilder() {
-    return getMinValue();
+    return minValue_ == null ? com.google.cloud.channel.v1.Value.getDefaultInstance() : minValue_;
   }
 
   public static final int MAX_VALUE_FIELD_NUMBER = 4;
@@ -468,10 +373,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.channel.v1.ValueOrBuilder getMaxValueOrBuilder() {
-    return getMaxValue();
+    return maxValue_ == null ? com.google.cloud.channel.v1.Value.getDefaultInstance() : maxValue_;
   }
 
   public static final int ALLOWED_VALUES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.channel.v1.Value> allowedValues_;
   /**
    * <pre>
@@ -542,7 +448,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPTIONAL_FIELD_NUMBER = 6;
-  private boolean optional_;
+  private boolean optional_ = false;
   /**
    * <pre>
    * If set to true, parameter is optional to purchase this Offer.
@@ -588,7 +494,7 @@ private static final long serialVersionUID = 0L;
     if (optional_ != false) {
       output.writeBool(6, optional_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -620,7 +526,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(6, optional_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -652,7 +558,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAllowedValuesList())) return false;
     if (getOptional()
         != other.getOptional()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -682,7 +588,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + OPTIONAL_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getOptional());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -804,47 +710,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ParameterDefinition.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAllowedValuesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       parameterType_ = 0;
-
-      if (minValueBuilder_ == null) {
-        minValue_ = null;
-      } else {
-        minValue_ = null;
+      minValue_ = null;
+      if (minValueBuilder_ != null) {
+        minValueBuilder_.dispose();
         minValueBuilder_ = null;
       }
-      if (maxValueBuilder_ == null) {
-        maxValue_ = null;
-      } else {
-        maxValue_ = null;
+      maxValue_ = null;
+      if (maxValueBuilder_ != null) {
+        maxValueBuilder_.dispose();
         maxValueBuilder_ = null;
       }
       if (allowedValuesBuilder_ == null) {
         allowedValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        allowedValues_ = null;
         allowedValuesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       optional_ = false;
-
       return this;
     }
 
@@ -871,31 +768,45 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ParameterDefinition buildPartial() {
       com.google.cloud.channel.v1.ParameterDefinition result = new com.google.cloud.channel.v1.ParameterDefinition(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.parameterType_ = parameterType_;
-      if (minValueBuilder_ == null) {
-        result.minValue_ = minValue_;
-      } else {
-        result.minValue_ = minValueBuilder_.build();
-      }
-      if (maxValueBuilder_ == null) {
-        result.maxValue_ = maxValue_;
-      } else {
-        result.maxValue_ = maxValueBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.channel.v1.ParameterDefinition result) {
       if (allowedValuesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           allowedValues_ = java.util.Collections.unmodifiableList(allowedValues_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.allowedValues_ = allowedValues_;
       } else {
         result.allowedValues_ = allowedValuesBuilder_.build();
       }
-      result.optional_ = optional_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ParameterDefinition result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parameterType_ = parameterType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.minValue_ = minValueBuilder_ == null
+            ? minValue_
+            : minValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxValue_ = maxValueBuilder_ == null
+            ? maxValue_
+            : maxValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.optional_ = optional_;
+      }
     }
 
     @java.lang.Override
@@ -944,6 +855,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ParameterDefinition.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.parameterType_ != 0) {
@@ -959,7 +871,7 @@ private static final long serialVersionUID = 0L;
         if (!other.allowedValues_.isEmpty()) {
           if (allowedValues_.isEmpty()) {
             allowedValues_ = other.allowedValues_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureAllowedValuesIsMutable();
             allowedValues_.addAll(other.allowedValues_);
@@ -972,7 +884,7 @@ private static final long serialVersionUID = 0L;
             allowedValuesBuilder_.dispose();
             allowedValuesBuilder_ = null;
             allowedValues_ = other.allowedValues_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             allowedValuesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAllowedValuesFieldBuilder() : null;
@@ -984,7 +896,7 @@ private static final long serialVersionUID = 0L;
       if (other.getOptional() != false) {
         setOptional(other.getOptional());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -999,17 +911,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ParameterDefinition parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              parameterType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getMinValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMaxValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.cloud.channel.v1.Value m =
+                  input.readMessage(
+                      com.google.cloud.channel.v1.Value.parser(),
+                      extensionRegistry);
+              if (allowedValuesBuilder_ == null) {
+                ensureAllowedValuesIsMutable();
+                allowedValues_.add(m);
+              } else {
+                allowedValuesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 48: {
+              optional_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ParameterDefinition) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1067,11 +1034,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1084,8 +1049,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1100,12 +1065,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1134,8 +1097,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setParameterTypeValue(int value) {
-      
       parameterType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1150,8 +1113,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.ParameterDefinition.ParameterType getParameterType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.ParameterDefinition.ParameterType result = com.google.cloud.channel.v1.ParameterDefinition.ParameterType.valueOf(parameterType_);
+      com.google.cloud.channel.v1.ParameterDefinition.ParameterType result = com.google.cloud.channel.v1.ParameterDefinition.ParameterType.forNumber(parameterType_);
       return result == null ? com.google.cloud.channel.v1.ParameterDefinition.ParameterType.UNRECOGNIZED : result;
     }
     /**
@@ -1168,7 +1130,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       parameterType_ = value.getNumber();
       onChanged();
       return this;
@@ -1183,7 +1145,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParameterType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       parameterType_ = 0;
       onChanged();
       return this;
@@ -1203,7 +1165,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minValue field is set.
      */
     public boolean hasMinValue() {
-      return minValueBuilder_ != null || minValue_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1237,11 +1199,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minValue_ = value;
-        onChanged();
       } else {
         minValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1257,11 +1219,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Value.Builder builderForValue) {
       if (minValueBuilder_ == null) {
         minValue_ = builderForValue.build();
-        onChanged();
       } else {
         minValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1275,17 +1237,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinValue(com.google.cloud.channel.v1.Value value) {
       if (minValueBuilder_ == null) {
-        if (minValue_ != null) {
-          minValue_ =
-            com.google.cloud.channel.v1.Value.newBuilder(minValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          minValue_ != null &&
+          minValue_ != com.google.cloud.channel.v1.Value.getDefaultInstance()) {
+          getMinValueBuilder().mergeFrom(value);
         } else {
           minValue_ = value;
         }
-        onChanged();
       } else {
         minValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1298,14 +1261,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Value min_value = 3;</code>
      */
     public Builder clearMinValue() {
-      if (minValueBuilder_ == null) {
-        minValue_ = null;
-        onChanged();
-      } else {
-        minValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      minValue_ = null;
+      if (minValueBuilder_ != null) {
+        minValueBuilder_.dispose();
         minValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1318,7 +1280,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Value min_value = 3;</code>
      */
     public com.google.cloud.channel.v1.Value.Builder getMinValueBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMinValueFieldBuilder().getBuilder();
     }
@@ -1376,7 +1338,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxValue field is set.
      */
     public boolean hasMaxValue() {
-      return maxValueBuilder_ != null || maxValue_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1410,11 +1372,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxValue_ = value;
-        onChanged();
       } else {
         maxValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1430,11 +1392,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.channel.v1.Value.Builder builderForValue) {
       if (maxValueBuilder_ == null) {
         maxValue_ = builderForValue.build();
-        onChanged();
       } else {
         maxValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1448,17 +1410,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxValue(com.google.cloud.channel.v1.Value value) {
       if (maxValueBuilder_ == null) {
-        if (maxValue_ != null) {
-          maxValue_ =
-            com.google.cloud.channel.v1.Value.newBuilder(maxValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          maxValue_ != null &&
+          maxValue_ != com.google.cloud.channel.v1.Value.getDefaultInstance()) {
+          getMaxValueBuilder().mergeFrom(value);
         } else {
           maxValue_ = value;
         }
-        onChanged();
       } else {
         maxValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1471,14 +1434,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Value max_value = 4;</code>
      */
     public Builder clearMaxValue() {
-      if (maxValueBuilder_ == null) {
-        maxValue_ = null;
-        onChanged();
-      } else {
-        maxValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      maxValue_ = null;
+      if (maxValueBuilder_ != null) {
+        maxValueBuilder_.dispose();
         maxValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1491,7 +1453,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.channel.v1.Value max_value = 4;</code>
      */
     public com.google.cloud.channel.v1.Value.Builder getMaxValueBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMaxValueFieldBuilder().getBuilder();
     }
@@ -1538,9 +1500,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.channel.v1.Value> allowedValues_ =
       java.util.Collections.emptyList();
     private void ensureAllowedValuesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         allowedValues_ = new java.util.ArrayList<com.google.cloud.channel.v1.Value>(allowedValues_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1756,7 +1718,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAllowedValues() {
       if (allowedValuesBuilder_ == null) {
         allowedValues_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         allowedValuesBuilder_.clear();
@@ -1875,7 +1837,7 @@ private static final long serialVersionUID = 0L;
         allowedValuesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.channel.v1.Value, com.google.cloud.channel.v1.Value.Builder, com.google.cloud.channel.v1.ValueOrBuilder>(
                 allowedValues_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         allowedValues_ = null;
@@ -1908,6 +1870,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOptional(boolean value) {
       
       optional_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1920,7 +1883,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOptional() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       optional_ = false;
       onChanged();
       return this;
@@ -1958,7 +1921,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ParameterDefinition(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

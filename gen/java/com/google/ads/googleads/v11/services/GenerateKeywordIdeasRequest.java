@@ -40,200 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GenerateKeywordIdeasRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customerId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.services.KeywordAndUrlSeed.Builder subBuilder = null;
-            if (seedCase_ == 2) {
-              subBuilder = ((com.google.ads.googleads.v11.services.KeywordAndUrlSeed) seed_).toBuilder();
-            }
-            seed_ =
-                input.readMessage(com.google.ads.googleads.v11.services.KeywordAndUrlSeed.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.services.KeywordAndUrlSeed) seed_);
-              seed_ = subBuilder.buildPartial();
-            }
-            seedCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v11.services.KeywordSeed.Builder subBuilder = null;
-            if (seedCase_ == 3) {
-              subBuilder = ((com.google.ads.googleads.v11.services.KeywordSeed) seed_).toBuilder();
-            }
-            seed_ =
-                input.readMessage(com.google.ads.googleads.v11.services.KeywordSeed.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.services.KeywordSeed) seed_);
-              seed_ = subBuilder.buildPartial();
-            }
-            seedCase_ = 3;
-            break;
-          }
-          case 42: {
-            com.google.ads.googleads.v11.services.UrlSeed.Builder subBuilder = null;
-            if (seedCase_ == 5) {
-              subBuilder = ((com.google.ads.googleads.v11.services.UrlSeed) seed_).toBuilder();
-            }
-            seed_ =
-                input.readMessage(com.google.ads.googleads.v11.services.UrlSeed.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.services.UrlSeed) seed_);
-              seed_ = subBuilder.buildPartial();
-            }
-            seedCase_ = 5;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            keywordPlanNetwork_ = rawValue;
-            break;
-          }
-          case 80: {
-
-            includeAdultKeywords_ = input.readBool();
-            break;
-          }
-          case 90: {
-            com.google.ads.googleads.v11.services.SiteSeed.Builder subBuilder = null;
-            if (seedCase_ == 11) {
-              subBuilder = ((com.google.ads.googleads.v11.services.SiteSeed) seed_).toBuilder();
-            }
-            seed_ =
-                input.readMessage(com.google.ads.googleads.v11.services.SiteSeed.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.ads.googleads.v11.services.SiteSeed) seed_);
-              seed_ = subBuilder.buildPartial();
-            }
-            seedCase_ = 11;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 104: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            language_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              geoTargetConstants_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            geoTargetConstants_.add(s);
-            break;
-          }
-          case 130: {
-            com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.Builder subBuilder = null;
-            if (aggregateMetrics_ != null) {
-              subBuilder = aggregateMetrics_.toBuilder();
-            }
-            aggregateMetrics_ = input.readMessage(com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(aggregateMetrics_);
-              aggregateMetrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 136: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              keywordAnnotation_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            keywordAnnotation_.add(rawValue);
-            break;
-          }
-          case 138: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                keywordAnnotation_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              keywordAnnotation_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 146: {
-            com.google.ads.googleads.v11.common.HistoricalMetricsOptions.Builder subBuilder = null;
-            if (historicalMetricsOptions_ != null) {
-              subBuilder = historicalMetricsOptions_.toBuilder();
-            }
-            historicalMetricsOptions_ = input.readMessage(com.google.ads.googleads.v11.common.HistoricalMetricsOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(historicalMetricsOptions_);
-              historicalMetricsOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        geoTargetConstants_ = geoTargetConstants_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        keywordAnnotation_ = java.util.Collections.unmodifiableList(keywordAnnotation_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.services.KeywordPlanIdeaServiceProto.internal_static_google_ads_googleads_v11_services_GenerateKeywordIdeasRequest_descriptor;
@@ -294,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object customerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customerId_ = "";
   /**
    * <pre>
    * The ID of the customer with the recommendation.
@@ -340,7 +147,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LANGUAGE_FIELD_NUMBER = 14;
-  private volatile java.lang.Object language_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object language_ = "";
   /**
    * <pre>
    * The resource name of the language to target.
@@ -407,6 +215,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GEO_TARGET_CONSTANTS_FIELD_NUMBER = 15;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList geoTargetConstants_;
   /**
    * <pre>
@@ -462,7 +271,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INCLUDE_ADULT_KEYWORDS_FIELD_NUMBER = 10;
-  private boolean includeAdultKeywords_;
+  private boolean includeAdultKeywords_ = false;
   /**
    * <pre>
    * If true, adult keywords will be included in response.
@@ -478,7 +287,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 12;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * Token of the page to retrieve. If not specified, the first
@@ -530,7 +340,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 13;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * Number of results to retrieve in a single page.
@@ -551,7 +361,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYWORD_PLAN_NETWORK_FIELD_NUMBER = 9;
-  private int keywordPlanNetwork_;
+  private int keywordPlanNetwork_ = 0;
   /**
    * <pre>
    * Targeting network.
@@ -574,20 +384,19 @@ private static final long serialVersionUID = 0L;
    * @return The keywordPlanNetwork.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork getKeywordPlanNetwork() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork result = com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork.valueOf(keywordPlanNetwork_);
+    com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork result = com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork.forNumber(keywordPlanNetwork_);
     return result == null ? com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork.UNRECOGNIZED : result;
   }
 
   public static final int KEYWORD_ANNOTATION_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> keywordAnnotation_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation> keywordAnnotation_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation>() {
             public com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation result = com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation.valueOf(from);
+              com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation result = com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation.forNumber(from);
               return result == null ? com.google.ads.googleads.v11.enums.KeywordPlanKeywordAnnotationEnum.KeywordPlanKeywordAnnotation.UNRECOGNIZED : result;
             }
           };
@@ -692,7 +501,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.KeywordPlanAggregateMetricsOrBuilder getAggregateMetricsOrBuilder() {
-    return getAggregateMetrics();
+    return aggregateMetrics_ == null ? com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.getDefaultInstance() : aggregateMetrics_;
   }
 
   public static final int HISTORICAL_METRICS_OPTIONS_FIELD_NUMBER = 18;
@@ -730,14 +539,14 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.HistoricalMetricsOptionsOrBuilder getHistoricalMetricsOptionsOrBuilder() {
-    return getHistoricalMetricsOptions();
+    return historicalMetricsOptions_ == null ? com.google.ads.googleads.v11.common.HistoricalMetricsOptions.getDefaultInstance() : historicalMetricsOptions_;
   }
 
   public static final int KEYWORD_AND_URL_SEED_FIELD_NUMBER = 2;
   /**
    * <pre>
    * A Keyword and a specific Url to generate ideas from
-   * e.g. cars, www.example.com/cars.
+   * for example, cars, www.example.com/cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -750,7 +559,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A Keyword and a specific Url to generate ideas from
-   * e.g. cars, www.example.com/cars.
+   * for example, cars, www.example.com/cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -766,7 +575,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * A Keyword and a specific Url to generate ideas from
-   * e.g. cars, www.example.com/cars.
+   * for example, cars, www.example.com/cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -782,7 +591,7 @@ private static final long serialVersionUID = 0L;
   public static final int KEYWORD_SEED_FIELD_NUMBER = 3;
   /**
    * <pre>
-   * A Keyword or phrase to generate ideas from, e.g. cars.
+   * A Keyword or phrase to generate ideas from, for example, cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -794,7 +603,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Keyword or phrase to generate ideas from, e.g. cars.
+   * A Keyword or phrase to generate ideas from, for example, cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -809,7 +618,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A Keyword or phrase to generate ideas from, e.g. cars.
+   * A Keyword or phrase to generate ideas from, for example, cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -825,7 +634,7 @@ private static final long serialVersionUID = 0L;
   public static final int URL_SEED_FIELD_NUMBER = 5;
   /**
    * <pre>
-   * A specific url to generate ideas from, e.g. www.example.com/cars.
+   * A specific url to generate ideas from, for example, www.example.com/cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -837,7 +646,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A specific url to generate ideas from, e.g. www.example.com/cars.
+   * A specific url to generate ideas from, for example, www.example.com/cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -852,7 +661,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A specific url to generate ideas from, e.g. www.example.com/cars.
+   * A specific url to generate ideas from, for example, www.example.com/cars.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -868,7 +677,7 @@ private static final long serialVersionUID = 0L;
   public static final int SITE_SEED_FIELD_NUMBER = 11;
   /**
    * <pre>
-   * The site to generate ideas from, e.g. www.example.com.
+   * The site to generate ideas from, for example, www.example.com.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -880,7 +689,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The site to generate ideas from, e.g. www.example.com.
+   * The site to generate ideas from, for example, www.example.com.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -895,7 +704,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The site to generate ideas from, e.g. www.example.com.
+   * The site to generate ideas from, for example, www.example.com.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -969,7 +778,7 @@ private static final long serialVersionUID = 0L;
     if (historicalMetricsOptions_ != null) {
       output.writeMessage(18, getHistoricalMetricsOptions());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1043,7 +852,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(18, getHistoricalMetricsOptions());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1106,7 +915,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1168,7 +977,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1289,49 +1098,49 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       customerId_ = "";
-
       language_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       geoTargetConstants_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      includeAdultKeywords_ = false;
-
-      pageToken_ = "";
-
-      pageSize_ = 0;
-
-      keywordPlanNetwork_ = 0;
-
-      keywordAnnotation_ = java.util.Collections.emptyList();
       bitField0_ = (bitField0_ & ~0x00000004);
-      if (aggregateMetricsBuilder_ == null) {
-        aggregateMetrics_ = null;
-      } else {
-        aggregateMetrics_ = null;
+      includeAdultKeywords_ = false;
+      pageToken_ = "";
+      pageSize_ = 0;
+      keywordPlanNetwork_ = 0;
+      keywordAnnotation_ = java.util.Collections.emptyList();
+      bitField0_ = (bitField0_ & ~0x00000080);
+      aggregateMetrics_ = null;
+      if (aggregateMetricsBuilder_ != null) {
+        aggregateMetricsBuilder_.dispose();
         aggregateMetricsBuilder_ = null;
       }
-      if (historicalMetricsOptionsBuilder_ == null) {
-        historicalMetricsOptions_ = null;
-      } else {
-        historicalMetricsOptions_ = null;
+      historicalMetricsOptions_ = null;
+      if (historicalMetricsOptionsBuilder_ != null) {
+        historicalMetricsOptionsBuilder_.dispose();
         historicalMetricsOptionsBuilder_ = null;
+      }
+      if (keywordAndUrlSeedBuilder_ != null) {
+        keywordAndUrlSeedBuilder_.clear();
+      }
+      if (keywordSeedBuilder_ != null) {
+        keywordSeedBuilder_.clear();
+      }
+      if (urlSeedBuilder_ != null) {
+        urlSeedBuilder_.clear();
+      }
+      if (siteSeedBuilder_ != null) {
+        siteSeedBuilder_.clear();
       }
       seedCase_ = 0;
       seed_ = null;
@@ -1361,69 +1170,80 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest buildPartial() {
       com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest result = new com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.customerId_ = customerId_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.language_ = language_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        geoTargetConstants_ = geoTargetConstants_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.geoTargetConstants_ = geoTargetConstants_;
-      result.includeAdultKeywords_ = includeAdultKeywords_;
-      result.pageToken_ = pageToken_;
-      result.pageSize_ = pageSize_;
-      result.keywordPlanNetwork_ = keywordPlanNetwork_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        keywordAnnotation_ = java.util.Collections.unmodifiableList(keywordAnnotation_);
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.keywordAnnotation_ = keywordAnnotation_;
-      if (aggregateMetricsBuilder_ == null) {
-        result.aggregateMetrics_ = aggregateMetrics_;
-      } else {
-        result.aggregateMetrics_ = aggregateMetricsBuilder_.build();
-      }
-      if (historicalMetricsOptionsBuilder_ == null) {
-        result.historicalMetricsOptions_ = historicalMetricsOptions_;
-      } else {
-        result.historicalMetricsOptions_ = historicalMetricsOptionsBuilder_.build();
-      }
-      if (seedCase_ == 2) {
-        if (keywordAndUrlSeedBuilder_ == null) {
-          result.seed_ = seed_;
-        } else {
-          result.seed_ = keywordAndUrlSeedBuilder_.build();
-        }
-      }
-      if (seedCase_ == 3) {
-        if (keywordSeedBuilder_ == null) {
-          result.seed_ = seed_;
-        } else {
-          result.seed_ = keywordSeedBuilder_.build();
-        }
-      }
-      if (seedCase_ == 5) {
-        if (urlSeedBuilder_ == null) {
-          result.seed_ = seed_;
-        } else {
-          result.seed_ = urlSeedBuilder_.build();
-        }
-      }
-      if (seedCase_ == 11) {
-        if (siteSeedBuilder_ == null) {
-          result.seed_ = seed_;
-        } else {
-          result.seed_ = siteSeedBuilder_.build();
-        }
-      }
-      result.bitField0_ = to_bitField0_;
-      result.seedCase_ = seedCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        geoTargetConstants_ = geoTargetConstants_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.geoTargetConstants_ = geoTargetConstants_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        keywordAnnotation_ = java.util.Collections.unmodifiableList(keywordAnnotation_);
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.keywordAnnotation_ = keywordAnnotation_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.customerId_ = customerId_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.language_ = language_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.includeAdultKeywords_ = includeAdultKeywords_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.keywordPlanNetwork_ = keywordPlanNetwork_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.aggregateMetrics_ = aggregateMetricsBuilder_ == null
+            ? aggregateMetrics_
+            : aggregateMetricsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.historicalMetricsOptions_ = historicalMetricsOptionsBuilder_ == null
+            ? historicalMetricsOptions_
+            : historicalMetricsOptionsBuilder_.build();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest result) {
+      result.seedCase_ = seedCase_;
+      result.seed_ = this.seed_;
+      if (seedCase_ == 2 &&
+          keywordAndUrlSeedBuilder_ != null) {
+        result.seed_ = keywordAndUrlSeedBuilder_.build();
+      }
+      if (seedCase_ == 3 &&
+          keywordSeedBuilder_ != null) {
+        result.seed_ = keywordSeedBuilder_.build();
+      }
+      if (seedCase_ == 5 &&
+          urlSeedBuilder_ != null) {
+        result.seed_ = urlSeedBuilder_.build();
+      }
+      if (seedCase_ == 11 &&
+          siteSeedBuilder_ != null) {
+        result.seed_ = siteSeedBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1472,17 +1292,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest.getDefaultInstance()) return this;
       if (!other.getCustomerId().isEmpty()) {
         customerId_ = other.customerId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasLanguage()) {
-        bitField0_ |= 0x00000001;
         language_ = other.language_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.geoTargetConstants_.isEmpty()) {
         if (geoTargetConstants_.isEmpty()) {
           geoTargetConstants_ = other.geoTargetConstants_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureGeoTargetConstantsIsMutable();
           geoTargetConstants_.addAll(other.geoTargetConstants_);
@@ -1494,6 +1315,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -1505,7 +1327,7 @@ private static final long serialVersionUID = 0L;
       if (!other.keywordAnnotation_.isEmpty()) {
         if (keywordAnnotation_.isEmpty()) {
           keywordAnnotation_ = other.keywordAnnotation_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureKeywordAnnotationIsMutable();
           keywordAnnotation_.addAll(other.keywordAnnotation_);
@@ -1539,7 +1361,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1554,17 +1376,125 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              customerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getKeywordAndUrlSeedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              seedCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKeywordSeedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              seedCase_ = 3;
+              break;
+            } // case 26
+            case 42: {
+              input.readMessage(
+                  getUrlSeedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              seedCase_ = 5;
+              break;
+            } // case 42
+            case 72: {
+              keywordPlanNetwork_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 72
+            case 80: {
+              includeAdultKeywords_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 80
+            case 90: {
+              input.readMessage(
+                  getSiteSeedFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              seedCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 98
+            case 104: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 104
+            case 114: {
+              language_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 114
+            case 122: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureGeoTargetConstantsIsMutable();
+              geoTargetConstants_.add(s);
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getAggregateMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 130
+            case 136: {
+              int tmpRaw = input.readEnum();
+              ensureKeywordAnnotationIsMutable();
+              keywordAnnotation_.add(tmpRaw);
+              break;
+            } // case 136
+            case 138: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureKeywordAnnotationIsMutable();
+                keywordAnnotation_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getHistoricalMetricsOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 146
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.services.GenerateKeywordIdeasRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int seedCase_ = 0;
@@ -1637,11 +1567,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1654,8 +1582,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomerId() {
-      
       customerId_ = getDefaultInstance().getCustomerId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1670,12 +1598,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1693,7 +1619,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the language field is set.
      */
     public boolean hasLanguage() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1756,11 +1682,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       language_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1776,8 +1700,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguage() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       language_ = getDefaultInstance().getLanguage();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1795,21 +1719,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       language_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList geoTargetConstants_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureGeoTargetConstantsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         geoTargetConstants_ = new com.google.protobuf.LazyStringArrayList(geoTargetConstants_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1877,10 +1799,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGeoTargetConstants(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGeoTargetConstantsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureGeoTargetConstantsIsMutable();
       geoTargetConstants_.set(index, value);
       onChanged();
       return this;
@@ -1897,10 +1817,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addGeoTargetConstants(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGeoTargetConstantsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureGeoTargetConstantsIsMutable();
       geoTargetConstants_.add(value);
       onChanged();
       return this;
@@ -1934,7 +1852,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGeoTargetConstants() {
       geoTargetConstants_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1950,10 +1868,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addGeoTargetConstantsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureGeoTargetConstantsIsMutable();
       geoTargetConstants_.add(value);
       onChanged();
@@ -1987,6 +1903,7 @@ private static final long serialVersionUID = 0L;
     public Builder setIncludeAdultKeywords(boolean value) {
       
       includeAdultKeywords_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2000,7 +1917,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIncludeAdultKeywords() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       includeAdultKeywords_ = false;
       onChanged();
       return this;
@@ -2068,11 +1985,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2088,8 +2003,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2107,12 +2022,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2154,6 +2067,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2172,7 +2086,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -2202,8 +2116,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setKeywordPlanNetworkValue(int value) {
-      
       keywordPlanNetwork_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2218,8 +2132,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork getKeywordPlanNetwork() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork result = com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork.valueOf(keywordPlanNetwork_);
+      com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork result = com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork.forNumber(keywordPlanNetwork_);
       return result == null ? com.google.ads.googleads.v11.enums.KeywordPlanNetworkEnum.KeywordPlanNetwork.UNRECOGNIZED : result;
     }
     /**
@@ -2236,7 +2149,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       keywordPlanNetwork_ = value.getNumber();
       onChanged();
       return this;
@@ -2251,7 +2164,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeywordPlanNetwork() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       keywordPlanNetwork_ = 0;
       onChanged();
       return this;
@@ -2260,9 +2173,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> keywordAnnotation_ =
       java.util.Collections.emptyList();
     private void ensureKeywordAnnotationIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         keywordAnnotation_ = new java.util.ArrayList<java.lang.Integer>(keywordAnnotation_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000080;
       }
     }
     /**
@@ -2366,7 +2279,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearKeywordAnnotation() {
       keywordAnnotation_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2457,7 +2370,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the aggregateMetrics field is set.
      */
     public boolean hasAggregateMetrics() {
-      return aggregateMetricsBuilder_ != null || aggregateMetrics_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2487,11 +2400,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         aggregateMetrics_ = value;
-        onChanged();
       } else {
         aggregateMetricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2505,11 +2418,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.Builder builderForValue) {
       if (aggregateMetricsBuilder_ == null) {
         aggregateMetrics_ = builderForValue.build();
-        onChanged();
       } else {
         aggregateMetricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2521,17 +2434,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAggregateMetrics(com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics value) {
       if (aggregateMetricsBuilder_ == null) {
-        if (aggregateMetrics_ != null) {
-          aggregateMetrics_ =
-            com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.newBuilder(aggregateMetrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          aggregateMetrics_ != null &&
+          aggregateMetrics_ != com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.getDefaultInstance()) {
+          getAggregateMetricsBuilder().mergeFrom(value);
         } else {
           aggregateMetrics_ = value;
         }
-        onChanged();
       } else {
         aggregateMetricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2542,14 +2456,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics aggregate_metrics = 16;</code>
      */
     public Builder clearAggregateMetrics() {
-      if (aggregateMetricsBuilder_ == null) {
-        aggregateMetrics_ = null;
-        onChanged();
-      } else {
-        aggregateMetrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      aggregateMetrics_ = null;
+      if (aggregateMetricsBuilder_ != null) {
+        aggregateMetricsBuilder_.dispose();
         aggregateMetricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2560,7 +2473,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics aggregate_metrics = 16;</code>
      */
     public com.google.ads.googleads.v11.common.KeywordPlanAggregateMetrics.Builder getAggregateMetricsBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getAggregateMetricsFieldBuilder().getBuilder();
     }
@@ -2612,7 +2525,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the historicalMetricsOptions field is set.
      */
     public boolean hasHistoricalMetricsOptions() {
-      return historicalMetricsOptionsBuilder_ != null || historicalMetricsOptions_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2642,11 +2555,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         historicalMetricsOptions_ = value;
-        onChanged();
       } else {
         historicalMetricsOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2660,11 +2573,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.HistoricalMetricsOptions.Builder builderForValue) {
       if (historicalMetricsOptionsBuilder_ == null) {
         historicalMetricsOptions_ = builderForValue.build();
-        onChanged();
       } else {
         historicalMetricsOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2676,17 +2589,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHistoricalMetricsOptions(com.google.ads.googleads.v11.common.HistoricalMetricsOptions value) {
       if (historicalMetricsOptionsBuilder_ == null) {
-        if (historicalMetricsOptions_ != null) {
-          historicalMetricsOptions_ =
-            com.google.ads.googleads.v11.common.HistoricalMetricsOptions.newBuilder(historicalMetricsOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          historicalMetricsOptions_ != null &&
+          historicalMetricsOptions_ != com.google.ads.googleads.v11.common.HistoricalMetricsOptions.getDefaultInstance()) {
+          getHistoricalMetricsOptionsBuilder().mergeFrom(value);
         } else {
           historicalMetricsOptions_ = value;
         }
-        onChanged();
       } else {
         historicalMetricsOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2697,14 +2611,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.HistoricalMetricsOptions historical_metrics_options = 18;</code>
      */
     public Builder clearHistoricalMetricsOptions() {
-      if (historicalMetricsOptionsBuilder_ == null) {
-        historicalMetricsOptions_ = null;
-        onChanged();
-      } else {
-        historicalMetricsOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      historicalMetricsOptions_ = null;
+      if (historicalMetricsOptionsBuilder_ != null) {
+        historicalMetricsOptionsBuilder_.dispose();
         historicalMetricsOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2715,7 +2628,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.HistoricalMetricsOptions historical_metrics_options = 18;</code>
      */
     public com.google.ads.googleads.v11.common.HistoricalMetricsOptions.Builder getHistoricalMetricsOptionsBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getHistoricalMetricsOptionsFieldBuilder().getBuilder();
     }
@@ -2760,7 +2673,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2773,7 +2686,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2796,7 +2709,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2817,7 +2730,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2836,7 +2749,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2864,7 +2777,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2888,7 +2801,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2899,7 +2812,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2918,7 +2831,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * A Keyword and a specific Url to generate ideas from
-     * e.g. cars, www.example.com/cars.
+     * for example, cars, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordAndUrlSeed keyword_and_url_seed = 2;</code>
@@ -2938,7 +2851,7 @@ private static final long serialVersionUID = 0L;
         seed_ = null;
       }
       seedCase_ = 2;
-      onChanged();;
+      onChanged();
       return keywordAndUrlSeedBuilder_;
     }
 
@@ -2946,7 +2859,7 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.services.KeywordSeed, com.google.ads.googleads.v11.services.KeywordSeed.Builder, com.google.ads.googleads.v11.services.KeywordSeedOrBuilder> keywordSeedBuilder_;
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -2958,7 +2871,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -2980,7 +2893,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3000,7 +2913,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3018,7 +2931,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3045,7 +2958,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3068,7 +2981,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3078,7 +2991,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3096,7 +3009,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A Keyword or phrase to generate ideas from, e.g. cars.
+     * A Keyword or phrase to generate ideas from, for example, cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.KeywordSeed keyword_seed = 3;</code>
@@ -3116,7 +3029,7 @@ private static final long serialVersionUID = 0L;
         seed_ = null;
       }
       seedCase_ = 3;
-      onChanged();;
+      onChanged();
       return keywordSeedBuilder_;
     }
 
@@ -3124,7 +3037,7 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.services.UrlSeed, com.google.ads.googleads.v11.services.UrlSeed.Builder, com.google.ads.googleads.v11.services.UrlSeedOrBuilder> urlSeedBuilder_;
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3136,7 +3049,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3158,7 +3071,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3178,7 +3091,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3196,7 +3109,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3223,7 +3136,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3246,7 +3159,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3256,7 +3169,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3274,7 +3187,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A specific url to generate ideas from, e.g. www.example.com/cars.
+     * A specific url to generate ideas from, for example, www.example.com/cars.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.UrlSeed url_seed = 5;</code>
@@ -3294,7 +3207,7 @@ private static final long serialVersionUID = 0L;
         seed_ = null;
       }
       seedCase_ = 5;
-      onChanged();;
+      onChanged();
       return urlSeedBuilder_;
     }
 
@@ -3302,7 +3215,7 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.services.SiteSeed, com.google.ads.googleads.v11.services.SiteSeed.Builder, com.google.ads.googleads.v11.services.SiteSeedOrBuilder> siteSeedBuilder_;
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3314,7 +3227,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3336,7 +3249,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3356,7 +3269,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3374,7 +3287,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3401,7 +3314,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3424,7 +3337,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3434,7 +3347,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3452,7 +3365,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The site to generate ideas from, e.g. www.example.com.
+     * The site to generate ideas from, for example, www.example.com.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.services.SiteSeed site_seed = 11;</code>
@@ -3472,7 +3385,7 @@ private static final long serialVersionUID = 0L;
         seed_ = null;
       }
       seedCase_ = 11;
-      onChanged();;
+      onChanged();
       return siteSeedBuilder_;
     }
     @java.lang.Override
@@ -3508,7 +3421,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GenerateKeywordIdeasRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

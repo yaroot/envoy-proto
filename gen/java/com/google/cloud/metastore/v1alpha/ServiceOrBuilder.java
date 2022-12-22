@@ -39,7 +39,8 @@ public interface ServiceOrBuilder extends
 
   /**
    * <pre>
-   * Immutable. The relative resource name of the metastore service, of the form:
+   * Immutable. The relative resource name of the metastore service, in the
+   * following format:
    * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
    * </pre>
    *
@@ -49,7 +50,8 @@ public interface ServiceOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Immutable. The relative resource name of the metastore service, of the form:
+   * Immutable. The relative resource name of the metastore service, in the
+   * following format:
    * `projects/{project_number}/locations/{location_id}/services/{service_id}`.
    * </pre>
    *
@@ -152,7 +154,6 @@ public interface ServiceOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -165,14 +166,13 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * Immutable. The relative resource name of the VPC network on which the instance can be
-   * accessed. It is specified in the following form:
+   * Immutable. The relative resource name of the VPC network on which the
+   * instance can be accessed. It is specified in the following form:
    * `projects/{project_number}/global/networks/{network_id}`.
    * </pre>
    *
@@ -182,8 +182,8 @@ java.lang.String defaultValue);
   java.lang.String getNetwork();
   /**
    * <pre>
-   * Immutable. The relative resource name of the VPC network on which the instance can be
-   * accessed. It is specified in the following form:
+   * Immutable. The relative resource name of the VPC network on which the
+   * instance can be accessed. It is specified in the following form:
    * `projects/{project_number}/global/networks/{network_id}`.
    * </pre>
    *
@@ -244,8 +244,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. Additional information about the current state of the metastore service, if
-   * available.
+   * Output only. Additional information about the current state of the
+   * metastore service, if available.
    * </pre>
    *
    * <code>string state_message = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -254,8 +254,8 @@ java.lang.String defaultValue);
   java.lang.String getStateMessage();
   /**
    * <pre>
-   * Output only. Additional information about the current state of the metastore service, if
-   * available.
+   * Output only. Additional information about the current state of the
+   * metastore service, if available.
    * </pre>
    *
    * <code>string state_message = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -266,8 +266,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. A Cloud Storage URI (starting with `gs://`) that specifies where artifacts
-   * related to the metastore service are stored.
+   * Output only. A Cloud Storage URI (starting with `gs://`) that specifies
+   * where artifacts related to the metastore service are stored.
    * </pre>
    *
    * <code>string artifact_gcs_uri = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -276,8 +276,8 @@ java.lang.String defaultValue);
   java.lang.String getArtifactGcsUri();
   /**
    * <pre>
-   * Output only. A Cloud Storage URI (starting with `gs://`) that specifies where artifacts
-   * related to the metastore service are stored.
+   * Output only. A Cloud Storage URI (starting with `gs://`) that specifies
+   * where artifacts related to the metastore service are stored.
    * </pre>
    *
    * <code>string artifact_gcs_uri = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -373,7 +373,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. The globally unique resource identifier of the metastore service.
+   * Output only. The globally unique resource identifier of the metastore
+   * service.
    * </pre>
    *
    * <code>string uid = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -382,7 +383,8 @@ java.lang.String defaultValue);
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. The globally unique resource identifier of the metastore service.
+   * Output only. The globally unique resource identifier of the metastore
+   * service.
    * </pre>
    *
    * <code>string uid = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -441,8 +443,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Immutable. Information used to configure the Dataproc Metastore service to encrypt
-   * customer data at rest. Cannot be updated.
+   * Immutable. Information used to configure the Dataproc Metastore service to
+   * encrypt customer data at rest. Cannot be updated.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -451,8 +453,8 @@ java.lang.String defaultValue);
   boolean hasEncryptionConfig();
   /**
    * <pre>
-   * Immutable. Information used to configure the Dataproc Metastore service to encrypt
-   * customer data at rest. Cannot be updated.
+   * Immutable. Information used to configure the Dataproc Metastore service to
+   * encrypt customer data at rest. Cannot be updated.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -461,8 +463,8 @@ java.lang.String defaultValue);
   com.google.cloud.metastore.v1alpha.EncryptionConfig getEncryptionConfig();
   /**
    * <pre>
-   * Immutable. Information used to configure the Dataproc Metastore service to encrypt
-   * customer data at rest. Cannot be updated.
+   * Immutable. Information used to configure the Dataproc Metastore service to
+   * encrypt customer data at rest. Cannot be updated.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.EncryptionConfig encryption_config = 20 [(.google.api.field_behavior) = IMMUTABLE];</code>
@@ -471,31 +473,31 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Immutable. The configuration specifying the network settings for the
+   * The configuration specifying the network settings for the
    * Dataproc Metastore service.
    * </pre>
    *
-   * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 21 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 21;</code>
    * @return Whether the networkConfig field is set.
    */
   boolean hasNetworkConfig();
   /**
    * <pre>
-   * Immutable. The configuration specifying the network settings for the
+   * The configuration specifying the network settings for the
    * Dataproc Metastore service.
    * </pre>
    *
-   * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 21 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 21;</code>
    * @return The networkConfig.
    */
   com.google.cloud.metastore.v1alpha.NetworkConfig getNetworkConfig();
   /**
    * <pre>
-   * Immutable. The configuration specifying the network settings for the
+   * The configuration specifying the network settings for the
    * Dataproc Metastore service.
    * </pre>
    *
-   * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 21 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 21;</code>
    */
   com.google.cloud.metastore.v1alpha.NetworkConfigOrBuilder getNetworkConfigOrBuilder();
 
@@ -517,6 +519,36 @@ java.lang.String defaultValue);
    * @return The databaseType.
    */
   com.google.cloud.metastore.v1alpha.Service.DatabaseType getDatabaseType();
+
+  /**
+   * <pre>
+   * The configuration specifying telemetry settings for the Dataproc Metastore
+   * service. If unspecified defaults to `JSON`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1alpha.TelemetryConfig telemetry_config = 23;</code>
+   * @return Whether the telemetryConfig field is set.
+   */
+  boolean hasTelemetryConfig();
+  /**
+   * <pre>
+   * The configuration specifying telemetry settings for the Dataproc Metastore
+   * service. If unspecified defaults to `JSON`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1alpha.TelemetryConfig telemetry_config = 23;</code>
+   * @return The telemetryConfig.
+   */
+  com.google.cloud.metastore.v1alpha.TelemetryConfig getTelemetryConfig();
+  /**
+   * <pre>
+   * The configuration specifying telemetry settings for the Dataproc Metastore
+   * service. If unspecified defaults to `JSON`.
+   * </pre>
+   *
+   * <code>.google.cloud.metastore.v1alpha.TelemetryConfig telemetry_config = 23;</code>
+   */
+  com.google.cloud.metastore.v1alpha.TelemetryConfigOrBuilder getTelemetryConfigOrBuilder();
 
   public com.google.cloud.metastore.v1alpha.Service.MetastoreConfigCase getMetastoreConfigCase();
 }

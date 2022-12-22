@@ -1058,6 +1058,70 @@ public interface HttpConnectionManagerOrBuilder extends
 
   /**
    * <pre>
+   * The configuration for the early header mutation extensions.
+   * When configured the extensions will be called before any routing, tracing, or any filter processing.
+   * Each extension will be applied in the order they are configured.
+   * If the same header is mutated by multiple extensions, then the last extension will win.
+   * [#extension-category: envoy.http.early_header_mutation]
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.TypedExtensionConfig early_header_mutation_extensions = 52;</code>
+   */
+  java.util.List<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig> 
+      getEarlyHeaderMutationExtensionsList();
+  /**
+   * <pre>
+   * The configuration for the early header mutation extensions.
+   * When configured the extensions will be called before any routing, tracing, or any filter processing.
+   * Each extension will be applied in the order they are configured.
+   * If the same header is mutated by multiple extensions, then the last extension will win.
+   * [#extension-category: envoy.http.early_header_mutation]
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.TypedExtensionConfig early_header_mutation_extensions = 52;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getEarlyHeaderMutationExtensions(int index);
+  /**
+   * <pre>
+   * The configuration for the early header mutation extensions.
+   * When configured the extensions will be called before any routing, tracing, or any filter processing.
+   * Each extension will be applied in the order they are configured.
+   * If the same header is mutated by multiple extensions, then the last extension will win.
+   * [#extension-category: envoy.http.early_header_mutation]
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.TypedExtensionConfig early_header_mutation_extensions = 52;</code>
+   */
+  int getEarlyHeaderMutationExtensionsCount();
+  /**
+   * <pre>
+   * The configuration for the early header mutation extensions.
+   * When configured the extensions will be called before any routing, tracing, or any filter processing.
+   * Each extension will be applied in the order they are configured.
+   * If the same header is mutated by multiple extensions, then the last extension will win.
+   * [#extension-category: envoy.http.early_header_mutation]
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.TypedExtensionConfig early_header_mutation_extensions = 52;</code>
+   */
+  java.util.List<? extends io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder> 
+      getEarlyHeaderMutationExtensionsOrBuilderList();
+  /**
+   * <pre>
+   * The configuration for the early header mutation extensions.
+   * When configured the extensions will be called before any routing, tracing, or any filter processing.
+   * Each extension will be applied in the order they are configured.
+   * If the same header is mutated by multiple extensions, then the last extension will win.
+   * [#extension-category: envoy.http.early_header_mutation]
+   * </pre>
+   *
+   * <code>repeated .envoy.config.core.v3.TypedExtensionConfig early_header_mutation_extensions = 52;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getEarlyHeaderMutationExtensionsOrBuilder(
+      int index);
+
+  /**
+   * <pre>
    * Configures what network addresses are considered internal for stats and header sanitation
    * purposes. If unspecified, only RFC1918 IP addresses will be considered internal.
    * See the documentation for :ref:`config_http_conn_man_headers_x-envoy-internal` for more
@@ -1754,7 +1818,7 @@ public interface HttpConnectionManagerOrBuilder extends
    * normalization for request attributes, such as URI path.
    * If the typed_header_validation_config is present it overrides the following options:
    * ``normalize_path``, ``merge_slashes``, ``path_with_escaped_slashes_action``
-   * ``http_protocol_options.allow_chunked_length``.
+   * ``http_protocol_options.allow_chunked_length``, ``common_http_protocol_options.headers_with_underscores_action``.
    * The default UHV checks the following:
    * #. HTTP/1 header map validity according to `RFC 7230 section 3.2&lt;https://datatracker.ietf.org/doc/html/rfc7230#section-3.2&gt;`_
    * #. Syntax of HTTP/1 request target URI and response status
@@ -1781,7 +1845,7 @@ public interface HttpConnectionManagerOrBuilder extends
    * normalization for request attributes, such as URI path.
    * If the typed_header_validation_config is present it overrides the following options:
    * ``normalize_path``, ``merge_slashes``, ``path_with_escaped_slashes_action``
-   * ``http_protocol_options.allow_chunked_length``.
+   * ``http_protocol_options.allow_chunked_length``, ``common_http_protocol_options.headers_with_underscores_action``.
    * The default UHV checks the following:
    * #. HTTP/1 header map validity according to `RFC 7230 section 3.2&lt;https://datatracker.ietf.org/doc/html/rfc7230#section-3.2&gt;`_
    * #. Syntax of HTTP/1 request target URI and response status
@@ -1808,7 +1872,7 @@ public interface HttpConnectionManagerOrBuilder extends
    * normalization for request attributes, such as URI path.
    * If the typed_header_validation_config is present it overrides the following options:
    * ``normalize_path``, ``merge_slashes``, ``path_with_escaped_slashes_action``
-   * ``http_protocol_options.allow_chunked_length``.
+   * ``http_protocol_options.allow_chunked_length``, ``common_http_protocol_options.headers_with_underscores_action``.
    * The default UHV checks the following:
    * #. HTTP/1 header map validity according to `RFC 7230 section 3.2&lt;https://datatracker.ietf.org/doc/html/rfc7230#section-3.2&gt;`_
    * #. Syntax of HTTP/1 request target URI and response status
@@ -1827,6 +1891,17 @@ public interface HttpConnectionManagerOrBuilder extends
    * <code>.envoy.config.core.v3.TypedExtensionConfig typed_header_validation_config = 50;</code>
    */
   io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getTypedHeaderValidationConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Append the `x-forwarded-port` header with the port value client used to connect to Envoy. It
+   * will be ignored if the `x-forwarded-port` header has been set by any trusted proxy in front of Envoy.
+   * </pre>
+   *
+   * <code>bool append_x_forwarded_port = 51;</code>
+   * @return The appendXForwardedPort.
+   */
+  boolean getAppendXForwardedPort();
 
   public io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager.RouteSpecifierCase getRouteSpecifierCase();
 

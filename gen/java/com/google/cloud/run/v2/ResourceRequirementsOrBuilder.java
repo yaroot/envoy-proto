@@ -10,9 +10,9 @@ public interface ResourceRequirementsOrBuilder extends
   /**
    * <pre>
    * Only memory and CPU are supported. Note: The only
-   * supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at
-   * least 2Gi of memory.
-   * The values of the map is string form of the 'quantity' k8s type:
+   * supported values for CPU are '1', '2',  '4', and '8'. Setting 4 CPU
+   * requires at least 2Gi of memory. The values of the map is string form of
+   * the 'quantity' k8s type:
    * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
    * </pre>
    *
@@ -22,9 +22,9 @@ public interface ResourceRequirementsOrBuilder extends
   /**
    * <pre>
    * Only memory and CPU are supported. Note: The only
-   * supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at
-   * least 2Gi of memory.
-   * The values of the map is string form of the 'quantity' k8s type:
+   * supported values for CPU are '1', '2',  '4', and '8'. Setting 4 CPU
+   * requires at least 2Gi of memory. The values of the map is string form of
+   * the 'quantity' k8s type:
    * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
    * </pre>
    *
@@ -41,9 +41,9 @@ public interface ResourceRequirementsOrBuilder extends
   /**
    * <pre>
    * Only memory and CPU are supported. Note: The only
-   * supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at
-   * least 2Gi of memory.
-   * The values of the map is string form of the 'quantity' k8s type:
+   * supported values for CPU are '1', '2',  '4', and '8'. Setting 4 CPU
+   * requires at least 2Gi of memory. The values of the map is string form of
+   * the 'quantity' k8s type:
    * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
    * </pre>
    *
@@ -54,15 +54,14 @@ public interface ResourceRequirementsOrBuilder extends
   /**
    * <pre>
    * Only memory and CPU are supported. Note: The only
-   * supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at
-   * least 2Gi of memory.
-   * The values of the map is string form of the 'quantity' k8s type:
+   * supported values for CPU are '1', '2',  '4', and '8'. Setting 4 CPU
+   * requires at least 2Gi of memory. The values of the map is string form of
+   * the 'quantity' k8s type:
    * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
    * </pre>
    *
    * <code>map&lt;string, string&gt; limits = 1;</code>
    */
-
   /* nullable */
 java.lang.String getLimitsOrDefault(
       java.lang.String key,
@@ -71,15 +70,14 @@ java.lang.String defaultValue);
   /**
    * <pre>
    * Only memory and CPU are supported. Note: The only
-   * supported values for CPU are '1', '2', and '4'. Setting 4 CPU requires at
-   * least 2Gi of memory.
-   * The values of the map is string form of the 'quantity' k8s type:
+   * supported values for CPU are '1', '2',  '4', and '8'. Setting 4 CPU
+   * requires at least 2Gi of memory. The values of the map is string form of
+   * the 'quantity' k8s type:
    * https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
    * </pre>
    *
    * <code>map&lt;string, string&gt; limits = 1;</code>
    */
-
   java.lang.String getLimitsOrThrow(
       java.lang.String key);
 

@@ -110,7 +110,6 @@ public interface LoginProfileOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.oslogin.common.SshPublicKey&gt; ssh_public_keys = 3;</code>
    */
-
   /* nullable */
 com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey getSshPublicKeysOrDefault(
       java.lang.String key,
@@ -123,7 +122,50 @@ com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey defaultValue);
    *
    * <code>map&lt;string, .google.cloud.oslogin.common.SshPublicKey&gt; ssh_public_keys = 3;</code>
    */
-
   com.google.cloud.oslogin.common.OsLoginProto.SshPublicKey getSshPublicKeysOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * The registered security key credentials for a user.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.oslogin.v1beta.SecurityKey security_keys = 5;</code>
+   */
+  java.util.List<com.google.cloud.oslogin.v1beta.SecurityKey> 
+      getSecurityKeysList();
+  /**
+   * <pre>
+   * The registered security key credentials for a user.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.oslogin.v1beta.SecurityKey security_keys = 5;</code>
+   */
+  com.google.cloud.oslogin.v1beta.SecurityKey getSecurityKeys(int index);
+  /**
+   * <pre>
+   * The registered security key credentials for a user.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.oslogin.v1beta.SecurityKey security_keys = 5;</code>
+   */
+  int getSecurityKeysCount();
+  /**
+   * <pre>
+   * The registered security key credentials for a user.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.oslogin.v1beta.SecurityKey security_keys = 5;</code>
+   */
+  java.util.List<? extends com.google.cloud.oslogin.v1beta.SecurityKeyOrBuilder> 
+      getSecurityKeysOrBuilderList();
+  /**
+   * <pre>
+   * The registered security key credentials for a user.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.oslogin.v1beta.SecurityKey security_keys = 5;</code>
+   */
+  com.google.cloud.oslogin.v1beta.SecurityKeyOrBuilder getSecurityKeysOrBuilder(
+      int index);
 }

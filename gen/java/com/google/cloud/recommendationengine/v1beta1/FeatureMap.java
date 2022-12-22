@@ -36,72 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FeatureMap(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              categoricalFeatures_ = com.google.protobuf.MapField.newMapField(
-                  CategoricalFeaturesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList>
-            categoricalFeatures__ = input.readMessage(
-                CategoricalFeaturesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            categoricalFeatures_.getMutableMap().put(
-                categoricalFeatures__.getKey(), categoricalFeatures__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              numericalFeatures_ = com.google.protobuf.MapField.newMapField(
-                  NumericalFeaturesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList>
-            numericalFeatures__ = input.readMessage(
-                NumericalFeaturesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            numericalFeatures_.getMutableMap().put(
-                numericalFeatures__.getKey(), numericalFeatures__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.Common.internal_static_google_cloud_recommendationengine_v1beta1_FeatureMap_descriptor;
@@ -206,58 +140,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StringList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                value_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              value_.add(s);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          value_ = value_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.recommendationengine.v1beta1.Common.internal_static_google_cloud_recommendationengine_v1beta1_FeatureMap_StringList_descriptor;
@@ -272,6 +154,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList value_;
     /**
      * <pre>
@@ -339,7 +222,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < value_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, value_.getRaw(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -356,7 +239,7 @@ private static final long serialVersionUID = 0L;
         size += dataSize;
         size += 1 * getValueList().size();
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -373,7 +256,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getValueList()
           .equals(other.getValueList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -388,7 +271,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getValueList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -509,22 +392,18 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000001);
         return this;
@@ -553,14 +432,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList buildPartial() {
         com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList result = new com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           value_ = value_.getUnmodifiableView();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.value_ = value_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -617,7 +504,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -632,17 +519,36 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureValueIsMutable();
+                value_.add(s);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -714,10 +620,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setValue(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValueIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureValueIsMutable();
         value_.set(index, value);
         onChanged();
         return this;
@@ -733,10 +637,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addValue(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureValueIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureValueIsMutable();
         value_.add(value);
         onChanged();
         return this;
@@ -783,10 +685,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addValueBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureValueIsMutable();
         value_.add(value);
         onChanged();
@@ -825,7 +725,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StringList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -910,70 +821,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private FloatList(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                value_ = newFloatList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              value_.addFloat(input.readFloat());
-              break;
-            }
-            case 10: {
-              int length = input.readRawVarint32();
-              int limit = input.pushLimit(length);
-              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-                value_ = newFloatList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              while (input.getBytesUntilLimit() > 0) {
-                value_.addFloat(input.readFloat());
-              }
-              input.popLimit(limit);
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          value_.makeImmutable(); // C
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.recommendationengine.v1beta1.Common.internal_static_google_cloud_recommendationengine_v1beta1_FeatureMap_FloatList_descriptor;
@@ -988,6 +835,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int VALUE_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private com.google.protobuf.Internal.FloatList value_;
     /**
      * <pre>
@@ -1049,7 +897,7 @@ private static final long serialVersionUID = 0L;
       for (int i = 0; i < value_.size(); i++) {
         output.writeFloatNoTag(value_.getFloat(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1069,7 +917,7 @@ private static final long serialVersionUID = 0L;
         }
         valueMemoizedSerializedSize = dataSize;
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1086,7 +934,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getValueList()
           .equals(other.getValueList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1101,7 +949,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + VALUE_FIELD_NUMBER;
         hash = (53 * hash) + getValueList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1222,24 +1070,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         value_ = emptyFloatList();
-        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -1266,14 +1109,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList buildPartial() {
         com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList result = new com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList result) {
         if (((bitField0_ & 0x00000001) != 0)) {
           value_.makeImmutable();
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.value_ = value_;
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -1330,7 +1181,7 @@ private static final long serialVersionUID = 0L;
           }
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1345,17 +1196,46 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                float v = input.readFloat();
+                ensureValueIsMutable();
+                value_.addFloat(v);
+                break;
+              } // case 13
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                ensureValueIsMutable();
+                while (input.getBytesUntilLimit() > 0) {
+                  value_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1365,7 +1245,7 @@ private static final long serialVersionUID = 0L;
         if (!((bitField0_ & 0x00000001) != 0)) {
           value_ = mutableCopy(value_);
           bitField0_ |= 0x00000001;
-         }
+        }
       }
       /**
        * <pre>
@@ -1415,6 +1295,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setValue(
           int index, float value) {
+        
         ensureValueIsMutable();
         value_.setFloat(index, value);
         onChanged();
@@ -1430,6 +1311,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder addValue(float value) {
+        
         ensureValueIsMutable();
         value_.addFloat(value);
         onChanged();
@@ -1499,7 +1381,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new FloatList(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1531,6 +1424,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> categoricalFeatures_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList>
@@ -1541,7 +1435,6 @@ private static final long serialVersionUID = 0L;
     }
     return categoricalFeatures_;
   }
-
   public int getCategoricalFeaturesCount() {
     return internalGetCategoricalFeatures().getMap().size();
   }
@@ -1557,7 +1450,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsCategoricalFeatures(
       java.lang.String key) {
@@ -1585,7 +1477,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> getCategoricalFeaturesMap() {
     return internalGetCategoricalFeatures().getMap();
   }
@@ -1602,10 +1493,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrDefault(
+  public /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrDefault(
       java.lang.String key,
-      com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList defaultValue) {
+      /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> map =
         internalGetCategoricalFeatures().getMap();
@@ -1624,7 +1516,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1648,6 +1539,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> numericalFeatures_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList>
@@ -1658,7 +1550,6 @@ private static final long serialVersionUID = 0L;
     }
     return numericalFeatures_;
   }
-
   public int getNumericalFeaturesCount() {
     return internalGetNumericalFeatures().getMap().size();
   }
@@ -1673,7 +1564,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsNumericalFeatures(
       java.lang.String key) {
@@ -1700,7 +1590,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> getNumericalFeaturesMap() {
     return internalGetNumericalFeatures().getMap();
   }
@@ -1716,10 +1605,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrDefault(
+  public /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrDefault(
       java.lang.String key,
-      com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList defaultValue) {
+      /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> map =
         internalGetNumericalFeatures().getMap();
@@ -1737,7 +1627,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1775,7 +1664,7 @@ private static final long serialVersionUID = 0L;
         internalGetNumericalFeatures(),
         NumericalFeaturesDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1804,7 +1693,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, numericalFeatures__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1823,7 +1712,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetCategoricalFeatures())) return false;
     if (!internalGetNumericalFeatures().equals(
         other.internalGetNumericalFeatures())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1842,7 +1731,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NUMERICAL_FEATURES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetNumericalFeatures().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1991,22 +1880,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.FeatureMap.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableCategoricalFeatures().clear();
       internalGetMutableNumericalFeatures().clear();
       return this;
@@ -2035,13 +1920,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.FeatureMap buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.FeatureMap result = new com.google.cloud.recommendationengine.v1beta1.FeatureMap(this);
-      int from_bitField0_ = bitField0_;
-      result.categoricalFeatures_ = internalGetCategoricalFeatures();
-      result.categoricalFeatures_.makeImmutable();
-      result.numericalFeatures_ = internalGetNumericalFeatures();
-      result.numericalFeatures_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.FeatureMap result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.categoricalFeatures_ = internalGetCategoricalFeatures();
+        result.categoricalFeatures_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.numericalFeatures_ = internalGetNumericalFeatures();
+        result.numericalFeatures_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -2090,9 +1983,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.recommendationengine.v1beta1.FeatureMap.getDefaultInstance()) return this;
       internalGetMutableCategoricalFeatures().mergeFrom(
           other.internalGetCategoricalFeatures());
+      bitField0_ |= 0x00000001;
       internalGetMutableNumericalFeatures().mergeFrom(
           other.internalGetNumericalFeatures());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2107,17 +2002,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.FeatureMap parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList>
+              categoricalFeatures__ = input.readMessage(
+                  CategoricalFeaturesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCategoricalFeatures().getMutableMap().put(
+                  categoricalFeatures__.getKey(), categoricalFeatures__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList>
+              numericalFeatures__ = input.readMessage(
+                  NumericalFeaturesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableNumericalFeatures().getMutableMap().put(
+                  numericalFeatures__.getKey(), numericalFeatures__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.FeatureMap) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2125,7 +2051,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> categoricalFeatures_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList>
-    internalGetCategoricalFeatures() {
+        internalGetCategoricalFeatures() {
       if (categoricalFeatures_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CategoricalFeaturesDefaultEntryHolder.defaultEntry);
@@ -2133,8 +2059,7 @@ private static final long serialVersionUID = 0L;
       return categoricalFeatures_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList>
-    internalGetMutableCategoricalFeatures() {
-      onChanged();;
+        internalGetMutableCategoricalFeatures() {
       if (categoricalFeatures_ == null) {
         categoricalFeatures_ = com.google.protobuf.MapField.newMapField(
             CategoricalFeaturesDefaultEntryHolder.defaultEntry);
@@ -2142,9 +2067,10 @@ private static final long serialVersionUID = 0L;
       if (!categoricalFeatures_.isMutable()) {
         categoricalFeatures_ = categoricalFeatures_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return categoricalFeatures_;
     }
-
     public int getCategoricalFeaturesCount() {
       return internalGetCategoricalFeatures().getMap().size();
     }
@@ -2160,7 +2086,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsCategoricalFeatures(
         java.lang.String key) {
@@ -2188,7 +2113,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> getCategoricalFeaturesMap() {
       return internalGetCategoricalFeatures().getMap();
     }
@@ -2205,10 +2129,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrDefault(
+    public /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrDefault(
         java.lang.String key,
-        com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList defaultValue) {
+        /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> map =
           internalGetCategoricalFeatures().getMap();
@@ -2227,7 +2152,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2238,8 +2162,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearCategoricalFeatures() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableCategoricalFeatures().getMutableMap()
           .clear();
       return this;
@@ -2256,7 +2180,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
      */
-
     public Builder removeCategoricalFeatures(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2269,7 +2192,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList>
-    getMutableCategoricalFeatures() {
+        getMutableCategoricalFeatures() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableCategoricalFeatures().getMutableMap();
     }
     /**
@@ -2288,12 +2212,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableCategoricalFeatures().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -2308,18 +2230,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
      */
-
     public Builder putAllCategoricalFeatures(
         java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList> values) {
       internalGetMutableCategoricalFeatures().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> numericalFeatures_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList>
-    internalGetNumericalFeatures() {
+        internalGetNumericalFeatures() {
       if (numericalFeatures_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             NumericalFeaturesDefaultEntryHolder.defaultEntry);
@@ -2327,8 +2249,7 @@ private static final long serialVersionUID = 0L;
       return numericalFeatures_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList>
-    internalGetMutableNumericalFeatures() {
-      onChanged();;
+        internalGetMutableNumericalFeatures() {
       if (numericalFeatures_ == null) {
         numericalFeatures_ = com.google.protobuf.MapField.newMapField(
             NumericalFeaturesDefaultEntryHolder.defaultEntry);
@@ -2336,9 +2257,10 @@ private static final long serialVersionUID = 0L;
       if (!numericalFeatures_.isMutable()) {
         numericalFeatures_ = numericalFeatures_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return numericalFeatures_;
     }
-
     public int getNumericalFeaturesCount() {
       return internalGetNumericalFeatures().getMap().size();
     }
@@ -2353,7 +2275,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsNumericalFeatures(
         java.lang.String key) {
@@ -2380,7 +2301,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> getNumericalFeaturesMap() {
       return internalGetNumericalFeatures().getMap();
     }
@@ -2396,10 +2316,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrDefault(
+    public /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrDefault(
         java.lang.String key,
-        com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList defaultValue) {
+        /* nullable */
+com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> map =
           internalGetNumericalFeatures().getMap();
@@ -2417,7 +2338,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2428,8 +2348,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearNumericalFeatures() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableNumericalFeatures().getMutableMap()
           .clear();
       return this;
@@ -2445,7 +2365,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
      */
-
     public Builder removeNumericalFeatures(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2458,7 +2377,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList>
-    getMutableNumericalFeatures() {
+        getMutableNumericalFeatures() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableNumericalFeatures().getMutableMap();
     }
     /**
@@ -2476,12 +2396,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableNumericalFeatures().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -2495,11 +2413,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
      */
-
     public Builder putAllNumericalFeatures(
         java.util.Map<java.lang.String, com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList> values) {
       internalGetMutableNumericalFeatures().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -2535,7 +2453,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FeatureMap(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -37,89 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PreviewCreateGameServerClusterRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            gameServerClusterId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.gaming.v1.GameServerCluster.Builder subBuilder = null;
-            if (gameServerCluster_ != null) {
-              subBuilder = gameServerCluster_.toBuilder();
-            }
-            gameServerCluster_ = input.readMessage(com.google.cloud.gaming.v1.GameServerCluster.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gameServerCluster_);
-              gameServerCluster_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (previewTime_ != null) {
-              subBuilder = previewTime_.toBuilder();
-            }
-            previewTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(previewTime_);
-              previewTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            view_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gaming.v1.GameServerClusters.internal_static_google_cloud_gaming_v1_PreviewCreateGameServerClusterRequest_descriptor;
@@ -134,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent resource name, in the following form:
@@ -182,7 +100,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GAME_SERVER_CLUSTER_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object gameServerClusterId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object gameServerClusterId_ = "";
   /**
    * <pre>
    * Required. The ID of the game server cluster resource to be created.
@@ -262,7 +181,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gaming.v1.GameServerClusterOrBuilder getGameServerClusterOrBuilder() {
-    return getGameServerCluster();
+    return gameServerCluster_ == null ? com.google.cloud.gaming.v1.GameServerCluster.getDefaultInstance() : gameServerCluster_;
   }
 
   public static final int PREVIEW_TIME_FIELD_NUMBER = 4;
@@ -300,11 +219,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getPreviewTimeOrBuilder() {
-    return getPreviewTime();
+    return previewTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : previewTime_;
   }
 
   public static final int VIEW_FIELD_NUMBER = 6;
-  private int view_;
+  private int view_ = 0;
   /**
    * <pre>
    * Optional. This field is deprecated, preview will always return
@@ -331,8 +250,7 @@ private static final long serialVersionUID = 0L;
    * @return The view.
    */
   @java.lang.Override @java.lang.Deprecated public com.google.cloud.gaming.v1.GameServerClusterView getView() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.gaming.v1.GameServerClusterView result = com.google.cloud.gaming.v1.GameServerClusterView.valueOf(view_);
+    com.google.cloud.gaming.v1.GameServerClusterView result = com.google.cloud.gaming.v1.GameServerClusterView.forNumber(view_);
     return result == null ? com.google.cloud.gaming.v1.GameServerClusterView.UNRECOGNIZED : result;
   }
 
@@ -365,7 +283,7 @@ private static final long serialVersionUID = 0L;
     if (view_ != com.google.cloud.gaming.v1.GameServerClusterView.GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED.getNumber()) {
       output.writeEnum(6, view_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -392,7 +310,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(6, view_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -422,7 +340,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getPreviewTime())) return false;
     }
     if (view_ != other.view_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -447,7 +365,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + VIEW_FIELD_NUMBER;
     hash = (53 * hash) + view_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -568,40 +486,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       gameServerClusterId_ = "";
-
-      if (gameServerClusterBuilder_ == null) {
-        gameServerCluster_ = null;
-      } else {
-        gameServerCluster_ = null;
+      gameServerCluster_ = null;
+      if (gameServerClusterBuilder_ != null) {
+        gameServerClusterBuilder_.dispose();
         gameServerClusterBuilder_ = null;
       }
-      if (previewTimeBuilder_ == null) {
-        previewTime_ = null;
-      } else {
-        previewTime_ = null;
+      previewTime_ = null;
+      if (previewTimeBuilder_ != null) {
+        previewTimeBuilder_.dispose();
         previewTimeBuilder_ = null;
       }
       view_ = 0;
-
       return this;
     }
 
@@ -628,21 +537,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest buildPartial() {
       com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest result = new com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest(this);
-      result.parent_ = parent_;
-      result.gameServerClusterId_ = gameServerClusterId_;
-      if (gameServerClusterBuilder_ == null) {
-        result.gameServerCluster_ = gameServerCluster_;
-      } else {
-        result.gameServerCluster_ = gameServerClusterBuilder_.build();
-      }
-      if (previewTimeBuilder_ == null) {
-        result.previewTime_ = previewTime_;
-      } else {
-        result.previewTime_ = previewTimeBuilder_.build();
-      }
-      result.view_ = view_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.gameServerClusterId_ = gameServerClusterId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.gameServerCluster_ = gameServerClusterBuilder_ == null
+            ? gameServerCluster_
+            : gameServerClusterBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.previewTime_ = previewTimeBuilder_ == null
+            ? previewTime_
+            : previewTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.view_ = view_;
+      }
     }
 
     @java.lang.Override
@@ -691,10 +611,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getGameServerClusterId().isEmpty()) {
         gameServerClusterId_ = other.gameServerClusterId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasGameServerCluster()) {
@@ -706,7 +628,7 @@ private static final long serialVersionUID = 0L;
       if (other.view_ != 0) {
         setViewValue(other.getViewValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -721,19 +643,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              gameServerClusterId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getGameServerClusterFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPreviewTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 48: {
+              view_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gaming.v1.PreviewCreateGameServerClusterRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -791,11 +756,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -809,8 +772,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -826,12 +789,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -889,11 +850,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGameServerClusterId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       gameServerClusterId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -906,8 +865,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGameServerClusterId() {
-      
       gameServerClusterId_ = getDefaultInstance().getGameServerClusterId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -922,12 +881,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGameServerClusterIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       gameServerClusterId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -944,7 +901,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gameServerCluster field is set.
      */
     public boolean hasGameServerCluster() {
-      return gameServerClusterBuilder_ != null || gameServerCluster_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -974,11 +931,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gameServerCluster_ = value;
-        onChanged();
       } else {
         gameServerClusterBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -992,11 +949,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gaming.v1.GameServerCluster.Builder builderForValue) {
       if (gameServerClusterBuilder_ == null) {
         gameServerCluster_ = builderForValue.build();
-        onChanged();
       } else {
         gameServerClusterBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1008,17 +965,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGameServerCluster(com.google.cloud.gaming.v1.GameServerCluster value) {
       if (gameServerClusterBuilder_ == null) {
-        if (gameServerCluster_ != null) {
-          gameServerCluster_ =
-            com.google.cloud.gaming.v1.GameServerCluster.newBuilder(gameServerCluster_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          gameServerCluster_ != null &&
+          gameServerCluster_ != com.google.cloud.gaming.v1.GameServerCluster.getDefaultInstance()) {
+          getGameServerClusterBuilder().mergeFrom(value);
         } else {
           gameServerCluster_ = value;
         }
-        onChanged();
       } else {
         gameServerClusterBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1029,14 +987,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gaming.v1.GameServerCluster game_server_cluster = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearGameServerCluster() {
-      if (gameServerClusterBuilder_ == null) {
-        gameServerCluster_ = null;
-        onChanged();
-      } else {
-        gameServerCluster_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      gameServerCluster_ = null;
+      if (gameServerClusterBuilder_ != null) {
+        gameServerClusterBuilder_.dispose();
         gameServerClusterBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1047,7 +1004,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gaming.v1.GameServerCluster game_server_cluster = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.gaming.v1.GameServerCluster.Builder getGameServerClusterBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getGameServerClusterFieldBuilder().getBuilder();
     }
@@ -1099,7 +1056,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the previewTime field is set.
      */
     public boolean hasPreviewTime() {
-      return previewTimeBuilder_ != null || previewTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1129,11 +1086,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         previewTime_ = value;
-        onChanged();
       } else {
         previewTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1147,11 +1104,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (previewTimeBuilder_ == null) {
         previewTime_ = builderForValue.build();
-        onChanged();
       } else {
         previewTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1163,17 +1120,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePreviewTime(com.google.protobuf.Timestamp value) {
       if (previewTimeBuilder_ == null) {
-        if (previewTime_ != null) {
-          previewTime_ =
-            com.google.protobuf.Timestamp.newBuilder(previewTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          previewTime_ != null &&
+          previewTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getPreviewTimeBuilder().mergeFrom(value);
         } else {
           previewTime_ = value;
         }
-        onChanged();
       } else {
         previewTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1184,14 +1142,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp preview_time = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearPreviewTime() {
-      if (previewTimeBuilder_ == null) {
-        previewTime_ = null;
-        onChanged();
-      } else {
-        previewTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      previewTime_ = null;
+      if (previewTimeBuilder_ != null) {
+        previewTimeBuilder_.dispose();
         previewTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1202,7 +1159,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp preview_time = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.protobuf.Timestamp.Builder getPreviewTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getPreviewTimeFieldBuilder().getBuilder();
     }
@@ -1270,8 +1227,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setViewValue(int value) {
-      
       view_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1288,8 +1245,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.cloud.gaming.v1.GameServerClusterView getView() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.gaming.v1.GameServerClusterView result = com.google.cloud.gaming.v1.GameServerClusterView.valueOf(view_);
+      com.google.cloud.gaming.v1.GameServerClusterView result = com.google.cloud.gaming.v1.GameServerClusterView.forNumber(view_);
       return result == null ? com.google.cloud.gaming.v1.GameServerClusterView.UNRECOGNIZED : result;
     }
     /**
@@ -1308,7 +1264,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       view_ = value.getNumber();
       onChanged();
       return this;
@@ -1325,7 +1281,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearView() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       view_ = 0;
       onChanged();
       return this;
@@ -1363,7 +1319,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PreviewCreateGameServerClusterRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

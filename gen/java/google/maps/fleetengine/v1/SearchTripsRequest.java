@@ -37,99 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchTripsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.v1.RequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.v1.RequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vehicleId_ = s;
-            break;
-          }
-          case 40: {
-
-            activeTripsOnly_ = input.readBool();
-            break;
-          }
-          case 48: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (minimumStaleness_ != null) {
-              subBuilder = minimumStaleness_.toBuilder();
-            }
-            minimumStaleness_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minimumStaleness_);
-              minimumStaleness_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.TripApi.internal_static_maps_fleetengine_v1_SearchTripsRequest_descriptor;
@@ -178,11 +85,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.RequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.v1.RequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int PARENT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Must be in the format `providers/{provider}`.
@@ -234,7 +142,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VEHICLE_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object vehicleId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vehicleId_ = "";
   /**
    * <pre>
    * The vehicle associated with the trips in the request. If unspecified, the
@@ -290,11 +199,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTIVE_TRIPS_ONLY_FIELD_NUMBER = 5;
-  private boolean activeTripsOnly_;
+  private boolean activeTripsOnly_ = false;
   /**
    * <pre>
-   * If set to true, only Trips that influence the drivers route
-   * are included in the response.
+   * If set to true, the response includes Trips that influence a driver's
+   * route.
    * </pre>
    *
    * <code>bool active_trips_only = 5;</code>
@@ -306,11 +215,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 6;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * If not set, the server will decide the number of
-   * results to return.
+   * If not set, the server decides the number of results to return.
    * </pre>
    *
    * <code>int32 page_size = 6;</code>
@@ -322,11 +230,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 7;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
-   * Set this to a value previously returned in the
-   * SearchTripsResponse to continue from previous results.
+   * Set this to a value previously returned in the `SearchTripsResponse` to
+   * continue from previous results.
    * </pre>
    *
    * <code>string page_token = 7;</code>
@@ -347,8 +256,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Set this to a value previously returned in the
-   * SearchTripsResponse to continue from previous results.
+   * Set this to a value previously returned in the `SearchTripsResponse` to
+   * continue from previous results.
    * </pre>
    *
    * <code>string page_token = 7;</code>
@@ -373,8 +282,8 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.Duration minimumStaleness_;
   /**
    * <pre>
-   * If specified, returns the trips that have not been updated after
-   * the time `(current - minimum_staleness)`.
+   * If specified, returns the trips that have not been updated after the time
+   * `(current - minimum_staleness)`.
    * </pre>
    *
    * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -386,8 +295,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * If specified, returns the trips that have not been updated after
-   * the time `(current - minimum_staleness)`.
+   * If specified, returns the trips that have not been updated after the time
+   * `(current - minimum_staleness)`.
    * </pre>
    *
    * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -399,15 +308,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * If specified, returns the trips that have not been updated after
-   * the time `(current - minimum_staleness)`.
+   * If specified, returns the trips that have not been updated after the time
+   * `(current - minimum_staleness)`.
    * </pre>
    *
    * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMinimumStalenessOrBuilder() {
-    return getMinimumStaleness();
+    return minimumStaleness_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minimumStaleness_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -445,7 +354,7 @@ private static final long serialVersionUID = 0L;
     if (minimumStaleness_ != null) {
       output.writeMessage(8, getMinimumStaleness());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -479,7 +388,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getMinimumStaleness());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -514,7 +423,7 @@ private static final long serialVersionUID = 0L;
       if (!getMinimumStaleness()
           .equals(other.getMinimumStaleness())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -544,7 +453,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MINIMUM_STALENESS_FIELD_NUMBER;
       hash = (53 * hash) + getMinimumStaleness().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -665,42 +574,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.SearchTripsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       parent_ = "";
-
       vehicleId_ = "";
-
       activeTripsOnly_ = false;
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
-      if (minimumStalenessBuilder_ == null) {
-        minimumStaleness_ = null;
-      } else {
-        minimumStaleness_ = null;
+      minimumStaleness_ = null;
+      if (minimumStalenessBuilder_ != null) {
+        minimumStalenessBuilder_.dispose();
         minimumStalenessBuilder_ = null;
       }
       return this;
@@ -729,23 +627,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.SearchTripsRequest buildPartial() {
       google.maps.fleetengine.v1.SearchTripsRequest result = new google.maps.fleetengine.v1.SearchTripsRequest(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.parent_ = parent_;
-      result.vehicleId_ = vehicleId_;
-      result.activeTripsOnly_ = activeTripsOnly_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      if (minimumStalenessBuilder_ == null) {
-        result.minimumStaleness_ = minimumStaleness_;
-      } else {
-        result.minimumStaleness_ = minimumStalenessBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.SearchTripsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vehicleId_ = vehicleId_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.activeTripsOnly_ = activeTripsOnly_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.minimumStaleness_ = minimumStalenessBuilder_ == null
+            ? minimumStaleness_
+            : minimumStalenessBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -797,10 +710,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getVehicleId().isEmpty()) {
         vehicleId_ = other.vehicleId_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getActiveTripsOnly() != false) {
@@ -811,12 +726,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasMinimumStaleness()) {
         mergeMinimumStaleness(other.getMinimumStaleness());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -831,19 +747,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.SearchTripsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              vehicleId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 40: {
+              activeTripsOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 48: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 58: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getMinimumStalenessFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.SearchTripsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.maps.fleetengine.v1.RequestHeader header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -857,7 +826,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -887,11 +856,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -905,11 +874,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.RequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -921,17 +890,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.v1.RequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.v1.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.v1.RequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -942,14 +912,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -960,7 +929,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public google.maps.fleetengine.v1.RequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -1062,11 +1031,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1082,8 +1049,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1101,12 +1068,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1179,11 +1144,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVehicleId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vehicleId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1201,8 +1164,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearVehicleId() {
-      
       vehicleId_ = getDefaultInstance().getVehicleId();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1222,12 +1185,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setVehicleIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vehicleId_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1235,8 +1196,8 @@ private static final long serialVersionUID = 0L;
     private boolean activeTripsOnly_ ;
     /**
      * <pre>
-     * If set to true, only Trips that influence the drivers route
-     * are included in the response.
+     * If set to true, the response includes Trips that influence a driver's
+     * route.
      * </pre>
      *
      * <code>bool active_trips_only = 5;</code>
@@ -1248,8 +1209,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * If set to true, only Trips that influence the drivers route
-     * are included in the response.
+     * If set to true, the response includes Trips that influence a driver's
+     * route.
      * </pre>
      *
      * <code>bool active_trips_only = 5;</code>
@@ -1259,20 +1220,21 @@ private static final long serialVersionUID = 0L;
     public Builder setActiveTripsOnly(boolean value) {
       
       activeTripsOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * If set to true, only Trips that influence the drivers route
-     * are included in the response.
+     * If set to true, the response includes Trips that influence a driver's
+     * route.
      * </pre>
      *
      * <code>bool active_trips_only = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearActiveTripsOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       activeTripsOnly_ = false;
       onChanged();
       return this;
@@ -1281,8 +1243,7 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * If not set, the server will decide the number of
-     * results to return.
+     * If not set, the server decides the number of results to return.
      * </pre>
      *
      * <code>int32 page_size = 6;</code>
@@ -1294,8 +1255,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * If not set, the server will decide the number of
-     * results to return.
+     * If not set, the server decides the number of results to return.
      * </pre>
      *
      * <code>int32 page_size = 6;</code>
@@ -1305,20 +1265,20 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * If not set, the server will decide the number of
-     * results to return.
+     * If not set, the server decides the number of results to return.
      * </pre>
      *
      * <code>int32 page_size = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1327,8 +1287,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     * Set this to a value previously returned in the
-     * SearchTripsResponse to continue from previous results.
+     * Set this to a value previously returned in the `SearchTripsResponse` to
+     * continue from previous results.
      * </pre>
      *
      * <code>string page_token = 7;</code>
@@ -1348,8 +1308,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Set this to a value previously returned in the
-     * SearchTripsResponse to continue from previous results.
+     * Set this to a value previously returned in the `SearchTripsResponse` to
+     * continue from previous results.
      * </pre>
      *
      * <code>string page_token = 7;</code>
@@ -1370,8 +1330,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Set this to a value previously returned in the
-     * SearchTripsResponse to continue from previous results.
+     * Set this to a value previously returned in the `SearchTripsResponse` to
+     * continue from previous results.
      * </pre>
      *
      * <code>string page_token = 7;</code>
@@ -1380,33 +1340,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Set this to a value previously returned in the
-     * SearchTripsResponse to continue from previous results.
+     * Set this to a value previously returned in the `SearchTripsResponse` to
+     * continue from previous results.
      * </pre>
      *
      * <code>string page_token = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Set this to a value previously returned in the
-     * SearchTripsResponse to continue from previous results.
+     * Set this to a value previously returned in the `SearchTripsResponse` to
+     * continue from previous results.
      * </pre>
      *
      * <code>string page_token = 7;</code>
@@ -1415,12 +1373,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1430,20 +1386,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> minimumStalenessBuilder_;
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
      * @return Whether the minimumStaleness field is set.
      */
     public boolean hasMinimumStaleness() {
-      return minimumStalenessBuilder_ != null || minimumStaleness_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -1458,8 +1414,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -1470,17 +1426,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minimumStaleness_ = value;
-        onChanged();
       } else {
         minimumStalenessBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -1489,72 +1445,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (minimumStalenessBuilder_ == null) {
         minimumStaleness_ = builderForValue.build();
-        onChanged();
       } else {
         minimumStalenessBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
      */
     public Builder mergeMinimumStaleness(com.google.protobuf.Duration value) {
       if (minimumStalenessBuilder_ == null) {
-        if (minimumStaleness_ != null) {
-          minimumStaleness_ =
-            com.google.protobuf.Duration.newBuilder(minimumStaleness_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          minimumStaleness_ != null &&
+          minimumStaleness_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMinimumStalenessBuilder().mergeFrom(value);
         } else {
           minimumStaleness_ = value;
         }
-        onChanged();
       } else {
         minimumStalenessBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
      */
     public Builder clearMinimumStaleness() {
-      if (minimumStalenessBuilder_ == null) {
-        minimumStaleness_ = null;
-        onChanged();
-      } else {
-        minimumStaleness_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      minimumStaleness_ = null;
+      if (minimumStalenessBuilder_ != null) {
+        minimumStalenessBuilder_.dispose();
         minimumStalenessBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getMinimumStalenessBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMinimumStalenessFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -1569,8 +1525,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * If specified, returns the trips that have not been updated after
-     * the time `(current - minimum_staleness)`.
+     * If specified, returns the trips that have not been updated after the time
+     * `(current - minimum_staleness)`.
      * </pre>
      *
      * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -1621,7 +1577,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchTripsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -29,7 +29,8 @@ public interface SessionEventOrBuilder extends
 
   /**
    * <pre>
-   * The information about the user that created the session.
+   * The information about the user that created the session. It will be the
+   * email address of the user.
    * </pre>
    *
    * <code>string user_id = 2;</code>
@@ -38,7 +39,8 @@ public interface SessionEventOrBuilder extends
   java.lang.String getUserId();
   /**
    * <pre>
-   * The information about the user that created the session.
+   * The information about the user that created the session. It will be the
+   * email address of the user.
    * </pre>
    *
    * <code>string user_id = 2;</code>
@@ -112,6 +114,54 @@ public interface SessionEventOrBuilder extends
    * <code>.google.cloud.dataplex.v1.SessionEvent.QueryDetail query = 5;</code>
    */
   com.google.cloud.dataplex.v1.SessionEvent.QueryDetailOrBuilder getQueryOrBuilder();
+
+  /**
+   * <pre>
+   * The status of the event.
+   * </pre>
+   *
+   * <code>bool event_succeeded = 6;</code>
+   * @return The eventSucceeded.
+   */
+  boolean getEventSucceeded();
+
+  /**
+   * <pre>
+   * If the session is associated with an environment with fast startup enabled,
+   * and was created before being assigned to a user.
+   * </pre>
+   *
+   * <code>bool fast_startup_enabled = 7;</code>
+   * @return The fastStartupEnabled.
+   */
+  boolean getFastStartupEnabled();
+
+  /**
+   * <pre>
+   * The idle duration of a warm pooled session before it is assigned to user.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+   * @return Whether the unassignedDuration field is set.
+   */
+  boolean hasUnassignedDuration();
+  /**
+   * <pre>
+   * The idle duration of a warm pooled session before it is assigned to user.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+   * @return The unassignedDuration.
+   */
+  com.google.protobuf.Duration getUnassignedDuration();
+  /**
+   * <pre>
+   * The idle duration of a warm pooled session before it is assigned to user.
+   * </pre>
+   *
+   * <code>.google.protobuf.Duration unassigned_duration = 8;</code>
+   */
+  com.google.protobuf.DurationOrBuilder getUnassignedDurationOrBuilder();
 
   public com.google.cloud.dataplex.v1.SessionEvent.DetailCase getDetailCase();
 }

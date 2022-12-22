@@ -36,70 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KerberosConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.metastore.v1alpha.Secret.Builder subBuilder = null;
-            if (keytab_ != null) {
-              subBuilder = keytab_.toBuilder();
-            }
-            keytab_ = input.readMessage(com.google.cloud.metastore.v1alpha.Secret.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(keytab_);
-              keytab_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            principal_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            krb5ConfigGcsUri_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.metastore.v1alpha.MetastoreProto.internal_static_google_cloud_metastore_v1alpha_KerberosConfig_descriptor;
@@ -151,11 +87,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.metastore.v1alpha.SecretOrBuilder getKeytabOrBuilder() {
-    return getKeytab();
+    return keytab_ == null ? com.google.cloud.metastore.v1alpha.Secret.getDefaultInstance() : keytab_;
   }
 
   public static final int PRINCIPAL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object principal_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object principal_ = "";
   /**
    * <pre>
    * A Kerberos principal that exists in the both the keytab the KDC
@@ -205,7 +142,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KRB5_CONFIG_GCS_URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object krb5ConfigGcsUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object krb5ConfigGcsUri_ = "";
   /**
    * <pre>
    * A Cloud Storage URI that specifies the path to a
@@ -277,7 +215,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(krb5ConfigGcsUri_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, krb5ConfigGcsUri_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -296,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(krb5ConfigGcsUri_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, krb5ConfigGcsUri_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -320,7 +258,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPrincipal())) return false;
     if (!getKrb5ConfigGcsUri()
         .equals(other.getKrb5ConfigGcsUri())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -339,7 +277,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPrincipal().hashCode();
     hash = (37 * hash) + KRB5_CONFIG_GCS_URI_FIELD_NUMBER;
     hash = (53 * hash) + getKrb5ConfigGcsUri().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -460,32 +398,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.metastore.v1alpha.KerberosConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (keytabBuilder_ == null) {
-        keytab_ = null;
-      } else {
-        keytab_ = null;
+      bitField0_ = 0;
+      keytab_ = null;
+      if (keytabBuilder_ != null) {
+        keytabBuilder_.dispose();
         keytabBuilder_ = null;
       }
       principal_ = "";
-
       krb5ConfigGcsUri_ = "";
-
       return this;
     }
 
@@ -512,15 +443,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.metastore.v1alpha.KerberosConfig buildPartial() {
       com.google.cloud.metastore.v1alpha.KerberosConfig result = new com.google.cloud.metastore.v1alpha.KerberosConfig(this);
-      if (keytabBuilder_ == null) {
-        result.keytab_ = keytab_;
-      } else {
-        result.keytab_ = keytabBuilder_.build();
-      }
-      result.principal_ = principal_;
-      result.krb5ConfigGcsUri_ = krb5ConfigGcsUri_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.metastore.v1alpha.KerberosConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.keytab_ = keytabBuilder_ == null
+            ? keytab_
+            : keytabBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.principal_ = principal_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.krb5ConfigGcsUri_ = krb5ConfigGcsUri_;
+      }
     }
 
     @java.lang.Override
@@ -572,13 +512,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPrincipal().isEmpty()) {
         principal_ = other.principal_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getKrb5ConfigGcsUri().isEmpty()) {
         krb5ConfigGcsUri_ = other.krb5ConfigGcsUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -593,19 +535,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.metastore.v1alpha.KerberosConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getKeytabFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              principal_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              krb5ConfigGcsUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.metastore.v1alpha.KerberosConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.metastore.v1alpha.Secret keytab_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -620,7 +593,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the keytab field is set.
      */
     public boolean hasKeytab() {
-      return keytabBuilder_ != null || keytab_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -652,11 +625,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         keytab_ = value;
-        onChanged();
       } else {
         keytabBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -671,11 +644,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.metastore.v1alpha.Secret.Builder builderForValue) {
       if (keytabBuilder_ == null) {
         keytab_ = builderForValue.build();
-        onChanged();
       } else {
         keytabBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -688,17 +661,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKeytab(com.google.cloud.metastore.v1alpha.Secret value) {
       if (keytabBuilder_ == null) {
-        if (keytab_ != null) {
-          keytab_ =
-            com.google.cloud.metastore.v1alpha.Secret.newBuilder(keytab_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          keytab_ != null &&
+          keytab_ != com.google.cloud.metastore.v1alpha.Secret.getDefaultInstance()) {
+          getKeytabBuilder().mergeFrom(value);
         } else {
           keytab_ = value;
         }
-        onChanged();
       } else {
         keytabBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -710,14 +684,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1alpha.Secret keytab = 1;</code>
      */
     public Builder clearKeytab() {
-      if (keytabBuilder_ == null) {
-        keytab_ = null;
-        onChanged();
-      } else {
-        keytab_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      keytab_ = null;
+      if (keytabBuilder_ != null) {
+        keytabBuilder_.dispose();
         keytabBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -729,7 +702,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.metastore.v1alpha.Secret keytab = 1;</code>
      */
     public com.google.cloud.metastore.v1alpha.Secret.Builder getKeytabBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getKeytabFieldBuilder().getBuilder();
     }
@@ -830,11 +803,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipal(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       principal_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -849,8 +820,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrincipal() {
-      
       principal_ = getDefaultInstance().getPrincipal();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -867,12 +838,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrincipalBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       principal_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -936,11 +905,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKrb5ConfigGcsUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       krb5ConfigGcsUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -955,8 +922,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKrb5ConfigGcsUri() {
-      
       krb5ConfigGcsUri_ = getDefaultInstance().getKrb5ConfigGcsUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -973,12 +940,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKrb5ConfigGcsUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       krb5ConfigGcsUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1015,7 +980,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KerberosConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

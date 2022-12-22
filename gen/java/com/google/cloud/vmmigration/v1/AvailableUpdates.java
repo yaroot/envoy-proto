@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AvailableUpdates(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.vmmigration.v1.ApplianceVersion.Builder subBuilder = null;
-            if (newDeployableAppliance_ != null) {
-              subBuilder = newDeployableAppliance_.toBuilder();
-            }
-            newDeployableAppliance_ = input.readMessage(com.google.cloud.vmmigration.v1.ApplianceVersion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(newDeployableAppliance_);
-              newDeployableAppliance_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.vmmigration.v1.ApplianceVersion.Builder subBuilder = null;
-            if (inPlaceUpdate_ != null) {
-              subBuilder = inPlaceUpdate_.toBuilder();
-            }
-            inPlaceUpdate_ = input.readMessage(com.google.cloud.vmmigration.v1.ApplianceVersion.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inPlaceUpdate_);
-              inPlaceUpdate_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.vmmigration.v1.VmMigrationProto.internal_static_google_cloud_vmmigration_v1_AvailableUpdates_descriptor;
@@ -153,7 +88,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vmmigration.v1.ApplianceVersionOrBuilder getNewDeployableApplianceOrBuilder() {
-    return getNewDeployableAppliance();
+    return newDeployableAppliance_ == null ? com.google.cloud.vmmigration.v1.ApplianceVersion.getDefaultInstance() : newDeployableAppliance_;
   }
 
   public static final int IN_PLACE_UPDATE_FIELD_NUMBER = 2;
@@ -197,7 +132,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.vmmigration.v1.ApplianceVersionOrBuilder getInPlaceUpdateOrBuilder() {
-    return getInPlaceUpdate();
+    return inPlaceUpdate_ == null ? com.google.cloud.vmmigration.v1.ApplianceVersion.getDefaultInstance() : inPlaceUpdate_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -220,7 +155,7 @@ private static final long serialVersionUID = 0L;
     if (inPlaceUpdate_ != null) {
       output.writeMessage(2, getInPlaceUpdate());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -237,7 +172,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getInPlaceUpdate());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -262,7 +197,7 @@ private static final long serialVersionUID = 0L;
       if (!getInPlaceUpdate()
           .equals(other.getInPlaceUpdate())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -281,7 +216,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IN_PLACE_UPDATE_FIELD_NUMBER;
       hash = (53 * hash) + getInPlaceUpdate().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -402,32 +337,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.vmmigration.v1.AvailableUpdates.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (newDeployableApplianceBuilder_ == null) {
-        newDeployableAppliance_ = null;
-      } else {
-        newDeployableAppliance_ = null;
+      bitField0_ = 0;
+      newDeployableAppliance_ = null;
+      if (newDeployableApplianceBuilder_ != null) {
+        newDeployableApplianceBuilder_.dispose();
         newDeployableApplianceBuilder_ = null;
       }
-      if (inPlaceUpdateBuilder_ == null) {
-        inPlaceUpdate_ = null;
-      } else {
-        inPlaceUpdate_ = null;
+      inPlaceUpdate_ = null;
+      if (inPlaceUpdateBuilder_ != null) {
+        inPlaceUpdateBuilder_.dispose();
         inPlaceUpdateBuilder_ = null;
       }
       return this;
@@ -456,18 +385,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.vmmigration.v1.AvailableUpdates buildPartial() {
       com.google.cloud.vmmigration.v1.AvailableUpdates result = new com.google.cloud.vmmigration.v1.AvailableUpdates(this);
-      if (newDeployableApplianceBuilder_ == null) {
-        result.newDeployableAppliance_ = newDeployableAppliance_;
-      } else {
-        result.newDeployableAppliance_ = newDeployableApplianceBuilder_.build();
-      }
-      if (inPlaceUpdateBuilder_ == null) {
-        result.inPlaceUpdate_ = inPlaceUpdate_;
-      } else {
-        result.inPlaceUpdate_ = inPlaceUpdateBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.vmmigration.v1.AvailableUpdates result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.newDeployableAppliance_ = newDeployableApplianceBuilder_ == null
+            ? newDeployableAppliance_
+            : newDeployableApplianceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.inPlaceUpdate_ = inPlaceUpdateBuilder_ == null
+            ? inPlaceUpdate_
+            : inPlaceUpdateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -520,7 +454,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasInPlaceUpdate()) {
         mergeInPlaceUpdate(other.getInPlaceUpdate());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -535,19 +469,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.vmmigration.v1.AvailableUpdates parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNewDeployableApplianceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getInPlaceUpdateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.vmmigration.v1.AvailableUpdates) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.vmmigration.v1.ApplianceVersion newDeployableAppliance_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -563,7 +525,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the newDeployableAppliance field is set.
      */
     public boolean hasNewDeployableAppliance() {
-      return newDeployableApplianceBuilder_ != null || newDeployableAppliance_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         newDeployableAppliance_ = value;
-        onChanged();
       } else {
         newDeployableApplianceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -617,11 +579,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vmmigration.v1.ApplianceVersion.Builder builderForValue) {
       if (newDeployableApplianceBuilder_ == null) {
         newDeployableAppliance_ = builderForValue.build();
-        onChanged();
       } else {
         newDeployableApplianceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -635,17 +597,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNewDeployableAppliance(com.google.cloud.vmmigration.v1.ApplianceVersion value) {
       if (newDeployableApplianceBuilder_ == null) {
-        if (newDeployableAppliance_ != null) {
-          newDeployableAppliance_ =
-            com.google.cloud.vmmigration.v1.ApplianceVersion.newBuilder(newDeployableAppliance_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          newDeployableAppliance_ != null &&
+          newDeployableAppliance_ != com.google.cloud.vmmigration.v1.ApplianceVersion.getDefaultInstance()) {
+          getNewDeployableApplianceBuilder().mergeFrom(value);
         } else {
           newDeployableAppliance_ = value;
         }
-        onChanged();
       } else {
         newDeployableApplianceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -658,14 +621,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vmmigration.v1.ApplianceVersion new_deployable_appliance = 1;</code>
      */
     public Builder clearNewDeployableAppliance() {
-      if (newDeployableApplianceBuilder_ == null) {
-        newDeployableAppliance_ = null;
-        onChanged();
-      } else {
-        newDeployableAppliance_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      newDeployableAppliance_ = null;
+      if (newDeployableApplianceBuilder_ != null) {
+        newDeployableApplianceBuilder_.dispose();
         newDeployableApplianceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -678,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vmmigration.v1.ApplianceVersion new_deployable_appliance = 1;</code>
      */
     public com.google.cloud.vmmigration.v1.ApplianceVersion.Builder getNewDeployableApplianceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNewDeployableApplianceFieldBuilder().getBuilder();
     }
@@ -736,7 +698,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inPlaceUpdate field is set.
      */
     public boolean hasInPlaceUpdate() {
-      return inPlaceUpdateBuilder_ != null || inPlaceUpdate_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -770,11 +732,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inPlaceUpdate_ = value;
-        onChanged();
       } else {
         inPlaceUpdateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -790,11 +752,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.vmmigration.v1.ApplianceVersion.Builder builderForValue) {
       if (inPlaceUpdateBuilder_ == null) {
         inPlaceUpdate_ = builderForValue.build();
-        onChanged();
       } else {
         inPlaceUpdateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -808,17 +770,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInPlaceUpdate(com.google.cloud.vmmigration.v1.ApplianceVersion value) {
       if (inPlaceUpdateBuilder_ == null) {
-        if (inPlaceUpdate_ != null) {
-          inPlaceUpdate_ =
-            com.google.cloud.vmmigration.v1.ApplianceVersion.newBuilder(inPlaceUpdate_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          inPlaceUpdate_ != null &&
+          inPlaceUpdate_ != com.google.cloud.vmmigration.v1.ApplianceVersion.getDefaultInstance()) {
+          getInPlaceUpdateBuilder().mergeFrom(value);
         } else {
           inPlaceUpdate_ = value;
         }
-        onChanged();
       } else {
         inPlaceUpdateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -831,14 +794,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vmmigration.v1.ApplianceVersion in_place_update = 2;</code>
      */
     public Builder clearInPlaceUpdate() {
-      if (inPlaceUpdateBuilder_ == null) {
-        inPlaceUpdate_ = null;
-        onChanged();
-      } else {
-        inPlaceUpdate_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      inPlaceUpdate_ = null;
+      if (inPlaceUpdateBuilder_ != null) {
+        inPlaceUpdateBuilder_.dispose();
         inPlaceUpdateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -851,7 +813,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.vmmigration.v1.ApplianceVersion in_place_update = 2;</code>
      */
     public com.google.cloud.vmmigration.v1.ApplianceVersion.Builder getInPlaceUpdateBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getInPlaceUpdateFieldBuilder().getBuilder();
     }
@@ -927,7 +889,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AvailableUpdates(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

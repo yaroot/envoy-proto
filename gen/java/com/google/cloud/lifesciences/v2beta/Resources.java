@@ -37,83 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Resources(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              regions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            regions_.add(s);
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              zones_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            zones_.add(s);
-            break;
-          }
-          case 34: {
-            com.google.cloud.lifesciences.v2beta.VirtualMachine.Builder subBuilder = null;
-            if (virtualMachine_ != null) {
-              subBuilder = virtualMachine_.toBuilder();
-            }
-            virtualMachine_ = input.readMessage(com.google.cloud.lifesciences.v2beta.VirtualMachine.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(virtualMachine_);
-              virtualMachine_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        regions_ = regions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        zones_ = zones_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.lifesciences.v2beta.WorkflowsProto.internal_static_google_cloud_lifesciences_v2beta_Resources_descriptor;
@@ -128,6 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGIONS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList regions_;
   /**
    * <pre>
@@ -183,6 +107,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ZONES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList zones_;
   /**
    * <pre>
@@ -272,7 +197,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.lifesciences.v2beta.VirtualMachineOrBuilder getVirtualMachineOrBuilder() {
-    return getVirtualMachine();
+    return virtualMachine_ == null ? com.google.cloud.lifesciences.v2beta.VirtualMachine.getDefaultInstance() : virtualMachine_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -298,7 +223,7 @@ private static final long serialVersionUID = 0L;
     if (virtualMachine_ != null) {
       output.writeMessage(4, getVirtualMachine());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -327,7 +252,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getVirtualMachine());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -351,7 +276,7 @@ private static final long serialVersionUID = 0L;
       if (!getVirtualMachine()
           .equals(other.getVirtualMachine())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -374,7 +299,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VIRTUAL_MACHINE_FIELD_NUMBER;
       hash = (53 * hash) + getVirtualMachine().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -496,30 +421,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.lifesciences.v2beta.Resources.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       regions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       zones_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000002);
-      if (virtualMachineBuilder_ == null) {
-        virtualMachine_ = null;
-      } else {
-        virtualMachine_ = null;
+      virtualMachine_ = null;
+      if (virtualMachineBuilder_ != null) {
+        virtualMachineBuilder_.dispose();
         virtualMachineBuilder_ = null;
       }
       return this;
@@ -548,7 +468,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.lifesciences.v2beta.Resources buildPartial() {
       com.google.cloud.lifesciences.v2beta.Resources result = new com.google.cloud.lifesciences.v2beta.Resources(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.lifesciences.v2beta.Resources result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         regions_ = regions_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -559,13 +485,15 @@ private static final long serialVersionUID = 0L;
         bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.zones_ = zones_;
-      if (virtualMachineBuilder_ == null) {
-        result.virtualMachine_ = virtualMachine_;
-      } else {
-        result.virtualMachine_ = virtualMachineBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.lifesciences.v2beta.Resources result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.virtualMachine_ = virtualMachineBuilder_ == null
+            ? virtualMachine_
+            : virtualMachineBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -635,7 +563,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasVirtualMachine()) {
         mergeVirtualMachine(other.getVirtualMachine());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -650,17 +578,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.lifesciences.v2beta.Resources parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRegionsIsMutable();
+              regions_.add(s);
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureZonesIsMutable();
+              zones_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getVirtualMachineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.lifesciences.v2beta.Resources) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -737,10 +697,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRegionsIsMutable();
       regions_.set(index, value);
       onChanged();
       return this;
@@ -757,10 +715,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRegions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRegionsIsMutable();
       regions_.add(value);
       onChanged();
       return this;
@@ -810,10 +766,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRegionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRegionsIsMutable();
       regions_.add(value);
       onChanged();
@@ -892,10 +846,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setZones(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureZonesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureZonesIsMutable();
       zones_.set(index, value);
       onChanged();
       return this;
@@ -912,10 +864,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addZones(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureZonesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureZonesIsMutable();
       zones_.add(value);
       onChanged();
       return this;
@@ -965,10 +915,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addZonesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureZonesIsMutable();
       zones_.add(value);
       onChanged();
@@ -987,7 +935,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the virtualMachine field is set.
      */
     public boolean hasVirtualMachine() {
-      return virtualMachineBuilder_ != null || virtualMachine_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1017,11 +965,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         virtualMachine_ = value;
-        onChanged();
       } else {
         virtualMachineBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1035,11 +983,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.lifesciences.v2beta.VirtualMachine.Builder builderForValue) {
       if (virtualMachineBuilder_ == null) {
         virtualMachine_ = builderForValue.build();
-        onChanged();
       } else {
         virtualMachineBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1051,17 +999,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVirtualMachine(com.google.cloud.lifesciences.v2beta.VirtualMachine value) {
       if (virtualMachineBuilder_ == null) {
-        if (virtualMachine_ != null) {
-          virtualMachine_ =
-            com.google.cloud.lifesciences.v2beta.VirtualMachine.newBuilder(virtualMachine_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          virtualMachine_ != null &&
+          virtualMachine_ != com.google.cloud.lifesciences.v2beta.VirtualMachine.getDefaultInstance()) {
+          getVirtualMachineBuilder().mergeFrom(value);
         } else {
           virtualMachine_ = value;
         }
-        onChanged();
       } else {
         virtualMachineBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1072,14 +1021,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.lifesciences.v2beta.VirtualMachine virtual_machine = 4;</code>
      */
     public Builder clearVirtualMachine() {
-      if (virtualMachineBuilder_ == null) {
-        virtualMachine_ = null;
-        onChanged();
-      } else {
-        virtualMachine_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      virtualMachine_ = null;
+      if (virtualMachineBuilder_ != null) {
+        virtualMachineBuilder_.dispose();
         virtualMachineBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1090,7 +1038,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.lifesciences.v2beta.VirtualMachine virtual_machine = 4;</code>
      */
     public com.google.cloud.lifesciences.v2beta.VirtualMachine.Builder getVirtualMachineBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getVirtualMachineFieldBuilder().getBuilder();
     }
@@ -1162,7 +1110,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Resources(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

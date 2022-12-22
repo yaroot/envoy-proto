@@ -41,180 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Settings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            defaultLocale_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              enabledRegions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            enabledRegions_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              disabledRegions_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            disabledRegions_.add(s);
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            category_ = rawValue;
-            break;
-          }
-          case 48: {
-
-            usesTransactionsApi_ = input.readBool();
-            break;
-          }
-          case 56: {
-
-            usesDigitalPurchaseApi_ = input.readBool();
-            break;
-          }
-          case 64: {
-
-            usesInteractiveCanvas_ = input.readBool();
-            break;
-          }
-          case 72: {
-
-            designedForFamily_ = input.readBool();
-            break;
-          }
-          case 88: {
-
-            containsAlcoholOrTobaccoContent_ = input.readBool();
-            break;
-          }
-          case 96: {
-
-            keepsMicOpen_ = input.readBool();
-            break;
-          }
-          case 106: {
-            com.google.actions.sdk.v2.SurfaceRequirements.Builder subBuilder = null;
-            if (surfaceRequirements_ != null) {
-              subBuilder = surfaceRequirements_.toBuilder();
-            }
-            surfaceRequirements_ = input.readMessage(com.google.actions.sdk.v2.SurfaceRequirements.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(surfaceRequirements_);
-              surfaceRequirements_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            testingInstructions_ = s;
-            break;
-          }
-          case 122: {
-            com.google.actions.sdk.v2.LocalizedSettings.Builder subBuilder = null;
-            if (localizedSettings_ != null) {
-              subBuilder = localizedSettings_.toBuilder();
-            }
-            localizedSettings_ = input.readMessage(com.google.actions.sdk.v2.LocalizedSettings.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(localizedSettings_);
-              localizedSettings_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.actions.sdk.v2.AccountLinking.Builder subBuilder = null;
-            if (accountLinking_ != null) {
-              subBuilder = accountLinking_.toBuilder();
-            }
-            accountLinking_ = input.readMessage(com.google.actions.sdk.v2.AccountLinking.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accountLinking_);
-              accountLinking_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 136: {
-
-            usesHomeStorage_ = input.readBool();
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              selectedAndroidApps_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            selectedAndroidApps_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        enabledRegions_ = enabledRegions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        disabledRegions_ = disabledRegions_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        selectedAndroidApps_ = selectedAndroidApps_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.SettingsProto.internal_static_google_actions_sdk_v2_Settings_descriptor;
@@ -680,7 +506,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * Actions project id.
@@ -726,7 +553,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_LOCALE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object defaultLocale_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object defaultLocale_ = "";
   /**
    * <pre>
    * Locale which is default for the project. For all files except under
@@ -778,6 +606,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLED_REGIONS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList enabledRegions_;
   /**
    * <pre>
@@ -885,6 +714,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISABLED_REGIONS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList disabledRegions_;
   /**
    * <pre>
@@ -984,7 +814,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CATEGORY_FIELD_NUMBER = 5;
-  private int category_;
+  private int category_ = 0;
   /**
    * <pre>
    * The category for this Actions project.
@@ -1005,13 +835,12 @@ private static final long serialVersionUID = 0L;
    * @return The category.
    */
   @java.lang.Override public com.google.actions.sdk.v2.Settings.Category getCategory() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.Settings.Category result = com.google.actions.sdk.v2.Settings.Category.valueOf(category_);
+    com.google.actions.sdk.v2.Settings.Category result = com.google.actions.sdk.v2.Settings.Category.forNumber(category_);
     return result == null ? com.google.actions.sdk.v2.Settings.Category.UNRECOGNIZED : result;
   }
 
   public static final int USES_TRANSACTIONS_API_FIELD_NUMBER = 6;
-  private boolean usesTransactionsApi_;
+  private boolean usesTransactionsApi_ = false;
   /**
    * <pre>
    * Whether Actions can use transactions (for example, making
@@ -1028,7 +857,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USES_DIGITAL_PURCHASE_API_FIELD_NUMBER = 7;
-  private boolean usesDigitalPurchaseApi_;
+  private boolean usesDigitalPurchaseApi_ = false;
   /**
    * <pre>
    * Whether Actions can perform transactions for digital goods.
@@ -1043,7 +872,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USES_INTERACTIVE_CANVAS_FIELD_NUMBER = 8;
-  private boolean usesInteractiveCanvas_;
+  private boolean usesInteractiveCanvas_ = false;
   /**
    * <pre>
    * Whether Actions use Interactive Canvas.
@@ -1058,7 +887,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USES_HOME_STORAGE_FIELD_NUMBER = 17;
-  private boolean usesHomeStorage_;
+  private boolean usesHomeStorage_ = false;
   /**
    * <pre>
    * Whether Actions use the home storage feature.
@@ -1073,7 +902,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESIGNED_FOR_FAMILY_FIELD_NUMBER = 9;
-  private boolean designedForFamily_;
+  private boolean designedForFamily_ = false;
   /**
    * <pre>
    * Whether Actions content is designed for family (DFF).
@@ -1088,7 +917,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTAINS_ALCOHOL_OR_TOBACCO_CONTENT_FIELD_NUMBER = 11;
-  private boolean containsAlcoholOrTobaccoContent_;
+  private boolean containsAlcoholOrTobaccoContent_ = false;
   /**
    * <pre>
    * Whether Actions contains alcohol or tobacco related content.
@@ -1103,7 +932,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEEPS_MIC_OPEN_FIELD_NUMBER = 12;
-  private boolean keepsMicOpen_;
+  private boolean keepsMicOpen_ = false;
   /**
    * <pre>
    * Whether Actions may leave mic open without an explicit prompt during
@@ -1156,11 +985,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.SurfaceRequirementsOrBuilder getSurfaceRequirementsOrBuilder() {
-    return getSurfaceRequirements();
+    return surfaceRequirements_ == null ? com.google.actions.sdk.v2.SurfaceRequirements.getDefaultInstance() : surfaceRequirements_;
   }
 
   public static final int TESTING_INSTRUCTIONS_FIELD_NUMBER = 14;
-  private volatile java.lang.Object testingInstructions_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object testingInstructions_ = "";
   /**
    * <pre>
    * Free-form testing instructions for Actions reviewer (for example, account
@@ -1245,7 +1075,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.LocalizedSettingsOrBuilder getLocalizedSettingsOrBuilder() {
-    return getLocalizedSettings();
+    return localizedSettings_ == null ? com.google.actions.sdk.v2.LocalizedSettings.getDefaultInstance() : localizedSettings_;
   }
 
   public static final int ACCOUNT_LINKING_FIELD_NUMBER = 16;
@@ -1286,10 +1116,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.AccountLinkingOrBuilder getAccountLinkingOrBuilder() {
-    return getAccountLinking();
+    return accountLinking_ == null ? com.google.actions.sdk.v2.AccountLinking.getDefaultInstance() : accountLinking_;
   }
 
   public static final int SELECTED_ANDROID_APPS_FIELD_NUMBER = 20;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList selectedAndroidApps_;
   /**
    * <pre>
@@ -1421,7 +1252,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < selectedAndroidApps_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 20, selectedAndroidApps_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1507,7 +1338,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 2 * getSelectedAndroidAppsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1564,7 +1395,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getSelectedAndroidAppsList()
         .equals(other.getSelectedAndroidAppsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1628,7 +1459,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SELECTED_ANDROID_APPS_FIELD_NUMBER;
       hash = (53 * hash) + getSelectedAndroidAppsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1749,68 +1580,50 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.Settings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       projectId_ = "";
-
       defaultLocale_ = "";
-
       enabledRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       disabledRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       category_ = 0;
-
       usesTransactionsApi_ = false;
-
       usesDigitalPurchaseApi_ = false;
-
       usesInteractiveCanvas_ = false;
-
       usesHomeStorage_ = false;
-
       designedForFamily_ = false;
-
       containsAlcoholOrTobaccoContent_ = false;
-
       keepsMicOpen_ = false;
-
-      if (surfaceRequirementsBuilder_ == null) {
-        surfaceRequirements_ = null;
-      } else {
-        surfaceRequirements_ = null;
+      surfaceRequirements_ = null;
+      if (surfaceRequirementsBuilder_ != null) {
+        surfaceRequirementsBuilder_.dispose();
         surfaceRequirementsBuilder_ = null;
       }
       testingInstructions_ = "";
-
-      if (localizedSettingsBuilder_ == null) {
-        localizedSettings_ = null;
-      } else {
-        localizedSettings_ = null;
+      localizedSettings_ = null;
+      if (localizedSettingsBuilder_ != null) {
+        localizedSettingsBuilder_.dispose();
         localizedSettingsBuilder_ = null;
       }
-      if (accountLinkingBuilder_ == null) {
-        accountLinking_ = null;
-      } else {
-        accountLinking_ = null;
+      accountLinking_ = null;
+      if (accountLinkingBuilder_ != null) {
+        accountLinkingBuilder_.dispose();
         accountLinkingBuilder_ = null;
       }
       selectedAndroidApps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00010000);
       return this;
     }
 
@@ -1837,50 +1650,80 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.Settings buildPartial() {
       com.google.actions.sdk.v2.Settings result = new com.google.actions.sdk.v2.Settings(this);
-      int from_bitField0_ = bitField0_;
-      result.projectId_ = projectId_;
-      result.defaultLocale_ = defaultLocale_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        enabledRegions_ = enabledRegions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.enabledRegions_ = enabledRegions_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        disabledRegions_ = disabledRegions_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.disabledRegions_ = disabledRegions_;
-      result.category_ = category_;
-      result.usesTransactionsApi_ = usesTransactionsApi_;
-      result.usesDigitalPurchaseApi_ = usesDigitalPurchaseApi_;
-      result.usesInteractiveCanvas_ = usesInteractiveCanvas_;
-      result.usesHomeStorage_ = usesHomeStorage_;
-      result.designedForFamily_ = designedForFamily_;
-      result.containsAlcoholOrTobaccoContent_ = containsAlcoholOrTobaccoContent_;
-      result.keepsMicOpen_ = keepsMicOpen_;
-      if (surfaceRequirementsBuilder_ == null) {
-        result.surfaceRequirements_ = surfaceRequirements_;
-      } else {
-        result.surfaceRequirements_ = surfaceRequirementsBuilder_.build();
-      }
-      result.testingInstructions_ = testingInstructions_;
-      if (localizedSettingsBuilder_ == null) {
-        result.localizedSettings_ = localizedSettings_;
-      } else {
-        result.localizedSettings_ = localizedSettingsBuilder_.build();
-      }
-      if (accountLinkingBuilder_ == null) {
-        result.accountLinking_ = accountLinking_;
-      } else {
-        result.accountLinking_ = accountLinkingBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000004) != 0)) {
-        selectedAndroidApps_ = selectedAndroidApps_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.selectedAndroidApps_ = selectedAndroidApps_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.actions.sdk.v2.Settings result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        enabledRegions_ = enabledRegions_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.enabledRegions_ = enabledRegions_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        disabledRegions_ = disabledRegions_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.disabledRegions_ = disabledRegions_;
+      if (((bitField0_ & 0x00010000) != 0)) {
+        selectedAndroidApps_ = selectedAndroidApps_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00010000);
+      }
+      result.selectedAndroidApps_ = selectedAndroidApps_;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.Settings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.defaultLocale_ = defaultLocale_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.category_ = category_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.usesTransactionsApi_ = usesTransactionsApi_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.usesDigitalPurchaseApi_ = usesDigitalPurchaseApi_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.usesInteractiveCanvas_ = usesInteractiveCanvas_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.usesHomeStorage_ = usesHomeStorage_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.designedForFamily_ = designedForFamily_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.containsAlcoholOrTobaccoContent_ = containsAlcoholOrTobaccoContent_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.keepsMicOpen_ = keepsMicOpen_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.surfaceRequirements_ = surfaceRequirementsBuilder_ == null
+            ? surfaceRequirements_
+            : surfaceRequirementsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.testingInstructions_ = testingInstructions_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.localizedSettings_ = localizedSettingsBuilder_ == null
+            ? localizedSettings_
+            : localizedSettingsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.accountLinking_ = accountLinkingBuilder_ == null
+            ? accountLinking_
+            : accountLinkingBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1929,16 +1772,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.actions.sdk.v2.Settings.getDefaultInstance()) return this;
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDefaultLocale().isEmpty()) {
         defaultLocale_ = other.defaultLocale_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.enabledRegions_.isEmpty()) {
         if (enabledRegions_.isEmpty()) {
           enabledRegions_ = other.enabledRegions_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureEnabledRegionsIsMutable();
           enabledRegions_.addAll(other.enabledRegions_);
@@ -1948,7 +1793,7 @@ private static final long serialVersionUID = 0L;
       if (!other.disabledRegions_.isEmpty()) {
         if (disabledRegions_.isEmpty()) {
           disabledRegions_ = other.disabledRegions_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureDisabledRegionsIsMutable();
           disabledRegions_.addAll(other.disabledRegions_);
@@ -1984,6 +1829,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTestingInstructions().isEmpty()) {
         testingInstructions_ = other.testingInstructions_;
+        bitField0_ |= 0x00002000;
         onChanged();
       }
       if (other.hasLocalizedSettings()) {
@@ -1995,14 +1841,14 @@ private static final long serialVersionUID = 0L;
       if (!other.selectedAndroidApps_.isEmpty()) {
         if (selectedAndroidApps_.isEmpty()) {
           selectedAndroidApps_ = other.selectedAndroidApps_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00010000);
         } else {
           ensureSelectedAndroidAppsIsMutable();
           selectedAndroidApps_.addAll(other.selectedAndroidApps_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2017,17 +1863,124 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.Settings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              defaultLocale_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEnabledRegionsIsMutable();
+              enabledRegions_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDisabledRegionsIsMutable();
+              disabledRegions_.add(s);
+              break;
+            } // case 34
+            case 40: {
+              category_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              usesTransactionsApi_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              usesDigitalPurchaseApi_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              usesInteractiveCanvas_ = input.readBool();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              designedForFamily_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 72
+            case 88: {
+              containsAlcoholOrTobaccoContent_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              keepsMicOpen_ = input.readBool();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 106: {
+              input.readMessage(
+                  getSurfaceRequirementsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              testingInstructions_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getLocalizedSettingsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getAccountLinkingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 136: {
+              usesHomeStorage_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 136
+            case 162: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSelectedAndroidAppsIsMutable();
+              selectedAndroidApps_.add(s);
+              break;
+            } // case 162
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.Settings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2085,11 +2038,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2102,8 +2053,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2118,12 +2069,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2190,11 +2139,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultLocale(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       defaultLocale_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2210,8 +2157,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDefaultLocale() {
-      
       defaultLocale_ = getDefaultInstance().getDefaultLocale();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2229,21 +2176,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDefaultLocaleBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       defaultLocale_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList enabledRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureEnabledRegionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         enabledRegions_ = new com.google.protobuf.LazyStringArrayList(enabledRegions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -2376,10 +2321,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEnabledRegions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEnabledRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEnabledRegionsIsMutable();
       enabledRegions_.set(index, value);
       onChanged();
       return this;
@@ -2409,10 +2352,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEnabledRegions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEnabledRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEnabledRegionsIsMutable();
       enabledRegions_.add(value);
       onChanged();
       return this;
@@ -2472,7 +2413,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEnabledRegions() {
       enabledRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2501,10 +2442,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEnabledRegionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEnabledRegionsIsMutable();
       enabledRegions_.add(value);
       onChanged();
@@ -2513,9 +2452,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList disabledRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDisabledRegionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         disabledRegions_ = new com.google.protobuf.LazyStringArrayList(disabledRegions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -2638,10 +2577,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisabledRegions(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDisabledRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDisabledRegionsIsMutable();
       disabledRegions_.set(index, value);
       onChanged();
       return this;
@@ -2669,10 +2606,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDisabledRegions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDisabledRegionsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDisabledRegionsIsMutable();
       disabledRegions_.add(value);
       onChanged();
       return this;
@@ -2728,7 +2663,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDisabledRegions() {
       disabledRegions_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -2755,10 +2690,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDisabledRegionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDisabledRegionsIsMutable();
       disabledRegions_.add(value);
       onChanged();
@@ -2787,8 +2720,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCategoryValue(int value) {
-      
       category_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2802,8 +2735,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.Settings.Category getCategory() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.Settings.Category result = com.google.actions.sdk.v2.Settings.Category.valueOf(category_);
+      com.google.actions.sdk.v2.Settings.Category result = com.google.actions.sdk.v2.Settings.Category.forNumber(category_);
       return result == null ? com.google.actions.sdk.v2.Settings.Category.UNRECOGNIZED : result;
     }
     /**
@@ -2819,7 +2751,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       category_ = value.getNumber();
       onChanged();
       return this;
@@ -2833,7 +2765,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCategory() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       category_ = 0;
       onChanged();
       return this;
@@ -2868,6 +2800,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUsesTransactionsApi(boolean value) {
       
       usesTransactionsApi_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2882,7 +2815,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsesTransactionsApi() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       usesTransactionsApi_ = false;
       onChanged();
       return this;
@@ -2913,6 +2846,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUsesDigitalPurchaseApi(boolean value) {
       
       usesDigitalPurchaseApi_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2925,7 +2859,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsesDigitalPurchaseApi() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       usesDigitalPurchaseApi_ = false;
       onChanged();
       return this;
@@ -2956,6 +2890,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUsesInteractiveCanvas(boolean value) {
       
       usesInteractiveCanvas_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2968,7 +2903,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsesInteractiveCanvas() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       usesInteractiveCanvas_ = false;
       onChanged();
       return this;
@@ -2999,6 +2934,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUsesHomeStorage(boolean value) {
       
       usesHomeStorage_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3011,7 +2947,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUsesHomeStorage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       usesHomeStorage_ = false;
       onChanged();
       return this;
@@ -3042,6 +2978,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDesignedForFamily(boolean value) {
       
       designedForFamily_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3054,7 +2991,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesignedForFamily() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       designedForFamily_ = false;
       onChanged();
       return this;
@@ -3085,6 +3022,7 @@ private static final long serialVersionUID = 0L;
     public Builder setContainsAlcoholOrTobaccoContent(boolean value) {
       
       containsAlcoholOrTobaccoContent_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3097,7 +3035,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContainsAlcoholOrTobaccoContent() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       containsAlcoholOrTobaccoContent_ = false;
       onChanged();
       return this;
@@ -3130,6 +3068,7 @@ private static final long serialVersionUID = 0L;
     public Builder setKeepsMicOpen(boolean value) {
       
       keepsMicOpen_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3143,7 +3082,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeepsMicOpen() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       keepsMicOpen_ = false;
       onChanged();
       return this;
@@ -3162,7 +3101,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the surfaceRequirements field is set.
      */
     public boolean hasSurfaceRequirements() {
-      return surfaceRequirementsBuilder_ != null || surfaceRequirements_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3194,11 +3133,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         surfaceRequirements_ = value;
-        onChanged();
       } else {
         surfaceRequirementsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3213,11 +3152,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.SurfaceRequirements.Builder builderForValue) {
       if (surfaceRequirementsBuilder_ == null) {
         surfaceRequirements_ = builderForValue.build();
-        onChanged();
       } else {
         surfaceRequirementsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3230,17 +3169,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSurfaceRequirements(com.google.actions.sdk.v2.SurfaceRequirements value) {
       if (surfaceRequirementsBuilder_ == null) {
-        if (surfaceRequirements_ != null) {
-          surfaceRequirements_ =
-            com.google.actions.sdk.v2.SurfaceRequirements.newBuilder(surfaceRequirements_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          surfaceRequirements_ != null &&
+          surfaceRequirements_ != com.google.actions.sdk.v2.SurfaceRequirements.getDefaultInstance()) {
+          getSurfaceRequirementsBuilder().mergeFrom(value);
         } else {
           surfaceRequirements_ = value;
         }
-        onChanged();
       } else {
         surfaceRequirementsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3252,14 +3192,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.SurfaceRequirements surface_requirements = 13;</code>
      */
     public Builder clearSurfaceRequirements() {
-      if (surfaceRequirementsBuilder_ == null) {
-        surfaceRequirements_ = null;
-        onChanged();
-      } else {
-        surfaceRequirements_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      surfaceRequirements_ = null;
+      if (surfaceRequirementsBuilder_ != null) {
+        surfaceRequirementsBuilder_.dispose();
         surfaceRequirementsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3271,7 +3210,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.SurfaceRequirements surface_requirements = 13;</code>
      */
     public com.google.actions.sdk.v2.SurfaceRequirements.Builder getSurfaceRequirementsBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getSurfaceRequirementsFieldBuilder().getBuilder();
     }
@@ -3369,11 +3308,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestingInstructions(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       testingInstructions_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3387,8 +3324,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTestingInstructions() {
-      
       testingInstructions_ = getDefaultInstance().getTestingInstructions();
+      bitField0_ = (bitField0_ & ~0x00002000);
       onChanged();
       return this;
     }
@@ -3404,12 +3341,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTestingInstructionsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       testingInstructions_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -3427,7 +3362,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the localizedSettings field is set.
      */
     public boolean hasLocalizedSettings() {
-      return localizedSettingsBuilder_ != null || localizedSettings_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -3459,11 +3394,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         localizedSettings_ = value;
-        onChanged();
       } else {
         localizedSettingsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3478,11 +3413,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.LocalizedSettings.Builder builderForValue) {
       if (localizedSettingsBuilder_ == null) {
         localizedSettings_ = builderForValue.build();
-        onChanged();
       } else {
         localizedSettingsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3495,17 +3430,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLocalizedSettings(com.google.actions.sdk.v2.LocalizedSettings value) {
       if (localizedSettingsBuilder_ == null) {
-        if (localizedSettings_ != null) {
-          localizedSettings_ =
-            com.google.actions.sdk.v2.LocalizedSettings.newBuilder(localizedSettings_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          localizedSettings_ != null &&
+          localizedSettings_ != com.google.actions.sdk.v2.LocalizedSettings.getDefaultInstance()) {
+          getLocalizedSettingsBuilder().mergeFrom(value);
         } else {
           localizedSettings_ = value;
         }
-        onChanged();
       } else {
         localizedSettingsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -3517,14 +3453,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.LocalizedSettings localized_settings = 15;</code>
      */
     public Builder clearLocalizedSettings() {
-      if (localizedSettingsBuilder_ == null) {
-        localizedSettings_ = null;
-        onChanged();
-      } else {
-        localizedSettings_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      localizedSettings_ = null;
+      if (localizedSettingsBuilder_ != null) {
+        localizedSettingsBuilder_.dispose();
         localizedSettingsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3536,7 +3471,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.LocalizedSettings localized_settings = 15;</code>
      */
     public com.google.actions.sdk.v2.LocalizedSettings.Builder getLocalizedSettingsBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getLocalizedSettingsFieldBuilder().getBuilder();
     }
@@ -3591,7 +3526,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accountLinking field is set.
      */
     public boolean hasAccountLinking() {
-      return accountLinkingBuilder_ != null || accountLinking_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -3623,11 +3558,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accountLinking_ = value;
-        onChanged();
       } else {
         accountLinkingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3642,11 +3577,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.AccountLinking.Builder builderForValue) {
       if (accountLinkingBuilder_ == null) {
         accountLinking_ = builderForValue.build();
-        onChanged();
       } else {
         accountLinkingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3659,17 +3594,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccountLinking(com.google.actions.sdk.v2.AccountLinking value) {
       if (accountLinkingBuilder_ == null) {
-        if (accountLinking_ != null) {
-          accountLinking_ =
-            com.google.actions.sdk.v2.AccountLinking.newBuilder(accountLinking_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          accountLinking_ != null &&
+          accountLinking_ != com.google.actions.sdk.v2.AccountLinking.getDefaultInstance()) {
+          getAccountLinkingBuilder().mergeFrom(value);
         } else {
           accountLinking_ = value;
         }
-        onChanged();
       } else {
         accountLinkingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -3681,14 +3617,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.AccountLinking account_linking = 16;</code>
      */
     public Builder clearAccountLinking() {
-      if (accountLinkingBuilder_ == null) {
-        accountLinking_ = null;
-        onChanged();
-      } else {
-        accountLinking_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      accountLinking_ = null;
+      if (accountLinkingBuilder_ != null) {
+        accountLinkingBuilder_.dispose();
         accountLinkingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3700,7 +3635,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.AccountLinking account_linking = 16;</code>
      */
     public com.google.actions.sdk.v2.AccountLinking.Builder getAccountLinkingBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getAccountLinkingFieldBuilder().getBuilder();
     }
@@ -3744,9 +3679,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList selectedAndroidApps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSelectedAndroidAppsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00010000) != 0)) {
         selectedAndroidApps_ = new com.google.protobuf.LazyStringArrayList(selectedAndroidApps_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00010000;
        }
     }
     /**
@@ -3829,10 +3764,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelectedAndroidApps(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSelectedAndroidAppsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSelectedAndroidAppsIsMutable();
       selectedAndroidApps_.set(index, value);
       onChanged();
       return this;
@@ -3852,10 +3785,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSelectedAndroidApps(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSelectedAndroidAppsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSelectedAndroidAppsIsMutable();
       selectedAndroidApps_.add(value);
       onChanged();
       return this;
@@ -3895,7 +3826,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSelectedAndroidApps() {
       selectedAndroidApps_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -3914,10 +3845,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSelectedAndroidAppsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSelectedAndroidAppsIsMutable();
       selectedAndroidApps_.add(value);
       onChanged();
@@ -3956,7 +3885,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Settings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

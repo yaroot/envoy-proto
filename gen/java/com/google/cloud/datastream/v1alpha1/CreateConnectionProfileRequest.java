@@ -33,76 +33,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateConnectionProfileRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            connectionProfileId_ = s;
-            break;
-          }
-          case 26: {
-            com.google.cloud.datastream.v1alpha1.ConnectionProfile.Builder subBuilder = null;
-            if (connectionProfile_ != null) {
-              subBuilder = connectionProfile_.toBuilder();
-            }
-            connectionProfile_ = input.readMessage(com.google.cloud.datastream.v1alpha1.ConnectionProfile.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(connectionProfile_);
-              connectionProfile_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1alpha1.CloudDatastreamServiceProto.internal_static_google_cloud_datastream_v1alpha1_CreateConnectionProfileRequest_descriptor;
@@ -117,7 +47,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent that owns the collection of ConnectionProfiles.
@@ -163,7 +94,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONNECTION_PROFILE_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object connectionProfileId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object connectionProfileId_ = "";
   /**
    * <pre>
    * Required. The connection profile identifier.
@@ -243,11 +175,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datastream.v1alpha1.ConnectionProfileOrBuilder getConnectionProfileOrBuilder() {
-    return getConnectionProfile();
+    return connectionProfile_ == null ? com.google.cloud.datastream.v1alpha1.ConnectionProfile.getDefaultInstance() : connectionProfile_;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 4;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * Optional. A request ID to identify requests. Specify a unique request ID
@@ -338,7 +271,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, requestId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -360,7 +293,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, requestId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -386,7 +319,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getRequestId()
         .equals(other.getRequestId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -407,7 +340,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRequestId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,34 +457,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       connectionProfileId_ = "";
-
-      if (connectionProfileBuilder_ == null) {
-        connectionProfile_ = null;
-      } else {
-        connectionProfile_ = null;
+      connectionProfile_ = null;
+      if (connectionProfileBuilder_ != null) {
+        connectionProfileBuilder_.dispose();
         connectionProfileBuilder_ = null;
       }
       requestId_ = "";
-
       return this;
     }
 
@@ -578,16 +503,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest buildPartial() {
       com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest result = new com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest(this);
-      result.parent_ = parent_;
-      result.connectionProfileId_ = connectionProfileId_;
-      if (connectionProfileBuilder_ == null) {
-        result.connectionProfile_ = connectionProfile_;
-      } else {
-        result.connectionProfile_ = connectionProfileBuilder_.build();
-      }
-      result.requestId_ = requestId_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.connectionProfileId_ = connectionProfileId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.connectionProfile_ = connectionProfileBuilder_ == null
+            ? connectionProfile_
+            : connectionProfileBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -636,10 +572,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getConnectionProfileId().isEmpty()) {
         connectionProfileId_ = other.connectionProfileId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasConnectionProfile()) {
@@ -647,9 +585,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -664,19 +603,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              connectionProfileId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getConnectionProfileFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1alpha1.CreateConnectionProfileRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -731,11 +706,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -748,8 +721,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -764,12 +737,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -827,11 +798,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectionProfileId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       connectionProfileId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -844,8 +813,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConnectionProfileId() {
-      
       connectionProfileId_ = getDefaultInstance().getConnectionProfileId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -860,12 +829,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConnectionProfileIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       connectionProfileId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -882,7 +849,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the connectionProfile field is set.
      */
     public boolean hasConnectionProfile() {
-      return connectionProfileBuilder_ != null || connectionProfile_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -912,11 +879,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         connectionProfile_ = value;
-        onChanged();
       } else {
         connectionProfileBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -930,11 +897,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1alpha1.ConnectionProfile.Builder builderForValue) {
       if (connectionProfileBuilder_ == null) {
         connectionProfile_ = builderForValue.build();
-        onChanged();
       } else {
         connectionProfileBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -946,17 +913,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConnectionProfile(com.google.cloud.datastream.v1alpha1.ConnectionProfile value) {
       if (connectionProfileBuilder_ == null) {
-        if (connectionProfile_ != null) {
-          connectionProfile_ =
-            com.google.cloud.datastream.v1alpha1.ConnectionProfile.newBuilder(connectionProfile_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          connectionProfile_ != null &&
+          connectionProfile_ != com.google.cloud.datastream.v1alpha1.ConnectionProfile.getDefaultInstance()) {
+          getConnectionProfileBuilder().mergeFrom(value);
         } else {
           connectionProfile_ = value;
         }
-        onChanged();
       } else {
         connectionProfileBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -967,14 +935,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1alpha1.ConnectionProfile connection_profile = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearConnectionProfile() {
-      if (connectionProfileBuilder_ == null) {
-        connectionProfile_ = null;
-        onChanged();
-      } else {
-        connectionProfile_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      connectionProfile_ = null;
+      if (connectionProfileBuilder_ != null) {
+        connectionProfileBuilder_.dispose();
         connectionProfileBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -985,7 +952,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datastream.v1alpha1.ConnectionProfile connection_profile = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.datastream.v1alpha1.ConnectionProfile.Builder getConnectionProfileBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getConnectionProfileFieldBuilder().getBuilder();
     }
@@ -1108,11 +1075,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1135,8 +1100,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1161,12 +1126,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1203,7 +1166,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateConnectionProfileRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -136,7 +136,6 @@ public interface BackupOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -149,7 +148,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 5;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -176,7 +174,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * The resource name of the source Cloud Filestore instance, in the format
+   * The resource name of the source Filestore instance, in the format
    * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
    * used to create this backup.
    * </pre>
@@ -187,7 +185,7 @@ java.lang.String defaultValue);
   java.lang.String getSourceInstance();
   /**
    * <pre>
-   * The resource name of the source Cloud Filestore instance, in the format
+   * The resource name of the source Filestore instance, in the format
    * `projects/{project_id}/locations/{location_id}/instances/{instance_id}`,
    * used to create this backup.
    * </pre>
@@ -200,7 +198,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Name of the file share in the source Cloud Filestore instance that the
+   * Name of the file share in the source Filestore instance that the
    * backup is created from.
    * </pre>
    *
@@ -210,7 +208,7 @@ java.lang.String defaultValue);
   java.lang.String getSourceFileShare();
   /**
    * <pre>
-   * Name of the file share in the source Cloud Filestore instance that the
+   * Name of the file share in the source Filestore instance that the
    * backup is created from.
    * </pre>
    *
@@ -222,7 +220,7 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. The service tier of the source Cloud Filestore instance that this backup
+   * Output only. The service tier of the source Filestore instance that this backup
    * is created from.
    * </pre>
    *
@@ -232,7 +230,7 @@ java.lang.String defaultValue);
   int getSourceInstanceTierValue();
   /**
    * <pre>
-   * Output only. The service tier of the source Cloud Filestore instance that this backup
+   * Output only. The service tier of the source Filestore instance that this backup
    * is created from.
    * </pre>
    *
@@ -277,4 +275,24 @@ java.lang.String defaultValue);
    * <code>.google.protobuf.BoolValue satisfies_pzs = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   com.google.protobuf.BoolValueOrBuilder getSatisfiesPzsOrBuilder();
+
+  /**
+   * <pre>
+   * Immutable. KMS key name used for data encryption.
+   * </pre>
+   *
+   * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The kmsKeyName.
+   */
+  java.lang.String getKmsKeyName();
+  /**
+   * <pre>
+   * Immutable. KMS key name used for data encryption.
+   * </pre>
+   *
+   * <code>string kms_key_name = 13 [(.google.api.field_behavior) = IMMUTABLE];</code>
+   * @return The bytes for kmsKeyName.
+   */
+  com.google.protobuf.ByteString
+      getKmsKeyNameBytes();
 }

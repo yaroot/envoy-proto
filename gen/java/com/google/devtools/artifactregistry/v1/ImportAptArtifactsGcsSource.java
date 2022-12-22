@@ -35,63 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportAptArtifactsGcsSource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              uris_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            uris_.add(s);
-            break;
-          }
-          case 16: {
-
-            useWildcards_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        uris_ = uris_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.artifactregistry.v1.AptArtifactProto.internal_static_google_devtools_artifactregistry_v1_ImportAptArtifactsGcsSource_descriptor;
@@ -106,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URIS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList uris_;
   /**
    * <pre>
@@ -157,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_WILDCARDS_FIELD_NUMBER = 2;
-  private boolean useWildcards_;
+  private boolean useWildcards_ = false;
   /**
    * <pre>
    * Supports URI wildcards for matching multiple objects from a single URI.
@@ -191,7 +135,7 @@ private static final long serialVersionUID = 0L;
     if (useWildcards_ != false) {
       output.writeBool(2, useWildcards_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -212,7 +156,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, useWildcards_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -231,7 +175,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUrisList())) return false;
     if (getUseWildcards()
         != other.getUseWildcards()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -249,7 +193,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + USE_WILDCARDS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getUseWildcards());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -370,26 +314,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       uris_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       useWildcards_ = false;
-
       return this;
     }
 
@@ -416,15 +355,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource buildPartial() {
       com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource result = new com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         uris_ = uris_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.uris_ = uris_;
-      result.useWildcards_ = useWildcards_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.useWildcards_ = useWildcards_;
+      }
     }
 
     @java.lang.Override
@@ -484,7 +433,7 @@ private static final long serialVersionUID = 0L;
       if (other.getUseWildcards() != false) {
         setUseWildcards(other.getUseWildcards());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -499,17 +448,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureUrisIsMutable();
+              uris_.add(s);
+              break;
+            } // case 10
+            case 16: {
+              useWildcards_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.artifactregistry.v1.ImportAptArtifactsGcsSource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -581,10 +554,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUris(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUrisIsMutable();
       uris_.set(index, value);
       onChanged();
       return this;
@@ -600,10 +571,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUris(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureUrisIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureUrisIsMutable();
       uris_.add(value);
       onChanged();
       return this;
@@ -650,10 +619,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addUrisBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureUrisIsMutable();
       uris_.add(value);
       onChanged();
@@ -685,6 +652,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseWildcards(boolean value) {
       
       useWildcards_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -697,7 +665,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseWildcards() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       useWildcards_ = false;
       onChanged();
       return this;
@@ -735,7 +703,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportAptArtifactsGcsSource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

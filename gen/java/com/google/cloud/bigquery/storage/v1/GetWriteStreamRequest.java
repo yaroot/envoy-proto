@@ -21,6 +21,7 @@ private static final long serialVersionUID = 0L;
   }
   private GetWriteStreamRequest() {
     name_ = "";
+    view_ = 0;
   }
 
   @java.lang.Override
@@ -34,51 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private GetWriteStreamRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -94,7 +50,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Name of the stream to get, in the form of
@@ -141,6 +98,34 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int VIEW_FIELD_NUMBER = 3;
+  private int view_ = 0;
+  /**
+   * <pre>
+   * Indicates whether to get full or partial view of the WriteStream. If
+   * not set, view returned will be basic.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+   * @return The enum numeric value on the wire for view.
+   */
+  @java.lang.Override public int getViewValue() {
+    return view_;
+  }
+  /**
+   * <pre>
+   * Indicates whether to get full or partial view of the WriteStream. If
+   * not set, view returned will be basic.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+   * @return The view.
+   */
+  @java.lang.Override public com.google.cloud.bigquery.storage.v1.WriteStreamView getView() {
+    com.google.cloud.bigquery.storage.v1.WriteStreamView result = com.google.cloud.bigquery.storage.v1.WriteStreamView.forNumber(view_);
+    return result == null ? com.google.cloud.bigquery.storage.v1.WriteStreamView.UNRECOGNIZED : result;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -158,7 +143,10 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
     }
-    unknownFields.writeTo(output);
+    if (view_ != com.google.cloud.bigquery.storage.v1.WriteStreamView.WRITE_STREAM_VIEW_UNSPECIFIED.getNumber()) {
+      output.writeEnum(3, view_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -170,7 +158,11 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
     }
-    size += unknownFields.getSerializedSize();
+    if (view_ != com.google.cloud.bigquery.storage.v1.WriteStreamView.WRITE_STREAM_VIEW_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(3, view_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +179,8 @@ private static final long serialVersionUID = 0L;
 
     if (!getName()
         .equals(other.getName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (view_ != other.view_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -200,7 +193,9 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + NAME_FIELD_NUMBER;
     hash = (53 * hash) + getName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + VIEW_FIELD_NUMBER;
+    hash = (53 * hash) + view_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -321,24 +316,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
+      view_ = 0;
       return this;
     }
 
@@ -365,9 +356,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest buildPartial() {
       com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest result = new com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest(this);
-      result.name_ = name_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.view_ = view_;
+      }
     }
 
     @java.lang.Override
@@ -416,9 +417,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.view_ != 0) {
+        setViewValue(other.getViewValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -433,19 +438,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 24: {
+              view_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.storage.v1.GetWriteStreamRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -503,11 +532,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -521,8 +548,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -538,12 +565,88 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+
+    private int view_ = 0;
+    /**
+     * <pre>
+     * Indicates whether to get full or partial view of the WriteStream. If
+     * not set, view returned will be basic.
+     * </pre>
+     *
+     * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+     * @return The enum numeric value on the wire for view.
+     */
+    @java.lang.Override public int getViewValue() {
+      return view_;
+    }
+    /**
+     * <pre>
+     * Indicates whether to get full or partial view of the WriteStream. If
+     * not set, view returned will be basic.
+     * </pre>
+     *
+     * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+     * @param value The enum numeric value on the wire for view to set.
+     * @return This builder for chaining.
+     */
+    public Builder setViewValue(int value) {
+      view_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Indicates whether to get full or partial view of the WriteStream. If
+     * not set, view returned will be basic.
+     * </pre>
+     *
+     * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+     * @return The view.
+     */
+    @java.lang.Override
+    public com.google.cloud.bigquery.storage.v1.WriteStreamView getView() {
+      com.google.cloud.bigquery.storage.v1.WriteStreamView result = com.google.cloud.bigquery.storage.v1.WriteStreamView.forNumber(view_);
+      return result == null ? com.google.cloud.bigquery.storage.v1.WriteStreamView.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Indicates whether to get full or partial view of the WriteStream. If
+     * not set, view returned will be basic.
+     * </pre>
+     *
+     * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+     * @param value The view to set.
+     * @return This builder for chaining.
+     */
+    public Builder setView(com.google.cloud.bigquery.storage.v1.WriteStreamView value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x00000002;
+      view_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Indicates whether to get full or partial view of the WriteStream. If
+     * not set, view returned will be basic.
+     * </pre>
+     *
+     * <code>.google.cloud.bigquery.storage.v1.WriteStreamView view = 3;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearView() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      view_ = 0;
       onChanged();
       return this;
     }
@@ -580,7 +683,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetWriteStreamRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,72 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              hdfsMetrics_ = com.google.protobuf.MapField.newMapField(
-                  HdfsMetricsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
-            hdfsMetrics__ = input.readMessage(
-                HdfsMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            hdfsMetrics_.getMutableMap().put(
-                hdfsMetrics__.getKey(), hdfsMetrics__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              yarnMetrics_ = com.google.protobuf.MapField.newMapField(
-                  YarnMetricsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
-            yarnMetrics__ = input.readMessage(
-                YarnMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            yarnMetrics_.getMutableMap().put(
-                yarnMetrics__.getKey(), yarnMetrics__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.ClustersProto.internal_static_google_cloud_dataproc_v1_ClusterMetrics_descriptor;
@@ -141,6 +75,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Long> hdfsMetrics_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
@@ -151,7 +86,6 @@ private static final long serialVersionUID = 0L;
     }
     return hdfsMetrics_;
   }
-
   public int getHdfsMetricsCount() {
     return internalGetHdfsMetrics().getMap().size();
   }
@@ -162,7 +96,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
    */
-
   @java.lang.Override
   public boolean containsHdfsMetrics(
       java.lang.String key) {
@@ -185,7 +118,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Long> getHdfsMetricsMap() {
     return internalGetHdfsMetrics().getMap();
   }
@@ -197,7 +129,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
    */
   @java.lang.Override
-
   public long getHdfsMetricsOrDefault(
       java.lang.String key,
       long defaultValue) {
@@ -214,7 +145,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
    */
   @java.lang.Override
-
   public long getHdfsMetricsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -238,6 +168,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.INT64,
                 0L);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Long> yarnMetrics_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
@@ -248,7 +179,6 @@ private static final long serialVersionUID = 0L;
     }
     return yarnMetrics_;
   }
-
   public int getYarnMetricsCount() {
     return internalGetYarnMetrics().getMap().size();
   }
@@ -259,7 +189,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsYarnMetrics(
       java.lang.String key) {
@@ -282,7 +211,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Long> getYarnMetricsMap() {
     return internalGetYarnMetrics().getMap();
   }
@@ -294,7 +222,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
    */
   @java.lang.Override
-
   public long getYarnMetricsOrDefault(
       java.lang.String key,
       long defaultValue) {
@@ -311,7 +238,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
    */
   @java.lang.Override
-
   public long getYarnMetricsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -349,7 +275,7 @@ private static final long serialVersionUID = 0L;
         internalGetYarnMetrics(),
         YarnMetricsDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -378,7 +304,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, yarnMetrics__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -397,7 +323,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetHdfsMetrics())) return false;
     if (!internalGetYarnMetrics().equals(
         other.internalGetYarnMetrics())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -416,7 +342,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + YARN_METRICS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetYarnMetrics().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -565,22 +491,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.ClusterMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableHdfsMetrics().clear();
       internalGetMutableYarnMetrics().clear();
       return this;
@@ -609,13 +531,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.ClusterMetrics buildPartial() {
       com.google.cloud.dataproc.v1.ClusterMetrics result = new com.google.cloud.dataproc.v1.ClusterMetrics(this);
-      int from_bitField0_ = bitField0_;
-      result.hdfsMetrics_ = internalGetHdfsMetrics();
-      result.hdfsMetrics_.makeImmutable();
-      result.yarnMetrics_ = internalGetYarnMetrics();
-      result.yarnMetrics_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.ClusterMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hdfsMetrics_ = internalGetHdfsMetrics();
+        result.hdfsMetrics_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.yarnMetrics_ = internalGetYarnMetrics();
+        result.yarnMetrics_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -664,9 +594,11 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.ClusterMetrics.getDefaultInstance()) return this;
       internalGetMutableHdfsMetrics().mergeFrom(
           other.internalGetHdfsMetrics());
+      bitField0_ |= 0x00000001;
       internalGetMutableYarnMetrics().mergeFrom(
           other.internalGetYarnMetrics());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -681,17 +613,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.ClusterMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              hdfsMetrics__ = input.readMessage(
+                  HdfsMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableHdfsMetrics().getMutableMap().put(
+                  hdfsMetrics__.getKey(), hdfsMetrics__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Long>
+              yarnMetrics__ = input.readMessage(
+                  YarnMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableYarnMetrics().getMutableMap().put(
+                  yarnMetrics__.getKey(), yarnMetrics__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.ClusterMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -699,7 +662,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Long> hdfsMetrics_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetHdfsMetrics() {
+        internalGetHdfsMetrics() {
       if (hdfsMetrics_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             HdfsMetricsDefaultEntryHolder.defaultEntry);
@@ -707,8 +670,7 @@ private static final long serialVersionUID = 0L;
       return hdfsMetrics_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMutableHdfsMetrics() {
-      onChanged();;
+        internalGetMutableHdfsMetrics() {
       if (hdfsMetrics_ == null) {
         hdfsMetrics_ = com.google.protobuf.MapField.newMapField(
             HdfsMetricsDefaultEntryHolder.defaultEntry);
@@ -716,9 +678,10 @@ private static final long serialVersionUID = 0L;
       if (!hdfsMetrics_.isMutable()) {
         hdfsMetrics_ = hdfsMetrics_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return hdfsMetrics_;
     }
-
     public int getHdfsMetricsCount() {
       return internalGetHdfsMetrics().getMap().size();
     }
@@ -729,7 +692,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsHdfsMetrics(
         java.lang.String key) {
@@ -752,7 +714,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Long> getHdfsMetricsMap() {
       return internalGetHdfsMetrics().getMap();
     }
@@ -764,7 +725,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
      */
     @java.lang.Override
-
     public long getHdfsMetricsOrDefault(
         java.lang.String key,
         long defaultValue) {
@@ -781,7 +741,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
      */
     @java.lang.Override
-
     public long getHdfsMetricsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -792,8 +751,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearHdfsMetrics() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableHdfsMetrics().getMutableMap()
           .clear();
       return this;
@@ -805,7 +764,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
      */
-
     public Builder removeHdfsMetrics(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -818,7 +776,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
-    getMutableHdfsMetrics() {
+        getMutableHdfsMetrics() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableHdfsMetrics().getMutableMap();
     }
     /**
@@ -835,6 +794,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableHdfsMetrics().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -844,18 +804,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; hdfs_metrics = 1;</code>
      */
-
     public Builder putAllHdfsMetrics(
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableHdfsMetrics().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Long> yarnMetrics_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetYarnMetrics() {
+        internalGetYarnMetrics() {
       if (yarnMetrics_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             YarnMetricsDefaultEntryHolder.defaultEntry);
@@ -863,8 +823,7 @@ private static final long serialVersionUID = 0L;
       return yarnMetrics_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Long>
-    internalGetMutableYarnMetrics() {
-      onChanged();;
+        internalGetMutableYarnMetrics() {
       if (yarnMetrics_ == null) {
         yarnMetrics_ = com.google.protobuf.MapField.newMapField(
             YarnMetricsDefaultEntryHolder.defaultEntry);
@@ -872,9 +831,10 @@ private static final long serialVersionUID = 0L;
       if (!yarnMetrics_.isMutable()) {
         yarnMetrics_ = yarnMetrics_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return yarnMetrics_;
     }
-
     public int getYarnMetricsCount() {
       return internalGetYarnMetrics().getMap().size();
     }
@@ -885,7 +845,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsYarnMetrics(
         java.lang.String key) {
@@ -908,7 +867,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Long> getYarnMetricsMap() {
       return internalGetYarnMetrics().getMap();
     }
@@ -920,7 +878,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
      */
     @java.lang.Override
-
     public long getYarnMetricsOrDefault(
         java.lang.String key,
         long defaultValue) {
@@ -937,7 +894,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
      */
     @java.lang.Override
-
     public long getYarnMetricsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -948,8 +904,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearYarnMetrics() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableYarnMetrics().getMutableMap()
           .clear();
       return this;
@@ -961,7 +917,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
      */
-
     public Builder removeYarnMetrics(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -974,7 +929,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Long>
-    getMutableYarnMetrics() {
+        getMutableYarnMetrics() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableYarnMetrics().getMutableMap();
     }
     /**
@@ -991,6 +947,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableYarnMetrics().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1000,11 +957,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, int64&gt; yarn_metrics = 2;</code>
      */
-
     public Builder putAllYarnMetrics(
         java.util.Map<java.lang.String, java.lang.Long> values) {
       internalGetMutableYarnMetrics().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -1040,7 +997,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -100,70 +100,6 @@ public final class RegressionProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private RegressionEvaluationMetrics(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 13: {
-
-              rootMeanSquaredError_ = input.readFloat();
-              break;
-            }
-            case 21: {
-
-              meanAbsoluteError_ = input.readFloat();
-              break;
-            }
-            case 29: {
-
-              meanAbsolutePercentageError_ = input.readFloat();
-              break;
-            }
-            case 37: {
-
-              rSquared_ = input.readFloat();
-              break;
-            }
-            case 45: {
-
-              rootMeanSquaredLogError_ = input.readFloat();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.automl.v1beta1.RegressionProto.internal_static_google_cloud_automl_v1beta1_RegressionEvaluationMetrics_descriptor;
@@ -178,7 +114,7 @@ public final class RegressionProto {
     }
 
     public static final int ROOT_MEAN_SQUARED_ERROR_FIELD_NUMBER = 1;
-    private float rootMeanSquaredError_;
+    private float rootMeanSquaredError_ = 0F;
     /**
      * <pre>
      * Output only. Root Mean Squared Error (RMSE).
@@ -193,7 +129,7 @@ public final class RegressionProto {
     }
 
     public static final int MEAN_ABSOLUTE_ERROR_FIELD_NUMBER = 2;
-    private float meanAbsoluteError_;
+    private float meanAbsoluteError_ = 0F;
     /**
      * <pre>
      * Output only. Mean Absolute Error (MAE).
@@ -208,7 +144,7 @@ public final class RegressionProto {
     }
 
     public static final int MEAN_ABSOLUTE_PERCENTAGE_ERROR_FIELD_NUMBER = 3;
-    private float meanAbsolutePercentageError_;
+    private float meanAbsolutePercentageError_ = 0F;
     /**
      * <pre>
      * Output only. Mean absolute percentage error. Only set if all ground truth
@@ -224,7 +160,7 @@ public final class RegressionProto {
     }
 
     public static final int R_SQUARED_FIELD_NUMBER = 4;
-    private float rSquared_;
+    private float rSquared_ = 0F;
     /**
      * <pre>
      * Output only. R squared.
@@ -239,7 +175,7 @@ public final class RegressionProto {
     }
 
     public static final int ROOT_MEAN_SQUARED_LOG_ERROR_FIELD_NUMBER = 5;
-    private float rootMeanSquaredLogError_;
+    private float rootMeanSquaredLogError_ = 0F;
     /**
      * <pre>
      * Output only. Root mean squared log error.
@@ -282,7 +218,7 @@ public final class RegressionProto {
       if (java.lang.Float.floatToRawIntBits(rootMeanSquaredLogError_) != 0) {
         output.writeFloat(5, rootMeanSquaredLogError_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -311,7 +247,7 @@ public final class RegressionProto {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(5, rootMeanSquaredLogError_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -341,7 +277,7 @@ public final class RegressionProto {
       if (java.lang.Float.floatToIntBits(getRootMeanSquaredLogError())
           != java.lang.Float.floatToIntBits(
               other.getRootMeanSquaredLogError())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -367,7 +303,7 @@ public final class RegressionProto {
       hash = (37 * hash) + ROOT_MEAN_SQUARED_LOG_ERROR_FIELD_NUMBER;
       hash = (53 * hash) + java.lang.Float.floatToIntBits(
           getRootMeanSquaredLogError());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -488,32 +424,23 @@ public final class RegressionProto {
 
       // Construct using com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         rootMeanSquaredError_ = 0F;
-
         meanAbsoluteError_ = 0F;
-
         meanAbsolutePercentageError_ = 0F;
-
         rSquared_ = 0F;
-
         rootMeanSquaredLogError_ = 0F;
-
         return this;
       }
 
@@ -540,13 +467,28 @@ public final class RegressionProto {
       @java.lang.Override
       public com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics buildPartial() {
         com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics result = new com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics(this);
-        result.rootMeanSquaredError_ = rootMeanSquaredError_;
-        result.meanAbsoluteError_ = meanAbsoluteError_;
-        result.meanAbsolutePercentageError_ = meanAbsolutePercentageError_;
-        result.rSquared_ = rSquared_;
-        result.rootMeanSquaredLogError_ = rootMeanSquaredLogError_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.rootMeanSquaredError_ = rootMeanSquaredError_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.meanAbsoluteError_ = meanAbsoluteError_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.meanAbsolutePercentageError_ = meanAbsolutePercentageError_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.rSquared_ = rSquared_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.rootMeanSquaredLogError_ = rootMeanSquaredLogError_;
+        }
       }
 
       @java.lang.Override
@@ -608,7 +550,7 @@ public final class RegressionProto {
         if (other.getRootMeanSquaredLogError() != 0F) {
           setRootMeanSquaredLogError(other.getRootMeanSquaredLogError());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -623,19 +565,58 @@ public final class RegressionProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 13: {
+                rootMeanSquaredError_ = input.readFloat();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 13
+              case 21: {
+                meanAbsoluteError_ = input.readFloat();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 21
+              case 29: {
+                meanAbsolutePercentageError_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 29
+              case 37: {
+                rSquared_ = input.readFloat();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 37
+              case 45: {
+                rootMeanSquaredLogError_ = input.readFloat();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 45
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.automl.v1beta1.RegressionProto.RegressionEvaluationMetrics) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private float rootMeanSquaredError_ ;
       /**
@@ -662,6 +643,7 @@ public final class RegressionProto {
       public Builder setRootMeanSquaredError(float value) {
         
         rootMeanSquaredError_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -674,7 +656,7 @@ public final class RegressionProto {
        * @return This builder for chaining.
        */
       public Builder clearRootMeanSquaredError() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         rootMeanSquaredError_ = 0F;
         onChanged();
         return this;
@@ -705,6 +687,7 @@ public final class RegressionProto {
       public Builder setMeanAbsoluteError(float value) {
         
         meanAbsoluteError_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -717,7 +700,7 @@ public final class RegressionProto {
        * @return This builder for chaining.
        */
       public Builder clearMeanAbsoluteError() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         meanAbsoluteError_ = 0F;
         onChanged();
         return this;
@@ -750,6 +733,7 @@ public final class RegressionProto {
       public Builder setMeanAbsolutePercentageError(float value) {
         
         meanAbsolutePercentageError_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -763,7 +747,7 @@ public final class RegressionProto {
        * @return This builder for chaining.
        */
       public Builder clearMeanAbsolutePercentageError() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         meanAbsolutePercentageError_ = 0F;
         onChanged();
         return this;
@@ -794,6 +778,7 @@ public final class RegressionProto {
       public Builder setRSquared(float value) {
         
         rSquared_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -806,7 +791,7 @@ public final class RegressionProto {
        * @return This builder for chaining.
        */
       public Builder clearRSquared() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         rSquared_ = 0F;
         onChanged();
         return this;
@@ -837,6 +822,7 @@ public final class RegressionProto {
       public Builder setRootMeanSquaredLogError(float value) {
         
         rootMeanSquaredLogError_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -849,7 +835,7 @@ public final class RegressionProto {
        * @return This builder for chaining.
        */
       public Builder clearRootMeanSquaredLogError() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         rootMeanSquaredLogError_ = 0F;
         onChanged();
         return this;
@@ -887,7 +873,18 @@ public final class RegressionProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new RegressionEvaluationMetrics(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -922,23 +919,21 @@ public final class RegressionProto {
   static {
     java.lang.String[] descriptorData = {
       "\n,google/cloud/automl/v1beta1/regression" +
-      ".proto\022\033google.cloud.automl.v1beta1\032\034goo" +
-      "gle/api/annotations.proto\"\273\001\n\033Regression" +
-      "EvaluationMetrics\022\037\n\027root_mean_squared_e" +
-      "rror\030\001 \001(\002\022\033\n\023mean_absolute_error\030\002 \001(\002\022" +
-      "&\n\036mean_absolute_percentage_error\030\003 \001(\002\022" +
-      "\021\n\tr_squared\030\004 \001(\002\022#\n\033root_mean_squared_" +
-      "log_error\030\005 \001(\002B\264\001\n\037com.google.cloud.aut" +
-      "oml.v1beta1B\017RegressionProtoZAgoogle.gol" +
-      "ang.org/genproto/googleapis/cloud/automl" +
-      "/v1beta1;automl\312\002\033Google\\Cloud\\AutoMl\\V1" +
-      "beta1\352\002\036Google::Cloud::AutoML::V1beta1b\006" +
-      "proto3"
+      ".proto\022\033google.cloud.automl.v1beta1\"\273\001\n\033" +
+      "RegressionEvaluationMetrics\022\037\n\027root_mean" +
+      "_squared_error\030\001 \001(\002\022\033\n\023mean_absolute_er" +
+      "ror\030\002 \001(\002\022&\n\036mean_absolute_percentage_er" +
+      "ror\030\003 \001(\002\022\021\n\tr_squared\030\004 \001(\002\022#\n\033root_mea" +
+      "n_squared_log_error\030\005 \001(\002B\264\001\n\037com.google" +
+      ".cloud.automl.v1beta1B\017RegressionProtoZA" +
+      "google.golang.org/genproto/googleapis/cl" +
+      "oud/automl/v1beta1;automl\312\002\033Google\\Cloud" +
+      "\\AutoMl\\V1beta1\352\002\036Google::Cloud::AutoML:" +
+      ":V1beta1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_cloud_automl_v1beta1_RegressionEvaluationMetrics_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -946,7 +941,6 @@ public final class RegressionProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_automl_v1beta1_RegressionEvaluationMetrics_descriptor,
         new java.lang.String[] { "RootMeanSquaredError", "MeanAbsoluteError", "MeanAbsolutePercentageError", "RSquared", "RootMeanSquaredLogError", });
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

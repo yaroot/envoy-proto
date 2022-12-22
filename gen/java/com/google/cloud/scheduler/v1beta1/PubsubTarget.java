@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PubsubTarget(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            topicName_ = s;
-            break;
-          }
-          case 26: {
-
-            data_ = input.readBytes();
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              attributes_ = com.google.protobuf.MapField.newMapField(
-                  AttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            attributes__ = input.readMessage(
-                AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            attributes_.getMutableMap().put(
-                attributes__.getKey(), attributes__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.scheduler.v1beta1.TargetProto.internal_static_google_cloud_scheduler_v1beta1_PubsubTarget_descriptor;
@@ -127,12 +63,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOPIC_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object topicName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object topicName_ = "";
   /**
    * <pre>
    * Required. The name of the Cloud Pub/Sub topic to which messages will
    * be published when a job is delivered. The topic name must be in the
-   * same format as required by PubSub's
+   * same format as required by Pub/Sub's
    * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
    * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
    * The topic must be in the same project as the Cloud Scheduler job.
@@ -158,7 +95,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. The name of the Cloud Pub/Sub topic to which messages will
    * be published when a job is delivered. The topic name must be in the
-   * same format as required by PubSub's
+   * same format as required by Pub/Sub's
    * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
    * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
    * The topic must be in the same project as the Cloud Scheduler job.
@@ -183,7 +120,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_FIELD_NUMBER = 3;
-  private com.google.protobuf.ByteString data_;
+  private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The message payload for PubsubMessage.
@@ -211,6 +148,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> attributes_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -221,7 +159,6 @@ private static final long serialVersionUID = 0L;
     }
     return attributes_;
   }
-
   public int getAttributesCount() {
     return internalGetAttributes().getMap().size();
   }
@@ -234,7 +171,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; attributes = 4;</code>
    */
-
   @java.lang.Override
   public boolean containsAttributes(
       java.lang.String key) {
@@ -259,7 +195,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; attributes = 4;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
     return internalGetAttributes().getMap();
   }
@@ -273,10 +208,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; attributes = 4;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getAttributesOrDefault(
+  public /* nullable */
+java.lang.String getAttributesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetAttributes().getMap();
@@ -292,7 +228,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; attributes = 4;</code>
    */
   @java.lang.Override
-
   public java.lang.String getAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -330,7 +265,7 @@ private static final long serialVersionUID = 0L;
         internalGetAttributes(),
         AttributesDefaultEntryHolder.defaultEntry,
         4);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -356,7 +291,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, attributes__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -377,7 +312,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getData())) return false;
     if (!internalGetAttributes().equals(
         other.internalGetAttributes())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -396,7 +331,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ATTRIBUTES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetAttributes().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -540,26 +475,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.scheduler.v1beta1.PubsubTarget.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       topicName_ = "";
-
       data_ = com.google.protobuf.ByteString.EMPTY;
-
       internalGetMutableAttributes().clear();
       return this;
     }
@@ -587,13 +516,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.scheduler.v1beta1.PubsubTarget buildPartial() {
       com.google.cloud.scheduler.v1beta1.PubsubTarget result = new com.google.cloud.scheduler.v1beta1.PubsubTarget(this);
-      int from_bitField0_ = bitField0_;
-      result.topicName_ = topicName_;
-      result.data_ = data_;
-      result.attributes_ = internalGetAttributes();
-      result.attributes_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.scheduler.v1beta1.PubsubTarget result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.topicName_ = topicName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.data_ = data_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.attributes_ = internalGetAttributes();
+        result.attributes_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -642,6 +581,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.scheduler.v1beta1.PubsubTarget.getDefaultInstance()) return this;
       if (!other.getTopicName().isEmpty()) {
         topicName_ = other.topicName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
@@ -649,7 +589,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableAttributes().mergeFrom(
           other.internalGetAttributes());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000004;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -664,17 +605,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.scheduler.v1beta1.PubsubTarget parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              topicName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              data_ = input.readBytes();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              attributes__ = input.readMessage(
+                  AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAttributes().getMutableMap().put(
+                  attributes__.getKey(), attributes__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.scheduler.v1beta1.PubsubTarget) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -684,7 +657,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The name of the Cloud Pub/Sub topic to which messages will
      * be published when a job is delivered. The topic name must be in the
-     * same format as required by PubSub's
+     * same format as required by Pub/Sub's
      * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
      * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
      * The topic must be in the same project as the Cloud Scheduler job.
@@ -709,7 +682,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The name of the Cloud Pub/Sub topic to which messages will
      * be published when a job is delivered. The topic name must be in the
-     * same format as required by PubSub's
+     * same format as required by Pub/Sub's
      * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
      * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
      * The topic must be in the same project as the Cloud Scheduler job.
@@ -735,7 +708,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The name of the Cloud Pub/Sub topic to which messages will
      * be published when a job is delivered. The topic name must be in the
-     * same format as required by PubSub's
+     * same format as required by Pub/Sub's
      * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
      * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
      * The topic must be in the same project as the Cloud Scheduler job.
@@ -747,11 +720,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTopicName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       topicName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -759,7 +730,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The name of the Cloud Pub/Sub topic to which messages will
      * be published when a job is delivered. The topic name must be in the
-     * same format as required by PubSub's
+     * same format as required by Pub/Sub's
      * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
      * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
      * The topic must be in the same project as the Cloud Scheduler job.
@@ -769,8 +740,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTopicName() {
-      
       topicName_ = getDefaultInstance().getTopicName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -778,7 +749,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. The name of the Cloud Pub/Sub topic to which messages will
      * be published when a job is delivered. The topic name must be in the
-     * same format as required by PubSub's
+     * same format as required by Pub/Sub's
      * [PublishRequest.name](https://cloud.google.com/pubsub/docs/reference/rpc/google.pubsub.v1#publishrequest),
      * for example `projects/PROJECT_ID/topics/TOPIC_ID`.
      * The topic must be in the same project as the Cloud Scheduler job.
@@ -790,12 +761,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTopicNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       topicName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -827,11 +796,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setData(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       data_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -846,7 +813,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearData() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       data_ = getDefaultInstance().getData();
       onChanged();
       return this;
@@ -855,7 +822,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> attributes_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetAttributes() {
+        internalGetAttributes() {
       if (attributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -863,8 +830,7 @@ private static final long serialVersionUID = 0L;
       return attributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableAttributes() {
-      onChanged();;
+        internalGetMutableAttributes() {
       if (attributes_ == null) {
         attributes_ = com.google.protobuf.MapField.newMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -872,9 +838,10 @@ private static final long serialVersionUID = 0L;
       if (!attributes_.isMutable()) {
         attributes_ = attributes_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return attributes_;
     }
-
     public int getAttributesCount() {
       return internalGetAttributes().getMap().size();
     }
@@ -887,7 +854,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; attributes = 4;</code>
      */
-
     @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
@@ -912,7 +878,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; attributes = 4;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getAttributesMap() {
       return internalGetAttributes().getMap();
     }
@@ -926,10 +891,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; attributes = 4;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getAttributesOrDefault(
+    public /* nullable */
+java.lang.String getAttributesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetAttributes().getMap();
@@ -945,7 +911,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; attributes = 4;</code>
      */
     @java.lang.Override
-
     public java.lang.String getAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -956,8 +921,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableAttributes().getMutableMap()
           .clear();
       return this;
@@ -971,7 +936,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; attributes = 4;</code>
      */
-
     public Builder removeAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -984,7 +948,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableAttributes() {
+        getMutableAttributes() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableAttributes().getMutableMap();
     }
     /**
@@ -1000,12 +965,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1017,11 +980,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; attributes = 4;</code>
      */
-
     public Builder putAllAttributes(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
     @java.lang.Override
@@ -1057,7 +1020,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PubsubTarget(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

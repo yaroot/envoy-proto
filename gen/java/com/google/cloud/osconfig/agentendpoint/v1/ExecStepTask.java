@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExecStepTask(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder subBuilder = null;
-            if (execStep_ != null) {
-              subBuilder = execStep_.toBuilder();
-            }
-            execStep_ = input.readMessage(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(execStep_);
-              execStep_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.osconfig.agentendpoint.v1.Tasks.internal_static_google_cloud_osconfig_agentendpoint_v1_ExecStepTask_descriptor;
@@ -134,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStepOrBuilder getExecStepOrBuilder() {
-    return getExecStep();
+    return execStep_ == null ? com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.getDefaultInstance() : execStep_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (execStep_ != null) {
       output.writeMessage(1, getExecStep());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getExecStep());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +135,7 @@ private static final long serialVersionUID = 0L;
       if (!getExecStep()
           .equals(other.getExecStep())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EXEC_STEP_FIELD_NUMBER;
       hash = (53 * hash) + getExecStep().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +271,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (execStepBuilder_ == null) {
-        execStep_ = null;
-      } else {
-        execStep_ = null;
+      bitField0_ = 0;
+      execStep_ = null;
+      if (execStepBuilder_ != null) {
+        execStepBuilder_.dispose();
         execStepBuilder_ = null;
       }
       return this;
@@ -371,13 +314,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask buildPartial() {
       com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask result = new com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask(this);
-      if (execStepBuilder_ == null) {
-        result.execStep_ = execStep_;
-      } else {
-        result.execStep_ = execStepBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.execStep_ = execStepBuilder_ == null
+            ? execStep_
+            : execStepBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasExecStep()) {
         mergeExecStep(other.getExecStep());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +390,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getExecStepFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.osconfig.agentendpoint.v1.ExecStepTask) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep execStep_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the execStep field is set.
      */
     public boolean hasExecStep() {
-      return execStepBuilder_ != null || execStep_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         execStep_ = value;
-        onChanged();
       } else {
         execStepBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +485,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder builderForValue) {
       if (execStepBuilder_ == null) {
         execStep_ = builderForValue.build();
-        onChanged();
       } else {
         execStepBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExecStep(com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep value) {
       if (execStepBuilder_ == null) {
-        if (execStep_ != null) {
-          execStep_ =
-            com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.newBuilder(execStep_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          execStep_ != null &&
+          execStep_ != com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.getDefaultInstance()) {
+          getExecStepBuilder().mergeFrom(value);
         } else {
           execStep_ = value;
         }
-        onChanged();
       } else {
         execStepBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStep exec_step = 1;</code>
      */
     public Builder clearExecStep() {
-      if (execStepBuilder_ == null) {
-        execStep_ = null;
-        onChanged();
-      } else {
-        execStep_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      execStep_ = null;
+      if (execStepBuilder_ != null) {
+        execStepBuilder_.dispose();
         execStepBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.osconfig.agentendpoint.v1.ExecStep exec_step = 1;</code>
      */
     public com.google.cloud.osconfig.agentendpoint.v1.PatchJobs.ExecStep.Builder getExecStepBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getExecStepFieldBuilder().getBuilder();
     }
@@ -643,7 +612,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExecStepTask(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

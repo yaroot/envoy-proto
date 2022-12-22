@@ -37,90 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourcePolicyInstanceSchedulePolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 142099170: {
-            com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = vmStartSchedule_.toBuilder();
-            }
-            vmStartSchedule_ = input.readMessage(com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vmStartSchedule_);
-              vmStartSchedule_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case 294784754: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            timeZone_ = s;
-            break;
-          }
-          case 299738194: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            startTime_ = s;
-            break;
-          }
-          case 1842393834: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            expirationTime_ = s;
-            break;
-          }
-          case -885025438: {
-            com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = vmStopSchedule_.toBuilder();
-            }
-            vmStopSchedule_ = input.readMessage(com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vmStopSchedule_);
-              vmStopSchedule_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ResourcePolicyInstanceSchedulePolicy_descriptor;
@@ -136,7 +52,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int EXPIRATION_TIME_FIELD_NUMBER = 230299229;
-  private volatile java.lang.Object expirationTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object expirationTime_ = "";
   /**
    * <pre>
    * The expiration time of the schedule. The timestamp is an RFC3339 string.
@@ -194,7 +111,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int START_TIME_FIELD_NUMBER = 37467274;
-  private volatile java.lang.Object startTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object startTime_ = "";
   /**
    * <pre>
    * The start time of the schedule. The timestamp is an RFC3339 string.
@@ -252,7 +170,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TIME_ZONE_FIELD_NUMBER = 36848094;
-  private volatile java.lang.Object timeZone_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object timeZone_ = "";
   /**
    * <pre>
    * Specifies the time zone to be used in interpreting Schedule.schedule. The value of this field must be a time zone name from the tz database: http://en.wikipedia.org/wiki/Tz_database.
@@ -414,7 +333,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000010) != 0)) {
       output.writeMessage(426242732, getVmStopSchedule());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -440,7 +359,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(426242732, getVmStopSchedule());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -480,7 +399,7 @@ private static final long serialVersionUID = 0L;
       if (!getVmStopSchedule()
           .equals(other.getVmStopSchedule())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -511,7 +430,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + VM_STOP_SCHEDULE_FIELD_NUMBER;
       hash = (53 * hash) + getVmStopSchedule().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -650,24 +569,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       expirationTime_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       startTime_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       timeZone_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (vmStartScheduleBuilder_ == null) {
-        vmStartSchedule_ = null;
-      } else {
-        vmStartScheduleBuilder_.clear();
+      vmStartSchedule_ = null;
+      if (vmStartScheduleBuilder_ != null) {
+        vmStartScheduleBuilder_.dispose();
+        vmStartScheduleBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (vmStopScheduleBuilder_ == null) {
-        vmStopSchedule_ = null;
-      } else {
-        vmStopScheduleBuilder_.clear();
+      vmStopSchedule_ = null;
+      if (vmStopScheduleBuilder_ != null) {
+        vmStopScheduleBuilder_.dispose();
+        vmStopScheduleBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -694,39 +609,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy buildPartial() {
       com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy result = new com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.expirationTime_ = expirationTime_;
         to_bitField0_ |= 0x00000001;
       }
-      result.expirationTime_ = expirationTime_;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startTime_ = startTime_;
         to_bitField0_ |= 0x00000002;
       }
-      result.startTime_ = startTime_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timeZone_ = timeZone_;
         to_bitField0_ |= 0x00000004;
       }
-      result.timeZone_ = timeZone_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (vmStartScheduleBuilder_ == null) {
-          result.vmStartSchedule_ = vmStartSchedule_;
-        } else {
-          result.vmStartSchedule_ = vmStartScheduleBuilder_.build();
-        }
+        result.vmStartSchedule_ = vmStartScheduleBuilder_ == null
+            ? vmStartSchedule_
+            : vmStartScheduleBuilder_.build();
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        if (vmStopScheduleBuilder_ == null) {
-          result.vmStopSchedule_ = vmStopSchedule_;
-        } else {
-          result.vmStopSchedule_ = vmStopScheduleBuilder_.build();
-        }
+        result.vmStopSchedule_ = vmStopScheduleBuilder_ == null
+            ? vmStopSchedule_
+            : vmStopScheduleBuilder_.build();
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -774,18 +689,18 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy other) {
       if (other == com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy.getDefaultInstance()) return this;
       if (other.hasExpirationTime()) {
-        bitField0_ |= 0x00000001;
         expirationTime_ = other.expirationTime_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasStartTime()) {
-        bitField0_ |= 0x00000002;
         startTime_ = other.startTime_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasTimeZone()) {
-        bitField0_ |= 0x00000004;
         timeZone_ = other.timeZone_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasVmStartSchedule()) {
@@ -794,7 +709,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasVmStopSchedule()) {
         mergeVmStopSchedule(other.getVmStopSchedule());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -809,17 +724,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 142099170: {
+              input.readMessage(
+                  getVmStartScheduleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 142099170
+            case 294784754: {
+              timeZone_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 294784754
+            case 299738194: {
+              startTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 299738194
+            case 1842393834: {
+              expirationTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1842393834
+            case -885025438: {
+              input.readMessage(
+                  getVmStopScheduleFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -885025438
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -888,11 +845,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExpirationTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       expirationTime_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -905,8 +860,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExpirationTime() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       expirationTime_ = getDefaultInstance().getExpirationTime();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -921,12 +876,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExpirationTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       expirationTime_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -995,11 +948,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       startTime_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1012,8 +963,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartTime() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       startTime_ = getDefaultInstance().getStartTime();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1028,12 +979,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStartTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       startTime_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1102,11 +1051,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZone(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       timeZone_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1119,8 +1066,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTimeZone() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       timeZone_ = getDefaultInstance().getTimeZone();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1135,12 +1082,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTimeZoneBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       timeZone_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1187,11 +1132,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vmStartSchedule_ = value;
-        onChanged();
       } else {
         vmStartScheduleBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1205,11 +1150,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.Builder builderForValue) {
       if (vmStartScheduleBuilder_ == null) {
         vmStartSchedule_ = builderForValue.build();
-        onChanged();
       } else {
         vmStartScheduleBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1222,18 +1167,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeVmStartSchedule(com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule value) {
       if (vmStartScheduleBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            vmStartSchedule_ != null &&
-            vmStartSchedule_ != com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.getDefaultInstance()) {
-          vmStartSchedule_ =
-            com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.newBuilder(vmStartSchedule_).mergeFrom(value).buildPartial();
+          vmStartSchedule_ != null &&
+          vmStartSchedule_ != com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.getDefaultInstance()) {
+          getVmStartScheduleBuilder().mergeFrom(value);
         } else {
           vmStartSchedule_ = value;
         }
-        onChanged();
       } else {
         vmStartScheduleBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1244,13 +1188,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule vm_start_schedule = 17762396;</code>
      */
     public Builder clearVmStartSchedule() {
-      if (vmStartScheduleBuilder_ == null) {
-        vmStartSchedule_ = null;
-        onChanged();
-      } else {
-        vmStartScheduleBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      vmStartSchedule_ = null;
+      if (vmStartScheduleBuilder_ != null) {
+        vmStartScheduleBuilder_.dispose();
+        vmStartScheduleBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1343,11 +1287,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vmStopSchedule_ = value;
-        onChanged();
       } else {
         vmStopScheduleBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1361,11 +1305,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.Builder builderForValue) {
       if (vmStopScheduleBuilder_ == null) {
         vmStopSchedule_ = builderForValue.build();
-        onChanged();
       } else {
         vmStopScheduleBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1378,18 +1322,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeVmStopSchedule(com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule value) {
       if (vmStopScheduleBuilder_ == null) {
         if (((bitField0_ & 0x00000010) != 0) &&
-            vmStopSchedule_ != null &&
-            vmStopSchedule_ != com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.getDefaultInstance()) {
-          vmStopSchedule_ =
-            com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.newBuilder(vmStopSchedule_).mergeFrom(value).buildPartial();
+          vmStopSchedule_ != null &&
+          vmStopSchedule_ != com.google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule.getDefaultInstance()) {
+          getVmStopScheduleBuilder().mergeFrom(value);
         } else {
           vmStopSchedule_ = value;
         }
-        onChanged();
       } else {
         vmStopScheduleBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1400,13 +1343,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.ResourcePolicyInstanceSchedulePolicySchedule vm_stop_schedule = 426242732;</code>
      */
     public Builder clearVmStopSchedule() {
-      if (vmStopScheduleBuilder_ == null) {
-        vmStopSchedule_ = null;
-        onChanged();
-      } else {
-        vmStopScheduleBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000010);
+      vmStopSchedule_ = null;
+      if (vmStopScheduleBuilder_ != null) {
+        vmStopScheduleBuilder_.dispose();
+        vmStopScheduleBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1489,7 +1432,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourcePolicyInstanceSchedulePolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

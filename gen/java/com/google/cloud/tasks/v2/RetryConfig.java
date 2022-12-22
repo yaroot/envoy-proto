@@ -35,94 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RetryConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            maxAttempts_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxRetryDuration_ != null) {
-              subBuilder = maxRetryDuration_.toBuilder();
-            }
-            maxRetryDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxRetryDuration_);
-              maxRetryDuration_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (minBackoff_ != null) {
-              subBuilder = minBackoff_.toBuilder();
-            }
-            minBackoff_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minBackoff_);
-              minBackoff_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (maxBackoff_ != null) {
-              subBuilder = maxBackoff_.toBuilder();
-            }
-            maxBackoff_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxBackoff_);
-              maxBackoff_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            maxDoublings_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.tasks.v2.QueueProto.internal_static_google_cloud_tasks_v2_RetryConfig_descriptor;
@@ -137,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_ATTEMPTS_FIELD_NUMBER = 1;
-  private int maxAttempts_;
+  private int maxAttempts_ = 0;
   /**
    * <pre>
    * Number of attempts per task.
@@ -231,7 +143,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxRetryDurationOrBuilder() {
-    return getMaxRetryDuration();
+    return maxRetryDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxRetryDuration_;
   }
 
   public static final int MIN_BACKOFF_FIELD_NUMBER = 3;
@@ -299,7 +211,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMinBackoffOrBuilder() {
-    return getMinBackoff();
+    return minBackoff_ == null ? com.google.protobuf.Duration.getDefaultInstance() : minBackoff_;
   }
 
   public static final int MAX_BACKOFF_FIELD_NUMBER = 4;
@@ -367,11 +279,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMaxBackoffOrBuilder() {
-    return getMaxBackoff();
+    return maxBackoff_ == null ? com.google.protobuf.Duration.getDefaultInstance() : maxBackoff_;
   }
 
   public static final int MAX_DOUBLINGS_FIELD_NUMBER = 5;
-  private int maxDoublings_;
+  private int maxDoublings_ = 0;
   /**
    * <pre>
    * The time between retries will double `max_doublings` times.
@@ -434,7 +346,7 @@ private static final long serialVersionUID = 0L;
     if (maxDoublings_ != 0) {
       output.writeInt32(5, maxDoublings_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -463,7 +375,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(5, maxDoublings_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -497,7 +409,7 @@ private static final long serialVersionUID = 0L;
     }
     if (getMaxDoublings()
         != other.getMaxDoublings()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -524,7 +436,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + MAX_DOUBLINGS_FIELD_NUMBER;
     hash = (53 * hash) + getMaxDoublings();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -646,44 +558,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.tasks.v2.RetryConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxAttempts_ = 0;
-
-      if (maxRetryDurationBuilder_ == null) {
-        maxRetryDuration_ = null;
-      } else {
-        maxRetryDuration_ = null;
+      maxRetryDuration_ = null;
+      if (maxRetryDurationBuilder_ != null) {
+        maxRetryDurationBuilder_.dispose();
         maxRetryDurationBuilder_ = null;
       }
-      if (minBackoffBuilder_ == null) {
-        minBackoff_ = null;
-      } else {
-        minBackoff_ = null;
+      minBackoff_ = null;
+      if (minBackoffBuilder_ != null) {
+        minBackoffBuilder_.dispose();
         minBackoffBuilder_ = null;
       }
-      if (maxBackoffBuilder_ == null) {
-        maxBackoff_ = null;
-      } else {
-        maxBackoff_ = null;
+      maxBackoff_ = null;
+      if (maxBackoffBuilder_ != null) {
+        maxBackoffBuilder_.dispose();
         maxBackoffBuilder_ = null;
       }
       maxDoublings_ = 0;
-
       return this;
     }
 
@@ -710,25 +613,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.tasks.v2.RetryConfig buildPartial() {
       com.google.cloud.tasks.v2.RetryConfig result = new com.google.cloud.tasks.v2.RetryConfig(this);
-      result.maxAttempts_ = maxAttempts_;
-      if (maxRetryDurationBuilder_ == null) {
-        result.maxRetryDuration_ = maxRetryDuration_;
-      } else {
-        result.maxRetryDuration_ = maxRetryDurationBuilder_.build();
-      }
-      if (minBackoffBuilder_ == null) {
-        result.minBackoff_ = minBackoff_;
-      } else {
-        result.minBackoff_ = minBackoffBuilder_.build();
-      }
-      if (maxBackoffBuilder_ == null) {
-        result.maxBackoff_ = maxBackoff_;
-      } else {
-        result.maxBackoff_ = maxBackoffBuilder_.build();
-      }
-      result.maxDoublings_ = maxDoublings_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.tasks.v2.RetryConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxAttempts_ = maxAttempts_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxRetryDuration_ = maxRetryDurationBuilder_ == null
+            ? maxRetryDuration_
+            : maxRetryDurationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.minBackoff_ = minBackoffBuilder_ == null
+            ? minBackoff_
+            : minBackoffBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.maxBackoff_ = maxBackoffBuilder_ == null
+            ? maxBackoff_
+            : maxBackoffBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.maxDoublings_ = maxDoublings_;
+      }
     }
 
     @java.lang.Override
@@ -790,7 +702,7 @@ private static final long serialVersionUID = 0L;
       if (other.getMaxDoublings() != 0) {
         setMaxDoublings(other.getMaxDoublings());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -805,19 +717,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.tasks.v2.RetryConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              maxAttempts_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getMaxRetryDurationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMinBackoffFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMaxBackoffFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              maxDoublings_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.tasks.v2.RetryConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int maxAttempts_ ;
     /**
@@ -862,6 +819,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxAttempts(int value) {
       
       maxAttempts_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -883,7 +841,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxAttempts() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       maxAttempts_ = 0;
       onChanged();
       return this;
@@ -913,7 +871,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxRetryDuration field is set.
      */
     public boolean hasMaxRetryDuration() {
-      return maxRetryDurationBuilder_ != null || maxRetryDuration_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -967,11 +925,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxRetryDuration_ = value;
-        onChanged();
       } else {
         maxRetryDurationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -997,11 +955,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxRetryDurationBuilder_ == null) {
         maxRetryDuration_ = builderForValue.build();
-        onChanged();
       } else {
         maxRetryDurationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1025,17 +983,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxRetryDuration(com.google.protobuf.Duration value) {
       if (maxRetryDurationBuilder_ == null) {
-        if (maxRetryDuration_ != null) {
-          maxRetryDuration_ =
-            com.google.protobuf.Duration.newBuilder(maxRetryDuration_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          maxRetryDuration_ != null &&
+          maxRetryDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxRetryDurationBuilder().mergeFrom(value);
         } else {
           maxRetryDuration_ = value;
         }
-        onChanged();
       } else {
         maxRetryDurationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1058,14 +1017,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_retry_duration = 2;</code>
      */
     public Builder clearMaxRetryDuration() {
-      if (maxRetryDurationBuilder_ == null) {
-        maxRetryDuration_ = null;
-        onChanged();
-      } else {
-        maxRetryDuration_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      maxRetryDuration_ = null;
+      if (maxRetryDurationBuilder_ != null) {
+        maxRetryDurationBuilder_.dispose();
         maxRetryDurationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1088,7 +1046,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_retry_duration = 2;</code>
      */
     public com.google.protobuf.Duration.Builder getMaxRetryDurationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMaxRetryDurationFieldBuilder().getBuilder();
     }
@@ -1174,7 +1132,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minBackoff field is set.
      */
     public boolean hasMinBackoff() {
-      return minBackoffBuilder_ != null || minBackoff_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1224,11 +1182,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minBackoff_ = value;
-        onChanged();
       } else {
         minBackoffBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1252,11 +1210,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (minBackoffBuilder_ == null) {
         minBackoff_ = builderForValue.build();
-        onChanged();
       } else {
         minBackoffBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1278,17 +1236,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinBackoff(com.google.protobuf.Duration value) {
       if (minBackoffBuilder_ == null) {
-        if (minBackoff_ != null) {
-          minBackoff_ =
-            com.google.protobuf.Duration.newBuilder(minBackoff_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          minBackoff_ != null &&
+          minBackoff_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMinBackoffBuilder().mergeFrom(value);
         } else {
           minBackoff_ = value;
         }
-        onChanged();
       } else {
         minBackoffBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1309,14 +1268,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration min_backoff = 3;</code>
      */
     public Builder clearMinBackoff() {
-      if (minBackoffBuilder_ == null) {
-        minBackoff_ = null;
-        onChanged();
-      } else {
-        minBackoff_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      minBackoff_ = null;
+      if (minBackoffBuilder_ != null) {
+        minBackoffBuilder_.dispose();
         minBackoffBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1337,7 +1295,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration min_backoff = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getMinBackoffBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMinBackoffFieldBuilder().getBuilder();
     }
@@ -1419,7 +1377,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxBackoff field is set.
      */
     public boolean hasMaxBackoff() {
-      return maxBackoffBuilder_ != null || maxBackoff_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1469,11 +1427,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxBackoff_ = value;
-        onChanged();
       } else {
         maxBackoffBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1497,11 +1455,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (maxBackoffBuilder_ == null) {
         maxBackoff_ = builderForValue.build();
-        onChanged();
       } else {
         maxBackoffBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1523,17 +1481,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxBackoff(com.google.protobuf.Duration value) {
       if (maxBackoffBuilder_ == null) {
-        if (maxBackoff_ != null) {
-          maxBackoff_ =
-            com.google.protobuf.Duration.newBuilder(maxBackoff_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          maxBackoff_ != null &&
+          maxBackoff_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMaxBackoffBuilder().mergeFrom(value);
         } else {
           maxBackoff_ = value;
         }
-        onChanged();
       } else {
         maxBackoffBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1554,14 +1513,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_backoff = 4;</code>
      */
     public Builder clearMaxBackoff() {
-      if (maxBackoffBuilder_ == null) {
-        maxBackoff_ = null;
-        onChanged();
-      } else {
-        maxBackoff_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      maxBackoff_ = null;
+      if (maxBackoffBuilder_ != null) {
+        maxBackoffBuilder_.dispose();
         maxBackoffBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1582,7 +1540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration max_backoff = 4;</code>
      */
     public com.google.protobuf.Duration.Builder getMaxBackoffBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getMaxBackoffFieldBuilder().getBuilder();
     }
@@ -1707,6 +1665,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxDoublings(int value) {
       
       maxDoublings_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1739,7 +1698,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxDoublings() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       maxDoublings_ = 0;
       onChanged();
       return this;
@@ -1777,7 +1736,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RetryConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

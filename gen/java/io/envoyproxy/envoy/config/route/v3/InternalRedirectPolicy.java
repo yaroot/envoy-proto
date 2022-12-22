@@ -36,100 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InternalRedirectPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxInternalRedirects_ != null) {
-              subBuilder = maxInternalRedirects_.toBuilder();
-            }
-            maxInternalRedirects_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxInternalRedirects_);
-              maxInternalRedirects_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              redirectResponseCodes_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            redirectResponseCodes_.addInt(input.readUInt32());
-            break;
-          }
-          case 18: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              redirectResponseCodes_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              redirectResponseCodes_.addInt(input.readUInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              predicates_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            predicates_.add(
-                input.readMessage(io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-
-            allowCrossSchemeRedirect_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        redirectResponseCodes_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        predicates_ = java.util.Collections.unmodifiableList(predicates_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.route.v3.RouteComponentsProto.internal_static_envoy_config_route_v3_InternalRedirectPolicy_descriptor;
@@ -196,10 +102,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxInternalRedirectsOrBuilder() {
-    return getMaxInternalRedirects();
+    return maxInternalRedirects_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxInternalRedirects_;
   }
 
   public static final int REDIRECT_RESPONSE_CODES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList redirectResponseCodes_;
   /**
    * <pre>
@@ -246,6 +153,7 @@ private static final long serialVersionUID = 0L;
   private int redirectResponseCodesMemoizedSerializedSize = -1;
 
   public static final int PREDICATES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig> predicates_;
   /**
    * <pre>
@@ -321,7 +229,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOW_CROSS_SCHEME_REDIRECT_FIELD_NUMBER = 4;
-  private boolean allowCrossSchemeRedirect_;
+  private boolean allowCrossSchemeRedirect_ = false;
   /**
    * <pre>
    * Allow internal redirect to follow a target URI with a different scheme than the value of
@@ -367,7 +275,7 @@ private static final long serialVersionUID = 0L;
     if (allowCrossSchemeRedirect_ != false) {
       output.writeBool(4, allowCrossSchemeRedirect_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -402,7 +310,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, allowCrossSchemeRedirect_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -428,7 +336,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPredicatesList())) return false;
     if (getAllowCrossSchemeRedirect()
         != other.getAllowCrossSchemeRedirect()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -454,7 +362,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ALLOW_CROSS_SCHEME_REDIRECT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getAllowCrossSchemeRedirect());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -575,39 +483,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPredicatesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (maxInternalRedirectsBuilder_ == null) {
-        maxInternalRedirects_ = null;
-      } else {
-        maxInternalRedirects_ = null;
+      bitField0_ = 0;
+      maxInternalRedirects_ = null;
+      if (maxInternalRedirectsBuilder_ != null) {
+        maxInternalRedirectsBuilder_.dispose();
         maxInternalRedirectsBuilder_ = null;
       }
       redirectResponseCodes_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       if (predicatesBuilder_ == null) {
         predicates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        predicates_ = null;
         predicatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       allowCrossSchemeRedirect_ = false;
-
       return this;
     }
 
@@ -634,29 +535,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy buildPartial() {
       io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy result = new io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy(this);
-      int from_bitField0_ = bitField0_;
-      if (maxInternalRedirectsBuilder_ == null) {
-        result.maxInternalRedirects_ = maxInternalRedirects_;
-      } else {
-        result.maxInternalRedirects_ = maxInternalRedirectsBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy result) {
+      if (((bitField0_ & 0x00000002) != 0)) {
         redirectResponseCodes_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
       }
       result.redirectResponseCodes_ = redirectResponseCodes_;
       if (predicatesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           predicates_ = java.util.Collections.unmodifiableList(predicates_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.predicates_ = predicates_;
       } else {
         result.predicates_ = predicatesBuilder_.build();
       }
-      result.allowCrossSchemeRedirect_ = allowCrossSchemeRedirect_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.maxInternalRedirects_ = maxInternalRedirectsBuilder_ == null
+            ? maxInternalRedirects_
+            : maxInternalRedirectsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.allowCrossSchemeRedirect_ = allowCrossSchemeRedirect_;
+      }
     }
 
     @java.lang.Override
@@ -709,7 +620,7 @@ private static final long serialVersionUID = 0L;
       if (!other.redirectResponseCodes_.isEmpty()) {
         if (redirectResponseCodes_.isEmpty()) {
           redirectResponseCodes_ = other.redirectResponseCodes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
           ensureRedirectResponseCodesIsMutable();
           redirectResponseCodes_.addAll(other.redirectResponseCodes_);
@@ -720,7 +631,7 @@ private static final long serialVersionUID = 0L;
         if (!other.predicates_.isEmpty()) {
           if (predicates_.isEmpty()) {
             predicates_ = other.predicates_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensurePredicatesIsMutable();
             predicates_.addAll(other.predicates_);
@@ -733,7 +644,7 @@ private static final long serialVersionUID = 0L;
             predicatesBuilder_.dispose();
             predicatesBuilder_ = null;
             predicates_ = other.predicates_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             predicatesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPredicatesFieldBuilder() : null;
@@ -745,7 +656,7 @@ private static final long serialVersionUID = 0L;
       if (other.getAllowCrossSchemeRedirect() != false) {
         setAllowCrossSchemeRedirect(other.getAllowCrossSchemeRedirect());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -760,17 +671,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMaxInternalRedirectsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              int v = input.readUInt32();
+              ensureRedirectResponseCodesIsMutable();
+              redirectResponseCodes_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureRedirectResponseCodesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                redirectResponseCodes_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 26: {
+              io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.parser(),
+                      extensionRegistry);
+              if (predicatesBuilder_ == null) {
+                ensurePredicatesIsMutable();
+                predicates_.add(m);
+              } else {
+                predicatesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              allowCrossSchemeRedirect_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.route.v3.InternalRedirectPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -793,7 +758,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxInternalRedirects field is set.
      */
     public boolean hasMaxInternalRedirects() {
-      return maxInternalRedirectsBuilder_ != null || maxInternalRedirects_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -835,11 +800,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxInternalRedirects_ = value;
-        onChanged();
       } else {
         maxInternalRedirectsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -859,11 +824,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxInternalRedirectsBuilder_ == null) {
         maxInternalRedirects_ = builderForValue.build();
-        onChanged();
       } else {
         maxInternalRedirectsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -881,17 +846,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxInternalRedirects(com.google.protobuf.UInt32Value value) {
       if (maxInternalRedirectsBuilder_ == null) {
-        if (maxInternalRedirects_ != null) {
-          maxInternalRedirects_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxInternalRedirects_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          maxInternalRedirects_ != null &&
+          maxInternalRedirects_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxInternalRedirectsBuilder().mergeFrom(value);
         } else {
           maxInternalRedirects_ = value;
         }
-        onChanged();
       } else {
         maxInternalRedirectsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -908,14 +874,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_internal_redirects = 1;</code>
      */
     public Builder clearMaxInternalRedirects() {
-      if (maxInternalRedirectsBuilder_ == null) {
-        maxInternalRedirects_ = null;
-        onChanged();
-      } else {
-        maxInternalRedirects_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      maxInternalRedirects_ = null;
+      if (maxInternalRedirectsBuilder_ != null) {
+        maxInternalRedirectsBuilder_.dispose();
         maxInternalRedirectsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -932,7 +897,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_internal_redirects = 1;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxInternalRedirectsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMaxInternalRedirectsFieldBuilder().getBuilder();
     }
@@ -986,10 +951,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.IntList redirectResponseCodes_ = emptyIntList();
     private void ensureRedirectResponseCodesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         redirectResponseCodes_ = mutableCopy(redirectResponseCodes_);
-        bitField0_ |= 0x00000001;
-       }
+        bitField0_ |= 0x00000002;
+      }
     }
     /**
      * <pre>
@@ -1003,7 +968,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Integer>
         getRedirectResponseCodesList() {
-      return ((bitField0_ & 0x00000001) != 0) ?
+      return ((bitField0_ & 0x00000002) != 0) ?
                java.util.Collections.unmodifiableList(redirectResponseCodes_) : redirectResponseCodes_;
     }
     /**
@@ -1047,6 +1012,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRedirectResponseCodes(
         int index, int value) {
+      
       ensureRedirectResponseCodesIsMutable();
       redirectResponseCodes_.setInt(index, value);
       onChanged();
@@ -1064,6 +1030,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addRedirectResponseCodes(int value) {
+      
       ensureRedirectResponseCodesIsMutable();
       redirectResponseCodes_.addInt(value);
       onChanged();
@@ -1100,7 +1067,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRedirectResponseCodes() {
       redirectResponseCodes_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1108,9 +1075,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig> predicates_ =
       java.util.Collections.emptyList();
     private void ensurePredicatesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         predicates_ = new java.util.ArrayList<io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig>(predicates_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1337,7 +1304,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPredicates() {
       if (predicatesBuilder_ == null) {
         predicates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         predicatesBuilder_.clear();
@@ -1463,7 +1430,7 @@ private static final long serialVersionUID = 0L;
         predicatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig.Builder, io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder>(
                 predicates_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         predicates_ = null;
@@ -1498,6 +1465,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllowCrossSchemeRedirect(boolean value) {
       
       allowCrossSchemeRedirect_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1511,7 +1479,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllowCrossSchemeRedirect() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       allowCrossSchemeRedirect_ = false;
       onChanged();
       return this;
@@ -1549,7 +1517,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InternalRedirectPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

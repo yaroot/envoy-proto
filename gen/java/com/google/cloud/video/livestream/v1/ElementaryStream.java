@@ -37,93 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ElementaryStream(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.video.livestream.v1.VideoStream.Builder subBuilder = null;
-            if (elementaryStreamCase_ == 1) {
-              subBuilder = ((com.google.cloud.video.livestream.v1.VideoStream) elementaryStream_).toBuilder();
-            }
-            elementaryStream_ =
-                input.readMessage(com.google.cloud.video.livestream.v1.VideoStream.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.video.livestream.v1.VideoStream) elementaryStream_);
-              elementaryStream_ = subBuilder.buildPartial();
-            }
-            elementaryStreamCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.video.livestream.v1.AudioStream.Builder subBuilder = null;
-            if (elementaryStreamCase_ == 2) {
-              subBuilder = ((com.google.cloud.video.livestream.v1.AudioStream) elementaryStream_).toBuilder();
-            }
-            elementaryStream_ =
-                input.readMessage(com.google.cloud.video.livestream.v1.AudioStream.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.video.livestream.v1.AudioStream) elementaryStream_);
-              elementaryStream_ = subBuilder.buildPartial();
-            }
-            elementaryStreamCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.video.livestream.v1.TextStream.Builder subBuilder = null;
-            if (elementaryStreamCase_ == 3) {
-              subBuilder = ((com.google.cloud.video.livestream.v1.TextStream) elementaryStream_).toBuilder();
-            }
-            elementaryStream_ =
-                input.readMessage(com.google.cloud.video.livestream.v1.TextStream.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.video.livestream.v1.TextStream) elementaryStream_);
-              elementaryStream_ = subBuilder.buildPartial();
-            }
-            elementaryStreamCase_ = 3;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            key_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.video.livestream.v1.OutputsProto.internal_static_google_cloud_video_livestream_v1_ElementaryStream_descriptor;
@@ -181,7 +94,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEY_FIELD_NUMBER = 4;
-  private volatile java.lang.Object key_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object key_ = "";
   /**
    * <pre>
    * A unique key for this elementary stream.
@@ -381,7 +295,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, key_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -405,7 +319,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, key_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -439,7 +353,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -468,7 +382,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -591,24 +505,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.video.livestream.v1.ElementaryStream.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       key_ = "";
-
+      if (videoStreamBuilder_ != null) {
+        videoStreamBuilder_.clear();
+      }
+      if (audioStreamBuilder_ != null) {
+        audioStreamBuilder_.clear();
+      }
+      if (textStreamBuilder_ != null) {
+        textStreamBuilder_.clear();
+      }
       elementaryStreamCase_ = 0;
       elementaryStream_ = null;
       return this;
@@ -637,31 +555,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.video.livestream.v1.ElementaryStream buildPartial() {
       com.google.cloud.video.livestream.v1.ElementaryStream result = new com.google.cloud.video.livestream.v1.ElementaryStream(this);
-      result.key_ = key_;
-      if (elementaryStreamCase_ == 1) {
-        if (videoStreamBuilder_ == null) {
-          result.elementaryStream_ = elementaryStream_;
-        } else {
-          result.elementaryStream_ = videoStreamBuilder_.build();
-        }
-      }
-      if (elementaryStreamCase_ == 2) {
-        if (audioStreamBuilder_ == null) {
-          result.elementaryStream_ = elementaryStream_;
-        } else {
-          result.elementaryStream_ = audioStreamBuilder_.build();
-        }
-      }
-      if (elementaryStreamCase_ == 3) {
-        if (textStreamBuilder_ == null) {
-          result.elementaryStream_ = elementaryStream_;
-        } else {
-          result.elementaryStream_ = textStreamBuilder_.build();
-        }
-      }
-      result.elementaryStreamCase_ = elementaryStreamCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.video.livestream.v1.ElementaryStream result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.key_ = key_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.video.livestream.v1.ElementaryStream result) {
+      result.elementaryStreamCase_ = elementaryStreamCase_;
+      result.elementaryStream_ = this.elementaryStream_;
+      if (elementaryStreamCase_ == 1 &&
+          videoStreamBuilder_ != null) {
+        result.elementaryStream_ = videoStreamBuilder_.build();
+      }
+      if (elementaryStreamCase_ == 2 &&
+          audioStreamBuilder_ != null) {
+        result.elementaryStream_ = audioStreamBuilder_.build();
+      }
+      if (elementaryStreamCase_ == 3 &&
+          textStreamBuilder_ != null) {
+        result.elementaryStream_ = textStreamBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -710,6 +631,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.video.livestream.v1.ElementaryStream.getDefaultInstance()) return this;
       if (!other.getKey().isEmpty()) {
         key_ = other.key_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getElementaryStreamCase()) {
@@ -729,7 +651,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -744,17 +666,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.video.livestream.v1.ElementaryStream parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getVideoStreamFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              elementaryStreamCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAudioStreamFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              elementaryStreamCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTextStreamFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              elementaryStreamCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              key_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.video.livestream.v1.ElementaryStream) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int elementaryStreamCase_ = 0;
@@ -772,6 +733,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object key_ = "";
     /**
@@ -826,11 +788,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       key_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -843,8 +803,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKey() {
-      
       key_ = getDefaultInstance().getKey();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -859,12 +819,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       key_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1043,7 +1001,7 @@ private static final long serialVersionUID = 0L;
         elementaryStream_ = null;
       }
       elementaryStreamCase_ = 1;
-      onChanged();;
+      onChanged();
       return videoStreamBuilder_;
     }
 
@@ -1221,7 +1179,7 @@ private static final long serialVersionUID = 0L;
         elementaryStream_ = null;
       }
       elementaryStreamCase_ = 2;
-      onChanged();;
+      onChanged();
       return audioStreamBuilder_;
     }
 
@@ -1399,7 +1357,7 @@ private static final long serialVersionUID = 0L;
         elementaryStream_ = null;
       }
       elementaryStreamCase_ = 3;
-      onChanged();;
+      onChanged();
       return textStreamBuilder_;
     }
     @java.lang.Override
@@ -1435,7 +1393,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ElementaryStream(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

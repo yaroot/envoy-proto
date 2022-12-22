@@ -36,87 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private QueryDriveActivityRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            keyCase_ = 1;
-            key_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            keyCase_ = 2;
-            key_ = s;
-            break;
-          }
-          case 42: {
-            com.google.apps.drive.activity.v2.ConsolidationStrategy.Builder subBuilder = null;
-            if (consolidationStrategy_ != null) {
-              subBuilder = consolidationStrategy_.toBuilder();
-            }
-            consolidationStrategy_ = input.readMessage(com.google.apps.drive.activity.v2.ConsolidationStrategy.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(consolidationStrategy_);
-              consolidationStrategy_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.drive.activity.v2.QueryDriveActivityRequestProto.internal_static_google_apps_drive_activity_v2_QueryDriveActivityRequest_descriptor;
@@ -343,11 +262,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.drive.activity.v2.ConsolidationStrategyOrBuilder getConsolidationStrategyOrBuilder() {
-    return getConsolidationStrategy();
+    return consolidationStrategy_ == null ? com.google.apps.drive.activity.v2.ConsolidationStrategy.getDefaultInstance() : consolidationStrategy_;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 6;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
    * The miminum number of activities desired in the response; the server will
@@ -365,7 +284,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 7;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * The token identifying which page of results to return. Set this to the
@@ -417,7 +337,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 8;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * The filtering for items returned from this query request. The format of the
@@ -524,7 +445,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, filter_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -553,7 +474,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(filter_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, filter_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -592,7 +513,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -625,7 +546,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -746,34 +667,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.drive.activity.v2.QueryDriveActivityRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (consolidationStrategyBuilder_ == null) {
-        consolidationStrategy_ = null;
-      } else {
-        consolidationStrategy_ = null;
+      bitField0_ = 0;
+      consolidationStrategy_ = null;
+      if (consolidationStrategyBuilder_ != null) {
+        consolidationStrategyBuilder_.dispose();
         consolidationStrategyBuilder_ = null;
       }
       pageSize_ = 0;
-
       pageToken_ = "";
-
       filter_ = "";
-
       keyCase_ = 0;
       key_ = null;
       return this;
@@ -802,23 +715,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.drive.activity.v2.QueryDriveActivityRequest buildPartial() {
       com.google.apps.drive.activity.v2.QueryDriveActivityRequest result = new com.google.apps.drive.activity.v2.QueryDriveActivityRequest(this);
-      if (keyCase_ == 1) {
-        result.key_ = key_;
-      }
-      if (keyCase_ == 2) {
-        result.key_ = key_;
-      }
-      if (consolidationStrategyBuilder_ == null) {
-        result.consolidationStrategy_ = consolidationStrategy_;
-      } else {
-        result.consolidationStrategy_ = consolidationStrategyBuilder_.build();
-      }
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.filter_ = filter_;
-      result.keyCase_ = keyCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.apps.drive.activity.v2.QueryDriveActivityRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.consolidationStrategy_ = consolidationStrategyBuilder_ == null
+            ? consolidationStrategy_
+            : consolidationStrategyBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.filter_ = filter_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.apps.drive.activity.v2.QueryDriveActivityRequest result) {
+      result.keyCase_ = keyCase_;
+      result.key_ = this.key_;
     }
 
     @java.lang.Override
@@ -873,10 +796,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       switch (other.getKeyCase()) {
@@ -896,7 +821,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -911,17 +836,64 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.drive.activity.v2.QueryDriveActivityRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              keyCase_ = 1;
+              key_ = s;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              keyCase_ = 2;
+              key_ = s;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getConsolidationStrategyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 48: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 48
+            case 58: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 58
+            case 66: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.drive.activity.v2.QueryDriveActivityRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int keyCase_ = 0;
@@ -939,6 +911,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1020,10 +993,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  keyCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      keyCase_ = 1;
       key_ = value;
       onChanged();
       return this;
@@ -1057,10 +1028,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setItemNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keyCase_ = 1;
       key_ = value;
       onChanged();
@@ -1147,10 +1116,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAncestorName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  keyCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      keyCase_ = 2;
       key_ = value;
       onChanged();
       return this;
@@ -1184,10 +1151,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAncestorNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       keyCase_ = 2;
       key_ = value;
       onChanged();
@@ -1207,7 +1172,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the consolidationStrategy field is set.
      */
     public boolean hasConsolidationStrategy() {
-      return consolidationStrategyBuilder_ != null || consolidationStrategy_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1239,11 +1204,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         consolidationStrategy_ = value;
-        onChanged();
       } else {
         consolidationStrategyBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1258,11 +1223,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.drive.activity.v2.ConsolidationStrategy.Builder builderForValue) {
       if (consolidationStrategyBuilder_ == null) {
         consolidationStrategy_ = builderForValue.build();
-        onChanged();
       } else {
         consolidationStrategyBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1275,17 +1240,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConsolidationStrategy(com.google.apps.drive.activity.v2.ConsolidationStrategy value) {
       if (consolidationStrategyBuilder_ == null) {
-        if (consolidationStrategy_ != null) {
-          consolidationStrategy_ =
-            com.google.apps.drive.activity.v2.ConsolidationStrategy.newBuilder(consolidationStrategy_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          consolidationStrategy_ != null &&
+          consolidationStrategy_ != com.google.apps.drive.activity.v2.ConsolidationStrategy.getDefaultInstance()) {
+          getConsolidationStrategyBuilder().mergeFrom(value);
         } else {
           consolidationStrategy_ = value;
         }
-        onChanged();
       } else {
         consolidationStrategyBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1297,14 +1263,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.ConsolidationStrategy consolidation_strategy = 5;</code>
      */
     public Builder clearConsolidationStrategy() {
-      if (consolidationStrategyBuilder_ == null) {
-        consolidationStrategy_ = null;
-        onChanged();
-      } else {
-        consolidationStrategy_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      consolidationStrategy_ = null;
+      if (consolidationStrategyBuilder_ != null) {
+        consolidationStrategyBuilder_.dispose();
         consolidationStrategyBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1316,7 +1281,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.ConsolidationStrategy consolidation_strategy = 5;</code>
      */
     public com.google.apps.drive.activity.v2.ConsolidationStrategy.Builder getConsolidationStrategyBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getConsolidationStrategyFieldBuilder().getBuilder();
     }
@@ -1389,6 +1354,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1404,7 +1370,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1472,11 +1438,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1492,8 +1456,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1511,12 +1475,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1619,11 +1581,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1651,8 +1611,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1682,12 +1642,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1724,7 +1682,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new QueryDriveActivityRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

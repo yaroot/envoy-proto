@@ -22,6 +22,7 @@ private static final long serialVersionUID = 0L;
     arpCaches_ = java.util.Collections.emptyList();
     circuitId_ = "";
     googleDemarc_ = "";
+    operationalStatus_ = "";
   }
 
   @java.lang.Override
@@ -36,109 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InterconnectDiagnosticsLinkStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 408674: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            googleDemarc_ = s;
-            break;
-          }
-          case 1801447818: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            circuitId_ = s;
-            break;
-          }
-          case 1957738234: {
-            com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000008) != 0)) {
-              subBuilder = receivingOpticalPower_.toBuilder();
-            }
-            receivingOpticalPower_ = input.readMessage(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(receivingOpticalPower_);
-              receivingOpticalPower_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case -1405283974: {
-            com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = lacpStatus_.toBuilder();
-            }
-            lacpStatus_ = input.readMessage(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lacpStatus_);
-              lacpStatus_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case -978233206: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              arpCaches_ = new java.util.ArrayList<com.google.cloud.compute.v1.InterconnectDiagnosticsARPEntry>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            arpCaches_.add(
-                input.readMessage(com.google.cloud.compute.v1.InterconnectDiagnosticsARPEntry.parser(), extensionRegistry));
-            break;
-          }
-          case -619517718: {
-            com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000010) != 0)) {
-              subBuilder = transmittingOpticalPower_.toBuilder();
-            }
-            transmittingOpticalPower_ = input.readMessage(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transmittingOpticalPower_);
-              transmittingOpticalPower_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000010;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        arpCaches_ = java.util.Collections.unmodifiableList(arpCaches_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_InterconnectDiagnosticsLinkStatus_descriptor;
@@ -152,8 +50,154 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus.class, com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus.Builder.class);
   }
 
+  /**
+   * <pre>
+   * The operational status of the link.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus.OperationalStatus}
+   */
+  public enum OperationalStatus
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * A value indicating that the enum field is not set.
+     * </pre>
+     *
+     * <code>UNDEFINED_OPERATIONAL_STATUS = 0;</code>
+     */
+    UNDEFINED_OPERATIONAL_STATUS(0),
+    /**
+     * <pre>
+     * The interface is unable to communicate with the remote end.
+     * </pre>
+     *
+     * <code>LINK_OPERATIONAL_STATUS_DOWN = 281653885;</code>
+     */
+    LINK_OPERATIONAL_STATUS_DOWN(281653885),
+    /**
+     * <pre>
+     * The interface has low level communication with the remote end.
+     * </pre>
+     *
+     * <code>LINK_OPERATIONAL_STATUS_UP = 305879862;</code>
+     */
+    LINK_OPERATIONAL_STATUS_UP(305879862),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * A value indicating that the enum field is not set.
+     * </pre>
+     *
+     * <code>UNDEFINED_OPERATIONAL_STATUS = 0;</code>
+     */
+    public static final int UNDEFINED_OPERATIONAL_STATUS_VALUE = 0;
+    /**
+     * <pre>
+     * The interface is unable to communicate with the remote end.
+     * </pre>
+     *
+     * <code>LINK_OPERATIONAL_STATUS_DOWN = 281653885;</code>
+     */
+    public static final int LINK_OPERATIONAL_STATUS_DOWN_VALUE = 281653885;
+    /**
+     * <pre>
+     * The interface has low level communication with the remote end.
+     * </pre>
+     *
+     * <code>LINK_OPERATIONAL_STATUS_UP = 305879862;</code>
+     */
+    public static final int LINK_OPERATIONAL_STATUS_UP_VALUE = 305879862;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static OperationalStatus valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static OperationalStatus forNumber(int value) {
+      switch (value) {
+        case 0: return UNDEFINED_OPERATIONAL_STATUS;
+        case 281653885: return LINK_OPERATIONAL_STATUS_DOWN;
+        case 305879862: return LINK_OPERATIONAL_STATUS_UP;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<OperationalStatus>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        OperationalStatus> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<OperationalStatus>() {
+            public OperationalStatus findValueByNumber(int number) {
+              return OperationalStatus.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final OperationalStatus[] VALUES = values();
+
+    public static OperationalStatus valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private OperationalStatus(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus.OperationalStatus)
+  }
+
   private int bitField0_;
   public static final int ARP_CACHES_FIELD_NUMBER = 414591761;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.InterconnectDiagnosticsARPEntry> arpCaches_;
   /**
    * <pre>
@@ -214,7 +258,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIRCUIT_ID_FIELD_NUMBER = 225180977;
-  private volatile java.lang.Object circuitId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object circuitId_ = "";
   /**
    * <pre>
    * The unique ID for this link assigned during turn up by Google.
@@ -272,7 +317,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GOOGLE_DEMARC_FIELD_NUMBER = 51084;
-  private volatile java.lang.Object googleDemarc_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object googleDemarc_ = "";
   /**
    * <pre>
    * The Demarc address assigned by Google and provided in the LoA.
@@ -355,6 +401,68 @@ private static final long serialVersionUID = 0L;
     return lacpStatus_ == null ? com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.getDefaultInstance() : lacpStatus_;
   }
 
+  public static final int OPERATIONAL_STATUS_FIELD_NUMBER = 201070847;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object operationalStatus_ = "";
+  /**
+   * <pre>
+   * The operational status of the link.
+   * Check the OperationalStatus enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string operational_status = 201070847;</code>
+   * @return Whether the operationalStatus field is set.
+   */
+  @java.lang.Override
+  public boolean hasOperationalStatus() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * The operational status of the link.
+   * Check the OperationalStatus enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string operational_status = 201070847;</code>
+   * @return The operationalStatus.
+   */
+  @java.lang.Override
+  public java.lang.String getOperationalStatus() {
+    java.lang.Object ref = operationalStatus_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      operationalStatus_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The operational status of the link.
+   * Check the OperationalStatus enum for the list of possible values.
+   * </pre>
+   *
+   * <code>optional string operational_status = 201070847;</code>
+   * @return The bytes for operationalStatus.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getOperationalStatusBytes() {
+    java.lang.Object ref = operationalStatus_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      operationalStatus_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int RECEIVING_OPTICAL_POWER_FIELD_NUMBER = 244717279;
   private com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower receivingOpticalPower_;
   /**
@@ -367,7 +475,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasReceivingOpticalPower() {
-    return ((bitField0_ & 0x00000008) != 0);
+    return ((bitField0_ & 0x00000010) != 0);
   }
   /**
    * <pre>
@@ -405,7 +513,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasTransmittingOpticalPower() {
-    return ((bitField0_ & 0x00000010) != 0);
+    return ((bitField0_ & 0x00000020) != 0);
   }
   /**
    * <pre>
@@ -448,10 +556,13 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 51084, googleDemarc_);
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 201070847, operationalStatus_);
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 225180977, circuitId_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       output.writeMessage(244717279, getReceivingOpticalPower());
     }
     if (((bitField0_ & 0x00000004) != 0)) {
@@ -460,10 +571,10 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < arpCaches_.size(); i++) {
       output.writeMessage(414591761, arpCaches_.get(i));
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       output.writeMessage(459431197, getTransmittingOpticalPower());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -475,10 +586,13 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(51084, googleDemarc_);
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(201070847, operationalStatus_);
+    }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(225180977, circuitId_);
     }
-    if (((bitField0_ & 0x00000008) != 0)) {
+    if (((bitField0_ & 0x00000010) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(244717279, getReceivingOpticalPower());
     }
@@ -490,11 +604,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(414591761, arpCaches_.get(i));
     }
-    if (((bitField0_ & 0x00000010) != 0)) {
+    if (((bitField0_ & 0x00000020) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(459431197, getTransmittingOpticalPower());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -526,6 +640,11 @@ private static final long serialVersionUID = 0L;
       if (!getLacpStatus()
           .equals(other.getLacpStatus())) return false;
     }
+    if (hasOperationalStatus() != other.hasOperationalStatus()) return false;
+    if (hasOperationalStatus()) {
+      if (!getOperationalStatus()
+          .equals(other.getOperationalStatus())) return false;
+    }
     if (hasReceivingOpticalPower() != other.hasReceivingOpticalPower()) return false;
     if (hasReceivingOpticalPower()) {
       if (!getReceivingOpticalPower()
@@ -536,7 +655,7 @@ private static final long serialVersionUID = 0L;
       if (!getTransmittingOpticalPower()
           .equals(other.getTransmittingOpticalPower())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -563,6 +682,10 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LACP_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getLacpStatus().hashCode();
     }
+    if (hasOperationalStatus()) {
+      hash = (37 * hash) + OPERATIONAL_STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getOperationalStatus().hashCode();
+    }
     if (hasReceivingOpticalPower()) {
       hash = (37 * hash) + RECEIVING_OPTICAL_POWER_FIELD_NUMBER;
       hash = (53 * hash) + getReceivingOpticalPower().hashCode();
@@ -571,7 +694,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRANSMITTING_OPTICAL_POWER_FIELD_NUMBER;
       hash = (53 * hash) + getTransmittingOpticalPower().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -711,34 +834,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (arpCachesBuilder_ == null) {
         arpCaches_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        arpCaches_ = null;
         arpCachesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       circuitId_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       googleDemarc_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (lacpStatusBuilder_ == null) {
-        lacpStatus_ = null;
-      } else {
-        lacpStatusBuilder_.clear();
+      lacpStatus_ = null;
+      if (lacpStatusBuilder_ != null) {
+        lacpStatusBuilder_.dispose();
+        lacpStatusBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000008);
-      if (receivingOpticalPowerBuilder_ == null) {
-        receivingOpticalPower_ = null;
-      } else {
-        receivingOpticalPowerBuilder_.clear();
+      operationalStatus_ = "";
+      receivingOpticalPower_ = null;
+      if (receivingOpticalPowerBuilder_ != null) {
+        receivingOpticalPowerBuilder_.dispose();
+        receivingOpticalPowerBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (transmittingOpticalPowerBuilder_ == null) {
-        transmittingOpticalPower_ = null;
-      } else {
-        transmittingOpticalPowerBuilder_.clear();
+      transmittingOpticalPower_ = null;
+      if (transmittingOpticalPowerBuilder_ != null) {
+        transmittingOpticalPowerBuilder_.dispose();
+        transmittingOpticalPowerBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -765,8 +886,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus buildPartial() {
       com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus result = new com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus result) {
       if (arpCachesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           arpCaches_ = java.util.Collections.unmodifiableList(arpCaches_);
@@ -776,41 +902,42 @@ private static final long serialVersionUID = 0L;
       } else {
         result.arpCaches_ = arpCachesBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.circuitId_ = circuitId_;
         to_bitField0_ |= 0x00000001;
       }
-      result.circuitId_ = circuitId_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.googleDemarc_ = googleDemarc_;
         to_bitField0_ |= 0x00000002;
       }
-      result.googleDemarc_ = googleDemarc_;
       if (((from_bitField0_ & 0x00000008) != 0)) {
-        if (lacpStatusBuilder_ == null) {
-          result.lacpStatus_ = lacpStatus_;
-        } else {
-          result.lacpStatus_ = lacpStatusBuilder_.build();
-        }
+        result.lacpStatus_ = lacpStatusBuilder_ == null
+            ? lacpStatus_
+            : lacpStatusBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
-        if (receivingOpticalPowerBuilder_ == null) {
-          result.receivingOpticalPower_ = receivingOpticalPower_;
-        } else {
-          result.receivingOpticalPower_ = receivingOpticalPowerBuilder_.build();
-        }
+        result.operationalStatus_ = operationalStatus_;
         to_bitField0_ |= 0x00000008;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
-        if (transmittingOpticalPowerBuilder_ == null) {
-          result.transmittingOpticalPower_ = transmittingOpticalPower_;
-        } else {
-          result.transmittingOpticalPower_ = transmittingOpticalPowerBuilder_.build();
-        }
+        result.receivingOpticalPower_ = receivingOpticalPowerBuilder_ == null
+            ? receivingOpticalPower_
+            : receivingOpticalPowerBuilder_.build();
         to_bitField0_ |= 0x00000010;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.transmittingOpticalPower_ = transmittingOpticalPowerBuilder_ == null
+            ? transmittingOpticalPower_
+            : transmittingOpticalPowerBuilder_.build();
+        to_bitField0_ |= 0x00000020;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -884,17 +1011,22 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasCircuitId()) {
-        bitField0_ |= 0x00000002;
         circuitId_ = other.circuitId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasGoogleDemarc()) {
-        bitField0_ |= 0x00000004;
         googleDemarc_ = other.googleDemarc_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasLacpStatus()) {
         mergeLacpStatus(other.getLacpStatus());
+      }
+      if (other.hasOperationalStatus()) {
+        operationalStatus_ = other.operationalStatus_;
+        bitField0_ |= 0x00000010;
+        onChanged();
       }
       if (other.hasReceivingOpticalPower()) {
         mergeReceivingOpticalPower(other.getReceivingOpticalPower());
@@ -902,7 +1034,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTransmittingOpticalPower()) {
         mergeTransmittingOpticalPower(other.getTransmittingOpticalPower());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -917,17 +1049,79 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 408674: {
+              googleDemarc_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 408674
+            case 1608566778: {
+              operationalStatus_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1608566778
+            case 1801447818: {
+              circuitId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1801447818
+            case 1957738234: {
+              input.readMessage(
+                  getReceivingOpticalPowerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1957738234
+            case -1405283974: {
+              input.readMessage(
+                  getLacpStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case -1405283974
+            case -978233206: {
+              com.google.cloud.compute.v1.InterconnectDiagnosticsARPEntry m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.InterconnectDiagnosticsARPEntry.parser(),
+                      extensionRegistry);
+              if (arpCachesBuilder_ == null) {
+                ensureArpCachesIsMutable();
+                arpCaches_.add(m);
+              } else {
+                arpCachesBuilder_.addMessage(m);
+              }
+              break;
+            } // case -978233206
+            case -619517718: {
+              input.readMessage(
+                  getTransmittingOpticalPowerFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case -619517718
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.InterconnectDiagnosticsLinkStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1308,11 +1502,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCircuitId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       circuitId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1325,8 +1517,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCircuitId() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       circuitId_ = getDefaultInstance().getCircuitId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1341,12 +1533,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCircuitIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       circuitId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1415,11 +1605,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleDemarc(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       googleDemarc_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1432,8 +1620,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGoogleDemarc() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       googleDemarc_ = getDefaultInstance().getGoogleDemarc();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1448,12 +1636,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGoogleDemarcBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       googleDemarc_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1488,11 +1674,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lacpStatus_ = value;
-        onChanged();
       } else {
         lacpStatusBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1502,11 +1688,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.Builder builderForValue) {
       if (lacpStatusBuilder_ == null) {
         lacpStatus_ = builderForValue.build();
-        onChanged();
       } else {
         lacpStatusBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1515,31 +1701,30 @@ private static final long serialVersionUID = 0L;
     public Builder mergeLacpStatus(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus value) {
       if (lacpStatusBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0) &&
-            lacpStatus_ != null &&
-            lacpStatus_ != com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.getDefaultInstance()) {
-          lacpStatus_ =
-            com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.newBuilder(lacpStatus_).mergeFrom(value).buildPartial();
+          lacpStatus_ != null &&
+          lacpStatus_ != com.google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus.getDefaultInstance()) {
+          getLacpStatusBuilder().mergeFrom(value);
         } else {
           lacpStatus_ = value;
         }
-        onChanged();
       } else {
         lacpStatusBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .google.cloud.compute.v1.InterconnectDiagnosticsLinkLACPStatus lacp_status = 361210415;</code>
      */
     public Builder clearLacpStatus() {
-      if (lacpStatusBuilder_ == null) {
-        lacpStatus_ = null;
-        onChanged();
-      } else {
-        lacpStatusBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000008);
+      lacpStatus_ = null;
+      if (lacpStatusBuilder_ != null) {
+        lacpStatusBuilder_.dispose();
+        lacpStatusBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -1578,6 +1763,115 @@ private static final long serialVersionUID = 0L;
       return lacpStatusBuilder_;
     }
 
+    private java.lang.Object operationalStatus_ = "";
+    /**
+     * <pre>
+     * The operational status of the link.
+     * Check the OperationalStatus enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string operational_status = 201070847;</code>
+     * @return Whether the operationalStatus field is set.
+     */
+    public boolean hasOperationalStatus() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * The operational status of the link.
+     * Check the OperationalStatus enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string operational_status = 201070847;</code>
+     * @return The operationalStatus.
+     */
+    public java.lang.String getOperationalStatus() {
+      java.lang.Object ref = operationalStatus_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        operationalStatus_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The operational status of the link.
+     * Check the OperationalStatus enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string operational_status = 201070847;</code>
+     * @return The bytes for operationalStatus.
+     */
+    public com.google.protobuf.ByteString
+        getOperationalStatusBytes() {
+      java.lang.Object ref = operationalStatus_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        operationalStatus_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The operational status of the link.
+     * Check the OperationalStatus enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string operational_status = 201070847;</code>
+     * @param value The operationalStatus to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOperationalStatus(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      operationalStatus_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The operational status of the link.
+     * Check the OperationalStatus enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string operational_status = 201070847;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearOperationalStatus() {
+      operationalStatus_ = getDefaultInstance().getOperationalStatus();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The operational status of the link.
+     * Check the OperationalStatus enum for the list of possible values.
+     * </pre>
+     *
+     * <code>optional string operational_status = 201070847;</code>
+     * @param value The bytes for operationalStatus to set.
+     * @return This builder for chaining.
+     */
+    public Builder setOperationalStatusBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      operationalStatus_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
     private com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower receivingOpticalPower_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower, com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder, com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPowerOrBuilder> receivingOpticalPowerBuilder_;
@@ -1590,7 +1884,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the receivingOpticalPower field is set.
      */
     public boolean hasReceivingOpticalPower() {
-      return ((bitField0_ & 0x00000010) != 0);
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1620,11 +1914,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         receivingOpticalPower_ = value;
-        onChanged();
       } else {
         receivingOpticalPowerBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1638,11 +1932,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder builderForValue) {
       if (receivingOpticalPowerBuilder_ == null) {
         receivingOpticalPower_ = builderForValue.build();
-        onChanged();
       } else {
         receivingOpticalPowerBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1654,19 +1948,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeReceivingOpticalPower(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower value) {
       if (receivingOpticalPowerBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0) &&
-            receivingOpticalPower_ != null &&
-            receivingOpticalPower_ != com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.getDefaultInstance()) {
-          receivingOpticalPower_ =
-            com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.newBuilder(receivingOpticalPower_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          receivingOpticalPower_ != null &&
+          receivingOpticalPower_ != com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.getDefaultInstance()) {
+          getReceivingOpticalPowerBuilder().mergeFrom(value);
         } else {
           receivingOpticalPower_ = value;
         }
-        onChanged();
       } else {
         receivingOpticalPowerBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1677,13 +1970,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower receiving_optical_power = 244717279;</code>
      */
     public Builder clearReceivingOpticalPower() {
-      if (receivingOpticalPowerBuilder_ == null) {
-        receivingOpticalPower_ = null;
-        onChanged();
-      } else {
-        receivingOpticalPowerBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      receivingOpticalPower_ = null;
+      if (receivingOpticalPowerBuilder_ != null) {
+        receivingOpticalPowerBuilder_.dispose();
+        receivingOpticalPowerBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
       return this;
     }
     /**
@@ -1694,7 +1987,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower receiving_optical_power = 244717279;</code>
      */
     public com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder getReceivingOpticalPowerBuilder() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       onChanged();
       return getReceivingOpticalPowerFieldBuilder().getBuilder();
     }
@@ -1746,7 +2039,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transmittingOpticalPower field is set.
      */
     public boolean hasTransmittingOpticalPower() {
-      return ((bitField0_ & 0x00000020) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1776,11 +2069,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transmittingOpticalPower_ = value;
-        onChanged();
       } else {
         transmittingOpticalPowerBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1794,11 +2087,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder builderForValue) {
       if (transmittingOpticalPowerBuilder_ == null) {
         transmittingOpticalPower_ = builderForValue.build();
-        onChanged();
       } else {
         transmittingOpticalPowerBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1810,19 +2103,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransmittingOpticalPower(com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower value) {
       if (transmittingOpticalPowerBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0) &&
-            transmittingOpticalPower_ != null &&
-            transmittingOpticalPower_ != com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.getDefaultInstance()) {
-          transmittingOpticalPower_ =
-            com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.newBuilder(transmittingOpticalPower_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          transmittingOpticalPower_ != null &&
+          transmittingOpticalPower_ != com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.getDefaultInstance()) {
+          getTransmittingOpticalPowerBuilder().mergeFrom(value);
         } else {
           transmittingOpticalPower_ = value;
         }
-        onChanged();
       } else {
         transmittingOpticalPowerBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1833,13 +2125,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower transmitting_optical_power = 459431197;</code>
      */
     public Builder clearTransmittingOpticalPower() {
-      if (transmittingOpticalPowerBuilder_ == null) {
-        transmittingOpticalPower_ = null;
-        onChanged();
-      } else {
-        transmittingOpticalPowerBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      transmittingOpticalPower_ = null;
+      if (transmittingOpticalPowerBuilder_ != null) {
+        transmittingOpticalPowerBuilder_.dispose();
+        transmittingOpticalPowerBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
       return this;
     }
     /**
@@ -1850,7 +2142,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower transmitting_optical_power = 459431197;</code>
      */
     public com.google.cloud.compute.v1.InterconnectDiagnosticsLinkOpticalPower.Builder getTransmittingOpticalPowerBuilder() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       onChanged();
       return getTransmittingOpticalPowerFieldBuilder().getBuilder();
     }
@@ -1922,7 +2214,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InterconnectDiagnosticsLinkStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

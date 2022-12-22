@@ -36,73 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Address(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.SocketAddress.Builder subBuilder = null;
-            if (addressCase_ == 1) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.core.SocketAddress) address_).toBuilder();
-            }
-            address_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.core.SocketAddress.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.SocketAddress) address_);
-              address_ = subBuilder.buildPartial();
-            }
-            addressCase_ = 1;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.api.v2.core.Pipe.Builder subBuilder = null;
-            if (addressCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.api.v2.core.Pipe) address_).toBuilder();
-            }
-            address_ =
-                input.readMessage(io.envoyproxy.envoy.api.v2.core.Pipe.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.api.v2.core.Pipe) address_);
-              address_ = subBuilder.buildPartial();
-            }
-            addressCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.api.v2.core.AddressProto.internal_static_envoy_api_v2_core_Address_descriptor;
@@ -239,7 +172,7 @@ private static final long serialVersionUID = 0L;
     if (addressCase_ == 2) {
       output.writeMessage(2, (io.envoyproxy.envoy.api.v2.core.Pipe) address_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -256,7 +189,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (io.envoyproxy.envoy.api.v2.core.Pipe) address_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -284,7 +217,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -307,7 +240,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -430,22 +363,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.api.v2.core.Address.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (socketAddressBuilder_ != null) {
+        socketAddressBuilder_.clear();
+      }
+      if (pipeBuilder_ != null) {
+        pipeBuilder_.clear();
+      }
       addressCase_ = 0;
       address_ = null;
       return this;
@@ -474,23 +409,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.api.v2.core.Address buildPartial() {
       io.envoyproxy.envoy.api.v2.core.Address result = new io.envoyproxy.envoy.api.v2.core.Address(this);
-      if (addressCase_ == 1) {
-        if (socketAddressBuilder_ == null) {
-          result.address_ = address_;
-        } else {
-          result.address_ = socketAddressBuilder_.build();
-        }
-      }
-      if (addressCase_ == 2) {
-        if (pipeBuilder_ == null) {
-          result.address_ = address_;
-        } else {
-          result.address_ = pipeBuilder_.build();
-        }
-      }
-      result.addressCase_ = addressCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.api.v2.core.Address result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.api.v2.core.Address result) {
+      result.addressCase_ = addressCase_;
+      result.address_ = this.address_;
+      if (addressCase_ == 1 &&
+          socketAddressBuilder_ != null) {
+        result.address_ = socketAddressBuilder_.build();
+      }
+      if (addressCase_ == 2 &&
+          pipeBuilder_ != null) {
+        result.address_ = pipeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -550,7 +489,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -565,17 +504,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.api.v2.core.Address parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSocketAddressFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              addressCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPipeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              addressCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.api.v2.core.Address) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int addressCase_ = 0;
@@ -593,6 +559,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         io.envoyproxy.envoy.api.v2.core.SocketAddress, io.envoyproxy.envoy.api.v2.core.SocketAddress.Builder, io.envoyproxy.envoy.api.v2.core.SocketAddressOrBuilder> socketAddressBuilder_;
@@ -732,7 +699,7 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       addressCase_ = 1;
-      onChanged();;
+      onChanged();
       return socketAddressBuilder_;
     }
 
@@ -874,7 +841,7 @@ private static final long serialVersionUID = 0L;
         address_ = null;
       }
       addressCase_ = 2;
-      onChanged();;
+      onChanged();
       return pipeBuilder_;
     }
     @java.lang.Override
@@ -910,7 +877,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Address(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

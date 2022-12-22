@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Slots(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 16: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              slots_ = com.google.protobuf.MapField.newMapField(
-                  SlotsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.conversation.Slot>
-            slots__ = input.readMessage(
-                SlotsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            slots_.getMutableMap().put(
-                slots__.getKey(), slots__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.EventLogsProto.internal_static_google_actions_sdk_v2_Slots_descriptor;
@@ -120,7 +61,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATUS_FIELD_NUMBER = 2;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * The current status of slot filling.
@@ -141,8 +82,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.actions.sdk.v2.conversation.SlotFillingStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.actions.sdk.v2.conversation.SlotFillingStatus result = com.google.actions.sdk.v2.conversation.SlotFillingStatus.valueOf(status_);
+    com.google.actions.sdk.v2.conversation.SlotFillingStatus result = com.google.actions.sdk.v2.conversation.SlotFillingStatus.forNumber(status_);
     return result == null ? com.google.actions.sdk.v2.conversation.SlotFillingStatus.UNRECOGNIZED : result;
   }
 
@@ -158,6 +98,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.actions.sdk.v2.conversation.Slot.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.actions.sdk.v2.conversation.Slot> slots_;
   private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.Slot>
@@ -168,7 +109,6 @@ private static final long serialVersionUID = 0L;
     }
     return slots_;
   }
-
   public int getSlotsCount() {
     return internalGetSlots().getMap().size();
   }
@@ -179,7 +119,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsSlots(
       java.lang.String key) {
@@ -202,7 +141,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.Slot> getSlotsMap() {
     return internalGetSlots().getMap();
   }
@@ -214,10 +152,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
    */
   @java.lang.Override
-
-  public com.google.actions.sdk.v2.conversation.Slot getSlotsOrDefault(
+  public /* nullable */
+com.google.actions.sdk.v2.conversation.Slot getSlotsOrDefault(
       java.lang.String key,
-      com.google.actions.sdk.v2.conversation.Slot defaultValue) {
+      /* nullable */
+com.google.actions.sdk.v2.conversation.Slot defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.Slot> map =
         internalGetSlots().getMap();
@@ -231,7 +170,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
    */
   @java.lang.Override
-
   public com.google.actions.sdk.v2.conversation.Slot getSlotsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -266,7 +204,7 @@ private static final long serialVersionUID = 0L;
         internalGetSlots(),
         SlotsDefaultEntryHolder.defaultEntry,
         3);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -289,7 +227,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, slots__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -307,7 +245,7 @@ private static final long serialVersionUID = 0L;
     if (status_ != other.status_) return false;
     if (!internalGetSlots().equals(
         other.internalGetSlots())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -324,7 +262,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SLOTS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSlots().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -467,24 +405,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.Slots.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       status_ = 0;
-
       internalGetMutableSlots().clear();
       return this;
     }
@@ -512,12 +445,20 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.Slots buildPartial() {
       com.google.actions.sdk.v2.Slots result = new com.google.actions.sdk.v2.Slots(this);
-      int from_bitField0_ = bitField0_;
-      result.status_ = status_;
-      result.slots_ = internalGetSlots();
-      result.slots_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.Slots result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.status_ = status_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.slots_ = internalGetSlots();
+        result.slots_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -569,7 +510,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableSlots().mergeFrom(
           other.internalGetSlots());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -584,17 +526,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.Slots parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 16
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.actions.sdk.v2.conversation.Slot>
+              slots__ = input.readMessage(
+                  SlotsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSlots().getMutableMap().put(
+                  slots__.getKey(), slots__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.Slots) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -621,8 +590,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -636,8 +605,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.actions.sdk.v2.conversation.SlotFillingStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.actions.sdk.v2.conversation.SlotFillingStatus result = com.google.actions.sdk.v2.conversation.SlotFillingStatus.valueOf(status_);
+      com.google.actions.sdk.v2.conversation.SlotFillingStatus result = com.google.actions.sdk.v2.conversation.SlotFillingStatus.forNumber(status_);
       return result == null ? com.google.actions.sdk.v2.conversation.SlotFillingStatus.UNRECOGNIZED : result;
     }
     /**
@@ -653,7 +621,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -667,7 +635,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       status_ = 0;
       onChanged();
       return this;
@@ -676,7 +644,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.actions.sdk.v2.conversation.Slot> slots_;
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.Slot>
-    internalGetSlots() {
+        internalGetSlots() {
       if (slots_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SlotsDefaultEntryHolder.defaultEntry);
@@ -684,8 +652,7 @@ private static final long serialVersionUID = 0L;
       return slots_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.actions.sdk.v2.conversation.Slot>
-    internalGetMutableSlots() {
-      onChanged();;
+        internalGetMutableSlots() {
       if (slots_ == null) {
         slots_ = com.google.protobuf.MapField.newMapField(
             SlotsDefaultEntryHolder.defaultEntry);
@@ -693,9 +660,10 @@ private static final long serialVersionUID = 0L;
       if (!slots_.isMutable()) {
         slots_ = slots_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return slots_;
     }
-
     public int getSlotsCount() {
       return internalGetSlots().getMap().size();
     }
@@ -706,7 +674,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsSlots(
         java.lang.String key) {
@@ -729,7 +696,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.Slot> getSlotsMap() {
       return internalGetSlots().getMap();
     }
@@ -741,10 +707,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.actions.sdk.v2.conversation.Slot getSlotsOrDefault(
+    public /* nullable */
+com.google.actions.sdk.v2.conversation.Slot getSlotsOrDefault(
         java.lang.String key,
-        com.google.actions.sdk.v2.conversation.Slot defaultValue) {
+        /* nullable */
+com.google.actions.sdk.v2.conversation.Slot defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.Slot> map =
           internalGetSlots().getMap();
@@ -758,7 +725,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
      */
     @java.lang.Override
-
     public com.google.actions.sdk.v2.conversation.Slot getSlotsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -769,8 +735,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSlots() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableSlots().getMutableMap()
           .clear();
       return this;
@@ -782,7 +748,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
      */
-
     public Builder removeSlots(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -795,7 +760,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.Slot>
-    getMutableSlots() {
+        getMutableSlots() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableSlots().getMutableMap();
     }
     /**
@@ -809,12 +775,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.actions.sdk.v2.conversation.Slot value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableSlots().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -824,11 +788,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.actions.sdk.v2.conversation.Slot&gt; slots = 3;</code>
      */
-
     public Builder putAllSlots(
         java.util.Map<java.lang.String, com.google.actions.sdk.v2.conversation.Slot> values) {
       internalGetMutableSlots().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -864,7 +828,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Slots(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

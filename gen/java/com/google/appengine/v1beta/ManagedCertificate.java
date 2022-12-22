@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ManagedCertificate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (lastRenewalTime_ != null) {
-              subBuilder = lastRenewalTime_.toBuilder();
-            }
-            lastRenewalTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(lastRenewalTime_);
-              lastRenewalTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            status_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.appengine.v1beta.CertificateProto.internal_static_google_appengine_v1beta_ManagedCertificate_descriptor;
@@ -150,11 +92,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getLastRenewalTimeOrBuilder() {
-    return getLastRenewalTime();
+    return lastRenewalTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastRenewalTime_;
   }
 
   public static final int STATUS_FIELD_NUMBER = 2;
-  private int status_;
+  private int status_ = 0;
   /**
    * <pre>
    * Status of certificate management. Refers to the most recent certificate
@@ -179,8 +121,7 @@ private static final long serialVersionUID = 0L;
    * @return The status.
    */
   @java.lang.Override public com.google.appengine.v1beta.ManagementStatus getStatus() {
-    @SuppressWarnings("deprecation")
-    com.google.appengine.v1beta.ManagementStatus result = com.google.appengine.v1beta.ManagementStatus.valueOf(status_);
+    com.google.appengine.v1beta.ManagementStatus result = com.google.appengine.v1beta.ManagementStatus.forNumber(status_);
     return result == null ? com.google.appengine.v1beta.ManagementStatus.UNRECOGNIZED : result;
   }
 
@@ -204,7 +145,7 @@ private static final long serialVersionUID = 0L;
     if (status_ != com.google.appengine.v1beta.ManagementStatus.MANAGEMENT_STATUS_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, status_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -221,7 +162,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, status_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -242,7 +183,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getLastRenewalTime())) return false;
     }
     if (status_ != other.status_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -259,7 +200,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + STATUS_FIELD_NUMBER;
     hash = (53 * hash) + status_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -380,30 +321,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.appengine.v1beta.ManagedCertificate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (lastRenewalTimeBuilder_ == null) {
-        lastRenewalTime_ = null;
-      } else {
-        lastRenewalTime_ = null;
+      bitField0_ = 0;
+      lastRenewalTime_ = null;
+      if (lastRenewalTimeBuilder_ != null) {
+        lastRenewalTimeBuilder_.dispose();
         lastRenewalTimeBuilder_ = null;
       }
       status_ = 0;
-
       return this;
     }
 
@@ -430,14 +365,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.appengine.v1beta.ManagedCertificate buildPartial() {
       com.google.appengine.v1beta.ManagedCertificate result = new com.google.appengine.v1beta.ManagedCertificate(this);
-      if (lastRenewalTimeBuilder_ == null) {
-        result.lastRenewalTime_ = lastRenewalTime_;
-      } else {
-        result.lastRenewalTime_ = lastRenewalTimeBuilder_.build();
-      }
-      result.status_ = status_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.appengine.v1beta.ManagedCertificate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.lastRenewalTime_ = lastRenewalTimeBuilder_ == null
+            ? lastRenewalTime_
+            : lastRenewalTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.status_ = status_;
+      }
     }
 
     @java.lang.Override
@@ -490,7 +432,7 @@ private static final long serialVersionUID = 0L;
       if (other.status_ != 0) {
         setStatusValue(other.getStatusValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -505,19 +447,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.appengine.v1beta.ManagedCertificate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLastRenewalTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              status_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.appengine.v1beta.ManagedCertificate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.Timestamp lastRenewalTime_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -534,7 +502,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the lastRenewalTime field is set.
      */
     public boolean hasLastRenewalTime() {
-      return lastRenewalTimeBuilder_ != null || lastRenewalTime_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -570,11 +538,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         lastRenewalTime_ = value;
-        onChanged();
       } else {
         lastRenewalTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -591,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (lastRenewalTimeBuilder_ == null) {
         lastRenewalTime_ = builderForValue.build();
-        onChanged();
       } else {
         lastRenewalTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -610,17 +578,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLastRenewalTime(com.google.protobuf.Timestamp value) {
       if (lastRenewalTimeBuilder_ == null) {
-        if (lastRenewalTime_ != null) {
-          lastRenewalTime_ =
-            com.google.protobuf.Timestamp.newBuilder(lastRenewalTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          lastRenewalTime_ != null &&
+          lastRenewalTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getLastRenewalTimeBuilder().mergeFrom(value);
         } else {
           lastRenewalTime_ = value;
         }
-        onChanged();
       } else {
         lastRenewalTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +603,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_renewal_time = 1;</code>
      */
     public Builder clearLastRenewalTime() {
-      if (lastRenewalTimeBuilder_ == null) {
-        lastRenewalTime_ = null;
-        onChanged();
-      } else {
-        lastRenewalTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      lastRenewalTime_ = null;
+      if (lastRenewalTimeBuilder_ != null) {
+        lastRenewalTimeBuilder_.dispose();
         lastRenewalTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -655,7 +623,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp last_renewal_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getLastRenewalTimeBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLastRenewalTimeFieldBuilder().getBuilder();
     }
@@ -727,8 +695,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStatusValue(int value) {
-      
       status_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -744,8 +712,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.appengine.v1beta.ManagementStatus getStatus() {
-      @SuppressWarnings("deprecation")
-      com.google.appengine.v1beta.ManagementStatus result = com.google.appengine.v1beta.ManagementStatus.valueOf(status_);
+      com.google.appengine.v1beta.ManagementStatus result = com.google.appengine.v1beta.ManagementStatus.forNumber(status_);
       return result == null ? com.google.appengine.v1beta.ManagementStatus.UNRECOGNIZED : result;
     }
     /**
@@ -763,7 +730,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       status_ = value.getNumber();
       onChanged();
       return this;
@@ -779,7 +746,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatus() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       status_ = 0;
       onChanged();
       return this;
@@ -817,7 +784,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ManagedCertificate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -10,7 +10,8 @@ public interface GetServiceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The full name of the Service.
-   * Format: projects/{projectnumber}/locations/{location}/services/{service}
+   * Format: projects/{project}/locations/{location}/services/{service}, where
+   * {project} can be project id or number.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +21,8 @@ public interface GetServiceRequestOrBuilder extends
   /**
    * <pre>
    * Required. The full name of the Service.
-   * Format: projects/{projectnumber}/locations/{location}/services/{service}
+   * Format: projects/{project}/locations/{location}/services/{service}, where
+   * {project} can be project id or number.
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

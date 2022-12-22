@@ -34,72 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ScoreMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.recaptchaenterprise.v1.ScoreDistribution.Builder subBuilder = null;
-            if (overallMetrics_ != null) {
-              subBuilder = overallMetrics_.toBuilder();
-            }
-            overallMetrics_ = input.readMessage(com.google.recaptchaenterprise.v1.ScoreDistribution.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(overallMetrics_);
-              overallMetrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              actionMetrics_ = com.google.protobuf.MapField.newMapField(
-                  ActionMetricsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution>
-            actionMetrics__ = input.readMessage(
-                ActionMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            actionMetrics_.getMutableMap().put(
-                actionMetrics__.getKey(), actionMetrics__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_ScoreMetrics_descriptor;
@@ -160,7 +94,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.recaptchaenterprise.v1.ScoreDistributionOrBuilder getOverallMetricsOrBuilder() {
-    return getOverallMetrics();
+    return overallMetrics_ == null ? com.google.recaptchaenterprise.v1.ScoreDistribution.getDefaultInstance() : overallMetrics_;
   }
 
   public static final int ACTION_METRICS_FIELD_NUMBER = 2;
@@ -175,6 +109,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.recaptchaenterprise.v1.ScoreDistribution.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> actionMetrics_;
   private com.google.protobuf.MapField<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution>
@@ -185,7 +120,6 @@ private static final long serialVersionUID = 0L;
     }
     return actionMetrics_;
   }
-
   public int getActionMetricsCount() {
     return internalGetActionMetrics().getMap().size();
   }
@@ -193,12 +127,10 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsActionMetrics(
       java.lang.String key) {
@@ -217,13 +149,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> getActionMetricsMap() {
     return internalGetActionMetrics().getMap();
   }
@@ -231,16 +161,16 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
    */
   @java.lang.Override
-
-  public com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrDefault(
+  public /* nullable */
+com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrDefault(
       java.lang.String key,
-      com.google.recaptchaenterprise.v1.ScoreDistribution defaultValue) {
+      /* nullable */
+com.google.recaptchaenterprise.v1.ScoreDistribution defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> map =
         internalGetActionMetrics().getMap();
@@ -250,13 +180,11 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Action-based metrics. The map key is the action name which specified by the
    * site owners at time of the "execute" client-side call.
-   * Populated only for SCORE keys.
    * </pre>
    *
    * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
    */
   @java.lang.Override
-
   public com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -291,7 +219,7 @@ private static final long serialVersionUID = 0L;
         internalGetActionMetrics(),
         ActionMetricsDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -314,7 +242,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, actionMetrics__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -336,7 +264,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetActionMetrics().equals(
         other.internalGetActionMetrics())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -355,7 +283,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACTION_METRICS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetActionMetrics().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -498,26 +426,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.ScoreMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (overallMetricsBuilder_ == null) {
-        overallMetrics_ = null;
-      } else {
-        overallMetrics_ = null;
+      bitField0_ = 0;
+      overallMetrics_ = null;
+      if (overallMetricsBuilder_ != null) {
+        overallMetricsBuilder_.dispose();
         overallMetricsBuilder_ = null;
       }
       internalGetMutableActionMetrics().clear();
@@ -547,16 +470,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.ScoreMetrics buildPartial() {
       com.google.recaptchaenterprise.v1.ScoreMetrics result = new com.google.recaptchaenterprise.v1.ScoreMetrics(this);
-      int from_bitField0_ = bitField0_;
-      if (overallMetricsBuilder_ == null) {
-        result.overallMetrics_ = overallMetrics_;
-      } else {
-        result.overallMetrics_ = overallMetricsBuilder_.build();
-      }
-      result.actionMetrics_ = internalGetActionMetrics();
-      result.actionMetrics_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.ScoreMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.overallMetrics_ = overallMetricsBuilder_ == null
+            ? overallMetrics_
+            : overallMetricsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.actionMetrics_ = internalGetActionMetrics();
+        result.actionMetrics_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -608,7 +537,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableActionMetrics().mergeFrom(
           other.internalGetActionMetrics());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -623,17 +553,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.ScoreMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOverallMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution>
+              actionMetrics__ = input.readMessage(
+                  ActionMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableActionMetrics().getMutableMap().put(
+                  actionMetrics__.getKey(), actionMetrics__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.ScoreMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -650,7 +609,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the overallMetrics field is set.
      */
     public boolean hasOverallMetrics() {
-      return overallMetricsBuilder_ != null || overallMetrics_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -680,11 +639,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         overallMetrics_ = value;
-        onChanged();
       } else {
         overallMetricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -698,11 +657,11 @@ private static final long serialVersionUID = 0L;
         com.google.recaptchaenterprise.v1.ScoreDistribution.Builder builderForValue) {
       if (overallMetricsBuilder_ == null) {
         overallMetrics_ = builderForValue.build();
-        onChanged();
       } else {
         overallMetricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -714,17 +673,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOverallMetrics(com.google.recaptchaenterprise.v1.ScoreDistribution value) {
       if (overallMetricsBuilder_ == null) {
-        if (overallMetrics_ != null) {
-          overallMetrics_ =
-            com.google.recaptchaenterprise.v1.ScoreDistribution.newBuilder(overallMetrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          overallMetrics_ != null &&
+          overallMetrics_ != com.google.recaptchaenterprise.v1.ScoreDistribution.getDefaultInstance()) {
+          getOverallMetricsBuilder().mergeFrom(value);
         } else {
           overallMetrics_ = value;
         }
-        onChanged();
       } else {
         overallMetricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -735,14 +695,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.ScoreDistribution overall_metrics = 1;</code>
      */
     public Builder clearOverallMetrics() {
-      if (overallMetricsBuilder_ == null) {
-        overallMetrics_ = null;
-        onChanged();
-      } else {
-        overallMetrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      overallMetrics_ = null;
+      if (overallMetricsBuilder_ != null) {
+        overallMetricsBuilder_.dispose();
         overallMetricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -753,7 +712,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.recaptchaenterprise.v1.ScoreDistribution overall_metrics = 1;</code>
      */
     public com.google.recaptchaenterprise.v1.ScoreDistribution.Builder getOverallMetricsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOverallMetricsFieldBuilder().getBuilder();
     }
@@ -796,7 +755,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> actionMetrics_;
     private com.google.protobuf.MapField<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution>
-    internalGetActionMetrics() {
+        internalGetActionMetrics() {
       if (actionMetrics_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ActionMetricsDefaultEntryHolder.defaultEntry);
@@ -804,8 +763,7 @@ private static final long serialVersionUID = 0L;
       return actionMetrics_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution>
-    internalGetMutableActionMetrics() {
-      onChanged();;
+        internalGetMutableActionMetrics() {
       if (actionMetrics_ == null) {
         actionMetrics_ = com.google.protobuf.MapField.newMapField(
             ActionMetricsDefaultEntryHolder.defaultEntry);
@@ -813,9 +771,10 @@ private static final long serialVersionUID = 0L;
       if (!actionMetrics_.isMutable()) {
         actionMetrics_ = actionMetrics_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return actionMetrics_;
     }
-
     public int getActionMetricsCount() {
       return internalGetActionMetrics().getMap().size();
     }
@@ -823,12 +782,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsActionMetrics(
         java.lang.String key) {
@@ -847,13 +804,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> getActionMetricsMap() {
       return internalGetActionMetrics().getMap();
     }
@@ -861,16 +816,16 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrDefault(
+    public /* nullable */
+com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrDefault(
         java.lang.String key,
-        com.google.recaptchaenterprise.v1.ScoreDistribution defaultValue) {
+        /* nullable */
+com.google.recaptchaenterprise.v1.ScoreDistribution defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> map =
           internalGetActionMetrics().getMap();
@@ -880,13 +835,11 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
      */
     @java.lang.Override
-
     public com.google.recaptchaenterprise.v1.ScoreDistribution getActionMetricsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -897,8 +850,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearActionMetrics() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableActionMetrics().getMutableMap()
           .clear();
       return this;
@@ -907,12 +860,10 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
      */
-
     public Builder removeActionMetrics(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -925,14 +876,14 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution>
-    getMutableActionMetrics() {
+        getMutableActionMetrics() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableActionMetrics().getMutableMap();
     }
     /**
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
@@ -941,28 +892,25 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.recaptchaenterprise.v1.ScoreDistribution value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableActionMetrics().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
      * <pre>
      * Action-based metrics. The map key is the action name which specified by the
      * site owners at time of the "execute" client-side call.
-     * Populated only for SCORE keys.
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.recaptchaenterprise.v1.ScoreDistribution&gt; action_metrics = 2;</code>
      */
-
     public Builder putAllActionMetrics(
         java.util.Map<java.lang.String, com.google.recaptchaenterprise.v1.ScoreDistribution> values) {
       internalGetMutableActionMetrics().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -998,7 +946,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ScoreMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

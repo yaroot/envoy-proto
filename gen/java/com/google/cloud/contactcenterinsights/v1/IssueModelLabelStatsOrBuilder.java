@@ -67,7 +67,6 @@ public interface IssueModelLabelStatsOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_stats = 3;</code>
    */
-
   /* nullable */
 com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueStatsOrDefault(
       java.lang.String key,
@@ -80,7 +79,6 @@ com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats defaul
    *
    * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats&gt; issue_stats = 3;</code>
    */
-
   com.google.cloud.contactcenterinsights.v1.IssueModelLabelStats.IssueStats getIssueStatsOrThrow(
       java.lang.String key);
 }

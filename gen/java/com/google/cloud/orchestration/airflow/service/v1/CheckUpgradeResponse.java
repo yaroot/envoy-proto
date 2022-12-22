@@ -39,83 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CheckUpgradeResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            buildLogUri_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pypiConflictBuildLogExtract_ = s;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            containsPypiModulesConflict_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            imageVersion_ = s;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              pypiDependencies_ = com.google.protobuf.MapField.newMapField(
-                  PypiDependenciesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            pypiDependencies__ = input.readMessage(
-                PypiDependenciesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            pypiDependencies_.getMutableMap().put(
-                pypiDependencies__.getKey(), pypiDependencies__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1_CheckUpgradeResponse_descriptor;
@@ -287,7 +210,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BUILD_LOG_URI_FIELD_NUMBER = 1;
-  private volatile java.lang.Object buildLogUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object buildLogUri_ = "";
   /**
    * <pre>
    * Output only. Url for a docker build log of an upgraded image.
@@ -333,7 +257,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTAINS_PYPI_MODULES_CONFLICT_FIELD_NUMBER = 4;
-  private int containsPypiModulesConflict_;
+  private int containsPypiModulesConflict_ = 0;
   /**
    * <pre>
    * Output only. Whether build has succeeded or failed on modules conflicts.
@@ -354,13 +278,13 @@ private static final long serialVersionUID = 0L;
    * @return The containsPypiModulesConflict.
    */
   @java.lang.Override public com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult getContainsPypiModulesConflict() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult result = com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult.valueOf(containsPypiModulesConflict_);
+    com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult result = com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult.forNumber(containsPypiModulesConflict_);
     return result == null ? com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult.UNRECOGNIZED : result;
   }
 
   public static final int PYPI_CONFLICT_BUILD_LOG_EXTRACT_FIELD_NUMBER = 3;
-  private volatile java.lang.Object pypiConflictBuildLogExtract_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pypiConflictBuildLogExtract_ = "";
   /**
    * <pre>
    * Output only. Extract from a docker image build log containing information about pypi
@@ -408,7 +332,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMAGE_VERSION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object imageVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object imageVersion_ = "";
   /**
    * <pre>
    * Composer image for which the build was happening.
@@ -465,6 +390,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> pypiDependencies_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -475,7 +401,6 @@ private static final long serialVersionUID = 0L;
     }
     return pypiDependencies_;
   }
-
   public int getPypiDependenciesCount() {
     return internalGetPypiDependencies().getMap().size();
   }
@@ -487,7 +412,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
    */
-
   @java.lang.Override
   public boolean containsPypiDependencies(
       java.lang.String key) {
@@ -511,7 +435,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getPypiDependenciesMap() {
     return internalGetPypiDependencies().getMap();
   }
@@ -524,10 +447,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getPypiDependenciesOrDefault(
+  public /* nullable */
+java.lang.String getPypiDependenciesOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetPypiDependencies().getMap();
@@ -542,7 +466,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
    */
   @java.lang.Override
-
   public java.lang.String getPypiDependenciesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -586,7 +509,7 @@ private static final long serialVersionUID = 0L;
         internalGetPypiDependencies(),
         PypiDependenciesDefaultEntryHolder.defaultEntry,
         6);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -618,7 +541,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(6, pypiDependencies__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -642,7 +565,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getImageVersion())) return false;
     if (!internalGetPypiDependencies().equals(
         other.internalGetPypiDependencies())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -665,7 +588,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PYPI_DEPENDENCIES_FIELD_NUMBER;
       hash = (53 * hash) + internalGetPypiDependencies().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -809,30 +732,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       buildLogUri_ = "";
-
       containsPypiModulesConflict_ = 0;
-
       pypiConflictBuildLogExtract_ = "";
-
       imageVersion_ = "";
-
       internalGetMutablePypiDependencies().clear();
       return this;
     }
@@ -860,15 +775,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse result = new com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.buildLogUri_ = buildLogUri_;
-      result.containsPypiModulesConflict_ = containsPypiModulesConflict_;
-      result.pypiConflictBuildLogExtract_ = pypiConflictBuildLogExtract_;
-      result.imageVersion_ = imageVersion_;
-      result.pypiDependencies_ = internalGetPypiDependencies();
-      result.pypiDependencies_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.buildLogUri_ = buildLogUri_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.containsPypiModulesConflict_ = containsPypiModulesConflict_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pypiConflictBuildLogExtract_ = pypiConflictBuildLogExtract_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.imageVersion_ = imageVersion_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.pypiDependencies_ = internalGetPypiDependencies();
+        result.pypiDependencies_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -917,6 +846,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.getDefaultInstance()) return this;
       if (!other.getBuildLogUri().isEmpty()) {
         buildLogUri_ = other.buildLogUri_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.containsPypiModulesConflict_ != 0) {
@@ -924,15 +854,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPypiConflictBuildLogExtract().isEmpty()) {
         pypiConflictBuildLogExtract_ = other.pypiConflictBuildLogExtract_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getImageVersion().isEmpty()) {
         imageVersion_ = other.imageVersion_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       internalGetMutablePypiDependencies().mergeFrom(
           other.internalGetPypiDependencies());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000010;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -947,17 +880,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              buildLogUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              pypiConflictBuildLogExtract_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              containsPypiModulesConflict_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 32
+            case 42: {
+              imageVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              pypiDependencies__ = input.readMessage(
+                  PypiDependenciesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePypiDependencies().getMutableMap().put(
+                  pypiDependencies__.getKey(), pypiDependencies__.getValue());
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1015,11 +990,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuildLogUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       buildLogUri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1032,8 +1005,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBuildLogUri() {
-      
       buildLogUri_ = getDefaultInstance().getBuildLogUri();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1048,12 +1021,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBuildLogUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       buildLogUri_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1080,8 +1051,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setContainsPypiModulesConflictValue(int value) {
-      
       containsPypiModulesConflict_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1095,8 +1066,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult getContainsPypiModulesConflict() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult result = com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult.valueOf(containsPypiModulesConflict_);
+      com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult result = com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult.forNumber(containsPypiModulesConflict_);
       return result == null ? com.google.cloud.orchestration.airflow.service.v1.CheckUpgradeResponse.ConflictResult.UNRECOGNIZED : result;
     }
     /**
@@ -1112,7 +1082,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       containsPypiModulesConflict_ = value.getNumber();
       onChanged();
       return this;
@@ -1126,7 +1096,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearContainsPypiModulesConflict() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       containsPypiModulesConflict_ = 0;
       onChanged();
       return this;
@@ -1188,11 +1158,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPypiConflictBuildLogExtract(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pypiConflictBuildLogExtract_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1206,8 +1174,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPypiConflictBuildLogExtract() {
-      
       pypiConflictBuildLogExtract_ = getDefaultInstance().getPypiConflictBuildLogExtract();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1223,12 +1191,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPypiConflictBuildLogExtractBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pypiConflictBuildLogExtract_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1286,11 +1252,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       imageVersion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1303,8 +1267,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearImageVersion() {
-      
       imageVersion_ = getDefaultInstance().getImageVersion();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1319,12 +1283,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setImageVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       imageVersion_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1332,7 +1294,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> pypiDependencies_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetPypiDependencies() {
+        internalGetPypiDependencies() {
       if (pypiDependencies_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PypiDependenciesDefaultEntryHolder.defaultEntry);
@@ -1340,8 +1302,7 @@ private static final long serialVersionUID = 0L;
       return pypiDependencies_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutablePypiDependencies() {
-      onChanged();;
+        internalGetMutablePypiDependencies() {
       if (pypiDependencies_ == null) {
         pypiDependencies_ = com.google.protobuf.MapField.newMapField(
             PypiDependenciesDefaultEntryHolder.defaultEntry);
@@ -1349,9 +1310,10 @@ private static final long serialVersionUID = 0L;
       if (!pypiDependencies_.isMutable()) {
         pypiDependencies_ = pypiDependencies_.copy();
       }
+      bitField0_ |= 0x00000010;
+      onChanged();
       return pypiDependencies_;
     }
-
     public int getPypiDependenciesCount() {
       return internalGetPypiDependencies().getMap().size();
     }
@@ -1363,7 +1325,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsPypiDependencies(
         java.lang.String key) {
@@ -1387,7 +1348,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getPypiDependenciesMap() {
       return internalGetPypiDependencies().getMap();
     }
@@ -1400,10 +1360,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getPypiDependenciesOrDefault(
+    public /* nullable */
+java.lang.String getPypiDependenciesOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetPypiDependencies().getMap();
@@ -1418,7 +1379,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
      */
     @java.lang.Override
-
     public java.lang.String getPypiDependenciesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1429,8 +1389,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearPypiDependencies() {
+      bitField0_ = (bitField0_ & ~0x00000010);
       internalGetMutablePypiDependencies().getMutableMap()
           .clear();
       return this;
@@ -1443,7 +1403,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
      */
-
     public Builder removePypiDependencies(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1456,7 +1415,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutablePypiDependencies() {
+        getMutablePypiDependencies() {
+      bitField0_ |= 0x00000010;
       return internalGetMutablePypiDependencies().getMutableMap();
     }
     /**
@@ -1471,12 +1431,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePypiDependencies().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000010;
       return this;
     }
     /**
@@ -1487,11 +1445,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; pypi_dependencies = 6;</code>
      */
-
     public Builder putAllPypiDependencies(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutablePypiDependencies().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000010;
       return this;
     }
     @java.lang.Override
@@ -1527,7 +1485,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CheckUpgradeResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

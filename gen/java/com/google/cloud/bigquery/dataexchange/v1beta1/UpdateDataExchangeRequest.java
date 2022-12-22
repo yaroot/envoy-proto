@@ -5,7 +5,7 @@ package com.google.cloud.bigquery.dataexchange.v1beta1;
 
 /**
  * <pre>
- * Message for updating a DataExchange.
+ * Message for updating a data exchange.
  * </pre>
  *
  * Protobuf type {@code google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest}
@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateDataExchangeRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.Builder subBuilder = null;
-            if (dataExchange_ != null) {
-              subBuilder = dataExchange_.toBuilder();
-            }
-            dataExchange_ = input.readMessage(com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataExchange_);
-              dataExchange_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.dataexchange.v1beta1.DataExchangeProto.internal_static_google_cloud_bigquery_dataexchange_v1beta1_UpdateDataExchangeRequest_descriptor;
@@ -116,10 +51,9 @@ private static final long serialVersionUID = 0L;
   private com.google.protobuf.FieldMask updateMask_;
   /**
    * <pre>
-   * Required. Field mask is used to specify the fields to be overwritten in the
-   * DataExchange resource by the update.
-   * The fields specified in the update_mask are relative to the resource, not
-   * the full request.
+   * Required. Field mask specifies the fields to update in the data exchange
+   * resource. The fields specified in the
+   * `updateMask` are relative to the resource and are not a full request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -131,10 +65,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Field mask is used to specify the fields to be overwritten in the
-   * DataExchange resource by the update.
-   * The fields specified in the update_mask are relative to the resource, not
-   * the full request.
+   * Required. Field mask specifies the fields to update in the data exchange
+   * resource. The fields specified in the
+   * `updateMask` are relative to the resource and are not a full request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -146,24 +79,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Field mask is used to specify the fields to be overwritten in the
-   * DataExchange resource by the update.
-   * The fields specified in the update_mask are relative to the resource, not
-   * the full request.
+   * Required. Field mask specifies the fields to update in the data exchange
+   * resource. The fields specified in the
+   * `updateMask` are relative to the resource and are not a full request.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int DATA_EXCHANGE_FIELD_NUMBER = 2;
   private com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange dataExchange_;
   /**
    * <pre>
-   * Required. The DataExchange to update.
+   * Required. The data exchange to update.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -175,7 +107,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The DataExchange to update.
+   * Required. The data exchange to update.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -187,14 +119,14 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The DataExchange to update.
+   * Required. The data exchange to update.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.bigquery.dataexchange.v1beta1.DataExchangeOrBuilder getDataExchangeOrBuilder() {
-    return getDataExchange();
+    return dataExchange_ == null ? com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.getDefaultInstance() : dataExchange_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -217,7 +149,7 @@ private static final long serialVersionUID = 0L;
     if (dataExchange_ != null) {
       output.writeMessage(2, getDataExchange());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -234,7 +166,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getDataExchange());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -259,7 +191,7 @@ private static final long serialVersionUID = 0L;
       if (!getDataExchange()
           .equals(other.getDataExchange())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -278,7 +210,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DATA_EXCHANGE_FIELD_NUMBER;
       hash = (53 * hash) + getDataExchange().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -375,7 +307,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Message for updating a DataExchange.
+   * Message for updating a data exchange.
    * </pre>
    *
    * Protobuf type {@code google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest}
@@ -399,32 +331,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      bitField0_ = 0;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-      if (dataExchangeBuilder_ == null) {
-        dataExchange_ = null;
-      } else {
-        dataExchange_ = null;
+      dataExchange_ = null;
+      if (dataExchangeBuilder_ != null) {
+        dataExchangeBuilder_.dispose();
         dataExchangeBuilder_ = null;
       }
       return this;
@@ -453,18 +379,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest buildPartial() {
       com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest result = new com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest(this);
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
-      if (dataExchangeBuilder_ == null) {
-        result.dataExchange_ = dataExchange_;
-      } else {
-        result.dataExchange_ = dataExchangeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dataExchange_ = dataExchangeBuilder_ == null
+            ? dataExchange_
+            : dataExchangeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -517,7 +448,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDataExchange()) {
         mergeDataExchange(other.getDataExchange());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -532,43 +463,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDataExchangeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.dataexchange.v1beta1.UpdateDataExchangeRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.FieldMask updateMask_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -583,10 +540,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -597,19 +553,18 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -618,80 +573,76 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -706,10 +657,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Field mask is used to specify the fields to be overwritten in the
-     * DataExchange resource by the update.
-     * The fields specified in the update_mask are relative to the resource, not
-     * the full request.
+     * Required. Field mask specifies the fields to update in the data exchange
+     * resource. The fields specified in the
+     * `updateMask` are relative to the resource and are not a full request.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 1 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -733,18 +683,18 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange, com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.Builder, com.google.cloud.bigquery.dataexchange.v1beta1.DataExchangeOrBuilder> dataExchangeBuilder_;
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the dataExchange field is set.
      */
     public boolean hasDataExchange() {
-      return dataExchangeBuilder_ != null || dataExchange_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -759,7 +709,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -770,16 +720,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataExchange_ = value;
-        onChanged();
       } else {
         dataExchangeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -788,68 +738,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.Builder builderForValue) {
       if (dataExchangeBuilder_ == null) {
         dataExchange_ = builderForValue.build();
-        onChanged();
       } else {
         dataExchangeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeDataExchange(com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange value) {
       if (dataExchangeBuilder_ == null) {
-        if (dataExchange_ != null) {
-          dataExchange_ =
-            com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.newBuilder(dataExchange_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dataExchange_ != null &&
+          dataExchange_ != com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.getDefaultInstance()) {
+          getDataExchangeBuilder().mergeFrom(value);
         } else {
           dataExchange_ = value;
         }
-        onChanged();
       } else {
         dataExchangeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearDataExchange() {
-      if (dataExchangeBuilder_ == null) {
-        dataExchange_ = null;
-        onChanged();
-      } else {
-        dataExchange_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dataExchange_ = null;
+      if (dataExchangeBuilder_ != null) {
+        dataExchangeBuilder_.dispose();
         dataExchangeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.Builder getDataExchangeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDataExchangeFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -864,7 +814,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The DataExchange to update.
+     * Required. The data exchange to update.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataExchange data_exchange = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -915,7 +865,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateDataExchangeRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

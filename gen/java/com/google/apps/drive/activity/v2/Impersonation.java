@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Impersonation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.apps.drive.activity.v2.User.Builder subBuilder = null;
-            if (impersonatedUser_ != null) {
-              subBuilder = impersonatedUser_.toBuilder();
-            }
-            impersonatedUser_ = input.readMessage(com.google.apps.drive.activity.v2.User.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(impersonatedUser_);
-              impersonatedUser_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.drive.activity.v2.ActorProto.internal_static_google_apps_drive_activity_v2_Impersonation_descriptor;
@@ -135,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.apps.drive.activity.v2.UserOrBuilder getImpersonatedUserOrBuilder() {
-    return getImpersonatedUser();
+    return impersonatedUser_ == null ? com.google.apps.drive.activity.v2.User.getDefaultInstance() : impersonatedUser_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -155,7 +103,7 @@ private static final long serialVersionUID = 0L;
     if (impersonatedUser_ != null) {
       output.writeMessage(1, getImpersonatedUser());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -168,7 +116,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getImpersonatedUser());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -188,7 +136,7 @@ private static final long serialVersionUID = 0L;
       if (!getImpersonatedUser()
           .equals(other.getImpersonatedUser())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -203,7 +151,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + IMPERSONATED_USER_FIELD_NUMBER;
       hash = (53 * hash) + getImpersonatedUser().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -325,26 +273,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.drive.activity.v2.Impersonation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (impersonatedUserBuilder_ == null) {
-        impersonatedUser_ = null;
-      } else {
-        impersonatedUser_ = null;
+      bitField0_ = 0;
+      impersonatedUser_ = null;
+      if (impersonatedUserBuilder_ != null) {
+        impersonatedUserBuilder_.dispose();
         impersonatedUserBuilder_ = null;
       }
       return this;
@@ -373,13 +316,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.drive.activity.v2.Impersonation buildPartial() {
       com.google.apps.drive.activity.v2.Impersonation result = new com.google.apps.drive.activity.v2.Impersonation(this);
-      if (impersonatedUserBuilder_ == null) {
-        result.impersonatedUser_ = impersonatedUser_;
-      } else {
-        result.impersonatedUser_ = impersonatedUserBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.apps.drive.activity.v2.Impersonation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.impersonatedUser_ = impersonatedUserBuilder_ == null
+            ? impersonatedUser_
+            : impersonatedUserBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -429,7 +377,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasImpersonatedUser()) {
         mergeImpersonatedUser(other.getImpersonatedUser());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -444,19 +392,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.drive.activity.v2.Impersonation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getImpersonatedUserFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.drive.activity.v2.Impersonation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.apps.drive.activity.v2.User impersonatedUser_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -470,7 +439,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the impersonatedUser field is set.
      */
     public boolean hasImpersonatedUser() {
-      return impersonatedUserBuilder_ != null || impersonatedUser_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -500,11 +469,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         impersonatedUser_ = value;
-        onChanged();
       } else {
         impersonatedUserBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -518,11 +487,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.drive.activity.v2.User.Builder builderForValue) {
       if (impersonatedUserBuilder_ == null) {
         impersonatedUser_ = builderForValue.build();
-        onChanged();
       } else {
         impersonatedUserBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -534,17 +503,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeImpersonatedUser(com.google.apps.drive.activity.v2.User value) {
       if (impersonatedUserBuilder_ == null) {
-        if (impersonatedUser_ != null) {
-          impersonatedUser_ =
-            com.google.apps.drive.activity.v2.User.newBuilder(impersonatedUser_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          impersonatedUser_ != null &&
+          impersonatedUser_ != com.google.apps.drive.activity.v2.User.getDefaultInstance()) {
+          getImpersonatedUserBuilder().mergeFrom(value);
         } else {
           impersonatedUser_ = value;
         }
-        onChanged();
       } else {
         impersonatedUserBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -555,14 +525,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.User impersonated_user = 1;</code>
      */
     public Builder clearImpersonatedUser() {
-      if (impersonatedUserBuilder_ == null) {
-        impersonatedUser_ = null;
-        onChanged();
-      } else {
-        impersonatedUser_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      impersonatedUser_ = null;
+      if (impersonatedUserBuilder_ != null) {
+        impersonatedUserBuilder_.dispose();
         impersonatedUserBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -573,7 +542,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.User impersonated_user = 1;</code>
      */
     public com.google.apps.drive.activity.v2.User.Builder getImpersonatedUserBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getImpersonatedUserFieldBuilder().getBuilder();
     }
@@ -645,7 +614,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Impersonation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

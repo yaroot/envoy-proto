@@ -34,198 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnnotatedDatasetMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.Builder subBuilder = null;
-            if (humanAnnotationConfig_ != null) {
-              subBuilder = humanAnnotationConfig_.toBuilder();
-            }
-            humanAnnotationConfig_ = input.readMessage(com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(humanAnnotationConfig_);
-              humanAnnotationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.datalabeling.v1beta1.ImageClassificationConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 2) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.ImageClassificationConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.ImageClassificationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.ImageClassificationConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.datalabeling.v1beta1.BoundingPolyConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 3) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.BoundingPolyConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.BoundingPolyConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.BoundingPolyConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.datalabeling.v1beta1.PolylineConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 4) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.PolylineConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.PolylineConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.PolylineConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.datalabeling.v1beta1.SegmentationConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 5) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.SegmentationConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.SegmentationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.SegmentationConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 6) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.VideoClassificationConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.datalabeling.v1beta1.ObjectDetectionConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 7) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.ObjectDetectionConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.ObjectDetectionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.ObjectDetectionConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.datalabeling.v1beta1.ObjectTrackingConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 8) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.ObjectTrackingConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.ObjectTrackingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.ObjectTrackingConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.cloud.datalabeling.v1beta1.EventConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 9) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.EventConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.EventConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.EventConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.cloud.datalabeling.v1beta1.TextClassificationConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 10) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.TextClassificationConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.TextClassificationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.TextClassificationConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfig.Builder subBuilder = null;
-            if (annotationRequestConfigCase_ == 11) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfig) annotationRequestConfig_).toBuilder();
-            }
-            annotationRequestConfig_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfig) annotationRequestConfig_);
-              annotationRequestConfig_ = subBuilder.buildPartial();
-            }
-            annotationRequestConfigCase_ = 11;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.DatasetOuterClass.internal_static_google_cloud_datalabeling_v1beta1_AnnotatedDatasetMetadata_descriptor;
@@ -764,7 +572,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfigOrBuilder getHumanAnnotationConfigOrBuilder() {
-    return getHumanAnnotationConfig();
+    return humanAnnotationConfig_ == null ? com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.getDefaultInstance() : humanAnnotationConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -814,7 +622,7 @@ private static final long serialVersionUID = 0L;
     if (annotationRequestConfigCase_ == 11) {
       output.writeMessage(11, (com.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfig) annotationRequestConfig_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -867,7 +675,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, (com.google.cloud.datalabeling.v1beta1.TextEntityExtractionConfig) annotationRequestConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -932,7 +740,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -991,7 +799,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1112,26 +920,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (humanAnnotationConfigBuilder_ == null) {
-        humanAnnotationConfig_ = null;
-      } else {
-        humanAnnotationConfig_ = null;
+      bitField0_ = 0;
+      if (imageClassificationConfigBuilder_ != null) {
+        imageClassificationConfigBuilder_.clear();
+      }
+      if (boundingPolyConfigBuilder_ != null) {
+        boundingPolyConfigBuilder_.clear();
+      }
+      if (polylineConfigBuilder_ != null) {
+        polylineConfigBuilder_.clear();
+      }
+      if (segmentationConfigBuilder_ != null) {
+        segmentationConfigBuilder_.clear();
+      }
+      if (videoClassificationConfigBuilder_ != null) {
+        videoClassificationConfigBuilder_.clear();
+      }
+      if (objectDetectionConfigBuilder_ != null) {
+        objectDetectionConfigBuilder_.clear();
+      }
+      if (objectTrackingConfigBuilder_ != null) {
+        objectTrackingConfigBuilder_.clear();
+      }
+      if (eventConfigBuilder_ != null) {
+        eventConfigBuilder_.clear();
+      }
+      if (textClassificationConfigBuilder_ != null) {
+        textClassificationConfigBuilder_.clear();
+      }
+      if (textEntityExtractionConfigBuilder_ != null) {
+        textEntityExtractionConfigBuilder_.clear();
+      }
+      humanAnnotationConfig_ = null;
+      if (humanAnnotationConfigBuilder_ != null) {
+        humanAnnotationConfigBuilder_.dispose();
         humanAnnotationConfigBuilder_ = null;
       }
       annotationRequestConfigCase_ = 0;
@@ -1162,84 +995,64 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata buildPartial() {
       com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata result = new com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata(this);
-      if (annotationRequestConfigCase_ == 2) {
-        if (imageClassificationConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = imageClassificationConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 3) {
-        if (boundingPolyConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = boundingPolyConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 4) {
-        if (polylineConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = polylineConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 5) {
-        if (segmentationConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = segmentationConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 6) {
-        if (videoClassificationConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = videoClassificationConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 7) {
-        if (objectDetectionConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = objectDetectionConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 8) {
-        if (objectTrackingConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = objectTrackingConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 9) {
-        if (eventConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = eventConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 10) {
-        if (textClassificationConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = textClassificationConfigBuilder_.build();
-        }
-      }
-      if (annotationRequestConfigCase_ == 11) {
-        if (textEntityExtractionConfigBuilder_ == null) {
-          result.annotationRequestConfig_ = annotationRequestConfig_;
-        } else {
-          result.annotationRequestConfig_ = textEntityExtractionConfigBuilder_.build();
-        }
-      }
-      if (humanAnnotationConfigBuilder_ == null) {
-        result.humanAnnotationConfig_ = humanAnnotationConfig_;
-      } else {
-        result.humanAnnotationConfig_ = humanAnnotationConfigBuilder_.build();
-      }
-      result.annotationRequestConfigCase_ = annotationRequestConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.humanAnnotationConfig_ = humanAnnotationConfigBuilder_ == null
+            ? humanAnnotationConfig_
+            : humanAnnotationConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata result) {
+      result.annotationRequestConfigCase_ = annotationRequestConfigCase_;
+      result.annotationRequestConfig_ = this.annotationRequestConfig_;
+      if (annotationRequestConfigCase_ == 2 &&
+          imageClassificationConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = imageClassificationConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 3 &&
+          boundingPolyConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = boundingPolyConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 4 &&
+          polylineConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = polylineConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 5 &&
+          segmentationConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = segmentationConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 6 &&
+          videoClassificationConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = videoClassificationConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 7 &&
+          objectDetectionConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = objectDetectionConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 8 &&
+          objectTrackingConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = objectTrackingConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 9 &&
+          eventConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = eventConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 10 &&
+          textClassificationConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = textClassificationConfigBuilder_.build();
+      }
+      if (annotationRequestConfigCase_ == 11 &&
+          textEntityExtractionConfigBuilder_ != null) {
+        result.annotationRequestConfig_ = textEntityExtractionConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1334,7 +1147,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1349,17 +1162,107 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHumanAnnotationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getImageClassificationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getBoundingPolyConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getPolylineConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSegmentationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getVideoClassificationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getObjectDetectionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getObjectTrackingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getEventConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getTextClassificationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getTextEntityExtractionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              annotationRequestConfigCase_ = 11;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.AnnotatedDatasetMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int annotationRequestConfigCase_ = 0;
@@ -1377,6 +1280,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datalabeling.v1beta1.ImageClassificationConfig, com.google.cloud.datalabeling.v1beta1.ImageClassificationConfig.Builder, com.google.cloud.datalabeling.v1beta1.ImageClassificationConfigOrBuilder> imageClassificationConfigBuilder_;
@@ -1552,7 +1456,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 2;
-      onChanged();;
+      onChanged();
       return imageClassificationConfigBuilder_;
     }
 
@@ -1730,7 +1634,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 3;
-      onChanged();;
+      onChanged();
       return boundingPolyConfigBuilder_;
     }
 
@@ -1908,7 +1812,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 4;
-      onChanged();;
+      onChanged();
       return polylineConfigBuilder_;
     }
 
@@ -2086,7 +1990,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 5;
-      onChanged();;
+      onChanged();
       return segmentationConfigBuilder_;
     }
 
@@ -2264,7 +2168,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 6;
-      onChanged();;
+      onChanged();
       return videoClassificationConfigBuilder_;
     }
 
@@ -2442,7 +2346,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 7;
-      onChanged();;
+      onChanged();
       return objectDetectionConfigBuilder_;
     }
 
@@ -2620,7 +2524,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 8;
-      onChanged();;
+      onChanged();
       return objectTrackingConfigBuilder_;
     }
 
@@ -2798,7 +2702,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 9;
-      onChanged();;
+      onChanged();
       return eventConfigBuilder_;
     }
 
@@ -2976,7 +2880,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 10;
-      onChanged();;
+      onChanged();
       return textClassificationConfigBuilder_;
     }
 
@@ -3154,7 +3058,7 @@ private static final long serialVersionUID = 0L;
         annotationRequestConfig_ = null;
       }
       annotationRequestConfigCase_ = 11;
-      onChanged();;
+      onChanged();
       return textEntityExtractionConfigBuilder_;
     }
 
@@ -3171,7 +3075,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the humanAnnotationConfig field is set.
      */
     public boolean hasHumanAnnotationConfig() {
-      return humanAnnotationConfigBuilder_ != null || humanAnnotationConfig_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -3203,11 +3107,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         humanAnnotationConfig_ = value;
-        onChanged();
       } else {
         humanAnnotationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3222,11 +3126,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.Builder builderForValue) {
       if (humanAnnotationConfigBuilder_ == null) {
         humanAnnotationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         humanAnnotationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3239,17 +3143,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHumanAnnotationConfig(com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig value) {
       if (humanAnnotationConfigBuilder_ == null) {
-        if (humanAnnotationConfig_ != null) {
-          humanAnnotationConfig_ =
-            com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.newBuilder(humanAnnotationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          humanAnnotationConfig_ != null &&
+          humanAnnotationConfig_ != com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.getDefaultInstance()) {
+          getHumanAnnotationConfigBuilder().mergeFrom(value);
         } else {
           humanAnnotationConfig_ = value;
         }
-        onChanged();
       } else {
         humanAnnotationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -3261,14 +3166,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig human_annotation_config = 1;</code>
      */
     public Builder clearHumanAnnotationConfig() {
-      if (humanAnnotationConfigBuilder_ == null) {
-        humanAnnotationConfig_ = null;
-        onChanged();
-      } else {
-        humanAnnotationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      humanAnnotationConfig_ = null;
+      if (humanAnnotationConfigBuilder_ != null) {
+        humanAnnotationConfigBuilder_.dispose();
         humanAnnotationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3280,7 +3184,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig human_annotation_config = 1;</code>
      */
     public com.google.cloud.datalabeling.v1beta1.HumanAnnotationConfig.Builder getHumanAnnotationConfigBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getHumanAnnotationConfigFieldBuilder().getBuilder();
     }
@@ -3354,7 +3258,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnnotatedDatasetMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

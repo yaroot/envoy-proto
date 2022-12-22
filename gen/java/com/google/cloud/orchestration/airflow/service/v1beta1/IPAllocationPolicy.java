@@ -39,74 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private IPAllocationPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            useIpAliases_ = input.readBool();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterSecondaryRangeName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            servicesSecondaryRangeName_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clusterIpv4CidrBlock_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            servicesIpv4CidrBlock_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_IPAllocationPolicy_descriptor;
@@ -121,11 +53,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_IP_ALIASES_FIELD_NUMBER = 1;
-  private boolean useIpAliases_;
+  private boolean useIpAliases_ = false;
   /**
    * <pre>
    * Optional. Whether or not to enable Alias IPs in the GKE cluster.
    * If `true`, a VPC-native cluster is created.
+   * This field is only supported for Cloud Composer environments in versions
+   * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+   * VPC-native GKE clusters.
    * </pre>
    *
    * <code>bool use_ip_aliases = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -137,13 +72,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_SECONDARY_RANGE_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object clusterSecondaryRangeName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterSecondaryRangeName_ = "";
   /**
    * <pre>
    * Optional. The name of the cluster's secondary range used to allocate
    * IP addresses to pods. Specify either `cluster_secondary_range_name`
    * or `cluster_ipv4_cidr_block` but not both.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * </pre>
    *
    * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -167,7 +104,8 @@ private static final long serialVersionUID = 0L;
    * Optional. The name of the cluster's secondary range used to allocate
    * IP addresses to pods. Specify either `cluster_secondary_range_name`
    * or `cluster_ipv4_cidr_block` but not both.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * </pre>
    *
    * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -189,13 +127,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICES_SECONDARY_RANGE_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object servicesSecondaryRangeName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object servicesSecondaryRangeName_ = "";
   /**
    * <pre>
    * Optional. The name of the services' secondary range used to allocate
    * IP addresses to the cluster. Specify either `services_secondary_range_name`
    * or `services_ipv4_cidr_block` but not both.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * </pre>
    *
    * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -219,7 +159,8 @@ private static final long serialVersionUID = 0L;
    * Optional. The name of the services' secondary range used to allocate
    * IP addresses to the cluster. Specify either `services_secondary_range_name`
    * or `services_ipv4_cidr_block` but not both.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * </pre>
    *
    * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -241,17 +182,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLUSTER_IPV4_CIDR_BLOCK_FIELD_NUMBER = 4;
-  private volatile java.lang.Object clusterIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clusterIpv4CidrBlock_ = "";
   /**
    * <pre>
    * Optional. The IP address range used to allocate IP addresses to pods in
    * the cluster.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * Set to blank to have GKE choose a range with the default size.
    * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
    * netmask.
    * Set to a
-   * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+   * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
    * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
    * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
    * to use.
@@ -279,12 +222,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optional. The IP address range used to allocate IP addresses to pods in
    * the cluster.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * Set to blank to have GKE choose a range with the default size.
    * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
    * netmask.
    * Set to a
-   * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+   * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
    * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
    * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
    * to use.
@@ -311,17 +255,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICES_IPV4_CIDR_BLOCK_FIELD_NUMBER = 5;
-  private volatile java.lang.Object servicesIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object servicesIpv4CidrBlock_ = "";
   /**
    * <pre>
    * Optional. The IP address range of the services IP addresses in this
    * cluster.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * Set to blank to have GKE choose a range with the default size.
    * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
    * netmask.
    * Set to a
-   * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+   * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
    * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
    * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
    * to use.
@@ -349,12 +295,13 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Optional. The IP address range of the services IP addresses in this
    * cluster.
-   * This field is applicable only when `use_ip_aliases` is true.
+   * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+   * this field is applicable only when `use_ip_aliases` is true.
    * Set to blank to have GKE choose a range with the default size.
    * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
    * netmask.
    * Set to a
-   * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+   * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
    * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
    * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
    * to use.
@@ -409,7 +356,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(servicesIpv4CidrBlock_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, servicesIpv4CidrBlock_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -434,7 +381,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(servicesIpv4CidrBlock_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, servicesIpv4CidrBlock_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -459,7 +406,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getClusterIpv4CidrBlock())) return false;
     if (!getServicesIpv4CidrBlock()
         .equals(other.getServicesIpv4CidrBlock())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -481,7 +428,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getClusterIpv4CidrBlock().hashCode();
     hash = (37 * hash) + SERVICES_IPV4_CIDR_BLOCK_FIELD_NUMBER;
     hash = (53 * hash) + getServicesIpv4CidrBlock().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -603,32 +550,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       useIpAliases_ = false;
-
       clusterSecondaryRangeName_ = "";
-
       servicesSecondaryRangeName_ = "";
-
       clusterIpv4CidrBlock_ = "";
-
       servicesIpv4CidrBlock_ = "";
-
       return this;
     }
 
@@ -655,13 +593,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy result = new com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy(this);
-      result.useIpAliases_ = useIpAliases_;
-      result.clusterSecondaryRangeName_ = clusterSecondaryRangeName_;
-      result.servicesSecondaryRangeName_ = servicesSecondaryRangeName_;
-      result.clusterIpv4CidrBlock_ = clusterIpv4CidrBlock_;
-      result.servicesIpv4CidrBlock_ = servicesIpv4CidrBlock_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.useIpAliases_ = useIpAliases_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.clusterSecondaryRangeName_ = clusterSecondaryRangeName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.servicesSecondaryRangeName_ = servicesSecondaryRangeName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.clusterIpv4CidrBlock_ = clusterIpv4CidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.servicesIpv4CidrBlock_ = servicesIpv4CidrBlock_;
+      }
     }
 
     @java.lang.Override
@@ -713,21 +666,25 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getClusterSecondaryRangeName().isEmpty()) {
         clusterSecondaryRangeName_ = other.clusterSecondaryRangeName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getServicesSecondaryRangeName().isEmpty()) {
         servicesSecondaryRangeName_ = other.servicesSecondaryRangeName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getClusterIpv4CidrBlock().isEmpty()) {
         clusterIpv4CidrBlock_ = other.clusterIpv4CidrBlock_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getServicesIpv4CidrBlock().isEmpty()) {
         servicesIpv4CidrBlock_ = other.servicesIpv4CidrBlock_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -742,25 +699,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              useIpAliases_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              clusterSecondaryRangeName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              servicesSecondaryRangeName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              clusterIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              servicesIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.IPAllocationPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean useIpAliases_ ;
     /**
      * <pre>
      * Optional. Whether or not to enable Alias IPs in the GKE cluster.
      * If `true`, a VPC-native cluster is created.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * VPC-native GKE clusters.
      * </pre>
      *
      * <code>bool use_ip_aliases = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -774,6 +773,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. Whether or not to enable Alias IPs in the GKE cluster.
      * If `true`, a VPC-native cluster is created.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * VPC-native GKE clusters.
      * </pre>
      *
      * <code>bool use_ip_aliases = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -783,6 +785,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseIpAliases(boolean value) {
       
       useIpAliases_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -790,13 +793,16 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. Whether or not to enable Alias IPs in the GKE cluster.
      * If `true`, a VPC-native cluster is created.
+     * This field is only supported for Cloud Composer environments in versions
+     * composer-1.*.*-airflow-*.*.*. Environments in newer versions always use
+     * VPC-native GKE clusters.
      * </pre>
      *
      * <code>bool use_ip_aliases = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearUseIpAliases() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       useIpAliases_ = false;
       onChanged();
       return this;
@@ -808,7 +814,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the cluster's secondary range used to allocate
      * IP addresses to pods. Specify either `cluster_secondary_range_name`
      * or `cluster_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -831,7 +838,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the cluster's secondary range used to allocate
      * IP addresses to pods. Specify either `cluster_secondary_range_name`
      * or `cluster_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -855,7 +863,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the cluster's secondary range used to allocate
      * IP addresses to pods. Specify either `cluster_secondary_range_name`
      * or `cluster_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -864,11 +873,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterSecondaryRangeName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -877,15 +884,16 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the cluster's secondary range used to allocate
      * IP addresses to pods. Specify either `cluster_secondary_range_name`
      * or `cluster_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearClusterSecondaryRangeName() {
-      
       clusterSecondaryRangeName_ = getDefaultInstance().getClusterSecondaryRangeName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -894,7 +902,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the cluster's secondary range used to allocate
      * IP addresses to pods. Specify either `cluster_secondary_range_name`
      * or `cluster_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string cluster_secondary_range_name = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -903,12 +912,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterSecondaryRangeNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -919,7 +926,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the services' secondary range used to allocate
      * IP addresses to the cluster. Specify either `services_secondary_range_name`
      * or `services_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -942,7 +950,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the services' secondary range used to allocate
      * IP addresses to the cluster. Specify either `services_secondary_range_name`
      * or `services_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -966,7 +975,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the services' secondary range used to allocate
      * IP addresses to the cluster. Specify either `services_secondary_range_name`
      * or `services_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -975,11 +985,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesSecondaryRangeName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       servicesSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -988,15 +996,16 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the services' secondary range used to allocate
      * IP addresses to the cluster. Specify either `services_secondary_range_name`
      * or `services_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearServicesSecondaryRangeName() {
-      
       servicesSecondaryRangeName_ = getDefaultInstance().getServicesSecondaryRangeName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1005,7 +1014,8 @@ private static final long serialVersionUID = 0L;
      * Optional. The name of the services' secondary range used to allocate
      * IP addresses to the cluster. Specify either `services_secondary_range_name`
      * or `services_ipv4_cidr_block` but not both.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * </pre>
      *
      * <code>string services_secondary_range_name = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1014,12 +1024,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesSecondaryRangeNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       servicesSecondaryRangeName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1029,12 +1037,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range used to allocate IP addresses to pods in
      * the cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1061,12 +1070,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range used to allocate IP addresses to pods in
      * the cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1094,12 +1104,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range used to allocate IP addresses to pods in
      * the cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1113,11 +1124,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clusterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1125,12 +1134,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range used to allocate IP addresses to pods in
      * the cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1142,8 +1152,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClusterIpv4CidrBlock() {
-      
       clusterIpv4CidrBlock_ = getDefaultInstance().getClusterIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1151,12 +1161,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range used to allocate IP addresses to pods in
      * the cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1170,12 +1181,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClusterIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clusterIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1185,12 +1194,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range of the services IP addresses in this
      * cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1217,12 +1227,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range of the services IP addresses in this
      * cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1250,12 +1261,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range of the services IP addresses in this
      * cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1269,11 +1281,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       servicesIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1281,12 +1291,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range of the services IP addresses in this
      * cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1298,8 +1309,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServicesIpv4CidrBlock() {
-      
       servicesIpv4CidrBlock_ = getDefaultInstance().getServicesIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1307,12 +1318,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Optional. The IP address range of the services IP addresses in this
      * cluster.
-     * This field is applicable only when `use_ip_aliases` is true.
+     * For Cloud Composer environments in versions composer-1.*.*-airflow-*.*.*,
+     * this field is applicable only when `use_ip_aliases` is true.
      * Set to blank to have GKE choose a range with the default size.
      * Set to /netmask (e.g. `/14`) to have GKE choose a range with a specific
      * netmask.
      * Set to a
-     * [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+     * [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
      * notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
      * `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range
      * to use.
@@ -1326,12 +1338,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServicesIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       servicesIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1368,7 +1378,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new IPAllocationPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

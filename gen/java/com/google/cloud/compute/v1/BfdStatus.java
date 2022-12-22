@@ -38,130 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BfdStatus(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 174146720: {
-            bitField0_ |= 0x00000020;
-            negotiatedLocalControlTxIntervalMs_ = input.readUInt32();
-            break;
-          }
-          case 891090202: {
-            com.google.cloud.compute.v1.BfdPacket.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000080) != 0)) {
-              subBuilder = txPacket_.toBuilder();
-            }
-            txPacket_ = input.readMessage(com.google.cloud.compute.v1.BfdPacket.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(txPacket_);
-              txPacket_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000080;
-            break;
-          }
-          case 1003186920: {
-            bitField0_ |= 0x00000100;
-            uptimeMs_ = input.readInt64();
-            break;
-          }
-          case 1060588490: {
-            com.google.cloud.compute.v1.BfdStatusPacketCounts.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = controlPacketCounts_.toBuilder();
-            }
-            controlPacketCounts_ = input.readMessage(com.google.cloud.compute.v1.BfdStatusPacketCounts.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(controlPacketCounts_);
-              controlPacketCounts_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case 1193563626: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000010;
-            localState_ = s;
-            break;
-          }
-          case 1745255634: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            bfdSessionInitializationMode_ = s;
-            break;
-          }
-          case -637402744: {
-            bitField0_ |= 0x00000002;
-            configUpdateTimestampMicros_ = input.readInt64();
-            break;
-          }
-          case -585070630: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            localDiagnostic_ = s;
-            break;
-          }
-          case -288514102: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              controlPacketIntervals_ = new java.util.ArrayList<com.google.cloud.compute.v1.PacketIntervals>();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            controlPacketIntervals_.add(
-                input.readMessage(com.google.cloud.compute.v1.PacketIntervals.parser(), extensionRegistry));
-            break;
-          }
-          case -254409462: {
-            com.google.cloud.compute.v1.BfdPacket.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000040) != 0)) {
-              subBuilder = rxPacket_.toBuilder();
-            }
-            rxPacket_ = input.readMessage(com.google.cloud.compute.v1.BfdPacket.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rxPacket_);
-              rxPacket_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000040;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        controlPacketIntervals_ = java.util.Collections.unmodifiableList(controlPacketIntervals_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_BfdStatus_descriptor;
@@ -672,7 +548,8 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int BFD_SESSION_INITIALIZATION_MODE_FIELD_NUMBER = 218156954;
-  private volatile java.lang.Object bfdSessionInitializationMode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object bfdSessionInitializationMode_ = "";
   /**
    * <pre>
    * The BFD session initialization mode for this BGP peer. If set to ACTIVE, the Cloud Router will initiate the BFD session for this BGP peer. If set to PASSIVE, the Cloud Router will wait for the peer router to initiate the BFD session for this BGP peer. If set to DISABLED, BFD is disabled for this BGP peer.
@@ -733,7 +610,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONFIG_UPDATE_TIMESTAMP_MICROS_FIELD_NUMBER = 457195569;
-  private long configUpdateTimestampMicros_;
+  private long configUpdateTimestampMicros_ = 0L;
   /**
    * <pre>
    * Unix timestamp of the most recent config update.
@@ -798,6 +675,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONTROL_PACKET_INTERVALS_FIELD_NUMBER = 500806649;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.PacketIntervals> controlPacketIntervals_;
   /**
    * <pre>
@@ -858,7 +736,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_DIAGNOSTIC_FIELD_NUMBER = 463737083;
-  private volatile java.lang.Object localDiagnostic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object localDiagnostic_ = "";
   /**
    * <pre>
    * The diagnostic code specifies the local system's reason for the last change in session state. This allows remote systems to determine the reason that the previous session failed, for example. These diagnostic codes are specified in section 4.1 of RFC5880
@@ -919,7 +798,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCAL_STATE_FIELD_NUMBER = 149195453;
-  private volatile java.lang.Object localState_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object localState_ = "";
   /**
    * <pre>
    * The current BFD session state as seen by the transmitting system. These states are specified in section 4.1 of RFC5880
@@ -980,7 +860,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NEGOTIATED_LOCAL_CONTROL_TX_INTERVAL_MS_FIELD_NUMBER = 21768340;
-  private int negotiatedLocalControlTxIntervalMs_;
+  private int negotiatedLocalControlTxIntervalMs_ = 0;
   /**
    * <pre>
    * Negotiated transmit interval for control packets.
@@ -1083,7 +963,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UPTIME_MS_FIELD_NUMBER = 125398365;
-  private long uptimeMs_;
+  private long uptimeMs_ = 0L;
   /**
    * <pre>
    * Session uptime in milliseconds. Value will be 0 if session is not up.
@@ -1153,7 +1033,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000040) != 0)) {
       output.writeMessage(505069729, getRxPacket());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1199,7 +1079,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(505069729, getRxPacket());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1261,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       if (getUptimeMs()
           != other.getUptimeMs()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1314,7 +1194,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getUptimeMs());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1455,42 +1335,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       bfdSessionInitializationMode_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       configUpdateTimestampMicros_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (controlPacketCountsBuilder_ == null) {
-        controlPacketCounts_ = null;
-      } else {
-        controlPacketCountsBuilder_.clear();
+      controlPacketCounts_ = null;
+      if (controlPacketCountsBuilder_ != null) {
+        controlPacketCountsBuilder_.dispose();
+        controlPacketCountsBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       if (controlPacketIntervalsBuilder_ == null) {
         controlPacketIntervals_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000008);
       } else {
+        controlPacketIntervals_ = null;
         controlPacketIntervalsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       localDiagnostic_ = "";
-      bitField0_ = (bitField0_ & ~0x00000010);
       localState_ = "";
-      bitField0_ = (bitField0_ & ~0x00000020);
       negotiatedLocalControlTxIntervalMs_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000040);
-      if (rxPacketBuilder_ == null) {
-        rxPacket_ = null;
-      } else {
-        rxPacketBuilder_.clear();
+      rxPacket_ = null;
+      if (rxPacketBuilder_ != null) {
+        rxPacketBuilder_.dispose();
+        rxPacketBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000080);
-      if (txPacketBuilder_ == null) {
-        txPacket_ = null;
-      } else {
-        txPacketBuilder_.clear();
+      txPacket_ = null;
+      if (txPacketBuilder_ != null) {
+        txPacketBuilder_.dispose();
+        txPacketBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000100);
       uptimeMs_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000200);
       return this;
     }
 
@@ -1517,24 +1390,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.BfdStatus buildPartial() {
       com.google.cloud.compute.v1.BfdStatus result = new com.google.cloud.compute.v1.BfdStatus(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.bfdSessionInitializationMode_ = bfdSessionInitializationMode_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.configUpdateTimestampMicros_ = configUpdateTimestampMicros_;
-        to_bitField0_ |= 0x00000002;
-      }
-      if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (controlPacketCountsBuilder_ == null) {
-          result.controlPacketCounts_ = controlPacketCounts_;
-        } else {
-          result.controlPacketCounts_ = controlPacketCountsBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000004;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.BfdStatus result) {
       if (controlPacketIntervalsBuilder_ == null) {
         if (((bitField0_ & 0x00000008) != 0)) {
           controlPacketIntervals_ = java.util.Collections.unmodifiableList(controlPacketIntervals_);
@@ -1544,41 +1406,54 @@ private static final long serialVersionUID = 0L;
       } else {
         result.controlPacketIntervals_ = controlPacketIntervalsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.BfdStatus result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.bfdSessionInitializationMode_ = bfdSessionInitializationMode_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.configUpdateTimestampMicros_ = configUpdateTimestampMicros_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.controlPacketCounts_ = controlPacketCountsBuilder_ == null
+            ? controlPacketCounts_
+            : controlPacketCountsBuilder_.build();
+        to_bitField0_ |= 0x00000004;
+      }
       if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.localDiagnostic_ = localDiagnostic_;
         to_bitField0_ |= 0x00000008;
       }
-      result.localDiagnostic_ = localDiagnostic_;
       if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.localState_ = localState_;
         to_bitField0_ |= 0x00000010;
       }
-      result.localState_ = localState_;
       if (((from_bitField0_ & 0x00000040) != 0)) {
         result.negotiatedLocalControlTxIntervalMs_ = negotiatedLocalControlTxIntervalMs_;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
-        if (rxPacketBuilder_ == null) {
-          result.rxPacket_ = rxPacket_;
-        } else {
-          result.rxPacket_ = rxPacketBuilder_.build();
-        }
+        result.rxPacket_ = rxPacketBuilder_ == null
+            ? rxPacket_
+            : rxPacketBuilder_.build();
         to_bitField0_ |= 0x00000040;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
-        if (txPacketBuilder_ == null) {
-          result.txPacket_ = txPacket_;
-        } else {
-          result.txPacket_ = txPacketBuilder_.build();
-        }
+        result.txPacket_ = txPacketBuilder_ == null
+            ? txPacket_
+            : txPacketBuilder_.build();
         to_bitField0_ |= 0x00000080;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
         result.uptimeMs_ = uptimeMs_;
         to_bitField0_ |= 0x00000100;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1626,8 +1501,8 @@ private static final long serialVersionUID = 0L;
     public Builder mergeFrom(com.google.cloud.compute.v1.BfdStatus other) {
       if (other == com.google.cloud.compute.v1.BfdStatus.getDefaultInstance()) return this;
       if (other.hasBfdSessionInitializationMode()) {
-        bitField0_ |= 0x00000001;
         bfdSessionInitializationMode_ = other.bfdSessionInitializationMode_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasConfigUpdateTimestampMicros()) {
@@ -1663,13 +1538,13 @@ private static final long serialVersionUID = 0L;
         }
       }
       if (other.hasLocalDiagnostic()) {
-        bitField0_ |= 0x00000010;
         localDiagnostic_ = other.localDiagnostic_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasLocalState()) {
-        bitField0_ |= 0x00000020;
         localState_ = other.localState_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasNegotiatedLocalControlTxIntervalMs()) {
@@ -1684,7 +1559,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUptimeMs()) {
         setUptimeMs(other.getUptimeMs());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1699,17 +1574,94 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.BfdStatus parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 174146720: {
+              negotiatedLocalControlTxIntervalMs_ = input.readUInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 174146720
+            case 891090202: {
+              input.readMessage(
+                  getTxPacketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 891090202
+            case 1003186920: {
+              uptimeMs_ = input.readInt64();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 1003186920
+            case 1060588490: {
+              input.readMessage(
+                  getControlPacketCountsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1060588490
+            case 1193563626: {
+              localState_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 1193563626
+            case 1745255634: {
+              bfdSessionInitializationMode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1745255634
+            case -637402744: {
+              configUpdateTimestampMicros_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -637402744
+            case -585070630: {
+              localDiagnostic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case -585070630
+            case -288514102: {
+              com.google.cloud.compute.v1.PacketIntervals m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.PacketIntervals.parser(),
+                      extensionRegistry);
+              if (controlPacketIntervalsBuilder_ == null) {
+                ensureControlPacketIntervalsIsMutable();
+                controlPacketIntervals_.add(m);
+              } else {
+                controlPacketIntervalsBuilder_.addMessage(m);
+              }
+              break;
+            } // case -288514102
+            case -254409462: {
+              input.readMessage(
+                  getRxPacketFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case -254409462
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.BfdStatus) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1782,11 +1734,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBfdSessionInitializationMode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       bfdSessionInitializationMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1800,8 +1750,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearBfdSessionInitializationMode() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       bfdSessionInitializationMode_ = getDefaultInstance().getBfdSessionInitializationMode();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1817,12 +1767,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBfdSessionInitializationModeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       bfdSessionInitializationMode_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1862,8 +1810,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConfigUpdateTimestampMicros(long value) {
-      bitField0_ |= 0x00000002;
+      
       configUpdateTimestampMicros_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1924,11 +1873,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         controlPacketCounts_ = value;
-        onChanged();
       } else {
         controlPacketCountsBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1942,11 +1891,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.BfdStatusPacketCounts.Builder builderForValue) {
       if (controlPacketCountsBuilder_ == null) {
         controlPacketCounts_ = builderForValue.build();
-        onChanged();
       } else {
         controlPacketCountsBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1959,18 +1908,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeControlPacketCounts(com.google.cloud.compute.v1.BfdStatusPacketCounts value) {
       if (controlPacketCountsBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0) &&
-            controlPacketCounts_ != null &&
-            controlPacketCounts_ != com.google.cloud.compute.v1.BfdStatusPacketCounts.getDefaultInstance()) {
-          controlPacketCounts_ =
-            com.google.cloud.compute.v1.BfdStatusPacketCounts.newBuilder(controlPacketCounts_).mergeFrom(value).buildPartial();
+          controlPacketCounts_ != null &&
+          controlPacketCounts_ != com.google.cloud.compute.v1.BfdStatusPacketCounts.getDefaultInstance()) {
+          getControlPacketCountsBuilder().mergeFrom(value);
         } else {
           controlPacketCounts_ = value;
         }
-        onChanged();
       } else {
         controlPacketCountsBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1981,13 +1929,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.BfdStatusPacketCounts control_packet_counts = 132573561;</code>
      */
     public Builder clearControlPacketCounts() {
-      if (controlPacketCountsBuilder_ == null) {
-        controlPacketCounts_ = null;
-        onChanged();
-      } else {
-        controlPacketCountsBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000004);
+      controlPacketCounts_ = null;
+      if (controlPacketCountsBuilder_ != null) {
+        controlPacketCountsBuilder_.dispose();
+        controlPacketCountsBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2418,11 +2366,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalDiagnostic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
       localDiagnostic_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2436,8 +2382,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalDiagnostic() {
-      bitField0_ = (bitField0_ & ~0x00000010);
       localDiagnostic_ = getDefaultInstance().getLocalDiagnostic();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2453,12 +2399,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalDiagnosticBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000010;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       localDiagnostic_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2531,11 +2475,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
       localState_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2549,8 +2491,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocalState() {
-      bitField0_ = (bitField0_ & ~0x00000020);
       localState_ = getDefaultInstance().getLocalState();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2566,12 +2508,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLocalStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000020;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       localState_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2611,8 +2551,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNegotiatedLocalControlTxIntervalMs(int value) {
-      bitField0_ |= 0x00000040;
+      
       negotiatedLocalControlTxIntervalMs_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2673,11 +2614,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rxPacket_ = value;
-        onChanged();
       } else {
         rxPacketBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2691,11 +2632,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.BfdPacket.Builder builderForValue) {
       if (rxPacketBuilder_ == null) {
         rxPacket_ = builderForValue.build();
-        onChanged();
       } else {
         rxPacketBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2708,18 +2649,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeRxPacket(com.google.cloud.compute.v1.BfdPacket value) {
       if (rxPacketBuilder_ == null) {
         if (((bitField0_ & 0x00000080) != 0) &&
-            rxPacket_ != null &&
-            rxPacket_ != com.google.cloud.compute.v1.BfdPacket.getDefaultInstance()) {
-          rxPacket_ =
-            com.google.cloud.compute.v1.BfdPacket.newBuilder(rxPacket_).mergeFrom(value).buildPartial();
+          rxPacket_ != null &&
+          rxPacket_ != com.google.cloud.compute.v1.BfdPacket.getDefaultInstance()) {
+          getRxPacketBuilder().mergeFrom(value);
         } else {
           rxPacket_ = value;
         }
-        onChanged();
       } else {
         rxPacketBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2730,13 +2670,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.BfdPacket rx_packet = 505069729;</code>
      */
     public Builder clearRxPacket() {
-      if (rxPacketBuilder_ == null) {
-        rxPacket_ = null;
-        onChanged();
-      } else {
-        rxPacketBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000080);
+      rxPacket_ = null;
+      if (rxPacketBuilder_ != null) {
+        rxPacketBuilder_.dispose();
+        rxPacketBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2829,11 +2769,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         txPacket_ = value;
-        onChanged();
       } else {
         txPacketBuilder_.setMessage(value);
       }
       bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2847,11 +2787,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.BfdPacket.Builder builderForValue) {
       if (txPacketBuilder_ == null) {
         txPacket_ = builderForValue.build();
-        onChanged();
       } else {
         txPacketBuilder_.setMessage(builderForValue.build());
       }
       bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2864,18 +2804,17 @@ private static final long serialVersionUID = 0L;
     public Builder mergeTxPacket(com.google.cloud.compute.v1.BfdPacket value) {
       if (txPacketBuilder_ == null) {
         if (((bitField0_ & 0x00000100) != 0) &&
-            txPacket_ != null &&
-            txPacket_ != com.google.cloud.compute.v1.BfdPacket.getDefaultInstance()) {
-          txPacket_ =
-            com.google.cloud.compute.v1.BfdPacket.newBuilder(txPacket_).mergeFrom(value).buildPartial();
+          txPacket_ != null &&
+          txPacket_ != com.google.cloud.compute.v1.BfdPacket.getDefaultInstance()) {
+          getTxPacketBuilder().mergeFrom(value);
         } else {
           txPacket_ = value;
         }
-        onChanged();
       } else {
         txPacketBuilder_.mergeFrom(value);
       }
       bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2886,13 +2825,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.cloud.compute.v1.BfdPacket tx_packet = 111386275;</code>
      */
     public Builder clearTxPacket() {
-      if (txPacketBuilder_ == null) {
-        txPacket_ = null;
-        onChanged();
-      } else {
-        txPacketBuilder_.clear();
-      }
       bitField0_ = (bitField0_ & ~0x00000100);
+      txPacket_ = null;
+      if (txPacketBuilder_ != null) {
+        txPacketBuilder_.dispose();
+        txPacketBuilder_ = null;
+      }
+      onChanged();
       return this;
     }
     /**
@@ -2978,8 +2917,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUptimeMs(long value) {
-      bitField0_ |= 0x00000200;
+      
       uptimeMs_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3030,7 +2970,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BfdStatus(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

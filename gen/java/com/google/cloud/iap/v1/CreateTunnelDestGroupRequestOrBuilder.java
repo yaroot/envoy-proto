@@ -60,10 +60,10 @@ public interface CreateTunnelDestGroupRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The ID to use for the TunnelDestGroup, which becomes the final component of
-   * the resource name.
+   * Required. The ID to use for the TunnelDestGroup, which becomes the final
+   * component of the resource name.
    * This value must be 4-63 characters, and valid characters
-   * are `[a-z][0-9]-`.
+   * are `[a-z]-`.
    * </pre>
    *
    * <code>string tunnel_dest_group_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -72,10 +72,10 @@ public interface CreateTunnelDestGroupRequestOrBuilder extends
   java.lang.String getTunnelDestGroupId();
   /**
    * <pre>
-   * Required. The ID to use for the TunnelDestGroup, which becomes the final component of
-   * the resource name.
+   * Required. The ID to use for the TunnelDestGroup, which becomes the final
+   * component of the resource name.
    * This value must be 4-63 characters, and valid characters
-   * are `[a-z][0-9]-`.
+   * are `[a-z]-`.
    * </pre>
    *
    * <code>string tunnel_dest_group_id = 3 [(.google.api.field_behavior) = REQUIRED];</code>

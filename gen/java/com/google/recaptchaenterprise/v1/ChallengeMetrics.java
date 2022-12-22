@@ -34,65 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ChallengeMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            pageloadCount_ = input.readInt64();
-            break;
-          }
-          case 16: {
-
-            nocaptchaCount_ = input.readInt64();
-            break;
-          }
-          case 24: {
-
-            failedCount_ = input.readInt64();
-            break;
-          }
-          case 32: {
-
-            passedCount_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.recaptchaenterprise.v1.RecaptchaEnterpriseProto.internal_static_google_cloud_recaptchaenterprise_v1_ChallengeMetrics_descriptor;
@@ -107,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGELOAD_COUNT_FIELD_NUMBER = 1;
-  private long pageloadCount_;
+  private long pageloadCount_ = 0L;
   /**
    * <pre>
    * Count of reCAPTCHA checkboxes or badges rendered. This is mostly equivalent
@@ -123,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NOCAPTCHA_COUNT_FIELD_NUMBER = 2;
-  private long nocaptchaCount_;
+  private long nocaptchaCount_ = 0L;
   /**
    * <pre>
    * Count of nocaptchas (successful verification without a challenge) issued.
@@ -138,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FAILED_COUNT_FIELD_NUMBER = 3;
-  private long failedCount_;
+  private long failedCount_ = 0L;
   /**
    * <pre>
    * Count of submitted challenge solutions that were incorrect or otherwise
@@ -154,7 +95,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PASSED_COUNT_FIELD_NUMBER = 4;
-  private long passedCount_;
+  private long passedCount_ = 0L;
   /**
    * <pre>
    * Count of nocaptchas (successful verification without a challenge) plus
@@ -196,7 +137,7 @@ private static final long serialVersionUID = 0L;
     if (passedCount_ != 0L) {
       output.writeInt64(4, passedCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -221,7 +162,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, passedCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -244,7 +185,7 @@ private static final long serialVersionUID = 0L;
         != other.getFailedCount()) return false;
     if (getPassedCount()
         != other.getPassedCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +208,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + PASSED_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getPassedCount());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,30 +329,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.recaptchaenterprise.v1.ChallengeMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       pageloadCount_ = 0L;
-
       nocaptchaCount_ = 0L;
-
       failedCount_ = 0L;
-
       passedCount_ = 0L;
-
       return this;
     }
 
@@ -438,12 +371,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.recaptchaenterprise.v1.ChallengeMetrics buildPartial() {
       com.google.recaptchaenterprise.v1.ChallengeMetrics result = new com.google.recaptchaenterprise.v1.ChallengeMetrics(this);
-      result.pageloadCount_ = pageloadCount_;
-      result.nocaptchaCount_ = nocaptchaCount_;
-      result.failedCount_ = failedCount_;
-      result.passedCount_ = passedCount_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.recaptchaenterprise.v1.ChallengeMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pageloadCount_ = pageloadCount_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.nocaptchaCount_ = nocaptchaCount_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.failedCount_ = failedCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.passedCount_ = passedCount_;
+      }
     }
 
     @java.lang.Override
@@ -502,7 +448,7 @@ private static final long serialVersionUID = 0L;
       if (other.getPassedCount() != 0L) {
         setPassedCount(other.getPassedCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -517,19 +463,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.recaptchaenterprise.v1.ChallengeMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              pageloadCount_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              nocaptchaCount_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              failedCount_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              passedCount_ = input.readInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.recaptchaenterprise.v1.ChallengeMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long pageloadCount_ ;
     /**
@@ -558,6 +538,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageloadCount(long value) {
       
       pageloadCount_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -571,7 +552,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageloadCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       pageloadCount_ = 0L;
       onChanged();
       return this;
@@ -602,6 +583,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNocaptchaCount(long value) {
       
       nocaptchaCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -614,7 +596,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNocaptchaCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       nocaptchaCount_ = 0L;
       onChanged();
       return this;
@@ -647,6 +629,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailedCount(long value) {
       
       failedCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -660,7 +643,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailedCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       failedCount_ = 0L;
       onChanged();
       return this;
@@ -695,6 +678,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPassedCount(long value) {
       
       passedCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -709,7 +693,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPassedCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       passedCount_ = 0L;
       onChanged();
       return this;
@@ -747,7 +731,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChallengeMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

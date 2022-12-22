@@ -187,7 +187,6 @@ public interface VodSessionOrBuilder extends
    *
    * <code>map&lt;string, string&gt; ad_tag_macro_map = 7;</code>
    */
-
   /* nullable */
 java.lang.String getAdTagMacroMapOrDefault(
       java.lang.String key,
@@ -208,7 +207,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; ad_tag_macro_map = 7;</code>
    */
-
   java.lang.String getAdTagMacroMapOrThrow(
       java.lang.String key);
 

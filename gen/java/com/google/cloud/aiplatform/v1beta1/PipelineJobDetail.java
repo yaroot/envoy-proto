@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PipelineJobDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.aiplatform.v1beta1.Context.Builder subBuilder = null;
-            if (pipelineContext_ != null) {
-              subBuilder = pipelineContext_.toBuilder();
-            }
-            pipelineContext_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.Context.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pipelineContext_);
-              pipelineContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1beta1.Context.Builder subBuilder = null;
-            if (pipelineRunContext_ != null) {
-              subBuilder = pipelineRunContext_.toBuilder();
-            }
-            pipelineRunContext_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.Context.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pipelineRunContext_);
-              pipelineRunContext_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              taskDetails_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            taskDetails_.add(
-                input.readMessage(com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        taskDetails_ = java.util.Collections.unmodifiableList(taskDetails_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.Pipeline.internal_static_google_cloud_aiplatform_v1beta1_PipelineJobDetail_descriptor;
@@ -161,7 +83,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ContextOrBuilder getPipelineContextOrBuilder() {
-    return getPipelineContext();
+    return pipelineContext_ == null ? com.google.cloud.aiplatform.v1beta1.Context.getDefaultInstance() : pipelineContext_;
   }
 
   public static final int PIPELINE_RUN_CONTEXT_FIELD_NUMBER = 2;
@@ -199,10 +121,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.ContextOrBuilder getPipelineRunContextOrBuilder() {
-    return getPipelineRunContext();
+    return pipelineRunContext_ == null ? com.google.cloud.aiplatform.v1beta1.Context.getDefaultInstance() : pipelineRunContext_;
   }
 
   public static final int TASK_DETAILS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail> taskDetails_;
   /**
    * <pre>
@@ -285,7 +208,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < taskDetails_.size(); i++) {
       output.writeMessage(3, taskDetails_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -306,7 +229,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, taskDetails_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -333,7 +256,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getTaskDetailsList()
         .equals(other.getTaskDetailsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -356,7 +279,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TASK_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getTaskDetailsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -477,41 +400,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.PipelineJobDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTaskDetailsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (pipelineContextBuilder_ == null) {
-        pipelineContext_ = null;
-      } else {
-        pipelineContext_ = null;
+      bitField0_ = 0;
+      pipelineContext_ = null;
+      if (pipelineContextBuilder_ != null) {
+        pipelineContextBuilder_.dispose();
         pipelineContextBuilder_ = null;
       }
-      if (pipelineRunContextBuilder_ == null) {
-        pipelineRunContext_ = null;
-      } else {
-        pipelineRunContext_ = null;
+      pipelineRunContext_ = null;
+      if (pipelineRunContextBuilder_ != null) {
+        pipelineRunContextBuilder_.dispose();
         pipelineRunContextBuilder_ = null;
       }
       if (taskDetailsBuilder_ == null) {
         taskDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        taskDetails_ = null;
         taskDetailsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -538,28 +455,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.PipelineJobDetail buildPartial() {
       com.google.cloud.aiplatform.v1beta1.PipelineJobDetail result = new com.google.cloud.aiplatform.v1beta1.PipelineJobDetail(this);
-      int from_bitField0_ = bitField0_;
-      if (pipelineContextBuilder_ == null) {
-        result.pipelineContext_ = pipelineContext_;
-      } else {
-        result.pipelineContext_ = pipelineContextBuilder_.build();
-      }
-      if (pipelineRunContextBuilder_ == null) {
-        result.pipelineRunContext_ = pipelineRunContext_;
-      } else {
-        result.pipelineRunContext_ = pipelineRunContextBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.PipelineJobDetail result) {
       if (taskDetailsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           taskDetails_ = java.util.Collections.unmodifiableList(taskDetails_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.taskDetails_ = taskDetails_;
       } else {
         result.taskDetails_ = taskDetailsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.PipelineJobDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pipelineContext_ = pipelineContextBuilder_ == null
+            ? pipelineContext_
+            : pipelineContextBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pipelineRunContext_ = pipelineRunContextBuilder_ == null
+            ? pipelineRunContext_
+            : pipelineRunContextBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -616,7 +541,7 @@ private static final long serialVersionUID = 0L;
         if (!other.taskDetails_.isEmpty()) {
           if (taskDetails_.isEmpty()) {
             taskDetails_ = other.taskDetails_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureTaskDetailsIsMutable();
             taskDetails_.addAll(other.taskDetails_);
@@ -629,7 +554,7 @@ private static final long serialVersionUID = 0L;
             taskDetailsBuilder_.dispose();
             taskDetailsBuilder_ = null;
             taskDetails_ = other.taskDetails_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             taskDetailsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTaskDetailsFieldBuilder() : null;
@@ -638,7 +563,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -653,17 +578,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.PipelineJobDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getPipelineContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPipelineRunContextFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail m =
+                  input.readMessage(
+                      com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.parser(),
+                      extensionRegistry);
+              if (taskDetailsBuilder_ == null) {
+                ensureTaskDetailsIsMutable();
+                taskDetails_.add(m);
+              } else {
+                taskDetailsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.PipelineJobDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -680,7 +645,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pipelineContext field is set.
      */
     public boolean hasPipelineContext() {
-      return pipelineContextBuilder_ != null || pipelineContext_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -710,11 +675,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pipelineContext_ = value;
-        onChanged();
       } else {
         pipelineContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -728,11 +693,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.Context.Builder builderForValue) {
       if (pipelineContextBuilder_ == null) {
         pipelineContext_ = builderForValue.build();
-        onChanged();
       } else {
         pipelineContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -744,17 +709,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePipelineContext(com.google.cloud.aiplatform.v1beta1.Context value) {
       if (pipelineContextBuilder_ == null) {
-        if (pipelineContext_ != null) {
-          pipelineContext_ =
-            com.google.cloud.aiplatform.v1beta1.Context.newBuilder(pipelineContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          pipelineContext_ != null &&
+          pipelineContext_ != com.google.cloud.aiplatform.v1beta1.Context.getDefaultInstance()) {
+          getPipelineContextBuilder().mergeFrom(value);
         } else {
           pipelineContext_ = value;
         }
-        onChanged();
       } else {
         pipelineContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -765,14 +731,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Context pipeline_context = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPipelineContext() {
-      if (pipelineContextBuilder_ == null) {
-        pipelineContext_ = null;
-        onChanged();
-      } else {
-        pipelineContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      pipelineContext_ = null;
+      if (pipelineContextBuilder_ != null) {
+        pipelineContextBuilder_.dispose();
         pipelineContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -783,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Context pipeline_context = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.Context.Builder getPipelineContextBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getPipelineContextFieldBuilder().getBuilder();
     }
@@ -835,7 +800,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the pipelineRunContext field is set.
      */
     public boolean hasPipelineRunContext() {
-      return pipelineRunContextBuilder_ != null || pipelineRunContext_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -865,11 +830,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         pipelineRunContext_ = value;
-        onChanged();
       } else {
         pipelineRunContextBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -883,11 +848,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.Context.Builder builderForValue) {
       if (pipelineRunContextBuilder_ == null) {
         pipelineRunContext_ = builderForValue.build();
-        onChanged();
       } else {
         pipelineRunContextBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -899,17 +864,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePipelineRunContext(com.google.cloud.aiplatform.v1beta1.Context value) {
       if (pipelineRunContextBuilder_ == null) {
-        if (pipelineRunContext_ != null) {
-          pipelineRunContext_ =
-            com.google.cloud.aiplatform.v1beta1.Context.newBuilder(pipelineRunContext_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          pipelineRunContext_ != null &&
+          pipelineRunContext_ != com.google.cloud.aiplatform.v1beta1.Context.getDefaultInstance()) {
+          getPipelineRunContextBuilder().mergeFrom(value);
         } else {
           pipelineRunContext_ = value;
         }
-        onChanged();
       } else {
         pipelineRunContextBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -920,14 +886,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Context pipeline_run_context = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearPipelineRunContext() {
-      if (pipelineRunContextBuilder_ == null) {
-        pipelineRunContext_ = null;
-        onChanged();
-      } else {
-        pipelineRunContext_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      pipelineRunContext_ = null;
+      if (pipelineRunContextBuilder_ != null) {
+        pipelineRunContextBuilder_.dispose();
         pipelineRunContextBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -938,7 +903,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.Context pipeline_run_context = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.aiplatform.v1beta1.Context.Builder getPipelineRunContextBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPipelineRunContextFieldBuilder().getBuilder();
     }
@@ -981,9 +946,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail> taskDetails_ =
       java.util.Collections.emptyList();
     private void ensureTaskDetailsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         taskDetails_ = new java.util.ArrayList<com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail>(taskDetails_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1177,7 +1142,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearTaskDetails() {
       if (taskDetailsBuilder_ == null) {
         taskDetails_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         taskDetailsBuilder_.clear();
@@ -1282,7 +1247,7 @@ private static final long serialVersionUID = 0L;
         taskDetailsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail, com.google.cloud.aiplatform.v1beta1.PipelineTaskDetail.Builder, com.google.cloud.aiplatform.v1beta1.PipelineTaskDetailOrBuilder>(
                 taskDetails_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         taskDetails_ = null;
@@ -1322,7 +1287,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PipelineJobDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SourceProvenance(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.functions.v2.StorageSource.Builder subBuilder = null;
-            if (resolvedStorageSource_ != null) {
-              subBuilder = resolvedStorageSource_.toBuilder();
-            }
-            resolvedStorageSource_ = input.readMessage(com.google.cloud.functions.v2.StorageSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resolvedStorageSource_);
-              resolvedStorageSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.functions.v2.RepoSource.Builder subBuilder = null;
-            if (resolvedRepoSource_ != null) {
-              subBuilder = resolvedRepoSource_.toBuilder();
-            }
-            resolvedRepoSource_ = input.readMessage(com.google.cloud.functions.v2.RepoSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resolvedRepoSource_);
-              resolvedRepoSource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.functions.v2.FunctionsProto.internal_static_google_cloud_functions_v2_SourceProvenance_descriptor;
@@ -151,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.functions.v2.StorageSourceOrBuilder getResolvedStorageSourceOrBuilder() {
-    return getResolvedStorageSource();
+    return resolvedStorageSource_ == null ? com.google.cloud.functions.v2.StorageSource.getDefaultInstance() : resolvedStorageSource_;
   }
 
   public static final int RESOLVED_REPO_SOURCE_FIELD_NUMBER = 2;
@@ -192,7 +127,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.functions.v2.RepoSourceOrBuilder getResolvedRepoSourceOrBuilder() {
-    return getResolvedRepoSource();
+    return resolvedRepoSource_ == null ? com.google.cloud.functions.v2.RepoSource.getDefaultInstance() : resolvedRepoSource_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -215,7 +150,7 @@ private static final long serialVersionUID = 0L;
     if (resolvedRepoSource_ != null) {
       output.writeMessage(2, getResolvedRepoSource());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +167,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getResolvedRepoSource());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -257,7 +192,7 @@ private static final long serialVersionUID = 0L;
       if (!getResolvedRepoSource()
           .equals(other.getResolvedRepoSource())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -276,7 +211,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESOLVED_REPO_SOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getResolvedRepoSource().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -398,32 +333,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.functions.v2.SourceProvenance.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (resolvedStorageSourceBuilder_ == null) {
-        resolvedStorageSource_ = null;
-      } else {
-        resolvedStorageSource_ = null;
+      bitField0_ = 0;
+      resolvedStorageSource_ = null;
+      if (resolvedStorageSourceBuilder_ != null) {
+        resolvedStorageSourceBuilder_.dispose();
         resolvedStorageSourceBuilder_ = null;
       }
-      if (resolvedRepoSourceBuilder_ == null) {
-        resolvedRepoSource_ = null;
-      } else {
-        resolvedRepoSource_ = null;
+      resolvedRepoSource_ = null;
+      if (resolvedRepoSourceBuilder_ != null) {
+        resolvedRepoSourceBuilder_.dispose();
         resolvedRepoSourceBuilder_ = null;
       }
       return this;
@@ -452,18 +381,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.functions.v2.SourceProvenance buildPartial() {
       com.google.cloud.functions.v2.SourceProvenance result = new com.google.cloud.functions.v2.SourceProvenance(this);
-      if (resolvedStorageSourceBuilder_ == null) {
-        result.resolvedStorageSource_ = resolvedStorageSource_;
-      } else {
-        result.resolvedStorageSource_ = resolvedStorageSourceBuilder_.build();
-      }
-      if (resolvedRepoSourceBuilder_ == null) {
-        result.resolvedRepoSource_ = resolvedRepoSource_;
-      } else {
-        result.resolvedRepoSource_ = resolvedRepoSourceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.functions.v2.SourceProvenance result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resolvedStorageSource_ = resolvedStorageSourceBuilder_ == null
+            ? resolvedStorageSource_
+            : resolvedStorageSourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resolvedRepoSource_ = resolvedRepoSourceBuilder_ == null
+            ? resolvedRepoSource_
+            : resolvedRepoSourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -516,7 +450,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasResolvedRepoSource()) {
         mergeResolvedRepoSource(other.getResolvedRepoSource());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -531,19 +465,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.functions.v2.SourceProvenance parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getResolvedStorageSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getResolvedRepoSourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.functions.v2.SourceProvenance) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.functions.v2.StorageSource resolvedStorageSource_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -558,7 +520,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resolvedStorageSource field is set.
      */
     public boolean hasResolvedStorageSource() {
-      return resolvedStorageSourceBuilder_ != null || resolvedStorageSource_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -590,11 +552,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resolvedStorageSource_ = value;
-        onChanged();
       } else {
         resolvedStorageSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -609,11 +571,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.functions.v2.StorageSource.Builder builderForValue) {
       if (resolvedStorageSourceBuilder_ == null) {
         resolvedStorageSource_ = builderForValue.build();
-        onChanged();
       } else {
         resolvedStorageSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -626,17 +588,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResolvedStorageSource(com.google.cloud.functions.v2.StorageSource value) {
       if (resolvedStorageSourceBuilder_ == null) {
-        if (resolvedStorageSource_ != null) {
-          resolvedStorageSource_ =
-            com.google.cloud.functions.v2.StorageSource.newBuilder(resolvedStorageSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          resolvedStorageSource_ != null &&
+          resolvedStorageSource_ != com.google.cloud.functions.v2.StorageSource.getDefaultInstance()) {
+          getResolvedStorageSourceBuilder().mergeFrom(value);
         } else {
           resolvedStorageSource_ = value;
         }
-        onChanged();
       } else {
         resolvedStorageSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -648,14 +611,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.StorageSource resolved_storage_source = 1;</code>
      */
     public Builder clearResolvedStorageSource() {
-      if (resolvedStorageSourceBuilder_ == null) {
-        resolvedStorageSource_ = null;
-        onChanged();
-      } else {
-        resolvedStorageSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      resolvedStorageSource_ = null;
+      if (resolvedStorageSourceBuilder_ != null) {
+        resolvedStorageSourceBuilder_.dispose();
         resolvedStorageSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -667,7 +629,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.StorageSource resolved_storage_source = 1;</code>
      */
     public com.google.cloud.functions.v2.StorageSource.Builder getResolvedStorageSourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getResolvedStorageSourceFieldBuilder().getBuilder();
     }
@@ -722,7 +684,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resolvedRepoSource field is set.
      */
     public boolean hasResolvedRepoSource() {
-      return resolvedRepoSourceBuilder_ != null || resolvedRepoSource_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -754,11 +716,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resolvedRepoSource_ = value;
-        onChanged();
       } else {
         resolvedRepoSourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -773,11 +735,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.functions.v2.RepoSource.Builder builderForValue) {
       if (resolvedRepoSourceBuilder_ == null) {
         resolvedRepoSource_ = builderForValue.build();
-        onChanged();
       } else {
         resolvedRepoSourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -790,17 +752,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResolvedRepoSource(com.google.cloud.functions.v2.RepoSource value) {
       if (resolvedRepoSourceBuilder_ == null) {
-        if (resolvedRepoSource_ != null) {
-          resolvedRepoSource_ =
-            com.google.cloud.functions.v2.RepoSource.newBuilder(resolvedRepoSource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          resolvedRepoSource_ != null &&
+          resolvedRepoSource_ != com.google.cloud.functions.v2.RepoSource.getDefaultInstance()) {
+          getResolvedRepoSourceBuilder().mergeFrom(value);
         } else {
           resolvedRepoSource_ = value;
         }
-        onChanged();
       } else {
         resolvedRepoSourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -812,14 +775,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.RepoSource resolved_repo_source = 2;</code>
      */
     public Builder clearResolvedRepoSource() {
-      if (resolvedRepoSourceBuilder_ == null) {
-        resolvedRepoSource_ = null;
-        onChanged();
-      } else {
-        resolvedRepoSource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      resolvedRepoSource_ = null;
+      if (resolvedRepoSourceBuilder_ != null) {
+        resolvedRepoSourceBuilder_.dispose();
         resolvedRepoSourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -831,7 +793,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.functions.v2.RepoSource resolved_repo_source = 2;</code>
      */
     public com.google.cloud.functions.v2.RepoSource.Builder getResolvedRepoSourceBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getResolvedRepoSourceFieldBuilder().getBuilder();
     }
@@ -905,7 +867,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SourceProvenance(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -226,7 +226,7 @@ public interface ExternalProcessorOrBuilder extends
    * when the filter is running in synchronous mode. Whenever
    * the proxy sends a message on the stream that requires a response, it will
    * reset this timer, and will stop processing and return an error (subject
-   * to the processing mode) if the timer expires before a matching response.
+   * to the processing mode) if the timer expires before a matching response
    * is received. There is no timeout when the filter is running in asynchronous
    * mode. Default is 200 milliseconds.
    * </pre>
@@ -241,7 +241,7 @@ public interface ExternalProcessorOrBuilder extends
    * when the filter is running in synchronous mode. Whenever
    * the proxy sends a message on the stream that requires a response, it will
    * reset this timer, and will stop processing and return an error (subject
-   * to the processing mode) if the timer expires before a matching response.
+   * to the processing mode) if the timer expires before a matching response
    * is received. There is no timeout when the filter is running in asynchronous
    * mode. Default is 200 milliseconds.
    * </pre>
@@ -256,7 +256,7 @@ public interface ExternalProcessorOrBuilder extends
    * when the filter is running in synchronous mode. Whenever
    * the proxy sends a message on the stream that requires a response, it will
    * reset this timer, and will stop processing and return an error (subject
-   * to the processing mode) if the timer expires before a matching response.
+   * to the processing mode) if the timer expires before a matching response
    * is received. There is no timeout when the filter is running in asynchronous
    * mode. Default is 200 milliseconds.
    * </pre>
@@ -295,6 +295,11 @@ public interface ExternalProcessorOrBuilder extends
    * with the header prefix set via
    * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
    * (which is usually "x-envoy").
+   * Note that changing headers such as "host" or ":authority" may not in itself
+   * change Envoy's routing decision, as routes can be cached. To also force the
+   * route to be recomputed, set the
+   * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+   * field to true in the same response.
    * </pre>
    *
    * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -309,6 +314,11 @@ public interface ExternalProcessorOrBuilder extends
    * with the header prefix set via
    * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
    * (which is usually "x-envoy").
+   * Note that changing headers such as "host" or ":authority" may not in itself
+   * change Envoy's routing decision, as routes can be cached. To also force the
+   * route to be recomputed, set the
+   * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+   * field to true in the same response.
    * </pre>
    *
    * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -323,6 +333,11 @@ public interface ExternalProcessorOrBuilder extends
    * with the header prefix set via
    * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
    * (which is usually "x-envoy").
+   * Note that changing headers such as "host" or ":authority" may not in itself
+   * change Envoy's routing decision, as routes can be cached. To also force the
+   * route to be recomputed, set the
+   * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+   * field to true in the same response.
    * </pre>
    *
    * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>

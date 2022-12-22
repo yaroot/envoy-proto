@@ -39,81 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AwsRequestSigning(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceName_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            region_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            hostRewrite_ = s;
-            break;
-          }
-          case 32: {
-
-            useUnsignedPayload_ = input.readBool();
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              matchExcludedHeaders_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.v3.StringMatcher>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            matchExcludedHeaders_.add(
-                input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        matchExcludedHeaders_ = java.util.Collections.unmodifiableList(matchExcludedHeaders_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigningProto.internal_static_envoy_extensions_filters_http_aws_request_signing_v3_AwsRequestSigning_descriptor;
@@ -128,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object serviceName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceName_ = "";
   /**
    * <pre>
    * The `service namespace
@@ -180,7 +106,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * The `region &lt;https://docs.aws.amazon.com/general/latest/gr/rande.html&gt;`_ hosting the HTTP
@@ -230,7 +157,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HOST_REWRITE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object hostRewrite_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object hostRewrite_ = "";
   /**
    * <pre>
    * Indicates that before signing headers, the host header will be swapped with
@@ -290,7 +218,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_UNSIGNED_PAYLOAD_FIELD_NUMBER = 4;
-  private boolean useUnsignedPayload_;
+  private boolean useUnsignedPayload_ = false;
   /**
    * <pre>
    * Instead of buffering the request to calculate the payload hash, use the literal string ``UNSIGNED-PAYLOAD``
@@ -307,6 +235,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCH_EXCLUDED_HEADERS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.matcher.v3.StringMatcher> matchExcludedHeaders_;
   /**
    * <pre>
@@ -430,7 +359,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < matchExcludedHeaders_.size(); i++) {
       output.writeMessage(5, matchExcludedHeaders_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -456,7 +385,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, matchExcludedHeaders_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -481,7 +410,7 @@ private static final long serialVersionUID = 0L;
         != other.getUseUnsignedPayload()) return false;
     if (!getMatchExcludedHeadersList()
         .equals(other.getMatchExcludedHeadersList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -505,7 +434,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MATCH_EXCLUDED_HEADERS_FIELD_NUMBER;
       hash = (53 * hash) + getMatchExcludedHeadersList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -627,37 +556,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMatchExcludedHeadersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       serviceName_ = "";
-
       region_ = "";
-
       hostRewrite_ = "";
-
       useUnsignedPayload_ = false;
-
       if (matchExcludedHeadersBuilder_ == null) {
         matchExcludedHeaders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        matchExcludedHeaders_ = null;
         matchExcludedHeadersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -684,22 +605,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning result = new io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning(this);
-      int from_bitField0_ = bitField0_;
-      result.serviceName_ = serviceName_;
-      result.region_ = region_;
-      result.hostRewrite_ = hostRewrite_;
-      result.useUnsignedPayload_ = useUnsignedPayload_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning result) {
       if (matchExcludedHeadersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           matchExcludedHeaders_ = java.util.Collections.unmodifiableList(matchExcludedHeaders_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.matchExcludedHeaders_ = matchExcludedHeaders_;
       } else {
         result.matchExcludedHeaders_ = matchExcludedHeadersBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.serviceName_ = serviceName_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.region_ = region_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.hostRewrite_ = hostRewrite_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.useUnsignedPayload_ = useUnsignedPayload_;
+      }
     }
 
     @java.lang.Override
@@ -748,14 +685,17 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning.getDefaultInstance()) return this;
       if (!other.getServiceName().isEmpty()) {
         serviceName_ = other.serviceName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRegion().isEmpty()) {
         region_ = other.region_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getHostRewrite().isEmpty()) {
         hostRewrite_ = other.hostRewrite_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getUseUnsignedPayload() != false) {
@@ -765,7 +705,7 @@ private static final long serialVersionUID = 0L;
         if (!other.matchExcludedHeaders_.isEmpty()) {
           if (matchExcludedHeaders_.isEmpty()) {
             matchExcludedHeaders_ = other.matchExcludedHeaders_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureMatchExcludedHeadersIsMutable();
             matchExcludedHeaders_.addAll(other.matchExcludedHeaders_);
@@ -778,7 +718,7 @@ private static final long serialVersionUID = 0L;
             matchExcludedHeadersBuilder_.dispose();
             matchExcludedHeadersBuilder_ = null;
             matchExcludedHeaders_ = other.matchExcludedHeaders_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             matchExcludedHeadersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMatchExcludedHeadersFieldBuilder() : null;
@@ -787,7 +727,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -802,17 +742,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              serviceName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              hostRewrite_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              useUnsignedPayload_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              io.envoyproxy.envoy.type.matcher.v3.StringMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(),
+                      extensionRegistry);
+              if (matchExcludedHeadersBuilder_ == null) {
+                ensureMatchExcludedHeadersIsMutable();
+                matchExcludedHeaders_.add(m);
+              } else {
+                matchExcludedHeadersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.aws_request_signing.v3.AwsRequestSigning) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -879,11 +865,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -899,8 +883,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceName() {
-      
       serviceName_ = getDefaultInstance().getServiceName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -918,12 +902,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -987,11 +969,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1006,8 +986,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1024,12 +1004,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1108,11 +1086,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostRewrite(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       hostRewrite_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1132,8 +1108,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHostRewrite() {
-      
       hostRewrite_ = getDefaultInstance().getHostRewrite();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1155,12 +1131,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHostRewriteBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       hostRewrite_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1194,6 +1168,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseUnsignedPayload(boolean value) {
       
       useUnsignedPayload_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1208,7 +1183,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseUnsignedPayload() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       useUnsignedPayload_ = false;
       onChanged();
       return this;
@@ -1217,9 +1192,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.matcher.v3.StringMatcher> matchExcludedHeaders_ =
       java.util.Collections.emptyList();
     private void ensureMatchExcludedHeadersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         matchExcludedHeaders_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.v3.StringMatcher>(matchExcludedHeaders_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -1490,7 +1465,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMatchExcludedHeaders() {
       if (matchExcludedHeadersBuilder_ == null) {
         matchExcludedHeaders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         matchExcludedHeadersBuilder_.clear();
@@ -1644,7 +1619,7 @@ private static final long serialVersionUID = 0L;
         matchExcludedHeadersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.matcher.v3.StringMatcher, io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.StringMatcherOrBuilder>(
                 matchExcludedHeaders_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         matchExcludedHeaders_ = null;
@@ -1684,7 +1659,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AwsRequestSigning(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

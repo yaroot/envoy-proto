@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AutoscalerRecommendation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.Builder subBuilder = null;
-            if (inputs_ != null) {
-              subBuilder = inputs_.toBuilder();
-            }
-            inputs_ = input.readMessage(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputs_);
-              inputs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.Builder subBuilder = null;
-            if (outputs_ != null) {
-              subBuilder = outputs_.toBuilder();
-            }
-            outputs_ = input.readMessage(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputs_);
-              outputs_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.logging.AutoscalerLogOuterClass.internal_static_google_cloud_dataproc_logging_AutoscalerRecommendation_descriptor;
@@ -160,7 +95,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
      */
-
     /* nullable */
 java.lang.String getClusterMetricsOrDefault(
         java.lang.String key,
@@ -174,7 +108,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
      */
-
     java.lang.String getClusterMetricsOrThrow(
         java.lang.String key);
 
@@ -290,98 +223,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Inputs(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                clusterMetrics_ = com.google.protobuf.MapField.newMapField(
-                    ClusterMetricsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-              clusterMetrics__ = input.readMessage(
-                  ClusterMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              clusterMetrics_.getMutableMap().put(
-                  clusterMetrics__.getKey(), clusterMetrics__.getValue());
-              break;
-            }
-            case 18: {
-              com.google.cloud.dataproc.logging.ClusterSize.Builder subBuilder = null;
-              if (currentClusterSize_ != null) {
-                subBuilder = currentClusterSize_.toBuilder();
-              }
-              currentClusterSize_ = input.readMessage(com.google.cloud.dataproc.logging.ClusterSize.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(currentClusterSize_);
-                currentClusterSize_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.cloud.dataproc.logging.ClusterSize.Builder subBuilder = null;
-              if (minWorkerCounts_ != null) {
-                subBuilder = minWorkerCounts_.toBuilder();
-              }
-              minWorkerCounts_ = input.readMessage(com.google.cloud.dataproc.logging.ClusterSize.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(minWorkerCounts_);
-                minWorkerCounts_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.cloud.dataproc.logging.ClusterSize.Builder subBuilder = null;
-              if (maxWorkerCounts_ != null) {
-                subBuilder = maxWorkerCounts_.toBuilder();
-              }
-              maxWorkerCounts_ = input.readMessage(com.google.cloud.dataproc.logging.ClusterSize.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(maxWorkerCounts_);
-                maxWorkerCounts_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataproc.logging.AutoscalerLogOuterClass.internal_static_google_cloud_dataproc_logging_AutoscalerRecommendation_Inputs_descriptor;
@@ -419,6 +260,7 @@ java.lang.String defaultValue);
                   com.google.protobuf.WireFormat.FieldType.STRING,
                   "");
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> clusterMetrics_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -429,7 +271,6 @@ java.lang.String defaultValue);
       }
       return clusterMetrics_;
     }
-
     public int getClusterMetricsCount() {
       return internalGetClusterMetrics().getMap().size();
     }
@@ -441,7 +282,6 @@ java.lang.String defaultValue);
      *
      * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
      */
-
     @java.lang.Override
     public boolean containsClusterMetrics(
         java.lang.String key) {
@@ -465,7 +305,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getClusterMetricsMap() {
       return internalGetClusterMetrics().getMap();
     }
@@ -478,10 +317,11 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getClusterMetricsOrDefault(
+    public /* nullable */
+java.lang.String getClusterMetricsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetClusterMetrics().getMap();
@@ -496,7 +336,6 @@ java.lang.String defaultValue);
      * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
      */
     @java.lang.Override
-
     public java.lang.String getClusterMetricsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -543,7 +382,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataproc.logging.ClusterSizeOrBuilder getCurrentClusterSizeOrBuilder() {
-      return getCurrentClusterSize();
+      return currentClusterSize_ == null ? com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance() : currentClusterSize_;
     }
 
     public static final int MIN_WORKER_COUNTS_FIELD_NUMBER = 3;
@@ -581,7 +420,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataproc.logging.ClusterSizeOrBuilder getMinWorkerCountsOrBuilder() {
-      return getMinWorkerCounts();
+      return minWorkerCounts_ == null ? com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance() : minWorkerCounts_;
     }
 
     public static final int MAX_WORKER_COUNTS_FIELD_NUMBER = 4;
@@ -619,7 +458,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataproc.logging.ClusterSizeOrBuilder getMaxWorkerCountsOrBuilder() {
-      return getMaxWorkerCounts();
+      return maxWorkerCounts_ == null ? com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance() : maxWorkerCounts_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -651,7 +490,7 @@ java.lang.String defaultValue);
       if (maxWorkerCounts_ != null) {
         output.writeMessage(4, getMaxWorkerCounts());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -682,7 +521,7 @@ java.lang.String defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getMaxWorkerCounts());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -714,7 +553,7 @@ java.lang.String defaultValue);
         if (!getMaxWorkerCounts()
             .equals(other.getMaxWorkerCounts())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -741,7 +580,7 @@ java.lang.String defaultValue);
         hash = (37 * hash) + MAX_WORKER_COUNTS_FIELD_NUMBER;
         hash = (53 * hash) + getMaxWorkerCounts().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -884,39 +723,32 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         internalGetMutableClusterMetrics().clear();
-        if (currentClusterSizeBuilder_ == null) {
-          currentClusterSize_ = null;
-        } else {
-          currentClusterSize_ = null;
+        currentClusterSize_ = null;
+        if (currentClusterSizeBuilder_ != null) {
+          currentClusterSizeBuilder_.dispose();
           currentClusterSizeBuilder_ = null;
         }
-        if (minWorkerCountsBuilder_ == null) {
-          minWorkerCounts_ = null;
-        } else {
-          minWorkerCounts_ = null;
+        minWorkerCounts_ = null;
+        if (minWorkerCountsBuilder_ != null) {
+          minWorkerCountsBuilder_.dispose();
           minWorkerCountsBuilder_ = null;
         }
-        if (maxWorkerCountsBuilder_ == null) {
-          maxWorkerCounts_ = null;
-        } else {
-          maxWorkerCounts_ = null;
+        maxWorkerCounts_ = null;
+        if (maxWorkerCountsBuilder_ != null) {
+          maxWorkerCountsBuilder_.dispose();
           maxWorkerCountsBuilder_ = null;
         }
         return this;
@@ -945,26 +777,32 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs buildPartial() {
         com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs result = new com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs(this);
-        int from_bitField0_ = bitField0_;
-        result.clusterMetrics_ = internalGetClusterMetrics();
-        result.clusterMetrics_.makeImmutable();
-        if (currentClusterSizeBuilder_ == null) {
-          result.currentClusterSize_ = currentClusterSize_;
-        } else {
-          result.currentClusterSize_ = currentClusterSizeBuilder_.build();
-        }
-        if (minWorkerCountsBuilder_ == null) {
-          result.minWorkerCounts_ = minWorkerCounts_;
-        } else {
-          result.minWorkerCounts_ = minWorkerCountsBuilder_.build();
-        }
-        if (maxWorkerCountsBuilder_ == null) {
-          result.maxWorkerCounts_ = maxWorkerCounts_;
-        } else {
-          result.maxWorkerCounts_ = maxWorkerCountsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.clusterMetrics_ = internalGetClusterMetrics();
+          result.clusterMetrics_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.currentClusterSize_ = currentClusterSizeBuilder_ == null
+              ? currentClusterSize_
+              : currentClusterSizeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.minWorkerCounts_ = minWorkerCountsBuilder_ == null
+              ? minWorkerCounts_
+              : minWorkerCountsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.maxWorkerCounts_ = maxWorkerCountsBuilder_ == null
+              ? maxWorkerCounts_
+              : maxWorkerCountsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1013,6 +851,7 @@ java.lang.String defaultValue);
         if (other == com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.getDefaultInstance()) return this;
         internalGetMutableClusterMetrics().mergeFrom(
             other.internalGetClusterMetrics());
+        bitField0_ |= 0x00000001;
         if (other.hasCurrentClusterSize()) {
           mergeCurrentClusterSize(other.getCurrentClusterSize());
         }
@@ -1022,7 +861,7 @@ java.lang.String defaultValue);
         if (other.hasMaxWorkerCounts()) {
           mergeMaxWorkerCounts(other.getMaxWorkerCounts());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1037,17 +876,60 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                clusterMetrics__ = input.readMessage(
+                    ClusterMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableClusterMetrics().getMutableMap().put(
+                    clusterMetrics__.getKey(), clusterMetrics__.getValue());
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getCurrentClusterSizeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getMinWorkerCountsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getMaxWorkerCountsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1055,7 +937,7 @@ java.lang.String defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, java.lang.String> clusterMetrics_;
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetClusterMetrics() {
+          internalGetClusterMetrics() {
         if (clusterMetrics_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               ClusterMetricsDefaultEntryHolder.defaultEntry);
@@ -1063,8 +945,7 @@ java.lang.String defaultValue);
         return clusterMetrics_;
       }
       private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-      internalGetMutableClusterMetrics() {
-        onChanged();;
+          internalGetMutableClusterMetrics() {
         if (clusterMetrics_ == null) {
           clusterMetrics_ = com.google.protobuf.MapField.newMapField(
               ClusterMetricsDefaultEntryHolder.defaultEntry);
@@ -1072,9 +953,10 @@ java.lang.String defaultValue);
         if (!clusterMetrics_.isMutable()) {
           clusterMetrics_ = clusterMetrics_.copy();
         }
+        bitField0_ |= 0x00000001;
+        onChanged();
         return clusterMetrics_;
       }
-
       public int getClusterMetricsCount() {
         return internalGetClusterMetrics().getMap().size();
       }
@@ -1086,7 +968,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
        */
-
       @java.lang.Override
       public boolean containsClusterMetrics(
           java.lang.String key) {
@@ -1110,7 +991,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, java.lang.String> getClusterMetricsMap() {
         return internalGetClusterMetrics().getMap();
       }
@@ -1123,10 +1003,11 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
        */
       @java.lang.Override
-
-      public java.lang.String getClusterMetricsOrDefault(
+      public /* nullable */
+java.lang.String getClusterMetricsOrDefault(
           java.lang.String key,
-          java.lang.String defaultValue) {
+          /* nullable */
+java.lang.String defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, java.lang.String> map =
             internalGetClusterMetrics().getMap();
@@ -1141,7 +1022,6 @@ java.lang.String defaultValue);
        * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
        */
       @java.lang.Override
-
       public java.lang.String getClusterMetricsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1152,8 +1032,8 @@ java.lang.String defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearClusterMetrics() {
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableClusterMetrics().getMutableMap()
             .clear();
         return this;
@@ -1166,7 +1046,6 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
        */
-
       public Builder removeClusterMetrics(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1179,7 +1058,8 @@ java.lang.String defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, java.lang.String>
-      getMutableClusterMetrics() {
+          getMutableClusterMetrics() {
+        bitField0_ |= 0x00000001;
         return internalGetMutableClusterMetrics().getMutableMap();
       }
       /**
@@ -1194,12 +1074,10 @@ java.lang.String defaultValue);
           java.lang.String key,
           java.lang.String value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableClusterMetrics().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000001;
         return this;
       }
       /**
@@ -1210,11 +1088,11 @@ java.lang.String defaultValue);
        *
        * <code>map&lt;string, string&gt; cluster_metrics = 1;</code>
        */
-
       public Builder putAllClusterMetrics(
           java.util.Map<java.lang.String, java.lang.String> values) {
         internalGetMutableClusterMetrics().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000001;
         return this;
       }
 
@@ -1230,7 +1108,7 @@ java.lang.String defaultValue);
        * @return Whether the currentClusterSize field is set.
        */
       public boolean hasCurrentClusterSize() {
-        return currentClusterSizeBuilder_ != null || currentClusterSize_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1260,11 +1138,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           currentClusterSize_ = value;
-          onChanged();
         } else {
           currentClusterSizeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1278,11 +1156,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataproc.logging.ClusterSize.Builder builderForValue) {
         if (currentClusterSizeBuilder_ == null) {
           currentClusterSize_ = builderForValue.build();
-          onChanged();
         } else {
           currentClusterSizeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1294,17 +1172,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeCurrentClusterSize(com.google.cloud.dataproc.logging.ClusterSize value) {
         if (currentClusterSizeBuilder_ == null) {
-          if (currentClusterSize_ != null) {
-            currentClusterSize_ =
-              com.google.cloud.dataproc.logging.ClusterSize.newBuilder(currentClusterSize_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            currentClusterSize_ != null &&
+            currentClusterSize_ != com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance()) {
+            getCurrentClusterSizeBuilder().mergeFrom(value);
           } else {
             currentClusterSize_ = value;
           }
-          onChanged();
         } else {
           currentClusterSizeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1315,14 +1194,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize current_cluster_size = 2;</code>
        */
       public Builder clearCurrentClusterSize() {
-        if (currentClusterSizeBuilder_ == null) {
-          currentClusterSize_ = null;
-          onChanged();
-        } else {
-          currentClusterSize_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        currentClusterSize_ = null;
+        if (currentClusterSizeBuilder_ != null) {
+          currentClusterSizeBuilder_.dispose();
           currentClusterSizeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1333,7 +1211,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize current_cluster_size = 2;</code>
        */
       public com.google.cloud.dataproc.logging.ClusterSize.Builder getCurrentClusterSizeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getCurrentClusterSizeFieldBuilder().getBuilder();
       }
@@ -1385,7 +1263,7 @@ java.lang.String defaultValue);
        * @return Whether the minWorkerCounts field is set.
        */
       public boolean hasMinWorkerCounts() {
-        return minWorkerCountsBuilder_ != null || minWorkerCounts_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -1415,11 +1293,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           minWorkerCounts_ = value;
-          onChanged();
         } else {
           minWorkerCountsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1433,11 +1311,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataproc.logging.ClusterSize.Builder builderForValue) {
         if (minWorkerCountsBuilder_ == null) {
           minWorkerCounts_ = builderForValue.build();
-          onChanged();
         } else {
           minWorkerCountsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1449,17 +1327,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeMinWorkerCounts(com.google.cloud.dataproc.logging.ClusterSize value) {
         if (minWorkerCountsBuilder_ == null) {
-          if (minWorkerCounts_ != null) {
-            minWorkerCounts_ =
-              com.google.cloud.dataproc.logging.ClusterSize.newBuilder(minWorkerCounts_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            minWorkerCounts_ != null &&
+            minWorkerCounts_ != com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance()) {
+            getMinWorkerCountsBuilder().mergeFrom(value);
           } else {
             minWorkerCounts_ = value;
           }
-          onChanged();
         } else {
           minWorkerCountsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -1470,14 +1349,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize min_worker_counts = 3;</code>
        */
       public Builder clearMinWorkerCounts() {
-        if (minWorkerCountsBuilder_ == null) {
-          minWorkerCounts_ = null;
-          onChanged();
-        } else {
-          minWorkerCounts_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        minWorkerCounts_ = null;
+        if (minWorkerCountsBuilder_ != null) {
+          minWorkerCountsBuilder_.dispose();
           minWorkerCountsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1488,7 +1366,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize min_worker_counts = 3;</code>
        */
       public com.google.cloud.dataproc.logging.ClusterSize.Builder getMinWorkerCountsBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getMinWorkerCountsFieldBuilder().getBuilder();
       }
@@ -1540,7 +1418,7 @@ java.lang.String defaultValue);
        * @return Whether the maxWorkerCounts field is set.
        */
       public boolean hasMaxWorkerCounts() {
-        return maxWorkerCountsBuilder_ != null || maxWorkerCounts_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -1570,11 +1448,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           maxWorkerCounts_ = value;
-          onChanged();
         } else {
           maxWorkerCountsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1588,11 +1466,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataproc.logging.ClusterSize.Builder builderForValue) {
         if (maxWorkerCountsBuilder_ == null) {
           maxWorkerCounts_ = builderForValue.build();
-          onChanged();
         } else {
           maxWorkerCountsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1604,17 +1482,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeMaxWorkerCounts(com.google.cloud.dataproc.logging.ClusterSize value) {
         if (maxWorkerCountsBuilder_ == null) {
-          if (maxWorkerCounts_ != null) {
-            maxWorkerCounts_ =
-              com.google.cloud.dataproc.logging.ClusterSize.newBuilder(maxWorkerCounts_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            maxWorkerCounts_ != null &&
+            maxWorkerCounts_ != com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance()) {
+            getMaxWorkerCountsBuilder().mergeFrom(value);
           } else {
             maxWorkerCounts_ = value;
           }
-          onChanged();
         } else {
           maxWorkerCountsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -1625,14 +1504,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize max_worker_counts = 4;</code>
        */
       public Builder clearMaxWorkerCounts() {
-        if (maxWorkerCountsBuilder_ == null) {
-          maxWorkerCounts_ = null;
-          onChanged();
-        } else {
-          maxWorkerCounts_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        maxWorkerCounts_ = null;
+        if (maxWorkerCountsBuilder_ != null) {
+          maxWorkerCountsBuilder_.dispose();
           maxWorkerCountsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1643,7 +1521,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize max_worker_counts = 4;</code>
        */
       public com.google.cloud.dataproc.logging.ClusterSize.Builder getMaxWorkerCountsBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getMaxWorkerCountsFieldBuilder().getBuilder();
       }
@@ -1715,7 +1593,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Inputs(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1965,122 +1854,6 @@ java.lang.String defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Outputs(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              decision_ = rawValue;
-              break;
-            }
-            case 18: {
-              com.google.cloud.dataproc.logging.ClusterSize.Builder subBuilder = null;
-              if (recommendedClusterSize_ != null) {
-                subBuilder = recommendedClusterSize_.toBuilder();
-              }
-              recommendedClusterSize_ = input.readMessage(com.google.cloud.dataproc.logging.ClusterSize.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(recommendedClusterSize_);
-                recommendedClusterSize_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (gracefulDecommissionTimeout_ != null) {
-                subBuilder = gracefulDecommissionTimeout_.toBuilder();
-              }
-              gracefulDecommissionTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(gracefulDecommissionTimeout_);
-                gracefulDecommissionTimeout_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 32: {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                constraintsReached_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              constraintsReached_.add(rawValue);
-              break;
-            }
-            case 34: {
-              int length = input.readRawVarint32();
-              int oldLimit = input.pushLimit(length);
-              while(input.getBytesUntilLimit() > 0) {
-                int rawValue = input.readEnum();
-                if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                  constraintsReached_ = new java.util.ArrayList<java.lang.Integer>();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                constraintsReached_.add(rawValue);
-              }
-              input.popLimit(oldLimit);
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                additionalRecommendationDetails_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              additionalRecommendationDetails_.add(s);
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              recommendationId_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          constraintsReached_ = java.util.Collections.unmodifiableList(constraintsReached_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          additionalRecommendationDetails_ = additionalRecommendationDetails_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataproc.logging.AutoscalerLogOuterClass.internal_static_google_cloud_dataproc_logging_AutoscalerRecommendation_Outputs_descriptor;
@@ -2095,7 +1868,7 @@ java.lang.String defaultValue);
     }
 
     public static final int DECISION_FIELD_NUMBER = 1;
-    private int decision_;
+    private int decision_ = 0;
     /**
      * <pre>
      * The high-level autoscaling decision, such as SCALE_UP, SCALE_DOWN,
@@ -2118,8 +1891,7 @@ java.lang.String defaultValue);
      * @return The decision.
      */
     @java.lang.Override public com.google.cloud.dataproc.logging.ScalingDecisionType getDecision() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataproc.logging.ScalingDecisionType result = com.google.cloud.dataproc.logging.ScalingDecisionType.valueOf(decision_);
+      com.google.cloud.dataproc.logging.ScalingDecisionType result = com.google.cloud.dataproc.logging.ScalingDecisionType.forNumber(decision_);
       return result == null ? com.google.cloud.dataproc.logging.ScalingDecisionType.UNRECOGNIZED : result;
     }
 
@@ -2158,7 +1930,7 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.dataproc.logging.ClusterSizeOrBuilder getRecommendedClusterSizeOrBuilder() {
-      return getRecommendedClusterSize();
+      return recommendedClusterSize_ == null ? com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance() : recommendedClusterSize_;
     }
 
     public static final int GRACEFUL_DECOMMISSION_TIMEOUT_FIELD_NUMBER = 3;
@@ -2196,18 +1968,18 @@ java.lang.String defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getGracefulDecommissionTimeoutOrBuilder() {
-      return getGracefulDecommissionTimeout();
+      return gracefulDecommissionTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : gracefulDecommissionTimeout_;
     }
 
     public static final int CONSTRAINTS_REACHED_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<java.lang.Integer> constraintsReached_;
     private static final com.google.protobuf.Internal.ListAdapter.Converter<
         java.lang.Integer, com.google.cloud.dataproc.logging.ConstrainingFactor> constraintsReached_converter_ =
             new com.google.protobuf.Internal.ListAdapter.Converter<
                 java.lang.Integer, com.google.cloud.dataproc.logging.ConstrainingFactor>() {
               public com.google.cloud.dataproc.logging.ConstrainingFactor convert(java.lang.Integer from) {
-                @SuppressWarnings("deprecation")
-                com.google.cloud.dataproc.logging.ConstrainingFactor result = com.google.cloud.dataproc.logging.ConstrainingFactor.valueOf(from);
+                com.google.cloud.dataproc.logging.ConstrainingFactor result = com.google.cloud.dataproc.logging.ConstrainingFactor.forNumber(from);
                 return result == null ? com.google.cloud.dataproc.logging.ConstrainingFactor.UNRECOGNIZED : result;
               }
             };
@@ -2278,6 +2050,7 @@ java.lang.String defaultValue);
     private int constraintsReachedMemoizedSerializedSize;
 
     public static final int ADDITIONAL_RECOMMENDATION_DETAILS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList additionalRecommendationDetails_;
     /**
      * <pre>
@@ -2333,7 +2106,8 @@ java.lang.String defaultValue);
     }
 
     public static final int RECOMMENDATION_ID_FIELD_NUMBER = 6;
-    private volatile java.lang.Object recommendationId_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object recommendationId_ = "";
     /**
      * <pre>
      * A unique id for this recommendation that should be included when opening
@@ -2417,7 +2191,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recommendationId_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, recommendationId_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2461,7 +2235,7 @@ java.lang.String defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(recommendationId_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, recommendationId_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2492,7 +2266,7 @@ java.lang.String defaultValue);
           .equals(other.getAdditionalRecommendationDetailsList())) return false;
       if (!getRecommendationId()
           .equals(other.getRecommendationId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2523,7 +2297,7 @@ java.lang.String defaultValue);
       }
       hash = (37 * hash) + RECOMMENDATION_ID_FIELD_NUMBER;
       hash = (53 * hash) + getRecommendationId().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2644,42 +2418,34 @@ java.lang.String defaultValue);
 
       // Construct using com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         decision_ = 0;
-
-        if (recommendedClusterSizeBuilder_ == null) {
-          recommendedClusterSize_ = null;
-        } else {
-          recommendedClusterSize_ = null;
+        recommendedClusterSize_ = null;
+        if (recommendedClusterSizeBuilder_ != null) {
+          recommendedClusterSizeBuilder_.dispose();
           recommendedClusterSizeBuilder_ = null;
         }
-        if (gracefulDecommissionTimeoutBuilder_ == null) {
-          gracefulDecommissionTimeout_ = null;
-        } else {
-          gracefulDecommissionTimeout_ = null;
+        gracefulDecommissionTimeout_ = null;
+        if (gracefulDecommissionTimeoutBuilder_ != null) {
+          gracefulDecommissionTimeoutBuilder_.dispose();
           gracefulDecommissionTimeoutBuilder_ = null;
         }
         constraintsReached_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         additionalRecommendationDetails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         recommendationId_ = "";
-
         return this;
       }
 
@@ -2706,31 +2472,43 @@ java.lang.String defaultValue);
       @java.lang.Override
       public com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs buildPartial() {
         com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs result = new com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs(this);
-        int from_bitField0_ = bitField0_;
-        result.decision_ = decision_;
-        if (recommendedClusterSizeBuilder_ == null) {
-          result.recommendedClusterSize_ = recommendedClusterSize_;
-        } else {
-          result.recommendedClusterSize_ = recommendedClusterSizeBuilder_.build();
-        }
-        if (gracefulDecommissionTimeoutBuilder_ == null) {
-          result.gracefulDecommissionTimeout_ = gracefulDecommissionTimeout_;
-        } else {
-          result.gracefulDecommissionTimeout_ = gracefulDecommissionTimeoutBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
-          constraintsReached_ = java.util.Collections.unmodifiableList(constraintsReached_);
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.constraintsReached_ = constraintsReached_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          additionalRecommendationDetails_ = additionalRecommendationDetails_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.additionalRecommendationDetails_ = additionalRecommendationDetails_;
-        result.recommendationId_ = recommendationId_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs result) {
+        if (((bitField0_ & 0x00000008) != 0)) {
+          constraintsReached_ = java.util.Collections.unmodifiableList(constraintsReached_);
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.constraintsReached_ = constraintsReached_;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          additionalRecommendationDetails_ = additionalRecommendationDetails_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.additionalRecommendationDetails_ = additionalRecommendationDetails_;
+      }
+
+      private void buildPartial0(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.decision_ = decision_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.recommendedClusterSize_ = recommendedClusterSizeBuilder_ == null
+              ? recommendedClusterSize_
+              : recommendedClusterSizeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.gracefulDecommissionTimeout_ = gracefulDecommissionTimeoutBuilder_ == null
+              ? gracefulDecommissionTimeout_
+              : gracefulDecommissionTimeoutBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.recommendationId_ = recommendationId_;
+        }
       }
 
       @java.lang.Override
@@ -2789,7 +2567,7 @@ java.lang.String defaultValue);
         if (!other.constraintsReached_.isEmpty()) {
           if (constraintsReached_.isEmpty()) {
             constraintsReached_ = other.constraintsReached_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureConstraintsReachedIsMutable();
             constraintsReached_.addAll(other.constraintsReached_);
@@ -2799,7 +2577,7 @@ java.lang.String defaultValue);
         if (!other.additionalRecommendationDetails_.isEmpty()) {
           if (additionalRecommendationDetails_.isEmpty()) {
             additionalRecommendationDetails_ = other.additionalRecommendationDetails_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureAdditionalRecommendationDetailsIsMutable();
             additionalRecommendationDetails_.addAll(other.additionalRecommendationDetails_);
@@ -2808,9 +2586,10 @@ java.lang.String defaultValue);
         }
         if (!other.getRecommendationId().isEmpty()) {
           recommendationId_ = other.recommendationId_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2825,17 +2604,77 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                decision_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getRecommendedClusterSizeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getGracefulDecommissionTimeoutFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 32: {
+                int tmpRaw = input.readEnum();
+                ensureConstraintsReachedIsMutable();
+                constraintsReached_.add(tmpRaw);
+                break;
+              } // case 32
+              case 34: {
+                int length = input.readRawVarint32();
+                int oldLimit = input.pushLimit(length);
+                while(input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  ensureConstraintsReachedIsMutable();
+                  constraintsReached_.add(tmpRaw);
+                }
+                input.popLimit(oldLimit);
+                break;
+              } // case 34
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureAdditionalRecommendationDetailsIsMutable();
+                additionalRecommendationDetails_.add(s);
+                break;
+              } // case 42
+              case 50: {
+                recommendationId_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2864,8 +2703,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder setDecisionValue(int value) {
-        
         decision_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2880,8 +2719,7 @@ java.lang.String defaultValue);
        */
       @java.lang.Override
       public com.google.cloud.dataproc.logging.ScalingDecisionType getDecision() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataproc.logging.ScalingDecisionType result = com.google.cloud.dataproc.logging.ScalingDecisionType.valueOf(decision_);
+        com.google.cloud.dataproc.logging.ScalingDecisionType result = com.google.cloud.dataproc.logging.ScalingDecisionType.forNumber(decision_);
         return result == null ? com.google.cloud.dataproc.logging.ScalingDecisionType.UNRECOGNIZED : result;
       }
       /**
@@ -2898,7 +2736,7 @@ java.lang.String defaultValue);
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         decision_ = value.getNumber();
         onChanged();
         return this;
@@ -2913,7 +2751,7 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDecision() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         decision_ = 0;
         onChanged();
         return this;
@@ -2931,7 +2769,7 @@ java.lang.String defaultValue);
        * @return Whether the recommendedClusterSize field is set.
        */
       public boolean hasRecommendedClusterSize() {
-        return recommendedClusterSizeBuilder_ != null || recommendedClusterSize_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2961,11 +2799,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           recommendedClusterSize_ = value;
-          onChanged();
         } else {
           recommendedClusterSizeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2979,11 +2817,11 @@ java.lang.String defaultValue);
           com.google.cloud.dataproc.logging.ClusterSize.Builder builderForValue) {
         if (recommendedClusterSizeBuilder_ == null) {
           recommendedClusterSize_ = builderForValue.build();
-          onChanged();
         } else {
           recommendedClusterSizeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2995,17 +2833,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeRecommendedClusterSize(com.google.cloud.dataproc.logging.ClusterSize value) {
         if (recommendedClusterSizeBuilder_ == null) {
-          if (recommendedClusterSize_ != null) {
-            recommendedClusterSize_ =
-              com.google.cloud.dataproc.logging.ClusterSize.newBuilder(recommendedClusterSize_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            recommendedClusterSize_ != null &&
+            recommendedClusterSize_ != com.google.cloud.dataproc.logging.ClusterSize.getDefaultInstance()) {
+            getRecommendedClusterSizeBuilder().mergeFrom(value);
           } else {
             recommendedClusterSize_ = value;
           }
-          onChanged();
         } else {
           recommendedClusterSizeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3016,14 +2855,13 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize recommended_cluster_size = 2;</code>
        */
       public Builder clearRecommendedClusterSize() {
-        if (recommendedClusterSizeBuilder_ == null) {
-          recommendedClusterSize_ = null;
-          onChanged();
-        } else {
-          recommendedClusterSize_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        recommendedClusterSize_ = null;
+        if (recommendedClusterSizeBuilder_ != null) {
+          recommendedClusterSizeBuilder_.dispose();
           recommendedClusterSizeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3034,7 +2872,7 @@ java.lang.String defaultValue);
        * <code>.google.cloud.dataproc.logging.ClusterSize recommended_cluster_size = 2;</code>
        */
       public com.google.cloud.dataproc.logging.ClusterSize.Builder getRecommendedClusterSizeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getRecommendedClusterSizeFieldBuilder().getBuilder();
       }
@@ -3086,7 +2924,7 @@ java.lang.String defaultValue);
        * @return Whether the gracefulDecommissionTimeout field is set.
        */
       public boolean hasGracefulDecommissionTimeout() {
-        return gracefulDecommissionTimeoutBuilder_ != null || gracefulDecommissionTimeout_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -3116,11 +2954,11 @@ java.lang.String defaultValue);
             throw new NullPointerException();
           }
           gracefulDecommissionTimeout_ = value;
-          onChanged();
         } else {
           gracefulDecommissionTimeoutBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3134,11 +2972,11 @@ java.lang.String defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (gracefulDecommissionTimeoutBuilder_ == null) {
           gracefulDecommissionTimeout_ = builderForValue.build();
-          onChanged();
         } else {
           gracefulDecommissionTimeoutBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3150,17 +2988,18 @@ java.lang.String defaultValue);
        */
       public Builder mergeGracefulDecommissionTimeout(com.google.protobuf.Duration value) {
         if (gracefulDecommissionTimeoutBuilder_ == null) {
-          if (gracefulDecommissionTimeout_ != null) {
-            gracefulDecommissionTimeout_ =
-              com.google.protobuf.Duration.newBuilder(gracefulDecommissionTimeout_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            gracefulDecommissionTimeout_ != null &&
+            gracefulDecommissionTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getGracefulDecommissionTimeoutBuilder().mergeFrom(value);
           } else {
             gracefulDecommissionTimeout_ = value;
           }
-          onChanged();
         } else {
           gracefulDecommissionTimeoutBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3171,14 +3010,13 @@ java.lang.String defaultValue);
        * <code>.google.protobuf.Duration graceful_decommission_timeout = 3;</code>
        */
       public Builder clearGracefulDecommissionTimeout() {
-        if (gracefulDecommissionTimeoutBuilder_ == null) {
-          gracefulDecommissionTimeout_ = null;
-          onChanged();
-        } else {
-          gracefulDecommissionTimeout_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        gracefulDecommissionTimeout_ = null;
+        if (gracefulDecommissionTimeoutBuilder_ != null) {
+          gracefulDecommissionTimeoutBuilder_.dispose();
           gracefulDecommissionTimeoutBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3189,7 +3027,7 @@ java.lang.String defaultValue);
        * <code>.google.protobuf.Duration graceful_decommission_timeout = 3;</code>
        */
       public com.google.protobuf.Duration.Builder getGracefulDecommissionTimeoutBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getGracefulDecommissionTimeoutFieldBuilder().getBuilder();
       }
@@ -3232,9 +3070,9 @@ java.lang.String defaultValue);
       private java.util.List<java.lang.Integer> constraintsReached_ =
         java.util.Collections.emptyList();
       private void ensureConstraintsReachedIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000008) != 0)) {
           constraintsReached_ = new java.util.ArrayList<java.lang.Integer>(constraintsReached_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000008;
         }
       }
       /**
@@ -3338,7 +3176,7 @@ java.lang.String defaultValue);
        */
       public Builder clearConstraintsReached() {
         constraintsReached_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -3419,9 +3257,9 @@ java.lang.String defaultValue);
 
       private com.google.protobuf.LazyStringList additionalRecommendationDetails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureAdditionalRecommendationDetailsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           additionalRecommendationDetails_ = new com.google.protobuf.LazyStringArrayList(additionalRecommendationDetails_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -3489,10 +3327,8 @@ java.lang.String defaultValue);
        */
       public Builder setAdditionalRecommendationDetails(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAdditionalRecommendationDetailsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAdditionalRecommendationDetailsIsMutable();
         additionalRecommendationDetails_.set(index, value);
         onChanged();
         return this;
@@ -3509,10 +3345,8 @@ java.lang.String defaultValue);
        */
       public Builder addAdditionalRecommendationDetails(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAdditionalRecommendationDetailsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureAdditionalRecommendationDetailsIsMutable();
         additionalRecommendationDetails_.add(value);
         onChanged();
         return this;
@@ -3546,7 +3380,7 @@ java.lang.String defaultValue);
        */
       public Builder clearAdditionalRecommendationDetails() {
         additionalRecommendationDetails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -3562,10 +3396,8 @@ java.lang.String defaultValue);
        */
       public Builder addAdditionalRecommendationDetailsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureAdditionalRecommendationDetailsIsMutable();
         additionalRecommendationDetails_.add(value);
         onChanged();
@@ -3628,11 +3460,9 @@ java.lang.String defaultValue);
        */
       public Builder setRecommendationId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         recommendationId_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3646,8 +3476,8 @@ java.lang.String defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearRecommendationId() {
-        
         recommendationId_ = getDefaultInstance().getRecommendationId();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -3663,12 +3493,10 @@ java.lang.String defaultValue);
        */
       public Builder setRecommendationIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         recommendationId_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -3705,7 +3533,18 @@ java.lang.String defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Outputs(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3760,7 +3599,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.dataproc.logging.AutoscalerRecommendation.InputsOrBuilder getInputsOrBuilder() {
-    return getInputs();
+    return inputs_ == null ? com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.getDefaultInstance() : inputs_;
   }
 
   public static final int OUTPUTS_FIELD_NUMBER = 2;
@@ -3798,7 +3637,7 @@ java.lang.String defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.dataproc.logging.AutoscalerRecommendation.OutputsOrBuilder getOutputsOrBuilder() {
-    return getOutputs();
+    return outputs_ == null ? com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.getDefaultInstance() : outputs_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3821,7 +3660,7 @@ java.lang.String defaultValue);
     if (outputs_ != null) {
       output.writeMessage(2, getOutputs());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3838,7 +3677,7 @@ java.lang.String defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getOutputs());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3863,7 +3702,7 @@ java.lang.String defaultValue);
       if (!getOutputs()
           .equals(other.getOutputs())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3882,7 +3721,7 @@ java.lang.String defaultValue);
       hash = (37 * hash) + OUTPUTS_FIELD_NUMBER;
       hash = (53 * hash) + getOutputs().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4004,32 +3843,26 @@ java.lang.String defaultValue);
 
     // Construct using com.google.cloud.dataproc.logging.AutoscalerRecommendation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (inputsBuilder_ == null) {
-        inputs_ = null;
-      } else {
-        inputs_ = null;
+      bitField0_ = 0;
+      inputs_ = null;
+      if (inputsBuilder_ != null) {
+        inputsBuilder_.dispose();
         inputsBuilder_ = null;
       }
-      if (outputsBuilder_ == null) {
-        outputs_ = null;
-      } else {
-        outputs_ = null;
+      outputs_ = null;
+      if (outputsBuilder_ != null) {
+        outputsBuilder_.dispose();
         outputsBuilder_ = null;
       }
       return this;
@@ -4058,18 +3891,23 @@ java.lang.String defaultValue);
     @java.lang.Override
     public com.google.cloud.dataproc.logging.AutoscalerRecommendation buildPartial() {
       com.google.cloud.dataproc.logging.AutoscalerRecommendation result = new com.google.cloud.dataproc.logging.AutoscalerRecommendation(this);
-      if (inputsBuilder_ == null) {
-        result.inputs_ = inputs_;
-      } else {
-        result.inputs_ = inputsBuilder_.build();
-      }
-      if (outputsBuilder_ == null) {
-        result.outputs_ = outputs_;
-      } else {
-        result.outputs_ = outputsBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.logging.AutoscalerRecommendation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inputs_ = inputsBuilder_ == null
+            ? inputs_
+            : inputsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.outputs_ = outputsBuilder_ == null
+            ? outputs_
+            : outputsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4122,7 +3960,7 @@ java.lang.String defaultValue);
       if (other.hasOutputs()) {
         mergeOutputs(other.getOutputs());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -4137,19 +3975,47 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.logging.AutoscalerRecommendation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getInputsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOutputsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.logging.AutoscalerRecommendation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs inputs_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -4163,7 +4029,7 @@ java.lang.String defaultValue);
      * @return Whether the inputs field is set.
      */
     public boolean hasInputs() {
-      return inputsBuilder_ != null || inputs_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -4193,11 +4059,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         inputs_ = value;
-        onChanged();
       } else {
         inputsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -4211,11 +4077,11 @@ java.lang.String defaultValue);
         com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.Builder builderForValue) {
       if (inputsBuilder_ == null) {
         inputs_ = builderForValue.build();
-        onChanged();
       } else {
         inputsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -4227,17 +4093,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeInputs(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs value) {
       if (inputsBuilder_ == null) {
-        if (inputs_ != null) {
-          inputs_ =
-            com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.newBuilder(inputs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          inputs_ != null &&
+          inputs_ != com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.getDefaultInstance()) {
+          getInputsBuilder().mergeFrom(value);
         } else {
           inputs_ = value;
         }
-        onChanged();
       } else {
         inputsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -4248,14 +4115,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs inputs = 1;</code>
      */
     public Builder clearInputs() {
-      if (inputsBuilder_ == null) {
-        inputs_ = null;
-        onChanged();
-      } else {
-        inputs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      inputs_ = null;
+      if (inputsBuilder_ != null) {
+        inputsBuilder_.dispose();
         inputsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4266,7 +4132,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs inputs = 1;</code>
      */
     public com.google.cloud.dataproc.logging.AutoscalerRecommendation.Inputs.Builder getInputsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getInputsFieldBuilder().getBuilder();
     }
@@ -4318,7 +4184,7 @@ java.lang.String defaultValue);
      * @return Whether the outputs field is set.
      */
     public boolean hasOutputs() {
-      return outputsBuilder_ != null || outputs_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -4348,11 +4214,11 @@ java.lang.String defaultValue);
           throw new NullPointerException();
         }
         outputs_ = value;
-        onChanged();
       } else {
         outputsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4366,11 +4232,11 @@ java.lang.String defaultValue);
         com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.Builder builderForValue) {
       if (outputsBuilder_ == null) {
         outputs_ = builderForValue.build();
-        onChanged();
       } else {
         outputsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4382,17 +4248,18 @@ java.lang.String defaultValue);
      */
     public Builder mergeOutputs(com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs value) {
       if (outputsBuilder_ == null) {
-        if (outputs_ != null) {
-          outputs_ =
-            com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.newBuilder(outputs_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          outputs_ != null &&
+          outputs_ != com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.getDefaultInstance()) {
+          getOutputsBuilder().mergeFrom(value);
         } else {
           outputs_ = value;
         }
-        onChanged();
       } else {
         outputsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -4403,14 +4270,13 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs outputs = 2;</code>
      */
     public Builder clearOutputs() {
-      if (outputsBuilder_ == null) {
-        outputs_ = null;
-        onChanged();
-      } else {
-        outputs_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      outputs_ = null;
+      if (outputsBuilder_ != null) {
+        outputsBuilder_.dispose();
         outputsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4421,7 +4287,7 @@ java.lang.String defaultValue);
      * <code>.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs outputs = 2;</code>
      */
     public com.google.cloud.dataproc.logging.AutoscalerRecommendation.Outputs.Builder getOutputsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOutputsFieldBuilder().getBuilder();
     }
@@ -4493,7 +4359,18 @@ java.lang.String defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AutoscalerRecommendation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

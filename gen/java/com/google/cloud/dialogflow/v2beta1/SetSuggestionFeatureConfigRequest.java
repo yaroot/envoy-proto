@@ -37,70 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SetSuggestionFeatureConfigRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            conversationProfile_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            participantRole_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.Builder subBuilder = null;
-            if (suggestionFeatureConfig_ != null) {
-              subBuilder = suggestionFeatureConfig_.toBuilder();
-            }
-            suggestionFeatureConfig_ = input.readMessage(com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(suggestionFeatureConfig_);
-              suggestionFeatureConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dialogflow.v2beta1.ConversationProfileProto.internal_static_google_cloud_dialogflow_v2beta1_SetSuggestionFeatureConfigRequest_descriptor;
@@ -115,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONVERSATION_PROFILE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object conversationProfile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object conversationProfile_ = "";
   /**
    * <pre>
    * Required. The Conversation Profile to add or update the suggestion feature
@@ -165,7 +102,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARTICIPANT_ROLE_FIELD_NUMBER = 2;
-  private int participantRole_;
+  private int participantRole_ = 0;
   /**
    * <pre>
    * Required. The participant role to add or update the suggestion feature
@@ -188,8 +125,7 @@ private static final long serialVersionUID = 0L;
    * @return The participantRole.
    */
   @java.lang.Override public com.google.cloud.dialogflow.v2beta1.Participant.Role getParticipantRole() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dialogflow.v2beta1.Participant.Role result = com.google.cloud.dialogflow.v2beta1.Participant.Role.valueOf(participantRole_);
+    com.google.cloud.dialogflow.v2beta1.Participant.Role result = com.google.cloud.dialogflow.v2beta1.Participant.Role.forNumber(participantRole_);
     return result == null ? com.google.cloud.dialogflow.v2beta1.Participant.Role.UNRECOGNIZED : result;
   }
 
@@ -228,7 +164,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfigOrBuilder getSuggestionFeatureConfigOrBuilder() {
-    return getSuggestionFeatureConfig();
+    return suggestionFeatureConfig_ == null ? com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.getDefaultInstance() : suggestionFeatureConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -254,7 +190,7 @@ private static final long serialVersionUID = 0L;
     if (suggestionFeatureConfig_ != null) {
       output.writeMessage(3, getSuggestionFeatureConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -274,7 +210,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getSuggestionFeatureConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -297,7 +233,7 @@ private static final long serialVersionUID = 0L;
       if (!getSuggestionFeatureConfig()
           .equals(other.getSuggestionFeatureConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -316,7 +252,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SUGGESTION_FEATURE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getSuggestionFeatureConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -438,30 +374,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       conversationProfile_ = "";
-
       participantRole_ = 0;
-
-      if (suggestionFeatureConfigBuilder_ == null) {
-        suggestionFeatureConfig_ = null;
-      } else {
-        suggestionFeatureConfig_ = null;
+      suggestionFeatureConfig_ = null;
+      if (suggestionFeatureConfigBuilder_ != null) {
+        suggestionFeatureConfigBuilder_.dispose();
         suggestionFeatureConfigBuilder_ = null;
       }
       return this;
@@ -490,15 +419,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest buildPartial() {
       com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest result = new com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest(this);
-      result.conversationProfile_ = conversationProfile_;
-      result.participantRole_ = participantRole_;
-      if (suggestionFeatureConfigBuilder_ == null) {
-        result.suggestionFeatureConfig_ = suggestionFeatureConfig_;
-      } else {
-        result.suggestionFeatureConfig_ = suggestionFeatureConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.conversationProfile_ = conversationProfile_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.participantRole_ = participantRole_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.suggestionFeatureConfig_ = suggestionFeatureConfigBuilder_ == null
+            ? suggestionFeatureConfig_
+            : suggestionFeatureConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -547,6 +485,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest.getDefaultInstance()) return this;
       if (!other.getConversationProfile().isEmpty()) {
         conversationProfile_ = other.conversationProfile_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.participantRole_ != 0) {
@@ -555,7 +494,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSuggestionFeatureConfig()) {
         mergeSuggestionFeatureConfig(other.getSuggestionFeatureConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -570,19 +509,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              conversationProfile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              participantRole_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getSuggestionFeatureConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dialogflow.v2beta1.SetSuggestionFeatureConfigRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object conversationProfile_ = "";
     /**
@@ -643,11 +613,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConversationProfile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       conversationProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -662,8 +630,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConversationProfile() {
-      
       conversationProfile_ = getDefaultInstance().getConversationProfile();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -680,12 +648,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConversationProfileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       conversationProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -714,8 +680,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setParticipantRoleValue(int value) {
-      
       participantRole_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -730,8 +696,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dialogflow.v2beta1.Participant.Role getParticipantRole() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dialogflow.v2beta1.Participant.Role result = com.google.cloud.dialogflow.v2beta1.Participant.Role.valueOf(participantRole_);
+      com.google.cloud.dialogflow.v2beta1.Participant.Role result = com.google.cloud.dialogflow.v2beta1.Participant.Role.forNumber(participantRole_);
       return result == null ? com.google.cloud.dialogflow.v2beta1.Participant.Role.UNRECOGNIZED : result;
     }
     /**
@@ -748,7 +713,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       participantRole_ = value.getNumber();
       onChanged();
       return this;
@@ -763,7 +728,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParticipantRole() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       participantRole_ = 0;
       onChanged();
       return this;
@@ -781,7 +746,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the suggestionFeatureConfig field is set.
      */
     public boolean hasSuggestionFeatureConfig() {
-      return suggestionFeatureConfigBuilder_ != null || suggestionFeatureConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -811,11 +776,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         suggestionFeatureConfig_ = value;
-        onChanged();
       } else {
         suggestionFeatureConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -829,11 +794,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.Builder builderForValue) {
       if (suggestionFeatureConfigBuilder_ == null) {
         suggestionFeatureConfig_ = builderForValue.build();
-        onChanged();
       } else {
         suggestionFeatureConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -845,17 +810,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuggestionFeatureConfig(com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig value) {
       if (suggestionFeatureConfigBuilder_ == null) {
-        if (suggestionFeatureConfig_ != null) {
-          suggestionFeatureConfig_ =
-            com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.newBuilder(suggestionFeatureConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          suggestionFeatureConfig_ != null &&
+          suggestionFeatureConfig_ != com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.getDefaultInstance()) {
+          getSuggestionFeatureConfigBuilder().mergeFrom(value);
         } else {
           suggestionFeatureConfig_ = value;
         }
-        onChanged();
       } else {
         suggestionFeatureConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -866,14 +832,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig suggestion_feature_config = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearSuggestionFeatureConfig() {
-      if (suggestionFeatureConfigBuilder_ == null) {
-        suggestionFeatureConfig_ = null;
-        onChanged();
-      } else {
-        suggestionFeatureConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      suggestionFeatureConfig_ = null;
+      if (suggestionFeatureConfigBuilder_ != null) {
+        suggestionFeatureConfigBuilder_.dispose();
         suggestionFeatureConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -884,7 +849,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig suggestion_feature_config = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.dialogflow.v2beta1.HumanAgentAssistantConfig.SuggestionFeatureConfig.Builder getSuggestionFeatureConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getSuggestionFeatureConfigFieldBuilder().getBuilder();
     }
@@ -956,7 +921,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SetSuggestionFeatureConfigRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

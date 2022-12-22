@@ -39,69 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AttributionSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            acquisitionConversionEventLookbackWindow_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            otherConversionEventLookbackWindow_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            reportingAttributionModel_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.admin.v1alpha.ResourcesProto.internal_static_google_analytics_admin_v1alpha_AttributionSettings_descriptor;
@@ -678,7 +615,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Resource name of this attribution settings resource.
@@ -728,7 +666,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACQUISITION_CONVERSION_EVENT_LOOKBACK_WINDOW_FIELD_NUMBER = 2;
-  private int acquisitionConversionEventLookbackWindow_;
+  private int acquisitionConversionEventLookbackWindow_ = 0;
   /**
    * <pre>
    * Required. The lookback window configuration for acquisition conversion events.
@@ -751,13 +689,12 @@ private static final long serialVersionUID = 0L;
    * @return The acquisitionConversionEventLookbackWindow.
    */
   @java.lang.Override public com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow getAcquisitionConversionEventLookbackWindow() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow.valueOf(acquisitionConversionEventLookbackWindow_);
+    com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow.forNumber(acquisitionConversionEventLookbackWindow_);
     return result == null ? com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow.UNRECOGNIZED : result;
   }
 
   public static final int OTHER_CONVERSION_EVENT_LOOKBACK_WINDOW_FIELD_NUMBER = 3;
-  private int otherConversionEventLookbackWindow_;
+  private int otherConversionEventLookbackWindow_ = 0;
   /**
    * <pre>
    * Required. The lookback window for all other, non-acquisition conversion events.
@@ -780,13 +717,12 @@ private static final long serialVersionUID = 0L;
    * @return The otherConversionEventLookbackWindow.
    */
   @java.lang.Override public com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow getOtherConversionEventLookbackWindow() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow.valueOf(otherConversionEventLookbackWindow_);
+    com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow.forNumber(otherConversionEventLookbackWindow_);
     return result == null ? com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow.UNRECOGNIZED : result;
   }
 
   public static final int REPORTING_ATTRIBUTION_MODEL_FIELD_NUMBER = 4;
-  private int reportingAttributionModel_;
+  private int reportingAttributionModel_ = 0;
   /**
    * <pre>
    * Required. The reporting attribution model used to calculate conversion credit in this
@@ -815,8 +751,7 @@ private static final long serialVersionUID = 0L;
    * @return The reportingAttributionModel.
    */
   @java.lang.Override public com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel getReportingAttributionModel() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel result = com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.valueOf(reportingAttributionModel_);
+    com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel result = com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.forNumber(reportingAttributionModel_);
     return result == null ? com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.UNRECOGNIZED : result;
   }
 
@@ -846,7 +781,7 @@ private static final long serialVersionUID = 0L;
     if (reportingAttributionModel_ != com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.REPORTING_ATTRIBUTION_MODEL_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, reportingAttributionModel_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -870,7 +805,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, reportingAttributionModel_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -890,7 +825,7 @@ private static final long serialVersionUID = 0L;
     if (acquisitionConversionEventLookbackWindow_ != other.acquisitionConversionEventLookbackWindow_) return false;
     if (otherConversionEventLookbackWindow_ != other.otherConversionEventLookbackWindow_) return false;
     if (reportingAttributionModel_ != other.reportingAttributionModel_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -909,7 +844,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + otherConversionEventLookbackWindow_;
     hash = (37 * hash) + REPORTING_ATTRIBUTION_MODEL_FIELD_NUMBER;
     hash = (53 * hash) + reportingAttributionModel_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1031,30 +966,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.admin.v1alpha.AttributionSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       acquisitionConversionEventLookbackWindow_ = 0;
-
       otherConversionEventLookbackWindow_ = 0;
-
       reportingAttributionModel_ = 0;
-
       return this;
     }
 
@@ -1081,12 +1008,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.AttributionSettings buildPartial() {
       com.google.analytics.admin.v1alpha.AttributionSettings result = new com.google.analytics.admin.v1alpha.AttributionSettings(this);
-      result.name_ = name_;
-      result.acquisitionConversionEventLookbackWindow_ = acquisitionConversionEventLookbackWindow_;
-      result.otherConversionEventLookbackWindow_ = otherConversionEventLookbackWindow_;
-      result.reportingAttributionModel_ = reportingAttributionModel_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.admin.v1alpha.AttributionSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.acquisitionConversionEventLookbackWindow_ = acquisitionConversionEventLookbackWindow_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.otherConversionEventLookbackWindow_ = otherConversionEventLookbackWindow_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.reportingAttributionModel_ = reportingAttributionModel_;
+      }
     }
 
     @java.lang.Override
@@ -1135,6 +1075,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.admin.v1alpha.AttributionSettings.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.acquisitionConversionEventLookbackWindow_ != 0) {
@@ -1146,7 +1087,7 @@ private static final long serialVersionUID = 0L;
       if (other.reportingAttributionModel_ != 0) {
         setReportingAttributionModelValue(other.getReportingAttributionModelValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1161,19 +1102,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.admin.v1alpha.AttributionSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              acquisitionConversionEventLookbackWindow_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              otherConversionEventLookbackWindow_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              reportingAttributionModel_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.admin.v1alpha.AttributionSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1234,11 +1209,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1253,8 +1226,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1271,12 +1244,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1305,8 +1276,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAcquisitionConversionEventLookbackWindowValue(int value) {
-      
       acquisitionConversionEventLookbackWindow_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1321,8 +1292,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow getAcquisitionConversionEventLookbackWindow() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow.valueOf(acquisitionConversionEventLookbackWindow_);
+      com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow.forNumber(acquisitionConversionEventLookbackWindow_);
       return result == null ? com.google.analytics.admin.v1alpha.AttributionSettings.AcquisitionConversionEventLookbackWindow.UNRECOGNIZED : result;
     }
     /**
@@ -1339,7 +1309,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       acquisitionConversionEventLookbackWindow_ = value.getNumber();
       onChanged();
       return this;
@@ -1354,7 +1324,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcquisitionConversionEventLookbackWindow() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       acquisitionConversionEventLookbackWindow_ = 0;
       onChanged();
       return this;
@@ -1384,8 +1354,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOtherConversionEventLookbackWindowValue(int value) {
-      
       otherConversionEventLookbackWindow_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1400,8 +1370,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow getOtherConversionEventLookbackWindow() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow.valueOf(otherConversionEventLookbackWindow_);
+      com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow result = com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow.forNumber(otherConversionEventLookbackWindow_);
       return result == null ? com.google.analytics.admin.v1alpha.AttributionSettings.OtherConversionEventLookbackWindow.UNRECOGNIZED : result;
     }
     /**
@@ -1418,7 +1387,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       otherConversionEventLookbackWindow_ = value.getNumber();
       onChanged();
       return this;
@@ -1433,7 +1402,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOtherConversionEventLookbackWindow() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       otherConversionEventLookbackWindow_ = 0;
       onChanged();
       return this;
@@ -1469,8 +1438,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReportingAttributionModelValue(int value) {
-      
       reportingAttributionModel_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1488,8 +1457,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel getReportingAttributionModel() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel result = com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.valueOf(reportingAttributionModel_);
+      com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel result = com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.forNumber(reportingAttributionModel_);
       return result == null ? com.google.analytics.admin.v1alpha.AttributionSettings.ReportingAttributionModel.UNRECOGNIZED : result;
     }
     /**
@@ -1509,7 +1477,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       reportingAttributionModel_ = value.getNumber();
       onChanged();
       return this;
@@ -1527,7 +1495,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReportingAttributionModel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       reportingAttributionModel_ = 0;
       onChanged();
       return this;
@@ -1565,7 +1533,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AttributionSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

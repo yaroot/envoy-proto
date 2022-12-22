@@ -458,6 +458,7 @@ public interface TableDataProfileOrBuilder extends
   /**
    * <pre>
    * Number of rows in the table when the profile was generated.
+   * This will not be populated for BigLake tables.
    * </pre>
    *
    * <code>int64 row_count = 13;</code>
@@ -569,7 +570,6 @@ public interface TableDataProfileOrBuilder extends
    *
    * <code>map&lt;string, string&gt; resource_labels = 17;</code>
    */
-
   /* nullable */
 java.lang.String getResourceLabelsOrDefault(
       java.lang.String key,
@@ -582,7 +582,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; resource_labels = 17;</code>
    */
-
   java.lang.String getResourceLabelsOrThrow(
       java.lang.String key);
 

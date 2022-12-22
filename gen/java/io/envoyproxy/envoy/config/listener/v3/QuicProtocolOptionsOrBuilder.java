@@ -225,4 +225,37 @@ public interface QuicProtocolOptionsOrBuilder extends
    * <code>.envoy.config.core.v3.TypedExtensionConfig proof_source_config = 7;</code>
    */
   io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getProofSourceConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+   * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+   * [#extension-category: envoy.quic.connection_id_generator]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+   * @return Whether the connectionIdGeneratorConfig field is set.
+   */
+  boolean hasConnectionIdGeneratorConfig();
+  /**
+   * <pre>
+   * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+   * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+   * [#extension-category: envoy.quic.connection_id_generator]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+   * @return The connectionIdGeneratorConfig.
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfig getConnectionIdGeneratorConfig();
+  /**
+   * <pre>
+   * Config which implementation of ``quic::ConnectionIdGeneratorInterface`` to be used for this listener.
+   * If not specified the :ref:`default one configured by &lt;envoy_v3_api_msg_extensions.quic.connection_id_generator.v3.DeterministicConnectionIdGeneratorConfig&gt;` will be used.
+   * [#extension-category: envoy.quic.connection_id_generator]
+   * </pre>
+   *
+   * <code>.envoy.config.core.v3.TypedExtensionConfig connection_id_generator_config = 8;</code>
+   */
+  io.envoyproxy.envoy.config.core.v3.TypedExtensionConfigOrBuilder getConnectionIdGeneratorConfigOrBuilder();
 }

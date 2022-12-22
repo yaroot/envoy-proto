@@ -34,72 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AnalysisResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (endTime_ != null) {
-              subBuilder = endTime_.toBuilder();
-            }
-            endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(endTime_);
-              endTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.Builder subBuilder = null;
-            if (metadataCase_ == 2) {
-              subBuilder = ((com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata) metadata_).toBuilder();
-            }
-            metadata_ =
-                input.readMessage(com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata) metadata_);
-              metadata_ = subBuilder.buildPartial();
-            }
-            metadataCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.contactcenterinsights.v1.ResourcesProto.internal_static_google_cloud_contactcenterinsights_v1_AnalysisResult_descriptor;
@@ -200,7 +134,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
      */
-
     /* nullable */
 com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrDefault(
         java.lang.String key,
@@ -213,7 +146,6 @@ com.google.cloud.contactcenterinsights.v1.Entity defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
      */
-
     com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrThrow(
         java.lang.String key);
 
@@ -300,7 +232,6 @@ com.google.cloud.contactcenterinsights.v1.Entity defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
      */
-
     /* nullable */
 com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrDefault(
         java.lang.String key,
@@ -313,7 +244,6 @@ com.google.cloud.contactcenterinsights.v1.Intent defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
      */
-
     com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrThrow(
         java.lang.String key);
 
@@ -356,7 +286,6 @@ com.google.cloud.contactcenterinsights.v1.Intent defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
      */
-
     /* nullable */
 com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrDefault(
         java.lang.String key,
@@ -369,7 +298,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
      */
-
     com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrThrow(
         java.lang.String key);
 
@@ -433,122 +361,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CallAnalysisMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                annotations_ = new java.util.ArrayList<com.google.cloud.contactcenterinsights.v1.CallAnnotation>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              annotations_.add(
-                  input.readMessage(com.google.cloud.contactcenterinsights.v1.CallAnnotation.parser(), extensionRegistry));
-              break;
-            }
-            case 26: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                entities_ = com.google.protobuf.MapField.newMapField(
-                    EntitiesDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000002;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity>
-              entities__ = input.readMessage(
-                  EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              entities_.getMutableMap().put(
-                  entities__.getKey(), entities__.getValue());
-              break;
-            }
-            case 34: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                sentiments_ = new java.util.ArrayList<com.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              sentiments_.add(
-                  input.readMessage(com.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                intents_ = com.google.protobuf.MapField.newMapField(
-                    IntentsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000008;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent>
-              intents__ = input.readMessage(
-                  IntentsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              intents_.getMutableMap().put(
-                  intents__.getKey(), intents__.getValue());
-              break;
-            }
-            case 58: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                phraseMatchers_ = com.google.protobuf.MapField.newMapField(
-                    PhraseMatchersDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000010;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData>
-              phraseMatchers__ = input.readMessage(
-                  PhraseMatchersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              phraseMatchers_.getMutableMap().put(
-                  phraseMatchers__.getKey(), phraseMatchers__.getValue());
-              break;
-            }
-            case 66: {
-              com.google.cloud.contactcenterinsights.v1.IssueModelResult.Builder subBuilder = null;
-              if (issueModelResult_ != null) {
-                subBuilder = issueModelResult_.toBuilder();
-              }
-              issueModelResult_ = input.readMessage(com.google.cloud.contactcenterinsights.v1.IssueModelResult.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(issueModelResult_);
-                issueModelResult_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          annotations_ = java.util.Collections.unmodifiableList(annotations_);
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          sentiments_ = java.util.Collections.unmodifiableList(sentiments_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.contactcenterinsights.v1.ResourcesProto.internal_static_google_cloud_contactcenterinsights_v1_AnalysisResult_CallAnalysisMetadata_descriptor;
@@ -579,6 +391,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
     }
 
     public static final int ANNOTATIONS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.contactcenterinsights.v1.CallAnnotation> annotations_;
     /**
      * <pre>
@@ -650,6 +463,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.contactcenterinsights.v1.Entity.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> entities_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity>
@@ -660,7 +474,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       }
       return entities_;
     }
-
     public int getEntitiesCount() {
       return internalGetEntities().getMap().size();
     }
@@ -671,7 +484,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsEntities(
         java.lang.String key) {
@@ -694,7 +506,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> getEntitiesMap() {
       return internalGetEntities().getMap();
     }
@@ -706,10 +517,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrDefault(
+    public /* nullable */
+com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrDefault(
         java.lang.String key,
-        com.google.cloud.contactcenterinsights.v1.Entity defaultValue) {
+        /* nullable */
+com.google.cloud.contactcenterinsights.v1.Entity defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> map =
           internalGetEntities().getMap();
@@ -723,7 +535,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -736,6 +547,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
     }
 
     public static final int SENTIMENTS_FIELD_NUMBER = 4;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment> sentiments_;
     /**
      * <pre>
@@ -807,6 +619,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.contactcenterinsights.v1.Intent.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> intents_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent>
@@ -817,7 +630,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       }
       return intents_;
     }
-
     public int getIntentsCount() {
       return internalGetIntents().getMap().size();
     }
@@ -828,7 +640,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
      */
-
     @java.lang.Override
     public boolean containsIntents(
         java.lang.String key) {
@@ -851,7 +662,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> getIntentsMap() {
       return internalGetIntents().getMap();
     }
@@ -863,10 +673,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrDefault(
+    public /* nullable */
+com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrDefault(
         java.lang.String key,
-        com.google.cloud.contactcenterinsights.v1.Intent defaultValue) {
+        /* nullable */
+com.google.cloud.contactcenterinsights.v1.Intent defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> map =
           internalGetIntents().getMap();
@@ -880,7 +691,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -904,6 +714,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.contactcenterinsights.v1.PhraseMatchData.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> phraseMatchers_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData>
@@ -914,7 +725,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       }
       return phraseMatchers_;
     }
-
     public int getPhraseMatchersCount() {
       return internalGetPhraseMatchers().getMap().size();
     }
@@ -925,7 +735,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      *
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsPhraseMatchers(
         java.lang.String key) {
@@ -948,7 +757,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> getPhraseMatchersMap() {
       return internalGetPhraseMatchers().getMap();
     }
@@ -960,10 +768,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrDefault(
+    public /* nullable */
+com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrDefault(
         java.lang.String key,
-        com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue) {
+        /* nullable */
+com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> map =
           internalGetPhraseMatchers().getMap();
@@ -977,7 +786,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1024,7 +832,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.contactcenterinsights.v1.IssueModelResultOrBuilder getIssueModelResultOrBuilder() {
-      return getIssueModelResult();
+      return issueModelResult_ == null ? com.google.cloud.contactcenterinsights.v1.IssueModelResult.getDefaultInstance() : issueModelResult_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1068,7 +876,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       if (issueModelResult_ != null) {
         output.writeMessage(8, getIssueModelResult());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1119,7 +927,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getIssueModelResult());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1149,7 +957,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         if (!getIssueModelResult()
             .equals(other.getIssueModelResult())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1184,7 +992,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         hash = (37 * hash) + ISSUE_MODEL_RESULT_FIELD_NUMBER;
         hash = (53 * hash) + getIssueModelResult().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1335,43 +1143,38 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
 
       // Construct using com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAnnotationsFieldBuilder();
-          getSentimentsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (annotationsBuilder_ == null) {
           annotations_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          annotations_ = null;
           annotationsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         internalGetMutableEntities().clear();
         if (sentimentsBuilder_ == null) {
           sentiments_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          sentiments_ = null;
           sentimentsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000004);
         internalGetMutableIntents().clear();
         internalGetMutablePhraseMatchers().clear();
-        if (issueModelResultBuilder_ == null) {
-          issueModelResult_ = null;
-        } else {
-          issueModelResult_ = null;
+        issueModelResult_ = null;
+        if (issueModelResultBuilder_ != null) {
+          issueModelResultBuilder_.dispose();
           issueModelResultBuilder_ = null;
         }
         return this;
@@ -1400,7 +1203,13 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       @java.lang.Override
       public com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata buildPartial() {
         com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata result = new com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata result) {
         if (annotationsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             annotations_ = java.util.Collections.unmodifiableList(annotations_);
@@ -1410,8 +1219,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         } else {
           result.annotations_ = annotationsBuilder_.build();
         }
-        result.entities_ = internalGetEntities();
-        result.entities_.makeImmutable();
         if (sentimentsBuilder_ == null) {
           if (((bitField0_ & 0x00000004) != 0)) {
             sentiments_ = java.util.Collections.unmodifiableList(sentiments_);
@@ -1421,17 +1228,27 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         } else {
           result.sentiments_ = sentimentsBuilder_.build();
         }
-        result.intents_ = internalGetIntents();
-        result.intents_.makeImmutable();
-        result.phraseMatchers_ = internalGetPhraseMatchers();
-        result.phraseMatchers_.makeImmutable();
-        if (issueModelResultBuilder_ == null) {
-          result.issueModelResult_ = issueModelResult_;
-        } else {
-          result.issueModelResult_ = issueModelResultBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.entities_ = internalGetEntities();
+          result.entities_.makeImmutable();
         }
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.intents_ = internalGetIntents();
+          result.intents_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.phraseMatchers_ = internalGetPhraseMatchers();
+          result.phraseMatchers_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.issueModelResult_ = issueModelResultBuilder_ == null
+              ? issueModelResult_
+              : issueModelResultBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1506,6 +1323,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         }
         internalGetMutableEntities().mergeFrom(
             other.internalGetEntities());
+        bitField0_ |= 0x00000002;
         if (sentimentsBuilder_ == null) {
           if (!other.sentiments_.isEmpty()) {
             if (sentiments_.isEmpty()) {
@@ -1534,12 +1352,14 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         }
         internalGetMutableIntents().mergeFrom(
             other.internalGetIntents());
+        bitField0_ |= 0x00000008;
         internalGetMutablePhraseMatchers().mergeFrom(
             other.internalGetPhraseMatchers());
+        bitField0_ |= 0x00000010;
         if (other.hasIssueModelResult()) {
           mergeIssueModelResult(other.getIssueModelResult());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1554,17 +1374,90 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 18: {
+                com.google.cloud.contactcenterinsights.v1.CallAnnotation m =
+                    input.readMessage(
+                        com.google.cloud.contactcenterinsights.v1.CallAnnotation.parser(),
+                        extensionRegistry);
+                if (annotationsBuilder_ == null) {
+                  ensureAnnotationsIsMutable();
+                  annotations_.add(m);
+                } else {
+                  annotationsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity>
+                entities__ = input.readMessage(
+                    EntitiesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableEntities().getMutableMap().put(
+                    entities__.getKey(), entities__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 34: {
+                com.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment m =
+                    input.readMessage(
+                        com.google.cloud.contactcenterinsights.v1.ConversationLevelSentiment.parser(),
+                        extensionRegistry);
+                if (sentimentsBuilder_ == null) {
+                  ensureSentimentsIsMutable();
+                  sentiments_.add(m);
+                } else {
+                  sentimentsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 34
+              case 50: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent>
+                intents__ = input.readMessage(
+                    IntentsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableIntents().getMutableMap().put(
+                    intents__.getKey(), intents__.getValue());
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 50
+              case 58: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData>
+                phraseMatchers__ = input.readMessage(
+                    PhraseMatchersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutablePhraseMatchers().getMutableMap().put(
+                    phraseMatchers__.getKey(), phraseMatchers__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getIssueModelResultFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 66
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -1884,7 +1777,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> entities_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity>
-      internalGetEntities() {
+          internalGetEntities() {
         if (entities_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               EntitiesDefaultEntryHolder.defaultEntry);
@@ -1892,8 +1785,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         return entities_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity>
-      internalGetMutableEntities() {
-        onChanged();;
+          internalGetMutableEntities() {
         if (entities_ == null) {
           entities_ = com.google.protobuf.MapField.newMapField(
               EntitiesDefaultEntryHolder.defaultEntry);
@@ -1901,9 +1793,10 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         if (!entities_.isMutable()) {
           entities_ = entities_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return entities_;
       }
-
       public int getEntitiesCount() {
         return internalGetEntities().getMap().size();
       }
@@ -1914,7 +1807,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
        */
-
       @java.lang.Override
       public boolean containsEntities(
           java.lang.String key) {
@@ -1937,7 +1829,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> getEntitiesMap() {
         return internalGetEntities().getMap();
       }
@@ -1949,10 +1840,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrDefault(
+      public /* nullable */
+com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrDefault(
           java.lang.String key,
-          com.google.cloud.contactcenterinsights.v1.Entity defaultValue) {
+          /* nullable */
+com.google.cloud.contactcenterinsights.v1.Entity defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> map =
             internalGetEntities().getMap();
@@ -1966,7 +1858,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.contactcenterinsights.v1.Entity getEntitiesOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1977,8 +1868,8 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearEntities() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableEntities().getMutableMap()
             .clear();
         return this;
@@ -1990,7 +1881,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
        */
-
       public Builder removeEntities(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2003,7 +1893,8 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity>
-      getMutableEntities() {
+          getMutableEntities() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableEntities().getMutableMap();
       }
       /**
@@ -2017,12 +1908,10 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           java.lang.String key,
           com.google.cloud.contactcenterinsights.v1.Entity value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableEntities().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -2032,11 +1921,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Entity&gt; entities = 3;</code>
        */
-
       public Builder putAllEntities(
           java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Entity> values) {
         internalGetMutableEntities().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
 
@@ -2355,7 +2244,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> intents_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent>
-      internalGetIntents() {
+          internalGetIntents() {
         if (intents_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               IntentsDefaultEntryHolder.defaultEntry);
@@ -2363,8 +2252,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         return intents_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent>
-      internalGetMutableIntents() {
-        onChanged();;
+          internalGetMutableIntents() {
         if (intents_ == null) {
           intents_ = com.google.protobuf.MapField.newMapField(
               IntentsDefaultEntryHolder.defaultEntry);
@@ -2372,9 +2260,10 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         if (!intents_.isMutable()) {
           intents_ = intents_.copy();
         }
+        bitField0_ |= 0x00000008;
+        onChanged();
         return intents_;
       }
-
       public int getIntentsCount() {
         return internalGetIntents().getMap().size();
       }
@@ -2385,7 +2274,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
        */
-
       @java.lang.Override
       public boolean containsIntents(
           java.lang.String key) {
@@ -2408,7 +2296,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> getIntentsMap() {
         return internalGetIntents().getMap();
       }
@@ -2420,10 +2307,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrDefault(
+      public /* nullable */
+com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrDefault(
           java.lang.String key,
-          com.google.cloud.contactcenterinsights.v1.Intent defaultValue) {
+          /* nullable */
+com.google.cloud.contactcenterinsights.v1.Intent defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> map =
             internalGetIntents().getMap();
@@ -2437,7 +2325,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.contactcenterinsights.v1.Intent getIntentsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2448,8 +2335,8 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearIntents() {
+        bitField0_ = (bitField0_ & ~0x00000008);
         internalGetMutableIntents().getMutableMap()
             .clear();
         return this;
@@ -2461,7 +2348,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
        */
-
       public Builder removeIntents(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2474,7 +2360,8 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent>
-      getMutableIntents() {
+          getMutableIntents() {
+        bitField0_ |= 0x00000008;
         return internalGetMutableIntents().getMutableMap();
       }
       /**
@@ -2488,12 +2375,10 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           java.lang.String key,
           com.google.cloud.contactcenterinsights.v1.Intent value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableIntents().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000008;
         return this;
       }
       /**
@@ -2503,18 +2388,18 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.Intent&gt; intents = 6;</code>
        */
-
       public Builder putAllIntents(
           java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.Intent> values) {
         internalGetMutableIntents().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000008;
         return this;
       }
 
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> phraseMatchers_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData>
-      internalGetPhraseMatchers() {
+          internalGetPhraseMatchers() {
         if (phraseMatchers_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               PhraseMatchersDefaultEntryHolder.defaultEntry);
@@ -2522,8 +2407,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         return phraseMatchers_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData>
-      internalGetMutablePhraseMatchers() {
-        onChanged();;
+          internalGetMutablePhraseMatchers() {
         if (phraseMatchers_ == null) {
           phraseMatchers_ = com.google.protobuf.MapField.newMapField(
               PhraseMatchersDefaultEntryHolder.defaultEntry);
@@ -2531,9 +2415,10 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         if (!phraseMatchers_.isMutable()) {
           phraseMatchers_ = phraseMatchers_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return phraseMatchers_;
       }
-
       public int getPhraseMatchersCount() {
         return internalGetPhraseMatchers().getMap().size();
       }
@@ -2544,7 +2429,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
        */
-
       @java.lang.Override
       public boolean containsPhraseMatchers(
           java.lang.String key) {
@@ -2567,7 +2451,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> getPhraseMatchersMap() {
         return internalGetPhraseMatchers().getMap();
       }
@@ -2579,10 +2462,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrDefault(
+      public /* nullable */
+com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrDefault(
           java.lang.String key,
-          com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue) {
+          /* nullable */
+com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> map =
             internalGetPhraseMatchers().getMap();
@@ -2596,7 +2480,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.contactcenterinsights.v1.PhraseMatchData getPhraseMatchersOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2607,8 +2490,8 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearPhraseMatchers() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutablePhraseMatchers().getMutableMap()
             .clear();
         return this;
@@ -2620,7 +2503,6 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
        */
-
       public Builder removePhraseMatchers(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -2633,7 +2515,8 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData>
-      getMutablePhraseMatchers() {
+          getMutablePhraseMatchers() {
+        bitField0_ |= 0x00000010;
         return internalGetMutablePhraseMatchers().getMutableMap();
       }
       /**
@@ -2647,12 +2530,10 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           java.lang.String key,
           com.google.cloud.contactcenterinsights.v1.PhraseMatchData value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutablePhraseMatchers().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -2662,11 +2543,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        *
        * <code>map&lt;string, .google.cloud.contactcenterinsights.v1.PhraseMatchData&gt; phrase_matchers = 7;</code>
        */
-
       public Builder putAllPhraseMatchers(
           java.util.Map<java.lang.String, com.google.cloud.contactcenterinsights.v1.PhraseMatchData> values) {
         internalGetMutablePhraseMatchers().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
@@ -2682,7 +2563,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * @return Whether the issueModelResult field is set.
        */
       public boolean hasIssueModelResult() {
-        return issueModelResultBuilder_ != null || issueModelResult_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -2712,11 +2593,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
             throw new NullPointerException();
           }
           issueModelResult_ = value;
-          onChanged();
         } else {
           issueModelResultBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2730,11 +2611,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           com.google.cloud.contactcenterinsights.v1.IssueModelResult.Builder builderForValue) {
         if (issueModelResultBuilder_ == null) {
           issueModelResult_ = builderForValue.build();
-          onChanged();
         } else {
           issueModelResultBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2746,17 +2627,18 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        */
       public Builder mergeIssueModelResult(com.google.cloud.contactcenterinsights.v1.IssueModelResult value) {
         if (issueModelResultBuilder_ == null) {
-          if (issueModelResult_ != null) {
-            issueModelResult_ =
-              com.google.cloud.contactcenterinsights.v1.IssueModelResult.newBuilder(issueModelResult_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            issueModelResult_ != null &&
+            issueModelResult_ != com.google.cloud.contactcenterinsights.v1.IssueModelResult.getDefaultInstance()) {
+            getIssueModelResultBuilder().mergeFrom(value);
           } else {
             issueModelResult_ = value;
           }
-          onChanged();
         } else {
           issueModelResultBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -2767,14 +2649,13 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>.google.cloud.contactcenterinsights.v1.IssueModelResult issue_model_result = 8;</code>
        */
       public Builder clearIssueModelResult() {
-        if (issueModelResultBuilder_ == null) {
-          issueModelResult_ = null;
-          onChanged();
-        } else {
-          issueModelResult_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        issueModelResult_ = null;
+        if (issueModelResultBuilder_ != null) {
+          issueModelResultBuilder_.dispose();
           issueModelResultBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2785,7 +2666,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
        * <code>.google.cloud.contactcenterinsights.v1.IssueModelResult issue_model_result = 8;</code>
        */
       public com.google.cloud.contactcenterinsights.v1.IssueModelResult.Builder getIssueModelResultBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getIssueModelResultFieldBuilder().getBuilder();
       }
@@ -2857,7 +2738,18 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CallAnalysisMetadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2994,7 +2886,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
-    return getEndTime();
+    return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3017,7 +2909,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
     if (metadataCase_ == 2) {
       output.writeMessage(2, (com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata) metadata_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3034,7 +2926,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata) metadata_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3063,7 +2955,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3086,7 +2978,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3207,26 +3099,24 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
 
     // Construct using com.google.cloud.contactcenterinsights.v1.AnalysisResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-      } else {
-        endTime_ = null;
+      bitField0_ = 0;
+      if (callAnalysisMetadataBuilder_ != null) {
+        callAnalysisMetadataBuilder_.clear();
+      }
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
       metadataCase_ = 0;
@@ -3257,21 +3147,28 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
     @java.lang.Override
     public com.google.cloud.contactcenterinsights.v1.AnalysisResult buildPartial() {
       com.google.cloud.contactcenterinsights.v1.AnalysisResult result = new com.google.cloud.contactcenterinsights.v1.AnalysisResult(this);
-      if (metadataCase_ == 2) {
-        if (callAnalysisMetadataBuilder_ == null) {
-          result.metadata_ = metadata_;
-        } else {
-          result.metadata_ = callAnalysisMetadataBuilder_.build();
-        }
-      }
-      if (endTimeBuilder_ == null) {
-        result.endTime_ = endTime_;
-      } else {
-        result.endTime_ = endTimeBuilder_.build();
-      }
-      result.metadataCase_ = metadataCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.contactcenterinsights.v1.AnalysisResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endTime_ = endTimeBuilder_ == null
+            ? endTime_
+            : endTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.contactcenterinsights.v1.AnalysisResult result) {
+      result.metadataCase_ = metadataCase_;
+      result.metadata_ = this.metadata_;
+      if (metadataCase_ == 2 &&
+          callAnalysisMetadataBuilder_ != null) {
+        result.metadata_ = callAnalysisMetadataBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3330,7 +3227,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3345,17 +3242,44 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.contactcenterinsights.v1.AnalysisResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCallAnalysisMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              metadataCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.contactcenterinsights.v1.AnalysisResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int metadataCase_ = 0;
@@ -3373,6 +3297,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata, com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadata.Builder, com.google.cloud.contactcenterinsights.v1.AnalysisResult.CallAnalysisMetadataOrBuilder> callAnalysisMetadataBuilder_;
@@ -3548,7 +3473,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         metadata_ = null;
       }
       metadataCase_ = 2;
-      onChanged();;
+      onChanged();
       return callAnalysisMetadataBuilder_;
     }
 
@@ -3564,7 +3489,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * @return Whether the endTime field is set.
      */
     public boolean hasEndTime() {
-      return endTimeBuilder_ != null || endTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -3594,11 +3519,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
           throw new NullPointerException();
         }
         endTime_ = value;
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3612,11 +3537,11 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (endTimeBuilder_ == null) {
         endTime_ = builderForValue.build();
-        onChanged();
       } else {
         endTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3628,17 +3553,18 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      */
     public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
       if (endTimeBuilder_ == null) {
-        if (endTime_ != null) {
-          endTime_ =
-            com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          endTime_ != null &&
+          endTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getEndTimeBuilder().mergeFrom(value);
         } else {
           endTime_ = value;
         }
-        onChanged();
       } else {
         endTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -3649,14 +3575,13 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>.google.protobuf.Timestamp end_time = 1;</code>
      */
     public Builder clearEndTime() {
-      if (endTimeBuilder_ == null) {
-        endTime_ = null;
-        onChanged();
-      } else {
-        endTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      endTime_ = null;
+      if (endTimeBuilder_ != null) {
+        endTimeBuilder_.dispose();
         endTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3667,7 +3592,7 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
      * <code>.google.protobuf.Timestamp end_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEndTimeFieldBuilder().getBuilder();
     }
@@ -3739,7 +3664,18 @@ com.google.cloud.contactcenterinsights.v1.PhraseMatchData defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AnalysisResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

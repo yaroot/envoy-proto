@@ -51,8 +51,8 @@ public interface ZoneOrBuilder extends
 
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the zone. This ID will be
-   * different if the zone is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the zone. This ID will
+   * be different if the zone is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -61,8 +61,8 @@ public interface ZoneOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the zone. This ID will be
-   * different if the zone is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the zone. This ID will
+   * be different if the zone is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -164,7 +164,6 @@ public interface ZoneOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -177,7 +176,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -241,7 +239,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data in this zone.
+   * Optional. Specification of the discovery feature applied to data in this
+   * zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -250,7 +249,8 @@ java.lang.String defaultValue);
   boolean hasDiscoverySpec();
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data in this zone.
+   * Optional. Specification of the discovery feature applied to data in this
+   * zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -259,7 +259,8 @@ java.lang.String defaultValue);
   com.google.cloud.dataplex.v1.Zone.DiscoverySpec getDiscoverySpec();
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data in this zone.
+   * Optional. Specification of the discovery feature applied to data in this
+   * zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -268,8 +269,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Required. Specification of the resources that are referenced by the assets within
-   * this zone.
+   * Required. Specification of the resources that are referenced by the assets
+   * within this zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -278,8 +279,8 @@ java.lang.String defaultValue);
   boolean hasResourceSpec();
   /**
    * <pre>
-   * Required. Specification of the resources that are referenced by the assets within
-   * this zone.
+   * Required. Specification of the resources that are referenced by the assets
+   * within this zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -288,8 +289,8 @@ java.lang.String defaultValue);
   com.google.cloud.dataplex.v1.Zone.ResourceSpec getResourceSpec();
   /**
    * <pre>
-   * Required. Specification of the resources that are referenced by the assets within
-   * this zone.
+   * Required. Specification of the resources that are referenced by the assets
+   * within this zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>

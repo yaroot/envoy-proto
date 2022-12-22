@@ -54,7 +54,6 @@ public interface DataplexConfigOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
    */
-
   /* nullable */
 com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrDefault(
       java.lang.String key,
@@ -69,7 +68,6 @@ com.google.cloud.metastore.v1alpha.Lake defaultValue);
    *
    * <code>map&lt;string, .google.cloud.metastore.v1alpha.Lake&gt; lake_resources = 1;</code>
    */
-
   com.google.cloud.metastore.v1alpha.Lake getLakeResourcesOrThrow(
       java.lang.String key);
 }

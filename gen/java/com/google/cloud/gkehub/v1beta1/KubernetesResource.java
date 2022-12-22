@@ -39,89 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KubernetesResource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            membershipCrManifest_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              membershipResources_ = new java.util.ArrayList<com.google.cloud.gkehub.v1beta1.ResourceManifest>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            membershipResources_.add(
-                input.readMessage(com.google.cloud.gkehub.v1beta1.ResourceManifest.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              connectResources_ = new java.util.ArrayList<com.google.cloud.gkehub.v1beta1.ResourceManifest>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            connectResources_.add(
-                input.readMessage(com.google.cloud.gkehub.v1beta1.ResourceManifest.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            com.google.cloud.gkehub.v1beta1.ResourceOptions.Builder subBuilder = null;
-            if (resourceOptions_ != null) {
-              subBuilder = resourceOptions_.toBuilder();
-            }
-            resourceOptions_ = input.readMessage(com.google.cloud.gkehub.v1beta1.ResourceOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resourceOptions_);
-              resourceOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        membershipResources_ = java.util.Collections.unmodifiableList(membershipResources_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        connectResources_ = java.util.Collections.unmodifiableList(connectResources_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.v1beta1.MembershipOuterClass.internal_static_google_cloud_gkehub_v1beta1_KubernetesResource_descriptor;
@@ -136,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMBERSHIP_CR_MANIFEST_FIELD_NUMBER = 1;
-  private volatile java.lang.Object membershipCrManifest_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object membershipCrManifest_ = "";
   /**
    * <pre>
    * Input only. The YAML representation of the Membership CR. This field is ignored for GKE
@@ -192,6 +110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MEMBERSHIP_RESOURCES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.gkehub.v1beta1.ResourceManifest> membershipResources_;
   /**
    * <pre>
@@ -282,6 +201,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONNECT_RESOURCES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.gkehub.v1beta1.ResourceManifest> connectResources_;
   /**
    * <pre>
@@ -401,7 +321,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.v1beta1.ResourceOptionsOrBuilder getResourceOptionsOrBuilder() {
-    return getResourceOptions();
+    return resourceOptions_ == null ? com.google.cloud.gkehub.v1beta1.ResourceOptions.getDefaultInstance() : resourceOptions_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -430,7 +350,7 @@ private static final long serialVersionUID = 0L;
     if (resourceOptions_ != null) {
       output.writeMessage(4, getResourceOptions());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -454,7 +374,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getResourceOptions());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -480,7 +400,7 @@ private static final long serialVersionUID = 0L;
       if (!getResourceOptions()
           .equals(other.getResourceOptions())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -505,7 +425,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RESOURCE_OPTIONS_FIELD_NUMBER;
       hash = (53 * hash) + getResourceOptions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -628,42 +548,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.v1beta1.KubernetesResource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getMembershipResourcesFieldBuilder();
-        getConnectResourcesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       membershipCrManifest_ = "";
-
       if (membershipResourcesBuilder_ == null) {
         membershipResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        membershipResources_ = null;
         membershipResourcesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       if (connectResourcesBuilder_ == null) {
         connectResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        connectResources_ = null;
         connectResourcesBuilder_.clear();
       }
-      if (resourceOptionsBuilder_ == null) {
-        resourceOptions_ = null;
-      } else {
-        resourceOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      resourceOptions_ = null;
+      if (resourceOptionsBuilder_ != null) {
+        resourceOptionsBuilder_.dispose();
         resourceOptionsBuilder_ = null;
       }
       return this;
@@ -692,33 +606,43 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.v1beta1.KubernetesResource buildPartial() {
       com.google.cloud.gkehub.v1beta1.KubernetesResource result = new com.google.cloud.gkehub.v1beta1.KubernetesResource(this);
-      int from_bitField0_ = bitField0_;
-      result.membershipCrManifest_ = membershipCrManifest_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.gkehub.v1beta1.KubernetesResource result) {
       if (membershipResourcesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           membershipResources_ = java.util.Collections.unmodifiableList(membershipResources_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.membershipResources_ = membershipResources_;
       } else {
         result.membershipResources_ = membershipResourcesBuilder_.build();
       }
       if (connectResourcesBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           connectResources_ = java.util.Collections.unmodifiableList(connectResources_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.connectResources_ = connectResources_;
       } else {
         result.connectResources_ = connectResourcesBuilder_.build();
       }
-      if (resourceOptionsBuilder_ == null) {
-        result.resourceOptions_ = resourceOptions_;
-      } else {
-        result.resourceOptions_ = resourceOptionsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.v1beta1.KubernetesResource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.membershipCrManifest_ = membershipCrManifest_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.resourceOptions_ = resourceOptionsBuilder_ == null
+            ? resourceOptions_
+            : resourceOptionsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -767,13 +691,14 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.gkehub.v1beta1.KubernetesResource.getDefaultInstance()) return this;
       if (!other.getMembershipCrManifest().isEmpty()) {
         membershipCrManifest_ = other.membershipCrManifest_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (membershipResourcesBuilder_ == null) {
         if (!other.membershipResources_.isEmpty()) {
           if (membershipResources_.isEmpty()) {
             membershipResources_ = other.membershipResources_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureMembershipResourcesIsMutable();
             membershipResources_.addAll(other.membershipResources_);
@@ -786,7 +711,7 @@ private static final long serialVersionUID = 0L;
             membershipResourcesBuilder_.dispose();
             membershipResourcesBuilder_ = null;
             membershipResources_ = other.membershipResources_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             membershipResourcesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getMembershipResourcesFieldBuilder() : null;
@@ -799,7 +724,7 @@ private static final long serialVersionUID = 0L;
         if (!other.connectResources_.isEmpty()) {
           if (connectResources_.isEmpty()) {
             connectResources_ = other.connectResources_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureConnectResourcesIsMutable();
             connectResources_.addAll(other.connectResources_);
@@ -812,7 +737,7 @@ private static final long serialVersionUID = 0L;
             connectResourcesBuilder_.dispose();
             connectResourcesBuilder_ = null;
             connectResources_ = other.connectResources_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
             connectResourcesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getConnectResourcesFieldBuilder() : null;
@@ -824,7 +749,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasResourceOptions()) {
         mergeResourceOptions(other.getResourceOptions());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -839,17 +764,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.v1beta1.KubernetesResource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              membershipCrManifest_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.gkehub.v1beta1.ResourceManifest m =
+                  input.readMessage(
+                      com.google.cloud.gkehub.v1beta1.ResourceManifest.parser(),
+                      extensionRegistry);
+              if (membershipResourcesBuilder_ == null) {
+                ensureMembershipResourcesIsMutable();
+                membershipResources_.add(m);
+              } else {
+                membershipResourcesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.gkehub.v1beta1.ResourceManifest m =
+                  input.readMessage(
+                      com.google.cloud.gkehub.v1beta1.ResourceManifest.parser(),
+                      extensionRegistry);
+              if (connectResourcesBuilder_ == null) {
+                ensureConnectResourcesIsMutable();
+                connectResources_.add(m);
+              } else {
+                connectResourcesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getResourceOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.v1beta1.KubernetesResource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -922,11 +898,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMembershipCrManifest(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       membershipCrManifest_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -944,8 +918,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMembershipCrManifest() {
-      
       membershipCrManifest_ = getDefaultInstance().getMembershipCrManifest();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -965,12 +939,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMembershipCrManifestBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       membershipCrManifest_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -978,9 +950,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.gkehub.v1beta1.ResourceManifest> membershipResources_ =
       java.util.Collections.emptyList();
     private void ensureMembershipResourcesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         membershipResources_ = new java.util.ArrayList<com.google.cloud.gkehub.v1beta1.ResourceManifest>(membershipResources_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1240,7 +1212,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearMembershipResources() {
       if (membershipResourcesBuilder_ == null) {
         membershipResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         membershipResourcesBuilder_.clear();
@@ -1387,7 +1359,7 @@ private static final long serialVersionUID = 0L;
         membershipResourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.gkehub.v1beta1.ResourceManifest, com.google.cloud.gkehub.v1beta1.ResourceManifest.Builder, com.google.cloud.gkehub.v1beta1.ResourceManifestOrBuilder>(
                 membershipResources_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         membershipResources_ = null;
@@ -1398,9 +1370,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.gkehub.v1beta1.ResourceManifest> connectResources_ =
       java.util.Collections.emptyList();
     private void ensureConnectResourcesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         connectResources_ = new java.util.ArrayList<com.google.cloud.gkehub.v1beta1.ResourceManifest>(connectResources_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1649,7 +1621,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearConnectResources() {
       if (connectResourcesBuilder_ == null) {
         connectResources_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         connectResourcesBuilder_.clear();
@@ -1789,7 +1761,7 @@ private static final long serialVersionUID = 0L;
         connectResourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.gkehub.v1beta1.ResourceManifest, com.google.cloud.gkehub.v1beta1.ResourceManifest.Builder, com.google.cloud.gkehub.v1beta1.ResourceManifestOrBuilder>(
                 connectResources_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         connectResources_ = null;
@@ -1809,7 +1781,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resourceOptions field is set.
      */
     public boolean hasResourceOptions() {
-      return resourceOptionsBuilder_ != null || resourceOptions_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1839,11 +1811,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resourceOptions_ = value;
-        onChanged();
       } else {
         resourceOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1857,11 +1829,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.v1beta1.ResourceOptions.Builder builderForValue) {
       if (resourceOptionsBuilder_ == null) {
         resourceOptions_ = builderForValue.build();
-        onChanged();
       } else {
         resourceOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1873,17 +1845,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResourceOptions(com.google.cloud.gkehub.v1beta1.ResourceOptions value) {
       if (resourceOptionsBuilder_ == null) {
-        if (resourceOptions_ != null) {
-          resourceOptions_ =
-            com.google.cloud.gkehub.v1beta1.ResourceOptions.newBuilder(resourceOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          resourceOptions_ != null &&
+          resourceOptions_ != com.google.cloud.gkehub.v1beta1.ResourceOptions.getDefaultInstance()) {
+          getResourceOptionsBuilder().mergeFrom(value);
         } else {
           resourceOptions_ = value;
         }
-        onChanged();
       } else {
         resourceOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1894,14 +1867,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1beta1.ResourceOptions resource_options = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearResourceOptions() {
-      if (resourceOptionsBuilder_ == null) {
-        resourceOptions_ = null;
-        onChanged();
-      } else {
-        resourceOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      resourceOptions_ = null;
+      if (resourceOptionsBuilder_ != null) {
+        resourceOptionsBuilder_.dispose();
         resourceOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1912,7 +1884,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1beta1.ResourceOptions resource_options = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.gkehub.v1beta1.ResourceOptions.Builder getResourceOptionsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getResourceOptionsFieldBuilder().getBuilder();
     }
@@ -1984,7 +1956,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KubernetesResource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

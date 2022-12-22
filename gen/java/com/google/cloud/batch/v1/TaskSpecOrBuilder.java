@@ -246,22 +246,20 @@ public interface TaskSpecOrBuilder extends
 
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; environments = 6;</code>
+   * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-  int getEnvironmentsCount();
+  @java.lang.Deprecated int getEnvironmentsCount();
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; environments = 6;</code>
+   * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-  boolean containsEnvironments(
+  @java.lang.Deprecated boolean containsEnvironments(
       java.lang.String key);
   /**
    * Use {@link #getEnvironmentsMap()} instead.
@@ -271,38 +269,33 @@ public interface TaskSpecOrBuilder extends
   getEnvironments();
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; environments = 6;</code>
+   * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-  java.util.Map<java.lang.String, java.lang.String>
+  @java.lang.Deprecated java.util.Map<java.lang.String, java.lang.String>
   getEnvironmentsMap();
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; environments = 6;</code>
+   * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-
-  /* nullable */
+  @java.lang.Deprecated /* nullable */
 java.lang.String getEnvironmentsOrDefault(
       java.lang.String key,
       /* nullable */
 java.lang.String defaultValue);
   /**
    * <pre>
-   * Environment variables to set before running the Task.
-   * You can set up to 100 environments.
+   * Deprecated: please use environment(non-plural) instead.
    * </pre>
    *
-   * <code>map&lt;string, string&gt; environments = 6;</code>
+   * <code>map&lt;string, string&gt; environments = 6 [deprecated = true];</code>
    */
-
-  java.lang.String getEnvironmentsOrThrow(
+  @java.lang.Deprecated java.lang.String getEnvironmentsOrThrow(
       java.lang.String key);
 
   /**
@@ -348,4 +341,31 @@ java.lang.String defaultValue);
    */
   com.google.cloud.batch.v1.VolumeOrBuilder getVolumesOrBuilder(
       int index);
+
+  /**
+   * <pre>
+   * Environment variables to set before running the Task.
+   * </pre>
+   *
+   * <code>.google.cloud.batch.v1.Environment environment = 10;</code>
+   * @return Whether the environment field is set.
+   */
+  boolean hasEnvironment();
+  /**
+   * <pre>
+   * Environment variables to set before running the Task.
+   * </pre>
+   *
+   * <code>.google.cloud.batch.v1.Environment environment = 10;</code>
+   * @return The environment.
+   */
+  com.google.cloud.batch.v1.Environment getEnvironment();
+  /**
+   * <pre>
+   * Environment variables to set before running the Task.
+   * </pre>
+   *
+   * <code>.google.cloud.batch.v1.Environment environment = 10;</code>
+   */
+  com.google.cloud.batch.v1.EnvironmentOrBuilder getEnvironmentOrBuilder();
 }

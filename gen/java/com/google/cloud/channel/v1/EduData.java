@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EduData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            instituteType_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            instituteSize_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            website_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.CommonProto.internal_static_google_cloud_channel_v1_EduData_descriptor;
@@ -483,7 +426,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTITUTE_TYPE_FIELD_NUMBER = 1;
-  private int instituteType_;
+  private int instituteType_ = 0;
   /**
    * <pre>
    * Designated institute type of customer.
@@ -504,13 +447,12 @@ private static final long serialVersionUID = 0L;
    * @return The instituteType.
    */
   @java.lang.Override public com.google.cloud.channel.v1.EduData.InstituteType getInstituteType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.EduData.InstituteType result = com.google.cloud.channel.v1.EduData.InstituteType.valueOf(instituteType_);
+    com.google.cloud.channel.v1.EduData.InstituteType result = com.google.cloud.channel.v1.EduData.InstituteType.forNumber(instituteType_);
     return result == null ? com.google.cloud.channel.v1.EduData.InstituteType.UNRECOGNIZED : result;
   }
 
   public static final int INSTITUTE_SIZE_FIELD_NUMBER = 2;
-  private int instituteSize_;
+  private int instituteSize_ = 0;
   /**
    * <pre>
    * Size of the institute.
@@ -531,13 +473,13 @@ private static final long serialVersionUID = 0L;
    * @return The instituteSize.
    */
   @java.lang.Override public com.google.cloud.channel.v1.EduData.InstituteSize getInstituteSize() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.EduData.InstituteSize result = com.google.cloud.channel.v1.EduData.InstituteSize.valueOf(instituteSize_);
+    com.google.cloud.channel.v1.EduData.InstituteSize result = com.google.cloud.channel.v1.EduData.InstituteSize.forNumber(instituteSize_);
     return result == null ? com.google.cloud.channel.v1.EduData.InstituteSize.UNRECOGNIZED : result;
   }
 
   public static final int WEBSITE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object website_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object website_ = "";
   /**
    * <pre>
    * Web address for the edu customer's institution.
@@ -605,7 +547,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(website_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, website_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -625,7 +567,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(website_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, website_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -644,7 +586,7 @@ private static final long serialVersionUID = 0L;
     if (instituteSize_ != other.instituteSize_) return false;
     if (!getWebsite()
         .equals(other.getWebsite())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -661,7 +603,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + instituteSize_;
     hash = (37 * hash) + WEBSITE_FIELD_NUMBER;
     hash = (53 * hash) + getWebsite().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -782,28 +724,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.EduData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       instituteType_ = 0;
-
       instituteSize_ = 0;
-
       website_ = "";
-
       return this;
     }
 
@@ -830,11 +765,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.EduData buildPartial() {
       com.google.cloud.channel.v1.EduData result = new com.google.cloud.channel.v1.EduData(this);
-      result.instituteType_ = instituteType_;
-      result.instituteSize_ = instituteSize_;
-      result.website_ = website_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.EduData result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.instituteType_ = instituteType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.instituteSize_ = instituteSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.website_ = website_;
+      }
     }
 
     @java.lang.Override
@@ -889,9 +835,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getWebsite().isEmpty()) {
         website_ = other.website_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -906,19 +853,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.EduData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instituteType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instituteSize_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              website_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.EduData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int instituteType_ = 0;
     /**
@@ -942,8 +918,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInstituteTypeValue(int value) {
-      
       instituteType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -957,8 +933,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.EduData.InstituteType getInstituteType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.EduData.InstituteType result = com.google.cloud.channel.v1.EduData.InstituteType.valueOf(instituteType_);
+      com.google.cloud.channel.v1.EduData.InstituteType result = com.google.cloud.channel.v1.EduData.InstituteType.forNumber(instituteType_);
       return result == null ? com.google.cloud.channel.v1.EduData.InstituteType.UNRECOGNIZED : result;
     }
     /**
@@ -974,7 +949,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       instituteType_ = value.getNumber();
       onChanged();
       return this;
@@ -988,7 +963,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstituteType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       instituteType_ = 0;
       onChanged();
       return this;
@@ -1016,8 +991,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setInstituteSizeValue(int value) {
-      
       instituteSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1031,8 +1006,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.EduData.InstituteSize getInstituteSize() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.EduData.InstituteSize result = com.google.cloud.channel.v1.EduData.InstituteSize.valueOf(instituteSize_);
+      com.google.cloud.channel.v1.EduData.InstituteSize result = com.google.cloud.channel.v1.EduData.InstituteSize.forNumber(instituteSize_);
       return result == null ? com.google.cloud.channel.v1.EduData.InstituteSize.UNRECOGNIZED : result;
     }
     /**
@@ -1048,7 +1022,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       instituteSize_ = value.getNumber();
       onChanged();
       return this;
@@ -1062,7 +1036,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstituteSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       instituteSize_ = 0;
       onChanged();
       return this;
@@ -1121,11 +1095,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebsite(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       website_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1138,8 +1110,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearWebsite() {
-      
       website_ = getDefaultInstance().getWebsite();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1154,12 +1126,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setWebsiteBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       website_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1196,7 +1166,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EduData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

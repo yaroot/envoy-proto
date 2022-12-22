@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ProductConditionInfo(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            condition_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.CriteriaProto.internal_static_google_ads_googleads_v10_common_ProductConditionInfo_descriptor;
@@ -94,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONDITION_FIELD_NUMBER = 1;
-  private int condition_;
+  private int condition_ = 0;
   /**
    * <pre>
    * Value of the condition.
@@ -115,8 +70,7 @@ private static final long serialVersionUID = 0L;
    * @return The condition.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition getCondition() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition result = com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.valueOf(condition_);
+    com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition result = com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.forNumber(condition_);
     return result == null ? com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.UNRECOGNIZED : result;
   }
 
@@ -137,7 +91,7 @@ private static final long serialVersionUID = 0L;
     if (condition_ != com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.UNSPECIFIED.getNumber()) {
       output.writeEnum(1, condition_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -150,7 +104,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, condition_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -166,7 +120,7 @@ private static final long serialVersionUID = 0L;
     com.google.ads.googleads.v10.common.ProductConditionInfo other = (com.google.ads.googleads.v10.common.ProductConditionInfo) obj;
 
     if (condition_ != other.condition_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -179,7 +133,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + CONDITION_FIELD_NUMBER;
     hash = (53 * hash) + condition_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -300,24 +254,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.ProductConditionInfo.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       condition_ = 0;
-
       return this;
     }
 
@@ -344,9 +293,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.ProductConditionInfo buildPartial() {
       com.google.ads.googleads.v10.common.ProductConditionInfo result = new com.google.ads.googleads.v10.common.ProductConditionInfo(this);
-      result.condition_ = condition_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.ProductConditionInfo result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.condition_ = condition_;
+      }
     }
 
     @java.lang.Override
@@ -396,7 +352,7 @@ private static final long serialVersionUID = 0L;
       if (other.condition_ != 0) {
         setConditionValue(other.getConditionValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -411,19 +367,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.ProductConditionInfo parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              condition_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.ProductConditionInfo) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int condition_ = 0;
     /**
@@ -447,8 +422,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConditionValue(int value) {
-      
       condition_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -462,8 +437,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition getCondition() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition result = com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.valueOf(condition_);
+      com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition result = com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.forNumber(condition_);
       return result == null ? com.google.ads.googleads.v10.enums.ProductConditionEnum.ProductCondition.UNRECOGNIZED : result;
     }
     /**
@@ -479,7 +453,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       condition_ = value.getNumber();
       onChanged();
       return this;
@@ -493,7 +467,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCondition() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       condition_ = 0;
       onChanged();
       return this;
@@ -531,7 +505,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ProductConditionInfo(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

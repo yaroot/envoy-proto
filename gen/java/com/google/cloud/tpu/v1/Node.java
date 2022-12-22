@@ -49,192 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Node(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            acceleratorType_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ipAddress_ = s;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            healthDescription_ = s;
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            tensorflowVersion_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 106: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            cidrBlock_ = s;
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            port_ = s;
-            break;
-          }
-          case 122: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 130: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            com.google.cloud.tpu.v1.SchedulingConfig.Builder subBuilder = null;
-            if (schedulingConfig_ != null) {
-              subBuilder = schedulingConfig_.toBuilder();
-            }
-            schedulingConfig_ = input.readMessage(com.google.cloud.tpu.v1.SchedulingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(schedulingConfig_);
-              schedulingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 170: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              networkEndpoints_ = new java.util.ArrayList<com.google.cloud.tpu.v1.NetworkEndpoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            networkEndpoints_.add(
-                input.readMessage(com.google.cloud.tpu.v1.NetworkEndpoint.parser(), extensionRegistry));
-            break;
-          }
-          case 176: {
-            int rawValue = input.readEnum();
-
-            health_ = rawValue;
-            break;
-          }
-          case 194: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 216: {
-
-            useServiceNetworking_ = input.readBool();
-            break;
-          }
-          case 304: {
-            int rawValue = input.readEnum();
-
-            apiVersion_ = rawValue;
-            break;
-          }
-          case 314: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              symptoms_ = new java.util.ArrayList<com.google.cloud.tpu.v1.Symptom>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            symptoms_.add(
-                input.readMessage(com.google.cloud.tpu.v1.Symptom.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        networkEndpoints_ = java.util.Collections.unmodifiableList(networkEndpoints_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        symptoms_ = java.util.Collections.unmodifiableList(symptoms_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.tpu.v1.CloudTpuProto.internal_static_google_cloud_tpu_v1_Node_descriptor;
@@ -287,7 +101,7 @@ private static final long serialVersionUID = 0L;
     CREATING(1),
     /**
      * <pre>
-     * TPU node has been created and is fully usable.
+     * TPU node has been created.
      * </pre>
      *
      * <code>READY = 2;</code>
@@ -412,7 +226,7 @@ private static final long serialVersionUID = 0L;
     public static final int CREATING_VALUE = 1;
     /**
      * <pre>
-     * TPU node has been created and is fully usable.
+     * TPU node has been created.
      * </pre>
      *
      * <code>READY = 2;</code>
@@ -975,7 +789,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. Immutable. The name of the TPU
@@ -1021,7 +836,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * The user-supplied description of the TPU. Maximum of 512 characters.
@@ -1067,7 +883,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACCELERATOR_TYPE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object acceleratorType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object acceleratorType_ = "";
   /**
    * <pre>
    * Required. The type of hardware accelerators associated with this node.
@@ -1113,7 +930,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IP_ADDRESS_FIELD_NUMBER = 8;
-  private volatile java.lang.Object ipAddress_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ipAddress_ = "";
   /**
    * <pre>
    * Output only. DEPRECATED! Use network_endpoints instead.
@@ -1167,7 +985,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PORT_FIELD_NUMBER = 14;
-  private volatile java.lang.Object port_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object port_ = "";
   /**
    * <pre>
    * Output only. DEPRECATED! Use network_endpoints instead.
@@ -1219,7 +1038,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 9;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The current state for the TPU Node.
@@ -1240,13 +1059,13 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.tpu.v1.Node.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.tpu.v1.Node.State result = com.google.cloud.tpu.v1.Node.State.valueOf(state_);
+    com.google.cloud.tpu.v1.Node.State result = com.google.cloud.tpu.v1.Node.State.forNumber(state_);
     return result == null ? com.google.cloud.tpu.v1.Node.State.UNRECOGNIZED : result;
   }
 
   public static final int HEALTH_DESCRIPTION_FIELD_NUMBER = 10;
-  private volatile java.lang.Object healthDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object healthDescription_ = "";
   /**
    * <pre>
    * Output only. If this field is populated, it contains a description of why the TPU Node
@@ -1294,7 +1113,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TENSORFLOW_VERSION_FIELD_NUMBER = 11;
-  private volatile java.lang.Object tensorflowVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object tensorflowVersion_ = "";
   /**
    * <pre>
    * Required. The version of Tensorflow running in the Node.
@@ -1340,7 +1160,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 12;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * The name of a network they wish to peer the TPU node to. It must be a
@@ -1390,7 +1211,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CIDR_BLOCK_FIELD_NUMBER = 13;
-  private volatile java.lang.Object cidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object cidrBlock_ = "";
   /**
    * <pre>
    * The CIDR block that the TPU node will use when selecting an IP address.
@@ -1450,7 +1272,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 15;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * Output only. The service account used to run the tensor flow services within the node.
@@ -1536,7 +1359,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int SCHEDULING_CONFIG_FIELD_NUMBER = 17;
@@ -1574,10 +1397,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.tpu.v1.SchedulingConfigOrBuilder getSchedulingConfigOrBuilder() {
-    return getSchedulingConfig();
+    return schedulingConfig_ == null ? com.google.cloud.tpu.v1.SchedulingConfig.getDefaultInstance() : schedulingConfig_;
   }
 
   public static final int NETWORK_ENDPOINTS_FIELD_NUMBER = 21;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.tpu.v1.NetworkEndpoint> networkEndpoints_;
   /**
    * <pre>
@@ -1648,7 +1472,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEALTH_FIELD_NUMBER = 22;
-  private int health_;
+  private int health_ = 0;
   /**
    * <pre>
    * The health status of the TPU node.
@@ -1669,8 +1493,7 @@ private static final long serialVersionUID = 0L;
    * @return The health.
    */
   @java.lang.Override public com.google.cloud.tpu.v1.Node.Health getHealth() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.tpu.v1.Node.Health result = com.google.cloud.tpu.v1.Node.Health.valueOf(health_);
+    com.google.cloud.tpu.v1.Node.Health result = com.google.cloud.tpu.v1.Node.Health.forNumber(health_);
     return result == null ? com.google.cloud.tpu.v1.Node.Health.UNRECOGNIZED : result;
   }
 
@@ -1686,6 +1509,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -1696,7 +1520,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -1707,7 +1530,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 24;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -1730,7 +1552,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 24;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -1742,10 +1563,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 24;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -1759,7 +1581,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 24;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1772,7 +1593,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USE_SERVICE_NETWORKING_FIELD_NUMBER = 27;
-  private boolean useServiceNetworking_;
+  private boolean useServiceNetworking_ = false;
   /**
    * <pre>
    * Whether the VPC peering for the node is set up through Service Networking
@@ -1791,7 +1612,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int API_VERSION_FIELD_NUMBER = 38;
-  private int apiVersion_;
+  private int apiVersion_ = 0;
   /**
    * <pre>
    * Output only. The API version that created this Node.
@@ -1812,12 +1633,12 @@ private static final long serialVersionUID = 0L;
    * @return The apiVersion.
    */
   @java.lang.Override public com.google.cloud.tpu.v1.Node.ApiVersion getApiVersion() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.tpu.v1.Node.ApiVersion result = com.google.cloud.tpu.v1.Node.ApiVersion.valueOf(apiVersion_);
+    com.google.cloud.tpu.v1.Node.ApiVersion result = com.google.cloud.tpu.v1.Node.ApiVersion.forNumber(apiVersion_);
     return result == null ? com.google.cloud.tpu.v1.Node.ApiVersion.UNRECOGNIZED : result;
   }
 
   public static final int SYMPTOMS_FIELD_NUMBER = 39;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.tpu.v1.Symptom> symptoms_;
   /**
    * <pre>
@@ -1951,7 +1772,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < symptoms_.size(); i++) {
       output.writeMessage(39, symptoms_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2032,7 +1853,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(39, symptoms_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2088,7 +1909,7 @@ private static final long serialVersionUID = 0L;
     if (apiVersion_ != other.apiVersion_) return false;
     if (!getSymptomsList()
         .equals(other.getSymptomsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2148,7 +1969,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SYMPTOMS_FIELD_NUMBER;
       hash = (53 * hash) + getSymptomsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2291,77 +2112,57 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.tpu.v1.Node.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getNetworkEndpointsFieldBuilder();
-        getSymptomsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       description_ = "";
-
       acceleratorType_ = "";
-
       ipAddress_ = "";
-
       port_ = "";
-
       state_ = 0;
-
       healthDescription_ = "";
-
       tensorflowVersion_ = "";
-
       network_ = "";
-
       cidrBlock_ = "";
-
       serviceAccount_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (schedulingConfigBuilder_ == null) {
-        schedulingConfig_ = null;
-      } else {
-        schedulingConfig_ = null;
+      schedulingConfig_ = null;
+      if (schedulingConfigBuilder_ != null) {
+        schedulingConfigBuilder_.dispose();
         schedulingConfigBuilder_ = null;
       }
       if (networkEndpointsBuilder_ == null) {
         networkEndpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        networkEndpoints_ = null;
         networkEndpointsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00002000);
       health_ = 0;
-
       internalGetMutableLabels().clear();
       useServiceNetworking_ = false;
-
       apiVersion_ = 0;
-
       if (symptomsBuilder_ == null) {
         symptoms_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        symptoms_ = null;
         symptomsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00040000);
       return this;
     }
 
@@ -2388,53 +2189,91 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.tpu.v1.Node buildPartial() {
       com.google.cloud.tpu.v1.Node result = new com.google.cloud.tpu.v1.Node(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.description_ = description_;
-      result.acceleratorType_ = acceleratorType_;
-      result.ipAddress_ = ipAddress_;
-      result.port_ = port_;
-      result.state_ = state_;
-      result.healthDescription_ = healthDescription_;
-      result.tensorflowVersion_ = tensorflowVersion_;
-      result.network_ = network_;
-      result.cidrBlock_ = cidrBlock_;
-      result.serviceAccount_ = serviceAccount_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (schedulingConfigBuilder_ == null) {
-        result.schedulingConfig_ = schedulingConfig_;
-      } else {
-        result.schedulingConfig_ = schedulingConfigBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.tpu.v1.Node result) {
       if (networkEndpointsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00002000) != 0)) {
           networkEndpoints_ = java.util.Collections.unmodifiableList(networkEndpoints_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00002000);
         }
         result.networkEndpoints_ = networkEndpoints_;
       } else {
         result.networkEndpoints_ = networkEndpointsBuilder_.build();
       }
-      result.health_ = health_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.useServiceNetworking_ = useServiceNetworking_;
-      result.apiVersion_ = apiVersion_;
       if (symptomsBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00040000) != 0)) {
           symptoms_ = java.util.Collections.unmodifiableList(symptoms_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00040000);
         }
         result.symptoms_ = symptoms_;
       } else {
         result.symptoms_ = symptomsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.tpu.v1.Node result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.acceleratorType_ = acceleratorType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.ipAddress_ = ipAddress_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.port_ = port_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.healthDescription_ = healthDescription_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.tensorflowVersion_ = tensorflowVersion_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.cidrBlock_ = cidrBlock_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.schedulingConfig_ = schedulingConfigBuilder_ == null
+            ? schedulingConfig_
+            : schedulingConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.health_ = health_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.useServiceNetworking_ = useServiceNetworking_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.apiVersion_ = apiVersion_;
+      }
     }
 
     @java.lang.Override
@@ -2483,22 +2322,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.tpu.v1.Node.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getAcceleratorType().isEmpty()) {
         acceleratorType_ = other.acceleratorType_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getIpAddress().isEmpty()) {
         ipAddress_ = other.ipAddress_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getPort().isEmpty()) {
         port_ = other.port_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2506,22 +2350,27 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getHealthDescription().isEmpty()) {
         healthDescription_ = other.healthDescription_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getTensorflowVersion().isEmpty()) {
         tensorflowVersion_ = other.tensorflowVersion_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (!other.getCidrBlock().isEmpty()) {
         cidrBlock_ = other.cidrBlock_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -2534,7 +2383,7 @@ private static final long serialVersionUID = 0L;
         if (!other.networkEndpoints_.isEmpty()) {
           if (networkEndpoints_.isEmpty()) {
             networkEndpoints_ = other.networkEndpoints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00002000);
           } else {
             ensureNetworkEndpointsIsMutable();
             networkEndpoints_.addAll(other.networkEndpoints_);
@@ -2547,7 +2396,7 @@ private static final long serialVersionUID = 0L;
             networkEndpointsBuilder_.dispose();
             networkEndpointsBuilder_ = null;
             networkEndpoints_ = other.networkEndpoints_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00002000);
             networkEndpointsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNetworkEndpointsFieldBuilder() : null;
@@ -2561,6 +2410,7 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00008000;
       if (other.getUseServiceNetworking() != false) {
         setUseServiceNetworking(other.getUseServiceNetworking());
       }
@@ -2571,7 +2421,7 @@ private static final long serialVersionUID = 0L;
         if (!other.symptoms_.isEmpty()) {
           if (symptoms_.isEmpty()) {
             symptoms_ = other.symptoms_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00040000);
           } else {
             ensureSymptomsIsMutable();
             symptoms_.addAll(other.symptoms_);
@@ -2584,7 +2434,7 @@ private static final long serialVersionUID = 0L;
             symptomsBuilder_.dispose();
             symptomsBuilder_ = null;
             symptoms_ = other.symptoms_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00040000);
             symptomsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSymptomsFieldBuilder() : null;
@@ -2593,7 +2443,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2608,17 +2458,149 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.tpu.v1.Node parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 42: {
+              acceleratorType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 66: {
+              ipAddress_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 66
+            case 72: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 72
+            case 82: {
+              healthDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 82
+            case 90: {
+              tensorflowVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 90
+            case 98: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 98
+            case 106: {
+              cidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 106
+            case 114: {
+              port_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 114
+            case 122: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getSchedulingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 138
+            case 170: {
+              com.google.cloud.tpu.v1.NetworkEndpoint m =
+                  input.readMessage(
+                      com.google.cloud.tpu.v1.NetworkEndpoint.parser(),
+                      extensionRegistry);
+              if (networkEndpointsBuilder_ == null) {
+                ensureNetworkEndpointsIsMutable();
+                networkEndpoints_.add(m);
+              } else {
+                networkEndpointsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 170
+            case 176: {
+              health_ = input.readEnum();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 176
+            case 194: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 194
+            case 216: {
+              useServiceNetworking_ = input.readBool();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 216
+            case 304: {
+              apiVersion_ = input.readEnum();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 304
+            case 314: {
+              com.google.cloud.tpu.v1.Symptom m =
+                  input.readMessage(
+                      com.google.cloud.tpu.v1.Symptom.parser(),
+                      extensionRegistry);
+              if (symptomsBuilder_ == null) {
+                ensureSymptomsIsMutable();
+                symptoms_.add(m);
+              } else {
+                symptomsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 314
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.tpu.v1.Node) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2676,11 +2658,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2693,8 +2673,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -2709,12 +2689,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -2772,11 +2750,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2789,8 +2765,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2805,12 +2781,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2868,11 +2842,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcceleratorType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       acceleratorType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2885,8 +2857,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcceleratorType() {
-      
       acceleratorType_ = getDefaultInstance().getAcceleratorType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2901,12 +2873,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcceleratorTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       acceleratorType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -2976,11 +2946,9 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setIpAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ipAddress_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2997,8 +2965,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearIpAddress() {
-      
       ipAddress_ = getDefaultInstance().getIpAddress();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3017,12 +2985,10 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setIpAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ipAddress_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3089,11 +3055,9 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setPort(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       port_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3109,8 +3073,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPort() {
-      
       port_ = getDefaultInstance().getPort();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3128,12 +3092,10 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setPortBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       port_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3160,8 +3122,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -3175,8 +3137,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.tpu.v1.Node.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.tpu.v1.Node.State result = com.google.cloud.tpu.v1.Node.State.valueOf(state_);
+      com.google.cloud.tpu.v1.Node.State result = com.google.cloud.tpu.v1.Node.State.forNumber(state_);
       return result == null ? com.google.cloud.tpu.v1.Node.State.UNRECOGNIZED : result;
     }
     /**
@@ -3192,7 +3153,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -3206,7 +3167,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       state_ = 0;
       onChanged();
       return this;
@@ -3268,11 +3229,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHealthDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       healthDescription_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3286,8 +3245,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealthDescription() {
-      
       healthDescription_ = getDefaultInstance().getHealthDescription();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -3303,12 +3262,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setHealthDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       healthDescription_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -3366,11 +3323,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTensorflowVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       tensorflowVersion_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3383,8 +3338,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTensorflowVersion() {
-      
       tensorflowVersion_ = getDefaultInstance().getTensorflowVersion();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -3399,12 +3354,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTensorflowVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       tensorflowVersion_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -3468,11 +3421,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3487,8 +3438,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -3505,12 +3456,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -3589,11 +3538,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       cidrBlock_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3613,8 +3560,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCidrBlock() {
-      
       cidrBlock_ = getDefaultInstance().getCidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -3636,12 +3583,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       cidrBlock_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -3708,11 +3653,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3728,8 +3671,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -3747,12 +3690,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -3769,7 +3710,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -3799,11 +3740,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3817,11 +3758,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3833,17 +3774,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -3854,14 +3796,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3872,7 +3813,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 16 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -3924,7 +3865,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the schedulingConfig field is set.
      */
     public boolean hasSchedulingConfig() {
-      return schedulingConfigBuilder_ != null || schedulingConfig_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -3954,11 +3895,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         schedulingConfig_ = value;
-        onChanged();
       } else {
         schedulingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3972,11 +3913,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.tpu.v1.SchedulingConfig.Builder builderForValue) {
       if (schedulingConfigBuilder_ == null) {
         schedulingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         schedulingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -3988,17 +3929,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSchedulingConfig(com.google.cloud.tpu.v1.SchedulingConfig value) {
       if (schedulingConfigBuilder_ == null) {
-        if (schedulingConfig_ != null) {
-          schedulingConfig_ =
-            com.google.cloud.tpu.v1.SchedulingConfig.newBuilder(schedulingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          schedulingConfig_ != null &&
+          schedulingConfig_ != com.google.cloud.tpu.v1.SchedulingConfig.getDefaultInstance()) {
+          getSchedulingConfigBuilder().mergeFrom(value);
         } else {
           schedulingConfig_ = value;
         }
-        onChanged();
       } else {
         schedulingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -4009,14 +3951,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tpu.v1.SchedulingConfig scheduling_config = 17;</code>
      */
     public Builder clearSchedulingConfig() {
-      if (schedulingConfigBuilder_ == null) {
-        schedulingConfig_ = null;
-        onChanged();
-      } else {
-        schedulingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      schedulingConfig_ = null;
+      if (schedulingConfigBuilder_ != null) {
+        schedulingConfigBuilder_.dispose();
         schedulingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4027,7 +3968,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.tpu.v1.SchedulingConfig scheduling_config = 17;</code>
      */
     public com.google.cloud.tpu.v1.SchedulingConfig.Builder getSchedulingConfigBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getSchedulingConfigFieldBuilder().getBuilder();
     }
@@ -4070,9 +4011,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.tpu.v1.NetworkEndpoint> networkEndpoints_ =
       java.util.Collections.emptyList();
     private void ensureNetworkEndpointsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         networkEndpoints_ = new java.util.ArrayList<com.google.cloud.tpu.v1.NetworkEndpoint>(networkEndpoints_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00002000;
        }
     }
 
@@ -4288,7 +4229,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNetworkEndpoints() {
       if (networkEndpointsBuilder_ == null) {
         networkEndpoints_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
       } else {
         networkEndpointsBuilder_.clear();
@@ -4407,7 +4348,7 @@ private static final long serialVersionUID = 0L;
         networkEndpointsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.tpu.v1.NetworkEndpoint, com.google.cloud.tpu.v1.NetworkEndpoint.Builder, com.google.cloud.tpu.v1.NetworkEndpointOrBuilder>(
                 networkEndpoints_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00002000) != 0),
                 getParentForChildren(),
                 isClean());
         networkEndpoints_ = null;
@@ -4437,8 +4378,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHealthValue(int value) {
-      
       health_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -4452,8 +4393,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.tpu.v1.Node.Health getHealth() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.tpu.v1.Node.Health result = com.google.cloud.tpu.v1.Node.Health.valueOf(health_);
+      com.google.cloud.tpu.v1.Node.Health result = com.google.cloud.tpu.v1.Node.Health.forNumber(health_);
       return result == null ? com.google.cloud.tpu.v1.Node.Health.UNRECOGNIZED : result;
     }
     /**
@@ -4469,7 +4409,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00004000;
       health_ = value.getNumber();
       onChanged();
       return this;
@@ -4483,7 +4423,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHealth() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       health_ = 0;
       onChanged();
       return this;
@@ -4492,7 +4432,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -4500,8 +4440,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -4509,9 +4448,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00008000;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -4522,7 +4462,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 24;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -4545,7 +4484,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 24;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -4557,10 +4495,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 24;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -4574,7 +4513,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 24;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4585,8 +4523,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00008000);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -4598,7 +4536,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 24;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -4611,7 +4548,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00008000;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -4625,12 +4563,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00008000;
       return this;
     }
     /**
@@ -4640,11 +4576,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 24;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00008000;
       return this;
     }
 
@@ -4681,6 +4617,7 @@ private static final long serialVersionUID = 0L;
     public Builder setUseServiceNetworking(boolean value) {
       
       useServiceNetworking_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -4697,7 +4634,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUseServiceNetworking() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       useServiceNetworking_ = false;
       onChanged();
       return this;
@@ -4725,8 +4662,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setApiVersionValue(int value) {
-      
       apiVersion_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
@@ -4740,8 +4677,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.tpu.v1.Node.ApiVersion getApiVersion() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.tpu.v1.Node.ApiVersion result = com.google.cloud.tpu.v1.Node.ApiVersion.valueOf(apiVersion_);
+      com.google.cloud.tpu.v1.Node.ApiVersion result = com.google.cloud.tpu.v1.Node.ApiVersion.forNumber(apiVersion_);
       return result == null ? com.google.cloud.tpu.v1.Node.ApiVersion.UNRECOGNIZED : result;
     }
     /**
@@ -4757,7 +4693,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00020000;
       apiVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -4771,7 +4707,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00020000);
       apiVersion_ = 0;
       onChanged();
       return this;
@@ -4780,9 +4716,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.tpu.v1.Symptom> symptoms_ =
       java.util.Collections.emptyList();
     private void ensureSymptomsIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00040000) != 0)) {
         symptoms_ = new java.util.ArrayList<com.google.cloud.tpu.v1.Symptom>(symptoms_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00040000;
        }
     }
 
@@ -4976,7 +4912,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSymptoms() {
       if (symptomsBuilder_ == null) {
         symptoms_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00040000);
         onChanged();
       } else {
         symptomsBuilder_.clear();
@@ -5081,7 +5017,7 @@ private static final long serialVersionUID = 0L;
         symptomsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.tpu.v1.Symptom, com.google.cloud.tpu.v1.Symptom.Builder, com.google.cloud.tpu.v1.SymptomOrBuilder>(
                 symptoms_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00040000) != 0),
                 getParentForChildren(),
                 isClean());
         symptoms_ = null;
@@ -5121,7 +5057,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Node(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

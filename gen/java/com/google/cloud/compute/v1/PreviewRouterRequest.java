@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PreviewRouterRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1111570338: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            region_ = s;
-            break;
-          }
-          case 1188870730: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            router_ = s;
-            break;
-          }
-          case 1241776674: {
-            com.google.cloud.compute.v1.Router.Builder subBuilder = null;
-            if (routerResource_ != null) {
-              subBuilder = routerResource_.toBuilder();
-            }
-            routerResource_ = input.readMessage(com.google.cloud.compute.v1.Router.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routerResource_);
-              routerResource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 1820481738: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_PreviewRouterRequest_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 227560217;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Project ID for this request.
@@ -167,7 +98,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_FIELD_NUMBER = 138946292;
-  private volatile java.lang.Object region_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object region_ = "";
   /**
    * <pre>
    * Name of the region for this request.
@@ -213,7 +145,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROUTER_FIELD_NUMBER = 148608841;
-  private volatile java.lang.Object router_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object router_ = "";
   /**
    * <pre>
    * Name of the Router resource to query.
@@ -293,7 +226,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.compute.v1.RouterOrBuilder getRouterResourceOrBuilder() {
-    return getRouterResource();
+    return routerResource_ == null ? com.google.cloud.compute.v1.Router.getDefaultInstance() : routerResource_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -322,7 +255,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(project_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 227560217, project_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -344,7 +277,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(project_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(227560217, project_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -370,7 +303,7 @@ private static final long serialVersionUID = 0L;
       if (!getRouterResource()
           .equals(other.getRouterResource())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -391,7 +324,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ROUTER_RESOURCE_FIELD_NUMBER;
       hash = (53 * hash) + getRouterResource().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -512,32 +445,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.PreviewRouterRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
       region_ = "";
-
       router_ = "";
-
-      if (routerResourceBuilder_ == null) {
-        routerResource_ = null;
-      } else {
-        routerResource_ = null;
+      routerResource_ = null;
+      if (routerResourceBuilder_ != null) {
+        routerResourceBuilder_.dispose();
         routerResourceBuilder_ = null;
       }
       return this;
@@ -566,16 +491,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.PreviewRouterRequest buildPartial() {
       com.google.cloud.compute.v1.PreviewRouterRequest result = new com.google.cloud.compute.v1.PreviewRouterRequest(this);
-      result.project_ = project_;
-      result.region_ = region_;
-      result.router_ = router_;
-      if (routerResourceBuilder_ == null) {
-        result.routerResource_ = routerResource_;
-      } else {
-        result.routerResource_ = routerResourceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.PreviewRouterRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.region_ = region_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.router_ = router_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.routerResource_ = routerResourceBuilder_ == null
+            ? routerResource_
+            : routerResourceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -624,20 +560,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.PreviewRouterRequest.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRegion().isEmpty()) {
         region_ = other.region_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getRouter().isEmpty()) {
         router_ = other.router_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasRouterResource()) {
         mergeRouterResource(other.getRouterResource());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -652,19 +591,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.PreviewRouterRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1111570338: {
+              region_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1111570338
+            case 1188870730: {
+              router_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 1188870730
+            case 1241776674: {
+              input.readMessage(
+                  getRouterResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1241776674
+            case 1820481738: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1820481738
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.PreviewRouterRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
@@ -719,11 +694,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -736,8 +709,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -752,12 +725,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -815,11 +786,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       region_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -832,8 +801,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegion() {
-      
       region_ = getDefaultInstance().getRegion();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -848,12 +817,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       region_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -911,11 +878,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       router_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -928,8 +893,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRouter() {
-      
       router_ = getDefaultInstance().getRouter();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -944,12 +909,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRouterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       router_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -966,7 +929,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routerResource field is set.
      */
     public boolean hasRouterResource() {
-      return routerResourceBuilder_ != null || routerResource_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -996,11 +959,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routerResource_ = value;
-        onChanged();
       } else {
         routerResourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1014,11 +977,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.compute.v1.Router.Builder builderForValue) {
       if (routerResourceBuilder_ == null) {
         routerResource_ = builderForValue.build();
-        onChanged();
       } else {
         routerResourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1030,17 +993,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouterResource(com.google.cloud.compute.v1.Router value) {
       if (routerResourceBuilder_ == null) {
-        if (routerResource_ != null) {
-          routerResource_ =
-            com.google.cloud.compute.v1.Router.newBuilder(routerResource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          routerResource_ != null &&
+          routerResource_ != com.google.cloud.compute.v1.Router.getDefaultInstance()) {
+          getRouterResourceBuilder().mergeFrom(value);
         } else {
           routerResource_ = value;
         }
-        onChanged();
       } else {
         routerResourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1051,14 +1015,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.Router router_resource = 155222084 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRouterResource() {
-      if (routerResourceBuilder_ == null) {
-        routerResource_ = null;
-        onChanged();
-      } else {
-        routerResource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      routerResource_ = null;
+      if (routerResourceBuilder_ != null) {
+        routerResourceBuilder_.dispose();
         routerResourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1069,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.compute.v1.Router router_resource = 155222084 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.compute.v1.Router.Builder getRouterResourceBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRouterResourceFieldBuilder().getBuilder();
     }
@@ -1141,7 +1104,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PreviewRouterRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

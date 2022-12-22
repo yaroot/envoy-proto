@@ -36,35 +36,34 @@ public final class InstanceProto {
       "\n&google/appengine/v1beta/instance.proto" +
       "\022\027google.appengine.v1beta\032\037google/api/fi" +
       "eld_behavior.proto\032\031google/api/resource." +
-      "proto\032\037google/protobuf/timestamp.proto\032\034" +
-      "google/api/annotations.proto\"\326\006\n\010Instanc" +
-      "e\022\021\n\004name\030\001 \001(\tB\003\340A\003\022\017\n\002id\030\002 \001(\tB\003\340A\003\022\037\n" +
-      "\022app_engine_release\030\003 \001(\tB\003\340A\003\022I\n\014availa" +
-      "bility\030\004 \001(\0162..google.appengine.v1beta.I" +
-      "nstance.AvailabilityB\003\340A\003\022\024\n\007vm_name\030\005 \001" +
-      "(\tB\003\340A\003\022\031\n\014vm_zone_name\030\006 \001(\tB\003\340A\003\022\022\n\005vm" +
-      "_id\030\007 \001(\tB\003\340A\003\0223\n\nstart_time\030\010 \001(\0132\032.goo" +
-      "gle.protobuf.TimestampB\003\340A\003\022\025\n\010requests\030" +
-      "\t \001(\005B\003\340A\003\022\023\n\006errors\030\n \001(\005B\003\340A\003\022\020\n\003qps\030\013" +
-      " \001(\002B\003\340A\003\022\034\n\017average_latency\030\014 \001(\005B\003\340A\003\022" +
-      "\031\n\014memory_usage\030\r \001(\003B\003\340A\003\022\026\n\tvm_status\030" +
-      "\016 \001(\tB\003\340A\003\022\035\n\020vm_debug_enabled\030\017 \001(\010B\003\340A" +
-      "\003\022\022\n\005vm_ip\030\020 \001(\tB\003\340A\003\022R\n\013vm_liveness\030\021 \001" +
-      "(\01628.google.appengine.v1beta.Instance.Li" +
-      "veness.LivenessStateB\003\340A\003\032\177\n\010Liveness\"s\n" +
-      "\rLivenessState\022\036\n\032LIVENESS_STATE_UNSPECI" +
-      "FIED\020\000\022\013\n\007UNKNOWN\020\001\022\013\n\007HEALTHY\020\002\022\r\n\tUNHE" +
-      "ALTHY\020\003\022\014\n\010DRAINING\020\004\022\013\n\007TIMEOUT\020\005\":\n\014Av" +
-      "ailability\022\017\n\013UNSPECIFIED\020\000\022\014\n\010RESIDENT\020" +
-      "\001\022\013\n\007DYNAMIC\020\002:m\352Aj\n!appengine.googleapi" +
-      "s.com/Instance\022Eapps/{app}/services/{ser" +
-      "vice}/versions/{version}/instances/{inst" +
-      "ance}B\323\001\n\033com.google.appengine.v1betaB\rI" +
-      "nstanceProtoP\001Z@google.golang.org/genpro" +
-      "to/googleapis/appengine/v1beta;appengine" +
-      "\252\002\035Google.Cloud.AppEngine.V1Beta\312\002\035Googl" +
-      "e\\Cloud\\AppEngine\\V1beta\352\002 Google::Cloud" +
-      "::AppEngine::V1betab\006proto3"
+      "proto\032\037google/protobuf/timestamp.proto\"\326" +
+      "\006\n\010Instance\022\021\n\004name\030\001 \001(\tB\003\340A\003\022\017\n\002id\030\002 \001" +
+      "(\tB\003\340A\003\022\037\n\022app_engine_release\030\003 \001(\tB\003\340A\003" +
+      "\022I\n\014availability\030\004 \001(\0162..google.appengin" +
+      "e.v1beta.Instance.AvailabilityB\003\340A\003\022\024\n\007v" +
+      "m_name\030\005 \001(\tB\003\340A\003\022\031\n\014vm_zone_name\030\006 \001(\tB" +
+      "\003\340A\003\022\022\n\005vm_id\030\007 \001(\tB\003\340A\003\0223\n\nstart_time\030\010" +
+      " \001(\0132\032.google.protobuf.TimestampB\003\340A\003\022\025\n" +
+      "\010requests\030\t \001(\005B\003\340A\003\022\023\n\006errors\030\n \001(\005B\003\340A" +
+      "\003\022\020\n\003qps\030\013 \001(\002B\003\340A\003\022\034\n\017average_latency\030\014" +
+      " \001(\005B\003\340A\003\022\031\n\014memory_usage\030\r \001(\003B\003\340A\003\022\026\n\t" +
+      "vm_status\030\016 \001(\tB\003\340A\003\022\035\n\020vm_debug_enabled" +
+      "\030\017 \001(\010B\003\340A\003\022\022\n\005vm_ip\030\020 \001(\tB\003\340A\003\022R\n\013vm_li" +
+      "veness\030\021 \001(\01628.google.appengine.v1beta.I" +
+      "nstance.Liveness.LivenessStateB\003\340A\003\032\177\n\010L" +
+      "iveness\"s\n\rLivenessState\022\036\n\032LIVENESS_STA" +
+      "TE_UNSPECIFIED\020\000\022\013\n\007UNKNOWN\020\001\022\013\n\007HEALTHY" +
+      "\020\002\022\r\n\tUNHEALTHY\020\003\022\014\n\010DRAINING\020\004\022\013\n\007TIMEO" +
+      "UT\020\005\":\n\014Availability\022\017\n\013UNSPECIFIED\020\000\022\014\n" +
+      "\010RESIDENT\020\001\022\013\n\007DYNAMIC\020\002:m\352Aj\n!appengine" +
+      ".googleapis.com/Instance\022Eapps/{app}/ser" +
+      "vices/{service}/versions/{version}/insta" +
+      "nces/{instance}B\323\001\n\033com.google.appengine" +
+      ".v1betaB\rInstanceProtoP\001Z@google.golang." +
+      "org/genproto/googleapis/appengine/v1beta" +
+      ";appengine\252\002\035Google.Cloud.AppEngine.V1Be" +
+      "ta\312\002\035Google\\Cloud\\AppEngine\\V1beta\352\002 Goo" +
+      "gle::Cloud::AppEngine::V1betab\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -72,7 +71,6 @@ public final class InstanceProto {
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.api.ResourceProto.getDescriptor(),
           com.google.protobuf.TimestampProto.getDescriptor(),
-          com.google.api.AnnotationsProto.getDescriptor(),
         });
     internal_static_google_appengine_v1beta_Instance_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -95,7 +93,6 @@ public final class InstanceProto {
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.api.ResourceProto.getDescriptor();
     com.google.protobuf.TimestampProto.getDescriptor();
-    com.google.api.AnnotationsProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -75,7 +75,7 @@ public interface AuthorizationResponseOrBuilder extends
 
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response. Note
    * that when this list is *not* set, all the authorization response headers, except ``Authority
    * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -88,7 +88,7 @@ public interface AuthorizationResponseOrBuilder extends
   boolean hasAllowedClientHeaders();
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response. Note
    * that when this list is *not* set, all the authorization response headers, except ``Authority
    * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -101,7 +101,7 @@ public interface AuthorizationResponseOrBuilder extends
   io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedClientHeaders();
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response. Note
    * that when this list is *not* set, all the authorization response headers, except ``Authority
    * (Host)`` will be in the response to the client. When a header is included in this list, ``Path``,
@@ -114,7 +114,7 @@ public interface AuthorizationResponseOrBuilder extends
 
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response when
    * the authorization response itself is successful, i.e. not failed or denied. When this list is
    * *not* set, no additional headers will be added to the client's response on success.
@@ -126,7 +126,7 @@ public interface AuthorizationResponseOrBuilder extends
   boolean hasAllowedClientHeadersOnSuccess();
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response when
    * the authorization response itself is successful, i.e. not failed or denied. When this list is
    * *not* set, no additional headers will be added to the client's response on success.
@@ -138,7 +138,7 @@ public interface AuthorizationResponseOrBuilder extends
   io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedClientHeadersOnSuccess();
   /**
    * <pre>
-   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;`. is set, authorization
+   * When this :ref:`list &lt;envoy_v3_api_msg_type.matcher.v3.ListStringMatcher&gt;` is set, authorization
    * response headers that have a correspondent match will be added to the client's response when
    * the authorization response itself is successful, i.e. not failed or denied. When this list is
    * *not* set, no additional headers will be added to the client's response on success.

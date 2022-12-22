@@ -37,103 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StoredInfoTypeVersion(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.privacy.dlp.v2.StoredInfoTypeConfig.Builder subBuilder = null;
-            if (config_ != null) {
-              subBuilder = config_.toBuilder();
-            }
-            config_ = input.readMessage(com.google.privacy.dlp.v2.StoredInfoTypeConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(config_);
-              config_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              errors_ = new java.util.ArrayList<com.google.privacy.dlp.v2.Error>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            errors_.add(
-                input.readMessage(com.google.privacy.dlp.v2.Error.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.google.privacy.dlp.v2.StoredInfoTypeStats.Builder subBuilder = null;
-            if (stats_ != null) {
-              subBuilder = stats_.toBuilder();
-            }
-            stats_ = input.readMessage(com.google.privacy.dlp.v2.StoredInfoTypeStats.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stats_);
-              stats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        errors_ = java.util.Collections.unmodifiableList(errors_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.privacy.dlp.v2.DlpProto.internal_static_google_privacy_dlp_v2_StoredInfoTypeVersion_descriptor;
@@ -182,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.StoredInfoTypeConfigOrBuilder getConfigOrBuilder() {
-    return getConfig();
+    return config_ == null ? com.google.privacy.dlp.v2.StoredInfoTypeConfig.getDefaultInstance() : config_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 2;
@@ -223,11 +126,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int STATE_FIELD_NUMBER = 3;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Stored info type version state. Read-only, updated by the system
@@ -250,12 +153,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.privacy.dlp.v2.StoredInfoTypeState getState() {
-    @SuppressWarnings("deprecation")
-    com.google.privacy.dlp.v2.StoredInfoTypeState result = com.google.privacy.dlp.v2.StoredInfoTypeState.valueOf(state_);
+    com.google.privacy.dlp.v2.StoredInfoTypeState result = com.google.privacy.dlp.v2.StoredInfoTypeState.forNumber(state_);
     return result == null ? com.google.privacy.dlp.v2.StoredInfoTypeState.UNRECOGNIZED : result;
   }
 
   public static final int ERRORS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.privacy.dlp.v2.Error> errors_;
   /**
    * <pre>
@@ -264,7 +167,7 @@ private static final long serialVersionUID = 0L;
    * the five most recent errors will be displayed, with the most recent error
    * appearing first.
    * For example, some of the data for stored custom dictionaries is put in
-   * the user's Google Cloud Storage bucket, and if this data is modified or
+   * the user's Cloud Storage bucket, and if this data is modified or
    * deleted by the user or another system, the dictionary becomes invalid.
    * If any errors occur, fix the problem indicated by the error message and
    * use the UpdateStoredInfoType API method to create another version of the
@@ -285,7 +188,7 @@ private static final long serialVersionUID = 0L;
    * the five most recent errors will be displayed, with the most recent error
    * appearing first.
    * For example, some of the data for stored custom dictionaries is put in
-   * the user's Google Cloud Storage bucket, and if this data is modified or
+   * the user's Cloud Storage bucket, and if this data is modified or
    * deleted by the user or another system, the dictionary becomes invalid.
    * If any errors occur, fix the problem indicated by the error message and
    * use the UpdateStoredInfoType API method to create another version of the
@@ -307,7 +210,7 @@ private static final long serialVersionUID = 0L;
    * the five most recent errors will be displayed, with the most recent error
    * appearing first.
    * For example, some of the data for stored custom dictionaries is put in
-   * the user's Google Cloud Storage bucket, and if this data is modified or
+   * the user's Cloud Storage bucket, and if this data is modified or
    * deleted by the user or another system, the dictionary becomes invalid.
    * If any errors occur, fix the problem indicated by the error message and
    * use the UpdateStoredInfoType API method to create another version of the
@@ -328,7 +231,7 @@ private static final long serialVersionUID = 0L;
    * the five most recent errors will be displayed, with the most recent error
    * appearing first.
    * For example, some of the data for stored custom dictionaries is put in
-   * the user's Google Cloud Storage bucket, and if this data is modified or
+   * the user's Cloud Storage bucket, and if this data is modified or
    * deleted by the user or another system, the dictionary becomes invalid.
    * If any errors occur, fix the problem indicated by the error message and
    * use the UpdateStoredInfoType API method to create another version of the
@@ -349,7 +252,7 @@ private static final long serialVersionUID = 0L;
    * the five most recent errors will be displayed, with the most recent error
    * appearing first.
    * For example, some of the data for stored custom dictionaries is put in
-   * the user's Google Cloud Storage bucket, and if this data is modified or
+   * the user's Cloud Storage bucket, and if this data is modified or
    * deleted by the user or another system, the dictionary becomes invalid.
    * If any errors occur, fix the problem indicated by the error message and
    * use the UpdateStoredInfoType API method to create another version of the
@@ -400,7 +303,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.privacy.dlp.v2.StoredInfoTypeStatsOrBuilder getStatsOrBuilder() {
-    return getStats();
+    return stats_ == null ? com.google.privacy.dlp.v2.StoredInfoTypeStats.getDefaultInstance() : stats_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -432,7 +335,7 @@ private static final long serialVersionUID = 0L;
     if (stats_ != null) {
       output.writeMessage(5, getStats());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -461,7 +364,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getStats());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -494,7 +397,7 @@ private static final long serialVersionUID = 0L;
       if (!getStats()
           .equals(other.getStats())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -523,7 +426,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STATS_FIELD_NUMBER;
       hash = (53 * hash) + getStats().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -645,47 +548,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.privacy.dlp.v2.StoredInfoTypeVersion.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getErrorsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (configBuilder_ == null) {
-        config_ = null;
-      } else {
-        config_ = null;
+      bitField0_ = 0;
+      config_ = null;
+      if (configBuilder_ != null) {
+        configBuilder_.dispose();
         configBuilder_ = null;
       }
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
       state_ = 0;
-
       if (errorsBuilder_ == null) {
         errors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        errors_ = null;
         errorsBuilder_.clear();
       }
-      if (statsBuilder_ == null) {
-        stats_ = null;
-      } else {
-        stats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      stats_ = null;
+      if (statsBuilder_ != null) {
+        statsBuilder_.dispose();
         statsBuilder_ = null;
       }
       return this;
@@ -714,34 +609,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.privacy.dlp.v2.StoredInfoTypeVersion buildPartial() {
       com.google.privacy.dlp.v2.StoredInfoTypeVersion result = new com.google.privacy.dlp.v2.StoredInfoTypeVersion(this);
-      int from_bitField0_ = bitField0_;
-      if (configBuilder_ == null) {
-        result.config_ = config_;
-      } else {
-        result.config_ = configBuilder_.build();
-      }
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      result.state_ = state_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.privacy.dlp.v2.StoredInfoTypeVersion result) {
       if (errorsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           errors_ = java.util.Collections.unmodifiableList(errors_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.errors_ = errors_;
       } else {
         result.errors_ = errorsBuilder_.build();
       }
-      if (statsBuilder_ == null) {
-        result.stats_ = stats_;
-      } else {
-        result.stats_ = statsBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.privacy.dlp.v2.StoredInfoTypeVersion result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.config_ = configBuilder_ == null
+            ? config_
+            : configBuilder_.build();
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stats_ = statsBuilder_ == null
+            ? stats_
+            : statsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -801,7 +706,7 @@ private static final long serialVersionUID = 0L;
         if (!other.errors_.isEmpty()) {
           if (errors_.isEmpty()) {
             errors_ = other.errors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureErrorsIsMutable();
             errors_.addAll(other.errors_);
@@ -814,7 +719,7 @@ private static final long serialVersionUID = 0L;
             errorsBuilder_.dispose();
             errorsBuilder_ = null;
             errors_ = other.errors_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             errorsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getErrorsFieldBuilder() : null;
@@ -826,7 +731,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasStats()) {
         mergeStats(other.getStats());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -841,17 +746,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.privacy.dlp.v2.StoredInfoTypeVersion parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.privacy.dlp.v2.Error m =
+                  input.readMessage(
+                      com.google.privacy.dlp.v2.Error.parser(),
+                      extensionRegistry);
+              if (errorsBuilder_ == null) {
+                ensureErrorsIsMutable();
+                errors_.add(m);
+              } else {
+                errorsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.privacy.dlp.v2.StoredInfoTypeVersion) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -868,7 +825,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the config field is set.
      */
     public boolean hasConfig() {
-      return configBuilder_ != null || config_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -898,11 +855,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         config_ = value;
-        onChanged();
       } else {
         configBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -916,11 +873,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.StoredInfoTypeConfig.Builder builderForValue) {
       if (configBuilder_ == null) {
         config_ = builderForValue.build();
-        onChanged();
       } else {
         configBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -932,17 +889,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConfig(com.google.privacy.dlp.v2.StoredInfoTypeConfig value) {
       if (configBuilder_ == null) {
-        if (config_ != null) {
-          config_ =
-            com.google.privacy.dlp.v2.StoredInfoTypeConfig.newBuilder(config_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          config_ != null &&
+          config_ != com.google.privacy.dlp.v2.StoredInfoTypeConfig.getDefaultInstance()) {
+          getConfigBuilder().mergeFrom(value);
         } else {
           config_ = value;
         }
-        onChanged();
       } else {
         configBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -953,14 +911,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.StoredInfoTypeConfig config = 1;</code>
      */
     public Builder clearConfig() {
-      if (configBuilder_ == null) {
-        config_ = null;
-        onChanged();
-      } else {
-        config_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      config_ = null;
+      if (configBuilder_ != null) {
+        configBuilder_.dispose();
         configBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -971,7 +928,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.StoredInfoTypeConfig config = 1;</code>
      */
     public com.google.privacy.dlp.v2.StoredInfoTypeConfig.Builder getConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getConfigFieldBuilder().getBuilder();
     }
@@ -1024,7 +981,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1056,11 +1013,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1075,11 +1032,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1092,17 +1049,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1114,14 +1072,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2;</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1133,7 +1090,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -1199,8 +1156,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1215,8 +1172,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.privacy.dlp.v2.StoredInfoTypeState getState() {
-      @SuppressWarnings("deprecation")
-      com.google.privacy.dlp.v2.StoredInfoTypeState result = com.google.privacy.dlp.v2.StoredInfoTypeState.valueOf(state_);
+      com.google.privacy.dlp.v2.StoredInfoTypeState result = com.google.privacy.dlp.v2.StoredInfoTypeState.forNumber(state_);
       return result == null ? com.google.privacy.dlp.v2.StoredInfoTypeState.UNRECOGNIZED : result;
     }
     /**
@@ -1233,7 +1189,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -1248,7 +1204,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       state_ = 0;
       onChanged();
       return this;
@@ -1257,9 +1213,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.privacy.dlp.v2.Error> errors_ =
       java.util.Collections.emptyList();
     private void ensureErrorsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         errors_ = new java.util.ArrayList<com.google.privacy.dlp.v2.Error>(errors_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1273,7 +1229,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1297,7 +1253,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1321,7 +1277,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1345,7 +1301,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1376,7 +1332,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1404,7 +1360,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1434,7 +1390,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1465,7 +1421,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1493,7 +1449,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1521,7 +1477,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1550,7 +1506,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1563,7 +1519,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearErrors() {
       if (errorsBuilder_ == null) {
         errors_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         errorsBuilder_.clear();
@@ -1577,7 +1533,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1604,7 +1560,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1625,7 +1581,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1649,7 +1605,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1674,7 +1630,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1695,7 +1651,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1717,7 +1673,7 @@ private static final long serialVersionUID = 0L;
      * the five most recent errors will be displayed, with the most recent error
      * appearing first.
      * For example, some of the data for stored custom dictionaries is put in
-     * the user's Google Cloud Storage bucket, and if this data is modified or
+     * the user's Cloud Storage bucket, and if this data is modified or
      * deleted by the user or another system, the dictionary becomes invalid.
      * If any errors occur, fix the problem indicated by the error message and
      * use the UpdateStoredInfoType API method to create another version of the
@@ -1738,7 +1694,7 @@ private static final long serialVersionUID = 0L;
         errorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.privacy.dlp.v2.Error, com.google.privacy.dlp.v2.Error.Builder, com.google.privacy.dlp.v2.ErrorOrBuilder>(
                 errors_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         errors_ = null;
@@ -1758,7 +1714,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stats field is set.
      */
     public boolean hasStats() {
-      return statsBuilder_ != null || stats_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1788,11 +1744,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stats_ = value;
-        onChanged();
       } else {
         statsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1806,11 +1762,11 @@ private static final long serialVersionUID = 0L;
         com.google.privacy.dlp.v2.StoredInfoTypeStats.Builder builderForValue) {
       if (statsBuilder_ == null) {
         stats_ = builderForValue.build();
-        onChanged();
       } else {
         statsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1822,17 +1778,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStats(com.google.privacy.dlp.v2.StoredInfoTypeStats value) {
       if (statsBuilder_ == null) {
-        if (stats_ != null) {
-          stats_ =
-            com.google.privacy.dlp.v2.StoredInfoTypeStats.newBuilder(stats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          stats_ != null &&
+          stats_ != com.google.privacy.dlp.v2.StoredInfoTypeStats.getDefaultInstance()) {
+          getStatsBuilder().mergeFrom(value);
         } else {
           stats_ = value;
         }
-        onChanged();
       } else {
         statsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1843,14 +1800,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.StoredInfoTypeStats stats = 5;</code>
      */
     public Builder clearStats() {
-      if (statsBuilder_ == null) {
-        stats_ = null;
-        onChanged();
-      } else {
-        stats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      stats_ = null;
+      if (statsBuilder_ != null) {
+        statsBuilder_.dispose();
         statsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1861,7 +1817,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.privacy.dlp.v2.StoredInfoTypeStats stats = 5;</code>
      */
     public com.google.privacy.dlp.v2.StoredInfoTypeStats.Builder getStatsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getStatsFieldBuilder().getBuilder();
     }
@@ -1933,7 +1889,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StoredInfoTypeVersion(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

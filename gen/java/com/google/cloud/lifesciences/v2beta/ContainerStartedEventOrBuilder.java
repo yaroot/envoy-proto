@@ -64,7 +64,6 @@ public interface ContainerStartedEventOrBuilder extends
    *
    * <code>map&lt;int32, int32&gt; port_mappings = 2;</code>
    */
-
   int getPortMappingsOrDefault(
       int key,
       int defaultValue);
@@ -77,7 +76,6 @@ public interface ContainerStartedEventOrBuilder extends
    *
    * <code>map&lt;int32, int32&gt; port_mappings = 2;</code>
    */
-
   int getPortMappingsOrThrow(
       int key);
 

@@ -68,7 +68,6 @@ public interface FeatureOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -81,7 +80,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 2;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -229,7 +227,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, .google.cloud.gkehub.v1alpha.MembershipFeatureSpec&gt; membership_specs = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 com.google.cloud.gkehub.v1alpha.MembershipFeatureSpec getMembershipSpecsOrDefault(
       java.lang.String key,
@@ -254,7 +251,6 @@ com.google.cloud.gkehub.v1alpha.MembershipFeatureSpec defaultValue);
    *
    * <code>map&lt;string, .google.cloud.gkehub.v1alpha.MembershipFeatureSpec&gt; membership_specs = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   com.google.cloud.gkehub.v1alpha.MembershipFeatureSpec getMembershipSpecsOrThrow(
       java.lang.String key);
 
@@ -348,7 +344,6 @@ com.google.cloud.gkehub.v1alpha.MembershipFeatureSpec defaultValue);
    *
    * <code>map&lt;string, .google.cloud.gkehub.v1alpha.MembershipFeatureState&gt; membership_states = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.cloud.gkehub.v1alpha.MembershipFeatureState getMembershipStatesOrDefault(
       java.lang.String key,
@@ -367,7 +362,6 @@ com.google.cloud.gkehub.v1alpha.MembershipFeatureState defaultValue);
    *
    * <code>map&lt;string, .google.cloud.gkehub.v1alpha.MembershipFeatureState&gt; membership_states = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.cloud.gkehub.v1alpha.MembershipFeatureState getMembershipStatesOrThrow(
       java.lang.String key);
 

@@ -42,7 +42,7 @@ public final class HeaderValidatorProto {
       "s/envoy_default/v3/header_validator.prot" +
       "o\0228envoy.extensions.http.header_validato" +
       "rs.envoy_default.v3\032\035udpa/annotations/st" +
-      "atus.proto\"\301\006\n\025HeaderValidatorConfig\022\204\001\n" +
+      "atus.proto\"\251\010\n\025HeaderValidatorConfig\022\204\001\n" +
       "\026http1_protocol_options\030\001 \001(\0132d.envoy.ex" +
       "tensions.http.header_validators.envoy_de" +
       "fault.v3.HeaderValidatorConfig.Http1Prot" +
@@ -50,25 +50,31 @@ public final class HeaderValidatorProto {
       "ptions\030\002 \001(\0132k.envoy.extensions.http.hea" +
       "der_validators.envoy_default.v3.HeaderVa" +
       "lidatorConfig.UriPathNormalizationOption" +
-      "s\022\035\n\025restrict_http_methods\030\003 \001(\010\032\265\003\n\033Uri" +
-      "PathNormalizationOptions\022\037\n\027skip_path_no" +
-      "rmalization\030\001 \001(\010\022\034\n\024skip_merging_slashe" +
-      "s\030\002 \001(\010\022\263\001\n path_with_escaped_slashes_ac" +
-      "tion\030\003 \001(\0162\210\001.envoy.extensions.http.head" +
-      "er_validators.envoy_default.v3.HeaderVal" +
-      "idatorConfig.UriPathNormalizationOptions" +
-      ".PathWithEscapedSlashesAction\"\240\001\n\034PathWi" +
-      "thEscapedSlashesAction\022#\n\037IMPLEMENTATION" +
-      "_SPECIFIC_DEFAULT\020\000\022\022\n\016KEEP_UNCHANGED\020\001\022" +
-      "\022\n\016REJECT_REQUEST\020\002\022\031\n\025UNESCAPE_AND_REDI" +
-      "RECT\020\003\022\030\n\024UNESCAPE_AND_FORWARD\020\004\0324\n\024Http" +
-      "1ProtocolOptions\022\034\n\024allow_chunked_length" +
-      "\030\001 \001(\010B\331\001\nFio.envoyproxy.envoy.extension" +
-      "s.http.header_validators.envoy_default.v" +
-      "3B\024HeaderValidatorProtoP\001Zogithub.com/en" +
-      "voyproxy/go-control-plane/envoy/extensio" +
-      "ns/http/header_validators/envoy_default/" +
-      "v3;envoy_defaultv3\272\200\310\321\006\002\020\002b\006proto3"
+      "s\022\035\n\025restrict_http_methods\030\003 \001(\010\022\225\001\n\037hea" +
+      "ders_with_underscores_action\030\004 \001(\0162l.env" +
+      "oy.extensions.http.header_validators.env" +
+      "oy_default.v3.HeaderValidatorConfig.Head" +
+      "ersWithUnderscoresAction\032\265\003\n\033UriPathNorm" +
+      "alizationOptions\022\037\n\027skip_path_normalizat" +
+      "ion\030\001 \001(\010\022\034\n\024skip_merging_slashes\030\002 \001(\010\022" +
+      "\263\001\n path_with_escaped_slashes_action\030\003 \001" +
+      "(\0162\210\001.envoy.extensions.http.header_valid" +
+      "ators.envoy_default.v3.HeaderValidatorCo" +
+      "nfig.UriPathNormalizationOptions.PathWit" +
+      "hEscapedSlashesAction\"\240\001\n\034PathWithEscape" +
+      "dSlashesAction\022#\n\037IMPLEMENTATION_SPECIFI" +
+      "C_DEFAULT\020\000\022\022\n\016KEEP_UNCHANGED\020\001\022\022\n\016REJEC" +
+      "T_REQUEST\020\002\022\031\n\025UNESCAPE_AND_REDIRECT\020\003\022\030" +
+      "\n\024UNESCAPE_AND_FORWARD\020\004\0324\n\024Http1Protoco" +
+      "lOptions\022\034\n\024allow_chunked_length\030\001 \001(\010\"N" +
+      "\n\034HeadersWithUnderscoresAction\022\t\n\005ALLOW\020" +
+      "\000\022\022\n\016REJECT_REQUEST\020\001\022\017\n\013DROP_HEADER\020\002B\331" +
+      "\001\nFio.envoyproxy.envoy.extensions.http.h" +
+      "eader_validators.envoy_default.v3B\024Heade" +
+      "rValidatorProtoP\001Zogithub.com/envoyproxy" +
+      "/go-control-plane/envoy/extensions/http/" +
+      "header_validators/envoy_default/v3;envoy" +
+      "_defaultv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -80,7 +86,7 @@ public final class HeaderValidatorProto {
     internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_descriptor,
-        new java.lang.String[] { "Http1ProtocolOptions", "UriPathNormalizationOptions", "RestrictHttpMethods", });
+        new java.lang.String[] { "Http1ProtocolOptions", "UriPathNormalizationOptions", "RestrictHttpMethods", "HeadersWithUnderscoresAction", });
     internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_UriPathNormalizationOptions_descriptor =
       internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_http_header_validators_envoy_default_v3_HeaderValidatorConfig_UriPathNormalizationOptions_fieldAccessorTable = new

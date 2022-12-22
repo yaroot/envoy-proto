@@ -48,12 +48,12 @@ public final class MetricsServiceProto {
       "\006Export\022>.opencensus.proto.agent.metrics" +
       ".v1.ExportMetricsServiceRequest\032?.opence" +
       "nsus.proto.agent.metrics.v1.ExportMetric" +
-      "sServiceResponse\"\000(\0010\001B\255\001\n$io.opencensus" +
+      "sServiceResponse\"\000(\0010\001B\261\001\n$io.opencensus" +
       ".proto.agent.metrics.v1B\023MetricsServiceP" +
       "rotoP\001ZJgithub.com/census-instrumentatio" +
       "n/opencensus-proto/gen-go/agent/metrics/" +
-      "v1\352\002!OpenCensus.Proto.Agent.Metrics.V1b\006" +
-      "proto3"
+      "v1\352\002%OpenCensus::Proto::Agent::Metrics::" +
+      "V1b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

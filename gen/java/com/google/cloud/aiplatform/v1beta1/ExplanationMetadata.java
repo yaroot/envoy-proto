@@ -36,84 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExplanationMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              inputs_ = com.google.protobuf.MapField.newMapField(
-                  InputsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata>
-            inputs__ = input.readMessage(
-                InputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            inputs_.getMutableMap().put(
-                inputs__.getKey(), inputs__.getValue());
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              outputs_ = com.google.protobuf.MapField.newMapField(
-                  OutputsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata>
-            outputs__ = input.readMessage(
-                OutputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            outputs_.getMutableMap().put(
-                outputs__.getKey(), outputs__.getValue());
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            featureAttributionsSchemaUri_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            latentSpaceSource_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.ExplanationMetadataProto.internal_static_google_cloud_aiplatform_v1beta1_ExplanationMetadata_descriptor;
@@ -637,150 +559,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private InputMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                inputBaselines_ = new java.util.ArrayList<com.google.protobuf.Value>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              inputBaselines_.add(
-                  input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry));
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              inputTensorName_ = s;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              encoding_ = rawValue;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              modality_ = s;
-              break;
-            }
-            case 42: {
-              com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.Builder subBuilder = null;
-              if (featureValueDomain_ != null) {
-                subBuilder = featureValueDomain_.toBuilder();
-              }
-              featureValueDomain_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(featureValueDomain_);
-                featureValueDomain_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              indicesTensorName_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              denseShapeTensorName_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                indexFeatureMapping_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              indexFeatureMapping_.add(s);
-              break;
-            }
-            case 74: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              encodedTensorName_ = s;
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                encodedBaselines_ = new java.util.ArrayList<com.google.protobuf.Value>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              encodedBaselines_.add(
-                  input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry));
-              break;
-            }
-            case 90: {
-              com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Builder subBuilder = null;
-              if (visualization_ != null) {
-                subBuilder = visualization_.toBuilder();
-              }
-              visualization_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(visualization_);
-                visualization_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              groupName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          inputBaselines_ = java.util.Collections.unmodifiableList(inputBaselines_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          indexFeatureMapping_ = indexFeatureMapping_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          encodedBaselines_ = java.util.Collections.unmodifiableList(encodedBaselines_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.aiplatform.v1beta1.ExplanationMetadataProto.internal_static_google_cloud_aiplatform_v1beta1_ExplanationMetadata_InputMetadata_descriptor;
@@ -1167,65 +945,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private FeatureValueDomain(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 13: {
-
-                minValue_ = input.readFloat();
-                break;
-              }
-              case 21: {
-
-                maxValue_ = input.readFloat();
-                break;
-              }
-              case 29: {
-
-                originalMean_ = input.readFloat();
-                break;
-              }
-              case 37: {
-
-                originalStddev_ = input.readFloat();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.aiplatform.v1beta1.ExplanationMetadataProto.internal_static_google_cloud_aiplatform_v1beta1_ExplanationMetadata_InputMetadata_FeatureValueDomain_descriptor;
@@ -1240,7 +959,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int MIN_VALUE_FIELD_NUMBER = 1;
-      private float minValue_;
+      private float minValue_ = 0F;
       /**
        * <pre>
        * The minimum permissible value for this feature.
@@ -1255,7 +974,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int MAX_VALUE_FIELD_NUMBER = 2;
-      private float maxValue_;
+      private float maxValue_ = 0F;
       /**
        * <pre>
        * The maximum permissible value for this feature.
@@ -1270,7 +989,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int ORIGINAL_MEAN_FIELD_NUMBER = 3;
-      private float originalMean_;
+      private float originalMean_ = 0F;
       /**
        * <pre>
        * If this input feature has been normalized to a mean value of 0,
@@ -1287,7 +1006,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int ORIGINAL_STDDEV_FIELD_NUMBER = 4;
-      private float originalStddev_;
+      private float originalStddev_ = 0F;
       /**
        * <pre>
        * If this input feature has been normalized to a standard deviation of
@@ -1329,7 +1048,7 @@ private static final long serialVersionUID = 0L;
         if (java.lang.Float.floatToRawIntBits(originalStddev_) != 0) {
           output.writeFloat(4, originalStddev_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1354,7 +1073,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeFloatSize(4, originalStddev_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1381,7 +1100,7 @@ private static final long serialVersionUID = 0L;
         if (java.lang.Float.floatToIntBits(getOriginalStddev())
             != java.lang.Float.floatToIntBits(
                 other.getOriginalStddev())) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1404,7 +1123,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ORIGINAL_STDDEV_FIELD_NUMBER;
         hash = (53 * hash) + java.lang.Float.floatToIntBits(
             getOriginalStddev());
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1532,30 +1251,22 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           minValue_ = 0F;
-
           maxValue_ = 0F;
-
           originalMean_ = 0F;
-
           originalStddev_ = 0F;
-
           return this;
         }
 
@@ -1582,12 +1293,25 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain buildPartial() {
           com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain result = new com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain(this);
-          result.minValue_ = minValue_;
-          result.maxValue_ = maxValue_;
-          result.originalMean_ = originalMean_;
-          result.originalStddev_ = originalStddev_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.minValue_ = minValue_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.maxValue_ = maxValue_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.originalMean_ = originalMean_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.originalStddev_ = originalStddev_;
+          }
         }
 
         @java.lang.Override
@@ -1646,7 +1370,7 @@ private static final long serialVersionUID = 0L;
           if (other.getOriginalStddev() != 0F) {
             setOriginalStddev(other.getOriginalStddev());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -1661,19 +1385,53 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 13: {
+                  minValue_ = input.readFloat();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 13
+                case 21: {
+                  maxValue_ = input.readFloat();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 21
+                case 29: {
+                  originalMean_ = input.readFloat();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 29
+                case 37: {
+                  originalStddev_ = input.readFloat();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 37
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private float minValue_ ;
         /**
@@ -1700,6 +1458,7 @@ private static final long serialVersionUID = 0L;
         public Builder setMinValue(float value) {
           
           minValue_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -1712,7 +1471,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearMinValue() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           minValue_ = 0F;
           onChanged();
           return this;
@@ -1743,6 +1502,7 @@ private static final long serialVersionUID = 0L;
         public Builder setMaxValue(float value) {
           
           maxValue_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -1755,7 +1515,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearMaxValue() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           maxValue_ = 0F;
           onChanged();
           return this;
@@ -1790,6 +1550,7 @@ private static final long serialVersionUID = 0L;
         public Builder setOriginalMean(float value) {
           
           originalMean_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -1804,7 +1565,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearOriginalMean() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           originalMean_ = 0F;
           onChanged();
           return this;
@@ -1839,6 +1600,7 @@ private static final long serialVersionUID = 0L;
         public Builder setOriginalStddev(float value) {
           
           originalStddev_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
@@ -1853,7 +1615,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearOriginalStddev() {
-          
+          bitField0_ = (bitField0_ & ~0x00000008);
           originalStddev_ = 0F;
           onChanged();
           return this;
@@ -1891,7 +1653,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new FeatureValueDomain(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2076,79 +1849,6 @@ private static final long serialVersionUID = 0L;
       public final com.google.protobuf.UnknownFieldSet
       getUnknownFields() {
         return this.unknownFields;
-      }
-      private Visualization(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-                int rawValue = input.readEnum();
-
-                type_ = rawValue;
-                break;
-              }
-              case 16: {
-                int rawValue = input.readEnum();
-
-                polarity_ = rawValue;
-                break;
-              }
-              case 24: {
-                int rawValue = input.readEnum();
-
-                colorMap_ = rawValue;
-                break;
-              }
-              case 37: {
-
-                clipPercentUpperbound_ = input.readFloat();
-                break;
-              }
-              case 45: {
-
-                clipPercentLowerbound_ = input.readFloat();
-                break;
-              }
-              case 48: {
-                int rawValue = input.readEnum();
-
-                overlayType_ = rawValue;
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
       }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
@@ -2879,7 +2579,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int TYPE_FIELD_NUMBER = 1;
-      private int type_;
+      private int type_ = 0;
       /**
        * <pre>
        * Type of the image visualization. Only applicable to
@@ -2906,13 +2606,12 @@ private static final long serialVersionUID = 0L;
        * @return The type.
        */
       @java.lang.Override public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type.valueOf(type_);
+        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type.forNumber(type_);
         return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type.UNRECOGNIZED : result;
       }
 
       public static final int POLARITY_FIELD_NUMBER = 2;
-      private int polarity_;
+      private int polarity_ = 0;
       /**
        * <pre>
        * Whether to only highlight pixels with positive contributions, negative
@@ -2935,13 +2634,12 @@ private static final long serialVersionUID = 0L;
        * @return The polarity.
        */
       @java.lang.Override public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity getPolarity() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity.valueOf(polarity_);
+        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity.forNumber(polarity_);
         return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity.UNRECOGNIZED : result;
       }
 
       public static final int COLOR_MAP_FIELD_NUMBER = 3;
-      private int colorMap_;
+      private int colorMap_ = 0;
       /**
        * <pre>
        * The color scheme used for the highlighted areas.
@@ -2976,13 +2674,12 @@ private static final long serialVersionUID = 0L;
        * @return The colorMap.
        */
       @java.lang.Override public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap getColorMap() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.valueOf(colorMap_);
+        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.forNumber(colorMap_);
         return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.UNRECOGNIZED : result;
       }
 
       public static final int CLIP_PERCENT_UPPERBOUND_FIELD_NUMBER = 4;
-      private float clipPercentUpperbound_;
+      private float clipPercentUpperbound_ = 0F;
       /**
        * <pre>
        * Excludes attributions above the specified percentile from the
@@ -3001,7 +2698,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int CLIP_PERCENT_LOWERBOUND_FIELD_NUMBER = 5;
-      private float clipPercentLowerbound_;
+      private float clipPercentLowerbound_ = 0F;
       /**
        * <pre>
        * Excludes attributions below the specified percentile, from the
@@ -3017,7 +2714,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int OVERLAY_TYPE_FIELD_NUMBER = 6;
-      private int overlayType_;
+      private int overlayType_ = 0;
       /**
        * <pre>
        * How the original image is displayed in the visualization.
@@ -3042,8 +2739,7 @@ private static final long serialVersionUID = 0L;
        * @return The overlayType.
        */
       @java.lang.Override public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType getOverlayType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.valueOf(overlayType_);
+        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.forNumber(overlayType_);
         return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.UNRECOGNIZED : result;
       }
 
@@ -3079,7 +2775,7 @@ private static final long serialVersionUID = 0L;
         if (overlayType_ != com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.OVERLAY_TYPE_UNSPECIFIED.getNumber()) {
           output.writeEnum(6, overlayType_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -3112,7 +2808,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeEnumSize(6, overlayType_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -3137,7 +2833,7 @@ private static final long serialVersionUID = 0L;
             != java.lang.Float.floatToIntBits(
                 other.getClipPercentLowerbound())) return false;
         if (overlayType_ != other.overlayType_) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -3162,7 +2858,7 @@ private static final long serialVersionUID = 0L;
             getClipPercentLowerbound());
         hash = (37 * hash) + OVERLAY_TYPE_FIELD_NUMBER;
         hash = (53 * hash) + overlayType_;
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -3283,34 +2979,24 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           type_ = 0;
-
           polarity_ = 0;
-
           colorMap_ = 0;
-
           clipPercentUpperbound_ = 0F;
-
           clipPercentLowerbound_ = 0F;
-
           overlayType_ = 0;
-
           return this;
         }
 
@@ -3337,14 +3023,31 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization buildPartial() {
           com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization result = new com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization(this);
-          result.type_ = type_;
-          result.polarity_ = polarity_;
-          result.colorMap_ = colorMap_;
-          result.clipPercentUpperbound_ = clipPercentUpperbound_;
-          result.clipPercentLowerbound_ = clipPercentLowerbound_;
-          result.overlayType_ = overlayType_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.type_ = type_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.polarity_ = polarity_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.colorMap_ = colorMap_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.clipPercentUpperbound_ = clipPercentUpperbound_;
+          }
+          if (((from_bitField0_ & 0x00000010) != 0)) {
+            result.clipPercentLowerbound_ = clipPercentLowerbound_;
+          }
+          if (((from_bitField0_ & 0x00000020) != 0)) {
+            result.overlayType_ = overlayType_;
+          }
         }
 
         @java.lang.Override
@@ -3409,7 +3112,7 @@ private static final long serialVersionUID = 0L;
           if (other.overlayType_ != 0) {
             setOverlayTypeValue(other.getOverlayTypeValue());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -3424,19 +3127,63 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  type_ = input.readEnum();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 16: {
+                  polarity_ = input.readEnum();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                case 24: {
+                  colorMap_ = input.readEnum();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 24
+                case 37: {
+                  clipPercentUpperbound_ = input.readFloat();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 37
+                case 45: {
+                  clipPercentLowerbound_ = input.readFloat();
+                  bitField0_ |= 0x00000010;
+                  break;
+                } // case 45
+                case 48: {
+                  overlayType_ = input.readEnum();
+                  bitField0_ |= 0x00000020;
+                  break;
+                } // case 48
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private int type_ = 0;
         /**
@@ -3466,8 +3213,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setTypeValue(int value) {
-          
           type_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3484,8 +3231,7 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type getType() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type.valueOf(type_);
+          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type.forNumber(type_);
           return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Type.UNRECOGNIZED : result;
         }
         /**
@@ -3504,7 +3250,7 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000001;
           type_ = value.getNumber();
           onChanged();
           return this;
@@ -3521,7 +3267,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearType() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           type_ = 0;
           onChanged();
           return this;
@@ -3551,8 +3297,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setPolarityValue(int value) {
-          
           polarity_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -3567,8 +3313,7 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity getPolarity() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity.valueOf(polarity_);
+          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity.forNumber(polarity_);
           return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Polarity.UNRECOGNIZED : result;
         }
         /**
@@ -3585,7 +3330,7 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000002;
           polarity_ = value.getNumber();
           onChanged();
           return this;
@@ -3600,7 +3345,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearPolarity() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           polarity_ = 0;
           onChanged();
           return this;
@@ -3642,8 +3387,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setColorMapValue(int value) {
-          
           colorMap_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -3664,8 +3409,7 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap getColorMap() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.valueOf(colorMap_);
+          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.forNumber(colorMap_);
           return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.ColorMap.UNRECOGNIZED : result;
         }
         /**
@@ -3688,7 +3432,7 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000004;
           colorMap_ = value.getNumber();
           onChanged();
           return this;
@@ -3709,7 +3453,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearColorMap() {
-          
+          bitField0_ = (bitField0_ & ~0x00000004);
           colorMap_ = 0;
           onChanged();
           return this;
@@ -3748,6 +3492,7 @@ private static final long serialVersionUID = 0L;
         public Builder setClipPercentUpperbound(float value) {
           
           clipPercentUpperbound_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
@@ -3764,7 +3509,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearClipPercentUpperbound() {
-          
+          bitField0_ = (bitField0_ & ~0x00000008);
           clipPercentUpperbound_ = 0F;
           onChanged();
           return this;
@@ -3797,6 +3542,7 @@ private static final long serialVersionUID = 0L;
         public Builder setClipPercentLowerbound(float value) {
           
           clipPercentLowerbound_ = value;
+          bitField0_ |= 0x00000010;
           onChanged();
           return this;
         }
@@ -3810,7 +3556,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearClipPercentLowerbound() {
-          
+          bitField0_ = (bitField0_ & ~0x00000010);
           clipPercentLowerbound_ = 0F;
           onChanged();
           return this;
@@ -3842,8 +3588,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder setOverlayTypeValue(int value) {
-          
           overlayType_ = value;
+          bitField0_ |= 0x00000020;
           onChanged();
           return this;
         }
@@ -3859,8 +3605,7 @@ private static final long serialVersionUID = 0L;
          */
         @java.lang.Override
         public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType getOverlayType() {
-          @SuppressWarnings("deprecation")
-          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.valueOf(overlayType_);
+          com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.forNumber(overlayType_);
           return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.OverlayType.UNRECOGNIZED : result;
         }
         /**
@@ -3878,7 +3623,7 @@ private static final long serialVersionUID = 0L;
           if (value == null) {
             throw new NullPointerException();
           }
-          
+          bitField0_ |= 0x00000020;
           overlayType_ = value.getNumber();
           onChanged();
           return this;
@@ -3894,7 +3639,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearOverlayType() {
-          
+          bitField0_ = (bitField0_ & ~0x00000020);
           overlayType_ = 0;
           onChanged();
           return this;
@@ -3932,7 +3677,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Visualization(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -3953,6 +3709,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_BASELINES_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.Value> inputBaselines_;
     /**
      * <pre>
@@ -4078,7 +3835,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INPUT_TENSOR_NAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object inputTensorName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object inputTensorName_ = "";
     /**
      * <pre>
      * Name of the input tensor for this feature. Required and is only
@@ -4126,7 +3884,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENCODING_FIELD_NUMBER = 3;
-    private int encoding_;
+    private int encoding_ = 0;
     /**
      * <pre>
      * Defines how the feature is encoded into the input tensor. Defaults to
@@ -4149,13 +3907,13 @@ private static final long serialVersionUID = 0L;
      * @return The encoding.
      */
     @java.lang.Override public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding getEncoding() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding.valueOf(encoding_);
+      com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding.forNumber(encoding_);
       return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding.UNRECOGNIZED : result;
     }
 
     public static final int MODALITY_FIELD_NUMBER = 4;
-    private volatile java.lang.Object modality_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object modality_ = "";
     /**
      * <pre>
      * Modality of the feature. Valid values are: numeric, image. Defaults to
@@ -4240,11 +3998,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomainOrBuilder getFeatureValueDomainOrBuilder() {
-      return getFeatureValueDomain();
+      return featureValueDomain_ == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.getDefaultInstance() : featureValueDomain_;
     }
 
     public static final int INDICES_TENSOR_NAME_FIELD_NUMBER = 6;
-    private volatile java.lang.Object indicesTensorName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object indicesTensorName_ = "";
     /**
      * <pre>
      * Specifies the index of the values of the input tensor.
@@ -4296,7 +4055,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DENSE_SHAPE_TENSOR_NAME_FIELD_NUMBER = 7;
-    private volatile java.lang.Object denseShapeTensorName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object denseShapeTensorName_ = "";
     /**
      * <pre>
      * Specifies the shape of the values of the input if the input is a sparse
@@ -4346,6 +4106,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INDEX_FEATURE_MAPPING_FIELD_NUMBER = 8;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList indexFeatureMapping_;
     /**
      * <pre>
@@ -4405,7 +4166,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENCODED_TENSOR_NAME_FIELD_NUMBER = 9;
-    private volatile java.lang.Object encodedTensorName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object encodedTensorName_ = "";
     /**
      * <pre>
      * Encoded tensor is a transformation of the input tensor. Must be provided
@@ -4463,6 +4225,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENCODED_BASELINES_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.protobuf.Value> encodedBaselines_;
     /**
      * <pre>
@@ -4572,11 +4335,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.VisualizationOrBuilder getVisualizationOrBuilder() {
-      return getVisualization();
+      return visualization_ == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.getDefaultInstance() : visualization_;
     }
 
     public static final int GROUP_NAME_FIELD_NUMBER = 12;
-    private volatile java.lang.Object groupName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object groupName_ = "";
     /**
      * <pre>
      * Name of the group that the input belongs to. Features with the same group
@@ -4679,7 +4443,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(groupName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, groupName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -4734,7 +4498,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(groupName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, groupName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -4778,7 +4542,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!getGroupName()
           .equals(other.getGroupName())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -4823,7 +4587,7 @@ private static final long serialVersionUID = 0L;
       }
       hash = (37 * hash) + GROUP_NAME_FIELD_NUMBER;
       hash = (53 * hash) + getGroupName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -4946,64 +4710,51 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getInputBaselinesFieldBuilder();
-          getEncodedBaselinesFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (inputBaselinesBuilder_ == null) {
           inputBaselines_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          inputBaselines_ = null;
           inputBaselinesBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         inputTensorName_ = "";
-
         encoding_ = 0;
-
         modality_ = "";
-
-        if (featureValueDomainBuilder_ == null) {
-          featureValueDomain_ = null;
-        } else {
-          featureValueDomain_ = null;
+        featureValueDomain_ = null;
+        if (featureValueDomainBuilder_ != null) {
+          featureValueDomainBuilder_.dispose();
           featureValueDomainBuilder_ = null;
         }
         indicesTensorName_ = "";
-
         denseShapeTensorName_ = "";
-
         indexFeatureMapping_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         encodedTensorName_ = "";
-
         if (encodedBaselinesBuilder_ == null) {
           encodedBaselines_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          encodedBaselines_ = null;
           encodedBaselinesBuilder_.clear();
         }
-        if (visualizationBuilder_ == null) {
-          visualization_ = null;
-        } else {
-          visualization_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        visualization_ = null;
+        if (visualizationBuilder_ != null) {
+          visualizationBuilder_.dispose();
           visualizationBuilder_ = null;
         }
         groupName_ = "";
-
         return this;
       }
 
@@ -5030,7 +4781,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata buildPartial() {
         com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata result = new com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata result) {
         if (inputBaselinesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             inputBaselines_ = java.util.Collections.unmodifiableList(inputBaselines_);
@@ -5040,39 +4797,55 @@ private static final long serialVersionUID = 0L;
         } else {
           result.inputBaselines_ = inputBaselinesBuilder_.build();
         }
-        result.inputTensorName_ = inputTensorName_;
-        result.encoding_ = encoding_;
-        result.modality_ = modality_;
-        if (featureValueDomainBuilder_ == null) {
-          result.featureValueDomain_ = featureValueDomain_;
-        } else {
-          result.featureValueDomain_ = featureValueDomainBuilder_.build();
-        }
-        result.indicesTensorName_ = indicesTensorName_;
-        result.denseShapeTensorName_ = denseShapeTensorName_;
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000080) != 0)) {
           indexFeatureMapping_ = indexFeatureMapping_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000080);
         }
         result.indexFeatureMapping_ = indexFeatureMapping_;
-        result.encodedTensorName_ = encodedTensorName_;
         if (encodedBaselinesBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000200) != 0)) {
             encodedBaselines_ = java.util.Collections.unmodifiableList(encodedBaselines_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000200);
           }
           result.encodedBaselines_ = encodedBaselines_;
         } else {
           result.encodedBaselines_ = encodedBaselinesBuilder_.build();
         }
-        if (visualizationBuilder_ == null) {
-          result.visualization_ = visualization_;
-        } else {
-          result.visualization_ = visualizationBuilder_.build();
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.inputTensorName_ = inputTensorName_;
         }
-        result.groupName_ = groupName_;
-        onBuilt();
-        return result;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.encoding_ = encoding_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.modality_ = modality_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.featureValueDomain_ = featureValueDomainBuilder_ == null
+              ? featureValueDomain_
+              : featureValueDomainBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.indicesTensorName_ = indicesTensorName_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.denseShapeTensorName_ = denseShapeTensorName_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.encodedTensorName_ = encodedTensorName_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.visualization_ = visualizationBuilder_ == null
+              ? visualization_
+              : visualizationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.groupName_ = groupName_;
+        }
       }
 
       @java.lang.Override
@@ -5147,6 +4920,7 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getInputTensorName().isEmpty()) {
           inputTensorName_ = other.inputTensorName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (other.encoding_ != 0) {
@@ -5154,6 +4928,7 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getModality().isEmpty()) {
           modality_ = other.modality_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (other.hasFeatureValueDomain()) {
@@ -5161,16 +4936,18 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getIndicesTensorName().isEmpty()) {
           indicesTensorName_ = other.indicesTensorName_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getDenseShapeTensorName().isEmpty()) {
           denseShapeTensorName_ = other.denseShapeTensorName_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.indexFeatureMapping_.isEmpty()) {
           if (indexFeatureMapping_.isEmpty()) {
             indexFeatureMapping_ = other.indexFeatureMapping_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000080);
           } else {
             ensureIndexFeatureMappingIsMutable();
             indexFeatureMapping_.addAll(other.indexFeatureMapping_);
@@ -5179,13 +4956,14 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getEncodedTensorName().isEmpty()) {
           encodedTensorName_ = other.encodedTensorName_;
+          bitField0_ |= 0x00000100;
           onChanged();
         }
         if (encodedBaselinesBuilder_ == null) {
           if (!other.encodedBaselines_.isEmpty()) {
             if (encodedBaselines_.isEmpty()) {
               encodedBaselines_ = other.encodedBaselines_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000200);
             } else {
               ensureEncodedBaselinesIsMutable();
               encodedBaselines_.addAll(other.encodedBaselines_);
@@ -5198,7 +4976,7 @@ private static final long serialVersionUID = 0L;
               encodedBaselinesBuilder_.dispose();
               encodedBaselinesBuilder_ = null;
               encodedBaselines_ = other.encodedBaselines_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000200);
               encodedBaselinesBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getEncodedBaselinesFieldBuilder() : null;
@@ -5212,9 +4990,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getGroupName().isEmpty()) {
           groupName_ = other.groupName_;
+          bitField0_ |= 0x00000800;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5229,17 +5008,111 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.protobuf.Value m =
+                    input.readMessage(
+                        com.google.protobuf.Value.parser(),
+                        extensionRegistry);
+                if (inputBaselinesBuilder_ == null) {
+                  ensureInputBaselinesIsMutable();
+                  inputBaselines_.add(m);
+                } else {
+                  inputBaselinesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              case 18: {
+                inputTensorName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                encoding_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                modality_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getFeatureValueDomainFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                indicesTensorName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                denseShapeTensorName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureIndexFeatureMappingIsMutable();
+                indexFeatureMapping_.add(s);
+                break;
+              } // case 66
+              case 74: {
+                encodedTensorName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                com.google.protobuf.Value m =
+                    input.readMessage(
+                        com.google.protobuf.Value.parser(),
+                        extensionRegistry);
+                if (encodedBaselinesBuilder_ == null) {
+                  ensureEncodedBaselinesIsMutable();
+                  encodedBaselines_.add(m);
+                } else {
+                  encodedBaselinesBuilder_.addMessage(m);
+                }
+                break;
+              } // case 82
+              case 90: {
+                input.readMessage(
+                    getVisualizationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                groupName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 98
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -5846,11 +5719,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputTensorName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         inputTensorName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5864,8 +5735,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearInputTensorName() {
-        
         inputTensorName_ = getDefaultInstance().getInputTensorName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -5881,12 +5752,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setInputTensorNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         inputTensorName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -5915,8 +5784,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setEncodingValue(int value) {
-        
         encoding_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -5931,8 +5800,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding getEncoding() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding.valueOf(encoding_);
+        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding result = com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding.forNumber(encoding_);
         return result == null ? com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Encoding.UNRECOGNIZED : result;
       }
       /**
@@ -5949,7 +5817,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         encoding_ = value.getNumber();
         onChanged();
         return this;
@@ -5964,7 +5832,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEncoding() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         encoding_ = 0;
         onChanged();
         return this;
@@ -6026,11 +5894,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setModality(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         modality_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6044,8 +5910,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearModality() {
-        
         modality_ = getDefaultInstance().getModality();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -6061,12 +5927,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setModalityBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         modality_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -6084,7 +5948,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the featureValueDomain field is set.
        */
       public boolean hasFeatureValueDomain() {
-        return featureValueDomainBuilder_ != null || featureValueDomain_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -6116,11 +5980,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           featureValueDomain_ = value;
-          onChanged();
         } else {
           featureValueDomainBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -6135,11 +5999,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.Builder builderForValue) {
         if (featureValueDomainBuilder_ == null) {
           featureValueDomain_ = builderForValue.build();
-          onChanged();
         } else {
           featureValueDomainBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -6152,17 +6016,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeFeatureValueDomain(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain value) {
         if (featureValueDomainBuilder_ == null) {
-          if (featureValueDomain_ != null) {
-            featureValueDomain_ =
-              com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.newBuilder(featureValueDomain_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            featureValueDomain_ != null &&
+            featureValueDomain_ != com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.getDefaultInstance()) {
+            getFeatureValueDomainBuilder().mergeFrom(value);
           } else {
             featureValueDomain_ = value;
           }
-          onChanged();
         } else {
           featureValueDomainBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -6174,14 +6039,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain feature_value_domain = 5;</code>
        */
       public Builder clearFeatureValueDomain() {
-        if (featureValueDomainBuilder_ == null) {
-          featureValueDomain_ = null;
-          onChanged();
-        } else {
-          featureValueDomain_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        featureValueDomain_ = null;
+        if (featureValueDomainBuilder_ != null) {
+          featureValueDomainBuilder_.dispose();
           featureValueDomainBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6193,7 +6057,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain feature_value_domain = 5;</code>
        */
       public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.FeatureValueDomain.Builder getFeatureValueDomainBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getFeatureValueDomainFieldBuilder().getBuilder();
       }
@@ -6297,11 +6161,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setIndicesTensorName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         indicesTensorName_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6317,8 +6179,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearIndicesTensorName() {
-        
         indicesTensorName_ = getDefaultInstance().getIndicesTensorName();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -6336,12 +6198,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setIndicesTensorNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         indicesTensorName_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -6405,11 +6265,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDenseShapeTensorName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         denseShapeTensorName_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -6424,8 +6282,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDenseShapeTensorName() {
-        
         denseShapeTensorName_ = getDefaultInstance().getDenseShapeTensorName();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -6442,21 +6300,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDenseShapeTensorNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         denseShapeTensorName_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
 
       private com.google.protobuf.LazyStringList indexFeatureMapping_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureIndexFeatureMappingIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000080) != 0)) {
           indexFeatureMapping_ = new com.google.protobuf.LazyStringArrayList(indexFeatureMapping_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000080;
          }
       }
       /**
@@ -6529,10 +6385,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setIndexFeatureMapping(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIndexFeatureMappingIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIndexFeatureMappingIsMutable();
         indexFeatureMapping_.set(index, value);
         onChanged();
         return this;
@@ -6550,10 +6404,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addIndexFeatureMapping(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIndexFeatureMappingIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIndexFeatureMappingIsMutable();
         indexFeatureMapping_.add(value);
         onChanged();
         return this;
@@ -6589,7 +6441,7 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearIndexFeatureMapping() {
         indexFeatureMapping_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -6606,10 +6458,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addIndexFeatureMappingBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureIndexFeatureMappingIsMutable();
         indexFeatureMapping_.add(value);
         onChanged();
@@ -6687,11 +6537,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEncodedTensorName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         encodedTensorName_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -6710,8 +6558,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEncodedTensorName() {
-        
         encodedTensorName_ = getDefaultInstance().getEncodedTensorName();
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
         return this;
       }
@@ -6732,12 +6580,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEncodedTensorNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         encodedTensorName_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -6745,9 +6591,9 @@ private static final long serialVersionUID = 0L;
       private java.util.List<com.google.protobuf.Value> encodedBaselines_ =
         java.util.Collections.emptyList();
       private void ensureEncodedBaselinesIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000200) != 0)) {
           encodedBaselines_ = new java.util.ArrayList<com.google.protobuf.Value>(encodedBaselines_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000200;
          }
       }
 
@@ -6974,7 +6820,7 @@ private static final long serialVersionUID = 0L;
       public Builder clearEncodedBaselines() {
         if (encodedBaselinesBuilder_ == null) {
           encodedBaselines_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000200);
           onChanged();
         } else {
           encodedBaselinesBuilder_.clear();
@@ -7100,7 +6946,7 @@ private static final long serialVersionUID = 0L;
           encodedBaselinesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>(
                   encodedBaselines_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000200) != 0),
                   getParentForChildren(),
                   isClean());
           encodedBaselines_ = null;
@@ -7120,7 +6966,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the visualization field is set.
        */
       public boolean hasVisualization() {
-        return visualizationBuilder_ != null || visualization_ != null;
+        return ((bitField0_ & 0x00000400) != 0);
       }
       /**
        * <pre>
@@ -7150,11 +6996,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           visualization_ = value;
-          onChanged();
         } else {
           visualizationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -7168,11 +7014,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Builder builderForValue) {
         if (visualizationBuilder_ == null) {
           visualization_ = builderForValue.build();
-          onChanged();
         } else {
           visualizationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -7184,17 +7030,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeVisualization(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization value) {
         if (visualizationBuilder_ == null) {
-          if (visualization_ != null) {
-            visualization_ =
-              com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.newBuilder(visualization_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000400) != 0) &&
+            visualization_ != null &&
+            visualization_ != com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.getDefaultInstance()) {
+            getVisualizationBuilder().mergeFrom(value);
           } else {
             visualization_ = value;
           }
-          onChanged();
         } else {
           visualizationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000400;
+        onChanged();
         return this;
       }
       /**
@@ -7205,14 +7052,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization visualization = 11;</code>
        */
       public Builder clearVisualization() {
-        if (visualizationBuilder_ == null) {
-          visualization_ = null;
-          onChanged();
-        } else {
-          visualization_ = null;
+        bitField0_ = (bitField0_ & ~0x00000400);
+        visualization_ = null;
+        if (visualizationBuilder_ != null) {
+          visualizationBuilder_.dispose();
           visualizationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7223,7 +7069,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization visualization = 11;</code>
        */
       public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.Visualization.Builder getVisualizationBuilder() {
-        
+        bitField0_ |= 0x00000400;
         onChanged();
         return getVisualizationFieldBuilder().getBuilder();
       }
@@ -7328,11 +7174,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGroupName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         groupName_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -7349,8 +7193,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearGroupName() {
-        
         groupName_ = getDefaultInstance().getGroupName();
+        bitField0_ = (bitField0_ & ~0x00000800);
         onChanged();
         return this;
       }
@@ -7369,12 +7213,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setGroupNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         groupName_ = value;
+        bitField0_ |= 0x00000800;
         onChanged();
         return this;
       }
@@ -7411,7 +7253,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new InputMetadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -7585,71 +7438,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private OutputMetadata(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Value.Builder subBuilder = null;
-              if (displayNameMappingCase_ == 1) {
-                subBuilder = ((com.google.protobuf.Value) displayNameMapping_).toBuilder();
-              }
-              displayNameMapping_ =
-                  input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.protobuf.Value) displayNameMapping_);
-                displayNameMapping_ = subBuilder.buildPartial();
-              }
-              displayNameMappingCase_ = 1;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              displayNameMappingCase_ = 2;
-              displayNameMapping_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              outputTensorName_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -7852,7 +7640,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OUTPUT_TENSOR_NAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object outputTensorName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object outputTensorName_ = "";
     /**
      * <pre>
      * Name of the output tensor. Required and is only applicable to Vertex
@@ -7922,7 +7711,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(outputTensorName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, outputTensorName_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -7941,7 +7730,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(outputTensorName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, outputTensorName_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -7971,7 +7760,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -7996,7 +7785,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -8117,24 +7906,22 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (indexDisplayNameMappingBuilder_ != null) {
+          indexDisplayNameMappingBuilder_.clear();
+        }
         outputTensorName_ = "";
-
         displayNameMappingCase_ = 0;
         displayNameMapping_ = null;
         return this;
@@ -8163,20 +7950,26 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata buildPartial() {
         com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata result = new com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata(this);
-        if (displayNameMappingCase_ == 1) {
-          if (indexDisplayNameMappingBuilder_ == null) {
-            result.displayNameMapping_ = displayNameMapping_;
-          } else {
-            result.displayNameMapping_ = indexDisplayNameMappingBuilder_.build();
-          }
-        }
-        if (displayNameMappingCase_ == 2) {
-          result.displayNameMapping_ = displayNameMapping_;
-        }
-        result.outputTensorName_ = outputTensorName_;
-        result.displayNameMappingCase_ = displayNameMappingCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.outputTensorName_ = outputTensorName_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata result) {
+        result.displayNameMappingCase_ = displayNameMappingCase_;
+        result.displayNameMapping_ = this.displayNameMapping_;
+        if (displayNameMappingCase_ == 1 &&
+            indexDisplayNameMappingBuilder_ != null) {
+          result.displayNameMapping_ = indexDisplayNameMappingBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -8225,6 +8018,7 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata.getDefaultInstance()) return this;
         if (!other.getOutputTensorName().isEmpty()) {
           outputTensorName_ = other.outputTensorName_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         switch (other.getDisplayNameMappingCase()) {
@@ -8242,7 +8036,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -8257,17 +8051,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getIndexDisplayNameMappingFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                displayNameMappingCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                displayNameMappingCase_ = 2;
+                displayNameMapping_ = s;
+                break;
+              } // case 18
+              case 26: {
+                outputTensorName_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int displayNameMappingCase_ = 0;
@@ -8285,6 +8110,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> indexDisplayNameMappingBuilder_;
@@ -8541,7 +8367,7 @@ private static final long serialVersionUID = 0L;
           displayNameMapping_ = null;
         }
         displayNameMappingCase_ = 1;
-        onChanged();;
+        onChanged();
         return indexDisplayNameMappingBuilder_;
       }
 
@@ -8637,10 +8463,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayNameMappingKey(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  displayNameMappingCase_ = 2;
+        if (value == null) { throw new NullPointerException(); }
+        displayNameMappingCase_ = 2;
         displayNameMapping_ = value;
         onChanged();
         return this;
@@ -8680,10 +8504,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDisplayNameMappingKeyBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         displayNameMappingCase_ = 2;
         displayNameMapping_ = value;
         onChanged();
@@ -8746,11 +8568,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOutputTensorName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         outputTensorName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8764,8 +8584,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOutputTensorName() {
-        
         outputTensorName_ = getDefaultInstance().getOutputTensorName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -8781,12 +8601,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOutputTensorNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         outputTensorName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -8823,7 +8641,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new OutputMetadata(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8855,6 +8684,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> inputs_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata>
@@ -8865,7 +8695,6 @@ private static final long serialVersionUID = 0L;
     }
     return inputs_;
   }
-
   public int getInputsCount() {
     return internalGetInputs().getMap().size();
   }
@@ -8886,7 +8715,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   @java.lang.Override
   public boolean containsInputs(
       java.lang.String key) {
@@ -8919,7 +8747,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> getInputsMap() {
     return internalGetInputs().getMap();
   }
@@ -8941,10 +8768,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata getInputsOrDefault(
+  public /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata getInputsOrDefault(
       java.lang.String key,
-      com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata defaultValue) {
+      /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> map =
         internalGetInputs().getMap();
@@ -8968,7 +8796,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata getInputsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -8992,6 +8819,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> outputs_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata>
@@ -9002,7 +8830,6 @@ private static final long serialVersionUID = 0L;
     }
     return outputs_;
   }
-
   public int getOutputsCount() {
     return internalGetOutputs().getMap().size();
   }
@@ -9018,7 +8845,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   @java.lang.Override
   public boolean containsOutputs(
       java.lang.String key) {
@@ -9046,7 +8872,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> getOutputsMap() {
     return internalGetOutputs().getMap();
   }
@@ -9063,10 +8888,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata getOutputsOrDefault(
+  public /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata getOutputsOrDefault(
       java.lang.String key,
-      com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata defaultValue) {
+      /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> map =
         internalGetOutputs().getMap();
@@ -9085,7 +8911,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata getOutputsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -9098,7 +8923,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FEATURE_ATTRIBUTIONS_SCHEMA_URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object featureAttributionsSchemaUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object featureAttributionsSchemaUri_ = "";
   /**
    * <pre>
    * Points to a YAML file stored on Google Cloud Storage describing the format
@@ -9158,7 +8984,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LATENT_SPACE_SOURCE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object latentSpaceSource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object latentSpaceSource_ = "";
   /**
    * <pre>
    * Name of the source to generate embeddings for example based explanations.
@@ -9235,7 +9062,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(latentSpaceSource_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, latentSpaceSource_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -9270,7 +9097,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(latentSpaceSource_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, latentSpaceSource_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -9293,7 +9120,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getFeatureAttributionsSchemaUri())) return false;
     if (!getLatentSpaceSource()
         .equals(other.getLatentSpaceSource())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -9316,7 +9143,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getFeatureAttributionsSchemaUri().hashCode();
     hash = (37 * hash) + LATENT_SPACE_SOURCE_FIELD_NUMBER;
     hash = (53 * hash) + getLatentSpaceSource().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -9463,28 +9290,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableInputs().clear();
       internalGetMutableOutputs().clear();
       featureAttributionsSchemaUri_ = "";
-
       latentSpaceSource_ = "";
-
       return this;
     }
 
@@ -9511,15 +9332,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata buildPartial() {
       com.google.cloud.aiplatform.v1beta1.ExplanationMetadata result = new com.google.cloud.aiplatform.v1beta1.ExplanationMetadata(this);
-      int from_bitField0_ = bitField0_;
-      result.inputs_ = internalGetInputs();
-      result.inputs_.makeImmutable();
-      result.outputs_ = internalGetOutputs();
-      result.outputs_.makeImmutable();
-      result.featureAttributionsSchemaUri_ = featureAttributionsSchemaUri_;
-      result.latentSpaceSource_ = latentSpaceSource_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.ExplanationMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.inputs_ = internalGetInputs();
+        result.inputs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.outputs_ = internalGetOutputs();
+        result.outputs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.featureAttributionsSchemaUri_ = featureAttributionsSchemaUri_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.latentSpaceSource_ = latentSpaceSource_;
+      }
     }
 
     @java.lang.Override
@@ -9568,17 +9401,21 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.getDefaultInstance()) return this;
       internalGetMutableInputs().mergeFrom(
           other.internalGetInputs());
+      bitField0_ |= 0x00000001;
       internalGetMutableOutputs().mergeFrom(
           other.internalGetOutputs());
+      bitField0_ |= 0x00000002;
       if (!other.getFeatureAttributionsSchemaUri().isEmpty()) {
         featureAttributionsSchemaUri_ = other.featureAttributionsSchemaUri_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getLatentSpaceSource().isEmpty()) {
         latentSpaceSource_ = other.latentSpaceSource_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -9593,17 +9430,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.ExplanationMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata>
+              inputs__ = input.readMessage(
+                  InputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInputs().getMutableMap().put(
+                  inputs__.getKey(), inputs__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata>
+              outputs__ = input.readMessage(
+                  OutputsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableOutputs().getMutableMap().put(
+                  outputs__.getKey(), outputs__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              featureAttributionsSchemaUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 42: {
+              latentSpaceSource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.ExplanationMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -9611,7 +9489,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> inputs_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata>
-    internalGetInputs() {
+        internalGetInputs() {
       if (inputs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             InputsDefaultEntryHolder.defaultEntry);
@@ -9619,8 +9497,7 @@ private static final long serialVersionUID = 0L;
       return inputs_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata>
-    internalGetMutableInputs() {
-      onChanged();;
+        internalGetMutableInputs() {
       if (inputs_ == null) {
         inputs_ = com.google.protobuf.MapField.newMapField(
             InputsDefaultEntryHolder.defaultEntry);
@@ -9628,9 +9505,10 @@ private static final long serialVersionUID = 0L;
       if (!inputs_.isMutable()) {
         inputs_ = inputs_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return inputs_;
     }
-
     public int getInputsCount() {
       return internalGetInputs().getMap().size();
     }
@@ -9651,7 +9529,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     @java.lang.Override
     public boolean containsInputs(
         java.lang.String key) {
@@ -9684,7 +9561,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> getInputsMap() {
       return internalGetInputs().getMap();
     }
@@ -9706,10 +9582,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata getInputsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata getInputsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> map =
           internalGetInputs().getMap();
@@ -9733,7 +9610,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata getInputsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -9744,8 +9620,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearInputs() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableInputs().getMutableMap()
           .clear();
       return this;
@@ -9767,7 +9643,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder removeInputs(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -9780,7 +9655,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata>
-    getMutableInputs() {
+        getMutableInputs() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableInputs().getMutableMap();
     }
     /**
@@ -9804,12 +9680,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableInputs().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -9829,18 +9703,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata&gt; inputs = 1 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder putAllInputs(
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.InputMetadata> values) {
       internalGetMutableInputs().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> outputs_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata>
-    internalGetOutputs() {
+        internalGetOutputs() {
       if (outputs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             OutputsDefaultEntryHolder.defaultEntry);
@@ -9848,8 +9722,7 @@ private static final long serialVersionUID = 0L;
       return outputs_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata>
-    internalGetMutableOutputs() {
-      onChanged();;
+        internalGetMutableOutputs() {
       if (outputs_ == null) {
         outputs_ = com.google.protobuf.MapField.newMapField(
             OutputsDefaultEntryHolder.defaultEntry);
@@ -9857,9 +9730,10 @@ private static final long serialVersionUID = 0L;
       if (!outputs_.isMutable()) {
         outputs_ = outputs_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return outputs_;
     }
-
     public int getOutputsCount() {
       return internalGetOutputs().getMap().size();
     }
@@ -9875,7 +9749,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     @java.lang.Override
     public boolean containsOutputs(
         java.lang.String key) {
@@ -9903,7 +9776,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> getOutputsMap() {
       return internalGetOutputs().getMap();
     }
@@ -9920,10 +9792,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata getOutputsOrDefault(
+    public /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata getOutputsOrDefault(
         java.lang.String key,
-        com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata defaultValue) {
+        /* nullable */
+com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> map =
           internalGetOutputs().getMap();
@@ -9942,7 +9815,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata getOutputsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -9953,8 +9825,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearOutputs() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableOutputs().getMutableMap()
           .clear();
       return this;
@@ -9971,7 +9843,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder removeOutputs(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -9984,7 +9855,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata>
-    getMutableOutputs() {
+        getMutableOutputs() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableOutputs().getMutableMap();
     }
     /**
@@ -10003,12 +9875,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableOutputs().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -10023,11 +9893,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata&gt; outputs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
-
     public Builder putAllOutputs(
         java.util.Map<java.lang.String, com.google.cloud.aiplatform.v1beta1.ExplanationMetadata.OutputMetadata> values) {
       internalGetMutableOutputs().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
 
@@ -10105,11 +9975,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFeatureAttributionsSchemaUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       featureAttributionsSchemaUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -10129,8 +9997,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFeatureAttributionsSchemaUri() {
-      
       featureAttributionsSchemaUri_ = getDefaultInstance().getFeatureAttributionsSchemaUri();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -10152,12 +10020,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFeatureAttributionsSchemaUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       featureAttributionsSchemaUri_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -10215,11 +10081,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLatentSpaceSource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       latentSpaceSource_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -10232,8 +10096,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLatentSpaceSource() {
-      
       latentSpaceSource_ = getDefaultInstance().getLatentSpaceSource();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -10248,12 +10112,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLatentSpaceSourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       latentSpaceSource_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -10290,7 +10152,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExplanationMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

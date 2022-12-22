@@ -5,9 +5,9 @@ package com.google.cloud.bigquery.dataexchange.v1beta1;
 
 /**
  * <pre>
- * A data exchange is a container that enables data sharing.
- * It contains a set of listings of the data sources along with descriptive
- * information of the data exchange.
+ * A data exchange is a container that lets you share data. Along with the
+ * descriptive information about the data exchange, it contains listings that
+ * reference shared datasets.
  * </pre>
  *
  * Protobuf type {@code google.cloud.bigquery.dataexchange.v1beta1.DataExchange}
@@ -42,85 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DataExchange(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryContact_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            documentation_ = s;
-            break;
-          }
-          case 48: {
-
-            listingCount_ = input.readInt32();
-            break;
-          }
-          case 58: {
-
-            icon_ = input.readBytes();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.dataexchange.v1beta1.DataExchangeProto.internal_static_google_cloud_bigquery_dataexchange_v1beta1_DataExchange_descriptor;
@@ -135,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the data exchange.
@@ -183,12 +105,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. Human-readable display name of the data exchange. The display name must
    * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-   * spaces ( ), and can't start or end with spaces.
+   * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
    * Default value is an empty string.
    * Max length: 63 bytes.
    * </pre>
@@ -213,7 +136,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. Human-readable display name of the data exchange. The display name must
    * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-   * spaces ( ), and can't start or end with spaces.
+   * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
    * Default value is an empty string.
    * Max length: 63 bytes.
    * </pre>
@@ -237,13 +160,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
-   * Optional. Short description of the data exchange that can consist of sentences
-   * or paragraphs. The description must not contain Unicode non-characters as
-   * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-   * returns (CR), and page breaks (FF).
+   * Optional. Description of the data exchange. The description must not contain Unicode
+   * non-characters as well as C0 and C1 control codes except tabs (HT),
+   * new lines (LF), carriage returns (CR), and page breaks (FF).
    * Default value is an empty string.
    * Max length: 2000 bytes.
    * </pre>
@@ -266,10 +189,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Short description of the data exchange that can consist of sentences
-   * or paragraphs. The description must not contain Unicode non-characters as
-   * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-   * returns (CR), and page breaks (FF).
+   * Optional. Description of the data exchange. The description must not contain Unicode
+   * non-characters as well as C0 and C1 control codes except tabs (HT),
+   * new lines (LF), carriage returns (CR), and page breaks (FF).
    * Default value is an empty string.
    * Max length: 2000 bytes.
    * </pre>
@@ -293,11 +215,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_CONTACT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object primaryContact_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryContact_ = "";
   /**
    * <pre>
-   * Optional. Email, URL or other reference of the primary point of contact of the data
-   * exchange
+   * Optional. Email or URL of the primary point of contact of the data exchange.
    * Max Length: 1000 bytes.
    * </pre>
    *
@@ -319,8 +241,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Email, URL or other reference of the primary point of contact of the data
-   * exchange
+   * Optional. Email or URL of the primary point of contact of the data exchange.
    * Max Length: 1000 bytes.
    * </pre>
    *
@@ -343,7 +264,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOCUMENTATION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object documentation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object documentation_ = "";
   /**
    * <pre>
    * Optional. Documentation describing the data exchange.
@@ -389,7 +311,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LISTING_COUNT_FIELD_NUMBER = 6;
-  private int listingCount_;
+  private int listingCount_ = 0;
   /**
    * <pre>
    * Output only. Number of listings contained in the data exchange.
@@ -404,13 +326,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ICON_FIELD_NUMBER = 7;
-  private com.google.protobuf.ByteString icon_;
+  private com.google.protobuf.ByteString icon_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Optional. Base64 encoded image representing the data exchange. Max Size: 3.0MiB
    * Expected image dimensions are 512x512 pixels, however the API only
    * performs validation on size of the encoded data.
-   * Note: For byte fields, the contents of the field are base64-encoded (which
+   * Note: For byte fields, the content of the fields are base64-encoded (which
    * increases the size of the data by 33-36%) when using JSON on the wire.
    * </pre>
    *
@@ -457,7 +379,7 @@ private static final long serialVersionUID = 0L;
     if (!icon_.isEmpty()) {
       output.writeBytes(7, icon_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -489,7 +411,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBytesSize(7, icon_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -518,7 +440,7 @@ private static final long serialVersionUID = 0L;
         != other.getListingCount()) return false;
     if (!getIcon()
         .equals(other.getIcon())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -543,7 +465,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getListingCount();
     hash = (37 * hash) + ICON_FIELD_NUMBER;
     hash = (53 * hash) + getIcon().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -640,9 +562,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A data exchange is a container that enables data sharing.
-   * It contains a set of listings of the data sources along with descriptive
-   * information of the data exchange.
+   * A data exchange is a container that lets you share data. Along with the
+   * descriptive information about the data exchange, it contains listings that
+   * reference shared datasets.
    * </pre>
    *
    * Protobuf type {@code google.cloud.bigquery.dataexchange.v1beta1.DataExchange}
@@ -666,36 +588,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       primaryContact_ = "";
-
       documentation_ = "";
-
       listingCount_ = 0;
-
       icon_ = com.google.protobuf.ByteString.EMPTY;
-
       return this;
     }
 
@@ -722,15 +633,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange buildPartial() {
       com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange result = new com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange(this);
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.primaryContact_ = primaryContact_;
-      result.documentation_ = documentation_;
-      result.listingCount_ = listingCount_;
-      result.icon_ = icon_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.primaryContact_ = primaryContact_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.documentation_ = documentation_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.listingCount_ = listingCount_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.icon_ = icon_;
+      }
     }
 
     @java.lang.Override
@@ -779,22 +709,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPrimaryContact().isEmpty()) {
         primaryContact_ = other.primaryContact_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDocumentation().isEmpty()) {
         documentation_ = other.documentation_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getListingCount() != 0) {
@@ -803,7 +738,7 @@ private static final long serialVersionUID = 0L;
       if (other.getIcon() != com.google.protobuf.ByteString.EMPTY) {
         setIcon(other.getIcon());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -818,19 +753,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              primaryContact_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              documentation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              listingCount_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              icon_ = input.readBytes();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.dataexchange.v1beta1.DataExchange) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -888,11 +872,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -906,8 +888,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -923,12 +905,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -938,7 +918,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. Human-readable display name of the data exchange. The display name must
      * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-     * spaces ( ), and can't start or end with spaces.
+     * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
      * Default value is an empty string.
      * Max length: 63 bytes.
      * </pre>
@@ -962,7 +942,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. Human-readable display name of the data exchange. The display name must
      * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-     * spaces ( ), and can't start or end with spaces.
+     * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
      * Default value is an empty string.
      * Max length: 63 bytes.
      * </pre>
@@ -987,7 +967,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. Human-readable display name of the data exchange. The display name must
      * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-     * spaces ( ), and can't start or end with spaces.
+     * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
      * Default value is an empty string.
      * Max length: 63 bytes.
      * </pre>
@@ -998,11 +978,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1010,7 +988,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. Human-readable display name of the data exchange. The display name must
      * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-     * spaces ( ), and can't start or end with spaces.
+     * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
      * Default value is an empty string.
      * Max length: 63 bytes.
      * </pre>
@@ -1019,8 +997,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1028,7 +1006,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Required. Human-readable display name of the data exchange. The display name must
      * contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
-     * spaces ( ), and can't start or end with spaces.
+     * spaces ( ), ampersands (&amp;) and must not start or end with spaces.
      * Default value is an empty string.
      * Max length: 63 bytes.
      * </pre>
@@ -1039,12 +1017,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1052,10 +1028,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Optional. Short description of the data exchange that can consist of sentences
-     * or paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
+     * Optional. Description of the data exchange. The description must not contain Unicode
+     * non-characters as well as C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
      * Default value is an empty string.
      * Max length: 2000 bytes.
      * </pre>
@@ -1077,10 +1052,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Short description of the data exchange that can consist of sentences
-     * or paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
+     * Optional. Description of the data exchange. The description must not contain Unicode
+     * non-characters as well as C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
      * Default value is an empty string.
      * Max length: 2000 bytes.
      * </pre>
@@ -1103,10 +1077,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Short description of the data exchange that can consist of sentences
-     * or paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
+     * Optional. Description of the data exchange. The description must not contain Unicode
+     * non-characters as well as C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
      * Default value is an empty string.
      * Max length: 2000 bytes.
      * </pre>
@@ -1117,20 +1090,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Short description of the data exchange that can consist of sentences
-     * or paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
+     * Optional. Description of the data exchange. The description must not contain Unicode
+     * non-characters as well as C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
      * Default value is an empty string.
      * Max length: 2000 bytes.
      * </pre>
@@ -1139,17 +1109,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Short description of the data exchange that can consist of sentences
-     * or paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
+     * Optional. Description of the data exchange. The description must not contain Unicode
+     * non-characters as well as C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
      * Default value is an empty string.
      * Max length: 2000 bytes.
      * </pre>
@@ -1160,12 +1129,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1173,8 +1140,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object primaryContact_ = "";
     /**
      * <pre>
-     * Optional. Email, URL or other reference of the primary point of contact of the data
-     * exchange
+     * Optional. Email or URL of the primary point of contact of the data exchange.
      * Max Length: 1000 bytes.
      * </pre>
      *
@@ -1195,8 +1161,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Email, URL or other reference of the primary point of contact of the data
-     * exchange
+     * Optional. Email or URL of the primary point of contact of the data exchange.
      * Max Length: 1000 bytes.
      * </pre>
      *
@@ -1218,8 +1183,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Email, URL or other reference of the primary point of contact of the data
-     * exchange
+     * Optional. Email or URL of the primary point of contact of the data exchange.
      * Max Length: 1000 bytes.
      * </pre>
      *
@@ -1229,18 +1193,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryContact(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       primaryContact_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Email, URL or other reference of the primary point of contact of the data
-     * exchange
+     * Optional. Email or URL of the primary point of contact of the data exchange.
      * Max Length: 1000 bytes.
      * </pre>
      *
@@ -1248,15 +1209,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrimaryContact() {
-      
       primaryContact_ = getDefaultInstance().getPrimaryContact();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Email, URL or other reference of the primary point of contact of the data
-     * exchange
+     * Optional. Email or URL of the primary point of contact of the data exchange.
      * Max Length: 1000 bytes.
      * </pre>
      *
@@ -1266,12 +1226,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPrimaryContactBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       primaryContact_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1329,11 +1287,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDocumentation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       documentation_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1346,8 +1302,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDocumentation() {
-      
       documentation_ = getDefaultInstance().getDocumentation();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1362,12 +1318,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDocumentationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       documentation_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1397,6 +1351,7 @@ private static final long serialVersionUID = 0L;
     public Builder setListingCount(int value) {
       
       listingCount_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1409,7 +1364,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearListingCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       listingCount_ = 0;
       onChanged();
       return this;
@@ -1421,7 +1376,7 @@ private static final long serialVersionUID = 0L;
      * Optional. Base64 encoded image representing the data exchange. Max Size: 3.0MiB
      * Expected image dimensions are 512x512 pixels, however the API only
      * performs validation on size of the encoded data.
-     * Note: For byte fields, the contents of the field are base64-encoded (which
+     * Note: For byte fields, the content of the fields are base64-encoded (which
      * increases the size of the data by 33-36%) when using JSON on the wire.
      * </pre>
      *
@@ -1437,7 +1392,7 @@ private static final long serialVersionUID = 0L;
      * Optional. Base64 encoded image representing the data exchange. Max Size: 3.0MiB
      * Expected image dimensions are 512x512 pixels, however the API only
      * performs validation on size of the encoded data.
-     * Note: For byte fields, the contents of the field are base64-encoded (which
+     * Note: For byte fields, the content of the fields are base64-encoded (which
      * increases the size of the data by 33-36%) when using JSON on the wire.
      * </pre>
      *
@@ -1446,11 +1401,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIcon(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       icon_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1459,7 +1412,7 @@ private static final long serialVersionUID = 0L;
      * Optional. Base64 encoded image representing the data exchange. Max Size: 3.0MiB
      * Expected image dimensions are 512x512 pixels, however the API only
      * performs validation on size of the encoded data.
-     * Note: For byte fields, the contents of the field are base64-encoded (which
+     * Note: For byte fields, the content of the fields are base64-encoded (which
      * increases the size of the data by 33-36%) when using JSON on the wire.
      * </pre>
      *
@@ -1467,7 +1420,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIcon() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       icon_ = getDefaultInstance().getIcon();
       onChanged();
       return this;
@@ -1505,7 +1458,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DataExchange(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -38,74 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Threshold(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            label_ = s;
-            break;
-          }
-          case 17: {
-
-            value_ = input.readDouble();
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            color_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            direction_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            targetAxis_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.MetricsProto.internal_static_google_monitoring_dashboard_v1_Threshold_descriptor;
@@ -562,7 +494,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LABEL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object label_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object label_ = "";
   /**
    * <pre>
    * A label for the threshold.
@@ -608,7 +541,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALUE_FIELD_NUMBER = 2;
-  private double value_;
+  private double value_ = 0D;
   /**
    * <pre>
    * The value of the threshold. The value should be defined in the native scale
@@ -624,7 +557,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COLOR_FIELD_NUMBER = 3;
-  private int color_;
+  private int color_ = 0;
   /**
    * <pre>
    * The state color for this threshold. Color is not allowed in a XyChart.
@@ -645,13 +578,12 @@ private static final long serialVersionUID = 0L;
    * @return The color.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.Threshold.Color getColor() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.Threshold.Color result = com.google.monitoring.dashboard.v1.Threshold.Color.valueOf(color_);
+    com.google.monitoring.dashboard.v1.Threshold.Color result = com.google.monitoring.dashboard.v1.Threshold.Color.forNumber(color_);
     return result == null ? com.google.monitoring.dashboard.v1.Threshold.Color.UNRECOGNIZED : result;
   }
 
   public static final int DIRECTION_FIELD_NUMBER = 4;
-  private int direction_;
+  private int direction_ = 0;
   /**
    * <pre>
    * The direction for the current threshold. Direction is not allowed in a
@@ -674,13 +606,12 @@ private static final long serialVersionUID = 0L;
    * @return The direction.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.Threshold.Direction getDirection() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.Threshold.Direction result = com.google.monitoring.dashboard.v1.Threshold.Direction.valueOf(direction_);
+    com.google.monitoring.dashboard.v1.Threshold.Direction result = com.google.monitoring.dashboard.v1.Threshold.Direction.forNumber(direction_);
     return result == null ? com.google.monitoring.dashboard.v1.Threshold.Direction.UNRECOGNIZED : result;
   }
 
   public static final int TARGET_AXIS_FIELD_NUMBER = 5;
-  private int targetAxis_;
+  private int targetAxis_ = 0;
   /**
    * <pre>
    * The target axis to use for plotting the threshold. Target axis is not
@@ -703,8 +634,7 @@ private static final long serialVersionUID = 0L;
    * @return The targetAxis.
    */
   @java.lang.Override public com.google.monitoring.dashboard.v1.Threshold.TargetAxis getTargetAxis() {
-    @SuppressWarnings("deprecation")
-    com.google.monitoring.dashboard.v1.Threshold.TargetAxis result = com.google.monitoring.dashboard.v1.Threshold.TargetAxis.valueOf(targetAxis_);
+    com.google.monitoring.dashboard.v1.Threshold.TargetAxis result = com.google.monitoring.dashboard.v1.Threshold.TargetAxis.forNumber(targetAxis_);
     return result == null ? com.google.monitoring.dashboard.v1.Threshold.TargetAxis.UNRECOGNIZED : result;
   }
 
@@ -737,7 +667,7 @@ private static final long serialVersionUID = 0L;
     if (targetAxis_ != com.google.monitoring.dashboard.v1.Threshold.TargetAxis.TARGET_AXIS_UNSPECIFIED.getNumber()) {
       output.writeEnum(5, targetAxis_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -765,7 +695,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, targetAxis_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -788,7 +718,7 @@ private static final long serialVersionUID = 0L;
     if (color_ != other.color_) return false;
     if (direction_ != other.direction_) return false;
     if (targetAxis_ != other.targetAxis_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -810,7 +740,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + direction_;
     hash = (37 * hash) + TARGET_AXIS_FIELD_NUMBER;
     hash = (53 * hash) + targetAxis_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -931,32 +861,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.Threshold.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       label_ = "";
-
       value_ = 0D;
-
       color_ = 0;
-
       direction_ = 0;
-
       targetAxis_ = 0;
-
       return this;
     }
 
@@ -983,13 +904,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Threshold buildPartial() {
       com.google.monitoring.dashboard.v1.Threshold result = new com.google.monitoring.dashboard.v1.Threshold(this);
-      result.label_ = label_;
-      result.value_ = value_;
-      result.color_ = color_;
-      result.direction_ = direction_;
-      result.targetAxis_ = targetAxis_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.Threshold result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.label_ = label_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.value_ = value_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.color_ = color_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.direction_ = direction_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.targetAxis_ = targetAxis_;
+      }
     }
 
     @java.lang.Override
@@ -1038,6 +974,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.dashboard.v1.Threshold.getDefaultInstance()) return this;
       if (!other.getLabel().isEmpty()) {
         label_ = other.label_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getValue() != 0D) {
@@ -1052,7 +989,7 @@ private static final long serialVersionUID = 0L;
       if (other.targetAxis_ != 0) {
         setTargetAxisValue(other.getTargetAxisValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1067,19 +1004,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.Threshold parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              label_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 17: {
+              value_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 24: {
+              color_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              direction_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              targetAxis_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.Threshold) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object label_ = "";
     /**
@@ -1134,11 +1110,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       label_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1151,8 +1125,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLabel() {
-      
       label_ = getDefaultInstance().getLabel();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1167,12 +1141,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       label_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1204,6 +1176,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValue(double value) {
       
       value_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1217,7 +1190,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       value_ = 0D;
       onChanged();
       return this;
@@ -1245,8 +1218,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setColorValue(int value) {
-      
       color_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1260,8 +1233,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Threshold.Color getColor() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.Threshold.Color result = com.google.monitoring.dashboard.v1.Threshold.Color.valueOf(color_);
+      com.google.monitoring.dashboard.v1.Threshold.Color result = com.google.monitoring.dashboard.v1.Threshold.Color.forNumber(color_);
       return result == null ? com.google.monitoring.dashboard.v1.Threshold.Color.UNRECOGNIZED : result;
     }
     /**
@@ -1277,7 +1249,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       color_ = value.getNumber();
       onChanged();
       return this;
@@ -1291,7 +1263,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearColor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       color_ = 0;
       onChanged();
       return this;
@@ -1321,8 +1293,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDirectionValue(int value) {
-      
       direction_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1337,8 +1309,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Threshold.Direction getDirection() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.Threshold.Direction result = com.google.monitoring.dashboard.v1.Threshold.Direction.valueOf(direction_);
+      com.google.monitoring.dashboard.v1.Threshold.Direction result = com.google.monitoring.dashboard.v1.Threshold.Direction.forNumber(direction_);
       return result == null ? com.google.monitoring.dashboard.v1.Threshold.Direction.UNRECOGNIZED : result;
     }
     /**
@@ -1355,7 +1326,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       direction_ = value.getNumber();
       onChanged();
       return this;
@@ -1370,7 +1341,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDirection() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       direction_ = 0;
       onChanged();
       return this;
@@ -1400,8 +1371,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTargetAxisValue(int value) {
-      
       targetAxis_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1416,8 +1387,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.Threshold.TargetAxis getTargetAxis() {
-      @SuppressWarnings("deprecation")
-      com.google.monitoring.dashboard.v1.Threshold.TargetAxis result = com.google.monitoring.dashboard.v1.Threshold.TargetAxis.valueOf(targetAxis_);
+      com.google.monitoring.dashboard.v1.Threshold.TargetAxis result = com.google.monitoring.dashboard.v1.Threshold.TargetAxis.forNumber(targetAxis_);
       return result == null ? com.google.monitoring.dashboard.v1.Threshold.TargetAxis.UNRECOGNIZED : result;
     }
     /**
@@ -1434,7 +1404,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       targetAxis_ = value.getNumber();
       onChanged();
       return this;
@@ -1449,7 +1419,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTargetAxis() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       targetAxis_ = 0;
       onChanged();
       return this;
@@ -1487,7 +1457,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Threshold(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

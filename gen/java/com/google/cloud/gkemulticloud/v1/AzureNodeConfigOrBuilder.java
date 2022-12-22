@@ -68,8 +68,8 @@ public interface AzureNodeConfigOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -80,8 +80,8 @@ public interface AzureNodeConfigOrBuilder extends
   int getTagsCount();
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -99,8 +99,8 @@ public interface AzureNodeConfigOrBuilder extends
   getTags();
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -112,8 +112,8 @@ public interface AzureNodeConfigOrBuilder extends
   getTagsMap();
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -121,7 +121,6 @@ public interface AzureNodeConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getTagsOrDefault(
       java.lang.String key,
@@ -129,8 +128,8 @@ java.lang.String getTagsOrDefault(
 java.lang.String defaultValue);
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying Azure resources for this node
-   * pool. This currently only includes Virtual Machine Scale Sets.
+   * Optional. A set of tags to apply to all underlying Azure resources for this
+   * node pool. This currently only includes Virtual Machine Scale Sets.
    * Specify at most 50 pairs containing alphanumerics, spaces, and symbols
    * (.+-=_:&#64;/). Keys can be up to 127 Unicode characters. Values can be up to
    * 255 Unicode characters.
@@ -138,7 +137,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; tags = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getTagsOrThrow(
       java.lang.String key);
 
@@ -340,7 +338,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -355,7 +352,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 }

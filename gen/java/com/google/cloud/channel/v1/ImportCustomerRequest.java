@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.ImportCustomer][google.cloud.channel.v1.CloudChannelService.ImportCustomer]
+ * Request message for
+ * [CloudChannelService.ImportCustomer][google.cloud.channel.v1.CloudChannelService.ImportCustomer]
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.ImportCustomerRequest}
@@ -37,86 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private ImportCustomerRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-            customerIdentityCase_ = 2;
-            customerIdentity_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            customerIdentityCase_ = 3;
-            customerIdentity_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            authToken_ = s;
-            break;
-          }
-          case 40: {
-
-            overwriteIfExists_ = input.readBool();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            channelPartnerId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customer_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -301,7 +222,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the reseller's account.
@@ -351,7 +273,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTH_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object authToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object authToken_ = "";
   /**
    * <pre>
    * Optional. The super admin of the resold customer generates this token to
@@ -403,7 +326,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OVERWRITE_IF_EXISTS_FIELD_NUMBER = 5;
-  private boolean overwriteIfExists_;
+  private boolean overwriteIfExists_ = false;
   /**
    * <pre>
    * Required. Choose to overwrite an existing customer if found.
@@ -420,12 +343,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CHANNEL_PARTNER_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object channelPartnerId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object channelPartnerId_ = "";
   /**
    * <pre>
-   * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-   * the customer's order. This field is required for 2-tier transfer scenarios
-   * and can be provided via the request Parent binding as well.
+   * Optional. Cloud Identity ID of a channel partner who will be the direct
+   * reseller for the customer's order. This field is required for 2-tier
+   * transfer scenarios and can be provided via the request Parent binding as
+   * well.
    * </pre>
    *
    * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -446,9 +371,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-   * the customer's order. This field is required for 2-tier transfer scenarios
-   * and can be provided via the request Parent binding as well.
+   * Optional. Cloud Identity ID of a channel partner who will be the direct
+   * reseller for the customer's order. This field is required for 2-tier
+   * transfer scenarios and can be provided via the request Parent binding as
+   * well.
    * </pre>
    *
    * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -470,7 +396,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOMER_FIELD_NUMBER = 7;
-  private volatile java.lang.Object customer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customer_ = "";
   /**
    * <pre>
    * Optional. Specifies the customer that will receive imported Cloud Identity
@@ -554,7 +481,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customer_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, customer_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -585,7 +512,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(customer_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, customer_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -623,7 +550,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -657,7 +584,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -754,7 +681,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.ImportCustomer][google.cloud.channel.v1.CloudChannelService.ImportCustomer]
+   * Request message for
+   * [CloudChannelService.ImportCustomer][google.cloud.channel.v1.CloudChannelService.ImportCustomer]
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.ImportCustomerRequest}
@@ -778,32 +706,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ImportCustomerRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       authToken_ = "";
-
       overwriteIfExists_ = false;
-
       channelPartnerId_ = "";
-
       customer_ = "";
-
       customerIdentityCase_ = 0;
       customerIdentity_ = null;
       return this;
@@ -832,20 +751,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ImportCustomerRequest buildPartial() {
       com.google.cloud.channel.v1.ImportCustomerRequest result = new com.google.cloud.channel.v1.ImportCustomerRequest(this);
-      if (customerIdentityCase_ == 2) {
-        result.customerIdentity_ = customerIdentity_;
-      }
-      if (customerIdentityCase_ == 3) {
-        result.customerIdentity_ = customerIdentity_;
-      }
-      result.parent_ = parent_;
-      result.authToken_ = authToken_;
-      result.overwriteIfExists_ = overwriteIfExists_;
-      result.channelPartnerId_ = channelPartnerId_;
-      result.customer_ = customer_;
-      result.customerIdentityCase_ = customerIdentityCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ImportCustomerRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.authToken_ = authToken_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.overwriteIfExists_ = overwriteIfExists_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.channelPartnerId_ = channelPartnerId_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.customer_ = customer_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.channel.v1.ImportCustomerRequest result) {
+      result.customerIdentityCase_ = customerIdentityCase_;
+      result.customerIdentity_ = this.customerIdentity_;
     }
 
     @java.lang.Override
@@ -894,10 +827,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ImportCustomerRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getAuthToken().isEmpty()) {
         authToken_ = other.authToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getOverwriteIfExists() != false) {
@@ -905,10 +840,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getChannelPartnerId().isEmpty()) {
         channelPartnerId_ = other.channelPartnerId_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (!other.getCustomer().isEmpty()) {
         customer_ = other.customer_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       switch (other.getCustomerIdentityCase()) {
@@ -928,7 +865,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -943,17 +880,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ImportCustomerRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              customerIdentityCase_ = 2;
+              customerIdentity_ = s;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              customerIdentityCase_ = 3;
+              customerIdentity_ = s;
+              break;
+            } // case 26
+            case 34: {
+              authToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              overwriteIfExists_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              channelPartnerId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              customer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ImportCustomerRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int customerIdentityCase_ = 0;
@@ -971,6 +958,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1048,10 +1036,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  customerIdentityCase_ = 2;
+      if (value == null) { throw new NullPointerException(); }
+      customerIdentityCase_ = 2;
       customerIdentity_ = value;
       onChanged();
       return this;
@@ -1083,10 +1069,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerIdentityCase_ = 2;
       customerIdentity_ = value;
       onChanged();
@@ -1169,10 +1153,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudIdentityId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  customerIdentityCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      customerIdentityCase_ = 3;
       customerIdentity_ = value;
       onChanged();
       return this;
@@ -1204,10 +1186,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCloudIdentityIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customerIdentityCase_ = 3;
       customerIdentity_ = value;
       onChanged();
@@ -1273,11 +1253,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1292,8 +1270,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1310,12 +1288,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1382,11 +1358,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       authToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1402,8 +1376,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAuthToken() {
-      
       authToken_ = getDefaultInstance().getAuthToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1421,12 +1395,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAuthTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       authToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1460,6 +1432,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOverwriteIfExists(boolean value) {
       
       overwriteIfExists_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1474,7 +1447,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOverwriteIfExists() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       overwriteIfExists_ = false;
       onChanged();
       return this;
@@ -1483,9 +1456,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object channelPartnerId_ = "";
     /**
      * <pre>
-     * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-     * the customer's order. This field is required for 2-tier transfer scenarios
-     * and can be provided via the request Parent binding as well.
+     * Optional. Cloud Identity ID of a channel partner who will be the direct
+     * reseller for the customer's order. This field is required for 2-tier
+     * transfer scenarios and can be provided via the request Parent binding as
+     * well.
      * </pre>
      *
      * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1505,9 +1479,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-     * the customer's order. This field is required for 2-tier transfer scenarios
-     * and can be provided via the request Parent binding as well.
+     * Optional. Cloud Identity ID of a channel partner who will be the direct
+     * reseller for the customer's order. This field is required for 2-tier
+     * transfer scenarios and can be provided via the request Parent binding as
+     * well.
      * </pre>
      *
      * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1528,9 +1503,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-     * the customer's order. This field is required for 2-tier transfer scenarios
-     * and can be provided via the request Parent binding as well.
+     * Optional. Cloud Identity ID of a channel partner who will be the direct
+     * reseller for the customer's order. This field is required for 2-tier
+     * transfer scenarios and can be provided via the request Parent binding as
+     * well.
      * </pre>
      *
      * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1539,35 +1515,35 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setChannelPartnerId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       channelPartnerId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-     * the customer's order. This field is required for 2-tier transfer scenarios
-     * and can be provided via the request Parent binding as well.
+     * Optional. Cloud Identity ID of a channel partner who will be the direct
+     * reseller for the customer's order. This field is required for 2-tier
+     * transfer scenarios and can be provided via the request Parent binding as
+     * well.
      * </pre>
      *
      * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearChannelPartnerId() {
-      
       channelPartnerId_ = getDefaultInstance().getChannelPartnerId();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Cloud Identity ID of a channel partner who will be the direct reseller for
-     * the customer's order. This field is required for 2-tier transfer scenarios
-     * and can be provided via the request Parent binding as well.
+     * Optional. Cloud Identity ID of a channel partner who will be the direct
+     * reseller for the customer's order. This field is required for 2-tier
+     * transfer scenarios and can be provided via the request Parent binding as
+     * well.
      * </pre>
      *
      * <code>string channel_partner_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1576,12 +1552,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setChannelPartnerIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       channelPartnerId_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1645,11 +1619,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customer_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1664,8 +1636,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomer() {
-      
       customer_ = getDefaultInstance().getCustomer();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1682,12 +1654,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customer_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1724,7 +1694,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportCustomerRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

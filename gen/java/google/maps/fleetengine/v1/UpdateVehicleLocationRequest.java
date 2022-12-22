@@ -36,83 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateVehicleLocationRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            google.maps.fleetengine.v1.RequestHeader.Builder subBuilder = null;
-            if (header_ != null) {
-              subBuilder = header_.toBuilder();
-            }
-            header_ = input.readMessage(google.maps.fleetengine.v1.RequestHeader.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(header_);
-              header_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 34: {
-            google.maps.fleetengine.v1.VehicleLocation.Builder subBuilder = null;
-            if (currentLocation_ != null) {
-              subBuilder = currentLocation_.toBuilder();
-            }
-            currentLocation_ = input.readMessage(google.maps.fleetengine.v1.VehicleLocation.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(currentLocation_);
-              currentLocation_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            currentState_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return google.maps.fleetengine.v1.VehicleApi.internal_static_maps_fleetengine_v1_UpdateVehicleLocationRequest_descriptor;
@@ -161,11 +84,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.RequestHeaderOrBuilder getHeaderOrBuilder() {
-    return getHeader();
+    return header_ == null ? google.maps.fleetengine.v1.RequestHeader.getDefaultInstance() : header_;
   }
 
   public static final int NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Must be in the format
@@ -222,8 +146,8 @@ private static final long serialVersionUID = 0L;
   private google.maps.fleetengine.v1.VehicleLocation currentLocation_;
   /**
    * <pre>
-   * Required. The vehicle's most recent location.  The `location` and `update_time`
-   * subfields are required.
+   * Required. The vehicle's most recent location.  The `location` and
+   * `update_time` subfields are required.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -235,8 +159,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The vehicle's most recent location.  The `location` and `update_time`
-   * subfields are required.
+   * Required. The vehicle's most recent location.  The `location` and
+   * `update_time` subfields are required.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -248,19 +172,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The vehicle's most recent location.  The `location` and `update_time`
-   * subfields are required.
+   * Required. The vehicle's most recent location.  The `location` and
+   * `update_time` subfields are required.
    * </pre>
    *
    * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public google.maps.fleetengine.v1.VehicleLocationOrBuilder getCurrentLocationOrBuilder() {
-    return getCurrentLocation();
+    return currentLocation_ == null ? google.maps.fleetengine.v1.VehicleLocation.getDefaultInstance() : currentLocation_;
   }
 
   public static final int CURRENT_STATE_FIELD_NUMBER = 5;
-  private int currentState_;
+  private int currentState_ = 0;
   /**
    * <pre>
    * Set the vehicle's state to either `ONLINE` or `OFFLINE`.
@@ -283,8 +207,7 @@ private static final long serialVersionUID = 0L;
    * @return The currentState.
    */
   @java.lang.Override public google.maps.fleetengine.v1.VehicleState getCurrentState() {
-    @SuppressWarnings("deprecation")
-    google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.valueOf(currentState_);
+    google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.forNumber(currentState_);
     return result == null ? google.maps.fleetengine.v1.VehicleState.UNRECOGNIZED : result;
   }
 
@@ -314,7 +237,7 @@ private static final long serialVersionUID = 0L;
     if (currentState_ != google.maps.fleetengine.v1.VehicleState.UNKNOWN_VEHICLE_STATE.getNumber()) {
       output.writeEnum(5, currentState_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -338,7 +261,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(5, currentState_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -366,7 +289,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getCurrentLocation())) return false;
     }
     if (currentState_ != other.currentState_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -389,7 +312,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CURRENT_STATE_FIELD_NUMBER;
     hash = (53 * hash) + currentState_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -510,38 +433,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using google.maps.fleetengine.v1.UpdateVehicleLocationRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (headerBuilder_ == null) {
-        header_ = null;
-      } else {
-        header_ = null;
+      bitField0_ = 0;
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
       name_ = "";
-
-      if (currentLocationBuilder_ == null) {
-        currentLocation_ = null;
-      } else {
-        currentLocation_ = null;
+      currentLocation_ = null;
+      if (currentLocationBuilder_ != null) {
+        currentLocationBuilder_.dispose();
         currentLocationBuilder_ = null;
       }
       currentState_ = 0;
-
       return this;
     }
 
@@ -568,20 +483,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public google.maps.fleetengine.v1.UpdateVehicleLocationRequest buildPartial() {
       google.maps.fleetengine.v1.UpdateVehicleLocationRequest result = new google.maps.fleetengine.v1.UpdateVehicleLocationRequest(this);
-      if (headerBuilder_ == null) {
-        result.header_ = header_;
-      } else {
-        result.header_ = headerBuilder_.build();
-      }
-      result.name_ = name_;
-      if (currentLocationBuilder_ == null) {
-        result.currentLocation_ = currentLocation_;
-      } else {
-        result.currentLocation_ = currentLocationBuilder_.build();
-      }
-      result.currentState_ = currentState_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(google.maps.fleetengine.v1.UpdateVehicleLocationRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.header_ = headerBuilder_ == null
+            ? header_
+            : headerBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.currentLocation_ = currentLocationBuilder_ == null
+            ? currentLocation_
+            : currentLocationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.currentState_ = currentState_;
+      }
     }
 
     @java.lang.Override
@@ -633,6 +557,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasCurrentLocation()) {
@@ -641,7 +566,7 @@ private static final long serialVersionUID = 0L;
       if (other.currentState_ != 0) {
         setCurrentStateValue(other.getCurrentStateValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -656,19 +581,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      google.maps.fleetengine.v1.UpdateVehicleLocationRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getHeaderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 26: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCurrentLocationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 40: {
+              currentState_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (google.maps.fleetengine.v1.UpdateVehicleLocationRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private google.maps.fleetengine.v1.RequestHeader header_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -682,7 +645,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the header field is set.
      */
     public boolean hasHeader() {
-      return headerBuilder_ != null || header_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -712,11 +675,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         header_ = value;
-        onChanged();
       } else {
         headerBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -730,11 +693,11 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.RequestHeader.Builder builderForValue) {
       if (headerBuilder_ == null) {
         header_ = builderForValue.build();
-        onChanged();
       } else {
         headerBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -746,17 +709,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeHeader(google.maps.fleetengine.v1.RequestHeader value) {
       if (headerBuilder_ == null) {
-        if (header_ != null) {
-          header_ =
-            google.maps.fleetengine.v1.RequestHeader.newBuilder(header_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          header_ != null &&
+          header_ != google.maps.fleetengine.v1.RequestHeader.getDefaultInstance()) {
+          getHeaderBuilder().mergeFrom(value);
         } else {
           header_ = value;
         }
-        onChanged();
       } else {
         headerBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -767,14 +731,13 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public Builder clearHeader() {
-      if (headerBuilder_ == null) {
-        header_ = null;
-        onChanged();
-      } else {
-        header_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      header_ = null;
+      if (headerBuilder_ != null) {
+        headerBuilder_.dispose();
         headerBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -785,7 +748,7 @@ private static final long serialVersionUID = 0L;
      * <code>.maps.fleetengine.v1.RequestHeader header = 1;</code>
      */
     public google.maps.fleetengine.v1.RequestHeader.Builder getHeaderBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getHeaderFieldBuilder().getBuilder();
     }
@@ -890,11 +853,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -911,8 +872,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -931,12 +892,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -946,20 +905,20 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.VehicleLocation, google.maps.fleetengine.v1.VehicleLocation.Builder, google.maps.fleetengine.v1.VehicleLocationOrBuilder> currentLocationBuilder_;
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the currentLocation field is set.
      */
     public boolean hasCurrentLocation() {
-      return currentLocationBuilder_ != null || currentLocation_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -974,8 +933,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -986,17 +945,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         currentLocation_ = value;
-        onChanged();
       } else {
         currentLocationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1005,72 +964,72 @@ private static final long serialVersionUID = 0L;
         google.maps.fleetengine.v1.VehicleLocation.Builder builderForValue) {
       if (currentLocationBuilder_ == null) {
         currentLocation_ = builderForValue.build();
-        onChanged();
       } else {
         currentLocationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeCurrentLocation(google.maps.fleetengine.v1.VehicleLocation value) {
       if (currentLocationBuilder_ == null) {
-        if (currentLocation_ != null) {
-          currentLocation_ =
-            google.maps.fleetengine.v1.VehicleLocation.newBuilder(currentLocation_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          currentLocation_ != null &&
+          currentLocation_ != google.maps.fleetengine.v1.VehicleLocation.getDefaultInstance()) {
+          getCurrentLocationBuilder().mergeFrom(value);
         } else {
           currentLocation_ = value;
         }
-        onChanged();
       } else {
         currentLocationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearCurrentLocation() {
-      if (currentLocationBuilder_ == null) {
-        currentLocation_ = null;
-        onChanged();
-      } else {
-        currentLocation_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      currentLocation_ = null;
+      if (currentLocationBuilder_ != null) {
+        currentLocationBuilder_.dispose();
         currentLocationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public google.maps.fleetengine.v1.VehicleLocation.Builder getCurrentLocationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getCurrentLocationFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1085,8 +1044,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The vehicle's most recent location.  The `location` and `update_time`
-     * subfields are required.
+     * Required. The vehicle's most recent location.  The `location` and
+     * `update_time` subfields are required.
      * </pre>
      *
      * <code>.maps.fleetengine.v1.VehicleLocation current_location = 4 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1129,8 +1088,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setCurrentStateValue(int value) {
-      
       currentState_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1145,8 +1104,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public google.maps.fleetengine.v1.VehicleState getCurrentState() {
-      @SuppressWarnings("deprecation")
-      google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.valueOf(currentState_);
+      google.maps.fleetengine.v1.VehicleState result = google.maps.fleetengine.v1.VehicleState.forNumber(currentState_);
       return result == null ? google.maps.fleetengine.v1.VehicleState.UNRECOGNIZED : result;
     }
     /**
@@ -1163,7 +1121,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       currentState_ = value.getNumber();
       onChanged();
       return this;
@@ -1178,7 +1136,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrentState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       currentState_ = 0;
       onChanged();
       return this;
@@ -1216,7 +1174,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateVehicleLocationRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

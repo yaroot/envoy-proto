@@ -33,8 +33,8 @@ public interface RejoinUserEventsRequestOrBuilder extends
    * <pre>
    * The type of the user event rejoin to define the scope and range of the user
    * events to be rejoined with the latest product catalog. Defaults to
-   * USER_EVENT_REJOIN_SCOPE_UNSPECIFIED if this field is not set, or set to an
-   * invalid integer value.
+   * `USER_EVENT_REJOIN_SCOPE_UNSPECIFIED` if this field is not set, or set to
+   * an invalid integer value.
    * </pre>
    *
    * <code>.google.cloud.retail.v2.RejoinUserEventsRequest.UserEventRejoinScope user_event_rejoin_scope = 2;</code>
@@ -45,8 +45,8 @@ public interface RejoinUserEventsRequestOrBuilder extends
    * <pre>
    * The type of the user event rejoin to define the scope and range of the user
    * events to be rejoined with the latest product catalog. Defaults to
-   * USER_EVENT_REJOIN_SCOPE_UNSPECIFIED if this field is not set, or set to an
-   * invalid integer value.
+   * `USER_EVENT_REJOIN_SCOPE_UNSPECIFIED` if this field is not set, or set to
+   * an invalid integer value.
    * </pre>
    *
    * <code>.google.cloud.retail.v2.RejoinUserEventsRequest.UserEventRejoinScope user_event_rejoin_scope = 2;</code>

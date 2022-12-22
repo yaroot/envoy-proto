@@ -38,134 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BatchTranslateDocumentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceLanguageCode_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              targetLanguageCodes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            targetLanguageCodes_.add(s);
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              inputConfigs_ = new java.util.ArrayList<com.google.cloud.translate.v3.BatchDocumentInputConfig>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            inputConfigs_.add(
-                input.readMessage(com.google.cloud.translate.v3.BatchDocumentInputConfig.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            com.google.cloud.translate.v3.BatchDocumentOutputConfig.Builder subBuilder = null;
-            if (outputConfig_ != null) {
-              subBuilder = outputConfig_.toBuilder();
-            }
-            outputConfig_ = input.readMessage(com.google.cloud.translate.v3.BatchDocumentOutputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(outputConfig_);
-              outputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              models_ = com.google.protobuf.MapField.newMapField(
-                  ModelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            models__ = input.readMessage(
-                ModelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            models_.getMutableMap().put(
-                models__.getKey(), models__.getValue());
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              glossaries_ = com.google.protobuf.MapField.newMapField(
-                  GlossariesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig>
-            glossaries__ = input.readMessage(
-                GlossariesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            glossaries_.getMutableMap().put(
-                glossaries__.getKey(), glossaries__.getValue());
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              formatConversions_ = com.google.protobuf.MapField.newMapField(
-                  FormatConversionsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000010;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            formatConversions__ = input.readMessage(
-                FormatConversionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            formatConversions_.getMutableMap().put(
-                formatConversions__.getKey(), formatConversions__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        targetLanguageCodes_ = targetLanguageCodes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        inputConfigs_ = java.util.Collections.unmodifiableList(inputConfigs_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.translate.v3.TranslationServiceProto.internal_static_google_cloud_translation_v3_BatchTranslateDocumentRequest_descriptor;
@@ -196,7 +68,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. Location to make a regional call.
@@ -252,7 +125,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_LANGUAGE_CODE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object sourceLanguageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceLanguageCode_ = "";
   /**
    * <pre>
    * Required. The BCP-47 language code of the input document if known, for
@@ -302,6 +176,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TARGET_LANGUAGE_CODES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList targetLanguageCodes_;
   /**
    * <pre>
@@ -357,6 +232,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INPUT_CONFIGS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.translate.v3.BatchDocumentInputConfig> inputConfigs_;
   /**
    * <pre>
@@ -472,7 +348,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.translate.v3.BatchDocumentOutputConfigOrBuilder getOutputConfigOrBuilder() {
-    return getOutputConfig();
+    return outputConfig_ == null ? com.google.cloud.translate.v3.BatchDocumentOutputConfig.getDefaultInstance() : outputConfig_;
   }
 
   public static final int MODELS_FIELD_NUMBER = 6;
@@ -487,6 +363,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> models_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -497,7 +374,6 @@ private static final long serialVersionUID = 0L;
     }
     return models_;
   }
-
   public int getModelsCount() {
     return internalGetModels().getMap().size();
   }
@@ -517,7 +393,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsModels(
       java.lang.String key) {
@@ -549,7 +424,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getModelsMap() {
     return internalGetModels().getMap();
   }
@@ -570,10 +444,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getModelsOrDefault(
+  public /* nullable */
+java.lang.String getModelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetModels().getMap();
@@ -596,7 +471,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getModelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -620,6 +494,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.translate.v3.TranslateTextGlossaryConfig.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> glossaries_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig>
@@ -630,7 +505,6 @@ private static final long serialVersionUID = 0L;
     }
     return glossaries_;
   }
-
   public int getGlossariesCount() {
     return internalGetGlossaries().getMap().size();
   }
@@ -641,7 +515,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsGlossaries(
       java.lang.String key) {
@@ -664,7 +537,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> getGlossariesMap() {
     return internalGetGlossaries().getMap();
   }
@@ -676,10 +548,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.translate.v3.TranslateTextGlossaryConfig getGlossariesOrDefault(
+  public /* nullable */
+com.google.cloud.translate.v3.TranslateTextGlossaryConfig getGlossariesOrDefault(
       java.lang.String key,
-      com.google.cloud.translate.v3.TranslateTextGlossaryConfig defaultValue) {
+      /* nullable */
+com.google.cloud.translate.v3.TranslateTextGlossaryConfig defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> map =
         internalGetGlossaries().getMap();
@@ -693,7 +566,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public com.google.cloud.translate.v3.TranslateTextGlossaryConfig getGlossariesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -717,6 +589,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> formatConversions_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -727,7 +600,6 @@ private static final long serialVersionUID = 0L;
     }
     return formatConversions_;
   }
-
   public int getFormatConversionsCount() {
     return internalGetFormatConversions().getMap().size();
   }
@@ -745,7 +617,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsFormatConversions(
       java.lang.String key) {
@@ -775,7 +646,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getFormatConversionsMap() {
     return internalGetFormatConversions().getMap();
   }
@@ -794,10 +664,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getFormatConversionsOrDefault(
+  public /* nullable */
+java.lang.String getFormatConversionsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetFormatConversions().getMap();
@@ -818,7 +689,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getFormatConversionsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -877,7 +747,7 @@ private static final long serialVersionUID = 0L;
         internalGetFormatConversions(),
         FormatConversionsDefaultEntryHolder.defaultEntry,
         8);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -938,7 +808,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, formatConversions__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -972,7 +842,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetGlossaries())) return false;
     if (!internalGetFormatConversions().equals(
         other.internalGetFormatConversions())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1011,7 +881,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FORMAT_CONVERSIONS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetFormatConversions().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1162,39 +1032,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.translate.v3.BatchTranslateDocumentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInputConfigsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       sourceLanguageCode_ = "";
-
       targetLanguageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       if (inputConfigsBuilder_ == null) {
         inputConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        inputConfigs_ = null;
         inputConfigsBuilder_.clear();
       }
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
       internalGetMutableModels().clear();
@@ -1226,36 +1089,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.translate.v3.BatchTranslateDocumentRequest buildPartial() {
       com.google.cloud.translate.v3.BatchTranslateDocumentRequest result = new com.google.cloud.translate.v3.BatchTranslateDocumentRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.parent_ = parent_;
-      result.sourceLanguageCode_ = sourceLanguageCode_;
-      if (((bitField0_ & 0x00000001) != 0)) {
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.translate.v3.BatchTranslateDocumentRequest result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         targetLanguageCodes_ = targetLanguageCodes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.targetLanguageCodes_ = targetLanguageCodes_;
       if (inputConfigsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           inputConfigs_ = java.util.Collections.unmodifiableList(inputConfigs_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.inputConfigs_ = inputConfigs_;
       } else {
         result.inputConfigs_ = inputConfigsBuilder_.build();
       }
-      if (outputConfigBuilder_ == null) {
-        result.outputConfig_ = outputConfig_;
-      } else {
-        result.outputConfig_ = outputConfigBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.translate.v3.BatchTranslateDocumentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
       }
-      result.models_ = internalGetModels();
-      result.models_.makeImmutable();
-      result.glossaries_ = internalGetGlossaries();
-      result.glossaries_.makeImmutable();
-      result.formatConversions_ = internalGetFormatConversions();
-      result.formatConversions_.makeImmutable();
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.sourceLanguageCode_ = sourceLanguageCode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.outputConfig_ = outputConfigBuilder_ == null
+            ? outputConfig_
+            : outputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.models_ = internalGetModels();
+        result.models_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.glossaries_ = internalGetGlossaries();
+        result.glossaries_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.formatConversions_ = internalGetFormatConversions();
+        result.formatConversions_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1304,16 +1185,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.translate.v3.BatchTranslateDocumentRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSourceLanguageCode().isEmpty()) {
         sourceLanguageCode_ = other.sourceLanguageCode_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.targetLanguageCodes_.isEmpty()) {
         if (targetLanguageCodes_.isEmpty()) {
           targetLanguageCodes_ = other.targetLanguageCodes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureTargetLanguageCodesIsMutable();
           targetLanguageCodes_.addAll(other.targetLanguageCodes_);
@@ -1324,7 +1207,7 @@ private static final long serialVersionUID = 0L;
         if (!other.inputConfigs_.isEmpty()) {
           if (inputConfigs_.isEmpty()) {
             inputConfigs_ = other.inputConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureInputConfigsIsMutable();
             inputConfigs_.addAll(other.inputConfigs_);
@@ -1337,7 +1220,7 @@ private static final long serialVersionUID = 0L;
             inputConfigsBuilder_.dispose();
             inputConfigsBuilder_ = null;
             inputConfigs_ = other.inputConfigs_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000008);
             inputConfigsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getInputConfigsFieldBuilder() : null;
@@ -1351,11 +1234,14 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableModels().mergeFrom(
           other.internalGetModels());
+      bitField0_ |= 0x00000020;
       internalGetMutableGlossaries().mergeFrom(
           other.internalGetGlossaries());
+      bitField0_ |= 0x00000040;
       internalGetMutableFormatConversions().mergeFrom(
           other.internalGetFormatConversions());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000080;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1370,17 +1256,93 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.translate.v3.BatchTranslateDocumentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              sourceLanguageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureTargetLanguageCodesIsMutable();
+              targetLanguageCodes_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              com.google.cloud.translate.v3.BatchDocumentInputConfig m =
+                  input.readMessage(
+                      com.google.cloud.translate.v3.BatchDocumentInputConfig.parser(),
+                      extensionRegistry);
+              if (inputConfigsBuilder_ == null) {
+                ensureInputConfigsIsMutable();
+                inputConfigs_.add(m);
+              } else {
+                inputConfigsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getOutputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              models__ = input.readMessage(
+                  ModelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableModels().getMutableMap().put(
+                  models__.getKey(), models__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig>
+              glossaries__ = input.readMessage(
+                  GlossariesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableGlossaries().getMutableMap().put(
+                  glossaries__.getKey(), glossaries__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              formatConversions__ = input.readMessage(
+                  FormatConversionsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFormatConversions().getMutableMap().put(
+                  formatConversions__.getKey(), formatConversions__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.translate.v3.BatchTranslateDocumentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1453,11 +1415,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1475,8 +1435,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1496,12 +1456,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1565,11 +1523,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceLanguageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1584,8 +1540,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceLanguageCode() {
-      
       sourceLanguageCode_ = getDefaultInstance().getSourceLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1602,21 +1558,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceLanguageCode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList targetLanguageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureTargetLanguageCodesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         targetLanguageCodes_ = new com.google.protobuf.LazyStringArrayList(targetLanguageCodes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1684,10 +1638,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTargetLanguageCodes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTargetLanguageCodesIsMutable();
       targetLanguageCodes_.set(index, value);
       onChanged();
       return this;
@@ -1704,10 +1656,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTargetLanguageCodes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTargetLanguageCodesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureTargetLanguageCodesIsMutable();
       targetLanguageCodes_.add(value);
       onChanged();
       return this;
@@ -1741,7 +1691,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTargetLanguageCodes() {
       targetLanguageCodes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1757,10 +1707,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addTargetLanguageCodesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureTargetLanguageCodesIsMutable();
       targetLanguageCodes_.add(value);
       onChanged();
@@ -1770,9 +1718,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.translate.v3.BatchDocumentInputConfig> inputConfigs_ =
       java.util.Collections.emptyList();
     private void ensureInputConfigsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         inputConfigs_ = new java.util.ArrayList<com.google.cloud.translate.v3.BatchDocumentInputConfig>(inputConfigs_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1999,7 +1947,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearInputConfigs() {
       if (inputConfigsBuilder_ == null) {
         inputConfigs_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         inputConfigsBuilder_.clear();
@@ -2125,7 +2073,7 @@ private static final long serialVersionUID = 0L;
         inputConfigsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.translate.v3.BatchDocumentInputConfig, com.google.cloud.translate.v3.BatchDocumentInputConfig.Builder, com.google.cloud.translate.v3.BatchDocumentInputConfigOrBuilder>(
                 inputConfigs_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         inputConfigs_ = null;
@@ -2147,7 +2095,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the outputConfig field is set.
      */
     public boolean hasOutputConfig() {
-      return outputConfigBuilder_ != null || outputConfig_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -2181,11 +2129,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         outputConfig_ = value;
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2201,11 +2149,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.translate.v3.BatchDocumentOutputConfig.Builder builderForValue) {
       if (outputConfigBuilder_ == null) {
         outputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         outputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2219,17 +2167,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOutputConfig(com.google.cloud.translate.v3.BatchDocumentOutputConfig value) {
       if (outputConfigBuilder_ == null) {
-        if (outputConfig_ != null) {
-          outputConfig_ =
-            com.google.cloud.translate.v3.BatchDocumentOutputConfig.newBuilder(outputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          outputConfig_ != null &&
+          outputConfig_ != com.google.cloud.translate.v3.BatchDocumentOutputConfig.getDefaultInstance()) {
+          getOutputConfigBuilder().mergeFrom(value);
         } else {
           outputConfig_ = value;
         }
-        onChanged();
       } else {
         outputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2242,14 +2191,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.translation.v3.BatchDocumentOutputConfig output_config = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearOutputConfig() {
-      if (outputConfigBuilder_ == null) {
-        outputConfig_ = null;
-        onChanged();
-      } else {
-        outputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      outputConfig_ = null;
+      if (outputConfigBuilder_ != null) {
+        outputConfigBuilder_.dispose();
         outputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2262,7 +2210,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.translation.v3.BatchDocumentOutputConfig output_config = 5 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.translate.v3.BatchDocumentOutputConfig.Builder getOutputConfigBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getOutputConfigFieldBuilder().getBuilder();
     }
@@ -2309,7 +2257,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> models_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetModels() {
+        internalGetModels() {
       if (models_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ModelsDefaultEntryHolder.defaultEntry);
@@ -2317,8 +2265,7 @@ private static final long serialVersionUID = 0L;
       return models_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableModels() {
-      onChanged();;
+        internalGetMutableModels() {
       if (models_ == null) {
         models_ = com.google.protobuf.MapField.newMapField(
             ModelsDefaultEntryHolder.defaultEntry);
@@ -2326,9 +2273,10 @@ private static final long serialVersionUID = 0L;
       if (!models_.isMutable()) {
         models_ = models_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return models_;
     }
-
     public int getModelsCount() {
       return internalGetModels().getMap().size();
     }
@@ -2348,7 +2296,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsModels(
         java.lang.String key) {
@@ -2380,7 +2327,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getModelsMap() {
       return internalGetModels().getMap();
     }
@@ -2401,10 +2347,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getModelsOrDefault(
+    public /* nullable */
+java.lang.String getModelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetModels().getMap();
@@ -2427,7 +2374,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getModelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2438,8 +2384,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearModels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableModels().getMutableMap()
           .clear();
       return this;
@@ -2460,7 +2406,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeModels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2473,7 +2418,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableModels() {
+        getMutableModels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableModels().getMutableMap();
     }
     /**
@@ -2496,12 +2442,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableModels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -2520,18 +2464,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; models = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllModels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableModels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> glossaries_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig>
-    internalGetGlossaries() {
+        internalGetGlossaries() {
       if (glossaries_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             GlossariesDefaultEntryHolder.defaultEntry);
@@ -2539,8 +2483,7 @@ private static final long serialVersionUID = 0L;
       return glossaries_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig>
-    internalGetMutableGlossaries() {
-      onChanged();;
+        internalGetMutableGlossaries() {
       if (glossaries_ == null) {
         glossaries_ = com.google.protobuf.MapField.newMapField(
             GlossariesDefaultEntryHolder.defaultEntry);
@@ -2548,9 +2491,10 @@ private static final long serialVersionUID = 0L;
       if (!glossaries_.isMutable()) {
         glossaries_ = glossaries_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return glossaries_;
     }
-
     public int getGlossariesCount() {
       return internalGetGlossaries().getMap().size();
     }
@@ -2561,7 +2505,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsGlossaries(
         java.lang.String key) {
@@ -2584,7 +2527,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> getGlossariesMap() {
       return internalGetGlossaries().getMap();
     }
@@ -2596,10 +2538,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.translate.v3.TranslateTextGlossaryConfig getGlossariesOrDefault(
+    public /* nullable */
+com.google.cloud.translate.v3.TranslateTextGlossaryConfig getGlossariesOrDefault(
         java.lang.String key,
-        com.google.cloud.translate.v3.TranslateTextGlossaryConfig defaultValue) {
+        /* nullable */
+com.google.cloud.translate.v3.TranslateTextGlossaryConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> map =
           internalGetGlossaries().getMap();
@@ -2613,7 +2556,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public com.google.cloud.translate.v3.TranslateTextGlossaryConfig getGlossariesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2624,8 +2566,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearGlossaries() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableGlossaries().getMutableMap()
           .clear();
       return this;
@@ -2637,7 +2579,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeGlossaries(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2650,7 +2591,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig>
-    getMutableGlossaries() {
+        getMutableGlossaries() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableGlossaries().getMutableMap();
     }
     /**
@@ -2664,12 +2606,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.translate.v3.TranslateTextGlossaryConfig value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableGlossaries().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -2679,18 +2619,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.translation.v3.TranslateTextGlossaryConfig&gt; glossaries = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllGlossaries(
         java.util.Map<java.lang.String, com.google.cloud.translate.v3.TranslateTextGlossaryConfig> values) {
       internalGetMutableGlossaries().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> formatConversions_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetFormatConversions() {
+        internalGetFormatConversions() {
       if (formatConversions_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             FormatConversionsDefaultEntryHolder.defaultEntry);
@@ -2698,8 +2638,7 @@ private static final long serialVersionUID = 0L;
       return formatConversions_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableFormatConversions() {
-      onChanged();;
+        internalGetMutableFormatConversions() {
       if (formatConversions_ == null) {
         formatConversions_ = com.google.protobuf.MapField.newMapField(
             FormatConversionsDefaultEntryHolder.defaultEntry);
@@ -2707,9 +2646,10 @@ private static final long serialVersionUID = 0L;
       if (!formatConversions_.isMutable()) {
         formatConversions_ = formatConversions_.copy();
       }
+      bitField0_ |= 0x00000080;
+      onChanged();
       return formatConversions_;
     }
-
     public int getFormatConversionsCount() {
       return internalGetFormatConversions().getMap().size();
     }
@@ -2727,7 +2667,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsFormatConversions(
         java.lang.String key) {
@@ -2757,7 +2696,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getFormatConversionsMap() {
       return internalGetFormatConversions().getMap();
     }
@@ -2776,10 +2714,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getFormatConversionsOrDefault(
+    public /* nullable */
+java.lang.String getFormatConversionsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetFormatConversions().getMap();
@@ -2800,7 +2739,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getFormatConversionsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2811,8 +2749,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearFormatConversions() {
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableFormatConversions().getMutableMap()
           .clear();
       return this;
@@ -2831,7 +2769,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeFormatConversions(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2844,7 +2781,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableFormatConversions() {
+        getMutableFormatConversions() {
+      bitField0_ |= 0x00000080;
       return internalGetMutableFormatConversions().getMutableMap();
     }
     /**
@@ -2865,12 +2803,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableFormatConversions().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000080;
       return this;
     }
     /**
@@ -2887,11 +2823,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; format_conversions = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllFormatConversions(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableFormatConversions().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000080;
       return this;
     }
     @java.lang.Override
@@ -2927,7 +2863,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BatchTranslateDocumentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

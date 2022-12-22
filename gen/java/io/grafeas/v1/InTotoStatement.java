@@ -40,112 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InTotoStatement(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            type_ = s;
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              subject_ = new java.util.ArrayList<io.grafeas.v1.Subject>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            subject_.add(
-                input.readMessage(io.grafeas.v1.Subject.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            predicateType_ = s;
-            break;
-          }
-          case 34: {
-            io.grafeas.v1.InTotoProvenance.Builder subBuilder = null;
-            if (predicateCase_ == 4) {
-              subBuilder = ((io.grafeas.v1.InTotoProvenance) predicate_).toBuilder();
-            }
-            predicate_ =
-                input.readMessage(io.grafeas.v1.InTotoProvenance.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.grafeas.v1.InTotoProvenance) predicate_);
-              predicate_ = subBuilder.buildPartial();
-            }
-            predicateCase_ = 4;
-            break;
-          }
-          case 42: {
-            io.grafeas.v1.SlsaProvenance.Builder subBuilder = null;
-            if (predicateCase_ == 5) {
-              subBuilder = ((io.grafeas.v1.SlsaProvenance) predicate_).toBuilder();
-            }
-            predicate_ =
-                input.readMessage(io.grafeas.v1.SlsaProvenance.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.grafeas.v1.SlsaProvenance) predicate_);
-              predicate_ = subBuilder.buildPartial();
-            }
-            predicateCase_ = 5;
-            break;
-          }
-          case 50: {
-            io.grafeas.v1.SlsaProvenanceZeroTwo.Builder subBuilder = null;
-            if (predicateCase_ == 6) {
-              subBuilder = ((io.grafeas.v1.SlsaProvenanceZeroTwo) predicate_).toBuilder();
-            }
-            predicate_ =
-                input.readMessage(io.grafeas.v1.SlsaProvenanceZeroTwo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.grafeas.v1.SlsaProvenanceZeroTwo) predicate_);
-              predicate_ = subBuilder.buildPartial();
-            }
-            predicateCase_ = 6;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        subject_ = java.util.Collections.unmodifiableList(subject_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.InTotoStatementProto.internal_static_grafeas_v1_InTotoStatement_descriptor;
@@ -203,7 +97,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object type_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object type_ = "";
   /**
    * <pre>
    * Always `https://in-toto.io/Statement/v0.1`.
@@ -249,6 +144,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBJECT_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.grafeas.v1.Subject> subject_;
   /**
    * <code>repeated .grafeas.v1.Subject subject = 2;</code>
@@ -289,7 +185,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PREDICATE_TYPE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object predicateType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object predicateType_ = "";
   /**
    * <pre>
    * `https://slsa.dev/provenance/v0.1` for SlsaProvenance.
@@ -459,7 +356,7 @@ private static final long serialVersionUID = 0L;
     if (predicateCase_ == 6) {
       output.writeMessage(6, (io.grafeas.v1.SlsaProvenanceZeroTwo) predicate_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -490,7 +387,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, (io.grafeas.v1.SlsaProvenanceZeroTwo) predicate_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -528,7 +425,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -563,7 +460,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -687,33 +584,36 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.InTotoStatement.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getSubjectFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = "";
-
       if (subjectBuilder_ == null) {
         subject_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        subject_ = null;
         subjectBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       predicateType_ = "";
-
+      if (provenanceBuilder_ != null) {
+        provenanceBuilder_.clear();
+      }
+      if (slsaProvenanceBuilder_ != null) {
+        slsaProvenanceBuilder_.clear();
+      }
+      if (slsaProvenanceZeroTwoBuilder_ != null) {
+        slsaProvenanceZeroTwoBuilder_.clear();
+      }
       predicateCase_ = 0;
       predicate_ = null;
       return this;
@@ -742,42 +642,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.InTotoStatement buildPartial() {
       io.grafeas.v1.InTotoStatement result = new io.grafeas.v1.InTotoStatement(this);
-      int from_bitField0_ = bitField0_;
-      result.type_ = type_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.grafeas.v1.InTotoStatement result) {
       if (subjectBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           subject_ = java.util.Collections.unmodifiableList(subject_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.subject_ = subject_;
       } else {
         result.subject_ = subjectBuilder_.build();
       }
-      result.predicateType_ = predicateType_;
-      if (predicateCase_ == 4) {
-        if (provenanceBuilder_ == null) {
-          result.predicate_ = predicate_;
-        } else {
-          result.predicate_ = provenanceBuilder_.build();
-        }
+    }
+
+    private void buildPartial0(io.grafeas.v1.InTotoStatement result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
       }
-      if (predicateCase_ == 5) {
-        if (slsaProvenanceBuilder_ == null) {
-          result.predicate_ = predicate_;
-        } else {
-          result.predicate_ = slsaProvenanceBuilder_.build();
-        }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.predicateType_ = predicateType_;
       }
-      if (predicateCase_ == 6) {
-        if (slsaProvenanceZeroTwoBuilder_ == null) {
-          result.predicate_ = predicate_;
-        } else {
-          result.predicate_ = slsaProvenanceZeroTwoBuilder_.build();
-        }
-      }
+    }
+
+    private void buildPartialOneofs(io.grafeas.v1.InTotoStatement result) {
       result.predicateCase_ = predicateCase_;
-      onBuilt();
-      return result;
+      result.predicate_ = this.predicate_;
+      if (predicateCase_ == 4 &&
+          provenanceBuilder_ != null) {
+        result.predicate_ = provenanceBuilder_.build();
+      }
+      if (predicateCase_ == 5 &&
+          slsaProvenanceBuilder_ != null) {
+        result.predicate_ = slsaProvenanceBuilder_.build();
+      }
+      if (predicateCase_ == 6 &&
+          slsaProvenanceZeroTwoBuilder_ != null) {
+        result.predicate_ = slsaProvenanceZeroTwoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -826,13 +734,14 @@ private static final long serialVersionUID = 0L;
       if (other == io.grafeas.v1.InTotoStatement.getDefaultInstance()) return this;
       if (!other.getType().isEmpty()) {
         type_ = other.type_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (subjectBuilder_ == null) {
         if (!other.subject_.isEmpty()) {
           if (subject_.isEmpty()) {
             subject_ = other.subject_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureSubjectIsMutable();
             subject_.addAll(other.subject_);
@@ -845,7 +754,7 @@ private static final long serialVersionUID = 0L;
             subjectBuilder_.dispose();
             subjectBuilder_ = null;
             subject_ = other.subject_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             subjectBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getSubjectFieldBuilder() : null;
@@ -856,6 +765,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPredicateType().isEmpty()) {
         predicateType_ = other.predicateType_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       switch (other.getPredicateCase()) {
@@ -875,7 +785,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -890,17 +800,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.InTotoStatement parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              type_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.grafeas.v1.Subject m =
+                  input.readMessage(
+                      io.grafeas.v1.Subject.parser(),
+                      extensionRegistry);
+              if (subjectBuilder_ == null) {
+                ensureSubjectIsMutable();
+                subject_.add(m);
+              } else {
+                subjectBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              predicateType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getProvenanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              predicateCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getSlsaProvenanceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              predicateCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSlsaProvenanceZeroTwoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              predicateCase_ = 6;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.InTotoStatement) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int predicateCase_ = 0;
@@ -973,11 +940,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -990,8 +955,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
       type_ = getDefaultInstance().getType();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1006,12 +971,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1019,9 +982,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.grafeas.v1.Subject> subject_ =
       java.util.Collections.emptyList();
     private void ensureSubjectIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         subject_ = new java.util.ArrayList<io.grafeas.v1.Subject>(subject_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1171,7 +1134,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearSubject() {
       if (subjectBuilder_ == null) {
         subject_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         subjectBuilder_.clear();
@@ -1248,7 +1211,7 @@ private static final long serialVersionUID = 0L;
         subjectBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.grafeas.v1.Subject, io.grafeas.v1.Subject.Builder, io.grafeas.v1.SubjectOrBuilder>(
                 subject_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         subject_ = null;
@@ -1309,11 +1272,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredicateType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       predicateType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1326,8 +1287,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPredicateType() {
-      
       predicateType_ = getDefaultInstance().getPredicateType();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1342,12 +1303,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPredicateTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       predicateType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1490,7 +1449,7 @@ private static final long serialVersionUID = 0L;
         predicate_ = null;
       }
       predicateCase_ = 4;
-      onChanged();;
+      onChanged();
       return provenanceBuilder_;
     }
 
@@ -1632,7 +1591,7 @@ private static final long serialVersionUID = 0L;
         predicate_ = null;
       }
       predicateCase_ = 5;
-      onChanged();;
+      onChanged();
       return slsaProvenanceBuilder_;
     }
 
@@ -1774,7 +1733,7 @@ private static final long serialVersionUID = 0L;
         predicate_ = null;
       }
       predicateCase_ = 6;
-      onChanged();;
+      onChanged();
       return slsaProvenanceZeroTwoBuilder_;
     }
     @java.lang.Override
@@ -1810,7 +1769,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InTotoStatement(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

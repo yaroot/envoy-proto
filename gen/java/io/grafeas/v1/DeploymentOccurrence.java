@@ -39,108 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DeploymentOccurrence(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            userEmail_ = s;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (deployTime_ != null) {
-              subBuilder = deployTime_.toBuilder();
-            }
-            deployTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(deployTime_);
-              deployTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (undeployTime_ != null) {
-              subBuilder = undeployTime_.toBuilder();
-            }
-            undeployTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(undeployTime_);
-              undeployTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            config_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            address_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              resourceUri_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            resourceUri_.add(s);
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            platform_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        resourceUri_ = resourceUri_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.grafeas.v1.Deployment.internal_static_grafeas_v1_DeploymentOccurrence_descriptor;
@@ -317,7 +215,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_EMAIL_FIELD_NUMBER = 1;
-  private volatile java.lang.Object userEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userEmail_ = "";
   /**
    * <pre>
    * Identity of the user that triggered this deployment.
@@ -397,7 +296,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDeployTimeOrBuilder() {
-    return getDeployTime();
+    return deployTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : deployTime_;
   }
 
   public static final int UNDEPLOY_TIME_FIELD_NUMBER = 3;
@@ -435,11 +334,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUndeployTimeOrBuilder() {
-    return getUndeployTime();
+    return undeployTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : undeployTime_;
   }
 
   public static final int CONFIG_FIELD_NUMBER = 4;
-  private volatile java.lang.Object config_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object config_ = "";
   /**
    * <pre>
    * Configuration used to create this deployment.
@@ -485,7 +385,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADDRESS_FIELD_NUMBER = 5;
-  private volatile java.lang.Object address_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object address_ = "";
   /**
    * <pre>
    * Address of the runtime element hosting this deployment.
@@ -531,6 +432,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_URI_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList resourceUri_;
   /**
    * <pre>
@@ -586,7 +488,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLATFORM_FIELD_NUMBER = 7;
-  private int platform_;
+  private int platform_ = 0;
   /**
    * <pre>
    * Platform hosting this deployment.
@@ -607,8 +509,7 @@ private static final long serialVersionUID = 0L;
    * @return The platform.
    */
   @java.lang.Override public io.grafeas.v1.DeploymentOccurrence.Platform getPlatform() {
-    @SuppressWarnings("deprecation")
-    io.grafeas.v1.DeploymentOccurrence.Platform result = io.grafeas.v1.DeploymentOccurrence.Platform.valueOf(platform_);
+    io.grafeas.v1.DeploymentOccurrence.Platform result = io.grafeas.v1.DeploymentOccurrence.Platform.forNumber(platform_);
     return result == null ? io.grafeas.v1.DeploymentOccurrence.Platform.UNRECOGNIZED : result;
   }
 
@@ -647,7 +548,7 @@ private static final long serialVersionUID = 0L;
     if (platform_ != io.grafeas.v1.DeploymentOccurrence.Platform.PLATFORM_UNSPECIFIED.getNumber()) {
       output.writeEnum(7, platform_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -685,7 +586,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(7, platform_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -719,7 +620,7 @@ private static final long serialVersionUID = 0L;
     if (!getResourceUriList()
         .equals(other.getResourceUriList())) return false;
     if (platform_ != other.platform_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -750,7 +651,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + PLATFORM_FIELD_NUMBER;
     hash = (53 * hash) + platform_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -871,44 +772,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.grafeas.v1.DeploymentOccurrence.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       userEmail_ = "";
-
-      if (deployTimeBuilder_ == null) {
-        deployTime_ = null;
-      } else {
-        deployTime_ = null;
+      deployTime_ = null;
+      if (deployTimeBuilder_ != null) {
+        deployTimeBuilder_.dispose();
         deployTimeBuilder_ = null;
       }
-      if (undeployTimeBuilder_ == null) {
-        undeployTime_ = null;
-      } else {
-        undeployTime_ = null;
+      undeployTime_ = null;
+      if (undeployTimeBuilder_ != null) {
+        undeployTimeBuilder_.dispose();
         undeployTimeBuilder_ = null;
       }
       config_ = "";
-
       address_ = "";
-
       resourceUri_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       platform_ = 0;
-
       return this;
     }
 
@@ -935,28 +826,44 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.grafeas.v1.DeploymentOccurrence buildPartial() {
       io.grafeas.v1.DeploymentOccurrence result = new io.grafeas.v1.DeploymentOccurrence(this);
-      int from_bitField0_ = bitField0_;
-      result.userEmail_ = userEmail_;
-      if (deployTimeBuilder_ == null) {
-        result.deployTime_ = deployTime_;
-      } else {
-        result.deployTime_ = deployTimeBuilder_.build();
-      }
-      if (undeployTimeBuilder_ == null) {
-        result.undeployTime_ = undeployTime_;
-      } else {
-        result.undeployTime_ = undeployTimeBuilder_.build();
-      }
-      result.config_ = config_;
-      result.address_ = address_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        resourceUri_ = resourceUri_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.resourceUri_ = resourceUri_;
-      result.platform_ = platform_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.grafeas.v1.DeploymentOccurrence result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        resourceUri_ = resourceUri_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.resourceUri_ = resourceUri_;
+    }
+
+    private void buildPartial0(io.grafeas.v1.DeploymentOccurrence result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.userEmail_ = userEmail_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.deployTime_ = deployTimeBuilder_ == null
+            ? deployTime_
+            : deployTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.undeployTime_ = undeployTimeBuilder_ == null
+            ? undeployTime_
+            : undeployTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.config_ = config_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.address_ = address_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.platform_ = platform_;
+      }
     }
 
     @java.lang.Override
@@ -1005,6 +912,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.grafeas.v1.DeploymentOccurrence.getDefaultInstance()) return this;
       if (!other.getUserEmail().isEmpty()) {
         userEmail_ = other.userEmail_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDeployTime()) {
@@ -1015,16 +923,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getConfig().isEmpty()) {
         config_ = other.config_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getAddress().isEmpty()) {
         address_ = other.address_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.resourceUri_.isEmpty()) {
         if (resourceUri_.isEmpty()) {
           resourceUri_ = other.resourceUri_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureResourceUriIsMutable();
           resourceUri_.addAll(other.resourceUri_);
@@ -1034,7 +944,7 @@ private static final long serialVersionUID = 0L;
       if (other.platform_ != 0) {
         setPlatformValue(other.getPlatformValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1049,17 +959,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grafeas.v1.DeploymentOccurrence parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              userEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDeployTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUndeployTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              config_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              address_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureResourceUriIsMutable();
+              resourceUri_.add(s);
+              break;
+            } // case 50
+            case 56: {
+              platform_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grafeas.v1.DeploymentOccurrence) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1117,11 +1080,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       userEmail_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1134,8 +1095,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserEmail() {
-      
       userEmail_ = getDefaultInstance().getUserEmail();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1150,12 +1111,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       userEmail_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1172,7 +1131,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the deployTime field is set.
      */
     public boolean hasDeployTime() {
-      return deployTimeBuilder_ != null || deployTime_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1202,11 +1161,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         deployTime_ = value;
-        onChanged();
       } else {
         deployTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1220,11 +1179,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (deployTimeBuilder_ == null) {
         deployTime_ = builderForValue.build();
-        onChanged();
       } else {
         deployTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1236,17 +1195,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDeployTime(com.google.protobuf.Timestamp value) {
       if (deployTimeBuilder_ == null) {
-        if (deployTime_ != null) {
-          deployTime_ =
-            com.google.protobuf.Timestamp.newBuilder(deployTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          deployTime_ != null &&
+          deployTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDeployTimeBuilder().mergeFrom(value);
         } else {
           deployTime_ = value;
         }
-        onChanged();
       } else {
         deployTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1257,14 +1217,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp deploy_time = 2;</code>
      */
     public Builder clearDeployTime() {
-      if (deployTimeBuilder_ == null) {
-        deployTime_ = null;
-        onChanged();
-      } else {
-        deployTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      deployTime_ = null;
+      if (deployTimeBuilder_ != null) {
+        deployTimeBuilder_.dispose();
         deployTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1275,7 +1234,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp deploy_time = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getDeployTimeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDeployTimeFieldBuilder().getBuilder();
     }
@@ -1327,7 +1286,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the undeployTime field is set.
      */
     public boolean hasUndeployTime() {
-      return undeployTimeBuilder_ != null || undeployTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1357,11 +1316,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         undeployTime_ = value;
-        onChanged();
       } else {
         undeployTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1375,11 +1334,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (undeployTimeBuilder_ == null) {
         undeployTime_ = builderForValue.build();
-        onChanged();
       } else {
         undeployTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1391,17 +1350,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUndeployTime(com.google.protobuf.Timestamp value) {
       if (undeployTimeBuilder_ == null) {
-        if (undeployTime_ != null) {
-          undeployTime_ =
-            com.google.protobuf.Timestamp.newBuilder(undeployTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          undeployTime_ != null &&
+          undeployTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUndeployTimeBuilder().mergeFrom(value);
         } else {
           undeployTime_ = value;
         }
-        onChanged();
       } else {
         undeployTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1412,14 +1372,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp undeploy_time = 3;</code>
      */
     public Builder clearUndeployTime() {
-      if (undeployTimeBuilder_ == null) {
-        undeployTime_ = null;
-        onChanged();
-      } else {
-        undeployTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      undeployTime_ = null;
+      if (undeployTimeBuilder_ != null) {
+        undeployTimeBuilder_.dispose();
         undeployTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1430,7 +1389,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp undeploy_time = 3;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUndeployTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUndeployTimeFieldBuilder().getBuilder();
     }
@@ -1523,11 +1482,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConfig(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       config_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1540,8 +1497,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConfig() {
-      
       config_ = getDefaultInstance().getConfig();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1556,12 +1513,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setConfigBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       config_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1619,11 +1574,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddress(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       address_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1636,8 +1589,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAddress() {
-      
       address_ = getDefaultInstance().getAddress();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1652,21 +1605,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAddressBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       address_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList resourceUri_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureResourceUriIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         resourceUri_ = new com.google.protobuf.LazyStringArrayList(resourceUri_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1734,10 +1685,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceUri(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResourceUriIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResourceUriIsMutable();
       resourceUri_.set(index, value);
       onChanged();
       return this;
@@ -1754,10 +1703,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResourceUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResourceUriIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResourceUriIsMutable();
       resourceUri_.add(value);
       onChanged();
       return this;
@@ -1791,7 +1738,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearResourceUri() {
       resourceUri_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1807,10 +1754,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResourceUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureResourceUriIsMutable();
       resourceUri_.add(value);
       onChanged();
@@ -1839,8 +1784,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlatformValue(int value) {
-      
       platform_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1854,8 +1799,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.grafeas.v1.DeploymentOccurrence.Platform getPlatform() {
-      @SuppressWarnings("deprecation")
-      io.grafeas.v1.DeploymentOccurrence.Platform result = io.grafeas.v1.DeploymentOccurrence.Platform.valueOf(platform_);
+      io.grafeas.v1.DeploymentOccurrence.Platform result = io.grafeas.v1.DeploymentOccurrence.Platform.forNumber(platform_);
       return result == null ? io.grafeas.v1.DeploymentOccurrence.Platform.UNRECOGNIZED : result;
     }
     /**
@@ -1871,7 +1815,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       platform_ = value.getNumber();
       onChanged();
       return this;
@@ -1885,7 +1829,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlatform() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       platform_ = 0;
       onChanged();
       return this;
@@ -1923,7 +1867,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DeploymentOccurrence(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

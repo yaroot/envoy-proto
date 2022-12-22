@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AddDnsPeeringRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.datafusion.v1beta1.DnsPeering.Builder subBuilder = null;
-            if (dnsPeering_ != null) {
-              subBuilder = dnsPeering_.toBuilder();
-            }
-            dnsPeering_ = input.readMessage(com.google.cloud.datafusion.v1beta1.DnsPeering.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dnsPeering_);
-              dnsPeering_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datafusion.v1beta1.V1Beta1.internal_static_google_cloud_datafusion_v1beta1_AddDnsPeeringRequest_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource on which DNS peering will be created.
@@ -187,7 +130,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.datafusion.v1beta1.DnsPeeringOrBuilder getDnsPeeringOrBuilder() {
-    return getDnsPeering();
+    return dnsPeering_ == null ? com.google.cloud.datafusion.v1beta1.DnsPeering.getDefaultInstance() : dnsPeering_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -210,7 +153,7 @@ private static final long serialVersionUID = 0L;
     if (dnsPeering_ != null) {
       output.writeMessage(2, getDnsPeering());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -226,7 +169,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getDnsPeering());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -248,7 +191,7 @@ private static final long serialVersionUID = 0L;
       if (!getDnsPeering()
           .equals(other.getDnsPeering())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -265,7 +208,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DNS_PEERING_FIELD_NUMBER;
       hash = (53 * hash) + getDnsPeering().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -386,28 +329,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (dnsPeeringBuilder_ == null) {
-        dnsPeering_ = null;
-      } else {
-        dnsPeering_ = null;
+      dnsPeering_ = null;
+      if (dnsPeeringBuilder_ != null) {
+        dnsPeeringBuilder_.dispose();
         dnsPeeringBuilder_ = null;
       }
       return this;
@@ -436,14 +373,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest buildPartial() {
       com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest result = new com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest(this);
-      result.parent_ = parent_;
-      if (dnsPeeringBuilder_ == null) {
-        result.dnsPeering_ = dnsPeering_;
-      } else {
-        result.dnsPeering_ = dnsPeeringBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.dnsPeering_ = dnsPeeringBuilder_ == null
+            ? dnsPeering_
+            : dnsPeeringBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -492,12 +436,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasDnsPeering()) {
         mergeDnsPeering(other.getDnsPeering());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -512,19 +457,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDnsPeeringFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datafusion.v1beta1.AddDnsPeeringRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -579,11 +550,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -596,8 +565,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -612,12 +581,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -634,7 +601,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the dnsPeering field is set.
      */
     public boolean hasDnsPeering() {
-      return dnsPeeringBuilder_ != null || dnsPeering_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -664,11 +631,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dnsPeering_ = value;
-        onChanged();
       } else {
         dnsPeeringBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -682,11 +649,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datafusion.v1beta1.DnsPeering.Builder builderForValue) {
       if (dnsPeeringBuilder_ == null) {
         dnsPeering_ = builderForValue.build();
-        onChanged();
       } else {
         dnsPeeringBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -698,17 +665,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDnsPeering(com.google.cloud.datafusion.v1beta1.DnsPeering value) {
       if (dnsPeeringBuilder_ == null) {
-        if (dnsPeering_ != null) {
-          dnsPeering_ =
-            com.google.cloud.datafusion.v1beta1.DnsPeering.newBuilder(dnsPeering_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          dnsPeering_ != null &&
+          dnsPeering_ != com.google.cloud.datafusion.v1beta1.DnsPeering.getDefaultInstance()) {
+          getDnsPeeringBuilder().mergeFrom(value);
         } else {
           dnsPeering_ = value;
         }
-        onChanged();
       } else {
         dnsPeeringBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -719,14 +687,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datafusion.v1beta1.DnsPeering dns_peering = 2;</code>
      */
     public Builder clearDnsPeering() {
-      if (dnsPeeringBuilder_ == null) {
-        dnsPeering_ = null;
-        onChanged();
-      } else {
-        dnsPeering_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      dnsPeering_ = null;
+      if (dnsPeeringBuilder_ != null) {
+        dnsPeeringBuilder_.dispose();
         dnsPeeringBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -737,7 +704,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.datafusion.v1beta1.DnsPeering dns_peering = 2;</code>
      */
     public com.google.cloud.datafusion.v1beta1.DnsPeering.Builder getDnsPeeringBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDnsPeeringFieldBuilder().getBuilder();
     }
@@ -809,7 +776,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AddDnsPeeringRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

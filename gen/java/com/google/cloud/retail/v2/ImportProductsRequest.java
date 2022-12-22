@@ -38,108 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ImportProductsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.retail.v2.ProductInputConfig.Builder subBuilder = null;
-            if (inputConfig_ != null) {
-              subBuilder = inputConfig_.toBuilder();
-            }
-            inputConfig_ = input.readMessage(com.google.cloud.retail.v2.ProductInputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(inputConfig_);
-              inputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.retail.v2.ImportErrorsConfig.Builder subBuilder = null;
-            if (errorsConfig_ != null) {
-              subBuilder = errorsConfig_.toBuilder();
-            }
-            errorsConfig_ = input.readMessage(com.google.cloud.retail.v2.ImportErrorsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(errorsConfig_);
-              errorsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            reconciliationMode_ = rawValue;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            notificationPubsubTopic_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2.ImportConfigProto.internal_static_google_cloud_retail_v2_ImportProductsRequest_descriptor;
@@ -183,13 +81,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Calculates diff and replaces the entire product dataset. Existing
      * products may be deleted if they are not present in the source location.
-     * Can only be set while using
-     * [BigQuerySource][google.cloud.retail.v2.BigQuerySource]. And the BigQuery
-     * dataset must be created in the data location "us (multiple regions in
-     * United States)", otherwise a PERMISSION_DENIED error is thrown.
-     * Add the IAM permission "BigQuery Data Viewer" for
-     * cloud-retail-customer-data-access&#64;system.gserviceaccount.com before
-     * using this feature otherwise an error is thrown.
      * </pre>
      *
      * <code>FULL = 2;</code>
@@ -218,13 +109,6 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Calculates diff and replaces the entire product dataset. Existing
      * products may be deleted if they are not present in the source location.
-     * Can only be set while using
-     * [BigQuerySource][google.cloud.retail.v2.BigQuerySource]. And the BigQuery
-     * dataset must be created in the data location "us (multiple regions in
-     * United States)", otherwise a PERMISSION_DENIED error is thrown.
-     * Add the IAM permission "BigQuery Data Viewer" for
-     * cloud-retail-customer-data-access&#64;system.gserviceaccount.com before
-     * using this feature otherwise an error is thrown.
      * </pre>
      *
      * <code>FULL = 2;</code>
@@ -316,7 +200,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required.
@@ -368,7 +253,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
    * Deprecated. This field has no effect.
@@ -376,7 +262,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string request_id = 6 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-   *     See google/cloud/retail/v2/import_config.proto;l=199
+   *     See google/cloud/retail/v2/import_config.proto;l=189
    * @return The requestId.
    */
   @java.lang.Override
@@ -399,7 +285,7 @@ private static final long serialVersionUID = 0L;
    *
    * <code>string request_id = 6 [deprecated = true];</code>
    * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-   *     See google/cloud/retail/v2/import_config.proto;l=199
+   *     See google/cloud/retail/v2/import_config.proto;l=189
    * @return The bytes for requestId.
    */
   @java.lang.Override
@@ -452,7 +338,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2.ProductInputConfigOrBuilder getInputConfigOrBuilder() {
-    return getInputConfig();
+    return inputConfig_ == null ? com.google.cloud.retail.v2.ProductInputConfig.getDefaultInstance() : inputConfig_;
   }
 
   public static final int ERRORS_CONFIG_FIELD_NUMBER = 3;
@@ -490,15 +376,15 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2.ImportErrorsConfigOrBuilder getErrorsConfigOrBuilder() {
-    return getErrorsConfig();
+    return errorsConfig_ == null ? com.google.cloud.retail.v2.ImportErrorsConfig.getDefaultInstance() : errorsConfig_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 4;
   private com.google.protobuf.FieldMask updateMask_;
   /**
    * <pre>
-   * Indicates which fields in the provided imported 'products' to update. If
-   * not set, will by default update all fields.
+   * Indicates which fields in the provided imported `products` to update. If
+   * not set, all fields are updated.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -510,8 +396,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Indicates which fields in the provided imported 'products' to update. If
-   * not set, will by default update all fields.
+   * Indicates which fields in the provided imported `products` to update. If
+   * not set, all fields are updated.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -523,19 +409,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Indicates which fields in the provided imported 'products' to update. If
-   * not set, will by default update all fields.
+   * Indicates which fields in the provided imported `products` to update. If
+   * not set, all fields are updated.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 4;</code>
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   public static final int RECONCILIATION_MODE_FIELD_NUMBER = 5;
-  private int reconciliationMode_;
+  private int reconciliationMode_ = 0;
   /**
    * <pre>
    * The mode of reconciliation between existing products and the products to be
@@ -560,29 +446,25 @@ private static final long serialVersionUID = 0L;
    * @return The reconciliationMode.
    */
   @java.lang.Override public com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode getReconciliationMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode result = com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode.valueOf(reconciliationMode_);
+    com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode result = com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode.forNumber(reconciliationMode_);
     return result == null ? com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode.UNRECOGNIZED : result;
   }
 
   public static final int NOTIFICATION_PUBSUB_TOPIC_FIELD_NUMBER = 7;
-  private volatile java.lang.Object notificationPubsubTopic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object notificationPubsubTopic_ = "";
   /**
    * <pre>
    * Full Pub/Sub topic name for receiving notification. If this field is set,
-   * when the import is finished, a notification will be sent to
-   * specified Pub/Sub topic. The message data will be JSON string of a
+   * when the import is finished, a notification is sent to
+   * specified Pub/Sub topic. The message data is JSON string of a
    * [Operation][google.longrunning.Operation].
    * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
    * to be within the same project as
    * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-   * Make sure that both
-   * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-   * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-   * have the `pubsub.topics.publish` IAM permission on the topic.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Make sure that `service-&lt;project
+   * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+   * `pubsub.topics.publish` IAM permission on the topic.
    * </pre>
    *
    * <code>string notification_pubsub_topic = 7;</code>
@@ -604,19 +486,15 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Full Pub/Sub topic name for receiving notification. If this field is set,
-   * when the import is finished, a notification will be sent to
-   * specified Pub/Sub topic. The message data will be JSON string of a
+   * when the import is finished, a notification is sent to
+   * specified Pub/Sub topic. The message data is JSON string of a
    * [Operation][google.longrunning.Operation].
    * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
    * to be within the same project as
    * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-   * Make sure that both
-   * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-   * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-   * have the `pubsub.topics.publish` IAM permission on the topic.
-   * Only supported when
-   * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-   * is set to `FULL`.
+   * Make sure that `service-&lt;project
+   * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+   * `pubsub.topics.publish` IAM permission on the topic.
    * </pre>
    *
    * <code>string notification_pubsub_topic = 7;</code>
@@ -672,7 +550,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(notificationPubsubTopic_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, notificationPubsubTopic_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -706,7 +584,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(notificationPubsubTopic_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, notificationPubsubTopic_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -743,7 +621,7 @@ private static final long serialVersionUID = 0L;
     if (reconciliationMode_ != other.reconciliationMode_) return false;
     if (!getNotificationPubsubTopic()
         .equals(other.getNotificationPubsubTopic())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -774,7 +652,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + reconciliationMode_;
     hash = (37 * hash) + NOTIFICATION_PUBSUB_TOPIC_FIELD_NUMBER;
     hash = (53 * hash) + getNotificationPubsubTopic().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -895,48 +773,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2.ImportProductsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       requestId_ = "";
-
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-      } else {
-        inputConfig_ = null;
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-      if (errorsConfigBuilder_ == null) {
-        errorsConfig_ = null;
-      } else {
-        errorsConfig_ = null;
+      errorsConfig_ = null;
+      if (errorsConfigBuilder_ != null) {
+        errorsConfigBuilder_.dispose();
         errorsConfigBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       reconciliationMode_ = 0;
-
       notificationPubsubTopic_ = "";
-
       return this;
     }
 
@@ -963,27 +830,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2.ImportProductsRequest buildPartial() {
       com.google.cloud.retail.v2.ImportProductsRequest result = new com.google.cloud.retail.v2.ImportProductsRequest(this);
-      result.parent_ = parent_;
-      result.requestId_ = requestId_;
-      if (inputConfigBuilder_ == null) {
-        result.inputConfig_ = inputConfig_;
-      } else {
-        result.inputConfig_ = inputConfigBuilder_.build();
-      }
-      if (errorsConfigBuilder_ == null) {
-        result.errorsConfig_ = errorsConfig_;
-      } else {
-        result.errorsConfig_ = errorsConfigBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
-      result.reconciliationMode_ = reconciliationMode_;
-      result.notificationPubsubTopic_ = notificationPubsubTopic_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2.ImportProductsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.requestId_ = requestId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.inputConfig_ = inputConfigBuilder_ == null
+            ? inputConfig_
+            : inputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.errorsConfig_ = errorsConfigBuilder_ == null
+            ? errorsConfig_
+            : errorsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.reconciliationMode_ = reconciliationMode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.notificationPubsubTopic_ = notificationPubsubTopic_;
+      }
     }
 
     @java.lang.Override
@@ -1032,10 +912,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2.ImportProductsRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasInputConfig()) {
@@ -1052,9 +934,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getNotificationPubsubTopic().isEmpty()) {
         notificationPubsubTopic_ = other.notificationPubsubTopic_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1069,19 +952,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2.ImportProductsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getErrorsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 40: {
+              reconciliationMode_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 40
+            case 50: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 50
+            case 58: {
+              notificationPubsubTopic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2.ImportProductsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -1145,11 +1083,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1165,8 +1101,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1184,12 +1120,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1202,7 +1136,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string request_id = 6 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-     *     See google/cloud/retail/v2/import_config.proto;l=199
+     *     See google/cloud/retail/v2/import_config.proto;l=189
      * @return The requestId.
      */
     @java.lang.Deprecated public java.lang.String getRequestId() {
@@ -1224,7 +1158,7 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string request_id = 6 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-     *     See google/cloud/retail/v2/import_config.proto;l=199
+     *     See google/cloud/retail/v2/import_config.proto;l=189
      * @return The bytes for requestId.
      */
     @java.lang.Deprecated public com.google.protobuf.ByteString
@@ -1247,17 +1181,15 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string request_id = 6 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-     *     See google/cloud/retail/v2/import_config.proto;l=199
+     *     See google/cloud/retail/v2/import_config.proto;l=189
      * @param value The requestId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1268,12 +1200,12 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string request_id = 6 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-     *     See google/cloud/retail/v2/import_config.proto;l=199
+     *     See google/cloud/retail/v2/import_config.proto;l=189
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1284,18 +1216,16 @@ private static final long serialVersionUID = 0L;
      *
      * <code>string request_id = 6 [deprecated = true];</code>
      * @deprecated google.cloud.retail.v2.ImportProductsRequest.request_id is deprecated.
-     *     See google/cloud/retail/v2/import_config.proto;l=199
+     *     See google/cloud/retail/v2/import_config.proto;l=189
      * @param value The bytes for requestId to set.
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1312,7 +1242,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the inputConfig field is set.
      */
     public boolean hasInputConfig() {
-      return inputConfigBuilder_ != null || inputConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1342,11 +1272,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         inputConfig_ = value;
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1360,11 +1290,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2.ProductInputConfig.Builder builderForValue) {
       if (inputConfigBuilder_ == null) {
         inputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         inputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1376,17 +1306,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInputConfig(com.google.cloud.retail.v2.ProductInputConfig value) {
       if (inputConfigBuilder_ == null) {
-        if (inputConfig_ != null) {
-          inputConfig_ =
-            com.google.cloud.retail.v2.ProductInputConfig.newBuilder(inputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          inputConfig_ != null &&
+          inputConfig_ != com.google.cloud.retail.v2.ProductInputConfig.getDefaultInstance()) {
+          getInputConfigBuilder().mergeFrom(value);
         } else {
           inputConfig_ = value;
         }
-        onChanged();
       } else {
         inputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1397,14 +1328,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2.ProductInputConfig input_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearInputConfig() {
-      if (inputConfigBuilder_ == null) {
-        inputConfig_ = null;
-        onChanged();
-      } else {
-        inputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      inputConfig_ = null;
+      if (inputConfigBuilder_ != null) {
+        inputConfigBuilder_.dispose();
         inputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1415,7 +1345,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2.ProductInputConfig input_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.retail.v2.ProductInputConfig.Builder getInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getInputConfigFieldBuilder().getBuilder();
     }
@@ -1467,7 +1397,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the errorsConfig field is set.
      */
     public boolean hasErrorsConfig() {
-      return errorsConfigBuilder_ != null || errorsConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1497,11 +1427,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         errorsConfig_ = value;
-        onChanged();
       } else {
         errorsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1515,11 +1445,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2.ImportErrorsConfig.Builder builderForValue) {
       if (errorsConfigBuilder_ == null) {
         errorsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         errorsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1531,17 +1461,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeErrorsConfig(com.google.cloud.retail.v2.ImportErrorsConfig value) {
       if (errorsConfigBuilder_ == null) {
-        if (errorsConfig_ != null) {
-          errorsConfig_ =
-            com.google.cloud.retail.v2.ImportErrorsConfig.newBuilder(errorsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          errorsConfig_ != null &&
+          errorsConfig_ != com.google.cloud.retail.v2.ImportErrorsConfig.getDefaultInstance()) {
+          getErrorsConfigBuilder().mergeFrom(value);
         } else {
           errorsConfig_ = value;
         }
-        onChanged();
       } else {
         errorsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1552,14 +1483,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2.ImportErrorsConfig errors_config = 3;</code>
      */
     public Builder clearErrorsConfig() {
-      if (errorsConfigBuilder_ == null) {
-        errorsConfig_ = null;
-        onChanged();
-      } else {
-        errorsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      errorsConfig_ = null;
+      if (errorsConfigBuilder_ != null) {
+        errorsConfigBuilder_.dispose();
         errorsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1570,7 +1500,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2.ImportErrorsConfig errors_config = 3;</code>
      */
     public com.google.cloud.retail.v2.ImportErrorsConfig.Builder getErrorsConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getErrorsConfigFieldBuilder().getBuilder();
     }
@@ -1615,20 +1545,20 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> updateMaskBuilder_;
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -1643,8 +1573,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -1655,17 +1585,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -1674,72 +1604,72 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -1754,8 +1684,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Indicates which fields in the provided imported 'products' to update. If
-     * not set, will by default update all fields.
+     * Indicates which fields in the provided imported `products` to update. If
+     * not set, all fields are updated.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 4;</code>
@@ -1800,8 +1730,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReconciliationModeValue(int value) {
-      
       reconciliationMode_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1817,8 +1747,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode getReconciliationMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode result = com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode.valueOf(reconciliationMode_);
+      com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode result = com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode.forNumber(reconciliationMode_);
       return result == null ? com.google.cloud.retail.v2.ImportProductsRequest.ReconciliationMode.UNRECOGNIZED : result;
     }
     /**
@@ -1836,7 +1765,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       reconciliationMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1852,7 +1781,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReconciliationMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       reconciliationMode_ = 0;
       onChanged();
       return this;
@@ -1862,19 +1791,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Full Pub/Sub topic name for receiving notification. If this field is set,
-     * when the import is finished, a notification will be sent to
-     * specified Pub/Sub topic. The message data will be JSON string of a
+     * when the import is finished, a notification is sent to
+     * specified Pub/Sub topic. The message data is JSON string of a
      * [Operation][google.longrunning.Operation].
      * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
      * to be within the same project as
      * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-     * Make sure that both
-     * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-     * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-     * have the `pubsub.topics.publish` IAM permission on the topic.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Make sure that `service-&lt;project
+     * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+     * `pubsub.topics.publish` IAM permission on the topic.
      * </pre>
      *
      * <code>string notification_pubsub_topic = 7;</code>
@@ -1895,19 +1820,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Full Pub/Sub topic name for receiving notification. If this field is set,
-     * when the import is finished, a notification will be sent to
-     * specified Pub/Sub topic. The message data will be JSON string of a
+     * when the import is finished, a notification is sent to
+     * specified Pub/Sub topic. The message data is JSON string of a
      * [Operation][google.longrunning.Operation].
      * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
      * to be within the same project as
      * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-     * Make sure that both
-     * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-     * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-     * have the `pubsub.topics.publish` IAM permission on the topic.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Make sure that `service-&lt;project
+     * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+     * `pubsub.topics.publish` IAM permission on the topic.
      * </pre>
      *
      * <code>string notification_pubsub_topic = 7;</code>
@@ -1929,19 +1850,15 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Full Pub/Sub topic name for receiving notification. If this field is set,
-     * when the import is finished, a notification will be sent to
-     * specified Pub/Sub topic. The message data will be JSON string of a
+     * when the import is finished, a notification is sent to
+     * specified Pub/Sub topic. The message data is JSON string of a
      * [Operation][google.longrunning.Operation].
      * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
      * to be within the same project as
      * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-     * Make sure that both
-     * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-     * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-     * have the `pubsub.topics.publish` IAM permission on the topic.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Make sure that `service-&lt;project
+     * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+     * `pubsub.topics.publish` IAM permission on the topic.
      * </pre>
      *
      * <code>string notification_pubsub_topic = 7;</code>
@@ -1950,57 +1867,47 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotificationPubsubTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       notificationPubsubTopic_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Full Pub/Sub topic name for receiving notification. If this field is set,
-     * when the import is finished, a notification will be sent to
-     * specified Pub/Sub topic. The message data will be JSON string of a
+     * when the import is finished, a notification is sent to
+     * specified Pub/Sub topic. The message data is JSON string of a
      * [Operation][google.longrunning.Operation].
      * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
      * to be within the same project as
      * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-     * Make sure that both
-     * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-     * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-     * have the `pubsub.topics.publish` IAM permission on the topic.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Make sure that `service-&lt;project
+     * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+     * `pubsub.topics.publish` IAM permission on the topic.
      * </pre>
      *
      * <code>string notification_pubsub_topic = 7;</code>
      * @return This builder for chaining.
      */
     public Builder clearNotificationPubsubTopic() {
-      
       notificationPubsubTopic_ = getDefaultInstance().getNotificationPubsubTopic();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Full Pub/Sub topic name for receiving notification. If this field is set,
-     * when the import is finished, a notification will be sent to
-     * specified Pub/Sub topic. The message data will be JSON string of a
+     * when the import is finished, a notification is sent to
+     * specified Pub/Sub topic. The message data is JSON string of a
      * [Operation][google.longrunning.Operation].
      * Format of the Pub/Sub topic is `projects/{project}/topics/{topic}`. It has
      * to be within the same project as
      * [ImportProductsRequest.parent][google.cloud.retail.v2.ImportProductsRequest.parent].
-     * Make sure that both
-     * `cloud-retail-customer-data-access&#64;system.gserviceaccount.com` and
-     * `service-&lt;project number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com`
-     * have the `pubsub.topics.publish` IAM permission on the topic.
-     * Only supported when
-     * [ImportProductsRequest.reconciliation_mode][google.cloud.retail.v2.ImportProductsRequest.reconciliation_mode]
-     * is set to `FULL`.
+     * Make sure that `service-&lt;project
+     * number&gt;&#64;gcp-sa-retail.iam.gserviceaccount.com` has the
+     * `pubsub.topics.publish` IAM permission on the topic.
      * </pre>
      *
      * <code>string notification_pubsub_topic = 7;</code>
@@ -2009,12 +1916,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNotificationPubsubTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       notificationPubsubTopic_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2051,7 +1956,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ImportProductsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

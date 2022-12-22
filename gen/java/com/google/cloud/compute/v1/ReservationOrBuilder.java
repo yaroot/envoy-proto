@@ -173,6 +173,60 @@ public interface ReservationOrBuilder extends
 
   /**
    * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  int getResourcePoliciesCount();
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  boolean containsResourcePolicies(
+      java.lang.String key);
+  /**
+   * Use {@link #getResourcePoliciesMap()} instead.
+   */
+  @java.lang.Deprecated
+  java.util.Map<java.lang.String, java.lang.String>
+  getResourcePolicies();
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  java.util.Map<java.lang.String, java.lang.String>
+  getResourcePoliciesMap();
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  /* nullable */
+java.lang.String getResourcePoliciesOrDefault(
+      java.lang.String key,
+      /* nullable */
+java.lang.String defaultValue);
+  /**
+   * <pre>
+   * Resource policies to be added to this reservation. The key is defined by user, and the value is resource policy url. This is to define placement policy with reservation.
+   * </pre>
+   *
+   * <code>map&lt;string, string&gt; resource_policies = 22220385;</code>
+   */
+  java.lang.String getResourcePoliciesOrThrow(
+      java.lang.String key);
+
+  /**
+   * <pre>
    * [Output Only] Reserved for future use.
    * </pre>
    *
@@ -221,7 +275,7 @@ public interface ReservationOrBuilder extends
 
   /**
    * <pre>
-   * Share-settings for shared-reservation
+   * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -230,7 +284,7 @@ public interface ReservationOrBuilder extends
   boolean hasShareSettings();
   /**
    * <pre>
-   * Share-settings for shared-reservation
+   * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>
@@ -239,7 +293,7 @@ public interface ReservationOrBuilder extends
   com.google.cloud.compute.v1.ShareSettings getShareSettings();
   /**
    * <pre>
-   * Share-settings for shared-reservation
+   * Specify share-settings to create a shared reservation. This property is optional. For more information about the syntax and options for this field and its subfields, see the guide for creating a shared reservation.
    * </pre>
    *
    * <code>optional .google.cloud.compute.v1.ShareSettings share_settings = 266668163;</code>

@@ -36,61 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CohortsRange(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            granularity_ = rawValue;
-            break;
-          }
-          case 16: {
-
-            startOffset_ = input.readInt32();
-            break;
-          }
-          case 24: {
-
-            endOffset_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1beta.ReportingApiProto.internal_static_google_analytics_data_v1beta_CohortsRange_descriptor;
@@ -276,7 +221,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GRANULARITY_FIELD_NUMBER = 1;
-  private int granularity_;
+  private int granularity_ = 0;
   /**
    * <pre>
    * Required. The granularity used to interpret the `startOffset` and
@@ -299,13 +244,12 @@ private static final long serialVersionUID = 0L;
    * @return The granularity.
    */
   @java.lang.Override public com.google.analytics.data.v1beta.CohortsRange.Granularity getGranularity() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.data.v1beta.CohortsRange.Granularity result = com.google.analytics.data.v1beta.CohortsRange.Granularity.valueOf(granularity_);
+    com.google.analytics.data.v1beta.CohortsRange.Granularity result = com.google.analytics.data.v1beta.CohortsRange.Granularity.forNumber(granularity_);
     return result == null ? com.google.analytics.data.v1beta.CohortsRange.Granularity.UNRECOGNIZED : result;
   }
 
   public static final int START_OFFSET_FIELD_NUMBER = 2;
-  private int startOffset_;
+  private int startOffset_ = 0;
   /**
    * <pre>
    * `startOffset` specifies the start date of the extended reporting date range
@@ -328,7 +272,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int END_OFFSET_FIELD_NUMBER = 3;
-  private int endOffset_;
+  private int endOffset_ = 0;
   /**
    * <pre>
    * Required. `endOffset` specifies the end date of the extended reporting date
@@ -374,7 +318,7 @@ private static final long serialVersionUID = 0L;
     if (endOffset_ != 0) {
       output.writeInt32(3, endOffset_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -395,7 +339,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(3, endOffset_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -415,7 +359,7 @@ private static final long serialVersionUID = 0L;
         != other.getStartOffset()) return false;
     if (getEndOffset()
         != other.getEndOffset()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -432,7 +376,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getStartOffset();
     hash = (37 * hash) + END_OFFSET_FIELD_NUMBER;
     hash = (53 * hash) + getEndOffset();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -554,28 +498,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1beta.CohortsRange.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       granularity_ = 0;
-
       startOffset_ = 0;
-
       endOffset_ = 0;
-
       return this;
     }
 
@@ -602,11 +539,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1beta.CohortsRange buildPartial() {
       com.google.analytics.data.v1beta.CohortsRange result = new com.google.analytics.data.v1beta.CohortsRange(this);
-      result.granularity_ = granularity_;
-      result.startOffset_ = startOffset_;
-      result.endOffset_ = endOffset_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1beta.CohortsRange result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.granularity_ = granularity_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.startOffset_ = startOffset_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.endOffset_ = endOffset_;
+      }
     }
 
     @java.lang.Override
@@ -662,7 +610,7 @@ private static final long serialVersionUID = 0L;
       if (other.getEndOffset() != 0) {
         setEndOffset(other.getEndOffset());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -677,19 +625,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1beta.CohortsRange parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              granularity_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              startOffset_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              endOffset_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1beta.CohortsRange) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int granularity_ = 0;
     /**
@@ -715,8 +692,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setGranularityValue(int value) {
-      
       granularity_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -731,8 +708,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.data.v1beta.CohortsRange.Granularity getGranularity() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.data.v1beta.CohortsRange.Granularity result = com.google.analytics.data.v1beta.CohortsRange.Granularity.valueOf(granularity_);
+      com.google.analytics.data.v1beta.CohortsRange.Granularity result = com.google.analytics.data.v1beta.CohortsRange.Granularity.forNumber(granularity_);
       return result == null ? com.google.analytics.data.v1beta.CohortsRange.Granularity.UNRECOGNIZED : result;
     }
     /**
@@ -749,7 +725,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       granularity_ = value.getNumber();
       onChanged();
       return this;
@@ -764,7 +740,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGranularity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       granularity_ = 0;
       onChanged();
       return this;
@@ -811,6 +787,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStartOffset(int value) {
       
       startOffset_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -831,7 +808,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStartOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       startOffset_ = 0;
       onChanged();
       return this;
@@ -880,6 +857,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEndOffset(int value) {
       
       endOffset_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -901,7 +879,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEndOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       endOffset_ = 0;
       onChanged();
       return this;
@@ -939,7 +917,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CohortsRange(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

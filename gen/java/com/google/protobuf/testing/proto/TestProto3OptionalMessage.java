@@ -30,72 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TestProto3OptionalMessage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.Builder subBuilder = null;
-            if (nestedMessage_ != null) {
-              subBuilder = nestedMessage_.toBuilder();
-            }
-            nestedMessage_ = input.readMessage(com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nestedMessage_);
-              nestedMessage_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = optionalNestedMessage_.toBuilder();
-            }
-            optionalNestedMessage_ = input.readMessage(com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(optionalNestedMessage_);
-              optionalNestedMessage_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.protobuf.testing.proto.UnittestProto3Optional.internal_static_protobuf_unittest_TestProto3OptionalMessage_descriptor;
@@ -153,51 +87,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private NestedMessage(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              s_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.protobuf.testing.proto.UnittestProto3Optional.internal_static_protobuf_unittest_TestProto3OptionalMessage_NestedMessage_descriptor;
@@ -212,7 +101,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int S_FIELD_NUMBER = 1;
-    private volatile java.lang.Object s_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object s_ = "";
     /**
      * <code>string s = 1;</code>
      * @return The s.
@@ -266,7 +156,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(s_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, s_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -278,7 +168,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(s_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, s_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -295,7 +185,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getS()
           .equals(other.getS())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -308,7 +198,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + S_FIELD_NUMBER;
       hash = (53 * hash) + getS().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -425,24 +315,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         s_ = "";
-
         return this;
       }
 
@@ -469,9 +354,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage buildPartial() {
         com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage result = new com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage(this);
-        result.s_ = s_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.s_ = s_;
+        }
       }
 
       @java.lang.Override
@@ -520,9 +412,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.getDefaultInstance()) return this;
         if (!other.getS().isEmpty()) {
           s_ = other.s_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -537,19 +430,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                s_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object s_ = "";
       /**
@@ -592,11 +504,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setS(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         s_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -605,8 +515,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearS() {
-        
         s_ = getDefaultInstance().getS();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -617,12 +527,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         s_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -659,7 +567,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NestedMessage(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -703,7 +622,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessageOrBuilder getNestedMessageOrBuilder() {
-    return getNestedMessage();
+    return nestedMessage_ == null ? com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.getDefaultInstance() : nestedMessage_;
   }
 
   public static final int OPTIONAL_NESTED_MESSAGE_FIELD_NUMBER = 2;
@@ -752,7 +671,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeMessage(2, getOptionalNestedMessage());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -769,7 +688,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getOptionalNestedMessage());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -794,7 +713,7 @@ private static final long serialVersionUID = 0L;
       if (!getOptionalNestedMessage()
           .equals(other.getOptionalNestedMessage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -813,7 +732,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OPTIONAL_NESTED_MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getOptionalNestedMessage().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -941,24 +860,24 @@ private static final long serialVersionUID = 0L;
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessageV3
               .alwaysUseFieldBuilders) {
+        getNestedMessageFieldBuilder();
         getOptionalNestedMessageFieldBuilder();
       }
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nestedMessageBuilder_ == null) {
-        nestedMessage_ = null;
-      } else {
-        nestedMessage_ = null;
+      bitField0_ = 0;
+      nestedMessage_ = null;
+      if (nestedMessageBuilder_ != null) {
+        nestedMessageBuilder_.dispose();
         nestedMessageBuilder_ = null;
       }
-      if (optionalNestedMessageBuilder_ == null) {
-        optionalNestedMessage_ = null;
-      } else {
-        optionalNestedMessageBuilder_.clear();
+      optionalNestedMessage_ = null;
+      if (optionalNestedMessageBuilder_ != null) {
+        optionalNestedMessageBuilder_.dispose();
+        optionalNestedMessageBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -985,24 +904,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.testing.proto.TestProto3OptionalMessage buildPartial() {
       com.google.protobuf.testing.proto.TestProto3OptionalMessage result = new com.google.protobuf.testing.proto.TestProto3OptionalMessage(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      if (nestedMessageBuilder_ == null) {
-        result.nestedMessage_ = nestedMessage_;
-      } else {
-        result.nestedMessage_ = nestedMessageBuilder_.build();
-      }
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (optionalNestedMessageBuilder_ == null) {
-          result.optionalNestedMessage_ = optionalNestedMessage_;
-        } else {
-          result.optionalNestedMessage_ = optionalNestedMessageBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.protobuf.testing.proto.TestProto3OptionalMessage result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nestedMessage_ = nestedMessageBuilder_ == null
+            ? nestedMessage_
+            : nestedMessageBuilder_.build();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
+            ? optionalNestedMessage_
+            : optionalNestedMessageBuilder_.build();
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1055,7 +976,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOptionalNestedMessage()) {
         mergeOptionalNestedMessage(other.getOptionalNestedMessage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1070,17 +991,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.protobuf.testing.proto.TestProto3OptionalMessage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNestedMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOptionalNestedMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.protobuf.testing.proto.TestProto3OptionalMessage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1093,7 +1041,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nestedMessage field is set.
      */
     public boolean hasNestedMessage() {
-      return nestedMessageBuilder_ != null || nestedMessage_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <code>.protobuf_unittest.TestProto3OptionalMessage.NestedMessage nested_message = 1;</code>
@@ -1115,11 +1063,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nestedMessage_ = value;
-        onChanged();
       } else {
         nestedMessageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1129,11 +1077,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.Builder builderForValue) {
       if (nestedMessageBuilder_ == null) {
         nestedMessage_ = builderForValue.build();
-        onChanged();
       } else {
         nestedMessageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1141,38 +1089,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNestedMessage(com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage value) {
       if (nestedMessageBuilder_ == null) {
-        if (nestedMessage_ != null) {
-          nestedMessage_ =
-            com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.newBuilder(nestedMessage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          nestedMessage_ != null &&
+          nestedMessage_ != com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.getDefaultInstance()) {
+          getNestedMessageBuilder().mergeFrom(value);
         } else {
           nestedMessage_ = value;
         }
-        onChanged();
       } else {
         nestedMessageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
      * <code>.protobuf_unittest.TestProto3OptionalMessage.NestedMessage nested_message = 1;</code>
      */
     public Builder clearNestedMessage() {
-      if (nestedMessageBuilder_ == null) {
-        nestedMessage_ = null;
-        onChanged();
-      } else {
-        nestedMessage_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      nestedMessage_ = null;
+      if (nestedMessageBuilder_ != null) {
+        nestedMessageBuilder_.dispose();
         nestedMessageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <code>.protobuf_unittest.TestProto3OptionalMessage.NestedMessage nested_message = 1;</code>
      */
     public com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.Builder getNestedMessageBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNestedMessageFieldBuilder().getBuilder();
     }
@@ -1212,7 +1160,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the optionalNestedMessage field is set.
      */
     public boolean hasOptionalNestedMessage() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <code>optional .protobuf_unittest.TestProto3OptionalMessage.NestedMessage optional_nested_message = 2;</code>
@@ -1234,11 +1182,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         optionalNestedMessage_ = value;
-        onChanged();
       } else {
         optionalNestedMessageBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1248,11 +1196,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.Builder builderForValue) {
       if (optionalNestedMessageBuilder_ == null) {
         optionalNestedMessage_ = builderForValue.build();
-        onChanged();
       } else {
         optionalNestedMessageBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1260,39 +1208,38 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOptionalNestedMessage(com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage value) {
       if (optionalNestedMessageBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-            optionalNestedMessage_ != null &&
-            optionalNestedMessage_ != com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.getDefaultInstance()) {
-          optionalNestedMessage_ =
-            com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.newBuilder(optionalNestedMessage_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          optionalNestedMessage_ != null &&
+          optionalNestedMessage_ != com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.getDefaultInstance()) {
+          getOptionalNestedMessageBuilder().mergeFrom(value);
         } else {
           optionalNestedMessage_ = value;
         }
-        onChanged();
       } else {
         optionalNestedMessageBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
      * <code>optional .protobuf_unittest.TestProto3OptionalMessage.NestedMessage optional_nested_message = 2;</code>
      */
     public Builder clearOptionalNestedMessage() {
-      if (optionalNestedMessageBuilder_ == null) {
-        optionalNestedMessage_ = null;
-        onChanged();
-      } else {
-        optionalNestedMessageBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      optionalNestedMessage_ = null;
+      if (optionalNestedMessageBuilder_ != null) {
+        optionalNestedMessageBuilder_.dispose();
+        optionalNestedMessageBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
      * <code>optional .protobuf_unittest.TestProto3OptionalMessage.NestedMessage optional_nested_message = 2;</code>
      */
     public com.google.protobuf.testing.proto.TestProto3OptionalMessage.NestedMessage.Builder getOptionalNestedMessageBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOptionalNestedMessageFieldBuilder().getBuilder();
     }
@@ -1356,7 +1303,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TestProto3OptionalMessage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

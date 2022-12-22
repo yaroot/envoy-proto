@@ -235,7 +235,6 @@ public interface ActionOrBuilder extends
    *
    * <code>map&lt;string, string&gt; environment = 5;</code>
    */
-
   /* nullable */
 java.lang.String getEnvironmentOrDefault(
       java.lang.String key,
@@ -260,9 +259,56 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; environment = 5;</code>
    */
-
   java.lang.String getEnvironmentOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * The encrypted environment to pass into the container. This environment is
+   * merged with values specified in the
+   * [google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline] message, overwriting any
+   * duplicate values.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 21;</code>
+   * @return Whether the encryptedEnvironment field is set.
+   */
+  boolean hasEncryptedEnvironment();
+  /**
+   * <pre>
+   * The encrypted environment to pass into the container. This environment is
+   * merged with values specified in the
+   * [google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline] message, overwriting any
+   * duplicate values.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 21;</code>
+   * @return The encryptedEnvironment.
+   */
+  com.google.cloud.lifesciences.v2beta.Secret getEncryptedEnvironment();
+  /**
+   * <pre>
+   * The encrypted environment to pass into the container. This environment is
+   * merged with values specified in the
+   * [google.cloud.lifesciences.v2beta.Pipeline][google.cloud.lifesciences.v2beta.Pipeline] message, overwriting any
+   * duplicate values.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 21;</code>
+   */
+  com.google.cloud.lifesciences.v2beta.SecretOrBuilder getEncryptedEnvironmentOrBuilder();
 
   /**
    * <pre>
@@ -347,7 +393,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;int32, int32&gt; port_mappings = 8;</code>
    */
-
   int getPortMappingsOrDefault(
       int key,
       int defaultValue);
@@ -363,7 +408,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;int32, int32&gt; port_mappings = 8;</code>
    */
-
   int getPortMappingsOrThrow(
       int key);
 
@@ -532,7 +576,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 10;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -548,7 +591,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 10;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

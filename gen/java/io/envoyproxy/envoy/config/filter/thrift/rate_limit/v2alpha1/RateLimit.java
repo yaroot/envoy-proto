@@ -35,87 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RateLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            domain_ = s;
-            break;
-          }
-          case 16: {
-
-            stage_ = input.readUInt32();
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeout_ != null) {
-              subBuilder = timeout_.toBuilder();
-            }
-            timeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeout_);
-              timeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            failureModeDeny_ = input.readBool();
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.Builder subBuilder = null;
-            if (rateLimitService_ != null) {
-              subBuilder = rateLimitService_.toBuilder();
-            }
-            rateLimitService_ = input.readMessage(io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rateLimitService_);
-              rateLimitService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimitProto.internal_static_envoy_config_filter_thrift_rate_limit_v2alpha1_RateLimit_descriptor;
@@ -130,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOMAIN_FIELD_NUMBER = 1;
-  private volatile java.lang.Object domain_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object domain_ = "";
   /**
    * <pre>
    * The rate limit domain to use in the rate limit service request.
@@ -176,7 +96,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAGE_FIELD_NUMBER = 2;
-  private int stage_;
+  private int stage_ = 0;
   /**
    * <pre>
    * Specifies the rate limit configuration stage. Each configured rate limit filter performs a
@@ -234,11 +154,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeoutOrBuilder() {
-    return getTimeout();
+    return timeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeout_;
   }
 
   public static final int FAILURE_MODE_DENY_FIELD_NUMBER = 4;
-  private boolean failureModeDeny_;
+  private boolean failureModeDeny_ = false;
   /**
    * <pre>
    * The filter's behaviour in case the rate limiting service does
@@ -296,7 +216,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfigOrBuilder getRateLimitServiceOrBuilder() {
-    return getRateLimitService();
+    return rateLimitService_ == null ? io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.getDefaultInstance() : rateLimitService_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -328,7 +248,7 @@ private static final long serialVersionUID = 0L;
     if (rateLimitService_ != null) {
       output.writeMessage(5, getRateLimitService());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -356,7 +276,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getRateLimitService());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -387,7 +307,7 @@ private static final long serialVersionUID = 0L;
       if (!getRateLimitService()
           .equals(other.getRateLimitService())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -413,7 +333,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RATE_LIMIT_SERVICE_FIELD_NUMBER;
       hash = (53 * hash) + getRateLimitService().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -534,38 +454,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       domain_ = "";
-
       stage_ = 0;
-
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-      } else {
-        timeout_ = null;
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
       failureModeDeny_ = false;
-
-      if (rateLimitServiceBuilder_ == null) {
-        rateLimitService_ = null;
-      } else {
-        rateLimitService_ = null;
+      rateLimitService_ = null;
+      if (rateLimitServiceBuilder_ != null) {
+        rateLimitServiceBuilder_.dispose();
         rateLimitServiceBuilder_ = null;
       }
       return this;
@@ -594,21 +505,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit buildPartial() {
       io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit result = new io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit(this);
-      result.domain_ = domain_;
-      result.stage_ = stage_;
-      if (timeoutBuilder_ == null) {
-        result.timeout_ = timeout_;
-      } else {
-        result.timeout_ = timeoutBuilder_.build();
-      }
-      result.failureModeDeny_ = failureModeDeny_;
-      if (rateLimitServiceBuilder_ == null) {
-        result.rateLimitService_ = rateLimitService_;
-      } else {
-        result.rateLimitService_ = rateLimitServiceBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.domain_ = domain_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stage_ = stage_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timeout_ = timeoutBuilder_ == null
+            ? timeout_
+            : timeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.failureModeDeny_ = failureModeDeny_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.rateLimitService_ = rateLimitServiceBuilder_ == null
+            ? rateLimitService_
+            : rateLimitServiceBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -657,6 +579,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit.getDefaultInstance()) return this;
       if (!other.getDomain().isEmpty()) {
         domain_ = other.domain_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getStage() != 0) {
@@ -671,7 +594,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRateLimitService()) {
         mergeRateLimitService(other.getRateLimitService());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -686,19 +609,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              domain_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              stage_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              failureModeDeny_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getRateLimitServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.thrift.rate_limit.v2alpha1.RateLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object domain_ = "";
     /**
@@ -753,11 +719,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomain(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       domain_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -770,8 +734,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDomain() {
-      
       domain_ = getDefaultInstance().getDomain();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -786,12 +750,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDomainBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       domain_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -833,6 +795,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStage(int value) {
       
       stage_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -851,7 +814,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStage() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       stage_ = 0;
       onChanged();
       return this;
@@ -870,7 +833,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeout field is set.
      */
     public boolean hasTimeout() {
-      return timeoutBuilder_ != null || timeout_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -902,11 +865,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeout_ = value;
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -921,11 +884,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeoutBuilder_ == null) {
         timeout_ = builderForValue.build();
-        onChanged();
       } else {
         timeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -938,17 +901,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeout(com.google.protobuf.Duration value) {
       if (timeoutBuilder_ == null) {
-        if (timeout_ != null) {
-          timeout_ =
-            com.google.protobuf.Duration.newBuilder(timeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          timeout_ != null &&
+          timeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeoutBuilder().mergeFrom(value);
         } else {
           timeout_ = value;
         }
-        onChanged();
       } else {
         timeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -960,14 +924,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 3;</code>
      */
     public Builder clearTimeout() {
-      if (timeoutBuilder_ == null) {
-        timeout_ = null;
-        onChanged();
-      } else {
-        timeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      timeout_ = null;
+      if (timeoutBuilder_ != null) {
+        timeoutBuilder_.dispose();
         timeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -979,7 +942,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration timeout = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTimeoutFieldBuilder().getBuilder();
     }
@@ -1052,6 +1015,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailureModeDeny(boolean value) {
       
       failureModeDeny_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1067,7 +1031,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailureModeDeny() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       failureModeDeny_ = false;
       onChanged();
       return this;
@@ -1087,7 +1051,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rateLimitService field is set.
      */
     public boolean hasRateLimitService() {
-      return rateLimitServiceBuilder_ != null || rateLimitService_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1121,11 +1085,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rateLimitService_ = value;
-        onChanged();
       } else {
         rateLimitServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1141,11 +1105,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.Builder builderForValue) {
       if (rateLimitServiceBuilder_ == null) {
         rateLimitService_ = builderForValue.build();
-        onChanged();
       } else {
         rateLimitServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1159,17 +1123,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRateLimitService(io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig value) {
       if (rateLimitServiceBuilder_ == null) {
-        if (rateLimitService_ != null) {
-          rateLimitService_ =
-            io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.newBuilder(rateLimitService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          rateLimitService_ != null &&
+          rateLimitService_ != io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.getDefaultInstance()) {
+          getRateLimitServiceBuilder().mergeFrom(value);
         } else {
           rateLimitService_ = value;
         }
-        onChanged();
       } else {
         rateLimitServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1182,14 +1147,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.ratelimit.v2.RateLimitServiceConfig rate_limit_service = 5 [(.validate.rules) = { ... }</code>
      */
     public Builder clearRateLimitService() {
-      if (rateLimitServiceBuilder_ == null) {
-        rateLimitService_ = null;
-        onChanged();
-      } else {
-        rateLimitService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      rateLimitService_ = null;
+      if (rateLimitServiceBuilder_ != null) {
+        rateLimitServiceBuilder_.dispose();
         rateLimitServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1202,7 +1166,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.ratelimit.v2.RateLimitServiceConfig rate_limit_service = 5 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.ratelimit.v2.RateLimitServiceConfig.Builder getRateLimitServiceBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRateLimitServiceFieldBuilder().getBuilder();
     }
@@ -1278,7 +1242,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RateLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

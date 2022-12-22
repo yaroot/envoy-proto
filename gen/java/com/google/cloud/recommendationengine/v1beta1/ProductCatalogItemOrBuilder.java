@@ -120,7 +120,6 @@ public interface ProductCatalogItemOrBuilder extends
    *
    * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   float getCostsOrDefault(
       java.lang.String key,
       float defaultValue);
@@ -136,7 +135,6 @@ public interface ProductCatalogItemOrBuilder extends
    *
    * <code>map&lt;string, float&gt; costs = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   float getCostsOrThrow(
       java.lang.String key);
 

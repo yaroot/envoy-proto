@@ -103,7 +103,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level         defaultValue);
    *
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
-
   int getDriverLogLevelsValueOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -117,7 +116,6 @@ com.google.cloud.dataproc.v1.LoggingConfig.Level         defaultValue);
    *
    * <code>map&lt;string, .google.cloud.dataproc.v1.LoggingConfig.Level&gt; driver_log_levels = 2;</code>
    */
-
   int getDriverLogLevelsValueOrThrow(
       java.lang.String key);
 }

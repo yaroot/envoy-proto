@@ -20,12 +20,16 @@ public interface AuthorizationRequestOrBuilder extends
    *   client request body (controlled by :ref:`with_request_body
    *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
    *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+   *   This field has been deprecated in favor of :ref:`allowed_headers
+   *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
    * </pre>
    *
-   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.allowed_headers is deprecated.
+   *     See envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto;l=272
    * @return Whether the allowedHeaders field is set.
    */
-  boolean hasAllowedHeaders();
+  @java.lang.Deprecated boolean hasAllowedHeaders();
   /**
    * <pre>
    * Authorization request includes the client request headers that have a correspondent match
@@ -39,12 +43,16 @@ public interface AuthorizationRequestOrBuilder extends
    *   client request body (controlled by :ref:`with_request_body
    *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
    *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+   *   This field has been deprecated in favor of :ref:`allowed_headers
+   *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
    * </pre>
    *
-   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.extensions.filters.http.ext_authz.v3.AuthorizationRequest.allowed_headers is deprecated.
+   *     See envoy/extensions/filters/http/ext_authz/v3/ext_authz.proto;l=272
    * @return The allowedHeaders.
    */
-  io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders();
+  @java.lang.Deprecated io.envoyproxy.envoy.type.matcher.v3.ListStringMatcher getAllowedHeaders();
   /**
    * <pre>
    * Authorization request includes the client request headers that have a correspondent match
@@ -58,11 +66,13 @@ public interface AuthorizationRequestOrBuilder extends
    *   client request body (controlled by :ref:`with_request_body
    *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.with_request_body&gt;`
    *   setting) hence the value of its ``Content-Length`` reflects the size of its payload size.
+   *   This field has been deprecated in favor of :ref:`allowed_headers
+   *   &lt;envoy_v3_api_field_extensions.filters.http.ext_authz.v3.ExtAuthz.allowed_headers&gt;`.
    * </pre>
    *
-   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1;</code>
+   * <code>.envoy.type.matcher.v3.ListStringMatcher allowed_headers = 1 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    */
-  io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder();
+  @java.lang.Deprecated io.envoyproxy.envoy.type.matcher.v3.ListStringMatcherOrBuilder getAllowedHeadersOrBuilder();
 
   /**
    * <pre>

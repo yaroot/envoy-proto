@@ -41,105 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TransitionAttributes(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            srcTag_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            excludedSrcTag_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dstTag_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            excludedDstTag_ = s;
-            break;
-          }
-          case 41: {
-
-            cost_ = input.readDouble();
-            break;
-          }
-          case 49: {
-
-            costPerKilometer_ = input.readDouble();
-            break;
-          }
-          case 58: {
-            com.google.cloud.optimization.v1.DistanceLimit.Builder subBuilder = null;
-            if (distanceLimit_ != null) {
-              subBuilder = distanceLimit_.toBuilder();
-            }
-            distanceLimit_ = input.readMessage(com.google.cloud.optimization.v1.DistanceLimit.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(distanceLimit_);
-              distanceLimit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (delay_ != null) {
-              subBuilder = delay_.toBuilder();
-            }
-            delay_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(delay_);
-              delay_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_TransitionAttributes_descriptor;
@@ -154,7 +55,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SRC_TAG_FIELD_NUMBER = 1;
-  private volatile java.lang.Object srcTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object srcTag_ = "";
   /**
    * <pre>
    * Tags defining the set of (src-&gt;dst) transitions these attributes apply to.
@@ -210,7 +112,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCLUDED_SRC_TAG_FIELD_NUMBER = 2;
-  private volatile java.lang.Object excludedSrcTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object excludedSrcTag_ = "";
   /**
    * <pre>
    * See `src_tag`. Exactly one of `src_tag` and `excluded_src_tag` must be
@@ -258,13 +161,15 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DST_TAG_FIELD_NUMBER = 3;
-  private volatile java.lang.Object dstTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dstTag_ = "";
   /**
    * <pre>
    * A destination visit or vehicle end matches iff its
    * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-   * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+   * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+   * which of these two fields is non-empty).
    * </pre>
    *
    * <code>string dst_tag = 3;</code>
@@ -287,8 +192,9 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * A destination visit or vehicle end matches iff its
    * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-   * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+   * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+   * which of these two fields is non-empty).
    * </pre>
    *
    * <code>string dst_tag = 3;</code>
@@ -310,7 +216,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCLUDED_DST_TAG_FIELD_NUMBER = 4;
-  private volatile java.lang.Object excludedDstTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object excludedDstTag_ = "";
   /**
    * <pre>
    * See `dst_tag`. Exactly one of `dst_tag` and `excluded_dst_tag` must be
@@ -358,7 +265,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_FIELD_NUMBER = 5;
-  private double cost_;
+  private double cost_ = 0D;
   /**
    * <pre>
    * Specifies a cost for performing this transition. This is in the same unit
@@ -375,12 +282,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int COST_PER_KILOMETER_FIELD_NUMBER = 6;
-  private double costPerKilometer_;
+  private double costPerKilometer_ = 0D;
   /**
    * <pre>
    * Specifies a cost per kilometer applied to the distance traveled while
    * performing this transition. It adds up to any
-   * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer] specified on vehicles.
+   * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer]
+   * specified on vehicles.
    * </pre>
    *
    * <code>double cost_per_kilometer = 6;</code>
@@ -432,7 +340,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.DistanceLimitOrBuilder getDistanceLimitOrBuilder() {
-    return getDistanceLimit();
+    return distanceLimit_ == null ? com.google.cloud.optimization.v1.DistanceLimit.getDefaultInstance() : distanceLimit_;
   }
 
   public static final int DELAY_FIELD_NUMBER = 8;
@@ -476,7 +384,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getDelayOrBuilder() {
-    return getDelay();
+    return delay_ == null ? com.google.protobuf.Duration.getDefaultInstance() : delay_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -517,7 +425,7 @@ private static final long serialVersionUID = 0L;
     if (delay_ != null) {
       output.writeMessage(8, getDelay());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -554,7 +462,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getDelay());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -593,7 +501,7 @@ private static final long serialVersionUID = 0L;
       if (!getDelay()
           .equals(other.getDelay())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -626,7 +534,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DELAY_FIELD_NUMBER;
       hash = (53 * hash) + getDelay().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -750,44 +658,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.optimization.v1.TransitionAttributes.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       srcTag_ = "";
-
       excludedSrcTag_ = "";
-
       dstTag_ = "";
-
       excludedDstTag_ = "";
-
       cost_ = 0D;
-
       costPerKilometer_ = 0D;
-
-      if (distanceLimitBuilder_ == null) {
-        distanceLimit_ = null;
-      } else {
-        distanceLimit_ = null;
+      distanceLimit_ = null;
+      if (distanceLimitBuilder_ != null) {
+        distanceLimitBuilder_.dispose();
         distanceLimitBuilder_ = null;
       }
-      if (delayBuilder_ == null) {
-        delay_ = null;
-      } else {
-        delay_ = null;
+      delay_ = null;
+      if (delayBuilder_ != null) {
+        delayBuilder_.dispose();
         delayBuilder_ = null;
       }
       return this;
@@ -816,24 +712,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.optimization.v1.TransitionAttributes buildPartial() {
       com.google.cloud.optimization.v1.TransitionAttributes result = new com.google.cloud.optimization.v1.TransitionAttributes(this);
-      result.srcTag_ = srcTag_;
-      result.excludedSrcTag_ = excludedSrcTag_;
-      result.dstTag_ = dstTag_;
-      result.excludedDstTag_ = excludedDstTag_;
-      result.cost_ = cost_;
-      result.costPerKilometer_ = costPerKilometer_;
-      if (distanceLimitBuilder_ == null) {
-        result.distanceLimit_ = distanceLimit_;
-      } else {
-        result.distanceLimit_ = distanceLimitBuilder_.build();
-      }
-      if (delayBuilder_ == null) {
-        result.delay_ = delay_;
-      } else {
-        result.delay_ = delayBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.TransitionAttributes result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.srcTag_ = srcTag_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.excludedSrcTag_ = excludedSrcTag_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.dstTag_ = dstTag_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.excludedDstTag_ = excludedDstTag_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.cost_ = cost_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.costPerKilometer_ = costPerKilometer_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.distanceLimit_ = distanceLimitBuilder_ == null
+            ? distanceLimit_
+            : distanceLimitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.delay_ = delayBuilder_ == null
+            ? delay_
+            : delayBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -882,18 +795,22 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.optimization.v1.TransitionAttributes.getDefaultInstance()) return this;
       if (!other.getSrcTag().isEmpty()) {
         srcTag_ = other.srcTag_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getExcludedSrcTag().isEmpty()) {
         excludedSrcTag_ = other.excludedSrcTag_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDstTag().isEmpty()) {
         dstTag_ = other.dstTag_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getExcludedDstTag().isEmpty()) {
         excludedDstTag_ = other.excludedDstTag_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getCost() != 0D) {
@@ -908,7 +825,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasDelay()) {
         mergeDelay(other.getDelay());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -923,19 +840,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.TransitionAttributes parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              srcTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              excludedSrcTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              dstTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              excludedDstTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 41: {
+              cost_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 41
+            case 49: {
+              costPerKilometer_ = input.readDouble();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 49
+            case 58: {
+              input.readMessage(
+                  getDistanceLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getDelayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.TransitionAttributes) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object srcTag_ = "";
     /**
@@ -1005,11 +980,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSrcTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       srcTag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1027,8 +1000,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSrcTag() {
-      
       srcTag_ = getDefaultInstance().getSrcTag();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1048,12 +1021,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSrcTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       srcTag_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1114,11 +1085,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExcludedSrcTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       excludedSrcTag_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1132,8 +1101,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExcludedSrcTag() {
-      
       excludedSrcTag_ = getDefaultInstance().getExcludedSrcTag();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1149,12 +1118,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExcludedSrcTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       excludedSrcTag_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1164,8 +1131,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A destination visit or vehicle end matches iff its
      * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-     * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+     * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+     * which of these two fields is non-empty).
      * </pre>
      *
      * <code>string dst_tag = 3;</code>
@@ -1187,8 +1155,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A destination visit or vehicle end matches iff its
      * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-     * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+     * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+     * which of these two fields is non-empty).
      * </pre>
      *
      * <code>string dst_tag = 3;</code>
@@ -1211,8 +1180,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A destination visit or vehicle end matches iff its
      * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-     * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+     * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+     * which of these two fields is non-empty).
      * </pre>
      *
      * <code>string dst_tag = 3;</code>
@@ -1221,11 +1191,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDstTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dstTag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1233,16 +1201,17 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A destination visit or vehicle end matches iff its
      * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-     * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+     * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+     * which of these two fields is non-empty).
      * </pre>
      *
      * <code>string dst_tag = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearDstTag() {
-      
       dstTag_ = getDefaultInstance().getDstTag();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1250,8 +1219,9 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * A destination visit or vehicle end matches iff its
      * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-     * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+     * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+     * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+     * which of these two fields is non-empty).
      * </pre>
      *
      * <code>string dst_tag = 3;</code>
@@ -1260,12 +1230,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDstTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dstTag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1326,11 +1294,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExcludedDstTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       excludedDstTag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1344,8 +1310,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearExcludedDstTag() {
-      
       excludedDstTag_ = getDefaultInstance().getExcludedDstTag();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1361,12 +1327,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setExcludedDstTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       excludedDstTag_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1400,6 +1364,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCost(double value) {
       
       cost_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1414,7 +1379,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCost() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       cost_ = 0D;
       onChanged();
       return this;
@@ -1425,7 +1390,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specifies a cost per kilometer applied to the distance traveled while
      * performing this transition. It adds up to any
-     * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer] specified on vehicles.
+     * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer]
+     * specified on vehicles.
      * </pre>
      *
      * <code>double cost_per_kilometer = 6;</code>
@@ -1439,7 +1405,8 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specifies a cost per kilometer applied to the distance traveled while
      * performing this transition. It adds up to any
-     * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer] specified on vehicles.
+     * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer]
+     * specified on vehicles.
      * </pre>
      *
      * <code>double cost_per_kilometer = 6;</code>
@@ -1449,6 +1416,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCostPerKilometer(double value) {
       
       costPerKilometer_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1456,14 +1424,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Specifies a cost per kilometer applied to the distance traveled while
      * performing this transition. It adds up to any
-     * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer] specified on vehicles.
+     * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer]
+     * specified on vehicles.
      * </pre>
      *
      * <code>double cost_per_kilometer = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearCostPerKilometer() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       costPerKilometer_ = 0D;
       onChanged();
       return this;
@@ -1483,7 +1452,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the distanceLimit field is set.
      */
     public boolean hasDistanceLimit() {
-      return distanceLimitBuilder_ != null || distanceLimit_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1517,11 +1486,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         distanceLimit_ = value;
-        onChanged();
       } else {
         distanceLimitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1537,11 +1506,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.optimization.v1.DistanceLimit.Builder builderForValue) {
       if (distanceLimitBuilder_ == null) {
         distanceLimit_ = builderForValue.build();
-        onChanged();
       } else {
         distanceLimitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1555,17 +1524,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDistanceLimit(com.google.cloud.optimization.v1.DistanceLimit value) {
       if (distanceLimitBuilder_ == null) {
-        if (distanceLimit_ != null) {
-          distanceLimit_ =
-            com.google.cloud.optimization.v1.DistanceLimit.newBuilder(distanceLimit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          distanceLimit_ != null &&
+          distanceLimit_ != com.google.cloud.optimization.v1.DistanceLimit.getDefaultInstance()) {
+          getDistanceLimitBuilder().mergeFrom(value);
         } else {
           distanceLimit_ = value;
         }
-        onChanged();
       } else {
         distanceLimitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1578,14 +1548,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.DistanceLimit distance_limit = 7;</code>
      */
     public Builder clearDistanceLimit() {
-      if (distanceLimitBuilder_ == null) {
-        distanceLimit_ = null;
-        onChanged();
-      } else {
-        distanceLimit_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      distanceLimit_ = null;
+      if (distanceLimitBuilder_ != null) {
+        distanceLimitBuilder_.dispose();
         distanceLimitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1598,7 +1567,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.optimization.v1.DistanceLimit distance_limit = 7;</code>
      */
     public com.google.cloud.optimization.v1.DistanceLimit.Builder getDistanceLimitBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDistanceLimitFieldBuilder().getBuilder();
     }
@@ -1656,7 +1625,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the delay field is set.
      */
     public boolean hasDelay() {
-      return delayBuilder_ != null || delay_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1690,11 +1659,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         delay_ = value;
-        onChanged();
       } else {
         delayBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1710,11 +1679,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (delayBuilder_ == null) {
         delay_ = builderForValue.build();
-        onChanged();
       } else {
         delayBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1728,17 +1697,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDelay(com.google.protobuf.Duration value) {
       if (delayBuilder_ == null) {
-        if (delay_ != null) {
-          delay_ =
-            com.google.protobuf.Duration.newBuilder(delay_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          delay_ != null &&
+          delay_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getDelayBuilder().mergeFrom(value);
         } else {
           delay_ = value;
         }
-        onChanged();
       } else {
         delayBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1751,14 +1721,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration delay = 8;</code>
      */
     public Builder clearDelay() {
-      if (delayBuilder_ == null) {
-        delay_ = null;
-        onChanged();
-      } else {
-        delay_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      delay_ = null;
+      if (delayBuilder_ != null) {
+        delayBuilder_.dispose();
         delayBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1771,7 +1740,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration delay = 8;</code>
      */
     public com.google.protobuf.Duration.Builder getDelayBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDelayFieldBuilder().getBuilder();
     }
@@ -1847,7 +1816,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TransitionAttributes(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

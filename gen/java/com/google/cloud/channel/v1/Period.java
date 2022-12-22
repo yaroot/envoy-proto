@@ -35,56 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Period(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            duration_ = input.readInt32();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            periodType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.OffersProto.internal_static_google_cloud_channel_v1_Period_descriptor;
@@ -99,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DURATION_FIELD_NUMBER = 1;
-  private int duration_;
+  private int duration_ = 0;
   /**
    * <pre>
    * Total duration of Period Type defined.
@@ -114,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PERIOD_TYPE_FIELD_NUMBER = 2;
-  private int periodType_;
+  private int periodType_ = 0;
   /**
    * <pre>
    * Period Type.
@@ -135,8 +85,7 @@ private static final long serialVersionUID = 0L;
    * @return The periodType.
    */
   @java.lang.Override public com.google.cloud.channel.v1.PeriodType getPeriodType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.valueOf(periodType_);
+    com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.forNumber(periodType_);
     return result == null ? com.google.cloud.channel.v1.PeriodType.UNRECOGNIZED : result;
   }
 
@@ -160,7 +109,7 @@ private static final long serialVersionUID = 0L;
     if (periodType_ != com.google.cloud.channel.v1.PeriodType.PERIOD_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(2, periodType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -177,7 +126,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, periodType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -195,7 +144,7 @@ private static final long serialVersionUID = 0L;
     if (getDuration()
         != other.getDuration()) return false;
     if (periodType_ != other.periodType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -210,7 +159,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDuration();
     hash = (37 * hash) + PERIOD_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + periodType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -331,26 +280,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.Period.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       duration_ = 0;
-
       periodType_ = 0;
-
       return this;
     }
 
@@ -377,10 +320,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.Period buildPartial() {
       com.google.cloud.channel.v1.Period result = new com.google.cloud.channel.v1.Period(this);
-      result.duration_ = duration_;
-      result.periodType_ = periodType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.Period result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.duration_ = duration_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.periodType_ = periodType_;
+      }
     }
 
     @java.lang.Override
@@ -433,7 +385,7 @@ private static final long serialVersionUID = 0L;
       if (other.periodType_ != 0) {
         setPeriodTypeValue(other.getPeriodTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -448,19 +400,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.Period parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              duration_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              periodType_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.Period) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int duration_ ;
     /**
@@ -487,6 +463,7 @@ private static final long serialVersionUID = 0L;
     public Builder setDuration(int value) {
       
       duration_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -499,7 +476,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDuration() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       duration_ = 0;
       onChanged();
       return this;
@@ -527,8 +504,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPeriodTypeValue(int value) {
-      
       periodType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -542,8 +519,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.channel.v1.PeriodType getPeriodType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.valueOf(periodType_);
+      com.google.cloud.channel.v1.PeriodType result = com.google.cloud.channel.v1.PeriodType.forNumber(periodType_);
       return result == null ? com.google.cloud.channel.v1.PeriodType.UNRECOGNIZED : result;
     }
     /**
@@ -559,7 +535,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       periodType_ = value.getNumber();
       onChanged();
       return this;
@@ -573,7 +549,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPeriodType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       periodType_ = 0;
       onChanged();
       return this;
@@ -611,7 +587,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Period(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

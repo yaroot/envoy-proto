@@ -125,7 +125,6 @@ public interface PipelineOrBuilder extends
    *
    * <code>map&lt;string, string&gt; environment = 3;</code>
    */
-
   /* nullable */
 java.lang.String getEnvironmentOrDefault(
       java.lang.String key,
@@ -140,9 +139,50 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; environment = 3;</code>
    */
-
   java.lang.String getEnvironmentOrThrow(
       java.lang.String key);
+
+  /**
+   * <pre>
+   * The encrypted environment to pass into every action. Each action can also
+   * specify its own encrypted environment.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+   * @return Whether the encryptedEnvironment field is set.
+   */
+  boolean hasEncryptedEnvironment();
+  /**
+   * <pre>
+   * The encrypted environment to pass into every action. Each action can also
+   * specify its own encrypted environment.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+   * @return The encryptedEnvironment.
+   */
+  com.google.cloud.lifesciences.v2beta.Secret getEncryptedEnvironment();
+  /**
+   * <pre>
+   * The encrypted environment to pass into every action. Each action can also
+   * specify its own encrypted environment.
+   * The secret must decrypt to a JSON-encoded dictionary where key-value pairs
+   * serve as environment variable names and their values. The decoded
+   * environment variables can overwrite the values specified by the
+   * `environment` field.
+   * </pre>
+   *
+   * <code>.google.cloud.lifesciences.v2beta.Secret encrypted_environment = 5;</code>
+   */
+  com.google.cloud.lifesciences.v2beta.SecretOrBuilder getEncryptedEnvironmentOrBuilder();
 
   /**
    * <pre>

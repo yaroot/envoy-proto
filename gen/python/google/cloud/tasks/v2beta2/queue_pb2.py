@@ -16,10 +16,9 @@ from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.tasks.v2beta2 import target_pb2 as google_dot_cloud_dot_tasks_dot_v2beta2_dot_target__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&google/cloud/tasks/v2beta2/queue.proto\x12\x1agoogle.cloud.tasks.v2beta2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/tasks/v2beta2/target.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xda\x05\n\x05Queue\x12\x0c\n\x04name\x18\x01 \x01(\t\x12Q\n\x16\x61pp_engine_http_target\x18\x03 \x01(\x0b\x32/.google.cloud.tasks.v2beta2.AppEngineHttpTargetH\x00\x12=\n\x0bpull_target\x18\x04 \x01(\x0b\x32&.google.cloud.tasks.v2beta2.PullTargetH\x00\x12;\n\x0brate_limits\x18\x05 \x01(\x0b\x32&.google.cloud.tasks.v2beta2.RateLimits\x12=\n\x0cretry_config\x18\x06 \x01(\x0b\x32\'.google.cloud.tasks.v2beta2.RetryConfig\x12\x36\n\x05state\x18\x07 \x01(\x0e\x32\'.google.cloud.tasks.v2beta2.Queue.State\x12.\n\npurge_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x08task_ttl\x18\t \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x30\n\rtombstone_ttl\x18\n \x01(\x0b\x32\x19.google.protobuf.Duration\x12:\n\x05stats\x18\x10 \x01(\x0b\x32&.google.cloud.tasks.v2beta2.QueueStatsB\x03\xe0\x41\x03\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0c\n\x08\x44ISABLED\x10\x03:\\\xea\x41Y\n\x1f\x63loudtasks.googleapis.com/Queue\x12\x36projects/{project}/locations/{location}/queues/{queue}B\r\n\x0btarget_type\"k\n\nRateLimits\x12\'\n\x1fmax_tasks_dispatched_per_second\x18\x01 \x01(\x01\x12\x16\n\x0emax_burst_size\x18\x02 \x01(\x05\x12\x1c\n\x14max_concurrent_tasks\x18\x03 \x01(\x05\"\x81\x02\n\x0bRetryConfig\x12\x16\n\x0cmax_attempts\x18\x01 \x01(\x05H\x00\x12\x1c\n\x12unlimited_attempts\x18\x02 \x01(\x08H\x00\x12\x35\n\x12max_retry_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12.\n\x0bmin_backoff\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12.\n\x0bmax_backoff\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x15\n\rmax_doublings\x18\x06 \x01(\x05\x42\x0e\n\x0cnum_attempts\"\xe8\x01\n\nQueueStats\x12\x18\n\x0btasks_count\x18\x01 \x01(\x03\x42\x03\xe0\x41\x03\x12\x46\n\x1doldest_estimated_arrival_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\'\n\x1a\x65xecuted_last_minute_count\x18\x03 \x01(\x03\x42\x03\xe0\x41\x03\x12(\n\x1b\x63oncurrent_dispatches_count\x18\x04 \x01(\x03\x42\x03\xe0\x41\x03\x12%\n\x18\x65\x66\x66\x65\x63tive_execution_rate\x18\x05 \x01(\x01\x42\x03\xe0\x41\x03\x42o\n\x1e\x63om.google.cloud.tasks.v2beta2B\nQueueProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/tasks/v2beta2;tasksb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&google/cloud/tasks/v2beta2/queue.proto\x12\x1agoogle.cloud.tasks.v2beta2\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\'google/cloud/tasks/v2beta2/target.proto\x1a\x1egoogle/protobuf/duration.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xda\x05\n\x05Queue\x12\x0c\n\x04name\x18\x01 \x01(\t\x12Q\n\x16\x61pp_engine_http_target\x18\x03 \x01(\x0b\x32/.google.cloud.tasks.v2beta2.AppEngineHttpTargetH\x00\x12=\n\x0bpull_target\x18\x04 \x01(\x0b\x32&.google.cloud.tasks.v2beta2.PullTargetH\x00\x12;\n\x0brate_limits\x18\x05 \x01(\x0b\x32&.google.cloud.tasks.v2beta2.RateLimits\x12=\n\x0cretry_config\x18\x06 \x01(\x0b\x32\'.google.cloud.tasks.v2beta2.RetryConfig\x12\x36\n\x05state\x18\x07 \x01(\x0e\x32\'.google.cloud.tasks.v2beta2.Queue.State\x12.\n\npurge_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12+\n\x08task_ttl\x18\t \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x30\n\rtombstone_ttl\x18\n \x01(\x0b\x32\x19.google.protobuf.Duration\x12:\n\x05stats\x18\x10 \x01(\x0b\x32&.google.cloud.tasks.v2beta2.QueueStatsB\x03\xe0\x41\x03\"E\n\x05State\x12\x15\n\x11STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07RUNNING\x10\x01\x12\n\n\x06PAUSED\x10\x02\x12\x0c\n\x08\x44ISABLED\x10\x03:\\\xea\x41Y\n\x1f\x63loudtasks.googleapis.com/Queue\x12\x36projects/{project}/locations/{location}/queues/{queue}B\r\n\x0btarget_type\"k\n\nRateLimits\x12\'\n\x1fmax_tasks_dispatched_per_second\x18\x01 \x01(\x01\x12\x16\n\x0emax_burst_size\x18\x02 \x01(\x05\x12\x1c\n\x14max_concurrent_tasks\x18\x03 \x01(\x05\"\x81\x02\n\x0bRetryConfig\x12\x16\n\x0cmax_attempts\x18\x01 \x01(\x05H\x00\x12\x1c\n\x12unlimited_attempts\x18\x02 \x01(\x08H\x00\x12\x35\n\x12max_retry_duration\x18\x03 \x01(\x0b\x32\x19.google.protobuf.Duration\x12.\n\x0bmin_backoff\x18\x04 \x01(\x0b\x32\x19.google.protobuf.Duration\x12.\n\x0bmax_backoff\x18\x05 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x15\n\rmax_doublings\x18\x06 \x01(\x05\x42\x0e\n\x0cnum_attempts\"\xe8\x01\n\nQueueStats\x12\x18\n\x0btasks_count\x18\x01 \x01(\x03\x42\x03\xe0\x41\x03\x12\x46\n\x1doldest_estimated_arrival_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\'\n\x1a\x65xecuted_last_minute_count\x18\x03 \x01(\x03\x42\x03\xe0\x41\x03\x12(\n\x1b\x63oncurrent_dispatches_count\x18\x04 \x01(\x03\x42\x03\xe0\x41\x03\x12%\n\x18\x65\x66\x66\x65\x63tive_execution_rate\x18\x05 \x01(\x01\x42\x03\xe0\x41\x03\x42o\n\x1e\x63om.google.cloud.tasks.v2beta2B\nQueueProtoP\x01Z?google.golang.org/genproto/googleapis/cloud/tasks/v2beta2;tasksb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.tasks.v2beta2.queue_pb2', globals())
@@ -41,14 +40,14 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _QUEUESTATS.fields_by_name['concurrent_dispatches_count']._serialized_options = b'\340A\003'
   _QUEUESTATS.fields_by_name['effective_execution_rate']._options = None
   _QUEUESTATS.fields_by_name['effective_execution_rate']._serialized_options = b'\340A\003'
-  _QUEUE._serialized_start=267
-  _QUEUE._serialized_end=997
-  _QUEUE_STATE._serialized_start=819
-  _QUEUE_STATE._serialized_end=888
-  _RATELIMITS._serialized_start=999
-  _RATELIMITS._serialized_end=1106
-  _RETRYCONFIG._serialized_start=1109
-  _RETRYCONFIG._serialized_end=1366
-  _QUEUESTATS._serialized_start=1369
-  _QUEUESTATS._serialized_end=1601
+  _QUEUE._serialized_start=237
+  _QUEUE._serialized_end=967
+  _QUEUE_STATE._serialized_start=789
+  _QUEUE_STATE._serialized_end=858
+  _RATELIMITS._serialized_start=969
+  _RATELIMITS._serialized_end=1076
+  _RETRYCONFIG._serialized_start=1079
+  _RETRYCONFIG._serialized_end=1336
+  _QUEUESTATS._serialized_start=1339
+  _QUEUESTATS._serialized_end=1571
 # @@protoc_insertion_point(module_scope)

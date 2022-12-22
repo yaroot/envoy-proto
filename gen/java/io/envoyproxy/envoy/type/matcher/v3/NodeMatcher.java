@@ -36,71 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NodeMatcher(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder subBuilder = null;
-            if (nodeId_ != null) {
-              subBuilder = nodeId_.toBuilder();
-            }
-            nodeId_ = input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StringMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(nodeId_);
-              nodeId_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nodeMetadatas_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.v3.StructMatcher>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            nodeMetadatas_.add(
-                input.readMessage(io.envoyproxy.envoy.type.matcher.v3.StructMatcher.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        nodeMetadatas_ = java.util.Collections.unmodifiableList(nodeMetadatas_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.type.matcher.v3.NodeProto.internal_static_envoy_type_matcher_v3_NodeMatcher_descriptor;
@@ -149,10 +84,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.matcher.v3.StringMatcherOrBuilder getNodeIdOrBuilder() {
-    return getNodeId();
+    return nodeId_ == null ? io.envoyproxy.envoy.type.matcher.v3.StringMatcher.getDefaultInstance() : nodeId_;
   }
 
   public static final int NODE_METADATAS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.matcher.v3.StructMatcher> nodeMetadatas_;
   /**
    * <pre>
@@ -232,7 +168,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < nodeMetadatas_.size(); i++) {
       output.writeMessage(2, nodeMetadatas_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -249,7 +185,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, nodeMetadatas_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -271,7 +207,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getNodeMetadatasList()
         .equals(other.getNodeMetadatasList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -290,7 +226,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + NODE_METADATAS_FIELD_NUMBER;
       hash = (53 * hash) + getNodeMetadatasList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -412,35 +348,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.type.matcher.v3.NodeMatcher.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getNodeMetadatasFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nodeIdBuilder_ == null) {
-        nodeId_ = null;
-      } else {
-        nodeId_ = null;
+      bitField0_ = 0;
+      nodeId_ = null;
+      if (nodeIdBuilder_ != null) {
+        nodeIdBuilder_.dispose();
         nodeIdBuilder_ = null;
       }
       if (nodeMetadatasBuilder_ == null) {
         nodeMetadatas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        nodeMetadatas_ = null;
         nodeMetadatasBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -467,23 +398,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.type.matcher.v3.NodeMatcher buildPartial() {
       io.envoyproxy.envoy.type.matcher.v3.NodeMatcher result = new io.envoyproxy.envoy.type.matcher.v3.NodeMatcher(this);
-      int from_bitField0_ = bitField0_;
-      if (nodeIdBuilder_ == null) {
-        result.nodeId_ = nodeId_;
-      } else {
-        result.nodeId_ = nodeIdBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.type.matcher.v3.NodeMatcher result) {
       if (nodeMetadatasBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           nodeMetadatas_ = java.util.Collections.unmodifiableList(nodeMetadatas_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.nodeMetadatas_ = nodeMetadatas_;
       } else {
         result.nodeMetadatas_ = nodeMetadatasBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.type.matcher.v3.NodeMatcher result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.nodeId_ = nodeIdBuilder_ == null
+            ? nodeId_
+            : nodeIdBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -537,7 +476,7 @@ private static final long serialVersionUID = 0L;
         if (!other.nodeMetadatas_.isEmpty()) {
           if (nodeMetadatas_.isEmpty()) {
             nodeMetadatas_ = other.nodeMetadatas_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureNodeMetadatasIsMutable();
             nodeMetadatas_.addAll(other.nodeMetadatas_);
@@ -550,7 +489,7 @@ private static final long serialVersionUID = 0L;
             nodeMetadatasBuilder_.dispose();
             nodeMetadatasBuilder_ = null;
             nodeMetadatas_ = other.nodeMetadatas_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             nodeMetadatasBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNodeMetadatasFieldBuilder() : null;
@@ -559,7 +498,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -574,17 +513,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.type.matcher.v3.NodeMatcher parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNodeIdFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.envoyproxy.envoy.type.matcher.v3.StructMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.matcher.v3.StructMatcher.parser(),
+                      extensionRegistry);
+              if (nodeMetadatasBuilder_ == null) {
+                ensureNodeMetadatasIsMutable();
+                nodeMetadatas_.add(m);
+              } else {
+                nodeMetadatasBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.type.matcher.v3.NodeMatcher) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -601,7 +573,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the nodeId field is set.
      */
     public boolean hasNodeId() {
-      return nodeIdBuilder_ != null || nodeId_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -631,11 +603,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         nodeId_ = value;
-        onChanged();
       } else {
         nodeIdBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -649,11 +621,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder builderForValue) {
       if (nodeIdBuilder_ == null) {
         nodeId_ = builderForValue.build();
-        onChanged();
       } else {
         nodeIdBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -665,17 +637,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNodeId(io.envoyproxy.envoy.type.matcher.v3.StringMatcher value) {
       if (nodeIdBuilder_ == null) {
-        if (nodeId_ != null) {
-          nodeId_ =
-            io.envoyproxy.envoy.type.matcher.v3.StringMatcher.newBuilder(nodeId_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          nodeId_ != null &&
+          nodeId_ != io.envoyproxy.envoy.type.matcher.v3.StringMatcher.getDefaultInstance()) {
+          getNodeIdBuilder().mergeFrom(value);
         } else {
           nodeId_ = value;
         }
-        onChanged();
       } else {
         nodeIdBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -686,14 +659,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.StringMatcher node_id = 1;</code>
      */
     public Builder clearNodeId() {
-      if (nodeIdBuilder_ == null) {
-        nodeId_ = null;
-        onChanged();
-      } else {
-        nodeId_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      nodeId_ = null;
+      if (nodeIdBuilder_ != null) {
+        nodeIdBuilder_.dispose();
         nodeIdBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -704,7 +676,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.matcher.v3.StringMatcher node_id = 1;</code>
      */
     public io.envoyproxy.envoy.type.matcher.v3.StringMatcher.Builder getNodeIdBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNodeIdFieldBuilder().getBuilder();
     }
@@ -747,9 +719,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.matcher.v3.StructMatcher> nodeMetadatas_ =
       java.util.Collections.emptyList();
     private void ensureNodeMetadatasIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         nodeMetadatas_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.v3.StructMatcher>(nodeMetadatas_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -943,7 +915,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNodeMetadatas() {
       if (nodeMetadatasBuilder_ == null) {
         nodeMetadatas_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         nodeMetadatasBuilder_.clear();
@@ -1048,7 +1020,7 @@ private static final long serialVersionUID = 0L;
         nodeMetadatasBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.matcher.v3.StructMatcher, io.envoyproxy.envoy.type.matcher.v3.StructMatcher.Builder, io.envoyproxy.envoy.type.matcher.v3.StructMatcherOrBuilder>(
                 nodeMetadatas_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         nodeMetadatas_ = null;
@@ -1088,7 +1060,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NodeMatcher(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

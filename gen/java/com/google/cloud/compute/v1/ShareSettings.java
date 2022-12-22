@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ShareSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1073699250: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              projectMap_ = com.google.protobuf.MapField.newMapField(
-                  ProjectMapDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig>
-            projectMap__ = input.readMessage(
-                ProjectMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            projectMap_.getMutableMap().put(
-                projectMap__.getKey(), projectMap__.getValue());
-            break;
-          }
-          case -1418699566: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            shareType_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_ShareSettings_descriptor;
@@ -146,6 +87,14 @@ private static final long serialVersionUID = 0L;
     LOCAL(72607563),
     /**
      * <pre>
+     * Shared-reservation is open to entire Organization
+     * </pre>
+     *
+     * <code>ORGANIZATION = 274978099;</code>
+     */
+    ORGANIZATION(274978099),
+    /**
+     * <pre>
      * Default value. This value is unused.
      * </pre>
      *
@@ -179,6 +128,14 @@ private static final long serialVersionUID = 0L;
      * <code>LOCAL = 72607563;</code>
      */
     public static final int LOCAL_VALUE = 72607563;
+    /**
+     * <pre>
+     * Shared-reservation is open to entire Organization
+     * </pre>
+     *
+     * <code>ORGANIZATION = 274978099;</code>
+     */
+    public static final int ORGANIZATION_VALUE = 274978099;
     /**
      * <pre>
      * Default value. This value is unused.
@@ -223,6 +180,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 0: return UNDEFINED_SHARE_TYPE;
         case 72607563: return LOCAL;
+        case 274978099: return ORGANIZATION;
         case 494771730: return SHARE_TYPE_UNSPECIFIED;
         case 347838695: return SPECIFIC_PROJECTS;
         default: return null;
@@ -294,6 +252,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.compute.v1.ShareSettingsProjectConfig.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> projectMap_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig>
@@ -304,7 +263,6 @@ private static final long serialVersionUID = 0L;
     }
     return projectMap_;
   }
-
   public int getProjectMapCount() {
     return internalGetProjectMap().getMap().size();
   }
@@ -315,7 +273,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
    */
-
   @java.lang.Override
   public boolean containsProjectMap(
       java.lang.String key) {
@@ -338,7 +295,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> getProjectMapMap() {
     return internalGetProjectMap().getMap();
   }
@@ -350,10 +306,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.compute.v1.ShareSettingsProjectConfig getProjectMapOrDefault(
+  public /* nullable */
+com.google.cloud.compute.v1.ShareSettingsProjectConfig getProjectMapOrDefault(
       java.lang.String key,
-      com.google.cloud.compute.v1.ShareSettingsProjectConfig defaultValue) {
+      /* nullable */
+com.google.cloud.compute.v1.ShareSettingsProjectConfig defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> map =
         internalGetProjectMap().getMap();
@@ -367,7 +324,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.compute.v1.ShareSettingsProjectConfig getProjectMapOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -380,7 +336,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHARE_TYPE_FIELD_NUMBER = 359533466;
-  private volatile java.lang.Object shareType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object shareType_ = "";
   /**
    * <pre>
    * Type of sharing for this shared-reservation
@@ -463,7 +420,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 359533466, shareType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -485,7 +442,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(359533466, shareType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -507,7 +464,7 @@ private static final long serialVersionUID = 0L;
       if (!getShareType()
           .equals(other.getShareType())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -526,7 +483,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SHARE_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getShareType().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -669,25 +626,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.ShareSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableProjectMap().clear();
       shareType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -714,17 +666,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.ShareSettings buildPartial() {
       com.google.cloud.compute.v1.ShareSettings result = new com.google.cloud.compute.v1.ShareSettings(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.projectMap_ = internalGetProjectMap();
-      result.projectMap_.makeImmutable();
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.shareType_ = shareType_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.ShareSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.projectMap_ = internalGetProjectMap();
+        result.projectMap_.makeImmutable();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.shareType_ = shareType_;
+        to_bitField0_ |= 0x00000001;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -773,12 +731,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.compute.v1.ShareSettings.getDefaultInstance()) return this;
       internalGetMutableProjectMap().mergeFrom(
           other.internalGetProjectMap());
+      bitField0_ |= 0x00000001;
       if (other.hasShareType()) {
-        bitField0_ |= 0x00000002;
         shareType_ = other.shareType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -793,17 +752,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.ShareSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1073699250: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig>
+              projectMap__ = input.readMessage(
+                  ProjectMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableProjectMap().getMutableMap().put(
+                  projectMap__.getKey(), projectMap__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 1073699250
+            case -1418699566: {
+              shareType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1418699566
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.ShareSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -811,7 +797,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> projectMap_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig>
-    internalGetProjectMap() {
+        internalGetProjectMap() {
       if (projectMap_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ProjectMapDefaultEntryHolder.defaultEntry);
@@ -819,8 +805,7 @@ private static final long serialVersionUID = 0L;
       return projectMap_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig>
-    internalGetMutableProjectMap() {
-      onChanged();;
+        internalGetMutableProjectMap() {
       if (projectMap_ == null) {
         projectMap_ = com.google.protobuf.MapField.newMapField(
             ProjectMapDefaultEntryHolder.defaultEntry);
@@ -828,9 +813,10 @@ private static final long serialVersionUID = 0L;
       if (!projectMap_.isMutable()) {
         projectMap_ = projectMap_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return projectMap_;
     }
-
     public int getProjectMapCount() {
       return internalGetProjectMap().getMap().size();
     }
@@ -841,7 +827,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
      */
-
     @java.lang.Override
     public boolean containsProjectMap(
         java.lang.String key) {
@@ -864,7 +849,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> getProjectMapMap() {
       return internalGetProjectMap().getMap();
     }
@@ -876,10 +860,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.compute.v1.ShareSettingsProjectConfig getProjectMapOrDefault(
+    public /* nullable */
+com.google.cloud.compute.v1.ShareSettingsProjectConfig getProjectMapOrDefault(
         java.lang.String key,
-        com.google.cloud.compute.v1.ShareSettingsProjectConfig defaultValue) {
+        /* nullable */
+com.google.cloud.compute.v1.ShareSettingsProjectConfig defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> map =
           internalGetProjectMap().getMap();
@@ -893,7 +878,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.compute.v1.ShareSettingsProjectConfig getProjectMapOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -904,8 +888,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearProjectMap() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableProjectMap().getMutableMap()
           .clear();
       return this;
@@ -917,7 +901,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
      */
-
     public Builder removeProjectMap(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -930,7 +913,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig>
-    getMutableProjectMap() {
+        getMutableProjectMap() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableProjectMap().getMutableMap();
     }
     /**
@@ -944,12 +928,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.compute.v1.ShareSettingsProjectConfig value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableProjectMap().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -959,11 +941,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.compute.v1.ShareSettingsProjectConfig&gt; project_map = 134212406;</code>
      */
-
     public Builder putAllProjectMap(
         java.util.Map<java.lang.String, com.google.cloud.compute.v1.ShareSettingsProjectConfig> values) {
       internalGetMutableProjectMap().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
 
@@ -1035,11 +1017,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setShareType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       shareType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1053,8 +1033,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearShareType() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       shareType_ = getDefaultInstance().getShareType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1070,12 +1050,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setShareTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       shareType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1112,7 +1090,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ShareSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

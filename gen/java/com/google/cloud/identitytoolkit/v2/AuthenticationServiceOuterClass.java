@@ -46,9 +46,9 @@ public final class AuthenticationServiceOuterClass {
       "\n<google/cloud/identitytoolkit/v2/authen" +
       "tication_service.proto\022\037google.cloud.ide" +
       "ntitytoolkit.v2\032\034google/api/annotations." +
-      "proto\032\037google/api/field_behavior.proto\032." +
-      "google/cloud/identitytoolkit/v2/mfa_info" +
-      ".proto\032\027google/api/client.proto\"\310\001\n\030Fina" +
+      "proto\032\027google/api/client.proto\032\037google/a" +
+      "pi/field_behavior.proto\032.google/cloud/id" +
+      "entitytoolkit/v2/mfa_info.proto\"\310\001\n\030Fina" +
       "lizeMfaSignInRequest\022#\n\026mfa_pending_cred" +
       "ential\030\002 \001(\tB\003\340A\002\022_\n\027phone_verification_" +
       "info\030\003 \001(\0132<.google.cloud.identitytoolki" +
@@ -90,9 +90,9 @@ public final class AuthenticationServiceOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
+          com.google.api.ClientProto.getDescriptor(),
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.cloud.identitytoolkit.v2.MfaInfo.getDescriptor(),
-          com.google.api.ClientProto.getDescriptor(),
         });
     internal_static_google_cloud_identitytoolkit_v2_FinalizeMfaSignInRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -127,9 +127,9 @@ public final class AuthenticationServiceOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
+    com.google.api.ClientProto.getDescriptor();
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.cloud.identitytoolkit.v2.MfaInfo.getDescriptor();
-    com.google.api.ClientProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

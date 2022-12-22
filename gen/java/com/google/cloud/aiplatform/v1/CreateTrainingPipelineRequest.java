@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateTrainingPipelineRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.aiplatform.v1.TrainingPipeline.Builder subBuilder = null;
-            if (trainingPipeline_ != null) {
-              subBuilder = trainingPipeline_.toBuilder();
-            }
-            trainingPipeline_ = input.readMessage(com.google.cloud.aiplatform.v1.TrainingPipeline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trainingPipeline_);
-              trainingPipeline_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.PipelineServiceProto.internal_static_google_cloud_aiplatform_v1_CreateTrainingPipelineRequest_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the Location to create the TrainingPipeline in.
@@ -189,7 +132,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1.TrainingPipelineOrBuilder getTrainingPipelineOrBuilder() {
-    return getTrainingPipeline();
+    return trainingPipeline_ == null ? com.google.cloud.aiplatform.v1.TrainingPipeline.getDefaultInstance() : trainingPipeline_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -212,7 +155,7 @@ private static final long serialVersionUID = 0L;
     if (trainingPipeline_ != null) {
       output.writeMessage(2, getTrainingPipeline());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -228,7 +171,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getTrainingPipeline());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +193,7 @@ private static final long serialVersionUID = 0L;
       if (!getTrainingPipeline()
           .equals(other.getTrainingPipeline())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -267,7 +210,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TRAINING_PIPELINE_FIELD_NUMBER;
       hash = (53 * hash) + getTrainingPipeline().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -388,28 +331,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (trainingPipelineBuilder_ == null) {
-        trainingPipeline_ = null;
-      } else {
-        trainingPipeline_ = null;
+      trainingPipeline_ = null;
+      if (trainingPipelineBuilder_ != null) {
+        trainingPipelineBuilder_.dispose();
         trainingPipelineBuilder_ = null;
       }
       return this;
@@ -438,14 +375,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest buildPartial() {
       com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest result = new com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest(this);
-      result.parent_ = parent_;
-      if (trainingPipelineBuilder_ == null) {
-        result.trainingPipeline_ = trainingPipeline_;
-      } else {
-        result.trainingPipeline_ = trainingPipelineBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.trainingPipeline_ = trainingPipelineBuilder_ == null
+            ? trainingPipeline_
+            : trainingPipelineBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -494,12 +438,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTrainingPipeline()) {
         mergeTrainingPipeline(other.getTrainingPipeline());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -514,19 +459,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTrainingPipelineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.CreateTrainingPipelineRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -584,11 +555,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -602,8 +571,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -619,12 +588,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -641,7 +608,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trainingPipeline field is set.
      */
     public boolean hasTrainingPipeline() {
-      return trainingPipelineBuilder_ != null || trainingPipeline_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -671,11 +638,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trainingPipeline_ = value;
-        onChanged();
       } else {
         trainingPipelineBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -689,11 +656,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1.TrainingPipeline.Builder builderForValue) {
       if (trainingPipelineBuilder_ == null) {
         trainingPipeline_ = builderForValue.build();
-        onChanged();
       } else {
         trainingPipelineBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -705,17 +672,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrainingPipeline(com.google.cloud.aiplatform.v1.TrainingPipeline value) {
       if (trainingPipelineBuilder_ == null) {
-        if (trainingPipeline_ != null) {
-          trainingPipeline_ =
-            com.google.cloud.aiplatform.v1.TrainingPipeline.newBuilder(trainingPipeline_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          trainingPipeline_ != null &&
+          trainingPipeline_ != com.google.cloud.aiplatform.v1.TrainingPipeline.getDefaultInstance()) {
+          getTrainingPipelineBuilder().mergeFrom(value);
         } else {
           trainingPipeline_ = value;
         }
-        onChanged();
       } else {
         trainingPipelineBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -726,14 +694,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.TrainingPipeline training_pipeline = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTrainingPipeline() {
-      if (trainingPipelineBuilder_ == null) {
-        trainingPipeline_ = null;
-        onChanged();
-      } else {
-        trainingPipeline_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      trainingPipeline_ = null;
+      if (trainingPipelineBuilder_ != null) {
+        trainingPipelineBuilder_.dispose();
         trainingPipelineBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -744,7 +711,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1.TrainingPipeline training_pipeline = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.aiplatform.v1.TrainingPipeline.Builder getTrainingPipelineBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTrainingPipelineFieldBuilder().getBuilder();
     }
@@ -816,7 +783,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateTrainingPipelineRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

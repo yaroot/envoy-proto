@@ -15,7 +15,7 @@ public interface WorkloadMetadataConfigOrBuilder extends
    *
    * <code>.google.container.v1beta1.WorkloadMetadataConfig.NodeMetadata node_metadata = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.WorkloadMetadataConfig.node_metadata is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=4187
+   *     See google/container/v1beta1/cluster_service.proto;l=4258
    * @return The enum numeric value on the wire for nodeMetadata.
    */
   @java.lang.Deprecated int getNodeMetadataValue();
@@ -27,7 +27,7 @@ public interface WorkloadMetadataConfigOrBuilder extends
    *
    * <code>.google.container.v1beta1.WorkloadMetadataConfig.NodeMetadata node_metadata = 1 [deprecated = true];</code>
    * @deprecated google.container.v1beta1.WorkloadMetadataConfig.node_metadata is deprecated.
-   *     See google/container/v1beta1/cluster_service.proto;l=4187
+   *     See google/container/v1beta1/cluster_service.proto;l=4258
    * @return The nodeMetadata.
    */
   @java.lang.Deprecated com.google.container.v1beta1.WorkloadMetadataConfig.NodeMetadata getNodeMetadata();

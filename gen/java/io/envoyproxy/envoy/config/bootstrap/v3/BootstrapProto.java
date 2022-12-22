@@ -137,7 +137,7 @@ public final class BootstrapProto {
       "dpa/annotations/security.proto\032\035udpa/ann" +
       "otations/status.proto\032!udpa/annotations/" +
       "versioning.proto\032\027validate/validate.prot" +
-      "o\"\246\025\n\tBootstrap\022(\n\004node\030\001 \001(\0132\032.envoy.co" +
+      "o\"\304\026\n\tBootstrap\022(\n\004node\030\001 \001(\0132\032.envoy.co" +
       "nfig.core.v3.Node\022\033\n\023node_context_params" +
       "\030\032 \003(\t\022N\n\020static_resources\030\002 \001(\01324.envoy" +
       ".config.bootstrap.v3.Bootstrap.StaticRes" +
@@ -186,105 +186,109 @@ public final class BootstrapProto {
       "tomInlineHeader\022\036\n\026perf_tracing_file_pat" +
       "h\030! \001(\t\022H\n\024default_regex_engine\030\" \001(\0132*." +
       "envoy.config.core.v3.TypedExtensionConfi" +
-      "g\032\374\001\n\017StaticResources\0225\n\tlisteners\030\001 \003(\013" +
-      "2\".envoy.config.listener.v3.Listener\0222\n\010" +
-      "clusters\030\002 \003(\0132 .envoy.config.cluster.v3" +
-      ".Cluster\022B\n\007secrets\030\003 \003(\01321.envoy.extens" +
-      "ions.transport_sockets.tls.v3.Secret::\232\305" +
-      "\210\0365\n3envoy.config.bootstrap.v2.Bootstrap" +
-      ".StaticResources\032\276\002\n\020DynamicResources\0226\n" +
-      "\nlds_config\030\001 \001(\0132\".envoy.config.core.v3" +
-      ".ConfigSource\022\035\n\025lds_resources_locator\030\005" +
-      " \001(\t\0226\n\ncds_config\030\002 \001(\0132\".envoy.config." +
-      "core.v3.ConfigSource\022\035\n\025cds_resources_lo" +
-      "cator\030\006 \001(\t\0229\n\nads_config\030\003 \001(\0132%.envoy." +
-      "config.core.v3.ApiConfigSource:;\232\305\210\0366\n4e" +
-      "nvoy.config.bootstrap.v2.Bootstrap.Dynam" +
-      "icResourcesJ\004\010\004\020\005\032o\n!CertificateProvider" +
-      "InstancesEntry\022\013\n\003key\030\001 \001(\t\0229\n\005value\030\002 \001" +
-      "(\0132*.envoy.config.core.v3.TypedExtension" +
-      "Config:\0028\001:*\232\305\210\036%\n#envoy.config.bootstra" +
-      "p.v2.BootstrapB\r\n\013stats_flushJ\004\010\n\020\013J\004\010\013\020" +
-      "\014R\007runtime\"\263\002\n\005Admin\0228\n\naccess_log\030\005 \003(\013" +
-      "2$.envoy.config.accesslog.v3.AccessLog\022$" +
-      "\n\017access_log_path\030\001 \001(\tB\013\030\001\222\307\206\330\004\0033.0\022\024\n\014" +
-      "profile_path\030\002 \001(\t\022.\n\007address\030\003 \001(\0132\035.en" +
-      "voy.config.core.v3.Address\022:\n\016socket_opt" +
-      "ions\030\004 \003(\0132\".envoy.config.core.v3.Socket" +
-      "Option\022 \n\030ignore_global_conn_limit\030\006 \001(\010" +
-      ":&\232\305\210\036!\n\037envoy.config.bootstrap.v2.Admin" +
-      "\"\346\003\n\016ClusterManager\022\032\n\022local_cluster_nam" +
-      "e\030\001 \001(\t\022U\n\021outlier_detection\030\002 \001(\0132:.env" +
-      "oy.config.bootstrap.v3.ClusterManager.Ou" +
-      "tlierDetection\022>\n\024upstream_bind_config\030\003" +
-      " \001(\0132 .envoy.config.core.v3.BindConfig\022@" +
-      "\n\021load_stats_config\030\004 \001(\0132%.envoy.config" +
-      ".core.v3.ApiConfigSource\032\255\001\n\020OutlierDete" +
-      "ction\022\026\n\016event_log_path\030\001 \001(\t\022?\n\revent_s" +
-      "ervice\030\002 \001(\0132(.envoy.config.core.v3.Even" +
-      "tServiceConfig:@\232\305\210\036;\n9envoy.config.boot" +
-      "strap.v2.ClusterManager.OutlierDetection" +
-      ":/\232\305\210\036*\n(envoy.config.bootstrap.v2.Clust" +
-      "erManager\"\214\001\n\tWatchdogs\022A\n\024main_thread_w" +
-      "atchdog\030\001 \001(\0132#.envoy.config.bootstrap.v" +
-      "3.Watchdog\022<\n\017worker_watchdog\030\002 \001(\0132#.en" +
-      "voy.config.bootstrap.v3.Watchdog\"\273\005\n\010Wat" +
-      "chdog\022C\n\007actions\030\007 \003(\01322.envoy.config.bo" +
-      "otstrap.v3.Watchdog.WatchdogAction\022/\n\014mi" +
-      "ss_timeout\030\001 \001(\0132\031.google.protobuf.Durat" +
-      "ion\0223\n\020megamiss_timeout\030\002 \001(\0132\031.google.p" +
-      "rotobuf.Duration\022/\n\014kill_timeout\030\003 \001(\0132\031" +
-      ".google.protobuf.Duration\022D\n\027max_kill_ti" +
-      "meout_jitter\030\006 \001(\0132\031.google.protobuf.Dur" +
-      "ationB\010\372B\005\252\001\0022\000\0224\n\021multikill_timeout\030\004 \001" +
-      "(\0132\031.google.protobuf.Duration\0223\n\023multiki" +
-      "ll_threshold\030\005 \001(\0132\026.envoy.type.v3.Perce" +
-      "nt\032\366\001\n\016WatchdogAction\022:\n\006config\030\001 \001(\0132*." +
-      "envoy.config.core.v3.TypedExtensionConfi" +
-      "g\022Y\n\005event\030\002 \001(\0162@.envoy.config.bootstra" +
-      "p.v3.Watchdog.WatchdogAction.WatchdogEve" +
-      "ntB\010\372B\005\202\001\002\020\001\"M\n\rWatchdogEvent\022\013\n\007UNKNOWN" +
-      "\020\000\022\010\n\004KILL\020\001\022\r\n\tMULTIKILL\020\002\022\014\n\010MEGAMISS\020" +
-      "\003\022\010\n\004MISS\020\004:)\232\305\210\036$\n\"envoy.config.bootstr" +
-      "ap.v2.Watchdog\"I\n\013FatalAction\022:\n\006config\030" +
-      "\001 \001(\0132*.envoy.config.core.v3.TypedExtens" +
-      "ionConfig\"\245\001\n\007Runtime\022\024\n\014symlink_root\030\001 " +
-      "\001(\t\022\024\n\014subdirectory\030\002 \001(\t\022\035\n\025override_su" +
-      "bdirectory\030\003 \001(\t\022%\n\004base\030\004 \001(\0132\027.google." +
-      "protobuf.Struct:(\232\305\210\036#\n!envoy.config.boo" +
-      "tstrap.v2.Runtime\"\343\005\n\014RuntimeLayer\022\025\n\004na" +
-      "me\030\001 \001(\tB\007\372B\004r\002\020\001\022/\n\014static_layer\030\002 \001(\0132" +
-      "\027.google.protobuf.StructH\000\022G\n\ndisk_layer" +
-      "\030\003 \001(\01321.envoy.config.bootstrap.v3.Runti" +
-      "meLayer.DiskLayerH\000\022I\n\013admin_layer\030\004 \001(\013" +
-      "22.envoy.config.bootstrap.v3.RuntimeLaye" +
-      "r.AdminLayerH\000\022G\n\nrtds_layer\030\005 \001(\01321.env" +
-      "oy.config.bootstrap.v3.RuntimeLayer.Rtds" +
-      "LayerH\000\032\220\001\n\tDiskLayer\022\024\n\014symlink_root\030\001 " +
-      "\001(\t\022\024\n\014subdirectory\030\003 \001(\t\022\036\n\026append_serv" +
-      "ice_cluster\030\002 \001(\010:7\232\305\210\0362\n0envoy.config.b" +
-      "ootstrap.v2.RuntimeLayer.DiskLayer\032F\n\nAd" +
-      "minLayer:8\232\305\210\0363\n1envoy.config.bootstrap." +
-      "v2.RuntimeLayer.AdminLayer\032\213\001\n\tRtdsLayer" +
-      "\022\014\n\004name\030\001 \001(\t\0227\n\013rtds_config\030\002 \001(\0132\".en" +
-      "voy.config.core.v3.ConfigSource:7\232\305\210\0362\n0" +
-      "envoy.config.bootstrap.v2.RuntimeLayer.R" +
-      "tdsLayer:-\232\305\210\036(\n&envoy.config.bootstrap." +
-      "v2.RuntimeLayerB\026\n\017layer_specifier\022\003\370B\001\"" +
-      "z\n\016LayeredRuntime\0227\n\006layers\030\001 \003(\0132\'.envo" +
-      "y.config.bootstrap.v3.RuntimeLayer:/\232\305\210\036" +
-      "*\n(envoy.config.bootstrap.v2.LayeredRunt" +
-      "ime\"\215\002\n\022CustomInlineHeader\022)\n\022inline_hea" +
-      "der_name\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000\022d\n\022inline_" +
-      "header_type\030\002 \001(\0162>.envoy.config.bootstr" +
-      "ap.v3.CustomInlineHeader.InlineHeaderTyp" +
-      "eB\010\372B\005\202\001\002\020\001\"f\n\020InlineHeaderType\022\022\n\016REQUE" +
-      "ST_HEADER\020\000\022\023\n\017REQUEST_TRAILER\020\001\022\023\n\017RESP" +
-      "ONSE_HEADER\020\002\022\024\n\020RESPONSE_TRAILER\020\003B\221\001\n\'" +
-      "io.envoyproxy.envoy.config.bootstrap.v3B" +
-      "\016BootstrapProtoP\001ZLgithub.com/envoyproxy" +
-      "/go-control-plane/envoy/config/bootstrap" +
-      "/v3;bootstrapv3\272\200\310\321\006\002\020\002b\006proto3"
+      "g\022J\n\026xds_delegate_extension\030# \001(\0132*.envo" +
+      "y.config.core.v3.TypedExtensionConfig\022P\n" +
+      "\034xds_config_tracker_extension\030$ \001(\0132*.en" +
+      "voy.config.core.v3.TypedExtensionConfig\032" +
+      "\374\001\n\017StaticResources\0225\n\tlisteners\030\001 \003(\0132\"" +
+      ".envoy.config.listener.v3.Listener\0222\n\010cl" +
+      "usters\030\002 \003(\0132 .envoy.config.cluster.v3.C" +
+      "luster\022B\n\007secrets\030\003 \003(\01321.envoy.extensio" +
+      "ns.transport_sockets.tls.v3.Secret::\232\305\210\036" +
+      "5\n3envoy.config.bootstrap.v2.Bootstrap.S" +
+      "taticResources\032\276\002\n\020DynamicResources\0226\n\nl" +
+      "ds_config\030\001 \001(\0132\".envoy.config.core.v3.C" +
+      "onfigSource\022\035\n\025lds_resources_locator\030\005 \001" +
+      "(\t\0226\n\ncds_config\030\002 \001(\0132\".envoy.config.co" +
+      "re.v3.ConfigSource\022\035\n\025cds_resources_loca" +
+      "tor\030\006 \001(\t\0229\n\nads_config\030\003 \001(\0132%.envoy.co" +
+      "nfig.core.v3.ApiConfigSource:;\232\305\210\0366\n4env" +
+      "oy.config.bootstrap.v2.Bootstrap.Dynamic" +
+      "ResourcesJ\004\010\004\020\005\032o\n!CertificateProviderIn" +
+      "stancesEntry\022\013\n\003key\030\001 \001(\t\0229\n\005value\030\002 \001(\013" +
+      "2*.envoy.config.core.v3.TypedExtensionCo" +
+      "nfig:\0028\001:*\232\305\210\036%\n#envoy.config.bootstrap." +
+      "v2.BootstrapB\r\n\013stats_flushJ\004\010\n\020\013J\004\010\013\020\014R" +
+      "\007runtime\"\263\002\n\005Admin\0228\n\naccess_log\030\005 \003(\0132$" +
+      ".envoy.config.accesslog.v3.AccessLog\022$\n\017" +
+      "access_log_path\030\001 \001(\tB\013\030\001\222\307\206\330\004\0033.0\022\024\n\014pr" +
+      "ofile_path\030\002 \001(\t\022.\n\007address\030\003 \001(\0132\035.envo" +
+      "y.config.core.v3.Address\022:\n\016socket_optio" +
+      "ns\030\004 \003(\0132\".envoy.config.core.v3.SocketOp" +
+      "tion\022 \n\030ignore_global_conn_limit\030\006 \001(\010:&" +
+      "\232\305\210\036!\n\037envoy.config.bootstrap.v2.Admin\"\346" +
+      "\003\n\016ClusterManager\022\032\n\022local_cluster_name\030" +
+      "\001 \001(\t\022U\n\021outlier_detection\030\002 \001(\0132:.envoy" +
+      ".config.bootstrap.v3.ClusterManager.Outl" +
+      "ierDetection\022>\n\024upstream_bind_config\030\003 \001" +
+      "(\0132 .envoy.config.core.v3.BindConfig\022@\n\021" +
+      "load_stats_config\030\004 \001(\0132%.envoy.config.c" +
+      "ore.v3.ApiConfigSource\032\255\001\n\020OutlierDetect" +
+      "ion\022\026\n\016event_log_path\030\001 \001(\t\022?\n\revent_ser" +
+      "vice\030\002 \001(\0132(.envoy.config.core.v3.EventS" +
+      "erviceConfig:@\232\305\210\036;\n9envoy.config.bootst" +
+      "rap.v2.ClusterManager.OutlierDetection:/" +
+      "\232\305\210\036*\n(envoy.config.bootstrap.v2.Cluster" +
+      "Manager\"\214\001\n\tWatchdogs\022A\n\024main_thread_wat" +
+      "chdog\030\001 \001(\0132#.envoy.config.bootstrap.v3." +
+      "Watchdog\022<\n\017worker_watchdog\030\002 \001(\0132#.envo" +
+      "y.config.bootstrap.v3.Watchdog\"\273\005\n\010Watch" +
+      "dog\022C\n\007actions\030\007 \003(\01322.envoy.config.boot" +
+      "strap.v3.Watchdog.WatchdogAction\022/\n\014miss" +
+      "_timeout\030\001 \001(\0132\031.google.protobuf.Duratio" +
+      "n\0223\n\020megamiss_timeout\030\002 \001(\0132\031.google.pro" +
+      "tobuf.Duration\022/\n\014kill_timeout\030\003 \001(\0132\031.g" +
+      "oogle.protobuf.Duration\022D\n\027max_kill_time" +
+      "out_jitter\030\006 \001(\0132\031.google.protobuf.Durat" +
+      "ionB\010\372B\005\252\001\0022\000\0224\n\021multikill_timeout\030\004 \001(\013" +
+      "2\031.google.protobuf.Duration\0223\n\023multikill" +
+      "_threshold\030\005 \001(\0132\026.envoy.type.v3.Percent" +
+      "\032\366\001\n\016WatchdogAction\022:\n\006config\030\001 \001(\0132*.en" +
+      "voy.config.core.v3.TypedExtensionConfig\022" +
+      "Y\n\005event\030\002 \001(\0162@.envoy.config.bootstrap." +
+      "v3.Watchdog.WatchdogAction.WatchdogEvent" +
+      "B\010\372B\005\202\001\002\020\001\"M\n\rWatchdogEvent\022\013\n\007UNKNOWN\020\000" +
+      "\022\010\n\004KILL\020\001\022\r\n\tMULTIKILL\020\002\022\014\n\010MEGAMISS\020\003\022" +
+      "\010\n\004MISS\020\004:)\232\305\210\036$\n\"envoy.config.bootstrap" +
+      ".v2.Watchdog\"I\n\013FatalAction\022:\n\006config\030\001 " +
+      "\001(\0132*.envoy.config.core.v3.TypedExtensio" +
+      "nConfig\"\245\001\n\007Runtime\022\024\n\014symlink_root\030\001 \001(" +
+      "\t\022\024\n\014subdirectory\030\002 \001(\t\022\035\n\025override_subd" +
+      "irectory\030\003 \001(\t\022%\n\004base\030\004 \001(\0132\027.google.pr" +
+      "otobuf.Struct:(\232\305\210\036#\n!envoy.config.boots" +
+      "trap.v2.Runtime\"\343\005\n\014RuntimeLayer\022\025\n\004name" +
+      "\030\001 \001(\tB\007\372B\004r\002\020\001\022/\n\014static_layer\030\002 \001(\0132\027." +
+      "google.protobuf.StructH\000\022G\n\ndisk_layer\030\003" +
+      " \001(\01321.envoy.config.bootstrap.v3.Runtime" +
+      "Layer.DiskLayerH\000\022I\n\013admin_layer\030\004 \001(\01322" +
+      ".envoy.config.bootstrap.v3.RuntimeLayer." +
+      "AdminLayerH\000\022G\n\nrtds_layer\030\005 \001(\01321.envoy" +
+      ".config.bootstrap.v3.RuntimeLayer.RtdsLa" +
+      "yerH\000\032\220\001\n\tDiskLayer\022\024\n\014symlink_root\030\001 \001(" +
+      "\t\022\024\n\014subdirectory\030\003 \001(\t\022\036\n\026append_servic" +
+      "e_cluster\030\002 \001(\010:7\232\305\210\0362\n0envoy.config.boo" +
+      "tstrap.v2.RuntimeLayer.DiskLayer\032F\n\nAdmi" +
+      "nLayer:8\232\305\210\0363\n1envoy.config.bootstrap.v2" +
+      ".RuntimeLayer.AdminLayer\032\213\001\n\tRtdsLayer\022\014" +
+      "\n\004name\030\001 \001(\t\0227\n\013rtds_config\030\002 \001(\0132\".envo" +
+      "y.config.core.v3.ConfigSource:7\232\305\210\0362\n0en" +
+      "voy.config.bootstrap.v2.RuntimeLayer.Rtd" +
+      "sLayer:-\232\305\210\036(\n&envoy.config.bootstrap.v2" +
+      ".RuntimeLayerB\026\n\017layer_specifier\022\003\370B\001\"z\n" +
+      "\016LayeredRuntime\0227\n\006layers\030\001 \003(\0132\'.envoy." +
+      "config.bootstrap.v3.RuntimeLayer:/\232\305\210\036*\n" +
+      "(envoy.config.bootstrap.v2.LayeredRuntim" +
+      "e\"\215\002\n\022CustomInlineHeader\022)\n\022inline_heade" +
+      "r_name\030\001 \001(\tB\r\372B\nr\010\020\001\300\001\001\310\001\000\022d\n\022inline_he" +
+      "ader_type\030\002 \001(\0162>.envoy.config.bootstrap" +
+      ".v3.CustomInlineHeader.InlineHeaderTypeB" +
+      "\010\372B\005\202\001\002\020\001\"f\n\020InlineHeaderType\022\022\n\016REQUEST" +
+      "_HEADER\020\000\022\023\n\017REQUEST_TRAILER\020\001\022\023\n\017RESPON" +
+      "SE_HEADER\020\002\022\024\n\020RESPONSE_TRAILER\020\003B\221\001\n\'io" +
+      ".envoyproxy.envoy.config.bootstrap.v3B\016B" +
+      "ootstrapProtoP\001ZLgithub.com/envoyproxy/g" +
+      "o-control-plane/envoy/config/bootstrap/v" +
+      "3;bootstrapv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -319,7 +323,7 @@ public final class BootstrapProto {
     internal_static_envoy_config_bootstrap_v3_Bootstrap_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_config_bootstrap_v3_Bootstrap_descriptor,
-        new java.lang.String[] { "Node", "NodeContextParams", "StaticResources", "DynamicResources", "ClusterManager", "HdsConfig", "FlagsPath", "StatsSinks", "StatsConfig", "StatsFlushInterval", "StatsFlushOnAdmin", "Watchdog", "Watchdogs", "Tracing", "LayeredRuntime", "Admin", "OverloadManager", "EnableDispatcherStats", "HeaderPrefix", "StatsServerVersionOverride", "UseTcpForDnsLookups", "DnsResolutionConfig", "TypedDnsResolverConfig", "BootstrapExtensions", "FatalActions", "ConfigSources", "DefaultConfigSource", "DefaultSocketInterface", "CertificateProviderInstances", "InlineHeaders", "PerfTracingFilePath", "DefaultRegexEngine", "StatsFlush", });
+        new java.lang.String[] { "Node", "NodeContextParams", "StaticResources", "DynamicResources", "ClusterManager", "HdsConfig", "FlagsPath", "StatsSinks", "StatsConfig", "StatsFlushInterval", "StatsFlushOnAdmin", "Watchdog", "Watchdogs", "Tracing", "LayeredRuntime", "Admin", "OverloadManager", "EnableDispatcherStats", "HeaderPrefix", "StatsServerVersionOverride", "UseTcpForDnsLookups", "DnsResolutionConfig", "TypedDnsResolverConfig", "BootstrapExtensions", "FatalActions", "ConfigSources", "DefaultConfigSource", "DefaultSocketInterface", "CertificateProviderInstances", "InlineHeaders", "PerfTracingFilePath", "DefaultRegexEngine", "XdsDelegateExtension", "XdsConfigTrackerExtension", "StatsFlush", });
     internal_static_envoy_config_bootstrap_v3_Bootstrap_StaticResources_descriptor =
       internal_static_envoy_config_bootstrap_v3_Bootstrap_descriptor.getNestedTypes().get(0);
     internal_static_envoy_config_bootstrap_v3_Bootstrap_StaticResources_fieldAccessorTable = new

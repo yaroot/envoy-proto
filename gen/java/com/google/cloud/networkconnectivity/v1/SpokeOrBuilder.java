@@ -132,7 +132,6 @@ public interface SpokeOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -147,7 +146,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 4;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -274,9 +272,9 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. The Google-generated UUID for the spoke. This value is unique across all
-   * spoke resources. If a spoke is deleted and another with the same name is
-   * created, the new spoke is assigned a different unique_id.
+   * Output only. The Google-generated UUID for the spoke. This value is unique
+   * across all spoke resources. If a spoke is deleted and another with the same
+   * name is created, the new spoke is assigned a different unique_id.
    * </pre>
    *
    * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -285,9 +283,9 @@ java.lang.String defaultValue);
   java.lang.String getUniqueId();
   /**
    * <pre>
-   * Output only. The Google-generated UUID for the spoke. This value is unique across all
-   * spoke resources. If a spoke is deleted and another with the same name is
-   * created, the new spoke is assigned a different unique_id.
+   * Output only. The Google-generated UUID for the spoke. This value is unique
+   * across all spoke resources. If a spoke is deleted and another with the same
+   * name is created, the new spoke is assigned a different unique_id.
    * </pre>
    *
    * <code>string unique_id = 11 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

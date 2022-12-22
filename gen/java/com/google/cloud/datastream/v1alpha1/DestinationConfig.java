@@ -35,65 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DestinationConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            destinationConnectionProfileName_ = s;
-            break;
-          }
-          case 802: {
-            com.google.cloud.datastream.v1alpha1.GcsDestinationConfig.Builder subBuilder = null;
-            if (destinationStreamConfigCase_ == 100) {
-              subBuilder = ((com.google.cloud.datastream.v1alpha1.GcsDestinationConfig) destinationStreamConfig_).toBuilder();
-            }
-            destinationStreamConfig_ =
-                input.readMessage(com.google.cloud.datastream.v1alpha1.GcsDestinationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1alpha1.GcsDestinationConfig) destinationStreamConfig_);
-              destinationStreamConfig_ = subBuilder.buildPartial();
-            }
-            destinationStreamConfigCase_ = 100;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1alpha1.CloudDatastreamResourcesProto.internal_static_google_cloud_datastream_v1alpha1_DestinationConfig_descriptor;
@@ -147,7 +88,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESTINATION_CONNECTION_PROFILE_NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object destinationConnectionProfileName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object destinationConnectionProfileName_ = "";
   /**
    * <pre>
    * Required. Destination connection profile identifier.
@@ -243,7 +185,7 @@ private static final long serialVersionUID = 0L;
     if (destinationStreamConfigCase_ == 100) {
       output.writeMessage(100, (com.google.cloud.datastream.v1alpha1.GcsDestinationConfig) destinationStreamConfig_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -259,7 +201,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(100, (com.google.cloud.datastream.v1alpha1.GcsDestinationConfig) destinationStreamConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -285,7 +227,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -306,7 +248,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -427,24 +369,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1alpha1.DestinationConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       destinationConnectionProfileName_ = "";
-
+      if (gcsDestinationConfigBuilder_ != null) {
+        gcsDestinationConfigBuilder_.clear();
+      }
       destinationStreamConfigCase_ = 0;
       destinationStreamConfig_ = null;
       return this;
@@ -473,17 +413,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1alpha1.DestinationConfig buildPartial() {
       com.google.cloud.datastream.v1alpha1.DestinationConfig result = new com.google.cloud.datastream.v1alpha1.DestinationConfig(this);
-      result.destinationConnectionProfileName_ = destinationConnectionProfileName_;
-      if (destinationStreamConfigCase_ == 100) {
-        if (gcsDestinationConfigBuilder_ == null) {
-          result.destinationStreamConfig_ = destinationStreamConfig_;
-        } else {
-          result.destinationStreamConfig_ = gcsDestinationConfigBuilder_.build();
-        }
-      }
-      result.destinationStreamConfigCase_ = destinationStreamConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1alpha1.DestinationConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.destinationConnectionProfileName_ = destinationConnectionProfileName_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datastream.v1alpha1.DestinationConfig result) {
+      result.destinationStreamConfigCase_ = destinationStreamConfigCase_;
+      result.destinationStreamConfig_ = this.destinationStreamConfig_;
+      if (destinationStreamConfigCase_ == 100 &&
+          gcsDestinationConfigBuilder_ != null) {
+        result.destinationStreamConfig_ = gcsDestinationConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -532,6 +481,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1alpha1.DestinationConfig.getDefaultInstance()) return this;
       if (!other.getDestinationConnectionProfileName().isEmpty()) {
         destinationConnectionProfileName_ = other.destinationConnectionProfileName_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getDestinationStreamConfigCase()) {
@@ -543,7 +493,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -558,17 +508,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1alpha1.DestinationConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              destinationConnectionProfileName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 802: {
+              input.readMessage(
+                  getGcsDestinationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              destinationStreamConfigCase_ = 100;
+              break;
+            } // case 802
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1alpha1.DestinationConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int destinationStreamConfigCase_ = 0;
@@ -586,6 +561,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object destinationConnectionProfileName_ = "";
     /**
@@ -640,11 +616,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationConnectionProfileName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       destinationConnectionProfileName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -657,8 +631,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDestinationConnectionProfileName() {
-      
       destinationConnectionProfileName_ = getDefaultInstance().getDestinationConnectionProfileName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -673,12 +647,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDestinationConnectionProfileNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       destinationConnectionProfileName_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -821,7 +793,7 @@ private static final long serialVersionUID = 0L;
         destinationStreamConfig_ = null;
       }
       destinationStreamConfigCase_ = 100;
-      onChanged();;
+      onChanged();
       return gcsDestinationConfigBuilder_;
     }
     @java.lang.Override
@@ -857,7 +829,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DestinationConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

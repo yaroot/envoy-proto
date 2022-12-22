@@ -113,7 +113,6 @@ public interface JobStatusOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.batch.v1.JobStatus.TaskGroupStatus&gt; task_groups = 4;</code>
    */
-
   /* nullable */
 com.google.cloud.batch.v1.JobStatus.TaskGroupStatus getTaskGroupsOrDefault(
       java.lang.String key,
@@ -127,7 +126,6 @@ com.google.cloud.batch.v1.JobStatus.TaskGroupStatus defaultValue);
    *
    * <code>map&lt;string, .google.cloud.batch.v1.JobStatus.TaskGroupStatus&gt; task_groups = 4;</code>
    */
-
   com.google.cloud.batch.v1.JobStatus.TaskGroupStatus getTaskGroupsOrThrow(
       java.lang.String key);
 

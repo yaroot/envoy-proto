@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EncryptSecretResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.actions.sdk.v2.AccountLinkingSecret.Builder subBuilder = null;
-            if (accountLinkingSecret_ != null) {
-              subBuilder = accountLinkingSecret_.toBuilder();
-            }
-            accountLinkingSecret_ = input.readMessage(com.google.actions.sdk.v2.AccountLinkingSecret.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(accountLinkingSecret_);
-              accountLinkingSecret_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.ActionsSdkProto.internal_static_google_actions_sdk_v2_EncryptSecretResponse_descriptor;
@@ -137,7 +85,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.actions.sdk.v2.AccountLinkingSecretOrBuilder getAccountLinkingSecretOrBuilder() {
-    return getAccountLinkingSecret();
+    return accountLinkingSecret_ == null ? com.google.actions.sdk.v2.AccountLinkingSecret.getDefaultInstance() : accountLinkingSecret_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -157,7 +105,7 @@ private static final long serialVersionUID = 0L;
     if (accountLinkingSecret_ != null) {
       output.writeMessage(1, getAccountLinkingSecret());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -170,7 +118,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getAccountLinkingSecret());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -190,7 +138,7 @@ private static final long serialVersionUID = 0L;
       if (!getAccountLinkingSecret()
           .equals(other.getAccountLinkingSecret())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -205,7 +153,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ACCOUNT_LINKING_SECRET_FIELD_NUMBER;
       hash = (53 * hash) + getAccountLinkingSecret().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -326,26 +274,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.EncryptSecretResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (accountLinkingSecretBuilder_ == null) {
-        accountLinkingSecret_ = null;
-      } else {
-        accountLinkingSecret_ = null;
+      bitField0_ = 0;
+      accountLinkingSecret_ = null;
+      if (accountLinkingSecretBuilder_ != null) {
+        accountLinkingSecretBuilder_.dispose();
         accountLinkingSecretBuilder_ = null;
       }
       return this;
@@ -374,13 +317,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.EncryptSecretResponse buildPartial() {
       com.google.actions.sdk.v2.EncryptSecretResponse result = new com.google.actions.sdk.v2.EncryptSecretResponse(this);
-      if (accountLinkingSecretBuilder_ == null) {
-        result.accountLinkingSecret_ = accountLinkingSecret_;
-      } else {
-        result.accountLinkingSecret_ = accountLinkingSecretBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.EncryptSecretResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.accountLinkingSecret_ = accountLinkingSecretBuilder_ == null
+            ? accountLinkingSecret_
+            : accountLinkingSecretBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -430,7 +378,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAccountLinkingSecret()) {
         mergeAccountLinkingSecret(other.getAccountLinkingSecret());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -445,19 +393,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.EncryptSecretResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAccountLinkingSecretFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.EncryptSecretResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.actions.sdk.v2.AccountLinkingSecret accountLinkingSecret_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -472,7 +441,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the accountLinkingSecret field is set.
      */
     public boolean hasAccountLinkingSecret() {
-      return accountLinkingSecretBuilder_ != null || accountLinkingSecret_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -504,11 +473,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         accountLinkingSecret_ = value;
-        onChanged();
       } else {
         accountLinkingSecretBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -523,11 +492,11 @@ private static final long serialVersionUID = 0L;
         com.google.actions.sdk.v2.AccountLinkingSecret.Builder builderForValue) {
       if (accountLinkingSecretBuilder_ == null) {
         accountLinkingSecret_ = builderForValue.build();
-        onChanged();
       } else {
         accountLinkingSecretBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -540,17 +509,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAccountLinkingSecret(com.google.actions.sdk.v2.AccountLinkingSecret value) {
       if (accountLinkingSecretBuilder_ == null) {
-        if (accountLinkingSecret_ != null) {
-          accountLinkingSecret_ =
-            com.google.actions.sdk.v2.AccountLinkingSecret.newBuilder(accountLinkingSecret_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          accountLinkingSecret_ != null &&
+          accountLinkingSecret_ != com.google.actions.sdk.v2.AccountLinkingSecret.getDefaultInstance()) {
+          getAccountLinkingSecretBuilder().mergeFrom(value);
         } else {
           accountLinkingSecret_ = value;
         }
-        onChanged();
       } else {
         accountLinkingSecretBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -562,14 +532,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.AccountLinkingSecret account_linking_secret = 1;</code>
      */
     public Builder clearAccountLinkingSecret() {
-      if (accountLinkingSecretBuilder_ == null) {
-        accountLinkingSecret_ = null;
-        onChanged();
-      } else {
-        accountLinkingSecret_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      accountLinkingSecret_ = null;
+      if (accountLinkingSecretBuilder_ != null) {
+        accountLinkingSecretBuilder_.dispose();
         accountLinkingSecretBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -581,7 +550,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.actions.sdk.v2.AccountLinkingSecret account_linking_secret = 1;</code>
      */
     public com.google.actions.sdk.v2.AccountLinkingSecret.Builder getAccountLinkingSecretBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAccountLinkingSecretFieldBuilder().getBuilder();
     }
@@ -655,7 +624,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EncryptSecretResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -11,19 +11,19 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
+from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/networkconnectivity/v1/common.proto\x12#google.cloud.networkconnectivity.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x42\x85\x02\n\'com.google.cloud.networkconnectivity.v1B\x0b\x43ommonProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/networkconnectivity/v1;networkconnectivity\xaa\x02#Google.Cloud.NetworkConnectivity.V1\xca\x02#Google\\Cloud\\NetworkConnectivity\\V1\xea\x02&Google::Cloud::NetworkConnectivity::V1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/networkconnectivity/v1/common.proto\x12#google.cloud.networkconnectivity.v1\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x02\n\x11OperationMetadata\x12\x34\n\x0b\x63reate_time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x31\n\x08\x65nd_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x13\n\x06target\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12\x11\n\x04verb\x18\x04 \x01(\tB\x03\xe0\x41\x03\x12\x1b\n\x0estatus_message\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12#\n\x16requested_cancellation\x18\x06 \x01(\x08\x42\x03\xe0\x41\x03\x12\x18\n\x0b\x61pi_version\x18\x07 \x01(\tB\x03\xe0\x41\x03\x42\xd7\x03\n\'com.google.cloud.networkconnectivity.v1B\x0b\x43ommonProtoP\x01ZVgoogle.golang.org/genproto/googleapis/cloud/networkconnectivity/v1;networkconnectivity\xaa\x02#Google.Cloud.NetworkConnectivity.V1\xca\x02#Google\\Cloud\\NetworkConnectivity\\V1\xea\x02&Google::Cloud::NetworkConnectivity::V1\xea\x41z\n-compute.googleapis.com/InterconnectAttachment\x12Iprojects/{project}/regions/{region}/interconnectAttachments/{resource_id}\xea\x41R\n\x1e\x63ompute.googleapis.com/Network\x12\x30projects/{project}/global/networks/{resource_id}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.networkconnectivity.v1.common_pb2', globals())
 if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
-  DESCRIPTOR._serialized_options = b'\n\'com.google.cloud.networkconnectivity.v1B\013CommonProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/networkconnectivity/v1;networkconnectivity\252\002#Google.Cloud.NetworkConnectivity.V1\312\002#Google\\Cloud\\NetworkConnectivity\\V1\352\002&Google::Cloud::NetworkConnectivity::V1'
+  DESCRIPTOR._serialized_options = b'\n\'com.google.cloud.networkconnectivity.v1B\013CommonProtoP\001ZVgoogle.golang.org/genproto/googleapis/cloud/networkconnectivity/v1;networkconnectivity\252\002#Google.Cloud.NetworkConnectivity.V1\312\002#Google\\Cloud\\NetworkConnectivity\\V1\352\002&Google::Cloud::NetworkConnectivity::V1\352Az\n-compute.googleapis.com/InterconnectAttachment\022Iprojects/{project}/regions/{region}/interconnectAttachments/{resource_id}\352AR\n\036compute.googleapis.com/Network\0220projects/{project}/global/networks/{resource_id}'
   _OPERATIONMETADATA.fields_by_name['create_time']._options = None
   _OPERATIONMETADATA.fields_by_name['create_time']._serialized_options = b'\340A\003'
   _OPERATIONMETADATA.fields_by_name['end_time']._options = None
@@ -38,6 +38,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _OPERATIONMETADATA.fields_by_name['requested_cancellation']._serialized_options = b'\340A\003'
   _OPERATIONMETADATA.fields_by_name['api_version']._options = None
   _OPERATIONMETADATA.fields_by_name['api_version']._serialized_options = b'\340A\003'
-  _OPERATIONMETADATA._serialized_start=186
-  _OPERATIONMETADATA._serialized_end=442
+  _OPERATIONMETADATA._serialized_start=183
+  _OPERATIONMETADATA._serialized_end=439
 # @@protoc_insertion_point(module_scope)

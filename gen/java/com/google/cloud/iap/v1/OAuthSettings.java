@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OAuthSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (loginHint_ != null) {
-              subBuilder = loginHint_.toBuilder();
-            }
-            loginHint_ = input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(loginHint_);
-              loginHint_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.iap.v1.Service.internal_static_google_cloud_iap_v1_OAuthSettings_descriptor;
@@ -147,7 +95,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StringValueOrBuilder getLoginHintOrBuilder() {
-    return getLoginHint();
+    return loginHint_ == null ? com.google.protobuf.StringValue.getDefaultInstance() : loginHint_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
     if (loginHint_ != null) {
       output.writeMessage(2, getLoginHint());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -180,7 +128,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getLoginHint());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -200,7 +148,7 @@ private static final long serialVersionUID = 0L;
       if (!getLoginHint()
           .equals(other.getLoginHint())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -215,7 +163,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOGIN_HINT_FIELD_NUMBER;
       hash = (53 * hash) + getLoginHint().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -337,26 +285,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.iap.v1.OAuthSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (loginHintBuilder_ == null) {
-        loginHint_ = null;
-      } else {
-        loginHint_ = null;
+      bitField0_ = 0;
+      loginHint_ = null;
+      if (loginHintBuilder_ != null) {
+        loginHintBuilder_.dispose();
         loginHintBuilder_ = null;
       }
       return this;
@@ -385,13 +328,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.iap.v1.OAuthSettings buildPartial() {
       com.google.cloud.iap.v1.OAuthSettings result = new com.google.cloud.iap.v1.OAuthSettings(this);
-      if (loginHintBuilder_ == null) {
-        result.loginHint_ = loginHint_;
-      } else {
-        result.loginHint_ = loginHintBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.iap.v1.OAuthSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.loginHint_ = loginHintBuilder_ == null
+            ? loginHint_
+            : loginHintBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -441,7 +389,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLoginHint()) {
         mergeLoginHint(other.getLoginHint());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -456,19 +404,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.iap.v1.OAuthSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getLoginHintFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.iap.v1.OAuthSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.protobuf.StringValue loginHint_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -486,7 +455,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the loginHint field is set.
      */
     public boolean hasLoginHint() {
-      return loginHintBuilder_ != null || loginHint_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -524,11 +493,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         loginHint_ = value;
-        onChanged();
       } else {
         loginHintBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -546,11 +515,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.StringValue.Builder builderForValue) {
       if (loginHintBuilder_ == null) {
         loginHint_ = builderForValue.build();
-        onChanged();
       } else {
         loginHintBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -566,17 +535,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLoginHint(com.google.protobuf.StringValue value) {
       if (loginHintBuilder_ == null) {
-        if (loginHint_ != null) {
-          loginHint_ =
-            com.google.protobuf.StringValue.newBuilder(loginHint_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          loginHint_ != null &&
+          loginHint_ != com.google.protobuf.StringValue.getDefaultInstance()) {
+          getLoginHintBuilder().mergeFrom(value);
         } else {
           loginHint_ = value;
         }
-        onChanged();
       } else {
         loginHintBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -591,14 +561,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue login_hint = 2;</code>
      */
     public Builder clearLoginHint() {
-      if (loginHintBuilder_ == null) {
-        loginHint_ = null;
-        onChanged();
-      } else {
-        loginHint_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      loginHint_ = null;
+      if (loginHintBuilder_ != null) {
+        loginHintBuilder_.dispose();
         loginHintBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -613,7 +582,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.StringValue login_hint = 2;</code>
      */
     public com.google.protobuf.StringValue.Builder getLoginHintBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLoginHintFieldBuilder().getBuilder();
     }
@@ -693,7 +662,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OAuthSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

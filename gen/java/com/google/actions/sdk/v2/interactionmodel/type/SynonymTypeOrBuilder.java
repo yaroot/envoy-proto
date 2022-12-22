@@ -77,7 +77,6 @@ public interface SynonymTypeOrBuilder extends
    *
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   /* nullable */
 com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrDefault(
       java.lang.String key,
@@ -90,7 +89,6 @@ com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity defaultValue)
    *
    * <code>map&lt;string, .google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity&gt; entities = 2 [(.google.api.field_behavior) = REQUIRED];</code>
    */
-
   com.google.actions.sdk.v2.interactionmodel.type.SynonymType.Entity getEntitiesOrThrow(
       java.lang.String key);
 }

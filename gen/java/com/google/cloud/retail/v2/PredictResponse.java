@@ -37,81 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PredictResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              results_ = new java.util.ArrayList<com.google.cloud.retail.v2.PredictResponse.PredictionResult>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            results_.add(
-                input.readMessage(com.google.cloud.retail.v2.PredictResponse.PredictionResult.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            attributionToken_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              missingIds_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            missingIds_.add(s);
-            break;
-          }
-          case 32: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        results_ = java.util.Collections.unmodifiableList(results_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        missingIds_ = missingIds_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2.PredictionServiceProto.internal_static_google_cloud_retail_v2_PredictResponse_descriptor;
@@ -208,7 +133,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
      */
-
     /* nullable */
 com.google.protobuf.Value getMetadataOrDefault(
         java.lang.String key,
@@ -226,7 +150,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
      */
-
     com.google.protobuf.Value getMetadataOrThrow(
         java.lang.String key);
   }
@@ -262,65 +185,6 @@ com.google.protobuf.Value defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private PredictionResult(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              id_ = s;
-              break;
-            }
-            case 18: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                metadata_ = com.google.protobuf.MapField.newMapField(
-                    MetadataDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-              metadata__ = input.readMessage(
-                  MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              metadata_.getMutableMap().put(
-                  metadata__.getKey(), metadata__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.retail.v2.PredictionServiceProto.internal_static_google_cloud_retail_v2_PredictResponse_PredictionResult_descriptor;
@@ -347,7 +211,8 @@ com.google.protobuf.Value defaultValue);
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private volatile java.lang.Object id_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object id_ = "";
     /**
      * <pre>
      * ID of the recommended product
@@ -404,6 +269,7 @@ com.google.protobuf.Value defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.protobuf.Value.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> metadata_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -414,7 +280,6 @@ com.google.protobuf.Value defaultValue);
       }
       return metadata_;
     }
-
     public int getMetadataCount() {
       return internalGetMetadata().getMap().size();
     }
@@ -430,7 +295,6 @@ com.google.protobuf.Value defaultValue);
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsMetadata(
         java.lang.String key) {
@@ -458,7 +322,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getMetadataMap() {
       return internalGetMetadata().getMap();
     }
@@ -475,10 +338,11 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getMetadataOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getMetadataOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetMetadata().getMap();
@@ -497,7 +361,6 @@ com.google.protobuf.Value defaultValue);
      * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -532,7 +395,7 @@ com.google.protobuf.Value defaultValue);
           internalGetMetadata(),
           MetadataDefaultEntryHolder.defaultEntry,
           2);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -554,7 +417,7 @@ com.google.protobuf.Value defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(2, metadata__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -573,7 +436,7 @@ com.google.protobuf.Value defaultValue);
           .equals(other.getId())) return false;
       if (!internalGetMetadata().equals(
           other.internalGetMetadata())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -590,7 +453,7 @@ com.google.protobuf.Value defaultValue);
         hash = (37 * hash) + METADATA_FIELD_NUMBER;
         hash = (53 * hash) + internalGetMetadata().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -733,24 +596,19 @@ com.google.protobuf.Value defaultValue);
 
       // Construct using com.google.cloud.retail.v2.PredictResponse.PredictionResult.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = "";
-
         internalGetMutableMetadata().clear();
         return this;
       }
@@ -778,12 +636,20 @@ com.google.protobuf.Value defaultValue);
       @java.lang.Override
       public com.google.cloud.retail.v2.PredictResponse.PredictionResult buildPartial() {
         com.google.cloud.retail.v2.PredictResponse.PredictionResult result = new com.google.cloud.retail.v2.PredictResponse.PredictionResult(this);
-        int from_bitField0_ = bitField0_;
-        result.id_ = id_;
-        result.metadata_ = internalGetMetadata();
-        result.metadata_.makeImmutable();
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.retail.v2.PredictResponse.PredictionResult result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.metadata_ = internalGetMetadata();
+          result.metadata_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -832,11 +698,13 @@ com.google.protobuf.Value defaultValue);
         if (other == com.google.cloud.retail.v2.PredictResponse.PredictionResult.getDefaultInstance()) return this;
         if (!other.getId().isEmpty()) {
           id_ = other.id_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         internalGetMutableMetadata().mergeFrom(
             other.internalGetMetadata());
-        this.mergeUnknownFields(other.unknownFields);
+        bitField0_ |= 0x00000002;
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -851,17 +719,44 @@ com.google.protobuf.Value defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.retail.v2.PredictResponse.PredictionResult parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                id_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+                metadata__ = input.readMessage(
+                    MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMetadata().getMutableMap().put(
+                    metadata__.getKey(), metadata__.getValue());
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.retail.v2.PredictResponse.PredictionResult) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -919,11 +814,9 @@ com.google.protobuf.Value defaultValue);
        */
       public Builder setId(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -936,8 +829,8 @@ com.google.protobuf.Value defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
         id_ = getDefaultInstance().getId();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -952,12 +845,10 @@ com.google.protobuf.Value defaultValue);
        */
       public Builder setIdBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -965,7 +856,7 @@ com.google.protobuf.Value defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.protobuf.Value> metadata_;
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-      internalGetMetadata() {
+          internalGetMetadata() {
         if (metadata_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               MetadataDefaultEntryHolder.defaultEntry);
@@ -973,8 +864,7 @@ com.google.protobuf.Value defaultValue);
         return metadata_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-      internalGetMutableMetadata() {
-        onChanged();;
+          internalGetMutableMetadata() {
         if (metadata_ == null) {
           metadata_ = com.google.protobuf.MapField.newMapField(
               MetadataDefaultEntryHolder.defaultEntry);
@@ -982,9 +872,10 @@ com.google.protobuf.Value defaultValue);
         if (!metadata_.isMutable()) {
           metadata_ = metadata_.copy();
         }
+        bitField0_ |= 0x00000002;
+        onChanged();
         return metadata_;
       }
-
       public int getMetadataCount() {
         return internalGetMetadata().getMap().size();
       }
@@ -1000,7 +891,6 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
        */
-
       @java.lang.Override
       public boolean containsMetadata(
           java.lang.String key) {
@@ -1028,7 +918,6 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.protobuf.Value> getMetadataMap() {
         return internalGetMetadata().getMap();
       }
@@ -1045,10 +934,11 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
        */
       @java.lang.Override
-
-      public com.google.protobuf.Value getMetadataOrDefault(
+      public /* nullable */
+com.google.protobuf.Value getMetadataOrDefault(
           java.lang.String key,
-          com.google.protobuf.Value defaultValue) {
+          /* nullable */
+com.google.protobuf.Value defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.protobuf.Value> map =
             internalGetMetadata().getMap();
@@ -1067,7 +957,6 @@ com.google.protobuf.Value defaultValue);
        * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
        */
       @java.lang.Override
-
       public com.google.protobuf.Value getMetadataOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1078,8 +967,8 @@ com.google.protobuf.Value defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearMetadata() {
+        bitField0_ = (bitField0_ & ~0x00000002);
         internalGetMutableMetadata().getMutableMap()
             .clear();
         return this;
@@ -1096,7 +985,6 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
        */
-
       public Builder removeMetadata(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -1109,7 +997,8 @@ com.google.protobuf.Value defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.protobuf.Value>
-      getMutableMetadata() {
+          getMutableMetadata() {
+        bitField0_ |= 0x00000002;
         return internalGetMutableMetadata().getMutableMap();
       }
       /**
@@ -1128,12 +1017,10 @@ com.google.protobuf.Value defaultValue);
           java.lang.String key,
           com.google.protobuf.Value value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableMetadata().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000002;
         return this;
       }
       /**
@@ -1148,11 +1035,11 @@ com.google.protobuf.Value defaultValue);
        *
        * <code>map&lt;string, .google.protobuf.Value&gt; metadata = 2;</code>
        */
-
       public Builder putAllMetadata(
           java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
         internalGetMutableMetadata().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000002;
         return this;
       }
       @java.lang.Override
@@ -1188,7 +1075,18 @@ com.google.protobuf.Value defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PredictionResult(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1209,6 +1107,7 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int RESULTS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.retail.v2.PredictResponse.PredictionResult> results_;
   /**
    * <pre>
@@ -1274,7 +1173,8 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int ATTRIBUTION_TOKEN_FIELD_NUMBER = 2;
-  private volatile java.lang.Object attributionToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object attributionToken_ = "";
   /**
    * <pre>
    * A unique attribution token. This should be included in the
@@ -1326,6 +1226,7 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int MISSING_IDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList missingIds_;
   /**
    * <pre>
@@ -1377,7 +1278,7 @@ com.google.protobuf.Value defaultValue);
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 4;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * True if the validateOnly property was set in the request.
@@ -1417,7 +1318,7 @@ com.google.protobuf.Value defaultValue);
     if (validateOnly_ != false) {
       output.writeBool(4, validateOnly_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1445,7 +1346,7 @@ com.google.protobuf.Value defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(4, validateOnly_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1468,7 +1369,7 @@ com.google.protobuf.Value defaultValue);
         .equals(other.getMissingIdsList())) return false;
     if (getValidateOnly()
         != other.getValidateOnly()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1492,7 +1393,7 @@ com.google.protobuf.Value defaultValue);
     hash = (37 * hash) + VALIDATE_ONLY_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getValidateOnly());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1613,35 +1514,29 @@ com.google.protobuf.Value defaultValue);
 
     // Construct using com.google.cloud.retail.v2.PredictResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getResultsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (resultsBuilder_ == null) {
         results_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        results_ = null;
         resultsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       attributionToken_ = "";
-
       missingIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       validateOnly_ = false;
-
       return this;
     }
 
@@ -1668,7 +1563,13 @@ com.google.protobuf.Value defaultValue);
     @java.lang.Override
     public com.google.cloud.retail.v2.PredictResponse buildPartial() {
       com.google.cloud.retail.v2.PredictResponse result = new com.google.cloud.retail.v2.PredictResponse(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2.PredictResponse result) {
       if (resultsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           results_ = java.util.Collections.unmodifiableList(results_);
@@ -1678,15 +1579,21 @@ com.google.protobuf.Value defaultValue);
       } else {
         result.results_ = resultsBuilder_.build();
       }
-      result.attributionToken_ = attributionToken_;
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000004) != 0)) {
         missingIds_ = missingIds_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
       }
       result.missingIds_ = missingIds_;
-      result.validateOnly_ = validateOnly_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2.PredictResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.attributionToken_ = attributionToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
     }
 
     @java.lang.Override
@@ -1761,12 +1668,13 @@ com.google.protobuf.Value defaultValue);
       }
       if (!other.getAttributionToken().isEmpty()) {
         attributionToken_ = other.attributionToken_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.missingIds_.isEmpty()) {
         if (missingIds_.isEmpty()) {
           missingIds_ = other.missingIds_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureMissingIdsIsMutable();
           missingIds_.addAll(other.missingIds_);
@@ -1776,7 +1684,7 @@ com.google.protobuf.Value defaultValue);
       if (other.getValidateOnly() != false) {
         setValidateOnly(other.getValidateOnly());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1791,17 +1699,59 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2.PredictResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.retail.v2.PredictResponse.PredictionResult m =
+                  input.readMessage(
+                      com.google.cloud.retail.v2.PredictResponse.PredictionResult.parser(),
+                      extensionRegistry);
+              if (resultsBuilder_ == null) {
+                ensureResultsIsMutable();
+                results_.add(m);
+              } else {
+                resultsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              attributionToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureMissingIdsIsMutable();
+              missingIds_.add(s);
+              break;
+            } // case 26
+            case 32: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2.PredictResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -2198,11 +2148,9 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setAttributionToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       attributionToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -2218,8 +2166,8 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearAttributionToken() {
-      
       attributionToken_ = getDefaultInstance().getAttributionToken();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -2237,21 +2185,19 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setAttributionTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       attributionToken_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList missingIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureMissingIdsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         missingIds_ = new com.google.protobuf.LazyStringArrayList(missingIds_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -2314,10 +2260,8 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder setMissingIds(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMissingIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMissingIdsIsMutable();
       missingIds_.set(index, value);
       onChanged();
       return this;
@@ -2333,10 +2277,8 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder addMissingIds(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureMissingIdsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureMissingIdsIsMutable();
       missingIds_.add(value);
       onChanged();
       return this;
@@ -2368,7 +2310,7 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder clearMissingIds() {
       missingIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -2383,10 +2325,8 @@ com.google.protobuf.Value defaultValue);
      */
     public Builder addMissingIdsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureMissingIdsIsMutable();
       missingIds_.add(value);
       onChanged();
@@ -2418,6 +2358,7 @@ com.google.protobuf.Value defaultValue);
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -2430,7 +2371,7 @@ com.google.protobuf.Value defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -2468,7 +2409,18 @@ com.google.protobuf.Value defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PredictResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

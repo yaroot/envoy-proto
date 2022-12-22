@@ -77,7 +77,7 @@ public interface ConversationParticipantOrBuilder extends
    *
    * <code>string dialogflow_participant = 1 [deprecated = true];</code>
    * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
    * @return The dialogflowParticipant.
    */
   @java.lang.Deprecated java.lang.String getDialogflowParticipant();
@@ -90,7 +90,7 @@ public interface ConversationParticipantOrBuilder extends
    *
    * <code>string dialogflow_participant = 1 [deprecated = true];</code>
    * @deprecated google.cloud.contactcenterinsights.v1.ConversationParticipant.dialogflow_participant is deprecated.
-   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1083
+   *     See google/cloud/contactcenterinsights/v1/resources.proto;l=1104
    * @return The bytes for dialogflowParticipant.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

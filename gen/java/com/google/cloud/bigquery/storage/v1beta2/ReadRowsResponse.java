@@ -35,132 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReadRowsResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.cloud.bigquery.storage.v1beta2.StreamStats.Builder subBuilder = null;
-            if (stats_ != null) {
-              subBuilder = stats_.toBuilder();
-            }
-            stats_ = input.readMessage(com.google.cloud.bigquery.storage.v1beta2.StreamStats.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(stats_);
-              stats_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.bigquery.storage.v1beta2.AvroRows.Builder subBuilder = null;
-            if (rowsCase_ == 3) {
-              subBuilder = ((com.google.cloud.bigquery.storage.v1beta2.AvroRows) rows_).toBuilder();
-            }
-            rows_ =
-                input.readMessage(com.google.cloud.bigquery.storage.v1beta2.AvroRows.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.storage.v1beta2.AvroRows) rows_);
-              rows_ = subBuilder.buildPartial();
-            }
-            rowsCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.bigquery.storage.v1beta2.ArrowRecordBatch.Builder subBuilder = null;
-            if (rowsCase_ == 4) {
-              subBuilder = ((com.google.cloud.bigquery.storage.v1beta2.ArrowRecordBatch) rows_).toBuilder();
-            }
-            rows_ =
-                input.readMessage(com.google.cloud.bigquery.storage.v1beta2.ArrowRecordBatch.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.storage.v1beta2.ArrowRecordBatch) rows_);
-              rows_ = subBuilder.buildPartial();
-            }
-            rowsCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.bigquery.storage.v1beta2.ThrottleState.Builder subBuilder = null;
-            if (throttleState_ != null) {
-              subBuilder = throttleState_.toBuilder();
-            }
-            throttleState_ = input.readMessage(com.google.cloud.bigquery.storage.v1beta2.ThrottleState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(throttleState_);
-              throttleState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            rowCount_ = input.readInt64();
-            break;
-          }
-          case 58: {
-            com.google.cloud.bigquery.storage.v1beta2.AvroSchema.Builder subBuilder = null;
-            if (schemaCase_ == 7) {
-              subBuilder = ((com.google.cloud.bigquery.storage.v1beta2.AvroSchema) schema_).toBuilder();
-            }
-            schema_ =
-                input.readMessage(com.google.cloud.bigquery.storage.v1beta2.AvroSchema.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.storage.v1beta2.AvroSchema) schema_);
-              schema_ = subBuilder.buildPartial();
-            }
-            schemaCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.bigquery.storage.v1beta2.ArrowSchema.Builder subBuilder = null;
-            if (schemaCase_ == 8) {
-              subBuilder = ((com.google.cloud.bigquery.storage.v1beta2.ArrowSchema) schema_).toBuilder();
-            }
-            schema_ =
-                input.readMessage(com.google.cloud.bigquery.storage.v1beta2.ArrowSchema.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.storage.v1beta2.ArrowSchema) schema_);
-              schema_ = subBuilder.buildPartial();
-            }
-            schemaCase_ = 8;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.storage.v1beta2.StorageProto.internal_static_google_cloud_bigquery_storage_v1beta2_ReadRowsResponse_descriptor;
@@ -343,7 +217,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROW_COUNT_FIELD_NUMBER = 6;
-  private long rowCount_;
+  private long rowCount_ = 0L;
   /**
    * <pre>
    * Number of serialized rows in the rows block.
@@ -392,7 +266,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.storage.v1beta2.StreamStatsOrBuilder getStatsOrBuilder() {
-    return getStats();
+    return stats_ == null ? com.google.cloud.bigquery.storage.v1beta2.StreamStats.getDefaultInstance() : stats_;
   }
 
   public static final int THROTTLE_STATE_FIELD_NUMBER = 5;
@@ -433,7 +307,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.storage.v1beta2.ThrottleStateOrBuilder getThrottleStateOrBuilder() {
-    return getThrottleState();
+    return throttleState_ == null ? com.google.cloud.bigquery.storage.v1beta2.ThrottleState.getDefaultInstance() : throttleState_;
   }
 
   public static final int AVRO_SCHEMA_FIELD_NUMBER = 7;
@@ -557,7 +431,7 @@ private static final long serialVersionUID = 0L;
     if (schemaCase_ == 8) {
       output.writeMessage(8, (com.google.cloud.bigquery.storage.v1beta2.ArrowSchema) schema_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -594,7 +468,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, (com.google.cloud.bigquery.storage.v1beta2.ArrowSchema) schema_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -647,7 +521,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -693,7 +567,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -815,35 +689,40 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (avroRowsBuilder_ != null) {
+        avroRowsBuilder_.clear();
+      }
+      if (arrowRecordBatchBuilder_ != null) {
+        arrowRecordBatchBuilder_.clear();
+      }
       rowCount_ = 0L;
-
-      if (statsBuilder_ == null) {
-        stats_ = null;
-      } else {
-        stats_ = null;
+      stats_ = null;
+      if (statsBuilder_ != null) {
+        statsBuilder_.dispose();
         statsBuilder_ = null;
       }
-      if (throttleStateBuilder_ == null) {
-        throttleState_ = null;
-      } else {
-        throttleState_ = null;
+      throttleState_ = null;
+      if (throttleStateBuilder_ != null) {
+        throttleStateBuilder_.dispose();
         throttleStateBuilder_ = null;
+      }
+      if (avroSchemaBuilder_ != null) {
+        avroSchemaBuilder_.clear();
+      }
+      if (arrowSchemaBuilder_ != null) {
+        arrowSchemaBuilder_.clear();
       }
       rowsCase_ = 0;
       rows_ = null;
@@ -875,49 +754,50 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse buildPartial() {
       com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse result = new com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse(this);
-      if (rowsCase_ == 3) {
-        if (avroRowsBuilder_ == null) {
-          result.rows_ = rows_;
-        } else {
-          result.rows_ = avroRowsBuilder_.build();
-        }
-      }
-      if (rowsCase_ == 4) {
-        if (arrowRecordBatchBuilder_ == null) {
-          result.rows_ = rows_;
-        } else {
-          result.rows_ = arrowRecordBatchBuilder_.build();
-        }
-      }
-      result.rowCount_ = rowCount_;
-      if (statsBuilder_ == null) {
-        result.stats_ = stats_;
-      } else {
-        result.stats_ = statsBuilder_.build();
-      }
-      if (throttleStateBuilder_ == null) {
-        result.throttleState_ = throttleState_;
-      } else {
-        result.throttleState_ = throttleStateBuilder_.build();
-      }
-      if (schemaCase_ == 7) {
-        if (avroSchemaBuilder_ == null) {
-          result.schema_ = schema_;
-        } else {
-          result.schema_ = avroSchemaBuilder_.build();
-        }
-      }
-      if (schemaCase_ == 8) {
-        if (arrowSchemaBuilder_ == null) {
-          result.schema_ = schema_;
-        } else {
-          result.schema_ = arrowSchemaBuilder_.build();
-        }
-      }
-      result.rowsCase_ = rowsCase_;
-      result.schemaCase_ = schemaCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.rowCount_ = rowCount_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.stats_ = statsBuilder_ == null
+            ? stats_
+            : statsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.throttleState_ = throttleStateBuilder_ == null
+            ? throttleState_
+            : throttleStateBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse result) {
+      result.rowsCase_ = rowsCase_;
+      result.rows_ = this.rows_;
+      if (rowsCase_ == 3 &&
+          avroRowsBuilder_ != null) {
+        result.rows_ = avroRowsBuilder_.build();
+      }
+      if (rowsCase_ == 4 &&
+          arrowRecordBatchBuilder_ != null) {
+        result.rows_ = arrowRecordBatchBuilder_.build();
+      }
+      result.schemaCase_ = schemaCase_;
+      result.schema_ = this.schema_;
+      if (schemaCase_ == 7 &&
+          avroSchemaBuilder_ != null) {
+        result.schema_ = avroSchemaBuilder_.build();
+      }
+      if (schemaCase_ == 8 &&
+          arrowSchemaBuilder_ != null) {
+        result.schema_ = arrowSchemaBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -999,7 +879,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1014,17 +894,77 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getStatsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAvroRowsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              rowsCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getArrowRecordBatchFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              rowsCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getThrottleStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              rowCount_ = input.readInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getAvroSchemaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              schemaCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getArrowSchemaFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              schemaCase_ = 8;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.storage.v1beta2.ReadRowsResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int rowsCase_ = 0;
@@ -1057,6 +997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.bigquery.storage.v1beta2.AvroRows, com.google.cloud.bigquery.storage.v1beta2.AvroRows.Builder, com.google.cloud.bigquery.storage.v1beta2.AvroRowsOrBuilder> avroRowsBuilder_;
@@ -1232,7 +1173,7 @@ private static final long serialVersionUID = 0L;
         rows_ = null;
       }
       rowsCase_ = 3;
-      onChanged();;
+      onChanged();
       return avroRowsBuilder_;
     }
 
@@ -1410,7 +1351,7 @@ private static final long serialVersionUID = 0L;
         rows_ = null;
       }
       rowsCase_ = 4;
-      onChanged();;
+      onChanged();
       return arrowRecordBatchBuilder_;
     }
 
@@ -1439,6 +1380,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRowCount(long value) {
       
       rowCount_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1451,7 +1393,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRowCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       rowCount_ = 0L;
       onChanged();
       return this;
@@ -1469,7 +1411,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the stats field is set.
      */
     public boolean hasStats() {
-      return statsBuilder_ != null || stats_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1499,11 +1441,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         stats_ = value;
-        onChanged();
       } else {
         statsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1517,11 +1459,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.storage.v1beta2.StreamStats.Builder builderForValue) {
       if (statsBuilder_ == null) {
         stats_ = builderForValue.build();
-        onChanged();
       } else {
         statsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1533,17 +1475,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeStats(com.google.cloud.bigquery.storage.v1beta2.StreamStats value) {
       if (statsBuilder_ == null) {
-        if (stats_ != null) {
-          stats_ =
-            com.google.cloud.bigquery.storage.v1beta2.StreamStats.newBuilder(stats_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          stats_ != null &&
+          stats_ != com.google.cloud.bigquery.storage.v1beta2.StreamStats.getDefaultInstance()) {
+          getStatsBuilder().mergeFrom(value);
         } else {
           stats_ = value;
         }
-        onChanged();
       } else {
         statsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1554,14 +1497,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1beta2.StreamStats stats = 2;</code>
      */
     public Builder clearStats() {
-      if (statsBuilder_ == null) {
-        stats_ = null;
-        onChanged();
-      } else {
-        stats_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      stats_ = null;
+      if (statsBuilder_ != null) {
+        statsBuilder_.dispose();
         statsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1572,7 +1514,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1beta2.StreamStats stats = 2;</code>
      */
     public com.google.cloud.bigquery.storage.v1beta2.StreamStats.Builder getStatsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getStatsFieldBuilder().getBuilder();
     }
@@ -1625,7 +1567,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the throttleState field is set.
      */
     public boolean hasThrottleState() {
-      return throttleStateBuilder_ != null || throttleState_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1657,11 +1599,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         throttleState_ = value;
-        onChanged();
       } else {
         throttleStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1676,11 +1618,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.storage.v1beta2.ThrottleState.Builder builderForValue) {
       if (throttleStateBuilder_ == null) {
         throttleState_ = builderForValue.build();
-        onChanged();
       } else {
         throttleStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1693,17 +1635,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeThrottleState(com.google.cloud.bigquery.storage.v1beta2.ThrottleState value) {
       if (throttleStateBuilder_ == null) {
-        if (throttleState_ != null) {
-          throttleState_ =
-            com.google.cloud.bigquery.storage.v1beta2.ThrottleState.newBuilder(throttleState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          throttleState_ != null &&
+          throttleState_ != com.google.cloud.bigquery.storage.v1beta2.ThrottleState.getDefaultInstance()) {
+          getThrottleStateBuilder().mergeFrom(value);
         } else {
           throttleState_ = value;
         }
-        onChanged();
       } else {
         throttleStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1715,14 +1658,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1beta2.ThrottleState throttle_state = 5;</code>
      */
     public Builder clearThrottleState() {
-      if (throttleStateBuilder_ == null) {
-        throttleState_ = null;
-        onChanged();
-      } else {
-        throttleState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      throttleState_ = null;
+      if (throttleStateBuilder_ != null) {
+        throttleStateBuilder_.dispose();
         throttleStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1734,7 +1676,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.bigquery.storage.v1beta2.ThrottleState throttle_state = 5;</code>
      */
     public com.google.cloud.bigquery.storage.v1beta2.ThrottleState.Builder getThrottleStateBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getThrottleStateFieldBuilder().getBuilder();
     }
@@ -1950,7 +1892,7 @@ private static final long serialVersionUID = 0L;
         schema_ = null;
       }
       schemaCase_ = 7;
-      onChanged();;
+      onChanged();
       return avroSchemaBuilder_;
     }
 
@@ -2128,7 +2070,7 @@ private static final long serialVersionUID = 0L;
         schema_ = null;
       }
       schemaCase_ = 8;
-      onChanged();;
+      onChanged();
       return arrowSchemaBuilder_;
     }
     @java.lang.Override
@@ -2164,7 +2106,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReadRowsResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

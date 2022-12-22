@@ -33,8 +33,8 @@ public interface UpdateChannelPartnerLinkRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The channel partner link to update. Only channel_partner_link.link_state
-   * is allowed for updates.
+   * Required. The channel partner link to update. Only
+   * channel_partner_link.link_state is allowed for updates.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -43,8 +43,8 @@ public interface UpdateChannelPartnerLinkRequestOrBuilder extends
   boolean hasChannelPartnerLink();
   /**
    * <pre>
-   * Required. The channel partner link to update. Only channel_partner_link.link_state
-   * is allowed for updates.
+   * Required. The channel partner link to update. Only
+   * channel_partner_link.link_state is allowed for updates.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -53,8 +53,8 @@ public interface UpdateChannelPartnerLinkRequestOrBuilder extends
   com.google.cloud.channel.v1.ChannelPartnerLink getChannelPartnerLink();
   /**
    * <pre>
-   * Required. The channel partner link to update. Only channel_partner_link.link_state
-   * is allowed for updates.
+   * Required. The channel partner link to update. Only
+   * channel_partner_link.link_state is allowed for updates.
    * </pre>
    *
    * <code>.google.cloud.channel.v1.ChannelPartnerLink channel_partner_link = 2 [(.google.api.field_behavior) = REQUIRED];</code>

@@ -34,84 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConverseConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.assistant.embedded.v1alpha1.AudioInConfig.Builder subBuilder = null;
-            if (audioInConfig_ != null) {
-              subBuilder = audioInConfig_.toBuilder();
-            }
-            audioInConfig_ = input.readMessage(com.google.assistant.embedded.v1alpha1.AudioInConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audioInConfig_);
-              audioInConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.assistant.embedded.v1alpha1.AudioOutConfig.Builder subBuilder = null;
-            if (audioOutConfig_ != null) {
-              subBuilder = audioOutConfig_.toBuilder();
-            }
-            audioOutConfig_ = input.readMessage(com.google.assistant.embedded.v1alpha1.AudioOutConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(audioOutConfig_);
-              audioOutConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.assistant.embedded.v1alpha1.ConverseState.Builder subBuilder = null;
-            if (converseState_ != null) {
-              subBuilder = converseState_.toBuilder();
-            }
-            converseState_ = input.readMessage(com.google.assistant.embedded.v1alpha1.ConverseState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(converseState_);
-              converseState_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.assistant.embedded.v1alpha1.AssistantProto.internal_static_google_assistant_embedded_v1alpha1_ConverseConfig_descriptor;
@@ -160,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha1.AudioInConfigOrBuilder getAudioInConfigOrBuilder() {
-    return getAudioInConfig();
+    return audioInConfig_ == null ? com.google.assistant.embedded.v1alpha1.AudioInConfig.getDefaultInstance() : audioInConfig_;
   }
 
   public static final int AUDIO_OUT_CONFIG_FIELD_NUMBER = 2;
@@ -198,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha1.AudioOutConfigOrBuilder getAudioOutConfigOrBuilder() {
-    return getAudioOutConfig();
+    return audioOutConfig_ == null ? com.google.assistant.embedded.v1alpha1.AudioOutConfig.getDefaultInstance() : audioOutConfig_;
   }
 
   public static final int CONVERSE_STATE_FIELD_NUMBER = 3;
@@ -236,7 +158,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.assistant.embedded.v1alpha1.ConverseStateOrBuilder getConverseStateOrBuilder() {
-    return getConverseState();
+    return converseState_ == null ? com.google.assistant.embedded.v1alpha1.ConverseState.getDefaultInstance() : converseState_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -262,7 +184,7 @@ private static final long serialVersionUID = 0L;
     if (converseState_ != null) {
       output.writeMessage(3, getConverseState());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -283,7 +205,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getConverseState());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -313,7 +235,7 @@ private static final long serialVersionUID = 0L;
       if (!getConverseState()
           .equals(other.getConverseState())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +258,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CONVERSE_STATE_FIELD_NUMBER;
       hash = (53 * hash) + getConverseState().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -457,38 +379,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.assistant.embedded.v1alpha1.ConverseConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (audioInConfigBuilder_ == null) {
-        audioInConfig_ = null;
-      } else {
-        audioInConfig_ = null;
+      bitField0_ = 0;
+      audioInConfig_ = null;
+      if (audioInConfigBuilder_ != null) {
+        audioInConfigBuilder_.dispose();
         audioInConfigBuilder_ = null;
       }
-      if (audioOutConfigBuilder_ == null) {
-        audioOutConfig_ = null;
-      } else {
-        audioOutConfig_ = null;
+      audioOutConfig_ = null;
+      if (audioOutConfigBuilder_ != null) {
+        audioOutConfigBuilder_.dispose();
         audioOutConfigBuilder_ = null;
       }
-      if (converseStateBuilder_ == null) {
-        converseState_ = null;
-      } else {
-        converseState_ = null;
+      converseState_ = null;
+      if (converseStateBuilder_ != null) {
+        converseStateBuilder_.dispose();
         converseStateBuilder_ = null;
       }
       return this;
@@ -517,23 +432,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.assistant.embedded.v1alpha1.ConverseConfig buildPartial() {
       com.google.assistant.embedded.v1alpha1.ConverseConfig result = new com.google.assistant.embedded.v1alpha1.ConverseConfig(this);
-      if (audioInConfigBuilder_ == null) {
-        result.audioInConfig_ = audioInConfig_;
-      } else {
-        result.audioInConfig_ = audioInConfigBuilder_.build();
-      }
-      if (audioOutConfigBuilder_ == null) {
-        result.audioOutConfig_ = audioOutConfig_;
-      } else {
-        result.audioOutConfig_ = audioOutConfigBuilder_.build();
-      }
-      if (converseStateBuilder_ == null) {
-        result.converseState_ = converseState_;
-      } else {
-        result.converseState_ = converseStateBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.assistant.embedded.v1alpha1.ConverseConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.audioInConfig_ = audioInConfigBuilder_ == null
+            ? audioInConfig_
+            : audioInConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.audioOutConfig_ = audioOutConfigBuilder_ == null
+            ? audioOutConfig_
+            : audioOutConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.converseState_ = converseStateBuilder_ == null
+            ? converseState_
+            : converseStateBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -589,7 +509,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasConverseState()) {
         mergeConverseState(other.getConverseState());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -604,19 +524,54 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.assistant.embedded.v1alpha1.ConverseConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAudioInConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getAudioOutConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getConverseStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.assistant.embedded.v1alpha1.ConverseConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.assistant.embedded.v1alpha1.AudioInConfig audioInConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -630,7 +585,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audioInConfig field is set.
      */
     public boolean hasAudioInConfig() {
-      return audioInConfigBuilder_ != null || audioInConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -660,11 +615,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audioInConfig_ = value;
-        onChanged();
       } else {
         audioInConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -678,11 +633,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha1.AudioInConfig.Builder builderForValue) {
       if (audioInConfigBuilder_ == null) {
         audioInConfig_ = builderForValue.build();
-        onChanged();
       } else {
         audioInConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -694,17 +649,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudioInConfig(com.google.assistant.embedded.v1alpha1.AudioInConfig value) {
       if (audioInConfigBuilder_ == null) {
-        if (audioInConfig_ != null) {
-          audioInConfig_ =
-            com.google.assistant.embedded.v1alpha1.AudioInConfig.newBuilder(audioInConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          audioInConfig_ != null &&
+          audioInConfig_ != com.google.assistant.embedded.v1alpha1.AudioInConfig.getDefaultInstance()) {
+          getAudioInConfigBuilder().mergeFrom(value);
         } else {
           audioInConfig_ = value;
         }
-        onChanged();
       } else {
         audioInConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -715,14 +671,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha1.AudioInConfig audio_in_config = 1;</code>
      */
     public Builder clearAudioInConfig() {
-      if (audioInConfigBuilder_ == null) {
-        audioInConfig_ = null;
-        onChanged();
-      } else {
-        audioInConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      audioInConfig_ = null;
+      if (audioInConfigBuilder_ != null) {
+        audioInConfigBuilder_.dispose();
         audioInConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -733,7 +688,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha1.AudioInConfig audio_in_config = 1;</code>
      */
     public com.google.assistant.embedded.v1alpha1.AudioInConfig.Builder getAudioInConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getAudioInConfigFieldBuilder().getBuilder();
     }
@@ -785,7 +740,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the audioOutConfig field is set.
      */
     public boolean hasAudioOutConfig() {
-      return audioOutConfigBuilder_ != null || audioOutConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -815,11 +770,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         audioOutConfig_ = value;
-        onChanged();
       } else {
         audioOutConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -833,11 +788,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha1.AudioOutConfig.Builder builderForValue) {
       if (audioOutConfigBuilder_ == null) {
         audioOutConfig_ = builderForValue.build();
-        onChanged();
       } else {
         audioOutConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -849,17 +804,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAudioOutConfig(com.google.assistant.embedded.v1alpha1.AudioOutConfig value) {
       if (audioOutConfigBuilder_ == null) {
-        if (audioOutConfig_ != null) {
-          audioOutConfig_ =
-            com.google.assistant.embedded.v1alpha1.AudioOutConfig.newBuilder(audioOutConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          audioOutConfig_ != null &&
+          audioOutConfig_ != com.google.assistant.embedded.v1alpha1.AudioOutConfig.getDefaultInstance()) {
+          getAudioOutConfigBuilder().mergeFrom(value);
         } else {
           audioOutConfig_ = value;
         }
-        onChanged();
       } else {
         audioOutConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -870,14 +826,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha1.AudioOutConfig audio_out_config = 2;</code>
      */
     public Builder clearAudioOutConfig() {
-      if (audioOutConfigBuilder_ == null) {
-        audioOutConfig_ = null;
-        onChanged();
-      } else {
-        audioOutConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      audioOutConfig_ = null;
+      if (audioOutConfigBuilder_ != null) {
+        audioOutConfigBuilder_.dispose();
         audioOutConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -888,7 +843,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha1.AudioOutConfig audio_out_config = 2;</code>
      */
     public com.google.assistant.embedded.v1alpha1.AudioOutConfig.Builder getAudioOutConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAudioOutConfigFieldBuilder().getBuilder();
     }
@@ -940,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the converseState field is set.
      */
     public boolean hasConverseState() {
-      return converseStateBuilder_ != null || converseState_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -970,11 +925,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         converseState_ = value;
-        onChanged();
       } else {
         converseStateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -988,11 +943,11 @@ private static final long serialVersionUID = 0L;
         com.google.assistant.embedded.v1alpha1.ConverseState.Builder builderForValue) {
       if (converseStateBuilder_ == null) {
         converseState_ = builderForValue.build();
-        onChanged();
       } else {
         converseStateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1004,17 +959,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeConverseState(com.google.assistant.embedded.v1alpha1.ConverseState value) {
       if (converseStateBuilder_ == null) {
-        if (converseState_ != null) {
-          converseState_ =
-            com.google.assistant.embedded.v1alpha1.ConverseState.newBuilder(converseState_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          converseState_ != null &&
+          converseState_ != com.google.assistant.embedded.v1alpha1.ConverseState.getDefaultInstance()) {
+          getConverseStateBuilder().mergeFrom(value);
         } else {
           converseState_ = value;
         }
-        onChanged();
       } else {
         converseStateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1025,14 +981,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha1.ConverseState converse_state = 3;</code>
      */
     public Builder clearConverseState() {
-      if (converseStateBuilder_ == null) {
-        converseState_ = null;
-        onChanged();
-      } else {
-        converseState_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      converseState_ = null;
+      if (converseStateBuilder_ != null) {
+        converseStateBuilder_.dispose();
         converseStateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1043,7 +998,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.assistant.embedded.v1alpha1.ConverseState converse_state = 3;</code>
      */
     public com.google.assistant.embedded.v1alpha1.ConverseState.Builder getConverseStateBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getConverseStateFieldBuilder().getBuilder();
     }
@@ -1115,7 +1070,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConverseConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

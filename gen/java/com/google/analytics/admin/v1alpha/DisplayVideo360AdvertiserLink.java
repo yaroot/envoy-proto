@@ -37,102 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DisplayVideo360AdvertiserLink(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            advertiserId_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            advertiserDisplayName_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (adsPersonalizationEnabled_ != null) {
-              subBuilder = adsPersonalizationEnabled_.toBuilder();
-            }
-            adsPersonalizationEnabled_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adsPersonalizationEnabled_);
-              adsPersonalizationEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (campaignDataSharingEnabled_ != null) {
-              subBuilder = campaignDataSharingEnabled_.toBuilder();
-            }
-            campaignDataSharingEnabled_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(campaignDataSharingEnabled_);
-              campaignDataSharingEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (costDataSharingEnabled_ != null) {
-              subBuilder = costDataSharingEnabled_.toBuilder();
-            }
-            costDataSharingEnabled_ = input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(costDataSharingEnabled_);
-              costDataSharingEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.admin.v1alpha.ResourcesProto.internal_static_google_analytics_admin_v1alpha_DisplayVideo360AdvertiserLink_descriptor;
@@ -147,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name for this DisplayVideo360AdvertiserLink resource.
@@ -197,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADVERTISER_ID_FIELD_NUMBER = 2;
-  private volatile java.lang.Object advertiserId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object advertiserId_ = "";
   /**
    * <pre>
    * Immutable. The Display &amp; Video 360 Advertiser's advertiser ID.
@@ -243,7 +149,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ADVERTISER_DISPLAY_NAME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object advertiserDisplayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object advertiserDisplayName_ = "";
   /**
    * <pre>
    * Output only. The display name of the Display &amp; Video 360 Advertiser.
@@ -326,7 +233,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getAdsPersonalizationEnabledOrBuilder() {
-    return getAdsPersonalizationEnabled();
+    return adsPersonalizationEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : adsPersonalizationEnabled_;
   }
 
   public static final int CAMPAIGN_DATA_SHARING_ENABLED_FIELD_NUMBER = 5;
@@ -373,7 +280,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getCampaignDataSharingEnabledOrBuilder() {
-    return getCampaignDataSharingEnabled();
+    return campaignDataSharingEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : campaignDataSharingEnabled_;
   }
 
   public static final int COST_DATA_SHARING_ENABLED_FIELD_NUMBER = 6;
@@ -423,7 +330,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.BoolValueOrBuilder getCostDataSharingEnabledOrBuilder() {
-    return getCostDataSharingEnabled();
+    return costDataSharingEnabled_ == null ? com.google.protobuf.BoolValue.getDefaultInstance() : costDataSharingEnabled_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -458,7 +365,7 @@ private static final long serialVersionUID = 0L;
     if (costDataSharingEnabled_ != null) {
       output.writeMessage(6, getCostDataSharingEnabled());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -488,7 +395,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, getCostDataSharingEnabled());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -524,7 +431,7 @@ private static final long serialVersionUID = 0L;
       if (!getCostDataSharingEnabled()
           .equals(other.getCostDataSharingEnabled())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -553,7 +460,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COST_DATA_SHARING_ENABLED_FIELD_NUMBER;
       hash = (53 * hash) + getCostDataSharingEnabled().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -674,44 +581,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       advertiserId_ = "";
-
       advertiserDisplayName_ = "";
-
-      if (adsPersonalizationEnabledBuilder_ == null) {
-        adsPersonalizationEnabled_ = null;
-      } else {
-        adsPersonalizationEnabled_ = null;
+      adsPersonalizationEnabled_ = null;
+      if (adsPersonalizationEnabledBuilder_ != null) {
+        adsPersonalizationEnabledBuilder_.dispose();
         adsPersonalizationEnabledBuilder_ = null;
       }
-      if (campaignDataSharingEnabledBuilder_ == null) {
-        campaignDataSharingEnabled_ = null;
-      } else {
-        campaignDataSharingEnabled_ = null;
+      campaignDataSharingEnabled_ = null;
+      if (campaignDataSharingEnabledBuilder_ != null) {
+        campaignDataSharingEnabledBuilder_.dispose();
         campaignDataSharingEnabledBuilder_ = null;
       }
-      if (costDataSharingEnabledBuilder_ == null) {
-        costDataSharingEnabled_ = null;
-      } else {
-        costDataSharingEnabled_ = null;
+      costDataSharingEnabled_ = null;
+      if (costDataSharingEnabledBuilder_ != null) {
+        costDataSharingEnabledBuilder_.dispose();
         costDataSharingEnabledBuilder_ = null;
       }
       return this;
@@ -740,26 +637,37 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink buildPartial() {
       com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink result = new com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink(this);
-      result.name_ = name_;
-      result.advertiserId_ = advertiserId_;
-      result.advertiserDisplayName_ = advertiserDisplayName_;
-      if (adsPersonalizationEnabledBuilder_ == null) {
-        result.adsPersonalizationEnabled_ = adsPersonalizationEnabled_;
-      } else {
-        result.adsPersonalizationEnabled_ = adsPersonalizationEnabledBuilder_.build();
-      }
-      if (campaignDataSharingEnabledBuilder_ == null) {
-        result.campaignDataSharingEnabled_ = campaignDataSharingEnabled_;
-      } else {
-        result.campaignDataSharingEnabled_ = campaignDataSharingEnabledBuilder_.build();
-      }
-      if (costDataSharingEnabledBuilder_ == null) {
-        result.costDataSharingEnabled_ = costDataSharingEnabled_;
-      } else {
-        result.costDataSharingEnabled_ = costDataSharingEnabledBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.advertiserId_ = advertiserId_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.advertiserDisplayName_ = advertiserDisplayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.adsPersonalizationEnabled_ = adsPersonalizationEnabledBuilder_ == null
+            ? adsPersonalizationEnabled_
+            : adsPersonalizationEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.campaignDataSharingEnabled_ = campaignDataSharingEnabledBuilder_ == null
+            ? campaignDataSharingEnabled_
+            : campaignDataSharingEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.costDataSharingEnabled_ = costDataSharingEnabledBuilder_ == null
+            ? costDataSharingEnabled_
+            : costDataSharingEnabledBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -808,14 +716,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getAdvertiserId().isEmpty()) {
         advertiserId_ = other.advertiserId_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getAdvertiserDisplayName().isEmpty()) {
         advertiserDisplayName_ = other.advertiserDisplayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasAdsPersonalizationEnabled()) {
@@ -827,7 +738,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCostDataSharingEnabled()) {
         mergeCostDataSharingEnabled(other.getCostDataSharingEnabled());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -842,19 +753,69 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              advertiserId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              advertiserDisplayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getAdsPersonalizationEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getCampaignDataSharingEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getCostDataSharingEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.admin.v1alpha.DisplayVideo360AdvertiserLink) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -915,11 +876,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -934,8 +893,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -952,12 +911,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1015,11 +972,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       advertiserId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1032,8 +987,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdvertiserId() {
-      
       advertiserId_ = getDefaultInstance().getAdvertiserId();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1048,12 +1003,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       advertiserId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1111,11 +1064,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       advertiserDisplayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1128,8 +1079,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAdvertiserDisplayName() {
-      
       advertiserDisplayName_ = getDefaultInstance().getAdvertiserDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1144,12 +1095,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAdvertiserDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       advertiserDisplayName_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1167,7 +1116,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the adsPersonalizationEnabled field is set.
      */
     public boolean hasAdsPersonalizationEnabled() {
-      return adsPersonalizationEnabledBuilder_ != null || adsPersonalizationEnabled_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1199,11 +1148,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adsPersonalizationEnabled_ = value;
-        onChanged();
       } else {
         adsPersonalizationEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1218,11 +1167,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (adsPersonalizationEnabledBuilder_ == null) {
         adsPersonalizationEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         adsPersonalizationEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1235,17 +1184,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdsPersonalizationEnabled(com.google.protobuf.BoolValue value) {
       if (adsPersonalizationEnabledBuilder_ == null) {
-        if (adsPersonalizationEnabled_ != null) {
-          adsPersonalizationEnabled_ =
-            com.google.protobuf.BoolValue.newBuilder(adsPersonalizationEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          adsPersonalizationEnabled_ != null &&
+          adsPersonalizationEnabled_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getAdsPersonalizationEnabledBuilder().mergeFrom(value);
         } else {
           adsPersonalizationEnabled_ = value;
         }
-        onChanged();
       } else {
         adsPersonalizationEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1257,14 +1207,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue ads_personalization_enabled = 4;</code>
      */
     public Builder clearAdsPersonalizationEnabled() {
-      if (adsPersonalizationEnabledBuilder_ == null) {
-        adsPersonalizationEnabled_ = null;
-        onChanged();
-      } else {
-        adsPersonalizationEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      adsPersonalizationEnabled_ = null;
+      if (adsPersonalizationEnabledBuilder_ != null) {
+        adsPersonalizationEnabledBuilder_.dispose();
         adsPersonalizationEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1276,7 +1225,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue ads_personalization_enabled = 4;</code>
      */
     public com.google.protobuf.BoolValue.Builder getAdsPersonalizationEnabledBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAdsPersonalizationEnabledFieldBuilder().getBuilder();
     }
@@ -1333,7 +1282,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the campaignDataSharingEnabled field is set.
      */
     public boolean hasCampaignDataSharingEnabled() {
-      return campaignDataSharingEnabledBuilder_ != null || campaignDataSharingEnabled_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1369,11 +1318,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         campaignDataSharingEnabled_ = value;
-        onChanged();
       } else {
         campaignDataSharingEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1390,11 +1339,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (campaignDataSharingEnabledBuilder_ == null) {
         campaignDataSharingEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         campaignDataSharingEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1409,17 +1358,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCampaignDataSharingEnabled(com.google.protobuf.BoolValue value) {
       if (campaignDataSharingEnabledBuilder_ == null) {
-        if (campaignDataSharingEnabled_ != null) {
-          campaignDataSharingEnabled_ =
-            com.google.protobuf.BoolValue.newBuilder(campaignDataSharingEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          campaignDataSharingEnabled_ != null &&
+          campaignDataSharingEnabled_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getCampaignDataSharingEnabledBuilder().mergeFrom(value);
         } else {
           campaignDataSharingEnabled_ = value;
         }
-        onChanged();
       } else {
         campaignDataSharingEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1433,14 +1383,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue campaign_data_sharing_enabled = 5 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearCampaignDataSharingEnabled() {
-      if (campaignDataSharingEnabledBuilder_ == null) {
-        campaignDataSharingEnabled_ = null;
-        onChanged();
-      } else {
-        campaignDataSharingEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      campaignDataSharingEnabled_ = null;
+      if (campaignDataSharingEnabledBuilder_ != null) {
+        campaignDataSharingEnabledBuilder_.dispose();
         campaignDataSharingEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1454,7 +1403,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue campaign_data_sharing_enabled = 5 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.protobuf.BoolValue.Builder getCampaignDataSharingEnabledBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getCampaignDataSharingEnabledFieldBuilder().getBuilder();
     }
@@ -1516,7 +1465,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the costDataSharingEnabled field is set.
      */
     public boolean hasCostDataSharingEnabled() {
-      return costDataSharingEnabledBuilder_ != null || costDataSharingEnabled_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1554,11 +1503,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         costDataSharingEnabled_ = value;
-        onChanged();
       } else {
         costDataSharingEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1576,11 +1525,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.BoolValue.Builder builderForValue) {
       if (costDataSharingEnabledBuilder_ == null) {
         costDataSharingEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         costDataSharingEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1596,17 +1545,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCostDataSharingEnabled(com.google.protobuf.BoolValue value) {
       if (costDataSharingEnabledBuilder_ == null) {
-        if (costDataSharingEnabled_ != null) {
-          costDataSharingEnabled_ =
-            com.google.protobuf.BoolValue.newBuilder(costDataSharingEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          costDataSharingEnabled_ != null &&
+          costDataSharingEnabled_ != com.google.protobuf.BoolValue.getDefaultInstance()) {
+          getCostDataSharingEnabledBuilder().mergeFrom(value);
         } else {
           costDataSharingEnabled_ = value;
         }
-        onChanged();
       } else {
         costDataSharingEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1621,14 +1571,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue cost_data_sharing_enabled = 6 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public Builder clearCostDataSharingEnabled() {
-      if (costDataSharingEnabledBuilder_ == null) {
-        costDataSharingEnabled_ = null;
-        onChanged();
-      } else {
-        costDataSharingEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      costDataSharingEnabled_ = null;
+      if (costDataSharingEnabledBuilder_ != null) {
+        costDataSharingEnabledBuilder_.dispose();
         costDataSharingEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1643,7 +1592,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.BoolValue cost_data_sharing_enabled = 6 [(.google.api.field_behavior) = IMMUTABLE];</code>
      */
     public com.google.protobuf.BoolValue.Builder getCostDataSharingEnabledBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getCostDataSharingEnabledFieldBuilder().getBuilder();
     }
@@ -1723,7 +1672,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DisplayVideo360AdvertiserLink(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

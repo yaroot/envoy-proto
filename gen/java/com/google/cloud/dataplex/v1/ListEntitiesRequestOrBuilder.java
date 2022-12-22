@@ -50,9 +50,10 @@ public interface ListEntitiesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Maximum number of entities to return. The service may return fewer than
-   * this value. If unspecified, 100 entities will be returned by default. The
-   * maximum value is 500; larger values will will be truncated to 500.
+   * Optional. Maximum number of entities to return. The service may return
+   * fewer than this value. If unspecified, 100 entities will be returned by
+   * default. The maximum value is 500; larger values will will be truncated to
+   * 500.
    * </pre>
    *
    * <code>int32 page_size = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -88,8 +89,8 @@ public interface ListEntitiesRequestOrBuilder extends
 
   /**
    * <pre>
-   * Optional. The following filter parameters can be added to the URL to limit the
-   * entities returned by the API:
+   * Optional. The following filter parameters can be added to the URL to limit
+   * the entities returned by the API:
    * - Entity ID: ?filter="id=entityID"
    * - Asset ID: ?filter="asset=assetID"
    * - Data path ?filter="data_path=gs://my-bucket"
@@ -103,8 +104,8 @@ public interface ListEntitiesRequestOrBuilder extends
   java.lang.String getFilter();
   /**
    * <pre>
-   * Optional. The following filter parameters can be added to the URL to limit the
-   * entities returned by the API:
+   * Optional. The following filter parameters can be added to the URL to limit
+   * the entities returned by the API:
    * - Entity ID: ?filter="id=entityID"
    * - Asset ID: ?filter="asset=assetID"
    * - Data path ?filter="data_path=gs://my-bucket"

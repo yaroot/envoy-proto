@@ -59,8 +59,9 @@ public interface ListTransferableOffersResponseOrBuilder extends
   /**
    * <pre>
    * A token to retrieve the next page of results.
-   * Pass to [ListTransferableOffersRequest.page_token][google.cloud.channel.v1.ListTransferableOffersRequest.page_token] to obtain
-   * that page.
+   * Pass to
+   * [ListTransferableOffersRequest.page_token][google.cloud.channel.v1.ListTransferableOffersRequest.page_token]
+   * to obtain that page.
    * </pre>
    *
    * <code>string next_page_token = 2;</code>
@@ -70,8 +71,9 @@ public interface ListTransferableOffersResponseOrBuilder extends
   /**
    * <pre>
    * A token to retrieve the next page of results.
-   * Pass to [ListTransferableOffersRequest.page_token][google.cloud.channel.v1.ListTransferableOffersRequest.page_token] to obtain
-   * that page.
+   * Pass to
+   * [ListTransferableOffersRequest.page_token][google.cloud.channel.v1.ListTransferableOffersRequest.page_token]
+   * to obtain that page.
    * </pre>
    *
    * <code>string next_page_token = 2;</code>

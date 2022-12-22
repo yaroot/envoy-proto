@@ -34,6 +34,7 @@ private static final long serialVersionUID = 0L;
     kmsKey_ = "";
     network_ = "";
     subnet_ = "";
+    nicType_ = 0;
   }
 
   @java.lang.Override
@@ -47,259 +48,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private Instance(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.notebooks.v1beta1.VmImage.Builder subBuilder = null;
-            if (environmentCase_ == 2) {
-              subBuilder = ((com.google.cloud.notebooks.v1beta1.VmImage) environment_).toBuilder();
-            }
-            environment_ =
-                input.readMessage(com.google.cloud.notebooks.v1beta1.VmImage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.notebooks.v1beta1.VmImage) environment_);
-              environment_ = subBuilder.buildPartial();
-            }
-            environmentCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.notebooks.v1beta1.ContainerImage.Builder subBuilder = null;
-            if (environmentCase_ == 3) {
-              subBuilder = ((com.google.cloud.notebooks.v1beta1.ContainerImage) environment_).toBuilder();
-            }
-            environment_ =
-                input.readMessage(com.google.cloud.notebooks.v1beta1.ContainerImage.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.notebooks.v1beta1.ContainerImage) environment_);
-              environment_ = subBuilder.buildPartial();
-            }
-            environmentCase_ = 3;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            postStartupScript_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            proxyUri_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              instanceOwners_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            instanceOwners_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccount_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            machineType_ = s;
-            break;
-          }
-          case 74: {
-            com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.Builder subBuilder = null;
-            if (acceleratorConfig_ != null) {
-              subBuilder = acceleratorConfig_.toBuilder();
-            }
-            acceleratorConfig_ = input.readMessage(com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(acceleratorConfig_);
-              acceleratorConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 88: {
-
-            installGpuDriver_ = input.readBool();
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            customGpuDriverPath_ = s;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-
-            bootDiskType_ = rawValue;
-            break;
-          }
-          case 112: {
-
-            bootDiskSizeGb_ = input.readInt64();
-            break;
-          }
-          case 120: {
-            int rawValue = input.readEnum();
-
-            diskEncryption_ = rawValue;
-            break;
-          }
-          case 130: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKey_ = s;
-            break;
-          }
-          case 136: {
-
-            noPublicIp_ = input.readBool();
-            break;
-          }
-          case 144: {
-
-            noProxyAccess_ = input.readBool();
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            network_ = s;
-            break;
-          }
-          case 162: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subnet_ = s;
-            break;
-          }
-          case 170: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 178: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              metadata_ = com.google.protobuf.MapField.newMapField(
-                  MetadataDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            metadata__ = input.readMessage(
-                MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            metadata_.getMutableMap().put(
-                metadata__.getKey(), metadata__.getValue());
-            break;
-          }
-          case 186: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 194: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 200: {
-            int rawValue = input.readEnum();
-
-            dataDiskType_ = rawValue;
-            break;
-          }
-          case 208: {
-
-            dataDiskSizeGb_ = input.readInt64();
-            break;
-          }
-          case 216: {
-
-            noRemoveDataDisk_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        instanceOwners_ = instanceOwners_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -372,7 +120,7 @@ private static final long serialVersionUID = 0L;
     NVIDIA_TESLA_V100(3),
     /**
      * <pre>
-     * Accelerator type is Nvidia Tesla P_4.
+     * Accelerator type is Nvidia Tesla P4.
      * </pre>
      *
      * <code>NVIDIA_TESLA_P4 = 4;</code>
@@ -404,7 +152,7 @@ private static final long serialVersionUID = 0L;
     NVIDIA_TESLA_P100_VWS(9),
     /**
      * <pre>
-     * Accelerator type is NVIDIA Tesla P_4 Virtual Workstations.
+     * Accelerator type is NVIDIA Tesla P4 Virtual Workstations.
      * </pre>
      *
      * <code>NVIDIA_TESLA_P4_VWS = 10;</code>
@@ -463,7 +211,7 @@ private static final long serialVersionUID = 0L;
     public static final int NVIDIA_TESLA_V100_VALUE = 3;
     /**
      * <pre>
-     * Accelerator type is Nvidia Tesla P_4.
+     * Accelerator type is Nvidia Tesla P4.
      * </pre>
      *
      * <code>NVIDIA_TESLA_P4 = 4;</code>
@@ -495,7 +243,7 @@ private static final long serialVersionUID = 0L;
     public static final int NVIDIA_TESLA_P100_VWS_VALUE = 9;
     /**
      * <pre>
-     * Accelerator type is NVIDIA Tesla P_4 Virtual Workstations.
+     * Accelerator type is NVIDIA Tesla P4 Virtual Workstations.
      * </pre>
      *
      * <code>NVIDIA_TESLA_P4_VWS = 10;</code>
@@ -700,6 +448,22 @@ private static final long serialVersionUID = 0L;
      * <code>REGISTERING = 9;</code>
      */
     REGISTERING(9),
+    /**
+     * <pre>
+     * The instance is suspending.
+     * </pre>
+     *
+     * <code>SUSPENDING = 10;</code>
+     */
+    SUSPENDING(10),
+    /**
+     * <pre>
+     * The instance is suspended.
+     * </pre>
+     *
+     * <code>SUSPENDED = 11;</code>
+     */
+    SUSPENDED(11),
     UNRECOGNIZED(-1),
     ;
 
@@ -784,6 +548,22 @@ private static final long serialVersionUID = 0L;
      * <code>REGISTERING = 9;</code>
      */
     public static final int REGISTERING_VALUE = 9;
+    /**
+     * <pre>
+     * The instance is suspending.
+     * </pre>
+     *
+     * <code>SUSPENDING = 10;</code>
+     */
+    public static final int SUSPENDING_VALUE = 10;
+    /**
+     * <pre>
+     * The instance is suspended.
+     * </pre>
+     *
+     * <code>SUSPENDED = 11;</code>
+     */
+    public static final int SUSPENDED_VALUE = 11;
 
 
     public final int getNumber() {
@@ -820,6 +600,8 @@ private static final long serialVersionUID = 0L;
         case 7: return UPGRADING;
         case 8: return INITIALIZING;
         case 9: return REGISTERING;
+        case 10: return SUSPENDING;
+        case 11: return SUSPENDED;
         default: return null;
       }
     }
@@ -1183,6 +965,153 @@ private static final long serialVersionUID = 0L;
     // @@protoc_insertion_point(enum_scope:google.cloud.notebooks.v1beta1.Instance.DiskEncryption)
   }
 
+  /**
+   * <pre>
+   * The type of vNIC driver.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.notebooks.v1beta1.Instance.NicType}
+   */
+  public enum NicType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * No type specified. Default should be UNSPECIFIED_NIC_TYPE.
+     * </pre>
+     *
+     * <code>UNSPECIFIED_NIC_TYPE = 0;</code>
+     */
+    UNSPECIFIED_NIC_TYPE(0),
+    /**
+     * <pre>
+     * VIRTIO. Default in Notebooks DLVM.
+     * </pre>
+     *
+     * <code>VIRTIO_NET = 1;</code>
+     */
+    VIRTIO_NET(1),
+    /**
+     * <pre>
+     * GVNIC. Alternative to VIRTIO.
+     * https://github.com/GoogleCloudPlatform/compute-virtual-ethernet-linux
+     * </pre>
+     *
+     * <code>GVNIC = 2;</code>
+     */
+    GVNIC(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <pre>
+     * No type specified. Default should be UNSPECIFIED_NIC_TYPE.
+     * </pre>
+     *
+     * <code>UNSPECIFIED_NIC_TYPE = 0;</code>
+     */
+    public static final int UNSPECIFIED_NIC_TYPE_VALUE = 0;
+    /**
+     * <pre>
+     * VIRTIO. Default in Notebooks DLVM.
+     * </pre>
+     *
+     * <code>VIRTIO_NET = 1;</code>
+     */
+    public static final int VIRTIO_NET_VALUE = 1;
+    /**
+     * <pre>
+     * GVNIC. Alternative to VIRTIO.
+     * https://github.com/GoogleCloudPlatform/compute-virtual-ethernet-linux
+     * </pre>
+     *
+     * <code>GVNIC = 2;</code>
+     */
+    public static final int GVNIC_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static NicType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static NicType forNumber(int value) {
+      switch (value) {
+        case 0: return UNSPECIFIED_NIC_TYPE;
+        case 1: return VIRTIO_NET;
+        case 2: return GVNIC;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<NicType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        NicType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<NicType>() {
+            public NicType findValueByNumber(int number) {
+              return NicType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.notebooks.v1beta1.Instance.getDescriptor().getEnumTypes().get(4);
+    }
+
+    private static final NicType[] VALUES = values();
+
+    public static NicType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private NicType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.notebooks.v1beta1.Instance.NicType)
+  }
+
   public interface AcceleratorConfigOrBuilder extends
       // @@protoc_insertion_point(interface_extends:google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig)
       com.google.protobuf.MessageOrBuilder {
@@ -1251,56 +1180,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AcceleratorConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-
-              coreCount_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.notebooks.v1beta1.InstanceProto.internal_static_google_cloud_notebooks_v1beta1_Instance_AcceleratorConfig_descriptor;
@@ -1315,7 +1194,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * Type of this accelerator.
@@ -1336,13 +1215,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType result = com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType.valueOf(type_);
+      com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType result = com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType.forNumber(type_);
       return result == null ? com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType.UNRECOGNIZED : result;
     }
 
     public static final int CORE_COUNT_FIELD_NUMBER = 2;
-    private long coreCount_;
+    private long coreCount_ = 0L;
     /**
      * <pre>
      * Count of cores of this accelerator.
@@ -1376,7 +1254,7 @@ private static final long serialVersionUID = 0L;
       if (coreCount_ != 0L) {
         output.writeInt64(2, coreCount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1393,7 +1271,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, coreCount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1411,7 +1289,7 @@ private static final long serialVersionUID = 0L;
       if (type_ != other.type_) return false;
       if (getCoreCount()
           != other.getCoreCount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1427,7 +1305,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + CORE_COUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getCoreCount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1551,26 +1429,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         coreCount_ = 0L;
-
         return this;
       }
 
@@ -1597,10 +1469,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig buildPartial() {
         com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig result = new com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig(this);
-        result.type_ = type_;
-        result.coreCount_ = coreCount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.coreCount_ = coreCount_;
+        }
       }
 
       @java.lang.Override
@@ -1653,7 +1534,7 @@ private static final long serialVersionUID = 0L;
         if (other.getCoreCount() != 0L) {
           setCoreCount(other.getCoreCount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1668,19 +1549,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                coreCount_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -1704,8 +1609,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1719,8 +1624,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType result = com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType.valueOf(type_);
+        com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType result = com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType.forNumber(type_);
         return result == null ? com.google.cloud.notebooks.v1beta1.Instance.AcceleratorType.UNRECOGNIZED : result;
       }
       /**
@@ -1736,7 +1640,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -1750,7 +1654,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -1781,6 +1685,7 @@ private static final long serialVersionUID = 0L;
       public Builder setCoreCount(long value) {
         
         coreCount_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1793,7 +1698,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearCoreCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         coreCount_ = 0L;
         onChanged();
         return this;
@@ -1831,7 +1736,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AcceleratorConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1893,7 +1809,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The name of this notebook instance. Format:
@@ -2027,12 +1944,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POST_STARTUP_SCRIPT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object postStartupScript_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object postStartupScript_ = "";
   /**
    * <pre>
    * Path to a Bash script that automatically runs after a notebook instance
    * fully boots up. The path must be a URL or
-   * Cloud Storage path (`gs://path-to-file/file-name`).
+   * Cloud Storage path (gs://path-to-file/file-name).
    * </pre>
    *
    * <code>string post_startup_script = 4;</code>
@@ -2055,7 +1973,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Path to a Bash script that automatically runs after a notebook instance
    * fully boots up. The path must be a URL or
-   * Cloud Storage path (`gs://path-to-file/file-name`).
+   * Cloud Storage path (gs://path-to-file/file-name).
    * </pre>
    *
    * <code>string post_startup_script = 4;</code>
@@ -2077,11 +1995,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROXY_URI_FIELD_NUMBER = 5;
-  private volatile java.lang.Object proxyUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object proxyUri_ = "";
   /**
    * <pre>
-   * Output only. The proxy endpoint that is used to access the Jupyter
-   * notebook.
+   * Output only. The proxy endpoint that is used to access the Jupyter notebook.
    * </pre>
    *
    * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2102,8 +2020,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. The proxy endpoint that is used to access the Jupyter
-   * notebook.
+   * Output only. The proxy endpoint that is used to access the Jupyter notebook.
    * </pre>
    *
    * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2125,11 +2042,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCE_OWNERS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList instanceOwners_;
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -2144,8 +2061,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -2159,8 +2075,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -2175,8 +2090,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The owner of this instance after creation. Format:
-   * `alias&#64;example.com`
+   * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
    * Currently supports one owner only. If not specified, all of the service
    * account users of your VM instance's service account can use
    * the instance.
@@ -2192,7 +2106,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_FIELD_NUMBER = 7;
-  private volatile java.lang.Object serviceAccount_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccount_ = "";
   /**
    * <pre>
    * The service account on this instance, giving access to other Google
@@ -2250,11 +2165,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MACHINE_TYPE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object machineType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object machineType_ = "";
   /**
    * <pre>
-   * Required. The [Compute Engine machine
-   * type](https://cloud.google.com/compute/docs/machine-types) of this
+   * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
    * instance.
    * </pre>
    *
@@ -2276,8 +2191,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. The [Compute Engine machine
-   * type](https://cloud.google.com/compute/docs/machine-types) of this
+   * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
    * instance.
    * </pre>
    *
@@ -2306,7 +2220,7 @@ private static final long serialVersionUID = 0L;
    * The hardware accelerator used on this instance. If you use
    * accelerators, make sure that your configuration has
    * [enough vCPUs and memory to support the `machine_type` you
-   * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+   * have selected](/compute/docs/gpus/#gpus-list).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -2321,7 +2235,7 @@ private static final long serialVersionUID = 0L;
    * The hardware accelerator used on this instance. If you use
    * accelerators, make sure that your configuration has
    * [enough vCPUs and memory to support the `machine_type` you
-   * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+   * have selected](/compute/docs/gpus/#gpus-list).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -2336,18 +2250,18 @@ private static final long serialVersionUID = 0L;
    * The hardware accelerator used on this instance. If you use
    * accelerators, make sure that your configuration has
    * [enough vCPUs and memory to support the `machine_type` you
-   * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+   * have selected](/compute/docs/gpus/#gpus-list).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
    */
   @java.lang.Override
   public com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfigOrBuilder getAcceleratorConfigOrBuilder() {
-    return getAcceleratorConfig();
+    return acceleratorConfig_ == null ? com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.getDefaultInstance() : acceleratorConfig_;
   }
 
   public static final int STATE_FIELD_NUMBER = 10;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. The state of this instance.
@@ -2368,13 +2282,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1beta1.Instance.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1beta1.Instance.State result = com.google.cloud.notebooks.v1beta1.Instance.State.valueOf(state_);
+    com.google.cloud.notebooks.v1beta1.Instance.State result = com.google.cloud.notebooks.v1beta1.Instance.State.forNumber(state_);
     return result == null ? com.google.cloud.notebooks.v1beta1.Instance.State.UNRECOGNIZED : result;
   }
 
   public static final int INSTALL_GPU_DRIVER_FIELD_NUMBER = 11;
-  private boolean installGpuDriver_;
+  private boolean installGpuDriver_ = false;
   /**
    * <pre>
    * Whether the end user authorizes Google Cloud to install GPU driver
@@ -2392,7 +2305,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_GPU_DRIVER_PATH_FIELD_NUMBER = 12;
-  private volatile java.lang.Object customGpuDriverPath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customGpuDriverPath_ = "";
   /**
    * <pre>
    * Specify a custom Cloud Storage path where the GPU driver is stored.
@@ -2440,11 +2354,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOT_DISK_TYPE_FIELD_NUMBER = 13;
-  private int bootDiskType_;
+  private int bootDiskType_ = 0;
   /**
    * <pre>
-   * Input only. The type of the boot disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the boot disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2455,26 +2369,25 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The type of the boot disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the boot disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
    * @return The bootDiskType.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1beta1.Instance.DiskType getBootDiskType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.valueOf(bootDiskType_);
+    com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.forNumber(bootDiskType_);
     return result == null ? com.google.cloud.notebooks.v1beta1.Instance.DiskType.UNRECOGNIZED : result;
   }
 
   public static final int BOOT_DISK_SIZE_GB_FIELD_NUMBER = 14;
-  private long bootDiskSizeGb_;
+  private long bootDiskSizeGb_ = 0L;
   /**
    * <pre>
-   * Input only. The size of the boot disk in GB attached to this instance, up
-   * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value
-   * is 100&amp;nbsp;GB. If not specified, this defaults to 100.
+   * Input only. The size of the boot disk in GB attached to this instance, up to a maximum
+   * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value is
+   * 100&amp;nbsp;GB. If not specified, this defaults to 100.
    * </pre>
    *
    * <code>int64 boot_disk_size_gb = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2486,11 +2399,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DATA_DISK_TYPE_FIELD_NUMBER = 25;
-  private int dataDiskType_;
+  private int dataDiskType_ = 0;
   /**
    * <pre>
-   * Input only. The type of the data disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the data disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2501,27 +2414,26 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The type of the data disk attached to this instance, defaults
-   * to standard persistent disk (`PD_STANDARD`).
+   * Input only. The type of the data disk attached to this instance, defaults to
+   * standard persistent disk (`PD_STANDARD`).
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
    * @return The dataDiskType.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1beta1.Instance.DiskType getDataDiskType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.valueOf(dataDiskType_);
+    com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.forNumber(dataDiskType_);
     return result == null ? com.google.cloud.notebooks.v1beta1.Instance.DiskType.UNRECOGNIZED : result;
   }
 
   public static final int DATA_DISK_SIZE_GB_FIELD_NUMBER = 26;
-  private long dataDiskSizeGb_;
+  private long dataDiskSizeGb_ = 0L;
   /**
    * <pre>
-   * Input only. The size of the data disk in GB attached to this instance, up
-   * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the
-   * data disk based on how big your notebooks and data are. If not specified,
-   * this defaults to 100.
+   * Input only. The size of the data disk in GB attached to this instance, up to a maximum
+   * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the data disk
+   * based on how big your notebooks and data are. If not specified, this
+   * defaults to 100.
    * </pre>
    *
    * <code>int64 data_disk_size_gb = 26 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2533,11 +2445,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NO_REMOVE_DATA_DISK_FIELD_NUMBER = 27;
-  private boolean noRemoveDataDisk_;
+  private boolean noRemoveDataDisk_ = false;
   /**
    * <pre>
-   * Input only. If true, the data disk will not be auto deleted when deleting
-   * the instance.
+   * Input only. If true, the data disk will not be auto deleted when deleting the instance.
    * </pre>
    *
    * <code>bool no_remove_data_disk = 27 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2549,11 +2460,10 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISK_ENCRYPTION_FIELD_NUMBER = 15;
-  private int diskEncryption_;
+  private int diskEncryption_ = 0;
   /**
    * <pre>
-   * Input only. Disk encryption method used on the boot and data disks,
-   * defaults to GMEK.
+   * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2564,28 +2474,27 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. Disk encryption method used on the boot and data disks,
-   * defaults to GMEK.
+   * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
    * </pre>
    *
    * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
    * @return The diskEncryption.
    */
   @java.lang.Override public com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption getDiskEncryption() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption result = com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption.valueOf(diskEncryption_);
+    com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption result = com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption.forNumber(diskEncryption_);
     return result == null ? com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption.UNRECOGNIZED : result;
   }
 
   public static final int KMS_KEY_FIELD_NUMBER = 16;
-  private volatile java.lang.Object kmsKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKey_ = "";
   /**
    * <pre>
-   * Input only. The KMS key used to encrypt the disks, only applicable if
-   * disk_encryption is CMEK. Format:
+   * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+   * is CMEK.
+   * Format:
    * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-   * Learn more about [using your own encryption keys](
-   * https://cloud.google.com/kms/docs/quickstart).
+   * Learn more about [using your own encryption keys](/kms/docs/quickstart).
    * </pre>
    *
    * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2606,11 +2515,11 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Input only. The KMS key used to encrypt the disks, only applicable if
-   * disk_encryption is CMEK. Format:
+   * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+   * is CMEK.
+   * Format:
    * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-   * Learn more about [using your own encryption keys](
-   * https://cloud.google.com/kms/docs/quickstart).
+   * Learn more about [using your own encryption keys](/kms/docs/quickstart).
    * </pre>
    *
    * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -2632,7 +2541,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NO_PUBLIC_IP_FIELD_NUMBER = 17;
-  private boolean noPublicIp_;
+  private boolean noPublicIp_ = false;
   /**
    * <pre>
    * If true, no public IP will be assigned to this instance.
@@ -2647,7 +2556,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NO_PROXY_ACCESS_FIELD_NUMBER = 18;
-  private boolean noProxyAccess_;
+  private boolean noProxyAccess_ = false;
   /**
    * <pre>
    * If true, the notebook instance will not register with the proxy.
@@ -2662,7 +2571,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 19;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * The name of the VPC that this instance is in.
@@ -2712,7 +2622,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBNET_FIELD_NUMBER = 20;
-  private volatile java.lang.Object subnet_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subnet_ = "";
   /**
    * <pre>
    * The name of the subnet that this instance is in.
@@ -2773,6 +2684,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2783,7 +2695,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -2795,7 +2706,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 21;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -2819,7 +2729,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 21;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -2832,10 +2741,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 21;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -2850,7 +2760,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 21;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2874,6 +2783,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> metadata_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -2884,7 +2794,6 @@ private static final long serialVersionUID = 0L;
     }
     return metadata_;
   }
-
   public int getMetadataCount() {
     return internalGetMetadata().getMap().size();
   }
@@ -2895,7 +2804,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; metadata = 22;</code>
    */
-
   @java.lang.Override
   public boolean containsMetadata(
       java.lang.String key) {
@@ -2918,7 +2826,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; metadata = 22;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
     return internalGetMetadata().getMap();
   }
@@ -2930,10 +2837,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; metadata = 22;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getMetadataOrDefault(
+  public /* nullable */
+java.lang.String getMetadataOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetMetadata().getMap();
@@ -2947,7 +2855,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; metadata = 22;</code>
    */
   @java.lang.Override
-
   public java.lang.String getMetadataOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -2957,6 +2864,97 @@ private static final long serialVersionUID = 0L;
       throw new java.lang.IllegalArgumentException();
     }
     return map.get(key);
+  }
+
+  public static final int NIC_TYPE_FIELD_NUMBER = 28;
+  private int nicType_ = 0;
+  /**
+   * <pre>
+   * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+   * VirtioNet.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The enum numeric value on the wire for nicType.
+   */
+  @java.lang.Override public int getNicTypeValue() {
+    return nicType_;
+  }
+  /**
+   * <pre>
+   * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+   * VirtioNet.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The nicType.
+   */
+  @java.lang.Override public com.google.cloud.notebooks.v1beta1.Instance.NicType getNicType() {
+    com.google.cloud.notebooks.v1beta1.Instance.NicType result = com.google.cloud.notebooks.v1beta1.Instance.NicType.forNumber(nicType_);
+    return result == null ? com.google.cloud.notebooks.v1beta1.Instance.NicType.UNRECOGNIZED : result;
+  }
+
+  public static final int RESERVATION_AFFINITY_FIELD_NUMBER = 29;
+  private com.google.cloud.notebooks.v1beta1.ReservationAffinity reservationAffinity_;
+  /**
+   * <pre>
+   * Optional. The optional reservation affinity. Setting this field will apply
+   * the specified [Zonal Compute
+   * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+   * to this notebook instance.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return Whether the reservationAffinity field is set.
+   */
+  @java.lang.Override
+  public boolean hasReservationAffinity() {
+    return reservationAffinity_ != null;
+  }
+  /**
+   * <pre>
+   * Optional. The optional reservation affinity. Setting this field will apply
+   * the specified [Zonal Compute
+   * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+   * to this notebook instance.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The reservationAffinity.
+   */
+  @java.lang.Override
+  public com.google.cloud.notebooks.v1beta1.ReservationAffinity getReservationAffinity() {
+    return reservationAffinity_ == null ? com.google.cloud.notebooks.v1beta1.ReservationAffinity.getDefaultInstance() : reservationAffinity_;
+  }
+  /**
+   * <pre>
+   * Optional. The optional reservation affinity. Setting this field will apply
+   * the specified [Zonal Compute
+   * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+   * to this notebook instance.
+   * </pre>
+   *
+   * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.notebooks.v1beta1.ReservationAffinityOrBuilder getReservationAffinityOrBuilder() {
+    return reservationAffinity_ == null ? com.google.cloud.notebooks.v1beta1.ReservationAffinity.getDefaultInstance() : reservationAffinity_;
+  }
+
+  public static final int CAN_IP_FORWARD_FIELD_NUMBER = 31;
+  private boolean canIpForward_ = false;
+  /**
+   * <pre>
+   * Optional. Flag to enable ip forwarding or not, default false/off.
+   * https://cloud.google.com/vpc/docs/using-routes#canipforward
+   * </pre>
+   *
+   * <code>bool can_ip_forward = 31 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * @return The canIpForward.
+   */
+  @java.lang.Override
+  public boolean getCanIpForward() {
+    return canIpForward_;
   }
 
   public static final int CREATE_TIME_FIELD_NUMBER = 23;
@@ -2994,7 +2992,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 24;
@@ -3032,7 +3030,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -3136,7 +3134,16 @@ private static final long serialVersionUID = 0L;
     if (noRemoveDataDisk_ != false) {
       output.writeBool(27, noRemoveDataDisk_);
     }
-    unknownFields.writeTo(output);
+    if (nicType_ != com.google.cloud.notebooks.v1beta1.Instance.NicType.UNSPECIFIED_NIC_TYPE.getNumber()) {
+      output.writeEnum(28, nicType_);
+    }
+    if (reservationAffinity_ != null) {
+      output.writeMessage(29, getReservationAffinity());
+    }
+    if (canIpForward_ != false) {
+      output.writeBool(31, canIpForward_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3260,7 +3267,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(27, noRemoveDataDisk_);
     }
-    size += unknownFields.getSerializedSize();
+    if (nicType_ != com.google.cloud.notebooks.v1beta1.Instance.NicType.UNSPECIFIED_NIC_TYPE.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(28, nicType_);
+    }
+    if (reservationAffinity_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(29, getReservationAffinity());
+    }
+    if (canIpForward_ != false) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(31, canIpForward_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3320,6 +3339,14 @@ private static final long serialVersionUID = 0L;
         other.internalGetLabels())) return false;
     if (!internalGetMetadata().equals(
         other.internalGetMetadata())) return false;
+    if (nicType_ != other.nicType_) return false;
+    if (hasReservationAffinity() != other.hasReservationAffinity()) return false;
+    if (hasReservationAffinity()) {
+      if (!getReservationAffinity()
+          .equals(other.getReservationAffinity())) return false;
+    }
+    if (getCanIpForward()
+        != other.getCanIpForward()) return false;
     if (hasCreateTime() != other.hasCreateTime()) return false;
     if (hasCreateTime()) {
       if (!getCreateTime()
@@ -3343,7 +3370,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3414,6 +3441,15 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METADATA_FIELD_NUMBER;
       hash = (53 * hash) + internalGetMetadata().hashCode();
     }
+    hash = (37 * hash) + NIC_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + nicType_;
+    if (hasReservationAffinity()) {
+      hash = (37 * hash) + RESERVATION_AFFINITY_FIELD_NUMBER;
+      hash = (53 * hash) + getReservationAffinity().hashCode();
+    }
+    hash = (37 * hash) + CAN_IP_FORWARD_FIELD_NUMBER;
+    hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+        getCanIpForward());
     if (hasCreateTime()) {
       hash = (37 * hash) + CREATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getCreateTime().hashCode();
@@ -3434,7 +3470,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3581,80 +3617,67 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1beta1.Instance.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
+      if (vmImageBuilder_ != null) {
+        vmImageBuilder_.clear();
+      }
+      if (containerImageBuilder_ != null) {
+        containerImageBuilder_.clear();
+      }
       postStartupScript_ = "";
-
       proxyUri_ = "";
-
       instanceOwners_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       serviceAccount_ = "";
-
       machineType_ = "";
-
-      if (acceleratorConfigBuilder_ == null) {
-        acceleratorConfig_ = null;
-      } else {
-        acceleratorConfig_ = null;
+      acceleratorConfig_ = null;
+      if (acceleratorConfigBuilder_ != null) {
+        acceleratorConfigBuilder_.dispose();
         acceleratorConfigBuilder_ = null;
       }
       state_ = 0;
-
       installGpuDriver_ = false;
-
       customGpuDriverPath_ = "";
-
       bootDiskType_ = 0;
-
       bootDiskSizeGb_ = 0L;
-
       dataDiskType_ = 0;
-
       dataDiskSizeGb_ = 0L;
-
       noRemoveDataDisk_ = false;
-
       diskEncryption_ = 0;
-
       kmsKey_ = "";
-
       noPublicIp_ = false;
-
       noProxyAccess_ = false;
-
       network_ = "";
-
       subnet_ = "";
-
       internalGetMutableLabels().clear();
       internalGetMutableMetadata().clear();
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      nicType_ = 0;
+      reservationAffinity_ = null;
+      if (reservationAffinityBuilder_ != null) {
+        reservationAffinityBuilder_.dispose();
+        reservationAffinityBuilder_ = null;
+      }
+      canIpForward_ = false;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       environmentCase_ = 0;
@@ -3685,67 +3708,127 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1beta1.Instance buildPartial() {
       com.google.cloud.notebooks.v1beta1.Instance result = new com.google.cloud.notebooks.v1beta1.Instance(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      if (environmentCase_ == 2) {
-        if (vmImageBuilder_ == null) {
-          result.environment_ = environment_;
-        } else {
-          result.environment_ = vmImageBuilder_.build();
-        }
-      }
-      if (environmentCase_ == 3) {
-        if (containerImageBuilder_ == null) {
-          result.environment_ = environment_;
-        } else {
-          result.environment_ = containerImageBuilder_.build();
-        }
-      }
-      result.postStartupScript_ = postStartupScript_;
-      result.proxyUri_ = proxyUri_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        instanceOwners_ = instanceOwners_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.instanceOwners_ = instanceOwners_;
-      result.serviceAccount_ = serviceAccount_;
-      result.machineType_ = machineType_;
-      if (acceleratorConfigBuilder_ == null) {
-        result.acceleratorConfig_ = acceleratorConfig_;
-      } else {
-        result.acceleratorConfig_ = acceleratorConfigBuilder_.build();
-      }
-      result.state_ = state_;
-      result.installGpuDriver_ = installGpuDriver_;
-      result.customGpuDriverPath_ = customGpuDriverPath_;
-      result.bootDiskType_ = bootDiskType_;
-      result.bootDiskSizeGb_ = bootDiskSizeGb_;
-      result.dataDiskType_ = dataDiskType_;
-      result.dataDiskSizeGb_ = dataDiskSizeGb_;
-      result.noRemoveDataDisk_ = noRemoveDataDisk_;
-      result.diskEncryption_ = diskEncryption_;
-      result.kmsKey_ = kmsKey_;
-      result.noPublicIp_ = noPublicIp_;
-      result.noProxyAccess_ = noProxyAccess_;
-      result.network_ = network_;
-      result.subnet_ = subnet_;
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.metadata_ = internalGetMetadata();
-      result.metadata_.makeImmutable();
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.environmentCase_ = environmentCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.notebooks.v1beta1.Instance result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        instanceOwners_ = instanceOwners_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.instanceOwners_ = instanceOwners_;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1beta1.Instance result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.postStartupScript_ = postStartupScript_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.proxyUri_ = proxyUri_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.serviceAccount_ = serviceAccount_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.machineType_ = machineType_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.acceleratorConfig_ = acceleratorConfigBuilder_ == null
+            ? acceleratorConfig_
+            : acceleratorConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.installGpuDriver_ = installGpuDriver_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.customGpuDriverPath_ = customGpuDriverPath_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.bootDiskType_ = bootDiskType_;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.bootDiskSizeGb_ = bootDiskSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.dataDiskType_ = dataDiskType_;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.dataDiskSizeGb_ = dataDiskSizeGb_;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.noRemoveDataDisk_ = noRemoveDataDisk_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.diskEncryption_ = diskEncryption_;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.kmsKey_ = kmsKey_;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.noPublicIp_ = noPublicIp_;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.noProxyAccess_ = noProxyAccess_;
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.network_ = network_;
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.subnet_ = subnet_;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.metadata_ = internalGetMetadata();
+        result.metadata_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.nicType_ = nicType_;
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.reservationAffinity_ = reservationAffinityBuilder_ == null
+            ? reservationAffinity_
+            : reservationAffinityBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.canIpForward_ = canIpForward_;
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.notebooks.v1beta1.Instance result) {
+      result.environmentCase_ = environmentCase_;
+      result.environment_ = this.environment_;
+      if (environmentCase_ == 2 &&
+          vmImageBuilder_ != null) {
+        result.environment_ = vmImageBuilder_.build();
+      }
+      if (environmentCase_ == 3 &&
+          containerImageBuilder_ != null) {
+        result.environment_ = containerImageBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -3794,20 +3877,23 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.notebooks.v1beta1.Instance.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getPostStartupScript().isEmpty()) {
         postStartupScript_ = other.postStartupScript_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getProxyUri().isEmpty()) {
         proxyUri_ = other.proxyUri_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.instanceOwners_.isEmpty()) {
         if (instanceOwners_.isEmpty()) {
           instanceOwners_ = other.instanceOwners_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureInstanceOwnersIsMutable();
           instanceOwners_.addAll(other.instanceOwners_);
@@ -3816,10 +3902,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getServiceAccount().isEmpty()) {
         serviceAccount_ = other.serviceAccount_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (!other.getMachineType().isEmpty()) {
         machineType_ = other.machineType_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasAcceleratorConfig()) {
@@ -3833,6 +3921,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getCustomGpuDriverPath().isEmpty()) {
         customGpuDriverPath_ = other.customGpuDriverPath_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.bootDiskType_ != 0) {
@@ -3855,6 +3944,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKmsKey().isEmpty()) {
         kmsKey_ = other.kmsKey_;
+        bitField0_ |= 0x00040000;
         onChanged();
       }
       if (other.getNoPublicIp() != false) {
@@ -3865,16 +3955,29 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getNetwork().isEmpty()) {
         network_ = other.network_;
+        bitField0_ |= 0x00200000;
         onChanged();
       }
       if (!other.getSubnet().isEmpty()) {
         subnet_ = other.subnet_;
+        bitField0_ |= 0x00400000;
         onChanged();
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00800000;
       internalGetMutableMetadata().mergeFrom(
           other.internalGetMetadata());
+      bitField0_ |= 0x01000000;
+      if (other.nicType_ != 0) {
+        setNicTypeValue(other.getNicTypeValue());
+      }
+      if (other.hasReservationAffinity()) {
+        mergeReservationAffinity(other.getReservationAffinity());
+      }
+      if (other.getCanIpForward() != false) {
+        setCanIpForward(other.getCanIpForward());
+      }
       if (other.hasCreateTime()) {
         mergeCreateTime(other.getCreateTime());
       }
@@ -3894,7 +3997,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3909,17 +4012,201 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1beta1.Instance parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getVmImageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getContainerImageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              environmentCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              postStartupScript_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              proxyUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureInstanceOwnersIsMutable();
+              instanceOwners_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              serviceAccount_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              machineType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getAcceleratorConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              installGpuDriver_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 98: {
+              customGpuDriverPath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 104: {
+              bootDiskType_ = input.readEnum();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              bootDiskSizeGb_ = input.readInt64();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              diskEncryption_ = input.readEnum();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 120
+            case 130: {
+              kmsKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 130
+            case 136: {
+              noPublicIp_ = input.readBool();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 136
+            case 144: {
+              noProxyAccess_ = input.readBool();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 144
+            case 154: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 154
+            case 162: {
+              subnet_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 162
+            case 170: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 170
+            case 178: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              metadata__ = input.readMessage(
+                  MetadataDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMetadata().getMutableMap().put(
+                  metadata__.getKey(), metadata__.getValue());
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 178
+            case 186: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 186
+            case 194: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x20000000;
+              break;
+            } // case 194
+            case 200: {
+              dataDiskType_ = input.readEnum();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 200
+            case 208: {
+              dataDiskSizeGb_ = input.readInt64();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 208
+            case 216: {
+              noRemoveDataDisk_ = input.readBool();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 216
+            case 224: {
+              nicType_ = input.readEnum();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 224
+            case 234: {
+              input.readMessage(
+                  getReservationAffinityFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 234
+            case 248: {
+              canIpForward_ = input.readBool();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 248
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1beta1.Instance) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int environmentCase_ = 0;
@@ -3995,11 +4282,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4013,8 +4298,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -4030,12 +4315,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -4214,7 +4497,7 @@ private static final long serialVersionUID = 0L;
         environment_ = null;
       }
       environmentCase_ = 2;
-      onChanged();;
+      onChanged();
       return vmImageBuilder_;
     }
 
@@ -4392,7 +4675,7 @@ private static final long serialVersionUID = 0L;
         environment_ = null;
       }
       environmentCase_ = 3;
-      onChanged();;
+      onChanged();
       return containerImageBuilder_;
     }
 
@@ -4401,7 +4684,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Path to a Bash script that automatically runs after a notebook instance
      * fully boots up. The path must be a URL or
-     * Cloud Storage path (`gs://path-to-file/file-name`).
+     * Cloud Storage path (gs://path-to-file/file-name).
      * </pre>
      *
      * <code>string post_startup_script = 4;</code>
@@ -4423,7 +4706,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Path to a Bash script that automatically runs after a notebook instance
      * fully boots up. The path must be a URL or
-     * Cloud Storage path (`gs://path-to-file/file-name`).
+     * Cloud Storage path (gs://path-to-file/file-name).
      * </pre>
      *
      * <code>string post_startup_script = 4;</code>
@@ -4446,7 +4729,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Path to a Bash script that automatically runs after a notebook instance
      * fully boots up. The path must be a URL or
-     * Cloud Storage path (`gs://path-to-file/file-name`).
+     * Cloud Storage path (gs://path-to-file/file-name).
      * </pre>
      *
      * <code>string post_startup_script = 4;</code>
@@ -4455,11 +4738,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostStartupScript(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       postStartupScript_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -4467,15 +4748,15 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Path to a Bash script that automatically runs after a notebook instance
      * fully boots up. The path must be a URL or
-     * Cloud Storage path (`gs://path-to-file/file-name`).
+     * Cloud Storage path (gs://path-to-file/file-name).
      * </pre>
      *
      * <code>string post_startup_script = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearPostStartupScript() {
-      
       postStartupScript_ = getDefaultInstance().getPostStartupScript();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -4483,7 +4764,7 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Path to a Bash script that automatically runs after a notebook instance
      * fully boots up. The path must be a URL or
-     * Cloud Storage path (`gs://path-to-file/file-name`).
+     * Cloud Storage path (gs://path-to-file/file-name).
      * </pre>
      *
      * <code>string post_startup_script = 4;</code>
@@ -4492,12 +4773,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPostStartupScriptBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       postStartupScript_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -4505,8 +4784,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object proxyUri_ = "";
     /**
      * <pre>
-     * Output only. The proxy endpoint that is used to access the Jupyter
-     * notebook.
+     * Output only. The proxy endpoint that is used to access the Jupyter notebook.
      * </pre>
      *
      * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4526,8 +4804,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The proxy endpoint that is used to access the Jupyter
-     * notebook.
+     * Output only. The proxy endpoint that is used to access the Jupyter notebook.
      * </pre>
      *
      * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4548,8 +4825,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. The proxy endpoint that is used to access the Jupyter
-     * notebook.
+     * Output only. The proxy endpoint that is used to access the Jupyter notebook.
      * </pre>
      *
      * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4558,33 +4834,29 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProxyUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       proxyUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The proxy endpoint that is used to access the Jupyter
-     * notebook.
+     * Output only. The proxy endpoint that is used to access the Jupyter notebook.
      * </pre>
      *
      * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearProxyUri() {
-      
       proxyUri_ = getDefaultInstance().getProxyUri();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. The proxy endpoint that is used to access the Jupyter
-     * notebook.
+     * Output only. The proxy endpoint that is used to access the Jupyter notebook.
      * </pre>
      *
      * <code>string proxy_uri = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -4593,27 +4865,24 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProxyUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       proxyUri_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList instanceOwners_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureInstanceOwnersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         instanceOwners_ = new com.google.protobuf.LazyStringArrayList(instanceOwners_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4628,8 +4897,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4643,8 +4911,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4659,8 +4926,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4676,8 +4942,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4690,18 +4955,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setInstanceOwners(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstanceOwnersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstanceOwnersIsMutable();
       instanceOwners_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4713,18 +4975,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInstanceOwners(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureInstanceOwnersIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureInstanceOwnersIsMutable();
       instanceOwners_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4744,8 +5003,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4756,14 +5014,13 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearInstanceOwners() {
       instanceOwners_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The owner of this instance after creation. Format:
-     * `alias&#64;example.com`
+     * Input only. The owner of this instance after creation. Format: `alias&#64;example.com`
      * Currently supports one owner only. If not specified, all of the service
      * account users of your VM instance's service account can use
      * the instance.
@@ -4775,10 +5032,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addInstanceOwnersBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureInstanceOwnersIsMutable();
       instanceOwners_.add(value);
       onChanged();
@@ -4856,11 +5111,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccount(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4879,8 +5132,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearServiceAccount() {
-      
       serviceAccount_ = getDefaultInstance().getServiceAccount();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -4901,12 +5154,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServiceAccountBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccount_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -4914,8 +5165,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object machineType_ = "";
     /**
      * <pre>
-     * Required. The [Compute Engine machine
-     * type](https://cloud.google.com/compute/docs/machine-types) of this
+     * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
      * instance.
      * </pre>
      *
@@ -4936,8 +5186,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [Compute Engine machine
-     * type](https://cloud.google.com/compute/docs/machine-types) of this
+     * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
      * instance.
      * </pre>
      *
@@ -4959,8 +5208,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. The [Compute Engine machine
-     * type](https://cloud.google.com/compute/docs/machine-types) of this
+     * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
      * instance.
      * </pre>
      *
@@ -4970,18 +5218,15 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       machineType_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [Compute Engine machine
-     * type](https://cloud.google.com/compute/docs/machine-types) of this
+     * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
      * instance.
      * </pre>
      *
@@ -4989,15 +5234,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMachineType() {
-      
       machineType_ = getDefaultInstance().getMachineType();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. The [Compute Engine machine
-     * type](https://cloud.google.com/compute/docs/machine-types) of this
+     * Required. The [Compute Engine machine type](/compute/docs/machine-types) of this
      * instance.
      * </pre>
      *
@@ -5007,12 +5251,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMachineTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       machineType_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -5025,21 +5267,21 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
      * @return Whether the acceleratorConfig field is set.
      */
     public boolean hasAcceleratorConfig() {
-      return acceleratorConfigBuilder_ != null || acceleratorConfig_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -5057,7 +5299,7 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -5068,11 +5310,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         acceleratorConfig_ = value;
-        onChanged();
       } else {
         acceleratorConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -5080,7 +5322,7 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -5089,11 +5331,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.Builder builderForValue) {
       if (acceleratorConfigBuilder_ == null) {
         acceleratorConfig_ = builderForValue.build();
-        onChanged();
       } else {
         acceleratorConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -5101,24 +5343,25 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
      */
     public Builder mergeAcceleratorConfig(com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig value) {
       if (acceleratorConfigBuilder_ == null) {
-        if (acceleratorConfig_ != null) {
-          acceleratorConfig_ =
-            com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.newBuilder(acceleratorConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          acceleratorConfig_ != null &&
+          acceleratorConfig_ != com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.getDefaultInstance()) {
+          getAcceleratorConfigBuilder().mergeFrom(value);
         } else {
           acceleratorConfig_ = value;
         }
-        onChanged();
       } else {
         acceleratorConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -5126,20 +5369,19 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
      */
     public Builder clearAcceleratorConfig() {
-      if (acceleratorConfigBuilder_ == null) {
-        acceleratorConfig_ = null;
-        onChanged();
-      } else {
-        acceleratorConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      acceleratorConfig_ = null;
+      if (acceleratorConfigBuilder_ != null) {
+        acceleratorConfigBuilder_.dispose();
         acceleratorConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5147,13 +5389,13 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
      */
     public com.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig.Builder getAcceleratorConfigBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getAcceleratorConfigFieldBuilder().getBuilder();
     }
@@ -5162,7 +5404,7 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -5180,7 +5422,7 @@ private static final long serialVersionUID = 0L;
      * The hardware accelerator used on this instance. If you use
      * accelerators, make sure that your configuration has
      * [enough vCPUs and memory to support the `machine_type` you
-     * have selected](https://cloud.google.com/compute/docs/gpus/#gpus-list).
+     * have selected](/compute/docs/gpus/#gpus-list).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.AcceleratorConfig accelerator_config = 9;</code>
@@ -5221,8 +5463,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -5236,8 +5478,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1beta1.Instance.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1beta1.Instance.State result = com.google.cloud.notebooks.v1beta1.Instance.State.valueOf(state_);
+      com.google.cloud.notebooks.v1beta1.Instance.State result = com.google.cloud.notebooks.v1beta1.Instance.State.forNumber(state_);
       return result == null ? com.google.cloud.notebooks.v1beta1.Instance.State.UNRECOGNIZED : result;
     }
     /**
@@ -5253,7 +5494,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000200;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -5267,7 +5508,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       state_ = 0;
       onChanged();
       return this;
@@ -5304,6 +5545,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInstallGpuDriver(boolean value) {
       
       installGpuDriver_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -5319,7 +5561,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInstallGpuDriver() {
-      
+      bitField0_ = (bitField0_ & ~0x00000400);
       installGpuDriver_ = false;
       onChanged();
       return this;
@@ -5381,11 +5623,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomGpuDriverPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       customGpuDriverPath_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -5399,8 +5639,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomGpuDriverPath() {
-      
       customGpuDriverPath_ = getDefaultInstance().getCustomGpuDriverPath();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -5416,12 +5656,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomGpuDriverPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customGpuDriverPath_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -5429,8 +5667,8 @@ private static final long serialVersionUID = 0L;
     private int bootDiskType_ = 0;
     /**
      * <pre>
-     * Input only. The type of the boot disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the boot disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5441,8 +5679,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The type of the boot disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the boot disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5450,15 +5688,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBootDiskTypeValue(int value) {
-      
       bootDiskType_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The type of the boot disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the boot disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5466,14 +5704,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1beta1.Instance.DiskType getBootDiskType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.valueOf(bootDiskType_);
+      com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.forNumber(bootDiskType_);
       return result == null ? com.google.cloud.notebooks.v1beta1.Instance.DiskType.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Input only. The type of the boot disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the boot disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5484,22 +5721,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00001000;
       bootDiskType_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The type of the boot disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the boot disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType boot_disk_type = 13 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearBootDiskType() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       bootDiskType_ = 0;
       onChanged();
       return this;
@@ -5508,9 +5745,9 @@ private static final long serialVersionUID = 0L;
     private long bootDiskSizeGb_ ;
     /**
      * <pre>
-     * Input only. The size of the boot disk in GB attached to this instance, up
-     * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value
-     * is 100&amp;nbsp;GB. If not specified, this defaults to 100.
+     * Input only. The size of the boot disk in GB attached to this instance, up to a maximum
+     * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value is
+     * 100&amp;nbsp;GB. If not specified, this defaults to 100.
      * </pre>
      *
      * <code>int64 boot_disk_size_gb = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5522,9 +5759,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The size of the boot disk in GB attached to this instance, up
-     * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value
-     * is 100&amp;nbsp;GB. If not specified, this defaults to 100.
+     * Input only. The size of the boot disk in GB attached to this instance, up to a maximum
+     * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value is
+     * 100&amp;nbsp;GB. If not specified, this defaults to 100.
      * </pre>
      *
      * <code>int64 boot_disk_size_gb = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5534,21 +5771,22 @@ private static final long serialVersionUID = 0L;
     public Builder setBootDiskSizeGb(long value) {
       
       bootDiskSizeGb_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The size of the boot disk in GB attached to this instance, up
-     * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value
-     * is 100&amp;nbsp;GB. If not specified, this defaults to 100.
+     * Input only. The size of the boot disk in GB attached to this instance, up to a maximum
+     * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). The minimum recommended value is
+     * 100&amp;nbsp;GB. If not specified, this defaults to 100.
      * </pre>
      *
      * <code>int64 boot_disk_size_gb = 14 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearBootDiskSizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       bootDiskSizeGb_ = 0L;
       onChanged();
       return this;
@@ -5557,8 +5795,8 @@ private static final long serialVersionUID = 0L;
     private int dataDiskType_ = 0;
     /**
      * <pre>
-     * Input only. The type of the data disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the data disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5569,8 +5807,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The type of the data disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the data disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5578,15 +5816,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDataDiskTypeValue(int value) {
-      
       dataDiskType_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The type of the data disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the data disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5594,14 +5832,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1beta1.Instance.DiskType getDataDiskType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.valueOf(dataDiskType_);
+      com.google.cloud.notebooks.v1beta1.Instance.DiskType result = com.google.cloud.notebooks.v1beta1.Instance.DiskType.forNumber(dataDiskType_);
       return result == null ? com.google.cloud.notebooks.v1beta1.Instance.DiskType.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Input only. The type of the data disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the data disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5612,22 +5849,22 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00004000;
       dataDiskType_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The type of the data disk attached to this instance, defaults
-     * to standard persistent disk (`PD_STANDARD`).
+     * Input only. The type of the data disk attached to this instance, defaults to
+     * standard persistent disk (`PD_STANDARD`).
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskType data_disk_type = 25 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearDataDiskType() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       dataDiskType_ = 0;
       onChanged();
       return this;
@@ -5636,10 +5873,10 @@ private static final long serialVersionUID = 0L;
     private long dataDiskSizeGb_ ;
     /**
      * <pre>
-     * Input only. The size of the data disk in GB attached to this instance, up
-     * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the
-     * data disk based on how big your notebooks and data are. If not specified,
-     * this defaults to 100.
+     * Input only. The size of the data disk in GB attached to this instance, up to a maximum
+     * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the data disk
+     * based on how big your notebooks and data are. If not specified, this
+     * defaults to 100.
      * </pre>
      *
      * <code>int64 data_disk_size_gb = 26 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5651,10 +5888,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The size of the data disk in GB attached to this instance, up
-     * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the
-     * data disk based on how big your notebooks and data are. If not specified,
-     * this defaults to 100.
+     * Input only. The size of the data disk in GB attached to this instance, up to a maximum
+     * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the data disk
+     * based on how big your notebooks and data are. If not specified, this
+     * defaults to 100.
      * </pre>
      *
      * <code>int64 data_disk_size_gb = 26 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5664,22 +5901,23 @@ private static final long serialVersionUID = 0L;
     public Builder setDataDiskSizeGb(long value) {
       
       dataDiskSizeGb_ = value;
+      bitField0_ |= 0x00008000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The size of the data disk in GB attached to this instance, up
-     * to a maximum of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the
-     * data disk based on how big your notebooks and data are. If not specified,
-     * this defaults to 100.
+     * Input only. The size of the data disk in GB attached to this instance, up to a maximum
+     * of 64000&amp;nbsp;GB (64&amp;nbsp;TB). You can choose the size of the data disk
+     * based on how big your notebooks and data are. If not specified, this
+     * defaults to 100.
      * </pre>
      *
      * <code>int64 data_disk_size_gb = 26 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearDataDiskSizeGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00008000);
       dataDiskSizeGb_ = 0L;
       onChanged();
       return this;
@@ -5688,8 +5926,7 @@ private static final long serialVersionUID = 0L;
     private boolean noRemoveDataDisk_ ;
     /**
      * <pre>
-     * Input only. If true, the data disk will not be auto deleted when deleting
-     * the instance.
+     * Input only. If true, the data disk will not be auto deleted when deleting the instance.
      * </pre>
      *
      * <code>bool no_remove_data_disk = 27 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5701,8 +5938,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. If true, the data disk will not be auto deleted when deleting
-     * the instance.
+     * Input only. If true, the data disk will not be auto deleted when deleting the instance.
      * </pre>
      *
      * <code>bool no_remove_data_disk = 27 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5712,20 +5948,20 @@ private static final long serialVersionUID = 0L;
     public Builder setNoRemoveDataDisk(boolean value) {
       
       noRemoveDataDisk_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. If true, the data disk will not be auto deleted when deleting
-     * the instance.
+     * Input only. If true, the data disk will not be auto deleted when deleting the instance.
      * </pre>
      *
      * <code>bool no_remove_data_disk = 27 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearNoRemoveDataDisk() {
-      
+      bitField0_ = (bitField0_ & ~0x00010000);
       noRemoveDataDisk_ = false;
       onChanged();
       return this;
@@ -5734,8 +5970,7 @@ private static final long serialVersionUID = 0L;
     private int diskEncryption_ = 0;
     /**
      * <pre>
-     * Input only. Disk encryption method used on the boot and data disks,
-     * defaults to GMEK.
+     * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5746,8 +5981,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. Disk encryption method used on the boot and data disks,
-     * defaults to GMEK.
+     * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5755,15 +5989,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDiskEncryptionValue(int value) {
-      
       diskEncryption_ = value;
+      bitField0_ |= 0x00020000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. Disk encryption method used on the boot and data disks,
-     * defaults to GMEK.
+     * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5771,14 +6004,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption getDiskEncryption() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption result = com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption.valueOf(diskEncryption_);
+      com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption result = com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption.forNumber(diskEncryption_);
       return result == null ? com.google.cloud.notebooks.v1beta1.Instance.DiskEncryption.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Input only. Disk encryption method used on the boot and data disks,
-     * defaults to GMEK.
+     * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5789,22 +6020,21 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00020000;
       diskEncryption_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. Disk encryption method used on the boot and data disks,
-     * defaults to GMEK.
+     * Input only. Disk encryption method used on the boot and data disks, defaults to GMEK.
      * </pre>
      *
      * <code>.google.cloud.notebooks.v1beta1.Instance.DiskEncryption disk_encryption = 15 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearDiskEncryption() {
-      
+      bitField0_ = (bitField0_ & ~0x00020000);
       diskEncryption_ = 0;
       onChanged();
       return this;
@@ -5813,11 +6043,11 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object kmsKey_ = "";
     /**
      * <pre>
-     * Input only. The KMS key used to encrypt the disks, only applicable if
-     * disk_encryption is CMEK. Format:
+     * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+     * is CMEK.
+     * Format:
      * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-     * Learn more about [using your own encryption keys](
-     * https://cloud.google.com/kms/docs/quickstart).
+     * Learn more about [using your own encryption keys](/kms/docs/quickstart).
      * </pre>
      *
      * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5837,11 +6067,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The KMS key used to encrypt the disks, only applicable if
-     * disk_encryption is CMEK. Format:
+     * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+     * is CMEK.
+     * Format:
      * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-     * Learn more about [using your own encryption keys](
-     * https://cloud.google.com/kms/docs/quickstart).
+     * Learn more about [using your own encryption keys](/kms/docs/quickstart).
      * </pre>
      *
      * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5862,11 +6092,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Input only. The KMS key used to encrypt the disks, only applicable if
-     * disk_encryption is CMEK. Format:
+     * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+     * is CMEK.
+     * Format:
      * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-     * Learn more about [using your own encryption keys](
-     * https://cloud.google.com/kms/docs/quickstart).
+     * Learn more about [using your own encryption keys](/kms/docs/quickstart).
      * </pre>
      *
      * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5875,39 +6105,37 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKey_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The KMS key used to encrypt the disks, only applicable if
-     * disk_encryption is CMEK. Format:
+     * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+     * is CMEK.
+     * Format:
      * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-     * Learn more about [using your own encryption keys](
-     * https://cloud.google.com/kms/docs/quickstart).
+     * Learn more about [using your own encryption keys](/kms/docs/quickstart).
      * </pre>
      *
      * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearKmsKey() {
-      
       kmsKey_ = getDefaultInstance().getKmsKey();
+      bitField0_ = (bitField0_ & ~0x00040000);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Input only. The KMS key used to encrypt the disks, only applicable if
-     * disk_encryption is CMEK. Format:
+     * Input only. The KMS key used to encrypt the disks, only applicable if disk_encryption
+     * is CMEK.
+     * Format:
      * `projects/{project_id}/locations/{location}/keyRings/{key_ring_id}/cryptoKeys/{key_id}`
-     * Learn more about [using your own encryption keys](
-     * https://cloud.google.com/kms/docs/quickstart).
+     * Learn more about [using your own encryption keys](/kms/docs/quickstart).
      * </pre>
      *
      * <code>string kms_key = 16 [(.google.api.field_behavior) = INPUT_ONLY];</code>
@@ -5916,12 +6144,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKey_ = value;
+      bitField0_ |= 0x00040000;
       onChanged();
       return this;
     }
@@ -5951,6 +6177,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNoPublicIp(boolean value) {
       
       noPublicIp_ = value;
+      bitField0_ |= 0x00080000;
       onChanged();
       return this;
     }
@@ -5963,7 +6190,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoPublicIp() {
-      
+      bitField0_ = (bitField0_ & ~0x00080000);
       noPublicIp_ = false;
       onChanged();
       return this;
@@ -5994,6 +6221,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNoProxyAccess(boolean value) {
       
       noProxyAccess_ = value;
+      bitField0_ |= 0x00100000;
       onChanged();
       return this;
     }
@@ -6006,7 +6234,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNoProxyAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x00100000);
       noProxyAccess_ = false;
       onChanged();
       return this;
@@ -6071,11 +6299,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -6090,8 +6316,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00200000);
       onChanged();
       return this;
     }
@@ -6108,12 +6334,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00200000;
       onChanged();
       return this;
     }
@@ -6177,11 +6401,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnet(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subnet_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -6196,8 +6418,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubnet() {
-      
       subnet_ = getDefaultInstance().getSubnet();
+      bitField0_ = (bitField0_ & ~0x00400000);
       onChanged();
       return this;
     }
@@ -6214,12 +6436,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubnetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subnet_ = value;
+      bitField0_ |= 0x00400000;
       onChanged();
       return this;
     }
@@ -6227,7 +6447,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -6235,8 +6455,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -6244,9 +6463,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00800000;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -6258,7 +6478,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 21;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -6282,7 +6501,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 21;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -6295,10 +6513,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 21;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -6313,7 +6532,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 21;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6324,8 +6542,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00800000);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -6338,7 +6556,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 21;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6351,7 +6568,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00800000;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -6366,12 +6584,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00800000;
       return this;
     }
     /**
@@ -6382,18 +6598,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 21;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00800000;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> metadata_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMetadata() {
+        internalGetMetadata() {
       if (metadata_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -6401,8 +6617,7 @@ private static final long serialVersionUID = 0L;
       return metadata_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableMetadata() {
-      onChanged();;
+        internalGetMutableMetadata() {
       if (metadata_ == null) {
         metadata_ = com.google.protobuf.MapField.newMapField(
             MetadataDefaultEntryHolder.defaultEntry);
@@ -6410,9 +6625,10 @@ private static final long serialVersionUID = 0L;
       if (!metadata_.isMutable()) {
         metadata_ = metadata_.copy();
       }
+      bitField0_ |= 0x01000000;
+      onChanged();
       return metadata_;
     }
-
     public int getMetadataCount() {
       return internalGetMetadata().getMap().size();
     }
@@ -6423,7 +6639,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; metadata = 22;</code>
      */
-
     @java.lang.Override
     public boolean containsMetadata(
         java.lang.String key) {
@@ -6446,7 +6661,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; metadata = 22;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getMetadataMap() {
       return internalGetMetadata().getMap();
     }
@@ -6458,10 +6672,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; metadata = 22;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getMetadataOrDefault(
+    public /* nullable */
+java.lang.String getMetadataOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetMetadata().getMap();
@@ -6475,7 +6690,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; metadata = 22;</code>
      */
     @java.lang.Override
-
     public java.lang.String getMetadataOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6486,8 +6700,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearMetadata() {
+      bitField0_ = (bitField0_ & ~0x01000000);
       internalGetMutableMetadata().getMutableMap()
           .clear();
       return this;
@@ -6499,7 +6713,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; metadata = 22;</code>
      */
-
     public Builder removeMetadata(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6512,7 +6725,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableMetadata() {
+        getMutableMetadata() {
+      bitField0_ |= 0x01000000;
       return internalGetMutableMetadata().getMutableMap();
     }
     /**
@@ -6526,12 +6740,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableMetadata().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x01000000;
       return this;
     }
     /**
@@ -6541,11 +6753,318 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; metadata = 22;</code>
      */
-
     public Builder putAllMetadata(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableMetadata().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x01000000;
+      return this;
+    }
+
+    private int nicType_ = 0;
+    /**
+     * <pre>
+     * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+     * VirtioNet.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The enum numeric value on the wire for nicType.
+     */
+    @java.lang.Override public int getNicTypeValue() {
+      return nicType_;
+    }
+    /**
+     * <pre>
+     * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+     * VirtioNet.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The enum numeric value on the wire for nicType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNicTypeValue(int value) {
+      nicType_ = value;
+      bitField0_ |= 0x02000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+     * VirtioNet.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The nicType.
+     */
+    @java.lang.Override
+    public com.google.cloud.notebooks.v1beta1.Instance.NicType getNicType() {
+      com.google.cloud.notebooks.v1beta1.Instance.NicType result = com.google.cloud.notebooks.v1beta1.Instance.NicType.forNumber(nicType_);
+      return result == null ? com.google.cloud.notebooks.v1beta1.Instance.NicType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+     * VirtioNet.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The nicType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNicType(com.google.cloud.notebooks.v1beta1.Instance.NicType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField0_ |= 0x02000000;
+      nicType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The type of vNIC to be used on this interface. This may be gVNIC or
+     * VirtioNet.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.Instance.NicType nic_type = 28 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearNicType() {
+      bitField0_ = (bitField0_ & ~0x02000000);
+      nicType_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private com.google.cloud.notebooks.v1beta1.ReservationAffinity reservationAffinity_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.notebooks.v1beta1.ReservationAffinity, com.google.cloud.notebooks.v1beta1.ReservationAffinity.Builder, com.google.cloud.notebooks.v1beta1.ReservationAffinityOrBuilder> reservationAffinityBuilder_;
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return Whether the reservationAffinity field is set.
+     */
+    public boolean hasReservationAffinity() {
+      return ((bitField0_ & 0x04000000) != 0);
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The reservationAffinity.
+     */
+    public com.google.cloud.notebooks.v1beta1.ReservationAffinity getReservationAffinity() {
+      if (reservationAffinityBuilder_ == null) {
+        return reservationAffinity_ == null ? com.google.cloud.notebooks.v1beta1.ReservationAffinity.getDefaultInstance() : reservationAffinity_;
+      } else {
+        return reservationAffinityBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setReservationAffinity(com.google.cloud.notebooks.v1beta1.ReservationAffinity value) {
+      if (reservationAffinityBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        reservationAffinity_ = value;
+      } else {
+        reservationAffinityBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder setReservationAffinity(
+        com.google.cloud.notebooks.v1beta1.ReservationAffinity.Builder builderForValue) {
+      if (reservationAffinityBuilder_ == null) {
+        reservationAffinity_ = builderForValue.build();
+      } else {
+        reservationAffinityBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder mergeReservationAffinity(com.google.cloud.notebooks.v1beta1.ReservationAffinity value) {
+      if (reservationAffinityBuilder_ == null) {
+        if (((bitField0_ & 0x04000000) != 0) &&
+          reservationAffinity_ != null &&
+          reservationAffinity_ != com.google.cloud.notebooks.v1beta1.ReservationAffinity.getDefaultInstance()) {
+          getReservationAffinityBuilder().mergeFrom(value);
+        } else {
+          reservationAffinity_ = value;
+        }
+      } else {
+        reservationAffinityBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public Builder clearReservationAffinity() {
+      bitField0_ = (bitField0_ & ~0x04000000);
+      reservationAffinity_ = null;
+      if (reservationAffinityBuilder_ != null) {
+        reservationAffinityBuilder_.dispose();
+        reservationAffinityBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.notebooks.v1beta1.ReservationAffinity.Builder getReservationAffinityBuilder() {
+      bitField0_ |= 0x04000000;
+      onChanged();
+      return getReservationAffinityFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    public com.google.cloud.notebooks.v1beta1.ReservationAffinityOrBuilder getReservationAffinityOrBuilder() {
+      if (reservationAffinityBuilder_ != null) {
+        return reservationAffinityBuilder_.getMessageOrBuilder();
+      } else {
+        return reservationAffinity_ == null ?
+            com.google.cloud.notebooks.v1beta1.ReservationAffinity.getDefaultInstance() : reservationAffinity_;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. The optional reservation affinity. Setting this field will apply
+     * the specified [Zonal Compute
+     * Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+     * to this notebook instance.
+     * </pre>
+     *
+     * <code>.google.cloud.notebooks.v1beta1.ReservationAffinity reservation_affinity = 29 [(.google.api.field_behavior) = OPTIONAL];</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.notebooks.v1beta1.ReservationAffinity, com.google.cloud.notebooks.v1beta1.ReservationAffinity.Builder, com.google.cloud.notebooks.v1beta1.ReservationAffinityOrBuilder> 
+        getReservationAffinityFieldBuilder() {
+      if (reservationAffinityBuilder_ == null) {
+        reservationAffinityBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.notebooks.v1beta1.ReservationAffinity, com.google.cloud.notebooks.v1beta1.ReservationAffinity.Builder, com.google.cloud.notebooks.v1beta1.ReservationAffinityOrBuilder>(
+                getReservationAffinity(),
+                getParentForChildren(),
+                isClean());
+        reservationAffinity_ = null;
+      }
+      return reservationAffinityBuilder_;
+    }
+
+    private boolean canIpForward_ ;
+    /**
+     * <pre>
+     * Optional. Flag to enable ip forwarding or not, default false/off.
+     * https://cloud.google.com/vpc/docs/using-routes#canipforward
+     * </pre>
+     *
+     * <code>bool can_ip_forward = 31 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The canIpForward.
+     */
+    @java.lang.Override
+    public boolean getCanIpForward() {
+      return canIpForward_;
+    }
+    /**
+     * <pre>
+     * Optional. Flag to enable ip forwarding or not, default false/off.
+     * https://cloud.google.com/vpc/docs/using-routes#canipforward
+     * </pre>
+     *
+     * <code>bool can_ip_forward = 31 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The canIpForward to set.
+     * @return This builder for chaining.
+     */
+    public Builder setCanIpForward(boolean value) {
+      
+      canIpForward_ = value;
+      bitField0_ |= 0x08000000;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Flag to enable ip forwarding or not, default false/off.
+     * https://cloud.google.com/vpc/docs/using-routes#canipforward
+     * </pre>
+     *
+     * <code>bool can_ip_forward = 31 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearCanIpForward() {
+      bitField0_ = (bitField0_ & ~0x08000000);
+      canIpForward_ = false;
+      onChanged();
       return this;
     }
 
@@ -6561,7 +7080,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x10000000) != 0);
     }
     /**
      * <pre>
@@ -6591,11 +7110,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -6609,11 +7128,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -6625,17 +7144,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x10000000) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -6646,14 +7166,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x10000000);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6664,7 +7183,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 23 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x10000000;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -6716,7 +7235,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x20000000) != 0);
     }
     /**
      * <pre>
@@ -6746,11 +7265,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -6764,11 +7283,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -6780,17 +7299,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x20000000) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -6801,14 +7321,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x20000000);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6819,7 +7338,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 24 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x20000000;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -6891,7 +7410,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Instance(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

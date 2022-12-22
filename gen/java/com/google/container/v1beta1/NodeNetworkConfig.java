@@ -36,76 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NodeNetworkConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 32: {
-
-            createPodRange_ = input.readBool();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            podRange_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            podIpv4CidrBlock_ = s;
-            break;
-          }
-          case 90: {
-            com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000001) != 0)) {
-              subBuilder = networkPerformanceConfig_.toBuilder();
-            }
-            networkPerformanceConfig_ = input.readMessage(com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(networkPerformanceConfig_);
-              networkPerformanceConfig_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000001;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_NodeNetworkConfig_descriptor;
@@ -214,58 +144,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private NetworkPerformanceConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-              bitField0_ |= 0x00000001;
-              totalEgressBandwidthTier_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-              bitField0_ |= 0x00000002;
-              externalIpEgressBandwidthTier_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -410,7 +288,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
     public static final int TOTAL_EGRESS_BANDWIDTH_TIER_FIELD_NUMBER = 1;
-    private int totalEgressBandwidthTier_;
+    private int totalEgressBandwidthTier_ = 0;
     /**
      * <pre>
      * Specifies the total network bandwidth tier for the NodePool.
@@ -442,13 +320,12 @@ private static final long serialVersionUID = 0L;
      * @return The totalEgressBandwidthTier.
      */
     @java.lang.Override public com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier getTotalEgressBandwidthTier() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.valueOf(totalEgressBandwidthTier_);
+      com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.forNumber(totalEgressBandwidthTier_);
       return result == null ? com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.UNRECOGNIZED : result;
     }
 
     public static final int EXTERNAL_IP_EGRESS_BANDWIDTH_TIER_FIELD_NUMBER = 2;
-    private int externalIpEgressBandwidthTier_;
+    private int externalIpEgressBandwidthTier_ = 0;
     /**
      * <pre>
      * Specifies the network bandwidth tier for the NodePool for traffic to
@@ -483,8 +360,7 @@ private static final long serialVersionUID = 0L;
      * @return The externalIpEgressBandwidthTier.
      */
     @java.lang.Override public com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier getExternalIpEgressBandwidthTier() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.valueOf(externalIpEgressBandwidthTier_);
+      com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.forNumber(externalIpEgressBandwidthTier_);
       return result == null ? com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.UNRECOGNIZED : result;
     }
 
@@ -508,7 +384,7 @@ private static final long serialVersionUID = 0L;
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeEnum(2, externalIpEgressBandwidthTier_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -525,7 +401,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, externalIpEgressBandwidthTier_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -548,7 +424,7 @@ private static final long serialVersionUID = 0L;
       if (hasExternalIpEgressBandwidthTier()) {
         if (externalIpEgressBandwidthTier_ != other.externalIpEgressBandwidthTier_) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -567,7 +443,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + EXTERNAL_IP_EGRESS_BANDWIDTH_TIER_FIELD_NUMBER;
         hash = (53 * hash) + externalIpEgressBandwidthTier_;
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -688,26 +564,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         totalEgressBandwidthTier_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000001);
         externalIpEgressBandwidthTier_ = 0;
-        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -734,19 +604,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig buildPartial() {
         com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig result = new com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig result) {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.totalEgressBandwidthTier_ = totalEgressBandwidthTier_;
           to_bitField0_ |= 0x00000001;
         }
-        result.totalEgressBandwidthTier_ = totalEgressBandwidthTier_;
         if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.externalIpEgressBandwidthTier_ = externalIpEgressBandwidthTier_;
           to_bitField0_ |= 0x00000002;
         }
-        result.externalIpEgressBandwidthTier_ = externalIpEgressBandwidthTier_;
-        result.bitField0_ = to_bitField0_;
-        onBuilt();
-        return result;
+        result.bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -799,7 +673,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasExternalIpEgressBandwidthTier()) {
           setExternalIpEgressBandwidthTier(other.getExternalIpEgressBandwidthTier());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -814,17 +688,40 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                totalEgressBandwidthTier_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                externalIpEgressBandwidthTier_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -862,8 +759,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTotalEgressBandwidthTierValue(int value) {
-        bitField0_ |= 0x00000001;
         totalEgressBandwidthTier_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -877,8 +774,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier getTotalEgressBandwidthTier() {
-        @SuppressWarnings("deprecation")
-        com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.valueOf(totalEgressBandwidthTier_);
+        com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.forNumber(totalEgressBandwidthTier_);
         return result == null ? com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.UNRECOGNIZED : result;
       }
       /**
@@ -950,8 +846,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setExternalIpEgressBandwidthTierValue(int value) {
-        bitField0_ |= 0x00000002;
         externalIpEgressBandwidthTier_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -966,8 +862,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier getExternalIpEgressBandwidthTier() {
-        @SuppressWarnings("deprecation")
-        com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.valueOf(externalIpEgressBandwidthTier_);
+        com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier result = com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.forNumber(externalIpEgressBandwidthTier_);
         return result == null ? com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Tier.UNRECOGNIZED : result;
       }
       /**
@@ -1037,7 +932,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new NetworkPerformanceConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1059,7 +965,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int CREATE_POD_RANGE_FIELD_NUMBER = 4;
-  private boolean createPodRange_;
+  private boolean createPodRange_ = false;
   /**
    * <pre>
    * Input only. Whether to create a new range for pod IPs in this node pool.
@@ -1081,7 +987,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POD_RANGE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object podRange_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object podRange_ = "";
   /**
    * <pre>
    * The ID of the secondary range for pod IPs.
@@ -1137,7 +1044,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int POD_IPV4_CIDR_BLOCK_FIELD_NUMBER = 6;
-  private volatile java.lang.Object podIpv4CidrBlock_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object podIpv4CidrBlock_ = "";
   /**
    * <pre>
    * The IP address range for pod IPs in this node pool.
@@ -1200,6 +1108,37 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ENABLE_PRIVATE_NODES_FIELD_NUMBER = 9;
+  private boolean enablePrivateNodes_ = false;
+  /**
+   * <pre>
+   * Whether nodes have internal IP addresses only.
+   * If enable_private_nodes is not specified, then the value is derived from
+   * [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
+   * </pre>
+   *
+   * <code>optional bool enable_private_nodes = 9;</code>
+   * @return Whether the enablePrivateNodes field is set.
+   */
+  @java.lang.Override
+  public boolean hasEnablePrivateNodes() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Whether nodes have internal IP addresses only.
+   * If enable_private_nodes is not specified, then the value is derived from
+   * [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
+   * </pre>
+   *
+   * <code>optional bool enable_private_nodes = 9;</code>
+   * @return The enablePrivateNodes.
+   */
+  @java.lang.Override
+  public boolean getEnablePrivateNodes() {
+    return enablePrivateNodes_;
+  }
+
   public static final int NETWORK_PERFORMANCE_CONFIG_FIELD_NUMBER = 11;
   private com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig networkPerformanceConfig_;
   /**
@@ -1212,7 +1151,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public boolean hasNetworkPerformanceConfig() {
-    return ((bitField0_ & 0x00000001) != 0);
+    return ((bitField0_ & 0x00000002) != 0);
   }
   /**
    * <pre>
@@ -1262,9 +1201,12 @@ private static final long serialVersionUID = 0L;
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, podIpv4CidrBlock_);
     }
     if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeBool(9, enablePrivateNodes_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
       output.writeMessage(11, getNetworkPerformanceConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1285,9 +1227,13 @@ private static final long serialVersionUID = 0L;
     }
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(9, enablePrivateNodes_);
+    }
+    if (((bitField0_ & 0x00000002) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(11, getNetworkPerformanceConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1308,12 +1254,17 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPodRange())) return false;
     if (!getPodIpv4CidrBlock()
         .equals(other.getPodIpv4CidrBlock())) return false;
+    if (hasEnablePrivateNodes() != other.hasEnablePrivateNodes()) return false;
+    if (hasEnablePrivateNodes()) {
+      if (getEnablePrivateNodes()
+          != other.getEnablePrivateNodes()) return false;
+    }
     if (hasNetworkPerformanceConfig() != other.hasNetworkPerformanceConfig()) return false;
     if (hasNetworkPerformanceConfig()) {
       if (!getNetworkPerformanceConfig()
           .equals(other.getNetworkPerformanceConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1331,11 +1282,16 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPodRange().hashCode();
     hash = (37 * hash) + POD_IPV4_CIDR_BLOCK_FIELD_NUMBER;
     hash = (53 * hash) + getPodIpv4CidrBlock().hashCode();
+    if (hasEnablePrivateNodes()) {
+      hash = (37 * hash) + ENABLE_PRIVATE_NODES_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getEnablePrivateNodes());
+    }
     if (hasNetworkPerformanceConfig()) {
       hash = (37 * hash) + NETWORK_PERFORMANCE_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getNetworkPerformanceConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1473,18 +1429,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       createPodRange_ = false;
-
       podRange_ = "";
-
       podIpv4CidrBlock_ = "";
-
-      if (networkPerformanceConfigBuilder_ == null) {
-        networkPerformanceConfig_ = null;
-      } else {
-        networkPerformanceConfigBuilder_.clear();
+      enablePrivateNodes_ = false;
+      networkPerformanceConfig_ = null;
+      if (networkPerformanceConfigBuilder_ != null) {
+        networkPerformanceConfigBuilder_.dispose();
+        networkPerformanceConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
@@ -1511,22 +1465,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.NodeNetworkConfig buildPartial() {
       com.google.container.v1beta1.NodeNetworkConfig result = new com.google.container.v1beta1.NodeNetworkConfig(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.createPodRange_ = createPodRange_;
-      result.podRange_ = podRange_;
-      result.podIpv4CidrBlock_ = podIpv4CidrBlock_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        if (networkPerformanceConfigBuilder_ == null) {
-          result.networkPerformanceConfig_ = networkPerformanceConfig_;
-        } else {
-          result.networkPerformanceConfig_ = networkPerformanceConfigBuilder_.build();
-        }
-        to_bitField0_ |= 0x00000001;
-      }
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.NodeNetworkConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.createPodRange_ = createPodRange_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.podRange_ = podRange_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.podIpv4CidrBlock_ = podIpv4CidrBlock_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.enablePrivateNodes_ = enablePrivateNodes_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.networkPerformanceConfig_ = networkPerformanceConfigBuilder_ == null
+            ? networkPerformanceConfig_
+            : networkPerformanceConfigBuilder_.build();
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1578,16 +1544,21 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPodRange().isEmpty()) {
         podRange_ = other.podRange_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getPodIpv4CidrBlock().isEmpty()) {
         podIpv4CidrBlock_ = other.podIpv4CidrBlock_;
+        bitField0_ |= 0x00000004;
         onChanged();
+      }
+      if (other.hasEnablePrivateNodes()) {
+        setEnablePrivateNodes(other.getEnablePrivateNodes());
       }
       if (other.hasNetworkPerformanceConfig()) {
         mergeNetworkPerformanceConfig(other.getNetworkPerformanceConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1602,17 +1573,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.NodeNetworkConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 32: {
+              createPodRange_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 32
+            case 42: {
+              podRange_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              podIpv4CidrBlock_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 72: {
+              enablePrivateNodes_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 72
+            case 90: {
+              input.readMessage(
+                  getNetworkPerformanceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.NodeNetworkConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1656,6 +1667,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCreatePodRange(boolean value) {
       
       createPodRange_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1675,7 +1687,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCreatePodRange() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       createPodRange_ = false;
       onChanged();
       return this;
@@ -1749,11 +1761,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPodRange(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       podRange_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1771,8 +1781,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPodRange() {
-      
       podRange_ = getDefaultInstance().getPodRange();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1792,12 +1802,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPodRangeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       podRange_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1882,11 +1890,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPodIpv4CidrBlock(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       podIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1908,8 +1914,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPodIpv4CidrBlock() {
-      
       podIpv4CidrBlock_ = getDefaultInstance().getPodIpv4CidrBlock();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1933,12 +1939,74 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPodIpv4CidrBlockBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       podIpv4CidrBlock_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private boolean enablePrivateNodes_ ;
+    /**
+     * <pre>
+     * Whether nodes have internal IP addresses only.
+     * If enable_private_nodes is not specified, then the value is derived from
+     * [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
+     * </pre>
+     *
+     * <code>optional bool enable_private_nodes = 9;</code>
+     * @return Whether the enablePrivateNodes field is set.
+     */
+    @java.lang.Override
+    public boolean hasEnablePrivateNodes() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * Whether nodes have internal IP addresses only.
+     * If enable_private_nodes is not specified, then the value is derived from
+     * [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
+     * </pre>
+     *
+     * <code>optional bool enable_private_nodes = 9;</code>
+     * @return The enablePrivateNodes.
+     */
+    @java.lang.Override
+    public boolean getEnablePrivateNodes() {
+      return enablePrivateNodes_;
+    }
+    /**
+     * <pre>
+     * Whether nodes have internal IP addresses only.
+     * If enable_private_nodes is not specified, then the value is derived from
+     * [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
+     * </pre>
+     *
+     * <code>optional bool enable_private_nodes = 9;</code>
+     * @param value The enablePrivateNodes to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEnablePrivateNodes(boolean value) {
+      
+      enablePrivateNodes_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Whether nodes have internal IP addresses only.
+     * If enable_private_nodes is not specified, then the value is derived from
+     * [cluster.privateClusterConfig.enablePrivateNodes][google.container.v1beta1.PrivateClusterConfig.enablePrivateNodes]
+     * </pre>
+     *
+     * <code>optional bool enable_private_nodes = 9;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEnablePrivateNodes() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      enablePrivateNodes_ = false;
       onChanged();
       return this;
     }
@@ -1955,7 +2023,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the networkPerformanceConfig field is set.
      */
     public boolean hasNetworkPerformanceConfig() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1985,11 +2053,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         networkPerformanceConfig_ = value;
-        onChanged();
       } else {
         networkPerformanceConfigBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2003,11 +2071,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Builder builderForValue) {
       if (networkPerformanceConfigBuilder_ == null) {
         networkPerformanceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         networkPerformanceConfigBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2019,19 +2087,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeNetworkPerformanceConfig(com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig value) {
       if (networkPerformanceConfigBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0) &&
-            networkPerformanceConfig_ != null &&
-            networkPerformanceConfig_ != com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.getDefaultInstance()) {
-          networkPerformanceConfig_ =
-            com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.newBuilder(networkPerformanceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          networkPerformanceConfig_ != null &&
+          networkPerformanceConfig_ != com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.getDefaultInstance()) {
+          getNetworkPerformanceConfigBuilder().mergeFrom(value);
         } else {
           networkPerformanceConfig_ = value;
         }
-        onChanged();
       } else {
         networkPerformanceConfigBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2042,13 +2109,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig network_performance_config = 11;</code>
      */
     public Builder clearNetworkPerformanceConfig() {
-      if (networkPerformanceConfigBuilder_ == null) {
-        networkPerformanceConfig_ = null;
-        onChanged();
-      } else {
-        networkPerformanceConfigBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      networkPerformanceConfig_ = null;
+      if (networkPerformanceConfigBuilder_ != null) {
+        networkPerformanceConfigBuilder_.dispose();
+        networkPerformanceConfigBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000001);
+      onChanged();
       return this;
     }
     /**
@@ -2059,7 +2126,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig network_performance_config = 11;</code>
      */
     public com.google.container.v1beta1.NodeNetworkConfig.NetworkPerformanceConfig.Builder getNetworkPerformanceConfigBuilder() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000010;
       onChanged();
       return getNetworkPerformanceConfigFieldBuilder().getBuilder();
     }
@@ -2131,7 +2198,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NodeNetworkConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

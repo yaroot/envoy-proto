@@ -152,7 +152,6 @@ public interface ExecutionInfoOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
    */
-
   /* nullable */
 com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrDefault(
       java.lang.String key,
@@ -165,7 +164,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; request_params = 6;</code>
    */
-
   com.google.cloud.integrations.v1alpha.EventParameter getRequestParamsOrThrow(
       java.lang.String key);
 
@@ -208,7 +206,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
    */
-
   /* nullable */
 com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrDefault(
       java.lang.String key,
@@ -221,7 +218,6 @@ com.google.cloud.integrations.v1alpha.EventParameter defaultValue);
    *
    * <code>map&lt;string, .google.cloud.integrations.v1alpha.EventParameter&gt; response_params = 7;</code>
    */
-
   com.google.cloud.integrations.v1alpha.EventParameter getResponseParamsOrThrow(
       java.lang.String key);
 

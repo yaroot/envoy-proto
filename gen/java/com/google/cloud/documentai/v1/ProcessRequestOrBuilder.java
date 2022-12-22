@@ -63,7 +63,16 @@ public interface ProcessRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of the
+   * [Processor][google.cloud.documentai.v1.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion]
+   * to use for processing. If a
+   * [Processor][google.cloud.documentai.v1.Processor] is specified, the server
+   * will use its [default
+   * version][google.cloud.documentai.v1.Processor.default_processor_version].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -72,7 +81,16 @@ public interface ProcessRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The processor resource name.
+   * Required. The resource name of the
+   * [Processor][google.cloud.documentai.v1.Processor] or
+   * [ProcessorVersion][google.cloud.documentai.v1.ProcessorVersion]
+   * to use for processing. If a
+   * [Processor][google.cloud.documentai.v1.Processor] is specified, the server
+   * will use its [default
+   * version][google.cloud.documentai.v1.Processor.default_processor_version].
+   * Format: `projects/{project}/locations/{location}/processors/{processor}`,
+   * or
+   * `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -91,6 +109,39 @@ public interface ProcessRequestOrBuilder extends
    * @return The skipHumanReview.
    */
   boolean getSkipHumanReview();
+
+  /**
+   * <pre>
+   * Specifies which fields to include in ProcessResponse's document.
+   * Only supports top level document and pages field so it must be in the form
+   * of `{document_field_name}` or `pages.{page_field_name}`.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask field_mask = 6;</code>
+   * @return Whether the fieldMask field is set.
+   */
+  boolean hasFieldMask();
+  /**
+   * <pre>
+   * Specifies which fields to include in ProcessResponse's document.
+   * Only supports top level document and pages field so it must be in the form
+   * of `{document_field_name}` or `pages.{page_field_name}`.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask field_mask = 6;</code>
+   * @return The fieldMask.
+   */
+  com.google.protobuf.FieldMask getFieldMask();
+  /**
+   * <pre>
+   * Specifies which fields to include in ProcessResponse's document.
+   * Only supports top level document and pages field so it must be in the form
+   * of `{document_field_name}` or `pages.{page_field_name}`.
+   * </pre>
+   *
+   * <code>.google.protobuf.FieldMask field_mask = 6;</code>
+   */
+  com.google.protobuf.FieldMaskOrBuilder getFieldMaskOrBuilder();
 
   public com.google.cloud.documentai.v1.ProcessRequest.SourceCase getSourceCase();
 }

@@ -34,86 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ObjectTrackingFrame(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.datalabeling.v1beta1.BoundingPoly.Builder subBuilder = null;
-            if (boundedAreaCase_ == 1) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.BoundingPoly) boundedArea_).toBuilder();
-            }
-            boundedArea_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.BoundingPoly.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.BoundingPoly) boundedArea_);
-              boundedArea_ = subBuilder.buildPartial();
-            }
-            boundedAreaCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.cloud.datalabeling.v1beta1.NormalizedBoundingPoly.Builder subBuilder = null;
-            if (boundedAreaCase_ == 2) {
-              subBuilder = ((com.google.cloud.datalabeling.v1beta1.NormalizedBoundingPoly) boundedArea_).toBuilder();
-            }
-            boundedArea_ =
-                input.readMessage(com.google.cloud.datalabeling.v1beta1.NormalizedBoundingPoly.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datalabeling.v1beta1.NormalizedBoundingPoly) boundedArea_);
-              boundedArea_ = subBuilder.buildPartial();
-            }
-            boundedAreaCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (timeOffset_ != null) {
-              subBuilder = timeOffset_.toBuilder();
-            }
-            timeOffset_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(timeOffset_);
-              timeOffset_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datalabeling.v1beta1.AnnotationOuterClass.internal_static_google_cloud_datalabeling_v1beta1_ObjectTrackingFrame_descriptor;
@@ -265,7 +185,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getTimeOffsetOrBuilder() {
-    return getTimeOffset();
+    return timeOffset_ == null ? com.google.protobuf.Duration.getDefaultInstance() : timeOffset_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,7 +211,7 @@ private static final long serialVersionUID = 0L;
     if (timeOffset_ != null) {
       output.writeMessage(3, getTimeOffset());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +232,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getTimeOffset());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -345,7 +265,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -372,7 +292,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -493,26 +413,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (timeOffsetBuilder_ == null) {
-        timeOffset_ = null;
-      } else {
-        timeOffset_ = null;
+      bitField0_ = 0;
+      if (boundingPolyBuilder_ != null) {
+        boundingPolyBuilder_.clear();
+      }
+      if (normalizedBoundingPolyBuilder_ != null) {
+        normalizedBoundingPolyBuilder_.clear();
+      }
+      timeOffset_ = null;
+      if (timeOffsetBuilder_ != null) {
+        timeOffsetBuilder_.dispose();
         timeOffsetBuilder_ = null;
       }
       boundedAreaCase_ = 0;
@@ -543,28 +464,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame buildPartial() {
       com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame result = new com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame(this);
-      if (boundedAreaCase_ == 1) {
-        if (boundingPolyBuilder_ == null) {
-          result.boundedArea_ = boundedArea_;
-        } else {
-          result.boundedArea_ = boundingPolyBuilder_.build();
-        }
-      }
-      if (boundedAreaCase_ == 2) {
-        if (normalizedBoundingPolyBuilder_ == null) {
-          result.boundedArea_ = boundedArea_;
-        } else {
-          result.boundedArea_ = normalizedBoundingPolyBuilder_.build();
-        }
-      }
-      if (timeOffsetBuilder_ == null) {
-        result.timeOffset_ = timeOffset_;
-      } else {
-        result.timeOffset_ = timeOffsetBuilder_.build();
-      }
-      result.boundedAreaCase_ = boundedAreaCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.timeOffset_ = timeOffsetBuilder_ == null
+            ? timeOffset_
+            : timeOffsetBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame result) {
+      result.boundedAreaCase_ = boundedAreaCase_;
+      result.boundedArea_ = this.boundedArea_;
+      if (boundedAreaCase_ == 1 &&
+          boundingPolyBuilder_ != null) {
+        result.boundedArea_ = boundingPolyBuilder_.build();
+      }
+      if (boundedAreaCase_ == 2 &&
+          normalizedBoundingPolyBuilder_ != null) {
+        result.boundedArea_ = normalizedBoundingPolyBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -627,7 +552,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -642,17 +567,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getBoundingPolyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              boundedAreaCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getNormalizedBoundingPolyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              boundedAreaCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getTimeOffsetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int boundedAreaCase_ = 0;
@@ -670,6 +629,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.datalabeling.v1beta1.BoundingPoly, com.google.cloud.datalabeling.v1beta1.BoundingPoly.Builder, com.google.cloud.datalabeling.v1beta1.BoundingPolyOrBuilder> boundingPolyBuilder_;
@@ -809,7 +769,7 @@ private static final long serialVersionUID = 0L;
         boundedArea_ = null;
       }
       boundedAreaCase_ = 1;
-      onChanged();;
+      onChanged();
       return boundingPolyBuilder_;
     }
 
@@ -951,7 +911,7 @@ private static final long serialVersionUID = 0L;
         boundedArea_ = null;
       }
       boundedAreaCase_ = 2;
-      onChanged();;
+      onChanged();
       return normalizedBoundingPolyBuilder_;
     }
 
@@ -967,7 +927,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the timeOffset field is set.
      */
     public boolean hasTimeOffset() {
-      return timeOffsetBuilder_ != null || timeOffset_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -997,11 +957,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         timeOffset_ = value;
-        onChanged();
       } else {
         timeOffsetBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1015,11 +975,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (timeOffsetBuilder_ == null) {
         timeOffset_ = builderForValue.build();
-        onChanged();
       } else {
         timeOffsetBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1031,17 +991,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTimeOffset(com.google.protobuf.Duration value) {
       if (timeOffsetBuilder_ == null) {
-        if (timeOffset_ != null) {
-          timeOffset_ =
-            com.google.protobuf.Duration.newBuilder(timeOffset_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          timeOffset_ != null &&
+          timeOffset_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getTimeOffsetBuilder().mergeFrom(value);
         } else {
           timeOffset_ = value;
         }
-        onChanged();
       } else {
         timeOffsetBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1052,14 +1013,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_offset = 3;</code>
      */
     public Builder clearTimeOffset() {
-      if (timeOffsetBuilder_ == null) {
-        timeOffset_ = null;
-        onChanged();
-      } else {
-        timeOffset_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      timeOffset_ = null;
+      if (timeOffsetBuilder_ != null) {
+        timeOffsetBuilder_.dispose();
         timeOffsetBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1070,7 +1030,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration time_offset = 3;</code>
      */
     public com.google.protobuf.Duration.Builder getTimeOffsetBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTimeOffsetFieldBuilder().getBuilder();
     }
@@ -1142,7 +1102,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ObjectTrackingFrame(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

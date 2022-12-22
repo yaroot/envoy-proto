@@ -37,75 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Memory(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            allocated_ = input.readUInt64();
-            break;
-          }
-          case 16: {
-
-            heapSize_ = input.readUInt64();
-            break;
-          }
-          case 24: {
-
-            pageheapUnmapped_ = input.readUInt64();
-            break;
-          }
-          case 32: {
-
-            pageheapFree_ = input.readUInt64();
-            break;
-          }
-          case 40: {
-
-            totalThreadCache_ = input.readUInt64();
-            break;
-          }
-          case 48: {
-
-            totalPhysicalBytes_ = input.readUInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.admin.v2alpha.MemoryProto.internal_static_envoy_admin_v2alpha_Memory_descriptor;
@@ -120,7 +51,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ALLOCATED_FIELD_NUMBER = 1;
-  private long allocated_;
+  private long allocated_ = 0L;
   /**
    * <pre>
    * The number of bytes allocated by the heap for Envoy. This is an alias for
@@ -136,7 +67,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEAP_SIZE_FIELD_NUMBER = 2;
-  private long heapSize_;
+  private long heapSize_ = 0L;
   /**
    * <pre>
    * The number of bytes reserved by the heap but not necessarily allocated. This is an alias for
@@ -152,7 +83,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGEHEAP_UNMAPPED_FIELD_NUMBER = 3;
-  private long pageheapUnmapped_;
+  private long pageheapUnmapped_ = 0L;
   /**
    * <pre>
    * The number of bytes in free, unmapped pages in the page heap. These bytes always count towards
@@ -169,7 +100,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGEHEAP_FREE_FIELD_NUMBER = 4;
-  private long pageheapFree_;
+  private long pageheapFree_ = 0L;
   /**
    * <pre>
    * The number of bytes in free, mapped pages in the page heap. These bytes always count towards
@@ -186,7 +117,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_THREAD_CACHE_FIELD_NUMBER = 5;
-  private long totalThreadCache_;
+  private long totalThreadCache_ = 0L;
   /**
    * <pre>
    * The amount of memory used by the TCMalloc thread caches (for small objects). This is an alias
@@ -202,7 +133,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TOTAL_PHYSICAL_BYTES_FIELD_NUMBER = 6;
-  private long totalPhysicalBytes_;
+  private long totalPhysicalBytes_ = 0L;
   /**
    * <pre>
    * The number of bytes of the physical memory usage by the allocator. This is an alias for
@@ -249,7 +180,7 @@ private static final long serialVersionUID = 0L;
     if (totalPhysicalBytes_ != 0L) {
       output.writeUInt64(6, totalPhysicalBytes_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -282,7 +213,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(6, totalPhysicalBytes_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +240,7 @@ private static final long serialVersionUID = 0L;
         != other.getTotalThreadCache()) return false;
     if (getTotalPhysicalBytes()
         != other.getTotalPhysicalBytes()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -338,7 +269,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + TOTAL_PHYSICAL_BYTES_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getTotalPhysicalBytes());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -462,34 +393,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.admin.v2alpha.Memory.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       allocated_ = 0L;
-
       heapSize_ = 0L;
-
       pageheapUnmapped_ = 0L;
-
       pageheapFree_ = 0L;
-
       totalThreadCache_ = 0L;
-
       totalPhysicalBytes_ = 0L;
-
       return this;
     }
 
@@ -516,14 +437,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.admin.v2alpha.Memory buildPartial() {
       io.envoyproxy.envoy.admin.v2alpha.Memory result = new io.envoyproxy.envoy.admin.v2alpha.Memory(this);
-      result.allocated_ = allocated_;
-      result.heapSize_ = heapSize_;
-      result.pageheapUnmapped_ = pageheapUnmapped_;
-      result.pageheapFree_ = pageheapFree_;
-      result.totalThreadCache_ = totalThreadCache_;
-      result.totalPhysicalBytes_ = totalPhysicalBytes_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.admin.v2alpha.Memory result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.allocated_ = allocated_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.heapSize_ = heapSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageheapUnmapped_ = pageheapUnmapped_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageheapFree_ = pageheapFree_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.totalThreadCache_ = totalThreadCache_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.totalPhysicalBytes_ = totalPhysicalBytes_;
+      }
     }
 
     @java.lang.Override
@@ -588,7 +526,7 @@ private static final long serialVersionUID = 0L;
       if (other.getTotalPhysicalBytes() != 0L) {
         setTotalPhysicalBytes(other.getTotalPhysicalBytes());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -603,19 +541,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.admin.v2alpha.Memory parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              allocated_ = input.readUInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              heapSize_ = input.readUInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              pageheapUnmapped_ = input.readUInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              pageheapFree_ = input.readUInt64();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              totalThreadCache_ = input.readUInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              totalPhysicalBytes_ = input.readUInt64();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.admin.v2alpha.Memory) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private long allocated_ ;
     /**
@@ -644,6 +626,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAllocated(long value) {
       
       allocated_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -657,7 +640,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAllocated() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       allocated_ = 0L;
       onChanged();
       return this;
@@ -690,6 +673,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHeapSize(long value) {
       
       heapSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -703,7 +687,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeapSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       heapSize_ = 0L;
       onChanged();
       return this;
@@ -738,6 +722,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageheapUnmapped(long value) {
       
       pageheapUnmapped_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -752,7 +737,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageheapUnmapped() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageheapUnmapped_ = 0L;
       onChanged();
       return this;
@@ -787,6 +772,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPageheapFree(long value) {
       
       pageheapFree_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -801,7 +787,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageheapFree() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       pageheapFree_ = 0L;
       onChanged();
       return this;
@@ -834,6 +820,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTotalThreadCache(long value) {
       
       totalThreadCache_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -847,7 +834,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalThreadCache() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       totalThreadCache_ = 0L;
       onChanged();
       return this;
@@ -880,6 +867,7 @@ private static final long serialVersionUID = 0L;
     public Builder setTotalPhysicalBytes(long value) {
       
       totalPhysicalBytes_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -893,7 +881,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTotalPhysicalBytes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       totalPhysicalBytes_ = 0L;
       onChanged();
       return this;
@@ -931,7 +919,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Memory(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

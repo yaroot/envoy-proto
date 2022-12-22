@@ -34,82 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TlsParameters(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            tlsMinimumProtocolVersion_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            tlsMaximumProtocolVersion_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              cipherSuites_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            cipherSuites_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              ecdhCurves_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            ecdhCurves_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        cipherSuites_ = cipherSuites_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        ecdhCurves_ = ecdhCurves_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.CommonProto.internal_static_envoy_extensions_transport_sockets_tls_v3_TlsParameters_descriptor;
@@ -299,10 +223,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TLS_MINIMUM_PROTOCOL_VERSION_FIELD_NUMBER = 1;
-  private int tlsMinimumProtocolVersion_;
+  private int tlsMinimumProtocolVersion_ = 0;
   /**
    * <pre>
    * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+   * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+   * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+   * .. attention::
+   *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
    * </pre>
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
@@ -314,19 +242,22 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+   * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+   * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+   * .. attention::
+   *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
    * </pre>
    *
    * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
    * @return The tlsMinimumProtocolVersion.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol getTlsMinimumProtocolVersion() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.valueOf(tlsMinimumProtocolVersion_);
+    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.forNumber(tlsMinimumProtocolVersion_);
     return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.UNRECOGNIZED : result;
   }
 
   public static final int TLS_MAXIMUM_PROTOCOL_VERSION_FIELD_NUMBER = 2;
-  private int tlsMaximumProtocolVersion_;
+  private int tlsMaximumProtocolVersion_ = 0;
   /**
    * <pre>
    * Maximum TLS protocol version. By default, it's ``TLSv1_2`` for clients and ``TLSv1_3`` for
@@ -349,12 +280,12 @@ private static final long serialVersionUID = 0L;
    * @return The tlsMaximumProtocolVersion.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol getTlsMaximumProtocolVersion() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.valueOf(tlsMaximumProtocolVersion_);
+    io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.forNumber(tlsMaximumProtocolVersion_);
     return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.UNRECOGNIZED : result;
   }
 
   public static final int CIPHER_SUITES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList cipherSuites_;
   /**
    * <pre>
@@ -526,6 +457,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ECDH_CURVES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList ecdhCurves_;
   /**
    * <pre>
@@ -634,7 +566,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < ecdhCurves_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, ecdhCurves_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -667,7 +599,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getEcdhCurvesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -688,7 +620,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getCipherSuitesList())) return false;
     if (!getEcdhCurvesList()
         .equals(other.getEcdhCurvesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -711,7 +643,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ECDH_CURVES_FIELD_NUMBER;
       hash = (53 * hash) + getEcdhCurvesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -828,30 +760,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       tlsMinimumProtocolVersion_ = 0;
-
       tlsMaximumProtocolVersion_ = 0;
-
       cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       ecdhCurves_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -878,21 +804,33 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters buildPartial() {
       io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters result = new io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters(this);
-      int from_bitField0_ = bitField0_;
-      result.tlsMinimumProtocolVersion_ = tlsMinimumProtocolVersion_;
-      result.tlsMaximumProtocolVersion_ = tlsMaximumProtocolVersion_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        cipherSuites_ = cipherSuites_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.cipherSuites_ = cipherSuites_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        ecdhCurves_ = ecdhCurves_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.ecdhCurves_ = ecdhCurves_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        cipherSuites_ = cipherSuites_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.cipherSuites_ = cipherSuites_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        ecdhCurves_ = ecdhCurves_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.ecdhCurves_ = ecdhCurves_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.tlsMinimumProtocolVersion_ = tlsMinimumProtocolVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tlsMaximumProtocolVersion_ = tlsMaximumProtocolVersion_;
+      }
     }
 
     @java.lang.Override
@@ -948,7 +886,7 @@ private static final long serialVersionUID = 0L;
       if (!other.cipherSuites_.isEmpty()) {
         if (cipherSuites_.isEmpty()) {
           cipherSuites_ = other.cipherSuites_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureCipherSuitesIsMutable();
           cipherSuites_.addAll(other.cipherSuites_);
@@ -958,14 +896,14 @@ private static final long serialVersionUID = 0L;
       if (!other.ecdhCurves_.isEmpty()) {
         if (ecdhCurves_.isEmpty()) {
           ecdhCurves_ = other.ecdhCurves_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureEcdhCurvesIsMutable();
           ecdhCurves_.addAll(other.ecdhCurves_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -980,17 +918,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              tlsMinimumProtocolVersion_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              tlsMaximumProtocolVersion_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureCipherSuitesIsMutable();
+              cipherSuites_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureEcdhCurvesIsMutable();
+              ecdhCurves_.add(s);
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -999,6 +972,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+     * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+     * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+     * .. attention::
+     *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
      * </pre>
      *
      * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
@@ -1010,6 +987,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+     * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+     * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+     * .. attention::
+     *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
      * </pre>
      *
      * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
@@ -1017,14 +998,18 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTlsMinimumProtocolVersionValue(int value) {
-      
       tlsMinimumProtocolVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+     * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+     * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+     * .. attention::
+     *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
      * </pre>
      *
      * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
@@ -1032,13 +1017,16 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol getTlsMinimumProtocolVersion() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.valueOf(tlsMinimumProtocolVersion_);
+      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.forNumber(tlsMinimumProtocolVersion_);
       return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+     * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+     * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+     * .. attention::
+     *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
      * </pre>
      *
      * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
@@ -1049,7 +1037,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       tlsMinimumProtocolVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -1057,13 +1045,17 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Minimum TLS protocol version. By default, it's ``TLSv1_2`` for both clients and servers.
+     * TLS protocol versions below TLSv1_2 require setting compatible ciphers with the
+     * ``cipher_suites`` setting as the default ciphers no longer include compatible ciphers.
+     * .. attention::
+     *   Using TLS protocol versions below TLSv1_2 has serious security considerations and risks.
      * </pre>
      *
      * <code>.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol tls_minimum_protocol_version = 1 [(.validate.rules) = { ... }</code>
      * @return This builder for chaining.
      */
     public Builder clearTlsMinimumProtocolVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       tlsMinimumProtocolVersion_ = 0;
       onChanged();
       return this;
@@ -1093,8 +1085,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTlsMaximumProtocolVersionValue(int value) {
-      
       tlsMaximumProtocolVersion_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1109,8 +1101,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol getTlsMaximumProtocolVersion() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.valueOf(tlsMaximumProtocolVersion_);
+      io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol result = io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.forNumber(tlsMaximumProtocolVersion_);
       return result == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.TlsParameters.TlsProtocol.UNRECOGNIZED : result;
     }
     /**
@@ -1127,7 +1118,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       tlsMaximumProtocolVersion_ = value.getNumber();
       onChanged();
       return this;
@@ -1142,7 +1133,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTlsMaximumProtocolVersion() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       tlsMaximumProtocolVersion_ = 0;
       onChanged();
       return this;
@@ -1150,9 +1141,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureCipherSuitesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         cipherSuites_ = new com.google.protobuf.LazyStringArrayList(cipherSuites_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1365,10 +1356,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCipherSuites(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCipherSuitesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCipherSuitesIsMutable();
       cipherSuites_.set(index, value);
       onChanged();
       return this;
@@ -1414,10 +1403,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCipherSuites(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureCipherSuitesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureCipherSuitesIsMutable();
       cipherSuites_.add(value);
       onChanged();
       return this;
@@ -1509,7 +1496,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearCipherSuites() {
       cipherSuites_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1554,10 +1541,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addCipherSuitesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureCipherSuitesIsMutable();
       cipherSuites_.add(value);
       onChanged();
@@ -1566,9 +1551,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList ecdhCurves_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureEcdhCurvesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         ecdhCurves_ = new com.google.protobuf.LazyStringArrayList(ecdhCurves_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1671,10 +1656,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEcdhCurves(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEcdhCurvesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEcdhCurvesIsMutable();
       ecdhCurves_.set(index, value);
       onChanged();
       return this;
@@ -1698,10 +1681,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEcdhCurves(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEcdhCurvesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureEcdhCurvesIsMutable();
       ecdhCurves_.add(value);
       onChanged();
       return this;
@@ -1749,7 +1730,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearEcdhCurves() {
       ecdhCurves_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1772,10 +1753,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addEcdhCurvesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureEcdhCurvesIsMutable();
       ecdhCurves_.add(value);
       onChanged();
@@ -1814,7 +1793,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TlsParameters(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

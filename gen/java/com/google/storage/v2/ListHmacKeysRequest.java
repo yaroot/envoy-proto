@@ -37,73 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ListHmacKeysRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            project_ = s;
-            break;
-          }
-          case 16: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            serviceAccountEmail_ = s;
-            break;
-          }
-          case 40: {
-
-            showDeletedKeys_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.storage.v2.StorageProto.internal_static_google_storage_v2_ListHmacKeysRequest_descriptor;
@@ -118,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object project_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object project_ = "";
   /**
    * <pre>
    * Required. The project to list HMAC keys for, in the format of
@@ -168,13 +102,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 2;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * Optional. The maximum number of keys to return.
+   * The maximum number of keys to return.
    * </pre>
    *
-   * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>int32 page_size = 2;</code>
    * @return The pageSize.
    */
   @java.lang.Override
@@ -183,13 +117,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 3;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
-   * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+   * A previously returned token from ListHmacKeysResponse to get the next page.
    * </pre>
    *
-   * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string page_token = 3;</code>
    * @return The pageToken.
    */
   @java.lang.Override
@@ -207,10 +142,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+   * A previously returned token from ListHmacKeysResponse to get the next page.
    * </pre>
    *
-   * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string page_token = 3;</code>
    * @return The bytes for pageToken.
    */
   @java.lang.Override
@@ -229,13 +164,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SERVICE_ACCOUNT_EMAIL_FIELD_NUMBER = 4;
-  private volatile java.lang.Object serviceAccountEmail_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object serviceAccountEmail_ = "";
   /**
    * <pre>
-   * Optional. If set, filters to only return HMAC keys for specified service account.
+   * If set, filters to only return HMAC keys for specified service account.
    * </pre>
    *
-   * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string service_account_email = 4;</code>
    * @return The serviceAccountEmail.
    */
   @java.lang.Override
@@ -253,10 +189,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. If set, filters to only return HMAC keys for specified service account.
+   * If set, filters to only return HMAC keys for specified service account.
    * </pre>
    *
-   * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>string service_account_email = 4;</code>
    * @return The bytes for serviceAccountEmail.
    */
   @java.lang.Override
@@ -275,13 +211,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHOW_DELETED_KEYS_FIELD_NUMBER = 5;
-  private boolean showDeletedKeys_;
+  private boolean showDeletedKeys_ = false;
   /**
    * <pre>
-   * Optional. If set, return deleted keys that have not yet been wiped out.
+   * If set, return deleted keys that have not yet been wiped out.
    * </pre>
    *
-   * <code>bool show_deleted_keys = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>bool show_deleted_keys = 5;</code>
    * @return The showDeletedKeys.
    */
   @java.lang.Override
@@ -318,7 +254,7 @@ private static final long serialVersionUID = 0L;
     if (showDeletedKeys_ != false) {
       output.writeBool(5, showDeletedKeys_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -344,7 +280,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(5, showDeletedKeys_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -369,7 +305,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getServiceAccountEmail())) return false;
     if (getShowDeletedKeys()
         != other.getShowDeletedKeys()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -391,7 +327,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SHOW_DELETED_KEYS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getShowDeletedKeys());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -512,32 +448,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.storage.v2.ListHmacKeysRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       project_ = "";
-
       pageSize_ = 0;
-
       pageToken_ = "";
-
       serviceAccountEmail_ = "";
-
       showDeletedKeys_ = false;
-
       return this;
     }
 
@@ -564,13 +491,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.storage.v2.ListHmacKeysRequest buildPartial() {
       com.google.storage.v2.ListHmacKeysRequest result = new com.google.storage.v2.ListHmacKeysRequest(this);
-      result.project_ = project_;
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.serviceAccountEmail_ = serviceAccountEmail_;
-      result.showDeletedKeys_ = showDeletedKeys_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.storage.v2.ListHmacKeysRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.project_ = project_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.serviceAccountEmail_ = serviceAccountEmail_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.showDeletedKeys_ = showDeletedKeys_;
+      }
     }
 
     @java.lang.Override
@@ -619,6 +561,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.storage.v2.ListHmacKeysRequest.getDefaultInstance()) return this;
       if (!other.getProject().isEmpty()) {
         project_ = other.project_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getPageSize() != 0) {
@@ -626,16 +569,18 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getServiceAccountEmail().isEmpty()) {
         serviceAccountEmail_ = other.serviceAccountEmail_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getShowDeletedKeys() != false) {
         setShowDeletedKeys(other.getShowDeletedKeys());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -650,19 +595,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.storage.v2.ListHmacKeysRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              project_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              serviceAccountEmail_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              showDeletedKeys_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.storage.v2.ListHmacKeysRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object project_ = "";
     /**
@@ -723,11 +707,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProject(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -742,8 +724,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProject() {
-      
       project_ = getDefaultInstance().getProject();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -760,12 +742,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       project_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -773,10 +753,10 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * Optional. The maximum number of keys to return.
+     * The maximum number of keys to return.
      * </pre>
      *
-     * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>int32 page_size = 2;</code>
      * @return The pageSize.
      */
     @java.lang.Override
@@ -785,29 +765,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The maximum number of keys to return.
+     * The maximum number of keys to return.
      * </pre>
      *
-     * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>int32 page_size = 2;</code>
      * @param value The pageSize to set.
      * @return This builder for chaining.
      */
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The maximum number of keys to return.
+     * The maximum number of keys to return.
      * </pre>
      *
-     * <code>int32 page_size = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>int32 page_size = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -816,10 +797,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+     * A previously returned token from ListHmacKeysResponse to get the next page.
      * </pre>
      *
-     * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string page_token = 3;</code>
      * @return The pageToken.
      */
     public java.lang.String getPageToken() {
@@ -836,10 +817,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+     * A previously returned token from ListHmacKeysResponse to get the next page.
      * </pre>
      *
-     * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string page_token = 3;</code>
      * @return The bytes for pageToken.
      */
     public com.google.protobuf.ByteString
@@ -857,54 +838,50 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+     * A previously returned token from ListHmacKeysResponse to get the next page.
      * </pre>
      *
-     * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string page_token = 3;</code>
      * @param value The pageToken to set.
      * @return This builder for chaining.
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+     * A previously returned token from ListHmacKeysResponse to get the next page.
      * </pre>
      *
-     * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string page_token = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. A previously returned token from ListHmacKeysResponse to get the next page.
+     * A previously returned token from ListHmacKeysResponse to get the next page.
      * </pre>
      *
-     * <code>string page_token = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string page_token = 3;</code>
      * @param value The bytes for pageToken to set.
      * @return This builder for chaining.
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -912,10 +889,10 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object serviceAccountEmail_ = "";
     /**
      * <pre>
-     * Optional. If set, filters to only return HMAC keys for specified service account.
+     * If set, filters to only return HMAC keys for specified service account.
      * </pre>
      *
-     * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string service_account_email = 4;</code>
      * @return The serviceAccountEmail.
      */
     public java.lang.String getServiceAccountEmail() {
@@ -932,10 +909,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If set, filters to only return HMAC keys for specified service account.
+     * If set, filters to only return HMAC keys for specified service account.
      * </pre>
      *
-     * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string service_account_email = 4;</code>
      * @return The bytes for serviceAccountEmail.
      */
     public com.google.protobuf.ByteString
@@ -953,54 +930,50 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If set, filters to only return HMAC keys for specified service account.
+     * If set, filters to only return HMAC keys for specified service account.
      * </pre>
      *
-     * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string service_account_email = 4;</code>
      * @param value The serviceAccountEmail to set.
      * @return This builder for chaining.
      */
     public Builder setServiceAccountEmail(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       serviceAccountEmail_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If set, filters to only return HMAC keys for specified service account.
+     * If set, filters to only return HMAC keys for specified service account.
      * </pre>
      *
-     * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string service_account_email = 4;</code>
      * @return This builder for chaining.
      */
     public Builder clearServiceAccountEmail() {
-      
       serviceAccountEmail_ = getDefaultInstance().getServiceAccountEmail();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If set, filters to only return HMAC keys for specified service account.
+     * If set, filters to only return HMAC keys for specified service account.
      * </pre>
      *
-     * <code>string service_account_email = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>string service_account_email = 4;</code>
      * @param value The bytes for serviceAccountEmail to set.
      * @return This builder for chaining.
      */
     public Builder setServiceAccountEmailBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       serviceAccountEmail_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1008,10 +981,10 @@ private static final long serialVersionUID = 0L;
     private boolean showDeletedKeys_ ;
     /**
      * <pre>
-     * Optional. If set, return deleted keys that have not yet been wiped out.
+     * If set, return deleted keys that have not yet been wiped out.
      * </pre>
      *
-     * <code>bool show_deleted_keys = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>bool show_deleted_keys = 5;</code>
      * @return The showDeletedKeys.
      */
     @java.lang.Override
@@ -1020,29 +993,30 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. If set, return deleted keys that have not yet been wiped out.
+     * If set, return deleted keys that have not yet been wiped out.
      * </pre>
      *
-     * <code>bool show_deleted_keys = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>bool show_deleted_keys = 5;</code>
      * @param value The showDeletedKeys to set.
      * @return This builder for chaining.
      */
     public Builder setShowDeletedKeys(boolean value) {
       
       showDeletedKeys_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. If set, return deleted keys that have not yet been wiped out.
+     * If set, return deleted keys that have not yet been wiped out.
      * </pre>
      *
-     * <code>bool show_deleted_keys = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>bool show_deleted_keys = 5;</code>
      * @return This builder for chaining.
      */
     public Builder clearShowDeletedKeys() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       showDeletedKeys_ = false;
       onChanged();
       return this;
@@ -1080,7 +1054,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ListHmacKeysRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

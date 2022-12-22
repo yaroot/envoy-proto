@@ -34,59 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RuntimeMetrics(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              systemMetrics_ = com.google.protobuf.MapField.newMapField(
-                  SystemMetricsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            systemMetrics__ = input.readMessage(
-                SystemMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            systemMetrics_.getMutableMap().put(
-                systemMetrics__.getKey(), systemMetrics__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.notebooks.v1.RuntimeProto.internal_static_google_cloud_notebooks_v1_RuntimeMetrics_descriptor;
@@ -124,6 +71,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> systemMetrics_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -134,7 +82,6 @@ private static final long serialVersionUID = 0L;
     }
     return systemMetrics_;
   }
-
   public int getSystemMetricsCount() {
     return internalGetSystemMetrics().getMap().size();
   }
@@ -145,7 +92,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   @java.lang.Override
   public boolean containsSystemMetrics(
       java.lang.String key) {
@@ -168,7 +114,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getSystemMetricsMap() {
     return internalGetSystemMetrics().getMap();
   }
@@ -180,10 +125,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getSystemMetricsOrDefault(
+  public /* nullable */
+java.lang.String getSystemMetricsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetSystemMetrics().getMap();
@@ -197,7 +143,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   @java.lang.Override
-
   public java.lang.String getSystemMetricsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -229,7 +174,7 @@ private static final long serialVersionUID = 0L;
         internalGetSystemMetrics(),
         SystemMetricsDefaultEntryHolder.defaultEntry,
         1);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -248,7 +193,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, systemMetrics__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -265,7 +210,7 @@ private static final long serialVersionUID = 0L;
 
     if (!internalGetSystemMetrics().equals(
         other.internalGetSystemMetrics())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -280,7 +225,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SYSTEM_METRICS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetSystemMetrics().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -423,22 +368,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.notebooks.v1.RuntimeMetrics.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       internalGetMutableSystemMetrics().clear();
       return this;
     }
@@ -466,11 +407,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.notebooks.v1.RuntimeMetrics buildPartial() {
       com.google.cloud.notebooks.v1.RuntimeMetrics result = new com.google.cloud.notebooks.v1.RuntimeMetrics(this);
-      int from_bitField0_ = bitField0_;
-      result.systemMetrics_ = internalGetSystemMetrics();
-      result.systemMetrics_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.notebooks.v1.RuntimeMetrics result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.systemMetrics_ = internalGetSystemMetrics();
+        result.systemMetrics_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -519,7 +466,8 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.notebooks.v1.RuntimeMetrics.getDefaultInstance()) return this;
       internalGetMutableSystemMetrics().mergeFrom(
           other.internalGetSystemMetrics());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000001;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -534,17 +482,39 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.notebooks.v1.RuntimeMetrics parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              systemMetrics__ = input.readMessage(
+                  SystemMetricsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSystemMetrics().getMutableMap().put(
+                  systemMetrics__.getKey(), systemMetrics__.getValue());
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.notebooks.v1.RuntimeMetrics) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -552,7 +522,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> systemMetrics_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetSystemMetrics() {
+        internalGetSystemMetrics() {
       if (systemMetrics_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             SystemMetricsDefaultEntryHolder.defaultEntry);
@@ -560,8 +530,7 @@ private static final long serialVersionUID = 0L;
       return systemMetrics_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableSystemMetrics() {
-      onChanged();;
+        internalGetMutableSystemMetrics() {
       if (systemMetrics_ == null) {
         systemMetrics_ = com.google.protobuf.MapField.newMapField(
             SystemMetricsDefaultEntryHolder.defaultEntry);
@@ -569,9 +538,10 @@ private static final long serialVersionUID = 0L;
       if (!systemMetrics_.isMutable()) {
         systemMetrics_ = systemMetrics_.copy();
       }
+      bitField0_ |= 0x00000001;
+      onChanged();
       return systemMetrics_;
     }
-
     public int getSystemMetricsCount() {
       return internalGetSystemMetrics().getMap().size();
     }
@@ -582,7 +552,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     @java.lang.Override
     public boolean containsSystemMetrics(
         java.lang.String key) {
@@ -605,7 +574,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getSystemMetricsMap() {
       return internalGetSystemMetrics().getMap();
     }
@@ -617,10 +585,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getSystemMetricsOrDefault(
+    public /* nullable */
+java.lang.String getSystemMetricsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetSystemMetrics().getMap();
@@ -634,7 +603,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     @java.lang.Override
-
     public java.lang.String getSystemMetricsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -645,8 +613,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearSystemMetrics() {
+      bitField0_ = (bitField0_ & ~0x00000001);
       internalGetMutableSystemMetrics().getMutableMap()
           .clear();
       return this;
@@ -658,7 +626,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder removeSystemMetrics(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -671,7 +638,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableSystemMetrics() {
+        getMutableSystemMetrics() {
+      bitField0_ |= 0x00000001;
       return internalGetMutableSystemMetrics().getMutableMap();
     }
     /**
@@ -685,12 +653,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableSystemMetrics().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000001;
       return this;
     }
     /**
@@ -700,11 +666,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; system_metrics = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
-
     public Builder putAllSystemMetrics(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableSystemMetrics().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000001;
       return this;
     }
     @java.lang.Override
@@ -740,7 +706,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RuntimeMetrics(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

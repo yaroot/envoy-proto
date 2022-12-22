@@ -34,86 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TargetReference(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.apps.drive.activity.v2.DriveItemReference.Builder subBuilder = null;
-            if (objectCase_ == 1) {
-              subBuilder = ((com.google.apps.drive.activity.v2.DriveItemReference) object_).toBuilder();
-            }
-            object_ =
-                input.readMessage(com.google.apps.drive.activity.v2.DriveItemReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.DriveItemReference) object_);
-              object_ = subBuilder.buildPartial();
-            }
-            objectCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.apps.drive.activity.v2.TeamDriveReference.Builder subBuilder = null;
-            if (teamDrive_ != null) {
-              subBuilder = teamDrive_.toBuilder();
-            }
-            teamDrive_ = input.readMessage(com.google.apps.drive.activity.v2.TeamDriveReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(teamDrive_);
-              teamDrive_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.apps.drive.activity.v2.DriveReference.Builder subBuilder = null;
-            if (objectCase_ == 3) {
-              subBuilder = ((com.google.apps.drive.activity.v2.DriveReference) object_).toBuilder();
-            }
-            object_ =
-                input.readMessage(com.google.apps.drive.activity.v2.DriveReference.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.apps.drive.activity.v2.DriveReference) object_);
-              object_ = subBuilder.buildPartial();
-            }
-            objectCase_ = 3;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.apps.drive.activity.v2.TargetProto.internal_static_google_apps_drive_activity_v2_TargetReference_descriptor;
@@ -293,7 +213,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.apps.drive.activity.v2.TeamDriveReferenceOrBuilder getTeamDriveOrBuilder() {
-    return getTeamDrive();
+    return teamDrive_ == null ? com.google.apps.drive.activity.v2.TeamDriveReference.getDefaultInstance() : teamDrive_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -319,7 +239,7 @@ private static final long serialVersionUID = 0L;
     if (objectCase_ == 3) {
       output.writeMessage(3, (com.google.apps.drive.activity.v2.DriveReference) object_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -340,7 +260,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, (com.google.apps.drive.activity.v2.DriveReference) object_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -373,7 +293,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -400,7 +320,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -521,26 +441,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.apps.drive.activity.v2.TargetReference.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (teamDriveBuilder_ == null) {
-        teamDrive_ = null;
-      } else {
-        teamDrive_ = null;
+      bitField0_ = 0;
+      if (driveItemBuilder_ != null) {
+        driveItemBuilder_.clear();
+      }
+      if (driveBuilder_ != null) {
+        driveBuilder_.clear();
+      }
+      teamDrive_ = null;
+      if (teamDriveBuilder_ != null) {
+        teamDriveBuilder_.dispose();
         teamDriveBuilder_ = null;
       }
       objectCase_ = 0;
@@ -571,28 +492,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.apps.drive.activity.v2.TargetReference buildPartial() {
       com.google.apps.drive.activity.v2.TargetReference result = new com.google.apps.drive.activity.v2.TargetReference(this);
-      if (objectCase_ == 1) {
-        if (driveItemBuilder_ == null) {
-          result.object_ = object_;
-        } else {
-          result.object_ = driveItemBuilder_.build();
-        }
-      }
-      if (objectCase_ == 3) {
-        if (driveBuilder_ == null) {
-          result.object_ = object_;
-        } else {
-          result.object_ = driveBuilder_.build();
-        }
-      }
-      if (teamDriveBuilder_ == null) {
-        result.teamDrive_ = teamDrive_;
-      } else {
-        result.teamDrive_ = teamDriveBuilder_.build();
-      }
-      result.objectCase_ = objectCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.apps.drive.activity.v2.TargetReference result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.teamDrive_ = teamDriveBuilder_ == null
+            ? teamDrive_
+            : teamDriveBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.apps.drive.activity.v2.TargetReference result) {
+      result.objectCase_ = objectCase_;
+      result.object_ = this.object_;
+      if (objectCase_ == 1 &&
+          driveItemBuilder_ != null) {
+        result.object_ = driveItemBuilder_.build();
+      }
+      if (objectCase_ == 3 &&
+          driveBuilder_ != null) {
+        result.object_ = driveBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -655,7 +580,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -670,17 +595,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.apps.drive.activity.v2.TargetReference parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getDriveItemFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              objectCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTeamDriveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDriveFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              objectCase_ = 3;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.apps.drive.activity.v2.TargetReference) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int objectCase_ = 0;
@@ -698,6 +657,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.apps.drive.activity.v2.DriveItemReference, com.google.apps.drive.activity.v2.DriveItemReference.Builder, com.google.apps.drive.activity.v2.DriveItemReferenceOrBuilder> driveItemBuilder_;
@@ -873,7 +833,7 @@ private static final long serialVersionUID = 0L;
         object_ = null;
       }
       objectCase_ = 1;
-      onChanged();;
+      onChanged();
       return driveItemBuilder_;
     }
 
@@ -1051,7 +1011,7 @@ private static final long serialVersionUID = 0L;
         object_ = null;
       }
       objectCase_ = 3;
-      onChanged();;
+      onChanged();
       return driveBuilder_;
     }
 
@@ -1069,7 +1029,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the teamDrive field is set.
      */
     @java.lang.Deprecated public boolean hasTeamDrive() {
-      return teamDriveBuilder_ != null || teamDrive_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1101,11 +1061,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         teamDrive_ = value;
-        onChanged();
       } else {
         teamDriveBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1119,11 +1079,11 @@ private static final long serialVersionUID = 0L;
         com.google.apps.drive.activity.v2.TeamDriveReference.Builder builderForValue) {
       if (teamDriveBuilder_ == null) {
         teamDrive_ = builderForValue.build();
-        onChanged();
       } else {
         teamDriveBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1135,17 +1095,18 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder mergeTeamDrive(com.google.apps.drive.activity.v2.TeamDriveReference value) {
       if (teamDriveBuilder_ == null) {
-        if (teamDrive_ != null) {
-          teamDrive_ =
-            com.google.apps.drive.activity.v2.TeamDriveReference.newBuilder(teamDrive_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          teamDrive_ != null &&
+          teamDrive_ != com.google.apps.drive.activity.v2.TeamDriveReference.getDefaultInstance()) {
+          getTeamDriveBuilder().mergeFrom(value);
         } else {
           teamDrive_ = value;
         }
-        onChanged();
       } else {
         teamDriveBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1156,14 +1117,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.TeamDriveReference team_drive = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearTeamDrive() {
-      if (teamDriveBuilder_ == null) {
-        teamDrive_ = null;
-        onChanged();
-      } else {
-        teamDrive_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      teamDrive_ = null;
+      if (teamDriveBuilder_ != null) {
+        teamDriveBuilder_.dispose();
         teamDriveBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1174,7 +1134,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.apps.drive.activity.v2.TeamDriveReference team_drive = 2 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.apps.drive.activity.v2.TeamDriveReference.Builder getTeamDriveBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getTeamDriveFieldBuilder().getBuilder();
     }
@@ -1246,7 +1206,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TargetReference(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

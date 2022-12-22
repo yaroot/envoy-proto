@@ -34,105 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TimeSeriesDataPoint(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (wallTime_ != null) {
-              subBuilder = wallTime_.toBuilder();
-            }
-            wallTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(wallTime_);
-              wallTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            step_ = input.readInt64();
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1.Scalar.Builder subBuilder = null;
-            if (valueCase_ == 3) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.Scalar) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.Scalar.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.Scalar) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.cloud.aiplatform.v1.TensorboardTensor.Builder subBuilder = null;
-            if (valueCase_ == 4) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.TensorboardTensor) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.TensorboardTensor.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.TensorboardTensor) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.aiplatform.v1.TensorboardBlobSequence.Builder subBuilder = null;
-            if (valueCase_ == 5) {
-              subBuilder = ((com.google.cloud.aiplatform.v1.TensorboardBlobSequence) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.aiplatform.v1.TensorboardBlobSequence.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.aiplatform.v1.TensorboardBlobSequence) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1.TensorboardDataProto.internal_static_google_cloud_aiplatform_v1_TimeSeriesDataPoint_descriptor;
@@ -353,11 +254,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getWallTimeOrBuilder() {
-    return getWallTime();
+    return wallTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : wallTime_;
   }
 
   public static final int STEP_FIELD_NUMBER = 2;
-  private long step_;
+  private long step_ = 0L;
   /**
    * <pre>
    * Step index of this data point within the run.
@@ -400,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 5) {
       output.writeMessage(5, (com.google.cloud.aiplatform.v1.TensorboardBlobSequence) value_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -429,7 +330,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (com.google.cloud.aiplatform.v1.TensorboardBlobSequence) value_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -468,7 +369,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -502,7 +403,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -623,30 +524,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1.TimeSeriesDataPoint.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (wallTimeBuilder_ == null) {
-        wallTime_ = null;
-      } else {
-        wallTime_ = null;
+      bitField0_ = 0;
+      if (scalarBuilder_ != null) {
+        scalarBuilder_.clear();
+      }
+      if (tensorBuilder_ != null) {
+        tensorBuilder_.clear();
+      }
+      if (blobsBuilder_ != null) {
+        blobsBuilder_.clear();
+      }
+      wallTime_ = null;
+      if (wallTimeBuilder_ != null) {
+        wallTimeBuilder_.dispose();
         wallTimeBuilder_ = null;
       }
       step_ = 0L;
-
       valueCase_ = 0;
       value_ = null;
       return this;
@@ -675,36 +579,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1.TimeSeriesDataPoint buildPartial() {
       com.google.cloud.aiplatform.v1.TimeSeriesDataPoint result = new com.google.cloud.aiplatform.v1.TimeSeriesDataPoint(this);
-      if (valueCase_ == 3) {
-        if (scalarBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = scalarBuilder_.build();
-        }
-      }
-      if (valueCase_ == 4) {
-        if (tensorBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = tensorBuilder_.build();
-        }
-      }
-      if (valueCase_ == 5) {
-        if (blobsBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = blobsBuilder_.build();
-        }
-      }
-      if (wallTimeBuilder_ == null) {
-        result.wallTime_ = wallTime_;
-      } else {
-        result.wallTime_ = wallTimeBuilder_.build();
-      }
-      result.step_ = step_;
-      result.valueCase_ = valueCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1.TimeSeriesDataPoint result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.wallTime_ = wallTimeBuilder_ == null
+            ? wallTime_
+            : wallTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.step_ = step_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.aiplatform.v1.TimeSeriesDataPoint result) {
+      result.valueCase_ = valueCase_;
+      result.value_ = this.value_;
+      if (valueCase_ == 3 &&
+          scalarBuilder_ != null) {
+        result.value_ = scalarBuilder_.build();
+      }
+      if (valueCase_ == 4 &&
+          tensorBuilder_ != null) {
+        result.value_ = tensorBuilder_.build();
+      }
+      if (valueCase_ == 5 &&
+          blobsBuilder_ != null) {
+        result.value_ = blobsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -774,7 +681,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -789,17 +696,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1.TimeSeriesDataPoint parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getWallTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 10
+            case 16: {
+              step_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getScalarFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTensorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getBlobsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1.TimeSeriesDataPoint) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int valueCase_ = 0;
@@ -817,6 +770,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.aiplatform.v1.Scalar, com.google.cloud.aiplatform.v1.Scalar.Builder, com.google.cloud.aiplatform.v1.ScalarOrBuilder> scalarBuilder_;
@@ -992,7 +946,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 3;
-      onChanged();;
+      onChanged();
       return scalarBuilder_;
     }
 
@@ -1170,7 +1124,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 4;
-      onChanged();;
+      onChanged();
       return tensorBuilder_;
     }
 
@@ -1348,7 +1302,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 5;
-      onChanged();;
+      onChanged();
       return blobsBuilder_;
     }
 
@@ -1364,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the wallTime field is set.
      */
     public boolean hasWallTime() {
-      return wallTimeBuilder_ != null || wallTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1394,11 +1348,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         wallTime_ = value;
-        onChanged();
       } else {
         wallTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1412,11 +1366,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (wallTimeBuilder_ == null) {
         wallTime_ = builderForValue.build();
-        onChanged();
       } else {
         wallTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1428,17 +1382,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeWallTime(com.google.protobuf.Timestamp value) {
       if (wallTimeBuilder_ == null) {
-        if (wallTime_ != null) {
-          wallTime_ =
-            com.google.protobuf.Timestamp.newBuilder(wallTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          wallTime_ != null &&
+          wallTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getWallTimeBuilder().mergeFrom(value);
         } else {
           wallTime_ = value;
         }
-        onChanged();
       } else {
         wallTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1449,14 +1404,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp wall_time = 1;</code>
      */
     public Builder clearWallTime() {
-      if (wallTimeBuilder_ == null) {
-        wallTime_ = null;
-        onChanged();
-      } else {
-        wallTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      wallTime_ = null;
+      if (wallTimeBuilder_ != null) {
+        wallTimeBuilder_.dispose();
         wallTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1467,7 +1421,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp wall_time = 1;</code>
      */
     public com.google.protobuf.Timestamp.Builder getWallTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getWallTimeFieldBuilder().getBuilder();
     }
@@ -1532,6 +1486,7 @@ private static final long serialVersionUID = 0L;
     public Builder setStep(long value) {
       
       step_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1544,7 +1499,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStep() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       step_ = 0L;
       onChanged();
       return this;
@@ -1582,7 +1537,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TimeSeriesDataPoint(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -9,7 +9,7 @@ public interface DeleteBigQueryExportRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Name of the big query export to delete. Its format is
+   * Required. The name of the BigQuery export to delete. Its format is
    * organizations/{organization}/bigQueryExports/{export_id},
    * folders/{folder}/bigQueryExports/{export_id}, or
    * projects/{project}/bigQueryExports/{export_id}
@@ -21,7 +21,7 @@ public interface DeleteBigQueryExportRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. Name of the big query export to delete. Its format is
+   * Required. The name of the BigQuery export to delete. Its format is
    * organizations/{organization}/bigQueryExports/{export_id},
    * folders/{folder}/bigQueryExports/{export_id}, or
    * projects/{project}/bigQueryExports/{export_id}

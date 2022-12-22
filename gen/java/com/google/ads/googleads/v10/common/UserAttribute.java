@@ -37,91 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserAttribute(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            bitField0_ |= 0x00000001;
-            lifetimeValueMicros_ = input.readInt64();
-            break;
-          }
-          case 16: {
-            bitField0_ |= 0x00000002;
-            lifetimeValueBucket_ = input.readInt32();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lastPurchaseDateTime_ = s;
-            break;
-          }
-          case 32: {
-
-            averagePurchaseCount_ = input.readInt32();
-            break;
-          }
-          case 40: {
-
-            averagePurchaseValueMicros_ = input.readInt64();
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            acquisitionDateTime_ = s;
-            break;
-          }
-          case 58: {
-            com.google.ads.googleads.v10.common.ShoppingLoyalty.Builder subBuilder = null;
-            if (((bitField0_ & 0x00000004) != 0)) {
-              subBuilder = shoppingLoyalty_.toBuilder();
-            }
-            shoppingLoyalty_ = input.readMessage(com.google.ads.googleads.v10.common.ShoppingLoyalty.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shoppingLoyalty_);
-              shoppingLoyalty_ = subBuilder.buildPartial();
-            }
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.OfflineUserDataProto.internal_static_google_ads_googleads_v10_common_UserAttribute_descriptor;
@@ -137,7 +52,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int LIFETIME_VALUE_MICROS_FIELD_NUMBER = 1;
-  private long lifetimeValueMicros_;
+  private long lifetimeValueMicros_ = 0L;
   /**
    * <pre>
    * Advertiser defined lifetime value for the user.
@@ -164,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LIFETIME_VALUE_BUCKET_FIELD_NUMBER = 2;
-  private int lifetimeValueBucket_;
+  private int lifetimeValueBucket_ = 0;
   /**
    * <pre>
    * Advertiser defined lifetime value bucket for the user. The valid range for
@@ -195,7 +110,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LAST_PURCHASE_DATE_TIME_FIELD_NUMBER = 3;
-  private volatile java.lang.Object lastPurchaseDateTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lastPurchaseDateTime_ = "";
   /**
    * <pre>
    * Timestamp of the last purchase made by the user.
@@ -247,7 +163,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVERAGE_PURCHASE_COUNT_FIELD_NUMBER = 4;
-  private int averagePurchaseCount_;
+  private int averagePurchaseCount_ = 0;
   /**
    * <pre>
    * Advertiser defined average number of purchases that are made by the user in
@@ -263,7 +179,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVERAGE_PURCHASE_VALUE_MICROS_FIELD_NUMBER = 5;
-  private long averagePurchaseValueMicros_;
+  private long averagePurchaseValueMicros_ = 0L;
   /**
    * <pre>
    * Advertiser defined average purchase value in micros for the user.
@@ -278,7 +194,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACQUISITION_DATE_TIME_FIELD_NUMBER = 6;
-  private volatile java.lang.Object acquisitionDateTime_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object acquisitionDateTime_ = "";
   /**
    * <pre>
    * Timestamp when the user was acquired.
@@ -408,7 +325,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeMessage(7, getShoppingLoyalty());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -443,7 +360,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(7, getShoppingLoyalty());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -481,7 +398,7 @@ private static final long serialVersionUID = 0L;
       if (!getShoppingLoyalty()
           .equals(other.getShoppingLoyalty())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -514,7 +431,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SHOPPING_LOYALTY_FIELD_NUMBER;
       hash = (53 * hash) + getShoppingLoyalty().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -653,24 +570,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       lifetimeValueMicros_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       lifetimeValueBucket_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000002);
       lastPurchaseDateTime_ = "";
-
       averagePurchaseCount_ = 0;
-
       averagePurchaseValueMicros_ = 0L;
-
       acquisitionDateTime_ = "";
-
-      if (shoppingLoyaltyBuilder_ == null) {
-        shoppingLoyalty_ = null;
-      } else {
-        shoppingLoyaltyBuilder_.clear();
+      shoppingLoyalty_ = null;
+      if (shoppingLoyaltyBuilder_ != null) {
+        shoppingLoyaltyBuilder_.dispose();
+        shoppingLoyaltyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -697,6 +608,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.UserAttribute buildPartial() {
       com.google.ads.googleads.v10.common.UserAttribute result = new com.google.ads.googleads.v10.common.UserAttribute(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.UserAttribute result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -707,21 +624,25 @@ private static final long serialVersionUID = 0L;
         result.lifetimeValueBucket_ = lifetimeValueBucket_;
         to_bitField0_ |= 0x00000002;
       }
-      result.lastPurchaseDateTime_ = lastPurchaseDateTime_;
-      result.averagePurchaseCount_ = averagePurchaseCount_;
-      result.averagePurchaseValueMicros_ = averagePurchaseValueMicros_;
-      result.acquisitionDateTime_ = acquisitionDateTime_;
       if (((from_bitField0_ & 0x00000004) != 0)) {
-        if (shoppingLoyaltyBuilder_ == null) {
-          result.shoppingLoyalty_ = shoppingLoyalty_;
-        } else {
-          result.shoppingLoyalty_ = shoppingLoyaltyBuilder_.build();
-        }
+        result.lastPurchaseDateTime_ = lastPurchaseDateTime_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.averagePurchaseCount_ = averagePurchaseCount_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.averagePurchaseValueMicros_ = averagePurchaseValueMicros_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.acquisitionDateTime_ = acquisitionDateTime_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.shoppingLoyalty_ = shoppingLoyaltyBuilder_ == null
+            ? shoppingLoyalty_
+            : shoppingLoyaltyBuilder_.build();
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -776,6 +697,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLastPurchaseDateTime().isEmpty()) {
         lastPurchaseDateTime_ = other.lastPurchaseDateTime_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.getAveragePurchaseCount() != 0) {
@@ -786,12 +708,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAcquisitionDateTime().isEmpty()) {
         acquisitionDateTime_ = other.acquisitionDateTime_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.hasShoppingLoyalty()) {
         mergeShoppingLoyalty(other.getShoppingLoyalty());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -806,17 +729,67 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.UserAttribute parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              lifetimeValueMicros_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              lifetimeValueBucket_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              lastPurchaseDateTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              averagePurchaseCount_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              averagePurchaseValueMicros_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 50: {
+              acquisitionDateTime_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getShoppingLoyaltyFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.UserAttribute) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -856,8 +829,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLifetimeValueMicros(long value) {
-      bitField0_ |= 0x00000001;
+      
       lifetimeValueMicros_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -917,8 +891,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLifetimeValueBucket(int value) {
-      bitField0_ |= 0x00000002;
+      
       lifetimeValueBucket_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1001,11 +976,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastPurchaseDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lastPurchaseDateTime_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1021,8 +994,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLastPurchaseDateTime() {
-      
       lastPurchaseDateTime_ = getDefaultInstance().getLastPurchaseDateTime();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1040,12 +1013,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastPurchaseDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lastPurchaseDateTime_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1077,6 +1048,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAveragePurchaseCount(int value) {
       
       averagePurchaseCount_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1090,7 +1062,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAveragePurchaseCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       averagePurchaseCount_ = 0;
       onChanged();
       return this;
@@ -1121,6 +1093,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAveragePurchaseValueMicros(long value) {
       
       averagePurchaseValueMicros_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1133,7 +1106,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAveragePurchaseValueMicros() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       averagePurchaseValueMicros_ = 0L;
       onChanged();
       return this;
@@ -1201,11 +1174,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcquisitionDateTime(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       acquisitionDateTime_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1221,8 +1192,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAcquisitionDateTime() {
-      
       acquisitionDateTime_ = getDefaultInstance().getAcquisitionDateTime();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1240,12 +1211,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAcquisitionDateTimeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       acquisitionDateTime_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1264,7 +1233,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shoppingLoyalty field is set.
      */
     public boolean hasShoppingLoyalty() {
-      return ((bitField0_ & 0x00000004) != 0);
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1298,11 +1267,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shoppingLoyalty_ = value;
-        onChanged();
       } else {
         shoppingLoyaltyBuilder_.setMessage(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1318,11 +1287,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.ShoppingLoyalty.Builder builderForValue) {
       if (shoppingLoyaltyBuilder_ == null) {
         shoppingLoyalty_ = builderForValue.build();
-        onChanged();
       } else {
         shoppingLoyaltyBuilder_.setMessage(builderForValue.build());
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1336,19 +1305,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShoppingLoyalty(com.google.ads.googleads.v10.common.ShoppingLoyalty value) {
       if (shoppingLoyaltyBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0) &&
-            shoppingLoyalty_ != null &&
-            shoppingLoyalty_ != com.google.ads.googleads.v10.common.ShoppingLoyalty.getDefaultInstance()) {
-          shoppingLoyalty_ =
-            com.google.ads.googleads.v10.common.ShoppingLoyalty.newBuilder(shoppingLoyalty_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          shoppingLoyalty_ != null &&
+          shoppingLoyalty_ != com.google.ads.googleads.v10.common.ShoppingLoyalty.getDefaultInstance()) {
+          getShoppingLoyaltyBuilder().mergeFrom(value);
         } else {
           shoppingLoyalty_ = value;
         }
-        onChanged();
       } else {
         shoppingLoyaltyBuilder_.mergeFrom(value);
       }
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -1361,13 +1329,13 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.ads.googleads.v10.common.ShoppingLoyalty shopping_loyalty = 7;</code>
      */
     public Builder clearShoppingLoyalty() {
-      if (shoppingLoyaltyBuilder_ == null) {
-        shoppingLoyalty_ = null;
-        onChanged();
-      } else {
-        shoppingLoyaltyBuilder_.clear();
+      bitField0_ = (bitField0_ & ~0x00000040);
+      shoppingLoyalty_ = null;
+      if (shoppingLoyaltyBuilder_ != null) {
+        shoppingLoyaltyBuilder_.dispose();
+        shoppingLoyaltyBuilder_ = null;
       }
-      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
       return this;
     }
     /**
@@ -1380,7 +1348,7 @@ private static final long serialVersionUID = 0L;
      * <code>optional .google.ads.googleads.v10.common.ShoppingLoyalty shopping_loyalty = 7;</code>
      */
     public com.google.ads.googleads.v10.common.ShoppingLoyalty.Builder getShoppingLoyaltyBuilder() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000040;
       onChanged();
       return getShoppingLoyaltyFieldBuilder().getBuilder();
     }
@@ -1456,7 +1424,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserAttribute(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

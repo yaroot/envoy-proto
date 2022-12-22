@@ -35,79 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SourceConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceConnectionProfile_ = s;
-            break;
-          }
-          case 802: {
-            com.google.cloud.datastream.v1.OracleSourceConfig.Builder subBuilder = null;
-            if (sourceStreamConfigCase_ == 100) {
-              subBuilder = ((com.google.cloud.datastream.v1.OracleSourceConfig) sourceStreamConfig_).toBuilder();
-            }
-            sourceStreamConfig_ =
-                input.readMessage(com.google.cloud.datastream.v1.OracleSourceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.OracleSourceConfig) sourceStreamConfig_);
-              sourceStreamConfig_ = subBuilder.buildPartial();
-            }
-            sourceStreamConfigCase_ = 100;
-            break;
-          }
-          case 810: {
-            com.google.cloud.datastream.v1.MysqlSourceConfig.Builder subBuilder = null;
-            if (sourceStreamConfigCase_ == 101) {
-              subBuilder = ((com.google.cloud.datastream.v1.MysqlSourceConfig) sourceStreamConfig_).toBuilder();
-            }
-            sourceStreamConfig_ =
-                input.readMessage(com.google.cloud.datastream.v1.MysqlSourceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.datastream.v1.MysqlSourceConfig) sourceStreamConfig_);
-              sourceStreamConfig_ = subBuilder.buildPartial();
-            }
-            sourceStreamConfigCase_ = 101;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.datastream.v1.DatastreamResourcesProto.internal_static_google_cloud_datastream_v1_SourceConfig_descriptor;
@@ -128,6 +55,7 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.AbstractMessage.InternalOneOfEnum {
     ORACLE_SOURCE_CONFIG(100),
     MYSQL_SOURCE_CONFIG(101),
+    POSTGRESQL_SOURCE_CONFIG(102),
     SOURCESTREAMCONFIG_NOT_SET(0);
     private final int value;
     private SourceStreamConfigCase(int value) {
@@ -147,6 +75,7 @@ private static final long serialVersionUID = 0L;
       switch (value) {
         case 100: return ORACLE_SOURCE_CONFIG;
         case 101: return MYSQL_SOURCE_CONFIG;
+        case 102: return POSTGRESQL_SOURCE_CONFIG;
         case 0: return SOURCESTREAMCONFIG_NOT_SET;
         default: return null;
       }
@@ -163,7 +92,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_CONNECTION_PROFILE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object sourceConnectionProfile_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceConnectionProfile_ = "";
   /**
    * <pre>
    * Required. Source connection profile resoource.
@@ -213,7 +143,7 @@ private static final long serialVersionUID = 0L;
   public static final int ORACLE_SOURCE_CONFIG_FIELD_NUMBER = 100;
   /**
    * <pre>
-   * Oracle data source configuration
+   * Oracle data source configuration.
    * </pre>
    *
    * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -225,7 +155,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Oracle data source configuration
+   * Oracle data source configuration.
    * </pre>
    *
    * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -240,7 +170,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Oracle data source configuration
+   * Oracle data source configuration.
    * </pre>
    *
    * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -256,7 +186,7 @@ private static final long serialVersionUID = 0L;
   public static final int MYSQL_SOURCE_CONFIG_FIELD_NUMBER = 101;
   /**
    * <pre>
-   * MySQL data source configuration
+   * MySQL data source configuration.
    * </pre>
    *
    * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -268,7 +198,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MySQL data source configuration
+   * MySQL data source configuration.
    * </pre>
    *
    * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -283,7 +213,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * MySQL data source configuration
+   * MySQL data source configuration.
    * </pre>
    *
    * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -294,6 +224,49 @@ private static final long serialVersionUID = 0L;
        return (com.google.cloud.datastream.v1.MysqlSourceConfig) sourceStreamConfig_;
     }
     return com.google.cloud.datastream.v1.MysqlSourceConfig.getDefaultInstance();
+  }
+
+  public static final int POSTGRESQL_SOURCE_CONFIG_FIELD_NUMBER = 102;
+  /**
+   * <pre>
+   * PostgreSQL data source configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+   * @return Whether the postgresqlSourceConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasPostgresqlSourceConfig() {
+    return sourceStreamConfigCase_ == 102;
+  }
+  /**
+   * <pre>
+   * PostgreSQL data source configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+   * @return The postgresqlSourceConfig.
+   */
+  @java.lang.Override
+  public com.google.cloud.datastream.v1.PostgresqlSourceConfig getPostgresqlSourceConfig() {
+    if (sourceStreamConfigCase_ == 102) {
+       return (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_;
+    }
+    return com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * PostgreSQL data source configuration.
+   * </pre>
+   *
+   * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.datastream.v1.PostgresqlSourceConfigOrBuilder getPostgresqlSourceConfigOrBuilder() {
+    if (sourceStreamConfigCase_ == 102) {
+       return (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_;
+    }
+    return com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance();
   }
 
   private byte memoizedIsInitialized = -1;
@@ -319,7 +292,10 @@ private static final long serialVersionUID = 0L;
     if (sourceStreamConfigCase_ == 101) {
       output.writeMessage(101, (com.google.cloud.datastream.v1.MysqlSourceConfig) sourceStreamConfig_);
     }
-    unknownFields.writeTo(output);
+    if (sourceStreamConfigCase_ == 102) {
+      output.writeMessage(102, (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -339,7 +315,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(101, (com.google.cloud.datastream.v1.MysqlSourceConfig) sourceStreamConfig_);
     }
-    size += unknownFields.getSerializedSize();
+    if (sourceStreamConfigCase_ == 102) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(102, (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -366,10 +346,14 @@ private static final long serialVersionUID = 0L;
         if (!getMysqlSourceConfig()
             .equals(other.getMysqlSourceConfig())) return false;
         break;
+      case 102:
+        if (!getPostgresqlSourceConfig()
+            .equals(other.getPostgresqlSourceConfig())) return false;
+        break;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -391,10 +375,14 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + MYSQL_SOURCE_CONFIG_FIELD_NUMBER;
         hash = (53 * hash) + getMysqlSourceConfig().hashCode();
         break;
+      case 102:
+        hash = (37 * hash) + POSTGRESQL_SOURCE_CONFIG_FIELD_NUMBER;
+        hash = (53 * hash) + getPostgresqlSourceConfig().hashCode();
+        break;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -515,24 +503,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.datastream.v1.SourceConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       sourceConnectionProfile_ = "";
-
+      if (oracleSourceConfigBuilder_ != null) {
+        oracleSourceConfigBuilder_.clear();
+      }
+      if (mysqlSourceConfigBuilder_ != null) {
+        mysqlSourceConfigBuilder_.clear();
+      }
+      if (postgresqlSourceConfigBuilder_ != null) {
+        postgresqlSourceConfigBuilder_.clear();
+      }
       sourceStreamConfigCase_ = 0;
       sourceStreamConfig_ = null;
       return this;
@@ -561,24 +553,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.datastream.v1.SourceConfig buildPartial() {
       com.google.cloud.datastream.v1.SourceConfig result = new com.google.cloud.datastream.v1.SourceConfig(this);
-      result.sourceConnectionProfile_ = sourceConnectionProfile_;
-      if (sourceStreamConfigCase_ == 100) {
-        if (oracleSourceConfigBuilder_ == null) {
-          result.sourceStreamConfig_ = sourceStreamConfig_;
-        } else {
-          result.sourceStreamConfig_ = oracleSourceConfigBuilder_.build();
-        }
-      }
-      if (sourceStreamConfigCase_ == 101) {
-        if (mysqlSourceConfigBuilder_ == null) {
-          result.sourceStreamConfig_ = sourceStreamConfig_;
-        } else {
-          result.sourceStreamConfig_ = mysqlSourceConfigBuilder_.build();
-        }
-      }
-      result.sourceStreamConfigCase_ = sourceStreamConfigCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.datastream.v1.SourceConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.sourceConnectionProfile_ = sourceConnectionProfile_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.datastream.v1.SourceConfig result) {
+      result.sourceStreamConfigCase_ = sourceStreamConfigCase_;
+      result.sourceStreamConfig_ = this.sourceStreamConfig_;
+      if (sourceStreamConfigCase_ == 100 &&
+          oracleSourceConfigBuilder_ != null) {
+        result.sourceStreamConfig_ = oracleSourceConfigBuilder_.build();
+      }
+      if (sourceStreamConfigCase_ == 101 &&
+          mysqlSourceConfigBuilder_ != null) {
+        result.sourceStreamConfig_ = mysqlSourceConfigBuilder_.build();
+      }
+      if (sourceStreamConfigCase_ == 102 &&
+          postgresqlSourceConfigBuilder_ != null) {
+        result.sourceStreamConfig_ = postgresqlSourceConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -627,6 +629,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.datastream.v1.SourceConfig.getDefaultInstance()) return this;
       if (!other.getSourceConnectionProfile().isEmpty()) {
         sourceConnectionProfile_ = other.sourceConnectionProfile_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       switch (other.getSourceStreamConfigCase()) {
@@ -638,11 +641,15 @@ private static final long serialVersionUID = 0L;
           mergeMysqlSourceConfig(other.getMysqlSourceConfig());
           break;
         }
+        case POSTGRESQL_SOURCE_CONFIG: {
+          mergePostgresqlSourceConfig(other.getPostgresqlSourceConfig());
+          break;
+        }
         case SOURCESTREAMCONFIG_NOT_SET: {
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -657,17 +664,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.datastream.v1.SourceConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              sourceConnectionProfile_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 802: {
+              input.readMessage(
+                  getOracleSourceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceStreamConfigCase_ = 100;
+              break;
+            } // case 802
+            case 810: {
+              input.readMessage(
+                  getMysqlSourceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceStreamConfigCase_ = 101;
+              break;
+            } // case 810
+            case 818: {
+              input.readMessage(
+                  getPostgresqlSourceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceStreamConfigCase_ = 102;
+              break;
+            } // case 818
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.datastream.v1.SourceConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceStreamConfigCase_ = 0;
@@ -685,6 +731,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object sourceConnectionProfile_ = "";
     /**
@@ -742,11 +789,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceConnectionProfile(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceConnectionProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -760,8 +805,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceConnectionProfile() {
-      
       sourceConnectionProfile_ = getDefaultInstance().getSourceConnectionProfile();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -777,12 +822,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceConnectionProfileBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceConnectionProfile_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -791,7 +834,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1.OracleSourceConfig, com.google.cloud.datastream.v1.OracleSourceConfig.Builder, com.google.cloud.datastream.v1.OracleSourceConfigOrBuilder> oracleSourceConfigBuilder_;
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -803,7 +846,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -825,7 +868,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -845,7 +888,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -863,7 +906,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -890,7 +933,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -913,7 +956,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -923,7 +966,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -941,7 +984,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Oracle data source configuration
+     * Oracle data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.OracleSourceConfig oracle_source_config = 100;</code>
@@ -961,7 +1004,7 @@ private static final long serialVersionUID = 0L;
         sourceStreamConfig_ = null;
       }
       sourceStreamConfigCase_ = 100;
-      onChanged();;
+      onChanged();
       return oracleSourceConfigBuilder_;
     }
 
@@ -969,7 +1012,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.datastream.v1.MysqlSourceConfig, com.google.cloud.datastream.v1.MysqlSourceConfig.Builder, com.google.cloud.datastream.v1.MysqlSourceConfigOrBuilder> mysqlSourceConfigBuilder_;
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -981,7 +1024,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1003,7 +1046,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1023,7 +1066,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1041,7 +1084,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1068,7 +1111,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1091,7 +1134,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1101,7 +1144,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1119,7 +1162,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * MySQL data source configuration
+     * MySQL data source configuration.
      * </pre>
      *
      * <code>.google.cloud.datastream.v1.MysqlSourceConfig mysql_source_config = 101;</code>
@@ -1139,8 +1182,186 @@ private static final long serialVersionUID = 0L;
         sourceStreamConfig_ = null;
       }
       sourceStreamConfigCase_ = 101;
-      onChanged();;
+      onChanged();
       return mysqlSourceConfigBuilder_;
+    }
+
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.datastream.v1.PostgresqlSourceConfig, com.google.cloud.datastream.v1.PostgresqlSourceConfig.Builder, com.google.cloud.datastream.v1.PostgresqlSourceConfigOrBuilder> postgresqlSourceConfigBuilder_;
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     * @return Whether the postgresqlSourceConfig field is set.
+     */
+    @java.lang.Override
+    public boolean hasPostgresqlSourceConfig() {
+      return sourceStreamConfigCase_ == 102;
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     * @return The postgresqlSourceConfig.
+     */
+    @java.lang.Override
+    public com.google.cloud.datastream.v1.PostgresqlSourceConfig getPostgresqlSourceConfig() {
+      if (postgresqlSourceConfigBuilder_ == null) {
+        if (sourceStreamConfigCase_ == 102) {
+          return (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_;
+        }
+        return com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance();
+      } else {
+        if (sourceStreamConfigCase_ == 102) {
+          return postgresqlSourceConfigBuilder_.getMessage();
+        }
+        return com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    public Builder setPostgresqlSourceConfig(com.google.cloud.datastream.v1.PostgresqlSourceConfig value) {
+      if (postgresqlSourceConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        sourceStreamConfig_ = value;
+        onChanged();
+      } else {
+        postgresqlSourceConfigBuilder_.setMessage(value);
+      }
+      sourceStreamConfigCase_ = 102;
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    public Builder setPostgresqlSourceConfig(
+        com.google.cloud.datastream.v1.PostgresqlSourceConfig.Builder builderForValue) {
+      if (postgresqlSourceConfigBuilder_ == null) {
+        sourceStreamConfig_ = builderForValue.build();
+        onChanged();
+      } else {
+        postgresqlSourceConfigBuilder_.setMessage(builderForValue.build());
+      }
+      sourceStreamConfigCase_ = 102;
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    public Builder mergePostgresqlSourceConfig(com.google.cloud.datastream.v1.PostgresqlSourceConfig value) {
+      if (postgresqlSourceConfigBuilder_ == null) {
+        if (sourceStreamConfigCase_ == 102 &&
+            sourceStreamConfig_ != com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance()) {
+          sourceStreamConfig_ = com.google.cloud.datastream.v1.PostgresqlSourceConfig.newBuilder((com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_)
+              .mergeFrom(value).buildPartial();
+        } else {
+          sourceStreamConfig_ = value;
+        }
+        onChanged();
+      } else {
+        if (sourceStreamConfigCase_ == 102) {
+          postgresqlSourceConfigBuilder_.mergeFrom(value);
+        } else {
+          postgresqlSourceConfigBuilder_.setMessage(value);
+        }
+      }
+      sourceStreamConfigCase_ = 102;
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    public Builder clearPostgresqlSourceConfig() {
+      if (postgresqlSourceConfigBuilder_ == null) {
+        if (sourceStreamConfigCase_ == 102) {
+          sourceStreamConfigCase_ = 0;
+          sourceStreamConfig_ = null;
+          onChanged();
+        }
+      } else {
+        if (sourceStreamConfigCase_ == 102) {
+          sourceStreamConfigCase_ = 0;
+          sourceStreamConfig_ = null;
+        }
+        postgresqlSourceConfigBuilder_.clear();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    public com.google.cloud.datastream.v1.PostgresqlSourceConfig.Builder getPostgresqlSourceConfigBuilder() {
+      return getPostgresqlSourceConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    @java.lang.Override
+    public com.google.cloud.datastream.v1.PostgresqlSourceConfigOrBuilder getPostgresqlSourceConfigOrBuilder() {
+      if ((sourceStreamConfigCase_ == 102) && (postgresqlSourceConfigBuilder_ != null)) {
+        return postgresqlSourceConfigBuilder_.getMessageOrBuilder();
+      } else {
+        if (sourceStreamConfigCase_ == 102) {
+          return (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_;
+        }
+        return com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance();
+      }
+    }
+    /**
+     * <pre>
+     * PostgreSQL data source configuration.
+     * </pre>
+     *
+     * <code>.google.cloud.datastream.v1.PostgresqlSourceConfig postgresql_source_config = 102;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.cloud.datastream.v1.PostgresqlSourceConfig, com.google.cloud.datastream.v1.PostgresqlSourceConfig.Builder, com.google.cloud.datastream.v1.PostgresqlSourceConfigOrBuilder> 
+        getPostgresqlSourceConfigFieldBuilder() {
+      if (postgresqlSourceConfigBuilder_ == null) {
+        if (!(sourceStreamConfigCase_ == 102)) {
+          sourceStreamConfig_ = com.google.cloud.datastream.v1.PostgresqlSourceConfig.getDefaultInstance();
+        }
+        postgresqlSourceConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.cloud.datastream.v1.PostgresqlSourceConfig, com.google.cloud.datastream.v1.PostgresqlSourceConfig.Builder, com.google.cloud.datastream.v1.PostgresqlSourceConfigOrBuilder>(
+                (com.google.cloud.datastream.v1.PostgresqlSourceConfig) sourceStreamConfig_,
+                getParentForChildren(),
+                isClean());
+        sourceStreamConfig_ = null;
+      }
+      sourceStreamConfigCase_ = 102;
+      onChanged();
+      return postgresqlSourceConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1175,7 +1396,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SourceConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

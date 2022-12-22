@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InvalidRequestDetail(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            reason_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.devtools.testing.v1.TestExecutionProto.internal_static_google_devtools_testing_v1_InvalidRequestDetail_descriptor;
@@ -290,7 +245,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REASON_FIELD_NUMBER = 1;
-  private int reason_;
+  private int reason_ = 0;
   /**
    * <pre>
    * The reason behind the error.
@@ -311,8 +266,7 @@ private static final long serialVersionUID = 0L;
    * @return The reason.
    */
   @java.lang.Override public com.google.devtools.testing.v1.InvalidRequestDetail.Reason getReason() {
-    @SuppressWarnings("deprecation")
-    com.google.devtools.testing.v1.InvalidRequestDetail.Reason result = com.google.devtools.testing.v1.InvalidRequestDetail.Reason.valueOf(reason_);
+    com.google.devtools.testing.v1.InvalidRequestDetail.Reason result = com.google.devtools.testing.v1.InvalidRequestDetail.Reason.forNumber(reason_);
     return result == null ? com.google.devtools.testing.v1.InvalidRequestDetail.Reason.UNRECOGNIZED : result;
   }
 
@@ -333,7 +287,7 @@ private static final long serialVersionUID = 0L;
     if (reason_ != com.google.devtools.testing.v1.InvalidRequestDetail.Reason.REASON_UNSPECIFIED.getNumber()) {
       output.writeEnum(1, reason_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -346,7 +300,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(1, reason_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -362,7 +316,7 @@ private static final long serialVersionUID = 0L;
     com.google.devtools.testing.v1.InvalidRequestDetail other = (com.google.devtools.testing.v1.InvalidRequestDetail) obj;
 
     if (reason_ != other.reason_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -375,7 +329,7 @@ private static final long serialVersionUID = 0L;
     hash = (19 * hash) + getDescriptor().hashCode();
     hash = (37 * hash) + REASON_FIELD_NUMBER;
     hash = (53 * hash) + reason_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -496,24 +450,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.devtools.testing.v1.InvalidRequestDetail.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       reason_ = 0;
-
       return this;
     }
 
@@ -540,9 +489,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.devtools.testing.v1.InvalidRequestDetail buildPartial() {
       com.google.devtools.testing.v1.InvalidRequestDetail result = new com.google.devtools.testing.v1.InvalidRequestDetail(this);
-      result.reason_ = reason_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.devtools.testing.v1.InvalidRequestDetail result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.reason_ = reason_;
+      }
     }
 
     @java.lang.Override
@@ -592,7 +548,7 @@ private static final long serialVersionUID = 0L;
       if (other.reason_ != 0) {
         setReasonValue(other.getReasonValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -607,19 +563,38 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.devtools.testing.v1.InvalidRequestDetail parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              reason_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.devtools.testing.v1.InvalidRequestDetail) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int reason_ = 0;
     /**
@@ -643,8 +618,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setReasonValue(int value) {
-      
       reason_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -658,8 +633,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.devtools.testing.v1.InvalidRequestDetail.Reason getReason() {
-      @SuppressWarnings("deprecation")
-      com.google.devtools.testing.v1.InvalidRequestDetail.Reason result = com.google.devtools.testing.v1.InvalidRequestDetail.Reason.valueOf(reason_);
+      com.google.devtools.testing.v1.InvalidRequestDetail.Reason result = com.google.devtools.testing.v1.InvalidRequestDetail.Reason.forNumber(reason_);
       return result == null ? com.google.devtools.testing.v1.InvalidRequestDetail.Reason.UNRECOGNIZED : result;
     }
     /**
@@ -675,7 +649,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       reason_ = value.getNumber();
       onChanged();
       return this;
@@ -689,7 +663,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearReason() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       reason_ = 0;
       onChanged();
       return this;
@@ -727,7 +701,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InvalidRequestDetail(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

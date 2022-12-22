@@ -10,7 +10,7 @@ public interface CreateApiRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent, which owns this collection of APIs.
-   * Format: projects/&#42;&#47;locations/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,7 +20,7 @@ public interface CreateApiRequestOrBuilder extends
   /**
    * <pre>
    * Required. The parent, which owns this collection of APIs.
-   * Format: projects/&#42;&#47;locations/&#42;
+   * Format: `projects/&#42;&#47;locations/&#42;`
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -58,8 +58,8 @@ public interface CreateApiRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The ID to use for the api, which will become the final component of
-   * the api's resource name.
+   * Required. The ID to use for the API, which will become the final component of
+   * the API's resource name.
    * This value should be 4-63 characters, and valid characters
    * are /[a-z][0-9]-/.
    * Following AIP-162, IDs must not have the form of a UUID.
@@ -71,8 +71,8 @@ public interface CreateApiRequestOrBuilder extends
   java.lang.String getApiId();
   /**
    * <pre>
-   * Required. The ID to use for the api, which will become the final component of
-   * the api's resource name.
+   * Required. The ID to use for the API, which will become the final component of
+   * the API's resource name.
    * This value should be 4-63 characters, and valid characters
    * are /[a-z][0-9]-/.
    * Following AIP-162, IDs must not have the form of a UUID.

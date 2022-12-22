@@ -11,6 +11,9 @@ public interface AwsProxyConfigOrBuilder extends
    * <pre>
    * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
    * configuration.
+   * The secret must be a JSON encoded proxy configuration
+   * as described in
+   * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
    * </pre>
    *
    * <code>string secret_arn = 1;</code>
@@ -21,6 +24,9 @@ public interface AwsProxyConfigOrBuilder extends
    * <pre>
    * The ARN of the AWS Secret Manager secret that contains the HTTP(S) proxy
    * configuration.
+   * The secret must be a JSON encoded proxy configuration
+   * as described in
+   * https://cloud.google.com/anthos/clusters/docs/multi-cloud/aws/how-to/use-a-proxy#create_a_proxy_configuration_file
    * </pre>
    *
    * <code>string secret_arn = 1;</code>

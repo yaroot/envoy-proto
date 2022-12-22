@@ -75,7 +75,6 @@ public interface PacketMirroringAggregatedListOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.compute.v1.PacketMirroringsScopedList&gt; items = 100526016;</code>
    */
-
   /* nullable */
 com.google.cloud.compute.v1.PacketMirroringsScopedList getItemsOrDefault(
       java.lang.String key,
@@ -88,7 +87,6 @@ com.google.cloud.compute.v1.PacketMirroringsScopedList defaultValue);
    *
    * <code>map&lt;string, .google.cloud.compute.v1.PacketMirroringsScopedList&gt; items = 100526016;</code>
    */
-
   com.google.cloud.compute.v1.PacketMirroringsScopedList getItemsOrThrow(
       java.lang.String key);
 

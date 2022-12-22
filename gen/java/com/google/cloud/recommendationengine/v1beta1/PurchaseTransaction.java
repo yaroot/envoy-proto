@@ -36,89 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PurchaseTransaction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            id_ = s;
-            break;
-          }
-          case 21: {
-
-            revenue_ = input.readFloat();
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              taxes_ = com.google.protobuf.MapField.newMapField(
-                  TaxesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
-            taxes__ = input.readMessage(
-                TaxesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            taxes_.getMutableMap().put(
-                taxes__.getKey(), taxes__.getValue());
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              costs_ = com.google.protobuf.MapField.newMapField(
-                  CostsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
-            costs__ = input.readMessage(
-                CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            costs_.getMutableMap().put(
-                costs__.getKey(), costs__.getValue());
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            currencyCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommendationengine.v1beta1.UserEventOuterClass.internal_static_google_cloud_recommendationengine_v1beta1_PurchaseTransaction_descriptor;
@@ -147,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object id_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object id_ = "";
   /**
    * <pre>
    * Optional. The transaction ID with a length limit of 128 bytes.
@@ -193,7 +111,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REVENUE_FIELD_NUMBER = 2;
-  private float revenue_;
+  private float revenue_ = 0F;
   /**
    * <pre>
    * Required. Total revenue or grand total associated with the transaction.
@@ -222,6 +140,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.FLOAT,
                 0F);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Float> taxes_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
@@ -232,7 +151,6 @@ private static final long serialVersionUID = 0L;
     }
     return taxes_;
   }
-
   public int getTaxesCount() {
     return internalGetTaxes().getMap().size();
   }
@@ -243,7 +161,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsTaxes(
       java.lang.String key) {
@@ -266,7 +183,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Float> getTaxesMap() {
     return internalGetTaxes().getMap();
   }
@@ -278,7 +194,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public float getTaxesOrDefault(
       java.lang.String key,
       float defaultValue) {
@@ -295,7 +210,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public float getTaxesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -319,6 +233,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.FLOAT,
                 0F);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Float> costs_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
@@ -329,7 +244,6 @@ private static final long serialVersionUID = 0L;
     }
     return costs_;
   }
-
   public int getCostsCount() {
     return internalGetCosts().getMap().size();
   }
@@ -348,7 +262,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsCosts(
       java.lang.String key) {
@@ -379,7 +292,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Float> getCostsMap() {
     return internalGetCosts().getMap();
   }
@@ -399,7 +311,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public float getCostsOrDefault(
       java.lang.String key,
       float defaultValue) {
@@ -424,7 +335,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public float getCostsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -437,7 +347,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CURRENCY_CODE_FIELD_NUMBER = 6;
-  private volatile java.lang.Object currencyCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object currencyCode_ = "";
   /**
    * <pre>
    * Required. Currency code. Use three-character ISO-4217 code. This field
@@ -519,7 +430,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currencyCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, currencyCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -558,7 +469,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(currencyCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, currencyCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -584,7 +495,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetCosts())) return false;
     if (!getCurrencyCode()
         .equals(other.getCurrencyCode())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -610,7 +521,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + CURRENCY_CODE_FIELD_NUMBER;
     hash = (53 * hash) + getCurrencyCode().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -757,30 +668,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       id_ = "";
-
       revenue_ = 0F;
-
       internalGetMutableTaxes().clear();
       internalGetMutableCosts().clear();
       currencyCode_ = "";
-
       return this;
     }
 
@@ -807,16 +711,30 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction buildPartial() {
       com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction result = new com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction(this);
-      int from_bitField0_ = bitField0_;
-      result.id_ = id_;
-      result.revenue_ = revenue_;
-      result.taxes_ = internalGetTaxes();
-      result.taxes_.makeImmutable();
-      result.costs_ = internalGetCosts();
-      result.costs_.makeImmutable();
-      result.currencyCode_ = currencyCode_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.id_ = id_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.revenue_ = revenue_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.taxes_ = internalGetTaxes();
+        result.taxes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.costs_ = internalGetCosts();
+        result.costs_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.currencyCode_ = currencyCode_;
+      }
     }
 
     @java.lang.Override
@@ -865,6 +783,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction.getDefaultInstance()) return this;
       if (!other.getId().isEmpty()) {
         id_ = other.id_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getRevenue() != 0F) {
@@ -872,13 +791,16 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableTaxes().mergeFrom(
           other.internalGetTaxes());
+      bitField0_ |= 0x00000004;
       internalGetMutableCosts().mergeFrom(
           other.internalGetCosts());
+      bitField0_ |= 0x00000008;
       if (!other.getCurrencyCode().isEmpty()) {
         currencyCode_ = other.currencyCode_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -893,17 +815,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              id_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 21: {
+              revenue_ = input.readFloat();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 21
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
+              taxes__ = input.readMessage(
+                  TaxesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTaxes().getMutableMap().put(
+                  taxes__.getKey(), taxes__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
+              costs__ = input.readMessage(
+                  CostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableCosts().getMutableMap().put(
+                  costs__.getKey(), costs__.getValue());
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 50: {
+              currencyCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommendationengine.v1beta1.PurchaseTransaction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -961,11 +929,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -978,8 +944,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearId() {
-      
       id_ = getDefaultInstance().getId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -994,12 +960,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       id_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1035,6 +999,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRevenue(float value) {
       
       revenue_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1050,7 +1015,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRevenue() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       revenue_ = 0F;
       onChanged();
       return this;
@@ -1059,7 +1024,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Float> taxes_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
-    internalGetTaxes() {
+        internalGetTaxes() {
       if (taxes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             TaxesDefaultEntryHolder.defaultEntry);
@@ -1067,8 +1032,7 @@ private static final long serialVersionUID = 0L;
       return taxes_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
-    internalGetMutableTaxes() {
-      onChanged();;
+        internalGetMutableTaxes() {
       if (taxes_ == null) {
         taxes_ = com.google.protobuf.MapField.newMapField(
             TaxesDefaultEntryHolder.defaultEntry);
@@ -1076,9 +1040,10 @@ private static final long serialVersionUID = 0L;
       if (!taxes_.isMutable()) {
         taxes_ = taxes_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return taxes_;
     }
-
     public int getTaxesCount() {
       return internalGetTaxes().getMap().size();
     }
@@ -1089,7 +1054,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsTaxes(
         java.lang.String key) {
@@ -1112,7 +1076,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Float> getTaxesMap() {
       return internalGetTaxes().getMap();
     }
@@ -1124,7 +1087,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public float getTaxesOrDefault(
         java.lang.String key,
         float defaultValue) {
@@ -1141,7 +1103,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public float getTaxesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1152,8 +1113,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearTaxes() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableTaxes().getMutableMap()
           .clear();
       return this;
@@ -1165,7 +1126,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeTaxes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1178,7 +1138,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Float>
-    getMutableTaxes() {
+        getMutableTaxes() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableTaxes().getMutableMap();
     }
     /**
@@ -1195,6 +1156,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableTaxes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1204,18 +1166,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; taxes = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllTaxes(
         java.util.Map<java.lang.String, java.lang.Float> values) {
       internalGetMutableTaxes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Float> costs_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
-    internalGetCosts() {
+        internalGetCosts() {
       if (costs_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             CostsDefaultEntryHolder.defaultEntry);
@@ -1223,8 +1185,7 @@ private static final long serialVersionUID = 0L;
       return costs_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Float>
-    internalGetMutableCosts() {
-      onChanged();;
+        internalGetMutableCosts() {
       if (costs_ == null) {
         costs_ = com.google.protobuf.MapField.newMapField(
             CostsDefaultEntryHolder.defaultEntry);
@@ -1232,9 +1193,10 @@ private static final long serialVersionUID = 0L;
       if (!costs_.isMutable()) {
         costs_ = costs_.copy();
       }
+      bitField0_ |= 0x00000008;
+      onChanged();
       return costs_;
     }
-
     public int getCostsCount() {
       return internalGetCosts().getMap().size();
     }
@@ -1253,7 +1215,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsCosts(
         java.lang.String key) {
@@ -1284,7 +1245,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Float> getCostsMap() {
       return internalGetCosts().getMap();
     }
@@ -1304,7 +1264,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public float getCostsOrDefault(
         java.lang.String key,
         float defaultValue) {
@@ -1329,7 +1288,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public float getCostsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1340,8 +1298,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearCosts() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       internalGetMutableCosts().getMutableMap()
           .clear();
       return this;
@@ -1361,7 +1319,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeCosts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1374,7 +1331,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Float>
-    getMutableCosts() {
+        getMutableCosts() {
+      bitField0_ |= 0x00000008;
       return internalGetMutableCosts().getMutableMap();
     }
     /**
@@ -1399,6 +1357,7 @@ private static final long serialVersionUID = 0L;
       
       internalGetMutableCosts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000008;
       return this;
     }
     /**
@@ -1416,11 +1375,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, float&gt; costs = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllCosts(
         java.util.Map<java.lang.String, java.lang.Float> values) {
       internalGetMutableCosts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000008;
       return this;
     }
 
@@ -1480,11 +1439,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrencyCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       currencyCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1498,8 +1455,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCurrencyCode() {
-      
       currencyCode_ = getDefaultInstance().getCurrencyCode();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1515,12 +1472,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCurrencyCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       currencyCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1557,7 +1512,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PurchaseTransaction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

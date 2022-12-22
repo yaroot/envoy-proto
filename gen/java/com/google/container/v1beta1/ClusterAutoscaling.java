@@ -40,94 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterAutoscaling(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enableNodeAutoprovisioning_ = input.readBool();
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              resourceLimits_ = new java.util.ArrayList<com.google.container.v1beta1.ResourceLimit>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            resourceLimits_.add(
-                input.readMessage(com.google.container.v1beta1.ResourceLimit.parser(), extensionRegistry));
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            autoscalingProfile_ = rawValue;
-            break;
-          }
-          case 34: {
-            com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.Builder subBuilder = null;
-            if (autoprovisioningNodePoolDefaults_ != null) {
-              subBuilder = autoprovisioningNodePoolDefaults_.toBuilder();
-            }
-            autoprovisioningNodePoolDefaults_ = input.readMessage(com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(autoprovisioningNodePoolDefaults_);
-              autoprovisioningNodePoolDefaults_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              autoprovisioningLocations_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            autoprovisioningLocations_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        resourceLimits_ = java.util.Collections.unmodifiableList(resourceLimits_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        autoprovisioningLocations_ = autoprovisioningLocations_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_ClusterAutoscaling_descriptor;
@@ -287,7 +199,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_NODE_AUTOPROVISIONING_FIELD_NUMBER = 1;
-  private boolean enableNodeAutoprovisioning_;
+  private boolean enableNodeAutoprovisioning_ = false;
   /**
    * <pre>
    * Enables automatic node pool creation and deletion.
@@ -302,6 +214,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_LIMITS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.container.v1beta1.ResourceLimit> resourceLimits_;
   /**
    * <pre>
@@ -367,7 +280,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTOSCALING_PROFILE_FIELD_NUMBER = 3;
-  private int autoscalingProfile_;
+  private int autoscalingProfile_ = 0;
   /**
    * <pre>
    * Defines autoscaling behaviour.
@@ -388,8 +301,7 @@ private static final long serialVersionUID = 0L;
    * @return The autoscalingProfile.
    */
   @java.lang.Override public com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile getAutoscalingProfile() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile result = com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile.valueOf(autoscalingProfile_);
+    com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile result = com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile.forNumber(autoscalingProfile_);
     return result == null ? com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile.UNRECOGNIZED : result;
   }
 
@@ -431,10 +343,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1beta1.AutoprovisioningNodePoolDefaultsOrBuilder getAutoprovisioningNodePoolDefaultsOrBuilder() {
-    return getAutoprovisioningNodePoolDefaults();
+    return autoprovisioningNodePoolDefaults_ == null ? com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.getDefaultInstance() : autoprovisioningNodePoolDefaults_;
   }
 
   public static final int AUTOPROVISIONING_LOCATIONS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList autoprovisioningLocations_;
   /**
    * <pre>
@@ -522,7 +435,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < autoprovisioningLocations_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 5, autoprovisioningLocations_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -555,7 +468,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getAutoprovisioningLocationsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -582,7 +495,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAutoprovisioningLocationsList()
         .equals(other.getAutoprovisioningLocationsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -610,7 +523,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + AUTOPROVISIONING_LOCATIONS_FIELD_NUMBER;
       hash = (53 * hash) + getAutoprovisioningLocationsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -734,41 +647,34 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.ClusterAutoscaling.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getResourceLimitsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enableNodeAutoprovisioning_ = false;
-
       if (resourceLimitsBuilder_ == null) {
         resourceLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        resourceLimits_ = null;
         resourceLimitsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       autoscalingProfile_ = 0;
-
-      if (autoprovisioningNodePoolDefaultsBuilder_ == null) {
-        autoprovisioningNodePoolDefaults_ = null;
-      } else {
-        autoprovisioningNodePoolDefaults_ = null;
+      autoprovisioningNodePoolDefaults_ = null;
+      if (autoprovisioningNodePoolDefaultsBuilder_ != null) {
+        autoprovisioningNodePoolDefaultsBuilder_.dispose();
         autoprovisioningNodePoolDefaultsBuilder_ = null;
       }
       autoprovisioningLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       return this;
     }
 
@@ -795,30 +701,42 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.ClusterAutoscaling buildPartial() {
       com.google.container.v1beta1.ClusterAutoscaling result = new com.google.container.v1beta1.ClusterAutoscaling(this);
-      int from_bitField0_ = bitField0_;
-      result.enableNodeAutoprovisioning_ = enableNodeAutoprovisioning_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.ClusterAutoscaling result) {
       if (resourceLimitsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           resourceLimits_ = java.util.Collections.unmodifiableList(resourceLimits_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.resourceLimits_ = resourceLimits_;
       } else {
         result.resourceLimits_ = resourceLimitsBuilder_.build();
       }
-      result.autoscalingProfile_ = autoscalingProfile_;
-      if (autoprovisioningNodePoolDefaultsBuilder_ == null) {
-        result.autoprovisioningNodePoolDefaults_ = autoprovisioningNodePoolDefaults_;
-      } else {
-        result.autoprovisioningNodePoolDefaults_ = autoprovisioningNodePoolDefaultsBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000002) != 0)) {
+      if (((bitField0_ & 0x00000010) != 0)) {
         autoprovisioningLocations_ = autoprovisioningLocations_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000010);
       }
       result.autoprovisioningLocations_ = autoprovisioningLocations_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.ClusterAutoscaling result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableNodeAutoprovisioning_ = enableNodeAutoprovisioning_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.autoscalingProfile_ = autoscalingProfile_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.autoprovisioningNodePoolDefaults_ = autoprovisioningNodePoolDefaultsBuilder_ == null
+            ? autoprovisioningNodePoolDefaults_
+            : autoprovisioningNodePoolDefaultsBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -872,7 +790,7 @@ private static final long serialVersionUID = 0L;
         if (!other.resourceLimits_.isEmpty()) {
           if (resourceLimits_.isEmpty()) {
             resourceLimits_ = other.resourceLimits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureResourceLimitsIsMutable();
             resourceLimits_.addAll(other.resourceLimits_);
@@ -885,7 +803,7 @@ private static final long serialVersionUID = 0L;
             resourceLimitsBuilder_.dispose();
             resourceLimitsBuilder_ = null;
             resourceLimits_ = other.resourceLimits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             resourceLimitsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getResourceLimitsFieldBuilder() : null;
@@ -903,14 +821,14 @@ private static final long serialVersionUID = 0L;
       if (!other.autoprovisioningLocations_.isEmpty()) {
         if (autoprovisioningLocations_.isEmpty()) {
           autoprovisioningLocations_ = other.autoprovisioningLocations_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureAutoprovisioningLocationsIsMutable();
           autoprovisioningLocations_.addAll(other.autoprovisioningLocations_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -925,17 +843,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.ClusterAutoscaling parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enableNodeAutoprovisioning_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.container.v1beta1.ResourceLimit m =
+                  input.readMessage(
+                      com.google.container.v1beta1.ResourceLimit.parser(),
+                      extensionRegistry);
+              if (resourceLimitsBuilder_ == null) {
+                ensureResourceLimitsIsMutable();
+                resourceLimits_.add(m);
+              } else {
+                resourceLimitsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 24: {
+              autoscalingProfile_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getAutoprovisioningNodePoolDefaultsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureAutoprovisioningLocationsIsMutable();
+              autoprovisioningLocations_.add(s);
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.ClusterAutoscaling) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -965,6 +932,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableNodeAutoprovisioning(boolean value) {
       
       enableNodeAutoprovisioning_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -977,7 +945,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableNodeAutoprovisioning() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enableNodeAutoprovisioning_ = false;
       onChanged();
       return this;
@@ -986,9 +954,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.container.v1beta1.ResourceLimit> resourceLimits_ =
       java.util.Collections.emptyList();
     private void ensureResourceLimitsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         resourceLimits_ = new java.util.ArrayList<com.google.container.v1beta1.ResourceLimit>(resourceLimits_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1193,7 +1161,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearResourceLimits() {
       if (resourceLimitsBuilder_ == null) {
         resourceLimits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         resourceLimitsBuilder_.clear();
@@ -1305,7 +1273,7 @@ private static final long serialVersionUID = 0L;
         resourceLimitsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.container.v1beta1.ResourceLimit, com.google.container.v1beta1.ResourceLimit.Builder, com.google.container.v1beta1.ResourceLimitOrBuilder>(
                 resourceLimits_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         resourceLimits_ = null;
@@ -1335,8 +1303,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAutoscalingProfileValue(int value) {
-      
       autoscalingProfile_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1350,8 +1318,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile getAutoscalingProfile() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile result = com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile.valueOf(autoscalingProfile_);
+      com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile result = com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile.forNumber(autoscalingProfile_);
       return result == null ? com.google.container.v1beta1.ClusterAutoscaling.AutoscalingProfile.UNRECOGNIZED : result;
     }
     /**
@@ -1367,7 +1334,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       autoscalingProfile_ = value.getNumber();
       onChanged();
       return this;
@@ -1381,7 +1348,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAutoscalingProfile() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       autoscalingProfile_ = 0;
       onChanged();
       return this;
@@ -1400,7 +1367,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the autoprovisioningNodePoolDefaults field is set.
      */
     public boolean hasAutoprovisioningNodePoolDefaults() {
-      return autoprovisioningNodePoolDefaultsBuilder_ != null || autoprovisioningNodePoolDefaults_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1432,11 +1399,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         autoprovisioningNodePoolDefaults_ = value;
-        onChanged();
       } else {
         autoprovisioningNodePoolDefaultsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1451,11 +1418,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.Builder builderForValue) {
       if (autoprovisioningNodePoolDefaultsBuilder_ == null) {
         autoprovisioningNodePoolDefaults_ = builderForValue.build();
-        onChanged();
       } else {
         autoprovisioningNodePoolDefaultsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1468,17 +1435,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAutoprovisioningNodePoolDefaults(com.google.container.v1beta1.AutoprovisioningNodePoolDefaults value) {
       if (autoprovisioningNodePoolDefaultsBuilder_ == null) {
-        if (autoprovisioningNodePoolDefaults_ != null) {
-          autoprovisioningNodePoolDefaults_ =
-            com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.newBuilder(autoprovisioningNodePoolDefaults_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          autoprovisioningNodePoolDefaults_ != null &&
+          autoprovisioningNodePoolDefaults_ != com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.getDefaultInstance()) {
+          getAutoprovisioningNodePoolDefaultsBuilder().mergeFrom(value);
         } else {
           autoprovisioningNodePoolDefaults_ = value;
         }
-        onChanged();
       } else {
         autoprovisioningNodePoolDefaultsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1490,14 +1458,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.AutoprovisioningNodePoolDefaults autoprovisioning_node_pool_defaults = 4;</code>
      */
     public Builder clearAutoprovisioningNodePoolDefaults() {
-      if (autoprovisioningNodePoolDefaultsBuilder_ == null) {
-        autoprovisioningNodePoolDefaults_ = null;
-        onChanged();
-      } else {
-        autoprovisioningNodePoolDefaults_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      autoprovisioningNodePoolDefaults_ = null;
+      if (autoprovisioningNodePoolDefaultsBuilder_ != null) {
+        autoprovisioningNodePoolDefaultsBuilder_.dispose();
         autoprovisioningNodePoolDefaultsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1509,7 +1476,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1beta1.AutoprovisioningNodePoolDefaults autoprovisioning_node_pool_defaults = 4;</code>
      */
     public com.google.container.v1beta1.AutoprovisioningNodePoolDefaults.Builder getAutoprovisioningNodePoolDefaultsBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getAutoprovisioningNodePoolDefaultsFieldBuilder().getBuilder();
     }
@@ -1553,9 +1520,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList autoprovisioningLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureAutoprovisioningLocationsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         autoprovisioningLocations_ = new com.google.protobuf.LazyStringArrayList(autoprovisioningLocations_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1628,10 +1595,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAutoprovisioningLocations(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAutoprovisioningLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAutoprovisioningLocationsIsMutable();
       autoprovisioningLocations_.set(index, value);
       onChanged();
       return this;
@@ -1649,10 +1614,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAutoprovisioningLocations(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureAutoprovisioningLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureAutoprovisioningLocationsIsMutable();
       autoprovisioningLocations_.add(value);
       onChanged();
       return this;
@@ -1688,7 +1651,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearAutoprovisioningLocations() {
       autoprovisioningLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1705,10 +1668,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addAutoprovisioningLocationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureAutoprovisioningLocationsIsMutable();
       autoprovisioningLocations_.add(value);
       onChanged();
@@ -1747,7 +1708,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterAutoscaling(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

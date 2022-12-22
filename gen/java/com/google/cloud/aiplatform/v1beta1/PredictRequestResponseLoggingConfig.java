@@ -34,68 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PredictRequestResponseLoggingConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enabled_ = input.readBool();
-            break;
-          }
-          case 17: {
-
-            samplingRate_ = input.readDouble();
-            break;
-          }
-          case 26: {
-            com.google.cloud.aiplatform.v1beta1.BigQueryDestination.Builder subBuilder = null;
-            if (bigqueryDestination_ != null) {
-              subBuilder = bigqueryDestination_.toBuilder();
-            }
-            bigqueryDestination_ = input.readMessage(com.google.cloud.aiplatform.v1beta1.BigQueryDestination.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(bigqueryDestination_);
-              bigqueryDestination_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.aiplatform.v1beta1.EndpointProto.internal_static_google_cloud_aiplatform_v1beta1_PredictRequestResponseLoggingConfig_descriptor;
@@ -110,7 +48,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLED_FIELD_NUMBER = 1;
-  private boolean enabled_;
+  private boolean enabled_ = false;
   /**
    * <pre>
    * If logging is enabled or not.
@@ -125,7 +63,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SAMPLING_RATE_FIELD_NUMBER = 2;
-  private double samplingRate_;
+  private double samplingRate_ = 0D;
   /**
    * <pre>
    * Percentage of requests to be logged, expressed as a fraction in
@@ -190,7 +128,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.aiplatform.v1beta1.BigQueryDestinationOrBuilder getBigqueryDestinationOrBuilder() {
-    return getBigqueryDestination();
+    return bigqueryDestination_ == null ? com.google.cloud.aiplatform.v1beta1.BigQueryDestination.getDefaultInstance() : bigqueryDestination_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +154,7 @@ private static final long serialVersionUID = 0L;
     if (bigqueryDestination_ != null) {
       output.writeMessage(3, getBigqueryDestination());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -237,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getBigqueryDestination());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -262,7 +200,7 @@ private static final long serialVersionUID = 0L;
       if (!getBigqueryDestination()
           .equals(other.getBigqueryDestination())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -283,7 +221,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BIGQUERY_DESTINATION_FIELD_NUMBER;
       hash = (53 * hash) + getBigqueryDestination().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -404,30 +342,23 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enabled_ = false;
-
       samplingRate_ = 0D;
-
-      if (bigqueryDestinationBuilder_ == null) {
-        bigqueryDestination_ = null;
-      } else {
-        bigqueryDestination_ = null;
+      bigqueryDestination_ = null;
+      if (bigqueryDestinationBuilder_ != null) {
+        bigqueryDestinationBuilder_.dispose();
         bigqueryDestinationBuilder_ = null;
       }
       return this;
@@ -456,15 +387,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig buildPartial() {
       com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig result = new com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig(this);
-      result.enabled_ = enabled_;
-      result.samplingRate_ = samplingRate_;
-      if (bigqueryDestinationBuilder_ == null) {
-        result.bigqueryDestination_ = bigqueryDestination_;
-      } else {
-        result.bigqueryDestination_ = bigqueryDestinationBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enabled_ = enabled_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.samplingRate_ = samplingRate_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.bigqueryDestination_ = bigqueryDestinationBuilder_ == null
+            ? bigqueryDestination_
+            : bigqueryDestinationBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -520,7 +460,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasBigqueryDestination()) {
         mergeBigqueryDestination(other.getBigqueryDestination());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -535,19 +475,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 17: {
+              samplingRate_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 17
+            case 26: {
+              input.readMessage(
+                  getBigqueryDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.aiplatform.v1beta1.PredictRequestResponseLoggingConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enabled_ ;
     /**
@@ -574,6 +545,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnabled(boolean value) {
       
       enabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -586,7 +558,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enabled_ = false;
       onChanged();
       return this;
@@ -619,6 +591,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSamplingRate(double value) {
       
       samplingRate_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -632,7 +605,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSamplingRate() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       samplingRate_ = 0D;
       onChanged();
       return this;
@@ -655,7 +628,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the bigqueryDestination field is set.
      */
     public boolean hasBigqueryDestination() {
-      return bigqueryDestinationBuilder_ != null || bigqueryDestination_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -695,11 +668,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         bigqueryDestination_ = value;
-        onChanged();
       } else {
         bigqueryDestinationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -718,11 +691,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.aiplatform.v1beta1.BigQueryDestination.Builder builderForValue) {
       if (bigqueryDestinationBuilder_ == null) {
         bigqueryDestination_ = builderForValue.build();
-        onChanged();
       } else {
         bigqueryDestinationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -739,17 +712,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBigqueryDestination(com.google.cloud.aiplatform.v1beta1.BigQueryDestination value) {
       if (bigqueryDestinationBuilder_ == null) {
-        if (bigqueryDestination_ != null) {
-          bigqueryDestination_ =
-            com.google.cloud.aiplatform.v1beta1.BigQueryDestination.newBuilder(bigqueryDestination_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          bigqueryDestination_ != null &&
+          bigqueryDestination_ != com.google.cloud.aiplatform.v1beta1.BigQueryDestination.getDefaultInstance()) {
+          getBigqueryDestinationBuilder().mergeFrom(value);
         } else {
           bigqueryDestination_ = value;
         }
-        onChanged();
       } else {
         bigqueryDestinationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -765,14 +739,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BigQueryDestination bigquery_destination = 3;</code>
      */
     public Builder clearBigqueryDestination() {
-      if (bigqueryDestinationBuilder_ == null) {
-        bigqueryDestination_ = null;
-        onChanged();
-      } else {
-        bigqueryDestination_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      bigqueryDestination_ = null;
+      if (bigqueryDestinationBuilder_ != null) {
+        bigqueryDestinationBuilder_.dispose();
         bigqueryDestinationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -788,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.aiplatform.v1beta1.BigQueryDestination bigquery_destination = 3;</code>
      */
     public com.google.cloud.aiplatform.v1beta1.BigQueryDestination.Builder getBigqueryDestinationBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getBigqueryDestinationFieldBuilder().getBuilder();
     }
@@ -870,7 +843,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PredictRequestResponseLoggingConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

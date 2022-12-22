@@ -39,111 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private NetworkPeering(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26989658: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000040;
-            name_ = s;
-            break;
-          }
-          case 115357832: {
-            bitField0_ |= 0x00000020;
-            importSubnetRoutesWithPublicIp_ = input.readBool();
-            break;
-          }
-          case 210578048: {
-            bitField0_ |= 0x00000002;
-            exchangeSubnetRoutes_ = input.readBool();
-            break;
-          }
-          case 459639528: {
-            bitField0_ |= 0x00000001;
-            autoCreateRoutes_ = input.readBool();
-            break;
-          }
-          case 482251880: {
-            bitField0_ |= 0x00000004;
-            exportCustomRoutes_ = input.readBool();
-            break;
-          }
-          case 556677768: {
-            bitField0_ |= 0x00000100;
-            peerMtu_ = input.readInt32();
-            break;
-          }
-          case 764535970: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000800;
-            stateDetails_ = s;
-            break;
-          }
-          case 783526672: {
-            bitField0_ |= 0x00000008;
-            exportSubnetRoutesWithPublicIp_ = input.readBool();
-            break;
-          }
-          case 878060682: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000400;
-            state_ = s;
-            break;
-          }
-          case 1583859184: {
-            bitField0_ |= 0x00000010;
-            importCustomRoutes_ = input.readBool();
-            break;
-          }
-          case 1862979954: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000080;
-            network_ = s;
-            break;
-          }
-          case -887696246: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000200;
-            stackType_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_NetworkPeering_descriptor;
@@ -449,7 +344,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AUTO_CREATE_ROUTES_FIELD_NUMBER = 57454941;
-  private boolean autoCreateRoutes_;
+  private boolean autoCreateRoutes_ = false;
   /**
    * <pre>
    * This field will be deprecated soon. Use the exchange_subnet_routes field instead. Indicates whether full mesh connectivity is created and managed automatically between peered networks. Currently this field should always be true since Google Compute Engine will automatically create and manage subnetwork routes between two networks when peering state is ACTIVE.
@@ -476,7 +371,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXCHANGE_SUBNET_ROUTES_FIELD_NUMBER = 26322256;
-  private boolean exchangeSubnetRoutes_;
+  private boolean exchangeSubnetRoutes_ = false;
   /**
    * <pre>
    * Indicates whether full mesh connectivity is created and managed automatically between peered networks. Currently this field should always be true since Google Compute Engine will automatically create and manage subnetwork routes between two networks when peering state is ACTIVE.
@@ -503,7 +398,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXPORT_CUSTOM_ROUTES_FIELD_NUMBER = 60281485;
-  private boolean exportCustomRoutes_;
+  private boolean exportCustomRoutes_ = false;
   /**
    * <pre>
    * Whether to export the custom routes to peer network. The default value is false.
@@ -530,7 +425,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EXPORT_SUBNET_ROUTES_WITH_PUBLIC_IP_FIELD_NUMBER = 97940834;
-  private boolean exportSubnetRoutesWithPublicIp_;
+  private boolean exportSubnetRoutesWithPublicIp_ = false;
   /**
    * <pre>
    * Whether subnet routes with public IP range are exported. The default value is true, all subnet routes are exported. IPv4 special-use ranges are always exported to peers and are not controlled by this field.
@@ -557,7 +452,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPORT_CUSTOM_ROUTES_FIELD_NUMBER = 197982398;
-  private boolean importCustomRoutes_;
+  private boolean importCustomRoutes_ = false;
   /**
    * <pre>
    * Whether to import the custom routes from peer network. The default value is false.
@@ -584,7 +479,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int IMPORT_SUBNET_ROUTES_WITH_PUBLIC_IP_FIELD_NUMBER = 14419729;
-  private boolean importSubnetRoutesWithPublicIp_;
+  private boolean importSubnetRoutesWithPublicIp_ = false;
   /**
    * <pre>
    * Whether subnet routes with public IP range are imported. The default value is false. IPv4 special-use ranges are always imported from peers and are not controlled by this field.
@@ -611,7 +506,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 3373707;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Name of this peering. Provided by the client when the peering is created. The name must comply with RFC1035. Specifically, the name must be 1-63 characters long and match regular expression `[a-z]([-a-z0-9]*[a-z0-9])?`. The first character must be a lowercase letter, and all the following characters must be a dash, lowercase letter, or digit, except the last character, which cannot be a dash.
@@ -669,7 +565,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NETWORK_FIELD_NUMBER = 232872494;
-  private volatile java.lang.Object network_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object network_ = "";
   /**
    * <pre>
    * The URL of the peer network. It can be either full URL or partial URL. The peer network may belong to a different project. If the partial URL does not contain project, it is assumed that the peer network is in the same project as the current network.
@@ -727,7 +624,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PEER_MTU_FIELD_NUMBER = 69584721;
-  private int peerMtu_;
+  private int peerMtu_ = 0;
   /**
    * <pre>
    * Maximum Transmission Unit in bytes.
@@ -754,7 +651,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STACK_TYPE_FIELD_NUMBER = 425908881;
-  private volatile java.lang.Object stackType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stackType_ = "";
   /**
    * <pre>
    * Which IP version(s) of traffic and routes are allowed to be imported or exported between peer networks. The default value is IPV4_ONLY.
@@ -815,7 +713,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 109757585;
-  private volatile java.lang.Object state_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object state_ = "";
   /**
    * <pre>
    * [Output Only] State for the peering, either `ACTIVE` or `INACTIVE`. The peering is `ACTIVE` when there's a matching configuration in the peer network.
@@ -876,7 +775,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_DETAILS_FIELD_NUMBER = 95566996;
-  private volatile java.lang.Object stateDetails_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stateDetails_ = "";
   /**
    * <pre>
    * [Output Only] Details about the current state of the peering.
@@ -983,7 +883,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 425908881, stackType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1035,7 +935,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000200) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(425908881, stackType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1110,7 +1010,7 @@ private static final long serialVersionUID = 0L;
       if (!getStateDetails()
           .equals(other.getStateDetails())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1175,7 +1075,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + STATE_DETAILS_FIELD_NUMBER;
       hash = (53 * hash) + getStateDetails().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1296,46 +1196,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.NetworkPeering.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       autoCreateRoutes_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       exchangeSubnetRoutes_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       exportCustomRoutes_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       exportSubnetRoutesWithPublicIp_ = false;
-      bitField0_ = (bitField0_ & ~0x00000008);
       importCustomRoutes_ = false;
-      bitField0_ = (bitField0_ & ~0x00000010);
       importSubnetRoutesWithPublicIp_ = false;
-      bitField0_ = (bitField0_ & ~0x00000020);
       name_ = "";
-      bitField0_ = (bitField0_ & ~0x00000040);
       network_ = "";
-      bitField0_ = (bitField0_ & ~0x00000080);
       peerMtu_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000100);
       stackType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000200);
       state_ = "";
-      bitField0_ = (bitField0_ & ~0x00000400);
       stateDetails_ = "";
-      bitField0_ = (bitField0_ & ~0x00000800);
       return this;
     }
 
@@ -1362,6 +1246,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.NetworkPeering buildPartial() {
       com.google.cloud.compute.v1.NetworkPeering result = new com.google.cloud.compute.v1.NetworkPeering(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.NetworkPeering result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1389,32 +1279,30 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000020;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.name_ = name_;
         to_bitField0_ |= 0x00000040;
       }
-      result.name_ = name_;
       if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.network_ = network_;
         to_bitField0_ |= 0x00000080;
       }
-      result.network_ = network_;
       if (((from_bitField0_ & 0x00000100) != 0)) {
         result.peerMtu_ = peerMtu_;
         to_bitField0_ |= 0x00000100;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.stackType_ = stackType_;
         to_bitField0_ |= 0x00000200;
       }
-      result.stackType_ = stackType_;
       if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.state_ = state_;
         to_bitField0_ |= 0x00000400;
       }
-      result.state_ = state_;
       if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.stateDetails_ = stateDetails_;
         to_bitField0_ |= 0x00000800;
       }
-      result.stateDetails_ = stateDetails_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1480,34 +1368,34 @@ private static final long serialVersionUID = 0L;
         setImportSubnetRoutesWithPublicIp(other.getImportSubnetRoutesWithPublicIp());
       }
       if (other.hasName()) {
-        bitField0_ |= 0x00000040;
         name_ = other.name_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasNetwork()) {
-        bitField0_ |= 0x00000080;
         network_ = other.network_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasPeerMtu()) {
         setPeerMtu(other.getPeerMtu());
       }
       if (other.hasStackType()) {
-        bitField0_ |= 0x00000200;
         stackType_ = other.stackType_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (other.hasState()) {
-        bitField0_ |= 0x00000400;
         state_ = other.state_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.hasStateDetails()) {
-        bitField0_ |= 0x00000800;
         stateDetails_ = other.stateDetails_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1522,17 +1410,90 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.NetworkPeering parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26989658: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 26989658
+            case 115357832: {
+              importSubnetRoutesWithPublicIp_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 115357832
+            case 210578048: {
+              exchangeSubnetRoutes_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 210578048
+            case 459639528: {
+              autoCreateRoutes_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 459639528
+            case 482251880: {
+              exportCustomRoutes_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 482251880
+            case 556677768: {
+              peerMtu_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 556677768
+            case 764535970: {
+              stateDetails_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 764535970
+            case 783526672: {
+              exportSubnetRoutesWithPublicIp_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 783526672
+            case 878060682: {
+              state_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 878060682
+            case 1583859184: {
+              importCustomRoutes_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 1583859184
+            case 1862979954: {
+              network_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 1862979954
+            case -887696246: {
+              stackType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case -887696246
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.NetworkPeering) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1572,8 +1533,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setAutoCreateRoutes(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       autoCreateRoutes_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1627,8 +1589,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExchangeSubnetRoutes(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       exchangeSubnetRoutes_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1682,8 +1645,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExportCustomRoutes(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       exportCustomRoutes_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1737,8 +1701,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setExportSubnetRoutesWithPublicIp(boolean value) {
-      bitField0_ |= 0x00000008;
+      
       exportSubnetRoutesWithPublicIp_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1792,8 +1757,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setImportCustomRoutes(boolean value) {
-      bitField0_ |= 0x00000010;
+      
       importCustomRoutes_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1847,8 +1813,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setImportSubnetRoutesWithPublicIp(boolean value) {
-      bitField0_ |= 0x00000020;
+      
       importSubnetRoutesWithPublicIp_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1931,11 +1898,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1948,8 +1913,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      bitField0_ = (bitField0_ & ~0x00000040);
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1964,12 +1929,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000040;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2038,11 +2001,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetwork(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
       network_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2055,8 +2016,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNetwork() {
-      bitField0_ = (bitField0_ & ~0x00000080);
       network_ = getDefaultInstance().getNetwork();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2071,12 +2032,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNetworkBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000080;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       network_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2116,8 +2075,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPeerMtu(int value) {
-      bitField0_ |= 0x00000100;
+      
       peerMtu_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2204,11 +2164,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
       stackType_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2222,8 +2180,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStackType() {
-      bitField0_ = (bitField0_ & ~0x00000200);
       stackType_ = getDefaultInstance().getStackType();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2239,12 +2197,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStackTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000200;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stackType_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2317,11 +2273,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setState(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
       state_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2335,8 +2289,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      bitField0_ = (bitField0_ & ~0x00000400);
       state_ = getDefaultInstance().getState();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2352,12 +2306,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000400;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       state_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2426,11 +2378,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateDetails(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
       stateDetails_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2443,8 +2393,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStateDetails() {
-      bitField0_ = (bitField0_ & ~0x00000800);
       stateDetails_ = getDefaultInstance().getStateDetails();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -2459,12 +2409,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStateDetailsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000800;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stateDetails_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2501,7 +2449,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new NetworkPeering(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

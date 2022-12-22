@@ -39,69 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Rule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            ruleDescription_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            apiType_ = rawValue;
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            transactionType_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.paymentgateway.issuerswitch.v1.RulesProto.internal_static_google_cloud_paymentgateway_issuerswitch_v1_Rule_descriptor;
@@ -116,7 +53,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The unique identifier for this resource.
@@ -164,7 +102,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RULE_DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object ruleDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object ruleDescription_ = "";
   /**
    * <pre>
    * The description of the rule.
@@ -210,7 +149,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int API_TYPE_FIELD_NUMBER = 3;
-  private int apiType_;
+  private int apiType_ = 0;
   /**
    * <pre>
    * The API Type for which this rule gets executed. A value of
@@ -235,13 +174,12 @@ private static final long serialVersionUID = 0L;
    * @return The apiType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.ApiType getApiType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.valueOf(apiType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.forNumber(apiType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.UNRECOGNIZED : result;
   }
 
   public static final int TRANSACTION_TYPE_FIELD_NUMBER = 4;
-  private int transactionType_;
+  private int transactionType_ = 0;
   /**
    * <pre>
    * The transaction type for which this rule gets executed. A value of
@@ -266,8 +204,7 @@ private static final long serialVersionUID = 0L;
    * @return The transactionType.
    */
   @java.lang.Override public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType getTransactionType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.valueOf(transactionType_);
+    com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.forNumber(transactionType_);
     return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.UNRECOGNIZED : result;
   }
 
@@ -297,7 +234,7 @@ private static final long serialVersionUID = 0L;
     if (transactionType_ != com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.TRANSACTION_TYPE_UNSPECIFIED.getNumber()) {
       output.writeEnum(4, transactionType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -320,7 +257,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(4, transactionType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -341,7 +278,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getRuleDescription())) return false;
     if (apiType_ != other.apiType_) return false;
     if (transactionType_ != other.transactionType_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -360,7 +297,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + apiType_;
     hash = (37 * hash) + TRANSACTION_TYPE_FIELD_NUMBER;
     hash = (53 * hash) + transactionType_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -482,30 +419,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.paymentgateway.issuerswitch.v1.Rule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       ruleDescription_ = "";
-
       apiType_ = 0;
-
       transactionType_ = 0;
-
       return this;
     }
 
@@ -532,12 +461,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.Rule buildPartial() {
       com.google.cloud.paymentgateway.issuerswitch.v1.Rule result = new com.google.cloud.paymentgateway.issuerswitch.v1.Rule(this);
-      result.name_ = name_;
-      result.ruleDescription_ = ruleDescription_;
-      result.apiType_ = apiType_;
-      result.transactionType_ = transactionType_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.paymentgateway.issuerswitch.v1.Rule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.ruleDescription_ = ruleDescription_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.apiType_ = apiType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.transactionType_ = transactionType_;
+      }
     }
 
     @java.lang.Override
@@ -586,10 +528,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.paymentgateway.issuerswitch.v1.Rule.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getRuleDescription().isEmpty()) {
         ruleDescription_ = other.ruleDescription_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.apiType_ != 0) {
@@ -598,7 +542,7 @@ private static final long serialVersionUID = 0L;
       if (other.transactionType_ != 0) {
         setTransactionTypeValue(other.getTransactionTypeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -613,19 +557,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.paymentgateway.issuerswitch.v1.Rule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              ruleDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              apiType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              transactionType_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.paymentgateway.issuerswitch.v1.Rule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -683,11 +661,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -701,8 +677,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -718,12 +694,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -781,11 +755,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRuleDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       ruleDescription_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -798,8 +770,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRuleDescription() {
-      
       ruleDescription_ = getDefaultInstance().getRuleDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -814,12 +786,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRuleDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ruleDescription_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -850,8 +820,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setApiTypeValue(int value) {
-      
       apiType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -867,8 +837,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.ApiType getApiType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.valueOf(apiType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.ApiType result = com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.forNumber(apiType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.ApiType.UNRECOGNIZED : result;
     }
     /**
@@ -886,7 +855,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       apiType_ = value.getNumber();
       onChanged();
       return this;
@@ -902,7 +871,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearApiType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       apiType_ = 0;
       onChanged();
       return this;
@@ -934,8 +903,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransactionTypeValue(int value) {
-      
       transactionType_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -951,8 +920,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType getTransactionType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.valueOf(transactionType_);
+      com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType result = com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.forNumber(transactionType_);
       return result == null ? com.google.cloud.paymentgateway.issuerswitch.v1.TransactionType.UNRECOGNIZED : result;
     }
     /**
@@ -970,7 +938,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       transactionType_ = value.getNumber();
       onChanged();
       return this;
@@ -986,7 +954,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransactionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       transactionType_ = 0;
       onChanged();
       return this;
@@ -1024,7 +992,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Rule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

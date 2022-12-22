@@ -86,7 +86,6 @@ public interface CheckSettingsOrBuilder extends
    *
    * <code>map&lt;string, string&gt; context_extensions = 1 [(.udpa.annotations.sensitive) = true];</code>
    */
-
   /* nullable */
 java.lang.String getContextExtensionsOrDefault(
       java.lang.String key,
@@ -109,7 +108,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; context_extensions = 1 [(.udpa.annotations.sensitive) = true];</code>
    */
-
   java.lang.String getContextExtensionsOrThrow(
       java.lang.String key);
 

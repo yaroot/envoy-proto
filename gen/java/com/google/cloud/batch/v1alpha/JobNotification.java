@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private JobNotification(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pubsubTopic_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.batch.v1alpha.JobNotification.Message.Builder subBuilder = null;
-            if (message_ != null) {
-              subBuilder = message_.toBuilder();
-            }
-            message_ = input.readMessage(com.google.cloud.batch.v1alpha.JobNotification.Message.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(message_);
-              message_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_JobNotification_descriptor;
@@ -348,63 +290,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Message(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              type_ = rawValue;
-              break;
-            }
-            case 16: {
-              int rawValue = input.readEnum();
-
-              newJobState_ = rawValue;
-              break;
-            }
-            case 24: {
-              int rawValue = input.readEnum();
-
-              newTaskState_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.batch.v1alpha.JobProto.internal_static_google_cloud_batch_v1alpha_JobNotification_Message_descriptor;
@@ -419,7 +304,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private int type_;
+    private int type_ = 0;
     /**
      * <pre>
      * The message type.
@@ -440,13 +325,12 @@ private static final long serialVersionUID = 0L;
      * @return The type.
      */
     @java.lang.Override public com.google.cloud.batch.v1alpha.JobNotification.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.batch.v1alpha.JobNotification.Type result = com.google.cloud.batch.v1alpha.JobNotification.Type.valueOf(type_);
+      com.google.cloud.batch.v1alpha.JobNotification.Type result = com.google.cloud.batch.v1alpha.JobNotification.Type.forNumber(type_);
       return result == null ? com.google.cloud.batch.v1alpha.JobNotification.Type.UNRECOGNIZED : result;
     }
 
     public static final int NEW_JOB_STATE_FIELD_NUMBER = 2;
-    private int newJobState_;
+    private int newJobState_ = 0;
     /**
      * <pre>
      * The new job state.
@@ -467,13 +351,12 @@ private static final long serialVersionUID = 0L;
      * @return The newJobState.
      */
     @java.lang.Override public com.google.cloud.batch.v1alpha.JobStatus.State getNewJobState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.batch.v1alpha.JobStatus.State result = com.google.cloud.batch.v1alpha.JobStatus.State.valueOf(newJobState_);
+      com.google.cloud.batch.v1alpha.JobStatus.State result = com.google.cloud.batch.v1alpha.JobStatus.State.forNumber(newJobState_);
       return result == null ? com.google.cloud.batch.v1alpha.JobStatus.State.UNRECOGNIZED : result;
     }
 
     public static final int NEW_TASK_STATE_FIELD_NUMBER = 3;
-    private int newTaskState_;
+    private int newTaskState_ = 0;
     /**
      * <pre>
      * The new task state.
@@ -494,8 +377,7 @@ private static final long serialVersionUID = 0L;
      * @return The newTaskState.
      */
     @java.lang.Override public com.google.cloud.batch.v1alpha.TaskStatus.State getNewTaskState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.batch.v1alpha.TaskStatus.State result = com.google.cloud.batch.v1alpha.TaskStatus.State.valueOf(newTaskState_);
+      com.google.cloud.batch.v1alpha.TaskStatus.State result = com.google.cloud.batch.v1alpha.TaskStatus.State.forNumber(newTaskState_);
       return result == null ? com.google.cloud.batch.v1alpha.TaskStatus.State.UNRECOGNIZED : result;
     }
 
@@ -522,7 +404,7 @@ private static final long serialVersionUID = 0L;
       if (newTaskState_ != com.google.cloud.batch.v1alpha.TaskStatus.State.STATE_UNSPECIFIED.getNumber()) {
         output.writeEnum(3, newTaskState_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -543,7 +425,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(3, newTaskState_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -561,7 +443,7 @@ private static final long serialVersionUID = 0L;
       if (type_ != other.type_) return false;
       if (newJobState_ != other.newJobState_) return false;
       if (newTaskState_ != other.newTaskState_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -578,7 +460,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + newJobState_;
       hash = (37 * hash) + NEW_TASK_STATE_FIELD_NUMBER;
       hash = (53 * hash) + newTaskState_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -701,28 +583,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.batch.v1alpha.JobNotification.Message.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         type_ = 0;
-
         newJobState_ = 0;
-
         newTaskState_ = 0;
-
         return this;
       }
 
@@ -749,11 +624,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.JobNotification.Message buildPartial() {
         com.google.cloud.batch.v1alpha.JobNotification.Message result = new com.google.cloud.batch.v1alpha.JobNotification.Message(this);
-        result.type_ = type_;
-        result.newJobState_ = newJobState_;
-        result.newTaskState_ = newTaskState_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.batch.v1alpha.JobNotification.Message result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.type_ = type_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.newJobState_ = newJobState_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.newTaskState_ = newTaskState_;
+        }
       }
 
       @java.lang.Override
@@ -809,7 +695,7 @@ private static final long serialVersionUID = 0L;
         if (other.newTaskState_ != 0) {
           setNewTaskStateValue(other.getNewTaskStateValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -824,19 +710,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.batch.v1alpha.JobNotification.Message parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                type_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                newJobState_ = input.readEnum();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                newTaskState_ = input.readEnum();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.batch.v1alpha.JobNotification.Message) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int type_ = 0;
       /**
@@ -860,8 +775,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setTypeValue(int value) {
-        
         type_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -875,8 +790,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.JobNotification.Type getType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.batch.v1alpha.JobNotification.Type result = com.google.cloud.batch.v1alpha.JobNotification.Type.valueOf(type_);
+        com.google.cloud.batch.v1alpha.JobNotification.Type result = com.google.cloud.batch.v1alpha.JobNotification.Type.forNumber(type_);
         return result == null ? com.google.cloud.batch.v1alpha.JobNotification.Type.UNRECOGNIZED : result;
       }
       /**
@@ -892,7 +806,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         type_ = value.getNumber();
         onChanged();
         return this;
@@ -906,7 +820,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -934,8 +848,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setNewJobStateValue(int value) {
-        
         newJobState_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -949,8 +863,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.JobStatus.State getNewJobState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.batch.v1alpha.JobStatus.State result = com.google.cloud.batch.v1alpha.JobStatus.State.valueOf(newJobState_);
+        com.google.cloud.batch.v1alpha.JobStatus.State result = com.google.cloud.batch.v1alpha.JobStatus.State.forNumber(newJobState_);
         return result == null ? com.google.cloud.batch.v1alpha.JobStatus.State.UNRECOGNIZED : result;
       }
       /**
@@ -966,7 +879,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         newJobState_ = value.getNumber();
         onChanged();
         return this;
@@ -980,7 +893,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNewJobState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         newJobState_ = 0;
         onChanged();
         return this;
@@ -1008,8 +921,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setNewTaskStateValue(int value) {
-        
         newTaskState_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1023,8 +936,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.batch.v1alpha.TaskStatus.State getNewTaskState() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.batch.v1alpha.TaskStatus.State result = com.google.cloud.batch.v1alpha.TaskStatus.State.valueOf(newTaskState_);
+        com.google.cloud.batch.v1alpha.TaskStatus.State result = com.google.cloud.batch.v1alpha.TaskStatus.State.forNumber(newTaskState_);
         return result == null ? com.google.cloud.batch.v1alpha.TaskStatus.State.UNRECOGNIZED : result;
       }
       /**
@@ -1040,7 +952,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000004;
         newTaskState_ = value.getNumber();
         onChanged();
         return this;
@@ -1054,7 +966,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearNewTaskState() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         newTaskState_ = 0;
         onChanged();
         return this;
@@ -1092,7 +1004,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Message(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1113,7 +1036,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PUBSUB_TOPIC_FIELD_NUMBER = 1;
-  private volatile java.lang.Object pubsubTopic_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pubsubTopic_ = "";
   /**
    * <pre>
    * The Pub/Sub topic where notifications like the job state changes
@@ -1204,7 +1128,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.batch.v1alpha.JobNotification.MessageOrBuilder getMessageOrBuilder() {
-    return getMessage();
+    return message_ == null ? com.google.cloud.batch.v1alpha.JobNotification.Message.getDefaultInstance() : message_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1227,7 +1151,7 @@ private static final long serialVersionUID = 0L;
     if (message_ != null) {
       output.writeMessage(2, getMessage());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1243,7 +1167,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getMessage());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1265,7 +1189,7 @@ private static final long serialVersionUID = 0L;
       if (!getMessage()
           .equals(other.getMessage())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1282,7 +1206,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
       hash = (53 * hash) + getMessage().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1403,28 +1327,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.batch.v1alpha.JobNotification.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       pubsubTopic_ = "";
-
-      if (messageBuilder_ == null) {
-        message_ = null;
-      } else {
-        message_ = null;
+      message_ = null;
+      if (messageBuilder_ != null) {
+        messageBuilder_.dispose();
         messageBuilder_ = null;
       }
       return this;
@@ -1453,14 +1371,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.batch.v1alpha.JobNotification buildPartial() {
       com.google.cloud.batch.v1alpha.JobNotification result = new com.google.cloud.batch.v1alpha.JobNotification(this);
-      result.pubsubTopic_ = pubsubTopic_;
-      if (messageBuilder_ == null) {
-        result.message_ = message_;
-      } else {
-        result.message_ = messageBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.batch.v1alpha.JobNotification result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.pubsubTopic_ = pubsubTopic_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.message_ = messageBuilder_ == null
+            ? message_
+            : messageBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1509,12 +1434,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.batch.v1alpha.JobNotification.getDefaultInstance()) return this;
       if (!other.getPubsubTopic().isEmpty()) {
         pubsubTopic_ = other.pubsubTopic_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasMessage()) {
         mergeMessage(other.getMessage());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1529,19 +1455,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.batch.v1alpha.JobNotification parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              pubsubTopic_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getMessageFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.batch.v1alpha.JobNotification) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object pubsubTopic_ = "";
     /**
@@ -1608,11 +1560,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubsubTopic(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pubsubTopic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1629,8 +1579,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPubsubTopic() {
-      
       pubsubTopic_ = getDefaultInstance().getPubsubTopic();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1649,12 +1599,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPubsubTopicBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pubsubTopic_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1672,7 +1620,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the message field is set.
      */
     public boolean hasMessage() {
-      return messageBuilder_ != null || message_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1704,11 +1652,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         message_ = value;
-        onChanged();
       } else {
         messageBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1723,11 +1671,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.batch.v1alpha.JobNotification.Message.Builder builderForValue) {
       if (messageBuilder_ == null) {
         message_ = builderForValue.build();
-        onChanged();
       } else {
         messageBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1740,17 +1688,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessage(com.google.cloud.batch.v1alpha.JobNotification.Message value) {
       if (messageBuilder_ == null) {
-        if (message_ != null) {
-          message_ =
-            com.google.cloud.batch.v1alpha.JobNotification.Message.newBuilder(message_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          message_ != null &&
+          message_ != com.google.cloud.batch.v1alpha.JobNotification.Message.getDefaultInstance()) {
+          getMessageBuilder().mergeFrom(value);
         } else {
           message_ = value;
         }
-        onChanged();
       } else {
         messageBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1762,14 +1711,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.JobNotification.Message message = 2;</code>
      */
     public Builder clearMessage() {
-      if (messageBuilder_ == null) {
-        message_ = null;
-        onChanged();
-      } else {
-        message_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      message_ = null;
+      if (messageBuilder_ != null) {
+        messageBuilder_.dispose();
         messageBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1781,7 +1729,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.batch.v1alpha.JobNotification.Message message = 2;</code>
      */
     public com.google.cloud.batch.v1alpha.JobNotification.Message.Builder getMessageBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMessageFieldBuilder().getBuilder();
     }
@@ -1855,7 +1803,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new JobNotification(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

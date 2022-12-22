@@ -69,42 +69,40 @@ public final class ActorProto {
   static {
     java.lang.String[] descriptorData = {
       "\n)google/apps/drive/activity/v2/actor.pr" +
-      "oto\022\035google.apps.drive.activity.v2\032*goog" +
-      "le/apps/drive/activity/v2/common.proto\"\323" +
-      "\002\n\005Actor\0223\n\004user\030\001 \001(\0132#.google.apps.dri" +
-      "ve.activity.v2.UserH\000\022A\n\tanonymous\030\002 \001(\013" +
-      "2,.google.apps.drive.activity.v2.Anonymo" +
-      "usUserH\000\022E\n\rimpersonation\030\003 \001(\0132,.google" +
-      ".apps.drive.activity.v2.ImpersonationH\000\022" +
-      "<\n\006system\030\004 \001(\0132*.google.apps.drive.acti" +
-      "vity.v2.SystemEventH\000\022E\n\radministrator\030\005" +
-      " \001(\0132,.google.apps.drive.activity.v2.Adm" +
-      "inistratorH\000B\006\n\004type\"\276\002\n\004User\022C\n\nknown_u" +
-      "ser\030\002 \001(\0132-.google.apps.drive.activity.v" +
-      "2.User.KnownUserH\000\022G\n\014deleted_user\030\003 \001(\013" +
-      "2/.google.apps.drive.activity.v2.User.De" +
-      "letedUserH\000\022G\n\014unknown_user\030\004 \001(\0132/.goog" +
-      "le.apps.drive.activity.v2.User.UnknownUs" +
-      "erH\000\0329\n\tKnownUser\022\023\n\013person_name\030\001 \001(\t\022\027" +
-      "\n\017is_current_user\030\002 \001(\010\032\r\n\013DeletedUser\032\r" +
-      "\n\013UnknownUserB\006\n\004type\"\017\n\rAnonymousUser\"O" +
-      "\n\rImpersonation\022>\n\021impersonated_user\030\001 \001" +
-      "(\0132#.google.apps.drive.activity.v2.User\"" +
-      "\223\001\n\013SystemEvent\022=\n\004type\030\001 \001(\0162/.google.a" +
-      "pps.drive.activity.v2.SystemEvent.Type\"E" +
-      "\n\004Type\022\024\n\020TYPE_UNSPECIFIED\020\000\022\021\n\rUSER_DEL" +
-      "ETION\020\001\022\024\n\020TRASH_AUTO_PURGE\020\002\"\017\n\rAdminis" +
-      "tratorB\277\001\n!com.google.apps.drive.activit" +
-      "y.v2B\nActorProtoP\001ZEgoogle.golang.org/ge" +
-      "nproto/googleapis/apps/drive/activity/v2" +
-      ";activity\242\002\004GADA\252\002\035Google.Apps.Drive.Act" +
-      "ivity.V2\312\002\035Google\\Apps\\Drive\\Activity\\V2" +
-      "b\006proto3"
+      "oto\022\035google.apps.drive.activity.v2\"\323\002\n\005A" +
+      "ctor\0223\n\004user\030\001 \001(\0132#.google.apps.drive.a" +
+      "ctivity.v2.UserH\000\022A\n\tanonymous\030\002 \001(\0132,.g" +
+      "oogle.apps.drive.activity.v2.AnonymousUs" +
+      "erH\000\022E\n\rimpersonation\030\003 \001(\0132,.google.app" +
+      "s.drive.activity.v2.ImpersonationH\000\022<\n\006s" +
+      "ystem\030\004 \001(\0132*.google.apps.drive.activity" +
+      ".v2.SystemEventH\000\022E\n\radministrator\030\005 \001(\013" +
+      "2,.google.apps.drive.activity.v2.Adminis" +
+      "tratorH\000B\006\n\004type\"\276\002\n\004User\022C\n\nknown_user\030" +
+      "\002 \001(\0132-.google.apps.drive.activity.v2.Us" +
+      "er.KnownUserH\000\022G\n\014deleted_user\030\003 \001(\0132/.g" +
+      "oogle.apps.drive.activity.v2.User.Delete" +
+      "dUserH\000\022G\n\014unknown_user\030\004 \001(\0132/.google.a" +
+      "pps.drive.activity.v2.User.UnknownUserH\000" +
+      "\0329\n\tKnownUser\022\023\n\013person_name\030\001 \001(\t\022\027\n\017is" +
+      "_current_user\030\002 \001(\010\032\r\n\013DeletedUser\032\r\n\013Un" +
+      "knownUserB\006\n\004type\"\017\n\rAnonymousUser\"O\n\rIm" +
+      "personation\022>\n\021impersonated_user\030\001 \001(\0132#" +
+      ".google.apps.drive.activity.v2.User\"\223\001\n\013" +
+      "SystemEvent\022=\n\004type\030\001 \001(\0162/.google.apps." +
+      "drive.activity.v2.SystemEvent.Type\"E\n\004Ty" +
+      "pe\022\024\n\020TYPE_UNSPECIFIED\020\000\022\021\n\rUSER_DELETIO" +
+      "N\020\001\022\024\n\020TRASH_AUTO_PURGE\020\002\"\017\n\rAdministrat" +
+      "orB\277\001\n!com.google.apps.drive.activity.v2" +
+      "B\nActorProtoP\001ZEgoogle.golang.org/genpro" +
+      "to/googleapis/apps/drive/activity/v2;act" +
+      "ivity\242\002\004GADA\252\002\035Google.Apps.Drive.Activit" +
+      "y.V2\312\002\035Google\\Apps\\Drive\\Activity\\V2b\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.google.apps.drive.activity.v2.CommonProto.getDescriptor(),
         });
     internal_static_google_apps_drive_activity_v2_Actor_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -160,7 +158,6 @@ public final class ActorProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_apps_drive_activity_v2_Administrator_descriptor,
         new java.lang.String[] { });
-    com.google.apps.drive.activity.v2.CommonProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

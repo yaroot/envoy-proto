@@ -9,9 +9,9 @@ public interface DeleteModelRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The resource name of the [Model] to delete.
-   * Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+   * Required. The resource name of the
+   * [Model][google.cloud.retail.v2alpha.Model] to delete. Format:
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -20,9 +20,9 @@ public interface DeleteModelRequestOrBuilder extends
   java.lang.String getName();
   /**
    * <pre>
-   * Required. The resource name of the [Model] to delete.
-   * Format:
-   * projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}
+   * Required. The resource name of the
+   * [Model][google.cloud.retail.v2alpha.Model] to delete. Format:
+   * `projects/{project_number}/locations/{location_id}/catalogs/{catalog_id}/models/{model_id}`
    * </pre>
    *
    * <code>string name = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

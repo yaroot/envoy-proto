@@ -10,6 +10,7 @@ public interface ProcessorTypeOrBuilder extends
   /**
    * <pre>
    * The resource name of the processor type.
+   * Format: `projects/{project}/processorTypes/{processor_type}`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -19,6 +20,7 @@ public interface ProcessorTypeOrBuilder extends
   /**
    * <pre>
    * The resource name of the processor type.
+   * Format: `projects/{project}/processorTypes/{processor_type}`
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -29,7 +31,7 @@ public interface ProcessorTypeOrBuilder extends
 
   /**
    * <pre>
-   * The type of the processor.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -38,7 +40,7 @@ public interface ProcessorTypeOrBuilder extends
   java.lang.String getType();
   /**
    * <pre>
-   * The type of the processor.
+   * The processor type, e.g., `OCR_PROCESSOR`, `INVOICE_PROCESSOR`, etc.
    * </pre>
    *
    * <code>string type = 2;</code>
@@ -49,7 +51,7 @@ public interface ProcessorTypeOrBuilder extends
 
   /**
    * <pre>
-   * The processor category.
+   * The processor category, used by UI to group processor types.
    * </pre>
    *
    * <code>string category = 3;</code>
@@ -58,7 +60,7 @@ public interface ProcessorTypeOrBuilder extends
   java.lang.String getCategory();
   /**
    * <pre>
-   * The processor category.
+   * The processor category, used by UI to group processor types.
    * </pre>
    *
    * <code>string category = 3;</code>
@@ -113,13 +115,72 @@ public interface ProcessorTypeOrBuilder extends
 
   /**
    * <pre>
-   * Whether the processor type allows creation. If yes, user can create a
-   * processor of this processor type. Otherwise, user needs to require for
-   * whitelisting.
+   * Whether the processor type allows creation. If true, users can create a
+   * processor of this processor type. Otherwise, users need to request access.
    * </pre>
    *
    * <code>bool allow_creation = 6;</code>
    * @return The allowCreation.
    */
   boolean getAllowCreation();
+
+  /**
+   * <pre>
+   * Launch stage of the processor type
+   * </pre>
+   *
+   * <code>.google.api.LaunchStage launch_stage = 8;</code>
+   * @return The enum numeric value on the wire for launchStage.
+   */
+  int getLaunchStageValue();
+  /**
+   * <pre>
+   * Launch stage of the processor type
+   * </pre>
+   *
+   * <code>.google.api.LaunchStage launch_stage = 8;</code>
+   * @return The launchStage.
+   */
+  com.google.api.LaunchStage getLaunchStage();
+
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @return A list containing the sampleDocumentUris.
+   */
+  java.util.List<java.lang.String>
+      getSampleDocumentUrisList();
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @return The count of sampleDocumentUris.
+   */
+  int getSampleDocumentUrisCount();
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @param index The index of the element to return.
+   * @return The sampleDocumentUris at the given index.
+   */
+  java.lang.String getSampleDocumentUris(int index);
+  /**
+   * <pre>
+   * A set of Cloud Storage URIs of sample documents for this processor.
+   * </pre>
+   *
+   * <code>repeated string sample_document_uris = 9;</code>
+   * @param index The index of the value to return.
+   * @return The bytes of the sampleDocumentUris at the given index.
+   */
+  com.google.protobuf.ByteString
+      getSampleDocumentUrisBytes(int index);
 }

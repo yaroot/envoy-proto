@@ -30,297 +30,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OneofWellKnownTypes(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Any.Builder subBuilder = null;
-            if (oneofFieldCase_ == 1) {
-              subBuilder = ((com.google.protobuf.Any) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Any.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Any) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Api.Builder subBuilder = null;
-            if (oneofFieldCase_ == 2) {
-              subBuilder = ((com.google.protobuf.Api) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Api.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Api) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (oneofFieldCase_ == 3) {
-              subBuilder = ((com.google.protobuf.Duration) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Duration) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 3;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Empty.Builder subBuilder = null;
-            if (oneofFieldCase_ == 4) {
-              subBuilder = ((com.google.protobuf.Empty) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Empty.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Empty) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (oneofFieldCase_ == 5) {
-              subBuilder = ((com.google.protobuf.FieldMask) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.FieldMask) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.protobuf.SourceContext.Builder subBuilder = null;
-            if (oneofFieldCase_ == 6) {
-              subBuilder = ((com.google.protobuf.SourceContext) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.SourceContext.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.SourceContext) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (oneofFieldCase_ == 7) {
-              subBuilder = ((com.google.protobuf.Struct) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Struct) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (oneofFieldCase_ == 8) {
-              subBuilder = ((com.google.protobuf.Timestamp) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Timestamp) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 8;
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Type.Builder subBuilder = null;
-            if (oneofFieldCase_ == 9) {
-              subBuilder = ((com.google.protobuf.Type) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Type.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Type) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 9;
-            break;
-          }
-          case 82: {
-            com.google.protobuf.DoubleValue.Builder subBuilder = null;
-            if (oneofFieldCase_ == 10) {
-              subBuilder = ((com.google.protobuf.DoubleValue) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.DoubleValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.DoubleValue) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 10;
-            break;
-          }
-          case 90: {
-            com.google.protobuf.FloatValue.Builder subBuilder = null;
-            if (oneofFieldCase_ == 11) {
-              subBuilder = ((com.google.protobuf.FloatValue) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.FloatValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.FloatValue) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 11;
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Int64Value.Builder subBuilder = null;
-            if (oneofFieldCase_ == 12) {
-              subBuilder = ((com.google.protobuf.Int64Value) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Int64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Int64Value) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 12;
-            break;
-          }
-          case 106: {
-            com.google.protobuf.UInt64Value.Builder subBuilder = null;
-            if (oneofFieldCase_ == 13) {
-              subBuilder = ((com.google.protobuf.UInt64Value) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.UInt64Value) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 13;
-            break;
-          }
-          case 114: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (oneofFieldCase_ == 14) {
-              subBuilder = ((com.google.protobuf.Int32Value) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Int32Value) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 14;
-            break;
-          }
-          case 122: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (oneofFieldCase_ == 15) {
-              subBuilder = ((com.google.protobuf.UInt32Value) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.UInt32Value) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 15;
-            break;
-          }
-          case 130: {
-            com.google.protobuf.BoolValue.Builder subBuilder = null;
-            if (oneofFieldCase_ == 16) {
-              subBuilder = ((com.google.protobuf.BoolValue) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.BoolValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.BoolValue) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 16;
-            break;
-          }
-          case 138: {
-            com.google.protobuf.StringValue.Builder subBuilder = null;
-            if (oneofFieldCase_ == 17) {
-              subBuilder = ((com.google.protobuf.StringValue) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.StringValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.StringValue) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 17;
-            break;
-          }
-          case 146: {
-            com.google.protobuf.BytesValue.Builder subBuilder = null;
-            if (oneofFieldCase_ == 18) {
-              subBuilder = ((com.google.protobuf.BytesValue) oneofField_).toBuilder();
-            }
-            oneofField_ =
-                input.readMessage(com.google.protobuf.BytesValue.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.BytesValue) oneofField_);
-              oneofField_ = subBuilder.buildPartial();
-            }
-            oneofFieldCase_ = 18;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.protobuf.test.UnittestWellKnownTypes.internal_static_protobuf_unittest_OneofWellKnownTypes_descriptor;
@@ -1033,7 +742,7 @@ private static final long serialVersionUID = 0L;
     if (oneofFieldCase_ == 18) {
       output.writeMessage(18, (com.google.protobuf.BytesValue) oneofField_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1114,7 +823,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(18, (com.google.protobuf.BytesValue) oneofField_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1206,7 +915,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1293,7 +1002,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1410,22 +1119,72 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.protobuf.test.OneofWellKnownTypes.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (anyFieldBuilder_ != null) {
+        anyFieldBuilder_.clear();
+      }
+      if (apiFieldBuilder_ != null) {
+        apiFieldBuilder_.clear();
+      }
+      if (durationFieldBuilder_ != null) {
+        durationFieldBuilder_.clear();
+      }
+      if (emptyFieldBuilder_ != null) {
+        emptyFieldBuilder_.clear();
+      }
+      if (fieldMaskFieldBuilder_ != null) {
+        fieldMaskFieldBuilder_.clear();
+      }
+      if (sourceContextFieldBuilder_ != null) {
+        sourceContextFieldBuilder_.clear();
+      }
+      if (structFieldBuilder_ != null) {
+        structFieldBuilder_.clear();
+      }
+      if (timestampFieldBuilder_ != null) {
+        timestampFieldBuilder_.clear();
+      }
+      if (typeFieldBuilder_ != null) {
+        typeFieldBuilder_.clear();
+      }
+      if (doubleFieldBuilder_ != null) {
+        doubleFieldBuilder_.clear();
+      }
+      if (floatFieldBuilder_ != null) {
+        floatFieldBuilder_.clear();
+      }
+      if (int64FieldBuilder_ != null) {
+        int64FieldBuilder_.clear();
+      }
+      if (uint64FieldBuilder_ != null) {
+        uint64FieldBuilder_.clear();
+      }
+      if (int32FieldBuilder_ != null) {
+        int32FieldBuilder_.clear();
+      }
+      if (uint32FieldBuilder_ != null) {
+        uint32FieldBuilder_.clear();
+      }
+      if (boolFieldBuilder_ != null) {
+        boolFieldBuilder_.clear();
+      }
+      if (stringFieldBuilder_ != null) {
+        stringFieldBuilder_.clear();
+      }
+      if (bytesFieldBuilder_ != null) {
+        bytesFieldBuilder_.clear();
+      }
       oneofFieldCase_ = 0;
       oneofField_ = null;
       return this;
@@ -1454,135 +1213,91 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.test.OneofWellKnownTypes buildPartial() {
       com.google.protobuf.test.OneofWellKnownTypes result = new com.google.protobuf.test.OneofWellKnownTypes(this);
-      if (oneofFieldCase_ == 1) {
-        if (anyFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = anyFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 2) {
-        if (apiFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = apiFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 3) {
-        if (durationFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = durationFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 4) {
-        if (emptyFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = emptyFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 5) {
-        if (fieldMaskFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = fieldMaskFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 6) {
-        if (sourceContextFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = sourceContextFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 7) {
-        if (structFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = structFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 8) {
-        if (timestampFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = timestampFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 9) {
-        if (typeFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = typeFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 10) {
-        if (doubleFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = doubleFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 11) {
-        if (floatFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = floatFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 12) {
-        if (int64FieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = int64FieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 13) {
-        if (uint64FieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = uint64FieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 14) {
-        if (int32FieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = int32FieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 15) {
-        if (uint32FieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = uint32FieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 16) {
-        if (boolFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = boolFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 17) {
-        if (stringFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = stringFieldBuilder_.build();
-        }
-      }
-      if (oneofFieldCase_ == 18) {
-        if (bytesFieldBuilder_ == null) {
-          result.oneofField_ = oneofField_;
-        } else {
-          result.oneofField_ = bytesFieldBuilder_.build();
-        }
-      }
-      result.oneofFieldCase_ = oneofFieldCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.protobuf.test.OneofWellKnownTypes result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.protobuf.test.OneofWellKnownTypes result) {
+      result.oneofFieldCase_ = oneofFieldCase_;
+      result.oneofField_ = this.oneofField_;
+      if (oneofFieldCase_ == 1 &&
+          anyFieldBuilder_ != null) {
+        result.oneofField_ = anyFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 2 &&
+          apiFieldBuilder_ != null) {
+        result.oneofField_ = apiFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 3 &&
+          durationFieldBuilder_ != null) {
+        result.oneofField_ = durationFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 4 &&
+          emptyFieldBuilder_ != null) {
+        result.oneofField_ = emptyFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 5 &&
+          fieldMaskFieldBuilder_ != null) {
+        result.oneofField_ = fieldMaskFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 6 &&
+          sourceContextFieldBuilder_ != null) {
+        result.oneofField_ = sourceContextFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 7 &&
+          structFieldBuilder_ != null) {
+        result.oneofField_ = structFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 8 &&
+          timestampFieldBuilder_ != null) {
+        result.oneofField_ = timestampFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 9 &&
+          typeFieldBuilder_ != null) {
+        result.oneofField_ = typeFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 10 &&
+          doubleFieldBuilder_ != null) {
+        result.oneofField_ = doubleFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 11 &&
+          floatFieldBuilder_ != null) {
+        result.oneofField_ = floatFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 12 &&
+          int64FieldBuilder_ != null) {
+        result.oneofField_ = int64FieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 13 &&
+          uint64FieldBuilder_ != null) {
+        result.oneofField_ = uint64FieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 14 &&
+          int32FieldBuilder_ != null) {
+        result.oneofField_ = int32FieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 15 &&
+          uint32FieldBuilder_ != null) {
+        result.oneofField_ = uint32FieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 16 &&
+          boolFieldBuilder_ != null) {
+        result.oneofField_ = boolFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 17 &&
+          stringFieldBuilder_ != null) {
+        result.oneofField_ = stringFieldBuilder_.build();
+      }
+      if (oneofFieldCase_ == 18 &&
+          bytesFieldBuilder_ != null) {
+        result.oneofField_ = bytesFieldBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1706,7 +1421,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1721,17 +1436,156 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.protobuf.test.OneofWellKnownTypes parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getAnyFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getApiFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getDurationFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getEmptyFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getFieldMaskFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getSourceContextFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getStructFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getTimestampFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getTypeFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 9;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getDoubleFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getFloatFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 11;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getInt64FieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 12;
+              break;
+            } // case 98
+            case 106: {
+              input.readMessage(
+                  getUint64FieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 13;
+              break;
+            } // case 106
+            case 114: {
+              input.readMessage(
+                  getInt32FieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 14;
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getUint32FieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 15;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getBoolFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 16;
+              break;
+            } // case 130
+            case 138: {
+              input.readMessage(
+                  getStringFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 17;
+              break;
+            } // case 138
+            case 146: {
+              input.readMessage(
+                  getBytesFieldFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              oneofFieldCase_ = 18;
+              break;
+            } // case 146
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.protobuf.test.OneofWellKnownTypes) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int oneofFieldCase_ = 0;
@@ -1749,6 +1603,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anyFieldBuilder_;
@@ -1888,7 +1743,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 1;
-      onChanged();;
+      onChanged();
       return anyFieldBuilder_;
     }
 
@@ -2030,7 +1885,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 2;
-      onChanged();;
+      onChanged();
       return apiFieldBuilder_;
     }
 
@@ -2172,7 +2027,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 3;
-      onChanged();;
+      onChanged();
       return durationFieldBuilder_;
     }
 
@@ -2314,7 +2169,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 4;
-      onChanged();;
+      onChanged();
       return emptyFieldBuilder_;
     }
 
@@ -2456,7 +2311,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 5;
-      onChanged();;
+      onChanged();
       return fieldMaskFieldBuilder_;
     }
 
@@ -2598,7 +2453,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 6;
-      onChanged();;
+      onChanged();
       return sourceContextFieldBuilder_;
     }
 
@@ -2740,7 +2595,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 7;
-      onChanged();;
+      onChanged();
       return structFieldBuilder_;
     }
 
@@ -2882,7 +2737,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 8;
-      onChanged();;
+      onChanged();
       return timestampFieldBuilder_;
     }
 
@@ -3024,7 +2879,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 9;
-      onChanged();;
+      onChanged();
       return typeFieldBuilder_;
     }
 
@@ -3166,7 +3021,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 10;
-      onChanged();;
+      onChanged();
       return doubleFieldBuilder_;
     }
 
@@ -3308,7 +3163,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 11;
-      onChanged();;
+      onChanged();
       return floatFieldBuilder_;
     }
 
@@ -3450,7 +3305,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 12;
-      onChanged();;
+      onChanged();
       return int64FieldBuilder_;
     }
 
@@ -3592,7 +3447,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 13;
-      onChanged();;
+      onChanged();
       return uint64FieldBuilder_;
     }
 
@@ -3734,7 +3589,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 14;
-      onChanged();;
+      onChanged();
       return int32FieldBuilder_;
     }
 
@@ -3876,7 +3731,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 15;
-      onChanged();;
+      onChanged();
       return uint32FieldBuilder_;
     }
 
@@ -4018,7 +3873,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 16;
-      onChanged();;
+      onChanged();
       return boolFieldBuilder_;
     }
 
@@ -4160,7 +4015,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 17;
-      onChanged();;
+      onChanged();
       return stringFieldBuilder_;
     }
 
@@ -4302,7 +4157,7 @@ private static final long serialVersionUID = 0L;
         oneofField_ = null;
       }
       oneofFieldCase_ = 18;
-      onChanged();;
+      onChanged();
       return bytesFieldBuilder_;
     }
     @java.lang.Override
@@ -4338,7 +4193,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OneofWellKnownTypes(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

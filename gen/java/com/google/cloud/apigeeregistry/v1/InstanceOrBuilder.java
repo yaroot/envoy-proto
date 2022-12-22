@@ -10,7 +10,7 @@ public interface InstanceOrBuilder extends
   /**
    * <pre>
    * Format: `projects/&#42;&#47;locations/&#42;&#47;instance`.
-   * Currently only locations/global is supported.
+   * Currently only `locations/global` is supported.
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -20,7 +20,7 @@ public interface InstanceOrBuilder extends
   /**
    * <pre>
    * Format: `projects/&#42;&#47;locations/&#42;&#47;instance`.
-   * Currently only locations/global is supported.
+   * Currently only `locations/global` is supported.
    * </pre>
    *
    * <code>string name = 1;</code>

@@ -35,71 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RecommendationContent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              operationGroups_ = new java.util.ArrayList<com.google.cloud.recommender.v1.OperationGroup>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            operationGroups_.add(
-                input.readMessage(com.google.cloud.recommender.v1.OperationGroup.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (overview_ != null) {
-              subBuilder = overview_.toBuilder();
-            }
-            overview_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(overview_);
-              overview_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        operationGroups_ = java.util.Collections.unmodifiableList(operationGroups_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommender.v1.RecommendationOuterClass.internal_static_google_cloud_recommender_v1_RecommendationContent_descriptor;
@@ -114,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPERATION_GROUPS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.recommender.v1.OperationGroup> operationGroups_;
   /**
    * <pre>
@@ -218,7 +154,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getOverviewOrBuilder() {
-    return getOverview();
+    return overview_ == null ? com.google.protobuf.Struct.getDefaultInstance() : overview_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -241,7 +177,7 @@ private static final long serialVersionUID = 0L;
     if (overview_ != null) {
       output.writeMessage(3, getOverview());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -258,7 +194,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getOverview());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -280,7 +216,7 @@ private static final long serialVersionUID = 0L;
       if (!getOverview()
           .equals(other.getOverview())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -299,7 +235,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + OVERVIEW_FIELD_NUMBER;
       hash = (53 * hash) + getOverview().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -420,33 +356,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommender.v1.RecommendationContent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getOperationGroupsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (operationGroupsBuilder_ == null) {
         operationGroups_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        operationGroups_ = null;
         operationGroupsBuilder_.clear();
       }
-      if (overviewBuilder_ == null) {
-        overview_ = null;
-      } else {
-        overview_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      overview_ = null;
+      if (overviewBuilder_ != null) {
+        overviewBuilder_.dispose();
         overviewBuilder_ = null;
       }
       return this;
@@ -475,7 +406,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommender.v1.RecommendationContent buildPartial() {
       com.google.cloud.recommender.v1.RecommendationContent result = new com.google.cloud.recommender.v1.RecommendationContent(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.recommender.v1.RecommendationContent result) {
       if (operationGroupsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           operationGroups_ = java.util.Collections.unmodifiableList(operationGroups_);
@@ -485,13 +422,15 @@ private static final long serialVersionUID = 0L;
       } else {
         result.operationGroups_ = operationGroupsBuilder_.build();
       }
-      if (overviewBuilder_ == null) {
-        result.overview_ = overview_;
-      } else {
-        result.overview_ = overviewBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.recommender.v1.RecommendationContent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.overview_ = overviewBuilder_ == null
+            ? overview_
+            : overviewBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -567,7 +506,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasOverview()) {
         mergeOverview(other.getOverview());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -582,17 +521,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommender.v1.RecommendationContent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              com.google.cloud.recommender.v1.OperationGroup m =
+                  input.readMessage(
+                      com.google.cloud.recommender.v1.OperationGroup.parser(),
+                      extensionRegistry);
+              if (operationGroupsBuilder_ == null) {
+                ensureOperationGroupsIsMutable();
+                operationGroups_.add(m);
+              } else {
+                operationGroupsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getOverviewFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommender.v1.RecommendationContent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -957,7 +929,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the overview field is set.
      */
     public boolean hasOverview() {
-      return overviewBuilder_ != null || overview_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -987,11 +959,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         overview_ = value;
-        onChanged();
       } else {
         overviewBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1005,11 +977,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (overviewBuilder_ == null) {
         overview_ = builderForValue.build();
-        onChanged();
       } else {
         overviewBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1021,17 +993,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOverview(com.google.protobuf.Struct value) {
       if (overviewBuilder_ == null) {
-        if (overview_ != null) {
-          overview_ =
-            com.google.protobuf.Struct.newBuilder(overview_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          overview_ != null &&
+          overview_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getOverviewBuilder().mergeFrom(value);
         } else {
           overview_ = value;
         }
-        onChanged();
       } else {
         overviewBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1042,14 +1015,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct overview = 3;</code>
      */
     public Builder clearOverview() {
-      if (overviewBuilder_ == null) {
-        overview_ = null;
-        onChanged();
-      } else {
-        overview_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      overview_ = null;
+      if (overviewBuilder_ != null) {
+        overviewBuilder_.dispose();
         overviewBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1060,7 +1032,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct overview = 3;</code>
      */
     public com.google.protobuf.Struct.Builder getOverviewBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOverviewFieldBuilder().getBuilder();
     }
@@ -1132,7 +1104,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RecommendationContent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

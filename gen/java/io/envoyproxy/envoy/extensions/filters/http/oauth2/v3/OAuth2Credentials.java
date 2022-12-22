@@ -31,91 +31,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OAuth2Credentials(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            clientId_ = s;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.Builder subBuilder = null;
-            if (tokenSecret_ != null) {
-              subBuilder = tokenSecret_.toBuilder();
-            }
-            tokenSecret_ = input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(tokenSecret_);
-              tokenSecret_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.Builder subBuilder = null;
-            if (tokenFormationCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig) tokenFormation_).toBuilder();
-            }
-            tokenFormation_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig) tokenFormation_);
-              tokenFormation_ = subBuilder.buildPartial();
-            }
-            tokenFormationCase_ = 3;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.Builder subBuilder = null;
-            if (cookieNames_ != null) {
-              subBuilder = cookieNames_.toBuilder();
-            }
-            cookieNames_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cookieNames_);
-              cookieNames_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OauthProto.internal_static_envoy_extensions_filters_http_oauth2_v3_OAuth2Credentials_descriptor;
@@ -231,63 +146,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CookieNames(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              bearerToken_ = s;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              oauthHmac_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              oauthExpires_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OauthProto.internal_static_envoy_extensions_filters_http_oauth2_v3_OAuth2Credentials_CookieNames_descriptor;
@@ -302,7 +160,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int BEARER_TOKEN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object bearerToken_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object bearerToken_ = "";
     /**
      * <pre>
      * Cookie name to hold OAuth bearer token value. When the authentication server validates the
@@ -356,7 +215,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OAUTH_HMAC_FIELD_NUMBER = 2;
-    private volatile java.lang.Object oauthHmac_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object oauthHmac_ = "";
     /**
      * <pre>
      * Cookie name to hold OAuth HMAC value. Defaults to ``OauthHMAC``.
@@ -402,7 +262,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int OAUTH_EXPIRES_FIELD_NUMBER = 3;
-    private volatile java.lang.Object oauthExpires_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object oauthExpires_ = "";
     /**
      * <pre>
      * Cookie name to hold OAuth expiry value. Defaults to ``OauthExpires``.
@@ -470,7 +331,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oauthExpires_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, oauthExpires_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -488,7 +349,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oauthExpires_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, oauthExpires_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -509,7 +370,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getOauthHmac())) return false;
       if (!getOauthExpires()
           .equals(other.getOauthExpires())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -526,7 +387,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getOauthHmac().hashCode();
       hash = (37 * hash) + OAUTH_EXPIRES_FIELD_NUMBER;
       hash = (53 * hash) + getOauthExpires().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -643,28 +504,21 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         bearerToken_ = "";
-
         oauthHmac_ = "";
-
         oauthExpires_ = "";
-
         return this;
       }
 
@@ -691,11 +545,22 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames buildPartial() {
         io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames result = new io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames(this);
-        result.bearerToken_ = bearerToken_;
-        result.oauthHmac_ = oauthHmac_;
-        result.oauthExpires_ = oauthExpires_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.bearerToken_ = bearerToken_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.oauthHmac_ = oauthHmac_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.oauthExpires_ = oauthExpires_;
+        }
       }
 
       @java.lang.Override
@@ -744,17 +609,20 @@ private static final long serialVersionUID = 0L;
         if (other == io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.getDefaultInstance()) return this;
         if (!other.getBearerToken().isEmpty()) {
           bearerToken_ = other.bearerToken_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (!other.getOauthHmac().isEmpty()) {
           oauthHmac_ = other.oauthHmac_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getOauthExpires().isEmpty()) {
           oauthExpires_ = other.oauthExpires_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -769,19 +637,48 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                bearerToken_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                oauthHmac_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                oauthExpires_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object bearerToken_ = "";
       /**
@@ -848,11 +745,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBearerToken(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         bearerToken_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -869,8 +764,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearBearerToken() {
-        
         bearerToken_ = getDefaultInstance().getBearerToken();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -889,12 +784,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setBearerTokenBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         bearerToken_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -952,11 +845,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOauthHmac(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         oauthHmac_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -969,8 +860,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOauthHmac() {
-        
         oauthHmac_ = getDefaultInstance().getOauthHmac();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -985,12 +876,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOauthHmacBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         oauthHmac_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1048,11 +937,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOauthExpires(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         oauthExpires_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1065,8 +952,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearOauthExpires() {
-        
         oauthExpires_ = getDefaultInstance().getOauthExpires();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1081,12 +968,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setOauthExpiresBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         oauthExpires_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1123,7 +1008,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CookieNames(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1183,7 +1079,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLIENT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object clientId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object clientId_ = "";
   /**
    * <pre>
    * The client_id to be used in the authorize calls. This value will be URL encoded when sent to the OAuth server.
@@ -1263,7 +1160,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfigOrBuilder getTokenSecretOrBuilder() {
-    return getTokenSecret();
+    return tokenSecret_ == null ? io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.getDefaultInstance() : tokenSecret_;
   }
 
   public static final int HMAC_SECRET_FIELD_NUMBER = 3;
@@ -1344,7 +1241,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNamesOrBuilder getCookieNamesOrBuilder() {
-    return getCookieNames();
+    return cookieNames_ == null ? io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.getDefaultInstance() : cookieNames_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1373,7 +1270,7 @@ private static final long serialVersionUID = 0L;
     if (cookieNames_ != null) {
       output.writeMessage(4, getCookieNames());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1397,7 +1294,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getCookieNames());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1433,7 +1330,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1462,7 +1359,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1579,34 +1476,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       clientId_ = "";
-
-      if (tokenSecretBuilder_ == null) {
-        tokenSecret_ = null;
-      } else {
-        tokenSecret_ = null;
+      tokenSecret_ = null;
+      if (tokenSecretBuilder_ != null) {
+        tokenSecretBuilder_.dispose();
         tokenSecretBuilder_ = null;
       }
-      if (cookieNamesBuilder_ == null) {
-        cookieNames_ = null;
-      } else {
-        cookieNames_ = null;
+      if (hmacSecretBuilder_ != null) {
+        hmacSecretBuilder_.clear();
+      }
+      cookieNames_ = null;
+      if (cookieNamesBuilder_ != null) {
+        cookieNamesBuilder_.dispose();
         cookieNamesBuilder_ = null;
       }
       tokenFormationCase_ = 0;
@@ -1637,27 +1530,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials result = new io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials(this);
-      result.clientId_ = clientId_;
-      if (tokenSecretBuilder_ == null) {
-        result.tokenSecret_ = tokenSecret_;
-      } else {
-        result.tokenSecret_ = tokenSecretBuilder_.build();
-      }
-      if (tokenFormationCase_ == 3) {
-        if (hmacSecretBuilder_ == null) {
-          result.tokenFormation_ = tokenFormation_;
-        } else {
-          result.tokenFormation_ = hmacSecretBuilder_.build();
-        }
-      }
-      if (cookieNamesBuilder_ == null) {
-        result.cookieNames_ = cookieNames_;
-      } else {
-        result.cookieNames_ = cookieNamesBuilder_.build();
-      }
-      result.tokenFormationCase_ = tokenFormationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.clientId_ = clientId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.tokenSecret_ = tokenSecretBuilder_ == null
+            ? tokenSecret_
+            : tokenSecretBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.cookieNames_ = cookieNamesBuilder_ == null
+            ? cookieNames_
+            : cookieNamesBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials result) {
+      result.tokenFormationCase_ = tokenFormationCase_;
+      result.tokenFormation_ = this.tokenFormation_;
+      if (tokenFormationCase_ == 3 &&
+          hmacSecretBuilder_ != null) {
+        result.tokenFormation_ = hmacSecretBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1706,6 +1608,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.getDefaultInstance()) return this;
       if (!other.getClientId().isEmpty()) {
         clientId_ = other.clientId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasTokenSecret()) {
@@ -1723,7 +1626,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1738,17 +1641,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              clientId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTokenSecretFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getHmacSecretFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              tokenFormationCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCookieNamesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int tokenFormationCase_ = 0;
@@ -1766,6 +1708,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object clientId_ = "";
     /**
@@ -1820,11 +1763,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       clientId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1837,8 +1778,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearClientId() {
-      
       clientId_ = getDefaultInstance().getClientId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1853,12 +1794,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClientIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       clientId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1875,7 +1814,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the tokenSecret field is set.
      */
     public boolean hasTokenSecret() {
-      return tokenSecretBuilder_ != null || tokenSecret_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1905,11 +1844,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         tokenSecret_ = value;
-        onChanged();
       } else {
         tokenSecretBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1923,11 +1862,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.Builder builderForValue) {
       if (tokenSecretBuilder_ == null) {
         tokenSecret_ = builderForValue.build();
-        onChanged();
       } else {
         tokenSecretBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1939,17 +1878,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTokenSecret(io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig value) {
       if (tokenSecretBuilder_ == null) {
-        if (tokenSecret_ != null) {
-          tokenSecret_ =
-            io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.newBuilder(tokenSecret_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          tokenSecret_ != null &&
+          tokenSecret_ != io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.getDefaultInstance()) {
+          getTokenSecretBuilder().mergeFrom(value);
         } else {
           tokenSecret_ = value;
         }
-        onChanged();
       } else {
         tokenSecretBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1960,14 +1900,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig token_secret = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearTokenSecret() {
-      if (tokenSecretBuilder_ == null) {
-        tokenSecret_ = null;
-        onChanged();
-      } else {
-        tokenSecret_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      tokenSecret_ = null;
+      if (tokenSecretBuilder_ != null) {
+        tokenSecretBuilder_.dispose();
         tokenSecretBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1978,7 +1917,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig token_secret = 2 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.transport_sockets.tls.v3.SdsSecretConfig.Builder getTokenSecretBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTokenSecretFieldBuilder().getBuilder();
     }
@@ -2192,7 +2131,7 @@ private static final long serialVersionUID = 0L;
         tokenFormation_ = null;
       }
       tokenFormationCase_ = 3;
-      onChanged();;
+      onChanged();
       return hmacSecretBuilder_;
     }
 
@@ -2208,7 +2147,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cookieNames field is set.
      */
     public boolean hasCookieNames() {
-      return cookieNamesBuilder_ != null || cookieNames_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2238,11 +2177,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cookieNames_ = value;
-        onChanged();
       } else {
         cookieNamesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2256,11 +2195,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.Builder builderForValue) {
       if (cookieNamesBuilder_ == null) {
         cookieNames_ = builderForValue.build();
-        onChanged();
       } else {
         cookieNamesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2272,17 +2211,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCookieNames(io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames value) {
       if (cookieNamesBuilder_ == null) {
-        if (cookieNames_ != null) {
-          cookieNames_ =
-            io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.newBuilder(cookieNames_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          cookieNames_ != null &&
+          cookieNames_ != io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.getDefaultInstance()) {
+          getCookieNamesBuilder().mergeFrom(value);
         } else {
           cookieNames_ = value;
         }
-        onChanged();
       } else {
         cookieNamesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2293,14 +2233,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames cookie_names = 4;</code>
      */
     public Builder clearCookieNames() {
-      if (cookieNamesBuilder_ == null) {
-        cookieNames_ = null;
-        onChanged();
-      } else {
-        cookieNames_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      cookieNames_ = null;
+      if (cookieNamesBuilder_ != null) {
+        cookieNamesBuilder_.dispose();
         cookieNamesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2311,7 +2250,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames cookie_names = 4;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.oauth2.v3.OAuth2Credentials.CookieNames.Builder getCookieNamesBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCookieNamesFieldBuilder().getBuilder();
     }
@@ -2383,7 +2322,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OAuth2Credentials(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

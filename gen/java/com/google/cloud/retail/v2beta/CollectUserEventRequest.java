@@ -23,6 +23,7 @@ private static final long serialVersionUID = 0L;
     parent_ = "";
     userEvent_ = "";
     uri_ = "";
+    rawJson_ = "";
   }
 
   @java.lang.Override
@@ -37,68 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CollectUserEventRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            userEvent_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uri_ = s;
-            break;
-          }
-          case 32: {
-
-            ets_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2beta.UserEventServiceProto.internal_static_google_cloud_retail_v2beta_CollectUserEventRequest_descriptor;
@@ -112,8 +51,115 @@ private static final long serialVersionUID = 0L;
             com.google.cloud.retail.v2beta.CollectUserEventRequest.class, com.google.cloud.retail.v2beta.CollectUserEventRequest.Builder.class);
   }
 
+  private int conversionRuleCase_ = 0;
+  private java.lang.Object conversionRule_;
+  public enum ConversionRuleCase
+      implements com.google.protobuf.Internal.EnumLite,
+          com.google.protobuf.AbstractMessage.InternalOneOfEnum {
+    PREBUILT_RULE(6),
+    CONVERSIONRULE_NOT_SET(0);
+    private final int value;
+    private ConversionRuleCase(int value) {
+      this.value = value;
+    }
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ConversionRuleCase valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ConversionRuleCase forNumber(int value) {
+      switch (value) {
+        case 6: return PREBUILT_RULE;
+        case 0: return CONVERSIONRULE_NOT_SET;
+        default: return null;
+      }
+    }
+    public int getNumber() {
+      return this.value;
+    }
+  };
+
+  public ConversionRuleCase
+  getConversionRuleCase() {
+    return ConversionRuleCase.forNumber(
+        conversionRuleCase_);
+  }
+
+  public static final int PREBUILT_RULE_FIELD_NUMBER = 6;
+  /**
+   * <pre>
+   * The prebuilt rule name that can convert a specific type of raw_json.
+   * For example: "default_schema/v1.0"
+   * </pre>
+   *
+   * <code>string prebuilt_rule = 6;</code>
+   * @return Whether the prebuiltRule field is set.
+   */
+  public boolean hasPrebuiltRule() {
+    return conversionRuleCase_ == 6;
+  }
+  /**
+   * <pre>
+   * The prebuilt rule name that can convert a specific type of raw_json.
+   * For example: "default_schema/v1.0"
+   * </pre>
+   *
+   * <code>string prebuilt_rule = 6;</code>
+   * @return The prebuiltRule.
+   */
+  public java.lang.String getPrebuiltRule() {
+    java.lang.Object ref = "";
+    if (conversionRuleCase_ == 6) {
+      ref = conversionRule_;
+    }
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      if (conversionRuleCase_ == 6) {
+        conversionRule_ = s;
+      }
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * The prebuilt rule name that can convert a specific type of raw_json.
+   * For example: "default_schema/v1.0"
+   * </pre>
+   *
+   * <code>string prebuilt_rule = 6;</code>
+   * @return The bytes for prebuiltRule.
+   */
+  public com.google.protobuf.ByteString
+      getPrebuiltRuleBytes() {
+    java.lang.Object ref = "";
+    if (conversionRuleCase_ == 6) {
+      ref = conversionRule_;
+    }
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      if (conversionRuleCase_ == 6) {
+        conversionRule_ = b;
+      }
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The parent catalog name, such as
@@ -161,7 +207,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_EVENT_FIELD_NUMBER = 2;
-  private volatile java.lang.Object userEvent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object userEvent_ = "";
   /**
    * <pre>
    * Required. URL encoded UserEvent proto with a length limit of 2,000,000
@@ -209,7 +256,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int URI_FIELD_NUMBER = 3;
-  private volatile java.lang.Object uri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uri_ = "";
   /**
    * <pre>
    * The URL including cgi-parameters but excluding the hash fragment with a
@@ -261,7 +309,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ETS_FIELD_NUMBER = 4;
-  private long ets_;
+  private long ets_ = 0L;
   /**
    * <pre>
    * The event timestamp in milliseconds. This prevents browser caching of
@@ -275,6 +323,59 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public long getEts() {
     return ets_;
+  }
+
+  public static final int RAW_JSON_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object rawJson_ = "";
+  /**
+   * <pre>
+   * An arbitrary serialized JSON string that contains necessary information
+   * that can comprise a user event. When this field is specified, the
+   * user_event field will be ignored. Note: line-delimited JSON is not
+   * supported, a single JSON only.
+   * </pre>
+   *
+   * <code>string raw_json = 5;</code>
+   * @return The rawJson.
+   */
+  @java.lang.Override
+  public java.lang.String getRawJson() {
+    java.lang.Object ref = rawJson_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      rawJson_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * An arbitrary serialized JSON string that contains necessary information
+   * that can comprise a user event. When this field is specified, the
+   * user_event field will be ignored. Note: line-delimited JSON is not
+   * supported, a single JSON only.
+   * </pre>
+   *
+   * <code>string raw_json = 5;</code>
+   * @return The bytes for rawJson.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getRawJsonBytes() {
+    java.lang.Object ref = rawJson_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      rawJson_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -303,7 +404,13 @@ private static final long serialVersionUID = 0L;
     if (ets_ != 0L) {
       output.writeInt64(4, ets_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawJson_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 5, rawJson_);
+    }
+    if (conversionRuleCase_ == 6) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 6, conversionRule_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -325,7 +432,13 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(4, ets_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rawJson_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, rawJson_);
+    }
+    if (conversionRuleCase_ == 6) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, conversionRule_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -348,7 +461,18 @@ private static final long serialVersionUID = 0L;
         .equals(other.getUri())) return false;
     if (getEts()
         != other.getEts()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getRawJson()
+        .equals(other.getRawJson())) return false;
+    if (!getConversionRuleCase().equals(other.getConversionRuleCase())) return false;
+    switch (conversionRuleCase_) {
+      case 6:
+        if (!getPrebuiltRule()
+            .equals(other.getPrebuiltRule())) return false;
+        break;
+      case 0:
+      default:
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -368,7 +492,17 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + ETS_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getEts());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + RAW_JSON_FIELD_NUMBER;
+    hash = (53 * hash) + getRawJson().hashCode();
+    switch (conversionRuleCase_) {
+      case 6:
+        hash = (37 * hash) + PREBUILT_RULE_FIELD_NUMBER;
+        hash = (53 * hash) + getPrebuiltRule().hashCode();
+        break;
+      case 0:
+      default:
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -489,30 +623,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2beta.CollectUserEventRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       userEvent_ = "";
-
       uri_ = "";
-
       ets_ = 0L;
-
+      rawJson_ = "";
+      conversionRuleCase_ = 0;
+      conversionRule_ = null;
       return this;
     }
 
@@ -539,12 +668,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2beta.CollectUserEventRequest buildPartial() {
       com.google.cloud.retail.v2beta.CollectUserEventRequest result = new com.google.cloud.retail.v2beta.CollectUserEventRequest(this);
-      result.parent_ = parent_;
-      result.userEvent_ = userEvent_;
-      result.uri_ = uri_;
-      result.ets_ = ets_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2beta.CollectUserEventRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.userEvent_ = userEvent_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.uri_ = uri_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.ets_ = ets_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.rawJson_ = rawJson_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.retail.v2beta.CollectUserEventRequest result) {
+      result.conversionRuleCase_ = conversionRuleCase_;
+      result.conversionRule_ = this.conversionRule_;
     }
 
     @java.lang.Override
@@ -593,20 +744,39 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2beta.CollectUserEventRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUserEvent().isEmpty()) {
         userEvent_ = other.userEvent_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getUri().isEmpty()) {
         uri_ = other.uri_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getEts() != 0L) {
         setEts(other.getEts());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getRawJson().isEmpty()) {
+        rawJson_ = other.rawJson_;
+        bitField0_ |= 0x00000020;
+        onChanged();
+      }
+      switch (other.getConversionRuleCase()) {
+        case PREBUILT_RULE: {
+          conversionRuleCase_ = 6;
+          conversionRule_ = other.conversionRule_;
+          onChanged();
+          break;
+        }
+        case CONVERSIONRULE_NOT_SET: {
+          break;
+        }
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -621,17 +791,200 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2beta.CollectUserEventRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              userEvent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              uri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 32: {
+              ets_ = input.readInt64();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 32
+            case 42: {
+              rawJson_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              conversionRuleCase_ = 6;
+              conversionRule_ = s;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2beta.CollectUserEventRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
+        onChanged();
+      } // finally
+      return this;
+    }
+    private int conversionRuleCase_ = 0;
+    private java.lang.Object conversionRule_;
+    public ConversionRuleCase
+        getConversionRuleCase() {
+      return ConversionRuleCase.forNumber(
+          conversionRuleCase_);
+    }
+
+    public Builder clearConversionRule() {
+      conversionRuleCase_ = 0;
+      conversionRule_ = null;
+      onChanged();
+      return this;
+    }
+
+    private int bitField0_;
+
+    /**
+     * <pre>
+     * The prebuilt rule name that can convert a specific type of raw_json.
+     * For example: "default_schema/v1.0"
+     * </pre>
+     *
+     * <code>string prebuilt_rule = 6;</code>
+     * @return Whether the prebuiltRule field is set.
+     */
+    @java.lang.Override
+    public boolean hasPrebuiltRule() {
+      return conversionRuleCase_ == 6;
+    }
+    /**
+     * <pre>
+     * The prebuilt rule name that can convert a specific type of raw_json.
+     * For example: "default_schema/v1.0"
+     * </pre>
+     *
+     * <code>string prebuilt_rule = 6;</code>
+     * @return The prebuiltRule.
+     */
+    @java.lang.Override
+    public java.lang.String getPrebuiltRule() {
+      java.lang.Object ref = "";
+      if (conversionRuleCase_ == 6) {
+        ref = conversionRule_;
       }
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (conversionRuleCase_ == 6) {
+          conversionRule_ = s;
+        }
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The prebuilt rule name that can convert a specific type of raw_json.
+     * For example: "default_schema/v1.0"
+     * </pre>
+     *
+     * <code>string prebuilt_rule = 6;</code>
+     * @return The bytes for prebuiltRule.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPrebuiltRuleBytes() {
+      java.lang.Object ref = "";
+      if (conversionRuleCase_ == 6) {
+        ref = conversionRule_;
+      }
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        if (conversionRuleCase_ == 6) {
+          conversionRule_ = b;
+        }
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * The prebuilt rule name that can convert a specific type of raw_json.
+     * For example: "default_schema/v1.0"
+     * </pre>
+     *
+     * <code>string prebuilt_rule = 6;</code>
+     * @param value The prebuiltRule to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrebuiltRule(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      conversionRuleCase_ = 6;
+      conversionRule_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The prebuilt rule name that can convert a specific type of raw_json.
+     * For example: "default_schema/v1.0"
+     * </pre>
+     *
+     * <code>string prebuilt_rule = 6;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrebuiltRule() {
+      if (conversionRuleCase_ == 6) {
+        conversionRuleCase_ = 0;
+        conversionRule_ = null;
+        onChanged();
+      }
+      return this;
+    }
+    /**
+     * <pre>
+     * The prebuilt rule name that can convert a specific type of raw_json.
+     * For example: "default_schema/v1.0"
+     * </pre>
+     *
+     * <code>string prebuilt_rule = 6;</code>
+     * @param value The bytes for prebuiltRule to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrebuiltRuleBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      conversionRuleCase_ = 6;
+      conversionRule_ = value;
+      onChanged();
       return this;
     }
 
@@ -691,11 +1044,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -709,8 +1060,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -726,12 +1077,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -792,11 +1141,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserEvent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       userEvent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -810,8 +1157,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUserEvent() {
-      
       userEvent_ = getDefaultInstance().getUserEvent();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -827,12 +1174,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUserEventBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       userEvent_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -899,11 +1244,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -919,8 +1262,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUri() {
-      
       uri_ = getDefaultInstance().getUri();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -938,12 +1281,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uri_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -977,6 +1318,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEts(long value) {
       
       ets_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -991,8 +1333,115 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEts() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       ets_ = 0L;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object rawJson_ = "";
+    /**
+     * <pre>
+     * An arbitrary serialized JSON string that contains necessary information
+     * that can comprise a user event. When this field is specified, the
+     * user_event field will be ignored. Note: line-delimited JSON is not
+     * supported, a single JSON only.
+     * </pre>
+     *
+     * <code>string raw_json = 5;</code>
+     * @return The rawJson.
+     */
+    public java.lang.String getRawJson() {
+      java.lang.Object ref = rawJson_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rawJson_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * An arbitrary serialized JSON string that contains necessary information
+     * that can comprise a user event. When this field is specified, the
+     * user_event field will be ignored. Note: line-delimited JSON is not
+     * supported, a single JSON only.
+     * </pre>
+     *
+     * <code>string raw_json = 5;</code>
+     * @return The bytes for rawJson.
+     */
+    public com.google.protobuf.ByteString
+        getRawJsonBytes() {
+      java.lang.Object ref = rawJson_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rawJson_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * An arbitrary serialized JSON string that contains necessary information
+     * that can comprise a user event. When this field is specified, the
+     * user_event field will be ignored. Note: line-delimited JSON is not
+     * supported, a single JSON only.
+     * </pre>
+     *
+     * <code>string raw_json = 5;</code>
+     * @param value The rawJson to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRawJson(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      rawJson_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * An arbitrary serialized JSON string that contains necessary information
+     * that can comprise a user event. When this field is specified, the
+     * user_event field will be ignored. Note: line-delimited JSON is not
+     * supported, a single JSON only.
+     * </pre>
+     *
+     * <code>string raw_json = 5;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearRawJson() {
+      rawJson_ = getDefaultInstance().getRawJson();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * An arbitrary serialized JSON string that contains necessary information
+     * that can comprise a user event. When this field is specified, the
+     * user_event field will be ignored. Note: line-delimited JSON is not
+     * supported, a single JSON only.
+     * </pre>
+     *
+     * <code>string raw_json = 5;</code>
+     * @param value The bytes for rawJson to set.
+     * @return This builder for chaining.
+     */
+    public Builder setRawJsonBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      rawJson_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1029,7 +1478,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CollectUserEventRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

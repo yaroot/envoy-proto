@@ -46,159 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Listing(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            primaryContact_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            documentation_ = s;
-            break;
-          }
-          case 50: {
-            com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.Builder subBuilder = null;
-            if (sourceCase_ == 6) {
-              subBuilder = ((com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) source_).toBuilder();
-            }
-            source_ =
-                input.readMessage(com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) source_);
-              source_ = subBuilder.buildPartial();
-            }
-            sourceCase_ = 6;
-            break;
-          }
-          case 56: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 66: {
-
-            icon_ = input.readBytes();
-            break;
-          }
-          case 74: {
-            com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.Builder subBuilder = null;
-            if (dataProvider_ != null) {
-              subBuilder = dataProvider_.toBuilder();
-            }
-            dataProvider_ = input.readMessage(com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(dataProvider_);
-              dataProvider_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 80: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              categories_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            categories_.add(rawValue);
-            break;
-          }
-          case 82: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                categories_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              categories_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          case 90: {
-            com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.Builder subBuilder = null;
-            if (publisher_ != null) {
-              subBuilder = publisher_.toBuilder();
-            }
-            publisher_ = input.readMessage(com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(publisher_);
-              publisher_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestAccess_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        categories_ = java.util.Collections.unmodifiableList(categories_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.bigquery.dataexchange.v1beta1.DataExchangeProto.internal_static_google_cloud_bigquery_dataexchange_v1beta1_Listing_descriptor;
@@ -214,7 +61,7 @@ private static final long serialVersionUID = 0L;
 
   /**
    * <pre>
-   * State of the Listing
+   * State of the listing.
    * </pre>
    *
    * Protobuf enum {@code google.cloud.bigquery.dataexchange.v1beta1.Listing.State}
@@ -232,7 +79,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Subscribable state. Users with dataexchange.listings.subscribe permission
-     * can subscribe to this Listing.
+     * can subscribe to this listing.
      * </pre>
      *
      * <code>ACTIVE = 1;</code>
@@ -252,7 +99,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Subscribable state. Users with dataexchange.listings.subscribe permission
-     * can subscribe to this Listing.
+     * can subscribe to this listing.
      * </pre>
      *
      * <code>ACTIVE = 1;</code>
@@ -342,6 +189,280 @@ private static final long serialVersionUID = 0L;
     // @@protoc_insertion_point(enum_scope:google.cloud.bigquery.dataexchange.v1beta1.Listing.State)
   }
 
+  /**
+   * <pre>
+   * Listing categories.
+   * </pre>
+   *
+   * Protobuf enum {@code google.cloud.bigquery.dataexchange.v1beta1.Listing.Category}
+   */
+  public enum Category
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>CATEGORY_UNSPECIFIED = 0;</code>
+     */
+    CATEGORY_UNSPECIFIED(0),
+    /**
+     * <code>CATEGORY_OTHERS = 1;</code>
+     */
+    CATEGORY_OTHERS(1),
+    /**
+     * <code>CATEGORY_ADVERTISING_AND_MARKETING = 2;</code>
+     */
+    CATEGORY_ADVERTISING_AND_MARKETING(2),
+    /**
+     * <code>CATEGORY_COMMERCE = 3;</code>
+     */
+    CATEGORY_COMMERCE(3),
+    /**
+     * <code>CATEGORY_CLIMATE_AND_ENVIRONMENT = 4;</code>
+     */
+    CATEGORY_CLIMATE_AND_ENVIRONMENT(4),
+    /**
+     * <code>CATEGORY_DEMOGRAPHICS = 5;</code>
+     */
+    CATEGORY_DEMOGRAPHICS(5),
+    /**
+     * <code>CATEGORY_ECONOMICS = 6;</code>
+     */
+    CATEGORY_ECONOMICS(6),
+    /**
+     * <code>CATEGORY_EDUCATION = 7;</code>
+     */
+    CATEGORY_EDUCATION(7),
+    /**
+     * <code>CATEGORY_ENERGY = 8;</code>
+     */
+    CATEGORY_ENERGY(8),
+    /**
+     * <code>CATEGORY_FINANCIAL = 9;</code>
+     */
+    CATEGORY_FINANCIAL(9),
+    /**
+     * <code>CATEGORY_GAMING = 10;</code>
+     */
+    CATEGORY_GAMING(10),
+    /**
+     * <code>CATEGORY_GEOSPATIAL = 11;</code>
+     */
+    CATEGORY_GEOSPATIAL(11),
+    /**
+     * <code>CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE = 12;</code>
+     */
+    CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE(12),
+    /**
+     * <code>CATEGORY_MEDIA = 13;</code>
+     */
+    CATEGORY_MEDIA(13),
+    /**
+     * <code>CATEGORY_PUBLIC_SECTOR = 14;</code>
+     */
+    CATEGORY_PUBLIC_SECTOR(14),
+    /**
+     * <code>CATEGORY_RETAIL = 15;</code>
+     */
+    CATEGORY_RETAIL(15),
+    /**
+     * <code>CATEGORY_SPORTS = 16;</code>
+     */
+    CATEGORY_SPORTS(16),
+    /**
+     * <code>CATEGORY_SCIENCE_AND_RESEARCH = 17;</code>
+     */
+    CATEGORY_SCIENCE_AND_RESEARCH(17),
+    /**
+     * <code>CATEGORY_TRANSPORTATION_AND_LOGISTICS = 18;</code>
+     */
+    CATEGORY_TRANSPORTATION_AND_LOGISTICS(18),
+    /**
+     * <code>CATEGORY_TRAVEL_AND_TOURISM = 19;</code>
+     */
+    CATEGORY_TRAVEL_AND_TOURISM(19),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>CATEGORY_UNSPECIFIED = 0;</code>
+     */
+    public static final int CATEGORY_UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>CATEGORY_OTHERS = 1;</code>
+     */
+    public static final int CATEGORY_OTHERS_VALUE = 1;
+    /**
+     * <code>CATEGORY_ADVERTISING_AND_MARKETING = 2;</code>
+     */
+    public static final int CATEGORY_ADVERTISING_AND_MARKETING_VALUE = 2;
+    /**
+     * <code>CATEGORY_COMMERCE = 3;</code>
+     */
+    public static final int CATEGORY_COMMERCE_VALUE = 3;
+    /**
+     * <code>CATEGORY_CLIMATE_AND_ENVIRONMENT = 4;</code>
+     */
+    public static final int CATEGORY_CLIMATE_AND_ENVIRONMENT_VALUE = 4;
+    /**
+     * <code>CATEGORY_DEMOGRAPHICS = 5;</code>
+     */
+    public static final int CATEGORY_DEMOGRAPHICS_VALUE = 5;
+    /**
+     * <code>CATEGORY_ECONOMICS = 6;</code>
+     */
+    public static final int CATEGORY_ECONOMICS_VALUE = 6;
+    /**
+     * <code>CATEGORY_EDUCATION = 7;</code>
+     */
+    public static final int CATEGORY_EDUCATION_VALUE = 7;
+    /**
+     * <code>CATEGORY_ENERGY = 8;</code>
+     */
+    public static final int CATEGORY_ENERGY_VALUE = 8;
+    /**
+     * <code>CATEGORY_FINANCIAL = 9;</code>
+     */
+    public static final int CATEGORY_FINANCIAL_VALUE = 9;
+    /**
+     * <code>CATEGORY_GAMING = 10;</code>
+     */
+    public static final int CATEGORY_GAMING_VALUE = 10;
+    /**
+     * <code>CATEGORY_GEOSPATIAL = 11;</code>
+     */
+    public static final int CATEGORY_GEOSPATIAL_VALUE = 11;
+    /**
+     * <code>CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE = 12;</code>
+     */
+    public static final int CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE_VALUE = 12;
+    /**
+     * <code>CATEGORY_MEDIA = 13;</code>
+     */
+    public static final int CATEGORY_MEDIA_VALUE = 13;
+    /**
+     * <code>CATEGORY_PUBLIC_SECTOR = 14;</code>
+     */
+    public static final int CATEGORY_PUBLIC_SECTOR_VALUE = 14;
+    /**
+     * <code>CATEGORY_RETAIL = 15;</code>
+     */
+    public static final int CATEGORY_RETAIL_VALUE = 15;
+    /**
+     * <code>CATEGORY_SPORTS = 16;</code>
+     */
+    public static final int CATEGORY_SPORTS_VALUE = 16;
+    /**
+     * <code>CATEGORY_SCIENCE_AND_RESEARCH = 17;</code>
+     */
+    public static final int CATEGORY_SCIENCE_AND_RESEARCH_VALUE = 17;
+    /**
+     * <code>CATEGORY_TRANSPORTATION_AND_LOGISTICS = 18;</code>
+     */
+    public static final int CATEGORY_TRANSPORTATION_AND_LOGISTICS_VALUE = 18;
+    /**
+     * <code>CATEGORY_TRAVEL_AND_TOURISM = 19;</code>
+     */
+    public static final int CATEGORY_TRAVEL_AND_TOURISM_VALUE = 19;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Category valueOf(int value) {
+      return forNumber(value);
+    }
+
+    /**
+     * @param value The numeric wire value of the corresponding enum entry.
+     * @return The enum associated with the given numeric wire value.
+     */
+    public static Category forNumber(int value) {
+      switch (value) {
+        case 0: return CATEGORY_UNSPECIFIED;
+        case 1: return CATEGORY_OTHERS;
+        case 2: return CATEGORY_ADVERTISING_AND_MARKETING;
+        case 3: return CATEGORY_COMMERCE;
+        case 4: return CATEGORY_CLIMATE_AND_ENVIRONMENT;
+        case 5: return CATEGORY_DEMOGRAPHICS;
+        case 6: return CATEGORY_ECONOMICS;
+        case 7: return CATEGORY_EDUCATION;
+        case 8: return CATEGORY_ENERGY;
+        case 9: return CATEGORY_FINANCIAL;
+        case 10: return CATEGORY_GAMING;
+        case 11: return CATEGORY_GEOSPATIAL;
+        case 12: return CATEGORY_HEALTHCARE_AND_LIFE_SCIENCE;
+        case 13: return CATEGORY_MEDIA;
+        case 14: return CATEGORY_PUBLIC_SECTOR;
+        case 15: return CATEGORY_RETAIL;
+        case 16: return CATEGORY_SPORTS;
+        case 17: return CATEGORY_SCIENCE_AND_RESEARCH;
+        case 18: return CATEGORY_TRANSPORTATION_AND_LOGISTICS;
+        case 19: return CATEGORY_TRAVEL_AND_TOURISM;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Category>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Category> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Category>() {
+            public Category findValueByNumber(int number) {
+              return Category.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalStateException(
+            "Can't get the descriptor of an unrecognized enum value.");
+      }
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.google.cloud.bigquery.dataexchange.v1beta1.Listing.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final Category[] VALUES = values();
+
+    public static Category valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Category(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:google.cloud.bigquery.dataexchange.v1beta1.Listing.Category)
+  }
+
   public interface BigQueryDatasetSourceOrBuilder extends
       // @@protoc_insertion_point(interface_extends:google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource)
       com.google.protobuf.MessageOrBuilder {
@@ -370,12 +491,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * A reference to a Shared dataset. It's an existing BigQuery dataset with a
-   * collection of objects, such as tables and views, that you want to share
+   * A reference to a shared dataset. It is an existing BigQuery dataset with a
+   * collection of objects such as tables and views that you want to share
    * with subscribers.
-   * Upon subscription to a Listing, Data Exchange creates a Linked dataset in
+   * When subscriber's subscribe to a listing, Analytics Hub creates a linked
+   * dataset in
    * the subscriber's project. A Linked dataset is an opaque, read-only BigQuery
-   * dataset that serves as a "symbolic link" to a shared dataset.
+   * dataset that serves as a _symbolic link_ to a shared dataset.
    * </pre>
    *
    * Protobuf type {@code google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource}
@@ -405,51 +527,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private BigQueryDatasetSource(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              dataset_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.dataexchange.v1beta1.DataExchangeProto.internal_static_google_cloud_bigquery_dataexchange_v1beta1_Listing_BigQueryDatasetSource_descriptor;
@@ -464,7 +541,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int DATASET_FIELD_NUMBER = 1;
-    private volatile java.lang.Object dataset_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object dataset_ = "";
     /**
      * <pre>
      * Resource name of the dataset source for this listing.
@@ -528,7 +606,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataset_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, dataset_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -540,7 +618,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dataset_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, dataset_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -557,7 +635,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getDataset()
           .equals(other.getDataset())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -570,7 +648,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + DATASET_FIELD_NUMBER;
       hash = (53 * hash) + getDataset().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -667,12 +745,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * A reference to a Shared dataset. It's an existing BigQuery dataset with a
-     * collection of objects, such as tables and views, that you want to share
+     * A reference to a shared dataset. It is an existing BigQuery dataset with a
+     * collection of objects such as tables and views that you want to share
      * with subscribers.
-     * Upon subscription to a Listing, Data Exchange creates a Linked dataset in
+     * When subscriber's subscribe to a listing, Analytics Hub creates a linked
+     * dataset in
      * the subscriber's project. A Linked dataset is an opaque, read-only BigQuery
-     * dataset that serves as a "symbolic link" to a shared dataset.
+     * dataset that serves as a _symbolic link_ to a shared dataset.
      * </pre>
      *
      * Protobuf type {@code google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource}
@@ -696,24 +775,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         dataset_ = "";
-
         return this;
       }
 
@@ -740,9 +814,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource buildPartial() {
         com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource result = new com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource(this);
-        result.dataset_ = dataset_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.dataset_ = dataset_;
+        }
       }
 
       @java.lang.Override
@@ -791,9 +872,10 @@ private static final long serialVersionUID = 0L;
         if (other == com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.getDefaultInstance()) return this;
         if (!other.getDataset().isEmpty()) {
           dataset_ = other.dataset_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -808,19 +890,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                dataset_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object dataset_ = "";
       /**
@@ -878,11 +979,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDataset(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         dataset_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -896,8 +995,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearDataset() {
-        
         dataset_ = getDefaultInstance().getDataset();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -913,12 +1012,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setDatasetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         dataset_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -955,7 +1052,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new BigQueryDatasetSource(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1014,8 +1122,52 @@ private static final long serialVersionUID = 0L;
         sourceCase_);
   }
 
+  public static final int BIGQUERY_DATASET_FIELD_NUMBER = 6;
+  /**
+   * <pre>
+   * Required. Shared dataset i.e. BigQuery dataset source.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource bigquery_dataset = 6 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return Whether the bigqueryDataset field is set.
+   */
+  @java.lang.Override
+  public boolean hasBigqueryDataset() {
+    return sourceCase_ == 6;
+  }
+  /**
+   * <pre>
+   * Required. Shared dataset i.e. BigQuery dataset source.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource bigquery_dataset = 6 [(.google.api.field_behavior) = REQUIRED];</code>
+   * @return The bigqueryDataset.
+   */
+  @java.lang.Override
+  public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource getBigqueryDataset() {
+    if (sourceCase_ == 6) {
+       return (com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) source_;
+    }
+    return com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.getDefaultInstance();
+  }
+  /**
+   * <pre>
+   * Required. Shared dataset i.e. BigQuery dataset source.
+   * </pre>
+   *
+   * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource bigquery_dataset = 6 [(.google.api.field_behavior) = REQUIRED];</code>
+   */
+  @java.lang.Override
+  public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSourceOrBuilder getBigqueryDatasetOrBuilder() {
+    if (sourceCase_ == 6) {
+       return (com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) source_;
+    }
+    return com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.getDefaultInstance();
+  }
+
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The resource name of the listing.
@@ -1063,12 +1215,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Required. Human-readable display name of the listing. The display name must contain
    * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-   * ( ), and can't start or end with spaces.
+   * ( ), ampersands (&amp;) and can't start or end with spaces.
    * Default value is an empty string.
    * Max length: 63 bytes.
    * </pre>
@@ -1093,7 +1246,7 @@ private static final long serialVersionUID = 0L;
    * <pre>
    * Required. Human-readable display name of the listing. The display name must contain
    * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-   * ( ), and can't start or end with spaces.
+   * ( ), ampersands (&amp;) and can't start or end with spaces.
    * Default value is an empty string.
    * Max length: 63 bytes.
    * </pre>
@@ -1117,13 +1270,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
-   * Optional. Short description of the listing that can consist of sentences or
-   * paragraphs. The description must not contain Unicode non-characters as
-   * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-   * returns (CR), and page breaks (FF).
+   * Optional. Short description of the listing. The description must not contain
+   * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+   * new lines (LF), carriage returns (CR), and page breaks (FF).
    * Default value is an empty string.
    * Max length: 2000 bytes.
    * </pre>
@@ -1146,10 +1299,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Short description of the listing that can consist of sentences or
-   * paragraphs. The description must not contain Unicode non-characters as
-   * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-   * returns (CR), and page breaks (FF).
+   * Optional. Short description of the listing. The description must not contain
+   * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+   * new lines (LF), carriage returns (CR), and page breaks (FF).
    * Default value is an empty string.
    * Max length: 2000 bytes.
    * </pre>
@@ -1173,7 +1325,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIMARY_CONTACT_FIELD_NUMBER = 4;
-  private volatile java.lang.Object primaryContact_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object primaryContact_ = "";
   /**
    * <pre>
    * Optional. Email or URL of the primary point of contact of the listing.
@@ -1221,7 +1374,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOCUMENTATION_FIELD_NUMBER = 5;
-  private volatile java.lang.Object documentation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object documentation_ = "";
   /**
    * <pre>
    * Optional. Documentation describing the listing.
@@ -1266,54 +1420,11 @@ private static final long serialVersionUID = 0L;
     }
   }
 
-  public static final int BIGQUERY_DATASET_FIELD_NUMBER = 6;
-  /**
-   * <pre>
-   * Required. Shared dataset i.e. BigQuery dataset source.
-   * </pre>
-   *
-   * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource bigquery_dataset = 6 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return Whether the bigqueryDataset field is set.
-   */
-  @java.lang.Override
-  public boolean hasBigqueryDataset() {
-    return sourceCase_ == 6;
-  }
-  /**
-   * <pre>
-   * Required. Shared dataset i.e. BigQuery dataset source.
-   * </pre>
-   *
-   * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource bigquery_dataset = 6 [(.google.api.field_behavior) = REQUIRED];</code>
-   * @return The bigqueryDataset.
-   */
-  @java.lang.Override
-  public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource getBigqueryDataset() {
-    if (sourceCase_ == 6) {
-       return (com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) source_;
-    }
-    return com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.getDefaultInstance();
-  }
-  /**
-   * <pre>
-   * Required. Shared dataset i.e. BigQuery dataset source.
-   * </pre>
-   *
-   * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource bigquery_dataset = 6 [(.google.api.field_behavior) = REQUIRED];</code>
-   */
-  @java.lang.Override
-  public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSourceOrBuilder getBigqueryDatasetOrBuilder() {
-    if (sourceCase_ == 6) {
-       return (com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource) source_;
-    }
-    return com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.getDefaultInstance();
-  }
-
   public static final int STATE_FIELD_NUMBER = 7;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
-   * Output only. Current state of the Listing.
+   * Output only. Current state of the listing.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -1324,20 +1435,19 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. Current state of the Listing.
+   * Output only. Current state of the listing.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State result = com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State.valueOf(state_);
+    com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State result = com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State.forNumber(state_);
     return result == null ? com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State.UNRECOGNIZED : result;
   }
 
   public static final int ICON_FIELD_NUMBER = 8;
-  private com.google.protobuf.ByteString icon_;
+  private com.google.protobuf.ByteString icon_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * Optional. Base64 encoded image representing the listing. Max Size: 3.0MiB
@@ -1359,7 +1469,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider dataProvider_;
   /**
    * <pre>
-   * Optional. The details of the Data Provider who owns the source data.
+   * Optional. Details of the data provider who owns the source data.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1371,7 +1481,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The details of the Data Provider who owns the source data.
+   * Optional. Details of the data provider who owns the source data.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1383,47 +1493,47 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The details of the Data Provider who owns the source data.
+   * Optional. Details of the data provider who owns the source data.
    * </pre>
    *
    * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.cloud.bigquery.dataexchange.v1beta1.DataProviderOrBuilder getDataProviderOrBuilder() {
-    return getDataProvider();
+    return dataProvider_ == null ? com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.getDefaultInstance() : dataProvider_;
   }
 
   public static final int CATEGORIES_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> categories_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
-      java.lang.Integer, com.google.cloud.bigquery.dataexchange.common.Category> categories_converter_ =
+      java.lang.Integer, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category> categories_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
-              java.lang.Integer, com.google.cloud.bigquery.dataexchange.common.Category>() {
-            public com.google.cloud.bigquery.dataexchange.common.Category convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.cloud.bigquery.dataexchange.common.Category result = com.google.cloud.bigquery.dataexchange.common.Category.valueOf(from);
-              return result == null ? com.google.cloud.bigquery.dataexchange.common.Category.UNRECOGNIZED : result;
+              java.lang.Integer, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category>() {
+            public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category convert(java.lang.Integer from) {
+              com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category result = com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category.forNumber(from);
+              return result == null ? com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category.UNRECOGNIZED : result;
             }
           };
   /**
    * <pre>
-   * Optional. Categories of the Listing. Up to two categories are allowed.
+   * Optional. Categories of the listing. Up to two categories are allowed.
    * </pre>
    *
-   * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return A list containing the categories.
    */
   @java.lang.Override
-  public java.util.List<com.google.cloud.bigquery.dataexchange.common.Category> getCategoriesList() {
+  public java.util.List<com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category> getCategoriesList() {
     return new com.google.protobuf.Internal.ListAdapter<
-        java.lang.Integer, com.google.cloud.bigquery.dataexchange.common.Category>(categories_, categories_converter_);
+        java.lang.Integer, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category>(categories_, categories_converter_);
   }
   /**
    * <pre>
-   * Optional. Categories of the Listing. Up to two categories are allowed.
+   * Optional. Categories of the listing. Up to two categories are allowed.
    * </pre>
    *
-   * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return The count of categories.
    */
   @java.lang.Override
@@ -1432,23 +1542,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Categories of the Listing. Up to two categories are allowed.
+   * Optional. Categories of the listing. Up to two categories are allowed.
    * </pre>
    *
-   * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @param index The index of the element to return.
    * @return The categories at the given index.
    */
   @java.lang.Override
-  public com.google.cloud.bigquery.dataexchange.common.Category getCategories(int index) {
+  public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category getCategories(int index) {
     return categories_converter_.convert(categories_.get(index));
   }
   /**
    * <pre>
-   * Optional. Categories of the Listing. Up to two categories are allowed.
+   * Optional. Categories of the listing. Up to two categories are allowed.
    * </pre>
    *
-   * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @return A list containing the enum numeric values on the wire for categories.
    */
   @java.lang.Override
@@ -1458,10 +1568,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Categories of the Listing. Up to two categories are allowed.
+   * Optional. Categories of the listing. Up to two categories are allowed.
    * </pre>
    *
-   * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
    * @param index The index of the value to return.
    * @return The enum numeric value on the wire of categories at the given index.
    */
@@ -1475,7 +1585,7 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.bigquery.dataexchange.v1beta1.Publisher publisher_;
   /**
    * <pre>
-   * Optional. The details of the Publisher who owns the listing and has rights to share
+   * Optional. Details of the publisher who owns the listing and who can share
    * the source data.
    * </pre>
    *
@@ -1488,7 +1598,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The details of the Publisher who owns the listing and has rights to share
+   * Optional. Details of the publisher who owns the listing and who can share
    * the source data.
    * </pre>
    *
@@ -1501,7 +1611,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. The details of the Publisher who owns the listing and has rights to share
+   * Optional. Details of the publisher who owns the listing and who can share
    * the source data.
    * </pre>
    *
@@ -1509,11 +1619,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.bigquery.dataexchange.v1beta1.PublisherOrBuilder getPublisherOrBuilder() {
-    return getPublisher();
+    return publisher_ == null ? com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.getDefaultInstance() : publisher_;
   }
 
   public static final int REQUEST_ACCESS_FIELD_NUMBER = 12;
-  private volatile java.lang.Object requestAccess_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestAccess_ = "";
   /**
    * <pre>
    * Optional. Email or URL of the request access of the listing.
@@ -1617,7 +1728,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestAccess_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 12, requestAccess_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1676,7 +1787,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestAccess_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, requestAccess_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1726,7 +1837,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1773,7 +1884,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1897,52 +2008,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.bigquery.dataexchange.v1beta1.Listing.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (bigqueryDatasetBuilder_ != null) {
+        bigqueryDatasetBuilder_.clear();
+      }
       name_ = "";
-
       displayName_ = "";
-
       description_ = "";
-
       primaryContact_ = "";
-
       documentation_ = "";
-
       state_ = 0;
-
       icon_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (dataProviderBuilder_ == null) {
-        dataProvider_ = null;
-      } else {
-        dataProvider_ = null;
+      dataProvider_ = null;
+      if (dataProviderBuilder_ != null) {
+        dataProviderBuilder_.dispose();
         dataProviderBuilder_ = null;
       }
       categories_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (publisherBuilder_ == null) {
-        publisher_ = null;
-      } else {
-        publisher_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      publisher_ = null;
+      if (publisherBuilder_ != null) {
+        publisherBuilder_.dispose();
         publisherBuilder_ = null;
       }
       requestAccess_ = "";
-
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -1971,40 +2071,66 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.bigquery.dataexchange.v1beta1.Listing buildPartial() {
       com.google.cloud.bigquery.dataexchange.v1beta1.Listing result = new com.google.cloud.bigquery.dataexchange.v1beta1.Listing(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.description_ = description_;
-      result.primaryContact_ = primaryContact_;
-      result.documentation_ = documentation_;
-      if (sourceCase_ == 6) {
-        if (bigqueryDatasetBuilder_ == null) {
-          result.source_ = source_;
-        } else {
-          result.source_ = bigqueryDatasetBuilder_.build();
-        }
-      }
-      result.state_ = state_;
-      result.icon_ = icon_;
-      if (dataProviderBuilder_ == null) {
-        result.dataProvider_ = dataProvider_;
-      } else {
-        result.dataProvider_ = dataProviderBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        categories_ = java.util.Collections.unmodifiableList(categories_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.categories_ = categories_;
-      if (publisherBuilder_ == null) {
-        result.publisher_ = publisher_;
-      } else {
-        result.publisher_ = publisherBuilder_.build();
-      }
-      result.requestAccess_ = requestAccess_;
-      result.sourceCase_ = sourceCase_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.bigquery.dataexchange.v1beta1.Listing result) {
+      if (((bitField0_ & 0x00000200) != 0)) {
+        categories_ = java.util.Collections.unmodifiableList(categories_);
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.categories_ = categories_;
+    }
+
+    private void buildPartial0(com.google.cloud.bigquery.dataexchange.v1beta1.Listing result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.primaryContact_ = primaryContact_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.documentation_ = documentation_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.icon_ = icon_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.dataProvider_ = dataProviderBuilder_ == null
+            ? dataProvider_
+            : dataProviderBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.publisher_ = publisherBuilder_ == null
+            ? publisher_
+            : publisherBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.requestAccess_ = requestAccess_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.bigquery.dataexchange.v1beta1.Listing result) {
+      result.sourceCase_ = sourceCase_;
+      result.source_ = this.source_;
+      if (sourceCase_ == 6 &&
+          bigqueryDatasetBuilder_ != null) {
+        result.source_ = bigqueryDatasetBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -2053,22 +2179,27 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.bigquery.dataexchange.v1beta1.Listing.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getPrimaryContact().isEmpty()) {
         primaryContact_ = other.primaryContact_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDocumentation().isEmpty()) {
         documentation_ = other.documentation_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -2083,7 +2214,7 @@ private static final long serialVersionUID = 0L;
       if (!other.categories_.isEmpty()) {
         if (categories_.isEmpty()) {
           categories_ = other.categories_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureCategoriesIsMutable();
           categories_.addAll(other.categories_);
@@ -2095,6 +2226,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getRequestAccess().isEmpty()) {
         requestAccess_ = other.requestAccess_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       switch (other.getSourceCase()) {
@@ -2106,7 +2238,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -2121,17 +2253,108 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.bigquery.dataexchange.v1beta1.Listing parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 34: {
+              primaryContact_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              documentation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getBigqueryDatasetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              sourceCase_ = 6;
+              break;
+            } // case 50
+            case 56: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 66: {
+              icon_ = input.readBytes();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getDataProviderFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 80: {
+              int tmpRaw = input.readEnum();
+              ensureCategoriesIsMutable();
+              categories_.add(tmpRaw);
+              break;
+            } // case 80
+            case 82: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureCategoriesIsMutable();
+                categories_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 82
+            case 90: {
+              input.readMessage(
+                  getPublisherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              requestAccess_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.bigquery.dataexchange.v1beta1.Listing) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -2150,541 +2373,6 @@ private static final long serialVersionUID = 0L;
     }
 
     private int bitField0_;
-
-    private java.lang.Object name_ = "";
-    /**
-     * <pre>
-     * Output only. The resource name of the listing.
-     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
-     * </pre>
-     *
-     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @return The name.
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Output only. The resource name of the listing.
-     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
-     * </pre>
-     *
-     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @return The bytes for name.
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Output only. The resource name of the listing.
-     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
-     * </pre>
-     *
-     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @param value The name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      name_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Output only. The resource name of the listing.
-     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
-     * </pre>
-     *
-     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearName() {
-      
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Output only. The resource name of the listing.
-     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
-     * </pre>
-     *
-     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
-     * @param value The bytes for name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object displayName_ = "";
-    /**
-     * <pre>
-     * Required. Human-readable display name of the listing. The display name must contain
-     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-     * ( ), and can't start or end with spaces.
-     * Default value is an empty string.
-     * Max length: 63 bytes.
-     * </pre>
-     *
-     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The displayName.
-     */
-    public java.lang.String getDisplayName() {
-      java.lang.Object ref = displayName_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        displayName_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Required. Human-readable display name of the listing. The display name must contain
-     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-     * ( ), and can't start or end with spaces.
-     * Default value is an empty string.
-     * Max length: 63 bytes.
-     * </pre>
-     *
-     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return The bytes for displayName.
-     */
-    public com.google.protobuf.ByteString
-        getDisplayNameBytes() {
-      java.lang.Object ref = displayName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        displayName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Required. Human-readable display name of the listing. The display name must contain
-     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-     * ( ), and can't start or end with spaces.
-     * Default value is an empty string.
-     * Max length: 63 bytes.
-     * </pre>
-     *
-     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The displayName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDisplayName(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      displayName_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Required. Human-readable display name of the listing. The display name must contain
-     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-     * ( ), and can't start or end with spaces.
-     * Default value is an empty string.
-     * Max length: 63 bytes.
-     * </pre>
-     *
-     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDisplayName() {
-      
-      displayName_ = getDefaultInstance().getDisplayName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Required. Human-readable display name of the listing. The display name must contain
-     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
-     * ( ), and can't start or end with spaces.
-     * Default value is an empty string.
-     * Max length: 63 bytes.
-     * </pre>
-     *
-     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
-     * @param value The bytes for displayName to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDisplayNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      displayName_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object description_ = "";
-    /**
-     * <pre>
-     * Optional. Short description of the listing that can consist of sentences or
-     * paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
-     * Default value is an empty string.
-     * Max length: 2000 bytes.
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return The description.
-     */
-    public java.lang.String getDescription() {
-      java.lang.Object ref = description_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        description_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Optional. Short description of the listing that can consist of sentences or
-     * paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
-     * Default value is an empty string.
-     * Max length: 2000 bytes.
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return The bytes for description.
-     */
-    public com.google.protobuf.ByteString
-        getDescriptionBytes() {
-      java.lang.Object ref = description_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        description_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Optional. Short description of the listing that can consist of sentences or
-     * paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
-     * Default value is an empty string.
-     * Max length: 2000 bytes.
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @param value The description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescription(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      description_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional. Short description of the listing that can consist of sentences or
-     * paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
-     * Default value is an empty string.
-     * Max length: 2000 bytes.
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDescription() {
-      
-      description_ = getDefaultInstance().getDescription();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional. Short description of the listing that can consist of sentences or
-     * paragraphs. The description must not contain Unicode non-characters as
-     * well as C0 and C1 control codes except tabs (HT), new lines (LF), carriage
-     * returns (CR), and page breaks (FF).
-     * Default value is an empty string.
-     * Max length: 2000 bytes.
-     * </pre>
-     *
-     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @param value The bytes for description to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDescriptionBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      description_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object primaryContact_ = "";
-    /**
-     * <pre>
-     * Optional. Email or URL of the primary point of contact of the listing.
-     * Max Length: 1000 bytes.
-     * </pre>
-     *
-     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return The primaryContact.
-     */
-    public java.lang.String getPrimaryContact() {
-      java.lang.Object ref = primaryContact_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        primaryContact_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Optional. Email or URL of the primary point of contact of the listing.
-     * Max Length: 1000 bytes.
-     * </pre>
-     *
-     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return The bytes for primaryContact.
-     */
-    public com.google.protobuf.ByteString
-        getPrimaryContactBytes() {
-      java.lang.Object ref = primaryContact_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        primaryContact_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Optional. Email or URL of the primary point of contact of the listing.
-     * Max Length: 1000 bytes.
-     * </pre>
-     *
-     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @param value The primaryContact to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPrimaryContact(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      primaryContact_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional. Email or URL of the primary point of contact of the listing.
-     * Max Length: 1000 bytes.
-     * </pre>
-     *
-     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearPrimaryContact() {
-      
-      primaryContact_ = getDefaultInstance().getPrimaryContact();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional. Email or URL of the primary point of contact of the listing.
-     * Max Length: 1000 bytes.
-     * </pre>
-     *
-     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @param value The bytes for primaryContact to set.
-     * @return This builder for chaining.
-     */
-    public Builder setPrimaryContactBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      primaryContact_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object documentation_ = "";
-    /**
-     * <pre>
-     * Optional. Documentation describing the listing.
-     * </pre>
-     *
-     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return The documentation.
-     */
-    public java.lang.String getDocumentation() {
-      java.lang.Object ref = documentation_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        documentation_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Optional. Documentation describing the listing.
-     * </pre>
-     *
-     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return The bytes for documentation.
-     */
-    public com.google.protobuf.ByteString
-        getDocumentationBytes() {
-      java.lang.Object ref = documentation_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        documentation_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <pre>
-     * Optional. Documentation describing the listing.
-     * </pre>
-     *
-     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @param value The documentation to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDocumentation(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      documentation_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional. Documentation describing the listing.
-     * </pre>
-     *
-     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearDocumentation() {
-      
-      documentation_ = getDefaultInstance().getDocumentation();
-      onChanged();
-      return this;
-    }
-    /**
-     * <pre>
-     * Optional. Documentation describing the listing.
-     * </pre>
-     *
-     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
-     * @param value The bytes for documentation to set.
-     * @return This builder for chaining.
-     */
-    public Builder setDocumentationBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      documentation_ = value;
-      onChanged();
-      return this;
-    }
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSource.Builder, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.BigQueryDatasetSourceOrBuilder> bigqueryDatasetBuilder_;
@@ -2860,14 +2548,524 @@ private static final long serialVersionUID = 0L;
         source_ = null;
       }
       sourceCase_ = 6;
-      onChanged();;
+      onChanged();
       return bigqueryDatasetBuilder_;
+    }
+
+    private java.lang.Object name_ = "";
+    /**
+     * <pre>
+     * Output only. The resource name of the listing.
+     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
+     * </pre>
+     *
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The name.
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The resource name of the listing.
+     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
+     * </pre>
+     *
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return The bytes for name.
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The resource name of the listing.
+     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
+     * </pre>
+     *
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      name_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The resource name of the listing.
+     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
+     * </pre>
+     *
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearName() {
+      name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The resource name of the listing.
+     * e.g. `projects/myproject/locations/US/dataExchanges/123/listings/456`
+     * </pre>
+     *
+     * <code>string name = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+     * @param value The bytes for name to set.
+     * @return This builder for chaining.
+     */
+    public Builder setNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      name_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object displayName_ = "";
+    /**
+     * <pre>
+     * Required. Human-readable display name of the listing. The display name must contain
+     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
+     * ( ), ampersands (&amp;) and can't start or end with spaces.
+     * Default value is an empty string.
+     * Max length: 63 bytes.
+     * </pre>
+     *
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The displayName.
+     */
+    public java.lang.String getDisplayName() {
+      java.lang.Object ref = displayName_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        displayName_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Human-readable display name of the listing. The display name must contain
+     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
+     * ( ), ampersands (&amp;) and can't start or end with spaces.
+     * Default value is an empty string.
+     * Max length: 63 bytes.
+     * </pre>
+     *
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return The bytes for displayName.
+     */
+    public com.google.protobuf.ByteString
+        getDisplayNameBytes() {
+      java.lang.Object ref = displayName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        displayName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Required. Human-readable display name of the listing. The display name must contain
+     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
+     * ( ), ampersands (&amp;) and can't start or end with spaces.
+     * Default value is an empty string.
+     * Max length: 63 bytes.
+     * </pre>
+     *
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The displayName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisplayName(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      displayName_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Human-readable display name of the listing. The display name must contain
+     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
+     * ( ), ampersands (&amp;) and can't start or end with spaces.
+     * Default value is an empty string.
+     * Max length: 63 bytes.
+     * </pre>
+     *
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDisplayName() {
+      displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Required. Human-readable display name of the listing. The display name must contain
+     * only Unicode letters, numbers (0-9), underscores (_), dashes (-), spaces
+     * ( ), ampersands (&amp;) and can't start or end with spaces.
+     * Default value is an empty string.
+     * Max length: 63 bytes.
+     * </pre>
+     *
+     * <code>string display_name = 2 [(.google.api.field_behavior) = REQUIRED];</code>
+     * @param value The bytes for displayName to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDisplayNameBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      displayName_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object description_ = "";
+    /**
+     * <pre>
+     * Optional. Short description of the listing. The description must not contain
+     * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
+     * Default value is an empty string.
+     * Max length: 2000 bytes.
+     * </pre>
+     *
+     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The description.
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Short description of the listing. The description must not contain
+     * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
+     * Default value is an empty string.
+     * Max length: 2000 bytes.
+     * </pre>
+     *
+     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for description.
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Short description of the listing. The description must not contain
+     * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
+     * Default value is an empty string.
+     * Max length: 2000 bytes.
+     * </pre>
+     *
+     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The description to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDescription(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      description_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Short description of the listing. The description must not contain
+     * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
+     * Default value is an empty string.
+     * Max length: 2000 bytes.
+     * </pre>
+     *
+     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDescription() {
+      description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000008);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Short description of the listing. The description must not contain
+     * Unicode non-characters and C0 and C1 control codes except tabs (HT),
+     * new lines (LF), carriage returns (CR), and page breaks (FF).
+     * Default value is an empty string.
+     * Max length: 2000 bytes.
+     * </pre>
+     *
+     * <code>string description = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The bytes for description to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDescriptionBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      description_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object primaryContact_ = "";
+    /**
+     * <pre>
+     * Optional. Email or URL of the primary point of contact of the listing.
+     * Max Length: 1000 bytes.
+     * </pre>
+     *
+     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The primaryContact.
+     */
+    public java.lang.String getPrimaryContact() {
+      java.lang.Object ref = primaryContact_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        primaryContact_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Email or URL of the primary point of contact of the listing.
+     * Max Length: 1000 bytes.
+     * </pre>
+     *
+     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for primaryContact.
+     */
+    public com.google.protobuf.ByteString
+        getPrimaryContactBytes() {
+      java.lang.Object ref = primaryContact_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        primaryContact_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Email or URL of the primary point of contact of the listing.
+     * Max Length: 1000 bytes.
+     * </pre>
+     *
+     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The primaryContact to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrimaryContact(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      primaryContact_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Email or URL of the primary point of contact of the listing.
+     * Max Length: 1000 bytes.
+     * </pre>
+     *
+     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearPrimaryContact() {
+      primaryContact_ = getDefaultInstance().getPrimaryContact();
+      bitField0_ = (bitField0_ & ~0x00000010);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Email or URL of the primary point of contact of the listing.
+     * Max Length: 1000 bytes.
+     * </pre>
+     *
+     * <code>string primary_contact = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The bytes for primaryContact to set.
+     * @return This builder for chaining.
+     */
+    public Builder setPrimaryContactBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      primaryContact_ = value;
+      bitField0_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object documentation_ = "";
+    /**
+     * <pre>
+     * Optional. Documentation describing the listing.
+     * </pre>
+     *
+     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The documentation.
+     */
+    public java.lang.String getDocumentation() {
+      java.lang.Object ref = documentation_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        documentation_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Documentation describing the listing.
+     * </pre>
+     *
+     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return The bytes for documentation.
+     */
+    public com.google.protobuf.ByteString
+        getDocumentationBytes() {
+      java.lang.Object ref = documentation_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        documentation_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Optional. Documentation describing the listing.
+     * </pre>
+     *
+     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The documentation to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDocumentation(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      documentation_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Documentation describing the listing.
+     * </pre>
+     *
+     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDocumentation() {
+      documentation_ = getDefaultInstance().getDocumentation();
+      bitField0_ = (bitField0_ & ~0x00000020);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Optional. Documentation describing the listing.
+     * </pre>
+     *
+     * <code>string documentation = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * @param value The bytes for documentation to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDocumentationBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      documentation_ = value;
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
     }
 
     private int state_ = 0;
     /**
      * <pre>
-     * Output only. Current state of the Listing.
+     * Output only. Current state of the listing.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2878,7 +3076,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. Current state of the Listing.
+     * Output only. Current state of the listing.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2886,14 +3084,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Current state of the Listing.
+     * Output only. Current state of the listing.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2901,13 +3099,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State result = com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State.valueOf(state_);
+      com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State result = com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State.forNumber(state_);
       return result == null ? com.google.cloud.bigquery.dataexchange.v1beta1.Listing.State.UNRECOGNIZED : result;
     }
     /**
      * <pre>
-     * Output only. Current state of the Listing.
+     * Output only. Current state of the listing.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -2918,21 +3115,21 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       state_ = value.getNumber();
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. Current state of the Listing.
+     * Output only. Current state of the listing.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Listing.State state = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       state_ = 0;
       onChanged();
       return this;
@@ -2969,11 +3166,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIcon(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       icon_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2990,7 +3185,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIcon() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       icon_ = getDefaultInstance().getIcon();
       onChanged();
       return this;
@@ -3001,18 +3196,18 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider, com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.Builder, com.google.cloud.bigquery.dataexchange.v1beta1.DataProviderOrBuilder> dataProviderBuilder_;
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the dataProvider field is set.
      */
     public boolean hasDataProvider() {
-      return dataProviderBuilder_ != null || dataProvider_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3027,7 +3222,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3038,16 +3233,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         dataProvider_ = value;
-        onChanged();
       } else {
         dataProviderBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3056,68 +3251,68 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.Builder builderForValue) {
       if (dataProviderBuilder_ == null) {
         dataProvider_ = builderForValue.build();
-        onChanged();
       } else {
         dataProviderBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeDataProvider(com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider value) {
       if (dataProviderBuilder_ == null) {
-        if (dataProvider_ != null) {
-          dataProvider_ =
-            com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.newBuilder(dataProvider_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          dataProvider_ != null &&
+          dataProvider_ != com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.getDefaultInstance()) {
+          getDataProviderBuilder().mergeFrom(value);
         } else {
           dataProvider_ = value;
         }
-        onChanged();
       } else {
         dataProviderBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDataProvider() {
-      if (dataProviderBuilder_ == null) {
-        dataProvider_ = null;
-        onChanged();
-      } else {
-        dataProvider_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      dataProvider_ = null;
+      if (dataProviderBuilder_ != null) {
+        dataProviderBuilder_.dispose();
         dataProviderBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.bigquery.dataexchange.v1beta1.DataProvider.Builder getDataProviderBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getDataProviderFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3132,7 +3327,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The details of the Data Provider who owns the source data.
+     * Optional. Details of the data provider who owns the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.DataProvider data_provider = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3154,29 +3349,29 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> categories_ =
       java.util.Collections.emptyList();
     private void ensureCategoriesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         categories_ = new java.util.ArrayList<java.lang.Integer>(categories_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000200;
       }
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return A list containing the categories.
      */
-    public java.util.List<com.google.cloud.bigquery.dataexchange.common.Category> getCategoriesList() {
+    public java.util.List<com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category> getCategoriesList() {
       return new com.google.protobuf.Internal.ListAdapter<
-          java.lang.Integer, com.google.cloud.bigquery.dataexchange.common.Category>(categories_, categories_converter_);
+          java.lang.Integer, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category>(categories_, categories_converter_);
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return The count of categories.
      */
     public int getCategoriesCount() {
@@ -3184,28 +3379,28 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param index The index of the element to return.
      * @return The categories at the given index.
      */
-    public com.google.cloud.bigquery.dataexchange.common.Category getCategories(int index) {
+    public com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category getCategories(int index) {
       return categories_converter_.convert(categories_.get(index));
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param index The index to set the value at.
      * @param value The categories to set.
      * @return This builder for chaining.
      */
     public Builder setCategories(
-        int index, com.google.cloud.bigquery.dataexchange.common.Category value) {
+        int index, com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -3216,14 +3411,14 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The categories to add.
      * @return This builder for chaining.
      */
-    public Builder addCategories(com.google.cloud.bigquery.dataexchange.common.Category value) {
+    public Builder addCategories(com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category value) {
       if (value == null) {
         throw new NullPointerException();
       }
@@ -3234,17 +3429,17 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param values The categories to add.
      * @return This builder for chaining.
      */
     public Builder addAllCategories(
-        java.lang.Iterable<? extends com.google.cloud.bigquery.dataexchange.common.Category> values) {
+        java.lang.Iterable<? extends com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category> values) {
       ensureCategoriesIsMutable();
-      for (com.google.cloud.bigquery.dataexchange.common.Category value : values) {
+      for (com.google.cloud.bigquery.dataexchange.v1beta1.Listing.Category value : values) {
         categories_.add(value.getNumber());
       }
       onChanged();
@@ -3252,24 +3447,24 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return This builder for chaining.
      */
     public Builder clearCategories() {
       categories_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return A list containing the enum numeric values on the wire for categories.
      */
     public java.util.List<java.lang.Integer>
@@ -3278,10 +3473,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param index The index of the value to return.
      * @return The enum numeric value on the wire of categories at the given index.
      */
@@ -3290,10 +3485,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param index The index to set the value at.
      * @param value The enum numeric value on the wire for categories to set.
      * @return This builder for chaining.
@@ -3307,10 +3502,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param value The enum numeric value on the wire for categories to add.
      * @return This builder for chaining.
      */
@@ -3322,10 +3517,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Categories of the Listing. Up to two categories are allowed.
+     * Optional. Categories of the listing. Up to two categories are allowed.
      * </pre>
      *
-     * <code>repeated .google.cloud.bigquery.dataexchange.common.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated .google.cloud.bigquery.dataexchange.v1beta1.Listing.Category categories = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @param values The enum numeric values on the wire for categories to add.
      * @return This builder for chaining.
      */
@@ -3344,7 +3539,7 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.dataexchange.v1beta1.Publisher, com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.Builder, com.google.cloud.bigquery.dataexchange.v1beta1.PublisherOrBuilder> publisherBuilder_;
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3352,11 +3547,11 @@ private static final long serialVersionUID = 0L;
      * @return Whether the publisher field is set.
      */
     public boolean hasPublisher() {
-      return publisherBuilder_ != null || publisher_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3372,7 +3567,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3384,16 +3579,16 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         publisher_ = value;
-        onChanged();
       } else {
         publisherBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3403,16 +3598,16 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.Builder builderForValue) {
       if (publisherBuilder_ == null) {
         publisher_ = builderForValue.build();
-        onChanged();
       } else {
         publisherBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3420,54 +3615,54 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePublisher(com.google.cloud.bigquery.dataexchange.v1beta1.Publisher value) {
       if (publisherBuilder_ == null) {
-        if (publisher_ != null) {
-          publisher_ =
-            com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.newBuilder(publisher_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          publisher_ != null &&
+          publisher_ != com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.getDefaultInstance()) {
+          getPublisherBuilder().mergeFrom(value);
         } else {
           publisher_ = value;
         }
-        onChanged();
       } else {
         publisherBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Publisher publisher = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearPublisher() {
-      if (publisherBuilder_ == null) {
-        publisher_ = null;
-        onChanged();
-      } else {
-        publisher_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      publisher_ = null;
+      if (publisherBuilder_ != null) {
+        publisherBuilder_.dispose();
         publisherBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
      * <code>.google.cloud.bigquery.dataexchange.v1beta1.Publisher publisher = 11 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.bigquery.dataexchange.v1beta1.Publisher.Builder getPublisherBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getPublisherFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3483,7 +3678,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The details of the Publisher who owns the listing and has rights to share
+     * Optional. Details of the publisher who owns the listing and who can share
      * the source data.
      * </pre>
      *
@@ -3562,11 +3757,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestAccess(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestAccess_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3581,8 +3774,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestAccess() {
-      
       requestAccess_ = getDefaultInstance().getRequestAccess();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
@@ -3599,12 +3792,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestAccessBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestAccess_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -3641,7 +3832,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Listing(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

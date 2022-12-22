@@ -34,58 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EnvVarSource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.run.v2.SecretKeySelector.Builder subBuilder = null;
-            if (secretKeyRef_ != null) {
-              subBuilder = secretKeyRef_.toBuilder();
-            }
-            secretKeyRef_ = input.readMessage(com.google.cloud.run.v2.SecretKeySelector.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(secretKeyRef_);
-              secretKeyRef_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.run.v2.K8sMinProto.internal_static_google_cloud_run_v2_EnvVarSource_descriptor;
@@ -134,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.run.v2.SecretKeySelectorOrBuilder getSecretKeyRefOrBuilder() {
-    return getSecretKeyRef();
+    return secretKeyRef_ == null ? com.google.cloud.run.v2.SecretKeySelector.getDefaultInstance() : secretKeyRef_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -154,7 +102,7 @@ private static final long serialVersionUID = 0L;
     if (secretKeyRef_ != null) {
       output.writeMessage(1, getSecretKeyRef());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -167,7 +115,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getSecretKeyRef());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -187,7 +135,7 @@ private static final long serialVersionUID = 0L;
       if (!getSecretKeyRef()
           .equals(other.getSecretKeyRef())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SECRET_KEY_REF_FIELD_NUMBER;
       hash = (53 * hash) + getSecretKeyRef().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -323,26 +271,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.run.v2.EnvVarSource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (secretKeyRefBuilder_ == null) {
-        secretKeyRef_ = null;
-      } else {
-        secretKeyRef_ = null;
+      bitField0_ = 0;
+      secretKeyRef_ = null;
+      if (secretKeyRefBuilder_ != null) {
+        secretKeyRefBuilder_.dispose();
         secretKeyRefBuilder_ = null;
       }
       return this;
@@ -371,13 +314,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.run.v2.EnvVarSource buildPartial() {
       com.google.cloud.run.v2.EnvVarSource result = new com.google.cloud.run.v2.EnvVarSource(this);
-      if (secretKeyRefBuilder_ == null) {
-        result.secretKeyRef_ = secretKeyRef_;
-      } else {
-        result.secretKeyRef_ = secretKeyRefBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.run.v2.EnvVarSource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.secretKeyRef_ = secretKeyRefBuilder_ == null
+            ? secretKeyRef_
+            : secretKeyRefBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -427,7 +375,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSecretKeyRef()) {
         mergeSecretKeyRef(other.getSecretKeyRef());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -442,19 +390,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.run.v2.EnvVarSource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSecretKeyRefFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.run.v2.EnvVarSource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.run.v2.SecretKeySelector secretKeyRef_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -468,7 +437,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the secretKeyRef field is set.
      */
     public boolean hasSecretKeyRef() {
-      return secretKeyRefBuilder_ != null || secretKeyRef_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -498,11 +467,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         secretKeyRef_ = value;
-        onChanged();
       } else {
         secretKeyRefBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -516,11 +485,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.run.v2.SecretKeySelector.Builder builderForValue) {
       if (secretKeyRefBuilder_ == null) {
         secretKeyRef_ = builderForValue.build();
-        onChanged();
       } else {
         secretKeyRefBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -532,17 +501,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSecretKeyRef(com.google.cloud.run.v2.SecretKeySelector value) {
       if (secretKeyRefBuilder_ == null) {
-        if (secretKeyRef_ != null) {
-          secretKeyRef_ =
-            com.google.cloud.run.v2.SecretKeySelector.newBuilder(secretKeyRef_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          secretKeyRef_ != null &&
+          secretKeyRef_ != com.google.cloud.run.v2.SecretKeySelector.getDefaultInstance()) {
+          getSecretKeyRefBuilder().mergeFrom(value);
         } else {
           secretKeyRef_ = value;
         }
-        onChanged();
       } else {
         secretKeyRefBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -553,14 +523,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.run.v2.SecretKeySelector secret_key_ref = 1;</code>
      */
     public Builder clearSecretKeyRef() {
-      if (secretKeyRefBuilder_ == null) {
-        secretKeyRef_ = null;
-        onChanged();
-      } else {
-        secretKeyRef_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      secretKeyRef_ = null;
+      if (secretKeyRefBuilder_ != null) {
+        secretKeyRefBuilder_.dispose();
         secretKeyRefBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -571,7 +540,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.run.v2.SecretKeySelector secret_key_ref = 1;</code>
      */
     public com.google.cloud.run.v2.SecretKeySelector.Builder getSecretKeyRefBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSecretKeyRefFieldBuilder().getBuilder();
     }
@@ -643,7 +612,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EnvVarSource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

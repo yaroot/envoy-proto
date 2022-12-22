@@ -475,5 +475,88 @@ public interface GrpcJsonTranscoderOrBuilder extends
    */
   io.envoyproxy.envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder.RequestValidationOptionsOrBuilder getRequestValidationOptionsOrBuilder();
 
+  /**
+   * <pre>
+   * Proto enum values are supposed to be in upper cases when used in JSON.
+   * Set this to true if your JSON request uses non uppercase enum values.
+   * </pre>
+   *
+   * <code>bool case_insensitive_enum_parsing = 14;</code>
+   * @return The caseInsensitiveEnumParsing.
+   */
+  boolean getCaseInsensitiveEnumParsing();
+
+  /**
+   * <pre>
+   * The maximum size of a request body to be transcoded, in bytes. A body exceeding this size will
+   * provoke a ``HTTP 413 Request Entity Too Large`` response.
+   * Large values may cause envoy to use a lot of memory if there are many concurrent requests.
+   * If unset, the current stream buffer size is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value max_request_body_size = 15 [(.validate.rules) = { ... }</code>
+   * @return Whether the maxRequestBodySize field is set.
+   */
+  boolean hasMaxRequestBodySize();
+  /**
+   * <pre>
+   * The maximum size of a request body to be transcoded, in bytes. A body exceeding this size will
+   * provoke a ``HTTP 413 Request Entity Too Large`` response.
+   * Large values may cause envoy to use a lot of memory if there are many concurrent requests.
+   * If unset, the current stream buffer size is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value max_request_body_size = 15 [(.validate.rules) = { ... }</code>
+   * @return The maxRequestBodySize.
+   */
+  com.google.protobuf.UInt32Value getMaxRequestBodySize();
+  /**
+   * <pre>
+   * The maximum size of a request body to be transcoded, in bytes. A body exceeding this size will
+   * provoke a ``HTTP 413 Request Entity Too Large`` response.
+   * Large values may cause envoy to use a lot of memory if there are many concurrent requests.
+   * If unset, the current stream buffer size is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value max_request_body_size = 15 [(.validate.rules) = { ... }</code>
+   */
+  com.google.protobuf.UInt32ValueOrBuilder getMaxRequestBodySizeOrBuilder();
+
+  /**
+   * <pre>
+   * The maximum size of a response body to be transcoded, in bytes. A body exceeding this size will
+   * provoke a ``HTTP 500 Internal Server Error`` response.
+   * Large values may cause envoy to use a lot of memory if there are many concurrent requests.
+   * If unset, the current stream buffer size is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value max_response_body_size = 16 [(.validate.rules) = { ... }</code>
+   * @return Whether the maxResponseBodySize field is set.
+   */
+  boolean hasMaxResponseBodySize();
+  /**
+   * <pre>
+   * The maximum size of a response body to be transcoded, in bytes. A body exceeding this size will
+   * provoke a ``HTTP 500 Internal Server Error`` response.
+   * Large values may cause envoy to use a lot of memory if there are many concurrent requests.
+   * If unset, the current stream buffer size is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value max_response_body_size = 16 [(.validate.rules) = { ... }</code>
+   * @return The maxResponseBodySize.
+   */
+  com.google.protobuf.UInt32Value getMaxResponseBodySize();
+  /**
+   * <pre>
+   * The maximum size of a response body to be transcoded, in bytes. A body exceeding this size will
+   * provoke a ``HTTP 500 Internal Server Error`` response.
+   * Large values may cause envoy to use a lot of memory if there are many concurrent requests.
+   * If unset, the current stream buffer size is used.
+   * </pre>
+   *
+   * <code>.google.protobuf.UInt32Value max_response_body_size = 16 [(.validate.rules) = { ... }</code>
+   */
+  com.google.protobuf.UInt32ValueOrBuilder getMaxResponseBodySizeOrBuilder();
+
   public io.envoyproxy.envoy.extensions.filters.http.grpc_json_transcoder.v3.GrpcJsonTranscoder.DescriptorSetCase getDescriptorSetCase();
 }

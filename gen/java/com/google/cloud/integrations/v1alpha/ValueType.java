@@ -34,128 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ValueType(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            valueCase_ = 1;
-            value_ = s;
-            break;
-          }
-          case 16: {
-            value_ = input.readInt64();
-            valueCase_ = 2;
-            break;
-          }
-          case 25: {
-            value_ = input.readDouble();
-            valueCase_ = 3;
-            break;
-          }
-          case 32: {
-            value_ = input.readBool();
-            valueCase_ = 4;
-            break;
-          }
-          case 42: {
-            com.google.cloud.integrations.v1alpha.StringParameterArray.Builder subBuilder = null;
-            if (valueCase_ == 5) {
-              subBuilder = ((com.google.cloud.integrations.v1alpha.StringParameterArray) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.integrations.v1alpha.StringParameterArray.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.integrations.v1alpha.StringParameterArray) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 5;
-            break;
-          }
-          case 50: {
-            com.google.cloud.integrations.v1alpha.IntParameterArray.Builder subBuilder = null;
-            if (valueCase_ == 6) {
-              subBuilder = ((com.google.cloud.integrations.v1alpha.IntParameterArray) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.integrations.v1alpha.IntParameterArray.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.integrations.v1alpha.IntParameterArray) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 6;
-            break;
-          }
-          case 58: {
-            com.google.cloud.integrations.v1alpha.DoubleParameterArray.Builder subBuilder = null;
-            if (valueCase_ == 7) {
-              subBuilder = ((com.google.cloud.integrations.v1alpha.DoubleParameterArray) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.integrations.v1alpha.DoubleParameterArray.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.integrations.v1alpha.DoubleParameterArray) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 7;
-            break;
-          }
-          case 66: {
-            com.google.cloud.integrations.v1alpha.BooleanParameterArray.Builder subBuilder = null;
-            if (valueCase_ == 8) {
-              subBuilder = ((com.google.cloud.integrations.v1alpha.BooleanParameterArray) value_).toBuilder();
-            }
-            value_ =
-                input.readMessage(com.google.cloud.integrations.v1alpha.BooleanParameterArray.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.integrations.v1alpha.BooleanParameterArray) value_);
-              value_ = subBuilder.buildPartial();
-            }
-            valueCase_ = 8;
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            valueCase_ = 9;
-            value_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.integrations.v1alpha.ValueTypeProto.internal_static_google_cloud_integrations_v1alpha_ValueType_descriptor;
@@ -655,7 +533,7 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 9) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, value_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -701,7 +579,7 @@ private static final long serialVersionUID = 0L;
     if (valueCase_ == 9) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, value_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -758,7 +636,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -812,7 +690,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -933,22 +811,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.integrations.v1alpha.ValueType.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (stringArrayBuilder_ != null) {
+        stringArrayBuilder_.clear();
+      }
+      if (intArrayBuilder_ != null) {
+        intArrayBuilder_.clear();
+      }
+      if (doubleArrayBuilder_ != null) {
+        doubleArrayBuilder_.clear();
+      }
+      if (booleanArrayBuilder_ != null) {
+        booleanArrayBuilder_.clear();
+      }
       valueCase_ = 0;
       value_ = null;
       return this;
@@ -977,52 +863,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.integrations.v1alpha.ValueType buildPartial() {
       com.google.cloud.integrations.v1alpha.ValueType result = new com.google.cloud.integrations.v1alpha.ValueType(this);
-      if (valueCase_ == 1) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 2) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 3) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 4) {
-        result.value_ = value_;
-      }
-      if (valueCase_ == 5) {
-        if (stringArrayBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = stringArrayBuilder_.build();
-        }
-      }
-      if (valueCase_ == 6) {
-        if (intArrayBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = intArrayBuilder_.build();
-        }
-      }
-      if (valueCase_ == 7) {
-        if (doubleArrayBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = doubleArrayBuilder_.build();
-        }
-      }
-      if (valueCase_ == 8) {
-        if (booleanArrayBuilder_ == null) {
-          result.value_ = value_;
-        } else {
-          result.value_ = booleanArrayBuilder_.build();
-        }
-      }
-      if (valueCase_ == 9) {
-        result.value_ = value_;
-      }
-      result.valueCase_ = valueCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.integrations.v1alpha.ValueType result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.cloud.integrations.v1alpha.ValueType result) {
+      result.valueCase_ = valueCase_;
+      result.value_ = this.value_;
+      if (valueCase_ == 5 &&
+          stringArrayBuilder_ != null) {
+        result.value_ = stringArrayBuilder_.build();
+      }
+      if (valueCase_ == 6 &&
+          intArrayBuilder_ != null) {
+        result.value_ = intArrayBuilder_.build();
+      }
+      if (valueCase_ == 7 &&
+          doubleArrayBuilder_ != null) {
+        result.value_ = doubleArrayBuilder_.build();
+      }
+      if (valueCase_ == 8 &&
+          booleanArrayBuilder_ != null) {
+        result.value_ = booleanArrayBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1114,7 +983,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1129,17 +998,85 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.integrations.v1alpha.ValueType parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              valueCase_ = 1;
+              value_ = s;
+              break;
+            } // case 10
+            case 16: {
+              value_ = input.readInt64();
+              valueCase_ = 2;
+              break;
+            } // case 16
+            case 25: {
+              value_ = input.readDouble();
+              valueCase_ = 3;
+              break;
+            } // case 25
+            case 32: {
+              value_ = input.readBool();
+              valueCase_ = 4;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getStringArrayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getIntArrayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 6;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDoubleArrayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getBooleanArrayFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              valueCase_ = 8;
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              valueCase_ = 9;
+              value_ = s;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.integrations.v1alpha.ValueType) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int valueCase_ = 0;
@@ -1157,6 +1094,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1234,10 +1172,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  valueCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      valueCase_ = 1;
       value_ = value;
       onChanged();
       return this;
@@ -1269,10 +1205,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       valueCase_ = 1;
       value_ = value;
       onChanged();
@@ -1314,6 +1248,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIntValue(long value) {
+      
       valueCase_ = 2;
       value_ = value;
       onChanged();
@@ -1371,6 +1306,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDoubleValue(double value) {
+      
       valueCase_ = 3;
       value_ = value;
       onChanged();
@@ -1428,6 +1364,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBooleanValue(boolean value) {
+      
       valueCase_ = 4;
       value_ = value;
       onChanged();
@@ -1624,7 +1561,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 5;
-      onChanged();;
+      onChanged();
       return stringArrayBuilder_;
     }
 
@@ -1802,7 +1739,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 6;
-      onChanged();;
+      onChanged();
       return intArrayBuilder_;
     }
 
@@ -1980,7 +1917,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 7;
-      onChanged();;
+      onChanged();
       return doubleArrayBuilder_;
     }
 
@@ -2158,7 +2095,7 @@ private static final long serialVersionUID = 0L;
         value_ = null;
       }
       valueCase_ = 8;
-      onChanged();;
+      onChanged();
       return booleanArrayBuilder_;
     }
 
@@ -2238,10 +2175,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJsonValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  valueCase_ = 9;
+      if (value == null) { throw new NullPointerException(); }
+      valueCase_ = 9;
       value_ = value;
       onChanged();
       return this;
@@ -2273,10 +2208,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJsonValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       valueCase_ = 9;
       value_ = value;
       onChanged();
@@ -2315,7 +2248,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ValueType(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

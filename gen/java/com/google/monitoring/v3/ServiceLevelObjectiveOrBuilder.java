@@ -216,7 +216,6 @@ public interface ServiceLevelObjectiveOrBuilder extends
    *
    * <code>map&lt;string, string&gt; user_labels = 12;</code>
    */
-
   /* nullable */
 java.lang.String getUserLabelsOrDefault(
       java.lang.String key,
@@ -234,7 +233,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; user_labels = 12;</code>
    */
-
   java.lang.String getUserLabelsOrThrow(
       java.lang.String key);
 

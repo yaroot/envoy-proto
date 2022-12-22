@@ -36,64 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SessionSegmentConditionGroup(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            conditionScoping_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.analytics.data.v1alpha.SegmentFilterExpression.Builder subBuilder = null;
-            if (segmentFilterExpression_ != null) {
-              subBuilder = segmentFilterExpression_.toBuilder();
-            }
-            segmentFilterExpression_ = input.readMessage(com.google.analytics.data.v1alpha.SegmentFilterExpression.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(segmentFilterExpression_);
-              segmentFilterExpression_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1alpha.ReportingApiProto.internal_static_google_analytics_data_v1alpha_SessionSegmentConditionGroup_descriptor;
@@ -108,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CONDITION_SCOPING_FIELD_NUMBER = 1;
-  private int conditionScoping_;
+  private int conditionScoping_ = 0;
   /**
    * <pre>
    * Data is included or excluded from the segment based on if it matches
@@ -151,8 +93,7 @@ private static final long serialVersionUID = 0L;
    * @return The conditionScoping.
    */
   @java.lang.Override public com.google.analytics.data.v1alpha.SessionCriteriaScoping getConditionScoping() {
-    @SuppressWarnings("deprecation")
-    com.google.analytics.data.v1alpha.SessionCriteriaScoping result = com.google.analytics.data.v1alpha.SessionCriteriaScoping.valueOf(conditionScoping_);
+    com.google.analytics.data.v1alpha.SessionCriteriaScoping result = com.google.analytics.data.v1alpha.SessionCriteriaScoping.forNumber(conditionScoping_);
     return result == null ? com.google.analytics.data.v1alpha.SessionCriteriaScoping.UNRECOGNIZED : result;
   }
 
@@ -197,7 +138,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.analytics.data.v1alpha.SegmentFilterExpressionOrBuilder getSegmentFilterExpressionOrBuilder() {
-    return getSegmentFilterExpression();
+    return segmentFilterExpression_ == null ? com.google.analytics.data.v1alpha.SegmentFilterExpression.getDefaultInstance() : segmentFilterExpression_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -220,7 +161,7 @@ private static final long serialVersionUID = 0L;
     if (segmentFilterExpression_ != null) {
       output.writeMessage(2, getSegmentFilterExpression());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -237,7 +178,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getSegmentFilterExpression());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -258,7 +199,7 @@ private static final long serialVersionUID = 0L;
       if (!getSegmentFilterExpression()
           .equals(other.getSegmentFilterExpression())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -275,7 +216,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SEGMENT_FILTER_EXPRESSION_FIELD_NUMBER;
       hash = (53 * hash) + getSegmentFilterExpression().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -397,28 +338,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1alpha.SessionSegmentConditionGroup.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       conditionScoping_ = 0;
-
-      if (segmentFilterExpressionBuilder_ == null) {
-        segmentFilterExpression_ = null;
-      } else {
-        segmentFilterExpression_ = null;
+      segmentFilterExpression_ = null;
+      if (segmentFilterExpressionBuilder_ != null) {
+        segmentFilterExpressionBuilder_.dispose();
         segmentFilterExpressionBuilder_ = null;
       }
       return this;
@@ -447,14 +382,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1alpha.SessionSegmentConditionGroup buildPartial() {
       com.google.analytics.data.v1alpha.SessionSegmentConditionGroup result = new com.google.analytics.data.v1alpha.SessionSegmentConditionGroup(this);
-      result.conditionScoping_ = conditionScoping_;
-      if (segmentFilterExpressionBuilder_ == null) {
-        result.segmentFilterExpression_ = segmentFilterExpression_;
-      } else {
-        result.segmentFilterExpression_ = segmentFilterExpressionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1alpha.SessionSegmentConditionGroup result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.conditionScoping_ = conditionScoping_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.segmentFilterExpression_ = segmentFilterExpressionBuilder_ == null
+            ? segmentFilterExpression_
+            : segmentFilterExpressionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -507,7 +449,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasSegmentFilterExpression()) {
         mergeSegmentFilterExpression(other.getSegmentFilterExpression());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -522,19 +464,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1alpha.SessionSegmentConditionGroup parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              conditionScoping_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getSegmentFilterExpressionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1alpha.SessionSegmentConditionGroup) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int conditionScoping_ = 0;
     /**
@@ -580,8 +548,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setConditionScopingValue(int value) {
-      
       conditionScoping_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -606,8 +574,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.analytics.data.v1alpha.SessionCriteriaScoping getConditionScoping() {
-      @SuppressWarnings("deprecation")
-      com.google.analytics.data.v1alpha.SessionCriteriaScoping result = com.google.analytics.data.v1alpha.SessionCriteriaScoping.valueOf(conditionScoping_);
+      com.google.analytics.data.v1alpha.SessionCriteriaScoping result = com.google.analytics.data.v1alpha.SessionCriteriaScoping.forNumber(conditionScoping_);
       return result == null ? com.google.analytics.data.v1alpha.SessionCriteriaScoping.UNRECOGNIZED : result;
     }
     /**
@@ -634,7 +601,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       conditionScoping_ = value.getNumber();
       onChanged();
       return this;
@@ -659,7 +626,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearConditionScoping() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       conditionScoping_ = 0;
       onChanged();
       return this;
@@ -679,7 +646,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the segmentFilterExpression field is set.
      */
     public boolean hasSegmentFilterExpression() {
-      return segmentFilterExpressionBuilder_ != null || segmentFilterExpression_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -713,11 +680,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         segmentFilterExpression_ = value;
-        onChanged();
       } else {
         segmentFilterExpressionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -733,11 +700,11 @@ private static final long serialVersionUID = 0L;
         com.google.analytics.data.v1alpha.SegmentFilterExpression.Builder builderForValue) {
       if (segmentFilterExpressionBuilder_ == null) {
         segmentFilterExpression_ = builderForValue.build();
-        onChanged();
       } else {
         segmentFilterExpressionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -751,17 +718,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSegmentFilterExpression(com.google.analytics.data.v1alpha.SegmentFilterExpression value) {
       if (segmentFilterExpressionBuilder_ == null) {
-        if (segmentFilterExpression_ != null) {
-          segmentFilterExpression_ =
-            com.google.analytics.data.v1alpha.SegmentFilterExpression.newBuilder(segmentFilterExpression_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          segmentFilterExpression_ != null &&
+          segmentFilterExpression_ != com.google.analytics.data.v1alpha.SegmentFilterExpression.getDefaultInstance()) {
+          getSegmentFilterExpressionBuilder().mergeFrom(value);
         } else {
           segmentFilterExpression_ = value;
         }
-        onChanged();
       } else {
         segmentFilterExpressionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -774,14 +742,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.SegmentFilterExpression segment_filter_expression = 2;</code>
      */
     public Builder clearSegmentFilterExpression() {
-      if (segmentFilterExpressionBuilder_ == null) {
-        segmentFilterExpression_ = null;
-        onChanged();
-      } else {
-        segmentFilterExpression_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      segmentFilterExpression_ = null;
+      if (segmentFilterExpressionBuilder_ != null) {
+        segmentFilterExpressionBuilder_.dispose();
         segmentFilterExpressionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -794,7 +761,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.analytics.data.v1alpha.SegmentFilterExpression segment_filter_expression = 2;</code>
      */
     public com.google.analytics.data.v1alpha.SegmentFilterExpression.Builder getSegmentFilterExpressionBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getSegmentFilterExpressionFieldBuilder().getBuilder();
     }
@@ -870,7 +837,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SessionSegmentConditionGroup(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

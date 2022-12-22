@@ -76,7 +76,7 @@ public interface UserLicenseOrBuilder extends
    *
    * <code>string edition_id = 4 [deprecated = true];</code>
    * @deprecated ccc.hosted.marketplace.v2.UserLicense.edition_id is deprecated.
-   *     See google/apps/market/v2/resources.proto;l=162
+   *     See google/apps/market/v2/resources.proto;l=161
    * @return The editionId.
    */
   @java.lang.Deprecated java.lang.String getEditionId();
@@ -87,7 +87,7 @@ public interface UserLicenseOrBuilder extends
    *
    * <code>string edition_id = 4 [deprecated = true];</code>
    * @deprecated ccc.hosted.marketplace.v2.UserLicense.edition_id is deprecated.
-   *     See google/apps/market/v2/resources.proto;l=162
+   *     See google/apps/market/v2/resources.proto;l=161
    * @return The bytes for editionId.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

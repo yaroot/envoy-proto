@@ -34,61 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private AdvancedMachineFeatures(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 133114920: {
-            bitField0_ |= 0x00000001;
-            enableNestedVirtualization_ = input.readBool();
-            break;
-          }
-          case -1619081952: {
-            bitField0_ |= 0x00000002;
-            enableUefiNetworking_ = input.readBool();
-            break;
-          }
-          case -1474073928: {
-            bitField0_ |= 0x00000004;
-            threadsPerCore_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_AdvancedMachineFeatures_descriptor;
@@ -104,7 +49,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ENABLE_NESTED_VIRTUALIZATION_FIELD_NUMBER = 16639365;
-  private boolean enableNestedVirtualization_;
+  private boolean enableNestedVirtualization_ = false;
   /**
    * <pre>
    * Whether to enable nested virtualization or not (default is false).
@@ -131,7 +76,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_UEFI_NETWORKING_FIELD_NUMBER = 334485668;
-  private boolean enableUefiNetworking_;
+  private boolean enableUefiNetworking_ = false;
   /**
    * <pre>
    * Whether to enable UEFI networking for instance creation.
@@ -158,7 +103,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int THREADS_PER_CORE_FIELD_NUMBER = 352611671;
-  private int threadsPerCore_;
+  private int threadsPerCore_ = 0;
   /**
    * <pre>
    * The number of threads per physical core. To disable simultaneous multithreading (SMT) set this to 1. If unset, the maximum number of threads supported per core by the underlying processor is assumed.
@@ -184,6 +129,33 @@ private static final long serialVersionUID = 0L;
     return threadsPerCore_;
   }
 
+  public static final int VISIBLE_CORE_COUNT_FIELD_NUMBER = 193198684;
+  private int visibleCoreCount_ = 0;
+  /**
+   * <pre>
+   * The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance's nominal CPU count and the underlying platform's SMT width.
+   * </pre>
+   *
+   * <code>optional int32 visible_core_count = 193198684;</code>
+   * @return Whether the visibleCoreCount field is set.
+   */
+  @java.lang.Override
+  public boolean hasVisibleCoreCount() {
+    return ((bitField0_ & 0x00000008) != 0);
+  }
+  /**
+   * <pre>
+   * The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance's nominal CPU count and the underlying platform's SMT width.
+   * </pre>
+   *
+   * <code>optional int32 visible_core_count = 193198684;</code>
+   * @return The visibleCoreCount.
+   */
+  @java.lang.Override
+  public int getVisibleCoreCount() {
+    return visibleCoreCount_;
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -201,13 +173,16 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeBool(16639365, enableNestedVirtualization_);
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      output.writeInt32(193198684, visibleCoreCount_);
+    }
     if (((bitField0_ & 0x00000002) != 0)) {
       output.writeBool(334485668, enableUefiNetworking_);
     }
     if (((bitField0_ & 0x00000004) != 0)) {
       output.writeInt32(352611671, threadsPerCore_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -220,6 +195,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(16639365, enableNestedVirtualization_);
     }
+    if (((bitField0_ & 0x00000008) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeInt32Size(193198684, visibleCoreCount_);
+    }
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(334485668, enableUefiNetworking_);
@@ -228,7 +207,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(352611671, threadsPerCore_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -258,7 +237,12 @@ private static final long serialVersionUID = 0L;
       if (getThreadsPerCore()
           != other.getThreadsPerCore()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasVisibleCoreCount() != other.hasVisibleCoreCount()) return false;
+    if (hasVisibleCoreCount()) {
+      if (getVisibleCoreCount()
+          != other.getVisibleCoreCount()) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -283,7 +267,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + THREADS_PER_CORE_FIELD_NUMBER;
       hash = (53 * hash) + getThreadsPerCore();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasVisibleCoreCount()) {
+      hash = (37 * hash) + VISIBLE_CORE_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getVisibleCoreCount();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -404,28 +392,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.AdvancedMachineFeatures.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enableNestedVirtualization_ = false;
-      bitField0_ = (bitField0_ & ~0x00000001);
       enableUefiNetworking_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       threadsPerCore_ = 0;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      visibleCoreCount_ = 0;
       return this;
     }
 
@@ -452,6 +434,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.AdvancedMachineFeatures buildPartial() {
       com.google.cloud.compute.v1.AdvancedMachineFeatures result = new com.google.cloud.compute.v1.AdvancedMachineFeatures(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.AdvancedMachineFeatures result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -466,9 +454,11 @@ private static final long serialVersionUID = 0L;
         result.threadsPerCore_ = threadsPerCore_;
         to_bitField0_ |= 0x00000004;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.visibleCoreCount_ = visibleCoreCount_;
+        to_bitField0_ |= 0x00000008;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -524,7 +514,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasThreadsPerCore()) {
         setThreadsPerCore(other.getThreadsPerCore());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasVisibleCoreCount()) {
+        setVisibleCoreCount(other.getVisibleCoreCount());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -539,17 +532,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.AdvancedMachineFeatures parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 133114920: {
+              enableNestedVirtualization_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 133114920
+            case 1545589472: {
+              visibleCoreCount_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1545589472
+            case -1619081952: {
+              enableUefiNetworking_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -1619081952
+            case -1474073928: {
+              threadsPerCore_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case -1474073928
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.AdvancedMachineFeatures) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -589,8 +615,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableNestedVirtualization(boolean value) {
-      bitField0_ |= 0x00000001;
+      
       enableNestedVirtualization_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -644,8 +671,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableUefiNetworking(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       enableUefiNetworking_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -699,8 +727,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setThreadsPerCore(int value) {
-      bitField0_ |= 0x00000004;
+      
       threadsPerCore_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -715,6 +744,62 @@ private static final long serialVersionUID = 0L;
     public Builder clearThreadsPerCore() {
       bitField0_ = (bitField0_ & ~0x00000004);
       threadsPerCore_ = 0;
+      onChanged();
+      return this;
+    }
+
+    private int visibleCoreCount_ ;
+    /**
+     * <pre>
+     * The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance's nominal CPU count and the underlying platform's SMT width.
+     * </pre>
+     *
+     * <code>optional int32 visible_core_count = 193198684;</code>
+     * @return Whether the visibleCoreCount field is set.
+     */
+    @java.lang.Override
+    public boolean hasVisibleCoreCount() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance's nominal CPU count and the underlying platform's SMT width.
+     * </pre>
+     *
+     * <code>optional int32 visible_core_count = 193198684;</code>
+     * @return The visibleCoreCount.
+     */
+    @java.lang.Override
+    public int getVisibleCoreCount() {
+      return visibleCoreCount_;
+    }
+    /**
+     * <pre>
+     * The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance's nominal CPU count and the underlying platform's SMT width.
+     * </pre>
+     *
+     * <code>optional int32 visible_core_count = 193198684;</code>
+     * @param value The visibleCoreCount to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVisibleCoreCount(int value) {
+      
+      visibleCoreCount_ = value;
+      bitField0_ |= 0x00000008;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The number of physical cores to expose to an instance. Multiply by the number of threads per core to compute the total number of virtual CPUs to expose to the instance. If unset, the number of cores is inferred from the instance's nominal CPU count and the underlying platform's SMT width.
+     * </pre>
+     *
+     * <code>optional int32 visible_core_count = 193198684;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVisibleCoreCount() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      visibleCoreCount_ = 0;
       onChanged();
       return this;
     }
@@ -751,7 +836,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new AdvancedMachineFeatures(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

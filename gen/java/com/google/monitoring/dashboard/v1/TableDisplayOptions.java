@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TableDisplayOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              shownColumns_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            shownColumns_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        shownColumns_ = shownColumns_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.dashboard.v1.TableDisplayOptionsProto.internal_static_google_monitoring_dashboard_v1_TableDisplayOptions_descriptor;
@@ -101,56 +49,65 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SHOWN_COLUMNS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList shownColumns_;
   /**
    * <pre>
-   * Optional. Columns to display in the table. Leave empty to display all available
-   * columns. Note: This field is for future features and is not currently used.
+   * Optional. This field is unused and has been replaced by
+   * TimeSeriesTable.column_settings
    * </pre>
    *
-   * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+   * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+   *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
    * @return A list containing the shownColumns.
    */
-  public com.google.protobuf.ProtocolStringList
+  @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
       getShownColumnsList() {
     return shownColumns_;
   }
   /**
    * <pre>
-   * Optional. Columns to display in the table. Leave empty to display all available
-   * columns. Note: This field is for future features and is not currently used.
+   * Optional. This field is unused and has been replaced by
+   * TimeSeriesTable.column_settings
    * </pre>
    *
-   * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+   * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+   *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
    * @return The count of shownColumns.
    */
-  public int getShownColumnsCount() {
+  @java.lang.Deprecated public int getShownColumnsCount() {
     return shownColumns_.size();
   }
   /**
    * <pre>
-   * Optional. Columns to display in the table. Leave empty to display all available
-   * columns. Note: This field is for future features and is not currently used.
+   * Optional. This field is unused and has been replaced by
+   * TimeSeriesTable.column_settings
    * </pre>
    *
-   * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+   * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+   *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
    * @param index The index of the element to return.
    * @return The shownColumns at the given index.
    */
-  public java.lang.String getShownColumns(int index) {
+  @java.lang.Deprecated public java.lang.String getShownColumns(int index) {
     return shownColumns_.get(index);
   }
   /**
    * <pre>
-   * Optional. Columns to display in the table. Leave empty to display all available
-   * columns. Note: This field is for future features and is not currently used.
+   * Optional. This field is unused and has been replaced by
+   * TimeSeriesTable.column_settings
    * </pre>
    *
-   * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+   * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+   * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+   *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
    * @param index The index of the value to return.
    * @return The bytes of the shownColumns at the given index.
    */
-  public com.google.protobuf.ByteString
+  @java.lang.Deprecated public com.google.protobuf.ByteString
       getShownColumnsBytes(int index) {
     return shownColumns_.getByteString(index);
   }
@@ -172,7 +129,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < shownColumns_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, shownColumns_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -189,7 +146,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getShownColumnsList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -206,7 +163,7 @@ private static final long serialVersionUID = 0L;
 
     if (!getShownColumnsList()
         .equals(other.getShownColumnsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -221,7 +178,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + SHOWN_COLUMNS_FIELD_NUMBER;
       hash = (53 * hash) + getShownColumnsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -342,22 +299,18 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.dashboard.v1.TableDisplayOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       shownColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       return this;
@@ -386,14 +339,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.dashboard.v1.TableDisplayOptions buildPartial() {
       com.google.monitoring.dashboard.v1.TableDisplayOptions result = new com.google.monitoring.dashboard.v1.TableDisplayOptions(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.monitoring.dashboard.v1.TableDisplayOptions result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         shownColumns_ = shownColumns_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.shownColumns_ = shownColumns_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.dashboard.v1.TableDisplayOptions result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -450,7 +411,7 @@ private static final long serialVersionUID = 0L;
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -465,17 +426,36 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.dashboard.v1.TableDisplayOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureShownColumnsIsMutable();
+              shownColumns_.add(s);
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.dashboard.v1.TableDisplayOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -489,108 +469,118 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @return A list containing the shownColumns.
      */
-    public com.google.protobuf.ProtocolStringList
+    @java.lang.Deprecated public com.google.protobuf.ProtocolStringList
         getShownColumnsList() {
       return shownColumns_.getUnmodifiableView();
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @return The count of shownColumns.
      */
-    public int getShownColumnsCount() {
+    @java.lang.Deprecated public int getShownColumnsCount() {
       return shownColumns_.size();
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @param index The index of the element to return.
      * @return The shownColumns at the given index.
      */
-    public java.lang.String getShownColumns(int index) {
+    @java.lang.Deprecated public java.lang.String getShownColumns(int index) {
       return shownColumns_.get(index);
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @param index The index of the value to return.
      * @return The bytes of the shownColumns at the given index.
      */
-    public com.google.protobuf.ByteString
+    @java.lang.Deprecated public com.google.protobuf.ByteString
         getShownColumnsBytes(int index) {
       return shownColumns_.getByteString(index);
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @param index The index to set the value at.
      * @param value The shownColumns to set.
      * @return This builder for chaining.
      */
-    public Builder setShownColumns(
+    @java.lang.Deprecated public Builder setShownColumns(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureShownColumnsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureShownColumnsIsMutable();
       shownColumns_.set(index, value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @param value The shownColumns to add.
      * @return This builder for chaining.
      */
-    public Builder addShownColumns(
+    @java.lang.Deprecated public Builder addShownColumns(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureShownColumnsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureShownColumnsIsMutable();
       shownColumns_.add(value);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @param values The shownColumns to add.
      * @return This builder for chaining.
      */
-    public Builder addAllShownColumns(
+    @java.lang.Deprecated public Builder addAllShownColumns(
         java.lang.Iterable<java.lang.String> values) {
       ensureShownColumnsIsMutable();
       com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -600,14 +590,16 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @return This builder for chaining.
      */
-    public Builder clearShownColumns() {
+    @java.lang.Deprecated public Builder clearShownColumns() {
       shownColumns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
@@ -615,20 +607,20 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Columns to display in the table. Leave empty to display all available
-     * columns. Note: This field is for future features and is not currently used.
+     * Optional. This field is unused and has been replaced by
+     * TimeSeriesTable.column_settings
      * </pre>
      *
-     * <code>repeated string shown_columns = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
+     * <code>repeated string shown_columns = 1 [deprecated = true, (.google.api.field_behavior) = OPTIONAL];</code>
+     * @deprecated google.monitoring.dashboard.v1.TableDisplayOptions.shown_columns is deprecated.
+     *     See google/monitoring/dashboard/v1/table_display_options.proto;l=32
      * @param value The bytes of the shownColumns to add.
      * @return This builder for chaining.
      */
-    public Builder addShownColumnsBytes(
+    @java.lang.Deprecated public Builder addShownColumnsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureShownColumnsIsMutable();
       shownColumns_.add(value);
       onChanged();
@@ -667,7 +659,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TableDisplayOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

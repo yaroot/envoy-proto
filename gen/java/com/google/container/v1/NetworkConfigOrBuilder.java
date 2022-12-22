@@ -216,4 +216,34 @@ public interface NetworkConfigOrBuilder extends
    * <code>.google.container.v1.ServiceExternalIPsConfig service_external_ips_config = 15;</code>
    */
   com.google.container.v1.ServiceExternalIPsConfigOrBuilder getServiceExternalIpsConfigOrBuilder();
+
+  /**
+   * <pre>
+   * GatewayAPIConfig contains the desired config of Gateway API on this
+   * cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+   * @return Whether the gatewayApiConfig field is set.
+   */
+  boolean hasGatewayApiConfig();
+  /**
+   * <pre>
+   * GatewayAPIConfig contains the desired config of Gateway API on this
+   * cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+   * @return The gatewayApiConfig.
+   */
+  com.google.container.v1.GatewayAPIConfig getGatewayApiConfig();
+  /**
+   * <pre>
+   * GatewayAPIConfig contains the desired config of Gateway API on this
+   * cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig gateway_api_config = 16;</code>
+   */
+  com.google.container.v1.GatewayAPIConfigOrBuilder getGatewayApiConfigOrBuilder();
 }

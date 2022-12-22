@@ -35,7 +35,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2130
+   *     See envoy/config/route/v3/route_components.proto;l=2199
    * @return Whether the exactMatch field is set.
    */
   @java.lang.Deprecated boolean hasExactMatch();
@@ -47,7 +47,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2130
+   *     See envoy/config/route/v3/route_components.proto;l=2199
    * @return The exactMatch.
    */
   @java.lang.Deprecated java.lang.String getExactMatch();
@@ -59,7 +59,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string exact_match = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.exact_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2130
+   *     See envoy/config/route/v3/route_components.proto;l=2199
    * @return The bytes for exactMatch.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -75,7 +75,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>.envoy.type.matcher.v3.RegexMatcher safe_regex_match = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.safe_regex_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2137
+   *     See envoy/config/route/v3/route_components.proto;l=2206
    * @return Whether the safeRegexMatch field is set.
    */
   @java.lang.Deprecated boolean hasSafeRegexMatch();
@@ -89,7 +89,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>.envoy.type.matcher.v3.RegexMatcher safe_regex_match = 11 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.safe_regex_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2137
+   *     See envoy/config/route/v3/route_components.proto;l=2206
    * @return The safeRegexMatch.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.type.matcher.v3.RegexMatcher getSafeRegexMatch();
@@ -188,7 +188,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2164
+   *     See envoy/config/route/v3/route_components.proto;l=2233
    * @return Whether the prefixMatch field is set.
    */
   @java.lang.Deprecated boolean hasPrefixMatch();
@@ -203,7 +203,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2164
+   *     See envoy/config/route/v3/route_components.proto;l=2233
    * @return The prefixMatch.
    */
   @java.lang.Deprecated java.lang.String getPrefixMatch();
@@ -218,7 +218,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string prefix_match = 9 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.prefix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2164
+   *     See envoy/config/route/v3/route_components.proto;l=2233
    * @return The bytes for prefixMatch.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -235,7 +235,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2177
+   *     See envoy/config/route/v3/route_components.proto;l=2246
    * @return Whether the suffixMatch field is set.
    */
   @java.lang.Deprecated boolean hasSuffixMatch();
@@ -250,7 +250,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2177
+   *     See envoy/config/route/v3/route_components.proto;l=2246
    * @return The suffixMatch.
    */
   @java.lang.Deprecated java.lang.String getSuffixMatch();
@@ -265,7 +265,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string suffix_match = 10 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.suffix_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2177
+   *     See envoy/config/route/v3/route_components.proto;l=2246
    * @return The bytes for suffixMatch.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString
@@ -283,7 +283,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2191
+   *     See envoy/config/route/v3/route_components.proto;l=2260
    * @return Whether the containsMatch field is set.
    */
   @java.lang.Deprecated boolean hasContainsMatch();
@@ -299,7 +299,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2191
+   *     See envoy/config/route/v3/route_components.proto;l=2260
    * @return The containsMatch.
    */
   @java.lang.Deprecated java.lang.String getContainsMatch();
@@ -315,7 +315,7 @@ public interface HeaderMatcherOrBuilder extends
    *
    * <code>string contains_match = 12 [deprecated = true, (.validate.rules) = { ... }</code>
    * @deprecated envoy.config.route.v3.HeaderMatcher.contains_match is deprecated.
-   *     See envoy/config/route/v3/route_components.proto;l=2191
+   *     See envoy/config/route/v3/route_components.proto;l=2260
    * @return The bytes for containsMatch.
    */
   @java.lang.Deprecated com.google.protobuf.ByteString

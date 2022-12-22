@@ -58,7 +58,7 @@ public final class TcpProxyProto {
       "uration.proto\032\036google/protobuf/wrappers." +
       "proto\032\035udpa/annotations/status.proto\032!ud" +
       "pa/annotations/versioning.proto\032\027validat" +
-      "e/validate.proto\"\267\r\n\010TcpProxy\022\034\n\013stat_pr" +
+      "e/validate.proto\"\272\016\n\010TcpProxy\022\034\n\013stat_pr" +
       "efix\030\001 \001(\tB\007\372B\004r\002\020\001\022\021\n\007cluster\030\002 \001(\tH\000\022d" +
       "\n\021weighted_clusters\030\n \001(\0132G.envoy.extens" +
       "ions.filters.network.tcp_proxy.v3.TcpPro" +
@@ -79,34 +79,37 @@ public final class TcpProxyProto {
       "ilters.network.tcp_proxy.v3.TcpProxy.Tun" +
       "nelingConfig\022S\n\"max_downstream_connectio" +
       "n_duration\030\r \001(\0132\031.google.protobuf.Durat" +
-      "ionB\014\372B\t\252\001\0062\004\020\300\204=\032\240\003\n\017WeightedCluster\022q\n" +
-      "\010clusters\030\001 \003(\0132U.envoy.extensions.filte" +
-      "rs.network.tcp_proxy.v3.TcpProxy.Weighte" +
-      "dCluster.ClusterWeightB\010\372B\005\222\001\002\010\001\032\317\001\n\rClu" +
-      "sterWeight\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022\027\n\006wei" +
-      "ght\030\002 \001(\rB\007\372B\004*\002(\001\0226\n\016metadata_match\030\003 \001" +
-      "(\0132\036.envoy.config.core.v3.Metadata:V\232\305\210\036" +
-      "Q\nOenvoy.config.filter.network.tcp_proxy" +
-      ".v2.TcpProxy.WeightedCluster.ClusterWeig" +
-      "ht:H\232\305\210\036C\nAenvoy.config.filter.network.t" +
-      "cp_proxy.v2.TcpProxy.WeightedCluster\032\324\001\n" +
-      "\017TunnelingConfig\022\031\n\010hostname\030\001 \001(\tB\007\372B\004r" +
-      "\002\020\001\022\020\n\010use_post\030\002 \001(\010\022J\n\016headers_to_add\030" +
-      "\003 \003(\0132\'.envoy.config.core.v3.HeaderValue" +
-      "OptionB\t\372B\006\222\001\003\020\350\007:H\232\305\210\036C\nAenvoy.config.f" +
-      "ilter.network.tcp_proxy.v2.TcpProxy.Tunn" +
-      "elingConfig\032\213\001\n\010OnDemand\0228\n\014odcds_config" +
-      "\030\001 \001(\0132\".envoy.config.core.v3.ConfigSour" +
-      "ce\022\031\n\021resources_locator\030\002 \001(\t\022*\n\007timeout" +
-      "\030\003 \001(\0132\031.google.protobuf.Duration:8\232\305\210\0363" +
-      "\n1envoy.config.filter.network.tcp_proxy." +
-      "v2.TcpProxyB\030\n\021cluster_specifier\022\003\370B\001J\004\010" +
-      "\006\020\007R\rdeprecated_v1B\270\001\n;io.envoyproxy.env" +
-      "oy.extensions.filters.network.tcp_proxy." +
-      "v3B\rTcpProxyProtoP\001Z`github.com/envoypro" +
-      "xy/go-control-plane/envoy/extensions/fil" +
-      "ters/network/tcp_proxy/v3;tcp_proxyv3\272\200\310" +
-      "\321\006\002\020\002b\006proto3"
+      "ionB\014\372B\t\252\001\0062\004\020\300\204=\022J\n\031access_log_flush_in" +
+      "terval\030\017 \001(\0132\031.google.protobuf.DurationB" +
+      "\014\372B\t\252\001\0062\004\020\300\204=\032\240\003\n\017WeightedCluster\022q\n\010clu" +
+      "sters\030\001 \003(\0132U.envoy.extensions.filters.n" +
+      "etwork.tcp_proxy.v3.TcpProxy.WeightedClu" +
+      "ster.ClusterWeightB\010\372B\005\222\001\002\010\001\032\317\001\n\rCluster" +
+      "Weight\022\025\n\004name\030\001 \001(\tB\007\372B\004r\002\020\001\022\027\n\006weight\030" +
+      "\002 \001(\rB\007\372B\004*\002(\001\0226\n\016metadata_match\030\003 \001(\0132\036" +
+      ".envoy.config.core.v3.Metadata:V\232\305\210\036Q\nOe" +
+      "nvoy.config.filter.network.tcp_proxy.v2." +
+      "TcpProxy.WeightedCluster.ClusterWeight:H" +
+      "\232\305\210\036C\nAenvoy.config.filter.network.tcp_p" +
+      "roxy.v2.TcpProxy.WeightedCluster\032\213\002\n\017Tun" +
+      "nelingConfig\022\031\n\010hostname\030\001 \001(\tB\007\372B\004r\002\020\001\022" +
+      "\020\n\010use_post\030\002 \001(\010\022J\n\016headers_to_add\030\003 \003(" +
+      "\0132\'.envoy.config.core.v3.HeaderValueOpti" +
+      "onB\t\372B\006\222\001\003\020\350\007\022\"\n\032propagate_response_head" +
+      "ers\030\004 \001(\010\022\021\n\tpost_path\030\005 \001(\t:H\232\305\210\036C\nAenv" +
+      "oy.config.filter.network.tcp_proxy.v2.Tc" +
+      "pProxy.TunnelingConfig\032\213\001\n\010OnDemand\0228\n\014o" +
+      "dcds_config\030\001 \001(\0132\".envoy.config.core.v3" +
+      ".ConfigSource\022\031\n\021resources_locator\030\002 \001(\t" +
+      "\022*\n\007timeout\030\003 \001(\0132\031.google.protobuf.Dura" +
+      "tion:8\232\305\210\0363\n1envoy.config.filter.network" +
+      ".tcp_proxy.v2.TcpProxyB\030\n\021cluster_specif" +
+      "ier\022\003\370B\001J\004\010\006\020\007R\rdeprecated_v1B\270\001\n;io.env" +
+      "oyproxy.envoy.extensions.filters.network" +
+      ".tcp_proxy.v3B\rTcpProxyProtoP\001Z`github.c" +
+      "om/envoyproxy/go-control-plane/envoy/ext" +
+      "ensions/filters/network/tcp_proxy/v3;tcp" +
+      "_proxyv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -126,7 +129,7 @@ public final class TcpProxyProto {
     internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_descriptor,
-        new java.lang.String[] { "StatPrefix", "Cluster", "WeightedClusters", "OnDemand", "MetadataMatch", "IdleTimeout", "DownstreamIdleTimeout", "UpstreamIdleTimeout", "AccessLog", "MaxConnectAttempts", "HashPolicy", "TunnelingConfig", "MaxDownstreamConnectionDuration", "ClusterSpecifier", });
+        new java.lang.String[] { "StatPrefix", "Cluster", "WeightedClusters", "OnDemand", "MetadataMatch", "IdleTimeout", "DownstreamIdleTimeout", "UpstreamIdleTimeout", "AccessLog", "MaxConnectAttempts", "HashPolicy", "TunnelingConfig", "MaxDownstreamConnectionDuration", "AccessLogFlushInterval", "ClusterSpecifier", });
     internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_WeightedCluster_descriptor =
       internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_descriptor.getNestedTypes().get(0);
     internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_WeightedCluster_fieldAccessorTable = new
@@ -144,7 +147,7 @@ public final class TcpProxyProto {
     internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_TunnelingConfig_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_TunnelingConfig_descriptor,
-        new java.lang.String[] { "Hostname", "UsePost", "HeadersToAdd", });
+        new java.lang.String[] { "Hostname", "UsePost", "HeadersToAdd", "PropagateResponseHeaders", "PostPath", });
     internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_OnDemand_descriptor =
       internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_descriptor.getNestedTypes().get(2);
     internal_static_envoy_extensions_filters_network_tcp_proxy_v3_TcpProxy_OnDemand_fieldAccessorTable = new

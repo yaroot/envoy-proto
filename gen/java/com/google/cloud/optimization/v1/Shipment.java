@@ -46,220 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Shipment(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              pickups_ = new java.util.ArrayList<com.google.cloud.optimization.v1.Shipment.VisitRequest>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            pickups_.add(
-                input.readMessage(com.google.cloud.optimization.v1.Shipment.VisitRequest.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              deliveries_ = new java.util.ArrayList<com.google.cloud.optimization.v1.Shipment.VisitRequest>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            deliveries_.add(
-                input.readMessage(com.google.cloud.optimization.v1.Shipment.VisitRequest.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              demands_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            demands_.add(
-                input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-            break;
-          }
-          case 33: {
-            bitField0_ |= 0x00000001;
-            penaltyCost_ = input.readDouble();
-            break;
-          }
-          case 40: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              allowedVehicleIndices_ = newIntList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            allowedVehicleIndices_.addInt(input.readInt32());
-            break;
-          }
-          case 42: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000010) != 0) && input.getBytesUntilLimit() > 0) {
-              allowedVehicleIndices_ = newIntList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              allowedVehicleIndices_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 49: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              costsPerVehicle_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            costsPerVehicle_.addDouble(input.readDouble());
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-              costsPerVehicle_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              costsPerVehicle_.addDouble(input.readDouble());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 56: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              costsPerVehicleIndices_ = newIntList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            costsPerVehicleIndices_.addInt(input.readInt32());
-            break;
-          }
-          case 58: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000040) != 0) && input.getBytesUntilLimit() > 0) {
-              costsPerVehicleIndices_ = newIntList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              costsPerVehicleIndices_.addInt(input.readInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 65: {
-            bitField0_ |= 0x00000002;
-            pickupToDeliveryRelativeDetourLimit_ = input.readDouble();
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (pickupToDeliveryAbsoluteDetourLimit_ != null) {
-              subBuilder = pickupToDeliveryAbsoluteDetourLimit_.toBuilder();
-            }
-            pickupToDeliveryAbsoluteDetourLimit_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pickupToDeliveryAbsoluteDetourLimit_);
-              pickupToDeliveryAbsoluteDetourLimit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (pickupToDeliveryTimeLimit_ != null) {
-              subBuilder = pickupToDeliveryTimeLimit_.toBuilder();
-            }
-            pickupToDeliveryTimeLimit_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(pickupToDeliveryTimeLimit_);
-              pickupToDeliveryTimeLimit_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            shipmentType_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            label_ = s;
-            break;
-          }
-          case 104: {
-
-            ignore_ = input.readBool();
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              loadDemands_ = com.google.protobuf.MapField.newMapField(
-                  LoadDemandsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000004;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-            loadDemands__ = input.readMessage(
-                LoadDemandsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            loadDemands_.getMutableMap().put(
-                loadDemands__.getKey(), loadDemands__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        pickups_ = java.util.Collections.unmodifiableList(pickups_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        deliveries_ = java.util.Collections.unmodifiableList(deliveries_);
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        demands_ = java.util.Collections.unmodifiableList(demands_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        allowedVehicleIndices_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        costsPerVehicle_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        costsPerVehicleIndices_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Shipment_descriptor;
@@ -615,8 +401,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
@@ -627,8 +415,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
@@ -646,8 +436,10 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
@@ -659,15 +451,16 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
      */
-
     /* nullable */
 com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
         java.lang.String key,
@@ -676,15 +469,16 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
      */
-
     com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
         java.lang.String key);
 
@@ -744,7 +538,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Specifies a label for this `VisitRequest`. This label is reported in the
-     * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * response as `visit_label` in the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 11;</code>
@@ -754,7 +549,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Specifies a label for this `VisitRequest`. This label is reported in the
-     * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * response as `visit_label` in the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 11;</code>
@@ -846,183 +642,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private VisitRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.LatLng.Builder subBuilder = null;
-              if (arrivalLocation_ != null) {
-                subBuilder = arrivalLocation_.toBuilder();
-              }
-              arrivalLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(arrivalLocation_);
-                arrivalLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.cloud.optimization.v1.Waypoint.Builder subBuilder = null;
-              if (arrivalWaypoint_ != null) {
-                subBuilder = arrivalWaypoint_.toBuilder();
-              }
-              arrivalWaypoint_ = input.readMessage(com.google.cloud.optimization.v1.Waypoint.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(arrivalWaypoint_);
-                arrivalWaypoint_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              com.google.type.LatLng.Builder subBuilder = null;
-              if (departureLocation_ != null) {
-                subBuilder = departureLocation_.toBuilder();
-              }
-              departureLocation_ = input.readMessage(com.google.type.LatLng.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(departureLocation_);
-                departureLocation_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              com.google.cloud.optimization.v1.Waypoint.Builder subBuilder = null;
-              if (departureWaypoint_ != null) {
-                subBuilder = departureWaypoint_.toBuilder();
-              }
-              departureWaypoint_ = input.readMessage(com.google.cloud.optimization.v1.Waypoint.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(departureWaypoint_);
-                departureWaypoint_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tags_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              tags_.add(s);
-              break;
-            }
-            case 50: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                timeWindows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TimeWindow>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              timeWindows_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.TimeWindow.parser(), extensionRegistry));
-              break;
-            }
-            case 58: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (duration_ != null) {
-                subBuilder = duration_.toBuilder();
-              }
-              duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(duration_);
-                duration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 65: {
-
-              cost_ = input.readDouble();
-              break;
-            }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-                demands_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-                mutable_bitField0_ |= 0x00000010;
-              }
-              demands_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-                visitTypes_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
-              }
-              visitTypes_.add(s);
-              break;
-            }
-            case 90: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              label_ = s;
-              break;
-            }
-            case 98: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                loadDemands_ = com.google.protobuf.MapField.newMapField(
-                    LoadDemandsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000004;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-              loadDemands__ = input.readMessage(
-                  LoadDemandsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              loadDemands_.getMutableMap().put(
-                  loadDemands__.getKey(), loadDemands__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          tags_ = tags_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          timeWindows_ = java.util.Collections.unmodifiableList(timeWindows_);
-        }
-        if (((mutable_bitField0_ & 0x00000010) != 0)) {
-          demands_ = java.util.Collections.unmodifiableList(demands_);
-        }
-        if (((mutable_bitField0_ & 0x00000008) != 0)) {
-          visitTypes_ = visitTypes_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Shipment_VisitRequest_descriptor;
@@ -1089,7 +708,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.type.LatLngOrBuilder getArrivalLocationOrBuilder() {
-      return getArrivalLocation();
+      return arrivalLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : arrivalLocation_;
     }
 
     public static final int ARRIVAL_WAYPOINT_FIELD_NUMBER = 2;
@@ -1133,7 +752,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.WaypointOrBuilder getArrivalWaypointOrBuilder() {
-      return getArrivalWaypoint();
+      return arrivalWaypoint_ == null ? com.google.cloud.optimization.v1.Waypoint.getDefaultInstance() : arrivalWaypoint_;
     }
 
     public static final int DEPARTURE_LOCATION_FIELD_NUMBER = 3;
@@ -1180,7 +799,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.type.LatLngOrBuilder getDepartureLocationOrBuilder() {
-      return getDepartureLocation();
+      return departureLocation_ == null ? com.google.type.LatLng.getDefaultInstance() : departureLocation_;
     }
 
     public static final int DEPARTURE_WAYPOINT_FIELD_NUMBER = 4;
@@ -1227,10 +846,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.WaypointOrBuilder getDepartureWaypointOrBuilder() {
-      return getDepartureWaypoint();
+      return departureWaypoint_ == null ? com.google.cloud.optimization.v1.Waypoint.getDefaultInstance() : departureWaypoint_;
     }
 
     public static final int TAGS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList tags_;
     /**
      * <pre>
@@ -1286,6 +906,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int TIME_WINDOWS_FIELD_NUMBER = 6;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.TimeWindow> timeWindows_;
     /**
      * <pre>
@@ -1436,11 +1057,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-      return getDuration();
+      return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
     }
 
     public static final int COST_FIELD_NUMBER = 8;
-    private double cost_;
+    private double cost_ = 0D;
     /**
      * <pre>
      * Cost to service this visit request on a vehicle route. This can be used
@@ -1469,6 +1090,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.optimization.v1.Shipment.Load.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> loadDemands_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
@@ -1479,22 +1101,22 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       return loadDemands_;
     }
-
     public int getLoadDemandsCount() {
       return internalGetLoadDemands().getMap().size();
     }
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
      */
-
     @java.lang.Override
     public boolean containsLoadDemands(
         java.lang.String key) {
@@ -1512,8 +1134,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
@@ -1521,15 +1145,16 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> getLoadDemandsMap() {
       return internalGetLoadDemands().getMap();
     }
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
@@ -1537,10 +1162,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
+    public /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
         java.lang.String key,
-        com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
+        /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> map =
           internalGetLoadDemands().getMap();
@@ -1549,8 +1175,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Load demands of this visit request. This is just like
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * field, except that it only applies to this
+     * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+     * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
      * The demands listed here are added to the demands listed in
      * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
@@ -1558,7 +1186,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1571,6 +1198,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int VISIT_TYPES_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList visitTypes_;
     /**
      * <pre>
@@ -1634,11 +1262,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int LABEL_FIELD_NUMBER = 11;
-    private volatile java.lang.Object label_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object label_ = "";
     /**
      * <pre>
      * Specifies a label for this `VisitRequest`. This label is reported in the
-     * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * response as `visit_label` in the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 11;</code>
@@ -1660,7 +1290,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Specifies a label for this `VisitRequest`. This label is reported in the
-     * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * response as `visit_label` in the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 11;</code>
@@ -1682,6 +1313,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int DEMANDS_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> demands_;
     /**
      * <pre>
@@ -1794,7 +1426,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           internalGetLoadDemands(),
           LoadDemandsDefaultEntryHolder.defaultEntry,
           12);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1864,7 +1496,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(12, loadDemands__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1919,7 +1551,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           .equals(other.getLabel())) return false;
       if (!getDemandsList()
           .equals(other.getDemandsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1975,7 +1607,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         hash = (37 * hash) + DEMANDS_FIELD_NUMBER;
         hash = (53 * hash) + getDemandsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2121,75 +1753,64 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.Shipment.VisitRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getTimeWindowsFieldBuilder();
-          getDemandsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (arrivalLocationBuilder_ == null) {
-          arrivalLocation_ = null;
-        } else {
-          arrivalLocation_ = null;
+        bitField0_ = 0;
+        arrivalLocation_ = null;
+        if (arrivalLocationBuilder_ != null) {
+          arrivalLocationBuilder_.dispose();
           arrivalLocationBuilder_ = null;
         }
-        if (arrivalWaypointBuilder_ == null) {
-          arrivalWaypoint_ = null;
-        } else {
-          arrivalWaypoint_ = null;
+        arrivalWaypoint_ = null;
+        if (arrivalWaypointBuilder_ != null) {
+          arrivalWaypointBuilder_.dispose();
           arrivalWaypointBuilder_ = null;
         }
-        if (departureLocationBuilder_ == null) {
-          departureLocation_ = null;
-        } else {
-          departureLocation_ = null;
+        departureLocation_ = null;
+        if (departureLocationBuilder_ != null) {
+          departureLocationBuilder_.dispose();
           departureLocationBuilder_ = null;
         }
-        if (departureWaypointBuilder_ == null) {
-          departureWaypoint_ = null;
-        } else {
-          departureWaypoint_ = null;
+        departureWaypoint_ = null;
+        if (departureWaypointBuilder_ != null) {
+          departureWaypointBuilder_.dispose();
           departureWaypointBuilder_ = null;
         }
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         if (timeWindowsBuilder_ == null) {
           timeWindows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          timeWindows_ = null;
           timeWindowsBuilder_.clear();
         }
-        if (durationBuilder_ == null) {
-          duration_ = null;
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
         cost_ = 0D;
-
         internalGetMutableLoadDemands().clear();
         visitTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000200);
         label_ = "";
-
         if (demandsBuilder_ == null) {
           demands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
+          demands_ = null;
           demandsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -2216,66 +1837,80 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.Shipment.VisitRequest buildPartial() {
         com.google.cloud.optimization.v1.Shipment.VisitRequest result = new com.google.cloud.optimization.v1.Shipment.VisitRequest(this);
-        int from_bitField0_ = bitField0_;
-        if (arrivalLocationBuilder_ == null) {
-          result.arrivalLocation_ = arrivalLocation_;
-        } else {
-          result.arrivalLocation_ = arrivalLocationBuilder_.build();
-        }
-        if (arrivalWaypointBuilder_ == null) {
-          result.arrivalWaypoint_ = arrivalWaypoint_;
-        } else {
-          result.arrivalWaypoint_ = arrivalWaypointBuilder_.build();
-        }
-        if (departureLocationBuilder_ == null) {
-          result.departureLocation_ = departureLocation_;
-        } else {
-          result.departureLocation_ = departureLocationBuilder_.build();
-        }
-        if (departureWaypointBuilder_ == null) {
-          result.departureWaypoint_ = departureWaypoint_;
-        } else {
-          result.departureWaypoint_ = departureWaypointBuilder_.build();
-        }
-        if (((bitField0_ & 0x00000001) != 0)) {
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.Shipment.VisitRequest result) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           tags_ = tags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.tags_ = tags_;
         if (timeWindowsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000020) != 0)) {
             timeWindows_ = java.util.Collections.unmodifiableList(timeWindows_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           }
           result.timeWindows_ = timeWindows_;
         } else {
           result.timeWindows_ = timeWindowsBuilder_.build();
         }
-        if (durationBuilder_ == null) {
-          result.duration_ = duration_;
-        } else {
-          result.duration_ = durationBuilder_.build();
-        }
-        result.cost_ = cost_;
-        result.loadDemands_ = internalGetLoadDemands();
-        result.loadDemands_.makeImmutable();
-        if (((bitField0_ & 0x00000008) != 0)) {
+        if (((bitField0_ & 0x00000200) != 0)) {
           visitTypes_ = visitTypes_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000200);
         }
         result.visitTypes_ = visitTypes_;
-        result.label_ = label_;
         if (demandsBuilder_ == null) {
-          if (((bitField0_ & 0x00000010) != 0)) {
+          if (((bitField0_ & 0x00000800) != 0)) {
             demands_ = java.util.Collections.unmodifiableList(demands_);
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00000800);
           }
           result.demands_ = demands_;
         } else {
           result.demands_ = demandsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.Shipment.VisitRequest result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.arrivalLocation_ = arrivalLocationBuilder_ == null
+              ? arrivalLocation_
+              : arrivalLocationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.arrivalWaypoint_ = arrivalWaypointBuilder_ == null
+              ? arrivalWaypoint_
+              : arrivalWaypointBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.departureLocation_ = departureLocationBuilder_ == null
+              ? departureLocation_
+              : departureLocationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.departureWaypoint_ = departureWaypointBuilder_ == null
+              ? departureWaypoint_
+              : departureWaypointBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.duration_ = durationBuilder_ == null
+              ? duration_
+              : durationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.cost_ = cost_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.loadDemands_ = internalGetLoadDemands();
+          result.loadDemands_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.label_ = label_;
+        }
       }
 
       @java.lang.Override
@@ -2337,7 +1972,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         if (!other.tags_.isEmpty()) {
           if (tags_.isEmpty()) {
             tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureTagsIsMutable();
             tags_.addAll(other.tags_);
@@ -2348,7 +1983,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           if (!other.timeWindows_.isEmpty()) {
             if (timeWindows_.isEmpty()) {
               timeWindows_ = other.timeWindows_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000020);
             } else {
               ensureTimeWindowsIsMutable();
               timeWindows_.addAll(other.timeWindows_);
@@ -2361,7 +1996,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
               timeWindowsBuilder_.dispose();
               timeWindowsBuilder_ = null;
               timeWindows_ = other.timeWindows_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000020);
               timeWindowsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getTimeWindowsFieldBuilder() : null;
@@ -2378,10 +2013,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         }
         internalGetMutableLoadDemands().mergeFrom(
             other.internalGetLoadDemands());
+        bitField0_ |= 0x00000100;
         if (!other.visitTypes_.isEmpty()) {
           if (visitTypes_.isEmpty()) {
             visitTypes_ = other.visitTypes_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000200);
           } else {
             ensureVisitTypesIsMutable();
             visitTypes_.addAll(other.visitTypes_);
@@ -2390,13 +2026,14 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         }
         if (!other.getLabel().isEmpty()) {
           label_ = other.label_;
+          bitField0_ |= 0x00000400;
           onChanged();
         }
         if (demandsBuilder_ == null) {
           if (!other.demands_.isEmpty()) {
             if (demands_.isEmpty()) {
               demands_ = other.demands_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000800);
             } else {
               ensureDemandsIsMutable();
               demands_.addAll(other.demands_);
@@ -2409,7 +2046,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
               demandsBuilder_.dispose();
               demandsBuilder_ = null;
               demands_ = other.demands_;
-              bitField0_ = (bitField0_ & ~0x00000010);
+              bitField0_ = (bitField0_ & ~0x00000800);
               demandsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDemandsFieldBuilder() : null;
@@ -2418,7 +2055,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2433,17 +2070,122 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.Shipment.VisitRequest parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getArrivalLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getArrivalWaypointFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getDepartureLocationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getDepartureWaypointFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureTagsIsMutable();
+                tags_.add(s);
+                break;
+              } // case 42
+              case 50: {
+                com.google.cloud.optimization.v1.TimeWindow m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.TimeWindow.parser(),
+                        extensionRegistry);
+                if (timeWindowsBuilder_ == null) {
+                  ensureTimeWindowsIsMutable();
+                  timeWindows_.add(m);
+                } else {
+                  timeWindowsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 65: {
+                cost_ = input.readDouble();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 65
+              case 74: {
+                com.google.cloud.optimization.v1.CapacityQuantity m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                        extensionRegistry);
+                if (demandsBuilder_ == null) {
+                  ensureDemandsIsMutable();
+                  demands_.add(m);
+                } else {
+                  demandsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 74
+              case 82: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureVisitTypesIsMutable();
+                visitTypes_.add(s);
+                break;
+              } // case 82
+              case 90: {
+                label_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 98: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
+                loadDemands__ = input.readMessage(
+                    LoadDemandsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLoadDemands().getMutableMap().put(
+                    loadDemands__.getKey(), loadDemands__.getValue());
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 98
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.Shipment.VisitRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -2462,7 +2204,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the arrivalLocation field is set.
        */
       public boolean hasArrivalLocation() {
-        return arrivalLocationBuilder_ != null || arrivalLocation_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -2496,11 +2238,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           arrivalLocation_ = value;
-          onChanged();
         } else {
           arrivalLocationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2516,11 +2258,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.type.LatLng.Builder builderForValue) {
         if (arrivalLocationBuilder_ == null) {
           arrivalLocation_ = builderForValue.build();
-          onChanged();
         } else {
           arrivalLocationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2534,17 +2276,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeArrivalLocation(com.google.type.LatLng value) {
         if (arrivalLocationBuilder_ == null) {
-          if (arrivalLocation_ != null) {
-            arrivalLocation_ =
-              com.google.type.LatLng.newBuilder(arrivalLocation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            arrivalLocation_ != null &&
+            arrivalLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+            getArrivalLocationBuilder().mergeFrom(value);
           } else {
             arrivalLocation_ = value;
           }
-          onChanged();
         } else {
           arrivalLocationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2557,14 +2300,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.type.LatLng arrival_location = 1;</code>
        */
       public Builder clearArrivalLocation() {
-        if (arrivalLocationBuilder_ == null) {
-          arrivalLocation_ = null;
-          onChanged();
-        } else {
-          arrivalLocation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        arrivalLocation_ = null;
+        if (arrivalLocationBuilder_ != null) {
+          arrivalLocationBuilder_.dispose();
           arrivalLocationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2577,7 +2319,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.type.LatLng arrival_location = 1;</code>
        */
       public com.google.type.LatLng.Builder getArrivalLocationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getArrivalLocationFieldBuilder().getBuilder();
       }
@@ -2635,7 +2377,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the arrivalWaypoint field is set.
        */
       public boolean hasArrivalWaypoint() {
-        return arrivalWaypointBuilder_ != null || arrivalWaypoint_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2669,11 +2411,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           arrivalWaypoint_ = value;
-          onChanged();
         } else {
           arrivalWaypointBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2689,11 +2431,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.cloud.optimization.v1.Waypoint.Builder builderForValue) {
         if (arrivalWaypointBuilder_ == null) {
           arrivalWaypoint_ = builderForValue.build();
-          onChanged();
         } else {
           arrivalWaypointBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2707,17 +2449,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeArrivalWaypoint(com.google.cloud.optimization.v1.Waypoint value) {
         if (arrivalWaypointBuilder_ == null) {
-          if (arrivalWaypoint_ != null) {
-            arrivalWaypoint_ =
-              com.google.cloud.optimization.v1.Waypoint.newBuilder(arrivalWaypoint_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            arrivalWaypoint_ != null &&
+            arrivalWaypoint_ != com.google.cloud.optimization.v1.Waypoint.getDefaultInstance()) {
+            getArrivalWaypointBuilder().mergeFrom(value);
           } else {
             arrivalWaypoint_ = value;
           }
-          onChanged();
         } else {
           arrivalWaypointBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2730,14 +2473,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.cloud.optimization.v1.Waypoint arrival_waypoint = 2;</code>
        */
       public Builder clearArrivalWaypoint() {
-        if (arrivalWaypointBuilder_ == null) {
-          arrivalWaypoint_ = null;
-          onChanged();
-        } else {
-          arrivalWaypoint_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        arrivalWaypoint_ = null;
+        if (arrivalWaypointBuilder_ != null) {
+          arrivalWaypointBuilder_.dispose();
           arrivalWaypointBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2750,7 +2492,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.cloud.optimization.v1.Waypoint arrival_waypoint = 2;</code>
        */
       public com.google.cloud.optimization.v1.Waypoint.Builder getArrivalWaypointBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getArrivalWaypointFieldBuilder().getBuilder();
       }
@@ -2809,7 +2551,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the departureLocation field is set.
        */
       public boolean hasDepartureLocation() {
-        return departureLocationBuilder_ != null || departureLocation_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2845,11 +2587,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           departureLocation_ = value;
-          onChanged();
         } else {
           departureLocationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2866,11 +2608,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.type.LatLng.Builder builderForValue) {
         if (departureLocationBuilder_ == null) {
           departureLocation_ = builderForValue.build();
-          onChanged();
         } else {
           departureLocationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2885,17 +2627,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeDepartureLocation(com.google.type.LatLng value) {
         if (departureLocationBuilder_ == null) {
-          if (departureLocation_ != null) {
-            departureLocation_ =
-              com.google.type.LatLng.newBuilder(departureLocation_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            departureLocation_ != null &&
+            departureLocation_ != com.google.type.LatLng.getDefaultInstance()) {
+            getDepartureLocationBuilder().mergeFrom(value);
           } else {
             departureLocation_ = value;
           }
-          onChanged();
         } else {
           departureLocationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2909,14 +2652,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.type.LatLng departure_location = 3;</code>
        */
       public Builder clearDepartureLocation() {
-        if (departureLocationBuilder_ == null) {
-          departureLocation_ = null;
-          onChanged();
-        } else {
-          departureLocation_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        departureLocation_ = null;
+        if (departureLocationBuilder_ != null) {
+          departureLocationBuilder_.dispose();
           departureLocationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2930,7 +2672,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.type.LatLng departure_location = 3;</code>
        */
       public com.google.type.LatLng.Builder getDepartureLocationBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getDepartureLocationFieldBuilder().getBuilder();
       }
@@ -2991,7 +2733,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the departureWaypoint field is set.
        */
       public boolean hasDepartureWaypoint() {
-        return departureWaypointBuilder_ != null || departureWaypoint_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -3027,11 +2769,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           departureWaypoint_ = value;
-          onChanged();
         } else {
           departureWaypointBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3048,11 +2790,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.cloud.optimization.v1.Waypoint.Builder builderForValue) {
         if (departureWaypointBuilder_ == null) {
           departureWaypoint_ = builderForValue.build();
-          onChanged();
         } else {
           departureWaypointBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3067,17 +2809,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeDepartureWaypoint(com.google.cloud.optimization.v1.Waypoint value) {
         if (departureWaypointBuilder_ == null) {
-          if (departureWaypoint_ != null) {
-            departureWaypoint_ =
-              com.google.cloud.optimization.v1.Waypoint.newBuilder(departureWaypoint_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            departureWaypoint_ != null &&
+            departureWaypoint_ != com.google.cloud.optimization.v1.Waypoint.getDefaultInstance()) {
+            getDepartureWaypointBuilder().mergeFrom(value);
           } else {
             departureWaypoint_ = value;
           }
-          onChanged();
         } else {
           departureWaypointBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3091,14 +2834,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.cloud.optimization.v1.Waypoint departure_waypoint = 4;</code>
        */
       public Builder clearDepartureWaypoint() {
-        if (departureWaypointBuilder_ == null) {
-          departureWaypoint_ = null;
-          onChanged();
-        } else {
-          departureWaypoint_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        departureWaypoint_ = null;
+        if (departureWaypointBuilder_ != null) {
+          departureWaypointBuilder_.dispose();
           departureWaypointBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3112,7 +2854,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.cloud.optimization.v1.Waypoint departure_waypoint = 4;</code>
        */
       public com.google.cloud.optimization.v1.Waypoint.Builder getDepartureWaypointBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getDepartureWaypointFieldBuilder().getBuilder();
       }
@@ -3160,9 +2902,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
       private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureTagsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000010) != 0)) {
           tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
@@ -3230,10 +2972,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setTags(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.set(index, value);
         onChanged();
         return this;
@@ -3250,10 +2990,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder addTags(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
         return this;
@@ -3287,7 +3025,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder clearTags() {
         tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -3303,10 +3041,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder addTagsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureTagsIsMutable();
         tags_.add(value);
         onChanged();
@@ -3316,9 +3052,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private java.util.List<com.google.cloud.optimization.v1.TimeWindow> timeWindows_ =
         java.util.Collections.emptyList();
       private void ensureTimeWindowsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000020) != 0)) {
           timeWindows_ = new java.util.ArrayList<com.google.cloud.optimization.v1.TimeWindow>(timeWindows_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000020;
          }
       }
 
@@ -3622,7 +3358,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       public Builder clearTimeWindows() {
         if (timeWindowsBuilder_ == null) {
           timeWindows_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
           onChanged();
         } else {
           timeWindowsBuilder_.clear();
@@ -3797,7 +3533,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           timeWindowsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.optimization.v1.TimeWindow, com.google.cloud.optimization.v1.TimeWindow.Builder, com.google.cloud.optimization.v1.TimeWindowOrBuilder>(
                   timeWindows_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000020) != 0),
                   getParentForChildren(),
                   isClean());
           timeWindows_ = null;
@@ -3819,7 +3555,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the duration field is set.
        */
       public boolean hasDuration() {
-        return durationBuilder_ != null || duration_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -3853,11 +3589,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           duration_ = value;
-          onChanged();
         } else {
           durationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -3873,11 +3609,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationBuilder_ == null) {
           duration_ = builderForValue.build();
-          onChanged();
         } else {
           durationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -3891,17 +3627,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeDuration(com.google.protobuf.Duration value) {
         if (durationBuilder_ == null) {
-          if (duration_ != null) {
-            duration_ =
-              com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            duration_ != null &&
+            duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationBuilder().mergeFrom(value);
           } else {
             duration_ = value;
           }
-          onChanged();
         } else {
           durationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -3914,14 +3651,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.protobuf.Duration duration = 7;</code>
        */
       public Builder clearDuration() {
-        if (durationBuilder_ == null) {
-          duration_ = null;
-          onChanged();
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3934,7 +3670,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.protobuf.Duration duration = 7;</code>
        */
       public com.google.protobuf.Duration.Builder getDurationBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getDurationFieldBuilder().getBuilder();
       }
@@ -4009,6 +3745,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       public Builder setCost(double value) {
         
         cost_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -4024,7 +3761,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearCost() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         cost_ = 0D;
         onChanged();
         return this;
@@ -4033,7 +3770,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> loadDemands_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-      internalGetLoadDemands() {
+          internalGetLoadDemands() {
         if (loadDemands_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               LoadDemandsDefaultEntryHolder.defaultEntry);
@@ -4041,8 +3778,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         return loadDemands_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-      internalGetMutableLoadDemands() {
-        onChanged();;
+          internalGetMutableLoadDemands() {
         if (loadDemands_ == null) {
           loadDemands_ = com.google.protobuf.MapField.newMapField(
               LoadDemandsDefaultEntryHolder.defaultEntry);
@@ -4050,24 +3786,26 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         if (!loadDemands_.isMutable()) {
           loadDemands_ = loadDemands_.copy();
         }
+        bitField0_ |= 0x00000100;
+        onChanged();
         return loadDemands_;
       }
-
       public int getLoadDemandsCount() {
         return internalGetLoadDemands().getMap().size();
       }
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
        */
-
       @java.lang.Override
       public boolean containsLoadDemands(
           java.lang.String key) {
@@ -4085,8 +3823,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
@@ -4094,15 +3834,16 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> getLoadDemandsMap() {
         return internalGetLoadDemands().getMap();
       }
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
@@ -4110,10 +3851,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
+      public /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
           java.lang.String key,
-          com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
+          /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> map =
             internalGetLoadDemands().getMap();
@@ -4122,8 +3864,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
@@ -4131,7 +3875,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4142,8 +3885,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearLoadDemands() {
+        bitField0_ = (bitField0_ & ~0x00000100);
         internalGetMutableLoadDemands().getMutableMap()
             .clear();
         return this;
@@ -4151,15 +3894,16 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
        */
-
       public Builder removeLoadDemands(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -4172,14 +3916,17 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-      getMutableLoadDemands() {
+          getMutableLoadDemands() {
+        bitField0_ |= 0x00000100;
         return internalGetMutableLoadDemands().getMutableMap();
       }
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
@@ -4190,38 +3937,38 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           java.lang.String key,
           com.google.cloud.optimization.v1.Shipment.Load value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableLoadDemands().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000100;
         return this;
       }
       /**
        * <pre>
        * Load demands of this visit request. This is just like
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] field, except that it only applies to this
-       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest] instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * field, except that it only applies to this
+       * [VisitRequest][google.cloud.optimization.v1.Shipment.VisitRequest]
+       * instead of the whole [Shipment][google.cloud.optimization.v1.Shipment].
        * The demands listed here are added to the demands listed in
        * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands].
        * </pre>
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 12;</code>
        */
-
       public Builder putAllLoadDemands(
           java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> values) {
         internalGetMutableLoadDemands().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000100;
         return this;
       }
 
       private com.google.protobuf.LazyStringList visitTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureVisitTypesIsMutable() {
-        if (!((bitField0_ & 0x00000008) != 0)) {
+        if (!((bitField0_ & 0x00000200) != 0)) {
           visitTypes_ = new com.google.protobuf.LazyStringArrayList(visitTypes_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000200;
          }
       }
       /**
@@ -4299,10 +4046,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setVisitTypes(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVisitTypesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureVisitTypesIsMutable();
         visitTypes_.set(index, value);
         onChanged();
         return this;
@@ -4321,10 +4066,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder addVisitTypes(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureVisitTypesIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureVisitTypesIsMutable();
         visitTypes_.add(value);
         onChanged();
         return this;
@@ -4362,7 +4105,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder clearVisitTypes() {
         visitTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
@@ -4380,10 +4123,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder addVisitTypesBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureVisitTypesIsMutable();
         visitTypes_.add(value);
         onChanged();
@@ -4394,7 +4135,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       /**
        * <pre>
        * Specifies a label for this `VisitRequest`. This label is reported in the
-       * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+       * response as `visit_label` in the corresponding
+       * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
        * </pre>
        *
        * <code>string label = 11;</code>
@@ -4415,7 +4157,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       /**
        * <pre>
        * Specifies a label for this `VisitRequest`. This label is reported in the
-       * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+       * response as `visit_label` in the corresponding
+       * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
        * </pre>
        *
        * <code>string label = 11;</code>
@@ -4437,7 +4180,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       /**
        * <pre>
        * Specifies a label for this `VisitRequest`. This label is reported in the
-       * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+       * response as `visit_label` in the corresponding
+       * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
        * </pre>
        *
        * <code>string label = 11;</code>
@@ -4446,33 +4190,33 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setLabel(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         label_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Specifies a label for this `VisitRequest`. This label is reported in the
-       * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+       * response as `visit_label` in the corresponding
+       * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
        * </pre>
        *
        * <code>string label = 11;</code>
        * @return This builder for chaining.
        */
       public Builder clearLabel() {
-        
         label_ = getDefaultInstance().getLabel();
+        bitField0_ = (bitField0_ & ~0x00000400);
         onChanged();
         return this;
       }
       /**
        * <pre>
        * Specifies a label for this `VisitRequest`. This label is reported in the
-       * response as `visit_label` in the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+       * response as `visit_label` in the corresponding
+       * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
        * </pre>
        *
        * <code>string label = 11;</code>
@@ -4481,12 +4225,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setLabelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         label_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -4494,9 +4236,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> demands_ =
         java.util.Collections.emptyList();
       private void ensureDemandsIsMutable() {
-        if (!((bitField0_ & 0x00000010) != 0)) {
+        if (!((bitField0_ & 0x00000800) != 0)) {
           demands_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(demands_);
-          bitField0_ |= 0x00000010;
+          bitField0_ |= 0x00000800;
          }
       }
 
@@ -4690,7 +4432,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       @java.lang.Deprecated public Builder clearDemands() {
         if (demandsBuilder_ == null) {
           demands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000800);
           onChanged();
         } else {
           demandsBuilder_.clear();
@@ -4795,7 +4537,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           demandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                   demands_,
-                  ((bitField0_ & 0x00000010) != 0),
+                  ((bitField0_ & 0x00000800) != 0),
                   getParentForChildren(),
                   isClean());
           demands_ = null;
@@ -4835,7 +4577,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VisitRequest(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4875,7 +4628,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    * <pre>
    * When performing a visit, a predefined amount may be added to the vehicle
    * load if it's a pickup, or subtracted if it's a delivery. This message
-   * defines such amount. See [load_demands][google.cloud.optimization.v1.Shipment.load_demands].
+   * defines such amount. See
+   * [load_demands][google.cloud.optimization.v1.Shipment.load_demands].
    * </pre>
    *
    * Protobuf type {@code google.cloud.optimization.v1.Shipment.Load}
@@ -4904,50 +4658,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Load(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 16: {
-
-              amount_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_Shipment_Load_descriptor;
@@ -4962,7 +4672,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 2;
-    private long amount_;
+    private long amount_ = 0L;
     /**
      * <pre>
      * The amount by which the load of the vehicle performing the corresponding
@@ -4995,7 +4705,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       if (amount_ != 0L) {
         output.writeInt64(2, amount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -5008,7 +4718,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, amount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -5025,7 +4735,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
       if (getAmount()
           != other.getAmount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -5039,7 +4749,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAmount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -5138,7 +4848,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * When performing a visit, a predefined amount may be added to the vehicle
      * load if it's a pickup, or subtracted if it's a delivery. This message
-     * defines such amount. See [load_demands][google.cloud.optimization.v1.Shipment.load_demands].
+     * defines such amount. See
+     * [load_demands][google.cloud.optimization.v1.Shipment.load_demands].
      * </pre>
      *
      * Protobuf type {@code google.cloud.optimization.v1.Shipment.Load}
@@ -5162,24 +4873,19 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.Shipment.Load.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         amount_ = 0L;
-
         return this;
       }
 
@@ -5206,9 +4912,16 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.Shipment.Load buildPartial() {
         com.google.cloud.optimization.v1.Shipment.Load result = new com.google.cloud.optimization.v1.Shipment.Load(this);
-        result.amount_ = amount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.Shipment.Load result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.amount_ = amount_;
+        }
       }
 
       @java.lang.Override
@@ -5258,7 +4971,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         if (other.getAmount() != 0L) {
           setAmount(other.getAmount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -5273,19 +4986,38 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.Shipment.Load parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 16: {
+                amount_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 16
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.Shipment.Load) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long amount_ ;
       /**
@@ -5316,6 +5048,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       public Builder setAmount(long value) {
         
         amount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -5330,7 +5063,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearAmount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         amount_ = 0L;
         onChanged();
         return this;
@@ -5368,7 +5101,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Load(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5390,6 +5134,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
   private int bitField0_;
   public static final int PICKUPS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.Shipment.VisitRequest> pickups_;
   /**
    * <pre>
@@ -5455,6 +5200,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   }
 
   public static final int DELIVERIES_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.Shipment.VisitRequest> deliveries_;
   /**
    * <pre>
@@ -5531,6 +5277,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.optimization.v1.Shipment.Load.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> loadDemands_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
@@ -5541,7 +5288,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
     return loadDemands_;
   }
-
   public int getLoadDemandsCount() {
     return internalGetLoadDemands().getMap().size();
   }
@@ -5557,7 +5303,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    *
    * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
    */
-
   @java.lang.Override
   public boolean containsLoadDemands(
       java.lang.String key) {
@@ -5585,7 +5330,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> getLoadDemandsMap() {
     return internalGetLoadDemands().getMap();
   }
@@ -5602,10 +5346,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
+  public /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
       java.lang.String key,
-      com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
+      /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> map =
         internalGetLoadDemands().getMap();
@@ -5624,7 +5369,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -5637,7 +5381,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   }
 
   public static final int PENALTY_COST_FIELD_NUMBER = 4;
-  private double penaltyCost_;
+  private double penaltyCost_ = 0D;
   /**
    * <pre>
    * If the shipment is not completed, this penalty is added to the overall
@@ -5676,6 +5420,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   }
 
   public static final int ALLOWED_VEHICLE_INDICES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList allowedVehicleIndices_;
   /**
    * <pre>
@@ -5722,6 +5467,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   private int allowedVehicleIndicesMemoizedSerializedSize = -1;
 
   public static final int COSTS_PER_VEHICLE_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.DoubleList costsPerVehicle_;
   /**
    * <pre>
@@ -5786,6 +5532,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   private int costsPerVehicleMemoizedSerializedSize = -1;
 
   public static final int COSTS_PER_VEHICLE_INDICES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList costsPerVehicleIndices_;
   /**
    * <pre>
@@ -5835,7 +5582,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   private int costsPerVehicleIndicesMemoizedSerializedSize = -1;
 
   public static final int PICKUP_TO_DELIVERY_RELATIVE_DETOUR_LIMIT_FIELD_NUMBER = 8;
-  private double pickupToDeliveryRelativeDetourLimit_;
+  private double pickupToDeliveryRelativeDetourLimit_ = 0D;
   /**
    * <pre>
    * Specifies the maximum relative detour time compared to the shortest path
@@ -5961,7 +5708,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getPickupToDeliveryAbsoluteDetourLimitOrBuilder() {
-    return getPickupToDeliveryAbsoluteDetourLimit();
+    return pickupToDeliveryAbsoluteDetourLimit_ == null ? com.google.protobuf.Duration.getDefaultInstance() : pickupToDeliveryAbsoluteDetourLimit_;
   }
 
   public static final int PICKUP_TO_DELIVERY_TIME_LIMIT_FIELD_NUMBER = 10;
@@ -6014,11 +5761,12 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getPickupToDeliveryTimeLimitOrBuilder() {
-    return getPickupToDeliveryTimeLimit();
+    return pickupToDeliveryTimeLimit_ == null ? com.google.protobuf.Duration.getDefaultInstance() : pickupToDeliveryTimeLimit_;
   }
 
   public static final int SHIPMENT_TYPE_FIELD_NUMBER = 11;
-  private volatile java.lang.Object shipmentType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object shipmentType_ = "";
   /**
    * <pre>
    * Non-empty string specifying a "type" for this shipment.
@@ -6076,11 +5824,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   }
 
   public static final int LABEL_FIELD_NUMBER = 12;
-  private volatile java.lang.Object label_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object label_ = "";
   /**
    * <pre>
    * Specifies a label for this shipment. This label is reported in the response
-   * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+   * in the `shipment_label` of the corresponding
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
    * </pre>
    *
    * <code>string label = 12;</code>
@@ -6102,7 +5852,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   /**
    * <pre>
    * Specifies a label for this shipment. This label is reported in the response
-   * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+   * in the `shipment_label` of the corresponding
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
    * </pre>
    *
    * <code>string label = 12;</code>
@@ -6124,7 +5875,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   }
 
   public static final int IGNORE_FIELD_NUMBER = 13;
-  private boolean ignore_;
+  private boolean ignore_ = false;
   /**
    * <pre>
    * If true, skip this shipment, but don't apply a `penalty_cost`.
@@ -6145,6 +5896,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
   }
 
   public static final int DEMANDS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> demands_;
   /**
    * <pre>
@@ -6276,7 +6028,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         internalGetLoadDemands(),
         LoadDemandsDefaultEntryHolder.defaultEntry,
         14);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -6372,7 +6124,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(14, loadDemands__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -6429,7 +6181,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         != other.getIgnore()) return false;
     if (!getDemandsList()
         .equals(other.getDemandsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -6493,7 +6245,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       hash = (37 * hash) + DEMANDS_FIELD_NUMBER;
       hash = (53 * hash) + getDemandsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -6640,72 +6392,58 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
     // Construct using com.google.cloud.optimization.v1.Shipment.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPickupsFieldBuilder();
-        getDeliveriesFieldBuilder();
-        getDemandsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (pickupsBuilder_ == null) {
         pickups_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        pickups_ = null;
         pickupsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (deliveriesBuilder_ == null) {
         deliveries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        deliveries_ = null;
         deliveriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableLoadDemands().clear();
       penaltyCost_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000008);
       allowedVehicleIndices_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000010);
       costsPerVehicle_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000020);
       costsPerVehicleIndices_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000040);
       pickupToDeliveryRelativeDetourLimit_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000080);
-      if (pickupToDeliveryAbsoluteDetourLimitBuilder_ == null) {
-        pickupToDeliveryAbsoluteDetourLimit_ = null;
-      } else {
-        pickupToDeliveryAbsoluteDetourLimit_ = null;
+      pickupToDeliveryAbsoluteDetourLimit_ = null;
+      if (pickupToDeliveryAbsoluteDetourLimitBuilder_ != null) {
+        pickupToDeliveryAbsoluteDetourLimitBuilder_.dispose();
         pickupToDeliveryAbsoluteDetourLimitBuilder_ = null;
       }
-      if (pickupToDeliveryTimeLimitBuilder_ == null) {
-        pickupToDeliveryTimeLimit_ = null;
-      } else {
-        pickupToDeliveryTimeLimit_ = null;
+      pickupToDeliveryTimeLimit_ = null;
+      if (pickupToDeliveryTimeLimitBuilder_ != null) {
+        pickupToDeliveryTimeLimitBuilder_.dispose();
         pickupToDeliveryTimeLimitBuilder_ = null;
       }
       shipmentType_ = "";
-
       label_ = "";
-
       ignore_ = false;
-
       if (demandsBuilder_ == null) {
         demands_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
       } else {
+        demands_ = null;
         demandsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00002000);
       return this;
     }
 
@@ -6732,8 +6470,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     @java.lang.Override
     public com.google.cloud.optimization.v1.Shipment buildPartial() {
       com.google.cloud.optimization.v1.Shipment result = new com.google.cloud.optimization.v1.Shipment(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.Shipment result) {
       if (pickupsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           pickups_ = java.util.Collections.unmodifiableList(pickups_);
@@ -6752,12 +6495,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       } else {
         result.deliveries_ = deliveriesBuilder_.build();
       }
-      result.loadDemands_ = internalGetLoadDemands();
-      result.loadDemands_.makeImmutable();
-      if (((from_bitField0_ & 0x00000008) != 0)) {
-        result.penaltyCost_ = penaltyCost_;
-        to_bitField0_ |= 0x00000001;
-      }
       if (((bitField0_ & 0x00000010) != 0)) {
         allowedVehicleIndices_.makeImmutable();
         bitField0_ = (bitField0_ & ~0x00000010);
@@ -6773,35 +6510,52 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         bitField0_ = (bitField0_ & ~0x00000040);
       }
       result.costsPerVehicleIndices_ = costsPerVehicleIndices_;
-      if (((from_bitField0_ & 0x00000080) != 0)) {
-        result.pickupToDeliveryRelativeDetourLimit_ = pickupToDeliveryRelativeDetourLimit_;
-        to_bitField0_ |= 0x00000002;
-      }
-      if (pickupToDeliveryAbsoluteDetourLimitBuilder_ == null) {
-        result.pickupToDeliveryAbsoluteDetourLimit_ = pickupToDeliveryAbsoluteDetourLimit_;
-      } else {
-        result.pickupToDeliveryAbsoluteDetourLimit_ = pickupToDeliveryAbsoluteDetourLimitBuilder_.build();
-      }
-      if (pickupToDeliveryTimeLimitBuilder_ == null) {
-        result.pickupToDeliveryTimeLimit_ = pickupToDeliveryTimeLimit_;
-      } else {
-        result.pickupToDeliveryTimeLimit_ = pickupToDeliveryTimeLimitBuilder_.build();
-      }
-      result.shipmentType_ = shipmentType_;
-      result.label_ = label_;
-      result.ignore_ = ignore_;
       if (demandsBuilder_ == null) {
-        if (((bitField0_ & 0x00000100) != 0)) {
+        if (((bitField0_ & 0x00002000) != 0)) {
           demands_ = java.util.Collections.unmodifiableList(demands_);
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00002000);
         }
         result.demands_ = demands_;
       } else {
         result.demands_ = demandsBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.Shipment result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.loadDemands_ = internalGetLoadDemands();
+        result.loadDemands_.makeImmutable();
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.penaltyCost_ = penaltyCost_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.pickupToDeliveryRelativeDetourLimit_ = pickupToDeliveryRelativeDetourLimit_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.pickupToDeliveryAbsoluteDetourLimit_ = pickupToDeliveryAbsoluteDetourLimitBuilder_ == null
+            ? pickupToDeliveryAbsoluteDetourLimit_
+            : pickupToDeliveryAbsoluteDetourLimitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.pickupToDeliveryTimeLimit_ = pickupToDeliveryTimeLimitBuilder_ == null
+            ? pickupToDeliveryTimeLimit_
+            : pickupToDeliveryTimeLimitBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.shipmentType_ = shipmentType_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.label_ = label_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.ignore_ = ignore_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -6902,6 +6656,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       internalGetMutableLoadDemands().mergeFrom(
           other.internalGetLoadDemands());
+      bitField0_ |= 0x00000004;
       if (other.hasPenaltyCost()) {
         setPenaltyCost(other.getPenaltyCost());
       }
@@ -6946,10 +6701,12 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       if (!other.getShipmentType().isEmpty()) {
         shipmentType_ = other.shipmentType_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (!other.getLabel().isEmpty()) {
         label_ = other.label_;
+        bitField0_ |= 0x00000800;
         onChanged();
       }
       if (other.getIgnore() != false) {
@@ -6959,7 +6716,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         if (!other.demands_.isEmpty()) {
           if (demands_.isEmpty()) {
             demands_ = other.demands_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00002000);
           } else {
             ensureDemandsIsMutable();
             demands_.addAll(other.demands_);
@@ -6972,7 +6729,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             demandsBuilder_.dispose();
             demandsBuilder_ = null;
             demands_ = other.demands_;
-            bitField0_ = (bitField0_ & ~0x00000100);
+            bitField0_ = (bitField0_ & ~0x00002000);
             demandsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getDemandsFieldBuilder() : null;
@@ -6981,7 +6738,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -6996,17 +6753,165 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.Shipment parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.optimization.v1.Shipment.VisitRequest m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.Shipment.VisitRequest.parser(),
+                      extensionRegistry);
+              if (pickupsBuilder_ == null) {
+                ensurePickupsIsMutable();
+                pickups_.add(m);
+              } else {
+                pickupsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              com.google.cloud.optimization.v1.Shipment.VisitRequest m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.Shipment.VisitRequest.parser(),
+                      extensionRegistry);
+              if (deliveriesBuilder_ == null) {
+                ensureDeliveriesIsMutable();
+                deliveries_.add(m);
+              } else {
+                deliveriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.optimization.v1.CapacityQuantity m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                      extensionRegistry);
+              if (demandsBuilder_ == null) {
+                ensureDemandsIsMutable();
+                demands_.add(m);
+              } else {
+                demandsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 33: {
+              penaltyCost_ = input.readDouble();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 33
+            case 40: {
+              int v = input.readInt32();
+              ensureAllowedVehicleIndicesIsMutable();
+              allowedVehicleIndices_.addInt(v);
+              break;
+            } // case 40
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureAllowedVehicleIndicesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                allowedVehicleIndices_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 42
+            case 49: {
+              double v = input.readDouble();
+              ensureCostsPerVehicleIsMutable();
+              costsPerVehicle_.addDouble(v);
+              break;
+            } // case 49
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureCostsPerVehicleIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                costsPerVehicle_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 50
+            case 56: {
+              int v = input.readInt32();
+              ensureCostsPerVehicleIndicesIsMutable();
+              costsPerVehicleIndices_.addInt(v);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureCostsPerVehicleIndicesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                costsPerVehicleIndices_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 58
+            case 65: {
+              pickupToDeliveryRelativeDetourLimit_ = input.readDouble();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 65
+            case 74: {
+              input.readMessage(
+                  getPickupToDeliveryAbsoluteDetourLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              input.readMessage(
+                  getPickupToDeliveryTimeLimitFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              shipmentType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              label_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 104: {
+              ignore_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
+              loadDemands__ = input.readMessage(
+                  LoadDemandsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLoadDemands().getMutableMap().put(
+                  loadDemands__.getKey(), loadDemands__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 114
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.Shipment) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -7674,7 +7579,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> loadDemands_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-    internalGetLoadDemands() {
+        internalGetLoadDemands() {
       if (loadDemands_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LoadDemandsDefaultEntryHolder.defaultEntry);
@@ -7682,8 +7587,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       return loadDemands_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-    internalGetMutableLoadDemands() {
-      onChanged();;
+        internalGetMutableLoadDemands() {
       if (loadDemands_ == null) {
         loadDemands_ = com.google.protobuf.MapField.newMapField(
             LoadDemandsDefaultEntryHolder.defaultEntry);
@@ -7691,9 +7595,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       if (!loadDemands_.isMutable()) {
         loadDemands_ = loadDemands_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return loadDemands_;
     }
-
     public int getLoadDemandsCount() {
       return internalGetLoadDemands().getMap().size();
     }
@@ -7709,7 +7614,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
      */
-
     @java.lang.Override
     public boolean containsLoadDemands(
         java.lang.String key) {
@@ -7737,7 +7641,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> getLoadDemandsMap() {
       return internalGetLoadDemands().getMap();
     }
@@ -7754,10 +7657,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
+    public /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
         java.lang.String key,
-        com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
+        /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> map =
           internalGetLoadDemands().getMap();
@@ -7776,7 +7680,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7787,8 +7690,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearLoadDemands() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableLoadDemands().getMutableMap()
           .clear();
       return this;
@@ -7805,7 +7708,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
      */
-
     public Builder removeLoadDemands(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -7818,7 +7720,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-    getMutableLoadDemands() {
+        getMutableLoadDemands() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableLoadDemands().getMutableMap();
     }
     /**
@@ -7837,12 +7740,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         java.lang.String key,
         com.google.cloud.optimization.v1.Shipment.Load value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLoadDemands().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -7857,11 +7758,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 14;</code>
      */
-
     public Builder putAllLoadDemands(
         java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> values) {
       internalGetMutableLoadDemands().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
@@ -7918,8 +7819,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder setPenaltyCost(double value) {
-      bitField0_ |= 0x00000008;
+      
       penaltyCost_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -7949,7 +7851,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       if (!((bitField0_ & 0x00000010) != 0)) {
         allowedVehicleIndices_ = mutableCopy(allowedVehicleIndices_);
         bitField0_ |= 0x00000010;
-       }
+      }
     }
     /**
      * <pre>
@@ -8007,6 +7909,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setAllowedVehicleIndices(
         int index, int value) {
+      
       ensureAllowedVehicleIndicesIsMutable();
       allowedVehicleIndices_.setInt(index, value);
       onChanged();
@@ -8024,6 +7927,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder addAllowedVehicleIndices(int value) {
+      
       ensureAllowedVehicleIndicesIsMutable();
       allowedVehicleIndices_.addInt(value);
       onChanged();
@@ -8070,7 +7974,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       if (!((bitField0_ & 0x00000020) != 0)) {
         costsPerVehicle_ = mutableCopy(costsPerVehicle_);
         bitField0_ |= 0x00000020;
-       }
+      }
     }
     /**
      * <pre>
@@ -8152,6 +8056,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setCostsPerVehicle(
         int index, double value) {
+      
       ensureCostsPerVehicleIsMutable();
       costsPerVehicle_.setDouble(index, value);
       onChanged();
@@ -8175,6 +8080,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder addCostsPerVehicle(double value) {
+      
       ensureCostsPerVehicleIsMutable();
       costsPerVehicle_.addDouble(value);
       onChanged();
@@ -8233,7 +8139,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       if (!((bitField0_ & 0x00000040) != 0)) {
         costsPerVehicleIndices_ = mutableCopy(costsPerVehicleIndices_);
         bitField0_ |= 0x00000040;
-       }
+      }
     }
     /**
      * <pre>
@@ -8295,6 +8201,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setCostsPerVehicleIndices(
         int index, int value) {
+      
       ensureCostsPerVehicleIndicesIsMutable();
       costsPerVehicleIndices_.setInt(index, value);
       onChanged();
@@ -8313,6 +8220,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder addCostsPerVehicleIndices(int value) {
+      
       ensureCostsPerVehicleIndicesIsMutable();
       costsPerVehicleIndices_.addInt(value);
       onChanged();
@@ -8430,8 +8338,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder setPickupToDeliveryRelativeDetourLimit(double value) {
-      bitField0_ |= 0x00000080;
+      
       pickupToDeliveryRelativeDetourLimit_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -8488,7 +8397,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return Whether the pickupToDeliveryAbsoluteDetourLimit field is set.
      */
     public boolean hasPickupToDeliveryAbsoluteDetourLimit() {
-      return pickupToDeliveryAbsoluteDetourLimitBuilder_ != null || pickupToDeliveryAbsoluteDetourLimit_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -8544,11 +8453,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           throw new NullPointerException();
         }
         pickupToDeliveryAbsoluteDetourLimit_ = value;
-        onChanged();
       } else {
         pickupToDeliveryAbsoluteDetourLimitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -8575,11 +8484,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         com.google.protobuf.Duration.Builder builderForValue) {
       if (pickupToDeliveryAbsoluteDetourLimitBuilder_ == null) {
         pickupToDeliveryAbsoluteDetourLimit_ = builderForValue.build();
-        onChanged();
       } else {
         pickupToDeliveryAbsoluteDetourLimitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -8604,17 +8513,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder mergePickupToDeliveryAbsoluteDetourLimit(com.google.protobuf.Duration value) {
       if (pickupToDeliveryAbsoluteDetourLimitBuilder_ == null) {
-        if (pickupToDeliveryAbsoluteDetourLimit_ != null) {
-          pickupToDeliveryAbsoluteDetourLimit_ =
-            com.google.protobuf.Duration.newBuilder(pickupToDeliveryAbsoluteDetourLimit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          pickupToDeliveryAbsoluteDetourLimit_ != null &&
+          pickupToDeliveryAbsoluteDetourLimit_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getPickupToDeliveryAbsoluteDetourLimitBuilder().mergeFrom(value);
         } else {
           pickupToDeliveryAbsoluteDetourLimit_ = value;
         }
-        onChanged();
       } else {
         pickupToDeliveryAbsoluteDetourLimitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -8638,14 +8548,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>.google.protobuf.Duration pickup_to_delivery_absolute_detour_limit = 9;</code>
      */
     public Builder clearPickupToDeliveryAbsoluteDetourLimit() {
-      if (pickupToDeliveryAbsoluteDetourLimitBuilder_ == null) {
-        pickupToDeliveryAbsoluteDetourLimit_ = null;
-        onChanged();
-      } else {
-        pickupToDeliveryAbsoluteDetourLimit_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      pickupToDeliveryAbsoluteDetourLimit_ = null;
+      if (pickupToDeliveryAbsoluteDetourLimitBuilder_ != null) {
+        pickupToDeliveryAbsoluteDetourLimitBuilder_.dispose();
         pickupToDeliveryAbsoluteDetourLimitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8669,7 +8578,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>.google.protobuf.Duration pickup_to_delivery_absolute_detour_limit = 9;</code>
      */
     public com.google.protobuf.Duration.Builder getPickupToDeliveryAbsoluteDetourLimitBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getPickupToDeliveryAbsoluteDetourLimitFieldBuilder().getBuilder();
     }
@@ -8752,7 +8661,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return Whether the pickupToDeliveryTimeLimit field is set.
      */
     public boolean hasPickupToDeliveryTimeLimit() {
-      return pickupToDeliveryTimeLimitBuilder_ != null || pickupToDeliveryTimeLimit_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -8792,11 +8701,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           throw new NullPointerException();
         }
         pickupToDeliveryTimeLimit_ = value;
-        onChanged();
       } else {
         pickupToDeliveryTimeLimitBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8815,11 +8724,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         com.google.protobuf.Duration.Builder builderForValue) {
       if (pickupToDeliveryTimeLimitBuilder_ == null) {
         pickupToDeliveryTimeLimit_ = builderForValue.build();
-        onChanged();
       } else {
         pickupToDeliveryTimeLimitBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8836,17 +8745,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder mergePickupToDeliveryTimeLimit(com.google.protobuf.Duration value) {
       if (pickupToDeliveryTimeLimitBuilder_ == null) {
-        if (pickupToDeliveryTimeLimit_ != null) {
-          pickupToDeliveryTimeLimit_ =
-            com.google.protobuf.Duration.newBuilder(pickupToDeliveryTimeLimit_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          pickupToDeliveryTimeLimit_ != null &&
+          pickupToDeliveryTimeLimit_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getPickupToDeliveryTimeLimitBuilder().mergeFrom(value);
         } else {
           pickupToDeliveryTimeLimit_ = value;
         }
-        onChanged();
       } else {
         pickupToDeliveryTimeLimitBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -8862,14 +8772,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>.google.protobuf.Duration pickup_to_delivery_time_limit = 10;</code>
      */
     public Builder clearPickupToDeliveryTimeLimit() {
-      if (pickupToDeliveryTimeLimitBuilder_ == null) {
-        pickupToDeliveryTimeLimit_ = null;
-        onChanged();
-      } else {
-        pickupToDeliveryTimeLimit_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      pickupToDeliveryTimeLimit_ = null;
+      if (pickupToDeliveryTimeLimitBuilder_ != null) {
+        pickupToDeliveryTimeLimitBuilder_.dispose();
         pickupToDeliveryTimeLimitBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8885,7 +8794,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>.google.protobuf.Duration pickup_to_delivery_time_limit = 10;</code>
      */
     public com.google.protobuf.Duration.Builder getPickupToDeliveryTimeLimitBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getPickupToDeliveryTimeLimitFieldBuilder().getBuilder();
     }
@@ -9006,11 +8915,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setShipmentType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       shipmentType_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -9029,8 +8936,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearShipmentType() {
-      
       shipmentType_ = getDefaultInstance().getShipmentType();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -9051,12 +8958,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setShipmentTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       shipmentType_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -9065,7 +8970,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Specifies a label for this shipment. This label is reported in the response
-     * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * in the `shipment_label` of the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 12;</code>
@@ -9086,7 +8992,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Specifies a label for this shipment. This label is reported in the response
-     * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * in the `shipment_label` of the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 12;</code>
@@ -9108,7 +9015,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Specifies a label for this shipment. This label is reported in the response
-     * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * in the `shipment_label` of the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 12;</code>
@@ -9117,33 +9025,33 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       label_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies a label for this shipment. This label is reported in the response
-     * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * in the `shipment_label` of the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 12;</code>
      * @return This builder for chaining.
      */
     public Builder clearLabel() {
-      
       label_ = getDefaultInstance().getLabel();
+      bitField0_ = (bitField0_ & ~0x00000800);
       onChanged();
       return this;
     }
     /**
      * <pre>
      * Specifies a label for this shipment. This label is reported in the response
-     * in the `shipment_label` of the corresponding [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
+     * in the `shipment_label` of the corresponding
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit].
      * </pre>
      *
      * <code>string label = 12;</code>
@@ -9152,12 +9060,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     public Builder setLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       label_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -9199,6 +9105,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     public Builder setIgnore(boolean value) {
       
       ignore_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -9217,7 +9124,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearIgnore() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       ignore_ = false;
       onChanged();
       return this;
@@ -9226,9 +9133,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> demands_ =
       java.util.Collections.emptyList();
     private void ensureDemandsIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         demands_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(demands_);
-        bitField0_ |= 0x00000100;
+        bitField0_ |= 0x00002000;
        }
     }
 
@@ -9422,7 +9329,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     @java.lang.Deprecated public Builder clearDemands() {
       if (demandsBuilder_ == null) {
         demands_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000100);
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
       } else {
         demandsBuilder_.clear();
@@ -9527,7 +9434,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         demandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                 demands_,
-                ((bitField0_ & 0x00000100) != 0),
+                ((bitField0_ & 0x00002000) != 0),
                 getParentForChildren(),
                 isClean());
         demands_ = null;
@@ -9567,7 +9474,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Shipment(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

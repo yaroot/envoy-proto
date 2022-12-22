@@ -35,56 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StreamingStorageConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            enableStorageAnnotationResult_ = input.readBool();
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            annotationResultStorageDirectory_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.videointelligence.v1p3beta1.VideoIntelligenceServiceProto.internal_static_google_cloud_videointelligence_v1p3beta1_StreamingStorageConfig_descriptor;
@@ -99,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_STORAGE_ANNOTATION_RESULT_FIELD_NUMBER = 1;
-  private boolean enableStorageAnnotationResult_;
+  private boolean enableStorageAnnotationResult_ = false;
   /**
    * <pre>
    * Enable streaming storage. Default: false.
@@ -114,7 +64,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ANNOTATION_RESULT_STORAGE_DIRECTORY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object annotationResultStorageDirectory_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object annotationResultStorageDirectory_ = "";
   /**
    * <pre>
    * Cloud Storage URI to store all annotation results for one client. Client
@@ -197,7 +148,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(annotationResultStorageDirectory_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, annotationResultStorageDirectory_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -213,7 +164,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(annotationResultStorageDirectory_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, annotationResultStorageDirectory_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -232,7 +183,7 @@ private static final long serialVersionUID = 0L;
         != other.getEnableStorageAnnotationResult()) return false;
     if (!getAnnotationResultStorageDirectory()
         .equals(other.getAnnotationResultStorageDirectory())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -248,7 +199,7 @@ private static final long serialVersionUID = 0L;
         getEnableStorageAnnotationResult());
     hash = (37 * hash) + ANNOTATION_RESULT_STORAGE_DIRECTORY_FIELD_NUMBER;
     hash = (53 * hash) + getAnnotationResultStorageDirectory().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -369,26 +320,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       enableStorageAnnotationResult_ = false;
-
       annotationResultStorageDirectory_ = "";
-
       return this;
     }
 
@@ -415,10 +360,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig buildPartial() {
       com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig result = new com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig(this);
-      result.enableStorageAnnotationResult_ = enableStorageAnnotationResult_;
-      result.annotationResultStorageDirectory_ = annotationResultStorageDirectory_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.enableStorageAnnotationResult_ = enableStorageAnnotationResult_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.annotationResultStorageDirectory_ = annotationResultStorageDirectory_;
+      }
     }
 
     @java.lang.Override
@@ -470,9 +424,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getAnnotationResultStorageDirectory().isEmpty()) {
         annotationResultStorageDirectory_ = other.annotationResultStorageDirectory_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -487,19 +442,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              enableStorageAnnotationResult_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 26: {
+              annotationResultStorageDirectory_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.videointelligence.v1p3beta1.StreamingStorageConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean enableStorageAnnotationResult_ ;
     /**
@@ -526,6 +505,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableStorageAnnotationResult(boolean value) {
       
       enableStorageAnnotationResult_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -538,7 +518,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableStorageAnnotationResult() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       enableStorageAnnotationResult_ = false;
       onChanged();
       return this;
@@ -624,11 +604,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationResultStorageDirectory(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       annotationResultStorageDirectory_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -650,8 +628,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAnnotationResultStorageDirectory() {
-      
       annotationResultStorageDirectory_ = getDefaultInstance().getAnnotationResultStorageDirectory();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -675,12 +653,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAnnotationResultStorageDirectoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       annotationResultStorageDirectory_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -717,7 +693,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StreamingStorageConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

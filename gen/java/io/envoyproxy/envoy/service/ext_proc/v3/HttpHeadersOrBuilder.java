@@ -96,7 +96,6 @@ public interface HttpHeadersOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; attributes = 2;</code>
    */
-
   /* nullable */
 com.google.protobuf.Struct getAttributesOrDefault(
       java.lang.String key,
@@ -114,7 +113,6 @@ com.google.protobuf.Struct defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Struct&gt; attributes = 2;</code>
    */
-
   com.google.protobuf.Struct getAttributesOrThrow(
       java.lang.String key);
 

@@ -5,7 +5,8 @@ package com.google.cloud.channel.v1;
 
 /**
  * <pre>
- * Request message for [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
+ * Request message for
+ * [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
  * </pre>
  *
  * Protobuf type {@code google.cloud.channel.v1.ChangeOfferRequest}
@@ -39,82 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ChangeOfferRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            offer_ = s;
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              parameters_ = new java.util.ArrayList<com.google.cloud.channel.v1.Parameter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            parameters_.add(
-                input.readMessage(com.google.cloud.channel.v1.Parameter.parser(), extensionRegistry));
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            purchaseOrderId_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            requestId_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        parameters_ = java.util.Collections.unmodifiableList(parameters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.channel.v1.ServiceProto.internal_static_google_cloud_channel_v1_ChangeOfferRequest_descriptor;
@@ -129,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. The resource name of the entitlement to update.
@@ -179,7 +105,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OFFER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object offer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object offer_ = "";
   /**
    * <pre>
    * Required. New Offer.
@@ -227,11 +154,14 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARAMETERS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.channel.v1.Parameter> parameters_;
   /**
    * <pre>
-   * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-   * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+   * Optional. Parameters needed to purchase the Offer. To view the available
+   * Parameters refer to the
+   * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+   * from the desired offer.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -242,8 +172,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-   * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+   * Optional. Parameters needed to purchase the Offer. To view the available
+   * Parameters refer to the
+   * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+   * from the desired offer.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -255,8 +187,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-   * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+   * Optional. Parameters needed to purchase the Offer. To view the available
+   * Parameters refer to the
+   * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+   * from the desired offer.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -267,8 +201,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-   * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+   * Optional. Parameters needed to purchase the Offer. To view the available
+   * Parameters refer to the
+   * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+   * from the desired offer.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -279,8 +215,10 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-   * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+   * Optional. Parameters needed to purchase the Offer. To view the available
+   * Parameters refer to the
+   * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+   * from the desired offer.
    * </pre>
    *
    * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -292,7 +230,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PURCHASE_ORDER_ID_FIELD_NUMBER = 5;
-  private volatile java.lang.Object purchaseOrderId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object purchaseOrderId_ = "";
   /**
    * <pre>
    * Optional. Purchase order id provided by the reseller.
@@ -338,11 +277,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ID_FIELD_NUMBER = 6;
-  private volatile java.lang.Object requestId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object requestId_ = "";
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -370,8 +311,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. You can specify an optional unique request ID, and if you need to retry
-   * your request, the server will know to ignore the request if it's complete.
+   * Optional. You can specify an optional unique request ID, and if you need to
+   * retry your request, the server will know to ignore the request if it's
+   * complete.
    * For example, you make an initial request and the request times out. If you
    * make the request again with the same request ID, the server can check if
    * it received the original operation with the same request ID. If it did, it
@@ -428,7 +370,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, requestId_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -453,7 +395,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(requestId_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, requestId_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -478,7 +420,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPurchaseOrderId())) return false;
     if (!getRequestId()
         .equals(other.getRequestId())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -501,7 +443,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getPurchaseOrderId().hashCode();
     hash = (37 * hash) + REQUEST_ID_FIELD_NUMBER;
     hash = (53 * hash) + getRequestId().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -598,7 +540,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Request message for [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
+   * Request message for
+   * [CloudChannelService.ChangeOffer][google.cloud.channel.v1.CloudChannelService.ChangeOffer].
    * </pre>
    *
    * Protobuf type {@code google.cloud.channel.v1.ChangeOfferRequest}
@@ -622,37 +565,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.channel.v1.ChangeOfferRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getParametersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       offer_ = "";
-
       if (parametersBuilder_ == null) {
         parameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        parameters_ = null;
         parametersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       purchaseOrderId_ = "";
-
       requestId_ = "";
-
       return this;
     }
 
@@ -679,22 +614,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.channel.v1.ChangeOfferRequest buildPartial() {
       com.google.cloud.channel.v1.ChangeOfferRequest result = new com.google.cloud.channel.v1.ChangeOfferRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.offer_ = offer_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.channel.v1.ChangeOfferRequest result) {
       if (parametersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           parameters_ = java.util.Collections.unmodifiableList(parameters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.parameters_ = parameters_;
       } else {
         result.parameters_ = parametersBuilder_.build();
       }
-      result.purchaseOrderId_ = purchaseOrderId_;
-      result.requestId_ = requestId_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.channel.v1.ChangeOfferRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.offer_ = offer_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.purchaseOrderId_ = purchaseOrderId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.requestId_ = requestId_;
+      }
     }
 
     @java.lang.Override
@@ -743,17 +694,19 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.channel.v1.ChangeOfferRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getOffer().isEmpty()) {
         offer_ = other.offer_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (parametersBuilder_ == null) {
         if (!other.parameters_.isEmpty()) {
           if (parameters_.isEmpty()) {
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureParametersIsMutable();
             parameters_.addAll(other.parameters_);
@@ -766,7 +719,7 @@ private static final long serialVersionUID = 0L;
             parametersBuilder_.dispose();
             parametersBuilder_ = null;
             parameters_ = other.parameters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             parametersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getParametersFieldBuilder() : null;
@@ -777,13 +730,15 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPurchaseOrderId().isEmpty()) {
         purchaseOrderId_ = other.purchaseOrderId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getRequestId().isEmpty()) {
         requestId_ = other.requestId_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -798,17 +753,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.channel.v1.ChangeOfferRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              offer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.cloud.channel.v1.Parameter m =
+                  input.readMessage(
+                      com.google.cloud.channel.v1.Parameter.parser(),
+                      extensionRegistry);
+              if (parametersBuilder_ == null) {
+                ensureParametersIsMutable();
+                parameters_.add(m);
+              } else {
+                parametersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 42: {
+              purchaseOrderId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 50: {
+              requestId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.channel.v1.ChangeOfferRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -872,11 +873,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -891,8 +890,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -909,12 +908,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -975,11 +972,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOffer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       offer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -993,8 +988,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOffer() {
-      
       offer_ = getDefaultInstance().getOffer();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1010,12 +1005,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOfferBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       offer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1023,9 +1016,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.channel.v1.Parameter> parameters_ =
       java.util.Collections.emptyList();
     private void ensureParametersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         parameters_ = new java.util.ArrayList<com.google.cloud.channel.v1.Parameter>(parameters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1034,8 +1027,10 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1049,8 +1044,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1064,8 +1061,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1079,8 +1078,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1101,8 +1102,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1120,8 +1123,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1141,8 +1146,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1163,8 +1170,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1182,8 +1191,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1201,8 +1212,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1221,8 +1234,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1230,7 +1245,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearParameters() {
       if (parametersBuilder_ == null) {
         parameters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         parametersBuilder_.clear();
@@ -1239,8 +1254,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1257,8 +1274,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1269,8 +1288,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1284,8 +1305,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1300,8 +1323,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1312,8 +1337,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1325,8 +1352,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Parameters needed to purchase the Offer. To view the available Parameters
-     * refer to the [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions] from the desired offer.
+     * Optional. Parameters needed to purchase the Offer. To view the available
+     * Parameters refer to the
+     * [Offer.parameter_definitions][google.cloud.channel.v1.Offer.parameter_definitions]
+     * from the desired offer.
      * </pre>
      *
      * <code>repeated .google.cloud.channel.v1.Parameter parameters = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1342,7 +1371,7 @@ private static final long serialVersionUID = 0L;
         parametersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.channel.v1.Parameter, com.google.cloud.channel.v1.Parameter.Builder, com.google.cloud.channel.v1.ParameterOrBuilder>(
                 parameters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         parameters_ = null;
@@ -1403,11 +1432,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPurchaseOrderId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       purchaseOrderId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1420,8 +1447,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPurchaseOrderId() {
-      
       purchaseOrderId_ = getDefaultInstance().getPurchaseOrderId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1436,12 +1463,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPurchaseOrderIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       purchaseOrderId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1449,8 +1474,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object requestId_ = "";
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1477,8 +1503,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1506,8 +1533,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1523,18 +1551,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       requestId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1548,15 +1575,16 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRequestId() {
-      
       requestId_ = getDefaultInstance().getRequestId();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. You can specify an optional unique request ID, and if you need to retry
-     * your request, the server will know to ignore the request if it's complete.
+     * Optional. You can specify an optional unique request ID, and if you need to
+     * retry your request, the server will know to ignore the request if it's
+     * complete.
      * For example, you make an initial request and the request times out. If you
      * make the request again with the same request ID, the server can check if
      * it received the original operation with the same request ID. If it did, it
@@ -1572,12 +1600,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       requestId_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1614,7 +1640,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ChangeOfferRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

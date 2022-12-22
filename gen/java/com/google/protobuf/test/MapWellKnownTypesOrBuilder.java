@@ -30,7 +30,6 @@ public interface MapWellKnownTypesOrBuilder extends
   /**
    * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
    */
-
   /* nullable */
 com.google.protobuf.Any getAnyFieldOrDefault(
       int key,
@@ -39,7 +38,6 @@ com.google.protobuf.Any defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Any&gt; any_field = 1;</code>
    */
-
   com.google.protobuf.Any getAnyFieldOrThrow(
       int key);
 
@@ -66,7 +64,6 @@ com.google.protobuf.Any defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
    */
-
   /* nullable */
 com.google.protobuf.Api getApiFieldOrDefault(
       int key,
@@ -75,7 +72,6 @@ com.google.protobuf.Api defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Api&gt; api_field = 2;</code>
    */
-
   com.google.protobuf.Api getApiFieldOrThrow(
       int key);
 
@@ -102,7 +98,6 @@ com.google.protobuf.Api defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
    */
-
   /* nullable */
 com.google.protobuf.Duration getDurationFieldOrDefault(
       int key,
@@ -111,7 +106,6 @@ com.google.protobuf.Duration defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Duration&gt; duration_field = 3;</code>
    */
-
   com.google.protobuf.Duration getDurationFieldOrThrow(
       int key);
 
@@ -138,7 +132,6 @@ com.google.protobuf.Duration defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
    */
-
   /* nullable */
 com.google.protobuf.Empty getEmptyFieldOrDefault(
       int key,
@@ -147,7 +140,6 @@ com.google.protobuf.Empty defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Empty&gt; empty_field = 4;</code>
    */
-
   com.google.protobuf.Empty getEmptyFieldOrThrow(
       int key);
 
@@ -174,7 +166,6 @@ com.google.protobuf.Empty defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
    */
-
   /* nullable */
 com.google.protobuf.FieldMask getFieldMaskFieldOrDefault(
       int key,
@@ -183,7 +174,6 @@ com.google.protobuf.FieldMask defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.FieldMask&gt; field_mask_field = 5;</code>
    */
-
   com.google.protobuf.FieldMask getFieldMaskFieldOrThrow(
       int key);
 
@@ -210,7 +200,6 @@ com.google.protobuf.FieldMask defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
    */
-
   /* nullable */
 com.google.protobuf.SourceContext getSourceContextFieldOrDefault(
       int key,
@@ -219,7 +208,6 @@ com.google.protobuf.SourceContext defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.SourceContext&gt; source_context_field = 6;</code>
    */
-
   com.google.protobuf.SourceContext getSourceContextFieldOrThrow(
       int key);
 
@@ -246,7 +234,6 @@ com.google.protobuf.SourceContext defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
    */
-
   /* nullable */
 com.google.protobuf.Struct getStructFieldOrDefault(
       int key,
@@ -255,7 +242,6 @@ com.google.protobuf.Struct defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Struct&gt; struct_field = 7;</code>
    */
-
   com.google.protobuf.Struct getStructFieldOrThrow(
       int key);
 
@@ -282,7 +268,6 @@ com.google.protobuf.Struct defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
    */
-
   /* nullable */
 com.google.protobuf.Timestamp getTimestampFieldOrDefault(
       int key,
@@ -291,7 +276,6 @@ com.google.protobuf.Timestamp defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Timestamp&gt; timestamp_field = 8;</code>
    */
-
   com.google.protobuf.Timestamp getTimestampFieldOrThrow(
       int key);
 
@@ -318,7 +302,6 @@ com.google.protobuf.Timestamp defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
    */
-
   /* nullable */
 com.google.protobuf.Type getTypeFieldOrDefault(
       int key,
@@ -327,7 +310,6 @@ com.google.protobuf.Type defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Type&gt; type_field = 9;</code>
    */
-
   com.google.protobuf.Type getTypeFieldOrThrow(
       int key);
 
@@ -354,7 +336,6 @@ com.google.protobuf.Type defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
    */
-
   /* nullable */
 com.google.protobuf.DoubleValue getDoubleFieldOrDefault(
       int key,
@@ -363,7 +344,6 @@ com.google.protobuf.DoubleValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.DoubleValue&gt; double_field = 10;</code>
    */
-
   com.google.protobuf.DoubleValue getDoubleFieldOrThrow(
       int key);
 
@@ -390,7 +370,6 @@ com.google.protobuf.DoubleValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
    */
-
   /* nullable */
 com.google.protobuf.FloatValue getFloatFieldOrDefault(
       int key,
@@ -399,7 +378,6 @@ com.google.protobuf.FloatValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.FloatValue&gt; float_field = 11;</code>
    */
-
   com.google.protobuf.FloatValue getFloatFieldOrThrow(
       int key);
 
@@ -426,7 +404,6 @@ com.google.protobuf.FloatValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
    */
-
   /* nullable */
 com.google.protobuf.Int64Value getInt64FieldOrDefault(
       int key,
@@ -435,7 +412,6 @@ com.google.protobuf.Int64Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Int64Value&gt; int64_field = 12;</code>
    */
-
   com.google.protobuf.Int64Value getInt64FieldOrThrow(
       int key);
 
@@ -462,7 +438,6 @@ com.google.protobuf.Int64Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
    */
-
   /* nullable */
 com.google.protobuf.UInt64Value getUint64FieldOrDefault(
       int key,
@@ -471,7 +446,6 @@ com.google.protobuf.UInt64Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.UInt64Value&gt; uint64_field = 13;</code>
    */
-
   com.google.protobuf.UInt64Value getUint64FieldOrThrow(
       int key);
 
@@ -498,7 +472,6 @@ com.google.protobuf.UInt64Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
    */
-
   /* nullable */
 com.google.protobuf.Int32Value getInt32FieldOrDefault(
       int key,
@@ -507,7 +480,6 @@ com.google.protobuf.Int32Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.Int32Value&gt; int32_field = 14;</code>
    */
-
   com.google.protobuf.Int32Value getInt32FieldOrThrow(
       int key);
 
@@ -534,7 +506,6 @@ com.google.protobuf.Int32Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
    */
-
   /* nullable */
 com.google.protobuf.UInt32Value getUint32FieldOrDefault(
       int key,
@@ -543,7 +514,6 @@ com.google.protobuf.UInt32Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.UInt32Value&gt; uint32_field = 15;</code>
    */
-
   com.google.protobuf.UInt32Value getUint32FieldOrThrow(
       int key);
 
@@ -570,7 +540,6 @@ com.google.protobuf.UInt32Value defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
    */
-
   /* nullable */
 com.google.protobuf.BoolValue getBoolFieldOrDefault(
       int key,
@@ -579,7 +548,6 @@ com.google.protobuf.BoolValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.BoolValue&gt; bool_field = 16;</code>
    */
-
   com.google.protobuf.BoolValue getBoolFieldOrThrow(
       int key);
 
@@ -606,7 +574,6 @@ com.google.protobuf.BoolValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
    */
-
   /* nullable */
 com.google.protobuf.StringValue getStringFieldOrDefault(
       int key,
@@ -615,7 +582,6 @@ com.google.protobuf.StringValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.StringValue&gt; string_field = 17;</code>
    */
-
   com.google.protobuf.StringValue getStringFieldOrThrow(
       int key);
 
@@ -642,7 +608,6 @@ com.google.protobuf.StringValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
    */
-
   /* nullable */
 com.google.protobuf.BytesValue getBytesFieldOrDefault(
       int key,
@@ -651,7 +616,6 @@ com.google.protobuf.BytesValue defaultValue);
   /**
    * <code>map&lt;int32, .google.protobuf.BytesValue&gt; bytes_field = 18;</code>
    */
-
   com.google.protobuf.BytesValue getBytesFieldOrThrow(
       int key);
 }

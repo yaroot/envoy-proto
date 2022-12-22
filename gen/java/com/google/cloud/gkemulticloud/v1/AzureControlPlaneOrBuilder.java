@@ -37,8 +37,8 @@ public interface AzureControlPlaneOrBuilder extends
 
   /**
    * <pre>
-   * Optional. The ARM ID of the default subnet for the control plane. The control plane
-   * VMs are deployed in this subnet, unless
+   * Optional. The ARM ID of the default subnet for the control plane. The
+   * control plane VMs are deployed in this subnet, unless
    * `AzureControlPlane.replica_placements` is specified. This subnet will also
    * be used as default for `AzureControlPlane.endpoint_subnet_id` if
    * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -54,8 +54,8 @@ public interface AzureControlPlaneOrBuilder extends
   java.lang.String getSubnetId();
   /**
    * <pre>
-   * Optional. The ARM ID of the default subnet for the control plane. The control plane
-   * VMs are deployed in this subnet, unless
+   * Optional. The ARM ID of the default subnet for the control plane. The
+   * control plane VMs are deployed in this subnet, unless
    * `AzureControlPlane.replica_placements` is specified. This subnet will also
    * be used as default for `AzureControlPlane.endpoint_subnet_id` if
    * `AzureControlPlane.endpoint_subnet_id` is not specified. Similarly it will
@@ -279,7 +279,8 @@ public interface AzureControlPlaneOrBuilder extends
 
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -287,7 +288,8 @@ public interface AzureControlPlaneOrBuilder extends
   int getTagsCount();
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -302,7 +304,8 @@ public interface AzureControlPlaneOrBuilder extends
   getTags();
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -311,12 +314,12 @@ public interface AzureControlPlaneOrBuilder extends
   getTagsMap();
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getTagsOrDefault(
       java.lang.String key,
@@ -324,12 +327,12 @@ java.lang.String getTagsOrDefault(
 java.lang.String defaultValue);
   /**
    * <pre>
-   * Optional. A set of tags to apply to all underlying control plane Azure resources.
+   * Optional. A set of tags to apply to all underlying control plane Azure
+   * resources.
    * </pre>
    *
    * <code>map&lt;string, string&gt; tags = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getTagsOrThrow(
       java.lang.String key);
 
@@ -394,8 +397,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-   * When unspecified, it defaults to AzureControlPlane.subnet_id.
+   * Optional. The ARM ID of the subnet where the control plane load balancer is
+   * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
    * Example:
    * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
    * </pre>
@@ -406,8 +409,8 @@ java.lang.String defaultValue);
   java.lang.String getEndpointSubnetId();
   /**
    * <pre>
-   * Optional. The ARM ID of the subnet where the control plane load balancer is deployed.
-   * When unspecified, it defaults to AzureControlPlane.subnet_id.
+   * Optional. The ARM ID of the subnet where the control plane load balancer is
+   * deployed. When unspecified, it defaults to AzureControlPlane.subnet_id.
    * Example:
    * "/subscriptions/d00494d6-6f3c-4280-bbb2-899e163d1d30/resourceGroups/anthos_cluster_gkeust4/providers/Microsoft.Network/virtualNetworks/gke-vnet-gkeust4/subnets/subnetid123"
    * </pre>

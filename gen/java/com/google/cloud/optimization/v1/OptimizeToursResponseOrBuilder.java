@@ -58,8 +58,9 @@ public interface OptimizeToursResponseOrBuilder extends
 
   /**
    * <pre>
-   * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-   * request.
+   * Copy of the
+   * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+   * if a label was specified in the request.
    * </pre>
    *
    * <code>string request_label = 3;</code>
@@ -68,8 +69,9 @@ public interface OptimizeToursResponseOrBuilder extends
   java.lang.String getRequestLabel();
   /**
    * <pre>
-   * Copy of the [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label], if a label was specified in the
-   * request.
+   * Copy of the
+   * [OptimizeToursRequest.label][google.cloud.optimization.v1.OptimizeToursRequest.label],
+   * if a label was specified in the request.
    * </pre>
    *
    * <code>string request_label = 3;</code>
@@ -126,7 +128,8 @@ public interface OptimizeToursResponseOrBuilder extends
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -137,7 +140,8 @@ public interface OptimizeToursResponseOrBuilder extends
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -147,7 +151,8 @@ public interface OptimizeToursResponseOrBuilder extends
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -157,7 +162,8 @@ public interface OptimizeToursResponseOrBuilder extends
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -168,7 +174,8 @@ public interface OptimizeToursResponseOrBuilder extends
    * <pre>
    * List of all the validation errors that we were able to detect
    * independently. See the "MULTIPLE ERRORS" explanation for the
-   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError] message.
+   * [OptimizeToursValidationError][google.cloud.optimization.v1.OptimizeToursValidationError]
+   * message.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.OptimizeToursValidationError validation_errors = 5;</code>
@@ -213,7 +220,7 @@ public interface OptimizeToursResponseOrBuilder extends
    *
    * <code>double total_cost = 2 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.OptimizeToursResponse.total_cost is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=394
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=423
    * @return The totalCost.
    */
   @java.lang.Deprecated double getTotalCost();

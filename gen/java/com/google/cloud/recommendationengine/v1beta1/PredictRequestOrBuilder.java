@@ -277,7 +277,6 @@ public interface PredictRequestOrBuilder extends
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; params = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 com.google.protobuf.Value getParamsOrDefault(
       java.lang.String key,
@@ -300,7 +299,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; params = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   com.google.protobuf.Value getParamsOrThrow(
       java.lang.String key);
 
@@ -367,7 +365,6 @@ com.google.protobuf.Value defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -386,7 +383,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 9 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 }

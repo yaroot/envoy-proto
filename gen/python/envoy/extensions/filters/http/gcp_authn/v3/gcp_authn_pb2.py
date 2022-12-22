@@ -18,7 +18,7 @@ from udpa.annotations import status_pb2 as udpa_dot_annotations_dot_status__pb2
 from validate import validate_pb2 as validate_dot_validate__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:envoy/extensions/filters/http/gcp_authn/v3/gcp_authn.proto\x12*envoy.extensions.filters.http.gcp_authn.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a#envoy/config/core/v3/http_uri.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xde\x01\n\x14GcpAuthnFilterConfig\x12\x39\n\x08http_uri\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.HttpUriB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x37\n\x0cretry_policy\x18\x02 \x01(\x0b\x32!.envoy.config.core.v3.RetryPolicy\x12R\n\x0c\x63\x61\x63he_config\x18\x03 \x01(\x0b\x32<.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig\" \n\x08\x41udience\x12\x14\n\x03url\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\"U\n\x10TokenCacheConfig\x12\x41\n\ncache_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\x0f\xfa\x42\x0c\x32\n\x18\xff\xff\xff\xff\xff\xff\xff\xff\x7f\x42\xb2\x01\n8io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3B\rGcpAuthnProtoP\x01Z]github.com/envoyproxy/go-control-plane/envoy/extensions/filters/http/gcp_authn/v3;gcp_authnv3\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n:envoy/extensions/filters/http/gcp_authn/v3/gcp_authn.proto\x12*envoy.extensions.filters.http.gcp_authn.v3\x1a\x1f\x65nvoy/config/core/v3/base.proto\x1a#envoy/config/core/v3/http_uri.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x1dudpa/annotations/status.proto\x1a\x17validate/validate.proto\"\xad\x02\n\x14GcpAuthnFilterConfig\x12\x39\n\x08http_uri\x18\x01 \x01(\x0b\x32\x1d.envoy.config.core.v3.HttpUriB\x08\xfa\x42\x05\x8a\x01\x02\x10\x01\x12\x37\n\x0cretry_policy\x18\x02 \x01(\x0b\x32!.envoy.config.core.v3.RetryPolicy\x12R\n\x0c\x63\x61\x63he_config\x18\x03 \x01(\x0b\x32<.envoy.extensions.filters.http.gcp_authn.v3.TokenCacheConfig\x12M\n\x0ctoken_header\x18\x04 \x01(\x0b\x32\x37.envoy.extensions.filters.http.gcp_authn.v3.TokenHeader\" \n\x08\x41udience\x12\x14\n\x03url\x18\x01 \x01(\tB\x07\xfa\x42\x04r\x02\x10\x01\"U\n\x10TokenCacheConfig\x12\x41\n\ncache_size\x18\x01 \x01(\x0b\x32\x1c.google.protobuf.UInt64ValueB\x0f\xfa\x42\x0c\x32\n\x18\xff\xff\xff\xff\xff\xff\xff\xff\x7f\"M\n\x0bTokenHeader\x12\x1b\n\x04name\x18\x01 \x01(\tB\r\xfa\x42\nr\x08\x10\x01\xc0\x01\x01\xc8\x01\x00\x12!\n\x0cvalue_prefix\x18\x02 \x01(\tB\x0b\xfa\x42\x08r\x06\xc0\x01\x02\xc8\x01\x00\x42\xb2\x01\n8io.envoyproxy.envoy.extensions.filters.http.gcp_authn.v3B\rGcpAuthnProtoP\x01Z]github.com/envoyproxy/go-control-plane/envoy/extensions/filters/http/gcp_authn/v3;gcp_authnv3\xba\x80\xc8\xd1\x06\x02\x10\x02\x62\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'envoy.extensions.filters.http.gcp_authn.v3.gcp_authn_pb2', globals())
@@ -32,10 +32,16 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _AUDIENCE.fields_by_name['url']._serialized_options = b'\372B\004r\002\020\001'
   _TOKENCACHECONFIG.fields_by_name['cache_size']._options = None
   _TOKENCACHECONFIG.fields_by_name['cache_size']._serialized_options = b'\372B\0142\n\030\377\377\377\377\377\377\377\377\177'
+  _TOKENHEADER.fields_by_name['name']._options = None
+  _TOKENHEADER.fields_by_name['name']._serialized_options = b'\372B\nr\010\020\001\300\001\001\310\001\000'
+  _TOKENHEADER.fields_by_name['value_prefix']._options = None
+  _TOKENHEADER.fields_by_name['value_prefix']._serialized_options = b'\372B\010r\006\300\001\002\310\001\000'
   _GCPAUTHNFILTERCONFIG._serialized_start=265
-  _GCPAUTHNFILTERCONFIG._serialized_end=487
-  _AUDIENCE._serialized_start=489
-  _AUDIENCE._serialized_end=521
-  _TOKENCACHECONFIG._serialized_start=523
-  _TOKENCACHECONFIG._serialized_end=608
+  _GCPAUTHNFILTERCONFIG._serialized_end=566
+  _AUDIENCE._serialized_start=568
+  _AUDIENCE._serialized_end=600
+  _TOKENCACHECONFIG._serialized_start=602
+  _TOKENCACHECONFIG._serialized_end=687
+  _TOKENHEADER._serialized_start=689
+  _TOKENHEADER._serialized_end=766
 # @@protoc_insertion_point(module_scope)

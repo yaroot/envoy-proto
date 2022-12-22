@@ -117,218 +117,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ShipmentRoute(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            vehicleIndex_ = input.readInt32();
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            vehicleLabel_ = s;
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (vehicleStartTime_ != null) {
-              subBuilder = vehicleStartTime_.toBuilder();
-            }
-            vehicleStartTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehicleStartTime_);
-              vehicleStartTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (vehicleEndTime_ != null) {
-              subBuilder = vehicleEndTime_.toBuilder();
-            }
-            vehicleEndTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehicleEndTime_);
-              vehicleEndTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              visits_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.Visit>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            visits_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.Visit.parser(), extensionRegistry));
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              transitions_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.Transition>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            transitions_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.Transition.parser(), extensionRegistry));
-            break;
-          }
-          case 72: {
-
-            hasTrafficInfeasibilities_ = input.readBool();
-            break;
-          }
-          case 82: {
-            com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder subBuilder = null;
-            if (routePolyline_ != null) {
-              subBuilder = routePolyline_.toBuilder();
-            }
-            routePolyline_ = input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routePolyline_);
-              routePolyline_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              breaks_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.Break>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            breaks_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.Break.parser(), extensionRegistry));
-            break;
-          }
-          case 98: {
-            com.google.cloud.optimization.v1.AggregatedMetrics.Builder subBuilder = null;
-            if (metrics_ != null) {
-              subBuilder = metrics_.toBuilder();
-            }
-            metrics_ = input.readMessage(com.google.cloud.optimization.v1.AggregatedMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(metrics_);
-              metrics_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 106: {
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              endLoads_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            endLoads_.add(
-                input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-            break;
-          }
-          case 114: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              travelSteps_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.TravelStep>();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            travelSteps_.add(
-                input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.TravelStep.parser(), extensionRegistry));
-            break;
-          }
-          case 122: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (vehicleDetour_ != null) {
-              subBuilder = vehicleDetour_.toBuilder();
-            }
-            vehicleDetour_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehicleDetour_);
-              vehicleDetour_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.cloud.optimization.v1.ShipmentRoute.Delay.Builder subBuilder = null;
-            if (delayBeforeVehicleEnd_ != null) {
-              subBuilder = delayBeforeVehicleEnd_.toBuilder();
-            }
-            delayBeforeVehicleEnd_ = input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.Delay.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(delayBeforeVehicleEnd_);
-              delayBeforeVehicleEnd_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 138: {
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              routeCosts_ = com.google.protobuf.MapField.newMapField(
-                  RouteCostsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000008;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
-            routeCosts__ = input.readMessage(
-                RouteCostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            routeCosts_.getMutableMap().put(
-                routeCosts__.getKey(), routeCosts__.getValue());
-            break;
-          }
-          case 145: {
-
-            routeTotalCost_ = input.readDouble();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        visits_ = java.util.Collections.unmodifiableList(visits_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        transitions_ = java.util.Collections.unmodifiableList(transitions_);
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        breaks_ = java.util.Collections.unmodifiableList(breaks_);
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        endLoads_ = java.util.Collections.unmodifiableList(endLoads_);
-      }
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        travelSteps_ = java.util.Collections.unmodifiableList(travelSteps_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_descriptor;
@@ -445,71 +233,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Delay(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (duration_ != null) {
-                subBuilder = duration_.toBuilder();
-              }
-              duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(duration_);
-                duration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_Delay_descriptor;
@@ -558,7 +281,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int DURATION_FIELD_NUMBER = 2;
@@ -596,7 +319,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-      return getDuration();
+      return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -619,7 +342,7 @@ private static final long serialVersionUID = 0L;
       if (duration_ != null) {
         output.writeMessage(2, getDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -636,7 +359,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -661,7 +384,7 @@ private static final long serialVersionUID = 0L;
         if (!getDuration()
             .equals(other.getDuration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -680,7 +403,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DURATION_FIELD_NUMBER;
         hash = (53 * hash) + getDuration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -803,32 +526,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.Delay.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        bitField0_ = 0;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-        if (durationBuilder_ == null) {
-          duration_ = null;
-        } else {
-          duration_ = null;
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
         return this;
@@ -857,18 +574,23 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.Delay buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.Delay result = new com.google.cloud.optimization.v1.ShipmentRoute.Delay(this);
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        if (durationBuilder_ == null) {
-          result.duration_ = duration_;
-        } else {
-          result.duration_ = durationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.Delay result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.duration_ = durationBuilder_ == null
+              ? duration_
+              : durationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -921,7 +643,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasDuration()) {
           mergeDuration(other.getDuration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -936,19 +658,47 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.Delay parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.Delay) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp startTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -962,7 +712,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -992,11 +742,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1010,11 +760,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1026,17 +776,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -1047,14 +798,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp start_time = 1;</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1065,7 +815,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Timestamp start_time = 1;</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -1117,7 +867,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the duration field is set.
        */
       public boolean hasDuration() {
-        return durationBuilder_ != null || duration_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -1147,11 +897,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           duration_ = value;
-          onChanged();
         } else {
           durationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1165,11 +915,11 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationBuilder_ == null) {
           duration_ = builderForValue.build();
-          onChanged();
         } else {
           durationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1181,17 +931,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeDuration(com.google.protobuf.Duration value) {
         if (durationBuilder_ == null) {
-          if (duration_ != null) {
-            duration_ =
-              com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            duration_ != null &&
+            duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationBuilder().mergeFrom(value);
           } else {
             duration_ = value;
           }
-          onChanged();
         } else {
           durationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -1202,14 +953,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration duration = 2;</code>
        */
       public Builder clearDuration() {
-        if (durationBuilder_ == null) {
-          duration_ = null;
-          onChanged();
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1220,7 +970,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.protobuf.Duration duration = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getDurationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getDurationFieldBuilder().getBuilder();
       }
@@ -1292,7 +1042,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Delay(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1318,7 +1079,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Index of the `shipments` field in the source [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
+     * Index of the `shipments` field in the source
+     * [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
      * </pre>
      *
      * <code>int32 shipment_index = 1;</code>
@@ -1436,7 +1198,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
      */
-
     /* nullable */
 com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
         java.lang.String key,
@@ -1453,7 +1214,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
      */
-
     com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
         java.lang.String key);
 
@@ -1576,8 +1336,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -1590,8 +1351,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -1603,8 +1365,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -1616,8 +1379,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -1630,8 +1394,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -1648,7 +1413,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.Visit.delay_before_start is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1824
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1895
      * @return Whether the delayBeforeStart field is set.
      */
     @java.lang.Deprecated boolean hasDelayBeforeStart();
@@ -1659,7 +1424,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.Visit.delay_before_start is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1824
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1895
      * @return The delayBeforeStart.
      */
     @java.lang.Deprecated com.google.cloud.optimization.v1.ShipmentRoute.Delay getDelayBeforeStart();
@@ -1752,149 +1517,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Visit(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              shipmentIndex_ = input.readInt32();
-              break;
-            }
-            case 16: {
-
-              isPickup_ = input.readBool();
-              break;
-            }
-            case 24: {
-
-              visitRequestIndex_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-                demands_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-                mutable_bitField0_ |= 0x00000004;
-              }
-              demands_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-              break;
-            }
-            case 50: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (detour_ != null) {
-                subBuilder = detour_.toBuilder();
-              }
-              detour_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(detour_);
-                detour_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              shipmentLabel_ = s;
-              break;
-            }
-            case 66: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              visitLabel_ = s;
-              break;
-            }
-            case 74: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                arrivalLoads_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              arrivalLoads_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-              break;
-            }
-            case 82: {
-              com.google.cloud.optimization.v1.ShipmentRoute.Delay.Builder subBuilder = null;
-              if (delayBeforeStart_ != null) {
-                subBuilder = delayBeforeStart_.toBuilder();
-              }
-              delayBeforeStart_ = input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.Delay.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(delayBeforeStart_);
-                delayBeforeStart_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                loadDemands_ = com.google.protobuf.MapField.newMapField(
-                    LoadDemandsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-              loadDemands__ = input.readMessage(
-                  LoadDemandsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              loadDemands_.getMutableMap().put(
-                  loadDemands__.getKey(), loadDemands__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000004) != 0)) {
-          demands_ = java.util.Collections.unmodifiableList(demands_);
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          arrivalLoads_ = java.util.Collections.unmodifiableList(arrivalLoads_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_Visit_descriptor;
@@ -1921,10 +1543,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int SHIPMENT_INDEX_FIELD_NUMBER = 1;
-    private int shipmentIndex_;
+    private int shipmentIndex_ = 0;
     /**
      * <pre>
-     * Index of the `shipments` field in the source [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
+     * Index of the `shipments` field in the source
+     * [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
      * </pre>
      *
      * <code>int32 shipment_index = 1;</code>
@@ -1936,7 +1559,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int IS_PICKUP_FIELD_NUMBER = 2;
-    private boolean isPickup_;
+    private boolean isPickup_ = false;
     /**
      * <pre>
      * If true the visit corresponds to a pickup of a `Shipment`. Otherwise, it
@@ -1952,7 +1575,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int VISIT_REQUEST_INDEX_FIELD_NUMBER = 3;
-    private int visitRequestIndex_;
+    private int visitRequestIndex_ = 0;
     /**
      * <pre>
      * Index of `VisitRequest` in either the pickup or delivery field of the
@@ -2008,7 +1631,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int LOAD_DEMANDS_FIELD_NUMBER = 11;
@@ -2023,6 +1646,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.optimization.v1.Shipment.Load.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> loadDemands_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
@@ -2033,7 +1657,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       return loadDemands_;
     }
-
     public int getLoadDemandsCount() {
       return internalGetLoadDemands().getMap().size();
     }
@@ -2048,7 +1671,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsLoadDemands(
         java.lang.String key) {
@@ -2075,7 +1697,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> getLoadDemandsMap() {
       return internalGetLoadDemands().getMap();
     }
@@ -2091,10 +1712,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
+    public /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
         java.lang.String key,
-        com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
+        /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> map =
           internalGetLoadDemands().getMap();
@@ -2112,7 +1734,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2201,11 +1822,12 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDetourOrBuilder() {
-      return getDetour();
+      return detour_ == null ? com.google.protobuf.Duration.getDefaultInstance() : detour_;
     }
 
     public static final int SHIPMENT_LABEL_FIELD_NUMBER = 7;
-    private volatile java.lang.Object shipmentLabel_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object shipmentLabel_ = "";
     /**
      * <pre>
      * Copy of the corresponding `Shipment.label`, if specified in the
@@ -2253,7 +1875,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int VISIT_LABEL_FIELD_NUMBER = 8;
-    private volatile java.lang.Object visitLabel_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object visitLabel_ = "";
     /**
      * <pre>
      * Copy of the corresponding
@@ -2303,13 +1926,15 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     }
 
     public static final int ARRIVAL_LOADS_FIELD_NUMBER = 9;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> arrivalLoads_;
     /**
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -2324,8 +1949,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -2341,8 +1967,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -2357,8 +1984,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -2373,8 +2001,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at the visit location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-     * `end_load_intervals` or `demands`.
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * `start_load_intervals`, `end_load_intervals` or `demands`.
      * Exception: we omit loads for quantity types unconstrained by intervals
      * and that don't have any non-zero demand on the route.
      * </pre>
@@ -2396,7 +2025,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.Visit.delay_before_start is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1824
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1895
      * @return Whether the delayBeforeStart field is set.
      */
     @java.lang.Override
@@ -2410,7 +2039,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.Visit.delay_before_start is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1824
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=1895
      * @return The delayBeforeStart.
      */
     @java.lang.Override
@@ -2426,10 +2055,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      */
     @java.lang.Override
     @java.lang.Deprecated public com.google.cloud.optimization.v1.ShipmentRoute.DelayOrBuilder getDelayBeforeStartOrBuilder() {
-      return getDelayBeforeStart();
+      return delayBeforeStart_ == null ? com.google.cloud.optimization.v1.ShipmentRoute.Delay.getDefaultInstance() : delayBeforeStart_;
     }
 
     public static final int DEMANDS_FIELD_NUMBER = 5;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> demands_;
     /**
      * <pre>
@@ -2539,7 +2169,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           internalGetLoadDemands(),
           LoadDemandsDefaultEntryHolder.defaultEntry,
           11);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2596,7 +2226,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(11, loadDemands__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2642,7 +2272,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       if (!getDemandsList()
           .equals(other.getDemandsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2688,7 +2318,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         hash = (37 * hash) + DEMANDS_FIELD_NUMBER;
         hash = (53 * hash) + getDemandsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2832,65 +2462,53 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.Visit.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getArrivalLoadsFieldBuilder();
-          getDemandsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         shipmentIndex_ = 0;
-
         isPickup_ = false;
-
         visitRequestIndex_ = 0;
-
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
         internalGetMutableLoadDemands().clear();
-        if (detourBuilder_ == null) {
-          detour_ = null;
-        } else {
-          detour_ = null;
+        detour_ = null;
+        if (detourBuilder_ != null) {
+          detourBuilder_.dispose();
           detourBuilder_ = null;
         }
         shipmentLabel_ = "";
-
         visitLabel_ = "";
-
         if (arrivalLoadsBuilder_ == null) {
           arrivalLoads_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          arrivalLoads_ = null;
           arrivalLoadsBuilder_.clear();
         }
-        if (delayBeforeStartBuilder_ == null) {
-          delayBeforeStart_ = null;
-        } else {
-          delayBeforeStart_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        delayBeforeStart_ = null;
+        if (delayBeforeStartBuilder_ != null) {
+          delayBeforeStartBuilder_.dispose();
           delayBeforeStartBuilder_ = null;
         }
         if (demandsBuilder_ == null) {
           demands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
+          demands_ = null;
           demandsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -2917,49 +2535,69 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.Visit buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.Visit result = new com.google.cloud.optimization.v1.ShipmentRoute.Visit(this);
-        int from_bitField0_ = bitField0_;
-        result.shipmentIndex_ = shipmentIndex_;
-        result.isPickup_ = isPickup_;
-        result.visitRequestIndex_ = visitRequestIndex_;
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        result.loadDemands_ = internalGetLoadDemands();
-        result.loadDemands_.makeImmutable();
-        if (detourBuilder_ == null) {
-          result.detour_ = detour_;
-        } else {
-          result.detour_ = detourBuilder_.build();
-        }
-        result.shipmentLabel_ = shipmentLabel_;
-        result.visitLabel_ = visitLabel_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentRoute.Visit result) {
         if (arrivalLoadsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000100) != 0)) {
             arrivalLoads_ = java.util.Collections.unmodifiableList(arrivalLoads_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           }
           result.arrivalLoads_ = arrivalLoads_;
         } else {
           result.arrivalLoads_ = arrivalLoadsBuilder_.build();
         }
-        if (delayBeforeStartBuilder_ == null) {
-          result.delayBeforeStart_ = delayBeforeStart_;
-        } else {
-          result.delayBeforeStart_ = delayBeforeStartBuilder_.build();
-        }
         if (demandsBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) != 0)) {
+          if (((bitField0_ & 0x00000400) != 0)) {
             demands_ = java.util.Collections.unmodifiableList(demands_);
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000400);
           }
           result.demands_ = demands_;
         } else {
           result.demands_ = demandsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.Visit result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.shipmentIndex_ = shipmentIndex_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.isPickup_ = isPickup_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.visitRequestIndex_ = visitRequestIndex_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.loadDemands_ = internalGetLoadDemands();
+          result.loadDemands_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.detour_ = detourBuilder_ == null
+              ? detour_
+              : detourBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.shipmentLabel_ = shipmentLabel_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.visitLabel_ = visitLabel_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.delayBeforeStart_ = delayBeforeStartBuilder_ == null
+              ? delayBeforeStart_
+              : delayBeforeStartBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3020,22 +2658,25 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         }
         internalGetMutableLoadDemands().mergeFrom(
             other.internalGetLoadDemands());
+        bitField0_ |= 0x00000010;
         if (other.hasDetour()) {
           mergeDetour(other.getDetour());
         }
         if (!other.getShipmentLabel().isEmpty()) {
           shipmentLabel_ = other.shipmentLabel_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (!other.getVisitLabel().isEmpty()) {
           visitLabel_ = other.visitLabel_;
+          bitField0_ |= 0x00000080;
           onChanged();
         }
         if (arrivalLoadsBuilder_ == null) {
           if (!other.arrivalLoads_.isEmpty()) {
             if (arrivalLoads_.isEmpty()) {
               arrivalLoads_ = other.arrivalLoads_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000100);
             } else {
               ensureArrivalLoadsIsMutable();
               arrivalLoads_.addAll(other.arrivalLoads_);
@@ -3048,7 +2689,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
               arrivalLoadsBuilder_.dispose();
               arrivalLoadsBuilder_ = null;
               arrivalLoads_ = other.arrivalLoads_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000100);
               arrivalLoadsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getArrivalLoadsFieldBuilder() : null;
@@ -3064,7 +2705,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           if (!other.demands_.isEmpty()) {
             if (demands_.isEmpty()) {
               demands_ = other.demands_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000400);
             } else {
               ensureDemandsIsMutable();
               demands_.addAll(other.demands_);
@@ -3077,7 +2718,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
               demandsBuilder_.dispose();
               demandsBuilder_ = null;
               demands_ = other.demands_;
-              bitField0_ = (bitField0_ & ~0x00000004);
+              bitField0_ = (bitField0_ & ~0x00000400);
               demandsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getDemandsFieldBuilder() : null;
@@ -3086,7 +2727,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3101,17 +2742,111 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.Visit parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                shipmentIndex_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                isPickup_ = input.readBool();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                visitRequestIndex_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                com.google.cloud.optimization.v1.CapacityQuantity m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                        extensionRegistry);
+                if (demandsBuilder_ == null) {
+                  ensureDemandsIsMutable();
+                  demands_.add(m);
+                } else {
+                  demandsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getDetourFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                shipmentLabel_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                visitLabel_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                com.google.cloud.optimization.v1.CapacityQuantity m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                        extensionRegistry);
+                if (arrivalLoadsBuilder_ == null) {
+                  ensureArrivalLoadsIsMutable();
+                  arrivalLoads_.add(m);
+                } else {
+                  arrivalLoadsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 74
+              case 82: {
+                input.readMessage(
+                    getDelayBeforeStartFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 82
+              case 90: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
+                loadDemands__ = input.readMessage(
+                    LoadDemandsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableLoadDemands().getMutableMap().put(
+                    loadDemands__.getKey(), loadDemands__.getValue());
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 90
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.Visit) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3119,7 +2854,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private int shipmentIndex_ ;
       /**
        * <pre>
-       * Index of the `shipments` field in the source [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
+       * Index of the `shipments` field in the source
+       * [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
        * </pre>
        *
        * <code>int32 shipment_index = 1;</code>
@@ -3131,7 +2867,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       }
       /**
        * <pre>
-       * Index of the `shipments` field in the source [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
+       * Index of the `shipments` field in the source
+       * [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
        * </pre>
        *
        * <code>int32 shipment_index = 1;</code>
@@ -3141,19 +2878,21 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       public Builder setShipmentIndex(int value) {
         
         shipmentIndex_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Index of the `shipments` field in the source [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
+       * Index of the `shipments` field in the source
+       * [ShipmentModel][google.cloud.optimization.v1.ShipmentModel].
        * </pre>
        *
        * <code>int32 shipment_index = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearShipmentIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         shipmentIndex_ = 0;
         onChanged();
         return this;
@@ -3186,6 +2925,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       public Builder setIsPickup(boolean value) {
         
         isPickup_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -3199,7 +2939,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearIsPickup() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         isPickup_ = false;
         onChanged();
         return this;
@@ -3232,6 +2972,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       public Builder setVisitRequestIndex(int value) {
         
         visitRequestIndex_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -3245,7 +2986,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearVisitRequestIndex() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         visitRequestIndex_ = 0;
         onChanged();
         return this;
@@ -3265,7 +3006,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -3299,11 +3040,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3319,11 +3060,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3337,17 +3078,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -3360,14 +3102,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.protobuf.Timestamp start_time = 4;</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3380,7 +3121,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.protobuf.Timestamp start_time = 4;</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -3427,7 +3168,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> loadDemands_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-      internalGetLoadDemands() {
+          internalGetLoadDemands() {
         if (loadDemands_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               LoadDemandsDefaultEntryHolder.defaultEntry);
@@ -3435,8 +3176,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         return loadDemands_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-      internalGetMutableLoadDemands() {
-        onChanged();;
+          internalGetMutableLoadDemands() {
         if (loadDemands_ == null) {
           loadDemands_ = com.google.protobuf.MapField.newMapField(
               LoadDemandsDefaultEntryHolder.defaultEntry);
@@ -3444,9 +3184,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         if (!loadDemands_.isMutable()) {
           loadDemands_ = loadDemands_.copy();
         }
+        bitField0_ |= 0x00000010;
+        onChanged();
         return loadDemands_;
       }
-
       public int getLoadDemandsCount() {
         return internalGetLoadDemands().getMap().size();
       }
@@ -3461,7 +3202,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
        */
-
       @java.lang.Override
       public boolean containsLoadDemands(
           java.lang.String key) {
@@ -3488,7 +3228,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> getLoadDemandsMap() {
         return internalGetLoadDemands().getMap();
       }
@@ -3504,10 +3243,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
+      public /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrDefault(
           java.lang.String key,
-          com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
+          /* nullable */
+com.google.cloud.optimization.v1.Shipment.Load defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> map =
             internalGetLoadDemands().getMap();
@@ -3525,7 +3265,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.optimization.v1.Shipment.Load getLoadDemandsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3536,8 +3275,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearLoadDemands() {
+        bitField0_ = (bitField0_ & ~0x00000010);
         internalGetMutableLoadDemands().getMutableMap()
             .clear();
         return this;
@@ -3553,7 +3292,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
        */
-
       public Builder removeLoadDemands(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -3566,7 +3304,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load>
-      getMutableLoadDemands() {
+          getMutableLoadDemands() {
+        bitField0_ |= 0x00000010;
         return internalGetMutableLoadDemands().getMutableMap();
       }
       /**
@@ -3584,12 +3323,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           java.lang.String key,
           com.google.cloud.optimization.v1.Shipment.Load value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableLoadDemands().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000010;
         return this;
       }
       /**
@@ -3603,11 +3340,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.Shipment.Load&gt; load_demands = 11;</code>
        */
-
       public Builder putAllLoadDemands(
           java.util.Map<java.lang.String, com.google.cloud.optimization.v1.Shipment.Load> values) {
         internalGetMutableLoadDemands().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000010;
         return this;
       }
 
@@ -3637,7 +3374,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return Whether the detour field is set.
        */
       public boolean hasDetour() {
-        return detourBuilder_ != null || detour_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -3695,11 +3432,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           detour_ = value;
-          onChanged();
         } else {
           detourBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -3727,11 +3464,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (detourBuilder_ == null) {
           detour_ = builderForValue.build();
-          onChanged();
         } else {
           detourBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -3757,17 +3494,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder mergeDetour(com.google.protobuf.Duration value) {
         if (detourBuilder_ == null) {
-          if (detour_ != null) {
-            detour_ =
-              com.google.protobuf.Duration.newBuilder(detour_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            detour_ != null &&
+            detour_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDetourBuilder().mergeFrom(value);
           } else {
             detour_ = value;
           }
-          onChanged();
         } else {
           detourBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -3792,14 +3530,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.protobuf.Duration detour = 6;</code>
        */
       public Builder clearDetour() {
-        if (detourBuilder_ == null) {
-          detour_ = null;
-          onChanged();
-        } else {
-          detour_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        detour_ = null;
+        if (detourBuilder_ != null) {
+          detourBuilder_.dispose();
           detourBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3824,7 +3561,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.protobuf.Duration detour = 6;</code>
        */
       public com.google.protobuf.Duration.Builder getDetourBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getDetourFieldBuilder().getBuilder();
       }
@@ -3948,11 +3685,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setShipmentLabel(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         shipmentLabel_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -3966,8 +3701,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearShipmentLabel() {
-        
         shipmentLabel_ = getDefaultInstance().getShipmentLabel();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -3983,12 +3718,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setShipmentLabelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         shipmentLabel_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -4052,11 +3785,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setVisitLabel(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         visitLabel_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -4071,8 +3802,8 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearVisitLabel() {
-        
         visitLabel_ = getDefaultInstance().getVisitLabel();
+        bitField0_ = (bitField0_ & ~0x00000080);
         onChanged();
         return this;
       }
@@ -4089,12 +3820,10 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       public Builder setVisitLabelBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         visitLabel_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -4102,9 +3831,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> arrivalLoads_ =
         java.util.Collections.emptyList();
       private void ensureArrivalLoadsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000100) != 0)) {
           arrivalLoads_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(arrivalLoads_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000100;
          }
       }
 
@@ -4115,8 +3844,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4134,8 +3864,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4153,8 +3884,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4172,8 +3904,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4198,8 +3931,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4221,8 +3955,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4246,8 +3981,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4272,8 +4008,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4295,8 +4032,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4318,8 +4056,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4342,8 +4081,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4353,7 +4093,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       @java.lang.Deprecated public Builder clearArrivalLoads() {
         if (arrivalLoadsBuilder_ == null) {
           arrivalLoads_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
           onChanged();
         } else {
           arrivalLoadsBuilder_.clear();
@@ -4364,8 +4104,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4386,8 +4127,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4402,8 +4144,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4421,8 +4164,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4441,8 +4185,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4457,8 +4202,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4474,8 +4220,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <pre>
        * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
        * Vehicle loads upon arrival at the visit location, for each
-       * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities], `start_load_intervals`,
-       * `end_load_intervals` or `demands`.
+       * type specified in
+       * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+       * `start_load_intervals`, `end_load_intervals` or `demands`.
        * Exception: we omit loads for quantity types unconstrained by intervals
        * and that don't have any non-zero demand on the route.
        * </pre>
@@ -4493,7 +4240,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           arrivalLoadsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                   arrivalLoads_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000100) != 0),
                   getParentForChildren(),
                   isClean());
           arrivalLoads_ = null;
@@ -4511,11 +4258,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        *
        * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
        * @deprecated google.cloud.optimization.v1.ShipmentRoute.Visit.delay_before_start is deprecated.
-       *     See google/cloud/optimization/v1/fleet_routing.proto;l=1824
+       *     See google/cloud/optimization/v1/fleet_routing.proto;l=1895
        * @return Whether the delayBeforeStart field is set.
        */
       @java.lang.Deprecated public boolean hasDelayBeforeStart() {
-        return delayBeforeStartBuilder_ != null || delayBeforeStart_ != null;
+        return ((bitField0_ & 0x00000200) != 0);
       }
       /**
        * <pre>
@@ -4524,7 +4271,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        *
        * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
        * @deprecated google.cloud.optimization.v1.ShipmentRoute.Visit.delay_before_start is deprecated.
-       *     See google/cloud/optimization/v1/fleet_routing.proto;l=1824
+       *     See google/cloud/optimization/v1/fleet_routing.proto;l=1895
        * @return The delayBeforeStart.
        */
       @java.lang.Deprecated public com.google.cloud.optimization.v1.ShipmentRoute.Delay getDelayBeforeStart() {
@@ -4547,11 +4294,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
             throw new NullPointerException();
           }
           delayBeforeStart_ = value;
-          onChanged();
         } else {
           delayBeforeStartBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -4565,11 +4312,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.cloud.optimization.v1.ShipmentRoute.Delay.Builder builderForValue) {
         if (delayBeforeStartBuilder_ == null) {
           delayBeforeStart_ = builderForValue.build();
-          onChanged();
         } else {
           delayBeforeStartBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -4581,17 +4328,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        */
       @java.lang.Deprecated public Builder mergeDelayBeforeStart(com.google.cloud.optimization.v1.ShipmentRoute.Delay value) {
         if (delayBeforeStartBuilder_ == null) {
-          if (delayBeforeStart_ != null) {
-            delayBeforeStart_ =
-              com.google.cloud.optimization.v1.ShipmentRoute.Delay.newBuilder(delayBeforeStart_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000200) != 0) &&
+            delayBeforeStart_ != null &&
+            delayBeforeStart_ != com.google.cloud.optimization.v1.ShipmentRoute.Delay.getDefaultInstance()) {
+            getDelayBeforeStartBuilder().mergeFrom(value);
           } else {
             delayBeforeStart_ = value;
           }
-          onChanged();
         } else {
           delayBeforeStartBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000200;
+        onChanged();
         return this;
       }
       /**
@@ -4602,14 +4350,13 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
        */
       @java.lang.Deprecated public Builder clearDelayBeforeStart() {
-        if (delayBeforeStartBuilder_ == null) {
-          delayBeforeStart_ = null;
-          onChanged();
-        } else {
-          delayBeforeStart_ = null;
+        bitField0_ = (bitField0_ & ~0x00000200);
+        delayBeforeStart_ = null;
+        if (delayBeforeStartBuilder_ != null) {
+          delayBeforeStartBuilder_.dispose();
           delayBeforeStartBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4620,7 +4367,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
        * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_start = 10 [deprecated = true];</code>
        */
       @java.lang.Deprecated public com.google.cloud.optimization.v1.ShipmentRoute.Delay.Builder getDelayBeforeStartBuilder() {
-        
+        bitField0_ |= 0x00000200;
         onChanged();
         return getDelayBeforeStartFieldBuilder().getBuilder();
       }
@@ -4663,9 +4410,9 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> demands_ =
         java.util.Collections.emptyList();
       private void ensureDemandsIsMutable() {
-        if (!((bitField0_ & 0x00000004) != 0)) {
+        if (!((bitField0_ & 0x00000400) != 0)) {
           demands_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(demands_);
-          bitField0_ |= 0x00000004;
+          bitField0_ |= 0x00000400;
          }
       }
 
@@ -4859,7 +4606,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
       @java.lang.Deprecated public Builder clearDemands() {
         if (demandsBuilder_ == null) {
           demands_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000400);
           onChanged();
         } else {
           demandsBuilder_.clear();
@@ -4964,7 +4711,7 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           demandsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                   demands_,
-                  ((bitField0_ & 0x00000004) != 0),
+                  ((bitField0_ & 0x00000400) != 0),
                   getParentForChildren(),
                   isClean());
           demands_ = null;
@@ -5004,7 +4751,18 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Visit(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -5296,8 +5054,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -5310,8 +5071,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -5331,8 +5095,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -5346,8 +5113,11 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -5356,7 +5126,6 @@ com.google.cloud.optimization.v1.Shipment.Load defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
      */
-
     /* nullable */
 com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrDefault(
         java.lang.String key,
@@ -5365,8 +5134,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -5375,7 +5147,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
      */
-
     com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrThrow(
         java.lang.String key);
 
@@ -5458,172 +5229,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Transition(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (travelDuration_ != null) {
-                subBuilder = travelDuration_.toBuilder();
-              }
-              travelDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(travelDuration_);
-                travelDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 17: {
-
-              travelDistanceMeters_ = input.readDouble();
-              break;
-            }
-            case 24: {
-
-              trafficInfoUnavailable_ = input.readBool();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (delayDuration_ != null) {
-                subBuilder = delayDuration_.toBuilder();
-              }
-              delayDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(delayDuration_);
-                delayDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (breakDuration_ != null) {
-                subBuilder = breakDuration_.toBuilder();
-              }
-              breakDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(breakDuration_);
-                breakDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 50: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (waitDuration_ != null) {
-                subBuilder = waitDuration_.toBuilder();
-              }
-              waitDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(waitDuration_);
-                waitDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 58: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (totalDuration_ != null) {
-                subBuilder = totalDuration_.toBuilder();
-              }
-              totalDuration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(totalDuration_);
-                totalDuration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 66: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 74: {
-              com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder subBuilder = null;
-              if (routePolyline_ != null) {
-                subBuilder = routePolyline_.toBuilder();
-              }
-              routePolyline_ = input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(routePolyline_);
-                routePolyline_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 82: {
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                loads_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              loads_.add(
-                  input.readMessage(com.google.cloud.optimization.v1.CapacityQuantity.parser(), extensionRegistry));
-              break;
-            }
-            case 90: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                vehicleLoads_ = com.google.protobuf.MapField.newMapField(
-                    VehicleLoadsDefaultEntryHolder.defaultEntry);
-                mutable_bitField0_ |= 0x00000001;
-              }
-              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-              vehicleLoads__ = input.readMessage(
-                  VehicleLoadsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-              vehicleLoads_.getMutableMap().put(
-                  vehicleLoads__.getKey(), vehicleLoads__.getValue());
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          loads_ = java.util.Collections.unmodifiableList(loads_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_Transition_descriptor;
@@ -5684,11 +5289,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getTravelDurationOrBuilder() {
-      return getTravelDuration();
+      return travelDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : travelDuration_;
     }
 
     public static final int TRAVEL_DISTANCE_METERS_FIELD_NUMBER = 2;
-    private double travelDistanceMeters_;
+    private double travelDistanceMeters_ = 0D;
     /**
      * <pre>
      * Distance traveled during the transition.
@@ -5703,7 +5308,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     }
 
     public static final int TRAFFIC_INFO_UNAVAILABLE_FIELD_NUMBER = 3;
-    private boolean trafficInfoUnavailable_;
+    private boolean trafficInfoUnavailable_ = false;
     /**
      * <pre>
      * When traffic is requested via
@@ -5766,7 +5371,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDelayDurationOrBuilder() {
-      return getDelayDuration();
+      return delayDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : delayDuration_;
     }
 
     public static final int BREAK_DURATION_FIELD_NUMBER = 5;
@@ -5810,7 +5415,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getBreakDurationOrBuilder() {
-      return getBreakDuration();
+      return breakDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : breakDuration_;
     }
 
     public static final int WAIT_DURATION_FIELD_NUMBER = 6;
@@ -5854,7 +5459,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getWaitDurationOrBuilder() {
-      return getWaitDuration();
+      return waitDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : waitDuration_;
     }
 
     public static final int TOTAL_DURATION_FIELD_NUMBER = 7;
@@ -5910,7 +5515,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getTotalDurationOrBuilder() {
-      return getTotalDuration();
+      return totalDuration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : totalDuration_;
     }
 
     public static final int START_TIME_FIELD_NUMBER = 8;
@@ -5948,7 +5553,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int ROUTE_POLYLINE_FIELD_NUMBER = 9;
@@ -5998,7 +5603,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolylineOrBuilder getRoutePolylineOrBuilder() {
-      return getRoutePolyline();
+      return routePolyline_ == null ? com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance() : routePolyline_;
     }
 
     public static final int VEHICLE_LOADS_FIELD_NUMBER = 11;
@@ -6013,6 +5618,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
                   com.google.protobuf.WireFormat.FieldType.MESSAGE,
                   com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad.getDefaultInstance());
     }
+    @SuppressWarnings("serial")
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> vehicleLoads_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
@@ -6023,15 +5629,17 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       }
       return vehicleLoads_;
     }
-
     public int getVehicleLoadsCount() {
       return internalGetVehicleLoads().getMap().size();
     }
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -6040,7 +5648,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsVehicleLoads(
         java.lang.String key) {
@@ -6058,8 +5665,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -6069,15 +5679,17 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> getVehicleLoadsMap() {
       return internalGetVehicleLoads().getMap();
     }
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -6087,10 +5699,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrDefault(
+    public /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrDefault(
         java.lang.String key,
-        com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
+        /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> map =
           internalGetVehicleLoads().getMap();
@@ -6099,8 +5712,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Vehicle loads during this transition, for each type that either appears
-     * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+     * in this vehicle's
+     * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+     * or that have non-zero
+     * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+     * on some shipment performed on this route.
      * The loads during the first transition are the starting loads of the
      * vehicle route. Then, after each visit, the visit's `load_demands` are
      * either added or subtracted to get the next transition's loads, depending
@@ -6110,7 +5726,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6123,6 +5738,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     }
 
     public static final int LOADS_FIELD_NUMBER = 10;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> loads_;
     /**
      * <pre>
@@ -6232,7 +5848,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           internalGetVehicleLoads(),
           VehicleLoadsDefaultEntryHolder.defaultEntry,
           11);
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -6291,7 +5907,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         size += com.google.protobuf.CodedOutputStream
             .computeMessageSize(11, vehicleLoads__);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -6350,7 +5966,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           other.internalGetVehicleLoads())) return false;
       if (!getLoadsList()
           .equals(other.getLoadsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -6403,7 +6019,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         hash = (37 * hash) + LOADS_FIELD_NUMBER;
         hash = (53 * hash) + getLoadsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -6549,76 +6165,63 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.Transition.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getLoadsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (travelDurationBuilder_ == null) {
-          travelDuration_ = null;
-        } else {
-          travelDuration_ = null;
+        bitField0_ = 0;
+        travelDuration_ = null;
+        if (travelDurationBuilder_ != null) {
+          travelDurationBuilder_.dispose();
           travelDurationBuilder_ = null;
         }
         travelDistanceMeters_ = 0D;
-
         trafficInfoUnavailable_ = false;
-
-        if (delayDurationBuilder_ == null) {
-          delayDuration_ = null;
-        } else {
-          delayDuration_ = null;
+        delayDuration_ = null;
+        if (delayDurationBuilder_ != null) {
+          delayDurationBuilder_.dispose();
           delayDurationBuilder_ = null;
         }
-        if (breakDurationBuilder_ == null) {
-          breakDuration_ = null;
-        } else {
-          breakDuration_ = null;
+        breakDuration_ = null;
+        if (breakDurationBuilder_ != null) {
+          breakDurationBuilder_.dispose();
           breakDurationBuilder_ = null;
         }
-        if (waitDurationBuilder_ == null) {
-          waitDuration_ = null;
-        } else {
-          waitDuration_ = null;
+        waitDuration_ = null;
+        if (waitDurationBuilder_ != null) {
+          waitDurationBuilder_.dispose();
           waitDurationBuilder_ = null;
         }
-        if (totalDurationBuilder_ == null) {
-          totalDuration_ = null;
-        } else {
-          totalDuration_ = null;
+        totalDuration_ = null;
+        if (totalDurationBuilder_ != null) {
+          totalDurationBuilder_.dispose();
           totalDurationBuilder_ = null;
         }
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-        if (routePolylineBuilder_ == null) {
-          routePolyline_ = null;
-        } else {
-          routePolyline_ = null;
+        routePolyline_ = null;
+        if (routePolylineBuilder_ != null) {
+          routePolylineBuilder_.dispose();
           routePolylineBuilder_ = null;
         }
         internalGetMutableVehicleLoads().clear();
         if (loadsBuilder_ == null) {
           loads_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
+          loads_ = null;
           loadsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000400);
         return this;
       }
 
@@ -6645,57 +6248,71 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.Transition buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.Transition result = new com.google.cloud.optimization.v1.ShipmentRoute.Transition(this);
-        int from_bitField0_ = bitField0_;
-        if (travelDurationBuilder_ == null) {
-          result.travelDuration_ = travelDuration_;
-        } else {
-          result.travelDuration_ = travelDurationBuilder_.build();
-        }
-        result.travelDistanceMeters_ = travelDistanceMeters_;
-        result.trafficInfoUnavailable_ = trafficInfoUnavailable_;
-        if (delayDurationBuilder_ == null) {
-          result.delayDuration_ = delayDuration_;
-        } else {
-          result.delayDuration_ = delayDurationBuilder_.build();
-        }
-        if (breakDurationBuilder_ == null) {
-          result.breakDuration_ = breakDuration_;
-        } else {
-          result.breakDuration_ = breakDurationBuilder_.build();
-        }
-        if (waitDurationBuilder_ == null) {
-          result.waitDuration_ = waitDuration_;
-        } else {
-          result.waitDuration_ = waitDurationBuilder_.build();
-        }
-        if (totalDurationBuilder_ == null) {
-          result.totalDuration_ = totalDuration_;
-        } else {
-          result.totalDuration_ = totalDurationBuilder_.build();
-        }
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        if (routePolylineBuilder_ == null) {
-          result.routePolyline_ = routePolyline_;
-        } else {
-          result.routePolyline_ = routePolylineBuilder_.build();
-        }
-        result.vehicleLoads_ = internalGetVehicleLoads();
-        result.vehicleLoads_.makeImmutable();
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentRoute.Transition result) {
         if (loadsBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) != 0)) {
+          if (((bitField0_ & 0x00000400) != 0)) {
             loads_ = java.util.Collections.unmodifiableList(loads_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000400);
           }
           result.loads_ = loads_;
         } else {
           result.loads_ = loadsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.Transition result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.travelDuration_ = travelDurationBuilder_ == null
+              ? travelDuration_
+              : travelDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.travelDistanceMeters_ = travelDistanceMeters_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.trafficInfoUnavailable_ = trafficInfoUnavailable_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.delayDuration_ = delayDurationBuilder_ == null
+              ? delayDuration_
+              : delayDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.breakDuration_ = breakDurationBuilder_ == null
+              ? breakDuration_
+              : breakDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.waitDuration_ = waitDurationBuilder_ == null
+              ? waitDuration_
+              : waitDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.totalDuration_ = totalDurationBuilder_ == null
+              ? totalDuration_
+              : totalDurationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.routePolyline_ = routePolylineBuilder_ == null
+              ? routePolyline_
+              : routePolylineBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.vehicleLoads_ = internalGetVehicleLoads();
+          result.vehicleLoads_.makeImmutable();
+        }
       }
 
       @java.lang.Override
@@ -6771,11 +6388,12 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         }
         internalGetMutableVehicleLoads().mergeFrom(
             other.internalGetVehicleLoads());
+        bitField0_ |= 0x00000200;
         if (loadsBuilder_ == null) {
           if (!other.loads_.isEmpty()) {
             if (loads_.isEmpty()) {
               loads_ = other.loads_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000400);
             } else {
               ensureLoadsIsMutable();
               loads_.addAll(other.loads_);
@@ -6788,7 +6406,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
               loadsBuilder_.dispose();
               loadsBuilder_ = null;
               loads_ = other.loads_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000400);
               loadsBuilder_ = 
                 com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                    getLoadsFieldBuilder() : null;
@@ -6797,7 +6415,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -6812,17 +6430,111 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.Transition parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getTravelDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 17: {
+                travelDistanceMeters_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 24: {
+                trafficInfoUnavailable_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getDelayDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getBreakDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 50: {
+                input.readMessage(
+                    getWaitDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 50
+              case 58: {
+                input.readMessage(
+                    getTotalDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 58
+              case 66: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                input.readMessage(
+                    getRoutePolylineFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 82: {
+                com.google.cloud.optimization.v1.CapacityQuantity m =
+                    input.readMessage(
+                        com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                        extensionRegistry);
+                if (loadsBuilder_ == null) {
+                  ensureLoadsIsMutable();
+                  loads_.add(m);
+                } else {
+                  loadsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 82
+              case 90: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
+                vehicleLoads__ = input.readMessage(
+                    VehicleLoadsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableVehicleLoads().getMutableMap().put(
+                    vehicleLoads__.getKey(), vehicleLoads__.getValue());
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 90
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.Transition) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -6839,7 +6551,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the travelDuration field is set.
        */
       public boolean hasTravelDuration() {
-        return travelDurationBuilder_ != null || travelDuration_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -6869,11 +6581,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           travelDuration_ = value;
-          onChanged();
         } else {
           travelDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6887,11 +6599,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (travelDurationBuilder_ == null) {
           travelDuration_ = builderForValue.build();
-          onChanged();
         } else {
           travelDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6903,17 +6615,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeTravelDuration(com.google.protobuf.Duration value) {
         if (travelDurationBuilder_ == null) {
-          if (travelDuration_ != null) {
-            travelDuration_ =
-              com.google.protobuf.Duration.newBuilder(travelDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            travelDuration_ != null &&
+            travelDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getTravelDurationBuilder().mergeFrom(value);
           } else {
             travelDuration_ = value;
           }
-          onChanged();
         } else {
           travelDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -6924,14 +6637,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration travel_duration = 1;</code>
        */
       public Builder clearTravelDuration() {
-        if (travelDurationBuilder_ == null) {
-          travelDuration_ = null;
-          onChanged();
-        } else {
-          travelDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        travelDuration_ = null;
+        if (travelDurationBuilder_ != null) {
+          travelDurationBuilder_.dispose();
           travelDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -6942,7 +6654,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration travel_duration = 1;</code>
        */
       public com.google.protobuf.Duration.Builder getTravelDurationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getTravelDurationFieldBuilder().getBuilder();
       }
@@ -7007,6 +6719,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       public Builder setTravelDistanceMeters(double value) {
         
         travelDistanceMeters_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -7019,7 +6732,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTravelDistanceMeters() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         travelDistanceMeters_ = 0D;
         onChanged();
         return this;
@@ -7060,6 +6773,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       public Builder setTrafficInfoUnavailable(boolean value) {
         
         trafficInfoUnavailable_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -7077,7 +6791,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTrafficInfoUnavailable() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         trafficInfoUnavailable_ = false;
         onChanged();
         return this;
@@ -7098,7 +6812,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the delayDuration field is set.
        */
       public boolean hasDelayDuration() {
-        return delayDurationBuilder_ != null || delayDuration_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -7134,11 +6848,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           delayDuration_ = value;
-          onChanged();
         } else {
           delayDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7155,11 +6869,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (delayDurationBuilder_ == null) {
           delayDuration_ = builderForValue.build();
-          onChanged();
         } else {
           delayDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7174,17 +6888,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeDelayDuration(com.google.protobuf.Duration value) {
         if (delayDurationBuilder_ == null) {
-          if (delayDuration_ != null) {
-            delayDuration_ =
-              com.google.protobuf.Duration.newBuilder(delayDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            delayDuration_ != null &&
+            delayDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDelayDurationBuilder().mergeFrom(value);
           } else {
             delayDuration_ = value;
           }
-          onChanged();
         } else {
           delayDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -7198,14 +6913,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration delay_duration = 4;</code>
        */
       public Builder clearDelayDuration() {
-        if (delayDurationBuilder_ == null) {
-          delayDuration_ = null;
-          onChanged();
-        } else {
-          delayDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        delayDuration_ = null;
+        if (delayDurationBuilder_ != null) {
+          delayDurationBuilder_.dispose();
           delayDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7219,7 +6933,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration delay_duration = 4;</code>
        */
       public com.google.protobuf.Duration.Builder getDelayDurationBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getDelayDurationFieldBuilder().getBuilder();
       }
@@ -7279,7 +6993,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the breakDuration field is set.
        */
       public boolean hasBreakDuration() {
-        return breakDurationBuilder_ != null || breakDuration_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -7313,11 +7027,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           breakDuration_ = value;
-          onChanged();
         } else {
           breakDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -7333,11 +7047,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (breakDurationBuilder_ == null) {
           breakDuration_ = builderForValue.build();
-          onChanged();
         } else {
           breakDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -7351,17 +7065,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeBreakDuration(com.google.protobuf.Duration value) {
         if (breakDurationBuilder_ == null) {
-          if (breakDuration_ != null) {
-            breakDuration_ =
-              com.google.protobuf.Duration.newBuilder(breakDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            breakDuration_ != null &&
+            breakDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getBreakDurationBuilder().mergeFrom(value);
           } else {
             breakDuration_ = value;
           }
-          onChanged();
         } else {
           breakDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -7374,14 +7089,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration break_duration = 5;</code>
        */
       public Builder clearBreakDuration() {
-        if (breakDurationBuilder_ == null) {
-          breakDuration_ = null;
-          onChanged();
-        } else {
-          breakDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        breakDuration_ = null;
+        if (breakDurationBuilder_ != null) {
+          breakDurationBuilder_.dispose();
           breakDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7394,7 +7108,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration break_duration = 5;</code>
        */
       public com.google.protobuf.Duration.Builder getBreakDurationBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getBreakDurationFieldBuilder().getBuilder();
       }
@@ -7452,7 +7166,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the waitDuration field is set.
        */
       public boolean hasWaitDuration() {
-        return waitDurationBuilder_ != null || waitDuration_ != null;
+        return ((bitField0_ & 0x00000020) != 0);
       }
       /**
        * <pre>
@@ -7486,11 +7200,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           waitDuration_ = value;
-          onChanged();
         } else {
           waitDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -7506,11 +7220,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (waitDurationBuilder_ == null) {
           waitDuration_ = builderForValue.build();
-          onChanged();
         } else {
           waitDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -7524,17 +7238,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeWaitDuration(com.google.protobuf.Duration value) {
         if (waitDurationBuilder_ == null) {
-          if (waitDuration_ != null) {
-            waitDuration_ =
-              com.google.protobuf.Duration.newBuilder(waitDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000020) != 0) &&
+            waitDuration_ != null &&
+            waitDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getWaitDurationBuilder().mergeFrom(value);
           } else {
             waitDuration_ = value;
           }
-          onChanged();
         } else {
           waitDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000020;
+        onChanged();
         return this;
       }
       /**
@@ -7547,14 +7262,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration wait_duration = 6;</code>
        */
       public Builder clearWaitDuration() {
-        if (waitDurationBuilder_ == null) {
-          waitDuration_ = null;
-          onChanged();
-        } else {
-          waitDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        waitDuration_ = null;
+        if (waitDurationBuilder_ != null) {
+          waitDurationBuilder_.dispose();
           waitDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7567,7 +7281,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration wait_duration = 6;</code>
        */
       public com.google.protobuf.Duration.Builder getWaitDurationBuilder() {
-        
+        bitField0_ |= 0x00000020;
         onChanged();
         return getWaitDurationFieldBuilder().getBuilder();
       }
@@ -7629,7 +7343,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the totalDuration field is set.
        */
       public boolean hasTotalDuration() {
-        return totalDurationBuilder_ != null || totalDuration_ != null;
+        return ((bitField0_ & 0x00000040) != 0);
       }
       /**
        * <pre>
@@ -7671,11 +7385,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           totalDuration_ = value;
-          onChanged();
         } else {
           totalDurationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -7695,11 +7409,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (totalDurationBuilder_ == null) {
           totalDuration_ = builderForValue.build();
-          onChanged();
         } else {
           totalDurationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -7717,17 +7431,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeTotalDuration(com.google.protobuf.Duration value) {
         if (totalDurationBuilder_ == null) {
-          if (totalDuration_ != null) {
-            totalDuration_ =
-              com.google.protobuf.Duration.newBuilder(totalDuration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000040) != 0) &&
+            totalDuration_ != null &&
+            totalDuration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getTotalDurationBuilder().mergeFrom(value);
           } else {
             totalDuration_ = value;
           }
-          onChanged();
         } else {
           totalDurationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000040;
+        onChanged();
         return this;
       }
       /**
@@ -7744,14 +7459,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration total_duration = 7;</code>
        */
       public Builder clearTotalDuration() {
-        if (totalDurationBuilder_ == null) {
-          totalDuration_ = null;
-          onChanged();
-        } else {
-          totalDuration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        totalDuration_ = null;
+        if (totalDurationBuilder_ != null) {
+          totalDurationBuilder_.dispose();
           totalDurationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7768,7 +7482,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration total_duration = 7;</code>
        */
       public com.google.protobuf.Duration.Builder getTotalDurationBuilder() {
-        
+        bitField0_ |= 0x00000040;
         onChanged();
         return getTotalDurationFieldBuilder().getBuilder();
       }
@@ -7832,7 +7546,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000080) != 0);
       }
       /**
        * <pre>
@@ -7862,11 +7576,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -7880,11 +7594,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -7896,17 +7610,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000080) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000080;
+        onChanged();
         return this;
       }
       /**
@@ -7917,14 +7632,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Timestamp start_time = 8;</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000080);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -7935,7 +7649,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Timestamp start_time = 8;</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000080;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -7991,7 +7705,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the routePolyline field is set.
        */
       public boolean hasRoutePolyline() {
-        return routePolylineBuilder_ != null || routePolyline_ != null;
+        return ((bitField0_ & 0x00000100) != 0);
       }
       /**
        * <pre>
@@ -8029,11 +7743,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           routePolyline_ = value;
-          onChanged();
         } else {
           routePolylineBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -8051,11 +7765,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder builderForValue) {
         if (routePolylineBuilder_ == null) {
           routePolyline_ = builderForValue.build();
-          onChanged();
         } else {
           routePolylineBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -8071,17 +7785,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeRoutePolyline(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline value) {
         if (routePolylineBuilder_ == null) {
-          if (routePolyline_ != null) {
-            routePolyline_ =
-              com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.newBuilder(routePolyline_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000100) != 0) &&
+            routePolyline_ != null &&
+            routePolyline_ != com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance()) {
+            getRoutePolylineBuilder().mergeFrom(value);
           } else {
             routePolyline_ = value;
           }
-          onChanged();
         } else {
           routePolylineBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000100;
+        onChanged();
         return this;
       }
       /**
@@ -8096,14 +7811,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline route_polyline = 9;</code>
        */
       public Builder clearRoutePolyline() {
-        if (routePolylineBuilder_ == null) {
-          routePolyline_ = null;
-          onChanged();
-        } else {
-          routePolyline_ = null;
+        bitField0_ = (bitField0_ & ~0x00000100);
+        routePolyline_ = null;
+        if (routePolylineBuilder_ != null) {
+          routePolylineBuilder_.dispose();
           routePolylineBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -8118,7 +7832,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline route_polyline = 9;</code>
        */
       public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder getRoutePolylineBuilder() {
-        
+        bitField0_ |= 0x00000100;
         onChanged();
         return getRoutePolylineFieldBuilder().getBuilder();
       }
@@ -8169,7 +7883,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       private com.google.protobuf.MapField<
           java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> vehicleLoads_;
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-      internalGetVehicleLoads() {
+          internalGetVehicleLoads() {
         if (vehicleLoads_ == null) {
           return com.google.protobuf.MapField.emptyMapField(
               VehicleLoadsDefaultEntryHolder.defaultEntry);
@@ -8177,8 +7891,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         return vehicleLoads_;
       }
       private com.google.protobuf.MapField<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-      internalGetMutableVehicleLoads() {
-        onChanged();;
+          internalGetMutableVehicleLoads() {
         if (vehicleLoads_ == null) {
           vehicleLoads_ = com.google.protobuf.MapField.newMapField(
               VehicleLoadsDefaultEntryHolder.defaultEntry);
@@ -8186,17 +7899,21 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!vehicleLoads_.isMutable()) {
           vehicleLoads_ = vehicleLoads_.copy();
         }
+        bitField0_ |= 0x00000200;
+        onChanged();
         return vehicleLoads_;
       }
-
       public int getVehicleLoadsCount() {
         return internalGetVehicleLoads().getMap().size();
       }
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8205,7 +7922,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
        */
-
       @java.lang.Override
       public boolean containsVehicleLoads(
           java.lang.String key) {
@@ -8223,8 +7939,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8234,15 +7953,17 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
        */
       @java.lang.Override
-
       public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> getVehicleLoadsMap() {
         return internalGetVehicleLoads().getMap();
       }
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8252,10 +7973,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
        */
       @java.lang.Override
-
-      public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrDefault(
+      public /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrDefault(
           java.lang.String key,
-          com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
+          /* nullable */
+com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue) {
         if (key == null) { throw new NullPointerException("map key"); }
         java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> map =
             internalGetVehicleLoads().getMap();
@@ -8264,8 +7986,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8275,7 +8000,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
        */
       @java.lang.Override
-
       public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad getVehicleLoadsOrThrow(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -8286,8 +8010,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         }
         return map.get(key);
       }
-
       public Builder clearVehicleLoads() {
+        bitField0_ = (bitField0_ & ~0x00000200);
         internalGetMutableVehicleLoads().getMutableMap()
             .clear();
         return this;
@@ -8295,8 +8019,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8305,7 +8032,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
        */
-
       public Builder removeVehicleLoads(
           java.lang.String key) {
         if (key == null) { throw new NullPointerException("map key"); }
@@ -8318,14 +8044,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       @java.lang.Deprecated
       public java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad>
-      getMutableVehicleLoads() {
+          getMutableVehicleLoads() {
+        bitField0_ |= 0x00000200;
         return internalGetMutableVehicleLoads().getMutableMap();
       }
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8338,19 +8068,20 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           java.lang.String key,
           com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad value) {
         if (key == null) { throw new NullPointerException("map key"); }
-        if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+        if (value == null) { throw new NullPointerException("map value"); }
         internalGetMutableVehicleLoads().getMutableMap()
             .put(key, value);
+        bitField0_ |= 0x00000200;
         return this;
       }
       /**
        * <pre>
        * Vehicle loads during this transition, for each type that either appears
-       * in this vehicle's [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits], or that have non-zero
-       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands] on some shipment performed on this route.
+       * in this vehicle's
+       * [Vehicle.load_limits][google.cloud.optimization.v1.Vehicle.load_limits],
+       * or that have non-zero
+       * [Shipment.load_demands][google.cloud.optimization.v1.Shipment.load_demands]
+       * on some shipment performed on this route.
        * The loads during the first transition are the starting loads of the
        * vehicle route. Then, after each visit, the visit's `load_demands` are
        * either added or subtracted to get the next transition's loads, depending
@@ -8359,20 +8090,20 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        *
        * <code>map&lt;string, .google.cloud.optimization.v1.ShipmentRoute.VehicleLoad&gt; vehicle_loads = 11;</code>
        */
-
       public Builder putAllVehicleLoads(
           java.util.Map<java.lang.String, com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad> values) {
         internalGetMutableVehicleLoads().getMutableMap()
             .putAll(values);
+        bitField0_ |= 0x00000200;
         return this;
       }
 
       private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> loads_ =
         java.util.Collections.emptyList();
       private void ensureLoadsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000400) != 0)) {
           loads_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(loads_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000400;
          }
       }
 
@@ -8566,7 +8297,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       @java.lang.Deprecated public Builder clearLoads() {
         if (loadsBuilder_ == null) {
           loads_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000400);
           onChanged();
         } else {
           loadsBuilder_.clear();
@@ -8671,7 +8402,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           loadsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                   loads_,
-                  ((bitField0_ & 0x00000002) != 0),
+                  ((bitField0_ & 0x00000400) != 0),
                   getParentForChildren(),
                   isClean());
           loads_ = null;
@@ -8711,7 +8442,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Transition(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -8738,7 +8480,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * The amount of load on the vehicle, for the given type. The unit of load
-     * is usually indicated by the type. See [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
+     * is usually indicated by the type. See
+     * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
      * </pre>
      *
      * <code>int64 amount = 1;</code>
@@ -8749,7 +8492,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   /**
    * <pre>
    * Reports the actual load of the vehicle at some point along the route,
-   * for a given type (see [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]).
+   * for a given type (see
+   * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]).
    * </pre>
    *
    * Protobuf type {@code google.cloud.optimization.v1.ShipmentRoute.VehicleLoad}
@@ -8778,50 +8522,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private VehicleLoad(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              amount_ = input.readInt64();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_VehicleLoad_descriptor;
@@ -8836,11 +8536,12 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     }
 
     public static final int AMOUNT_FIELD_NUMBER = 1;
-    private long amount_;
+    private long amount_ = 0L;
     /**
      * <pre>
      * The amount of load on the vehicle, for the given type. The unit of load
-     * is usually indicated by the type. See [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
+     * is usually indicated by the type. See
+     * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
      * </pre>
      *
      * <code>int64 amount = 1;</code>
@@ -8868,7 +8569,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (amount_ != 0L) {
         output.writeInt64(1, amount_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -8881,7 +8582,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, amount_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -8898,7 +8599,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       if (getAmount()
           != other.getAmount()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -8912,7 +8613,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       hash = (37 * hash) + AMOUNT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getAmount());
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9010,7 +8711,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Reports the actual load of the vehicle at some point along the route,
-     * for a given type (see [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]).
+     * for a given type (see
+     * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads]).
      * </pre>
      *
      * Protobuf type {@code google.cloud.optimization.v1.ShipmentRoute.VehicleLoad}
@@ -9034,24 +8736,19 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         amount_ = 0L;
-
         return this;
       }
 
@@ -9078,9 +8775,16 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad result = new com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad(this);
-        result.amount_ = amount_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.amount_ = amount_;
+        }
       }
 
       @java.lang.Override
@@ -9130,7 +8834,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (other.getAmount() != 0L) {
           setAmount(other.getAmount());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9145,25 +8849,45 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                amount_ = input.readInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private long amount_ ;
       /**
        * <pre>
        * The amount of load on the vehicle, for the given type. The unit of load
-       * is usually indicated by the type. See [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
+       * is usually indicated by the type. See
+       * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
        * </pre>
        *
        * <code>int64 amount = 1;</code>
@@ -9176,7 +8900,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       /**
        * <pre>
        * The amount of load on the vehicle, for the given type. The unit of load
-       * is usually indicated by the type. See [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
+       * is usually indicated by the type. See
+       * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
        * </pre>
        *
        * <code>int64 amount = 1;</code>
@@ -9186,20 +8911,22 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       public Builder setAmount(long value) {
         
         amount_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
        * The amount of load on the vehicle, for the given type. The unit of load
-       * is usually indicated by the type. See [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
+       * is usually indicated by the type. See
+       * [Transition.vehicle_loads][google.cloud.optimization.v1.ShipmentRoute.Transition.vehicle_loads].
        * </pre>
        *
        * <code>int64 amount = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearAmount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         amount_ = 0L;
         onChanged();
         return this;
@@ -9237,7 +8964,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new VehicleLoad(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9316,51 +9054,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private EncodedPolyline(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              points_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_EncodedPolyline_descriptor;
@@ -9375,7 +9068,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     }
 
     public static final int POINTS_FIELD_NUMBER = 1;
-    private volatile java.lang.Object points_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object points_ = "";
     /**
      * <pre>
      * String representing encoded points of the polyline.
@@ -9437,7 +9131,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(points_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, points_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -9449,7 +9143,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(points_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, points_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -9466,7 +9160,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       if (!getPoints()
           .equals(other.getPoints())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -9479,7 +9173,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + POINTS_FIELD_NUMBER;
       hash = (53 * hash) + getPoints().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -9603,24 +9297,19 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         points_ = "";
-
         return this;
       }
 
@@ -9647,9 +9336,16 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline result = new com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline(this);
-        result.points_ = points_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.points_ = points_;
+        }
       }
 
       @java.lang.Override
@@ -9698,9 +9394,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (other == com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance()) return this;
         if (!other.getPoints().isEmpty()) {
           points_ = other.points_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -9715,19 +9412,38 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                points_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object points_ = "";
       /**
@@ -9782,11 +9498,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder setPoints(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         points_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9799,8 +9513,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearPoints() {
-        
         points_ = getDefaultInstance().getPoints();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9815,12 +9529,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder setPointsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         points_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -9857,7 +9569,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new EncodedPolyline(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -9966,71 +9689,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Break(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (startTime_ != null) {
-                subBuilder = startTime_.toBuilder();
-              }
-              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(startTime_);
-                startTime_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (duration_ != null) {
-                subBuilder = duration_.toBuilder();
-              }
-              duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(duration_);
-                duration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_Break_descriptor;
@@ -10079,7 +9737,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
-      return getStartTime();
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
     }
 
     public static final int DURATION_FIELD_NUMBER = 2;
@@ -10117,7 +9775,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-      return getDuration();
+      return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10140,7 +9798,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (duration_ != null) {
         output.writeMessage(2, getDuration());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -10157,7 +9815,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getDuration());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -10182,7 +9840,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!getDuration()
             .equals(other.getDuration())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -10201,7 +9859,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         hash = (37 * hash) + DURATION_FIELD_NUMBER;
         hash = (53 * hash) + getDuration().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -10322,32 +9980,26 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.Break.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-        } else {
-          startTime_ = null;
+        bitField0_ = 0;
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-        if (durationBuilder_ == null) {
-          duration_ = null;
-        } else {
-          duration_ = null;
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
         return this;
@@ -10376,18 +10028,23 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.Break buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.Break result = new com.google.cloud.optimization.v1.ShipmentRoute.Break(this);
-        if (startTimeBuilder_ == null) {
-          result.startTime_ = startTime_;
-        } else {
-          result.startTime_ = startTimeBuilder_.build();
-        }
-        if (durationBuilder_ == null) {
-          result.duration_ = duration_;
-        } else {
-          result.duration_ = durationBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.Break result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.startTime_ = startTimeBuilder_ == null
+              ? startTime_
+              : startTimeBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.duration_ = durationBuilder_ == null
+              ? duration_
+              : durationBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -10440,7 +10097,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (other.hasDuration()) {
           mergeDuration(other.getDuration());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -10455,19 +10112,47 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.Break parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getStartTimeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.Break) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Timestamp startTime_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -10481,7 +10166,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the startTime field is set.
        */
       public boolean hasStartTime() {
-        return startTimeBuilder_ != null || startTime_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -10511,11 +10196,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           startTime_ = value;
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10529,11 +10214,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Timestamp.Builder builderForValue) {
         if (startTimeBuilder_ == null) {
           startTime_ = builderForValue.build();
-          onChanged();
         } else {
           startTimeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10545,17 +10230,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
         if (startTimeBuilder_ == null) {
-          if (startTime_ != null) {
-            startTime_ =
-              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            startTime_ != null &&
+            startTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+            getStartTimeBuilder().mergeFrom(value);
           } else {
             startTime_ = value;
           }
-          onChanged();
         } else {
           startTimeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -10566,14 +10252,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Timestamp start_time = 1;</code>
        */
       public Builder clearStartTime() {
-        if (startTimeBuilder_ == null) {
-          startTime_ = null;
-          onChanged();
-        } else {
-          startTime_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        startTime_ = null;
+        if (startTimeBuilder_ != null) {
+          startTimeBuilder_.dispose();
           startTimeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10584,7 +10269,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Timestamp start_time = 1;</code>
        */
       public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getStartTimeFieldBuilder().getBuilder();
       }
@@ -10636,7 +10321,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the duration field is set.
        */
       public boolean hasDuration() {
-        return durationBuilder_ != null || duration_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -10666,11 +10351,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           duration_ = value;
-          onChanged();
         } else {
           durationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10684,11 +10369,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationBuilder_ == null) {
           duration_ = builderForValue.build();
-          onChanged();
         } else {
           durationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10700,17 +10385,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeDuration(com.google.protobuf.Duration value) {
         if (durationBuilder_ == null) {
-          if (duration_ != null) {
-            duration_ =
-              com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            duration_ != null &&
+            duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationBuilder().mergeFrom(value);
           } else {
             duration_ = value;
           }
-          onChanged();
         } else {
           durationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -10721,14 +10407,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration duration = 2;</code>
        */
       public Builder clearDuration() {
-        if (durationBuilder_ == null) {
-          duration_ = null;
-          onChanged();
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -10739,7 +10424,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration duration = 2;</code>
        */
       public com.google.protobuf.Duration.Builder getDurationBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getDurationFieldBuilder().getBuilder();
       }
@@ -10811,7 +10496,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Break(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -10966,81 +10662,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     getUnknownFields() {
       return this.unknownFields;
     }
-    private TravelStep(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.protobuf.Duration.Builder subBuilder = null;
-              if (duration_ != null) {
-                subBuilder = duration_.toBuilder();
-              }
-              duration_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(duration_);
-                duration_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 17: {
-
-              distanceMeters_ = input.readDouble();
-              break;
-            }
-            case 24: {
-
-              trafficInfoUnavailable_ = input.readBool();
-              break;
-            }
-            case 34: {
-              com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder subBuilder = null;
-              if (routePolyline_ != null) {
-                subBuilder = routePolyline_.toBuilder();
-              }
-              routePolyline_ = input.readMessage(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(routePolyline_);
-                routePolyline_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.optimization.v1.FleetRoutingProto.internal_static_google_cloud_optimization_v1_ShipmentRoute_TravelStep_descriptor;
@@ -11089,11 +10710,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.protobuf.DurationOrBuilder getDurationOrBuilder() {
-      return getDuration();
+      return duration_ == null ? com.google.protobuf.Duration.getDefaultInstance() : duration_;
     }
 
     public static final int DISTANCE_METERS_FIELD_NUMBER = 2;
-    private double distanceMeters_;
+    private double distanceMeters_ = 0D;
     /**
      * <pre>
      * Distance traveled during the step.
@@ -11108,7 +10729,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     }
 
     public static final int TRAFFIC_INFO_UNAVAILABLE_FIELD_NUMBER = 3;
-    private boolean trafficInfoUnavailable_;
+    private boolean trafficInfoUnavailable_ = false;
     /**
      * <pre>
      * When traffic is requested via
@@ -11173,7 +10794,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolylineOrBuilder getRoutePolylineOrBuilder() {
-      return getRoutePolyline();
+      return routePolyline_ == null ? com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance() : routePolyline_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11202,7 +10823,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (routePolyline_ != null) {
         output.writeMessage(4, getRoutePolyline());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -11227,7 +10848,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getRoutePolyline());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -11257,7 +10878,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!getRoutePolyline()
             .equals(other.getRoutePolyline())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -11282,7 +10903,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         hash = (37 * hash) + ROUTE_POLYLINE_FIELD_NUMBER;
         hash = (53 * hash) + getRoutePolyline().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -11413,36 +11034,28 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
       // Construct using com.google.cloud.optimization.v1.ShipmentRoute.TravelStep.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (durationBuilder_ == null) {
-          duration_ = null;
-        } else {
-          duration_ = null;
+        bitField0_ = 0;
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
         distanceMeters_ = 0D;
-
         trafficInfoUnavailable_ = false;
-
-        if (routePolylineBuilder_ == null) {
-          routePolyline_ = null;
-        } else {
-          routePolyline_ = null;
+        routePolyline_ = null;
+        if (routePolylineBuilder_ != null) {
+          routePolylineBuilder_.dispose();
           routePolylineBuilder_ = null;
         }
         return this;
@@ -11471,20 +11084,29 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       @java.lang.Override
       public com.google.cloud.optimization.v1.ShipmentRoute.TravelStep buildPartial() {
         com.google.cloud.optimization.v1.ShipmentRoute.TravelStep result = new com.google.cloud.optimization.v1.ShipmentRoute.TravelStep(this);
-        if (durationBuilder_ == null) {
-          result.duration_ = duration_;
-        } else {
-          result.duration_ = durationBuilder_.build();
-        }
-        result.distanceMeters_ = distanceMeters_;
-        result.trafficInfoUnavailable_ = trafficInfoUnavailable_;
-        if (routePolylineBuilder_ == null) {
-          result.routePolyline_ = routePolyline_;
-        } else {
-          result.routePolyline_ = routePolylineBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute.TravelStep result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.duration_ = durationBuilder_ == null
+              ? duration_
+              : durationBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.distanceMeters_ = distanceMeters_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.trafficInfoUnavailable_ = trafficInfoUnavailable_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.routePolyline_ = routePolylineBuilder_ == null
+              ? routePolyline_
+              : routePolylineBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -11543,7 +11165,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (other.hasRoutePolyline()) {
           mergeRoutePolyline(other.getRoutePolyline());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -11558,19 +11180,57 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.optimization.v1.ShipmentRoute.TravelStep parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getDurationFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 17: {
+                distanceMeters_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 17
+              case 24: {
+                trafficInfoUnavailable_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                input.readMessage(
+                    getRoutePolylineFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute.TravelStep) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.Duration duration_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -11584,7 +11244,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the duration field is set.
        */
       public boolean hasDuration() {
-        return durationBuilder_ != null || duration_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -11614,11 +11274,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           duration_ = value;
-          onChanged();
         } else {
           durationBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -11632,11 +11292,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.Duration.Builder builderForValue) {
         if (durationBuilder_ == null) {
           duration_ = builderForValue.build();
-          onChanged();
         } else {
           durationBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -11648,17 +11308,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeDuration(com.google.protobuf.Duration value) {
         if (durationBuilder_ == null) {
-          if (duration_ != null) {
-            duration_ =
-              com.google.protobuf.Duration.newBuilder(duration_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            duration_ != null &&
+            duration_ != com.google.protobuf.Duration.getDefaultInstance()) {
+            getDurationBuilder().mergeFrom(value);
           } else {
             duration_ = value;
           }
-          onChanged();
         } else {
           durationBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -11669,14 +11330,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration duration = 1;</code>
        */
       public Builder clearDuration() {
-        if (durationBuilder_ == null) {
-          duration_ = null;
-          onChanged();
-        } else {
-          duration_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        duration_ = null;
+        if (durationBuilder_ != null) {
+          durationBuilder_.dispose();
           durationBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -11687,7 +11347,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.protobuf.Duration duration = 1;</code>
        */
       public com.google.protobuf.Duration.Builder getDurationBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getDurationFieldBuilder().getBuilder();
       }
@@ -11752,6 +11412,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       public Builder setDistanceMeters(double value) {
         
         distanceMeters_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -11764,7 +11425,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearDistanceMeters() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         distanceMeters_ = 0D;
         onChanged();
         return this;
@@ -11803,6 +11464,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       public Builder setTrafficInfoUnavailable(boolean value) {
         
         trafficInfoUnavailable_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -11819,7 +11481,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return This builder for chaining.
        */
       public Builder clearTrafficInfoUnavailable() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         trafficInfoUnavailable_ = false;
         onChanged();
         return this;
@@ -11841,7 +11503,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * @return Whether the routePolyline field is set.
        */
       public boolean hasRoutePolyline() {
-        return routePolylineBuilder_ != null || routePolyline_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -11879,11 +11541,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             throw new NullPointerException();
           }
           routePolyline_ = value;
-          onChanged();
         } else {
           routePolylineBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -11901,11 +11563,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder builderForValue) {
         if (routePolylineBuilder_ == null) {
           routePolyline_ = builderForValue.build();
-          onChanged();
         } else {
           routePolylineBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -11921,17 +11583,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        */
       public Builder mergeRoutePolyline(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline value) {
         if (routePolylineBuilder_ == null) {
-          if (routePolyline_ != null) {
-            routePolyline_ =
-              com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.newBuilder(routePolyline_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            routePolyline_ != null &&
+            routePolyline_ != com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance()) {
+            getRoutePolylineBuilder().mergeFrom(value);
           } else {
             routePolyline_ = value;
           }
-          onChanged();
         } else {
           routePolylineBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -11946,14 +11609,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline route_polyline = 4;</code>
        */
       public Builder clearRoutePolyline() {
-        if (routePolylineBuilder_ == null) {
-          routePolyline_ = null;
-          onChanged();
-        } else {
-          routePolyline_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        routePolyline_ = null;
+        if (routePolylineBuilder_ != null) {
+          routePolylineBuilder_.dispose();
           routePolylineBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -11968,7 +11630,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
        * <code>.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline route_polyline = 4;</code>
        */
       public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder getRoutePolylineBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getRoutePolylineFieldBuilder().getBuilder();
       }
@@ -12048,7 +11710,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new TravelStep(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -12069,7 +11742,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int VEHICLE_INDEX_FIELD_NUMBER = 1;
-  private int vehicleIndex_;
+  private int vehicleIndex_ = 0;
   /**
    * <pre>
    * Vehicle performing the route, identified by its index in the source
@@ -12085,7 +11758,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int VEHICLE_LABEL_FIELD_NUMBER = 2;
-  private volatile java.lang.Object vehicleLabel_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vehicleLabel_ = "";
   /**
    * <pre>
    * Label of the vehicle performing this route, equal to
@@ -12167,7 +11841,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getVehicleStartTimeOrBuilder() {
-    return getVehicleStartTime();
+    return vehicleStartTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : vehicleStartTime_;
   }
 
   public static final int VEHICLE_END_TIME_FIELD_NUMBER = 6;
@@ -12205,10 +11879,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getVehicleEndTimeOrBuilder() {
-    return getVehicleEndTime();
+    return vehicleEndTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : vehicleEndTime_;
   }
 
   public static final int VISITS_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.Visit> visits_;
   /**
    * <pre>
@@ -12279,6 +11954,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int TRANSITIONS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.Transition> transitions_;
   /**
    * <pre>
@@ -12339,7 +12015,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int HAS_TRAFFIC_INFEASIBILITIES_FIELD_NUMBER = 9;
-  private boolean hasTrafficInfeasibilities_;
+  private boolean hasTrafficInfeasibilities_ = false;
   /**
    * <pre>
    * When
@@ -12349,8 +12025,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * insufficient time to complete traffic-adjusted travel, delays, and breaks
    * between visits, before the first visit, or after the last visit, while
    * still satisfying the visit and vehicle time windows. For example,
-   *   ```start_time(previous_visit) + duration(previous_visit) +
-   *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)```
+   * ```
+   *   start_time(previous_visit) + duration(previous_visit) +
+   *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)
+   * ```
    * Arrival at next_visit will likely happen later than its current
    * time window due the increased estimate of travel time
    * `travel_duration(previous_visit, next_visit)` due to traffic. Also, a break
@@ -12410,10 +12088,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolylineOrBuilder getRoutePolylineOrBuilder() {
-    return getRoutePolyline();
+    return routePolyline_ == null ? com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance() : routePolyline_;
   }
 
   public static final int BREAKS_FIELD_NUMBER = 11;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.Break> breaks_;
   /**
    * <pre>
@@ -12488,8 +12167,12 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   /**
    * <pre>
    * Duration, distance and load metrics for this route. The fields of
-   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+   * summed over all
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * or
+   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+   * depending on the context.
    * </pre>
    *
    * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -12502,8 +12185,12 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   /**
    * <pre>
    * Duration, distance and load metrics for this route. The fields of
-   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+   * summed over all
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * or
+   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+   * depending on the context.
    * </pre>
    *
    * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -12516,15 +12203,19 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   /**
    * <pre>
    * Duration, distance and load metrics for this route. The fields of
-   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+   * summed over all
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * or
+   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+   * depending on the context.
    * </pre>
    *
    * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
    */
   @java.lang.Override
   public com.google.cloud.optimization.v1.AggregatedMetricsOrBuilder getMetricsOrBuilder() {
-    return getMetrics();
+    return metrics_ == null ? com.google.cloud.optimization.v1.AggregatedMetrics.getDefaultInstance() : metrics_;
   }
 
   public static final int ROUTE_COSTS_FIELD_NUMBER = 17;
@@ -12539,6 +12230,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
                 com.google.protobuf.WireFormat.FieldType.DOUBLE,
                 0D);
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.Double> routeCosts_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
@@ -12549,7 +12241,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     }
     return routeCosts_;
   }
-
   public int getRouteCostsCount() {
     return internalGetRouteCosts().getMap().size();
   }
@@ -12567,7 +12258,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    *
    * <code>map&lt;string, double&gt; route_costs = 17;</code>
    */
-
   @java.lang.Override
   public boolean containsRouteCosts(
       java.lang.String key) {
@@ -12597,7 +12287,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <code>map&lt;string, double&gt; route_costs = 17;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.Double> getRouteCostsMap() {
     return internalGetRouteCosts().getMap();
   }
@@ -12616,7 +12305,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <code>map&lt;string, double&gt; route_costs = 17;</code>
    */
   @java.lang.Override
-
   public double getRouteCostsOrDefault(
       java.lang.String key,
       double defaultValue) {
@@ -12640,7 +12328,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <code>map&lt;string, double&gt; route_costs = 17;</code>
    */
   @java.lang.Override
-
   public double getRouteCostsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -12653,7 +12340,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int ROUTE_TOTAL_COST_FIELD_NUMBER = 18;
-  private double routeTotalCost_;
+  private double routeTotalCost_ = 0D;
   /**
    * <pre>
    * Total cost of the route. The sum of all costs in the cost map.
@@ -12668,12 +12355,14 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int END_LOADS_FIELD_NUMBER = 13;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> endLoads_;
   /**
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -12689,7 +12378,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -12706,7 +12396,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -12722,7 +12413,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -12738,7 +12430,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -12753,6 +12446,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
   }
 
   public static final int TRAVEL_STEPS_FIELD_NUMBER = 14;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.TravelStep> travelSteps_;
   /**
    * <pre>
@@ -12823,15 +12517,15 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: No longer used.
    * This field will only be populated at the
-   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-   * Extra detour time due to the shipments visited on the route.
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+   * level. Extra detour time due to the shipments visited on the route.
    * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
    * from the vehicle's start_location to its `end_location`.
    * </pre>
    *
    * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.vehicle_detour is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2052
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2135
    * @return Whether the vehicleDetour field is set.
    */
   @java.lang.Override
@@ -12842,15 +12536,15 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: No longer used.
    * This field will only be populated at the
-   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-   * Extra detour time due to the shipments visited on the route.
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+   * level. Extra detour time due to the shipments visited on the route.
    * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
    * from the vehicle's start_location to its `end_location`.
    * </pre>
    *
    * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.vehicle_detour is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2052
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2135
    * @return The vehicleDetour.
    */
   @java.lang.Override
@@ -12861,8 +12555,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    * <pre>
    * Deprecated: No longer used.
    * This field will only be populated at the
-   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-   * Extra detour time due to the shipments visited on the route.
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+   * level. Extra detour time due to the shipments visited on the route.
    * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
    * from the vehicle's start_location to its `end_location`.
    * </pre>
@@ -12871,7 +12565,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.protobuf.DurationOrBuilder getVehicleDetourOrBuilder() {
-    return getVehicleDetour();
+    return vehicleDetour_ == null ? com.google.protobuf.Duration.getDefaultInstance() : vehicleDetour_;
   }
 
   public static final int DELAY_BEFORE_VEHICLE_END_FIELD_NUMBER = 16;
@@ -12885,7 +12579,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    *
    * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.delay_before_vehicle_end is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2057
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2140
    * @return Whether the delayBeforeVehicleEnd field is set.
    */
   @java.lang.Override
@@ -12901,7 +12595,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    *
    * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.delay_before_vehicle_end is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2057
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2140
    * @return The delayBeforeVehicleEnd.
    */
   @java.lang.Override
@@ -12919,7 +12613,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
    */
   @java.lang.Override
   @java.lang.Deprecated public com.google.cloud.optimization.v1.ShipmentRoute.DelayOrBuilder getDelayBeforeVehicleEndOrBuilder() {
-    return getDelayBeforeVehicleEnd();
+    return delayBeforeVehicleEnd_ == null ? com.google.cloud.optimization.v1.ShipmentRoute.Delay.getDefaultInstance() : delayBeforeVehicleEnd_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -12987,7 +12681,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     if (java.lang.Double.doubleToRawLongBits(routeTotalCost_) != 0) {
       output.writeDouble(18, routeTotalCost_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -13065,7 +12759,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       size += com.google.protobuf.CodedOutputStream
         .computeDoubleSize(18, routeTotalCost_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -13131,7 +12825,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (!getDelayBeforeVehicleEnd()
           .equals(other.getDelayBeforeVehicleEnd())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -13200,7 +12894,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       hash = (37 * hash) + DELAY_BEFORE_VEHICLE_END_FIELD_NUMBER;
       hash = (53 * hash) + getDelayBeforeVehicleEnd().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -13420,100 +13114,86 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
 
     // Construct using com.google.cloud.optimization.v1.ShipmentRoute.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getVisitsFieldBuilder();
-        getTransitionsFieldBuilder();
-        getBreaksFieldBuilder();
-        getEndLoadsFieldBuilder();
-        getTravelStepsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       vehicleIndex_ = 0;
-
       vehicleLabel_ = "";
-
-      if (vehicleStartTimeBuilder_ == null) {
-        vehicleStartTime_ = null;
-      } else {
-        vehicleStartTime_ = null;
+      vehicleStartTime_ = null;
+      if (vehicleStartTimeBuilder_ != null) {
+        vehicleStartTimeBuilder_.dispose();
         vehicleStartTimeBuilder_ = null;
       }
-      if (vehicleEndTimeBuilder_ == null) {
-        vehicleEndTime_ = null;
-      } else {
-        vehicleEndTime_ = null;
+      vehicleEndTime_ = null;
+      if (vehicleEndTimeBuilder_ != null) {
+        vehicleEndTimeBuilder_.dispose();
         vehicleEndTimeBuilder_ = null;
       }
       if (visitsBuilder_ == null) {
         visits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        visits_ = null;
         visitsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000010);
       if (transitionsBuilder_ == null) {
         transitions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        transitions_ = null;
         transitionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       hasTrafficInfeasibilities_ = false;
-
-      if (routePolylineBuilder_ == null) {
-        routePolyline_ = null;
-      } else {
-        routePolyline_ = null;
+      routePolyline_ = null;
+      if (routePolylineBuilder_ != null) {
+        routePolylineBuilder_.dispose();
         routePolylineBuilder_ = null;
       }
       if (breaksBuilder_ == null) {
         breaks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        breaks_ = null;
         breaksBuilder_.clear();
       }
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-      } else {
-        metrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
       internalGetMutableRouteCosts().clear();
       routeTotalCost_ = 0D;
-
       if (endLoadsBuilder_ == null) {
         endLoads_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
       } else {
+        endLoads_ = null;
         endLoadsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00001000);
       if (travelStepsBuilder_ == null) {
         travelSteps_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
       } else {
+        travelSteps_ = null;
         travelStepsBuilder_.clear();
       }
-      if (vehicleDetourBuilder_ == null) {
-        vehicleDetour_ = null;
-      } else {
-        vehicleDetour_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      vehicleDetour_ = null;
+      if (vehicleDetourBuilder_ != null) {
+        vehicleDetourBuilder_.dispose();
         vehicleDetourBuilder_ = null;
       }
-      if (delayBeforeVehicleEndBuilder_ == null) {
-        delayBeforeVehicleEnd_ = null;
-      } else {
-        delayBeforeVehicleEnd_ = null;
+      delayBeforeVehicleEnd_ = null;
+      if (delayBeforeVehicleEndBuilder_ != null) {
+        delayBeforeVehicleEndBuilder_.dispose();
         delayBeforeVehicleEndBuilder_ = null;
       }
       return this;
@@ -13542,90 +13222,108 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     @java.lang.Override
     public com.google.cloud.optimization.v1.ShipmentRoute buildPartial() {
       com.google.cloud.optimization.v1.ShipmentRoute result = new com.google.cloud.optimization.v1.ShipmentRoute(this);
-      int from_bitField0_ = bitField0_;
-      result.vehicleIndex_ = vehicleIndex_;
-      result.vehicleLabel_ = vehicleLabel_;
-      if (vehicleStartTimeBuilder_ == null) {
-        result.vehicleStartTime_ = vehicleStartTime_;
-      } else {
-        result.vehicleStartTime_ = vehicleStartTimeBuilder_.build();
-      }
-      if (vehicleEndTimeBuilder_ == null) {
-        result.vehicleEndTime_ = vehicleEndTime_;
-      } else {
-        result.vehicleEndTime_ = vehicleEndTimeBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.optimization.v1.ShipmentRoute result) {
       if (visitsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000010) != 0)) {
           visits_ = java.util.Collections.unmodifiableList(visits_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.visits_ = visits_;
       } else {
         result.visits_ = visitsBuilder_.build();
       }
       if (transitionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           transitions_ = java.util.Collections.unmodifiableList(transitions_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.transitions_ = transitions_;
       } else {
         result.transitions_ = transitionsBuilder_.build();
       }
-      result.hasTrafficInfeasibilities_ = hasTrafficInfeasibilities_;
-      if (routePolylineBuilder_ == null) {
-        result.routePolyline_ = routePolyline_;
-      } else {
-        result.routePolyline_ = routePolylineBuilder_.build();
-      }
       if (breaksBuilder_ == null) {
-        if (((bitField0_ & 0x00000004) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           breaks_ = java.util.Collections.unmodifiableList(breaks_);
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.breaks_ = breaks_;
       } else {
         result.breaks_ = breaksBuilder_.build();
       }
-      if (metricsBuilder_ == null) {
-        result.metrics_ = metrics_;
-      } else {
-        result.metrics_ = metricsBuilder_.build();
-      }
-      result.routeCosts_ = internalGetRouteCosts();
-      result.routeCosts_.makeImmutable();
-      result.routeTotalCost_ = routeTotalCost_;
       if (endLoadsBuilder_ == null) {
-        if (((bitField0_ & 0x00000010) != 0)) {
+        if (((bitField0_ & 0x00001000) != 0)) {
           endLoads_ = java.util.Collections.unmodifiableList(endLoads_);
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00001000);
         }
         result.endLoads_ = endLoads_;
       } else {
         result.endLoads_ = endLoadsBuilder_.build();
       }
       if (travelStepsBuilder_ == null) {
-        if (((bitField0_ & 0x00000020) != 0)) {
+        if (((bitField0_ & 0x00002000) != 0)) {
           travelSteps_ = java.util.Collections.unmodifiableList(travelSteps_);
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00002000);
         }
         result.travelSteps_ = travelSteps_;
       } else {
         result.travelSteps_ = travelStepsBuilder_.build();
       }
-      if (vehicleDetourBuilder_ == null) {
-        result.vehicleDetour_ = vehicleDetour_;
-      } else {
-        result.vehicleDetour_ = vehicleDetourBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.optimization.v1.ShipmentRoute result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.vehicleIndex_ = vehicleIndex_;
       }
-      if (delayBeforeVehicleEndBuilder_ == null) {
-        result.delayBeforeVehicleEnd_ = delayBeforeVehicleEnd_;
-      } else {
-        result.delayBeforeVehicleEnd_ = delayBeforeVehicleEndBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.vehicleLabel_ = vehicleLabel_;
       }
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vehicleStartTime_ = vehicleStartTimeBuilder_ == null
+            ? vehicleStartTime_
+            : vehicleStartTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.vehicleEndTime_ = vehicleEndTimeBuilder_ == null
+            ? vehicleEndTime_
+            : vehicleEndTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.hasTrafficInfeasibilities_ = hasTrafficInfeasibilities_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.routePolyline_ = routePolylineBuilder_ == null
+            ? routePolyline_
+            : routePolylineBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.metrics_ = metricsBuilder_ == null
+            ? metrics_
+            : metricsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.routeCosts_ = internalGetRouteCosts();
+        result.routeCosts_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.routeTotalCost_ = routeTotalCost_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.vehicleDetour_ = vehicleDetourBuilder_ == null
+            ? vehicleDetour_
+            : vehicleDetourBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.delayBeforeVehicleEnd_ = delayBeforeVehicleEndBuilder_ == null
+            ? delayBeforeVehicleEnd_
+            : delayBeforeVehicleEndBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -13677,6 +13375,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       }
       if (!other.getVehicleLabel().isEmpty()) {
         vehicleLabel_ = other.vehicleLabel_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasVehicleStartTime()) {
@@ -13689,7 +13388,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!other.visits_.isEmpty()) {
           if (visits_.isEmpty()) {
             visits_ = other.visits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureVisitsIsMutable();
             visits_.addAll(other.visits_);
@@ -13702,7 +13401,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             visitsBuilder_.dispose();
             visitsBuilder_ = null;
             visits_ = other.visits_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000010);
             visitsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getVisitsFieldBuilder() : null;
@@ -13715,7 +13414,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!other.transitions_.isEmpty()) {
           if (transitions_.isEmpty()) {
             transitions_ = other.transitions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureTransitionsIsMutable();
             transitions_.addAll(other.transitions_);
@@ -13728,7 +13427,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             transitionsBuilder_.dispose();
             transitionsBuilder_ = null;
             transitions_ = other.transitions_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000020);
             transitionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTransitionsFieldBuilder() : null;
@@ -13747,7 +13446,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!other.breaks_.isEmpty()) {
           if (breaks_.isEmpty()) {
             breaks_ = other.breaks_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureBreaksIsMutable();
             breaks_.addAll(other.breaks_);
@@ -13760,7 +13459,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             breaksBuilder_.dispose();
             breaksBuilder_ = null;
             breaks_ = other.breaks_;
-            bitField0_ = (bitField0_ & ~0x00000004);
+            bitField0_ = (bitField0_ & ~0x00000100);
             breaksBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getBreaksFieldBuilder() : null;
@@ -13774,6 +13473,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       }
       internalGetMutableRouteCosts().mergeFrom(
           other.internalGetRouteCosts());
+      bitField0_ |= 0x00000400;
       if (other.getRouteTotalCost() != 0D) {
         setRouteTotalCost(other.getRouteTotalCost());
       }
@@ -13781,7 +13481,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!other.endLoads_.isEmpty()) {
           if (endLoads_.isEmpty()) {
             endLoads_ = other.endLoads_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00001000);
           } else {
             ensureEndLoadsIsMutable();
             endLoads_.addAll(other.endLoads_);
@@ -13794,7 +13494,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             endLoadsBuilder_.dispose();
             endLoadsBuilder_ = null;
             endLoads_ = other.endLoads_;
-            bitField0_ = (bitField0_ & ~0x00000010);
+            bitField0_ = (bitField0_ & ~0x00001000);
             endLoadsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getEndLoadsFieldBuilder() : null;
@@ -13807,7 +13507,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         if (!other.travelSteps_.isEmpty()) {
           if (travelSteps_.isEmpty()) {
             travelSteps_ = other.travelSteps_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00002000);
           } else {
             ensureTravelStepsIsMutable();
             travelSteps_.addAll(other.travelSteps_);
@@ -13820,7 +13520,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
             travelStepsBuilder_.dispose();
             travelStepsBuilder_ = null;
             travelSteps_ = other.travelSteps_;
-            bitField0_ = (bitField0_ & ~0x00000020);
+            bitField0_ = (bitField0_ & ~0x00002000);
             travelStepsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getTravelStepsFieldBuilder() : null;
@@ -13835,7 +13535,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (other.hasDelayBeforeVehicleEnd()) {
         mergeDelayBeforeVehicleEnd(other.getDelayBeforeVehicleEnd());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -13850,17 +13550,166 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.optimization.v1.ShipmentRoute parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              vehicleIndex_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              vehicleLabel_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 42: {
+              input.readMessage(
+                  getVehicleStartTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getVehicleEndTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            case 58: {
+              com.google.cloud.optimization.v1.ShipmentRoute.Visit m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.Visit.parser(),
+                      extensionRegistry);
+              if (visitsBuilder_ == null) {
+                ensureVisitsIsMutable();
+                visits_.add(m);
+              } else {
+                visitsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 66: {
+              com.google.cloud.optimization.v1.ShipmentRoute.Transition m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.Transition.parser(),
+                      extensionRegistry);
+              if (transitionsBuilder_ == null) {
+                ensureTransitionsIsMutable();
+                transitions_.add(m);
+              } else {
+                transitionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 72: {
+              hasTrafficInfeasibilities_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 72
+            case 82: {
+              input.readMessage(
+                  getRoutePolylineFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 82
+            case 90: {
+              com.google.cloud.optimization.v1.ShipmentRoute.Break m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.Break.parser(),
+                      extensionRegistry);
+              if (breaksBuilder_ == null) {
+                ensureBreaksIsMutable();
+                breaks_.add(m);
+              } else {
+                breaksBuilder_.addMessage(m);
+              }
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getMetricsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 98
+            case 106: {
+              com.google.cloud.optimization.v1.CapacityQuantity m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.CapacityQuantity.parser(),
+                      extensionRegistry);
+              if (endLoadsBuilder_ == null) {
+                ensureEndLoadsIsMutable();
+                endLoads_.add(m);
+              } else {
+                endLoadsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 106
+            case 114: {
+              com.google.cloud.optimization.v1.ShipmentRoute.TravelStep m =
+                  input.readMessage(
+                      com.google.cloud.optimization.v1.ShipmentRoute.TravelStep.parser(),
+                      extensionRegistry);
+              if (travelStepsBuilder_ == null) {
+                ensureTravelStepsIsMutable();
+                travelSteps_.add(m);
+              } else {
+                travelStepsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 114
+            case 122: {
+              input.readMessage(
+                  getVehicleDetourFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getDelayBeforeVehicleEndFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 138: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Double>
+              routeCosts__ = input.readMessage(
+                  RouteCostsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableRouteCosts().getMutableMap().put(
+                  routeCosts__.getKey(), routeCosts__.getValue());
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 138
+            case 145: {
+              routeTotalCost_ = input.readDouble();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 145
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.optimization.v1.ShipmentRoute) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -13892,6 +13741,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     public Builder setVehicleIndex(int value) {
       
       vehicleIndex_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -13905,7 +13755,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearVehicleIndex() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       vehicleIndex_ = 0;
       onChanged();
       return this;
@@ -13967,11 +13817,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     public Builder setVehicleLabel(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       vehicleLabel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -13985,8 +13833,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearVehicleLabel() {
-      
       vehicleLabel_ = getDefaultInstance().getVehicleLabel();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -14002,12 +13850,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     public Builder setVehicleLabelBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       vehicleLabel_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -14024,7 +13870,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return Whether the vehicleStartTime field is set.
      */
     public boolean hasVehicleStartTime() {
-      return vehicleStartTimeBuilder_ != null || vehicleStartTime_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -14054,11 +13900,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           throw new NullPointerException();
         }
         vehicleStartTime_ = value;
-        onChanged();
       } else {
         vehicleStartTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -14072,11 +13918,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (vehicleStartTimeBuilder_ == null) {
         vehicleStartTime_ = builderForValue.build();
-        onChanged();
       } else {
         vehicleStartTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -14088,17 +13934,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     public Builder mergeVehicleStartTime(com.google.protobuf.Timestamp value) {
       if (vehicleStartTimeBuilder_ == null) {
-        if (vehicleStartTime_ != null) {
-          vehicleStartTime_ =
-            com.google.protobuf.Timestamp.newBuilder(vehicleStartTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          vehicleStartTime_ != null &&
+          vehicleStartTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getVehicleStartTimeBuilder().mergeFrom(value);
         } else {
           vehicleStartTime_ = value;
         }
-        onChanged();
       } else {
         vehicleStartTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -14109,14 +13956,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.protobuf.Timestamp vehicle_start_time = 5;</code>
      */
     public Builder clearVehicleStartTime() {
-      if (vehicleStartTimeBuilder_ == null) {
-        vehicleStartTime_ = null;
-        onChanged();
-      } else {
-        vehicleStartTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      vehicleStartTime_ = null;
+      if (vehicleStartTimeBuilder_ != null) {
+        vehicleStartTimeBuilder_.dispose();
         vehicleStartTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -14127,7 +13973,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.protobuf.Timestamp vehicle_start_time = 5;</code>
      */
     public com.google.protobuf.Timestamp.Builder getVehicleStartTimeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getVehicleStartTimeFieldBuilder().getBuilder();
     }
@@ -14179,7 +14025,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return Whether the vehicleEndTime field is set.
      */
     public boolean hasVehicleEndTime() {
-      return vehicleEndTimeBuilder_ != null || vehicleEndTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -14209,11 +14055,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           throw new NullPointerException();
         }
         vehicleEndTime_ = value;
-        onChanged();
       } else {
         vehicleEndTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -14227,11 +14073,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (vehicleEndTimeBuilder_ == null) {
         vehicleEndTime_ = builderForValue.build();
-        onChanged();
       } else {
         vehicleEndTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -14243,17 +14089,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     public Builder mergeVehicleEndTime(com.google.protobuf.Timestamp value) {
       if (vehicleEndTimeBuilder_ == null) {
-        if (vehicleEndTime_ != null) {
-          vehicleEndTime_ =
-            com.google.protobuf.Timestamp.newBuilder(vehicleEndTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          vehicleEndTime_ != null &&
+          vehicleEndTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getVehicleEndTimeBuilder().mergeFrom(value);
         } else {
           vehicleEndTime_ = value;
         }
-        onChanged();
       } else {
         vehicleEndTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -14264,14 +14111,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.protobuf.Timestamp vehicle_end_time = 6;</code>
      */
     public Builder clearVehicleEndTime() {
-      if (vehicleEndTimeBuilder_ == null) {
-        vehicleEndTime_ = null;
-        onChanged();
-      } else {
-        vehicleEndTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      vehicleEndTime_ = null;
+      if (vehicleEndTimeBuilder_ != null) {
+        vehicleEndTimeBuilder_.dispose();
         vehicleEndTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -14282,7 +14128,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.protobuf.Timestamp vehicle_end_time = 6;</code>
      */
     public com.google.protobuf.Timestamp.Builder getVehicleEndTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getVehicleEndTimeFieldBuilder().getBuilder();
     }
@@ -14325,9 +14171,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.Visit> visits_ =
       java.util.Collections.emptyList();
     private void ensureVisitsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         visits_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.Visit>(visits_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
 
@@ -14543,7 +14389,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     public Builder clearVisits() {
       if (visitsBuilder_ == null) {
         visits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
       } else {
         visitsBuilder_.clear();
@@ -14662,7 +14508,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         visitsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentRoute.Visit, com.google.cloud.optimization.v1.ShipmentRoute.Visit.Builder, com.google.cloud.optimization.v1.ShipmentRoute.VisitOrBuilder>(
                 visits_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000010) != 0),
                 getParentForChildren(),
                 isClean());
         visits_ = null;
@@ -14673,9 +14519,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.Transition> transitions_ =
       java.util.Collections.emptyList();
     private void ensureTransitionsIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         transitions_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.Transition>(transitions_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -14869,7 +14715,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     public Builder clearTransitions() {
       if (transitionsBuilder_ == null) {
         transitions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         transitionsBuilder_.clear();
@@ -14974,7 +14820,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         transitionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentRoute.Transition, com.google.cloud.optimization.v1.ShipmentRoute.Transition.Builder, com.google.cloud.optimization.v1.ShipmentRoute.TransitionOrBuilder>(
                 transitions_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         transitions_ = null;
@@ -14992,8 +14838,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * insufficient time to complete traffic-adjusted travel, delays, and breaks
      * between visits, before the first visit, or after the last visit, while
      * still satisfying the visit and vehicle time windows. For example,
-     *   ```start_time(previous_visit) + duration(previous_visit) +
-     *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)```
+     * ```
+     *   start_time(previous_visit) + duration(previous_visit) +
+     *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)
+     * ```
      * Arrival at next_visit will likely happen later than its current
      * time window due the increased estimate of travel time
      * `travel_duration(previous_visit, next_visit)` due to traffic. Also, a break
@@ -15017,8 +14865,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * insufficient time to complete traffic-adjusted travel, delays, and breaks
      * between visits, before the first visit, or after the last visit, while
      * still satisfying the visit and vehicle time windows. For example,
-     *   ```start_time(previous_visit) + duration(previous_visit) +
-     *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)```
+     * ```
+     *   start_time(previous_visit) + duration(previous_visit) +
+     *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)
+     * ```
      * Arrival at next_visit will likely happen later than its current
      * time window due the increased estimate of travel time
      * `travel_duration(previous_visit, next_visit)` due to traffic. Also, a break
@@ -15033,6 +14883,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     public Builder setHasTrafficInfeasibilities(boolean value) {
       
       hasTrafficInfeasibilities_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -15045,8 +14896,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * insufficient time to complete traffic-adjusted travel, delays, and breaks
      * between visits, before the first visit, or after the last visit, while
      * still satisfying the visit and vehicle time windows. For example,
-     *   ```start_time(previous_visit) + duration(previous_visit) +
-     *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)```
+     * ```
+     *   start_time(previous_visit) + duration(previous_visit) +
+     *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)
+     * ```
      * Arrival at next_visit will likely happen later than its current
      * time window due the increased estimate of travel time
      * `travel_duration(previous_visit, next_visit)` due to traffic. Also, a break
@@ -15058,7 +14911,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearHasTrafficInfeasibilities() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       hasTrafficInfeasibilities_ = false;
       onChanged();
       return this;
@@ -15079,7 +14932,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return Whether the routePolyline field is set.
      */
     public boolean hasRoutePolyline() {
-      return routePolylineBuilder_ != null || routePolyline_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -15115,11 +14968,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           throw new NullPointerException();
         }
         routePolyline_ = value;
-        onChanged();
       } else {
         routePolylineBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -15136,11 +14989,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder builderForValue) {
       if (routePolylineBuilder_ == null) {
         routePolyline_ = builderForValue.build();
-        onChanged();
       } else {
         routePolylineBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -15155,17 +15008,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     public Builder mergeRoutePolyline(com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline value) {
       if (routePolylineBuilder_ == null) {
-        if (routePolyline_ != null) {
-          routePolyline_ =
-            com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.newBuilder(routePolyline_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          routePolyline_ != null &&
+          routePolyline_ != com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.getDefaultInstance()) {
+          getRoutePolylineBuilder().mergeFrom(value);
         } else {
           routePolyline_ = value;
         }
-        onChanged();
       } else {
         routePolylineBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -15179,14 +15033,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline route_polyline = 10;</code>
      */
     public Builder clearRoutePolyline() {
-      if (routePolylineBuilder_ == null) {
-        routePolyline_ = null;
-        onChanged();
-      } else {
-        routePolyline_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      routePolyline_ = null;
+      if (routePolylineBuilder_ != null) {
+        routePolylineBuilder_.dispose();
         routePolylineBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -15200,7 +15053,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline route_polyline = 10;</code>
      */
     public com.google.cloud.optimization.v1.ShipmentRoute.EncodedPolyline.Builder getRoutePolylineBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getRoutePolylineFieldBuilder().getBuilder();
     }
@@ -15249,9 +15102,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.Break> breaks_ =
       java.util.Collections.emptyList();
     private void ensureBreaksIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         breaks_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.Break>(breaks_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -15467,7 +15320,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     public Builder clearBreaks() {
       if (breaksBuilder_ == null) {
         breaks_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         breaksBuilder_.clear();
@@ -15586,7 +15439,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         breaksBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentRoute.Break, com.google.cloud.optimization.v1.ShipmentRoute.Break.Builder, com.google.cloud.optimization.v1.ShipmentRoute.BreakOrBuilder>(
                 breaks_,
-                ((bitField0_ & 0x00000004) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         breaks_ = null;
@@ -15600,21 +15453,29 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
      * @return Whether the metrics field is set.
      */
     public boolean hasMetrics() {
-      return metricsBuilder_ != null || metrics_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -15630,8 +15491,12 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -15642,18 +15507,22 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           throw new NullPointerException();
         }
         metrics_ = value;
-        onChanged();
       } else {
         metricsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -15662,76 +15531,92 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.cloud.optimization.v1.AggregatedMetrics.Builder builderForValue) {
       if (metricsBuilder_ == null) {
         metrics_ = builderForValue.build();
-        onChanged();
       } else {
         metricsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
      */
     public Builder mergeMetrics(com.google.cloud.optimization.v1.AggregatedMetrics value) {
       if (metricsBuilder_ == null) {
-        if (metrics_ != null) {
-          metrics_ =
-            com.google.cloud.optimization.v1.AggregatedMetrics.newBuilder(metrics_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          metrics_ != null &&
+          metrics_ != com.google.cloud.optimization.v1.AggregatedMetrics.getDefaultInstance()) {
+          getMetricsBuilder().mergeFrom(value);
         } else {
           metrics_ = value;
         }
-        onChanged();
       } else {
         metricsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
      */
     public Builder clearMetrics() {
-      if (metricsBuilder_ == null) {
-        metrics_ = null;
-        onChanged();
-      } else {
-        metrics_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      metrics_ = null;
+      if (metricsBuilder_ != null) {
+        metricsBuilder_.dispose();
         metricsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
      */
     public com.google.cloud.optimization.v1.AggregatedMetrics.Builder getMetricsBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getMetricsFieldBuilder().getBuilder();
     }
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -15747,8 +15632,12 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     /**
      * <pre>
      * Duration, distance and load metrics for this route. The fields of
-     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+     * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+     * summed over all
+     * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+     * or
+     * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+     * depending on the context.
      * </pre>
      *
      * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -15770,7 +15659,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.Double> routeCosts_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetRouteCosts() {
+        internalGetRouteCosts() {
       if (routeCosts_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             RouteCostsDefaultEntryHolder.defaultEntry);
@@ -15778,8 +15667,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       return routeCosts_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.Double>
-    internalGetMutableRouteCosts() {
-      onChanged();;
+        internalGetMutableRouteCosts() {
       if (routeCosts_ == null) {
         routeCosts_ = com.google.protobuf.MapField.newMapField(
             RouteCostsDefaultEntryHolder.defaultEntry);
@@ -15787,9 +15675,10 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       if (!routeCosts_.isMutable()) {
         routeCosts_ = routeCosts_.copy();
       }
+      bitField0_ |= 0x00000400;
+      onChanged();
       return routeCosts_;
     }
-
     public int getRouteCostsCount() {
       return internalGetRouteCosts().getMap().size();
     }
@@ -15807,7 +15696,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>map&lt;string, double&gt; route_costs = 17;</code>
      */
-
     @java.lang.Override
     public boolean containsRouteCosts(
         java.lang.String key) {
@@ -15837,7 +15725,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>map&lt;string, double&gt; route_costs = 17;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.Double> getRouteCostsMap() {
       return internalGetRouteCosts().getMap();
     }
@@ -15856,7 +15743,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>map&lt;string, double&gt; route_costs = 17;</code>
      */
     @java.lang.Override
-
     public double getRouteCostsOrDefault(
         java.lang.String key,
         double defaultValue) {
@@ -15880,7 +15766,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>map&lt;string, double&gt; route_costs = 17;</code>
      */
     @java.lang.Override
-
     public double getRouteCostsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -15891,8 +15776,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       }
       return map.get(key);
     }
-
     public Builder clearRouteCosts() {
+      bitField0_ = (bitField0_ & ~0x00000400);
       internalGetMutableRouteCosts().getMutableMap()
           .clear();
       return this;
@@ -15911,7 +15796,6 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>map&lt;string, double&gt; route_costs = 17;</code>
      */
-
     public Builder removeRouteCosts(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -15924,7 +15808,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.Double>
-    getMutableRouteCosts() {
+        getMutableRouteCosts() {
+      bitField0_ |= 0x00000400;
       return internalGetMutableRouteCosts().getMutableMap();
     }
     /**
@@ -15948,6 +15833,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
       
       internalGetMutableRouteCosts().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000400;
       return this;
     }
     /**
@@ -15964,11 +15850,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>map&lt;string, double&gt; route_costs = 17;</code>
      */
-
     public Builder putAllRouteCosts(
         java.util.Map<java.lang.String, java.lang.Double> values) {
       internalGetMutableRouteCosts().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000400;
       return this;
     }
 
@@ -15997,6 +15883,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     public Builder setRouteTotalCost(double value) {
       
       routeTotalCost_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -16009,7 +15896,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * @return This builder for chaining.
      */
     public Builder clearRouteTotalCost() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       routeTotalCost_ = 0D;
       onChanged();
       return this;
@@ -16018,9 +15905,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     private java.util.List<com.google.cloud.optimization.v1.CapacityQuantity> endLoads_ =
       java.util.Collections.emptyList();
     private void ensureEndLoadsIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         endLoads_ = new java.util.ArrayList<com.google.cloud.optimization.v1.CapacityQuantity>(endLoads_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00001000;
        }
     }
 
@@ -16031,7 +15918,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16050,7 +15938,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16069,7 +15958,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16088,7 +15978,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16114,7 +16005,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16137,7 +16029,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16162,7 +16055,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16188,7 +16082,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16211,7 +16106,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16234,7 +16130,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16258,7 +16155,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16269,7 +16167,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     @java.lang.Deprecated public Builder clearEndLoads() {
       if (endLoadsBuilder_ == null) {
         endLoads_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000010);
+        bitField0_ = (bitField0_ & ~0x00001000);
         onChanged();
       } else {
         endLoadsBuilder_.clear();
@@ -16280,7 +16178,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16302,7 +16201,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16318,7 +16218,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16337,7 +16238,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16357,7 +16259,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16373,7 +16276,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16390,7 +16294,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
      * Vehicle loads upon arrival at its end location, for each
-     * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+     * type specified in
+     * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
      * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
      * loads for quantity types unconstrained by intervals and that don't have any
      * non-zero demand on the route.
@@ -16409,7 +16314,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         endLoadsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.CapacityQuantity, com.google.cloud.optimization.v1.CapacityQuantity.Builder, com.google.cloud.optimization.v1.CapacityQuantityOrBuilder>(
                 endLoads_,
-                ((bitField0_ & 0x00000010) != 0),
+                ((bitField0_ & 0x00001000) != 0),
                 getParentForChildren(),
                 isClean());
         endLoads_ = null;
@@ -16420,9 +16325,9 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     private java.util.List<com.google.cloud.optimization.v1.ShipmentRoute.TravelStep> travelSteps_ =
       java.util.Collections.emptyList();
     private void ensureTravelStepsIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00002000) != 0)) {
         travelSteps_ = new java.util.ArrayList<com.google.cloud.optimization.v1.ShipmentRoute.TravelStep>(travelSteps_);
-        bitField0_ |= 0x00000020;
+        bitField0_ |= 0x00002000;
        }
     }
 
@@ -16627,7 +16532,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
     @java.lang.Deprecated public Builder clearTravelSteps() {
       if (travelStepsBuilder_ == null) {
         travelSteps_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000020);
+        bitField0_ = (bitField0_ & ~0x00002000);
         onChanged();
       } else {
         travelStepsBuilder_.clear();
@@ -16739,7 +16644,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         travelStepsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.optimization.v1.ShipmentRoute.TravelStep, com.google.cloud.optimization.v1.ShipmentRoute.TravelStep.Builder, com.google.cloud.optimization.v1.ShipmentRoute.TravelStepOrBuilder>(
                 travelSteps_,
-                ((bitField0_ & 0x00000020) != 0),
+                ((bitField0_ & 0x00002000) != 0),
                 getParentForChildren(),
                 isClean());
         travelSteps_ = null;
@@ -16754,33 +16659,33 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
      *
      * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.vehicle_detour is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2052
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2135
      * @return Whether the vehicleDetour field is set.
      */
     @java.lang.Deprecated public boolean hasVehicleDetour() {
-      return vehicleDetourBuilder_ != null || vehicleDetour_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
      *
      * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.vehicle_detour is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2052
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2135
      * @return The vehicleDetour.
      */
     @java.lang.Deprecated public com.google.protobuf.Duration getVehicleDetour() {
@@ -16794,8 +16699,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16808,19 +16713,19 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           throw new NullPointerException();
         }
         vehicleDetour_ = value;
-        onChanged();
       } else {
         vehicleDetourBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16831,19 +16736,19 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.protobuf.Duration.Builder builderForValue) {
       if (vehicleDetourBuilder_ == null) {
         vehicleDetour_ = builderForValue.build();
-        onChanged();
       } else {
         vehicleDetourBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16852,25 +16757,26 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Deprecated public Builder mergeVehicleDetour(com.google.protobuf.Duration value) {
       if (vehicleDetourBuilder_ == null) {
-        if (vehicleDetour_ != null) {
-          vehicleDetour_ =
-            com.google.protobuf.Duration.newBuilder(vehicleDetour_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          vehicleDetour_ != null &&
+          vehicleDetour_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getVehicleDetourBuilder().mergeFrom(value);
         } else {
           vehicleDetour_ = value;
         }
-        onChanged();
       } else {
         vehicleDetourBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16878,22 +16784,21 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearVehicleDetour() {
-      if (vehicleDetourBuilder_ == null) {
-        vehicleDetour_ = null;
-        onChanged();
-      } else {
-        vehicleDetour_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      vehicleDetour_ = null;
+      if (vehicleDetourBuilder_ != null) {
+        vehicleDetourBuilder_.dispose();
         vehicleDetourBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16901,7 +16806,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.protobuf.Duration.Builder getVehicleDetourBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getVehicleDetourFieldBuilder().getBuilder();
     }
@@ -16909,8 +16814,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16929,8 +16834,8 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <pre>
      * Deprecated: No longer used.
      * This field will only be populated at the
-     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-     * Extra detour time due to the shipments visited on the route.
+     * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+     * level. Extra detour time due to the shipments visited on the route.
      * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
      * from the vehicle's start_location to its `end_location`.
      * </pre>
@@ -16963,11 +16868,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.delay_before_vehicle_end is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2057
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2140
      * @return Whether the delayBeforeVehicleEnd field is set.
      */
     @java.lang.Deprecated public boolean hasDelayBeforeVehicleEnd() {
-      return delayBeforeVehicleEndBuilder_ != null || delayBeforeVehicleEnd_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -16978,7 +16883,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      *
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
      * @deprecated google.cloud.optimization.v1.ShipmentRoute.delay_before_vehicle_end is deprecated.
-     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2057
+     *     See google/cloud/optimization/v1/fleet_routing.proto;l=2140
      * @return The delayBeforeVehicleEnd.
      */
     @java.lang.Deprecated public com.google.cloud.optimization.v1.ShipmentRoute.Delay getDelayBeforeVehicleEnd() {
@@ -17003,11 +16908,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
           throw new NullPointerException();
         }
         delayBeforeVehicleEnd_ = value;
-        onChanged();
       } else {
         delayBeforeVehicleEndBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -17023,11 +16928,11 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.cloud.optimization.v1.ShipmentRoute.Delay.Builder builderForValue) {
       if (delayBeforeVehicleEndBuilder_ == null) {
         delayBeforeVehicleEnd_ = builderForValue.build();
-        onChanged();
       } else {
         delayBeforeVehicleEndBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -17041,17 +16946,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      */
     @java.lang.Deprecated public Builder mergeDelayBeforeVehicleEnd(com.google.cloud.optimization.v1.ShipmentRoute.Delay value) {
       if (delayBeforeVehicleEndBuilder_ == null) {
-        if (delayBeforeVehicleEnd_ != null) {
-          delayBeforeVehicleEnd_ =
-            com.google.cloud.optimization.v1.ShipmentRoute.Delay.newBuilder(delayBeforeVehicleEnd_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          delayBeforeVehicleEnd_ != null &&
+          delayBeforeVehicleEnd_ != com.google.cloud.optimization.v1.ShipmentRoute.Delay.getDefaultInstance()) {
+          getDelayBeforeVehicleEndBuilder().mergeFrom(value);
         } else {
           delayBeforeVehicleEnd_ = value;
         }
-        onChanged();
       } else {
         delayBeforeVehicleEndBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -17064,14 +16970,13 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
      */
     @java.lang.Deprecated public Builder clearDelayBeforeVehicleEnd() {
-      if (delayBeforeVehicleEndBuilder_ == null) {
-        delayBeforeVehicleEnd_ = null;
-        onChanged();
-      } else {
-        delayBeforeVehicleEnd_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      delayBeforeVehicleEnd_ = null;
+      if (delayBeforeVehicleEndBuilder_ != null) {
+        delayBeforeVehicleEndBuilder_.dispose();
         delayBeforeVehicleEndBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -17084,7 +16989,7 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
      * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
      */
     @java.lang.Deprecated public com.google.cloud.optimization.v1.ShipmentRoute.Delay.Builder getDelayBeforeVehicleEndBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getDelayBeforeVehicleEndFieldBuilder().getBuilder();
     }
@@ -17160,7 +17065,18 @@ com.google.cloud.optimization.v1.ShipmentRoute.VehicleLoad defaultValue);
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ShipmentRoute(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -112,7 +112,7 @@ public interface AndroidRoboTestOrBuilder extends
    *
    * <code>int32 max_depth = 7 [deprecated = true];</code>
    * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_depth is deprecated.
-   *     See google/devtools/testing/v1/test_execution.proto;l=594
+   *     See google/devtools/testing/v1/test_execution.proto;l=593
    * @return The maxDepth.
    */
   @java.lang.Deprecated int getMaxDepth();
@@ -125,7 +125,7 @@ public interface AndroidRoboTestOrBuilder extends
    *
    * <code>int32 max_steps = 8 [deprecated = true];</code>
    * @deprecated google.devtools.testing.v1.AndroidRoboTest.max_steps is deprecated.
-   *     See google/devtools/testing/v1/test_execution.proto;l=598
+   *     See google/devtools/testing/v1/test_execution.proto;l=597
    * @return The maxSteps.
    */
   @java.lang.Deprecated int getMaxSteps();

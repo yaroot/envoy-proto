@@ -6,8 +6,7 @@ package io.envoyproxy.envoy.config.core.v3;
 /**
  * <pre>
  * The address represents an envoy internal listener.
- * [#comment: TODO(lambdai): Make this address available for listener and endpoint.
- * TODO(asraa): When address available, remove workaround from test/server/server_fuzz_test.cc:30.]
+ * [#comment: TODO(asraa): When address available, remove workaround from test/server/server_fuzz_test.cc:30.]
  * </pre>
  *
  * Protobuf type {@code envoy.config.core.v3.EnvoyInternalAddress}
@@ -22,6 +21,7 @@ private static final long serialVersionUID = 0L;
     super(builder);
   }
   private EnvoyInternalAddress() {
+    endpointId_ = "";
   }
 
   @java.lang.Override
@@ -35,51 +35,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private EnvoyInternalAddress(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-            addressNameSpecifierCase_ = 1;
-            addressNameSpecifier_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -136,7 +91,8 @@ private static final long serialVersionUID = 0L;
   public static final int SERVER_LISTENER_NAME_FIELD_NUMBER = 1;
   /**
    * <pre>
-   * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+   * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+   * internal listener.
    * </pre>
    *
    * <code>string server_listener_name = 1;</code>
@@ -147,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+   * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+   * internal listener.
    * </pre>
    *
    * <code>string server_listener_name = 1;</code>
@@ -172,7 +129,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+   * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+   * internal listener.
    * </pre>
    *
    * <code>string server_listener_name = 1;</code>
@@ -197,6 +155,57 @@ private static final long serialVersionUID = 0L;
     }
   }
 
+  public static final int ENDPOINT_ID_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object endpointId_ = "";
+  /**
+   * <pre>
+   * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+   * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+   * example, may be set to the final destination IP for the target internal listener.
+   * </pre>
+   *
+   * <code>string endpoint_id = 2;</code>
+   * @return The endpointId.
+   */
+  @java.lang.Override
+  public java.lang.String getEndpointId() {
+    java.lang.Object ref = endpointId_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      endpointId_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+   * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+   * example, may be set to the final destination IP for the target internal listener.
+   * </pre>
+   *
+   * <code>string endpoint_id = 2;</code>
+   * @return The bytes for endpointId.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getEndpointIdBytes() {
+    java.lang.Object ref = endpointId_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      endpointId_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
+  }
+
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -214,7 +223,10 @@ private static final long serialVersionUID = 0L;
     if (addressNameSpecifierCase_ == 1) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 1, addressNameSpecifier_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointId_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, endpointId_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -226,7 +238,10 @@ private static final long serialVersionUID = 0L;
     if (addressNameSpecifierCase_ == 1) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, addressNameSpecifier_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(endpointId_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, endpointId_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -241,6 +256,8 @@ private static final long serialVersionUID = 0L;
     }
     io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress other = (io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress) obj;
 
+    if (!getEndpointId()
+        .equals(other.getEndpointId())) return false;
     if (!getAddressNameSpecifierCase().equals(other.getAddressNameSpecifierCase())) return false;
     switch (addressNameSpecifierCase_) {
       case 1:
@@ -250,7 +267,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -261,6 +278,8 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + ENDPOINT_ID_FIELD_NUMBER;
+    hash = (53 * hash) + getEndpointId().hashCode();
     switch (addressNameSpecifierCase_) {
       case 1:
         hash = (37 * hash) + SERVER_LISTENER_NAME_FIELD_NUMBER;
@@ -269,7 +288,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -367,8 +386,7 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The address represents an envoy internal listener.
-   * [#comment: TODO(lambdai): Make this address available for listener and endpoint.
-   * TODO(asraa): When address available, remove workaround from test/server/server_fuzz_test.cc:30.]
+   * [#comment: TODO(asraa): When address available, remove workaround from test/server/server_fuzz_test.cc:30.]
    * </pre>
    *
    * Protobuf type {@code envoy.config.core.v3.EnvoyInternalAddress}
@@ -392,22 +410,19 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      endpointId_ = "";
       addressNameSpecifierCase_ = 0;
       addressNameSpecifier_ = null;
       return this;
@@ -436,12 +451,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress buildPartial() {
       io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress result = new io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress(this);
-      if (addressNameSpecifierCase_ == 1) {
-        result.addressNameSpecifier_ = addressNameSpecifier_;
-      }
-      result.addressNameSpecifierCase_ = addressNameSpecifierCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.endpointId_ = endpointId_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress result) {
+      result.addressNameSpecifierCase_ = addressNameSpecifierCase_;
+      result.addressNameSpecifier_ = this.addressNameSpecifier_;
     }
 
     @java.lang.Override
@@ -488,6 +513,11 @@ private static final long serialVersionUID = 0L;
 
     public Builder mergeFrom(io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress other) {
       if (other == io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress.getDefaultInstance()) return this;
+      if (!other.getEndpointId().isEmpty()) {
+        endpointId_ = other.endpointId_;
+        bitField0_ |= 0x00000002;
+        onChanged();
+      }
       switch (other.getAddressNameSpecifierCase()) {
         case SERVER_LISTENER_NAME: {
           addressNameSpecifierCase_ = 1;
@@ -499,7 +529,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -514,17 +544,41 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+              addressNameSpecifierCase_ = 1;
+              addressNameSpecifier_ = s;
+              break;
+            } // case 10
+            case 18: {
+              endpointId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.core.v3.EnvoyInternalAddress) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int addressNameSpecifierCase_ = 0;
@@ -542,10 +596,12 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
-     * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+     * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+     * internal listener.
      * </pre>
      *
      * <code>string server_listener_name = 1;</code>
@@ -557,7 +613,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+     * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+     * internal listener.
      * </pre>
      *
      * <code>string server_listener_name = 1;</code>
@@ -583,7 +640,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+     * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+     * internal listener.
      * </pre>
      *
      * <code>string server_listener_name = 1;</code>
@@ -610,7 +668,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+     * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+     * internal listener.
      * </pre>
      *
      * <code>string server_listener_name = 1;</code>
@@ -619,17 +678,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServerListenerName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  addressNameSpecifierCase_ = 1;
+      if (value == null) { throw new NullPointerException(); }
+      addressNameSpecifierCase_ = 1;
       addressNameSpecifier_ = value;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+     * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+     * internal listener.
      * </pre>
      *
      * <code>string server_listener_name = 1;</code>
@@ -645,7 +703,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:] The :ref:`listener name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the destination internal listener.
+     * Specifies the :ref:`name &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;` of the
+     * internal listener.
      * </pre>
      *
      * <code>string server_listener_name = 1;</code>
@@ -654,12 +713,112 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setServerListenerNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       addressNameSpecifierCase_ = 1;
       addressNameSpecifier_ = value;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object endpointId_ = "";
+    /**
+     * <pre>
+     * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+     * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+     * example, may be set to the final destination IP for the target internal listener.
+     * </pre>
+     *
+     * <code>string endpoint_id = 2;</code>
+     * @return The endpointId.
+     */
+    public java.lang.String getEndpointId() {
+      java.lang.Object ref = endpointId_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        endpointId_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+     * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+     * example, may be set to the final destination IP for the target internal listener.
+     * </pre>
+     *
+     * <code>string endpoint_id = 2;</code>
+     * @return The bytes for endpointId.
+     */
+    public com.google.protobuf.ByteString
+        getEndpointIdBytes() {
+      java.lang.Object ref = endpointId_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        endpointId_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+     * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+     * example, may be set to the final destination IP for the target internal listener.
+     * </pre>
+     *
+     * <code>string endpoint_id = 2;</code>
+     * @param value The endpointId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEndpointId(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      endpointId_ = value;
+      bitField0_ |= 0x00000002;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+     * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+     * example, may be set to the final destination IP for the target internal listener.
+     * </pre>
+     *
+     * <code>string endpoint_id = 2;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearEndpointId() {
+      endpointId_ = getDefaultInstance().getEndpointId();
+      bitField0_ = (bitField0_ & ~0x00000002);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Specifies an endpoint identifier to distinguish between multiple endpoints for the same internal listener in a
+     * single upstream pool. Only used in the upstream addresses for tracking changes to individual endpoints. This, for
+     * example, may be set to the final destination IP for the target internal listener.
+     * </pre>
+     *
+     * <code>string endpoint_id = 2;</code>
+     * @param value The bytes for endpointId to set.
+     * @return This builder for chaining.
+     */
+    public Builder setEndpointIdBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      endpointId_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -696,7 +855,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EnvoyInternalAddress(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

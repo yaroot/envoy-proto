@@ -121,8 +121,8 @@ public interface EventOrBuilder extends
 
   /**
    * <pre>
-   * Optional. Optional unique stable hashed user identifier for the request.
-   * The identifier should ideally be hashed using sha256 with stable secret.
+   * Optional. Unique stable hashed user identifier for the request. The
+   * identifier must be hashed using hmac-sha256 with stable secret.
    * </pre>
    *
    * <code>bytes hashed_account_id = 6 [(.google.api.field_behavior) = OPTIONAL];</code>

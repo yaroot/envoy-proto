@@ -36,103 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RBAC(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.rbac.v3.RBAC.Builder subBuilder = null;
-            if (rules_ != null) {
-              subBuilder = rules_.toBuilder();
-            }
-            rules_ = input.readMessage(io.envoyproxy.envoy.config.rbac.v3.RBAC.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(rules_);
-              rules_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.rbac.v3.RBAC.Builder subBuilder = null;
-            if (shadowRules_ != null) {
-              subBuilder = shadowRules_.toBuilder();
-            }
-            shadowRules_ = input.readMessage(io.envoyproxy.envoy.config.rbac.v3.RBAC.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shadowRules_);
-              shadowRules_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            shadowRulesStatPrefix_ = s;
-            break;
-          }
-          case 34: {
-            com.github.xds.type.matcher.v3.Matcher.Builder subBuilder = null;
-            if (matcher_ != null) {
-              subBuilder = matcher_.toBuilder();
-            }
-            matcher_ = input.readMessage(com.github.xds.type.matcher.v3.Matcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(matcher_);
-              matcher_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.github.xds.type.matcher.v3.Matcher.Builder subBuilder = null;
-            if (shadowMatcher_ != null) {
-              subBuilder = shadowMatcher_.toBuilder();
-            }
-            shadowMatcher_ = input.readMessage(com.github.xds.type.matcher.v3.Matcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shadowMatcher_);
-              shadowMatcher_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RbacProto.internal_static_envoy_extensions_filters_http_rbac_v3_RBAC_descriptor;
@@ -190,7 +93,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.rbac.v3.RBACOrBuilder getRulesOrBuilder() {
-    return getRules();
+    return rules_ == null ? io.envoyproxy.envoy.config.rbac.v3.RBAC.getDefaultInstance() : rules_;
   }
 
   public static final int MATCHER_FIELD_NUMBER = 4;
@@ -237,7 +140,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.github.xds.type.matcher.v3.MatcherOrBuilder getMatcherOrBuilder() {
-    return getMatcher();
+    return matcher_ == null ? com.github.xds.type.matcher.v3.Matcher.getDefaultInstance() : matcher_;
   }
 
   public static final int SHADOW_RULES_FIELD_NUMBER = 2;
@@ -284,7 +187,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.rbac.v3.RBACOrBuilder getShadowRulesOrBuilder() {
-    return getShadowRules();
+    return shadowRules_ == null ? io.envoyproxy.envoy.config.rbac.v3.RBAC.getDefaultInstance() : shadowRules_;
   }
 
   public static final int SHADOW_MATCHER_FIELD_NUMBER = 5;
@@ -328,11 +231,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.github.xds.type.matcher.v3.MatcherOrBuilder getShadowMatcherOrBuilder() {
-    return getShadowMatcher();
+    return shadowMatcher_ == null ? com.github.xds.type.matcher.v3.Matcher.getDefaultInstance() : shadowMatcher_;
   }
 
   public static final int SHADOW_RULES_STAT_PREFIX_FIELD_NUMBER = 3;
-  private volatile java.lang.Object shadowRulesStatPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object shadowRulesStatPrefix_ = "";
   /**
    * <pre>
    * If specified, shadow rules will emit stats with the given prefix.
@@ -410,7 +314,7 @@ private static final long serialVersionUID = 0L;
     if (shadowMatcher_ != null) {
       output.writeMessage(5, getShadowMatcher());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -438,7 +342,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getShadowMatcher());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -475,7 +379,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getShadowRulesStatPrefix()
         .equals(other.getShadowRulesStatPrefix())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -504,7 +408,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SHADOW_RULES_STAT_PREFIX_FIELD_NUMBER;
     hash = (53 * hash) + getShadowRulesStatPrefix().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -626,48 +530,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (rulesBuilder_ == null) {
-        rules_ = null;
-      } else {
-        rules_ = null;
+      bitField0_ = 0;
+      rules_ = null;
+      if (rulesBuilder_ != null) {
+        rulesBuilder_.dispose();
         rulesBuilder_ = null;
       }
-      if (matcherBuilder_ == null) {
-        matcher_ = null;
-      } else {
-        matcher_ = null;
+      matcher_ = null;
+      if (matcherBuilder_ != null) {
+        matcherBuilder_.dispose();
         matcherBuilder_ = null;
       }
-      if (shadowRulesBuilder_ == null) {
-        shadowRules_ = null;
-      } else {
-        shadowRules_ = null;
+      shadowRules_ = null;
+      if (shadowRulesBuilder_ != null) {
+        shadowRulesBuilder_.dispose();
         shadowRulesBuilder_ = null;
       }
-      if (shadowMatcherBuilder_ == null) {
-        shadowMatcher_ = null;
-      } else {
-        shadowMatcher_ = null;
+      shadowMatcher_ = null;
+      if (shadowMatcherBuilder_ != null) {
+        shadowMatcherBuilder_.dispose();
         shadowMatcherBuilder_ = null;
       }
       shadowRulesStatPrefix_ = "";
-
       return this;
     }
 
@@ -694,29 +589,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC result = new io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC(this);
-      if (rulesBuilder_ == null) {
-        result.rules_ = rules_;
-      } else {
-        result.rules_ = rulesBuilder_.build();
-      }
-      if (matcherBuilder_ == null) {
-        result.matcher_ = matcher_;
-      } else {
-        result.matcher_ = matcherBuilder_.build();
-      }
-      if (shadowRulesBuilder_ == null) {
-        result.shadowRules_ = shadowRules_;
-      } else {
-        result.shadowRules_ = shadowRulesBuilder_.build();
-      }
-      if (shadowMatcherBuilder_ == null) {
-        result.shadowMatcher_ = shadowMatcher_;
-      } else {
-        result.shadowMatcher_ = shadowMatcherBuilder_.build();
-      }
-      result.shadowRulesStatPrefix_ = shadowRulesStatPrefix_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.rules_ = rulesBuilder_ == null
+            ? rules_
+            : rulesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.matcher_ = matcherBuilder_ == null
+            ? matcher_
+            : matcherBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.shadowRules_ = shadowRulesBuilder_ == null
+            ? shadowRules_
+            : shadowRulesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.shadowMatcher_ = shadowMatcherBuilder_ == null
+            ? shadowMatcher_
+            : shadowMatcherBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.shadowRulesStatPrefix_ = shadowRulesStatPrefix_;
+      }
     }
 
     @java.lang.Override
@@ -777,9 +679,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getShadowRulesStatPrefix().isEmpty()) {
         shadowRulesStatPrefix_ = other.shadowRulesStatPrefix_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -794,19 +697,66 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getRulesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getShadowRulesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 18
+            case 26: {
+              shadowRulesStatPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getMatcherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getShadowMatcherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.rbac.v3.RBAC) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.config.rbac.v3.RBAC rules_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -823,7 +773,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the rules field is set.
      */
     public boolean hasRules() {
-      return rulesBuilder_ != null || rules_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -859,11 +809,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         rules_ = value;
-        onChanged();
       } else {
         rulesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -880,11 +830,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.rbac.v3.RBAC.Builder builderForValue) {
       if (rulesBuilder_ == null) {
         rules_ = builderForValue.build();
-        onChanged();
       } else {
         rulesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -899,17 +849,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRules(io.envoyproxy.envoy.config.rbac.v3.RBAC value) {
       if (rulesBuilder_ == null) {
-        if (rules_ != null) {
-          rules_ =
-            io.envoyproxy.envoy.config.rbac.v3.RBAC.newBuilder(rules_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          rules_ != null &&
+          rules_ != io.envoyproxy.envoy.config.rbac.v3.RBAC.getDefaultInstance()) {
+          getRulesBuilder().mergeFrom(value);
         } else {
           rules_ = value;
         }
-        onChanged();
       } else {
         rulesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -923,14 +874,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.rbac.v3.RBAC rules = 1 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearRules() {
-      if (rulesBuilder_ == null) {
-        rules_ = null;
-        onChanged();
-      } else {
-        rules_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      rules_ = null;
+      if (rulesBuilder_ != null) {
+        rulesBuilder_.dispose();
         rulesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -944,7 +894,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.rbac.v3.RBAC rules = 1 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.rbac.v3.RBAC.Builder getRulesBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getRulesFieldBuilder().getBuilder();
     }
@@ -1005,7 +955,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the matcher field is set.
      */
     public boolean hasMatcher() {
-      return matcherBuilder_ != null || matcher_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1041,11 +991,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         matcher_ = value;
-        onChanged();
       } else {
         matcherBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1062,11 +1012,11 @@ private static final long serialVersionUID = 0L;
         com.github.xds.type.matcher.v3.Matcher.Builder builderForValue) {
       if (matcherBuilder_ == null) {
         matcher_ = builderForValue.build();
-        onChanged();
       } else {
         matcherBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1081,17 +1031,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMatcher(com.github.xds.type.matcher.v3.Matcher value) {
       if (matcherBuilder_ == null) {
-        if (matcher_ != null) {
-          matcher_ =
-            com.github.xds.type.matcher.v3.Matcher.newBuilder(matcher_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          matcher_ != null &&
+          matcher_ != com.github.xds.type.matcher.v3.Matcher.getDefaultInstance()) {
+          getMatcherBuilder().mergeFrom(value);
         } else {
           matcher_ = value;
         }
-        onChanged();
       } else {
         matcherBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1105,14 +1056,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xds.type.matcher.v3.Matcher matcher = 4 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearMatcher() {
-      if (matcherBuilder_ == null) {
-        matcher_ = null;
-        onChanged();
-      } else {
-        matcher_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      matcher_ = null;
+      if (matcherBuilder_ != null) {
+        matcherBuilder_.dispose();
         matcherBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1126,7 +1076,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xds.type.matcher.v3.Matcher matcher = 4 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public com.github.xds.type.matcher.v3.Matcher.Builder getMatcherBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMatcherFieldBuilder().getBuilder();
     }
@@ -1187,7 +1137,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shadowRules field is set.
      */
     public boolean hasShadowRules() {
-      return shadowRulesBuilder_ != null || shadowRules_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1223,11 +1173,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shadowRules_ = value;
-        onChanged();
       } else {
         shadowRulesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1244,11 +1194,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.rbac.v3.RBAC.Builder builderForValue) {
       if (shadowRulesBuilder_ == null) {
         shadowRules_ = builderForValue.build();
-        onChanged();
       } else {
         shadowRulesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1263,17 +1213,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShadowRules(io.envoyproxy.envoy.config.rbac.v3.RBAC value) {
       if (shadowRulesBuilder_ == null) {
-        if (shadowRules_ != null) {
-          shadowRules_ =
-            io.envoyproxy.envoy.config.rbac.v3.RBAC.newBuilder(shadowRules_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          shadowRules_ != null &&
+          shadowRules_ != io.envoyproxy.envoy.config.rbac.v3.RBAC.getDefaultInstance()) {
+          getShadowRulesBuilder().mergeFrom(value);
         } else {
           shadowRules_ = value;
         }
-        onChanged();
       } else {
         shadowRulesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1287,14 +1238,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.rbac.v3.RBAC shadow_rules = 2 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearShadowRules() {
-      if (shadowRulesBuilder_ == null) {
-        shadowRules_ = null;
-        onChanged();
-      } else {
-        shadowRules_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      shadowRules_ = null;
+      if (shadowRulesBuilder_ != null) {
+        shadowRulesBuilder_.dispose();
         shadowRulesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1308,7 +1258,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.rbac.v3.RBAC shadow_rules = 2 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public io.envoyproxy.envoy.config.rbac.v3.RBAC.Builder getShadowRulesBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getShadowRulesFieldBuilder().getBuilder();
     }
@@ -1368,7 +1318,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shadowMatcher field is set.
      */
     public boolean hasShadowMatcher() {
-      return shadowMatcherBuilder_ != null || shadowMatcher_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1402,11 +1352,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shadowMatcher_ = value;
-        onChanged();
       } else {
         shadowMatcherBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1422,11 +1372,11 @@ private static final long serialVersionUID = 0L;
         com.github.xds.type.matcher.v3.Matcher.Builder builderForValue) {
       if (shadowMatcherBuilder_ == null) {
         shadowMatcher_ = builderForValue.build();
-        onChanged();
       } else {
         shadowMatcherBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1440,17 +1390,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShadowMatcher(com.github.xds.type.matcher.v3.Matcher value) {
       if (shadowMatcherBuilder_ == null) {
-        if (shadowMatcher_ != null) {
-          shadowMatcher_ =
-            com.github.xds.type.matcher.v3.Matcher.newBuilder(shadowMatcher_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          shadowMatcher_ != null &&
+          shadowMatcher_ != com.github.xds.type.matcher.v3.Matcher.getDefaultInstance()) {
+          getShadowMatcherBuilder().mergeFrom(value);
         } else {
           shadowMatcher_ = value;
         }
-        onChanged();
       } else {
         shadowMatcherBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1463,14 +1414,13 @@ private static final long serialVersionUID = 0L;
      * <code>.xds.type.matcher.v3.Matcher shadow_matcher = 5 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearShadowMatcher() {
-      if (shadowMatcherBuilder_ == null) {
-        shadowMatcher_ = null;
-        onChanged();
-      } else {
-        shadowMatcher_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      shadowMatcher_ = null;
+      if (shadowMatcherBuilder_ != null) {
+        shadowMatcherBuilder_.dispose();
         shadowMatcherBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1483,7 +1433,7 @@ private static final long serialVersionUID = 0L;
      * <code>.xds.type.matcher.v3.Matcher shadow_matcher = 5 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public com.github.xds.type.matcher.v3.Matcher.Builder getShadowMatcherBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getShadowMatcherFieldBuilder().getBuilder();
     }
@@ -1586,11 +1536,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setShadowRulesStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       shadowRulesStatPrefix_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1605,8 +1553,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearShadowRulesStatPrefix() {
-      
       shadowRulesStatPrefix_ = getDefaultInstance().getShadowRulesStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1623,12 +1571,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setShadowRulesStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       shadowRulesStatPrefix_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1665,7 +1611,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RBAC(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

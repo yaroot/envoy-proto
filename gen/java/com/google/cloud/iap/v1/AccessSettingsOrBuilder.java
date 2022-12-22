@@ -114,4 +114,31 @@ public interface AccessSettingsOrBuilder extends
    * <code>.google.cloud.iap.v1.ReauthSettings reauth_settings = 6;</code>
    */
   com.google.cloud.iap.v1.ReauthSettingsOrBuilder getReauthSettingsOrBuilder();
+
+  /**
+   * <pre>
+   * Settings to configure and enable allowed domains.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+   * @return Whether the allowedDomainsSettings field is set.
+   */
+  boolean hasAllowedDomainsSettings();
+  /**
+   * <pre>
+   * Settings to configure and enable allowed domains.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+   * @return The allowedDomainsSettings.
+   */
+  com.google.cloud.iap.v1.AllowedDomainsSettings getAllowedDomainsSettings();
+  /**
+   * <pre>
+   * Settings to configure and enable allowed domains.
+   * </pre>
+   *
+   * <code>.google.cloud.iap.v1.AllowedDomainsSettings allowed_domains_settings = 7;</code>
+   */
+  com.google.cloud.iap.v1.AllowedDomainsSettingsOrBuilder getAllowedDomainsSettingsOrBuilder();
 }

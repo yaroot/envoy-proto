@@ -35,64 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CreateUptimeCheckConfigRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 18: {
-            com.google.monitoring.v3.UptimeCheckConfig.Builder subBuilder = null;
-            if (uptimeCheckConfig_ != null) {
-              subBuilder = uptimeCheckConfig_.toBuilder();
-            }
-            uptimeCheckConfig_ = input.readMessage(com.google.monitoring.v3.UptimeCheckConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(uptimeCheckConfig_);
-              uptimeCheckConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.monitoring.v3.UptimeServiceProto.internal_static_google_monitoring_v3_CreateUptimeCheckConfigRequest_descriptor;
@@ -107,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The
@@ -193,7 +136,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.monitoring.v3.UptimeCheckConfigOrBuilder getUptimeCheckConfigOrBuilder() {
-    return getUptimeCheckConfig();
+    return uptimeCheckConfig_ == null ? com.google.monitoring.v3.UptimeCheckConfig.getDefaultInstance() : uptimeCheckConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -216,7 +159,7 @@ private static final long serialVersionUID = 0L;
     if (uptimeCheckConfig_ != null) {
       output.writeMessage(2, getUptimeCheckConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -232,7 +175,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getUptimeCheckConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -254,7 +197,7 @@ private static final long serialVersionUID = 0L;
       if (!getUptimeCheckConfig()
           .equals(other.getUptimeCheckConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -271,7 +214,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPTIME_CHECK_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getUptimeCheckConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -392,28 +335,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.monitoring.v3.CreateUptimeCheckConfigRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
-      if (uptimeCheckConfigBuilder_ == null) {
-        uptimeCheckConfig_ = null;
-      } else {
-        uptimeCheckConfig_ = null;
+      uptimeCheckConfig_ = null;
+      if (uptimeCheckConfigBuilder_ != null) {
+        uptimeCheckConfigBuilder_.dispose();
         uptimeCheckConfigBuilder_ = null;
       }
       return this;
@@ -442,14 +379,21 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.monitoring.v3.CreateUptimeCheckConfigRequest buildPartial() {
       com.google.monitoring.v3.CreateUptimeCheckConfigRequest result = new com.google.monitoring.v3.CreateUptimeCheckConfigRequest(this);
-      result.parent_ = parent_;
-      if (uptimeCheckConfigBuilder_ == null) {
-        result.uptimeCheckConfig_ = uptimeCheckConfig_;
-      } else {
-        result.uptimeCheckConfig_ = uptimeCheckConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.monitoring.v3.CreateUptimeCheckConfigRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.uptimeCheckConfig_ = uptimeCheckConfigBuilder_ == null
+            ? uptimeCheckConfig_
+            : uptimeCheckConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -498,12 +442,13 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.monitoring.v3.CreateUptimeCheckConfigRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasUptimeCheckConfig()) {
         mergeUptimeCheckConfig(other.getUptimeCheckConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -518,19 +463,45 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.monitoring.v3.CreateUptimeCheckConfigRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUptimeCheckConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.monitoring.v3.CreateUptimeCheckConfigRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object parent_ = "";
     /**
@@ -594,11 +565,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -614,8 +583,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -633,12 +602,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -655,7 +622,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the uptimeCheckConfig field is set.
      */
     public boolean hasUptimeCheckConfig() {
-      return uptimeCheckConfigBuilder_ != null || uptimeCheckConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -685,11 +652,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         uptimeCheckConfig_ = value;
-        onChanged();
       } else {
         uptimeCheckConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -703,11 +670,11 @@ private static final long serialVersionUID = 0L;
         com.google.monitoring.v3.UptimeCheckConfig.Builder builderForValue) {
       if (uptimeCheckConfigBuilder_ == null) {
         uptimeCheckConfig_ = builderForValue.build();
-        onChanged();
       } else {
         uptimeCheckConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -719,17 +686,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUptimeCheckConfig(com.google.monitoring.v3.UptimeCheckConfig value) {
       if (uptimeCheckConfigBuilder_ == null) {
-        if (uptimeCheckConfig_ != null) {
-          uptimeCheckConfig_ =
-            com.google.monitoring.v3.UptimeCheckConfig.newBuilder(uptimeCheckConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          uptimeCheckConfig_ != null &&
+          uptimeCheckConfig_ != com.google.monitoring.v3.UptimeCheckConfig.getDefaultInstance()) {
+          getUptimeCheckConfigBuilder().mergeFrom(value);
         } else {
           uptimeCheckConfig_ = value;
         }
-        onChanged();
       } else {
         uptimeCheckConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -740,14 +708,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.UptimeCheckConfig uptime_check_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUptimeCheckConfig() {
-      if (uptimeCheckConfigBuilder_ == null) {
-        uptimeCheckConfig_ = null;
-        onChanged();
-      } else {
-        uptimeCheckConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      uptimeCheckConfig_ = null;
+      if (uptimeCheckConfigBuilder_ != null) {
+        uptimeCheckConfigBuilder_.dispose();
         uptimeCheckConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -758,7 +725,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.monitoring.v3.UptimeCheckConfig uptime_check_config = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.monitoring.v3.UptimeCheckConfig.Builder getUptimeCheckConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUptimeCheckConfigFieldBuilder().getBuilder();
     }
@@ -830,7 +797,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CreateUptimeCheckConfigRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -36,57 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CopyBackupEncryptionConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            encryptionType_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kmsKeyName_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.spanner.admin.database.v1.BackupProto.internal_static_google_spanner_admin_database_v1_CopyBackupEncryptionConfig_descriptor;
@@ -271,7 +220,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENCRYPTION_TYPE_FIELD_NUMBER = 1;
-  private int encryptionType_;
+  private int encryptionType_ = 0;
   /**
    * <pre>
    * Required. The encryption type of the backup.
@@ -292,13 +241,13 @@ private static final long serialVersionUID = 0L;
    * @return The encryptionType.
    */
   @java.lang.Override public com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType getEncryptionType() {
-    @SuppressWarnings("deprecation")
-    com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType result = com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType.valueOf(encryptionType_);
+    com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType result = com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType.forNumber(encryptionType_);
     return result == null ? com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType.UNRECOGNIZED : result;
   }
 
   public static final int KMS_KEY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object kmsKeyName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kmsKeyName_ = "";
   /**
    * <pre>
    * Optional. The Cloud KMS key that will be used to protect the backup.
@@ -371,7 +320,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 2, kmsKeyName_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -387,7 +336,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(kmsKeyName_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, kmsKeyName_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -405,7 +354,7 @@ private static final long serialVersionUID = 0L;
     if (encryptionType_ != other.encryptionType_) return false;
     if (!getKmsKeyName()
         .equals(other.getKmsKeyName())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -420,7 +369,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + encryptionType_;
     hash = (37 * hash) + KMS_KEY_NAME_FIELD_NUMBER;
     hash = (53 * hash) + getKmsKeyName().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -541,26 +490,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       encryptionType_ = 0;
-
       kmsKeyName_ = "";
-
       return this;
     }
 
@@ -587,10 +530,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig buildPartial() {
       com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig result = new com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig(this);
-      result.encryptionType_ = encryptionType_;
-      result.kmsKeyName_ = kmsKeyName_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.encryptionType_ = encryptionType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kmsKeyName_ = kmsKeyName_;
+      }
     }
 
     @java.lang.Override
@@ -642,9 +594,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKmsKeyName().isEmpty()) {
         kmsKeyName_ = other.kmsKeyName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -659,19 +612,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              encryptionType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              kmsKeyName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int encryptionType_ = 0;
     /**
@@ -695,8 +672,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEncryptionTypeValue(int value) {
-      
       encryptionType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -710,8 +687,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType getEncryptionType() {
-      @SuppressWarnings("deprecation")
-      com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType result = com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType.valueOf(encryptionType_);
+      com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType result = com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType.forNumber(encryptionType_);
       return result == null ? com.google.spanner.admin.database.v1.CopyBackupEncryptionConfig.EncryptionType.UNRECOGNIZED : result;
     }
     /**
@@ -727,7 +703,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       encryptionType_ = value.getNumber();
       onChanged();
       return this;
@@ -741,7 +717,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEncryptionType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       encryptionType_ = 0;
       onChanged();
       return this;
@@ -812,11 +788,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -833,8 +807,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKmsKeyName() {
-      
       kmsKeyName_ = getDefaultInstance().getKmsKeyName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -853,12 +827,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKmsKeyNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kmsKeyName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -895,7 +867,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CopyBackupEncryptionConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

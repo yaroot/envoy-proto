@@ -9,8 +9,8 @@ public interface ListBigQueryExportsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The parent, which owns the collection of BigQuery exports. Its format is
-   * "organizations/[organization_id]", "folders/[folder_id]",
+   * Required. The parent, which owns the collection of BigQuery exports. Its
+   * format is "organizations/[organization_id]", "folders/[folder_id]",
    * "projects/[project_id]".
    * </pre>
    *
@@ -20,8 +20,8 @@ public interface ListBigQueryExportsRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The parent, which owns the collection of BigQuery exports. Its format is
-   * "organizations/[organization_id]", "folders/[folder_id]",
+   * Required. The parent, which owns the collection of BigQuery exports. Its
+   * format is "organizations/[organization_id]", "folders/[folder_id]",
    * "projects/[project_id]".
    * </pre>
    *

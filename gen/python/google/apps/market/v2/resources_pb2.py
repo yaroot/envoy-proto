@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%google/apps/market/v2/resources.proto\x12\x19\x63\x63\x63.hosted.marketplace.v2\x1a\x1cgoogle/api/annotations.proto\"\x8d\x02\n\x0f\x43ustomerLicense\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\t\x12\x16\n\x0e\x61pplication_id\x18\x03 \x01(\t\x12I\n\x08\x65\x64itions\x18\x04 \x03(\x0b\x32\x33.ccc.hosted.marketplace.v2.CustomerLicense.EditionsB\x02\x18\x01\x12\n\n\x02id\x18\x65 \x01(\t\x12\x13\n\x0b\x63ustomer_id\x18\x66 \x01(\t\x1aY\n\x08\x45\x64itions\x12\x17\n\nedition_id\x18\x95\x03 \x01(\tB\x02\x18\x01\x12\x17\n\nseat_count\x18\x96\x03 \x01(\x05\x42\x02\x18\x01\x12\x1b\n\x0e\x61ssigned_seats\x18\x99\x03 \x01(\x05\x42\x02\x18\x01\"\xaf\x05\n\x13LicenseNotification\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0e\x61pplication_id\x18\x02 \x01(\t\x12\x11\n\ttimestamp\x18\x03 \x01(\x03\x12\x13\n\x0b\x63ustomer_id\x18\x04 \x01(\t\x12\x0c\n\x04kind\x18\x05 \x01(\t\x12M\n\nprovisions\x18\x06 \x03(\x0b\x32\x39.ccc.hosted.marketplace.v2.LicenseNotification.Provisions\x12I\n\x08\x65xpiries\x18\x07 \x03(\x0b\x32\x37.ccc.hosted.marketplace.v2.LicenseNotification.Expiries\x12S\n\rreassignments\x18\x08 \x03(\x0b\x32<.ccc.hosted.marketplace.v2.LicenseNotification.Reassignments\x12G\n\x07\x64\x65letes\x18\t \x03(\x0b\x32\x36.ccc.hosted.marketplace.v2.LicenseNotification.Deletes\x1a\x30\n\x07\x44\x65letes\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x17\n\nedition_id\x18\x85\x07 \x01(\tB\x02\x18\x01\x1a\x31\n\x08\x45xpiries\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x17\n\nedition_id\x18\xbd\x05 \x01(\tB\x02\x18\x01\x1aH\n\nProvisions\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x17\n\nedition_id\x18\xd9\x04 \x01(\tB\x02\x18\x01\x12\x13\n\nseat_count\x18\xda\x04 \x01(\x03\x1aW\n\rReassignments\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x10\n\x07user_id\x18\xa1\x06 \x01(\t\x12\r\n\x04type\x18\xa2\x06 \x01(\t\x12\x17\n\nedition_id\x18\xa3\x06 \x01(\tB\x02\x18\x01\"\x8a\x01\n\x17LicenseNotificationList\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x46\n\rnotifications\x18\xef\x07 \x03(\x0b\x32..ccc.hosted.marketplace.v2.LicenseNotification\x12\x19\n\x0fnext_page_token\x18\xfa\x91\x06 \x01(\t\"\x9d\x01\n\x0bUserLicense\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\r\n\x05state\x18\x03 \x01(\t\x12\x16\n\nedition_id\x18\x04 \x01(\tB\x02\x18\x01\x12\x13\n\x0b\x63ustomer_id\x18\x05 \x01(\t\x12\x16\n\x0e\x61pplication_id\x18\x06 \x01(\t\x12\n\n\x02id\x18\x65 \x01(\t\x12\x0f\n\x07user_id\x18\x66 \x01(\tB\x9d\x01\n$com.google.ccc.hosted.marketplace.v2B\x0eResourcesProtoP\x01ZKgoogle.golang.org/genproto/googleapis/ccc/hosted/marketplace/v2;marketplace\xca\x02\x15Google\\Apps\\Market\\V2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n%google/apps/market/v2/resources.proto\x12\x19\x63\x63\x63.hosted.marketplace.v2\"\x8d\x02\n\x0f\x43ustomerLicense\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\r\n\x05state\x18\x02 \x01(\t\x12\x16\n\x0e\x61pplication_id\x18\x03 \x01(\t\x12I\n\x08\x65\x64itions\x18\x04 \x03(\x0b\x32\x33.ccc.hosted.marketplace.v2.CustomerLicense.EditionsB\x02\x18\x01\x12\n\n\x02id\x18\x65 \x01(\t\x12\x13\n\x0b\x63ustomer_id\x18\x66 \x01(\t\x1aY\n\x08\x45\x64itions\x12\x17\n\nedition_id\x18\x95\x03 \x01(\tB\x02\x18\x01\x12\x17\n\nseat_count\x18\x96\x03 \x01(\x05\x42\x02\x18\x01\x12\x1b\n\x0e\x61ssigned_seats\x18\x99\x03 \x01(\x05\x42\x02\x18\x01\"\xaf\x05\n\x13LicenseNotification\x12\n\n\x02id\x18\x01 \x01(\t\x12\x16\n\x0e\x61pplication_id\x18\x02 \x01(\t\x12\x11\n\ttimestamp\x18\x03 \x01(\x03\x12\x13\n\x0b\x63ustomer_id\x18\x04 \x01(\t\x12\x0c\n\x04kind\x18\x05 \x01(\t\x12M\n\nprovisions\x18\x06 \x03(\x0b\x32\x39.ccc.hosted.marketplace.v2.LicenseNotification.Provisions\x12I\n\x08\x65xpiries\x18\x07 \x03(\x0b\x32\x37.ccc.hosted.marketplace.v2.LicenseNotification.Expiries\x12S\n\rreassignments\x18\x08 \x03(\x0b\x32<.ccc.hosted.marketplace.v2.LicenseNotification.Reassignments\x12G\n\x07\x64\x65letes\x18\t \x03(\x0b\x32\x36.ccc.hosted.marketplace.v2.LicenseNotification.Deletes\x1a\x30\n\x07\x44\x65letes\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x17\n\nedition_id\x18\x85\x07 \x01(\tB\x02\x18\x01\x1a\x31\n\x08\x45xpiries\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x17\n\nedition_id\x18\xbd\x05 \x01(\tB\x02\x18\x01\x1aH\n\nProvisions\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x17\n\nedition_id\x18\xd9\x04 \x01(\tB\x02\x18\x01\x12\x13\n\nseat_count\x18\xda\x04 \x01(\x03\x1aW\n\rReassignments\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x10\n\x07user_id\x18\xa1\x06 \x01(\t\x12\r\n\x04type\x18\xa2\x06 \x01(\t\x12\x17\n\nedition_id\x18\xa3\x06 \x01(\tB\x02\x18\x01\"\x8a\x01\n\x17LicenseNotificationList\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x46\n\rnotifications\x18\xef\x07 \x03(\x0b\x32..ccc.hosted.marketplace.v2.LicenseNotification\x12\x19\n\x0fnext_page_token\x18\xfa\x91\x06 \x01(\t\"\x9d\x01\n\x0bUserLicense\x12\x0c\n\x04kind\x18\x01 \x01(\t\x12\x0f\n\x07\x65nabled\x18\x02 \x01(\x08\x12\r\n\x05state\x18\x03 \x01(\t\x12\x16\n\nedition_id\x18\x04 \x01(\tB\x02\x18\x01\x12\x13\n\x0b\x63ustomer_id\x18\x05 \x01(\t\x12\x16\n\x0e\x61pplication_id\x18\x06 \x01(\t\x12\n\n\x02id\x18\x65 \x01(\t\x12\x0f\n\x07user_id\x18\x66 \x01(\tB\x9d\x01\n$com.google.ccc.hosted.marketplace.v2B\x0eResourcesProtoP\x01ZKgoogle.golang.org/genproto/googleapis/ccc/hosted/marketplace/v2;marketplace\xca\x02\x15Google\\Apps\\Market\\V2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.apps.market.v2.resources_pb2', globals())
@@ -40,22 +39,22 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _LICENSENOTIFICATION_REASSIGNMENTS.fields_by_name['edition_id']._serialized_options = b'\030\001'
   _USERLICENSE.fields_by_name['edition_id']._options = None
   _USERLICENSE.fields_by_name['edition_id']._serialized_options = b'\030\001'
-  _CUSTOMERLICENSE._serialized_start=99
-  _CUSTOMERLICENSE._serialized_end=368
-  _CUSTOMERLICENSE_EDITIONS._serialized_start=279
-  _CUSTOMERLICENSE_EDITIONS._serialized_end=368
-  _LICENSENOTIFICATION._serialized_start=371
-  _LICENSENOTIFICATION._serialized_end=1058
-  _LICENSENOTIFICATION_DELETES._serialized_start=796
-  _LICENSENOTIFICATION_DELETES._serialized_end=844
-  _LICENSENOTIFICATION_EXPIRIES._serialized_start=846
-  _LICENSENOTIFICATION_EXPIRIES._serialized_end=895
-  _LICENSENOTIFICATION_PROVISIONS._serialized_start=897
-  _LICENSENOTIFICATION_PROVISIONS._serialized_end=969
-  _LICENSENOTIFICATION_REASSIGNMENTS._serialized_start=971
-  _LICENSENOTIFICATION_REASSIGNMENTS._serialized_end=1058
-  _LICENSENOTIFICATIONLIST._serialized_start=1061
-  _LICENSENOTIFICATIONLIST._serialized_end=1199
-  _USERLICENSE._serialized_start=1202
-  _USERLICENSE._serialized_end=1359
+  _CUSTOMERLICENSE._serialized_start=69
+  _CUSTOMERLICENSE._serialized_end=338
+  _CUSTOMERLICENSE_EDITIONS._serialized_start=249
+  _CUSTOMERLICENSE_EDITIONS._serialized_end=338
+  _LICENSENOTIFICATION._serialized_start=341
+  _LICENSENOTIFICATION._serialized_end=1028
+  _LICENSENOTIFICATION_DELETES._serialized_start=766
+  _LICENSENOTIFICATION_DELETES._serialized_end=814
+  _LICENSENOTIFICATION_EXPIRIES._serialized_start=816
+  _LICENSENOTIFICATION_EXPIRIES._serialized_end=865
+  _LICENSENOTIFICATION_PROVISIONS._serialized_start=867
+  _LICENSENOTIFICATION_PROVISIONS._serialized_end=939
+  _LICENSENOTIFICATION_REASSIGNMENTS._serialized_start=941
+  _LICENSENOTIFICATION_REASSIGNMENTS._serialized_end=1028
+  _LICENSENOTIFICATIONLIST._serialized_start=1031
+  _LICENSENOTIFICATIONLIST._serialized_end=1169
+  _USERLICENSE._serialized_start=1172
+  _USERLICENSE._serialized_end=1329
 # @@protoc_insertion_point(module_scope)

@@ -13,7 +13,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3google/maps/routing/v2/speed_reading_interval.proto\x12\x16google.maps.routing.v2\"\xe6\x01\n\x14SpeedReadingInterval\x12\"\n\x1astart_polyline_point_index\x18\x01 \x01(\x05\x12 \n\x18\x65nd_polyline_point_index\x18\x02 \x01(\x05\x12\x41\n\x05speed\x18\x03 \x01(\x0e\x32\x32.google.maps.routing.v2.SpeedReadingInterval.Speed\"E\n\x05Speed\x12\x15\n\x11SPEED_UNSPECIFIED\x10\x00\x12\n\n\x06NORMAL\x10\x01\x12\x08\n\x04SLOW\x10\x02\x12\x0f\n\x0bTRAFFIC_JAM\x10\x03\x42\xd1\x01\n\x1a\x63om.google.maps.routing.v2B\x19SpeedReadingIntervalProtoP\x01Z=google.golang.org/genproto/googleapis/maps/routing/v2;routing\xf8\x01\x01\xa2\x02\x05GMRV2\xaa\x02\x16Google.Maps.Routing.V2\xca\x02\x16Google\\Maps\\Routing\\V2\xea\x02\x19Google::Maps::Routing::V2b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n3google/maps/routing/v2/speed_reading_interval.proto\x12\x16google.maps.routing.v2\"\xac\x02\n\x14SpeedReadingInterval\x12\'\n\x1astart_polyline_point_index\x18\x01 \x01(\x05H\x00\x88\x01\x01\x12%\n\x18\x65nd_polyline_point_index\x18\x02 \x01(\x05H\x01\x88\x01\x01\x12\x41\n\x05speed\x18\x03 \x01(\x0e\x32\x32.google.maps.routing.v2.SpeedReadingInterval.Speed\"E\n\x05Speed\x12\x15\n\x11SPEED_UNSPECIFIED\x10\x00\x12\n\n\x06NORMAL\x10\x01\x12\x08\n\x04SLOW\x10\x02\x12\x0f\n\x0bTRAFFIC_JAM\x10\x03\x42\x1d\n\x1b_start_polyline_point_indexB\x1b\n\x19_end_polyline_point_indexB\xd1\x01\n\x1a\x63om.google.maps.routing.v2B\x19SpeedReadingIntervalProtoP\x01Z=google.golang.org/genproto/googleapis/maps/routing/v2;routing\xf8\x01\x01\xa2\x02\x05GMRV2\xaa\x02\x16Google.Maps.Routing.V2\xca\x02\x16Google\\Maps\\Routing\\V2\xea\x02\x19Google::Maps::Routing::V2b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.maps.routing.v2.speed_reading_interval_pb2', globals())
@@ -22,7 +22,7 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\n\032com.google.maps.routing.v2B\031SpeedReadingIntervalProtoP\001Z=google.golang.org/genproto/googleapis/maps/routing/v2;routing\370\001\001\242\002\005GMRV2\252\002\026Google.Maps.Routing.V2\312\002\026Google\\Maps\\Routing\\V2\352\002\031Google::Maps::Routing::V2'
   _SPEEDREADINGINTERVAL._serialized_start=80
-  _SPEEDREADINGINTERVAL._serialized_end=310
-  _SPEEDREADINGINTERVAL_SPEED._serialized_start=241
-  _SPEEDREADINGINTERVAL_SPEED._serialized_end=310
+  _SPEEDREADINGINTERVAL._serialized_end=380
+  _SPEEDREADINGINTERVAL_SPEED._serialized_start=251
+  _SPEEDREADINGINTERVAL_SPEED._serialized_end=320
 # @@protoc_insertion_point(module_scope)

@@ -318,7 +318,6 @@ public interface LogMetricOrBuilder extends
    *
    * <code>map&lt;string, string&gt; label_extractors = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelExtractorsOrDefault(
       java.lang.String key,
@@ -342,7 +341,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; label_extractors = 7 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelExtractorsOrThrow(
       java.lang.String key);
 

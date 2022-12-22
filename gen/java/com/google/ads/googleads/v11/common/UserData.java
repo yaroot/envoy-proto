@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserData(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userIdentifiers_ = new java.util.ArrayList<com.google.ads.googleads.v11.common.UserIdentifier>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            userIdentifiers_.add(
-                input.readMessage(com.google.ads.googleads.v11.common.UserIdentifier.parser(), extensionRegistry));
-            break;
-          }
-          case 18: {
-            com.google.ads.googleads.v11.common.TransactionAttribute.Builder subBuilder = null;
-            if (transactionAttribute_ != null) {
-              subBuilder = transactionAttribute_.toBuilder();
-            }
-            transactionAttribute_ = input.readMessage(com.google.ads.googleads.v11.common.TransactionAttribute.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(transactionAttribute_);
-              transactionAttribute_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.ads.googleads.v11.common.UserAttribute.Builder subBuilder = null;
-            if (userAttribute_ != null) {
-              subBuilder = userAttribute_.toBuilder();
-            }
-            userAttribute_ = input.readMessage(com.google.ads.googleads.v11.common.UserAttribute.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userAttribute_);
-              userAttribute_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        userIdentifiers_ = java.util.Collections.unmodifiableList(userIdentifiers_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.OfflineUserDataProto.internal_static_google_ads_googleads_v11_common_UserData_descriptor;
@@ -127,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int USER_IDENTIFIERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v11.common.UserIdentifier> userIdentifiers_;
   /**
    * <pre>
@@ -224,7 +147,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.TransactionAttributeOrBuilder getTransactionAttributeOrBuilder() {
-    return getTransactionAttribute();
+    return transactionAttribute_ == null ? com.google.ads.googleads.v11.common.TransactionAttribute.getDefaultInstance() : transactionAttribute_;
   }
 
   public static final int USER_ATTRIBUTE_FIELD_NUMBER = 3;
@@ -265,7 +188,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v11.common.UserAttributeOrBuilder getUserAttributeOrBuilder() {
-    return getUserAttribute();
+    return userAttribute_ == null ? com.google.ads.googleads.v11.common.UserAttribute.getDefaultInstance() : userAttribute_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,7 +214,7 @@ private static final long serialVersionUID = 0L;
     if (userAttribute_ != null) {
       output.writeMessage(3, getUserAttribute());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +235,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getUserAttribute());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -339,7 +262,7 @@ private static final long serialVersionUID = 0L;
       if (!getUserAttribute()
           .equals(other.getUserAttribute())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -362,7 +285,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_ATTRIBUTE_FIELD_NUMBER;
       hash = (53 * hash) + getUserAttribute().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -483,39 +406,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.UserData.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getUserIdentifiersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (userIdentifiersBuilder_ == null) {
         userIdentifiers_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        userIdentifiers_ = null;
         userIdentifiersBuilder_.clear();
       }
-      if (transactionAttributeBuilder_ == null) {
-        transactionAttribute_ = null;
-      } else {
-        transactionAttribute_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      transactionAttribute_ = null;
+      if (transactionAttributeBuilder_ != null) {
+        transactionAttributeBuilder_.dispose();
         transactionAttributeBuilder_ = null;
       }
-      if (userAttributeBuilder_ == null) {
-        userAttribute_ = null;
-      } else {
-        userAttribute_ = null;
+      userAttribute_ = null;
+      if (userAttributeBuilder_ != null) {
+        userAttributeBuilder_.dispose();
         userAttributeBuilder_ = null;
       }
       return this;
@@ -544,7 +461,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.UserData buildPartial() {
       com.google.ads.googleads.v11.common.UserData result = new com.google.ads.googleads.v11.common.UserData(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v11.common.UserData result) {
       if (userIdentifiersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           userIdentifiers_ = java.util.Collections.unmodifiableList(userIdentifiers_);
@@ -554,18 +477,20 @@ private static final long serialVersionUID = 0L;
       } else {
         result.userIdentifiers_ = userIdentifiersBuilder_.build();
       }
-      if (transactionAttributeBuilder_ == null) {
-        result.transactionAttribute_ = transactionAttribute_;
-      } else {
-        result.transactionAttribute_ = transactionAttributeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.UserData result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.transactionAttribute_ = transactionAttributeBuilder_ == null
+            ? transactionAttribute_
+            : transactionAttributeBuilder_.build();
       }
-      if (userAttributeBuilder_ == null) {
-        result.userAttribute_ = userAttribute_;
-      } else {
-        result.userAttribute_ = userAttributeBuilder_.build();
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.userAttribute_ = userAttributeBuilder_ == null
+            ? userAttribute_
+            : userAttributeBuilder_.build();
       }
-      onBuilt();
-      return result;
     }
 
     @java.lang.Override
@@ -644,7 +569,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUserAttribute()) {
         mergeUserAttribute(other.getUserAttribute());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -659,17 +584,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.UserData parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.ads.googleads.v11.common.UserIdentifier m =
+                  input.readMessage(
+                      com.google.ads.googleads.v11.common.UserIdentifier.parser(),
+                      extensionRegistry);
+              if (userIdentifiersBuilder_ == null) {
+                ensureUserIdentifiersIsMutable();
+                userIdentifiers_.add(m);
+              } else {
+                userIdentifiersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getTransactionAttributeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUserAttributeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.UserData) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -999,7 +964,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the transactionAttribute field is set.
      */
     public boolean hasTransactionAttribute() {
-      return transactionAttributeBuilder_ != null || transactionAttribute_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1031,11 +996,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         transactionAttribute_ = value;
-        onChanged();
       } else {
         transactionAttributeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1050,11 +1015,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.TransactionAttribute.Builder builderForValue) {
       if (transactionAttributeBuilder_ == null) {
         transactionAttribute_ = builderForValue.build();
-        onChanged();
       } else {
         transactionAttributeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1067,17 +1032,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTransactionAttribute(com.google.ads.googleads.v11.common.TransactionAttribute value) {
       if (transactionAttributeBuilder_ == null) {
-        if (transactionAttribute_ != null) {
-          transactionAttribute_ =
-            com.google.ads.googleads.v11.common.TransactionAttribute.newBuilder(transactionAttribute_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          transactionAttribute_ != null &&
+          transactionAttribute_ != com.google.ads.googleads.v11.common.TransactionAttribute.getDefaultInstance()) {
+          getTransactionAttributeBuilder().mergeFrom(value);
         } else {
           transactionAttribute_ = value;
         }
-        onChanged();
       } else {
         transactionAttributeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1089,14 +1055,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.TransactionAttribute transaction_attribute = 2;</code>
      */
     public Builder clearTransactionAttribute() {
-      if (transactionAttributeBuilder_ == null) {
-        transactionAttribute_ = null;
-        onChanged();
-      } else {
-        transactionAttribute_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      transactionAttribute_ = null;
+      if (transactionAttributeBuilder_ != null) {
+        transactionAttributeBuilder_.dispose();
         transactionAttributeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1108,7 +1073,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.TransactionAttribute transaction_attribute = 2;</code>
      */
     public com.google.ads.googleads.v11.common.TransactionAttribute.Builder getTransactionAttributeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getTransactionAttributeFieldBuilder().getBuilder();
     }
@@ -1163,7 +1128,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the userAttribute field is set.
      */
     public boolean hasUserAttribute() {
-      return userAttributeBuilder_ != null || userAttribute_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1195,11 +1160,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         userAttribute_ = value;
-        onChanged();
       } else {
         userAttributeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1214,11 +1179,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v11.common.UserAttribute.Builder builderForValue) {
       if (userAttributeBuilder_ == null) {
         userAttribute_ = builderForValue.build();
-        onChanged();
       } else {
         userAttributeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1231,17 +1196,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUserAttribute(com.google.ads.googleads.v11.common.UserAttribute value) {
       if (userAttributeBuilder_ == null) {
-        if (userAttribute_ != null) {
-          userAttribute_ =
-            com.google.ads.googleads.v11.common.UserAttribute.newBuilder(userAttribute_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          userAttribute_ != null &&
+          userAttribute_ != com.google.ads.googleads.v11.common.UserAttribute.getDefaultInstance()) {
+          getUserAttributeBuilder().mergeFrom(value);
         } else {
           userAttribute_ = value;
         }
-        onChanged();
       } else {
         userAttributeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1253,14 +1219,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.UserAttribute user_attribute = 3;</code>
      */
     public Builder clearUserAttribute() {
-      if (userAttributeBuilder_ == null) {
-        userAttribute_ = null;
-        onChanged();
-      } else {
-        userAttribute_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      userAttribute_ = null;
+      if (userAttributeBuilder_ != null) {
+        userAttributeBuilder_.dispose();
         userAttributeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1272,7 +1237,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v11.common.UserAttribute user_attribute = 3;</code>
      */
     public com.google.ads.googleads.v11.common.UserAttribute.Builder getUserAttributeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUserAttributeFieldBuilder().getBuilder();
     }
@@ -1346,7 +1311,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserData(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

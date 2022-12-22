@@ -53,7 +53,7 @@ public interface ListChannelsResponseOrBuilder extends
 
   /**
    * <pre>
-   * A page token that can be sent to ListChannels to request the next page.
+   * A page token that can be sent to `ListChannels` to request the next page.
    * If this is empty, then there are no more pages.
    * </pre>
    *
@@ -63,7 +63,7 @@ public interface ListChannelsResponseOrBuilder extends
   java.lang.String getNextPageToken();
   /**
    * <pre>
-   * A page token that can be sent to ListChannels to request the next page.
+   * A page token that can be sent to `ListChannels` to request the next page.
    * If this is empty, then there are no more pages.
    * </pre>
    *

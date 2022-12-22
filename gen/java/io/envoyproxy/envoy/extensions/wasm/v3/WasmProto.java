@@ -66,39 +66,38 @@ public final class WasmProto {
       "\n#envoy/extensions/wasm/v3/wasm.proto\022\030e" +
       "nvoy.extensions.wasm.v3\032\037envoy/config/co" +
       "re/v3/base.proto\032\031google/protobuf/any.pr" +
-      "oto\032\035udpa/annotations/status.proto\032\027vali" +
-      "date/validate.proto\"\365\001\n\033CapabilityRestri" +
-      "ctionConfig\022l\n\024allowed_capabilities\030\001 \003(" +
-      "\0132N.envoy.extensions.wasm.v3.CapabilityR" +
-      "estrictionConfig.AllowedCapabilitiesEntr" +
-      "y\032h\n\030AllowedCapabilitiesEntry\022\013\n\003key\030\001 \001" +
-      "(\t\022;\n\005value\030\002 \001(\0132,.envoy.extensions.was" +
-      "m.v3.SanitizationConfig:\0028\001\"\024\n\022Sanitizat" +
-      "ionConfig\"\240\002\n\010VmConfig\022\r\n\005vm_id\030\001 \001(\t\022\030\n" +
-      "\007runtime\030\002 \001(\tB\007\372B\004r\002\020\001\0223\n\004code\030\003 \001(\0132%." +
-      "envoy.config.core.v3.AsyncDataSource\022+\n\r" +
-      "configuration\030\004 \001(\0132\024.google.protobuf.An" +
-      "y\022\031\n\021allow_precompiled\030\005 \001(\010\022\037\n\027nack_on_" +
-      "code_cache_miss\030\006 \001(\010\022M\n\025environment_var" +
-      "iables\030\007 \001(\0132..envoy.extensions.wasm.v3." +
-      "EnvironmentVariables\"\262\001\n\024EnvironmentVari" +
-      "ables\022\025\n\rhost_env_keys\030\001 \003(\t\022Q\n\nkey_valu" +
-      "es\030\002 \003(\0132=.envoy.extensions.wasm.v3.Envi" +
-      "ronmentVariables.KeyValuesEntry\0320\n\016KeyVa" +
-      "luesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028" +
-      "\001\"\212\002\n\014PluginConfig\022\014\n\004name\030\001 \001(\t\022\017\n\007root" +
-      "_id\030\002 \001(\t\0227\n\tvm_config\030\003 \001(\0132\".envoy.ext" +
-      "ensions.wasm.v3.VmConfigH\000\022+\n\rconfigurat" +
-      "ion\030\004 \001(\0132\024.google.protobuf.Any\022\021\n\tfail_" +
-      "open\030\005 \001(\010\022\\\n\035capability_restriction_con" +
-      "fig\030\006 \001(\01325.envoy.extensions.wasm.v3.Cap" +
-      "abilityRestrictionConfigB\004\n\002vm\"X\n\013WasmSe" +
-      "rvice\0226\n\006config\030\001 \001(\0132&.envoy.extensions" +
-      ".wasm.v3.PluginConfig\022\021\n\tsingleton\030\002 \001(\010" +
-      "B\205\001\n&io.envoyproxy.envoy.extensions.wasm" +
-      ".v3B\tWasmProtoP\001ZFgithub.com/envoyproxy/" +
-      "go-control-plane/envoy/extensions/wasm/v" +
-      "3;wasmv3\272\200\310\321\006\002\020\002b\006proto3"
+      "oto\032\035udpa/annotations/status.proto\"\365\001\n\033C" +
+      "apabilityRestrictionConfig\022l\n\024allowed_ca" +
+      "pabilities\030\001 \003(\0132N.envoy.extensions.wasm" +
+      ".v3.CapabilityRestrictionConfig.AllowedC" +
+      "apabilitiesEntry\032h\n\030AllowedCapabilitiesE" +
+      "ntry\022\013\n\003key\030\001 \001(\t\022;\n\005value\030\002 \001(\0132,.envoy" +
+      ".extensions.wasm.v3.SanitizationConfig:\002" +
+      "8\001\"\024\n\022SanitizationConfig\"\227\002\n\010VmConfig\022\r\n" +
+      "\005vm_id\030\001 \001(\t\022\017\n\007runtime\030\002 \001(\t\0223\n\004code\030\003 " +
+      "\001(\0132%.envoy.config.core.v3.AsyncDataSour" +
+      "ce\022+\n\rconfiguration\030\004 \001(\0132\024.google.proto" +
+      "buf.Any\022\031\n\021allow_precompiled\030\005 \001(\010\022\037\n\027na" +
+      "ck_on_code_cache_miss\030\006 \001(\010\022M\n\025environme" +
+      "nt_variables\030\007 \001(\0132..envoy.extensions.wa" +
+      "sm.v3.EnvironmentVariables\"\262\001\n\024Environme" +
+      "ntVariables\022\025\n\rhost_env_keys\030\001 \003(\t\022Q\n\nke" +
+      "y_values\030\002 \003(\0132=.envoy.extensions.wasm.v" +
+      "3.EnvironmentVariables.KeyValuesEntry\0320\n" +
+      "\016KeyValuesEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 " +
+      "\001(\t:\0028\001\"\212\002\n\014PluginConfig\022\014\n\004name\030\001 \001(\t\022\017" +
+      "\n\007root_id\030\002 \001(\t\0227\n\tvm_config\030\003 \001(\0132\".env" +
+      "oy.extensions.wasm.v3.VmConfigH\000\022+\n\rconf" +
+      "iguration\030\004 \001(\0132\024.google.protobuf.Any\022\021\n" +
+      "\tfail_open\030\005 \001(\010\022\\\n\035capability_restricti" +
+      "on_config\030\006 \001(\01325.envoy.extensions.wasm." +
+      "v3.CapabilityRestrictionConfigB\004\n\002vm\"X\n\013" +
+      "WasmService\0226\n\006config\030\001 \001(\0132&.envoy.exte" +
+      "nsions.wasm.v3.PluginConfig\022\021\n\tsingleton" +
+      "\030\002 \001(\010B\205\001\n&io.envoyproxy.envoy.extension" +
+      "s.wasm.v3B\tWasmProtoP\001ZFgithub.com/envoy" +
+      "proxy/go-control-plane/envoy/extensions/" +
+      "wasm/v3;wasmv3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -106,7 +105,6 @@ public final class WasmProto {
           io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor(),
           com.google.protobuf.AnyProto.getDescriptor(),
           udpa.annotations.Status.getDescriptor(),
-          io.envoyproxy.pgv.validate.Validate.getDescriptor(),
         });
     internal_static_envoy_extensions_wasm_v3_CapabilityRestrictionConfig_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -159,13 +157,11 @@ public final class WasmProto {
     com.google.protobuf.ExtensionRegistry registry =
         com.google.protobuf.ExtensionRegistry.newInstance();
     registry.add(udpa.annotations.Status.fileStatus);
-    registry.add(io.envoyproxy.pgv.validate.Validate.rules);
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     io.envoyproxy.envoy.config.core.v3.BaseProto.getDescriptor();
     com.google.protobuf.AnyProto.getDescriptor();
     udpa.annotations.Status.getDescriptor();
-    io.envoyproxy.pgv.validate.Validate.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

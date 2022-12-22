@@ -11,10 +11,9 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nZgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_text_extraction.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\x1a\x1cgoogle/api/annotations.proto\"\x81\x01\n\x14\x41utoMlTextExtraction\x12i\n\x06inputs\x18\x01 \x01(\x0b\x32Y.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTextExtractionInputs\"\x1c\n\x1a\x41utoMlTextExtractionInputsB\x8f\x03\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\x19\x41utoMLTextExtractionProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\xaa\x02=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\xca\x02=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\xea\x02\x43Google::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definitionb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\nZgoogle/cloud/aiplatform/v1beta1/schema/trainingjob/definition/automl_text_extraction.proto\x12=google.cloud.aiplatform.v1beta1.schema.trainingjob.definition\"\x81\x01\n\x14\x41utoMlTextExtraction\x12i\n\x06inputs\x18\x01 \x01(\x0b\x32Y.google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.AutoMlTextExtractionInputs\"\x1c\n\x1a\x41utoMlTextExtractionInputsB\x8f\x03\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\x19\x41utoMLTextExtractionProtoP\x01Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\xaa\x02=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\xca\x02=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\xea\x02\x43Google::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definitionb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.aiplatform.v1beta1.schema.trainingjob.definition.automl_text_extraction_pb2', globals())
@@ -22,8 +21,8 @@ if _descriptor._USE_C_DESCRIPTORS == False:
 
   DESCRIPTOR._options = None
   DESCRIPTOR._serialized_options = b'\nAcom.google.cloud.aiplatform.v1beta1.schema.trainingjob.definitionB\031AutoMLTextExtractionProtoP\001Zggoogle.golang.org/genproto/googleapis/cloud/aiplatform/v1beta1/schema/trainingjob/definition;definition\252\002=Google.Cloud.AIPlatform.V1Beta1.Schema.TrainingJob.Definition\312\002=Google\\Cloud\\AIPlatform\\V1beta1\\Schema\\TrainingJob\\Definition\352\002CGoogle::Cloud::AIPlatform::V1beta1::Schema::TrainingJob::Definition'
-  _AUTOMLTEXTEXTRACTION._serialized_start=188
-  _AUTOMLTEXTEXTRACTION._serialized_end=317
-  _AUTOMLTEXTEXTRACTIONINPUTS._serialized_start=319
-  _AUTOMLTEXTEXTRACTIONINPUTS._serialized_end=347
+  _AUTOMLTEXTEXTRACTION._serialized_start=158
+  _AUTOMLTEXTEXTRACTION._serialized_end=287
+  _AUTOMLTEXTEXTRACTIONINPUTS._serialized_start=289
+  _AUTOMLTEXTEXTRACTIONINPUTS._serialized_end=317
 # @@protoc_insertion_point(module_scope)

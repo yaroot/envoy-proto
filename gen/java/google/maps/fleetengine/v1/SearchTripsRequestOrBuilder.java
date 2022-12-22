@@ -92,8 +92,8 @@ public interface SearchTripsRequestOrBuilder extends
 
   /**
    * <pre>
-   * If set to true, only Trips that influence the drivers route
-   * are included in the response.
+   * If set to true, the response includes Trips that influence a driver's
+   * route.
    * </pre>
    *
    * <code>bool active_trips_only = 5;</code>
@@ -103,8 +103,7 @@ public interface SearchTripsRequestOrBuilder extends
 
   /**
    * <pre>
-   * If not set, the server will decide the number of
-   * results to return.
+   * If not set, the server decides the number of results to return.
    * </pre>
    *
    * <code>int32 page_size = 6;</code>
@@ -114,8 +113,8 @@ public interface SearchTripsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Set this to a value previously returned in the
-   * SearchTripsResponse to continue from previous results.
+   * Set this to a value previously returned in the `SearchTripsResponse` to
+   * continue from previous results.
    * </pre>
    *
    * <code>string page_token = 7;</code>
@@ -124,8 +123,8 @@ public interface SearchTripsRequestOrBuilder extends
   java.lang.String getPageToken();
   /**
    * <pre>
-   * Set this to a value previously returned in the
-   * SearchTripsResponse to continue from previous results.
+   * Set this to a value previously returned in the `SearchTripsResponse` to
+   * continue from previous results.
    * </pre>
    *
    * <code>string page_token = 7;</code>
@@ -136,8 +135,8 @@ public interface SearchTripsRequestOrBuilder extends
 
   /**
    * <pre>
-   * If specified, returns the trips that have not been updated after
-   * the time `(current - minimum_staleness)`.
+   * If specified, returns the trips that have not been updated after the time
+   * `(current - minimum_staleness)`.
    * </pre>
    *
    * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -146,8 +145,8 @@ public interface SearchTripsRequestOrBuilder extends
   boolean hasMinimumStaleness();
   /**
    * <pre>
-   * If specified, returns the trips that have not been updated after
-   * the time `(current - minimum_staleness)`.
+   * If specified, returns the trips that have not been updated after the time
+   * `(current - minimum_staleness)`.
    * </pre>
    *
    * <code>.google.protobuf.Duration minimum_staleness = 8;</code>
@@ -156,8 +155,8 @@ public interface SearchTripsRequestOrBuilder extends
   com.google.protobuf.Duration getMinimumStaleness();
   /**
    * <pre>
-   * If specified, returns the trips that have not been updated after
-   * the time `(current - minimum_staleness)`.
+   * If specified, returns the trips that have not been updated after the time
+   * `(current - minimum_staleness)`.
    * </pre>
    *
    * <code>.google.protobuf.Duration minimum_staleness = 8;</code>

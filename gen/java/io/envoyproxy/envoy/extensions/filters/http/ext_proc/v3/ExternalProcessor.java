@@ -37,138 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ExternalProcessor(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.GrpcService.Builder subBuilder = null;
-            if (grpcService_ != null) {
-              subBuilder = grpcService_.toBuilder();
-            }
-            grpcService_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.GrpcService.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(grpcService_);
-              grpcService_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 16: {
-
-            failureModeAllow_ = input.readBool();
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.Builder subBuilder = null;
-            if (processingMode_ != null) {
-              subBuilder = processingMode_.toBuilder();
-            }
-            processingMode_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(processingMode_);
-              processingMode_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            asyncMode_ = input.readBool();
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              requestAttributes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            requestAttributes_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              responseAttributes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            responseAttributes_.add(s);
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (messageTimeout_ != null) {
-              subBuilder = messageTimeout_.toBuilder();
-            }
-            messageTimeout_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(messageTimeout_);
-              messageTimeout_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 74: {
-            io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.Builder subBuilder = null;
-            if (mutationRules_ != null) {
-              subBuilder = mutationRules_.toBuilder();
-            }
-            mutationRules_ = input.readMessage(io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(mutationRules_);
-              mutationRules_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        requestAttributes_ = requestAttributes_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        responseAttributes_ = responseAttributes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExtProcProto.internal_static_envoy_extensions_filters_http_ext_proc_v3_ExternalProcessor_descriptor;
@@ -220,11 +88,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.GrpcServiceOrBuilder getGrpcServiceOrBuilder() {
-    return getGrpcService();
+    return grpcService_ == null ? io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance() : grpcService_;
   }
 
   public static final int FAILURE_MODE_ALLOW_FIELD_NUMBER = 2;
-  private boolean failureModeAllow_;
+  private boolean failureModeAllow_ = false;
   /**
    * <pre>
    * By default, if the gRPC stream cannot be established, or if it is closed
@@ -282,11 +150,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingModeOrBuilder getProcessingModeOrBuilder() {
-    return getProcessingMode();
+    return processingMode_ == null ? io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.getDefaultInstance() : processingMode_;
   }
 
   public static final int ASYNC_MODE_FIELD_NUMBER = 4;
-  private boolean asyncMode_;
+  private boolean asyncMode_ = false;
   /**
    * <pre>
    * [#not-implemented-hide:]
@@ -306,6 +174,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REQUEST_ATTRIBUTES_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList requestAttributes_;
   /**
    * <pre>
@@ -377,6 +246,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_ATTRIBUTES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList responseAttributes_;
   /**
    * <pre>
@@ -455,7 +325,7 @@ private static final long serialVersionUID = 0L;
    * when the filter is running in synchronous mode. Whenever
    * the proxy sends a message on the stream that requires a response, it will
    * reset this timer, and will stop processing and return an error (subject
-   * to the processing mode) if the timer expires before a matching response.
+   * to the processing mode) if the timer expires before a matching response
    * is received. There is no timeout when the filter is running in asynchronous
    * mode. Default is 200 milliseconds.
    * </pre>
@@ -473,7 +343,7 @@ private static final long serialVersionUID = 0L;
    * when the filter is running in synchronous mode. Whenever
    * the proxy sends a message on the stream that requires a response, it will
    * reset this timer, and will stop processing and return an error (subject
-   * to the processing mode) if the timer expires before a matching response.
+   * to the processing mode) if the timer expires before a matching response
    * is received. There is no timeout when the filter is running in asynchronous
    * mode. Default is 200 milliseconds.
    * </pre>
@@ -491,7 +361,7 @@ private static final long serialVersionUID = 0L;
    * when the filter is running in synchronous mode. Whenever
    * the proxy sends a message on the stream that requires a response, it will
    * reset this timer, and will stop processing and return an error (subject
-   * to the processing mode) if the timer expires before a matching response.
+   * to the processing mode) if the timer expires before a matching response
    * is received. There is no timeout when the filter is running in asynchronous
    * mode. Default is 200 milliseconds.
    * </pre>
@@ -500,11 +370,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getMessageTimeoutOrBuilder() {
-    return getMessageTimeout();
+    return messageTimeout_ == null ? com.google.protobuf.Duration.getDefaultInstance() : messageTimeout_;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 8;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * Optional additional prefix to use when emitting statistics. This allows to distinguish
@@ -561,6 +432,11 @@ private static final long serialVersionUID = 0L;
    * with the header prefix set via
    * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
    * (which is usually "x-envoy").
+   * Note that changing headers such as "host" or ":authority" may not in itself
+   * change Envoy's routing decision, as routes can be cached. To also force the
+   * route to be recomputed, set the
+   * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+   * field to true in the same response.
    * </pre>
    *
    * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -578,6 +454,11 @@ private static final long serialVersionUID = 0L;
    * with the header prefix set via
    * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
    * (which is usually "x-envoy").
+   * Note that changing headers such as "host" or ":authority" may not in itself
+   * change Envoy's routing decision, as routes can be cached. To also force the
+   * route to be recomputed, set the
+   * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+   * field to true in the same response.
    * </pre>
    *
    * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -595,13 +476,18 @@ private static final long serialVersionUID = 0L;
    * with the header prefix set via
    * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
    * (which is usually "x-envoy").
+   * Note that changing headers such as "host" or ":authority" may not in itself
+   * change Envoy's routing decision, as routes can be cached. To also force the
+   * route to be recomputed, set the
+   * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+   * field to true in the same response.
    * </pre>
    *
    * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRulesOrBuilder getMutationRulesOrBuilder() {
-    return getMutationRules();
+    return mutationRules_ == null ? io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.getDefaultInstance() : mutationRules_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -645,7 +531,7 @@ private static final long serialVersionUID = 0L;
     if (mutationRules_ != null) {
       output.writeMessage(9, getMutationRules());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -697,7 +583,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(9, getMutationRules());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -742,7 +628,7 @@ private static final long serialVersionUID = 0L;
       if (!getMutationRules()
           .equals(other.getMutationRules())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -785,7 +671,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MUTATION_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getMutationRules().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -906,54 +792,43 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (grpcServiceBuilder_ == null) {
-        grpcService_ = null;
-      } else {
-        grpcService_ = null;
+      bitField0_ = 0;
+      grpcService_ = null;
+      if (grpcServiceBuilder_ != null) {
+        grpcServiceBuilder_.dispose();
         grpcServiceBuilder_ = null;
       }
       failureModeAllow_ = false;
-
-      if (processingModeBuilder_ == null) {
-        processingMode_ = null;
-      } else {
-        processingMode_ = null;
+      processingMode_ = null;
+      if (processingModeBuilder_ != null) {
+        processingModeBuilder_.dispose();
         processingModeBuilder_ = null;
       }
       asyncMode_ = false;
-
       requestAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       responseAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      if (messageTimeoutBuilder_ == null) {
-        messageTimeout_ = null;
-      } else {
-        messageTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      messageTimeout_ = null;
+      if (messageTimeoutBuilder_ != null) {
+        messageTimeoutBuilder_.dispose();
         messageTimeoutBuilder_ = null;
       }
       statPrefix_ = "";
-
-      if (mutationRulesBuilder_ == null) {
-        mutationRules_ = null;
-      } else {
-        mutationRules_ = null;
+      mutationRules_ = null;
+      if (mutationRulesBuilder_ != null) {
+        mutationRulesBuilder_.dispose();
         mutationRulesBuilder_ = null;
       }
       return this;
@@ -982,42 +857,56 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor result = new io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor(this);
-      int from_bitField0_ = bitField0_;
-      if (grpcServiceBuilder_ == null) {
-        result.grpcService_ = grpcService_;
-      } else {
-        result.grpcService_ = grpcServiceBuilder_.build();
-      }
-      result.failureModeAllow_ = failureModeAllow_;
-      if (processingModeBuilder_ == null) {
-        result.processingMode_ = processingMode_;
-      } else {
-        result.processingMode_ = processingModeBuilder_.build();
-      }
-      result.asyncMode_ = asyncMode_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        requestAttributes_ = requestAttributes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.requestAttributes_ = requestAttributes_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        responseAttributes_ = responseAttributes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.responseAttributes_ = responseAttributes_;
-      if (messageTimeoutBuilder_ == null) {
-        result.messageTimeout_ = messageTimeout_;
-      } else {
-        result.messageTimeout_ = messageTimeoutBuilder_.build();
-      }
-      result.statPrefix_ = statPrefix_;
-      if (mutationRulesBuilder_ == null) {
-        result.mutationRules_ = mutationRules_;
-      } else {
-        result.mutationRules_ = mutationRulesBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor result) {
+      if (((bitField0_ & 0x00000010) != 0)) {
+        requestAttributes_ = requestAttributes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.requestAttributes_ = requestAttributes_;
+      if (((bitField0_ & 0x00000020) != 0)) {
+        responseAttributes_ = responseAttributes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.responseAttributes_ = responseAttributes_;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.grpcService_ = grpcServiceBuilder_ == null
+            ? grpcService_
+            : grpcServiceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.failureModeAllow_ = failureModeAllow_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.processingMode_ = processingModeBuilder_ == null
+            ? processingMode_
+            : processingModeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.asyncMode_ = asyncMode_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.messageTimeout_ = messageTimeoutBuilder_ == null
+            ? messageTimeout_
+            : messageTimeoutBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.mutationRules_ = mutationRulesBuilder_ == null
+            ? mutationRules_
+            : mutationRulesBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1079,7 +968,7 @@ private static final long serialVersionUID = 0L;
       if (!other.requestAttributes_.isEmpty()) {
         if (requestAttributes_.isEmpty()) {
           requestAttributes_ = other.requestAttributes_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureRequestAttributesIsMutable();
           requestAttributes_.addAll(other.requestAttributes_);
@@ -1089,7 +978,7 @@ private static final long serialVersionUID = 0L;
       if (!other.responseAttributes_.isEmpty()) {
         if (responseAttributes_.isEmpty()) {
           responseAttributes_ = other.responseAttributes_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureResponseAttributesIsMutable();
           responseAttributes_.addAll(other.responseAttributes_);
@@ -1101,12 +990,13 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000080;
         onChanged();
       }
       if (other.hasMutationRules()) {
         mergeMutationRules(other.getMutationRules());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1121,17 +1011,85 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getGrpcServiceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              failureModeAllow_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getProcessingModeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              asyncMode_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureRequestAttributesIsMutable();
+              requestAttributes_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureResponseAttributesIsMutable();
+              responseAttributes_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getMessageTimeoutFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getMutationRulesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ExternalProcessor) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1149,7 +1107,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the grpcService field is set.
      */
     public boolean hasGrpcService() {
-      return grpcServiceBuilder_ != null || grpcService_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1181,11 +1139,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         grpcService_ = value;
-        onChanged();
       } else {
         grpcServiceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1200,11 +1158,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.GrpcService.Builder builderForValue) {
       if (grpcServiceBuilder_ == null) {
         grpcService_ = builderForValue.build();
-        onChanged();
       } else {
         grpcServiceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1217,17 +1175,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGrpcService(io.envoyproxy.envoy.config.core.v3.GrpcService value) {
       if (grpcServiceBuilder_ == null) {
-        if (grpcService_ != null) {
-          grpcService_ =
-            io.envoyproxy.envoy.config.core.v3.GrpcService.newBuilder(grpcService_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          grpcService_ != null &&
+          grpcService_ != io.envoyproxy.envoy.config.core.v3.GrpcService.getDefaultInstance()) {
+          getGrpcServiceBuilder().mergeFrom(value);
         } else {
           grpcService_ = value;
         }
-        onChanged();
       } else {
         grpcServiceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1239,14 +1198,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService grpc_service = 1;</code>
      */
     public Builder clearGrpcService() {
-      if (grpcServiceBuilder_ == null) {
-        grpcService_ = null;
-        onChanged();
-      } else {
-        grpcService_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      grpcService_ = null;
+      if (grpcServiceBuilder_ != null) {
+        grpcServiceBuilder_.dispose();
         grpcServiceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1258,7 +1216,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.GrpcService grpc_service = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.GrpcService.Builder getGrpcServiceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getGrpcServiceFieldBuilder().getBuilder();
     }
@@ -1337,6 +1295,7 @@ private static final long serialVersionUID = 0L;
     public Builder setFailureModeAllow(boolean value) {
       
       failureModeAllow_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1355,7 +1314,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFailureModeAllow() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       failureModeAllow_ = false;
       onChanged();
       return this;
@@ -1374,7 +1333,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the processingMode field is set.
      */
     public boolean hasProcessingMode() {
-      return processingModeBuilder_ != null || processingMode_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1406,11 +1365,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         processingMode_ = value;
-        onChanged();
       } else {
         processingModeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1425,11 +1384,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.Builder builderForValue) {
       if (processingModeBuilder_ == null) {
         processingMode_ = builderForValue.build();
-        onChanged();
       } else {
         processingModeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1442,17 +1401,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeProcessingMode(io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode value) {
       if (processingModeBuilder_ == null) {
-        if (processingMode_ != null) {
-          processingMode_ =
-            io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.newBuilder(processingMode_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          processingMode_ != null &&
+          processingMode_ != io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.getDefaultInstance()) {
+          getProcessingModeBuilder().mergeFrom(value);
         } else {
           processingMode_ = value;
         }
-        onChanged();
       } else {
         processingModeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1464,14 +1424,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode processing_mode = 3;</code>
      */
     public Builder clearProcessingMode() {
-      if (processingModeBuilder_ == null) {
-        processingMode_ = null;
-        onChanged();
-      } else {
-        processingMode_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      processingMode_ = null;
+      if (processingModeBuilder_ != null) {
+        processingModeBuilder_.dispose();
         processingModeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1483,7 +1442,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode processing_mode = 3;</code>
      */
     public io.envoyproxy.envoy.extensions.filters.http.ext_proc.v3.ProcessingMode.Builder getProcessingModeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getProcessingModeFieldBuilder().getBuilder();
     }
@@ -1560,6 +1519,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAsyncMode(boolean value) {
       
       asyncMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1577,7 +1537,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAsyncMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       asyncMode_ = false;
       onChanged();
       return this;
@@ -1585,9 +1545,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList requestAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureRequestAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         requestAttributes_ = new com.google.protobuf.LazyStringArrayList(requestAttributes_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1675,10 +1635,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRequestAttributes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequestAttributesIsMutable();
       requestAttributes_.set(index, value);
       onChanged();
       return this;
@@ -1699,10 +1657,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequestAttributes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureRequestAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureRequestAttributesIsMutable();
       requestAttributes_.add(value);
       onChanged();
       return this;
@@ -1744,7 +1700,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearRequestAttributes() {
       requestAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1764,10 +1720,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addRequestAttributesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureRequestAttributesIsMutable();
       requestAttributes_.add(value);
       onChanged();
@@ -1776,9 +1730,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList responseAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureResponseAttributesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         responseAttributes_ = new com.google.protobuf.LazyStringArrayList(responseAttributes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1866,10 +1820,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseAttributes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResponseAttributesIsMutable();
       responseAttributes_.set(index, value);
       onChanged();
       return this;
@@ -1890,10 +1842,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResponseAttributes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseAttributesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResponseAttributesIsMutable();
       responseAttributes_.add(value);
       onChanged();
       return this;
@@ -1935,7 +1885,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearResponseAttributes() {
       responseAttributes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1955,10 +1905,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResponseAttributesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureResponseAttributesIsMutable();
       responseAttributes_.add(value);
       onChanged();
@@ -1974,7 +1922,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -1983,7 +1931,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the messageTimeout field is set.
      */
     public boolean hasMessageTimeout() {
-      return messageTimeoutBuilder_ != null || messageTimeout_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -1991,7 +1939,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2012,7 +1960,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2025,11 +1973,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         messageTimeout_ = value;
-        onChanged();
       } else {
         messageTimeoutBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2038,7 +1986,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2049,11 +1997,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (messageTimeoutBuilder_ == null) {
         messageTimeout_ = builderForValue.build();
-        onChanged();
       } else {
         messageTimeoutBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2062,7 +2010,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2071,17 +2019,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMessageTimeout(com.google.protobuf.Duration value) {
       if (messageTimeoutBuilder_ == null) {
-        if (messageTimeout_ != null) {
-          messageTimeout_ =
-            com.google.protobuf.Duration.newBuilder(messageTimeout_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          messageTimeout_ != null &&
+          messageTimeout_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getMessageTimeoutBuilder().mergeFrom(value);
         } else {
           messageTimeout_ = value;
         }
-        onChanged();
       } else {
         messageTimeoutBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2090,7 +2039,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2098,14 +2047,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration message_timeout = 7;</code>
      */
     public Builder clearMessageTimeout() {
-      if (messageTimeoutBuilder_ == null) {
-        messageTimeout_ = null;
-        onChanged();
-      } else {
-        messageTimeout_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      messageTimeout_ = null;
+      if (messageTimeoutBuilder_ != null) {
+        messageTimeoutBuilder_.dispose();
         messageTimeoutBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2114,7 +2062,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2122,7 +2070,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration message_timeout = 7;</code>
      */
     public com.google.protobuf.Duration.Builder getMessageTimeoutBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getMessageTimeoutFieldBuilder().getBuilder();
     }
@@ -2132,7 +2080,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2153,7 +2101,7 @@ private static final long serialVersionUID = 0L;
      * when the filter is running in synchronous mode. Whenever
      * the proxy sends a message on the stream that requires a response, it will
      * reset this timer, and will stop processing and return an error (subject
-     * to the processing mode) if the timer expires before a matching response.
+     * to the processing mode) if the timer expires before a matching response
      * is received. There is no timeout when the filter is running in asynchronous
      * mode. Default is 200 milliseconds.
      * </pre>
@@ -2230,11 +2178,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2248,8 +2194,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
@@ -2265,12 +2211,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -2286,13 +2230,18 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
      * @return Whether the mutationRules field is set.
      */
     public boolean hasMutationRules() {
-      return mutationRulesBuilder_ != null || mutationRules_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2302,6 +2251,11 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -2322,6 +2276,11 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -2332,11 +2291,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         mutationRules_ = value;
-        onChanged();
       } else {
         mutationRulesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2347,6 +2306,11 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -2355,11 +2319,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.Builder builderForValue) {
       if (mutationRulesBuilder_ == null) {
         mutationRules_ = builderForValue.build();
-        onChanged();
       } else {
         mutationRulesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2370,23 +2334,29 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
      */
     public Builder mergeMutationRules(io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules value) {
       if (mutationRulesBuilder_ == null) {
-        if (mutationRules_ != null) {
-          mutationRules_ =
-            io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.newBuilder(mutationRules_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          mutationRules_ != null &&
+          mutationRules_ != io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.getDefaultInstance()) {
+          getMutationRulesBuilder().mergeFrom(value);
         } else {
           mutationRules_ = value;
         }
-        onChanged();
       } else {
         mutationRulesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2397,19 +2367,23 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
      */
     public Builder clearMutationRules() {
-      if (mutationRulesBuilder_ == null) {
-        mutationRules_ = null;
-        onChanged();
-      } else {
-        mutationRules_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      mutationRules_ = null;
+      if (mutationRulesBuilder_ != null) {
+        mutationRulesBuilder_.dispose();
         mutationRulesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2420,12 +2394,17 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
      */
     public io.envoyproxy.envoy.config.common.mutation_rules.v3.HeaderMutationRules.Builder getMutationRulesBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getMutationRulesFieldBuilder().getBuilder();
     }
@@ -2437,6 +2416,11 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -2457,6 +2441,11 @@ private static final long serialVersionUID = 0L;
      * with the header prefix set via
      * :ref:`header_prefix &lt;envoy_v3_api_field_config.bootstrap.v3.Bootstrap.header_prefix&gt;`
      * (which is usually "x-envoy").
+     * Note that changing headers such as "host" or ":authority" may not in itself
+     * change Envoy's routing decision, as routes can be cached. To also force the
+     * route to be recomputed, set the
+     * :ref:`clear_route_cache &lt;envoy_v3_api_field_service.ext_proc.v3.CommonResponse.clear_route_cache&gt;`
+     * field to true in the same response.
      * </pre>
      *
      * <code>.envoy.config.common.mutation_rules.v3.HeaderMutationRules mutation_rules = 9;</code>
@@ -2507,7 +2496,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ExternalProcessor(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

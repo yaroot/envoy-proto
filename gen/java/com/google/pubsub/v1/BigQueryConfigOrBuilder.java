@@ -70,8 +70,8 @@ public interface BigQueryConfigOrBuilder extends
 
   /**
    * <pre>
-   * Output only. An output-only field that indicates whether or not the subscription can
-   * receive messages.
+   * Output only. An output-only field that indicates whether or not the
+   * subscription can receive messages.
    * </pre>
    *
    * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -80,8 +80,8 @@ public interface BigQueryConfigOrBuilder extends
   int getStateValue();
   /**
    * <pre>
-   * Output only. An output-only field that indicates whether or not the subscription can
-   * receive messages.
+   * Output only. An output-only field that indicates whether or not the
+   * subscription can receive messages.
    * </pre>
    *
    * <code>.google.pubsub.v1.BigQueryConfig.State state = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

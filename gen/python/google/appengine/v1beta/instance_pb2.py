@@ -14,10 +14,9 @@ _sym_db = _symbol_database.Default()
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&google/appengine/v1beta/instance.proto\x12\x17google.appengine.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1cgoogle/api/annotations.proto\"\xd6\x06\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1f\n\x12\x61pp_engine_release\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12I\n\x0c\x61vailability\x18\x04 \x01(\x0e\x32..google.appengine.v1beta.Instance.AvailabilityB\x03\xe0\x41\x03\x12\x14\n\x07vm_name\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0cvm_zone_name\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\x05vm_id\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x15\n\x08requests\x18\t \x01(\x05\x42\x03\xe0\x41\x03\x12\x13\n\x06\x65rrors\x18\n \x01(\x05\x42\x03\xe0\x41\x03\x12\x10\n\x03qps\x18\x0b \x01(\x02\x42\x03\xe0\x41\x03\x12\x1c\n\x0f\x61verage_latency\x18\x0c \x01(\x05\x42\x03\xe0\x41\x03\x12\x19\n\x0cmemory_usage\x18\r \x01(\x03\x42\x03\xe0\x41\x03\x12\x16\n\tvm_status\x18\x0e \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10vm_debug_enabled\x18\x0f \x01(\x08\x42\x03\xe0\x41\x03\x12\x12\n\x05vm_ip\x18\x10 \x01(\tB\x03\xe0\x41\x03\x12R\n\x0bvm_liveness\x18\x11 \x01(\x0e\x32\x38.google.appengine.v1beta.Instance.Liveness.LivenessStateB\x03\xe0\x41\x03\x1a\x7f\n\x08Liveness\"s\n\rLivenessState\x12\x1e\n\x1aLIVENESS_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0b\n\x07HEALTHY\x10\x02\x12\r\n\tUNHEALTHY\x10\x03\x12\x0c\n\x08\x44RAINING\x10\x04\x12\x0b\n\x07TIMEOUT\x10\x05\":\n\x0c\x41vailability\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08RESIDENT\x10\x01\x12\x0b\n\x07\x44YNAMIC\x10\x02:m\xea\x41j\n!appengine.googleapis.com/Instance\x12\x45\x61pps/{app}/services/{service}/versions/{version}/instances/{instance}B\xd3\x01\n\x1b\x63om.google.appengine.v1betaB\rInstanceProtoP\x01Z@google.golang.org/genproto/googleapis/appengine/v1beta;appengine\xaa\x02\x1dGoogle.Cloud.AppEngine.V1Beta\xca\x02\x1dGoogle\\Cloud\\AppEngine\\V1beta\xea\x02 Google::Cloud::AppEngine::V1betab\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n&google/appengine/v1beta/instance.proto\x12\x17google.appengine.v1beta\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\xd6\x06\n\x08Instance\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x03\x12\x0f\n\x02id\x18\x02 \x01(\tB\x03\xe0\x41\x03\x12\x1f\n\x12\x61pp_engine_release\x18\x03 \x01(\tB\x03\xe0\x41\x03\x12I\n\x0c\x61vailability\x18\x04 \x01(\x0e\x32..google.appengine.v1beta.Instance.AvailabilityB\x03\xe0\x41\x03\x12\x14\n\x07vm_name\x18\x05 \x01(\tB\x03\xe0\x41\x03\x12\x19\n\x0cvm_zone_name\x18\x06 \x01(\tB\x03\xe0\x41\x03\x12\x12\n\x05vm_id\x18\x07 \x01(\tB\x03\xe0\x41\x03\x12\x33\n\nstart_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x03\x12\x15\n\x08requests\x18\t \x01(\x05\x42\x03\xe0\x41\x03\x12\x13\n\x06\x65rrors\x18\n \x01(\x05\x42\x03\xe0\x41\x03\x12\x10\n\x03qps\x18\x0b \x01(\x02\x42\x03\xe0\x41\x03\x12\x1c\n\x0f\x61verage_latency\x18\x0c \x01(\x05\x42\x03\xe0\x41\x03\x12\x19\n\x0cmemory_usage\x18\r \x01(\x03\x42\x03\xe0\x41\x03\x12\x16\n\tvm_status\x18\x0e \x01(\tB\x03\xe0\x41\x03\x12\x1d\n\x10vm_debug_enabled\x18\x0f \x01(\x08\x42\x03\xe0\x41\x03\x12\x12\n\x05vm_ip\x18\x10 \x01(\tB\x03\xe0\x41\x03\x12R\n\x0bvm_liveness\x18\x11 \x01(\x0e\x32\x38.google.appengine.v1beta.Instance.Liveness.LivenessStateB\x03\xe0\x41\x03\x1a\x7f\n\x08Liveness\"s\n\rLivenessState\x12\x1e\n\x1aLIVENESS_STATE_UNSPECIFIED\x10\x00\x12\x0b\n\x07UNKNOWN\x10\x01\x12\x0b\n\x07HEALTHY\x10\x02\x12\r\n\tUNHEALTHY\x10\x03\x12\x0c\n\x08\x44RAINING\x10\x04\x12\x0b\n\x07TIMEOUT\x10\x05\":\n\x0c\x41vailability\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x0c\n\x08RESIDENT\x10\x01\x12\x0b\n\x07\x44YNAMIC\x10\x02:m\xea\x41j\n!appengine.googleapis.com/Instance\x12\x45\x61pps/{app}/services/{service}/versions/{version}/instances/{instance}B\xd3\x01\n\x1b\x63om.google.appengine.v1betaB\rInstanceProtoP\x01Z@google.golang.org/genproto/googleapis/appengine/v1beta;appengine\xaa\x02\x1dGoogle.Cloud.AppEngine.V1Beta\xca\x02\x1dGoogle\\Cloud\\AppEngine\\V1beta\xea\x02 Google::Cloud::AppEngine::V1betab\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.appengine.v1beta.instance_pb2', globals())
@@ -61,12 +60,12 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _INSTANCE.fields_by_name['vm_liveness']._serialized_options = b'\340A\003'
   _INSTANCE._options = None
   _INSTANCE._serialized_options = b'\352Aj\n!appengine.googleapis.com/Instance\022Eapps/{app}/services/{service}/versions/{version}/instances/{instance}'
-  _INSTANCE._serialized_start=191
-  _INSTANCE._serialized_end=1045
-  _INSTANCE_LIVENESS._serialized_start=747
-  _INSTANCE_LIVENESS._serialized_end=874
-  _INSTANCE_LIVENESS_LIVENESSSTATE._serialized_start=759
-  _INSTANCE_LIVENESS_LIVENESSSTATE._serialized_end=874
-  _INSTANCE_AVAILABILITY._serialized_start=876
-  _INSTANCE_AVAILABILITY._serialized_end=934
+  _INSTANCE._serialized_start=161
+  _INSTANCE._serialized_end=1015
+  _INSTANCE_LIVENESS._serialized_start=717
+  _INSTANCE_LIVENESS._serialized_end=844
+  _INSTANCE_LIVENESS_LIVENESSSTATE._serialized_start=729
+  _INSTANCE_LIVENESS_LIVENESSSTATE._serialized_end=844
+  _INSTANCE_AVAILABILITY._serialized_start=846
+  _INSTANCE_AVAILABILITY._serialized_end=904
 # @@protoc_insertion_point(module_scope)

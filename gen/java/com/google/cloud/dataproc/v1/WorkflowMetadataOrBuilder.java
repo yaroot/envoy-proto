@@ -211,7 +211,6 @@ public interface WorkflowMetadataOrBuilder extends
    *
    * <code>map&lt;string, string&gt; parameters = 8;</code>
    */
-
   /* nullable */
 java.lang.String getParametersOrDefault(
       java.lang.String key,
@@ -224,7 +223,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; parameters = 8;</code>
    */
-
   java.lang.String getParametersOrThrow(
       java.lang.String key);
 

@@ -35,76 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RouteAsPath(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1072900672: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              asLists_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            asLists_.addInt(input.readUInt32());
-            break;
-          }
-          case 1072900674: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
-              asLists_ = newIntList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              asLists_.addInt(input.readUInt32());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case -187247358: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            pathSegmentType_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        asLists_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_RouteAsPath_descriptor;
@@ -267,6 +197,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int AS_LISTS_FIELD_NUMBER = 134112584;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.IntList asLists_;
   /**
    * <pre>
@@ -307,7 +238,8 @@ private static final long serialVersionUID = 0L;
   private int asListsMemoizedSerializedSize = -1;
 
   public static final int PATH_SEGMENT_TYPE_FIELD_NUMBER = 513464992;
-  private volatile java.lang.Object pathSegmentType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pathSegmentType_ = "";
   /**
    * <pre>
    * [Output Only] The type of the AS Path, which can be one of the following values: - 'AS_SET': unordered set of autonomous systems that the route in has traversed - 'AS_SEQUENCE': ordered set of autonomous systems that the route has traversed - 'AS_CONFED_SEQUENCE': ordered set of Member Autonomous Systems in the local confederation that the route has traversed - 'AS_CONFED_SET': unordered set of Member Autonomous Systems in the local confederation that the route has traversed
@@ -392,7 +324,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 513464992, pathSegmentType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -418,7 +350,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(513464992, pathSegmentType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -440,7 +372,7 @@ private static final long serialVersionUID = 0L;
       if (!getPathSegmentType()
           .equals(other.getPathSegmentType())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -459,7 +391,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PATH_SEGMENT_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getPathSegmentType().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -579,26 +511,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.RouteAsPath.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       asLists_ = emptyIntList();
-      bitField0_ = (bitField0_ & ~0x00000001);
       pathSegmentType_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -625,20 +551,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.RouteAsPath buildPartial() {
       com.google.cloud.compute.v1.RouteAsPath result = new com.google.cloud.compute.v1.RouteAsPath(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.RouteAsPath result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         asLists_.makeImmutable();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.asLists_ = asLists_;
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.RouteAsPath result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pathSegmentType_ = pathSegmentType_;
         to_bitField0_ |= 0x00000001;
       }
-      result.pathSegmentType_ = pathSegmentType_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -696,11 +630,11 @@ private static final long serialVersionUID = 0L;
         onChanged();
       }
       if (other.hasPathSegmentType()) {
-        bitField0_ |= 0x00000002;
         pathSegmentType_ = other.pathSegmentType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -715,17 +649,51 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.RouteAsPath parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1072900672: {
+              int v = input.readUInt32();
+              ensureAsListsIsMutable();
+              asLists_.addInt(v);
+              break;
+            } // case 1072900672
+            case 1072900674: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureAsListsIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                asLists_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 1072900674
+            case -187247358: {
+              pathSegmentType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case -187247358
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.RouteAsPath) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -735,7 +703,7 @@ private static final long serialVersionUID = 0L;
       if (!((bitField0_ & 0x00000001) != 0)) {
         asLists_ = mutableCopy(asLists_);
         bitField0_ |= 0x00000001;
-       }
+      }
     }
     /**
      * <pre>
@@ -785,6 +753,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAsLists(
         int index, int value) {
+      
       ensureAsListsIsMutable();
       asLists_.setInt(index, value);
       onChanged();
@@ -800,6 +769,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addAsLists(int value) {
+      
       ensureAsListsIsMutable();
       asLists_.addInt(value);
       onChanged();
@@ -905,11 +875,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathSegmentType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       pathSegmentType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -923,8 +891,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPathSegmentType() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       pathSegmentType_ = getDefaultInstance().getPathSegmentType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -940,12 +908,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathSegmentTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pathSegmentType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -982,7 +948,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RouteAsPath(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

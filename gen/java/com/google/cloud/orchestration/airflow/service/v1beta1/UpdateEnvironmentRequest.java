@@ -35,77 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UpdateEnvironmentRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.orchestration.airflow.service.v1beta1.Environment.Builder subBuilder = null;
-            if (environment_ != null) {
-              subBuilder = environment_.toBuilder();
-            }
-            environment_ = input.readMessage(com.google.cloud.orchestration.airflow.service.v1beta1.Environment.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(environment_);
-              environment_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.FieldMask.Builder subBuilder = null;
-            if (updateMask_ != null) {
-              subBuilder = updateMask_.toBuilder();
-            }
-            updateMask_ = input.readMessage(com.google.protobuf.FieldMask.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateMask_);
-              updateMask_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentsOuterClass.internal_static_google_cloud_orchestration_airflow_service_v1beta1_UpdateEnvironmentRequest_descriptor;
@@ -120,7 +49,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * The relative resource name of the environment to update, in the form:
@@ -205,7 +135,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.orchestration.airflow.service.v1beta1.EnvironmentOrBuilder getEnvironmentOrBuilder() {
-    return getEnvironment();
+    return environment_ == null ? com.google.cloud.orchestration.airflow.service.v1beta1.Environment.getDefaultInstance() : environment_;
   }
 
   public static final int UPDATE_MASK_FIELD_NUMBER = 3;
@@ -289,7 +219,9 @@ private static final long serialVersionUID = 0L;
    * * `config.nodeCount`
    *     * Horizontally scale the number of nodes in the environment. An integer
    *       greater than or equal to 3 must be provided in the `config.nodeCount`
-   *       field. * `config.webServerNetworkAccessControl`
+   *       field. Supported for Cloud Composer environments in versions
+   *       composer-1.*.*-airflow-*.*.*.
+   * * `config.webServerNetworkAccessControl`
    *     * Replace the environment's current WebServerNetworkAccessControl.
    * * `config.softwareConfig.airflowConfigOverrides`
    *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -308,30 +240,43 @@ private static final long serialVersionUID = 0L;
    * * `config.softwareConfig.envVariables`
    *     * Replace all environment variables. If a replacement environment
    *       variable map is not included in `environment`, all custom environment
-   *       variables  are cleared.
-   *       It is an error to provide both this mask and a mask specifying one or
-   *       more individual environment variables.
+   *       variables are cleared.
    * * `config.softwareConfig.imageVersion`
    *     * Upgrade the version of the environment in-place. Refer to
    *       `SoftwareConfig.image_version` for information on how to format the
    *       new image version. Additionally, the new image version cannot effect
-   *       a version downgrade and must match the current image version's
-   *       Composer major version and Airflow major and minor versions. Consult
-   *       the [Cloud Composer Version
-   *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+   *       a version downgrade, and must match the current image version's
+   *       Composer and Airflow major versions. Consult the [Cloud Composer
+   *       version list](/composer/docs/concepts/versioning/composer-versions)
    *       for valid values.
    * * `config.softwareConfig.schedulerCount`
    *     * Horizontally scale the number of schedulers in Airflow. A positive
    *       integer not greater than the number of nodes must be provided in the
-   *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+   *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+   *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+   * * `config.softwareConfig.cloudDataLineageIntegration`
+   *     * Configuration for Cloud Data Lineage integration.
+   * * `config.databaseConfig.machineType`
    *     * Cloud SQL machine type used by Airflow database.
    *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-   *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+   *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+   *       environments in versions composer-1.*.*-airflow-*.*.*.
+   * * `config.webServerConfig.machineType`
    *     * Machine type on which Airflow web server is running.
    *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-   *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+   *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+   *       in versions composer-1.*.*-airflow-*.*.*.
+   * * `config.maintenanceWindow`
    *     * Maintenance window during which Cloud Composer components may be
    *       under maintenance.
+   * * `config.workloadsConfig`
+   *     * The workloads configuration settings for the GKE cluster associated
+   *       with the Cloud Composer environment. Supported for Cloud Composer
+   *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+   * * `config.environmentSize`
+   *     * The size of the Cloud Composer environment. Supported for Cloud
+   *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+   *       newer.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -420,7 +365,9 @@ private static final long serialVersionUID = 0L;
    * * `config.nodeCount`
    *     * Horizontally scale the number of nodes in the environment. An integer
    *       greater than or equal to 3 must be provided in the `config.nodeCount`
-   *       field. * `config.webServerNetworkAccessControl`
+   *       field. Supported for Cloud Composer environments in versions
+   *       composer-1.*.*-airflow-*.*.*.
+   * * `config.webServerNetworkAccessControl`
    *     * Replace the environment's current WebServerNetworkAccessControl.
    * * `config.softwareConfig.airflowConfigOverrides`
    *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -439,30 +386,43 @@ private static final long serialVersionUID = 0L;
    * * `config.softwareConfig.envVariables`
    *     * Replace all environment variables. If a replacement environment
    *       variable map is not included in `environment`, all custom environment
-   *       variables  are cleared.
-   *       It is an error to provide both this mask and a mask specifying one or
-   *       more individual environment variables.
+   *       variables are cleared.
    * * `config.softwareConfig.imageVersion`
    *     * Upgrade the version of the environment in-place. Refer to
    *       `SoftwareConfig.image_version` for information on how to format the
    *       new image version. Additionally, the new image version cannot effect
-   *       a version downgrade and must match the current image version's
-   *       Composer major version and Airflow major and minor versions. Consult
-   *       the [Cloud Composer Version
-   *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+   *       a version downgrade, and must match the current image version's
+   *       Composer and Airflow major versions. Consult the [Cloud Composer
+   *       version list](/composer/docs/concepts/versioning/composer-versions)
    *       for valid values.
    * * `config.softwareConfig.schedulerCount`
    *     * Horizontally scale the number of schedulers in Airflow. A positive
    *       integer not greater than the number of nodes must be provided in the
-   *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+   *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+   *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+   * * `config.softwareConfig.cloudDataLineageIntegration`
+   *     * Configuration for Cloud Data Lineage integration.
+   * * `config.databaseConfig.machineType`
    *     * Cloud SQL machine type used by Airflow database.
    *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-   *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+   *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+   *       environments in versions composer-1.*.*-airflow-*.*.*.
+   * * `config.webServerConfig.machineType`
    *     * Machine type on which Airflow web server is running.
    *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-   *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+   *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+   *       in versions composer-1.*.*-airflow-*.*.*.
+   * * `config.maintenanceWindow`
    *     * Maintenance window during which Cloud Composer components may be
    *       under maintenance.
+   * * `config.workloadsConfig`
+   *     * The workloads configuration settings for the GKE cluster associated
+   *       with the Cloud Composer environment. Supported for Cloud Composer
+   *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+   * * `config.environmentSize`
+   *     * The size of the Cloud Composer environment. Supported for Cloud
+   *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+   *       newer.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -551,7 +511,9 @@ private static final long serialVersionUID = 0L;
    * * `config.nodeCount`
    *     * Horizontally scale the number of nodes in the environment. An integer
    *       greater than or equal to 3 must be provided in the `config.nodeCount`
-   *       field. * `config.webServerNetworkAccessControl`
+   *       field. Supported for Cloud Composer environments in versions
+   *       composer-1.*.*-airflow-*.*.*.
+   * * `config.webServerNetworkAccessControl`
    *     * Replace the environment's current WebServerNetworkAccessControl.
    * * `config.softwareConfig.airflowConfigOverrides`
    *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -570,37 +532,50 @@ private static final long serialVersionUID = 0L;
    * * `config.softwareConfig.envVariables`
    *     * Replace all environment variables. If a replacement environment
    *       variable map is not included in `environment`, all custom environment
-   *       variables  are cleared.
-   *       It is an error to provide both this mask and a mask specifying one or
-   *       more individual environment variables.
+   *       variables are cleared.
    * * `config.softwareConfig.imageVersion`
    *     * Upgrade the version of the environment in-place. Refer to
    *       `SoftwareConfig.image_version` for information on how to format the
    *       new image version. Additionally, the new image version cannot effect
-   *       a version downgrade and must match the current image version's
-   *       Composer major version and Airflow major and minor versions. Consult
-   *       the [Cloud Composer Version
-   *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+   *       a version downgrade, and must match the current image version's
+   *       Composer and Airflow major versions. Consult the [Cloud Composer
+   *       version list](/composer/docs/concepts/versioning/composer-versions)
    *       for valid values.
    * * `config.softwareConfig.schedulerCount`
    *     * Horizontally scale the number of schedulers in Airflow. A positive
    *       integer not greater than the number of nodes must be provided in the
-   *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+   *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+   *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+   * * `config.softwareConfig.cloudDataLineageIntegration`
+   *     * Configuration for Cloud Data Lineage integration.
+   * * `config.databaseConfig.machineType`
    *     * Cloud SQL machine type used by Airflow database.
    *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-   *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+   *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+   *       environments in versions composer-1.*.*-airflow-*.*.*.
+   * * `config.webServerConfig.machineType`
    *     * Machine type on which Airflow web server is running.
    *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-   *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+   *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+   *       in versions composer-1.*.*-airflow-*.*.*.
+   * * `config.maintenanceWindow`
    *     * Maintenance window during which Cloud Composer components may be
    *       under maintenance.
+   * * `config.workloadsConfig`
+   *     * The workloads configuration settings for the GKE cluster associated
+   *       with the Cloud Composer environment. Supported for Cloud Composer
+   *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+   * * `config.environmentSize`
+   *     * The size of the Cloud Composer environment. Supported for Cloud
+   *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+   *       newer.
    * </pre>
    *
    * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.protobuf.FieldMaskOrBuilder getUpdateMaskOrBuilder() {
-    return getUpdateMask();
+    return updateMask_ == null ? com.google.protobuf.FieldMask.getDefaultInstance() : updateMask_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -626,7 +601,7 @@ private static final long serialVersionUID = 0L;
     if (updateMask_ != null) {
       output.writeMessage(3, getUpdateMask());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -646,7 +621,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getUpdateMask());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -673,7 +648,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateMask()
           .equals(other.getUpdateMask())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -694,7 +669,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_MASK_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateMask().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -815,34 +790,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
-      if (environmentBuilder_ == null) {
-        environment_ = null;
-      } else {
-        environment_ = null;
+      environment_ = null;
+      if (environmentBuilder_ != null) {
+        environmentBuilder_.dispose();
         environmentBuilder_ = null;
       }
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-      } else {
-        updateMask_ = null;
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
       return this;
@@ -871,19 +839,26 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest buildPartial() {
       com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest result = new com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest(this);
-      result.name_ = name_;
-      if (environmentBuilder_ == null) {
-        result.environment_ = environment_;
-      } else {
-        result.environment_ = environmentBuilder_.build();
-      }
-      if (updateMaskBuilder_ == null) {
-        result.updateMask_ = updateMask_;
-      } else {
-        result.updateMask_ = updateMaskBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.environment_ = environmentBuilder_ == null
+            ? environment_
+            : environmentBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.updateMask_ = updateMaskBuilder_ == null
+            ? updateMask_
+            : updateMaskBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -932,6 +907,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasEnvironment()) {
@@ -940,7 +916,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateMask()) {
         mergeUpdateMask(other.getUpdateMask());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -955,19 +931,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getEnvironmentFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 18: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getUpdateMaskFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.orchestration.airflow.service.v1beta1.UpdateEnvironmentRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1025,11 +1034,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1043,8 +1050,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1060,12 +1067,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1083,7 +1088,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the environment field is set.
      */
     public boolean hasEnvironment() {
-      return environmentBuilder_ != null || environment_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1115,11 +1120,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         environment_ = value;
-        onChanged();
       } else {
         environmentBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1134,11 +1139,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.orchestration.airflow.service.v1beta1.Environment.Builder builderForValue) {
       if (environmentBuilder_ == null) {
         environment_ = builderForValue.build();
-        onChanged();
       } else {
         environmentBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1151,17 +1156,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeEnvironment(com.google.cloud.orchestration.airflow.service.v1beta1.Environment value) {
       if (environmentBuilder_ == null) {
-        if (environment_ != null) {
-          environment_ =
-            com.google.cloud.orchestration.airflow.service.v1beta1.Environment.newBuilder(environment_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          environment_ != null &&
+          environment_ != com.google.cloud.orchestration.airflow.service.v1beta1.Environment.getDefaultInstance()) {
+          getEnvironmentBuilder().mergeFrom(value);
         } else {
           environment_ = value;
         }
-        onChanged();
       } else {
         environmentBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1173,14 +1179,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.Environment environment = 1;</code>
      */
     public Builder clearEnvironment() {
-      if (environmentBuilder_ == null) {
-        environment_ = null;
-        onChanged();
-      } else {
-        environment_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      environment_ = null;
+      if (environmentBuilder_ != null) {
+        environmentBuilder_.dispose();
         environmentBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1192,7 +1197,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.orchestration.airflow.service.v1beta1.Environment environment = 1;</code>
      */
     public com.google.cloud.orchestration.airflow.service.v1beta1.Environment.Builder getEnvironmentBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getEnvironmentFieldBuilder().getBuilder();
     }
@@ -1316,7 +1321,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -1335,37 +1342,50 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the updateMask field is set.
      */
     public boolean hasUpdateMask() {
-      return updateMaskBuilder_ != null || updateMask_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1446,7 +1466,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -1465,30 +1487,43 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1580,7 +1615,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -1599,30 +1636,43 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1633,11 +1683,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateMask_ = value;
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1719,7 +1769,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -1738,30 +1790,43 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -1770,11 +1835,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.FieldMask.Builder builderForValue) {
       if (updateMaskBuilder_ == null) {
         updateMask_ = builderForValue.build();
-        onChanged();
       } else {
         updateMaskBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1856,7 +1921,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -1875,47 +1942,61 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeUpdateMask(com.google.protobuf.FieldMask value) {
       if (updateMaskBuilder_ == null) {
-        if (updateMask_ != null) {
-          updateMask_ =
-            com.google.protobuf.FieldMask.newBuilder(updateMask_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          updateMask_ != null &&
+          updateMask_ != com.google.protobuf.FieldMask.getDefaultInstance()) {
+          getUpdateMaskBuilder().mergeFrom(value);
         } else {
           updateMask_ = value;
         }
-        onChanged();
       } else {
         updateMaskBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1997,7 +2078,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -2016,43 +2099,55 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUpdateMask() {
-      if (updateMaskBuilder_ == null) {
-        updateMask_ = null;
-        onChanged();
-      } else {
-        updateMask_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      updateMask_ = null;
+      if (updateMaskBuilder_ != null) {
+        updateMaskBuilder_.dispose();
         updateMaskBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2134,7 +2229,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -2153,36 +2250,49 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.protobuf.FieldMask.Builder getUpdateMaskBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getUpdateMaskFieldBuilder().getBuilder();
     }
@@ -2265,7 +2375,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -2284,30 +2396,43 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2399,7 +2524,9 @@ private static final long serialVersionUID = 0L;
      * * `config.nodeCount`
      *     * Horizontally scale the number of nodes in the environment. An integer
      *       greater than or equal to 3 must be provided in the `config.nodeCount`
-     *       field. * `config.webServerNetworkAccessControl`
+     *       field. Supported for Cloud Composer environments in versions
+     *       composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerNetworkAccessControl`
      *     * Replace the environment's current WebServerNetworkAccessControl.
      * * `config.softwareConfig.airflowConfigOverrides`
      *     * Replace all Apache Airflow config overrides. If a replacement config
@@ -2418,30 +2545,43 @@ private static final long serialVersionUID = 0L;
      * * `config.softwareConfig.envVariables`
      *     * Replace all environment variables. If a replacement environment
      *       variable map is not included in `environment`, all custom environment
-     *       variables  are cleared.
-     *       It is an error to provide both this mask and a mask specifying one or
-     *       more individual environment variables.
+     *       variables are cleared.
      * * `config.softwareConfig.imageVersion`
      *     * Upgrade the version of the environment in-place. Refer to
      *       `SoftwareConfig.image_version` for information on how to format the
      *       new image version. Additionally, the new image version cannot effect
-     *       a version downgrade and must match the current image version's
-     *       Composer major version and Airflow major and minor versions. Consult
-     *       the [Cloud Composer Version
-     *       List](https://cloud.google.com/composer/docs/concepts/versioning/composer-versions)
+     *       a version downgrade, and must match the current image version's
+     *       Composer and Airflow major versions. Consult the [Cloud Composer
+     *       version list](/composer/docs/concepts/versioning/composer-versions)
      *       for valid values.
      * * `config.softwareConfig.schedulerCount`
      *     * Horizontally scale the number of schedulers in Airflow. A positive
      *       integer not greater than the number of nodes must be provided in the
-     *       `config.softwareConfig.schedulerCount` field. * `config.databaseConfig.machineType`
+     *       `config.softwareConfig.schedulerCount` field. Supported for Cloud
+     *       Composer environments in versions composer-1.*.*-airflow-2.*.*.
+     * * `config.softwareConfig.cloudDataLineageIntegration`
+     *     * Configuration for Cloud Data Lineage integration.
+     * * `config.databaseConfig.machineType`
      *     * Cloud SQL machine type used by Airflow database.
      *       It has to be one of: db-n1-standard-2, db-n1-standard-4,
-     *       db-n1-standard-8 or db-n1-standard-16. * `config.webServerConfig.machineType`
+     *       db-n1-standard-8 or db-n1-standard-16. Supported for Cloud Composer
+     *       environments in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.webServerConfig.machineType`
      *     * Machine type on which Airflow web server is running.
      *       It has to be one of: composer-n1-webserver-2, composer-n1-webserver-4
-     *       or composer-n1-webserver-8. * `config.maintenanceWindow`
+     *       or composer-n1-webserver-8. Supported for Cloud Composer environments
+     *       in versions composer-1.*.*-airflow-*.*.*.
+     * * `config.maintenanceWindow`
      *     * Maintenance window during which Cloud Composer components may be
      *       under maintenance.
+     * * `config.workloadsConfig`
+     *     * The workloads configuration settings for the GKE cluster associated
+     *       with the Cloud Composer environment. Supported for Cloud Composer
+     *       environments in versions composer-2.*.*-airflow-*.*.* and newer.
+     * * `config.environmentSize`
+     *     * The size of the Cloud Composer environment. Supported for Cloud
+     *       Composer environments in versions composer-2.*.*-airflow-*.*.* and
+     *       newer.
      * </pre>
      *
      * <code>.google.protobuf.FieldMask update_mask = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -2492,7 +2632,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UpdateEnvironmentRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

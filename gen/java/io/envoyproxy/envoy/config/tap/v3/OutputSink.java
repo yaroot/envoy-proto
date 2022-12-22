@@ -36,107 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private OutputSink(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            format_ = rawValue;
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.tap.v3.StreamingAdminSink.Builder subBuilder = null;
-            if (outputSinkTypeCase_ == 2) {
-              subBuilder = ((io.envoyproxy.envoy.config.tap.v3.StreamingAdminSink) outputSinkType_).toBuilder();
-            }
-            outputSinkType_ =
-                input.readMessage(io.envoyproxy.envoy.config.tap.v3.StreamingAdminSink.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.tap.v3.StreamingAdminSink) outputSinkType_);
-              outputSinkType_ = subBuilder.buildPartial();
-            }
-            outputSinkTypeCase_ = 2;
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.config.tap.v3.FilePerTapSink.Builder subBuilder = null;
-            if (outputSinkTypeCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.config.tap.v3.FilePerTapSink) outputSinkType_).toBuilder();
-            }
-            outputSinkType_ =
-                input.readMessage(io.envoyproxy.envoy.config.tap.v3.FilePerTapSink.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.tap.v3.FilePerTapSink) outputSinkType_);
-              outputSinkType_ = subBuilder.buildPartial();
-            }
-            outputSinkTypeCase_ = 3;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.config.tap.v3.StreamingGrpcSink.Builder subBuilder = null;
-            if (outputSinkTypeCase_ == 4) {
-              subBuilder = ((io.envoyproxy.envoy.config.tap.v3.StreamingGrpcSink) outputSinkType_).toBuilder();
-            }
-            outputSinkType_ =
-                input.readMessage(io.envoyproxy.envoy.config.tap.v3.StreamingGrpcSink.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.tap.v3.StreamingGrpcSink) outputSinkType_);
-              outputSinkType_ = subBuilder.buildPartial();
-            }
-            outputSinkTypeCase_ = 4;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.tap.v3.BufferedAdminSink.Builder subBuilder = null;
-            if (outputSinkTypeCase_ == 5) {
-              subBuilder = ((io.envoyproxy.envoy.config.tap.v3.BufferedAdminSink) outputSinkType_).toBuilder();
-            }
-            outputSinkType_ =
-                input.readMessage(io.envoyproxy.envoy.config.tap.v3.BufferedAdminSink.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.config.tap.v3.BufferedAdminSink) outputSinkType_);
-              outputSinkType_ = subBuilder.buildPartial();
-            }
-            outputSinkTypeCase_ = 5;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.tap.v3.CommonProto.internal_static_envoy_config_tap_v3_OutputSink_descriptor;
@@ -412,7 +311,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FORMAT_FIELD_NUMBER = 1;
-  private int format_;
+  private int format_ = 0;
   /**
    * <pre>
    * Sink output format.
@@ -433,8 +332,7 @@ private static final long serialVersionUID = 0L;
    * @return The format.
    */
   @java.lang.Override public io.envoyproxy.envoy.config.tap.v3.OutputSink.Format getFormat() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.config.tap.v3.OutputSink.Format result = io.envoyproxy.envoy.config.tap.v3.OutputSink.Format.valueOf(format_);
+    io.envoyproxy.envoy.config.tap.v3.OutputSink.Format result = io.envoyproxy.envoy.config.tap.v3.OutputSink.Format.forNumber(format_);
     return result == null ? io.envoyproxy.envoy.config.tap.v3.OutputSink.Format.UNRECOGNIZED : result;
   }
 
@@ -675,7 +573,7 @@ private static final long serialVersionUID = 0L;
     if (outputSinkTypeCase_ == 5) {
       output.writeMessage(5, (io.envoyproxy.envoy.config.tap.v3.BufferedAdminSink) outputSinkType_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -704,7 +602,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, (io.envoyproxy.envoy.config.tap.v3.BufferedAdminSink) outputSinkType_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -741,7 +639,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -774,7 +672,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -896,24 +794,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.tap.v3.OutputSink.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       format_ = 0;
-
+      if (streamingAdminBuilder_ != null) {
+        streamingAdminBuilder_.clear();
+      }
+      if (filePerTapBuilder_ != null) {
+        filePerTapBuilder_.clear();
+      }
+      if (streamingGrpcBuilder_ != null) {
+        streamingGrpcBuilder_.clear();
+      }
+      if (bufferedAdminBuilder_ != null) {
+        bufferedAdminBuilder_.clear();
+      }
       outputSinkTypeCase_ = 0;
       outputSinkType_ = null;
       return this;
@@ -942,38 +847,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.tap.v3.OutputSink buildPartial() {
       io.envoyproxy.envoy.config.tap.v3.OutputSink result = new io.envoyproxy.envoy.config.tap.v3.OutputSink(this);
-      result.format_ = format_;
-      if (outputSinkTypeCase_ == 2) {
-        if (streamingAdminBuilder_ == null) {
-          result.outputSinkType_ = outputSinkType_;
-        } else {
-          result.outputSinkType_ = streamingAdminBuilder_.build();
-        }
-      }
-      if (outputSinkTypeCase_ == 3) {
-        if (filePerTapBuilder_ == null) {
-          result.outputSinkType_ = outputSinkType_;
-        } else {
-          result.outputSinkType_ = filePerTapBuilder_.build();
-        }
-      }
-      if (outputSinkTypeCase_ == 4) {
-        if (streamingGrpcBuilder_ == null) {
-          result.outputSinkType_ = outputSinkType_;
-        } else {
-          result.outputSinkType_ = streamingGrpcBuilder_.build();
-        }
-      }
-      if (outputSinkTypeCase_ == 5) {
-        if (bufferedAdminBuilder_ == null) {
-          result.outputSinkType_ = outputSinkType_;
-        } else {
-          result.outputSinkType_ = bufferedAdminBuilder_.build();
-        }
-      }
-      result.outputSinkTypeCase_ = outputSinkTypeCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.tap.v3.OutputSink result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.format_ = format_;
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.config.tap.v3.OutputSink result) {
+      result.outputSinkTypeCase_ = outputSinkTypeCase_;
+      result.outputSinkType_ = this.outputSinkType_;
+      if (outputSinkTypeCase_ == 2 &&
+          streamingAdminBuilder_ != null) {
+        result.outputSinkType_ = streamingAdminBuilder_.build();
+      }
+      if (outputSinkTypeCase_ == 3 &&
+          filePerTapBuilder_ != null) {
+        result.outputSinkType_ = filePerTapBuilder_.build();
+      }
+      if (outputSinkTypeCase_ == 4 &&
+          streamingGrpcBuilder_ != null) {
+        result.outputSinkType_ = streamingGrpcBuilder_.build();
+      }
+      if (outputSinkTypeCase_ == 5 &&
+          bufferedAdminBuilder_ != null) {
+        result.outputSinkType_ = bufferedAdminBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1044,7 +949,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1059,17 +964,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.tap.v3.OutputSink parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              format_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getStreamingAdminFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              outputSinkTypeCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getFilePerTapFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              outputSinkTypeCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getStreamingGrpcFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              outputSinkTypeCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getBufferedAdminFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              outputSinkTypeCase_ = 5;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.tap.v3.OutputSink) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int outputSinkTypeCase_ = 0;
@@ -1087,6 +1038,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private int format_ = 0;
     /**
@@ -1110,8 +1062,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFormatValue(int value) {
-      
       format_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1125,8 +1077,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.tap.v3.OutputSink.Format getFormat() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.config.tap.v3.OutputSink.Format result = io.envoyproxy.envoy.config.tap.v3.OutputSink.Format.valueOf(format_);
+      io.envoyproxy.envoy.config.tap.v3.OutputSink.Format result = io.envoyproxy.envoy.config.tap.v3.OutputSink.Format.forNumber(format_);
       return result == null ? io.envoyproxy.envoy.config.tap.v3.OutputSink.Format.UNRECOGNIZED : result;
     }
     /**
@@ -1142,7 +1093,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       format_ = value.getNumber();
       onChanged();
       return this;
@@ -1156,7 +1107,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       format_ = 0;
       onChanged();
       return this;
@@ -1381,7 +1332,7 @@ private static final long serialVersionUID = 0L;
         outputSinkType_ = null;
       }
       outputSinkTypeCase_ = 2;
-      onChanged();;
+      onChanged();
       return streamingAdminBuilder_;
     }
 
@@ -1559,7 +1510,7 @@ private static final long serialVersionUID = 0L;
         outputSinkType_ = null;
       }
       outputSinkTypeCase_ = 3;
-      onChanged();;
+      onChanged();
       return filePerTapBuilder_;
     }
 
@@ -1755,7 +1706,7 @@ private static final long serialVersionUID = 0L;
         outputSinkType_ = null;
       }
       outputSinkTypeCase_ = 4;
-      onChanged();;
+      onChanged();
       return streamingGrpcBuilder_;
     }
 
@@ -1978,7 +1929,7 @@ private static final long serialVersionUID = 0L;
         outputSinkType_ = null;
       }
       outputSinkTypeCase_ = 5;
-      onChanged();;
+      onChanged();
       return bufferedAdminBuilder_;
     }
     @java.lang.Override
@@ -2014,7 +1965,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new OutputSink(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

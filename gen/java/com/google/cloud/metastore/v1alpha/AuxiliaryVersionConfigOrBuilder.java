@@ -84,7 +84,6 @@ public interface AuxiliaryVersionConfigOrBuilder extends
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   /* nullable */
 java.lang.String getConfigOverridesOrDefault(
       java.lang.String key,
@@ -101,14 +100,13 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; config_overrides = 2;</code>
    */
-
   java.lang.String getConfigOverridesOrThrow(
       java.lang.String key);
 
   /**
    * <pre>
-   * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-   * Hive metastore service.
+   * Output only. The network configuration contains the endpoint URI(s) of the
+   * auxiliary Hive metastore service.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -117,8 +115,8 @@ java.lang.String defaultValue);
   boolean hasNetworkConfig();
   /**
    * <pre>
-   * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-   * Hive metastore service.
+   * Output only. The network configuration contains the endpoint URI(s) of the
+   * auxiliary Hive metastore service.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -127,8 +125,8 @@ java.lang.String defaultValue);
   com.google.cloud.metastore.v1alpha.NetworkConfig getNetworkConfig();
   /**
    * <pre>
-   * Output only. The network configuration contains the endpoint URI(s) of the auxiliary
-   * Hive metastore service.
+   * Output only. The network configuration contains the endpoint URI(s) of the
+   * auxiliary Hive metastore service.
    * </pre>
    *
    * <code>.google.cloud.metastore.v1alpha.NetworkConfig network_config = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

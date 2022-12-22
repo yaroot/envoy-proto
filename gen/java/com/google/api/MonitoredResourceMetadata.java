@@ -39,72 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MonitoredResourceMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (systemLabels_ != null) {
-              subBuilder = systemLabels_.toBuilder();
-            }
-            systemLabels_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(systemLabels_);
-              systemLabels_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              userLabels_ = com.google.protobuf.MapField.newMapField(
-                  UserLabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            userLabels__ = input.readMessage(
-                UserLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            userLabels_.getMutableMap().put(
-                userLabels__.getKey(), userLabels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.MonitoredResourceProto.internal_static_google_api_MonitoredResourceMetadata_descriptor;
@@ -189,7 +123,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getSystemLabelsOrBuilder() {
-    return getSystemLabels();
+    return systemLabels_ == null ? com.google.protobuf.Struct.getDefaultInstance() : systemLabels_;
   }
 
   public static final int USER_LABELS_FIELD_NUMBER = 2;
@@ -204,6 +138,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> userLabels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -214,7 +149,6 @@ private static final long serialVersionUID = 0L;
     }
     return userLabels_;
   }
-
   public int getUserLabelsCount() {
     return internalGetUserLabels().getMap().size();
   }
@@ -225,7 +159,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; user_labels = 2;</code>
    */
-
   @java.lang.Override
   public boolean containsUserLabels(
       java.lang.String key) {
@@ -248,7 +181,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_labels = 2;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getUserLabelsMap() {
     return internalGetUserLabels().getMap();
   }
@@ -260,10 +192,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_labels = 2;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getUserLabelsOrDefault(
+  public /* nullable */
+java.lang.String getUserLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetUserLabels().getMap();
@@ -277,7 +210,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; user_labels = 2;</code>
    */
   @java.lang.Override
-
   public java.lang.String getUserLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -312,7 +244,7 @@ private static final long serialVersionUID = 0L;
         internalGetUserLabels(),
         UserLabelsDefaultEntryHolder.defaultEntry,
         2);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -335,7 +267,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, userLabels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -357,7 +289,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!internalGetUserLabels().equals(
         other.internalGetUserLabels())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -376,7 +308,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + USER_LABELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetUserLabels().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -524,26 +456,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.MonitoredResourceMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (systemLabelsBuilder_ == null) {
-        systemLabels_ = null;
-      } else {
-        systemLabels_ = null;
+      bitField0_ = 0;
+      systemLabels_ = null;
+      if (systemLabelsBuilder_ != null) {
+        systemLabelsBuilder_.dispose();
         systemLabelsBuilder_ = null;
       }
       internalGetMutableUserLabels().clear();
@@ -573,16 +500,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.MonitoredResourceMetadata buildPartial() {
       com.google.api.MonitoredResourceMetadata result = new com.google.api.MonitoredResourceMetadata(this);
-      int from_bitField0_ = bitField0_;
-      if (systemLabelsBuilder_ == null) {
-        result.systemLabels_ = systemLabels_;
-      } else {
-        result.systemLabels_ = systemLabelsBuilder_.build();
-      }
-      result.userLabels_ = internalGetUserLabels();
-      result.userLabels_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.MonitoredResourceMetadata result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.systemLabels_ = systemLabelsBuilder_ == null
+            ? systemLabels_
+            : systemLabelsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userLabels_ = internalGetUserLabels();
+        result.userLabels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -634,7 +567,8 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableUserLabels().mergeFrom(
           other.internalGetUserLabels());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000002;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -649,17 +583,46 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.MonitoredResourceMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getSystemLabelsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              userLabels__ = input.readMessage(
+                  UserLabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUserLabels().getMutableMap().put(
+                  userLabels__.getKey(), userLabels__.getValue());
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.MonitoredResourceMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -684,7 +647,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the systemLabels field is set.
      */
     public boolean hasSystemLabels() {
-      return systemLabelsBuilder_ != null || systemLabels_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -730,11 +693,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         systemLabels_ = value;
-        onChanged();
       } else {
         systemLabelsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -756,11 +719,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (systemLabelsBuilder_ == null) {
         systemLabels_ = builderForValue.build();
-        onChanged();
       } else {
         systemLabelsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -780,17 +743,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSystemLabels(com.google.protobuf.Struct value) {
       if (systemLabelsBuilder_ == null) {
-        if (systemLabels_ != null) {
-          systemLabels_ =
-            com.google.protobuf.Struct.newBuilder(systemLabels_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          systemLabels_ != null &&
+          systemLabels_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getSystemLabelsBuilder().mergeFrom(value);
         } else {
           systemLabels_ = value;
         }
-        onChanged();
       } else {
         systemLabelsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -809,14 +773,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct system_labels = 1;</code>
      */
     public Builder clearSystemLabels() {
-      if (systemLabelsBuilder_ == null) {
-        systemLabels_ = null;
-        onChanged();
-      } else {
-        systemLabels_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      systemLabels_ = null;
+      if (systemLabelsBuilder_ != null) {
+        systemLabelsBuilder_.dispose();
         systemLabelsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -835,7 +798,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct system_labels = 1;</code>
      */
     public com.google.protobuf.Struct.Builder getSystemLabelsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getSystemLabelsFieldBuilder().getBuilder();
     }
@@ -894,7 +857,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> userLabels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetUserLabels() {
+        internalGetUserLabels() {
       if (userLabels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             UserLabelsDefaultEntryHolder.defaultEntry);
@@ -902,8 +865,7 @@ private static final long serialVersionUID = 0L;
       return userLabels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableUserLabels() {
-      onChanged();;
+        internalGetMutableUserLabels() {
       if (userLabels_ == null) {
         userLabels_ = com.google.protobuf.MapField.newMapField(
             UserLabelsDefaultEntryHolder.defaultEntry);
@@ -911,9 +873,10 @@ private static final long serialVersionUID = 0L;
       if (!userLabels_.isMutable()) {
         userLabels_ = userLabels_.copy();
       }
+      bitField0_ |= 0x00000002;
+      onChanged();
       return userLabels_;
     }
-
     public int getUserLabelsCount() {
       return internalGetUserLabels().getMap().size();
     }
@@ -924,7 +887,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_labels = 2;</code>
      */
-
     @java.lang.Override
     public boolean containsUserLabels(
         java.lang.String key) {
@@ -947,7 +909,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_labels = 2;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getUserLabelsMap() {
       return internalGetUserLabels().getMap();
     }
@@ -959,10 +920,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_labels = 2;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getUserLabelsOrDefault(
+    public /* nullable */
+java.lang.String getUserLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetUserLabels().getMap();
@@ -976,7 +938,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; user_labels = 2;</code>
      */
     @java.lang.Override
-
     public java.lang.String getUserLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -987,8 +948,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearUserLabels() {
+      bitField0_ = (bitField0_ & ~0x00000002);
       internalGetMutableUserLabels().getMutableMap()
           .clear();
       return this;
@@ -1000,7 +961,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_labels = 2;</code>
      */
-
     public Builder removeUserLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1013,7 +973,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableUserLabels() {
+        getMutableUserLabels() {
+      bitField0_ |= 0x00000002;
       return internalGetMutableUserLabels().getMutableMap();
     }
     /**
@@ -1027,12 +988,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableUserLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000002;
       return this;
     }
     /**
@@ -1042,11 +1001,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; user_labels = 2;</code>
      */
-
     public Builder putAllUserLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableUserLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000002;
       return this;
     }
     @java.lang.Override
@@ -1082,7 +1041,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MonitoredResourceMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

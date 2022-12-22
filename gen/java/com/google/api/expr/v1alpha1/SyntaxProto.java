@@ -100,7 +100,7 @@ public final class SyntaxProto {
       "\"u\n\nParsedExpr\022,\n\004expr\030\002 \001(\0132\036.google.ap" +
       "i.expr.v1alpha1.Expr\0229\n\013source_info\030\003 \001(" +
       "\0132$.google.api.expr.v1alpha1.SourceInfo\"" +
-      "\305\n\n\004Expr\022\n\n\002id\030\002 \001(\003\0228\n\nconst_expr\030\003 \001(\013" +
+      "\367\n\n\004Expr\022\n\n\002id\030\002 \001(\003\0228\n\nconst_expr\030\003 \001(\013" +
       "2\".google.api.expr.v1alpha1.ConstantH\000\022:" +
       "\n\nident_expr\030\004 \001(\0132$.google.api.expr.v1a" +
       "lpha1.Expr.IdentH\000\022<\n\013select_expr\030\005 \001(\0132" +
@@ -117,46 +117,47 @@ public final class SyntaxProto {
       "\001(\t\022\021\n\ttest_only\030\003 \001(\010\032v\n\004Call\022.\n\006target" +
       "\030\001 \001(\0132\036.google.api.expr.v1alpha1.Expr\022\020" +
       "\n\010function\030\002 \001(\t\022,\n\004args\030\003 \003(\0132\036.google." +
-      "api.expr.v1alpha1.Expr\032>\n\nCreateList\0220\n\010" +
+      "api.expr.v1alpha1.Expr\032X\n\nCreateList\0220\n\010" +
       "elements\030\001 \003(\0132\036.google.api.expr.v1alpha" +
-      "1.Expr\032\201\002\n\014CreateStruct\022\024\n\014message_name\030" +
-      "\001 \001(\t\022B\n\007entries\030\002 \003(\01321.google.api.expr" +
-      ".v1alpha1.Expr.CreateStruct.Entry\032\226\001\n\005En" +
-      "try\022\n\n\002id\030\001 \001(\003\022\023\n\tfield_key\030\002 \001(\tH\000\0221\n\007" +
-      "map_key\030\003 \001(\0132\036.google.api.expr.v1alpha1" +
-      ".ExprH\000\022-\n\005value\030\004 \001(\0132\036.google.api.expr" +
-      ".v1alpha1.ExprB\n\n\010key_kind\032\265\002\n\rComprehen" +
-      "sion\022\020\n\010iter_var\030\001 \001(\t\0222\n\niter_range\030\002 \001" +
-      "(\0132\036.google.api.expr.v1alpha1.Expr\022\020\n\010ac" +
-      "cu_var\030\003 \001(\t\0221\n\taccu_init\030\004 \001(\0132\036.google" +
-      ".api.expr.v1alpha1.Expr\0226\n\016loop_conditio" +
-      "n\030\005 \001(\0132\036.google.api.expr.v1alpha1.Expr\022" +
-      "1\n\tloop_step\030\006 \001(\0132\036.google.api.expr.v1a" +
-      "lpha1.Expr\022.\n\006result\030\007 \001(\0132\036.google.api." +
-      "expr.v1alpha1.ExprB\013\n\texpr_kind\"\315\002\n\010Cons" +
-      "tant\0220\n\nnull_value\030\001 \001(\0162\032.google.protob" +
-      "uf.NullValueH\000\022\024\n\nbool_value\030\002 \001(\010H\000\022\025\n\013" +
-      "int64_value\030\003 \001(\003H\000\022\026\n\014uint64_value\030\004 \001(" +
-      "\004H\000\022\026\n\014double_value\030\005 \001(\001H\000\022\026\n\014string_va" +
-      "lue\030\006 \001(\tH\000\022\025\n\013bytes_value\030\007 \001(\014H\000\0227\n\016du" +
-      "ration_value\030\010 \001(\0132\031.google.protobuf.Dur" +
-      "ationB\002\030\001H\000\0229\n\017timestamp_value\030\t \001(\0132\032.g" +
-      "oogle.protobuf.TimestampB\002\030\001H\000B\017\n\rconsta" +
-      "nt_kind\"\344\002\n\nSourceInfo\022\026\n\016syntax_version" +
-      "\030\001 \001(\t\022\020\n\010location\030\002 \001(\t\022\024\n\014line_offsets" +
-      "\030\003 \003(\005\022F\n\tpositions\030\004 \003(\01323.google.api.e" +
-      "xpr.v1alpha1.SourceInfo.PositionsEntry\022I" +
-      "\n\013macro_calls\030\005 \003(\01324.google.api.expr.v1" +
-      "alpha1.SourceInfo.MacroCallsEntry\0320\n\016Pos" +
-      "itionsEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005value\030\002 \001(\005:" +
-      "\0028\001\032Q\n\017MacroCallsEntry\022\013\n\003key\030\001 \001(\003\022-\n\005v" +
-      "alue\030\002 \001(\0132\036.google.api.expr.v1alpha1.Ex" +
-      "pr:\0028\001\"P\n\016SourcePosition\022\020\n\010location\030\001 \001" +
-      "(\t\022\016\n\006offset\030\002 \001(\005\022\014\n\004line\030\003 \001(\005\022\016\n\006colu" +
-      "mn\030\004 \001(\005Bn\n\034com.google.api.expr.v1alpha1" +
-      "B\013SyntaxProtoP\001Z<google.golang.org/genpr" +
-      "oto/googleapis/api/expr/v1alpha1;expr\370\001\001" +
-      "b\006proto3"
+      "1.Expr\022\030\n\020optional_indices\030\002 \003(\005\032\231\002\n\014Cre" +
+      "ateStruct\022\024\n\014message_name\030\001 \001(\t\022B\n\007entri" +
+      "es\030\002 \003(\01321.google.api.expr.v1alpha1.Expr" +
+      ".CreateStruct.Entry\032\256\001\n\005Entry\022\n\n\002id\030\001 \001(" +
+      "\003\022\023\n\tfield_key\030\002 \001(\tH\000\0221\n\007map_key\030\003 \001(\0132" +
+      "\036.google.api.expr.v1alpha1.ExprH\000\022-\n\005val" +
+      "ue\030\004 \001(\0132\036.google.api.expr.v1alpha1.Expr" +
+      "\022\026\n\016optional_entry\030\005 \001(\010B\n\n\010key_kind\032\265\002\n" +
+      "\rComprehension\022\020\n\010iter_var\030\001 \001(\t\0222\n\niter" +
+      "_range\030\002 \001(\0132\036.google.api.expr.v1alpha1." +
+      "Expr\022\020\n\010accu_var\030\003 \001(\t\0221\n\taccu_init\030\004 \001(" +
+      "\0132\036.google.api.expr.v1alpha1.Expr\0226\n\016loo" +
+      "p_condition\030\005 \001(\0132\036.google.api.expr.v1al" +
+      "pha1.Expr\0221\n\tloop_step\030\006 \001(\0132\036.google.ap" +
+      "i.expr.v1alpha1.Expr\022.\n\006result\030\007 \001(\0132\036.g" +
+      "oogle.api.expr.v1alpha1.ExprB\013\n\texpr_kin" +
+      "d\"\315\002\n\010Constant\0220\n\nnull_value\030\001 \001(\0162\032.goo" +
+      "gle.protobuf.NullValueH\000\022\024\n\nbool_value\030\002" +
+      " \001(\010H\000\022\025\n\013int64_value\030\003 \001(\003H\000\022\026\n\014uint64_" +
+      "value\030\004 \001(\004H\000\022\026\n\014double_value\030\005 \001(\001H\000\022\026\n" +
+      "\014string_value\030\006 \001(\tH\000\022\025\n\013bytes_value\030\007 \001" +
+      "(\014H\000\0227\n\016duration_value\030\010 \001(\0132\031.google.pr" +
+      "otobuf.DurationB\002\030\001H\000\0229\n\017timestamp_value" +
+      "\030\t \001(\0132\032.google.protobuf.TimestampB\002\030\001H\000" +
+      "B\017\n\rconstant_kind\"\344\002\n\nSourceInfo\022\026\n\016synt" +
+      "ax_version\030\001 \001(\t\022\020\n\010location\030\002 \001(\t\022\024\n\014li" +
+      "ne_offsets\030\003 \003(\005\022F\n\tpositions\030\004 \003(\01323.go" +
+      "ogle.api.expr.v1alpha1.SourceInfo.Positi" +
+      "onsEntry\022I\n\013macro_calls\030\005 \003(\01324.google.a" +
+      "pi.expr.v1alpha1.SourceInfo.MacroCallsEn" +
+      "try\0320\n\016PositionsEntry\022\013\n\003key\030\001 \001(\003\022\r\n\005va" +
+      "lue\030\002 \001(\005:\0028\001\032Q\n\017MacroCallsEntry\022\013\n\003key\030" +
+      "\001 \001(\003\022-\n\005value\030\002 \001(\0132\036.google.api.expr.v" +
+      "1alpha1.Expr:\0028\001\"P\n\016SourcePosition\022\020\n\010lo" +
+      "cation\030\001 \001(\t\022\016\n\006offset\030\002 \001(\005\022\014\n\004line\030\003 \001" +
+      "(\005\022\016\n\006column\030\004 \001(\005Bn\n\034com.google.api.exp" +
+      "r.v1alpha1B\013SyntaxProtoP\001Z<google.golang" +
+      ".org/genproto/googleapis/api/expr/v1alph" +
+      "a1;expr\370\001\001b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -200,7 +201,7 @@ public final class SyntaxProto {
     internal_static_google_api_expr_v1alpha1_Expr_CreateList_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_api_expr_v1alpha1_Expr_CreateList_descriptor,
-        new java.lang.String[] { "Elements", });
+        new java.lang.String[] { "Elements", "OptionalIndices", });
     internal_static_google_api_expr_v1alpha1_Expr_CreateStruct_descriptor =
       internal_static_google_api_expr_v1alpha1_Expr_descriptor.getNestedTypes().get(4);
     internal_static_google_api_expr_v1alpha1_Expr_CreateStruct_fieldAccessorTable = new
@@ -212,7 +213,7 @@ public final class SyntaxProto {
     internal_static_google_api_expr_v1alpha1_Expr_CreateStruct_Entry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_api_expr_v1alpha1_Expr_CreateStruct_Entry_descriptor,
-        new java.lang.String[] { "Id", "FieldKey", "MapKey", "Value", "KeyKind", });
+        new java.lang.String[] { "Id", "FieldKey", "MapKey", "Value", "OptionalEntry", "KeyKind", });
     internal_static_google_api_expr_v1alpha1_Expr_Comprehension_descriptor =
       internal_static_google_api_expr_v1alpha1_Expr_descriptor.getNestedTypes().get(5);
     internal_static_google_api_expr_v1alpha1_Expr_Comprehension_fieldAccessorTable = new

@@ -41,7 +41,7 @@ public final class ProductProto {
       "promotion.proto\032\036google/protobuf/duratio" +
       "n.proto\032 google/protobuf/field_mask.prot" +
       "o\032\037google/protobuf/timestamp.proto\032\036goog" +
-      "le/protobuf/wrappers.proto\"\277\r\n\007Product\0221" +
+      "le/protobuf/wrappers.proto\"\217\016\n\007Product\0221" +
       "\n\013expire_time\030\020 \001(\0132\032.google.protobuf.Ti" +
       "mestampH\000\022-\n\003ttl\030\021 \001(\0132\031.google.protobuf" +
       ".DurationB\003\340A\004H\000\022\021\n\004name\030\001 \001(\tB\003\340A\005\022\017\n\002i" +
@@ -71,10 +71,12 @@ public final class ProductProto {
       "s\030\034 \003(\t\022\022\n\nconditions\030\035 \003(\t\0229\n\npromotion" +
       "s\030\" \003(\0132%.google.cloud.retail.v2beta.Pro" +
       "motion\0220\n\014publish_time\030! \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\0226\n\022retrievable_fields\030\036" +
-      " \001(\0132\032.google.protobuf.FieldMask\022:\n\010vari" +
-      "ants\030\037 \003(\0132#.google.cloud.retail.v2beta." +
-      "ProductB\003\340A\003\032^\n\017AttributesEntry\022\013\n\003key\030\001" +
+      "otobuf.Timestamp\022:\n\022retrievable_fields\030\036" +
+      " \001(\0132\032.google.protobuf.FieldMaskB\002\030\001\022:\n\010" +
+      "variants\030\037 \003(\0132#.google.cloud.retail.v2b" +
+      "eta.ProductB\003\340A\003\022J\n\021local_inventories\030# " +
+      "\003(\0132*.google.cloud.retail.v2beta.LocalIn" +
+      "ventoryB\003\340A\003\032^\n\017AttributesEntry\022\013\n\003key\030\001" +
       " \001(\t\022:\n\005value\030\002 \001(\0132+.google.cloud.retai" +
       "l.v2beta.CustomAttribute:\0028\001\"F\n\004Type\022\024\n\020" +
       "TYPE_UNSPECIFIED\020\000\022\013\n\007PRIMARY\020\001\022\013\n\007VARIA" +
@@ -112,7 +114,7 @@ public final class ProductProto {
     internal_static_google_cloud_retail_v2beta_Product_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_google_cloud_retail_v2beta_Product_descriptor,
-        new java.lang.String[] { "ExpireTime", "Ttl", "Name", "Id", "Type", "PrimaryProductId", "CollectionMemberIds", "Gtin", "Categories", "Title", "Brands", "Description", "LanguageCode", "Attributes", "Tags", "PriceInfo", "Rating", "AvailableTime", "Availability", "AvailableQuantity", "FulfillmentInfo", "Uri", "Images", "Audience", "ColorInfo", "Sizes", "Materials", "Patterns", "Conditions", "Promotions", "PublishTime", "RetrievableFields", "Variants", "Expiration", });
+        new java.lang.String[] { "ExpireTime", "Ttl", "Name", "Id", "Type", "PrimaryProductId", "CollectionMemberIds", "Gtin", "Categories", "Title", "Brands", "Description", "LanguageCode", "Attributes", "Tags", "PriceInfo", "Rating", "AvailableTime", "Availability", "AvailableQuantity", "FulfillmentInfo", "Uri", "Images", "Audience", "ColorInfo", "Sizes", "Materials", "Patterns", "Conditions", "Promotions", "PublishTime", "RetrievableFields", "Variants", "LocalInventories", "Expiration", });
     internal_static_google_cloud_retail_v2beta_Product_AttributesEntry_descriptor =
       internal_static_google_cloud_retail_v2beta_Product_descriptor.getNestedTypes().get(0);
     internal_static_google_cloud_retail_v2beta_Product_AttributesEntry_fieldAccessorTable = new

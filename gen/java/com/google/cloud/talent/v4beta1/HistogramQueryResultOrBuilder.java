@@ -94,7 +94,6 @@ public interface HistogramQueryResultOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; histogram = 2;</code>
    */
-
   long getHistogramOrDefault(
       java.lang.String key,
       long defaultValue);
@@ -112,7 +111,6 @@ public interface HistogramQueryResultOrBuilder extends
    *
    * <code>map&lt;string, int64&gt; histogram = 2;</code>
    */
-
   long getHistogramOrThrow(
       java.lang.String key);
 }

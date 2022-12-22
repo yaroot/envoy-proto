@@ -21,10 +21,10 @@ package com.google.api;
  *        unit: "1/min/{project}"  # rate limit for consumer projects
  *        values:
  *          STANDARD: 10000
- *      # The metric rules bind all methods to the read_calls metric,
- *      # except for the UpdateBook and DeleteBook methods. These two methods
- *      # are mapped to the write_calls metric, with the UpdateBook method
- *      # consuming at twice rate as the DeleteBook method.
+ *      (The metric rules bind all methods to the read_calls metric,
+ *       except for the UpdateBook and DeleteBook methods. These two methods
+ *       are mapped to the write_calls metric, with the UpdateBook method
+ *       consuming at twice rate as the DeleteBook method.)
  *      metric_rules:
  *      - selector: "*"
  *        metric_costs:
@@ -75,70 +75,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Quota(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              limits_ = new java.util.ArrayList<com.google.api.QuotaLimit>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            limits_.add(
-                input.readMessage(com.google.api.QuotaLimit.parser(), extensionRegistry));
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              metricRules_ = new java.util.ArrayList<com.google.api.MetricRule>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            metricRules_.add(
-                input.readMessage(com.google.api.MetricRule.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        limits_ = java.util.Collections.unmodifiableList(limits_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        metricRules_ = java.util.Collections.unmodifiableList(metricRules_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.QuotaProto.internal_static_google_api_Quota_descriptor;
@@ -153,10 +89,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LIMITS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.QuotaLimit> limits_;
   /**
    * <pre>
-   * List of `QuotaLimit` definitions for the service.
+   * List of QuotaLimit definitions for the service.
    * </pre>
    *
    * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -167,7 +104,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `QuotaLimit` definitions for the service.
+   * List of QuotaLimit definitions for the service.
    * </pre>
    *
    * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -179,7 +116,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `QuotaLimit` definitions for the service.
+   * List of QuotaLimit definitions for the service.
    * </pre>
    *
    * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -190,7 +127,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `QuotaLimit` definitions for the service.
+   * List of QuotaLimit definitions for the service.
    * </pre>
    *
    * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -201,7 +138,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `QuotaLimit` definitions for the service.
+   * List of QuotaLimit definitions for the service.
    * </pre>
    *
    * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -213,10 +150,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int METRIC_RULES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.api.MetricRule> metricRules_;
   /**
    * <pre>
-   * List of `MetricRule` definitions, each one mapping a selected method to one
+   * List of MetricRule definitions, each one mapping a selected method to one
    * or more metrics.
    * </pre>
    *
@@ -228,7 +166,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `MetricRule` definitions, each one mapping a selected method to one
+   * List of MetricRule definitions, each one mapping a selected method to one
    * or more metrics.
    * </pre>
    *
@@ -241,7 +179,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `MetricRule` definitions, each one mapping a selected method to one
+   * List of MetricRule definitions, each one mapping a selected method to one
    * or more metrics.
    * </pre>
    *
@@ -253,7 +191,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `MetricRule` definitions, each one mapping a selected method to one
+   * List of MetricRule definitions, each one mapping a selected method to one
    * or more metrics.
    * </pre>
    *
@@ -265,7 +203,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * List of `MetricRule` definitions, each one mapping a selected method to one
+   * List of MetricRule definitions, each one mapping a selected method to one
    * or more metrics.
    * </pre>
    *
@@ -297,7 +235,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < metricRules_.size(); i++) {
       output.writeMessage(4, metricRules_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -314,7 +252,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, metricRules_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -333,7 +271,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLimitsList())) return false;
     if (!getMetricRulesList()
         .equals(other.getMetricRulesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -352,7 +290,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + METRIC_RULES_FIELD_NUMBER;
       hash = (53 * hash) + getMetricRulesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -465,10 +403,10 @@ private static final long serialVersionUID = 0L;
    *        unit: "1/min/{project}"  # rate limit for consumer projects
    *        values:
    *          STANDARD: 10000
-   *      # The metric rules bind all methods to the read_calls metric,
-   *      # except for the UpdateBook and DeleteBook methods. These two methods
-   *      # are mapped to the write_calls metric, with the UpdateBook method
-   *      # consuming at twice rate as the DeleteBook method.
+   *      (The metric rules bind all methods to the read_calls metric,
+   *       except for the UpdateBook and DeleteBook methods. These two methods
+   *       are mapped to the write_calls metric, with the UpdateBook method
+   *       consuming at twice rate as the DeleteBook method.)
    *      metric_rules:
    *      - selector: "*"
    *        metric_costs:
@@ -512,36 +450,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.Quota.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getLimitsFieldBuilder();
-        getMetricRulesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (limitsBuilder_ == null) {
         limits_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        limits_ = null;
         limitsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       if (metricRulesBuilder_ == null) {
         metricRules_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        metricRules_ = null;
         metricRulesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -568,7 +502,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.Quota buildPartial() {
       com.google.api.Quota result = new com.google.api.Quota(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.api.Quota result) {
       if (limitsBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           limits_ = java.util.Collections.unmodifiableList(limits_);
@@ -587,8 +527,10 @@ private static final long serialVersionUID = 0L;
       } else {
         result.metricRules_ = metricRulesBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.api.Quota result) {
+      int from_bitField0_ = bitField0_;
     }
 
     @java.lang.Override
@@ -687,7 +629,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -702,17 +644,56 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.Quota parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              com.google.api.QuotaLimit m =
+                  input.readMessage(
+                      com.google.api.QuotaLimit.parser(),
+                      extensionRegistry);
+              if (limitsBuilder_ == null) {
+                ensureLimitsIsMutable();
+                limits_.add(m);
+              } else {
+                limitsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 34: {
+              com.google.api.MetricRule m =
+                  input.readMessage(
+                      com.google.api.MetricRule.parser(),
+                      extensionRegistry);
+              if (metricRulesBuilder_ == null) {
+                ensureMetricRulesIsMutable();
+                metricRules_.add(m);
+              } else {
+                metricRulesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.Quota) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -731,7 +712,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -745,7 +726,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -759,7 +740,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -773,7 +754,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -794,7 +775,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -812,7 +793,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -832,7 +813,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -853,7 +834,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -871,7 +852,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -889,7 +870,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -908,7 +889,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -925,7 +906,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -942,7 +923,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -953,7 +934,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -967,7 +948,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -982,7 +963,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -993,7 +974,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -1005,7 +986,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `QuotaLimit` definitions for the service.
+     * List of QuotaLimit definitions for the service.
      * </pre>
      *
      * <code>repeated .google.api.QuotaLimit limits = 3;</code>
@@ -1043,7 +1024,7 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1058,7 +1039,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1073,7 +1054,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1088,7 +1069,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1110,7 +1091,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1129,7 +1110,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1150,7 +1131,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1172,7 +1153,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1191,7 +1172,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1210,7 +1191,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1230,7 +1211,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1248,7 +1229,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1266,7 +1247,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1278,7 +1259,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1293,7 +1274,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1309,7 +1290,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1321,7 +1302,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1334,7 +1315,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * List of `MetricRule` definitions, each one mapping a selected method to one
+     * List of MetricRule definitions, each one mapping a selected method to one
      * or more metrics.
      * </pre>
      *
@@ -1391,7 +1372,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Quota(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

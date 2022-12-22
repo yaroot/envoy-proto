@@ -39,56 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FractionalPercent(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            numerator_ = input.readUInt32();
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            denominator_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.type.v3.PercentProto.internal_static_envoy_type_v3_FractionalPercent_descriptor;
@@ -254,7 +204,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NUMERATOR_FIELD_NUMBER = 1;
-  private int numerator_;
+  private int numerator_ = 0;
   /**
    * <pre>
    * Specifies the numerator. Defaults to 0.
@@ -269,7 +219,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DENOMINATOR_FIELD_NUMBER = 2;
-  private int denominator_;
+  private int denominator_ = 0;
   /**
    * <pre>
    * Specifies the denominator. If the denominator specified is less than the numerator, the final
@@ -292,8 +242,7 @@ private static final long serialVersionUID = 0L;
    * @return The denominator.
    */
   @java.lang.Override public io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType getDenominator() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType result = io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.valueOf(denominator_);
+    io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType result = io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.forNumber(denominator_);
     return result == null ? io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.UNRECOGNIZED : result;
   }
 
@@ -317,7 +266,7 @@ private static final long serialVersionUID = 0L;
     if (denominator_ != io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.HUNDRED.getNumber()) {
       output.writeEnum(2, denominator_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -334,7 +283,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(2, denominator_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -352,7 +301,7 @@ private static final long serialVersionUID = 0L;
     if (getNumerator()
         != other.getNumerator()) return false;
     if (denominator_ != other.denominator_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -367,7 +316,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getNumerator();
     hash = (37 * hash) + DENOMINATOR_FIELD_NUMBER;
     hash = (53 * hash) + denominator_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -492,26 +441,20 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.type.v3.FractionalPercent.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       numerator_ = 0;
-
       denominator_ = 0;
-
       return this;
     }
 
@@ -538,10 +481,19 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.type.v3.FractionalPercent buildPartial() {
       io.envoyproxy.envoy.type.v3.FractionalPercent result = new io.envoyproxy.envoy.type.v3.FractionalPercent(this);
-      result.numerator_ = numerator_;
-      result.denominator_ = denominator_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.type.v3.FractionalPercent result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.numerator_ = numerator_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.denominator_ = denominator_;
+      }
     }
 
     @java.lang.Override
@@ -594,7 +546,7 @@ private static final long serialVersionUID = 0L;
       if (other.denominator_ != 0) {
         setDenominatorValue(other.getDenominatorValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -609,19 +561,43 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.type.v3.FractionalPercent parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              numerator_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              denominator_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.type.v3.FractionalPercent) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int numerator_ ;
     /**
@@ -648,6 +624,7 @@ private static final long serialVersionUID = 0L;
     public Builder setNumerator(int value) {
       
       numerator_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -660,7 +637,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNumerator() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       numerator_ = 0;
       onChanged();
       return this;
@@ -690,8 +667,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDenominatorValue(int value) {
-      
       denominator_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -706,8 +683,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType getDenominator() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType result = io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.valueOf(denominator_);
+      io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType result = io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.forNumber(denominator_);
       return result == null ? io.envoyproxy.envoy.type.v3.FractionalPercent.DenominatorType.UNRECOGNIZED : result;
     }
     /**
@@ -724,7 +700,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       denominator_ = value.getNumber();
       onChanged();
       return this;
@@ -739,7 +715,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDenominator() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       denominator_ = 0;
       onChanged();
       return this;
@@ -777,7 +753,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FractionalPercent(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

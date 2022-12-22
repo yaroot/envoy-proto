@@ -63,8 +63,9 @@ public interface TransitionAttributesOrBuilder extends
    * <pre>
    * A destination visit or vehicle end matches iff its
    * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-   * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+   * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+   * which of these two fields is non-empty).
    * </pre>
    *
    * <code>string dst_tag = 3;</code>
@@ -75,8 +76,9 @@ public interface TransitionAttributesOrBuilder extends
    * <pre>
    * A destination visit or vehicle end matches iff its
    * [VisitRequest.tags][google.cloud.optimization.v1.Shipment.VisitRequest.tags]
-   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either contains `dst_tag` or does not contain
-   * `excluded_dst_tag` (depending on which of these two fields is non-empty).
+   * or [Vehicle.end_tags][google.cloud.optimization.v1.Vehicle.end_tags] either
+   * contains `dst_tag` or does not contain `excluded_dst_tag` (depending on
+   * which of these two fields is non-empty).
    * </pre>
    *
    * <code>string dst_tag = 3;</code>
@@ -123,7 +125,8 @@ public interface TransitionAttributesOrBuilder extends
    * <pre>
    * Specifies a cost per kilometer applied to the distance traveled while
    * performing this transition. It adds up to any
-   * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer] specified on vehicles.
+   * [Vehicle.cost_per_kilometer][google.cloud.optimization.v1.Vehicle.cost_per_kilometer]
+   * specified on vehicles.
    * </pre>
    *
    * <code>double cost_per_kilometer = 6;</code>

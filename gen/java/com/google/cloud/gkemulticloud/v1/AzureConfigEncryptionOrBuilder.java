@@ -9,7 +9,8 @@ public interface AzureConfigEncryptionOrBuilder extends
 
   /**
    * <pre>
-   * Required. The ARM ID of the Azure Key Vault key to encrypt / decrypt config data.
+   * Required. The ARM ID of the Azure Key Vault key to encrypt / decrypt config
+   * data.
    * For example:
    * `/subscriptions/&lt;subscription-id&gt;/resourceGroups/&lt;resource-group-id&gt;/providers/Microsoft.KeyVault/vaults/&lt;key-vault-id&gt;/keys/&lt;key-name&gt;`
    * </pre>
@@ -20,7 +21,8 @@ public interface AzureConfigEncryptionOrBuilder extends
   java.lang.String getKeyId();
   /**
    * <pre>
-   * Required. The ARM ID of the Azure Key Vault key to encrypt / decrypt config data.
+   * Required. The ARM ID of the Azure Key Vault key to encrypt / decrypt config
+   * data.
    * For example:
    * `/subscriptions/&lt;subscription-id&gt;/resourceGroups/&lt;resource-group-id&gt;/providers/Microsoft.KeyVault/vaults/&lt;key-vault-id&gt;/keys/&lt;key-name&gt;`
    * </pre>
@@ -33,7 +35,8 @@ public interface AzureConfigEncryptionOrBuilder extends
 
   /**
    * <pre>
-   * Optional. RSA key of the Azure Key Vault public key to use for encrypting the data.
+   * Optional. RSA key of the Azure Key Vault public key to use for encrypting
+   * the data.
    * This key must be formatted as a PEM-encoded SubjectPublicKeyInfo (RFC 5280)
    * in ASN.1 DER form. The string must be comprised of a single PEM block of
    * type "PUBLIC KEY".
@@ -45,7 +48,8 @@ public interface AzureConfigEncryptionOrBuilder extends
   java.lang.String getPublicKey();
   /**
    * <pre>
-   * Optional. RSA key of the Azure Key Vault public key to use for encrypting the data.
+   * Optional. RSA key of the Azure Key Vault public key to use for encrypting
+   * the data.
    * This key must be formatted as a PEM-encoded SubjectPublicKeyInfo (RFC 5280)
    * in ASN.1 DER form. The string must be comprised of a single PEM block of
    * type "PUBLIC KEY".

@@ -37,90 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LocalInventory(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            placeId_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.retail.v2alpha.PriceInfo.Builder subBuilder = null;
-            if (priceInfo_ != null) {
-              subBuilder = priceInfo_.toBuilder();
-            }
-            priceInfo_ = input.readMessage(com.google.cloud.retail.v2alpha.PriceInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(priceInfo_);
-              priceInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              attributes_ = com.google.protobuf.MapField.newMapField(
-                  AttributesDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute>
-            attributes__ = input.readMessage(
-                AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            attributes_.getMutableMap().put(
-                attributes__.getKey(), attributes__.getValue());
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              fulfillmentTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            fulfillmentTypes_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        fulfillmentTypes_ = fulfillmentTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2alpha.CommonProto.internal_static_google_cloud_retail_v2alpha_LocalInventory_descriptor;
@@ -147,7 +63,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLACE_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object placeId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object placeId_ = "";
   /**
    * <pre>
    * The place ID for the current set of inventory information.
@@ -233,7 +150,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2alpha.PriceInfoOrBuilder getPriceInfoOrBuilder() {
-    return getPriceInfo();
+    return priceInfo_ == null ? com.google.cloud.retail.v2alpha.PriceInfo.getDefaultInstance() : priceInfo_;
   }
 
   public static final int ATTRIBUTES_FIELD_NUMBER = 3;
@@ -248,6 +165,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.retail.v2alpha.CustomAttribute.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> attributes_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute>
@@ -258,7 +176,6 @@ private static final long serialVersionUID = 0L;
     }
     return attributes_;
   }
-
   public int getAttributesCount() {
     return internalGetAttributes().getMap().size();
   }
@@ -284,7 +201,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
    */
-
   @java.lang.Override
   public boolean containsAttributes(
       java.lang.String key) {
@@ -322,7 +238,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> getAttributesMap() {
     return internalGetAttributes().getMap();
   }
@@ -349,10 +264,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrDefault(
+  public /* nullable */
+com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrDefault(
       java.lang.String key,
-      com.google.cloud.retail.v2alpha.CustomAttribute defaultValue) {
+      /* nullable */
+com.google.cloud.retail.v2alpha.CustomAttribute defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> map =
         internalGetAttributes().getMap();
@@ -381,7 +297,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -394,6 +309,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FULFILLMENT_TYPES_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList fulfillmentTypes_;
   /**
    * <pre>
@@ -541,7 +457,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < fulfillmentTypes_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 4, fulfillmentTypes_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -575,7 +491,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getFulfillmentTypesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -601,7 +517,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetAttributes())) return false;
     if (!getFulfillmentTypesList()
         .equals(other.getFulfillmentTypesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -626,7 +542,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + FULFILLMENT_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + getFulfillmentTypesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -770,33 +686,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.LocalInventory.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       placeId_ = "";
-
-      if (priceInfoBuilder_ == null) {
-        priceInfo_ = null;
-      } else {
-        priceInfo_ = null;
+      priceInfo_ = null;
+      if (priceInfoBuilder_ != null) {
+        priceInfoBuilder_.dispose();
         priceInfoBuilder_ = null;
       }
       internalGetMutableAttributes().clear();
       fulfillmentTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -823,22 +733,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.LocalInventory buildPartial() {
       com.google.cloud.retail.v2alpha.LocalInventory result = new com.google.cloud.retail.v2alpha.LocalInventory(this);
-      int from_bitField0_ = bitField0_;
-      result.placeId_ = placeId_;
-      if (priceInfoBuilder_ == null) {
-        result.priceInfo_ = priceInfo_;
-      } else {
-        result.priceInfo_ = priceInfoBuilder_.build();
-      }
-      result.attributes_ = internalGetAttributes();
-      result.attributes_.makeImmutable();
-      if (((bitField0_ & 0x00000002) != 0)) {
-        fulfillmentTypes_ = fulfillmentTypes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.fulfillmentTypes_ = fulfillmentTypes_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.retail.v2alpha.LocalInventory result) {
+      if (((bitField0_ & 0x00000008) != 0)) {
+        fulfillmentTypes_ = fulfillmentTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.fulfillmentTypes_ = fulfillmentTypes_;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.LocalInventory result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.placeId_ = placeId_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.priceInfo_ = priceInfoBuilder_ == null
+            ? priceInfo_
+            : priceInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.attributes_ = internalGetAttributes();
+        result.attributes_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -887,6 +809,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2alpha.LocalInventory.getDefaultInstance()) return this;
       if (!other.getPlaceId().isEmpty()) {
         placeId_ = other.placeId_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasPriceInfo()) {
@@ -894,17 +817,18 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableAttributes().mergeFrom(
           other.internalGetAttributes());
+      bitField0_ |= 0x00000004;
       if (!other.fulfillmentTypes_.isEmpty()) {
         if (fulfillmentTypes_.isEmpty()) {
           fulfillmentTypes_ = other.fulfillmentTypes_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureFulfillmentTypesIsMutable();
           fulfillmentTypes_.addAll(other.fulfillmentTypes_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -919,17 +843,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.LocalInventory parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              placeId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPriceInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute>
+              attributes__ = input.readMessage(
+                  AttributesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAttributes().getMutableMap().put(
+                  attributes__.getKey(), attributes__.getValue());
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureFulfillmentTypesIsMutable();
+              fulfillmentTypes_.add(s);
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.LocalInventory) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -987,11 +951,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       placeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1004,8 +966,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlaceId() {
-      
       placeId_ = getDefaultInstance().getPlaceId();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1020,12 +982,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       placeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1044,7 +1004,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the priceInfo field is set.
      */
     public boolean hasPriceInfo() {
-      return priceInfoBuilder_ != null || priceInfo_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1078,11 +1038,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         priceInfo_ = value;
-        onChanged();
       } else {
         priceInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1098,11 +1058,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2alpha.PriceInfo.Builder builderForValue) {
       if (priceInfoBuilder_ == null) {
         priceInfo_ = builderForValue.build();
-        onChanged();
       } else {
         priceInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1116,17 +1076,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePriceInfo(com.google.cloud.retail.v2alpha.PriceInfo value) {
       if (priceInfoBuilder_ == null) {
-        if (priceInfo_ != null) {
-          priceInfo_ =
-            com.google.cloud.retail.v2alpha.PriceInfo.newBuilder(priceInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          priceInfo_ != null &&
+          priceInfo_ != com.google.cloud.retail.v2alpha.PriceInfo.getDefaultInstance()) {
+          getPriceInfoBuilder().mergeFrom(value);
         } else {
           priceInfo_ = value;
         }
-        onChanged();
       } else {
         priceInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1139,14 +1100,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.PriceInfo price_info = 2;</code>
      */
     public Builder clearPriceInfo() {
-      if (priceInfoBuilder_ == null) {
-        priceInfo_ = null;
-        onChanged();
-      } else {
-        priceInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      priceInfo_ = null;
+      if (priceInfoBuilder_ != null) {
+        priceInfoBuilder_.dispose();
         priceInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1159,7 +1119,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.PriceInfo price_info = 2;</code>
      */
     public com.google.cloud.retail.v2alpha.PriceInfo.Builder getPriceInfoBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPriceInfoFieldBuilder().getBuilder();
     }
@@ -1206,7 +1166,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> attributes_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute>
-    internalGetAttributes() {
+        internalGetAttributes() {
       if (attributes_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -1214,8 +1174,7 @@ private static final long serialVersionUID = 0L;
       return attributes_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute>
-    internalGetMutableAttributes() {
-      onChanged();;
+        internalGetMutableAttributes() {
       if (attributes_ == null) {
         attributes_ = com.google.protobuf.MapField.newMapField(
             AttributesDefaultEntryHolder.defaultEntry);
@@ -1223,9 +1182,10 @@ private static final long serialVersionUID = 0L;
       if (!attributes_.isMutable()) {
         attributes_ = attributes_.copy();
       }
+      bitField0_ |= 0x00000004;
+      onChanged();
       return attributes_;
     }
-
     public int getAttributesCount() {
       return internalGetAttributes().getMap().size();
     }
@@ -1251,7 +1211,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
      */
-
     @java.lang.Override
     public boolean containsAttributes(
         java.lang.String key) {
@@ -1289,7 +1248,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> getAttributesMap() {
       return internalGetAttributes().getMap();
     }
@@ -1316,10 +1274,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrDefault(
+    public /* nullable */
+com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrDefault(
         java.lang.String key,
-        com.google.cloud.retail.v2alpha.CustomAttribute defaultValue) {
+        /* nullable */
+com.google.cloud.retail.v2alpha.CustomAttribute defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> map =
           internalGetAttributes().getMap();
@@ -1348,7 +1307,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.retail.v2alpha.CustomAttribute getAttributesOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1359,8 +1317,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearAttributes() {
+      bitField0_ = (bitField0_ & ~0x00000004);
       internalGetMutableAttributes().getMutableMap()
           .clear();
       return this;
@@ -1387,7 +1345,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
      */
-
     public Builder removeAttributes(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -1400,7 +1357,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute>
-    getMutableAttributes() {
+        getMutableAttributes() {
+      bitField0_ |= 0x00000004;
       return internalGetMutableAttributes().getMutableMap();
     }
     /**
@@ -1429,12 +1387,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.retail.v2alpha.CustomAttribute value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableAttributes().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000004;
       return this;
     }
     /**
@@ -1459,19 +1415,19 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.retail.v2alpha.CustomAttribute&gt; attributes = 3;</code>
      */
-
     public Builder putAllAttributes(
         java.util.Map<java.lang.String, com.google.cloud.retail.v2alpha.CustomAttribute> values) {
       internalGetMutableAttributes().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000004;
       return this;
     }
 
     private com.google.protobuf.LazyStringList fulfillmentTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureFulfillmentTypesIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         fulfillmentTypes_ = new com.google.protobuf.LazyStringArrayList(fulfillmentTypes_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1619,10 +1575,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFulfillmentTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFulfillmentTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFulfillmentTypesIsMutable();
       fulfillmentTypes_.set(index, value);
       onChanged();
       return this;
@@ -1655,10 +1609,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFulfillmentTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureFulfillmentTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureFulfillmentTypesIsMutable();
       fulfillmentTypes_.add(value);
       onChanged();
       return this;
@@ -1724,7 +1676,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearFulfillmentTypes() {
       fulfillmentTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1756,10 +1708,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addFulfillmentTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureFulfillmentTypesIsMutable();
       fulfillmentTypes_.add(value);
       onChanged();
@@ -1798,7 +1748,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LocalInventory(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

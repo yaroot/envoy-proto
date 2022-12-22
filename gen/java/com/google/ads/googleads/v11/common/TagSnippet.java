@@ -38,70 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TagSnippet(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            pageFormat_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000001;
-            globalSiteTag_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000002;
-            eventSnippet_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v11.common.TagSnippetProto.internal_static_google_ads_googleads_v11_common_TagSnippet_descriptor;
@@ -117,7 +53,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * The type of the generated tag snippets for tracking conversions.
@@ -138,17 +74,16 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType result = com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType.valueOf(type_);
+    com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType result = com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType.forNumber(type_);
     return result == null ? com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType.UNRECOGNIZED : result;
   }
 
   public static final int PAGE_FORMAT_FIELD_NUMBER = 2;
-  private int pageFormat_;
+  private int pageFormat_ = 0;
   /**
    * <pre>
    * The format of the web page where the tracking tag and snippet will be
-   * installed, e.g. HTML.
+   * installed, for example, HTML.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
@@ -160,20 +95,20 @@ private static final long serialVersionUID = 0L;
   /**
    * <pre>
    * The format of the web page where the tracking tag and snippet will be
-   * installed, e.g. HTML.
+   * installed, for example, HTML.
    * </pre>
    *
    * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
    * @return The pageFormat.
    */
   @java.lang.Override public com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat getPageFormat() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat result = com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat.valueOf(pageFormat_);
+    com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat result = com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat.forNumber(pageFormat_);
     return result == null ? com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat.UNRECOGNIZED : result;
   }
 
   public static final int GLOBAL_SITE_TAG_FIELD_NUMBER = 5;
-  private volatile java.lang.Object globalSiteTag_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object globalSiteTag_ = "";
   /**
    * <pre>
    * The site tag that adds visitors to your basic remarketing lists and sets
@@ -234,7 +169,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int EVENT_SNIPPET_FIELD_NUMBER = 6;
-  private volatile java.lang.Object eventSnippet_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object eventSnippet_ = "";
   /**
    * <pre>
    * The event snippet that works with the site tag to track actions that
@@ -320,7 +256,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 6, eventSnippet_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -343,7 +279,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000002) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, eventSnippet_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -370,7 +306,7 @@ private static final long serialVersionUID = 0L;
       if (!getEventSnippet()
           .equals(other.getEventSnippet())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -393,7 +329,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + EVENT_SNIPPET_FIELD_NUMBER;
       hash = (53 * hash) + getEventSnippet().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -514,30 +450,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v11.common.TagSnippet.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
       pageFormat_ = 0;
-
       globalSiteTag_ = "";
-      bitField0_ = (bitField0_ & ~0x00000001);
       eventSnippet_ = "";
-      bitField0_ = (bitField0_ & ~0x00000002);
       return this;
     }
 
@@ -564,21 +492,29 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v11.common.TagSnippet buildPartial() {
       com.google.ads.googleads.v11.common.TagSnippet result = new com.google.ads.googleads.v11.common.TagSnippet(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
-      result.type_ = type_;
-      result.pageFormat_ = pageFormat_;
-      if (((from_bitField0_ & 0x00000001) != 0)) {
-        to_bitField0_ |= 0x00000001;
-      }
-      result.globalSiteTag_ = globalSiteTag_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        to_bitField0_ |= 0x00000002;
-      }
-      result.eventSnippet_ = eventSnippet_;
-      result.bitField0_ = to_bitField0_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v11.common.TagSnippet result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.pageFormat_ = pageFormat_;
+      }
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.globalSiteTag_ = globalSiteTag_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.eventSnippet_ = eventSnippet_;
+        to_bitField0_ |= 0x00000002;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -632,16 +568,16 @@ private static final long serialVersionUID = 0L;
         setPageFormatValue(other.getPageFormatValue());
       }
       if (other.hasGlobalSiteTag()) {
-        bitField0_ |= 0x00000001;
         globalSiteTag_ = other.globalSiteTag_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasEventSnippet()) {
-        bitField0_ |= 0x00000002;
         eventSnippet_ = other.eventSnippet_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -656,17 +592,50 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v11.common.TagSnippet parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              pageFormat_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 42: {
+              globalSiteTag_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 42
+            case 50: {
+              eventSnippet_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v11.common.TagSnippet) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -693,8 +662,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -708,8 +677,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType result = com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType.valueOf(type_);
+      com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType result = com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType.forNumber(type_);
       return result == null ? com.google.ads.googleads.v11.enums.TrackingCodeTypeEnum.TrackingCodeType.UNRECOGNIZED : result;
     }
     /**
@@ -725,7 +693,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -739,7 +707,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -749,7 +717,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The format of the web page where the tracking tag and snippet will be
-     * installed, e.g. HTML.
+     * installed, for example, HTML.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
@@ -761,7 +729,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The format of the web page where the tracking tag and snippet will be
-     * installed, e.g. HTML.
+     * installed, for example, HTML.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
@@ -769,15 +737,15 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPageFormatValue(int value) {
-      
       pageFormat_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * The format of the web page where the tracking tag and snippet will be
-     * installed, e.g. HTML.
+     * installed, for example, HTML.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
@@ -785,14 +753,13 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat getPageFormat() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat result = com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat.valueOf(pageFormat_);
+      com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat result = com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat.forNumber(pageFormat_);
       return result == null ? com.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat.UNRECOGNIZED : result;
     }
     /**
      * <pre>
      * The format of the web page where the tracking tag and snippet will be
-     * installed, e.g. HTML.
+     * installed, for example, HTML.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
@@ -803,7 +770,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       pageFormat_ = value.getNumber();
       onChanged();
       return this;
@@ -811,14 +778,14 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * The format of the web page where the tracking tag and snippet will be
-     * installed, e.g. HTML.
+     * installed, for example, HTML.
      * </pre>
      *
      * <code>.google.ads.googleads.v11.enums.TrackingCodePageFormatEnum.TrackingCodePageFormat page_format = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageFormat() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       pageFormat_ = 0;
       onChanged();
       return this;
@@ -835,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the globalSiteTag field is set.
      */
     public boolean hasGlobalSiteTag() {
-      return ((bitField0_ & 0x00000001) != 0);
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -892,11 +859,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGlobalSiteTag(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
       globalSiteTag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -910,8 +875,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearGlobalSiteTag() {
-      bitField0_ = (bitField0_ & ~0x00000001);
       globalSiteTag_ = getDefaultInstance().getGlobalSiteTag();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -927,12 +892,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGlobalSiteTagBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000001;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       globalSiteTag_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -948,7 +911,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the eventSnippet field is set.
      */
     public boolean hasEventSnippet() {
-      return ((bitField0_ & 0x00000002) != 0);
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1005,11 +968,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventSnippet(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
       eventSnippet_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1023,8 +984,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEventSnippet() {
-      bitField0_ = (bitField0_ & ~0x00000002);
       eventSnippet_ = getDefaultInstance().getEventSnippet();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1040,12 +1001,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setEventSnippetBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000002;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       eventSnippet_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1082,7 +1041,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TagSnippet(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

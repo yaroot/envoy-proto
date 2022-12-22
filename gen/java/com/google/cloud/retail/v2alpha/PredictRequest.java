@@ -37,113 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PredictRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            placement_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.retail.v2alpha.UserEvent.Builder subBuilder = null;
-            if (userEvent_ != null) {
-              subBuilder = userEvent_.toBuilder();
-            }
-            userEvent_ = input.readMessage(com.google.cloud.retail.v2alpha.UserEvent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(userEvent_);
-              userEvent_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            pageSize_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            filter_ = s;
-            break;
-          }
-          case 48: {
-
-            validateOnly_ = input.readBool();
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              params_ = com.google.protobuf.MapField.newMapField(
-                  ParamsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-            params__ = input.readMessage(
-                ParamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            params_.getMutableMap().put(
-                params__.getKey(), params__.getValue());
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2alpha.PredictionServiceProto.internal_static_google_cloud_retail_v2alpha_PredictRequest_descriptor;
@@ -172,7 +65,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLACEMENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object placement_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object placement_ = "";
   /**
    * <pre>
    * Required. Full resource name of the format:
@@ -184,7 +78,7 @@ private static final long serialVersionUID = 0L;
    * The ID of the Recommendations AI serving config or placement.
    * Before you can request predictions from your model, you must create at
    * least one serving config or placement for it. For more information, see
-   * [Managing serving configurations]
+   * [Manage serving configs]
    * (https://cloud.google.com/retail/docs/manage-configs).
    * The full list of available serving configs can be seen at
    * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -217,7 +111,7 @@ private static final long serialVersionUID = 0L;
    * The ID of the Recommendations AI serving config or placement.
    * Before you can request predictions from your model, you must create at
    * least one serving config or placement for it. For more information, see
-   * [Managing serving configurations]
+   * [Manage serving configs]
    * (https://cloud.google.com/retail/docs/manage-configs).
    * The full list of available serving configs can be seen at
    * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -312,17 +206,17 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2alpha.UserEventOrBuilder getUserEventOrBuilder() {
-    return getUserEvent();
+    return userEvent_ == null ? com.google.cloud.retail.v2alpha.UserEvent.getDefaultInstance() : userEvent_;
   }
 
   public static final int PAGE_SIZE_FIELD_NUMBER = 3;
-  private int pageSize_;
+  private int pageSize_ = 0;
   /**
    * <pre>
-   * Maximum number of results to return per page. Set this property
-   * to the number of prediction results needed. If zero, the service will
-   * choose a reasonable default. The maximum allowed value is 100. Values
-   * above 100 will be coerced to 100.
+   * Maximum number of results to return. Set this property to the number of
+   * prediction results needed. If zero, the service will choose a reasonable
+   * default. The maximum allowed value is 100. Values above 100 will be coerced
+   * to 100.
    * </pre>
    *
    * <code>int32 page_size = 3;</code>
@@ -334,10 +228,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 4;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
-   * This field is not used for now; leave it unset.
+   * This field is not used; leave it unset.
    * </pre>
    *
    * <code>string page_token = 4 [deprecated = true];</code>
@@ -360,7 +255,7 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * This field is not used for now; leave it unset.
+   * This field is not used; leave it unset.
    * </pre>
    *
    * <code>string page_token = 4 [deprecated = true];</code>
@@ -384,7 +279,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int FILTER_FIELD_NUMBER = 5;
-  private volatile java.lang.Object filter_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object filter_ = "";
   /**
    * <pre>
    * Filter for restricting prediction results with a length limit of 5,000
@@ -404,12 +300,11 @@ private static final long serialVersionUID = 0L;
    *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
    *  * filterOutOfStockItems  tag=(-"promotional")
    *  * filterOutOfStockItems
-   * If your filter blocks all prediction results, the API will return generic
-   * (unfiltered) popular products. If you only want results strictly matching
-   * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-   * receive empty results instead.
-   * Note that the API will never return items with storageStatus of "EXPIRED"
-   * or "DELETED" regardless of filter choices.
+   * If your filter blocks all prediction results, the API will return *no*
+   * results. If instead you want empty result sets to return generic
+   * (unfiltered) popular products, set `strictFiltering` to False in
+   * `PredictRequest.params`. Note that the API will never return items with
+   * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
    * If `filterSyntaxV2` is set to true under the `params` field, then
    * attribute-based expressions are expected instead of the above described
    * tag-based syntax. Examples:
@@ -453,12 +348,11 @@ private static final long serialVersionUID = 0L;
    *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
    *  * filterOutOfStockItems  tag=(-"promotional")
    *  * filterOutOfStockItems
-   * If your filter blocks all prediction results, the API will return generic
-   * (unfiltered) popular products. If you only want results strictly matching
-   * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-   * receive empty results instead.
-   * Note that the API will never return items with storageStatus of "EXPIRED"
-   * or "DELETED" regardless of filter choices.
+   * If your filter blocks all prediction results, the API will return *no*
+   * results. If instead you want empty result sets to return generic
+   * (unfiltered) popular products, set `strictFiltering` to False in
+   * `PredictRequest.params`. Note that the API will never return items with
+   * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
    * If `filterSyntaxV2` is set to true under the `params` field, then
    * attribute-based expressions are expected instead of the above described
    * tag-based syntax. Examples:
@@ -486,7 +380,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int VALIDATE_ONLY_FIELD_NUMBER = 6;
-  private boolean validateOnly_;
+  private boolean validateOnly_ = false;
   /**
    * <pre>
    * Use validate only mode for this prediction query. If set to true, a
@@ -515,6 +409,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.Value> params_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -525,7 +420,6 @@ private static final long serialVersionUID = 0L;
     }
     return params_;
   }
-
   public int getParamsCount() {
     return internalGetParams().getMap().size();
   }
@@ -539,7 +433,7 @@ private static final long serialVersionUID = 0L;
    * * `returnScore`: Boolean. If set to true, the prediction 'score'
    *    corresponding to each returned product will be set in the
    *    `results.metadata` field in the prediction response. The given
-   *    'score' indicates the probability of an product being clicked/purchased
+   *    'score' indicates the probability of a product being clicked/purchased
    *    given the user's context and history.
    * * `strictFiltering`: Boolean. True by default. If set to false, the service
    *    will return generic (unfiltered) popular products instead of empty if
@@ -560,7 +454,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
    */
-
   @java.lang.Override
   public boolean containsParams(
       java.lang.String key) {
@@ -585,7 +478,7 @@ private static final long serialVersionUID = 0L;
    * * `returnScore`: Boolean. If set to true, the prediction 'score'
    *    corresponding to each returned product will be set in the
    *    `results.metadata` field in the prediction response. The given
-   *    'score' indicates the probability of an product being clicked/purchased
+   *    'score' indicates the probability of a product being clicked/purchased
    *    given the user's context and history.
    * * `strictFiltering`: Boolean. True by default. If set to false, the service
    *    will return generic (unfiltered) popular products instead of empty if
@@ -607,7 +500,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.Value> getParamsMap() {
     return internalGetParams().getMap();
   }
@@ -621,7 +513,7 @@ private static final long serialVersionUID = 0L;
    * * `returnScore`: Boolean. If set to true, the prediction 'score'
    *    corresponding to each returned product will be set in the
    *    `results.metadata` field in the prediction response. The given
-   *    'score' indicates the probability of an product being clicked/purchased
+   *    'score' indicates the probability of a product being clicked/purchased
    *    given the user's context and history.
    * * `strictFiltering`: Boolean. True by default. If set to false, the service
    *    will return generic (unfiltered) popular products instead of empty if
@@ -643,10 +535,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Value getParamsOrDefault(
+  public /* nullable */
+com.google.protobuf.Value getParamsOrDefault(
       java.lang.String key,
-      com.google.protobuf.Value defaultValue) {
+      /* nullable */
+com.google.protobuf.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Value> map =
         internalGetParams().getMap();
@@ -662,7 +555,7 @@ private static final long serialVersionUID = 0L;
    * * `returnScore`: Boolean. If set to true, the prediction 'score'
    *    corresponding to each returned product will be set in the
    *    `results.metadata` field in the prediction response. The given
-   *    'score' indicates the probability of an product being clicked/purchased
+   *    'score' indicates the probability of a product being clicked/purchased
    *    given the user's context and history.
    * * `strictFiltering`: Boolean. True by default. If set to false, the service
    *    will return generic (unfiltered) popular products instead of empty if
@@ -684,7 +577,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Value getParamsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -708,6 +600,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -718,7 +611,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -743,7 +635,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -780,7 +671,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -806,10 +696,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -837,7 +728,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 8;</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -893,7 +783,7 @@ private static final long serialVersionUID = 0L;
         internalGetLabels(),
         LabelsDefaultEntryHolder.defaultEntry,
         8);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -943,7 +833,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, labels__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -977,7 +867,7 @@ private static final long serialVersionUID = 0L;
         other.internalGetParams())) return false;
     if (!internalGetLabels().equals(
         other.internalGetLabels())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1011,7 +901,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LABELS_FIELD_NUMBER;
       hash = (53 * hash) + internalGetLabels().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1158,38 +1048,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.PredictRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       placement_ = "";
-
-      if (userEventBuilder_ == null) {
-        userEvent_ = null;
-      } else {
-        userEvent_ = null;
+      userEvent_ = null;
+      if (userEventBuilder_ != null) {
+        userEventBuilder_.dispose();
         userEventBuilder_ = null;
       }
       pageSize_ = 0;
-
       pageToken_ = "";
-
       filter_ = "";
-
       validateOnly_ = false;
-
       internalGetMutableParams().clear();
       internalGetMutableLabels().clear();
       return this;
@@ -1218,23 +1098,41 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.PredictRequest buildPartial() {
       com.google.cloud.retail.v2alpha.PredictRequest result = new com.google.cloud.retail.v2alpha.PredictRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.placement_ = placement_;
-      if (userEventBuilder_ == null) {
-        result.userEvent_ = userEvent_;
-      } else {
-        result.userEvent_ = userEventBuilder_.build();
-      }
-      result.pageSize_ = pageSize_;
-      result.pageToken_ = pageToken_;
-      result.filter_ = filter_;
-      result.validateOnly_ = validateOnly_;
-      result.params_ = internalGetParams();
-      result.params_.makeImmutable();
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.PredictRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.placement_ = placement_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.userEvent_ = userEventBuilder_ == null
+            ? userEvent_
+            : userEventBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.pageSize_ = pageSize_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.filter_ = filter_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.validateOnly_ = validateOnly_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.params_ = internalGetParams();
+        result.params_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
     }
 
     @java.lang.Override
@@ -1283,6 +1181,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2alpha.PredictRequest.getDefaultInstance()) return this;
       if (!other.getPlacement().isEmpty()) {
         placement_ = other.placement_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasUserEvent()) {
@@ -1293,10 +1192,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getFilter().isEmpty()) {
         filter_ = other.filter_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.getValidateOnly() != false) {
@@ -1304,9 +1205,11 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableParams().mergeFrom(
           other.internalGetParams());
+      bitField0_ |= 0x00000040;
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
-      this.mergeUnknownFields(other.unknownFields);
+      bitField0_ |= 0x00000080;
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1321,17 +1224,80 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.PredictRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              placement_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUserEventFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              pageSize_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              filter_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              validateOnly_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+              params__ = input.readMessage(
+                  ParamsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableParams().getMutableMap().put(
+                  params__.getKey(), params__.getValue());
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.PredictRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1348,7 +1314,7 @@ private static final long serialVersionUID = 0L;
      * The ID of the Recommendations AI serving config or placement.
      * Before you can request predictions from your model, you must create at
      * least one serving config or placement for it. For more information, see
-     * [Managing serving configurations]
+     * [Manage serving configs]
      * (https://cloud.google.com/retail/docs/manage-configs).
      * The full list of available serving configs can be seen at
      * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -1380,7 +1346,7 @@ private static final long serialVersionUID = 0L;
      * The ID of the Recommendations AI serving config or placement.
      * Before you can request predictions from your model, you must create at
      * least one serving config or placement for it. For more information, see
-     * [Managing serving configurations]
+     * [Manage serving configs]
      * (https://cloud.google.com/retail/docs/manage-configs).
      * The full list of available serving configs can be seen at
      * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -1413,7 +1379,7 @@ private static final long serialVersionUID = 0L;
      * The ID of the Recommendations AI serving config or placement.
      * Before you can request predictions from your model, you must create at
      * least one serving config or placement for it. For more information, see
-     * [Managing serving configurations]
+     * [Manage serving configs]
      * (https://cloud.google.com/retail/docs/manage-configs).
      * The full list of available serving configs can be seen at
      * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -1425,11 +1391,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlacement(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       placement_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1444,7 +1408,7 @@ private static final long serialVersionUID = 0L;
      * The ID of the Recommendations AI serving config or placement.
      * Before you can request predictions from your model, you must create at
      * least one serving config or placement for it. For more information, see
-     * [Managing serving configurations]
+     * [Manage serving configs]
      * (https://cloud.google.com/retail/docs/manage-configs).
      * The full list of available serving configs can be seen at
      * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -1454,8 +1418,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlacement() {
-      
       placement_ = getDefaultInstance().getPlacement();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1470,7 +1434,7 @@ private static final long serialVersionUID = 0L;
      * The ID of the Recommendations AI serving config or placement.
      * Before you can request predictions from your model, you must create at
      * least one serving config or placement for it. For more information, see
-     * [Managing serving configurations]
+     * [Manage serving configs]
      * (https://cloud.google.com/retail/docs/manage-configs).
      * The full list of available serving configs can be seen at
      * https://console.cloud.google.com/ai/retail/catalogs/default_catalog/configs
@@ -1482,12 +1446,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlacementBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       placement_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1516,7 +1478,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the userEvent field is set.
      */
     public boolean hasUserEvent() {
-      return userEventBuilder_ != null || userEvent_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1570,11 +1532,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         userEvent_ = value;
-        onChanged();
       } else {
         userEventBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1600,11 +1562,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2alpha.UserEvent.Builder builderForValue) {
       if (userEventBuilder_ == null) {
         userEvent_ = builderForValue.build();
-        onChanged();
       } else {
         userEventBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1628,17 +1590,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUserEvent(com.google.cloud.retail.v2alpha.UserEvent value) {
       if (userEventBuilder_ == null) {
-        if (userEvent_ != null) {
-          userEvent_ =
-            com.google.cloud.retail.v2alpha.UserEvent.newBuilder(userEvent_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          userEvent_ != null &&
+          userEvent_ != com.google.cloud.retail.v2alpha.UserEvent.getDefaultInstance()) {
+          getUserEventBuilder().mergeFrom(value);
         } else {
           userEvent_ = value;
         }
-        onChanged();
       } else {
         userEventBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1661,14 +1624,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.UserEvent user_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearUserEvent() {
-      if (userEventBuilder_ == null) {
-        userEvent_ = null;
-        onChanged();
-      } else {
-        userEvent_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      userEvent_ = null;
+      if (userEventBuilder_ != null) {
+        userEventBuilder_.dispose();
         userEventBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1691,7 +1653,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.UserEvent user_event = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.retail.v2alpha.UserEvent.Builder getUserEventBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUserEventFieldBuilder().getBuilder();
     }
@@ -1758,10 +1720,10 @@ private static final long serialVersionUID = 0L;
     private int pageSize_ ;
     /**
      * <pre>
-     * Maximum number of results to return per page. Set this property
-     * to the number of prediction results needed. If zero, the service will
-     * choose a reasonable default. The maximum allowed value is 100. Values
-     * above 100 will be coerced to 100.
+     * Maximum number of results to return. Set this property to the number of
+     * prediction results needed. If zero, the service will choose a reasonable
+     * default. The maximum allowed value is 100. Values above 100 will be coerced
+     * to 100.
      * </pre>
      *
      * <code>int32 page_size = 3;</code>
@@ -1773,10 +1735,10 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Maximum number of results to return per page. Set this property
-     * to the number of prediction results needed. If zero, the service will
-     * choose a reasonable default. The maximum allowed value is 100. Values
-     * above 100 will be coerced to 100.
+     * Maximum number of results to return. Set this property to the number of
+     * prediction results needed. If zero, the service will choose a reasonable
+     * default. The maximum allowed value is 100. Values above 100 will be coerced
+     * to 100.
      * </pre>
      *
      * <code>int32 page_size = 3;</code>
@@ -1786,22 +1748,23 @@ private static final long serialVersionUID = 0L;
     public Builder setPageSize(int value) {
       
       pageSize_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Maximum number of results to return per page. Set this property
-     * to the number of prediction results needed. If zero, the service will
-     * choose a reasonable default. The maximum allowed value is 100. Values
-     * above 100 will be coerced to 100.
+     * Maximum number of results to return. Set this property to the number of
+     * prediction results needed. If zero, the service will choose a reasonable
+     * default. The maximum allowed value is 100. Values above 100 will be coerced
+     * to 100.
      * </pre>
      *
      * <code>int32 page_size = 3;</code>
      * @return This builder for chaining.
      */
     public Builder clearPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       pageSize_ = 0;
       onChanged();
       return this;
@@ -1810,7 +1773,7 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object pageToken_ = "";
     /**
      * <pre>
-     * This field is not used for now; leave it unset.
+     * This field is not used; leave it unset.
      * </pre>
      *
      * <code>string page_token = 4 [deprecated = true];</code>
@@ -1832,7 +1795,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field is not used for now; leave it unset.
+     * This field is not used; leave it unset.
      * </pre>
      *
      * <code>string page_token = 4 [deprecated = true];</code>
@@ -1855,7 +1818,7 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * This field is not used for now; leave it unset.
+     * This field is not used; leave it unset.
      * </pre>
      *
      * <code>string page_token = 4 [deprecated = true];</code>
@@ -1866,17 +1829,15 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * This field is not used for now; leave it unset.
+     * This field is not used; leave it unset.
      * </pre>
      *
      * <code>string page_token = 4 [deprecated = true];</code>
@@ -1885,14 +1846,14 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * This field is not used for now; leave it unset.
+     * This field is not used; leave it unset.
      * </pre>
      *
      * <code>string page_token = 4 [deprecated = true];</code>
@@ -1903,12 +1864,10 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1933,12 +1892,11 @@ private static final long serialVersionUID = 0L;
      *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
      *  * filterOutOfStockItems  tag=(-"promotional")
      *  * filterOutOfStockItems
-     * If your filter blocks all prediction results, the API will return generic
-     * (unfiltered) popular products. If you only want results strictly matching
-     * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-     * receive empty results instead.
-     * Note that the API will never return items with storageStatus of "EXPIRED"
-     * or "DELETED" regardless of filter choices.
+     * If your filter blocks all prediction results, the API will return *no*
+     * results. If instead you want empty result sets to return generic
+     * (unfiltered) popular products, set `strictFiltering` to False in
+     * `PredictRequest.params`. Note that the API will never return items with
+     * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
      * If `filterSyntaxV2` is set to true under the `params` field, then
      * attribute-based expressions are expected instead of the above described
      * tag-based syntax. Examples:
@@ -1981,12 +1939,11 @@ private static final long serialVersionUID = 0L;
      *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
      *  * filterOutOfStockItems  tag=(-"promotional")
      *  * filterOutOfStockItems
-     * If your filter blocks all prediction results, the API will return generic
-     * (unfiltered) popular products. If you only want results strictly matching
-     * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-     * receive empty results instead.
-     * Note that the API will never return items with storageStatus of "EXPIRED"
-     * or "DELETED" regardless of filter choices.
+     * If your filter blocks all prediction results, the API will return *no*
+     * results. If instead you want empty result sets to return generic
+     * (unfiltered) popular products, set `strictFiltering` to False in
+     * `PredictRequest.params`. Note that the API will never return items with
+     * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
      * If `filterSyntaxV2` is set to true under the `params` field, then
      * attribute-based expressions are expected instead of the above described
      * tag-based syntax. Examples:
@@ -2030,12 +1987,11 @@ private static final long serialVersionUID = 0L;
      *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
      *  * filterOutOfStockItems  tag=(-"promotional")
      *  * filterOutOfStockItems
-     * If your filter blocks all prediction results, the API will return generic
-     * (unfiltered) popular products. If you only want results strictly matching
-     * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-     * receive empty results instead.
-     * Note that the API will never return items with storageStatus of "EXPIRED"
-     * or "DELETED" regardless of filter choices.
+     * If your filter blocks all prediction results, the API will return *no*
+     * results. If instead you want empty result sets to return generic
+     * (unfiltered) popular products, set `strictFiltering` to False in
+     * `PredictRequest.params`. Note that the API will never return items with
+     * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
      * If `filterSyntaxV2` is set to true under the `params` field, then
      * attribute-based expressions are expected instead of the above described
      * tag-based syntax. Examples:
@@ -2050,11 +2006,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilter(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       filter_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2077,12 +2031,11 @@ private static final long serialVersionUID = 0L;
      *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
      *  * filterOutOfStockItems  tag=(-"promotional")
      *  * filterOutOfStockItems
-     * If your filter blocks all prediction results, the API will return generic
-     * (unfiltered) popular products. If you only want results strictly matching
-     * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-     * receive empty results instead.
-     * Note that the API will never return items with storageStatus of "EXPIRED"
-     * or "DELETED" regardless of filter choices.
+     * If your filter blocks all prediction results, the API will return *no*
+     * results. If instead you want empty result sets to return generic
+     * (unfiltered) popular products, set `strictFiltering` to False in
+     * `PredictRequest.params`. Note that the API will never return items with
+     * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
      * If `filterSyntaxV2` is set to true under the `params` field, then
      * attribute-based expressions are expected instead of the above described
      * tag-based syntax. Examples:
@@ -2095,8 +2048,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFilter() {
-      
       filter_ = getDefaultInstance().getFilter();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2119,12 +2072,11 @@ private static final long serialVersionUID = 0L;
      *  * tag=("Red" OR "Blue") tag="New-Arrival" tag=(NOT "promotional")
      *  * filterOutOfStockItems  tag=(-"promotional")
      *  * filterOutOfStockItems
-     * If your filter blocks all prediction results, the API will return generic
-     * (unfiltered) popular products. If you only want results strictly matching
-     * the filters, set `strictFiltering` to True in `PredictRequest.params` to
-     * receive empty results instead.
-     * Note that the API will never return items with storageStatus of "EXPIRED"
-     * or "DELETED" regardless of filter choices.
+     * If your filter blocks all prediction results, the API will return *no*
+     * results. If instead you want empty result sets to return generic
+     * (unfiltered) popular products, set `strictFiltering` to False in
+     * `PredictRequest.params`. Note that the API will never return items with
+     * storageStatus of "EXPIRED" or "DELETED" regardless of filter choices.
      * If `filterSyntaxV2` is set to true under the `params` field, then
      * attribute-based expressions are expected instead of the above described
      * tag-based syntax. Examples:
@@ -2139,12 +2091,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFilterBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       filter_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2180,6 +2130,7 @@ private static final long serialVersionUID = 0L;
     public Builder setValidateOnly(boolean value) {
       
       validateOnly_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2195,7 +2146,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidateOnly() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       validateOnly_ = false;
       onChanged();
       return this;
@@ -2204,7 +2155,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> params_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetParams() {
+        internalGetParams() {
       if (params_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             ParamsDefaultEntryHolder.defaultEntry);
@@ -2212,8 +2163,7 @@ private static final long serialVersionUID = 0L;
       return params_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetMutableParams() {
-      onChanged();;
+        internalGetMutableParams() {
       if (params_ == null) {
         params_ = com.google.protobuf.MapField.newMapField(
             ParamsDefaultEntryHolder.defaultEntry);
@@ -2221,9 +2171,10 @@ private static final long serialVersionUID = 0L;
       if (!params_.isMutable()) {
         params_ = params_.copy();
       }
+      bitField0_ |= 0x00000040;
+      onChanged();
       return params_;
     }
-
     public int getParamsCount() {
       return internalGetParams().getMap().size();
     }
@@ -2237,7 +2188,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2258,7 +2209,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
      */
-
     @java.lang.Override
     public boolean containsParams(
         java.lang.String key) {
@@ -2283,7 +2233,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2305,7 +2255,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getParamsMap() {
       return internalGetParams().getMap();
     }
@@ -2319,7 +2268,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2341,10 +2290,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getParamsOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getParamsOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetParams().getMap();
@@ -2360,7 +2310,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2382,7 +2332,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getParamsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2393,8 +2342,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearParams() {
+      bitField0_ = (bitField0_ & ~0x00000040);
       internalGetMutableParams().getMutableMap()
           .clear();
       return this;
@@ -2409,7 +2358,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2430,7 +2379,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
      */
-
     public Builder removeParams(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2443,7 +2391,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.Value>
-    getMutableParams() {
+        getMutableParams() {
+      bitField0_ |= 0x00000040;
       return internalGetMutableParams().getMutableMap();
     }
     /**
@@ -2456,7 +2405,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2481,12 +2430,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableParams().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000040;
       return this;
     }
     /**
@@ -2499,7 +2446,7 @@ private static final long serialVersionUID = 0L;
      * * `returnScore`: Boolean. If set to true, the prediction 'score'
      *    corresponding to each returned product will be set in the
      *    `results.metadata` field in the prediction response. The given
-     *    'score' indicates the probability of an product being clicked/purchased
+     *    'score' indicates the probability of a product being clicked/purchased
      *    given the user's context and history.
      * * `strictFiltering`: Boolean. True by default. If set to false, the service
      *    will return generic (unfiltered) popular products instead of empty if
@@ -2520,18 +2467,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; params = 7;</code>
      */
-
     public Builder putAllParams(
         java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
       internalGetMutableParams().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000040;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2539,8 +2486,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -2548,9 +2494,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000080;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -2575,7 +2522,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -2612,7 +2558,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -2638,10 +2583,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -2669,7 +2615,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2680,8 +2625,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000080);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -2707,7 +2652,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2720,7 +2664,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000080;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -2748,12 +2693,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000080;
       return this;
     }
     /**
@@ -2777,11 +2720,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 8;</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000080;
       return this;
     }
     @java.lang.Override
@@ -2817,7 +2760,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PredictRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

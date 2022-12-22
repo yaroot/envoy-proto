@@ -37,7 +37,8 @@ public interface VmConfigOrBuilder extends
 
   /**
    * <pre>
-   * The Wasm runtime type.
+   * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+   * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
    * Available Wasm runtime types are registered as extensions. The following runtimes are included
    * in Envoy code base:
    * .. _extension_envoy.wasm.runtime.null:
@@ -57,13 +58,14 @@ public interface VmConfigOrBuilder extends
    * [#extension-category: envoy.wasm.runtime]
    * </pre>
    *
-   * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+   * <code>string runtime = 2;</code>
    * @return The runtime.
    */
   java.lang.String getRuntime();
   /**
    * <pre>
-   * The Wasm runtime type.
+   * The Wasm runtime type, defaults to the first available Wasm engine used at Envoy build-time.
+   * The priority to search for the available engine is: v8 -&gt; wasmtime -&gt; wamr -&gt; wavm.
    * Available Wasm runtime types are registered as extensions. The following runtimes are included
    * in Envoy code base:
    * .. _extension_envoy.wasm.runtime.null:
@@ -83,7 +85,7 @@ public interface VmConfigOrBuilder extends
    * [#extension-category: envoy.wasm.runtime]
    * </pre>
    *
-   * <code>string runtime = 2 [(.validate.rules) = { ... }</code>
+   * <code>string runtime = 2;</code>
    * @return The bytes for runtime.
    */
   com.google.protobuf.ByteString

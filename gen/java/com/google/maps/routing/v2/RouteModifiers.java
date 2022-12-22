@@ -36,105 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RouteModifiers(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            avoidTolls_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            avoidHighways_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            avoidFerries_ = input.readBool();
-            break;
-          }
-          case 32: {
-
-            avoidIndoor_ = input.readBool();
-            break;
-          }
-          case 42: {
-            com.google.maps.routing.v2.VehicleInfo.Builder subBuilder = null;
-            if (vehicleInfo_ != null) {
-              subBuilder = vehicleInfo_.toBuilder();
-            }
-            vehicleInfo_ = input.readMessage(com.google.maps.routing.v2.VehicleInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(vehicleInfo_);
-              vehicleInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              tollPasses_ = new java.util.ArrayList<java.lang.Integer>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            tollPasses_.add(rawValue);
-            break;
-          }
-          case 50: {
-            int length = input.readRawVarint32();
-            int oldLimit = input.pushLimit(length);
-            while(input.getBytesUntilLimit() > 0) {
-              int rawValue = input.readEnum();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                tollPasses_ = new java.util.ArrayList<java.lang.Integer>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              tollPasses_.add(rawValue);
-            }
-            input.popLimit(oldLimit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        tollPasses_ = java.util.Collections.unmodifiableList(tollPasses_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routing.v2.RouteModifiersProto.internal_static_google_maps_routing_v2_RouteModifiers_descriptor;
@@ -149,7 +50,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVOID_TOLLS_FIELD_NUMBER = 1;
-  private boolean avoidTolls_;
+  private boolean avoidTolls_ = false;
   /**
    * <pre>
    * Specifies whether to avoid toll roads where reasonable. Preference will be
@@ -166,7 +67,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVOID_HIGHWAYS_FIELD_NUMBER = 2;
-  private boolean avoidHighways_;
+  private boolean avoidHighways_ = false;
   /**
    * <pre>
    * Specifies whether to avoid highways where reasonable. Preference will be
@@ -183,7 +84,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVOID_FERRIES_FIELD_NUMBER = 3;
-  private boolean avoidFerries_;
+  private boolean avoidFerries_ = false;
   /**
    * <pre>
    * Specifies whether to avoid ferries where reasonable. Preference will be
@@ -200,7 +101,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AVOID_INDOOR_FIELD_NUMBER = 4;
-  private boolean avoidIndoor_;
+  private boolean avoidIndoor_ = false;
   /**
    * <pre>
    * Specifies whether to avoid navigating indoors where reasonable. Preference
@@ -251,18 +152,18 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routing.v2.VehicleInfoOrBuilder getVehicleInfoOrBuilder() {
-    return getVehicleInfo();
+    return vehicleInfo_ == null ? com.google.maps.routing.v2.VehicleInfo.getDefaultInstance() : vehicleInfo_;
   }
 
   public static final int TOLL_PASSES_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<java.lang.Integer> tollPasses_;
   private static final com.google.protobuf.Internal.ListAdapter.Converter<
       java.lang.Integer, com.google.maps.routing.v2.TollPass> tollPasses_converter_ =
           new com.google.protobuf.Internal.ListAdapter.Converter<
               java.lang.Integer, com.google.maps.routing.v2.TollPass>() {
             public com.google.maps.routing.v2.TollPass convert(java.lang.Integer from) {
-              @SuppressWarnings("deprecation")
-              com.google.maps.routing.v2.TollPass result = com.google.maps.routing.v2.TollPass.valueOf(from);
+              com.google.maps.routing.v2.TollPass result = com.google.maps.routing.v2.TollPass.forNumber(from);
               return result == null ? com.google.maps.routing.v2.TollPass.UNRECOGNIZED : result;
             }
           };
@@ -389,7 +290,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < tollPasses_.size(); i++) {
       output.writeEnumNoTag(tollPasses_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -430,7 +331,7 @@ private static final long serialVersionUID = 0L;
           .computeUInt32SizeNoTag(dataSize);
       }tollPassesMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -459,7 +360,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getVehicleInfo())) return false;
     }
     if (!tollPasses_.equals(other.tollPasses_)) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -490,7 +391,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TOLL_PASSES_FIELD_NUMBER;
       hash = (53 * hash) + tollPasses_.hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -612,38 +513,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routing.v2.RouteModifiers.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       avoidTolls_ = false;
-
       avoidHighways_ = false;
-
       avoidFerries_ = false;
-
       avoidIndoor_ = false;
-
-      if (vehicleInfoBuilder_ == null) {
-        vehicleInfo_ = null;
-      } else {
-        vehicleInfo_ = null;
+      vehicleInfo_ = null;
+      if (vehicleInfoBuilder_ != null) {
+        vehicleInfoBuilder_.dispose();
         vehicleInfoBuilder_ = null;
       }
       tollPasses_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       return this;
     }
 
@@ -670,23 +562,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routing.v2.RouteModifiers buildPartial() {
       com.google.maps.routing.v2.RouteModifiers result = new com.google.maps.routing.v2.RouteModifiers(this);
-      int from_bitField0_ = bitField0_;
-      result.avoidTolls_ = avoidTolls_;
-      result.avoidHighways_ = avoidHighways_;
-      result.avoidFerries_ = avoidFerries_;
-      result.avoidIndoor_ = avoidIndoor_;
-      if (vehicleInfoBuilder_ == null) {
-        result.vehicleInfo_ = vehicleInfo_;
-      } else {
-        result.vehicleInfo_ = vehicleInfoBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        tollPasses_ = java.util.Collections.unmodifiableList(tollPasses_);
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.tollPasses_ = tollPasses_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routing.v2.RouteModifiers result) {
+      if (((bitField0_ & 0x00000020) != 0)) {
+        tollPasses_ = java.util.Collections.unmodifiableList(tollPasses_);
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.tollPasses_ = tollPasses_;
+    }
+
+    private void buildPartial0(com.google.maps.routing.v2.RouteModifiers result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.avoidTolls_ = avoidTolls_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.avoidHighways_ = avoidHighways_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.avoidFerries_ = avoidFerries_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.avoidIndoor_ = avoidIndoor_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.vehicleInfo_ = vehicleInfoBuilder_ == null
+            ? vehicleInfo_
+            : vehicleInfoBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -751,14 +659,14 @@ private static final long serialVersionUID = 0L;
       if (!other.tollPasses_.isEmpty()) {
         if (tollPasses_.isEmpty()) {
           tollPasses_ = other.tollPasses_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureTollPassesIsMutable();
           tollPasses_.addAll(other.tollPasses_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -773,17 +681,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routing.v2.RouteModifiers parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              avoidTolls_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              avoidHighways_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              avoidFerries_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              avoidIndoor_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getVehicleInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              int tmpRaw = input.readEnum();
+              ensureTollPassesIsMutable();
+              tollPasses_.add(tmpRaw);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int oldLimit = input.pushLimit(length);
+              while(input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                ensureTollPassesIsMutable();
+                tollPasses_.add(tmpRaw);
+              }
+              input.popLimit(oldLimit);
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routing.v2.RouteModifiers) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -817,6 +782,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAvoidTolls(boolean value) {
       
       avoidTolls_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -831,7 +797,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvoidTolls() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       avoidTolls_ = false;
       onChanged();
       return this;
@@ -866,6 +832,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAvoidHighways(boolean value) {
       
       avoidHighways_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -880,7 +847,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvoidHighways() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       avoidHighways_ = false;
       onChanged();
       return this;
@@ -915,6 +882,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAvoidFerries(boolean value) {
       
       avoidFerries_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -929,7 +897,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvoidFerries() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       avoidFerries_ = false;
       onChanged();
       return this;
@@ -964,6 +932,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAvoidIndoor(boolean value) {
       
       avoidIndoor_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -978,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAvoidIndoor() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       avoidIndoor_ = false;
       onChanged();
       return this;
@@ -996,7 +965,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the vehicleInfo field is set.
      */
     public boolean hasVehicleInfo() {
-      return vehicleInfoBuilder_ != null || vehicleInfo_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1026,11 +995,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         vehicleInfo_ = value;
-        onChanged();
       } else {
         vehicleInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1044,11 +1013,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routing.v2.VehicleInfo.Builder builderForValue) {
       if (vehicleInfoBuilder_ == null) {
         vehicleInfo_ = builderForValue.build();
-        onChanged();
       } else {
         vehicleInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1060,17 +1029,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeVehicleInfo(com.google.maps.routing.v2.VehicleInfo value) {
       if (vehicleInfoBuilder_ == null) {
-        if (vehicleInfo_ != null) {
-          vehicleInfo_ =
-            com.google.maps.routing.v2.VehicleInfo.newBuilder(vehicleInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          vehicleInfo_ != null &&
+          vehicleInfo_ != com.google.maps.routing.v2.VehicleInfo.getDefaultInstance()) {
+          getVehicleInfoBuilder().mergeFrom(value);
         } else {
           vehicleInfo_ = value;
         }
-        onChanged();
       } else {
         vehicleInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1081,14 +1051,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.VehicleInfo vehicle_info = 5;</code>
      */
     public Builder clearVehicleInfo() {
-      if (vehicleInfoBuilder_ == null) {
-        vehicleInfo_ = null;
-        onChanged();
-      } else {
-        vehicleInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      vehicleInfo_ = null;
+      if (vehicleInfoBuilder_ != null) {
+        vehicleInfoBuilder_.dispose();
         vehicleInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1099,7 +1068,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routing.v2.VehicleInfo vehicle_info = 5;</code>
      */
     public com.google.maps.routing.v2.VehicleInfo.Builder getVehicleInfoBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getVehicleInfoFieldBuilder().getBuilder();
     }
@@ -1142,9 +1111,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<java.lang.Integer> tollPasses_ =
       java.util.Collections.emptyList();
     private void ensureTollPassesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         tollPasses_ = new java.util.ArrayList<java.lang.Integer>(tollPasses_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
       }
     }
     /**
@@ -1276,7 +1245,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearTollPasses() {
       tollPasses_ = java.util.Collections.emptyList();
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1407,7 +1376,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RouteModifiers(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

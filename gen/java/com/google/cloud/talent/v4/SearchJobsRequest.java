@@ -42,159 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private SearchJobsRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            parent_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            searchMode_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.cloud.talent.v4.RequestMetadata.Builder subBuilder = null;
-            if (requestMetadata_ != null) {
-              subBuilder = requestMetadata_.toBuilder();
-            }
-            requestMetadata_ = input.readMessage(com.google.cloud.talent.v4.RequestMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(requestMetadata_);
-              requestMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.talent.v4.JobQuery.Builder subBuilder = null;
-            if (jobQuery_ != null) {
-              subBuilder = jobQuery_.toBuilder();
-            }
-            jobQuery_ = input.readMessage(com.google.cloud.talent.v4.JobQuery.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(jobQuery_);
-              jobQuery_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 40: {
-
-            enableBroadening_ = input.readBool();
-            break;
-          }
-          case 58: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              histogramQueries_ = new java.util.ArrayList<com.google.cloud.talent.v4.HistogramQuery>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            histogramQueries_.add(
-                input.readMessage(com.google.cloud.talent.v4.HistogramQuery.parser(), extensionRegistry));
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            jobView_ = rawValue;
-            break;
-          }
-          case 72: {
-
-            offset_ = input.readInt32();
-            break;
-          }
-          case 80: {
-
-            maxPageSize_ = input.readInt32();
-            break;
-          }
-          case 90: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            pageToken_ = s;
-            break;
-          }
-          case 98: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            orderBy_ = s;
-            break;
-          }
-          case 104: {
-            int rawValue = input.readEnum();
-
-            diversificationLevel_ = rawValue;
-            break;
-          }
-          case 114: {
-            com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.Builder subBuilder = null;
-            if (customRankingInfo_ != null) {
-              subBuilder = customRankingInfo_.toBuilder();
-            }
-            customRankingInfo_ = input.readMessage(com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(customRankingInfo_);
-              customRankingInfo_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 128: {
-
-            disableKeywordMatch_ = input.readBool();
-            break;
-          }
-          case 144: {
-            int rawValue = input.readEnum();
-
-            keywordMatchMode_ = rawValue;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        histogramQueries_ = java.util.Collections.unmodifiableList(histogramQueries_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.talent.v4.JobServiceProto.internal_static_google_cloud_talent_v4_SearchJobsRequest_descriptor;
@@ -886,57 +733,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private CustomRankingInfo(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              importanceLevel_ = rawValue;
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              rankingExpression_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.talent.v4.JobServiceProto.internal_static_google_cloud_talent_v4_SearchJobsRequest_CustomRankingInfo_descriptor;
@@ -1188,7 +984,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int IMPORTANCE_LEVEL_FIELD_NUMBER = 1;
-    private int importanceLevel_;
+    private int importanceLevel_ = 0;
     /**
      * <pre>
      * Required. Controls over how important the score of
@@ -1215,13 +1011,13 @@ private static final long serialVersionUID = 0L;
      * @return The importanceLevel.
      */
     @java.lang.Override public com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel getImportanceLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel result = com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel.valueOf(importanceLevel_);
+      com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel result = com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel.forNumber(importanceLevel_);
       return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel.UNRECOGNIZED : result;
     }
 
     public static final int RANKING_EXPRESSION_FIELD_NUMBER = 2;
-    private volatile java.lang.Object rankingExpression_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object rankingExpression_ = "";
     /**
      * <pre>
      * Required. Controls over how job documents get ranked on top of existing relevance
@@ -1316,7 +1112,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rankingExpression_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, rankingExpression_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1332,7 +1128,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rankingExpression_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, rankingExpression_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1350,7 +1146,7 @@ private static final long serialVersionUID = 0L;
       if (importanceLevel_ != other.importanceLevel_) return false;
       if (!getRankingExpression()
           .equals(other.getRankingExpression())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1365,7 +1161,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + importanceLevel_;
       hash = (37 * hash) + RANKING_EXPRESSION_FIELD_NUMBER;
       hash = (53 * hash) + getRankingExpression().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1486,26 +1282,20 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         importanceLevel_ = 0;
-
         rankingExpression_ = "";
-
         return this;
       }
 
@@ -1532,10 +1322,19 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo buildPartial() {
         com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo result = new com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo(this);
-        result.importanceLevel_ = importanceLevel_;
-        result.rankingExpression_ = rankingExpression_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.importanceLevel_ = importanceLevel_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.rankingExpression_ = rankingExpression_;
+        }
       }
 
       @java.lang.Override
@@ -1587,9 +1386,10 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getRankingExpression().isEmpty()) {
           rankingExpression_ = other.rankingExpression_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1604,19 +1404,43 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                importanceLevel_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                rankingExpression_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int importanceLevel_ = 0;
       /**
@@ -1646,8 +1470,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setImportanceLevelValue(int value) {
-        
         importanceLevel_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1664,8 +1488,7 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel getImportanceLevel() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel result = com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel.valueOf(importanceLevel_);
+        com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel result = com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel.forNumber(importanceLevel_);
         return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel.UNRECOGNIZED : result;
       }
       /**
@@ -1684,7 +1507,7 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         importanceLevel_ = value.getNumber();
         onChanged();
         return this;
@@ -1701,7 +1524,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearImportanceLevel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         importanceLevel_ = 0;
         onChanged();
         return this;
@@ -1805,11 +1628,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setRankingExpression(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         rankingExpression_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1837,8 +1658,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearRankingExpression() {
-        
         rankingExpression_ = getDefaultInstance().getRankingExpression();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1868,12 +1689,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setRankingExpressionBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         rankingExpression_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1910,7 +1729,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CustomRankingInfo(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1931,7 +1761,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PARENT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object parent_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object parent_ = "";
   /**
    * <pre>
    * Required. The resource name of the tenant to search within.
@@ -1981,7 +1812,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEARCH_MODE_FIELD_NUMBER = 2;
-  private int searchMode_;
+  private int searchMode_ = 0;
   /**
    * <pre>
    * Mode of a search.
@@ -2004,8 +1835,7 @@ private static final long serialVersionUID = 0L;
    * @return The searchMode.
    */
   @java.lang.Override public com.google.cloud.talent.v4.SearchJobsRequest.SearchMode getSearchMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.SearchJobsRequest.SearchMode result = com.google.cloud.talent.v4.SearchJobsRequest.SearchMode.valueOf(searchMode_);
+    com.google.cloud.talent.v4.SearchJobsRequest.SearchMode result = com.google.cloud.talent.v4.SearchJobsRequest.SearchMode.forNumber(searchMode_);
     return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.SearchMode.UNRECOGNIZED : result;
   }
 
@@ -2050,7 +1880,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.RequestMetadataOrBuilder getRequestMetadataOrBuilder() {
-    return getRequestMetadata();
+    return requestMetadata_ == null ? com.google.cloud.talent.v4.RequestMetadata.getDefaultInstance() : requestMetadata_;
   }
 
   public static final int JOB_QUERY_FIELD_NUMBER = 4;
@@ -2088,11 +1918,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.JobQueryOrBuilder getJobQueryOrBuilder() {
-    return getJobQuery();
+    return jobQuery_ == null ? com.google.cloud.talent.v4.JobQuery.getDefaultInstance() : jobQuery_;
   }
 
   public static final int ENABLE_BROADENING_FIELD_NUMBER = 5;
-  private boolean enableBroadening_;
+  private boolean enableBroadening_ = false;
   /**
    * <pre>
    * Controls whether to broaden the search when it produces sparse results.
@@ -2110,6 +1940,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HISTOGRAM_QUERIES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.talent.v4.HistogramQuery> histogramQueries_;
   /**
    * <pre>
@@ -2139,8 +1970,8 @@ private static final long serialVersionUID = 0L;
    * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
    * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
    *   "FULL_TIME", "PART_TIME".
-   * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-   * "MEDIUM", "BIG".
+   * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+   * "SMALL", "MEDIUM", "BIG".
    * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
    *   in days.
    *   Must specify list of numeric buckets in spec.
@@ -2232,8 +2063,8 @@ private static final long serialVersionUID = 0L;
    * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
    * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
    *   "FULL_TIME", "PART_TIME".
-   * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-   * "MEDIUM", "BIG".
+   * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+   * "SMALL", "MEDIUM", "BIG".
    * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
    *   in days.
    *   Must specify list of numeric buckets in spec.
@@ -2326,8 +2157,8 @@ private static final long serialVersionUID = 0L;
    * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
    * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
    *   "FULL_TIME", "PART_TIME".
-   * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-   * "MEDIUM", "BIG".
+   * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+   * "SMALL", "MEDIUM", "BIG".
    * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
    *   in days.
    *   Must specify list of numeric buckets in spec.
@@ -2419,8 +2250,8 @@ private static final long serialVersionUID = 0L;
    * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
    * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
    *   "FULL_TIME", "PART_TIME".
-   * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-   * "MEDIUM", "BIG".
+   * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+   * "SMALL", "MEDIUM", "BIG".
    * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
    *   in days.
    *   Must specify list of numeric buckets in spec.
@@ -2512,8 +2343,8 @@ private static final long serialVersionUID = 0L;
    * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
    * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
    *   "FULL_TIME", "PART_TIME".
-   * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-   * "MEDIUM", "BIG".
+   * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+   * "SMALL", "MEDIUM", "BIG".
    * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
    *   in days.
    *   Must specify list of numeric buckets in spec.
@@ -2580,7 +2411,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JOB_VIEW_FIELD_NUMBER = 8;
-  private int jobView_;
+  private int jobView_ = 0;
   /**
    * <pre>
    * The desired job attributes returned for jobs in the search response.
@@ -2603,13 +2434,12 @@ private static final long serialVersionUID = 0L;
    * @return The jobView.
    */
   @java.lang.Override public com.google.cloud.talent.v4.JobView getJobView() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.JobView result = com.google.cloud.talent.v4.JobView.valueOf(jobView_);
+    com.google.cloud.talent.v4.JobView result = com.google.cloud.talent.v4.JobView.forNumber(jobView_);
     return result == null ? com.google.cloud.talent.v4.JobView.UNRECOGNIZED : result;
   }
 
   public static final int OFFSET_FIELD_NUMBER = 9;
-  private int offset_;
+  private int offset_ = 0;
   /**
    * <pre>
    * An integer that specifies the current offset (that is, starting result
@@ -2631,7 +2461,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_PAGE_SIZE_FIELD_NUMBER = 10;
-  private int maxPageSize_;
+  private int maxPageSize_ = 0;
   /**
    * <pre>
    * A limit on the number of jobs returned in the search results.
@@ -2648,7 +2478,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAGE_TOKEN_FIELD_NUMBER = 11;
-  private volatile java.lang.Object pageToken_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object pageToken_ = "";
   /**
    * <pre>
    * The token specifying the current offset within
@@ -2698,7 +2529,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ORDER_BY_FIELD_NUMBER = 12;
-  private volatile java.lang.Object orderBy_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object orderBy_ = "";
   /**
    * <pre>
    * The criteria determining how search results are sorted. Default is
@@ -2838,7 +2670,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIVERSIFICATION_LEVEL_FIELD_NUMBER = 13;
-  private int diversificationLevel_;
+  private int diversificationLevel_ = 0;
   /**
    * <pre>
    * Controls whether highly similar jobs are returned next to each other in
@@ -2873,8 +2705,7 @@ private static final long serialVersionUID = 0L;
    * @return The diversificationLevel.
    */
   @java.lang.Override public com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel getDiversificationLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel result = com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel.valueOf(diversificationLevel_);
+    com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel result = com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel.forNumber(diversificationLevel_);
     return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel.UNRECOGNIZED : result;
   }
 
@@ -2916,11 +2747,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfoOrBuilder getCustomRankingInfoOrBuilder() {
-    return getCustomRankingInfo();
+    return customRankingInfo_ == null ? com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.getDefaultInstance() : customRankingInfo_;
   }
 
   public static final int DISABLE_KEYWORD_MATCH_FIELD_NUMBER = 16;
-  private boolean disableKeywordMatch_;
+  private boolean disableKeywordMatch_ = false;
   /**
    * <pre>
    * This field is deprecated. Please use
@@ -2958,7 +2789,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KEYWORD_MATCH_MODE_FIELD_NUMBER = 18;
-  private int keywordMatchMode_;
+  private int keywordMatchMode_ = 0;
   /**
    * <pre>
    * Controls what keyword match options to use. If both keyword_match_mode and
@@ -2985,8 +2816,7 @@ private static final long serialVersionUID = 0L;
    * @return The keywordMatchMode.
    */
   @java.lang.Override public com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode getKeywordMatchMode() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode result = com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.valueOf(keywordMatchMode_);
+    com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode result = com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.forNumber(keywordMatchMode_);
     return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.UNRECOGNIZED : result;
   }
 
@@ -3049,7 +2879,7 @@ private static final long serialVersionUID = 0L;
     if (keywordMatchMode_ != com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.KEYWORD_MATCH_MODE_UNSPECIFIED.getNumber()) {
       output.writeEnum(18, keywordMatchMode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -3115,7 +2945,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(18, keywordMatchMode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -3165,7 +2995,7 @@ private static final long serialVersionUID = 0L;
     if (getDisableKeywordMatch()
         != other.getDisableKeywordMatch()) return false;
     if (keywordMatchMode_ != other.keywordMatchMode_) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -3216,7 +3046,7 @@ private static final long serialVersionUID = 0L;
         getDisableKeywordMatch());
     hash = (37 * hash) + KEYWORD_MATCH_MODE_FIELD_NUMBER;
     hash = (53 * hash) + keywordMatchMode_;
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -3337,69 +3167,51 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.talent.v4.SearchJobsRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHistogramQueriesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       parent_ = "";
-
       searchMode_ = 0;
-
-      if (requestMetadataBuilder_ == null) {
-        requestMetadata_ = null;
-      } else {
-        requestMetadata_ = null;
+      requestMetadata_ = null;
+      if (requestMetadataBuilder_ != null) {
+        requestMetadataBuilder_.dispose();
         requestMetadataBuilder_ = null;
       }
-      if (jobQueryBuilder_ == null) {
-        jobQuery_ = null;
-      } else {
-        jobQuery_ = null;
+      jobQuery_ = null;
+      if (jobQueryBuilder_ != null) {
+        jobQueryBuilder_.dispose();
         jobQueryBuilder_ = null;
       }
       enableBroadening_ = false;
-
       if (histogramQueriesBuilder_ == null) {
         histogramQueries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        histogramQueries_ = null;
         histogramQueriesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       jobView_ = 0;
-
       offset_ = 0;
-
       maxPageSize_ = 0;
-
       pageToken_ = "";
-
       orderBy_ = "";
-
       diversificationLevel_ = 0;
-
-      if (customRankingInfoBuilder_ == null) {
-        customRankingInfo_ = null;
-      } else {
-        customRankingInfo_ = null;
+      customRankingInfo_ = null;
+      if (customRankingInfoBuilder_ != null) {
+        customRankingInfoBuilder_.dispose();
         customRankingInfoBuilder_ = null;
       }
       disableKeywordMatch_ = false;
-
       keywordMatchMode_ = 0;
-
       return this;
     }
 
@@ -3426,44 +3238,74 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.talent.v4.SearchJobsRequest buildPartial() {
       com.google.cloud.talent.v4.SearchJobsRequest result = new com.google.cloud.talent.v4.SearchJobsRequest(this);
-      int from_bitField0_ = bitField0_;
-      result.parent_ = parent_;
-      result.searchMode_ = searchMode_;
-      if (requestMetadataBuilder_ == null) {
-        result.requestMetadata_ = requestMetadata_;
-      } else {
-        result.requestMetadata_ = requestMetadataBuilder_.build();
-      }
-      if (jobQueryBuilder_ == null) {
-        result.jobQuery_ = jobQuery_;
-      } else {
-        result.jobQuery_ = jobQueryBuilder_.build();
-      }
-      result.enableBroadening_ = enableBroadening_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.talent.v4.SearchJobsRequest result) {
       if (histogramQueriesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           histogramQueries_ = java.util.Collections.unmodifiableList(histogramQueries_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.histogramQueries_ = histogramQueries_;
       } else {
         result.histogramQueries_ = histogramQueriesBuilder_.build();
       }
-      result.jobView_ = jobView_;
-      result.offset_ = offset_;
-      result.maxPageSize_ = maxPageSize_;
-      result.pageToken_ = pageToken_;
-      result.orderBy_ = orderBy_;
-      result.diversificationLevel_ = diversificationLevel_;
-      if (customRankingInfoBuilder_ == null) {
-        result.customRankingInfo_ = customRankingInfo_;
-      } else {
-        result.customRankingInfo_ = customRankingInfoBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.cloud.talent.v4.SearchJobsRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.parent_ = parent_;
       }
-      result.disableKeywordMatch_ = disableKeywordMatch_;
-      result.keywordMatchMode_ = keywordMatchMode_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.searchMode_ = searchMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requestMetadata_ = requestMetadataBuilder_ == null
+            ? requestMetadata_
+            : requestMetadataBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.jobQuery_ = jobQueryBuilder_ == null
+            ? jobQuery_
+            : jobQueryBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.enableBroadening_ = enableBroadening_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.jobView_ = jobView_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.offset_ = offset_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.maxPageSize_ = maxPageSize_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.pageToken_ = pageToken_;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.orderBy_ = orderBy_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.diversificationLevel_ = diversificationLevel_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.customRankingInfo_ = customRankingInfoBuilder_ == null
+            ? customRankingInfo_
+            : customRankingInfoBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.disableKeywordMatch_ = disableKeywordMatch_;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.keywordMatchMode_ = keywordMatchMode_;
+      }
     }
 
     @java.lang.Override
@@ -3512,6 +3354,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.talent.v4.SearchJobsRequest.getDefaultInstance()) return this;
       if (!other.getParent().isEmpty()) {
         parent_ = other.parent_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.searchMode_ != 0) {
@@ -3530,7 +3373,7 @@ private static final long serialVersionUID = 0L;
         if (!other.histogramQueries_.isEmpty()) {
           if (histogramQueries_.isEmpty()) {
             histogramQueries_ = other.histogramQueries_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureHistogramQueriesIsMutable();
             histogramQueries_.addAll(other.histogramQueries_);
@@ -3543,7 +3386,7 @@ private static final long serialVersionUID = 0L;
             histogramQueriesBuilder_.dispose();
             histogramQueriesBuilder_ = null;
             histogramQueries_ = other.histogramQueries_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             histogramQueriesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHistogramQueriesFieldBuilder() : null;
@@ -3563,10 +3406,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getPageToken().isEmpty()) {
         pageToken_ = other.pageToken_;
+        bitField0_ |= 0x00000200;
         onChanged();
       }
       if (!other.getOrderBy().isEmpty()) {
         orderBy_ = other.orderBy_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.diversificationLevel_ != 0) {
@@ -3581,7 +3426,7 @@ private static final long serialVersionUID = 0L;
       if (other.keywordMatchMode_ != 0) {
         setKeywordMatchModeValue(other.getKeywordMatchModeValue());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3596,17 +3441,119 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.talent.v4.SearchJobsRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parent_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              searchMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getRequestMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getJobQueryFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              enableBroadening_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 58: {
+              com.google.cloud.talent.v4.HistogramQuery m =
+                  input.readMessage(
+                      com.google.cloud.talent.v4.HistogramQuery.parser(),
+                      extensionRegistry);
+              if (histogramQueriesBuilder_ == null) {
+                ensureHistogramQueriesIsMutable();
+                histogramQueries_.add(m);
+              } else {
+                histogramQueriesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 58
+            case 64: {
+              jobView_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            case 72: {
+              offset_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 72
+            case 80: {
+              maxPageSize_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            case 90: {
+              pageToken_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            case 98: {
+              orderBy_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 98
+            case 104: {
+              diversificationLevel_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 104
+            case 114: {
+              input.readMessage(
+                  getCustomRankingInfoFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 114
+            case 128: {
+              disableKeywordMatch_ = input.readBool();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 128
+            case 144: {
+              keywordMatchMode_ = input.readEnum();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 144
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.talent.v4.SearchJobsRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -3670,11 +3617,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParent(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3689,8 +3634,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearParent() {
-      
       parent_ = getDefaultInstance().getParent();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3707,12 +3652,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setParentBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       parent_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3741,8 +3684,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSearchModeValue(int value) {
-      
       searchMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3757,8 +3700,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4.SearchJobsRequest.SearchMode getSearchMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.SearchJobsRequest.SearchMode result = com.google.cloud.talent.v4.SearchJobsRequest.SearchMode.valueOf(searchMode_);
+      com.google.cloud.talent.v4.SearchJobsRequest.SearchMode result = com.google.cloud.talent.v4.SearchJobsRequest.SearchMode.forNumber(searchMode_);
       return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.SearchMode.UNRECOGNIZED : result;
     }
     /**
@@ -3775,7 +3717,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       searchMode_ = value.getNumber();
       onChanged();
       return this;
@@ -3790,7 +3732,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSearchMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       searchMode_ = 0;
       onChanged();
       return this;
@@ -3810,7 +3752,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the requestMetadata field is set.
      */
     public boolean hasRequestMetadata() {
-      return requestMetadataBuilder_ != null || requestMetadata_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3844,11 +3786,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         requestMetadata_ = value;
-        onChanged();
       } else {
         requestMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3864,11 +3806,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.RequestMetadata.Builder builderForValue) {
       if (requestMetadataBuilder_ == null) {
         requestMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         requestMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3882,17 +3824,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRequestMetadata(com.google.cloud.talent.v4.RequestMetadata value) {
       if (requestMetadataBuilder_ == null) {
-        if (requestMetadata_ != null) {
-          requestMetadata_ =
-            com.google.cloud.talent.v4.RequestMetadata.newBuilder(requestMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          requestMetadata_ != null &&
+          requestMetadata_ != com.google.cloud.talent.v4.RequestMetadata.getDefaultInstance()) {
+          getRequestMetadataBuilder().mergeFrom(value);
         } else {
           requestMetadata_ = value;
         }
-        onChanged();
       } else {
         requestMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3905,14 +3848,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.RequestMetadata request_metadata = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRequestMetadata() {
-      if (requestMetadataBuilder_ == null) {
-        requestMetadata_ = null;
-        onChanged();
-      } else {
-        requestMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      requestMetadata_ = null;
+      if (requestMetadataBuilder_ != null) {
+        requestMetadataBuilder_.dispose();
         requestMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3925,7 +3867,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.RequestMetadata request_metadata = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.talent.v4.RequestMetadata.Builder getRequestMetadataBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRequestMetadataFieldBuilder().getBuilder();
     }
@@ -3981,7 +3923,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the jobQuery field is set.
      */
     public boolean hasJobQuery() {
-      return jobQueryBuilder_ != null || jobQuery_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -4011,11 +3953,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         jobQuery_ = value;
-        onChanged();
       } else {
         jobQueryBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4029,11 +3971,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.JobQuery.Builder builderForValue) {
       if (jobQueryBuilder_ == null) {
         jobQuery_ = builderForValue.build();
-        onChanged();
       } else {
         jobQueryBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4045,17 +3987,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeJobQuery(com.google.cloud.talent.v4.JobQuery value) {
       if (jobQueryBuilder_ == null) {
-        if (jobQuery_ != null) {
-          jobQuery_ =
-            com.google.cloud.talent.v4.JobQuery.newBuilder(jobQuery_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          jobQuery_ != null &&
+          jobQuery_ != com.google.cloud.talent.v4.JobQuery.getDefaultInstance()) {
+          getJobQueryBuilder().mergeFrom(value);
         } else {
           jobQuery_ = value;
         }
-        onChanged();
       } else {
         jobQueryBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -4066,14 +4009,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.JobQuery job_query = 4;</code>
      */
     public Builder clearJobQuery() {
-      if (jobQueryBuilder_ == null) {
-        jobQuery_ = null;
-        onChanged();
-      } else {
-        jobQuery_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      jobQuery_ = null;
+      if (jobQueryBuilder_ != null) {
+        jobQueryBuilder_.dispose();
         jobQueryBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4084,7 +4026,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.JobQuery job_query = 4;</code>
      */
     public com.google.cloud.talent.v4.JobQuery.Builder getJobQueryBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getJobQueryFieldBuilder().getBuilder();
     }
@@ -4155,6 +4097,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableBroadening(boolean value) {
       
       enableBroadening_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -4170,7 +4113,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableBroadening() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       enableBroadening_ = false;
       onChanged();
       return this;
@@ -4179,9 +4122,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.talent.v4.HistogramQuery> histogramQueries_ =
       java.util.Collections.emptyList();
     private void ensureHistogramQueriesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         histogramQueries_ = new java.util.ArrayList<com.google.cloud.talent.v4.HistogramQuery>(histogramQueries_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -4216,8 +4159,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4312,8 +4255,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4408,8 +4351,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4504,8 +4447,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4607,8 +4550,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4707,8 +4650,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4809,8 +4752,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -4912,8 +4855,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5012,8 +4955,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5112,8 +5055,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5213,8 +5156,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5277,7 +5220,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHistogramQueries() {
       if (histogramQueriesBuilder_ == null) {
         histogramQueries_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         histogramQueriesBuilder_.clear();
@@ -5312,8 +5255,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5411,8 +5354,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5504,8 +5447,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5600,8 +5543,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5697,8 +5640,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5790,8 +5733,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5884,8 +5827,8 @@ private static final long serialVersionUID = 0L;
      * * company_display_name: histogram by [Job.company_display_name][google.cloud.talent.v4.Job.company_display_name].
      * * employment_type: histogram by [Job.employment_types][google.cloud.talent.v4.Job.employment_types], for example,
      *   "FULL_TIME", "PART_TIME".
-     * * company_size: histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example, "SMALL",
-     * "MEDIUM", "BIG".
+     * * company_size (DEPRECATED): histogram by [CompanySize][google.cloud.talent.v4.CompanySize], for example,
+     * "SMALL", "MEDIUM", "BIG".
      * * publish_time_in_day: histogram by the [Job.posting_publish_time][google.cloud.talent.v4.Job.posting_publish_time]
      *   in days.
      *   Must specify list of numeric buckets in spec.
@@ -5956,7 +5899,7 @@ private static final long serialVersionUID = 0L;
         histogramQueriesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.talent.v4.HistogramQuery, com.google.cloud.talent.v4.HistogramQuery.Builder, com.google.cloud.talent.v4.HistogramQueryOrBuilder>(
                 histogramQueries_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         histogramQueries_ = null;
@@ -5988,8 +5931,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setJobViewValue(int value) {
-      
       jobView_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -6004,8 +5947,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4.JobView getJobView() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.JobView result = com.google.cloud.talent.v4.JobView.valueOf(jobView_);
+      com.google.cloud.talent.v4.JobView result = com.google.cloud.talent.v4.JobView.forNumber(jobView_);
       return result == null ? com.google.cloud.talent.v4.JobView.UNRECOGNIZED : result;
     }
     /**
@@ -6022,7 +5964,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       jobView_ = value.getNumber();
       onChanged();
       return this;
@@ -6037,7 +5979,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearJobView() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       jobView_ = 0;
       onChanged();
       return this;
@@ -6082,6 +6024,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOffset(int value) {
       
       offset_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -6101,7 +6044,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       offset_ = 0;
       onChanged();
       return this;
@@ -6136,6 +6079,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxPageSize(int value) {
       
       maxPageSize_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -6150,7 +6094,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxPageSize() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       maxPageSize_ = 0;
       onChanged();
       return this;
@@ -6215,11 +6159,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageToken(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       pageToken_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6234,8 +6176,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPageToken() {
-      
       pageToken_ = getDefaultInstance().getPageToken();
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -6252,12 +6194,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPageTokenBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       pageToken_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -6456,11 +6396,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderBy(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       orderBy_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -6520,8 +6458,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOrderBy() {
-      
       orderBy_ = getDefaultInstance().getOrderBy();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -6583,12 +6521,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOrderByBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       orderBy_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -6629,8 +6565,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDiversificationLevelValue(int value) {
-      
       diversificationLevel_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -6651,8 +6587,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel getDiversificationLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel result = com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel.valueOf(diversificationLevel_);
+      com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel result = com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel.forNumber(diversificationLevel_);
       return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.DiversificationLevel.UNRECOGNIZED : result;
     }
     /**
@@ -6675,7 +6610,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       diversificationLevel_ = value.getNumber();
       onChanged();
       return this;
@@ -6696,7 +6631,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDiversificationLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       diversificationLevel_ = 0;
       onChanged();
       return this;
@@ -6715,7 +6650,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the customRankingInfo field is set.
      */
     public boolean hasCustomRankingInfo() {
-      return customRankingInfoBuilder_ != null || customRankingInfo_ != null;
+      return ((bitField0_ & 0x00001000) != 0);
     }
     /**
      * <pre>
@@ -6747,11 +6682,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         customRankingInfo_ = value;
-        onChanged();
       } else {
         customRankingInfoBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -6766,11 +6701,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.Builder builderForValue) {
       if (customRankingInfoBuilder_ == null) {
         customRankingInfo_ = builderForValue.build();
-        onChanged();
       } else {
         customRankingInfoBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -6783,17 +6718,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCustomRankingInfo(com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo value) {
       if (customRankingInfoBuilder_ == null) {
-        if (customRankingInfo_ != null) {
-          customRankingInfo_ =
-            com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.newBuilder(customRankingInfo_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00001000) != 0) &&
+          customRankingInfo_ != null &&
+          customRankingInfo_ != com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.getDefaultInstance()) {
+          getCustomRankingInfoBuilder().mergeFrom(value);
         } else {
           customRankingInfo_ = value;
         }
-        onChanged();
       } else {
         customRankingInfoBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00001000;
+      onChanged();
       return this;
     }
     /**
@@ -6805,14 +6741,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo custom_ranking_info = 14;</code>
      */
     public Builder clearCustomRankingInfo() {
-      if (customRankingInfoBuilder_ == null) {
-        customRankingInfo_ = null;
-        onChanged();
-      } else {
-        customRankingInfo_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      customRankingInfo_ = null;
+      if (customRankingInfoBuilder_ != null) {
+        customRankingInfoBuilder_.dispose();
         customRankingInfoBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6824,7 +6759,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo custom_ranking_info = 14;</code>
      */
     public com.google.cloud.talent.v4.SearchJobsRequest.CustomRankingInfo.Builder getCustomRankingInfoBuilder() {
-      
+      bitField0_ |= 0x00001000;
       onChanged();
       return getCustomRankingInfoFieldBuilder().getBuilder();
     }
@@ -6937,6 +6872,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Deprecated public Builder setDisableKeywordMatch(boolean value) {
       
       disableKeywordMatch_ = value;
+      bitField0_ |= 0x00002000;
       onChanged();
       return this;
     }
@@ -6972,7 +6908,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     @java.lang.Deprecated public Builder clearDisableKeywordMatch() {
-      
+      bitField0_ = (bitField0_ & ~0x00002000);
       disableKeywordMatch_ = false;
       onChanged();
       return this;
@@ -7006,8 +6942,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setKeywordMatchModeValue(int value) {
-      
       keywordMatchMode_ = value;
+      bitField0_ |= 0x00004000;
       onChanged();
       return this;
     }
@@ -7024,8 +6960,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode getKeywordMatchMode() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode result = com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.valueOf(keywordMatchMode_);
+      com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode result = com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.forNumber(keywordMatchMode_);
       return result == null ? com.google.cloud.talent.v4.SearchJobsRequest.KeywordMatchMode.UNRECOGNIZED : result;
     }
     /**
@@ -7044,7 +6979,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00004000;
       keywordMatchMode_ = value.getNumber();
       onChanged();
       return this;
@@ -7061,7 +6996,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKeywordMatchMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00004000);
       keywordMatchMode_ = 0;
       onChanged();
       return this;
@@ -7099,7 +7034,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new SearchJobsRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -35,84 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CsrfPolicy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.Builder subBuilder = null;
-            if (filterEnabled_ != null) {
-              subBuilder = filterEnabled_.toBuilder();
-            }
-            filterEnabled_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(filterEnabled_);
-              filterEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.Builder subBuilder = null;
-            if (shadowEnabled_ != null) {
-              subBuilder = shadowEnabled_.toBuilder();
-            }
-            shadowEnabled_ = input.readMessage(io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(shadowEnabled_);
-              shadowEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              additionalOrigins_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.StringMatcher>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            additionalOrigins_.add(
-                input.readMessage(io.envoyproxy.envoy.type.matcher.StringMatcher.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        additionalOrigins_ = java.util.Collections.unmodifiableList(additionalOrigins_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfProto.internal_static_envoy_config_filter_http_csrf_v2_CsrfPolicy_descriptor;
@@ -176,7 +98,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercentOrBuilder getFilterEnabledOrBuilder() {
-    return getFilterEnabled();
+    return filterEnabled_ == null ? io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.getDefaultInstance() : filterEnabled_;
   }
 
   public static final int SHADOW_ENABLED_FIELD_NUMBER = 2;
@@ -229,10 +151,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercentOrBuilder getShadowEnabledOrBuilder() {
-    return getShadowEnabled();
+    return shadowEnabled_ == null ? io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.getDefaultInstance() : shadowEnabled_;
   }
 
   public static final int ADDITIONAL_ORIGINS_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.type.matcher.StringMatcher> additionalOrigins_;
   /**
    * <pre>
@@ -330,7 +253,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < additionalOrigins_.size(); i++) {
       output.writeMessage(3, additionalOrigins_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -351,7 +274,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, additionalOrigins_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -378,7 +301,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getAdditionalOriginsList()
         .equals(other.getAdditionalOriginsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -401,7 +324,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ADDITIONAL_ORIGINS_FIELD_NUMBER;
       hash = (53 * hash) + getAdditionalOriginsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -522,41 +445,35 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getAdditionalOriginsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (filterEnabledBuilder_ == null) {
-        filterEnabled_ = null;
-      } else {
-        filterEnabled_ = null;
+      bitField0_ = 0;
+      filterEnabled_ = null;
+      if (filterEnabledBuilder_ != null) {
+        filterEnabledBuilder_.dispose();
         filterEnabledBuilder_ = null;
       }
-      if (shadowEnabledBuilder_ == null) {
-        shadowEnabled_ = null;
-      } else {
-        shadowEnabled_ = null;
+      shadowEnabled_ = null;
+      if (shadowEnabledBuilder_ != null) {
+        shadowEnabledBuilder_.dispose();
         shadowEnabledBuilder_ = null;
       }
       if (additionalOriginsBuilder_ == null) {
         additionalOrigins_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        additionalOrigins_ = null;
         additionalOriginsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       return this;
     }
 
@@ -583,28 +500,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy buildPartial() {
       io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy result = new io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy(this);
-      int from_bitField0_ = bitField0_;
-      if (filterEnabledBuilder_ == null) {
-        result.filterEnabled_ = filterEnabled_;
-      } else {
-        result.filterEnabled_ = filterEnabledBuilder_.build();
-      }
-      if (shadowEnabledBuilder_ == null) {
-        result.shadowEnabled_ = shadowEnabled_;
-      } else {
-        result.shadowEnabled_ = shadowEnabledBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy result) {
       if (additionalOriginsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           additionalOrigins_ = java.util.Collections.unmodifiableList(additionalOrigins_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.additionalOrigins_ = additionalOrigins_;
       } else {
         result.additionalOrigins_ = additionalOriginsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.filterEnabled_ = filterEnabledBuilder_ == null
+            ? filterEnabled_
+            : filterEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.shadowEnabled_ = shadowEnabledBuilder_ == null
+            ? shadowEnabled_
+            : shadowEnabledBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -661,7 +586,7 @@ private static final long serialVersionUID = 0L;
         if (!other.additionalOrigins_.isEmpty()) {
           if (additionalOrigins_.isEmpty()) {
             additionalOrigins_ = other.additionalOrigins_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureAdditionalOriginsIsMutable();
             additionalOrigins_.addAll(other.additionalOrigins_);
@@ -674,7 +599,7 @@ private static final long serialVersionUID = 0L;
             additionalOriginsBuilder_.dispose();
             additionalOriginsBuilder_ = null;
             additionalOrigins_ = other.additionalOrigins_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             additionalOriginsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAdditionalOriginsFieldBuilder() : null;
@@ -683,7 +608,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -698,17 +623,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getFilterEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getShadowEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              io.envoyproxy.envoy.type.matcher.StringMatcher m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.type.matcher.StringMatcher.parser(),
+                      extensionRegistry);
+              if (additionalOriginsBuilder_ == null) {
+                ensureAdditionalOriginsIsMutable();
+                additionalOrigins_.add(m);
+              } else {
+                additionalOriginsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.filter.http.csrf.v2.CsrfPolicy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -730,7 +695,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the filterEnabled field is set.
      */
     public boolean hasFilterEnabled() {
-      return filterEnabledBuilder_ != null || filterEnabled_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -770,11 +735,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         filterEnabled_ = value;
-        onChanged();
       } else {
         filterEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -793,11 +758,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.Builder builderForValue) {
       if (filterEnabledBuilder_ == null) {
         filterEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         filterEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -814,17 +779,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFilterEnabled(io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent value) {
       if (filterEnabledBuilder_ == null) {
-        if (filterEnabled_ != null) {
-          filterEnabled_ =
-            io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.newBuilder(filterEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          filterEnabled_ != null &&
+          filterEnabled_ != io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.getDefaultInstance()) {
+          getFilterEnabledBuilder().mergeFrom(value);
         } else {
           filterEnabled_ = value;
         }
-        onChanged();
       } else {
         filterEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -840,14 +806,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.RuntimeFractionalPercent filter_enabled = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearFilterEnabled() {
-      if (filterEnabledBuilder_ == null) {
-        filterEnabled_ = null;
-        onChanged();
-      } else {
-        filterEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      filterEnabled_ = null;
+      if (filterEnabledBuilder_ != null) {
+        filterEnabledBuilder_.dispose();
         filterEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -863,7 +828,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.RuntimeFractionalPercent filter_enabled = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.Builder getFilterEnabledBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getFilterEnabledFieldBuilder().getBuilder();
     }
@@ -930,7 +895,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the shadowEnabled field is set.
      */
     public boolean hasShadowEnabled() {
-      return shadowEnabledBuilder_ != null || shadowEnabled_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -970,11 +935,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         shadowEnabled_ = value;
-        onChanged();
       } else {
         shadowEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -993,11 +958,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.Builder builderForValue) {
       if (shadowEnabledBuilder_ == null) {
         shadowEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         shadowEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1014,17 +979,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeShadowEnabled(io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent value) {
       if (shadowEnabledBuilder_ == null) {
-        if (shadowEnabled_ != null) {
-          shadowEnabled_ =
-            io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.newBuilder(shadowEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          shadowEnabled_ != null &&
+          shadowEnabled_ != io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.getDefaultInstance()) {
+          getShadowEnabledBuilder().mergeFrom(value);
         } else {
           shadowEnabled_ = value;
         }
-        onChanged();
       } else {
         shadowEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1040,14 +1006,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.RuntimeFractionalPercent shadow_enabled = 2;</code>
      */
     public Builder clearShadowEnabled() {
-      if (shadowEnabledBuilder_ == null) {
-        shadowEnabled_ = null;
-        onChanged();
-      } else {
-        shadowEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      shadowEnabled_ = null;
+      if (shadowEnabledBuilder_ != null) {
+        shadowEnabledBuilder_.dispose();
         shadowEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1063,7 +1028,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.api.v2.core.RuntimeFractionalPercent shadow_enabled = 2;</code>
      */
     public io.envoyproxy.envoy.api.v2.core.RuntimeFractionalPercent.Builder getShadowEnabledBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getShadowEnabledFieldBuilder().getBuilder();
     }
@@ -1116,9 +1081,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.type.matcher.StringMatcher> additionalOrigins_ =
       java.util.Collections.emptyList();
     private void ensureAdditionalOriginsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         additionalOrigins_ = new java.util.ArrayList<io.envoyproxy.envoy.type.matcher.StringMatcher>(additionalOrigins_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1345,7 +1310,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAdditionalOrigins() {
       if (additionalOriginsBuilder_ == null) {
         additionalOrigins_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         additionalOriginsBuilder_.clear();
@@ -1471,7 +1436,7 @@ private static final long serialVersionUID = 0L;
         additionalOriginsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.type.matcher.StringMatcher, io.envoyproxy.envoy.type.matcher.StringMatcher.Builder, io.envoyproxy.envoy.type.matcher.StringMatcherOrBuilder>(
                 additionalOrigins_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         additionalOrigins_ = null;
@@ -1511,7 +1476,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CsrfPolicy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

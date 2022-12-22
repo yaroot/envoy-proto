@@ -35,58 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private TrafficRestriction(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.Builder subBuilder = null;
-            if (licensePlateLastCharacterRestriction_ != null) {
-              subBuilder = licensePlateLastCharacterRestriction_.toBuilder();
-            }
-            licensePlateLastCharacterRestriction_ = input.readMessage(com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(licensePlateLastCharacterRestriction_);
-              licensePlateLastCharacterRestriction_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.RouteProto.internal_static_google_maps_routes_v1_TrafficRestriction_descriptor;
@@ -138,7 +86,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.LicensePlateLastCharacterRestrictionOrBuilder getLicensePlateLastCharacterRestrictionOrBuilder() {
-    return getLicensePlateLastCharacterRestriction();
+    return licensePlateLastCharacterRestriction_ == null ? com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.getDefaultInstance() : licensePlateLastCharacterRestriction_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -158,7 +106,7 @@ private static final long serialVersionUID = 0L;
     if (licensePlateLastCharacterRestriction_ != null) {
       output.writeMessage(1, getLicensePlateLastCharacterRestriction());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -171,7 +119,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getLicensePlateLastCharacterRestriction());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -191,7 +139,7 @@ private static final long serialVersionUID = 0L;
       if (!getLicensePlateLastCharacterRestriction()
           .equals(other.getLicensePlateLastCharacterRestriction())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -206,7 +154,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LICENSE_PLATE_LAST_CHARACTER_RESTRICTION_FIELD_NUMBER;
       hash = (53 * hash) + getLicensePlateLastCharacterRestriction().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -328,26 +276,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.TrafficRestriction.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (licensePlateLastCharacterRestrictionBuilder_ == null) {
-        licensePlateLastCharacterRestriction_ = null;
-      } else {
-        licensePlateLastCharacterRestriction_ = null;
+      bitField0_ = 0;
+      licensePlateLastCharacterRestriction_ = null;
+      if (licensePlateLastCharacterRestrictionBuilder_ != null) {
+        licensePlateLastCharacterRestrictionBuilder_.dispose();
         licensePlateLastCharacterRestrictionBuilder_ = null;
       }
       return this;
@@ -376,13 +319,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.TrafficRestriction buildPartial() {
       com.google.maps.routes.v1.TrafficRestriction result = new com.google.maps.routes.v1.TrafficRestriction(this);
-      if (licensePlateLastCharacterRestrictionBuilder_ == null) {
-        result.licensePlateLastCharacterRestriction_ = licensePlateLastCharacterRestriction_;
-      } else {
-        result.licensePlateLastCharacterRestriction_ = licensePlateLastCharacterRestrictionBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.TrafficRestriction result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.licensePlateLastCharacterRestriction_ = licensePlateLastCharacterRestrictionBuilder_ == null
+            ? licensePlateLastCharacterRestriction_
+            : licensePlateLastCharacterRestrictionBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -432,7 +380,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasLicensePlateLastCharacterRestriction()) {
         mergeLicensePlateLastCharacterRestriction(other.getLicensePlateLastCharacterRestriction());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -447,19 +395,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.TrafficRestriction parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLicensePlateLastCharacterRestrictionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.TrafficRestriction) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.maps.routes.v1.LicensePlateLastCharacterRestriction licensePlateLastCharacterRestriction_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -474,7 +443,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the licensePlateLastCharacterRestriction field is set.
      */
     public boolean hasLicensePlateLastCharacterRestriction() {
-      return licensePlateLastCharacterRestrictionBuilder_ != null || licensePlateLastCharacterRestriction_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -506,11 +475,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         licensePlateLastCharacterRestriction_ = value;
-        onChanged();
       } else {
         licensePlateLastCharacterRestrictionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -525,11 +494,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.Builder builderForValue) {
       if (licensePlateLastCharacterRestrictionBuilder_ == null) {
         licensePlateLastCharacterRestriction_ = builderForValue.build();
-        onChanged();
       } else {
         licensePlateLastCharacterRestrictionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -542,17 +511,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLicensePlateLastCharacterRestriction(com.google.maps.routes.v1.LicensePlateLastCharacterRestriction value) {
       if (licensePlateLastCharacterRestrictionBuilder_ == null) {
-        if (licensePlateLastCharacterRestriction_ != null) {
-          licensePlateLastCharacterRestriction_ =
-            com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.newBuilder(licensePlateLastCharacterRestriction_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          licensePlateLastCharacterRestriction_ != null &&
+          licensePlateLastCharacterRestriction_ != com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.getDefaultInstance()) {
+          getLicensePlateLastCharacterRestrictionBuilder().mergeFrom(value);
         } else {
           licensePlateLastCharacterRestriction_ = value;
         }
-        onChanged();
       } else {
         licensePlateLastCharacterRestrictionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -564,14 +534,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.LicensePlateLastCharacterRestriction license_plate_last_character_restriction = 1;</code>
      */
     public Builder clearLicensePlateLastCharacterRestriction() {
-      if (licensePlateLastCharacterRestrictionBuilder_ == null) {
-        licensePlateLastCharacterRestriction_ = null;
-        onChanged();
-      } else {
-        licensePlateLastCharacterRestriction_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      licensePlateLastCharacterRestriction_ = null;
+      if (licensePlateLastCharacterRestrictionBuilder_ != null) {
+        licensePlateLastCharacterRestrictionBuilder_.dispose();
         licensePlateLastCharacterRestrictionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -583,7 +552,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.LicensePlateLastCharacterRestriction license_plate_last_character_restriction = 1;</code>
      */
     public com.google.maps.routes.v1.LicensePlateLastCharacterRestriction.Builder getLicensePlateLastCharacterRestrictionBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getLicensePlateLastCharacterRestrictionFieldBuilder().getBuilder();
     }
@@ -657,7 +626,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new TrafficRestriction(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

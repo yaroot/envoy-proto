@@ -31,8 +31,9 @@ public interface ContentOrBuilder extends
 
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the content. This ID will be
-   * different if the content is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the content. This ID
+   * will be different if the content is deleted and re-created with the same
+   * name.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -41,8 +42,9 @@ public interface ContentOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the content. This ID will be
-   * different if the content is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the content. This ID
+   * will be different if the content is deleted and re-created with the same
+   * name.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -53,9 +55,9 @@ public interface ContentOrBuilder extends
 
   /**
    * <pre>
-   * Required. The path for the Content file, represented as directory structure.
-   * Unique within a lake.
-   * Limited to alphanumerics, hyphens, underscores, dots and slashes.
+   * Required. The path for the Content file, represented as directory
+   * structure. Unique within a lake. Limited to alphanumerics, hyphens,
+   * underscores, dots and slashes.
    * </pre>
    *
    * <code>string path = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -64,9 +66,9 @@ public interface ContentOrBuilder extends
   java.lang.String getPath();
   /**
    * <pre>
-   * Required. The path for the Content file, represented as directory structure.
-   * Unique within a lake.
-   * Limited to alphanumerics, hyphens, underscores, dots and slashes.
+   * Required. The path for the Content file, represented as directory
+   * structure. Unique within a lake. Limited to alphanumerics, hyphens,
+   * underscores, dots and slashes.
    * </pre>
    *
    * <code>string path = 3 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -168,7 +170,6 @@ public interface ContentOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -181,7 +182,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 

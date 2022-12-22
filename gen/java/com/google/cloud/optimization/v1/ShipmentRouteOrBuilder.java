@@ -201,8 +201,10 @@ public interface ShipmentRouteOrBuilder extends
    * insufficient time to complete traffic-adjusted travel, delays, and breaks
    * between visits, before the first visit, or after the last visit, while
    * still satisfying the visit and vehicle time windows. For example,
-   *   ```start_time(previous_visit) + duration(previous_visit) +
-   *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)```
+   * ```
+   *   start_time(previous_visit) + duration(previous_visit) +
+   *   travel_duration(previous_visit, next_visit) &gt; start_time(next_visit)
+   * ```
    * Arrival at next_visit will likely happen later than its current
    * time window due the increased estimate of travel time
    * `travel_duration(previous_visit, next_visit)` due to traffic. Also, a break
@@ -308,8 +310,12 @@ public interface ShipmentRouteOrBuilder extends
   /**
    * <pre>
    * Duration, distance and load metrics for this route. The fields of
-   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+   * summed over all
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * or
+   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+   * depending on the context.
    * </pre>
    *
    * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -319,8 +325,12 @@ public interface ShipmentRouteOrBuilder extends
   /**
    * <pre>
    * Duration, distance and load metrics for this route. The fields of
-   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+   * summed over all
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * or
+   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+   * depending on the context.
    * </pre>
    *
    * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -330,8 +340,12 @@ public interface ShipmentRouteOrBuilder extends
   /**
    * <pre>
    * Duration, distance and load metrics for this route. The fields of
-   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are summed over all [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions] or
-   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits], depending on the context.
+   * [AggregatedMetrics][google.cloud.optimization.v1.AggregatedMetrics] are
+   * summed over all
+   * [ShipmentRoute.transitions][google.cloud.optimization.v1.ShipmentRoute.transitions]
+   * or
+   * [ShipmentRoute.visits][google.cloud.optimization.v1.ShipmentRoute.visits],
+   * depending on the context.
    * </pre>
    *
    * <code>.google.cloud.optimization.v1.AggregatedMetrics metrics = 12;</code>
@@ -405,7 +419,6 @@ public interface ShipmentRouteOrBuilder extends
    *
    * <code>map&lt;string, double&gt; route_costs = 17;</code>
    */
-
   double getRouteCostsOrDefault(
       java.lang.String key,
       double defaultValue);
@@ -423,7 +436,6 @@ public interface ShipmentRouteOrBuilder extends
    *
    * <code>map&lt;string, double&gt; route_costs = 17;</code>
    */
-
   double getRouteCostsOrThrow(
       java.lang.String key);
 
@@ -441,7 +453,8 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -455,7 +468,8 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -468,7 +482,8 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -481,7 +496,8 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -495,7 +511,8 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: Use [ShipmentRoute.Transition.loads][] instead.
    * Vehicle loads upon arrival at its end location, for each
-   * type specified in [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
+   * type specified in
+   * [Vehicle.capacities][google.cloud.optimization.v1.Vehicle.capacities],
    * `start_load_intervals`, `end_load_intervals` or demands. Exception: we omit
    * loads for quantity types unconstrained by intervals and that don't have any
    * non-zero demand on the route.
@@ -559,15 +576,15 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: No longer used.
    * This field will only be populated at the
-   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-   * Extra detour time due to the shipments visited on the route.
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+   * level. Extra detour time due to the shipments visited on the route.
    * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
    * from the vehicle's start_location to its `end_location`.
    * </pre>
    *
    * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.vehicle_detour is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2052
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2135
    * @return Whether the vehicleDetour field is set.
    */
   @java.lang.Deprecated boolean hasVehicleDetour();
@@ -575,15 +592,15 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: No longer used.
    * This field will only be populated at the
-   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-   * Extra detour time due to the shipments visited on the route.
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+   * level. Extra detour time due to the shipments visited on the route.
    * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
    * from the vehicle's start_location to its `end_location`.
    * </pre>
    *
    * <code>.google.protobuf.Duration vehicle_detour = 15 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.vehicle_detour is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2052
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2135
    * @return The vehicleDetour.
    */
   @java.lang.Deprecated com.google.protobuf.Duration getVehicleDetour();
@@ -591,8 +608,8 @@ public interface ShipmentRouteOrBuilder extends
    * <pre>
    * Deprecated: No longer used.
    * This field will only be populated at the
-   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit] level.
-   * Extra detour time due to the shipments visited on the route.
+   * [ShipmentRoute.Visit][google.cloud.optimization.v1.ShipmentRoute.Visit]
+   * level. Extra detour time due to the shipments visited on the route.
    * It is equal to `vehicle_end_time` - `vehicle_start_time` - travel duration
    * from the vehicle's start_location to its `end_location`.
    * </pre>
@@ -610,7 +627,7 @@ public interface ShipmentRouteOrBuilder extends
    *
    * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.delay_before_vehicle_end is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2057
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2140
    * @return Whether the delayBeforeVehicleEnd field is set.
    */
   @java.lang.Deprecated boolean hasDelayBeforeVehicleEnd();
@@ -623,7 +640,7 @@ public interface ShipmentRouteOrBuilder extends
    *
    * <code>.google.cloud.optimization.v1.ShipmentRoute.Delay delay_before_vehicle_end = 16 [deprecated = true];</code>
    * @deprecated google.cloud.optimization.v1.ShipmentRoute.delay_before_vehicle_end is deprecated.
-   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2057
+   *     See google/cloud/optimization/v1/fleet_routing.proto;l=2140
    * @return The delayBeforeVehicleEnd.
    */
   @java.lang.Deprecated com.google.cloud.optimization.v1.ShipmentRoute.Delay getDelayBeforeVehicleEnd();

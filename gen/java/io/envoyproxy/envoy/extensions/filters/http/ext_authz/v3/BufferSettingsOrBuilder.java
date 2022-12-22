@@ -36,8 +36,8 @@ public interface BufferSettingsOrBuilder extends
    * <pre>
    * If true, the body sent to the external authorization service is set with raw bytes, it sets
    * the :ref:`raw_body&lt;envoy_v3_api_field_service.auth.v3.AttributeContext.HttpRequest.raw_body&gt;`
-   * field of HTTP request attribute context. Otherwise, :ref:`
-   * body&lt;envoy_v3_api_field_service.auth.v3.AttributeContext.HttpRequest.body&gt;` will be filled
+   * field of HTTP request attribute context. Otherwise, :ref:`body
+   * &lt;envoy_v3_api_field_service.auth.v3.AttributeContext.HttpRequest.body&gt;` will be filled
    * with UTF-8 string request body.
    * </pre>
    *

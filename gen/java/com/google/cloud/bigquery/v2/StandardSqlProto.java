@@ -136,79 +136,6 @@ public final class StandardSqlProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StandardSqlDataType(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              typeKind_ = rawValue;
-              break;
-            }
-            case 18: {
-              com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.Builder subBuilder = null;
-              if (subTypeCase_ == 2) {
-                subBuilder = ((com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType) subType_).toBuilder();
-              }
-              subType_ =
-                  input.readMessage(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType) subType_);
-                subType_ = subBuilder.buildPartial();
-              }
-              subTypeCase_ = 2;
-              break;
-            }
-            case 26: {
-              com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType.Builder subBuilder = null;
-              if (subTypeCase_ == 3) {
-                subBuilder = ((com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType) subType_).toBuilder();
-              }
-              subType_ =
-                  input.readMessage(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType) subType_);
-                subType_ = subBuilder.buildPartial();
-              }
-              subTypeCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.v2.StandardSqlProto.internal_static_google_cloud_bigquery_v2_StandardSqlDataType_descriptor;
@@ -647,7 +574,7 @@ public final class StandardSqlProto {
     }
 
     public static final int TYPE_KIND_FIELD_NUMBER = 1;
-    private int typeKind_;
+    private int typeKind_ = 0;
     /**
      * <pre>
      * Required. The top level type of this field.
@@ -670,8 +597,7 @@ public final class StandardSqlProto {
      * @return The typeKind.
      */
     @java.lang.Override public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind getTypeKind() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind result = com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind.valueOf(typeKind_);
+      com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind result = com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind.forNumber(typeKind_);
       return result == null ? com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind.UNRECOGNIZED : result;
     }
 
@@ -784,7 +710,7 @@ public final class StandardSqlProto {
       if (subTypeCase_ == 3) {
         output.writeMessage(3, (com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType) subType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -805,7 +731,7 @@ public final class StandardSqlProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType) subType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -834,7 +760,7 @@ public final class StandardSqlProto {
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -859,7 +785,7 @@ public final class StandardSqlProto {
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -989,24 +915,25 @@ public final class StandardSqlProto {
 
       // Construct using com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         typeKind_ = 0;
-
+        if (arrayElementTypeBuilder_ != null) {
+          arrayElementTypeBuilder_.clear();
+        }
+        if (structTypeBuilder_ != null) {
+          structTypeBuilder_.clear();
+        }
         subTypeCase_ = 0;
         subType_ = null;
         return this;
@@ -1035,24 +962,30 @@ public final class StandardSqlProto {
       @java.lang.Override
       public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType buildPartial() {
         com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType result = new com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType(this);
-        result.typeKind_ = typeKind_;
-        if (subTypeCase_ == 2) {
-          if (arrayElementTypeBuilder_ == null) {
-            result.subType_ = subType_;
-          } else {
-            result.subType_ = arrayElementTypeBuilder_.build();
-          }
-        }
-        if (subTypeCase_ == 3) {
-          if (structTypeBuilder_ == null) {
-            result.subType_ = subType_;
-          } else {
-            result.subType_ = structTypeBuilder_.build();
-          }
-        }
-        result.subTypeCase_ = subTypeCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.typeKind_ = typeKind_;
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType result) {
+        result.subTypeCase_ = subTypeCase_;
+        result.subType_ = this.subType_;
+        if (subTypeCase_ == 2 &&
+            arrayElementTypeBuilder_ != null) {
+          result.subType_ = arrayElementTypeBuilder_.build();
+        }
+        if (subTypeCase_ == 3 &&
+            structTypeBuilder_ != null) {
+          result.subType_ = structTypeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -1115,7 +1048,7 @@ public final class StandardSqlProto {
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -1130,17 +1063,49 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                typeKind_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                input.readMessage(
+                    getArrayElementTypeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                subTypeCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getStructTypeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                subTypeCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int subTypeCase_ = 0;
@@ -1158,6 +1123,7 @@ public final class StandardSqlProto {
         return this;
       }
 
+      private int bitField0_;
 
       private int typeKind_ = 0;
       /**
@@ -1183,8 +1149,8 @@ public final class StandardSqlProto {
        * @return This builder for chaining.
        */
       public Builder setTypeKindValue(int value) {
-        
         typeKind_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1199,8 +1165,7 @@ public final class StandardSqlProto {
        */
       @java.lang.Override
       public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind getTypeKind() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind result = com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind.valueOf(typeKind_);
+        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind result = com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind.forNumber(typeKind_);
         return result == null ? com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.TypeKind.UNRECOGNIZED : result;
       }
       /**
@@ -1217,7 +1182,7 @@ public final class StandardSqlProto {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         typeKind_ = value.getNumber();
         onChanged();
         return this;
@@ -1232,7 +1197,7 @@ public final class StandardSqlProto {
        * @return This builder for chaining.
        */
       public Builder clearTypeKind() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         typeKind_ = 0;
         onChanged();
         return this;
@@ -1412,7 +1377,7 @@ public final class StandardSqlProto {
           subType_ = null;
         }
         subTypeCase_ = 2;
-        onChanged();;
+        onChanged();
         return arrayElementTypeBuilder_;
       }
 
@@ -1590,7 +1555,7 @@ public final class StandardSqlProto {
           subType_ = null;
         }
         subTypeCase_ = 3;
-        onChanged();;
+        onChanged();
         return structTypeBuilder_;
       }
       @java.lang.Override
@@ -1626,7 +1591,18 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StandardSqlDataType(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1735,64 +1711,6 @@ public final class StandardSqlProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StandardSqlField(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-            case 18: {
-              com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.Builder subBuilder = null;
-              if (type_ != null) {
-                subBuilder = type_.toBuilder();
-              }
-              type_ = input.readMessage(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(type_);
-                type_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.v2.StandardSqlProto.internal_static_google_cloud_bigquery_v2_StandardSqlField_descriptor;
@@ -1807,7 +1725,8 @@ public final class StandardSqlProto {
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object name_ = "";
     /**
      * <pre>
      * Optional. The name of this field. Can be absent for struct fields.
@@ -1893,7 +1812,7 @@ public final class StandardSqlProto {
      */
     @java.lang.Override
     public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataTypeOrBuilder getTypeOrBuilder() {
-      return getType();
+      return type_ == null ? com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.getDefaultInstance() : type_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1916,7 +1835,7 @@ public final class StandardSqlProto {
       if (type_ != null) {
         output.writeMessage(2, getType());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1932,7 +1851,7 @@ public final class StandardSqlProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getType());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1954,7 +1873,7 @@ public final class StandardSqlProto {
         if (!getType()
             .equals(other.getType())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1971,7 +1890,7 @@ public final class StandardSqlProto {
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
         hash = (53 * hash) + getType().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2092,28 +2011,22 @@ public final class StandardSqlProto {
 
       // Construct using com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         name_ = "";
-
-        if (typeBuilder_ == null) {
-          type_ = null;
-        } else {
-          type_ = null;
+        type_ = null;
+        if (typeBuilder_ != null) {
+          typeBuilder_.dispose();
           typeBuilder_ = null;
         }
         return this;
@@ -2142,14 +2055,21 @@ public final class StandardSqlProto {
       @java.lang.Override
       public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField buildPartial() {
         com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField result = new com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField(this);
-        result.name_ = name_;
-        if (typeBuilder_ == null) {
-          result.type_ = type_;
-        } else {
-          result.type_ = typeBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.name_ = name_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.type_ = typeBuilder_ == null
+              ? type_
+              : typeBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2198,12 +2118,13 @@ public final class StandardSqlProto {
         if (other == com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField.getDefaultInstance()) return this;
         if (!other.getName().isEmpty()) {
           name_ = other.name_;
+          bitField0_ |= 0x00000001;
           onChanged();
         }
         if (other.hasType()) {
           mergeType(other.getType());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2218,19 +2139,45 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                name_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getTypeFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object name_ = "";
       /**
@@ -2285,11 +2232,9 @@ public final class StandardSqlProto {
        */
       public Builder setName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2302,8 +2247,8 @@ public final class StandardSqlProto {
        * @return This builder for chaining.
        */
       public Builder clearName() {
-        
         name_ = getDefaultInstance().getName();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -2318,12 +2263,10 @@ public final class StandardSqlProto {
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         name_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -2342,7 +2285,7 @@ public final class StandardSqlProto {
        * @return Whether the type field is set.
        */
       public boolean hasType() {
-        return typeBuilder_ != null || type_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <pre>
@@ -2376,11 +2319,11 @@ public final class StandardSqlProto {
             throw new NullPointerException();
           }
           type_ = value;
-          onChanged();
         } else {
           typeBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2396,11 +2339,11 @@ public final class StandardSqlProto {
           com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.Builder builderForValue) {
         if (typeBuilder_ == null) {
           type_ = builderForValue.build();
-          onChanged();
         } else {
           typeBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2414,17 +2357,18 @@ public final class StandardSqlProto {
        */
       public Builder mergeType(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType value) {
         if (typeBuilder_ == null) {
-          if (type_ != null) {
-            type_ =
-              com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.newBuilder(type_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            type_ != null &&
+            type_ != com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.getDefaultInstance()) {
+            getTypeBuilder().mergeFrom(value);
           } else {
             type_ = value;
           }
-          onChanged();
         } else {
           typeBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2437,14 +2381,13 @@ public final class StandardSqlProto {
        * <code>.google.cloud.bigquery.v2.StandardSqlDataType type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearType() {
-        if (typeBuilder_ == null) {
-          type_ = null;
-          onChanged();
-        } else {
-          type_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = null;
+        if (typeBuilder_ != null) {
+          typeBuilder_.dispose();
           typeBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2457,7 +2400,7 @@ public final class StandardSqlProto {
        * <code>.google.cloud.bigquery.v2.StandardSqlDataType type = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlDataType.Builder getTypeBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getTypeFieldBuilder().getBuilder();
       }
@@ -2533,7 +2476,18 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StandardSqlField(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2609,58 +2563,6 @@ public final class StandardSqlProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StandardSqlStructType(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                fields_ = new java.util.ArrayList<com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              fields_.add(
-                  input.readMessage(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          fields_ = java.util.Collections.unmodifiableList(fields_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.v2.StandardSqlProto.internal_static_google_cloud_bigquery_v2_StandardSqlStructType_descriptor;
@@ -2675,6 +2577,7 @@ public final class StandardSqlProto {
     }
 
     public static final int FIELDS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField> fields_;
     /**
      * <code>repeated .google.cloud.bigquery.v2.StandardSqlField fields = 1;</code>
@@ -2731,7 +2634,7 @@ public final class StandardSqlProto {
       for (int i = 0; i < fields_.size(); i++) {
         output.writeMessage(1, fields_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -2744,7 +2647,7 @@ public final class StandardSqlProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, fields_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -2761,7 +2664,7 @@ public final class StandardSqlProto {
 
       if (!getFieldsList()
           .equals(other.getFieldsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -2776,7 +2679,7 @@ public final class StandardSqlProto {
         hash = (37 * hash) + FIELDS_FIELD_NUMBER;
         hash = (53 * hash) + getFieldsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -2893,29 +2796,25 @@ public final class StandardSqlProto {
 
       // Construct using com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getFieldsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (fieldsBuilder_ == null) {
           fields_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          fields_ = null;
           fieldsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -2942,7 +2841,13 @@ public final class StandardSqlProto {
       @java.lang.Override
       public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType buildPartial() {
         com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType result = new com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType result) {
         if (fieldsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             fields_ = java.util.Collections.unmodifiableList(fields_);
@@ -2952,8 +2857,10 @@ public final class StandardSqlProto {
         } else {
           result.fields_ = fieldsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3026,7 +2933,7 @@ public final class StandardSqlProto {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3041,17 +2948,43 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField m =
+                    input.readMessage(
+                        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField.parser(),
+                        extensionRegistry);
+                if (fieldsBuilder_ == null) {
+                  ensureFieldsIsMutable();
+                  fields_.add(m);
+                } else {
+                  fieldsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlStructType) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -3328,7 +3261,18 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StandardSqlStructType(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -3428,58 +3372,6 @@ public final class StandardSqlProto {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private StandardSqlTableType(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                columns_ = new java.util.ArrayList<com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              columns_.add(
-                  input.readMessage(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField.parser(), extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          columns_ = java.util.Collections.unmodifiableList(columns_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.bigquery.v2.StandardSqlProto.internal_static_google_cloud_bigquery_v2_StandardSqlTableType_descriptor;
@@ -3494,6 +3386,7 @@ public final class StandardSqlProto {
     }
 
     public static final int COLUMNS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField> columns_;
     /**
      * <pre>
@@ -3570,7 +3463,7 @@ public final class StandardSqlProto {
       for (int i = 0; i < columns_.size(); i++) {
         output.writeMessage(1, columns_.get(i));
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3583,7 +3476,7 @@ public final class StandardSqlProto {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, columns_.get(i));
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3600,7 +3493,7 @@ public final class StandardSqlProto {
 
       if (!getColumnsList()
           .equals(other.getColumnsList())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3615,7 +3508,7 @@ public final class StandardSqlProto {
         hash = (37 * hash) + COLUMNS_FIELD_NUMBER;
         hash = (53 * hash) + getColumnsList().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3736,29 +3629,25 @@ public final class StandardSqlProto {
 
       // Construct using com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getColumnsFieldBuilder();
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (columnsBuilder_ == null) {
           columns_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
+          columns_ = null;
           columnsBuilder_.clear();
         }
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -3785,7 +3674,13 @@ public final class StandardSqlProto {
       @java.lang.Override
       public com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType buildPartial() {
         com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType result = new com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType result) {
         if (columnsBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             columns_ = java.util.Collections.unmodifiableList(columns_);
@@ -3795,8 +3690,10 @@ public final class StandardSqlProto {
         } else {
           result.columns_ = columnsBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
@@ -3869,7 +3766,7 @@ public final class StandardSqlProto {
             }
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3884,17 +3781,43 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField m =
+                    input.readMessage(
+                        com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlField.parser(),
+                        extensionRegistry);
+                if (columnsBuilder_ == null) {
+                  ensureColumnsIsMutable();
+                  columns_.add(m);
+                } else {
+                  columnsBuilder_.addMessage(m);
+                }
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.bigquery.v2.StandardSqlProto.StandardSqlTableType) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int bitField0_;
@@ -4243,7 +4166,18 @@ public final class StandardSqlProto {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new StandardSqlTableType(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 

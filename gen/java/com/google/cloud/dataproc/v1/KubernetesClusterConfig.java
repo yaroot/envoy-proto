@@ -35,78 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KubernetesClusterConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kubernetesNamespace_ = s;
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataproc.v1.GkeClusterConfig.Builder subBuilder = null;
-            if (configCase_ == 2) {
-              subBuilder = ((com.google.cloud.dataproc.v1.GkeClusterConfig) config_).toBuilder();
-            }
-            config_ =
-                input.readMessage(com.google.cloud.dataproc.v1.GkeClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.dataproc.v1.GkeClusterConfig) config_);
-              config_ = subBuilder.buildPartial();
-            }
-            configCase_ = 2;
-            break;
-          }
-          case 26: {
-            com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.Builder subBuilder = null;
-            if (kubernetesSoftwareConfig_ != null) {
-              subBuilder = kubernetesSoftwareConfig_.toBuilder();
-            }
-            kubernetesSoftwareConfig_ = input.readMessage(com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(kubernetesSoftwareConfig_);
-              kubernetesSoftwareConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.SharedProto.internal_static_google_cloud_dataproc_v1_KubernetesClusterConfig_descriptor;
@@ -160,7 +88,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int KUBERNETES_NAMESPACE_FIELD_NUMBER = 1;
-  private volatile java.lang.Object kubernetesNamespace_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kubernetesNamespace_ = "";
   /**
    * <pre>
    * Optional. A namespace within the Kubernetes cluster to deploy into. If this namespace
@@ -289,7 +218,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.KubernetesSoftwareConfigOrBuilder getKubernetesSoftwareConfigOrBuilder() {
-    return getKubernetesSoftwareConfig();
+    return kubernetesSoftwareConfig_ == null ? com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.getDefaultInstance() : kubernetesSoftwareConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -315,7 +244,7 @@ private static final long serialVersionUID = 0L;
     if (kubernetesSoftwareConfig_ != null) {
       output.writeMessage(3, getKubernetesSoftwareConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -335,7 +264,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(3, getKubernetesSoftwareConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -366,7 +295,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -391,7 +320,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -512,28 +441,25 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.KubernetesClusterConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       kubernetesNamespace_ = "";
-
-      if (kubernetesSoftwareConfigBuilder_ == null) {
-        kubernetesSoftwareConfig_ = null;
-      } else {
-        kubernetesSoftwareConfig_ = null;
+      if (gkeClusterConfigBuilder_ != null) {
+        gkeClusterConfigBuilder_.clear();
+      }
+      kubernetesSoftwareConfig_ = null;
+      if (kubernetesSoftwareConfigBuilder_ != null) {
+        kubernetesSoftwareConfigBuilder_.dispose();
         kubernetesSoftwareConfigBuilder_ = null;
       }
       configCase_ = 0;
@@ -564,22 +490,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.KubernetesClusterConfig buildPartial() {
       com.google.cloud.dataproc.v1.KubernetesClusterConfig result = new com.google.cloud.dataproc.v1.KubernetesClusterConfig(this);
-      result.kubernetesNamespace_ = kubernetesNamespace_;
-      if (configCase_ == 2) {
-        if (gkeClusterConfigBuilder_ == null) {
-          result.config_ = config_;
-        } else {
-          result.config_ = gkeClusterConfigBuilder_.build();
-        }
-      }
-      if (kubernetesSoftwareConfigBuilder_ == null) {
-        result.kubernetesSoftwareConfig_ = kubernetesSoftwareConfig_;
-      } else {
-        result.kubernetesSoftwareConfig_ = kubernetesSoftwareConfigBuilder_.build();
-      }
-      result.configCase_ = configCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.KubernetesClusterConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.kubernetesNamespace_ = kubernetesNamespace_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.kubernetesSoftwareConfig_ = kubernetesSoftwareConfigBuilder_ == null
+            ? kubernetesSoftwareConfig_
+            : kubernetesSoftwareConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.dataproc.v1.KubernetesClusterConfig result) {
+      result.configCase_ = configCase_;
+      result.config_ = this.config_;
+      if (configCase_ == 2 &&
+          gkeClusterConfigBuilder_ != null) {
+        result.config_ = gkeClusterConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -628,6 +563,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataproc.v1.KubernetesClusterConfig.getDefaultInstance()) return this;
       if (!other.getKubernetesNamespace().isEmpty()) {
         kubernetesNamespace_ = other.kubernetesNamespace_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.hasKubernetesSoftwareConfig()) {
@@ -642,7 +578,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -657,17 +593,49 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.KubernetesClusterConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              kubernetesNamespace_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getGkeClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              configCase_ = 2;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getKubernetesSoftwareConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.KubernetesClusterConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int configCase_ = 0;
@@ -685,6 +653,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private java.lang.Object kubernetesNamespace_ = "";
     /**
@@ -748,11 +717,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKubernetesNamespace(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kubernetesNamespace_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -768,8 +735,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKubernetesNamespace() {
-      
       kubernetesNamespace_ = getDefaultInstance().getKubernetesNamespace();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -787,12 +754,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKubernetesNamespaceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kubernetesNamespace_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -971,7 +936,7 @@ private static final long serialVersionUID = 0L;
         config_ = null;
       }
       configCase_ = 2;
-      onChanged();;
+      onChanged();
       return gkeClusterConfigBuilder_;
     }
 
@@ -987,7 +952,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the kubernetesSoftwareConfig field is set.
      */
     public boolean hasKubernetesSoftwareConfig() {
-      return kubernetesSoftwareConfigBuilder_ != null || kubernetesSoftwareConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1017,11 +982,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         kubernetesSoftwareConfig_ = value;
-        onChanged();
       } else {
         kubernetesSoftwareConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1035,11 +1000,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.Builder builderForValue) {
       if (kubernetesSoftwareConfigBuilder_ == null) {
         kubernetesSoftwareConfig_ = builderForValue.build();
-        onChanged();
       } else {
         kubernetesSoftwareConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1051,17 +1016,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeKubernetesSoftwareConfig(com.google.cloud.dataproc.v1.KubernetesSoftwareConfig value) {
       if (kubernetesSoftwareConfigBuilder_ == null) {
-        if (kubernetesSoftwareConfig_ != null) {
-          kubernetesSoftwareConfig_ =
-            com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.newBuilder(kubernetesSoftwareConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          kubernetesSoftwareConfig_ != null &&
+          kubernetesSoftwareConfig_ != com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.getDefaultInstance()) {
+          getKubernetesSoftwareConfigBuilder().mergeFrom(value);
         } else {
           kubernetesSoftwareConfig_ = value;
         }
-        onChanged();
       } else {
         kubernetesSoftwareConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1072,14 +1038,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.KubernetesSoftwareConfig kubernetes_software_config = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearKubernetesSoftwareConfig() {
-      if (kubernetesSoftwareConfigBuilder_ == null) {
-        kubernetesSoftwareConfig_ = null;
-        onChanged();
-      } else {
-        kubernetesSoftwareConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      kubernetesSoftwareConfig_ = null;
+      if (kubernetesSoftwareConfigBuilder_ != null) {
+        kubernetesSoftwareConfigBuilder_.dispose();
         kubernetesSoftwareConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1090,7 +1055,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.KubernetesSoftwareConfig kubernetes_software_config = 3 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.KubernetesSoftwareConfig.Builder getKubernetesSoftwareConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getKubernetesSoftwareConfigFieldBuilder().getBuilder();
     }
@@ -1162,7 +1127,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KubernetesClusterConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

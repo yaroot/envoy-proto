@@ -39,60 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ConsistentHashing(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            threshold_ = input.readUInt32();
-            break;
-          }
-          case 16: {
-
-            modulo_ = input.readUInt32();
-            break;
-          }
-          case 24: {
-
-            seed_ = input.readUInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashingProto.internal_static_envoy_extensions_matching_input_matchers_consistent_hashing_v3_ConsistentHashing_descriptor;
@@ -107,7 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int THRESHOLD_FIELD_NUMBER = 1;
-  private int threshold_;
+  private int threshold_ = 0;
   /**
    * <pre>
    * The threshold the resulting hash must be over in order for this matcher to evaluate to true.
@@ -124,7 +70,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MODULO_FIELD_NUMBER = 2;
-  private int modulo_;
+  private int modulo_ = 0;
   /**
    * <pre>
    * The value to use for the modulus in the calculation. This effectively  bounds the hash output,
@@ -141,7 +87,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEED_FIELD_NUMBER = 3;
-  private long seed_;
+  private long seed_ = 0L;
   /**
    * <pre>
    * Optional seed passed through the hash function. This allows using additional information when computing
@@ -180,7 +126,7 @@ private static final long serialVersionUID = 0L;
     if (seed_ != 0L) {
       output.writeUInt64(3, seed_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -201,7 +147,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeUInt64Size(3, seed_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -222,7 +168,7 @@ private static final long serialVersionUID = 0L;
         != other.getModulo()) return false;
     if (getSeed()
         != other.getSeed()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -240,7 +186,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SEED_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
         getSeed());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -366,28 +312,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       threshold_ = 0;
-
       modulo_ = 0;
-
       seed_ = 0L;
-
       return this;
     }
 
@@ -414,11 +353,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing buildPartial() {
       io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing result = new io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing(this);
-      result.threshold_ = threshold_;
-      result.modulo_ = modulo_;
-      result.seed_ = seed_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.threshold_ = threshold_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.modulo_ = modulo_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.seed_ = seed_;
+      }
     }
 
     @java.lang.Override
@@ -474,7 +424,7 @@ private static final long serialVersionUID = 0L;
       if (other.getSeed() != 0L) {
         setSeed(other.getSeed());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -489,19 +439,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              threshold_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              modulo_ = input.readUInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              seed_ = input.readUInt64();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.matching.input_matchers.consistent_hashing.v3.ConsistentHashing) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int threshold_ ;
     /**
@@ -532,6 +511,7 @@ private static final long serialVersionUID = 0L;
     public Builder setThreshold(int value) {
       
       threshold_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -546,7 +526,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearThreshold() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       threshold_ = 0;
       onChanged();
       return this;
@@ -581,6 +561,7 @@ private static final long serialVersionUID = 0L;
     public Builder setModulo(int value) {
       
       modulo_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -595,7 +576,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearModulo() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       modulo_ = 0;
       onChanged();
       return this;
@@ -630,6 +611,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSeed(long value) {
       
       seed_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -644,7 +626,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeed() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       seed_ = 0L;
       onChanged();
       return this;
@@ -682,7 +664,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ConsistentHashing(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

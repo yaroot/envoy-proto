@@ -96,7 +96,6 @@ public interface PubsubTargetOrBuilder extends
    *
    * <code>map&lt;string, string&gt; attributes = 4;</code>
    */
-
   /* nullable */
 java.lang.String getAttributesOrDefault(
       java.lang.String key,
@@ -111,7 +110,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; attributes = 4;</code>
    */
-
   java.lang.String getAttributesOrThrow(
       java.lang.String key);
 }

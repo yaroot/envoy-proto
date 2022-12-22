@@ -51,15 +51,15 @@ public final class RegexProto {
       "rotobuf.UInt32ValueB\013\030\001\222\307\206\330\004\0033.0:0\232\305\210\036+\n" +
       ")envoy.type.matcher.RegexMatcher.GoogleR" +
       "E2:&\232\305\210\036!\n\037envoy.type.matcher.RegexMatch" +
-      "erB\r\n\013engine_type\"\242\001\n\027RegexMatchAndSubst" +
+      "erB\r\n\013engine_type\"\257\001\n\027RegexMatchAndSubst" +
       "itute\022>\n\007pattern\030\001 \001(\0132#.envoy.type.matc" +
-      "her.v3.RegexMatcherB\010\372B\005\212\001\002\020\001\022\024\n\014substit" +
-      "ution\030\002 \001(\t:1\232\305\210\036,\n*envoy.type.matcher.R" +
-      "egexMatchAndSubstituteB\203\001\n#io.envoyproxy" +
-      ".envoy.type.matcher.v3B\nRegexProtoP\001ZFgi" +
-      "thub.com/envoyproxy/go-control-plane/env" +
-      "oy/type/matcher/v3;matcherv3\272\200\310\321\006\002\020\002b\006pr" +
-      "oto3"
+      "her.v3.RegexMatcherB\010\372B\005\212\001\002\020\001\022!\n\014substit" +
+      "ution\030\002 \001(\tB\013\372B\010r\006\300\001\002\310\001\000:1\232\305\210\036,\n*envoy.t" +
+      "ype.matcher.RegexMatchAndSubstituteB\203\001\n#" +
+      "io.envoyproxy.envoy.type.matcher.v3B\nReg" +
+      "exProtoP\001ZFgithub.com/envoyproxy/go-cont" +
+      "rol-plane/envoy/type/matcher/v3;matcherv" +
+      "3\272\200\310\321\006\002\020\002b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,

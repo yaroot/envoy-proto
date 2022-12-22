@@ -37,86 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RepoSource(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            projectId_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            repoName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            revisionCase_ = 3;
-            revision_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            revisionCase_ = 4;
-            revision_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            revisionCase_ = 5;
-            revision_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            dir_ = s;
-            break;
-          }
-          case 56: {
-
-            invertRegex_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.functions.v2beta.FunctionsProto.internal_static_google_cloud_functions_v2beta_RepoSource_descriptor;
@@ -378,7 +298,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PROJECT_ID_FIELD_NUMBER = 1;
-  private volatile java.lang.Object projectId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object projectId_ = "";
   /**
    * <pre>
    * ID of the project that owns the Cloud Source Repository. If omitted, the
@@ -426,7 +347,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REPO_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object repoName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object repoName_ = "";
   /**
    * <pre>
    * Name of the Cloud Source Repository.
@@ -472,7 +394,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DIR_FIELD_NUMBER = 6;
-  private volatile java.lang.Object dir_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object dir_ = "";
   /**
    * <pre>
    * Directory, relative to the source root, in which to run the build.
@@ -524,7 +447,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INVERT_REGEX_FIELD_NUMBER = 7;
-  private boolean invertRegex_;
+  private boolean invertRegex_ = false;
   /**
    * <pre>
    * Only trigger a build if the revision regex does NOT match the revision
@@ -574,7 +497,7 @@ private static final long serialVersionUID = 0L;
     if (invertRegex_ != false) {
       output.writeBool(7, invertRegex_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -605,7 +528,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(7, invertRegex_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -645,7 +568,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -681,7 +604,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -802,30 +725,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.functions.v2beta.RepoSource.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       projectId_ = "";
-
       repoName_ = "";
-
       dir_ = "";
-
       invertRegex_ = false;
-
       revisionCase_ = 0;
       revision_ = null;
       return this;
@@ -854,22 +769,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.functions.v2beta.RepoSource buildPartial() {
       com.google.cloud.functions.v2beta.RepoSource result = new com.google.cloud.functions.v2beta.RepoSource(this);
-      if (revisionCase_ == 3) {
-        result.revision_ = revision_;
-      }
-      if (revisionCase_ == 4) {
-        result.revision_ = revision_;
-      }
-      if (revisionCase_ == 5) {
-        result.revision_ = revision_;
-      }
-      result.projectId_ = projectId_;
-      result.repoName_ = repoName_;
-      result.dir_ = dir_;
-      result.invertRegex_ = invertRegex_;
-      result.revisionCase_ = revisionCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.functions.v2beta.RepoSource result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.projectId_ = projectId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.repoName_ = repoName_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.dir_ = dir_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.invertRegex_ = invertRegex_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.functions.v2beta.RepoSource result) {
+      result.revisionCase_ = revisionCase_;
+      result.revision_ = this.revision_;
     }
 
     @java.lang.Override
@@ -918,14 +842,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.functions.v2beta.RepoSource.getDefaultInstance()) return this;
       if (!other.getProjectId().isEmpty()) {
         projectId_ = other.projectId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getRepoName().isEmpty()) {
         repoName_ = other.repoName_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getDir().isEmpty()) {
         dir_ = other.dir_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       if (other.getInvertRegex() != false) {
@@ -954,7 +881,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -969,17 +896,68 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.functions.v2beta.RepoSource parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              projectId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 10
+            case 18: {
+              repoName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              revisionCase_ = 3;
+              revision_ = s;
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              revisionCase_ = 4;
+              revision_ = s;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              revisionCase_ = 5;
+              revision_ = s;
+              break;
+            } // case 42
+            case 50: {
+              dir_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              invertRegex_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.functions.v2beta.RepoSource) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int revisionCase_ = 0;
@@ -997,6 +975,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1082,10 +1061,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBranchName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  revisionCase_ = 3;
+      if (value == null) { throw new NullPointerException(); }
+      revisionCase_ = 3;
       revision_ = value;
       onChanged();
       return this;
@@ -1121,10 +1098,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBranchNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       revisionCase_ = 3;
       revision_ = value;
       onChanged();
@@ -1215,10 +1190,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  revisionCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      revisionCase_ = 4;
       revision_ = value;
       onChanged();
       return this;
@@ -1254,10 +1227,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTagNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       revisionCase_ = 4;
       revision_ = value;
       onChanged();
@@ -1340,10 +1311,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommitSha(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  revisionCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      revisionCase_ = 5;
       revision_ = value;
       onChanged();
       return this;
@@ -1375,10 +1344,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCommitShaBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       revisionCase_ = 5;
       revision_ = value;
       onChanged();
@@ -1441,11 +1408,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1459,8 +1424,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProjectId() {
-      
       projectId_ = getDefaultInstance().getProjectId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1476,12 +1441,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setProjectIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       projectId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1539,11 +1502,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRepoName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       repoName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1556,8 +1517,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRepoName() {
-      
       repoName_ = getDefaultInstance().getRepoName();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1572,12 +1533,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRepoNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       repoName_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1644,11 +1603,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDir(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       dir_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1664,8 +1621,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDir() {
-      
       dir_ = getDefaultInstance().getDir();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1683,12 +1640,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDirBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       dir_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1720,6 +1675,7 @@ private static final long serialVersionUID = 0L;
     public Builder setInvertRegex(boolean value) {
       
       invertRegex_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1733,7 +1689,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearInvertRegex() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       invertRegex_ = false;
       onChanged();
       return this;
@@ -1771,7 +1727,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RepoSource(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

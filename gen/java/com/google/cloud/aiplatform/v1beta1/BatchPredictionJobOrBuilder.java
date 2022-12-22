@@ -49,7 +49,7 @@ public interface BatchPredictionJobOrBuilder extends
 
   /**
    * <pre>
-   * The name of the Model resoure that produces the predictions via this job,
+   * The name of the Model resource that produces the predictions via this job,
    * must share the same ancestor Location.
    * Starting this job has no impact on any existing deployments of the Model
    * and their resources.
@@ -64,7 +64,7 @@ public interface BatchPredictionJobOrBuilder extends
   java.lang.String getModel();
   /**
    * <pre>
-   * The name of the Model resoure that produces the predictions via this job,
+   * The name of the Model resource that produces the predictions via this job,
    * must share the same ancestor Location.
    * Starting this job has no impact on any existing deployments of the Model
    * and their resources.
@@ -170,6 +170,36 @@ public interface BatchPredictionJobOrBuilder extends
    * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfig input_config = 4 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InputConfigOrBuilder getInputConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Configuration for how to convert batch prediction input instances to the
+   * prediction instances that are sent to the Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+   * @return Whether the instanceConfig field is set.
+   */
+  boolean hasInstanceConfig();
+  /**
+   * <pre>
+   * Configuration for how to convert batch prediction input instances to the
+   * prediction instances that are sent to the Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+   * @return The instanceConfig.
+   */
+  com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig getInstanceConfig();
+  /**
+   * <pre>
+   * Configuration for how to convert batch prediction input instances to the
+   * prediction instances that are sent to the Model.
+   * </pre>
+   *
+   * <code>.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfig instance_config = 27;</code>
+   */
+  com.google.cloud.aiplatform.v1beta1.BatchPredictionJob.InstanceConfigOrBuilder getInstanceConfigOrBuilder();
 
   /**
    * <pre>
@@ -299,7 +329,7 @@ public interface BatchPredictionJobOrBuilder extends
    * The service account that the DeployedModel's container runs as. If not
    * specified, a system generated one will be used, which
    * has minimal permissions and the custom container, if used, may not have
-   * enough permission to access other GCP resources.
+   * enough permission to access other Google Cloud resources.
    * Users deploying the Model must have the `iam.serviceAccounts.actAs`
    * permission on this service account.
    * </pre>
@@ -313,7 +343,7 @@ public interface BatchPredictionJobOrBuilder extends
    * The service account that the DeployedModel's container runs as. If not
    * specified, a system generated one will be used, which
    * has minimal permissions and the custom container, if used, may not have
-   * enough permission to access other GCP resources.
+   * enough permission to access other Google Cloud resources.
    * Users deploying the Model must have the `iam.serviceAccounts.actAs`
    * permission on this service account.
    * </pre>
@@ -501,7 +531,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -513,7 +543,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -524,7 +554,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -535,7 +565,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -547,7 +577,7 @@ public interface BatchPredictionJobOrBuilder extends
    * Output only. Partial failures encountered.
    * For example, single files that can't be read.
    * This field never exceeds 20 entries.
-   * Status details fields contain standard GCP error details.
+   * Status details fields contain standard Google Cloud error details.
    * </pre>
    *
    * <code>repeated .google.rpc.Status partial_failures = 12 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -790,7 +820,6 @@ public interface BatchPredictionJobOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -807,7 +836,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 19;</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -876,4 +904,75 @@ java.lang.String defaultValue);
    * <code>.google.cloud.aiplatform.v1beta1.ModelMonitoringConfig model_monitoring_config = 26;</code>
    */
   com.google.cloud.aiplatform.v1beta1.ModelMonitoringConfigOrBuilder getModelMonitoringConfigOrBuilder();
+
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  java.util.List<com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies> 
+      getModelMonitoringStatsAnomaliesList();
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies getModelMonitoringStatsAnomalies(int index);
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  int getModelMonitoringStatsAnomaliesCount();
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  java.util.List<? extends com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder> 
+      getModelMonitoringStatsAnomaliesOrBuilderList();
+  /**
+   * <pre>
+   * Get batch prediction job monitoring statistics.
+   * </pre>
+   *
+   * <code>repeated .google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomalies model_monitoring_stats_anomalies = 31;</code>
+   */
+  com.google.cloud.aiplatform.v1beta1.ModelMonitoringStatsAnomaliesOrBuilder getModelMonitoringStatsAnomaliesOrBuilder(
+      int index);
+
+  /**
+   * <pre>
+   * Output only. The running status of the model monitoring pipeline.
+   * </pre>
+   *
+   * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return Whether the modelMonitoringStatus field is set.
+   */
+  boolean hasModelMonitoringStatus();
+  /**
+   * <pre>
+   * Output only. The running status of the model monitoring pipeline.
+   * </pre>
+   *
+   * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   * @return The modelMonitoringStatus.
+   */
+  com.google.rpc.Status getModelMonitoringStatus();
+  /**
+   * <pre>
+   * Output only. The running status of the model monitoring pipeline.
+   * </pre>
+   *
+   * <code>.google.rpc.Status model_monitoring_status = 32 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
+   */
+  com.google.rpc.StatusOrBuilder getModelMonitoringStatusOrBuilder();
 }

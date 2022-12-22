@@ -11,12 +11,10 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import client_pb2 as google_dot_api_dot_client__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/sql/v1/cloud_sql_instance_names.proto\x12\x13google.cloud.sql.v1\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x17google/api/client.proto25\n\x17SqlInstanceNamesService\x1a\x1a\xca\x41\x17sqladmin.googleapis.comBv\n\x17\x63om.google.cloud.sql.v1B!CloudSqlInstanceNamesServiceProtoP\x01Z6google.golang.org/genproto/googleapis/cloud/sql/v1;sqlb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/sql/v1/cloud_sql_instance_names.proto\x12\x13google.cloud.sql.v1\x1a\x17google/api/client.proto25\n\x17SqlInstanceNamesService\x1a\x1a\xca\x41\x17sqladmin.googleapis.comBv\n\x17\x63om.google.cloud.sql.v1B!CloudSqlInstanceNamesServiceProtoP\x01Z6google.golang.org/genproto/googleapis/cloud/sql/v1;sqlb\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.sql.v1.cloud_sql_instance_names_pb2', globals())
@@ -26,6 +24,6 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n\027com.google.cloud.sql.v1B!CloudSqlInstanceNamesServiceProtoP\001Z6google.golang.org/genproto/googleapis/cloud/sql/v1;sql'
   _SQLINSTANCENAMESSERVICE._options = None
   _SQLINSTANCENAMESSERVICE._serialized_options = b'\312A\027sqladmin.googleapis.com'
-  _SQLINSTANCENAMESSERVICE._serialized_start=163
-  _SQLINSTANCENAMESSERVICE._serialized_end=216
+  _SQLINSTANCENAMESSERVICE._serialized_start=100
+  _SQLINSTANCENAMESSERVICE._serialized_end=153
 # @@protoc_insertion_point(module_scope)

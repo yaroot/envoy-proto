@@ -86,7 +86,6 @@ public interface TableOrBuilder extends
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.Table.ClusterState&gt; cluster_states = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   /* nullable */
 com.google.bigtable.admin.v2.Table.ClusterState getClusterStatesOrDefault(
       java.lang.String key,
@@ -103,7 +102,6 @@ com.google.bigtable.admin.v2.Table.ClusterState defaultValue);
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.Table.ClusterState&gt; cluster_states = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
-
   com.google.bigtable.admin.v2.Table.ClusterState getClusterStatesOrThrow(
       java.lang.String key);
 
@@ -150,7 +148,6 @@ com.google.bigtable.admin.v2.Table.ClusterState defaultValue);
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.ColumnFamily&gt; column_families = 3;</code>
    */
-
   /* nullable */
 com.google.bigtable.admin.v2.ColumnFamily getColumnFamiliesOrDefault(
       java.lang.String key,
@@ -164,7 +161,6 @@ com.google.bigtable.admin.v2.ColumnFamily defaultValue);
    *
    * <code>map&lt;string, .google.bigtable.admin.v2.ColumnFamily&gt; column_families = 3;</code>
    */
-
   com.google.bigtable.admin.v2.ColumnFamily getColumnFamiliesOrThrow(
       java.lang.String key);
 
@@ -222,4 +218,19 @@ com.google.bigtable.admin.v2.ColumnFamily defaultValue);
    * <code>.google.bigtable.admin.v2.RestoreInfo restore_info = 6 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
    */
   com.google.bigtable.admin.v2.RestoreInfoOrBuilder getRestoreInfoOrBuilder();
+
+  /**
+   * <pre>
+   * Set to true to make the table protected against data loss. i.e. deleting
+   * the following resources through Admin APIs are prohibited:
+   *   - The table.
+   *   - The column families in the table.
+   *   - The instance containing the table.
+   * Note one can still delete the data stored in the table through Data APIs.
+   * </pre>
+   *
+   * <code>bool deletion_protection = 9;</code>
+   * @return The deletionProtection.
+   */
+  boolean getDeletionProtection();
 }

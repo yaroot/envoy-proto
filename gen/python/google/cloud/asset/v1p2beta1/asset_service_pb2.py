@@ -16,13 +16,11 @@ from google.api import client_pb2 as google_dot_api_dot_client__pb2
 from google.api import field_behavior_pb2 as google_dot_api_dot_field__behavior__pb2
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.asset.v1p2beta1 import assets_pb2 as google_dot_cloud_dot_asset_dot_v1p2beta1_dot_assets__pb2
-from google.longrunning import operations_pb2 as google_dot_longrunning_dot_operations__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 from google.protobuf import field_mask_pb2 as google_dot_protobuf_dot_field__mask__pb2
-from google.protobuf import timestamp_pb2 as google_dot_protobuf_dot_timestamp__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/asset/v1p2beta1/asset_service.proto\x12\x1cgoogle.cloud.asset.v1p2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/asset/v1p2beta1/assets.proto\x1a#google/longrunning/operations.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"u\n\x11\x43reateFeedRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07\x66\x65\x65\x64_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x35\n\x04\x66\x65\x65\x64\x18\x03 \x01(\x0b\x32\".google.cloud.asset.v1p2beta1.FeedB\x03\xe0\x41\x02\"F\n\x0eGetFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"\'\n\x10ListFeedsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\"F\n\x11ListFeedsResponse\x12\x31\n\x05\x66\x65\x65\x64s\x18\x01 \x03(\x0b\x32\".google.cloud.asset.v1p2beta1.Feed\"\x80\x01\n\x11UpdateFeedRequest\x12\x35\n\x04\x66\x65\x65\x64\x18\x01 \x01(\x0b\x32\".google.cloud.asset.v1p2beta1.FeedB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"I\n\x11\x44\x65leteFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"f\n\x0cOutputConfig\x12G\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32,.google.cloud.asset.v1p2beta1.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"-\n\x0eGcsDestination\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x42\x0c\n\nobject_uri\"\"\n\x11PubsubDestination\x12\r\n\x05topic\x18\x01 \x01(\t\"p\n\x10\x46\x65\x65\x64OutputConfig\x12M\n\x12pubsub_destination\x18\x01 \x01(\x0b\x32/.google.cloud.asset.v1p2beta1.PubsubDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xe9\x02\n\x04\x46\x65\x65\x64\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x61sset_names\x18\x02 \x03(\t\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12?\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32).google.cloud.asset.v1p2beta1.ContentType\x12O\n\x12\x66\x65\x65\x64_output_config\x18\x05 \x01(\x0b\x32..google.cloud.asset.v1p2beta1.FeedOutputConfigB\x03\xe0\x41\x02:\x91\x01\xea\x41\x8d\x01\n\x1e\x63loudasset.googleapis.com/Feed\x12\x1fprojects/{project}/feeds/{feed}\x12\x1d\x66olders/{folder}/feeds/{feed}\x12)organizations/{organization}/feeds/{feed} \x01*I\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08RESOURCE\x10\x01\x12\x0e\n\nIAM_POLICY\x10\x02\x32\xbf\x06\n\x0c\x41ssetService\x12\x94\x01\n\nCreateFeed\x12/.google.cloud.asset.v1p2beta1.CreateFeedRequest\x1a\".google.cloud.asset.v1p2beta1.Feed\"1\x82\xd3\xe4\x93\x02\"\"\x1d/v1p2beta1/{parent=*/*}/feeds:\x01*\xda\x41\x06parent\x12\x89\x01\n\x07GetFeed\x12,.google.cloud.asset.v1p2beta1.GetFeedRequest\x1a\".google.cloud.asset.v1p2beta1.Feed\",\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1p2beta1/{name=*/*/feeds/*}\xda\x41\x04name\x12\x9c\x01\n\tListFeeds\x12..google.cloud.asset.v1p2beta1.ListFeedsRequest\x1a/.google.cloud.asset.v1p2beta1.ListFeedsResponse\".\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1p2beta1/{parent=*/*}/feeds\xda\x41\x06parent\x12\x97\x01\n\nUpdateFeed\x12/.google.cloud.asset.v1p2beta1.UpdateFeedRequest\x1a\".google.cloud.asset.v1p2beta1.Feed\"4\x82\xd3\xe4\x93\x02\'2\"/v1p2beta1/{feed.name=*/*/feeds/*}:\x01*\xda\x41\x04\x66\x65\x65\x64\x12\x83\x01\n\nDeleteFeed\x12/.google.cloud.asset.v1p2beta1.DeleteFeedRequest\x1a\x16.google.protobuf.Empty\",\x82\xd3\xe4\x93\x02\x1f*\x1d/v1p2beta1/{name=*/*/feeds/*}\xda\x41\x04name\x1aM\xca\x41\x19\x63loudasset.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xb8\x01\n com.google.cloud.asset.v1p2beta1B\x11\x41ssetServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/asset/v1p2beta1;asset\xaa\x02\x1cGoogle.Cloud.Asset.V1p2Beta1\xca\x02\x1cGoogle\\Cloud\\Asset\\V1p2beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n0google/cloud/asset/v1p2beta1/asset_service.proto\x12\x1cgoogle.cloud.asset.v1p2beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x17google/api/client.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a)google/cloud/asset/v1p2beta1/assets.proto\x1a\x1bgoogle/protobuf/empty.proto\x1a google/protobuf/field_mask.proto\"u\n\x11\x43reateFeedRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07\x66\x65\x65\x64_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x35\n\x04\x66\x65\x65\x64\x18\x03 \x01(\x0b\x32\".google.cloud.asset.v1p2beta1.FeedB\x03\xe0\x41\x02\"F\n\x0eGetFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"\'\n\x10ListFeedsRequest\x12\x13\n\x06parent\x18\x01 \x01(\tB\x03\xe0\x41\x02\"F\n\x11ListFeedsResponse\x12\x31\n\x05\x66\x65\x65\x64s\x18\x01 \x03(\x0b\x32\".google.cloud.asset.v1p2beta1.Feed\"\x80\x01\n\x11UpdateFeedRequest\x12\x35\n\x04\x66\x65\x65\x64\x18\x01 \x01(\x0b\x32\".google.cloud.asset.v1p2beta1.FeedB\x03\xe0\x41\x02\x12\x34\n\x0bupdate_mask\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.FieldMaskB\x03\xe0\x41\x02\"I\n\x11\x44\x65leteFeedRequest\x12\x34\n\x04name\x18\x01 \x01(\tB&\xe0\x41\x02\xfa\x41 \n\x1e\x63loudasset.googleapis.com/Feed\"f\n\x0cOutputConfig\x12G\n\x0fgcs_destination\x18\x01 \x01(\x0b\x32,.google.cloud.asset.v1p2beta1.GcsDestinationH\x00\x42\r\n\x0b\x64\x65stination\"-\n\x0eGcsDestination\x12\r\n\x03uri\x18\x01 \x01(\tH\x00\x42\x0c\n\nobject_uri\"\"\n\x11PubsubDestination\x12\r\n\x05topic\x18\x01 \x01(\t\"p\n\x10\x46\x65\x65\x64OutputConfig\x12M\n\x12pubsub_destination\x18\x01 \x01(\x0b\x32/.google.cloud.asset.v1p2beta1.PubsubDestinationH\x00\x42\r\n\x0b\x64\x65stination\"\xe9\x02\n\x04\x46\x65\x65\x64\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x13\n\x0b\x61sset_names\x18\x02 \x03(\t\x12\x13\n\x0b\x61sset_types\x18\x03 \x03(\t\x12?\n\x0c\x63ontent_type\x18\x04 \x01(\x0e\x32).google.cloud.asset.v1p2beta1.ContentType\x12O\n\x12\x66\x65\x65\x64_output_config\x18\x05 \x01(\x0b\x32..google.cloud.asset.v1p2beta1.FeedOutputConfigB\x03\xe0\x41\x02:\x91\x01\xea\x41\x8d\x01\n\x1e\x63loudasset.googleapis.com/Feed\x12\x1fprojects/{project}/feeds/{feed}\x12\x1d\x66olders/{folder}/feeds/{feed}\x12)organizations/{organization}/feeds/{feed} \x01*I\n\x0b\x43ontentType\x12\x1c\n\x18\x43ONTENT_TYPE_UNSPECIFIED\x10\x00\x12\x0c\n\x08RESOURCE\x10\x01\x12\x0e\n\nIAM_POLICY\x10\x02\x32\xbf\x06\n\x0c\x41ssetService\x12\x94\x01\n\nCreateFeed\x12/.google.cloud.asset.v1p2beta1.CreateFeedRequest\x1a\".google.cloud.asset.v1p2beta1.Feed\"1\x82\xd3\xe4\x93\x02\"\"\x1d/v1p2beta1/{parent=*/*}/feeds:\x01*\xda\x41\x06parent\x12\x89\x01\n\x07GetFeed\x12,.google.cloud.asset.v1p2beta1.GetFeedRequest\x1a\".google.cloud.asset.v1p2beta1.Feed\",\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1p2beta1/{name=*/*/feeds/*}\xda\x41\x04name\x12\x9c\x01\n\tListFeeds\x12..google.cloud.asset.v1p2beta1.ListFeedsRequest\x1a/.google.cloud.asset.v1p2beta1.ListFeedsResponse\".\x82\xd3\xe4\x93\x02\x1f\x12\x1d/v1p2beta1/{parent=*/*}/feeds\xda\x41\x06parent\x12\x97\x01\n\nUpdateFeed\x12/.google.cloud.asset.v1p2beta1.UpdateFeedRequest\x1a\".google.cloud.asset.v1p2beta1.Feed\"4\x82\xd3\xe4\x93\x02\'2\"/v1p2beta1/{feed.name=*/*/feeds/*}:\x01*\xda\x41\x04\x66\x65\x65\x64\x12\x83\x01\n\nDeleteFeed\x12/.google.cloud.asset.v1p2beta1.DeleteFeedRequest\x1a\x16.google.protobuf.Empty\",\x82\xd3\xe4\x93\x02\x1f*\x1d/v1p2beta1/{name=*/*/feeds/*}\xda\x41\x04name\x1aM\xca\x41\x19\x63loudasset.googleapis.com\xd2\x41.https://www.googleapis.com/auth/cloud-platformB\xb8\x01\n com.google.cloud.asset.v1p2beta1B\x11\x41ssetServiceProtoP\x01ZAgoogle.golang.org/genproto/googleapis/cloud/asset/v1p2beta1;asset\xaa\x02\x1cGoogle.Cloud.Asset.V1p2Beta1\xca\x02\x1cGoogle\\Cloud\\Asset\\V1p2beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.asset.v1p2beta1.asset_service_pb2', globals())
@@ -64,30 +62,30 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _ASSETSERVICE.methods_by_name['UpdateFeed']._serialized_options = b'\202\323\344\223\002\'2\"/v1p2beta1/{feed.name=*/*/feeds/*}:\001*\332A\004feed'
   _ASSETSERVICE.methods_by_name['DeleteFeed']._options = None
   _ASSETSERVICE.methods_by_name['DeleteFeed']._serialized_options = b'\202\323\344\223\002\037*\035/v1p2beta1/{name=*/*/feeds/*}\332A\004name'
-  _CONTENTTYPE._serialized_start=1548
-  _CONTENTTYPE._serialized_end=1621
-  _CREATEFEEDREQUEST._serialized_start=373
-  _CREATEFEEDREQUEST._serialized_end=490
-  _GETFEEDREQUEST._serialized_start=492
-  _GETFEEDREQUEST._serialized_end=562
-  _LISTFEEDSREQUEST._serialized_start=564
-  _LISTFEEDSREQUEST._serialized_end=603
-  _LISTFEEDSRESPONSE._serialized_start=605
-  _LISTFEEDSRESPONSE._serialized_end=675
-  _UPDATEFEEDREQUEST._serialized_start=678
-  _UPDATEFEEDREQUEST._serialized_end=806
-  _DELETEFEEDREQUEST._serialized_start=808
-  _DELETEFEEDREQUEST._serialized_end=881
-  _OUTPUTCONFIG._serialized_start=883
-  _OUTPUTCONFIG._serialized_end=985
-  _GCSDESTINATION._serialized_start=987
-  _GCSDESTINATION._serialized_end=1032
-  _PUBSUBDESTINATION._serialized_start=1034
-  _PUBSUBDESTINATION._serialized_end=1068
-  _FEEDOUTPUTCONFIG._serialized_start=1070
-  _FEEDOUTPUTCONFIG._serialized_end=1182
-  _FEED._serialized_start=1185
-  _FEED._serialized_end=1546
-  _ASSETSERVICE._serialized_start=1624
-  _ASSETSERVICE._serialized_end=2455
+  _CONTENTTYPE._serialized_start=1478
+  _CONTENTTYPE._serialized_end=1551
+  _CREATEFEEDREQUEST._serialized_start=303
+  _CREATEFEEDREQUEST._serialized_end=420
+  _GETFEEDREQUEST._serialized_start=422
+  _GETFEEDREQUEST._serialized_end=492
+  _LISTFEEDSREQUEST._serialized_start=494
+  _LISTFEEDSREQUEST._serialized_end=533
+  _LISTFEEDSRESPONSE._serialized_start=535
+  _LISTFEEDSRESPONSE._serialized_end=605
+  _UPDATEFEEDREQUEST._serialized_start=608
+  _UPDATEFEEDREQUEST._serialized_end=736
+  _DELETEFEEDREQUEST._serialized_start=738
+  _DELETEFEEDREQUEST._serialized_end=811
+  _OUTPUTCONFIG._serialized_start=813
+  _OUTPUTCONFIG._serialized_end=915
+  _GCSDESTINATION._serialized_start=917
+  _GCSDESTINATION._serialized_end=962
+  _PUBSUBDESTINATION._serialized_start=964
+  _PUBSUBDESTINATION._serialized_end=998
+  _FEEDOUTPUTCONFIG._serialized_start=1000
+  _FEEDOUTPUTCONFIG._serialized_end=1112
+  _FEED._serialized_start=1115
+  _FEED._serialized_end=1476
+  _ASSETSERVICE._serialized_start=1554
+  _ASSETSERVICE._serialized_end=2385
 # @@protoc_insertion_point(module_scope)

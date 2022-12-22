@@ -32,108 +32,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComputeThreatListDiffResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (recommendedNextDiff_ != null) {
-              subBuilder = recommendedNextDiff_.toBuilder();
-            }
-            recommendedNextDiff_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(recommendedNextDiff_);
-              recommendedNextDiff_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            responseType_ = rawValue;
-            break;
-          }
-          case 42: {
-            com.google.webrisk.v1.ThreatEntryAdditions.Builder subBuilder = null;
-            if (additions_ != null) {
-              subBuilder = additions_.toBuilder();
-            }
-            additions_ = input.readMessage(com.google.webrisk.v1.ThreatEntryAdditions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(additions_);
-              additions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.webrisk.v1.ThreatEntryRemovals.Builder subBuilder = null;
-            if (removals_ != null) {
-              subBuilder = removals_.toBuilder();
-            }
-            removals_ = input.readMessage(com.google.webrisk.v1.ThreatEntryRemovals.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(removals_);
-              removals_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-
-            newVersionToken_ = input.readBytes();
-            break;
-          }
-          case 66: {
-            com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.Builder subBuilder = null;
-            if (checksum_ != null) {
-              subBuilder = checksum_.toBuilder();
-            }
-            checksum_ = input.readMessage(com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(checksum_);
-              checksum_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.webrisk.v1.WebRiskProto.internal_static_google_cloud_webrisk_v1_ComputeThreatListDiffResponse_descriptor;
@@ -343,50 +241,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Checksum(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-
-              sha256_ = input.readBytes();
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.webrisk.v1.WebRiskProto.internal_static_google_cloud_webrisk_v1_ComputeThreatListDiffResponse_Checksum_descriptor;
@@ -401,7 +255,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int SHA256_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString sha256_;
+    private com.google.protobuf.ByteString sha256_ = com.google.protobuf.ByteString.EMPTY;
     /**
      * <pre>
      * The SHA256 hash of the client state; that is, of the sorted list of all
@@ -433,7 +287,7 @@ private static final long serialVersionUID = 0L;
       if (!sha256_.isEmpty()) {
         output.writeBytes(1, sha256_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -446,7 +300,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(1, sha256_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -463,7 +317,7 @@ private static final long serialVersionUID = 0L;
 
       if (!getSha256()
           .equals(other.getSha256())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -476,7 +330,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + SHA256_FIELD_NUMBER;
       hash = (53 * hash) + getSha256().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -597,24 +451,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         sha256_ = com.google.protobuf.ByteString.EMPTY;
-
         return this;
       }
 
@@ -641,9 +490,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum buildPartial() {
         com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum result = new com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum(this);
-        result.sha256_ = sha256_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.sha256_ = sha256_;
+        }
       }
 
       @java.lang.Override
@@ -693,7 +549,7 @@ private static final long serialVersionUID = 0L;
         if (other.getSha256() != com.google.protobuf.ByteString.EMPTY) {
           setSha256(other.getSha256());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -708,19 +564,38 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                sha256_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.protobuf.ByteString sha256_ = com.google.protobuf.ByteString.EMPTY;
       /**
@@ -747,11 +622,9 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setSha256(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         sha256_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -765,7 +638,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearSha256() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         sha256_ = getDefaultInstance().getSha256();
         onChanged();
         return this;
@@ -803,7 +676,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Checksum(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -824,7 +708,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_TYPE_FIELD_NUMBER = 4;
-  private int responseType_;
+  private int responseType_ = 0;
   /**
    * <pre>
    * The type of response. This may indicate that an action must be taken by the
@@ -847,8 +731,7 @@ private static final long serialVersionUID = 0L;
    * @return The responseType.
    */
   @java.lang.Override public com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType getResponseType() {
-    @SuppressWarnings("deprecation")
-    com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType result = com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType.valueOf(responseType_);
+    com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType result = com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType.forNumber(responseType_);
     return result == null ? com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType.UNRECOGNIZED : result;
   }
 
@@ -887,7 +770,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.webrisk.v1.ThreatEntryAdditionsOrBuilder getAdditionsOrBuilder() {
-    return getAdditions();
+    return additions_ == null ? com.google.webrisk.v1.ThreatEntryAdditions.getDefaultInstance() : additions_;
   }
 
   public static final int REMOVALS_FIELD_NUMBER = 6;
@@ -928,11 +811,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.webrisk.v1.ThreatEntryRemovalsOrBuilder getRemovalsOrBuilder() {
-    return getRemovals();
+    return removals_ == null ? com.google.webrisk.v1.ThreatEntryRemovals.getDefaultInstance() : removals_;
   }
 
   public static final int NEW_VERSION_TOKEN_FIELD_NUMBER = 7;
-  private com.google.protobuf.ByteString newVersionToken_;
+  private com.google.protobuf.ByteString newVersionToken_ = com.google.protobuf.ByteString.EMPTY;
   /**
    * <pre>
    * The new opaque client version token. This should be retained by the client
@@ -992,7 +875,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.webrisk.v1.ComputeThreatListDiffResponse.ChecksumOrBuilder getChecksumOrBuilder() {
-    return getChecksum();
+    return checksum_ == null ? com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.getDefaultInstance() : checksum_;
   }
 
   public static final int RECOMMENDED_NEXT_DIFF_FIELD_NUMBER = 2;
@@ -1039,7 +922,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getRecommendedNextDiffOrBuilder() {
-    return getRecommendedNextDiff();
+    return recommendedNextDiff_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : recommendedNextDiff_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1074,7 +957,7 @@ private static final long serialVersionUID = 0L;
     if (checksum_ != null) {
       output.writeMessage(8, getChecksum());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1107,7 +990,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(8, getChecksum());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1145,7 +1028,7 @@ private static final long serialVersionUID = 0L;
       if (!getRecommendedNextDiff()
           .equals(other.getRecommendedNextDiff())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1176,7 +1059,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + RECOMMENDED_NEXT_DIFF_FIELD_NUMBER;
       hash = (53 * hash) + getRecommendedNextDiff().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1293,48 +1176,38 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.webrisk.v1.ComputeThreatListDiffResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       responseType_ = 0;
-
-      if (additionsBuilder_ == null) {
-        additions_ = null;
-      } else {
-        additions_ = null;
+      additions_ = null;
+      if (additionsBuilder_ != null) {
+        additionsBuilder_.dispose();
         additionsBuilder_ = null;
       }
-      if (removalsBuilder_ == null) {
-        removals_ = null;
-      } else {
-        removals_ = null;
+      removals_ = null;
+      if (removalsBuilder_ != null) {
+        removalsBuilder_.dispose();
         removalsBuilder_ = null;
       }
       newVersionToken_ = com.google.protobuf.ByteString.EMPTY;
-
-      if (checksumBuilder_ == null) {
-        checksum_ = null;
-      } else {
-        checksum_ = null;
+      checksum_ = null;
+      if (checksumBuilder_ != null) {
+        checksumBuilder_.dispose();
         checksumBuilder_ = null;
       }
-      if (recommendedNextDiffBuilder_ == null) {
-        recommendedNextDiff_ = null;
-      } else {
-        recommendedNextDiff_ = null;
+      recommendedNextDiff_ = null;
+      if (recommendedNextDiffBuilder_ != null) {
+        recommendedNextDiffBuilder_.dispose();
         recommendedNextDiffBuilder_ = null;
       }
       return this;
@@ -1363,30 +1236,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.webrisk.v1.ComputeThreatListDiffResponse buildPartial() {
       com.google.webrisk.v1.ComputeThreatListDiffResponse result = new com.google.webrisk.v1.ComputeThreatListDiffResponse(this);
-      result.responseType_ = responseType_;
-      if (additionsBuilder_ == null) {
-        result.additions_ = additions_;
-      } else {
-        result.additions_ = additionsBuilder_.build();
-      }
-      if (removalsBuilder_ == null) {
-        result.removals_ = removals_;
-      } else {
-        result.removals_ = removalsBuilder_.build();
-      }
-      result.newVersionToken_ = newVersionToken_;
-      if (checksumBuilder_ == null) {
-        result.checksum_ = checksum_;
-      } else {
-        result.checksum_ = checksumBuilder_.build();
-      }
-      if (recommendedNextDiffBuilder_ == null) {
-        result.recommendedNextDiff_ = recommendedNextDiff_;
-      } else {
-        result.recommendedNextDiff_ = recommendedNextDiffBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.webrisk.v1.ComputeThreatListDiffResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.responseType_ = responseType_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.additions_ = additionsBuilder_ == null
+            ? additions_
+            : additionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.removals_ = removalsBuilder_ == null
+            ? removals_
+            : removalsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.newVersionToken_ = newVersionToken_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.checksum_ = checksumBuilder_ == null
+            ? checksum_
+            : checksumBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.recommendedNextDiff_ = recommendedNextDiffBuilder_ == null
+            ? recommendedNextDiff_
+            : recommendedNextDiffBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1451,7 +1333,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasRecommendedNextDiff()) {
         mergeRecommendedNextDiff(other.getRecommendedNextDiff());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1466,19 +1348,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.webrisk.v1.ComputeThreatListDiffResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getRecommendedNextDiffFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 18
+            case 32: {
+              responseType_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getAdditionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getRemovalsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 58: {
+              newVersionToken_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getChecksumFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.webrisk.v1.ComputeThreatListDiffResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int responseType_ = 0;
     /**
@@ -1504,8 +1438,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setResponseTypeValue(int value) {
-      
       responseType_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1520,8 +1454,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType getResponseType() {
-      @SuppressWarnings("deprecation")
-      com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType result = com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType.valueOf(responseType_);
+      com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType result = com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType.forNumber(responseType_);
       return result == null ? com.google.webrisk.v1.ComputeThreatListDiffResponse.ResponseType.UNRECOGNIZED : result;
     }
     /**
@@ -1538,7 +1471,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       responseType_ = value.getNumber();
       onChanged();
       return this;
@@ -1553,7 +1486,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       responseType_ = 0;
       onChanged();
       return this;
@@ -1571,7 +1504,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the additions field is set.
      */
     public boolean hasAdditions() {
-      return additionsBuilder_ != null || additions_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1601,11 +1534,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         additions_ = value;
-        onChanged();
       } else {
         additionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1619,11 +1552,11 @@ private static final long serialVersionUID = 0L;
         com.google.webrisk.v1.ThreatEntryAdditions.Builder builderForValue) {
       if (additionsBuilder_ == null) {
         additions_ = builderForValue.build();
-        onChanged();
       } else {
         additionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1635,17 +1568,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdditions(com.google.webrisk.v1.ThreatEntryAdditions value) {
       if (additionsBuilder_ == null) {
-        if (additions_ != null) {
-          additions_ =
-            com.google.webrisk.v1.ThreatEntryAdditions.newBuilder(additions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          additions_ != null &&
+          additions_ != com.google.webrisk.v1.ThreatEntryAdditions.getDefaultInstance()) {
+          getAdditionsBuilder().mergeFrom(value);
         } else {
           additions_ = value;
         }
-        onChanged();
       } else {
         additionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1656,14 +1590,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ThreatEntryAdditions additions = 5;</code>
      */
     public Builder clearAdditions() {
-      if (additionsBuilder_ == null) {
-        additions_ = null;
-        onChanged();
-      } else {
-        additions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      additions_ = null;
+      if (additionsBuilder_ != null) {
+        additionsBuilder_.dispose();
         additionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1674,7 +1607,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ThreatEntryAdditions additions = 5;</code>
      */
     public com.google.webrisk.v1.ThreatEntryAdditions.Builder getAdditionsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getAdditionsFieldBuilder().getBuilder();
     }
@@ -1727,7 +1660,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the removals field is set.
      */
     public boolean hasRemovals() {
-      return removalsBuilder_ != null || removals_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1759,11 +1692,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         removals_ = value;
-        onChanged();
       } else {
         removalsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1778,11 +1711,11 @@ private static final long serialVersionUID = 0L;
         com.google.webrisk.v1.ThreatEntryRemovals.Builder builderForValue) {
       if (removalsBuilder_ == null) {
         removals_ = builderForValue.build();
-        onChanged();
       } else {
         removalsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1795,17 +1728,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRemovals(com.google.webrisk.v1.ThreatEntryRemovals value) {
       if (removalsBuilder_ == null) {
-        if (removals_ != null) {
-          removals_ =
-            com.google.webrisk.v1.ThreatEntryRemovals.newBuilder(removals_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          removals_ != null &&
+          removals_ != com.google.webrisk.v1.ThreatEntryRemovals.getDefaultInstance()) {
+          getRemovalsBuilder().mergeFrom(value);
         } else {
           removals_ = value;
         }
-        onChanged();
       } else {
         removalsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1817,14 +1751,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ThreatEntryRemovals removals = 6;</code>
      */
     public Builder clearRemovals() {
-      if (removalsBuilder_ == null) {
-        removals_ = null;
-        onChanged();
-      } else {
-        removals_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      removals_ = null;
+      if (removalsBuilder_ != null) {
+        removalsBuilder_.dispose();
         removalsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1836,7 +1769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ThreatEntryRemovals removals = 6;</code>
      */
     public com.google.webrisk.v1.ThreatEntryRemovals.Builder getRemovalsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getRemovalsFieldBuilder().getBuilder();
     }
@@ -1905,11 +1838,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setNewVersionToken(com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       newVersionToken_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1924,7 +1855,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearNewVersionToken() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       newVersionToken_ = getDefaultInstance().getNewVersionToken();
       onChanged();
       return this;
@@ -1945,7 +1876,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the checksum field is set.
      */
     public boolean hasChecksum() {
-      return checksumBuilder_ != null || checksum_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1981,11 +1912,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         checksum_ = value;
-        onChanged();
       } else {
         checksumBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2002,11 +1933,11 @@ private static final long serialVersionUID = 0L;
         com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.Builder builderForValue) {
       if (checksumBuilder_ == null) {
         checksum_ = builderForValue.build();
-        onChanged();
       } else {
         checksumBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2021,17 +1952,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeChecksum(com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum value) {
       if (checksumBuilder_ == null) {
-        if (checksum_ != null) {
-          checksum_ =
-            com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.newBuilder(checksum_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          checksum_ != null &&
+          checksum_ != com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.getDefaultInstance()) {
+          getChecksumBuilder().mergeFrom(value);
         } else {
           checksum_ = value;
         }
-        onChanged();
       } else {
         checksumBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -2045,14 +1977,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ComputeThreatListDiffResponse.Checksum checksum = 8;</code>
      */
     public Builder clearChecksum() {
-      if (checksumBuilder_ == null) {
-        checksum_ = null;
-        onChanged();
-      } else {
-        checksum_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      checksum_ = null;
+      if (checksumBuilder_ != null) {
+        checksumBuilder_.dispose();
         checksumBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2066,7 +1997,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.webrisk.v1.ComputeThreatListDiffResponse.Checksum checksum = 8;</code>
      */
     public com.google.webrisk.v1.ComputeThreatListDiffResponse.Checksum.Builder getChecksumBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getChecksumFieldBuilder().getBuilder();
     }
@@ -2127,7 +2058,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the recommendedNextDiff field is set.
      */
     public boolean hasRecommendedNextDiff() {
-      return recommendedNextDiffBuilder_ != null || recommendedNextDiff_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -2163,11 +2094,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         recommendedNextDiff_ = value;
-        onChanged();
       } else {
         recommendedNextDiffBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2184,11 +2115,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (recommendedNextDiffBuilder_ == null) {
         recommendedNextDiff_ = builderForValue.build();
-        onChanged();
       } else {
         recommendedNextDiffBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2203,17 +2134,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRecommendedNextDiff(com.google.protobuf.Timestamp value) {
       if (recommendedNextDiffBuilder_ == null) {
-        if (recommendedNextDiff_ != null) {
-          recommendedNextDiff_ =
-            com.google.protobuf.Timestamp.newBuilder(recommendedNextDiff_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          recommendedNextDiff_ != null &&
+          recommendedNextDiff_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getRecommendedNextDiffBuilder().mergeFrom(value);
         } else {
           recommendedNextDiff_ = value;
         }
-        onChanged();
       } else {
         recommendedNextDiffBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2227,14 +2159,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp recommended_next_diff = 2;</code>
      */
     public Builder clearRecommendedNextDiff() {
-      if (recommendedNextDiffBuilder_ == null) {
-        recommendedNextDiff_ = null;
-        onChanged();
-      } else {
-        recommendedNextDiff_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      recommendedNextDiff_ = null;
+      if (recommendedNextDiffBuilder_ != null) {
+        recommendedNextDiffBuilder_.dispose();
         recommendedNextDiffBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2248,7 +2179,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp recommended_next_diff = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getRecommendedNextDiffBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getRecommendedNextDiffFieldBuilder().getBuilder();
     }
@@ -2326,7 +2257,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComputeThreatListDiffResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

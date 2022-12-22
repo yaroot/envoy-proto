@@ -138,7 +138,6 @@ public interface DeployModelRequestOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
    */
-
   int getTrafficSplitOrDefault(
       java.lang.String key,
       int defaultValue);
@@ -157,7 +156,6 @@ public interface DeployModelRequestOrBuilder extends
    *
    * <code>map&lt;string, int32&gt; traffic_split = 3;</code>
    */
-
   int getTrafficSplitOrThrow(
       java.lang.String key);
 }

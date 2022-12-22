@@ -38,76 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PriceAsset(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            priceQualifier_ = rawValue;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 34: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              priceOfferings_ = new java.util.ArrayList<com.google.ads.googleads.v10.common.PriceOffering>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            priceOfferings_.add(
-                input.readMessage(com.google.ads.googleads.v10.common.PriceOffering.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        priceOfferings_ = java.util.Collections.unmodifiableList(priceOfferings_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.AssetTypesProto.internal_static_google_ads_googleads_v10_common_PriceAsset_descriptor;
@@ -122,7 +52,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TYPE_FIELD_NUMBER = 1;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Required. The type of the price asset.
@@ -143,13 +73,12 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType getType() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType result = com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType.valueOf(type_);
+    com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType result = com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType.forNumber(type_);
     return result == null ? com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType.UNRECOGNIZED : result;
   }
 
   public static final int PRICE_QUALIFIER_FIELD_NUMBER = 2;
-  private int priceQualifier_;
+  private int priceQualifier_ = 0;
   /**
    * <pre>
    * The price qualifier of the price asset.
@@ -170,13 +99,13 @@ private static final long serialVersionUID = 0L;
    * @return The priceQualifier.
    */
   @java.lang.Override public com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier getPriceQualifier() {
-    @SuppressWarnings("deprecation")
-    com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier result = com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier.valueOf(priceQualifier_);
+    com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier result = com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier.forNumber(priceQualifier_);
     return result == null ? com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier.UNRECOGNIZED : result;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Required. The language of the price asset.
@@ -224,6 +153,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRICE_OFFERINGS_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.ads.googleads.v10.common.PriceOffering> priceOfferings_;
   /**
    * <pre>
@@ -314,7 +244,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < priceOfferings_.size(); i++) {
       output.writeMessage(4, priceOfferings_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -338,7 +268,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, priceOfferings_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -359,7 +289,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getLanguageCode())) return false;
     if (!getPriceOfferingsList()
         .equals(other.getPriceOfferingsList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -380,7 +310,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PRICE_OFFERINGS_FIELD_NUMBER;
       hash = (53 * hash) + getPriceOfferingsList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -501,35 +431,28 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.PriceAsset.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPriceOfferingsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       type_ = 0;
-
       priceQualifier_ = 0;
-
       languageCode_ = "";
-
       if (priceOfferingsBuilder_ == null) {
         priceOfferings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        priceOfferings_ = null;
         priceOfferingsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -556,21 +479,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.PriceAsset buildPartial() {
       com.google.ads.googleads.v10.common.PriceAsset result = new com.google.ads.googleads.v10.common.PriceAsset(this);
-      int from_bitField0_ = bitField0_;
-      result.type_ = type_;
-      result.priceQualifier_ = priceQualifier_;
-      result.languageCode_ = languageCode_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.common.PriceAsset result) {
       if (priceOfferingsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           priceOfferings_ = java.util.Collections.unmodifiableList(priceOfferings_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.priceOfferings_ = priceOfferings_;
       } else {
         result.priceOfferings_ = priceOfferingsBuilder_.build();
       }
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.PriceAsset result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.priceQualifier_ = priceQualifier_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
     }
 
     @java.lang.Override
@@ -625,13 +562,14 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (priceOfferingsBuilder_ == null) {
         if (!other.priceOfferings_.isEmpty()) {
           if (priceOfferings_.isEmpty()) {
             priceOfferings_ = other.priceOfferings_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensurePriceOfferingsIsMutable();
             priceOfferings_.addAll(other.priceOfferings_);
@@ -644,7 +582,7 @@ private static final long serialVersionUID = 0L;
             priceOfferingsBuilder_.dispose();
             priceOfferingsBuilder_ = null;
             priceOfferings_ = other.priceOfferings_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             priceOfferingsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getPriceOfferingsFieldBuilder() : null;
@@ -653,7 +591,7 @@ private static final long serialVersionUID = 0L;
           }
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -668,17 +606,58 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.PriceAsset parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              priceQualifier_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.ads.googleads.v10.common.PriceOffering m =
+                  input.readMessage(
+                      com.google.ads.googleads.v10.common.PriceOffering.parser(),
+                      extensionRegistry);
+              if (priceOfferingsBuilder_ == null) {
+                ensurePriceOfferingsIsMutable();
+                priceOfferings_.add(m);
+              } else {
+                priceOfferingsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.PriceAsset) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -705,8 +684,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -720,8 +699,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType getType() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType result = com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType.valueOf(type_);
+      com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType result = com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType.forNumber(type_);
       return result == null ? com.google.ads.googleads.v10.enums.PriceExtensionTypeEnum.PriceExtensionType.UNRECOGNIZED : result;
     }
     /**
@@ -737,7 +715,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -751,7 +729,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       type_ = 0;
       onChanged();
       return this;
@@ -779,8 +757,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPriceQualifierValue(int value) {
-      
       priceQualifier_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -794,8 +772,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier getPriceQualifier() {
-      @SuppressWarnings("deprecation")
-      com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier result = com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier.valueOf(priceQualifier_);
+      com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier result = com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier.forNumber(priceQualifier_);
       return result == null ? com.google.ads.googleads.v10.enums.PriceExtensionPriceQualifierEnum.PriceExtensionPriceQualifier.UNRECOGNIZED : result;
     }
     /**
@@ -811,7 +788,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       priceQualifier_ = value.getNumber();
       onChanged();
       return this;
@@ -825,7 +802,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPriceQualifier() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       priceQualifier_ = 0;
       onChanged();
       return this;
@@ -887,11 +864,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -905,8 +880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -922,12 +897,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -935,9 +908,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.ads.googleads.v10.common.PriceOffering> priceOfferings_ =
       java.util.Collections.emptyList();
     private void ensurePriceOfferingsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         priceOfferings_ = new java.util.ArrayList<com.google.ads.googleads.v10.common.PriceOffering>(priceOfferings_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1142,7 +1115,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearPriceOfferings() {
       if (priceOfferingsBuilder_ == null) {
         priceOfferings_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         priceOfferingsBuilder_.clear();
@@ -1254,7 +1227,7 @@ private static final long serialVersionUID = 0L;
         priceOfferingsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.ads.googleads.v10.common.PriceOffering, com.google.ads.googleads.v10.common.PriceOffering.Builder, com.google.ads.googleads.v10.common.PriceOfferingOrBuilder>(
                 priceOfferings_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         priceOfferings_ = null;
@@ -1294,7 +1267,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PriceAsset(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

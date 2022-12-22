@@ -56,9 +56,9 @@ public final class AccountManagementServiceOuterClass {
       "\n@google/cloud/identitytoolkit/v2/accoun" +
       "t_management_service.proto\022\037google.cloud" +
       ".identitytoolkit.v2\032\034google/api/annotati" +
-      "ons.proto\032\037google/api/field_behavior.pro" +
-      "to\032.google/cloud/identitytoolkit/v2/mfa_" +
-      "info.proto\032\027google/api/client.proto\"\324\001\n\034" +
+      "ons.proto\032\027google/api/client.proto\032\037goog" +
+      "le/api/field_behavior.proto\032.google/clou" +
+      "d/identitytoolkit/v2/mfa_info.proto\"\324\001\n\034" +
       "FinalizeMfaEnrollmentRequest\022\025\n\010id_token" +
       "\030\001 \001(\tB\003\340A\002\022\024\n\014display_name\030\003 \001(\t\022_\n\027pho" +
       "ne_verification_info\030\004 \001(\0132<.google.clou" +
@@ -109,9 +109,9 @@ public final class AccountManagementServiceOuterClass {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.api.AnnotationsProto.getDescriptor(),
+          com.google.api.ClientProto.getDescriptor(),
           com.google.api.FieldBehaviorProto.getDescriptor(),
           com.google.cloud.identitytoolkit.v2.MfaInfo.getDescriptor(),
-          com.google.api.ClientProto.getDescriptor(),
         });
     internal_static_google_cloud_identitytoolkit_v2_FinalizeMfaEnrollmentRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -158,9 +158,9 @@ public final class AccountManagementServiceOuterClass {
     com.google.protobuf.Descriptors.FileDescriptor
         .internalUpdateFileDescriptor(descriptor, registry);
     com.google.api.AnnotationsProto.getDescriptor();
+    com.google.api.ClientProto.getDescriptor();
     com.google.api.FieldBehaviorProto.getDescriptor();
     com.google.cloud.identitytoolkit.v2.MfaInfo.getDescriptor();
-    com.google.api.ClientProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

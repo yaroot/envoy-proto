@@ -37,63 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private DocumentationRule(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            selector_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            deprecationDescription_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.api.DocumentationProto.internal_static_google_api_DocumentationRule_descriptor;
@@ -108,15 +51,17 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SELECTOR_FIELD_NUMBER = 1;
-  private volatile java.lang.Object selector_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object selector_ = "";
   /**
    * <pre>
-   * The selector is a comma-separated list of patterns. Each pattern is a
-   * qualified name of the element which may end in "*", indicating a wildcard.
-   * Wildcards are only allowed at the end and for a whole component of the
-   * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-   * wildcard will match one or more components. To specify a default for all
-   * applicable elements, the whole pattern "*" is used.
+   * The selector is a comma-separated list of patterns for any element such as
+   * a method, a field, an enum value. Each pattern is a qualified name of the
+   * element which may end in "*", indicating a wildcard. Wildcards are only
+   * allowed at the end and for a whole component of the qualified name,
+   * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+   * one or more components. To specify a default for all applicable elements,
+   * the whole pattern "*" is used.
    * </pre>
    *
    * <code>string selector = 1;</code>
@@ -137,12 +82,13 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The selector is a comma-separated list of patterns. Each pattern is a
-   * qualified name of the element which may end in "*", indicating a wildcard.
-   * Wildcards are only allowed at the end and for a whole component of the
-   * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-   * wildcard will match one or more components. To specify a default for all
-   * applicable elements, the whole pattern "*" is used.
+   * The selector is a comma-separated list of patterns for any element such as
+   * a method, a field, an enum value. Each pattern is a qualified name of the
+   * element which may end in "*", indicating a wildcard. Wildcards are only
+   * allowed at the end and for a whole component of the qualified name,
+   * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+   * one or more components. To specify a default for all applicable elements,
+   * the whole pattern "*" is used.
    * </pre>
    *
    * <code>string selector = 1;</code>
@@ -164,10 +110,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 2;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
-   * Description of the selected API(s).
+   * Description of the selected proto element (e.g. a message, a method, a
+   * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+   * taken from the proto source definition of the proto element.
    * </pre>
    *
    * <code>string description = 2;</code>
@@ -188,7 +137,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Description of the selected API(s).
+   * Description of the selected proto element (e.g. a message, a method, a
+   * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+   * taken from the proto source definition of the proto element.
    * </pre>
    *
    * <code>string description = 2;</code>
@@ -210,7 +161,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEPRECATION_DESCRIPTION_FIELD_NUMBER = 3;
-  private volatile java.lang.Object deprecationDescription_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object deprecationDescription_ = "";
   /**
    * <pre>
    * Deprecation description of the selected element(s). It can be provided if
@@ -280,7 +232,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deprecationDescription_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, deprecationDescription_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -298,7 +250,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(deprecationDescription_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, deprecationDescription_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -319,7 +271,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getDescription())) return false;
     if (!getDeprecationDescription()
         .equals(other.getDeprecationDescription())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -336,7 +288,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getDescription().hashCode();
     hash = (37 * hash) + DEPRECATION_DESCRIPTION_FIELD_NUMBER;
     hash = (53 * hash) + getDeprecationDescription().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -457,28 +409,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.api.DocumentationRule.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       selector_ = "";
-
       description_ = "";
-
       deprecationDescription_ = "";
-
       return this;
     }
 
@@ -505,11 +450,22 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.api.DocumentationRule buildPartial() {
       com.google.api.DocumentationRule result = new com.google.api.DocumentationRule(this);
-      result.selector_ = selector_;
-      result.description_ = description_;
-      result.deprecationDescription_ = deprecationDescription_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.api.DocumentationRule result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.selector_ = selector_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.deprecationDescription_ = deprecationDescription_;
+      }
     }
 
     @java.lang.Override
@@ -558,17 +514,20 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.api.DocumentationRule.getDefaultInstance()) return this;
       if (!other.getSelector().isEmpty()) {
         selector_ = other.selector_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getDeprecationDescription().isEmpty()) {
         deprecationDescription_ = other.deprecationDescription_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -583,29 +542,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.api.DocumentationRule parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              selector_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              deprecationDescription_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.api.DocumentationRule) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object selector_ = "";
     /**
      * <pre>
-     * The selector is a comma-separated list of patterns. Each pattern is a
-     * qualified name of the element which may end in "*", indicating a wildcard.
-     * Wildcards are only allowed at the end and for a whole component of the
-     * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-     * wildcard will match one or more components. To specify a default for all
-     * applicable elements, the whole pattern "*" is used.
+     * The selector is a comma-separated list of patterns for any element such as
+     * a method, a field, an enum value. Each pattern is a qualified name of the
+     * element which may end in "*", indicating a wildcard. Wildcards are only
+     * allowed at the end and for a whole component of the qualified name,
+     * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+     * one or more components. To specify a default for all applicable elements,
+     * the whole pattern "*" is used.
      * </pre>
      *
      * <code>string selector = 1;</code>
@@ -625,12 +614,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The selector is a comma-separated list of patterns. Each pattern is a
-     * qualified name of the element which may end in "*", indicating a wildcard.
-     * Wildcards are only allowed at the end and for a whole component of the
-     * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-     * wildcard will match one or more components. To specify a default for all
-     * applicable elements, the whole pattern "*" is used.
+     * The selector is a comma-separated list of patterns for any element such as
+     * a method, a field, an enum value. Each pattern is a qualified name of the
+     * element which may end in "*", indicating a wildcard. Wildcards are only
+     * allowed at the end and for a whole component of the qualified name,
+     * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+     * one or more components. To specify a default for all applicable elements,
+     * the whole pattern "*" is used.
      * </pre>
      *
      * <code>string selector = 1;</code>
@@ -651,12 +641,13 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The selector is a comma-separated list of patterns. Each pattern is a
-     * qualified name of the element which may end in "*", indicating a wildcard.
-     * Wildcards are only allowed at the end and for a whole component of the
-     * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-     * wildcard will match one or more components. To specify a default for all
-     * applicable elements, the whole pattern "*" is used.
+     * The selector is a comma-separated list of patterns for any element such as
+     * a method, a field, an enum value. Each pattern is a qualified name of the
+     * element which may end in "*", indicating a wildcard. Wildcards are only
+     * allowed at the end and for a whole component of the qualified name,
+     * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+     * one or more components. To specify a default for all applicable elements,
+     * the whole pattern "*" is used.
      * </pre>
      *
      * <code>string selector = 1;</code>
@@ -665,41 +656,41 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelector(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       selector_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The selector is a comma-separated list of patterns. Each pattern is a
-     * qualified name of the element which may end in "*", indicating a wildcard.
-     * Wildcards are only allowed at the end and for a whole component of the
-     * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-     * wildcard will match one or more components. To specify a default for all
-     * applicable elements, the whole pattern "*" is used.
+     * The selector is a comma-separated list of patterns for any element such as
+     * a method, a field, an enum value. Each pattern is a qualified name of the
+     * element which may end in "*", indicating a wildcard. Wildcards are only
+     * allowed at the end and for a whole component of the qualified name,
+     * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+     * one or more components. To specify a default for all applicable elements,
+     * the whole pattern "*" is used.
      * </pre>
      *
      * <code>string selector = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearSelector() {
-      
       selector_ = getDefaultInstance().getSelector();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The selector is a comma-separated list of patterns. Each pattern is a
-     * qualified name of the element which may end in "*", indicating a wildcard.
-     * Wildcards are only allowed at the end and for a whole component of the
-     * qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
-     * wildcard will match one or more components. To specify a default for all
-     * applicable elements, the whole pattern "*" is used.
+     * The selector is a comma-separated list of patterns for any element such as
+     * a method, a field, an enum value. Each pattern is a qualified name of the
+     * element which may end in "*", indicating a wildcard. Wildcards are only
+     * allowed at the end and for a whole component of the qualified name,
+     * i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match
+     * one or more components. To specify a default for all applicable elements,
+     * the whole pattern "*" is used.
      * </pre>
      *
      * <code>string selector = 1;</code>
@@ -708,12 +699,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSelectorBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       selector_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -721,7 +710,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object description_ = "";
     /**
      * <pre>
-     * Description of the selected API(s).
+     * Description of the selected proto element (e.g. a message, a method, a
+     * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+     * taken from the proto source definition of the proto element.
      * </pre>
      *
      * <code>string description = 2;</code>
@@ -741,7 +732,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Description of the selected API(s).
+     * Description of the selected proto element (e.g. a message, a method, a
+     * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+     * taken from the proto source definition of the proto element.
      * </pre>
      *
      * <code>string description = 2;</code>
@@ -762,7 +755,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Description of the selected API(s).
+     * Description of the selected proto element (e.g. a message, a method, a
+     * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+     * taken from the proto source definition of the proto element.
      * </pre>
      *
      * <code>string description = 2;</code>
@@ -771,31 +766,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Description of the selected API(s).
+     * Description of the selected proto element (e.g. a message, a method, a
+     * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+     * taken from the proto source definition of the proto element.
      * </pre>
      *
      * <code>string description = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Description of the selected API(s).
+     * Description of the selected proto element (e.g. a message, a method, a
+     * 'service' definition, or a field). Defaults to leading &amp; trailing comments
+     * taken from the proto source definition of the proto element.
      * </pre>
      *
      * <code>string description = 2;</code>
@@ -804,12 +801,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -870,11 +865,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeprecationDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       deprecationDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -888,8 +881,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDeprecationDescription() {
-      
       deprecationDescription_ = getDefaultInstance().getDeprecationDescription();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -905,12 +898,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDeprecationDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       deprecationDescription_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -947,7 +938,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new DocumentationRule(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

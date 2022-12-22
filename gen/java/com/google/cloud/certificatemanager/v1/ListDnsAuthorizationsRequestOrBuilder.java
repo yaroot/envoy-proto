@@ -9,8 +9,8 @@ public interface ListDnsAuthorizationsRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. The project and location from which the dns authorizations should be
-   * listed, specified in the format `projects/&#42;&#47;locations/&#42;`.
+   * Required. The project and location from which the dns authorizations should
+   * be listed, specified in the format `projects/&#42;&#47;locations/&#42;`.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>
@@ -19,8 +19,8 @@ public interface ListDnsAuthorizationsRequestOrBuilder extends
   java.lang.String getParent();
   /**
    * <pre>
-   * Required. The project and location from which the dns authorizations should be
-   * listed, specified in the format `projects/&#42;&#47;locations/&#42;`.
+   * Required. The project and location from which the dns authorizations should
+   * be listed, specified in the format `projects/&#42;&#47;locations/&#42;`.
    * </pre>
    *
    * <code>string parent = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.resource_reference) = { ... }</code>

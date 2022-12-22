@@ -9,7 +9,7 @@ public interface SearchUrisResponseOrBuilder extends
 
   /**
    * <pre>
-   * The threat list matches. This may be empty if the URI is on no list.
+   * The threat list matches. This might be empty if the URI is on no list.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.SearchUrisResponse.ThreatUri threat = 1;</code>
@@ -18,7 +18,7 @@ public interface SearchUrisResponseOrBuilder extends
   boolean hasThreat();
   /**
    * <pre>
-   * The threat list matches. This may be empty if the URI is on no list.
+   * The threat list matches. This might be empty if the URI is on no list.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.SearchUrisResponse.ThreatUri threat = 1;</code>
@@ -27,7 +27,7 @@ public interface SearchUrisResponseOrBuilder extends
   com.google.webrisk.v1.SearchUrisResponse.ThreatUri getThreat();
   /**
    * <pre>
-   * The threat list matches. This may be empty if the URI is on no list.
+   * The threat list matches. This might be empty if the URI is on no list.
    * </pre>
    *
    * <code>.google.cloud.webrisk.v1.SearchUrisResponse.ThreatUri threat = 1;</code>

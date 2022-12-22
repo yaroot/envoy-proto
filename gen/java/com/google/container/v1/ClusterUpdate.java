@@ -31,6 +31,7 @@ private static final long serialVersionUID = 0L;
     desiredDatapathProvider_ = 0;
     desiredPrivateIpv6GoogleAccess_ = 0;
     desiredMasterVersion_ = "";
+    desiredStackType_ = 0;
   }
 
   @java.lang.Override
@@ -45,431 +46,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ClusterUpdate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            desiredNodeVersion_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            desiredMonitoringService_ = s;
-            break;
-          }
-          case 50: {
-            com.google.container.v1.AddonsConfig.Builder subBuilder = null;
-            if (desiredAddonsConfig_ != null) {
-              subBuilder = desiredAddonsConfig_.toBuilder();
-            }
-            desiredAddonsConfig_ = input.readMessage(com.google.container.v1.AddonsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredAddonsConfig_);
-              desiredAddonsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            desiredNodePoolId_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            desiredImageType_ = s;
-            break;
-          }
-          case 74: {
-            com.google.container.v1.NodePoolAutoscaling.Builder subBuilder = null;
-            if (desiredNodePoolAutoscaling_ != null) {
-              subBuilder = desiredNodePoolAutoscaling_.toBuilder();
-            }
-            desiredNodePoolAutoscaling_ = input.readMessage(com.google.container.v1.NodePoolAutoscaling.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredNodePoolAutoscaling_);
-              desiredNodePoolAutoscaling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              desiredLocations_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            desiredLocations_.add(s);
-            break;
-          }
-          case 98: {
-            com.google.container.v1.MasterAuthorizedNetworksConfig.Builder subBuilder = null;
-            if (desiredMasterAuthorizedNetworksConfig_ != null) {
-              subBuilder = desiredMasterAuthorizedNetworksConfig_.toBuilder();
-            }
-            desiredMasterAuthorizedNetworksConfig_ = input.readMessage(com.google.container.v1.MasterAuthorizedNetworksConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredMasterAuthorizedNetworksConfig_);
-              desiredMasterAuthorizedNetworksConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 122: {
-            com.google.container.v1.ClusterAutoscaling.Builder subBuilder = null;
-            if (desiredClusterAutoscaling_ != null) {
-              subBuilder = desiredClusterAutoscaling_.toBuilder();
-            }
-            desiredClusterAutoscaling_ = input.readMessage(com.google.container.v1.ClusterAutoscaling.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredClusterAutoscaling_);
-              desiredClusterAutoscaling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 130: {
-            com.google.container.v1.BinaryAuthorization.Builder subBuilder = null;
-            if (desiredBinaryAuthorization_ != null) {
-              subBuilder = desiredBinaryAuthorization_.toBuilder();
-            }
-            desiredBinaryAuthorization_ = input.readMessage(com.google.container.v1.BinaryAuthorization.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredBinaryAuthorization_);
-              desiredBinaryAuthorization_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 154: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            desiredLoggingService_ = s;
-            break;
-          }
-          case 170: {
-            com.google.container.v1.ResourceUsageExportConfig.Builder subBuilder = null;
-            if (desiredResourceUsageExportConfig_ != null) {
-              subBuilder = desiredResourceUsageExportConfig_.toBuilder();
-            }
-            desiredResourceUsageExportConfig_ = input.readMessage(com.google.container.v1.ResourceUsageExportConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredResourceUsageExportConfig_);
-              desiredResourceUsageExportConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 178: {
-            com.google.container.v1.VerticalPodAutoscaling.Builder subBuilder = null;
-            if (desiredVerticalPodAutoscaling_ != null) {
-              subBuilder = desiredVerticalPodAutoscaling_.toBuilder();
-            }
-            desiredVerticalPodAutoscaling_ = input.readMessage(com.google.container.v1.VerticalPodAutoscaling.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredVerticalPodAutoscaling_);
-              desiredVerticalPodAutoscaling_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 202: {
-            com.google.container.v1.PrivateClusterConfig.Builder subBuilder = null;
-            if (desiredPrivateClusterConfig_ != null) {
-              subBuilder = desiredPrivateClusterConfig_.toBuilder();
-            }
-            desiredPrivateClusterConfig_ = input.readMessage(com.google.container.v1.PrivateClusterConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredPrivateClusterConfig_);
-              desiredPrivateClusterConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 210: {
-            com.google.container.v1.IntraNodeVisibilityConfig.Builder subBuilder = null;
-            if (desiredIntraNodeVisibilityConfig_ != null) {
-              subBuilder = desiredIntraNodeVisibilityConfig_.toBuilder();
-            }
-            desiredIntraNodeVisibilityConfig_ = input.readMessage(com.google.container.v1.IntraNodeVisibilityConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredIntraNodeVisibilityConfig_);
-              desiredIntraNodeVisibilityConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 226: {
-            com.google.container.v1.DefaultSnatStatus.Builder subBuilder = null;
-            if (desiredDefaultSnatStatus_ != null) {
-              subBuilder = desiredDefaultSnatStatus_.toBuilder();
-            }
-            desiredDefaultSnatStatus_ = input.readMessage(com.google.container.v1.DefaultSnatStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredDefaultSnatStatus_);
-              desiredDefaultSnatStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 250: {
-            com.google.container.v1.ReleaseChannel.Builder subBuilder = null;
-            if (desiredReleaseChannel_ != null) {
-              subBuilder = desiredReleaseChannel_.toBuilder();
-            }
-            desiredReleaseChannel_ = input.readMessage(com.google.container.v1.ReleaseChannel.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredReleaseChannel_);
-              desiredReleaseChannel_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 314: {
-            com.google.container.v1.ILBSubsettingConfig.Builder subBuilder = null;
-            if (desiredL4IlbSubsettingConfig_ != null) {
-              subBuilder = desiredL4IlbSubsettingConfig_.toBuilder();
-            }
-            desiredL4IlbSubsettingConfig_ = input.readMessage(com.google.container.v1.ILBSubsettingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredL4IlbSubsettingConfig_);
-              desiredL4IlbSubsettingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 370: {
-            com.google.container.v1.DatabaseEncryption.Builder subBuilder = null;
-            if (desiredDatabaseEncryption_ != null) {
-              subBuilder = desiredDatabaseEncryption_.toBuilder();
-            }
-            desiredDatabaseEncryption_ = input.readMessage(com.google.container.v1.DatabaseEncryption.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredDatabaseEncryption_);
-              desiredDatabaseEncryption_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 378: {
-            com.google.container.v1.WorkloadIdentityConfig.Builder subBuilder = null;
-            if (desiredWorkloadIdentityConfig_ != null) {
-              subBuilder = desiredWorkloadIdentityConfig_.toBuilder();
-            }
-            desiredWorkloadIdentityConfig_ = input.readMessage(com.google.container.v1.WorkloadIdentityConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredWorkloadIdentityConfig_);
-              desiredWorkloadIdentityConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 386: {
-            com.google.container.v1.ShieldedNodes.Builder subBuilder = null;
-            if (desiredShieldedNodes_ != null) {
-              subBuilder = desiredShieldedNodes_.toBuilder();
-            }
-            desiredShieldedNodes_ = input.readMessage(com.google.container.v1.ShieldedNodes.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredShieldedNodes_);
-              desiredShieldedNodes_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 400: {
-            int rawValue = input.readEnum();
-
-            desiredDatapathProvider_ = rawValue;
-            break;
-          }
-          case 408: {
-            int rawValue = input.readEnum();
-
-            desiredPrivateIpv6GoogleAccess_ = rawValue;
-            break;
-          }
-          case 426: {
-            com.google.container.v1.DNSConfig.Builder subBuilder = null;
-            if (desiredDnsConfig_ != null) {
-              subBuilder = desiredDnsConfig_.toBuilder();
-            }
-            desiredDnsConfig_ = input.readMessage(com.google.container.v1.DNSConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredDnsConfig_);
-              desiredDnsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 442: {
-            com.google.container.v1.NotificationConfig.Builder subBuilder = null;
-            if (desiredNotificationConfig_ != null) {
-              subBuilder = desiredNotificationConfig_.toBuilder();
-            }
-            desiredNotificationConfig_ = input.readMessage(com.google.container.v1.NotificationConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredNotificationConfig_);
-              desiredNotificationConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 482: {
-            com.google.container.v1.ServiceExternalIPsConfig.Builder subBuilder = null;
-            if (desiredServiceExternalIpsConfig_ != null) {
-              subBuilder = desiredServiceExternalIpsConfig_.toBuilder();
-            }
-            desiredServiceExternalIpsConfig_ = input.readMessage(com.google.container.v1.ServiceExternalIPsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredServiceExternalIpsConfig_);
-              desiredServiceExternalIpsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 506: {
-            com.google.container.v1.AuthenticatorGroupsConfig.Builder subBuilder = null;
-            if (desiredAuthenticatorGroupsConfig_ != null) {
-              subBuilder = desiredAuthenticatorGroupsConfig_.toBuilder();
-            }
-            desiredAuthenticatorGroupsConfig_ = input.readMessage(com.google.container.v1.AuthenticatorGroupsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredAuthenticatorGroupsConfig_);
-              desiredAuthenticatorGroupsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 514: {
-            com.google.container.v1.LoggingConfig.Builder subBuilder = null;
-            if (desiredLoggingConfig_ != null) {
-              subBuilder = desiredLoggingConfig_.toBuilder();
-            }
-            desiredLoggingConfig_ = input.readMessage(com.google.container.v1.LoggingConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredLoggingConfig_);
-              desiredLoggingConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 522: {
-            com.google.container.v1.MonitoringConfig.Builder subBuilder = null;
-            if (desiredMonitoringConfig_ != null) {
-              subBuilder = desiredMonitoringConfig_.toBuilder();
-            }
-            desiredMonitoringConfig_ = input.readMessage(com.google.container.v1.MonitoringConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredMonitoringConfig_);
-              desiredMonitoringConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 530: {
-            com.google.container.v1.IdentityServiceConfig.Builder subBuilder = null;
-            if (desiredIdentityServiceConfig_ != null) {
-              subBuilder = desiredIdentityServiceConfig_.toBuilder();
-            }
-            desiredIdentityServiceConfig_ = input.readMessage(com.google.container.v1.IdentityServiceConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredIdentityServiceConfig_);
-              desiredIdentityServiceConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 538: {
-            com.google.container.v1.MeshCertificates.Builder subBuilder = null;
-            if (desiredMeshCertificates_ != null) {
-              subBuilder = desiredMeshCertificates_.toBuilder();
-            }
-            desiredMeshCertificates_ = input.readMessage(com.google.container.v1.MeshCertificates.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredMeshCertificates_);
-              desiredMeshCertificates_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 802: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            desiredMasterVersion_ = s;
-            break;
-          }
-          case 874: {
-            com.google.container.v1.GcfsConfig.Builder subBuilder = null;
-            if (desiredGcfsConfig_ != null) {
-              subBuilder = desiredGcfsConfig_.toBuilder();
-            }
-            desiredGcfsConfig_ = input.readMessage(com.google.container.v1.GcfsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredGcfsConfig_);
-              desiredGcfsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 882: {
-            com.google.container.v1.NetworkTags.Builder subBuilder = null;
-            if (desiredNodePoolAutoConfigNetworkTags_ != null) {
-              subBuilder = desiredNodePoolAutoConfigNetworkTags_.toBuilder();
-            }
-            desiredNodePoolAutoConfigNetworkTags_ = input.readMessage(com.google.container.v1.NetworkTags.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(desiredNodePoolAutoConfigNetworkTags_);
-              desiredNodePoolAutoConfigNetworkTags_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        desiredLocations_ = desiredLocations_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1.ClusterServiceProto.internal_static_google_container_v1_ClusterUpdate_descriptor;
@@ -483,8 +59,10 @@ private static final long serialVersionUID = 0L;
             com.google.container.v1.ClusterUpdate.class, com.google.container.v1.ClusterUpdate.Builder.class);
   }
 
+  private int bitField0_;
   public static final int DESIRED_NODE_VERSION_FIELD_NUMBER = 4;
-  private volatile java.lang.Object desiredNodeVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object desiredNodeVersion_ = "";
   /**
    * <pre>
    * The Kubernetes version to change the nodes to (typically an
@@ -546,7 +124,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESIRED_MONITORING_SERVICE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object desiredMonitoringService_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object desiredMonitoringService_ = "";
   /**
    * <pre>
    * The monitoring service the cluster should use to write metrics.
@@ -642,11 +221,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.AddonsConfigOrBuilder getDesiredAddonsConfigOrBuilder() {
-    return getDesiredAddonsConfig();
+    return desiredAddonsConfig_ == null ? com.google.container.v1.AddonsConfig.getDefaultInstance() : desiredAddonsConfig_;
   }
 
   public static final int DESIRED_NODE_POOL_ID_FIELD_NUMBER = 7;
-  private volatile java.lang.Object desiredNodePoolId_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object desiredNodePoolId_ = "";
   /**
    * <pre>
    * The node pool to be upgraded. This field is mandatory if
@@ -698,7 +278,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESIRED_IMAGE_TYPE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object desiredImageType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object desiredImageType_ = "";
   /**
    * <pre>
    * The desired image type for the node pool.
@@ -780,7 +361,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.DatabaseEncryptionOrBuilder getDesiredDatabaseEncryptionOrBuilder() {
-    return getDesiredDatabaseEncryption();
+    return desiredDatabaseEncryption_ == null ? com.google.container.v1.DatabaseEncryption.getDefaultInstance() : desiredDatabaseEncryption_;
   }
 
   public static final int DESIRED_WORKLOAD_IDENTITY_CONFIG_FIELD_NUMBER = 47;
@@ -818,7 +399,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.WorkloadIdentityConfigOrBuilder getDesiredWorkloadIdentityConfigOrBuilder() {
-    return getDesiredWorkloadIdentityConfig();
+    return desiredWorkloadIdentityConfig_ == null ? com.google.container.v1.WorkloadIdentityConfig.getDefaultInstance() : desiredWorkloadIdentityConfig_;
   }
 
   public static final int DESIRED_MESH_CERTIFICATES_FIELD_NUMBER = 67;
@@ -859,7 +440,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.MeshCertificatesOrBuilder getDesiredMeshCertificatesOrBuilder() {
-    return getDesiredMeshCertificates();
+    return desiredMeshCertificates_ == null ? com.google.container.v1.MeshCertificates.getDefaultInstance() : desiredMeshCertificates_;
   }
 
   public static final int DESIRED_SHIELDED_NODES_FIELD_NUMBER = 48;
@@ -897,7 +478,45 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ShieldedNodesOrBuilder getDesiredShieldedNodesOrBuilder() {
-    return getDesiredShieldedNodes();
+    return desiredShieldedNodes_ == null ? com.google.container.v1.ShieldedNodes.getDefaultInstance() : desiredShieldedNodes_;
+  }
+
+  public static final int DESIRED_COST_MANAGEMENT_CONFIG_FIELD_NUMBER = 49;
+  private com.google.container.v1.CostManagementConfig desiredCostManagementConfig_;
+  /**
+   * <pre>
+   * The desired configuration for the fine-grained cost management feature.
+   * </pre>
+   *
+   * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+   * @return Whether the desiredCostManagementConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasDesiredCostManagementConfig() {
+    return desiredCostManagementConfig_ != null;
+  }
+  /**
+   * <pre>
+   * The desired configuration for the fine-grained cost management feature.
+   * </pre>
+   *
+   * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+   * @return The desiredCostManagementConfig.
+   */
+  @java.lang.Override
+  public com.google.container.v1.CostManagementConfig getDesiredCostManagementConfig() {
+    return desiredCostManagementConfig_ == null ? com.google.container.v1.CostManagementConfig.getDefaultInstance() : desiredCostManagementConfig_;
+  }
+  /**
+   * <pre>
+   * The desired configuration for the fine-grained cost management feature.
+   * </pre>
+   *
+   * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1.CostManagementConfigOrBuilder getDesiredCostManagementConfigOrBuilder() {
+    return desiredCostManagementConfig_ == null ? com.google.container.v1.CostManagementConfig.getDefaultInstance() : desiredCostManagementConfig_;
   }
 
   public static final int DESIRED_DNS_CONFIG_FIELD_NUMBER = 53;
@@ -935,7 +554,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.DNSConfigOrBuilder getDesiredDnsConfigOrBuilder() {
-    return getDesiredDnsConfig();
+    return desiredDnsConfig_ == null ? com.google.container.v1.DNSConfig.getDefaultInstance() : desiredDnsConfig_;
   }
 
   public static final int DESIRED_NODE_POOL_AUTOSCALING_FIELD_NUMBER = 9;
@@ -982,10 +601,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.NodePoolAutoscalingOrBuilder getDesiredNodePoolAutoscalingOrBuilder() {
-    return getDesiredNodePoolAutoscaling();
+    return desiredNodePoolAutoscaling_ == null ? com.google.container.v1.NodePoolAutoscaling.getDefaultInstance() : desiredNodePoolAutoscaling_;
   }
 
   public static final int DESIRED_LOCATIONS_FIELD_NUMBER = 10;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList desiredLocations_;
   /**
    * <pre>
@@ -1091,7 +711,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.MasterAuthorizedNetworksConfigOrBuilder getDesiredMasterAuthorizedNetworksConfigOrBuilder() {
-    return getDesiredMasterAuthorizedNetworksConfig();
+    return desiredMasterAuthorizedNetworksConfig_ == null ? com.google.container.v1.MasterAuthorizedNetworksConfig.getDefaultInstance() : desiredMasterAuthorizedNetworksConfig_;
   }
 
   public static final int DESIRED_CLUSTER_AUTOSCALING_FIELD_NUMBER = 15;
@@ -1129,7 +749,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ClusterAutoscalingOrBuilder getDesiredClusterAutoscalingOrBuilder() {
-    return getDesiredClusterAutoscaling();
+    return desiredClusterAutoscaling_ == null ? com.google.container.v1.ClusterAutoscaling.getDefaultInstance() : desiredClusterAutoscaling_;
   }
 
   public static final int DESIRED_BINARY_AUTHORIZATION_FIELD_NUMBER = 16;
@@ -1167,11 +787,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.BinaryAuthorizationOrBuilder getDesiredBinaryAuthorizationOrBuilder() {
-    return getDesiredBinaryAuthorization();
+    return desiredBinaryAuthorization_ == null ? com.google.container.v1.BinaryAuthorization.getDefaultInstance() : desiredBinaryAuthorization_;
   }
 
   public static final int DESIRED_LOGGING_SERVICE_FIELD_NUMBER = 19;
-  private volatile java.lang.Object desiredLoggingService_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object desiredLoggingService_ = "";
   /**
    * <pre>
    * The logging service the cluster should use to write logs.
@@ -1267,7 +888,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ResourceUsageExportConfigOrBuilder getDesiredResourceUsageExportConfigOrBuilder() {
-    return getDesiredResourceUsageExportConfig();
+    return desiredResourceUsageExportConfig_ == null ? com.google.container.v1.ResourceUsageExportConfig.getDefaultInstance() : desiredResourceUsageExportConfig_;
   }
 
   public static final int DESIRED_VERTICAL_POD_AUTOSCALING_FIELD_NUMBER = 22;
@@ -1305,7 +926,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.VerticalPodAutoscalingOrBuilder getDesiredVerticalPodAutoscalingOrBuilder() {
-    return getDesiredVerticalPodAutoscaling();
+    return desiredVerticalPodAutoscaling_ == null ? com.google.container.v1.VerticalPodAutoscaling.getDefaultInstance() : desiredVerticalPodAutoscaling_;
   }
 
   public static final int DESIRED_PRIVATE_CLUSTER_CONFIG_FIELD_NUMBER = 25;
@@ -1343,7 +964,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.PrivateClusterConfigOrBuilder getDesiredPrivateClusterConfigOrBuilder() {
-    return getDesiredPrivateClusterConfig();
+    return desiredPrivateClusterConfig_ == null ? com.google.container.v1.PrivateClusterConfig.getDefaultInstance() : desiredPrivateClusterConfig_;
   }
 
   public static final int DESIRED_INTRA_NODE_VISIBILITY_CONFIG_FIELD_NUMBER = 26;
@@ -1381,7 +1002,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.IntraNodeVisibilityConfigOrBuilder getDesiredIntraNodeVisibilityConfigOrBuilder() {
-    return getDesiredIntraNodeVisibilityConfig();
+    return desiredIntraNodeVisibilityConfig_ == null ? com.google.container.v1.IntraNodeVisibilityConfig.getDefaultInstance() : desiredIntraNodeVisibilityConfig_;
   }
 
   public static final int DESIRED_DEFAULT_SNAT_STATUS_FIELD_NUMBER = 28;
@@ -1419,7 +1040,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.DefaultSnatStatusOrBuilder getDesiredDefaultSnatStatusOrBuilder() {
-    return getDesiredDefaultSnatStatus();
+    return desiredDefaultSnatStatus_ == null ? com.google.container.v1.DefaultSnatStatus.getDefaultInstance() : desiredDefaultSnatStatus_;
   }
 
   public static final int DESIRED_RELEASE_CHANNEL_FIELD_NUMBER = 31;
@@ -1457,7 +1078,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ReleaseChannelOrBuilder getDesiredReleaseChannelOrBuilder() {
-    return getDesiredReleaseChannel();
+    return desiredReleaseChannel_ == null ? com.google.container.v1.ReleaseChannel.getDefaultInstance() : desiredReleaseChannel_;
   }
 
   public static final int DESIRED_L4ILB_SUBSETTING_CONFIG_FIELD_NUMBER = 39;
@@ -1495,11 +1116,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ILBSubsettingConfigOrBuilder getDesiredL4IlbSubsettingConfigOrBuilder() {
-    return getDesiredL4IlbSubsettingConfig();
+    return desiredL4IlbSubsettingConfig_ == null ? com.google.container.v1.ILBSubsettingConfig.getDefaultInstance() : desiredL4IlbSubsettingConfig_;
   }
 
   public static final int DESIRED_DATAPATH_PROVIDER_FIELD_NUMBER = 50;
-  private int desiredDatapathProvider_;
+  private int desiredDatapathProvider_ = 0;
   /**
    * <pre>
    * The desired datapath provider for the cluster.
@@ -1520,13 +1141,12 @@ private static final long serialVersionUID = 0L;
    * @return The desiredDatapathProvider.
    */
   @java.lang.Override public com.google.container.v1.DatapathProvider getDesiredDatapathProvider() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.valueOf(desiredDatapathProvider_);
+    com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.forNumber(desiredDatapathProvider_);
     return result == null ? com.google.container.v1.DatapathProvider.UNRECOGNIZED : result;
   }
 
   public static final int DESIRED_PRIVATE_IPV6_GOOGLE_ACCESS_FIELD_NUMBER = 51;
-  private int desiredPrivateIpv6GoogleAccess_;
+  private int desiredPrivateIpv6GoogleAccess_ = 0;
   /**
    * <pre>
    * The desired state of IPv6 connectivity to Google Services.
@@ -1547,8 +1167,7 @@ private static final long serialVersionUID = 0L;
    * @return The desiredPrivateIpv6GoogleAccess.
    */
   @java.lang.Override public com.google.container.v1.PrivateIPv6GoogleAccess getDesiredPrivateIpv6GoogleAccess() {
-    @SuppressWarnings("deprecation")
-    com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.valueOf(desiredPrivateIpv6GoogleAccess_);
+    com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.forNumber(desiredPrivateIpv6GoogleAccess_);
     return result == null ? com.google.container.v1.PrivateIPv6GoogleAccess.UNRECOGNIZED : result;
   }
 
@@ -1587,7 +1206,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.NotificationConfigOrBuilder getDesiredNotificationConfigOrBuilder() {
-    return getDesiredNotificationConfig();
+    return desiredNotificationConfig_ == null ? com.google.container.v1.NotificationConfig.getDefaultInstance() : desiredNotificationConfig_;
   }
 
   public static final int DESIRED_AUTHENTICATOR_GROUPS_CONFIG_FIELD_NUMBER = 63;
@@ -1625,7 +1244,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.AuthenticatorGroupsConfigOrBuilder getDesiredAuthenticatorGroupsConfigOrBuilder() {
-    return getDesiredAuthenticatorGroupsConfig();
+    return desiredAuthenticatorGroupsConfig_ == null ? com.google.container.v1.AuthenticatorGroupsConfig.getDefaultInstance() : desiredAuthenticatorGroupsConfig_;
   }
 
   public static final int DESIRED_LOGGING_CONFIG_FIELD_NUMBER = 64;
@@ -1663,7 +1282,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.LoggingConfigOrBuilder getDesiredLoggingConfigOrBuilder() {
-    return getDesiredLoggingConfig();
+    return desiredLoggingConfig_ == null ? com.google.container.v1.LoggingConfig.getDefaultInstance() : desiredLoggingConfig_;
   }
 
   public static final int DESIRED_MONITORING_CONFIG_FIELD_NUMBER = 65;
@@ -1701,7 +1320,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.MonitoringConfigOrBuilder getDesiredMonitoringConfigOrBuilder() {
-    return getDesiredMonitoringConfig();
+    return desiredMonitoringConfig_ == null ? com.google.container.v1.MonitoringConfig.getDefaultInstance() : desiredMonitoringConfig_;
   }
 
   public static final int DESIRED_IDENTITY_SERVICE_CONFIG_FIELD_NUMBER = 66;
@@ -1739,7 +1358,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.IdentityServiceConfigOrBuilder getDesiredIdentityServiceConfigOrBuilder() {
-    return getDesiredIdentityServiceConfig();
+    return desiredIdentityServiceConfig_ == null ? com.google.container.v1.IdentityServiceConfig.getDefaultInstance() : desiredIdentityServiceConfig_;
   }
 
   public static final int DESIRED_SERVICE_EXTERNAL_IPS_CONFIG_FIELD_NUMBER = 60;
@@ -1780,11 +1399,39 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.ServiceExternalIPsConfigOrBuilder getDesiredServiceExternalIpsConfigOrBuilder() {
-    return getDesiredServiceExternalIpsConfig();
+    return desiredServiceExternalIpsConfig_ == null ? com.google.container.v1.ServiceExternalIPsConfig.getDefaultInstance() : desiredServiceExternalIpsConfig_;
+  }
+
+  public static final int DESIRED_ENABLE_PRIVATE_ENDPOINT_FIELD_NUMBER = 71;
+  private boolean desiredEnablePrivateEndpoint_ = false;
+  /**
+   * <pre>
+   * Enable/Disable private endpoint for the cluster's master.
+   * </pre>
+   *
+   * <code>optional bool desired_enable_private_endpoint = 71;</code>
+   * @return Whether the desiredEnablePrivateEndpoint field is set.
+   */
+  @java.lang.Override
+  public boolean hasDesiredEnablePrivateEndpoint() {
+    return ((bitField0_ & 0x00000001) != 0);
+  }
+  /**
+   * <pre>
+   * Enable/Disable private endpoint for the cluster's master.
+   * </pre>
+   *
+   * <code>optional bool desired_enable_private_endpoint = 71;</code>
+   * @return The desiredEnablePrivateEndpoint.
+   */
+  @java.lang.Override
+  public boolean getDesiredEnablePrivateEndpoint() {
+    return desiredEnablePrivateEndpoint_;
   }
 
   public static final int DESIRED_MASTER_VERSION_FIELD_NUMBER = 100;
-  private volatile java.lang.Object desiredMasterVersion_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object desiredMasterVersion_ = "";
   /**
    * <pre>
    * The Kubernetes version to change the master to.
@@ -1878,7 +1525,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.GcfsConfigOrBuilder getDesiredGcfsConfigOrBuilder() {
-    return getDesiredGcfsConfig();
+    return desiredGcfsConfig_ == null ? com.google.container.v1.GcfsConfig.getDefaultInstance() : desiredGcfsConfig_;
   }
 
   public static final int DESIRED_NODE_POOL_AUTO_CONFIG_NETWORK_TAGS_FIELD_NUMBER = 110;
@@ -1919,7 +1566,113 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.container.v1.NetworkTagsOrBuilder getDesiredNodePoolAutoConfigNetworkTagsOrBuilder() {
-    return getDesiredNodePoolAutoConfigNetworkTags();
+    return desiredNodePoolAutoConfigNetworkTags_ == null ? com.google.container.v1.NetworkTags.getDefaultInstance() : desiredNodePoolAutoConfigNetworkTags_;
+  }
+
+  public static final int DESIRED_GATEWAY_API_CONFIG_FIELD_NUMBER = 114;
+  private com.google.container.v1.GatewayAPIConfig desiredGatewayApiConfig_;
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   * @return Whether the desiredGatewayApiConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasDesiredGatewayApiConfig() {
+    return desiredGatewayApiConfig_ != null;
+  }
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   * @return The desiredGatewayApiConfig.
+   */
+  @java.lang.Override
+  public com.google.container.v1.GatewayAPIConfig getDesiredGatewayApiConfig() {
+    return desiredGatewayApiConfig_ == null ? com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : desiredGatewayApiConfig_;
+  }
+  /**
+   * <pre>
+   * The desired config of Gateway API on this cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1.GatewayAPIConfigOrBuilder getDesiredGatewayApiConfigOrBuilder() {
+    return desiredGatewayApiConfig_ == null ? com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : desiredGatewayApiConfig_;
+  }
+
+  public static final int DESIRED_NODE_POOL_LOGGING_CONFIG_FIELD_NUMBER = 116;
+  private com.google.container.v1.NodePoolLoggingConfig desiredNodePoolLoggingConfig_;
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   * @return Whether the desiredNodePoolLoggingConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasDesiredNodePoolLoggingConfig() {
+    return desiredNodePoolLoggingConfig_ != null;
+  }
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   * @return The desiredNodePoolLoggingConfig.
+   */
+  @java.lang.Override
+  public com.google.container.v1.NodePoolLoggingConfig getDesiredNodePoolLoggingConfig() {
+    return desiredNodePoolLoggingConfig_ == null ? com.google.container.v1.NodePoolLoggingConfig.getDefaultInstance() : desiredNodePoolLoggingConfig_;
+  }
+  /**
+   * <pre>
+   * The desired node pool logging configuration defaults for the cluster.
+   * </pre>
+   *
+   * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+   */
+  @java.lang.Override
+  public com.google.container.v1.NodePoolLoggingConfigOrBuilder getDesiredNodePoolLoggingConfigOrBuilder() {
+    return desiredNodePoolLoggingConfig_ == null ? com.google.container.v1.NodePoolLoggingConfig.getDefaultInstance() : desiredNodePoolLoggingConfig_;
+  }
+
+  public static final int DESIRED_STACK_TYPE_FIELD_NUMBER = 119;
+  private int desiredStackType_ = 0;
+  /**
+   * <pre>
+   * The desired stack type of the cluster.
+   * If a stack type is provided and does not match the current stack type of
+   * the cluster, update will attempt to change the stack type to the new type.
+   * </pre>
+   *
+   * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+   * @return The enum numeric value on the wire for desiredStackType.
+   */
+  @java.lang.Override public int getDesiredStackTypeValue() {
+    return desiredStackType_;
+  }
+  /**
+   * <pre>
+   * The desired stack type of the cluster.
+   * If a stack type is provided and does not match the current stack type of
+   * the cluster, update will attempt to change the stack type to the new type.
+   * </pre>
+   *
+   * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+   * @return The desiredStackType.
+   */
+  @java.lang.Override public com.google.container.v1.StackType getDesiredStackType() {
+    com.google.container.v1.StackType result = com.google.container.v1.StackType.forNumber(desiredStackType_);
+    return result == null ? com.google.container.v1.StackType.UNRECOGNIZED : result;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1999,6 +1752,9 @@ private static final long serialVersionUID = 0L;
     if (desiredShieldedNodes_ != null) {
       output.writeMessage(48, getDesiredShieldedNodes());
     }
+    if (desiredCostManagementConfig_ != null) {
+      output.writeMessage(49, getDesiredCostManagementConfig());
+    }
     if (desiredDatapathProvider_ != com.google.container.v1.DatapathProvider.DATAPATH_PROVIDER_UNSPECIFIED.getNumber()) {
       output.writeEnum(50, desiredDatapathProvider_);
     }
@@ -2029,6 +1785,9 @@ private static final long serialVersionUID = 0L;
     if (desiredMeshCertificates_ != null) {
       output.writeMessage(67, getDesiredMeshCertificates());
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      output.writeBool(71, desiredEnablePrivateEndpoint_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(desiredMasterVersion_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 100, desiredMasterVersion_);
     }
@@ -2038,7 +1797,16 @@ private static final long serialVersionUID = 0L;
     if (desiredNodePoolAutoConfigNetworkTags_ != null) {
       output.writeMessage(110, getDesiredNodePoolAutoConfigNetworkTags());
     }
-    unknownFields.writeTo(output);
+    if (desiredGatewayApiConfig_ != null) {
+      output.writeMessage(114, getDesiredGatewayApiConfig());
+    }
+    if (desiredNodePoolLoggingConfig_ != null) {
+      output.writeMessage(116, getDesiredNodePoolLoggingConfig());
+    }
+    if (desiredStackType_ != com.google.container.v1.StackType.STACK_TYPE_UNSPECIFIED.getNumber()) {
+      output.writeEnum(119, desiredStackType_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -2130,6 +1898,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(48, getDesiredShieldedNodes());
     }
+    if (desiredCostManagementConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(49, getDesiredCostManagementConfig());
+    }
     if (desiredDatapathProvider_ != com.google.container.v1.DatapathProvider.DATAPATH_PROVIDER_UNSPECIFIED.getNumber()) {
       size += com.google.protobuf.CodedOutputStream
         .computeEnumSize(50, desiredDatapathProvider_);
@@ -2170,6 +1942,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(67, getDesiredMeshCertificates());
     }
+    if (((bitField0_ & 0x00000001) != 0)) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBoolSize(71, desiredEnablePrivateEndpoint_);
+    }
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(desiredMasterVersion_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(100, desiredMasterVersion_);
     }
@@ -2181,7 +1957,19 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(110, getDesiredNodePoolAutoConfigNetworkTags());
     }
-    size += unknownFields.getSerializedSize();
+    if (desiredGatewayApiConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(114, getDesiredGatewayApiConfig());
+    }
+    if (desiredNodePoolLoggingConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(116, getDesiredNodePoolLoggingConfig());
+    }
+    if (desiredStackType_ != com.google.container.v1.StackType.STACK_TYPE_UNSPECIFIED.getNumber()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeEnumSize(119, desiredStackType_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -2228,6 +2016,11 @@ private static final long serialVersionUID = 0L;
     if (hasDesiredShieldedNodes()) {
       if (!getDesiredShieldedNodes()
           .equals(other.getDesiredShieldedNodes())) return false;
+    }
+    if (hasDesiredCostManagementConfig() != other.hasDesiredCostManagementConfig()) return false;
+    if (hasDesiredCostManagementConfig()) {
+      if (!getDesiredCostManagementConfig()
+          .equals(other.getDesiredCostManagementConfig())) return false;
     }
     if (hasDesiredDnsConfig() != other.hasDesiredDnsConfig()) return false;
     if (hasDesiredDnsConfig()) {
@@ -2325,6 +2118,11 @@ private static final long serialVersionUID = 0L;
       if (!getDesiredServiceExternalIpsConfig()
           .equals(other.getDesiredServiceExternalIpsConfig())) return false;
     }
+    if (hasDesiredEnablePrivateEndpoint() != other.hasDesiredEnablePrivateEndpoint()) return false;
+    if (hasDesiredEnablePrivateEndpoint()) {
+      if (getDesiredEnablePrivateEndpoint()
+          != other.getDesiredEnablePrivateEndpoint()) return false;
+    }
     if (!getDesiredMasterVersion()
         .equals(other.getDesiredMasterVersion())) return false;
     if (hasDesiredGcfsConfig() != other.hasDesiredGcfsConfig()) return false;
@@ -2337,7 +2135,18 @@ private static final long serialVersionUID = 0L;
       if (!getDesiredNodePoolAutoConfigNetworkTags()
           .equals(other.getDesiredNodePoolAutoConfigNetworkTags())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasDesiredGatewayApiConfig() != other.hasDesiredGatewayApiConfig()) return false;
+    if (hasDesiredGatewayApiConfig()) {
+      if (!getDesiredGatewayApiConfig()
+          .equals(other.getDesiredGatewayApiConfig())) return false;
+    }
+    if (hasDesiredNodePoolLoggingConfig() != other.hasDesiredNodePoolLoggingConfig()) return false;
+    if (hasDesiredNodePoolLoggingConfig()) {
+      if (!getDesiredNodePoolLoggingConfig()
+          .equals(other.getDesiredNodePoolLoggingConfig())) return false;
+    }
+    if (desiredStackType_ != other.desiredStackType_) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -2375,6 +2184,10 @@ private static final long serialVersionUID = 0L;
     if (hasDesiredShieldedNodes()) {
       hash = (37 * hash) + DESIRED_SHIELDED_NODES_FIELD_NUMBER;
       hash = (53 * hash) + getDesiredShieldedNodes().hashCode();
+    }
+    if (hasDesiredCostManagementConfig()) {
+      hash = (37 * hash) + DESIRED_COST_MANAGEMENT_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getDesiredCostManagementConfig().hashCode();
     }
     if (hasDesiredDnsConfig()) {
       hash = (37 * hash) + DESIRED_DNS_CONFIG_FIELD_NUMBER;
@@ -2458,6 +2271,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DESIRED_SERVICE_EXTERNAL_IPS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getDesiredServiceExternalIpsConfig().hashCode();
     }
+    if (hasDesiredEnablePrivateEndpoint()) {
+      hash = (37 * hash) + DESIRED_ENABLE_PRIVATE_ENDPOINT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getDesiredEnablePrivateEndpoint());
+    }
     hash = (37 * hash) + DESIRED_MASTER_VERSION_FIELD_NUMBER;
     hash = (53 * hash) + getDesiredMasterVersion().hashCode();
     if (hasDesiredGcfsConfig()) {
@@ -2468,7 +2286,17 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DESIRED_NODE_POOL_AUTO_CONFIG_NETWORK_TAGS_FIELD_NUMBER;
       hash = (53 * hash) + getDesiredNodePoolAutoConfigNetworkTags().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasDesiredGatewayApiConfig()) {
+      hash = (37 * hash) + DESIRED_GATEWAY_API_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getDesiredGatewayApiConfig().hashCode();
+    }
+    if (hasDesiredNodePoolLoggingConfig()) {
+      hash = (37 * hash) + DESIRED_NODE_POOL_LOGGING_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getDesiredNodePoolLoggingConfig().hashCode();
+    }
+    hash = (37 * hash) + DESIRED_STACK_TYPE_FIELD_NUMBER;
+    hash = (53 * hash) + desiredStackType_;
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -2591,190 +2419,171 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1.ClusterUpdate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      bitField1_ = 0;
       desiredNodeVersion_ = "";
-
       desiredMonitoringService_ = "";
-
-      if (desiredAddonsConfigBuilder_ == null) {
-        desiredAddonsConfig_ = null;
-      } else {
-        desiredAddonsConfig_ = null;
+      desiredAddonsConfig_ = null;
+      if (desiredAddonsConfigBuilder_ != null) {
+        desiredAddonsConfigBuilder_.dispose();
         desiredAddonsConfigBuilder_ = null;
       }
       desiredNodePoolId_ = "";
-
       desiredImageType_ = "";
-
-      if (desiredDatabaseEncryptionBuilder_ == null) {
-        desiredDatabaseEncryption_ = null;
-      } else {
-        desiredDatabaseEncryption_ = null;
+      desiredDatabaseEncryption_ = null;
+      if (desiredDatabaseEncryptionBuilder_ != null) {
+        desiredDatabaseEncryptionBuilder_.dispose();
         desiredDatabaseEncryptionBuilder_ = null;
       }
-      if (desiredWorkloadIdentityConfigBuilder_ == null) {
-        desiredWorkloadIdentityConfig_ = null;
-      } else {
-        desiredWorkloadIdentityConfig_ = null;
+      desiredWorkloadIdentityConfig_ = null;
+      if (desiredWorkloadIdentityConfigBuilder_ != null) {
+        desiredWorkloadIdentityConfigBuilder_.dispose();
         desiredWorkloadIdentityConfigBuilder_ = null;
       }
-      if (desiredMeshCertificatesBuilder_ == null) {
-        desiredMeshCertificates_ = null;
-      } else {
-        desiredMeshCertificates_ = null;
+      desiredMeshCertificates_ = null;
+      if (desiredMeshCertificatesBuilder_ != null) {
+        desiredMeshCertificatesBuilder_.dispose();
         desiredMeshCertificatesBuilder_ = null;
       }
-      if (desiredShieldedNodesBuilder_ == null) {
-        desiredShieldedNodes_ = null;
-      } else {
-        desiredShieldedNodes_ = null;
+      desiredShieldedNodes_ = null;
+      if (desiredShieldedNodesBuilder_ != null) {
+        desiredShieldedNodesBuilder_.dispose();
         desiredShieldedNodesBuilder_ = null;
       }
-      if (desiredDnsConfigBuilder_ == null) {
-        desiredDnsConfig_ = null;
-      } else {
-        desiredDnsConfig_ = null;
+      desiredCostManagementConfig_ = null;
+      if (desiredCostManagementConfigBuilder_ != null) {
+        desiredCostManagementConfigBuilder_.dispose();
+        desiredCostManagementConfigBuilder_ = null;
+      }
+      desiredDnsConfig_ = null;
+      if (desiredDnsConfigBuilder_ != null) {
+        desiredDnsConfigBuilder_.dispose();
         desiredDnsConfigBuilder_ = null;
       }
-      if (desiredNodePoolAutoscalingBuilder_ == null) {
-        desiredNodePoolAutoscaling_ = null;
-      } else {
-        desiredNodePoolAutoscaling_ = null;
+      desiredNodePoolAutoscaling_ = null;
+      if (desiredNodePoolAutoscalingBuilder_ != null) {
+        desiredNodePoolAutoscalingBuilder_.dispose();
         desiredNodePoolAutoscalingBuilder_ = null;
       }
       desiredLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (desiredMasterAuthorizedNetworksConfigBuilder_ == null) {
-        desiredMasterAuthorizedNetworksConfig_ = null;
-      } else {
-        desiredMasterAuthorizedNetworksConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00001000);
+      desiredMasterAuthorizedNetworksConfig_ = null;
+      if (desiredMasterAuthorizedNetworksConfigBuilder_ != null) {
+        desiredMasterAuthorizedNetworksConfigBuilder_.dispose();
         desiredMasterAuthorizedNetworksConfigBuilder_ = null;
       }
-      if (desiredClusterAutoscalingBuilder_ == null) {
-        desiredClusterAutoscaling_ = null;
-      } else {
-        desiredClusterAutoscaling_ = null;
+      desiredClusterAutoscaling_ = null;
+      if (desiredClusterAutoscalingBuilder_ != null) {
+        desiredClusterAutoscalingBuilder_.dispose();
         desiredClusterAutoscalingBuilder_ = null;
       }
-      if (desiredBinaryAuthorizationBuilder_ == null) {
-        desiredBinaryAuthorization_ = null;
-      } else {
-        desiredBinaryAuthorization_ = null;
+      desiredBinaryAuthorization_ = null;
+      if (desiredBinaryAuthorizationBuilder_ != null) {
+        desiredBinaryAuthorizationBuilder_.dispose();
         desiredBinaryAuthorizationBuilder_ = null;
       }
       desiredLoggingService_ = "";
-
-      if (desiredResourceUsageExportConfigBuilder_ == null) {
-        desiredResourceUsageExportConfig_ = null;
-      } else {
-        desiredResourceUsageExportConfig_ = null;
+      desiredResourceUsageExportConfig_ = null;
+      if (desiredResourceUsageExportConfigBuilder_ != null) {
+        desiredResourceUsageExportConfigBuilder_.dispose();
         desiredResourceUsageExportConfigBuilder_ = null;
       }
-      if (desiredVerticalPodAutoscalingBuilder_ == null) {
-        desiredVerticalPodAutoscaling_ = null;
-      } else {
-        desiredVerticalPodAutoscaling_ = null;
+      desiredVerticalPodAutoscaling_ = null;
+      if (desiredVerticalPodAutoscalingBuilder_ != null) {
+        desiredVerticalPodAutoscalingBuilder_.dispose();
         desiredVerticalPodAutoscalingBuilder_ = null;
       }
-      if (desiredPrivateClusterConfigBuilder_ == null) {
-        desiredPrivateClusterConfig_ = null;
-      } else {
-        desiredPrivateClusterConfig_ = null;
+      desiredPrivateClusterConfig_ = null;
+      if (desiredPrivateClusterConfigBuilder_ != null) {
+        desiredPrivateClusterConfigBuilder_.dispose();
         desiredPrivateClusterConfigBuilder_ = null;
       }
-      if (desiredIntraNodeVisibilityConfigBuilder_ == null) {
-        desiredIntraNodeVisibilityConfig_ = null;
-      } else {
-        desiredIntraNodeVisibilityConfig_ = null;
+      desiredIntraNodeVisibilityConfig_ = null;
+      if (desiredIntraNodeVisibilityConfigBuilder_ != null) {
+        desiredIntraNodeVisibilityConfigBuilder_.dispose();
         desiredIntraNodeVisibilityConfigBuilder_ = null;
       }
-      if (desiredDefaultSnatStatusBuilder_ == null) {
-        desiredDefaultSnatStatus_ = null;
-      } else {
-        desiredDefaultSnatStatus_ = null;
+      desiredDefaultSnatStatus_ = null;
+      if (desiredDefaultSnatStatusBuilder_ != null) {
+        desiredDefaultSnatStatusBuilder_.dispose();
         desiredDefaultSnatStatusBuilder_ = null;
       }
-      if (desiredReleaseChannelBuilder_ == null) {
-        desiredReleaseChannel_ = null;
-      } else {
-        desiredReleaseChannel_ = null;
+      desiredReleaseChannel_ = null;
+      if (desiredReleaseChannelBuilder_ != null) {
+        desiredReleaseChannelBuilder_.dispose();
         desiredReleaseChannelBuilder_ = null;
       }
-      if (desiredL4IlbSubsettingConfigBuilder_ == null) {
-        desiredL4IlbSubsettingConfig_ = null;
-      } else {
-        desiredL4IlbSubsettingConfig_ = null;
+      desiredL4IlbSubsettingConfig_ = null;
+      if (desiredL4IlbSubsettingConfigBuilder_ != null) {
+        desiredL4IlbSubsettingConfigBuilder_.dispose();
         desiredL4IlbSubsettingConfigBuilder_ = null;
       }
       desiredDatapathProvider_ = 0;
-
       desiredPrivateIpv6GoogleAccess_ = 0;
-
-      if (desiredNotificationConfigBuilder_ == null) {
-        desiredNotificationConfig_ = null;
-      } else {
-        desiredNotificationConfig_ = null;
+      desiredNotificationConfig_ = null;
+      if (desiredNotificationConfigBuilder_ != null) {
+        desiredNotificationConfigBuilder_.dispose();
         desiredNotificationConfigBuilder_ = null;
       }
-      if (desiredAuthenticatorGroupsConfigBuilder_ == null) {
-        desiredAuthenticatorGroupsConfig_ = null;
-      } else {
-        desiredAuthenticatorGroupsConfig_ = null;
+      desiredAuthenticatorGroupsConfig_ = null;
+      if (desiredAuthenticatorGroupsConfigBuilder_ != null) {
+        desiredAuthenticatorGroupsConfigBuilder_.dispose();
         desiredAuthenticatorGroupsConfigBuilder_ = null;
       }
-      if (desiredLoggingConfigBuilder_ == null) {
-        desiredLoggingConfig_ = null;
-      } else {
-        desiredLoggingConfig_ = null;
+      desiredLoggingConfig_ = null;
+      if (desiredLoggingConfigBuilder_ != null) {
+        desiredLoggingConfigBuilder_.dispose();
         desiredLoggingConfigBuilder_ = null;
       }
-      if (desiredMonitoringConfigBuilder_ == null) {
-        desiredMonitoringConfig_ = null;
-      } else {
-        desiredMonitoringConfig_ = null;
+      desiredMonitoringConfig_ = null;
+      if (desiredMonitoringConfigBuilder_ != null) {
+        desiredMonitoringConfigBuilder_.dispose();
         desiredMonitoringConfigBuilder_ = null;
       }
-      if (desiredIdentityServiceConfigBuilder_ == null) {
-        desiredIdentityServiceConfig_ = null;
-      } else {
-        desiredIdentityServiceConfig_ = null;
+      desiredIdentityServiceConfig_ = null;
+      if (desiredIdentityServiceConfigBuilder_ != null) {
+        desiredIdentityServiceConfigBuilder_.dispose();
         desiredIdentityServiceConfigBuilder_ = null;
       }
-      if (desiredServiceExternalIpsConfigBuilder_ == null) {
-        desiredServiceExternalIpsConfig_ = null;
-      } else {
-        desiredServiceExternalIpsConfig_ = null;
+      desiredServiceExternalIpsConfig_ = null;
+      if (desiredServiceExternalIpsConfigBuilder_ != null) {
+        desiredServiceExternalIpsConfigBuilder_.dispose();
         desiredServiceExternalIpsConfigBuilder_ = null;
       }
+      desiredEnablePrivateEndpoint_ = false;
       desiredMasterVersion_ = "";
-
-      if (desiredGcfsConfigBuilder_ == null) {
-        desiredGcfsConfig_ = null;
-      } else {
-        desiredGcfsConfig_ = null;
+      desiredGcfsConfig_ = null;
+      if (desiredGcfsConfigBuilder_ != null) {
+        desiredGcfsConfigBuilder_.dispose();
         desiredGcfsConfigBuilder_ = null;
       }
-      if (desiredNodePoolAutoConfigNetworkTagsBuilder_ == null) {
-        desiredNodePoolAutoConfigNetworkTags_ = null;
-      } else {
-        desiredNodePoolAutoConfigNetworkTags_ = null;
+      desiredNodePoolAutoConfigNetworkTags_ = null;
+      if (desiredNodePoolAutoConfigNetworkTagsBuilder_ != null) {
+        desiredNodePoolAutoConfigNetworkTagsBuilder_.dispose();
         desiredNodePoolAutoConfigNetworkTagsBuilder_ = null;
       }
+      desiredGatewayApiConfig_ = null;
+      if (desiredGatewayApiConfigBuilder_ != null) {
+        desiredGatewayApiConfigBuilder_.dispose();
+        desiredGatewayApiConfigBuilder_ = null;
+      }
+      desiredNodePoolLoggingConfig_ = null;
+      if (desiredNodePoolLoggingConfigBuilder_ != null) {
+        desiredNodePoolLoggingConfigBuilder_.dispose();
+        desiredNodePoolLoggingConfigBuilder_ = null;
+      }
+      desiredStackType_ = 0;
       return this;
     }
 
@@ -2801,147 +2610,200 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1.ClusterUpdate buildPartial() {
       com.google.container.v1.ClusterUpdate result = new com.google.container.v1.ClusterUpdate(this);
-      int from_bitField0_ = bitField0_;
-      result.desiredNodeVersion_ = desiredNodeVersion_;
-      result.desiredMonitoringService_ = desiredMonitoringService_;
-      if (desiredAddonsConfigBuilder_ == null) {
-        result.desiredAddonsConfig_ = desiredAddonsConfig_;
-      } else {
-        result.desiredAddonsConfig_ = desiredAddonsConfigBuilder_.build();
-      }
-      result.desiredNodePoolId_ = desiredNodePoolId_;
-      result.desiredImageType_ = desiredImageType_;
-      if (desiredDatabaseEncryptionBuilder_ == null) {
-        result.desiredDatabaseEncryption_ = desiredDatabaseEncryption_;
-      } else {
-        result.desiredDatabaseEncryption_ = desiredDatabaseEncryptionBuilder_.build();
-      }
-      if (desiredWorkloadIdentityConfigBuilder_ == null) {
-        result.desiredWorkloadIdentityConfig_ = desiredWorkloadIdentityConfig_;
-      } else {
-        result.desiredWorkloadIdentityConfig_ = desiredWorkloadIdentityConfigBuilder_.build();
-      }
-      if (desiredMeshCertificatesBuilder_ == null) {
-        result.desiredMeshCertificates_ = desiredMeshCertificates_;
-      } else {
-        result.desiredMeshCertificates_ = desiredMeshCertificatesBuilder_.build();
-      }
-      if (desiredShieldedNodesBuilder_ == null) {
-        result.desiredShieldedNodes_ = desiredShieldedNodes_;
-      } else {
-        result.desiredShieldedNodes_ = desiredShieldedNodesBuilder_.build();
-      }
-      if (desiredDnsConfigBuilder_ == null) {
-        result.desiredDnsConfig_ = desiredDnsConfig_;
-      } else {
-        result.desiredDnsConfig_ = desiredDnsConfigBuilder_.build();
-      }
-      if (desiredNodePoolAutoscalingBuilder_ == null) {
-        result.desiredNodePoolAutoscaling_ = desiredNodePoolAutoscaling_;
-      } else {
-        result.desiredNodePoolAutoscaling_ = desiredNodePoolAutoscalingBuilder_.build();
-      }
-      if (((bitField0_ & 0x00000001) != 0)) {
-        desiredLocations_ = desiredLocations_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.desiredLocations_ = desiredLocations_;
-      if (desiredMasterAuthorizedNetworksConfigBuilder_ == null) {
-        result.desiredMasterAuthorizedNetworksConfig_ = desiredMasterAuthorizedNetworksConfig_;
-      } else {
-        result.desiredMasterAuthorizedNetworksConfig_ = desiredMasterAuthorizedNetworksConfigBuilder_.build();
-      }
-      if (desiredClusterAutoscalingBuilder_ == null) {
-        result.desiredClusterAutoscaling_ = desiredClusterAutoscaling_;
-      } else {
-        result.desiredClusterAutoscaling_ = desiredClusterAutoscalingBuilder_.build();
-      }
-      if (desiredBinaryAuthorizationBuilder_ == null) {
-        result.desiredBinaryAuthorization_ = desiredBinaryAuthorization_;
-      } else {
-        result.desiredBinaryAuthorization_ = desiredBinaryAuthorizationBuilder_.build();
-      }
-      result.desiredLoggingService_ = desiredLoggingService_;
-      if (desiredResourceUsageExportConfigBuilder_ == null) {
-        result.desiredResourceUsageExportConfig_ = desiredResourceUsageExportConfig_;
-      } else {
-        result.desiredResourceUsageExportConfig_ = desiredResourceUsageExportConfigBuilder_.build();
-      }
-      if (desiredVerticalPodAutoscalingBuilder_ == null) {
-        result.desiredVerticalPodAutoscaling_ = desiredVerticalPodAutoscaling_;
-      } else {
-        result.desiredVerticalPodAutoscaling_ = desiredVerticalPodAutoscalingBuilder_.build();
-      }
-      if (desiredPrivateClusterConfigBuilder_ == null) {
-        result.desiredPrivateClusterConfig_ = desiredPrivateClusterConfig_;
-      } else {
-        result.desiredPrivateClusterConfig_ = desiredPrivateClusterConfigBuilder_.build();
-      }
-      if (desiredIntraNodeVisibilityConfigBuilder_ == null) {
-        result.desiredIntraNodeVisibilityConfig_ = desiredIntraNodeVisibilityConfig_;
-      } else {
-        result.desiredIntraNodeVisibilityConfig_ = desiredIntraNodeVisibilityConfigBuilder_.build();
-      }
-      if (desiredDefaultSnatStatusBuilder_ == null) {
-        result.desiredDefaultSnatStatus_ = desiredDefaultSnatStatus_;
-      } else {
-        result.desiredDefaultSnatStatus_ = desiredDefaultSnatStatusBuilder_.build();
-      }
-      if (desiredReleaseChannelBuilder_ == null) {
-        result.desiredReleaseChannel_ = desiredReleaseChannel_;
-      } else {
-        result.desiredReleaseChannel_ = desiredReleaseChannelBuilder_.build();
-      }
-      if (desiredL4IlbSubsettingConfigBuilder_ == null) {
-        result.desiredL4IlbSubsettingConfig_ = desiredL4IlbSubsettingConfig_;
-      } else {
-        result.desiredL4IlbSubsettingConfig_ = desiredL4IlbSubsettingConfigBuilder_.build();
-      }
-      result.desiredDatapathProvider_ = desiredDatapathProvider_;
-      result.desiredPrivateIpv6GoogleAccess_ = desiredPrivateIpv6GoogleAccess_;
-      if (desiredNotificationConfigBuilder_ == null) {
-        result.desiredNotificationConfig_ = desiredNotificationConfig_;
-      } else {
-        result.desiredNotificationConfig_ = desiredNotificationConfigBuilder_.build();
-      }
-      if (desiredAuthenticatorGroupsConfigBuilder_ == null) {
-        result.desiredAuthenticatorGroupsConfig_ = desiredAuthenticatorGroupsConfig_;
-      } else {
-        result.desiredAuthenticatorGroupsConfig_ = desiredAuthenticatorGroupsConfigBuilder_.build();
-      }
-      if (desiredLoggingConfigBuilder_ == null) {
-        result.desiredLoggingConfig_ = desiredLoggingConfig_;
-      } else {
-        result.desiredLoggingConfig_ = desiredLoggingConfigBuilder_.build();
-      }
-      if (desiredMonitoringConfigBuilder_ == null) {
-        result.desiredMonitoringConfig_ = desiredMonitoringConfig_;
-      } else {
-        result.desiredMonitoringConfig_ = desiredMonitoringConfigBuilder_.build();
-      }
-      if (desiredIdentityServiceConfigBuilder_ == null) {
-        result.desiredIdentityServiceConfig_ = desiredIdentityServiceConfig_;
-      } else {
-        result.desiredIdentityServiceConfig_ = desiredIdentityServiceConfigBuilder_.build();
-      }
-      if (desiredServiceExternalIpsConfigBuilder_ == null) {
-        result.desiredServiceExternalIpsConfig_ = desiredServiceExternalIpsConfig_;
-      } else {
-        result.desiredServiceExternalIpsConfig_ = desiredServiceExternalIpsConfigBuilder_.build();
-      }
-      result.desiredMasterVersion_ = desiredMasterVersion_;
-      if (desiredGcfsConfigBuilder_ == null) {
-        result.desiredGcfsConfig_ = desiredGcfsConfig_;
-      } else {
-        result.desiredGcfsConfig_ = desiredGcfsConfigBuilder_.build();
-      }
-      if (desiredNodePoolAutoConfigNetworkTagsBuilder_ == null) {
-        result.desiredNodePoolAutoConfigNetworkTags_ = desiredNodePoolAutoConfigNetworkTags_;
-      } else {
-        result.desiredNodePoolAutoConfigNetworkTags_ = desiredNodePoolAutoConfigNetworkTagsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      if (bitField1_ != 0) { buildPartial1(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1.ClusterUpdate result) {
+      if (((bitField0_ & 0x00001000) != 0)) {
+        desiredLocations_ = desiredLocations_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00001000);
+      }
+      result.desiredLocations_ = desiredLocations_;
+    }
+
+    private void buildPartial0(com.google.container.v1.ClusterUpdate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.desiredNodeVersion_ = desiredNodeVersion_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.desiredMonitoringService_ = desiredMonitoringService_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.desiredAddonsConfig_ = desiredAddonsConfigBuilder_ == null
+            ? desiredAddonsConfig_
+            : desiredAddonsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.desiredNodePoolId_ = desiredNodePoolId_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.desiredImageType_ = desiredImageType_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.desiredDatabaseEncryption_ = desiredDatabaseEncryptionBuilder_ == null
+            ? desiredDatabaseEncryption_
+            : desiredDatabaseEncryptionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.desiredWorkloadIdentityConfig_ = desiredWorkloadIdentityConfigBuilder_ == null
+            ? desiredWorkloadIdentityConfig_
+            : desiredWorkloadIdentityConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.desiredMeshCertificates_ = desiredMeshCertificatesBuilder_ == null
+            ? desiredMeshCertificates_
+            : desiredMeshCertificatesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.desiredShieldedNodes_ = desiredShieldedNodesBuilder_ == null
+            ? desiredShieldedNodes_
+            : desiredShieldedNodesBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.desiredCostManagementConfig_ = desiredCostManagementConfigBuilder_ == null
+            ? desiredCostManagementConfig_
+            : desiredCostManagementConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.desiredDnsConfig_ = desiredDnsConfigBuilder_ == null
+            ? desiredDnsConfig_
+            : desiredDnsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.desiredNodePoolAutoscaling_ = desiredNodePoolAutoscalingBuilder_ == null
+            ? desiredNodePoolAutoscaling_
+            : desiredNodePoolAutoscalingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.desiredMasterAuthorizedNetworksConfig_ = desiredMasterAuthorizedNetworksConfigBuilder_ == null
+            ? desiredMasterAuthorizedNetworksConfig_
+            : desiredMasterAuthorizedNetworksConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.desiredClusterAutoscaling_ = desiredClusterAutoscalingBuilder_ == null
+            ? desiredClusterAutoscaling_
+            : desiredClusterAutoscalingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.desiredBinaryAuthorization_ = desiredBinaryAuthorizationBuilder_ == null
+            ? desiredBinaryAuthorization_
+            : desiredBinaryAuthorizationBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.desiredLoggingService_ = desiredLoggingService_;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.desiredResourceUsageExportConfig_ = desiredResourceUsageExportConfigBuilder_ == null
+            ? desiredResourceUsageExportConfig_
+            : desiredResourceUsageExportConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.desiredVerticalPodAutoscaling_ = desiredVerticalPodAutoscalingBuilder_ == null
+            ? desiredVerticalPodAutoscaling_
+            : desiredVerticalPodAutoscalingBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.desiredPrivateClusterConfig_ = desiredPrivateClusterConfigBuilder_ == null
+            ? desiredPrivateClusterConfig_
+            : desiredPrivateClusterConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.desiredIntraNodeVisibilityConfig_ = desiredIntraNodeVisibilityConfigBuilder_ == null
+            ? desiredIntraNodeVisibilityConfig_
+            : desiredIntraNodeVisibilityConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.desiredDefaultSnatStatus_ = desiredDefaultSnatStatusBuilder_ == null
+            ? desiredDefaultSnatStatus_
+            : desiredDefaultSnatStatusBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.desiredReleaseChannel_ = desiredReleaseChannelBuilder_ == null
+            ? desiredReleaseChannel_
+            : desiredReleaseChannelBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.desiredL4IlbSubsettingConfig_ = desiredL4IlbSubsettingConfigBuilder_ == null
+            ? desiredL4IlbSubsettingConfig_
+            : desiredL4IlbSubsettingConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.desiredDatapathProvider_ = desiredDatapathProvider_;
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.desiredPrivateIpv6GoogleAccess_ = desiredPrivateIpv6GoogleAccess_;
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.desiredNotificationConfig_ = desiredNotificationConfigBuilder_ == null
+            ? desiredNotificationConfig_
+            : desiredNotificationConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.desiredAuthenticatorGroupsConfig_ = desiredAuthenticatorGroupsConfigBuilder_ == null
+            ? desiredAuthenticatorGroupsConfig_
+            : desiredAuthenticatorGroupsConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.desiredLoggingConfig_ = desiredLoggingConfigBuilder_ == null
+            ? desiredLoggingConfig_
+            : desiredLoggingConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.desiredMonitoringConfig_ = desiredMonitoringConfigBuilder_ == null
+            ? desiredMonitoringConfig_
+            : desiredMonitoringConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.desiredIdentityServiceConfig_ = desiredIdentityServiceConfigBuilder_ == null
+            ? desiredIdentityServiceConfig_
+            : desiredIdentityServiceConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        result.desiredServiceExternalIpsConfig_ = desiredServiceExternalIpsConfigBuilder_ == null
+            ? desiredServiceExternalIpsConfig_
+            : desiredServiceExternalIpsConfigBuilder_.build();
+      }
+    }
+
+    private void buildPartial1(com.google.container.v1.ClusterUpdate result) {
+      int from_bitField1_ = bitField1_;
+      int to_bitField0_ = 0;
+      if (((from_bitField1_ & 0x00000001) != 0)) {
+        result.desiredEnablePrivateEndpoint_ = desiredEnablePrivateEndpoint_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField1_ & 0x00000002) != 0)) {
+        result.desiredMasterVersion_ = desiredMasterVersion_;
+      }
+      if (((from_bitField1_ & 0x00000004) != 0)) {
+        result.desiredGcfsConfig_ = desiredGcfsConfigBuilder_ == null
+            ? desiredGcfsConfig_
+            : desiredGcfsConfigBuilder_.build();
+      }
+      if (((from_bitField1_ & 0x00000008) != 0)) {
+        result.desiredNodePoolAutoConfigNetworkTags_ = desiredNodePoolAutoConfigNetworkTagsBuilder_ == null
+            ? desiredNodePoolAutoConfigNetworkTags_
+            : desiredNodePoolAutoConfigNetworkTagsBuilder_.build();
+      }
+      if (((from_bitField1_ & 0x00000010) != 0)) {
+        result.desiredGatewayApiConfig_ = desiredGatewayApiConfigBuilder_ == null
+            ? desiredGatewayApiConfig_
+            : desiredGatewayApiConfigBuilder_.build();
+      }
+      if (((from_bitField1_ & 0x00000020) != 0)) {
+        result.desiredNodePoolLoggingConfig_ = desiredNodePoolLoggingConfigBuilder_ == null
+            ? desiredNodePoolLoggingConfig_
+            : desiredNodePoolLoggingConfigBuilder_.build();
+      }
+      if (((from_bitField1_ & 0x00000040) != 0)) {
+        result.desiredStackType_ = desiredStackType_;
+      }
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2990,10 +2852,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1.ClusterUpdate.getDefaultInstance()) return this;
       if (!other.getDesiredNodeVersion().isEmpty()) {
         desiredNodeVersion_ = other.desiredNodeVersion_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDesiredMonitoringService().isEmpty()) {
         desiredMonitoringService_ = other.desiredMonitoringService_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDesiredAddonsConfig()) {
@@ -3001,10 +2865,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDesiredNodePoolId().isEmpty()) {
         desiredNodePoolId_ = other.desiredNodePoolId_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getDesiredImageType().isEmpty()) {
         desiredImageType_ = other.desiredImageType_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (other.hasDesiredDatabaseEncryption()) {
@@ -3019,6 +2885,9 @@ private static final long serialVersionUID = 0L;
       if (other.hasDesiredShieldedNodes()) {
         mergeDesiredShieldedNodes(other.getDesiredShieldedNodes());
       }
+      if (other.hasDesiredCostManagementConfig()) {
+        mergeDesiredCostManagementConfig(other.getDesiredCostManagementConfig());
+      }
       if (other.hasDesiredDnsConfig()) {
         mergeDesiredDnsConfig(other.getDesiredDnsConfig());
       }
@@ -3028,7 +2897,7 @@ private static final long serialVersionUID = 0L;
       if (!other.desiredLocations_.isEmpty()) {
         if (desiredLocations_.isEmpty()) {
           desiredLocations_ = other.desiredLocations_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00001000);
         } else {
           ensureDesiredLocationsIsMutable();
           desiredLocations_.addAll(other.desiredLocations_);
@@ -3046,6 +2915,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDesiredLoggingService().isEmpty()) {
         desiredLoggingService_ = other.desiredLoggingService_;
+        bitField0_ |= 0x00010000;
         onChanged();
       }
       if (other.hasDesiredResourceUsageExportConfig()) {
@@ -3093,8 +2963,12 @@ private static final long serialVersionUID = 0L;
       if (other.hasDesiredServiceExternalIpsConfig()) {
         mergeDesiredServiceExternalIpsConfig(other.getDesiredServiceExternalIpsConfig());
       }
+      if (other.hasDesiredEnablePrivateEndpoint()) {
+        setDesiredEnablePrivateEndpoint(other.getDesiredEnablePrivateEndpoint());
+      }
       if (!other.getDesiredMasterVersion().isEmpty()) {
         desiredMasterVersion_ = other.desiredMasterVersion_;
+        bitField1_ |= 0x00000002;
         onChanged();
       }
       if (other.hasDesiredGcfsConfig()) {
@@ -3103,7 +2977,16 @@ private static final long serialVersionUID = 0L;
       if (other.hasDesiredNodePoolAutoConfigNetworkTags()) {
         mergeDesiredNodePoolAutoConfigNetworkTags(other.getDesiredNodePoolAutoConfigNetworkTags());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasDesiredGatewayApiConfig()) {
+        mergeDesiredGatewayApiConfig(other.getDesiredGatewayApiConfig());
+      }
+      if (other.hasDesiredNodePoolLoggingConfig()) {
+        mergeDesiredNodePoolLoggingConfig(other.getDesiredNodePoolLoggingConfig());
+      }
+      if (other.desiredStackType_ != 0) {
+        setDesiredStackTypeValue(other.getDesiredStackTypeValue());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -3118,20 +3001,286 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1.ClusterUpdate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              desiredNodeVersion_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 34
+            case 42: {
+              desiredMonitoringService_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getDesiredAddonsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 50
+            case 58: {
+              desiredNodePoolId_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              desiredImageType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getDesiredNodePoolAutoscalingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 74
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureDesiredLocationsIsMutable();
+              desiredLocations_.add(s);
+              break;
+            } // case 82
+            case 98: {
+              input.readMessage(
+                  getDesiredMasterAuthorizedNetworksConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 98
+            case 122: {
+              input.readMessage(
+                  getDesiredClusterAutoscalingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              input.readMessage(
+                  getDesiredBinaryAuthorizationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 154: {
+              desiredLoggingService_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 154
+            case 170: {
+              input.readMessage(
+                  getDesiredResourceUsageExportConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 170
+            case 178: {
+              input.readMessage(
+                  getDesiredVerticalPodAutoscalingFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 178
+            case 202: {
+              input.readMessage(
+                  getDesiredPrivateClusterConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 202
+            case 210: {
+              input.readMessage(
+                  getDesiredIntraNodeVisibilityConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 210
+            case 226: {
+              input.readMessage(
+                  getDesiredDefaultSnatStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 226
+            case 250: {
+              input.readMessage(
+                  getDesiredReleaseChannelFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 250
+            case 314: {
+              input.readMessage(
+                  getDesiredL4IlbSubsettingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 314
+            case 370: {
+              input.readMessage(
+                  getDesiredDatabaseEncryptionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 370
+            case 378: {
+              input.readMessage(
+                  getDesiredWorkloadIdentityConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 378
+            case 386: {
+              input.readMessage(
+                  getDesiredShieldedNodesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 386
+            case 394: {
+              input.readMessage(
+                  getDesiredCostManagementConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 394
+            case 400: {
+              desiredDatapathProvider_ = input.readEnum();
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 400
+            case 408: {
+              desiredPrivateIpv6GoogleAccess_ = input.readEnum();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 408
+            case 426: {
+              input.readMessage(
+                  getDesiredDnsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 426
+            case 442: {
+              input.readMessage(
+                  getDesiredNotificationConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 442
+            case 482: {
+              input.readMessage(
+                  getDesiredServiceExternalIpsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x80000000;
+              break;
+            } // case 482
+            case 506: {
+              input.readMessage(
+                  getDesiredAuthenticatorGroupsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 506
+            case 514: {
+              input.readMessage(
+                  getDesiredLoggingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 514
+            case 522: {
+              input.readMessage(
+                  getDesiredMonitoringConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x20000000;
+              break;
+            } // case 522
+            case 530: {
+              input.readMessage(
+                  getDesiredIdentityServiceConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x40000000;
+              break;
+            } // case 530
+            case 538: {
+              input.readMessage(
+                  getDesiredMeshCertificatesFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 538
+            case 568: {
+              desiredEnablePrivateEndpoint_ = input.readBool();
+              bitField1_ |= 0x00000001;
+              break;
+            } // case 568
+            case 802: {
+              desiredMasterVersion_ = input.readStringRequireUtf8();
+              bitField1_ |= 0x00000002;
+              break;
+            } // case 802
+            case 874: {
+              input.readMessage(
+                  getDesiredGcfsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField1_ |= 0x00000004;
+              break;
+            } // case 874
+            case 882: {
+              input.readMessage(
+                  getDesiredNodePoolAutoConfigNetworkTagsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField1_ |= 0x00000008;
+              break;
+            } // case 882
+            case 914: {
+              input.readMessage(
+                  getDesiredGatewayApiConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField1_ |= 0x00000010;
+              break;
+            } // case 914
+            case 930: {
+              input.readMessage(
+                  getDesiredNodePoolLoggingConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField1_ |= 0x00000020;
+              break;
+            } // case 930
+            case 952: {
+              desiredStackType_ = input.readEnum();
+              bitField1_ |= 0x00000040;
+              break;
+            } // case 952
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1.ClusterUpdate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
+    private int bitField1_;
 
     private java.lang.Object desiredNodeVersion_ = "";
     /**
@@ -3210,11 +3359,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredNodeVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       desiredNodeVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3235,8 +3382,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredNodeVersion() {
-      
       desiredNodeVersion_ = getDefaultInstance().getDesiredNodeVersion();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -3259,12 +3406,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredNodeVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       desiredNodeVersion_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -3346,11 +3491,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredMonitoringService(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       desiredMonitoringService_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3371,8 +3514,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredMonitoringService() {
-      
       desiredMonitoringService_ = getDefaultInstance().getDesiredMonitoringService();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -3395,12 +3538,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredMonitoringServiceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       desiredMonitoringService_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -3417,7 +3558,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredAddonsConfig field is set.
      */
     public boolean hasDesiredAddonsConfig() {
-      return desiredAddonsConfigBuilder_ != null || desiredAddonsConfig_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -3447,11 +3588,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredAddonsConfig_ = value;
-        onChanged();
       } else {
         desiredAddonsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3465,11 +3606,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.AddonsConfig.Builder builderForValue) {
       if (desiredAddonsConfigBuilder_ == null) {
         desiredAddonsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredAddonsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3481,17 +3622,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredAddonsConfig(com.google.container.v1.AddonsConfig value) {
       if (desiredAddonsConfigBuilder_ == null) {
-        if (desiredAddonsConfig_ != null) {
-          desiredAddonsConfig_ =
-            com.google.container.v1.AddonsConfig.newBuilder(desiredAddonsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          desiredAddonsConfig_ != null &&
+          desiredAddonsConfig_ != com.google.container.v1.AddonsConfig.getDefaultInstance()) {
+          getDesiredAddonsConfigBuilder().mergeFrom(value);
         } else {
           desiredAddonsConfig_ = value;
         }
-        onChanged();
       } else {
         desiredAddonsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -3502,14 +3644,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.AddonsConfig desired_addons_config = 6;</code>
      */
     public Builder clearDesiredAddonsConfig() {
-      if (desiredAddonsConfigBuilder_ == null) {
-        desiredAddonsConfig_ = null;
-        onChanged();
-      } else {
-        desiredAddonsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      desiredAddonsConfig_ = null;
+      if (desiredAddonsConfigBuilder_ != null) {
+        desiredAddonsConfigBuilder_.dispose();
         desiredAddonsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3520,7 +3661,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.AddonsConfig desired_addons_config = 6;</code>
      */
     public com.google.container.v1.AddonsConfig.Builder getDesiredAddonsConfigBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getDesiredAddonsConfigFieldBuilder().getBuilder();
     }
@@ -3622,11 +3763,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredNodePoolId(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       desiredNodePoolId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3642,8 +3781,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredNodePoolId() {
-      
       desiredNodePoolId_ = getDefaultInstance().getDesiredNodePoolId();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -3661,12 +3800,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredNodePoolIdBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       desiredNodePoolId_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -3727,11 +3864,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredImageType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       desiredImageType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3745,8 +3880,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredImageType() {
-      
       desiredImageType_ = getDefaultInstance().getDesiredImageType();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -3762,12 +3897,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredImageTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       desiredImageType_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -3784,7 +3917,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredDatabaseEncryption field is set.
      */
     public boolean hasDesiredDatabaseEncryption() {
-      return desiredDatabaseEncryptionBuilder_ != null || desiredDatabaseEncryption_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -3814,11 +3947,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredDatabaseEncryption_ = value;
-        onChanged();
       } else {
         desiredDatabaseEncryptionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3832,11 +3965,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.DatabaseEncryption.Builder builderForValue) {
       if (desiredDatabaseEncryptionBuilder_ == null) {
         desiredDatabaseEncryption_ = builderForValue.build();
-        onChanged();
       } else {
         desiredDatabaseEncryptionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3848,17 +3981,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredDatabaseEncryption(com.google.container.v1.DatabaseEncryption value) {
       if (desiredDatabaseEncryptionBuilder_ == null) {
-        if (desiredDatabaseEncryption_ != null) {
-          desiredDatabaseEncryption_ =
-            com.google.container.v1.DatabaseEncryption.newBuilder(desiredDatabaseEncryption_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          desiredDatabaseEncryption_ != null &&
+          desiredDatabaseEncryption_ != com.google.container.v1.DatabaseEncryption.getDefaultInstance()) {
+          getDesiredDatabaseEncryptionBuilder().mergeFrom(value);
         } else {
           desiredDatabaseEncryption_ = value;
         }
-        onChanged();
       } else {
         desiredDatabaseEncryptionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -3869,14 +4003,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DatabaseEncryption desired_database_encryption = 46;</code>
      */
     public Builder clearDesiredDatabaseEncryption() {
-      if (desiredDatabaseEncryptionBuilder_ == null) {
-        desiredDatabaseEncryption_ = null;
-        onChanged();
-      } else {
-        desiredDatabaseEncryption_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      desiredDatabaseEncryption_ = null;
+      if (desiredDatabaseEncryptionBuilder_ != null) {
+        desiredDatabaseEncryptionBuilder_.dispose();
         desiredDatabaseEncryptionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -3887,7 +4020,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DatabaseEncryption desired_database_encryption = 46;</code>
      */
     public com.google.container.v1.DatabaseEncryption.Builder getDesiredDatabaseEncryptionBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getDesiredDatabaseEncryptionFieldBuilder().getBuilder();
     }
@@ -3939,7 +4072,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredWorkloadIdentityConfig field is set.
      */
     public boolean hasDesiredWorkloadIdentityConfig() {
-      return desiredWorkloadIdentityConfigBuilder_ != null || desiredWorkloadIdentityConfig_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -3969,11 +4102,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredWorkloadIdentityConfig_ = value;
-        onChanged();
       } else {
         desiredWorkloadIdentityConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -3987,11 +4120,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.WorkloadIdentityConfig.Builder builderForValue) {
       if (desiredWorkloadIdentityConfigBuilder_ == null) {
         desiredWorkloadIdentityConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredWorkloadIdentityConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4003,17 +4136,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredWorkloadIdentityConfig(com.google.container.v1.WorkloadIdentityConfig value) {
       if (desiredWorkloadIdentityConfigBuilder_ == null) {
-        if (desiredWorkloadIdentityConfig_ != null) {
-          desiredWorkloadIdentityConfig_ =
-            com.google.container.v1.WorkloadIdentityConfig.newBuilder(desiredWorkloadIdentityConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          desiredWorkloadIdentityConfig_ != null &&
+          desiredWorkloadIdentityConfig_ != com.google.container.v1.WorkloadIdentityConfig.getDefaultInstance()) {
+          getDesiredWorkloadIdentityConfigBuilder().mergeFrom(value);
         } else {
           desiredWorkloadIdentityConfig_ = value;
         }
-        onChanged();
       } else {
         desiredWorkloadIdentityConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -4024,14 +4158,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.WorkloadIdentityConfig desired_workload_identity_config = 47;</code>
      */
     public Builder clearDesiredWorkloadIdentityConfig() {
-      if (desiredWorkloadIdentityConfigBuilder_ == null) {
-        desiredWorkloadIdentityConfig_ = null;
-        onChanged();
-      } else {
-        desiredWorkloadIdentityConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      desiredWorkloadIdentityConfig_ = null;
+      if (desiredWorkloadIdentityConfigBuilder_ != null) {
+        desiredWorkloadIdentityConfigBuilder_.dispose();
         desiredWorkloadIdentityConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4042,7 +4175,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.WorkloadIdentityConfig desired_workload_identity_config = 47;</code>
      */
     public com.google.container.v1.WorkloadIdentityConfig.Builder getDesiredWorkloadIdentityConfigBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getDesiredWorkloadIdentityConfigFieldBuilder().getBuilder();
     }
@@ -4095,7 +4228,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredMeshCertificates field is set.
      */
     public boolean hasDesiredMeshCertificates() {
-      return desiredMeshCertificatesBuilder_ != null || desiredMeshCertificates_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -4127,11 +4260,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredMeshCertificates_ = value;
-        onChanged();
       } else {
         desiredMeshCertificatesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4146,11 +4279,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.MeshCertificates.Builder builderForValue) {
       if (desiredMeshCertificatesBuilder_ == null) {
         desiredMeshCertificates_ = builderForValue.build();
-        onChanged();
       } else {
         desiredMeshCertificatesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4163,17 +4296,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredMeshCertificates(com.google.container.v1.MeshCertificates value) {
       if (desiredMeshCertificatesBuilder_ == null) {
-        if (desiredMeshCertificates_ != null) {
-          desiredMeshCertificates_ =
-            com.google.container.v1.MeshCertificates.newBuilder(desiredMeshCertificates_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          desiredMeshCertificates_ != null &&
+          desiredMeshCertificates_ != com.google.container.v1.MeshCertificates.getDefaultInstance()) {
+          getDesiredMeshCertificatesBuilder().mergeFrom(value);
         } else {
           desiredMeshCertificates_ = value;
         }
-        onChanged();
       } else {
         desiredMeshCertificatesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -4185,14 +4319,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MeshCertificates desired_mesh_certificates = 67;</code>
      */
     public Builder clearDesiredMeshCertificates() {
-      if (desiredMeshCertificatesBuilder_ == null) {
-        desiredMeshCertificates_ = null;
-        onChanged();
-      } else {
-        desiredMeshCertificates_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      desiredMeshCertificates_ = null;
+      if (desiredMeshCertificatesBuilder_ != null) {
+        desiredMeshCertificatesBuilder_.dispose();
         desiredMeshCertificatesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4204,7 +4337,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MeshCertificates desired_mesh_certificates = 67;</code>
      */
     public com.google.container.v1.MeshCertificates.Builder getDesiredMeshCertificatesBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDesiredMeshCertificatesFieldBuilder().getBuilder();
     }
@@ -4258,7 +4391,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredShieldedNodes field is set.
      */
     public boolean hasDesiredShieldedNodes() {
-      return desiredShieldedNodesBuilder_ != null || desiredShieldedNodes_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -4288,11 +4421,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredShieldedNodes_ = value;
-        onChanged();
       } else {
         desiredShieldedNodesBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4306,11 +4439,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ShieldedNodes.Builder builderForValue) {
       if (desiredShieldedNodesBuilder_ == null) {
         desiredShieldedNodes_ = builderForValue.build();
-        onChanged();
       } else {
         desiredShieldedNodesBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4322,17 +4455,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredShieldedNodes(com.google.container.v1.ShieldedNodes value) {
       if (desiredShieldedNodesBuilder_ == null) {
-        if (desiredShieldedNodes_ != null) {
-          desiredShieldedNodes_ =
-            com.google.container.v1.ShieldedNodes.newBuilder(desiredShieldedNodes_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          desiredShieldedNodes_ != null &&
+          desiredShieldedNodes_ != com.google.container.v1.ShieldedNodes.getDefaultInstance()) {
+          getDesiredShieldedNodesBuilder().mergeFrom(value);
         } else {
           desiredShieldedNodes_ = value;
         }
-        onChanged();
       } else {
         desiredShieldedNodesBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -4343,14 +4477,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ShieldedNodes desired_shielded_nodes = 48;</code>
      */
     public Builder clearDesiredShieldedNodes() {
-      if (desiredShieldedNodesBuilder_ == null) {
-        desiredShieldedNodes_ = null;
-        onChanged();
-      } else {
-        desiredShieldedNodes_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      desiredShieldedNodes_ = null;
+      if (desiredShieldedNodesBuilder_ != null) {
+        desiredShieldedNodesBuilder_.dispose();
         desiredShieldedNodesBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4361,7 +4494,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ShieldedNodes desired_shielded_nodes = 48;</code>
      */
     public com.google.container.v1.ShieldedNodes.Builder getDesiredShieldedNodesBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getDesiredShieldedNodesFieldBuilder().getBuilder();
     }
@@ -4401,6 +4534,161 @@ private static final long serialVersionUID = 0L;
       return desiredShieldedNodesBuilder_;
     }
 
+    private com.google.container.v1.CostManagementConfig desiredCostManagementConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.CostManagementConfig, com.google.container.v1.CostManagementConfig.Builder, com.google.container.v1.CostManagementConfigOrBuilder> desiredCostManagementConfigBuilder_;
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     * @return Whether the desiredCostManagementConfig field is set.
+     */
+    public boolean hasDesiredCostManagementConfig() {
+      return ((bitField0_ & 0x00000200) != 0);
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     * @return The desiredCostManagementConfig.
+     */
+    public com.google.container.v1.CostManagementConfig getDesiredCostManagementConfig() {
+      if (desiredCostManagementConfigBuilder_ == null) {
+        return desiredCostManagementConfig_ == null ? com.google.container.v1.CostManagementConfig.getDefaultInstance() : desiredCostManagementConfig_;
+      } else {
+        return desiredCostManagementConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    public Builder setDesiredCostManagementConfig(com.google.container.v1.CostManagementConfig value) {
+      if (desiredCostManagementConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        desiredCostManagementConfig_ = value;
+      } else {
+        desiredCostManagementConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    public Builder setDesiredCostManagementConfig(
+        com.google.container.v1.CostManagementConfig.Builder builderForValue) {
+      if (desiredCostManagementConfigBuilder_ == null) {
+        desiredCostManagementConfig_ = builderForValue.build();
+      } else {
+        desiredCostManagementConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    public Builder mergeDesiredCostManagementConfig(com.google.container.v1.CostManagementConfig value) {
+      if (desiredCostManagementConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000200) != 0) &&
+          desiredCostManagementConfig_ != null &&
+          desiredCostManagementConfig_ != com.google.container.v1.CostManagementConfig.getDefaultInstance()) {
+          getDesiredCostManagementConfigBuilder().mergeFrom(value);
+        } else {
+          desiredCostManagementConfig_ = value;
+        }
+      } else {
+        desiredCostManagementConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    public Builder clearDesiredCostManagementConfig() {
+      bitField0_ = (bitField0_ & ~0x00000200);
+      desiredCostManagementConfig_ = null;
+      if (desiredCostManagementConfigBuilder_ != null) {
+        desiredCostManagementConfigBuilder_.dispose();
+        desiredCostManagementConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    public com.google.container.v1.CostManagementConfig.Builder getDesiredCostManagementConfigBuilder() {
+      bitField0_ |= 0x00000200;
+      onChanged();
+      return getDesiredCostManagementConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    public com.google.container.v1.CostManagementConfigOrBuilder getDesiredCostManagementConfigOrBuilder() {
+      if (desiredCostManagementConfigBuilder_ != null) {
+        return desiredCostManagementConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return desiredCostManagementConfig_ == null ?
+            com.google.container.v1.CostManagementConfig.getDefaultInstance() : desiredCostManagementConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * The desired configuration for the fine-grained cost management feature.
+     * </pre>
+     *
+     * <code>.google.container.v1.CostManagementConfig desired_cost_management_config = 49;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.CostManagementConfig, com.google.container.v1.CostManagementConfig.Builder, com.google.container.v1.CostManagementConfigOrBuilder> 
+        getDesiredCostManagementConfigFieldBuilder() {
+      if (desiredCostManagementConfigBuilder_ == null) {
+        desiredCostManagementConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1.CostManagementConfig, com.google.container.v1.CostManagementConfig.Builder, com.google.container.v1.CostManagementConfigOrBuilder>(
+                getDesiredCostManagementConfig(),
+                getParentForChildren(),
+                isClean());
+        desiredCostManagementConfig_ = null;
+      }
+      return desiredCostManagementConfigBuilder_;
+    }
+
     private com.google.container.v1.DNSConfig desiredDnsConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.container.v1.DNSConfig, com.google.container.v1.DNSConfig.Builder, com.google.container.v1.DNSConfigOrBuilder> desiredDnsConfigBuilder_;
@@ -4413,7 +4701,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredDnsConfig field is set.
      */
     public boolean hasDesiredDnsConfig() {
-      return desiredDnsConfigBuilder_ != null || desiredDnsConfig_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -4443,11 +4731,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredDnsConfig_ = value;
-        onChanged();
       } else {
         desiredDnsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4461,11 +4749,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.DNSConfig.Builder builderForValue) {
       if (desiredDnsConfigBuilder_ == null) {
         desiredDnsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredDnsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4477,17 +4765,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredDnsConfig(com.google.container.v1.DNSConfig value) {
       if (desiredDnsConfigBuilder_ == null) {
-        if (desiredDnsConfig_ != null) {
-          desiredDnsConfig_ =
-            com.google.container.v1.DNSConfig.newBuilder(desiredDnsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          desiredDnsConfig_ != null &&
+          desiredDnsConfig_ != com.google.container.v1.DNSConfig.getDefaultInstance()) {
+          getDesiredDnsConfigBuilder().mergeFrom(value);
         } else {
           desiredDnsConfig_ = value;
         }
-        onChanged();
       } else {
         desiredDnsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -4498,14 +4787,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DNSConfig desired_dns_config = 53;</code>
      */
     public Builder clearDesiredDnsConfig() {
-      if (desiredDnsConfigBuilder_ == null) {
-        desiredDnsConfig_ = null;
-        onChanged();
-      } else {
-        desiredDnsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      desiredDnsConfig_ = null;
+      if (desiredDnsConfigBuilder_ != null) {
+        desiredDnsConfigBuilder_.dispose();
         desiredDnsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4516,7 +4804,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DNSConfig desired_dns_config = 53;</code>
      */
     public com.google.container.v1.DNSConfig.Builder getDesiredDnsConfigBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getDesiredDnsConfigFieldBuilder().getBuilder();
     }
@@ -4571,7 +4859,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredNodePoolAutoscaling field is set.
      */
     public boolean hasDesiredNodePoolAutoscaling() {
-      return desiredNodePoolAutoscalingBuilder_ != null || desiredNodePoolAutoscaling_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -4607,11 +4895,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredNodePoolAutoscaling_ = value;
-        onChanged();
       } else {
         desiredNodePoolAutoscalingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4628,11 +4916,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.NodePoolAutoscaling.Builder builderForValue) {
       if (desiredNodePoolAutoscalingBuilder_ == null) {
         desiredNodePoolAutoscaling_ = builderForValue.build();
-        onChanged();
       } else {
         desiredNodePoolAutoscalingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4647,17 +4935,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredNodePoolAutoscaling(com.google.container.v1.NodePoolAutoscaling value) {
       if (desiredNodePoolAutoscalingBuilder_ == null) {
-        if (desiredNodePoolAutoscaling_ != null) {
-          desiredNodePoolAutoscaling_ =
-            com.google.container.v1.NodePoolAutoscaling.newBuilder(desiredNodePoolAutoscaling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          desiredNodePoolAutoscaling_ != null &&
+          desiredNodePoolAutoscaling_ != com.google.container.v1.NodePoolAutoscaling.getDefaultInstance()) {
+          getDesiredNodePoolAutoscalingBuilder().mergeFrom(value);
         } else {
           desiredNodePoolAutoscaling_ = value;
         }
-        onChanged();
       } else {
         desiredNodePoolAutoscalingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -4671,14 +4960,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.NodePoolAutoscaling desired_node_pool_autoscaling = 9;</code>
      */
     public Builder clearDesiredNodePoolAutoscaling() {
-      if (desiredNodePoolAutoscalingBuilder_ == null) {
-        desiredNodePoolAutoscaling_ = null;
-        onChanged();
-      } else {
-        desiredNodePoolAutoscaling_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      desiredNodePoolAutoscaling_ = null;
+      if (desiredNodePoolAutoscalingBuilder_ != null) {
+        desiredNodePoolAutoscalingBuilder_.dispose();
         desiredNodePoolAutoscalingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -4692,7 +4980,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.NodePoolAutoscaling desired_node_pool_autoscaling = 9;</code>
      */
     public com.google.container.v1.NodePoolAutoscaling.Builder getDesiredNodePoolAutoscalingBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getDesiredNodePoolAutoscalingFieldBuilder().getBuilder();
     }
@@ -4740,9 +5028,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList desiredLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureDesiredLocationsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00001000) != 0)) {
         desiredLocations_ = new com.google.protobuf.LazyStringArrayList(desiredLocations_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00001000;
        }
     }
     /**
@@ -4830,10 +5118,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredLocations(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDesiredLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDesiredLocationsIsMutable();
       desiredLocations_.set(index, value);
       onChanged();
       return this;
@@ -4854,10 +5140,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDesiredLocations(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureDesiredLocationsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureDesiredLocationsIsMutable();
       desiredLocations_.add(value);
       onChanged();
       return this;
@@ -4899,7 +5183,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDesiredLocations() {
       desiredLocations_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00001000);
       onChanged();
       return this;
     }
@@ -4919,10 +5203,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addDesiredLocationsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureDesiredLocationsIsMutable();
       desiredLocations_.add(value);
       onChanged();
@@ -4941,7 +5223,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredMasterAuthorizedNetworksConfig field is set.
      */
     public boolean hasDesiredMasterAuthorizedNetworksConfig() {
-      return desiredMasterAuthorizedNetworksConfigBuilder_ != null || desiredMasterAuthorizedNetworksConfig_ != null;
+      return ((bitField0_ & 0x00002000) != 0);
     }
     /**
      * <pre>
@@ -4971,11 +5253,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredMasterAuthorizedNetworksConfig_ = value;
-        onChanged();
       } else {
         desiredMasterAuthorizedNetworksConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -4989,11 +5271,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.MasterAuthorizedNetworksConfig.Builder builderForValue) {
       if (desiredMasterAuthorizedNetworksConfigBuilder_ == null) {
         desiredMasterAuthorizedNetworksConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredMasterAuthorizedNetworksConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -5005,17 +5287,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredMasterAuthorizedNetworksConfig(com.google.container.v1.MasterAuthorizedNetworksConfig value) {
       if (desiredMasterAuthorizedNetworksConfigBuilder_ == null) {
-        if (desiredMasterAuthorizedNetworksConfig_ != null) {
-          desiredMasterAuthorizedNetworksConfig_ =
-            com.google.container.v1.MasterAuthorizedNetworksConfig.newBuilder(desiredMasterAuthorizedNetworksConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00002000) != 0) &&
+          desiredMasterAuthorizedNetworksConfig_ != null &&
+          desiredMasterAuthorizedNetworksConfig_ != com.google.container.v1.MasterAuthorizedNetworksConfig.getDefaultInstance()) {
+          getDesiredMasterAuthorizedNetworksConfigBuilder().mergeFrom(value);
         } else {
           desiredMasterAuthorizedNetworksConfig_ = value;
         }
-        onChanged();
       } else {
         desiredMasterAuthorizedNetworksConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00002000;
+      onChanged();
       return this;
     }
     /**
@@ -5026,14 +5309,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MasterAuthorizedNetworksConfig desired_master_authorized_networks_config = 12;</code>
      */
     public Builder clearDesiredMasterAuthorizedNetworksConfig() {
-      if (desiredMasterAuthorizedNetworksConfigBuilder_ == null) {
-        desiredMasterAuthorizedNetworksConfig_ = null;
-        onChanged();
-      } else {
-        desiredMasterAuthorizedNetworksConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00002000);
+      desiredMasterAuthorizedNetworksConfig_ = null;
+      if (desiredMasterAuthorizedNetworksConfigBuilder_ != null) {
+        desiredMasterAuthorizedNetworksConfigBuilder_.dispose();
         desiredMasterAuthorizedNetworksConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5044,7 +5326,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MasterAuthorizedNetworksConfig desired_master_authorized_networks_config = 12;</code>
      */
     public com.google.container.v1.MasterAuthorizedNetworksConfig.Builder getDesiredMasterAuthorizedNetworksConfigBuilder() {
-      
+      bitField0_ |= 0x00002000;
       onChanged();
       return getDesiredMasterAuthorizedNetworksConfigFieldBuilder().getBuilder();
     }
@@ -5096,7 +5378,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredClusterAutoscaling field is set.
      */
     public boolean hasDesiredClusterAutoscaling() {
-      return desiredClusterAutoscalingBuilder_ != null || desiredClusterAutoscaling_ != null;
+      return ((bitField0_ & 0x00004000) != 0);
     }
     /**
      * <pre>
@@ -5126,11 +5408,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredClusterAutoscaling_ = value;
-        onChanged();
       } else {
         desiredClusterAutoscalingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -5144,11 +5426,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ClusterAutoscaling.Builder builderForValue) {
       if (desiredClusterAutoscalingBuilder_ == null) {
         desiredClusterAutoscaling_ = builderForValue.build();
-        onChanged();
       } else {
         desiredClusterAutoscalingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -5160,17 +5442,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredClusterAutoscaling(com.google.container.v1.ClusterAutoscaling value) {
       if (desiredClusterAutoscalingBuilder_ == null) {
-        if (desiredClusterAutoscaling_ != null) {
-          desiredClusterAutoscaling_ =
-            com.google.container.v1.ClusterAutoscaling.newBuilder(desiredClusterAutoscaling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00004000) != 0) &&
+          desiredClusterAutoscaling_ != null &&
+          desiredClusterAutoscaling_ != com.google.container.v1.ClusterAutoscaling.getDefaultInstance()) {
+          getDesiredClusterAutoscalingBuilder().mergeFrom(value);
         } else {
           desiredClusterAutoscaling_ = value;
         }
-        onChanged();
       } else {
         desiredClusterAutoscalingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00004000;
+      onChanged();
       return this;
     }
     /**
@@ -5181,14 +5464,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ClusterAutoscaling desired_cluster_autoscaling = 15;</code>
      */
     public Builder clearDesiredClusterAutoscaling() {
-      if (desiredClusterAutoscalingBuilder_ == null) {
-        desiredClusterAutoscaling_ = null;
-        onChanged();
-      } else {
-        desiredClusterAutoscaling_ = null;
+      bitField0_ = (bitField0_ & ~0x00004000);
+      desiredClusterAutoscaling_ = null;
+      if (desiredClusterAutoscalingBuilder_ != null) {
+        desiredClusterAutoscalingBuilder_.dispose();
         desiredClusterAutoscalingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5199,7 +5481,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ClusterAutoscaling desired_cluster_autoscaling = 15;</code>
      */
     public com.google.container.v1.ClusterAutoscaling.Builder getDesiredClusterAutoscalingBuilder() {
-      
+      bitField0_ |= 0x00004000;
       onChanged();
       return getDesiredClusterAutoscalingFieldBuilder().getBuilder();
     }
@@ -5251,7 +5533,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredBinaryAuthorization field is set.
      */
     public boolean hasDesiredBinaryAuthorization() {
-      return desiredBinaryAuthorizationBuilder_ != null || desiredBinaryAuthorization_ != null;
+      return ((bitField0_ & 0x00008000) != 0);
     }
     /**
      * <pre>
@@ -5281,11 +5563,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredBinaryAuthorization_ = value;
-        onChanged();
       } else {
         desiredBinaryAuthorizationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5299,11 +5581,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.BinaryAuthorization.Builder builderForValue) {
       if (desiredBinaryAuthorizationBuilder_ == null) {
         desiredBinaryAuthorization_ = builderForValue.build();
-        onChanged();
       } else {
         desiredBinaryAuthorizationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5315,17 +5597,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredBinaryAuthorization(com.google.container.v1.BinaryAuthorization value) {
       if (desiredBinaryAuthorizationBuilder_ == null) {
-        if (desiredBinaryAuthorization_ != null) {
-          desiredBinaryAuthorization_ =
-            com.google.container.v1.BinaryAuthorization.newBuilder(desiredBinaryAuthorization_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00008000) != 0) &&
+          desiredBinaryAuthorization_ != null &&
+          desiredBinaryAuthorization_ != com.google.container.v1.BinaryAuthorization.getDefaultInstance()) {
+          getDesiredBinaryAuthorizationBuilder().mergeFrom(value);
         } else {
           desiredBinaryAuthorization_ = value;
         }
-        onChanged();
       } else {
         desiredBinaryAuthorizationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00008000;
+      onChanged();
       return this;
     }
     /**
@@ -5336,14 +5619,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.BinaryAuthorization desired_binary_authorization = 16;</code>
      */
     public Builder clearDesiredBinaryAuthorization() {
-      if (desiredBinaryAuthorizationBuilder_ == null) {
-        desiredBinaryAuthorization_ = null;
-        onChanged();
-      } else {
-        desiredBinaryAuthorization_ = null;
+      bitField0_ = (bitField0_ & ~0x00008000);
+      desiredBinaryAuthorization_ = null;
+      if (desiredBinaryAuthorizationBuilder_ != null) {
+        desiredBinaryAuthorizationBuilder_.dispose();
         desiredBinaryAuthorizationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5354,7 +5636,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.BinaryAuthorization desired_binary_authorization = 16;</code>
      */
     public com.google.container.v1.BinaryAuthorization.Builder getDesiredBinaryAuthorizationBuilder() {
-      
+      bitField0_ |= 0x00008000;
       onChanged();
       return getDesiredBinaryAuthorizationFieldBuilder().getBuilder();
     }
@@ -5471,11 +5753,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredLoggingService(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       desiredLoggingService_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5496,8 +5776,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredLoggingService() {
-      
       desiredLoggingService_ = getDefaultInstance().getDesiredLoggingService();
+      bitField0_ = (bitField0_ & ~0x00010000);
       onChanged();
       return this;
     }
@@ -5520,12 +5800,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredLoggingServiceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       desiredLoggingService_ = value;
+      bitField0_ |= 0x00010000;
       onChanged();
       return this;
     }
@@ -5542,7 +5820,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredResourceUsageExportConfig field is set.
      */
     public boolean hasDesiredResourceUsageExportConfig() {
-      return desiredResourceUsageExportConfigBuilder_ != null || desiredResourceUsageExportConfig_ != null;
+      return ((bitField0_ & 0x00020000) != 0);
     }
     /**
      * <pre>
@@ -5572,11 +5850,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredResourceUsageExportConfig_ = value;
-        onChanged();
       } else {
         desiredResourceUsageExportConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5590,11 +5868,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ResourceUsageExportConfig.Builder builderForValue) {
       if (desiredResourceUsageExportConfigBuilder_ == null) {
         desiredResourceUsageExportConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredResourceUsageExportConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5606,17 +5884,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredResourceUsageExportConfig(com.google.container.v1.ResourceUsageExportConfig value) {
       if (desiredResourceUsageExportConfigBuilder_ == null) {
-        if (desiredResourceUsageExportConfig_ != null) {
-          desiredResourceUsageExportConfig_ =
-            com.google.container.v1.ResourceUsageExportConfig.newBuilder(desiredResourceUsageExportConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00020000) != 0) &&
+          desiredResourceUsageExportConfig_ != null &&
+          desiredResourceUsageExportConfig_ != com.google.container.v1.ResourceUsageExportConfig.getDefaultInstance()) {
+          getDesiredResourceUsageExportConfigBuilder().mergeFrom(value);
         } else {
           desiredResourceUsageExportConfig_ = value;
         }
-        onChanged();
       } else {
         desiredResourceUsageExportConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00020000;
+      onChanged();
       return this;
     }
     /**
@@ -5627,14 +5906,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ResourceUsageExportConfig desired_resource_usage_export_config = 21;</code>
      */
     public Builder clearDesiredResourceUsageExportConfig() {
-      if (desiredResourceUsageExportConfigBuilder_ == null) {
-        desiredResourceUsageExportConfig_ = null;
-        onChanged();
-      } else {
-        desiredResourceUsageExportConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00020000);
+      desiredResourceUsageExportConfig_ = null;
+      if (desiredResourceUsageExportConfigBuilder_ != null) {
+        desiredResourceUsageExportConfigBuilder_.dispose();
         desiredResourceUsageExportConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5645,7 +5923,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ResourceUsageExportConfig desired_resource_usage_export_config = 21;</code>
      */
     public com.google.container.v1.ResourceUsageExportConfig.Builder getDesiredResourceUsageExportConfigBuilder() {
-      
+      bitField0_ |= 0x00020000;
       onChanged();
       return getDesiredResourceUsageExportConfigFieldBuilder().getBuilder();
     }
@@ -5697,7 +5975,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredVerticalPodAutoscaling field is set.
      */
     public boolean hasDesiredVerticalPodAutoscaling() {
-      return desiredVerticalPodAutoscalingBuilder_ != null || desiredVerticalPodAutoscaling_ != null;
+      return ((bitField0_ & 0x00040000) != 0);
     }
     /**
      * <pre>
@@ -5727,11 +6005,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredVerticalPodAutoscaling_ = value;
-        onChanged();
       } else {
         desiredVerticalPodAutoscalingBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5745,11 +6023,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.VerticalPodAutoscaling.Builder builderForValue) {
       if (desiredVerticalPodAutoscalingBuilder_ == null) {
         desiredVerticalPodAutoscaling_ = builderForValue.build();
-        onChanged();
       } else {
         desiredVerticalPodAutoscalingBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5761,17 +6039,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredVerticalPodAutoscaling(com.google.container.v1.VerticalPodAutoscaling value) {
       if (desiredVerticalPodAutoscalingBuilder_ == null) {
-        if (desiredVerticalPodAutoscaling_ != null) {
-          desiredVerticalPodAutoscaling_ =
-            com.google.container.v1.VerticalPodAutoscaling.newBuilder(desiredVerticalPodAutoscaling_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00040000) != 0) &&
+          desiredVerticalPodAutoscaling_ != null &&
+          desiredVerticalPodAutoscaling_ != com.google.container.v1.VerticalPodAutoscaling.getDefaultInstance()) {
+          getDesiredVerticalPodAutoscalingBuilder().mergeFrom(value);
         } else {
           desiredVerticalPodAutoscaling_ = value;
         }
-        onChanged();
       } else {
         desiredVerticalPodAutoscalingBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00040000;
+      onChanged();
       return this;
     }
     /**
@@ -5782,14 +6061,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.VerticalPodAutoscaling desired_vertical_pod_autoscaling = 22;</code>
      */
     public Builder clearDesiredVerticalPodAutoscaling() {
-      if (desiredVerticalPodAutoscalingBuilder_ == null) {
-        desiredVerticalPodAutoscaling_ = null;
-        onChanged();
-      } else {
-        desiredVerticalPodAutoscaling_ = null;
+      bitField0_ = (bitField0_ & ~0x00040000);
+      desiredVerticalPodAutoscaling_ = null;
+      if (desiredVerticalPodAutoscalingBuilder_ != null) {
+        desiredVerticalPodAutoscalingBuilder_.dispose();
         desiredVerticalPodAutoscalingBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5800,7 +6078,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.VerticalPodAutoscaling desired_vertical_pod_autoscaling = 22;</code>
      */
     public com.google.container.v1.VerticalPodAutoscaling.Builder getDesiredVerticalPodAutoscalingBuilder() {
-      
+      bitField0_ |= 0x00040000;
       onChanged();
       return getDesiredVerticalPodAutoscalingFieldBuilder().getBuilder();
     }
@@ -5852,7 +6130,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredPrivateClusterConfig field is set.
      */
     public boolean hasDesiredPrivateClusterConfig() {
-      return desiredPrivateClusterConfigBuilder_ != null || desiredPrivateClusterConfig_ != null;
+      return ((bitField0_ & 0x00080000) != 0);
     }
     /**
      * <pre>
@@ -5882,11 +6160,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredPrivateClusterConfig_ = value;
-        onChanged();
       } else {
         desiredPrivateClusterConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5900,11 +6178,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.PrivateClusterConfig.Builder builderForValue) {
       if (desiredPrivateClusterConfigBuilder_ == null) {
         desiredPrivateClusterConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredPrivateClusterConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5916,17 +6194,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredPrivateClusterConfig(com.google.container.v1.PrivateClusterConfig value) {
       if (desiredPrivateClusterConfigBuilder_ == null) {
-        if (desiredPrivateClusterConfig_ != null) {
-          desiredPrivateClusterConfig_ =
-            com.google.container.v1.PrivateClusterConfig.newBuilder(desiredPrivateClusterConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00080000) != 0) &&
+          desiredPrivateClusterConfig_ != null &&
+          desiredPrivateClusterConfig_ != com.google.container.v1.PrivateClusterConfig.getDefaultInstance()) {
+          getDesiredPrivateClusterConfigBuilder().mergeFrom(value);
         } else {
           desiredPrivateClusterConfig_ = value;
         }
-        onChanged();
       } else {
         desiredPrivateClusterConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00080000;
+      onChanged();
       return this;
     }
     /**
@@ -5937,14 +6216,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.PrivateClusterConfig desired_private_cluster_config = 25;</code>
      */
     public Builder clearDesiredPrivateClusterConfig() {
-      if (desiredPrivateClusterConfigBuilder_ == null) {
-        desiredPrivateClusterConfig_ = null;
-        onChanged();
-      } else {
-        desiredPrivateClusterConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00080000);
+      desiredPrivateClusterConfig_ = null;
+      if (desiredPrivateClusterConfigBuilder_ != null) {
+        desiredPrivateClusterConfigBuilder_.dispose();
         desiredPrivateClusterConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5955,7 +6233,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.PrivateClusterConfig desired_private_cluster_config = 25;</code>
      */
     public com.google.container.v1.PrivateClusterConfig.Builder getDesiredPrivateClusterConfigBuilder() {
-      
+      bitField0_ |= 0x00080000;
       onChanged();
       return getDesiredPrivateClusterConfigFieldBuilder().getBuilder();
     }
@@ -6007,7 +6285,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredIntraNodeVisibilityConfig field is set.
      */
     public boolean hasDesiredIntraNodeVisibilityConfig() {
-      return desiredIntraNodeVisibilityConfigBuilder_ != null || desiredIntraNodeVisibilityConfig_ != null;
+      return ((bitField0_ & 0x00100000) != 0);
     }
     /**
      * <pre>
@@ -6037,11 +6315,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredIntraNodeVisibilityConfig_ = value;
-        onChanged();
       } else {
         desiredIntraNodeVisibilityConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -6055,11 +6333,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.IntraNodeVisibilityConfig.Builder builderForValue) {
       if (desiredIntraNodeVisibilityConfigBuilder_ == null) {
         desiredIntraNodeVisibilityConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredIntraNodeVisibilityConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -6071,17 +6349,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredIntraNodeVisibilityConfig(com.google.container.v1.IntraNodeVisibilityConfig value) {
       if (desiredIntraNodeVisibilityConfigBuilder_ == null) {
-        if (desiredIntraNodeVisibilityConfig_ != null) {
-          desiredIntraNodeVisibilityConfig_ =
-            com.google.container.v1.IntraNodeVisibilityConfig.newBuilder(desiredIntraNodeVisibilityConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00100000) != 0) &&
+          desiredIntraNodeVisibilityConfig_ != null &&
+          desiredIntraNodeVisibilityConfig_ != com.google.container.v1.IntraNodeVisibilityConfig.getDefaultInstance()) {
+          getDesiredIntraNodeVisibilityConfigBuilder().mergeFrom(value);
         } else {
           desiredIntraNodeVisibilityConfig_ = value;
         }
-        onChanged();
       } else {
         desiredIntraNodeVisibilityConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00100000;
+      onChanged();
       return this;
     }
     /**
@@ -6092,14 +6371,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.IntraNodeVisibilityConfig desired_intra_node_visibility_config = 26;</code>
      */
     public Builder clearDesiredIntraNodeVisibilityConfig() {
-      if (desiredIntraNodeVisibilityConfigBuilder_ == null) {
-        desiredIntraNodeVisibilityConfig_ = null;
-        onChanged();
-      } else {
-        desiredIntraNodeVisibilityConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00100000);
+      desiredIntraNodeVisibilityConfig_ = null;
+      if (desiredIntraNodeVisibilityConfigBuilder_ != null) {
+        desiredIntraNodeVisibilityConfigBuilder_.dispose();
         desiredIntraNodeVisibilityConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6110,7 +6388,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.IntraNodeVisibilityConfig desired_intra_node_visibility_config = 26;</code>
      */
     public com.google.container.v1.IntraNodeVisibilityConfig.Builder getDesiredIntraNodeVisibilityConfigBuilder() {
-      
+      bitField0_ |= 0x00100000;
       onChanged();
       return getDesiredIntraNodeVisibilityConfigFieldBuilder().getBuilder();
     }
@@ -6162,7 +6440,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredDefaultSnatStatus field is set.
      */
     public boolean hasDesiredDefaultSnatStatus() {
-      return desiredDefaultSnatStatusBuilder_ != null || desiredDefaultSnatStatus_ != null;
+      return ((bitField0_ & 0x00200000) != 0);
     }
     /**
      * <pre>
@@ -6192,11 +6470,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredDefaultSnatStatus_ = value;
-        onChanged();
       } else {
         desiredDefaultSnatStatusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6210,11 +6488,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.DefaultSnatStatus.Builder builderForValue) {
       if (desiredDefaultSnatStatusBuilder_ == null) {
         desiredDefaultSnatStatus_ = builderForValue.build();
-        onChanged();
       } else {
         desiredDefaultSnatStatusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6226,17 +6504,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredDefaultSnatStatus(com.google.container.v1.DefaultSnatStatus value) {
       if (desiredDefaultSnatStatusBuilder_ == null) {
-        if (desiredDefaultSnatStatus_ != null) {
-          desiredDefaultSnatStatus_ =
-            com.google.container.v1.DefaultSnatStatus.newBuilder(desiredDefaultSnatStatus_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00200000) != 0) &&
+          desiredDefaultSnatStatus_ != null &&
+          desiredDefaultSnatStatus_ != com.google.container.v1.DefaultSnatStatus.getDefaultInstance()) {
+          getDesiredDefaultSnatStatusBuilder().mergeFrom(value);
         } else {
           desiredDefaultSnatStatus_ = value;
         }
-        onChanged();
       } else {
         desiredDefaultSnatStatusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00200000;
+      onChanged();
       return this;
     }
     /**
@@ -6247,14 +6526,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DefaultSnatStatus desired_default_snat_status = 28;</code>
      */
     public Builder clearDesiredDefaultSnatStatus() {
-      if (desiredDefaultSnatStatusBuilder_ == null) {
-        desiredDefaultSnatStatus_ = null;
-        onChanged();
-      } else {
-        desiredDefaultSnatStatus_ = null;
+      bitField0_ = (bitField0_ & ~0x00200000);
+      desiredDefaultSnatStatus_ = null;
+      if (desiredDefaultSnatStatusBuilder_ != null) {
+        desiredDefaultSnatStatusBuilder_.dispose();
         desiredDefaultSnatStatusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6265,7 +6543,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.DefaultSnatStatus desired_default_snat_status = 28;</code>
      */
     public com.google.container.v1.DefaultSnatStatus.Builder getDesiredDefaultSnatStatusBuilder() {
-      
+      bitField0_ |= 0x00200000;
       onChanged();
       return getDesiredDefaultSnatStatusFieldBuilder().getBuilder();
     }
@@ -6317,7 +6595,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredReleaseChannel field is set.
      */
     public boolean hasDesiredReleaseChannel() {
-      return desiredReleaseChannelBuilder_ != null || desiredReleaseChannel_ != null;
+      return ((bitField0_ & 0x00400000) != 0);
     }
     /**
      * <pre>
@@ -6347,11 +6625,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredReleaseChannel_ = value;
-        onChanged();
       } else {
         desiredReleaseChannelBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6365,11 +6643,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ReleaseChannel.Builder builderForValue) {
       if (desiredReleaseChannelBuilder_ == null) {
         desiredReleaseChannel_ = builderForValue.build();
-        onChanged();
       } else {
         desiredReleaseChannelBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6381,17 +6659,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredReleaseChannel(com.google.container.v1.ReleaseChannel value) {
       if (desiredReleaseChannelBuilder_ == null) {
-        if (desiredReleaseChannel_ != null) {
-          desiredReleaseChannel_ =
-            com.google.container.v1.ReleaseChannel.newBuilder(desiredReleaseChannel_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00400000) != 0) &&
+          desiredReleaseChannel_ != null &&
+          desiredReleaseChannel_ != com.google.container.v1.ReleaseChannel.getDefaultInstance()) {
+          getDesiredReleaseChannelBuilder().mergeFrom(value);
         } else {
           desiredReleaseChannel_ = value;
         }
-        onChanged();
       } else {
         desiredReleaseChannelBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00400000;
+      onChanged();
       return this;
     }
     /**
@@ -6402,14 +6681,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ReleaseChannel desired_release_channel = 31;</code>
      */
     public Builder clearDesiredReleaseChannel() {
-      if (desiredReleaseChannelBuilder_ == null) {
-        desiredReleaseChannel_ = null;
-        onChanged();
-      } else {
-        desiredReleaseChannel_ = null;
+      bitField0_ = (bitField0_ & ~0x00400000);
+      desiredReleaseChannel_ = null;
+      if (desiredReleaseChannelBuilder_ != null) {
+        desiredReleaseChannelBuilder_.dispose();
         desiredReleaseChannelBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6420,7 +6698,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ReleaseChannel desired_release_channel = 31;</code>
      */
     public com.google.container.v1.ReleaseChannel.Builder getDesiredReleaseChannelBuilder() {
-      
+      bitField0_ |= 0x00400000;
       onChanged();
       return getDesiredReleaseChannelFieldBuilder().getBuilder();
     }
@@ -6472,7 +6750,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredL4ilbSubsettingConfig field is set.
      */
     public boolean hasDesiredL4IlbSubsettingConfig() {
-      return desiredL4IlbSubsettingConfigBuilder_ != null || desiredL4IlbSubsettingConfig_ != null;
+      return ((bitField0_ & 0x00800000) != 0);
     }
     /**
      * <pre>
@@ -6502,11 +6780,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredL4IlbSubsettingConfig_ = value;
-        onChanged();
       } else {
         desiredL4IlbSubsettingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6520,11 +6798,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ILBSubsettingConfig.Builder builderForValue) {
       if (desiredL4IlbSubsettingConfigBuilder_ == null) {
         desiredL4IlbSubsettingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredL4IlbSubsettingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6536,17 +6814,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredL4IlbSubsettingConfig(com.google.container.v1.ILBSubsettingConfig value) {
       if (desiredL4IlbSubsettingConfigBuilder_ == null) {
-        if (desiredL4IlbSubsettingConfig_ != null) {
-          desiredL4IlbSubsettingConfig_ =
-            com.google.container.v1.ILBSubsettingConfig.newBuilder(desiredL4IlbSubsettingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00800000) != 0) &&
+          desiredL4IlbSubsettingConfig_ != null &&
+          desiredL4IlbSubsettingConfig_ != com.google.container.v1.ILBSubsettingConfig.getDefaultInstance()) {
+          getDesiredL4IlbSubsettingConfigBuilder().mergeFrom(value);
         } else {
           desiredL4IlbSubsettingConfig_ = value;
         }
-        onChanged();
       } else {
         desiredL4IlbSubsettingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00800000;
+      onChanged();
       return this;
     }
     /**
@@ -6557,14 +6836,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ILBSubsettingConfig desired_l4ilb_subsetting_config = 39;</code>
      */
     public Builder clearDesiredL4IlbSubsettingConfig() {
-      if (desiredL4IlbSubsettingConfigBuilder_ == null) {
-        desiredL4IlbSubsettingConfig_ = null;
-        onChanged();
-      } else {
-        desiredL4IlbSubsettingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00800000);
+      desiredL4IlbSubsettingConfig_ = null;
+      if (desiredL4IlbSubsettingConfigBuilder_ != null) {
+        desiredL4IlbSubsettingConfigBuilder_.dispose();
         desiredL4IlbSubsettingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6575,7 +6853,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ILBSubsettingConfig desired_l4ilb_subsetting_config = 39;</code>
      */
     public com.google.container.v1.ILBSubsettingConfig.Builder getDesiredL4IlbSubsettingConfigBuilder() {
-      
+      bitField0_ |= 0x00800000;
       onChanged();
       return getDesiredL4IlbSubsettingConfigFieldBuilder().getBuilder();
     }
@@ -6637,8 +6915,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDesiredDatapathProviderValue(int value) {
-      
       desiredDatapathProvider_ = value;
+      bitField0_ |= 0x01000000;
       onChanged();
       return this;
     }
@@ -6652,8 +6930,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1.DatapathProvider getDesiredDatapathProvider() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.valueOf(desiredDatapathProvider_);
+      com.google.container.v1.DatapathProvider result = com.google.container.v1.DatapathProvider.forNumber(desiredDatapathProvider_);
       return result == null ? com.google.container.v1.DatapathProvider.UNRECOGNIZED : result;
     }
     /**
@@ -6669,7 +6946,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x01000000;
       desiredDatapathProvider_ = value.getNumber();
       onChanged();
       return this;
@@ -6683,7 +6960,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredDatapathProvider() {
-      
+      bitField0_ = (bitField0_ & ~0x01000000);
       desiredDatapathProvider_ = 0;
       onChanged();
       return this;
@@ -6711,8 +6988,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDesiredPrivateIpv6GoogleAccessValue(int value) {
-      
       desiredPrivateIpv6GoogleAccess_ = value;
+      bitField0_ |= 0x02000000;
       onChanged();
       return this;
     }
@@ -6726,8 +7003,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.container.v1.PrivateIPv6GoogleAccess getDesiredPrivateIpv6GoogleAccess() {
-      @SuppressWarnings("deprecation")
-      com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.valueOf(desiredPrivateIpv6GoogleAccess_);
+      com.google.container.v1.PrivateIPv6GoogleAccess result = com.google.container.v1.PrivateIPv6GoogleAccess.forNumber(desiredPrivateIpv6GoogleAccess_);
       return result == null ? com.google.container.v1.PrivateIPv6GoogleAccess.UNRECOGNIZED : result;
     }
     /**
@@ -6743,7 +7019,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x02000000;
       desiredPrivateIpv6GoogleAccess_ = value.getNumber();
       onChanged();
       return this;
@@ -6757,7 +7033,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredPrivateIpv6GoogleAccess() {
-      
+      bitField0_ = (bitField0_ & ~0x02000000);
       desiredPrivateIpv6GoogleAccess_ = 0;
       onChanged();
       return this;
@@ -6775,7 +7051,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredNotificationConfig field is set.
      */
     public boolean hasDesiredNotificationConfig() {
-      return desiredNotificationConfigBuilder_ != null || desiredNotificationConfig_ != null;
+      return ((bitField0_ & 0x04000000) != 0);
     }
     /**
      * <pre>
@@ -6805,11 +7081,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredNotificationConfig_ = value;
-        onChanged();
       } else {
         desiredNotificationConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -6823,11 +7099,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.NotificationConfig.Builder builderForValue) {
       if (desiredNotificationConfigBuilder_ == null) {
         desiredNotificationConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredNotificationConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -6839,17 +7115,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredNotificationConfig(com.google.container.v1.NotificationConfig value) {
       if (desiredNotificationConfigBuilder_ == null) {
-        if (desiredNotificationConfig_ != null) {
-          desiredNotificationConfig_ =
-            com.google.container.v1.NotificationConfig.newBuilder(desiredNotificationConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x04000000) != 0) &&
+          desiredNotificationConfig_ != null &&
+          desiredNotificationConfig_ != com.google.container.v1.NotificationConfig.getDefaultInstance()) {
+          getDesiredNotificationConfigBuilder().mergeFrom(value);
         } else {
           desiredNotificationConfig_ = value;
         }
-        onChanged();
       } else {
         desiredNotificationConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x04000000;
+      onChanged();
       return this;
     }
     /**
@@ -6860,14 +7137,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.NotificationConfig desired_notification_config = 55;</code>
      */
     public Builder clearDesiredNotificationConfig() {
-      if (desiredNotificationConfigBuilder_ == null) {
-        desiredNotificationConfig_ = null;
-        onChanged();
-      } else {
-        desiredNotificationConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x04000000);
+      desiredNotificationConfig_ = null;
+      if (desiredNotificationConfigBuilder_ != null) {
+        desiredNotificationConfigBuilder_.dispose();
         desiredNotificationConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6878,7 +7154,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.NotificationConfig desired_notification_config = 55;</code>
      */
     public com.google.container.v1.NotificationConfig.Builder getDesiredNotificationConfigBuilder() {
-      
+      bitField0_ |= 0x04000000;
       onChanged();
       return getDesiredNotificationConfigFieldBuilder().getBuilder();
     }
@@ -6930,7 +7206,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredAuthenticatorGroupsConfig field is set.
      */
     public boolean hasDesiredAuthenticatorGroupsConfig() {
-      return desiredAuthenticatorGroupsConfigBuilder_ != null || desiredAuthenticatorGroupsConfig_ != null;
+      return ((bitField0_ & 0x08000000) != 0);
     }
     /**
      * <pre>
@@ -6960,11 +7236,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredAuthenticatorGroupsConfig_ = value;
-        onChanged();
       } else {
         desiredAuthenticatorGroupsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x08000000;
+      onChanged();
       return this;
     }
     /**
@@ -6978,11 +7254,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.AuthenticatorGroupsConfig.Builder builderForValue) {
       if (desiredAuthenticatorGroupsConfigBuilder_ == null) {
         desiredAuthenticatorGroupsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredAuthenticatorGroupsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x08000000;
+      onChanged();
       return this;
     }
     /**
@@ -6994,17 +7270,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredAuthenticatorGroupsConfig(com.google.container.v1.AuthenticatorGroupsConfig value) {
       if (desiredAuthenticatorGroupsConfigBuilder_ == null) {
-        if (desiredAuthenticatorGroupsConfig_ != null) {
-          desiredAuthenticatorGroupsConfig_ =
-            com.google.container.v1.AuthenticatorGroupsConfig.newBuilder(desiredAuthenticatorGroupsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x08000000) != 0) &&
+          desiredAuthenticatorGroupsConfig_ != null &&
+          desiredAuthenticatorGroupsConfig_ != com.google.container.v1.AuthenticatorGroupsConfig.getDefaultInstance()) {
+          getDesiredAuthenticatorGroupsConfigBuilder().mergeFrom(value);
         } else {
           desiredAuthenticatorGroupsConfig_ = value;
         }
-        onChanged();
       } else {
         desiredAuthenticatorGroupsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x08000000;
+      onChanged();
       return this;
     }
     /**
@@ -7015,14 +7292,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.AuthenticatorGroupsConfig desired_authenticator_groups_config = 63;</code>
      */
     public Builder clearDesiredAuthenticatorGroupsConfig() {
-      if (desiredAuthenticatorGroupsConfigBuilder_ == null) {
-        desiredAuthenticatorGroupsConfig_ = null;
-        onChanged();
-      } else {
-        desiredAuthenticatorGroupsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x08000000);
+      desiredAuthenticatorGroupsConfig_ = null;
+      if (desiredAuthenticatorGroupsConfigBuilder_ != null) {
+        desiredAuthenticatorGroupsConfigBuilder_.dispose();
         desiredAuthenticatorGroupsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7033,7 +7309,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.AuthenticatorGroupsConfig desired_authenticator_groups_config = 63;</code>
      */
     public com.google.container.v1.AuthenticatorGroupsConfig.Builder getDesiredAuthenticatorGroupsConfigBuilder() {
-      
+      bitField0_ |= 0x08000000;
       onChanged();
       return getDesiredAuthenticatorGroupsConfigFieldBuilder().getBuilder();
     }
@@ -7085,7 +7361,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredLoggingConfig field is set.
      */
     public boolean hasDesiredLoggingConfig() {
-      return desiredLoggingConfigBuilder_ != null || desiredLoggingConfig_ != null;
+      return ((bitField0_ & 0x10000000) != 0);
     }
     /**
      * <pre>
@@ -7115,11 +7391,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredLoggingConfig_ = value;
-        onChanged();
       } else {
         desiredLoggingConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -7133,11 +7409,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.LoggingConfig.Builder builderForValue) {
       if (desiredLoggingConfigBuilder_ == null) {
         desiredLoggingConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredLoggingConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -7149,17 +7425,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredLoggingConfig(com.google.container.v1.LoggingConfig value) {
       if (desiredLoggingConfigBuilder_ == null) {
-        if (desiredLoggingConfig_ != null) {
-          desiredLoggingConfig_ =
-            com.google.container.v1.LoggingConfig.newBuilder(desiredLoggingConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x10000000) != 0) &&
+          desiredLoggingConfig_ != null &&
+          desiredLoggingConfig_ != com.google.container.v1.LoggingConfig.getDefaultInstance()) {
+          getDesiredLoggingConfigBuilder().mergeFrom(value);
         } else {
           desiredLoggingConfig_ = value;
         }
-        onChanged();
       } else {
         desiredLoggingConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x10000000;
+      onChanged();
       return this;
     }
     /**
@@ -7170,14 +7447,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.LoggingConfig desired_logging_config = 64;</code>
      */
     public Builder clearDesiredLoggingConfig() {
-      if (desiredLoggingConfigBuilder_ == null) {
-        desiredLoggingConfig_ = null;
-        onChanged();
-      } else {
-        desiredLoggingConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x10000000);
+      desiredLoggingConfig_ = null;
+      if (desiredLoggingConfigBuilder_ != null) {
+        desiredLoggingConfigBuilder_.dispose();
         desiredLoggingConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7188,7 +7464,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.LoggingConfig desired_logging_config = 64;</code>
      */
     public com.google.container.v1.LoggingConfig.Builder getDesiredLoggingConfigBuilder() {
-      
+      bitField0_ |= 0x10000000;
       onChanged();
       return getDesiredLoggingConfigFieldBuilder().getBuilder();
     }
@@ -7240,7 +7516,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredMonitoringConfig field is set.
      */
     public boolean hasDesiredMonitoringConfig() {
-      return desiredMonitoringConfigBuilder_ != null || desiredMonitoringConfig_ != null;
+      return ((bitField0_ & 0x20000000) != 0);
     }
     /**
      * <pre>
@@ -7270,11 +7546,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredMonitoringConfig_ = value;
-        onChanged();
       } else {
         desiredMonitoringConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -7288,11 +7564,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.MonitoringConfig.Builder builderForValue) {
       if (desiredMonitoringConfigBuilder_ == null) {
         desiredMonitoringConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredMonitoringConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -7304,17 +7580,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredMonitoringConfig(com.google.container.v1.MonitoringConfig value) {
       if (desiredMonitoringConfigBuilder_ == null) {
-        if (desiredMonitoringConfig_ != null) {
-          desiredMonitoringConfig_ =
-            com.google.container.v1.MonitoringConfig.newBuilder(desiredMonitoringConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x20000000) != 0) &&
+          desiredMonitoringConfig_ != null &&
+          desiredMonitoringConfig_ != com.google.container.v1.MonitoringConfig.getDefaultInstance()) {
+          getDesiredMonitoringConfigBuilder().mergeFrom(value);
         } else {
           desiredMonitoringConfig_ = value;
         }
-        onChanged();
       } else {
         desiredMonitoringConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x20000000;
+      onChanged();
       return this;
     }
     /**
@@ -7325,14 +7602,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MonitoringConfig desired_monitoring_config = 65;</code>
      */
     public Builder clearDesiredMonitoringConfig() {
-      if (desiredMonitoringConfigBuilder_ == null) {
-        desiredMonitoringConfig_ = null;
-        onChanged();
-      } else {
-        desiredMonitoringConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x20000000);
+      desiredMonitoringConfig_ = null;
+      if (desiredMonitoringConfigBuilder_ != null) {
+        desiredMonitoringConfigBuilder_.dispose();
         desiredMonitoringConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7343,7 +7619,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.MonitoringConfig desired_monitoring_config = 65;</code>
      */
     public com.google.container.v1.MonitoringConfig.Builder getDesiredMonitoringConfigBuilder() {
-      
+      bitField0_ |= 0x20000000;
       onChanged();
       return getDesiredMonitoringConfigFieldBuilder().getBuilder();
     }
@@ -7395,7 +7671,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredIdentityServiceConfig field is set.
      */
     public boolean hasDesiredIdentityServiceConfig() {
-      return desiredIdentityServiceConfigBuilder_ != null || desiredIdentityServiceConfig_ != null;
+      return ((bitField0_ & 0x40000000) != 0);
     }
     /**
      * <pre>
@@ -7425,11 +7701,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredIdentityServiceConfig_ = value;
-        onChanged();
       } else {
         desiredIdentityServiceConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -7443,11 +7719,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.IdentityServiceConfig.Builder builderForValue) {
       if (desiredIdentityServiceConfigBuilder_ == null) {
         desiredIdentityServiceConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredIdentityServiceConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -7459,17 +7735,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredIdentityServiceConfig(com.google.container.v1.IdentityServiceConfig value) {
       if (desiredIdentityServiceConfigBuilder_ == null) {
-        if (desiredIdentityServiceConfig_ != null) {
-          desiredIdentityServiceConfig_ =
-            com.google.container.v1.IdentityServiceConfig.newBuilder(desiredIdentityServiceConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x40000000) != 0) &&
+          desiredIdentityServiceConfig_ != null &&
+          desiredIdentityServiceConfig_ != com.google.container.v1.IdentityServiceConfig.getDefaultInstance()) {
+          getDesiredIdentityServiceConfigBuilder().mergeFrom(value);
         } else {
           desiredIdentityServiceConfig_ = value;
         }
-        onChanged();
       } else {
         desiredIdentityServiceConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x40000000;
+      onChanged();
       return this;
     }
     /**
@@ -7480,14 +7757,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.IdentityServiceConfig desired_identity_service_config = 66;</code>
      */
     public Builder clearDesiredIdentityServiceConfig() {
-      if (desiredIdentityServiceConfigBuilder_ == null) {
-        desiredIdentityServiceConfig_ = null;
-        onChanged();
-      } else {
-        desiredIdentityServiceConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x40000000);
+      desiredIdentityServiceConfig_ = null;
+      if (desiredIdentityServiceConfigBuilder_ != null) {
+        desiredIdentityServiceConfigBuilder_.dispose();
         desiredIdentityServiceConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7498,7 +7774,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.IdentityServiceConfig desired_identity_service_config = 66;</code>
      */
     public com.google.container.v1.IdentityServiceConfig.Builder getDesiredIdentityServiceConfigBuilder() {
-      
+      bitField0_ |= 0x40000000;
       onChanged();
       return getDesiredIdentityServiceConfigFieldBuilder().getBuilder();
     }
@@ -7551,7 +7827,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredServiceExternalIpsConfig field is set.
      */
     public boolean hasDesiredServiceExternalIpsConfig() {
-      return desiredServiceExternalIpsConfigBuilder_ != null || desiredServiceExternalIpsConfig_ != null;
+      return ((bitField0_ & 0x80000000) != 0);
     }
     /**
      * <pre>
@@ -7583,11 +7859,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredServiceExternalIpsConfig_ = value;
-        onChanged();
       } else {
         desiredServiceExternalIpsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x80000000;
+      onChanged();
       return this;
     }
     /**
@@ -7602,11 +7878,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.ServiceExternalIPsConfig.Builder builderForValue) {
       if (desiredServiceExternalIpsConfigBuilder_ == null) {
         desiredServiceExternalIpsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredServiceExternalIpsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x80000000;
+      onChanged();
       return this;
     }
     /**
@@ -7619,17 +7895,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredServiceExternalIpsConfig(com.google.container.v1.ServiceExternalIPsConfig value) {
       if (desiredServiceExternalIpsConfigBuilder_ == null) {
-        if (desiredServiceExternalIpsConfig_ != null) {
-          desiredServiceExternalIpsConfig_ =
-            com.google.container.v1.ServiceExternalIPsConfig.newBuilder(desiredServiceExternalIpsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x80000000) != 0) &&
+          desiredServiceExternalIpsConfig_ != null &&
+          desiredServiceExternalIpsConfig_ != com.google.container.v1.ServiceExternalIPsConfig.getDefaultInstance()) {
+          getDesiredServiceExternalIpsConfigBuilder().mergeFrom(value);
         } else {
           desiredServiceExternalIpsConfig_ = value;
         }
-        onChanged();
       } else {
         desiredServiceExternalIpsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x80000000;
+      onChanged();
       return this;
     }
     /**
@@ -7641,14 +7918,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ServiceExternalIPsConfig desired_service_external_ips_config = 60;</code>
      */
     public Builder clearDesiredServiceExternalIpsConfig() {
-      if (desiredServiceExternalIpsConfigBuilder_ == null) {
-        desiredServiceExternalIpsConfig_ = null;
-        onChanged();
-      } else {
-        desiredServiceExternalIpsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x80000000);
+      desiredServiceExternalIpsConfig_ = null;
+      if (desiredServiceExternalIpsConfigBuilder_ != null) {
+        desiredServiceExternalIpsConfigBuilder_.dispose();
         desiredServiceExternalIpsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7660,7 +7936,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.ServiceExternalIPsConfig desired_service_external_ips_config = 60;</code>
      */
     public com.google.container.v1.ServiceExternalIPsConfig.Builder getDesiredServiceExternalIpsConfigBuilder() {
-      
+      bitField0_ |= 0x80000000;
       onChanged();
       return getDesiredServiceExternalIpsConfigFieldBuilder().getBuilder();
     }
@@ -7700,6 +7976,62 @@ private static final long serialVersionUID = 0L;
         desiredServiceExternalIpsConfig_ = null;
       }
       return desiredServiceExternalIpsConfigBuilder_;
+    }
+
+    private boolean desiredEnablePrivateEndpoint_ ;
+    /**
+     * <pre>
+     * Enable/Disable private endpoint for the cluster's master.
+     * </pre>
+     *
+     * <code>optional bool desired_enable_private_endpoint = 71;</code>
+     * @return Whether the desiredEnablePrivateEndpoint field is set.
+     */
+    @java.lang.Override
+    public boolean hasDesiredEnablePrivateEndpoint() {
+      return ((bitField1_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Enable/Disable private endpoint for the cluster's master.
+     * </pre>
+     *
+     * <code>optional bool desired_enable_private_endpoint = 71;</code>
+     * @return The desiredEnablePrivateEndpoint.
+     */
+    @java.lang.Override
+    public boolean getDesiredEnablePrivateEndpoint() {
+      return desiredEnablePrivateEndpoint_;
+    }
+    /**
+     * <pre>
+     * Enable/Disable private endpoint for the cluster's master.
+     * </pre>
+     *
+     * <code>optional bool desired_enable_private_endpoint = 71;</code>
+     * @param value The desiredEnablePrivateEndpoint to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDesiredEnablePrivateEndpoint(boolean value) {
+      
+      desiredEnablePrivateEndpoint_ = value;
+      bitField1_ |= 0x00000001;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Enable/Disable private endpoint for the cluster's master.
+     * </pre>
+     *
+     * <code>optional bool desired_enable_private_endpoint = 71;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDesiredEnablePrivateEndpoint() {
+      bitField1_ = (bitField1_ & ~0x00000001);
+      desiredEnablePrivateEndpoint_ = false;
+      onChanged();
+      return this;
     }
 
     private java.lang.Object desiredMasterVersion_ = "";
@@ -7776,11 +8108,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredMasterVersion(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       desiredMasterVersion_ = value;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7800,8 +8130,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDesiredMasterVersion() {
-      
       desiredMasterVersion_ = getDefaultInstance().getDesiredMasterVersion();
+      bitField1_ = (bitField1_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -7823,12 +8153,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDesiredMasterVersionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       desiredMasterVersion_ = value;
+      bitField1_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -7845,7 +8173,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredGcfsConfig field is set.
      */
     public boolean hasDesiredGcfsConfig() {
-      return desiredGcfsConfigBuilder_ != null || desiredGcfsConfig_ != null;
+      return ((bitField1_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -7875,11 +8203,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredGcfsConfig_ = value;
-        onChanged();
       } else {
         desiredGcfsConfigBuilder_.setMessage(value);
       }
-
+      bitField1_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7893,11 +8221,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.GcfsConfig.Builder builderForValue) {
       if (desiredGcfsConfigBuilder_ == null) {
         desiredGcfsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         desiredGcfsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField1_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7909,17 +8237,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredGcfsConfig(com.google.container.v1.GcfsConfig value) {
       if (desiredGcfsConfigBuilder_ == null) {
-        if (desiredGcfsConfig_ != null) {
-          desiredGcfsConfig_ =
-            com.google.container.v1.GcfsConfig.newBuilder(desiredGcfsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField1_ & 0x00000004) != 0) &&
+          desiredGcfsConfig_ != null &&
+          desiredGcfsConfig_ != com.google.container.v1.GcfsConfig.getDefaultInstance()) {
+          getDesiredGcfsConfigBuilder().mergeFrom(value);
         } else {
           desiredGcfsConfig_ = value;
         }
-        onChanged();
       } else {
         desiredGcfsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField1_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -7930,14 +8259,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.GcfsConfig desired_gcfs_config = 109;</code>
      */
     public Builder clearDesiredGcfsConfig() {
-      if (desiredGcfsConfigBuilder_ == null) {
-        desiredGcfsConfig_ = null;
-        onChanged();
-      } else {
-        desiredGcfsConfig_ = null;
+      bitField1_ = (bitField1_ & ~0x00000004);
+      desiredGcfsConfig_ = null;
+      if (desiredGcfsConfigBuilder_ != null) {
+        desiredGcfsConfigBuilder_.dispose();
         desiredGcfsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7948,7 +8276,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.GcfsConfig desired_gcfs_config = 109;</code>
      */
     public com.google.container.v1.GcfsConfig.Builder getDesiredGcfsConfigBuilder() {
-      
+      bitField1_ |= 0x00000004;
       onChanged();
       return getDesiredGcfsConfigFieldBuilder().getBuilder();
     }
@@ -8001,7 +8329,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the desiredNodePoolAutoConfigNetworkTags field is set.
      */
     public boolean hasDesiredNodePoolAutoConfigNetworkTags() {
-      return desiredNodePoolAutoConfigNetworkTagsBuilder_ != null || desiredNodePoolAutoConfigNetworkTags_ != null;
+      return ((bitField1_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -8033,11 +8361,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         desiredNodePoolAutoConfigNetworkTags_ = value;
-        onChanged();
       } else {
         desiredNodePoolAutoConfigNetworkTagsBuilder_.setMessage(value);
       }
-
+      bitField1_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -8052,11 +8380,11 @@ private static final long serialVersionUID = 0L;
         com.google.container.v1.NetworkTags.Builder builderForValue) {
       if (desiredNodePoolAutoConfigNetworkTagsBuilder_ == null) {
         desiredNodePoolAutoConfigNetworkTags_ = builderForValue.build();
-        onChanged();
       } else {
         desiredNodePoolAutoConfigNetworkTagsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField1_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -8069,17 +8397,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDesiredNodePoolAutoConfigNetworkTags(com.google.container.v1.NetworkTags value) {
       if (desiredNodePoolAutoConfigNetworkTagsBuilder_ == null) {
-        if (desiredNodePoolAutoConfigNetworkTags_ != null) {
-          desiredNodePoolAutoConfigNetworkTags_ =
-            com.google.container.v1.NetworkTags.newBuilder(desiredNodePoolAutoConfigNetworkTags_).mergeFrom(value).buildPartial();
+        if (((bitField1_ & 0x00000008) != 0) &&
+          desiredNodePoolAutoConfigNetworkTags_ != null &&
+          desiredNodePoolAutoConfigNetworkTags_ != com.google.container.v1.NetworkTags.getDefaultInstance()) {
+          getDesiredNodePoolAutoConfigNetworkTagsBuilder().mergeFrom(value);
         } else {
           desiredNodePoolAutoConfigNetworkTags_ = value;
         }
-        onChanged();
       } else {
         desiredNodePoolAutoConfigNetworkTagsBuilder_.mergeFrom(value);
       }
-
+      bitField1_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -8091,14 +8420,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.NetworkTags desired_node_pool_auto_config_network_tags = 110;</code>
      */
     public Builder clearDesiredNodePoolAutoConfigNetworkTags() {
-      if (desiredNodePoolAutoConfigNetworkTagsBuilder_ == null) {
-        desiredNodePoolAutoConfigNetworkTags_ = null;
-        onChanged();
-      } else {
-        desiredNodePoolAutoConfigNetworkTags_ = null;
+      bitField1_ = (bitField1_ & ~0x00000008);
+      desiredNodePoolAutoConfigNetworkTags_ = null;
+      if (desiredNodePoolAutoConfigNetworkTagsBuilder_ != null) {
+        desiredNodePoolAutoConfigNetworkTagsBuilder_.dispose();
         desiredNodePoolAutoConfigNetworkTagsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -8110,7 +8438,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.container.v1.NetworkTags desired_node_pool_auto_config_network_tags = 110;</code>
      */
     public com.google.container.v1.NetworkTags.Builder getDesiredNodePoolAutoConfigNetworkTagsBuilder() {
-      
+      bitField1_ |= 0x00000008;
       onChanged();
       return getDesiredNodePoolAutoConfigNetworkTagsFieldBuilder().getBuilder();
     }
@@ -8151,6 +8479,399 @@ private static final long serialVersionUID = 0L;
       }
       return desiredNodePoolAutoConfigNetworkTagsBuilder_;
     }
+
+    private com.google.container.v1.GatewayAPIConfig desiredGatewayApiConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.GatewayAPIConfig, com.google.container.v1.GatewayAPIConfig.Builder, com.google.container.v1.GatewayAPIConfigOrBuilder> desiredGatewayApiConfigBuilder_;
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     * @return Whether the desiredGatewayApiConfig field is set.
+     */
+    public boolean hasDesiredGatewayApiConfig() {
+      return ((bitField1_ & 0x00000010) != 0);
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     * @return The desiredGatewayApiConfig.
+     */
+    public com.google.container.v1.GatewayAPIConfig getDesiredGatewayApiConfig() {
+      if (desiredGatewayApiConfigBuilder_ == null) {
+        return desiredGatewayApiConfig_ == null ? com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : desiredGatewayApiConfig_;
+      } else {
+        return desiredGatewayApiConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    public Builder setDesiredGatewayApiConfig(com.google.container.v1.GatewayAPIConfig value) {
+      if (desiredGatewayApiConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        desiredGatewayApiConfig_ = value;
+      } else {
+        desiredGatewayApiConfigBuilder_.setMessage(value);
+      }
+      bitField1_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    public Builder setDesiredGatewayApiConfig(
+        com.google.container.v1.GatewayAPIConfig.Builder builderForValue) {
+      if (desiredGatewayApiConfigBuilder_ == null) {
+        desiredGatewayApiConfig_ = builderForValue.build();
+      } else {
+        desiredGatewayApiConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField1_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    public Builder mergeDesiredGatewayApiConfig(com.google.container.v1.GatewayAPIConfig value) {
+      if (desiredGatewayApiConfigBuilder_ == null) {
+        if (((bitField1_ & 0x00000010) != 0) &&
+          desiredGatewayApiConfig_ != null &&
+          desiredGatewayApiConfig_ != com.google.container.v1.GatewayAPIConfig.getDefaultInstance()) {
+          getDesiredGatewayApiConfigBuilder().mergeFrom(value);
+        } else {
+          desiredGatewayApiConfig_ = value;
+        }
+      } else {
+        desiredGatewayApiConfigBuilder_.mergeFrom(value);
+      }
+      bitField1_ |= 0x00000010;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    public Builder clearDesiredGatewayApiConfig() {
+      bitField1_ = (bitField1_ & ~0x00000010);
+      desiredGatewayApiConfig_ = null;
+      if (desiredGatewayApiConfigBuilder_ != null) {
+        desiredGatewayApiConfigBuilder_.dispose();
+        desiredGatewayApiConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    public com.google.container.v1.GatewayAPIConfig.Builder getDesiredGatewayApiConfigBuilder() {
+      bitField1_ |= 0x00000010;
+      onChanged();
+      return getDesiredGatewayApiConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    public com.google.container.v1.GatewayAPIConfigOrBuilder getDesiredGatewayApiConfigOrBuilder() {
+      if (desiredGatewayApiConfigBuilder_ != null) {
+        return desiredGatewayApiConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return desiredGatewayApiConfig_ == null ?
+            com.google.container.v1.GatewayAPIConfig.getDefaultInstance() : desiredGatewayApiConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * The desired config of Gateway API on this cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.GatewayAPIConfig desired_gateway_api_config = 114;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.GatewayAPIConfig, com.google.container.v1.GatewayAPIConfig.Builder, com.google.container.v1.GatewayAPIConfigOrBuilder> 
+        getDesiredGatewayApiConfigFieldBuilder() {
+      if (desiredGatewayApiConfigBuilder_ == null) {
+        desiredGatewayApiConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1.GatewayAPIConfig, com.google.container.v1.GatewayAPIConfig.Builder, com.google.container.v1.GatewayAPIConfigOrBuilder>(
+                getDesiredGatewayApiConfig(),
+                getParentForChildren(),
+                isClean());
+        desiredGatewayApiConfig_ = null;
+      }
+      return desiredGatewayApiConfigBuilder_;
+    }
+
+    private com.google.container.v1.NodePoolLoggingConfig desiredNodePoolLoggingConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.NodePoolLoggingConfig, com.google.container.v1.NodePoolLoggingConfig.Builder, com.google.container.v1.NodePoolLoggingConfigOrBuilder> desiredNodePoolLoggingConfigBuilder_;
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     * @return Whether the desiredNodePoolLoggingConfig field is set.
+     */
+    public boolean hasDesiredNodePoolLoggingConfig() {
+      return ((bitField1_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     * @return The desiredNodePoolLoggingConfig.
+     */
+    public com.google.container.v1.NodePoolLoggingConfig getDesiredNodePoolLoggingConfig() {
+      if (desiredNodePoolLoggingConfigBuilder_ == null) {
+        return desiredNodePoolLoggingConfig_ == null ? com.google.container.v1.NodePoolLoggingConfig.getDefaultInstance() : desiredNodePoolLoggingConfig_;
+      } else {
+        return desiredNodePoolLoggingConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    public Builder setDesiredNodePoolLoggingConfig(com.google.container.v1.NodePoolLoggingConfig value) {
+      if (desiredNodePoolLoggingConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        desiredNodePoolLoggingConfig_ = value;
+      } else {
+        desiredNodePoolLoggingConfigBuilder_.setMessage(value);
+      }
+      bitField1_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    public Builder setDesiredNodePoolLoggingConfig(
+        com.google.container.v1.NodePoolLoggingConfig.Builder builderForValue) {
+      if (desiredNodePoolLoggingConfigBuilder_ == null) {
+        desiredNodePoolLoggingConfig_ = builderForValue.build();
+      } else {
+        desiredNodePoolLoggingConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField1_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    public Builder mergeDesiredNodePoolLoggingConfig(com.google.container.v1.NodePoolLoggingConfig value) {
+      if (desiredNodePoolLoggingConfigBuilder_ == null) {
+        if (((bitField1_ & 0x00000020) != 0) &&
+          desiredNodePoolLoggingConfig_ != null &&
+          desiredNodePoolLoggingConfig_ != com.google.container.v1.NodePoolLoggingConfig.getDefaultInstance()) {
+          getDesiredNodePoolLoggingConfigBuilder().mergeFrom(value);
+        } else {
+          desiredNodePoolLoggingConfig_ = value;
+        }
+      } else {
+        desiredNodePoolLoggingConfigBuilder_.mergeFrom(value);
+      }
+      bitField1_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    public Builder clearDesiredNodePoolLoggingConfig() {
+      bitField1_ = (bitField1_ & ~0x00000020);
+      desiredNodePoolLoggingConfig_ = null;
+      if (desiredNodePoolLoggingConfigBuilder_ != null) {
+        desiredNodePoolLoggingConfigBuilder_.dispose();
+        desiredNodePoolLoggingConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    public com.google.container.v1.NodePoolLoggingConfig.Builder getDesiredNodePoolLoggingConfigBuilder() {
+      bitField1_ |= 0x00000020;
+      onChanged();
+      return getDesiredNodePoolLoggingConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    public com.google.container.v1.NodePoolLoggingConfigOrBuilder getDesiredNodePoolLoggingConfigOrBuilder() {
+      if (desiredNodePoolLoggingConfigBuilder_ != null) {
+        return desiredNodePoolLoggingConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return desiredNodePoolLoggingConfig_ == null ?
+            com.google.container.v1.NodePoolLoggingConfig.getDefaultInstance() : desiredNodePoolLoggingConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * The desired node pool logging configuration defaults for the cluster.
+     * </pre>
+     *
+     * <code>.google.container.v1.NodePoolLoggingConfig desired_node_pool_logging_config = 116;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        com.google.container.v1.NodePoolLoggingConfig, com.google.container.v1.NodePoolLoggingConfig.Builder, com.google.container.v1.NodePoolLoggingConfigOrBuilder> 
+        getDesiredNodePoolLoggingConfigFieldBuilder() {
+      if (desiredNodePoolLoggingConfigBuilder_ == null) {
+        desiredNodePoolLoggingConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            com.google.container.v1.NodePoolLoggingConfig, com.google.container.v1.NodePoolLoggingConfig.Builder, com.google.container.v1.NodePoolLoggingConfigOrBuilder>(
+                getDesiredNodePoolLoggingConfig(),
+                getParentForChildren(),
+                isClean());
+        desiredNodePoolLoggingConfig_ = null;
+      }
+      return desiredNodePoolLoggingConfigBuilder_;
+    }
+
+    private int desiredStackType_ = 0;
+    /**
+     * <pre>
+     * The desired stack type of the cluster.
+     * If a stack type is provided and does not match the current stack type of
+     * the cluster, update will attempt to change the stack type to the new type.
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+     * @return The enum numeric value on the wire for desiredStackType.
+     */
+    @java.lang.Override public int getDesiredStackTypeValue() {
+      return desiredStackType_;
+    }
+    /**
+     * <pre>
+     * The desired stack type of the cluster.
+     * If a stack type is provided and does not match the current stack type of
+     * the cluster, update will attempt to change the stack type to the new type.
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+     * @param value The enum numeric value on the wire for desiredStackType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDesiredStackTypeValue(int value) {
+      desiredStackType_ = value;
+      bitField1_ |= 0x00000040;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired stack type of the cluster.
+     * If a stack type is provided and does not match the current stack type of
+     * the cluster, update will attempt to change the stack type to the new type.
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+     * @return The desiredStackType.
+     */
+    @java.lang.Override
+    public com.google.container.v1.StackType getDesiredStackType() {
+      com.google.container.v1.StackType result = com.google.container.v1.StackType.forNumber(desiredStackType_);
+      return result == null ? com.google.container.v1.StackType.UNRECOGNIZED : result;
+    }
+    /**
+     * <pre>
+     * The desired stack type of the cluster.
+     * If a stack type is provided and does not match the current stack type of
+     * the cluster, update will attempt to change the stack type to the new type.
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+     * @param value The desiredStackType to set.
+     * @return This builder for chaining.
+     */
+    public Builder setDesiredStackType(com.google.container.v1.StackType value) {
+      if (value == null) {
+        throw new NullPointerException();
+      }
+      bitField1_ |= 0x00000040;
+      desiredStackType_ = value.getNumber();
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * The desired stack type of the cluster.
+     * If a stack type is provided and does not match the current stack type of
+     * the cluster, update will attempt to change the stack type to the new type.
+     * </pre>
+     *
+     * <code>.google.container.v1.StackType desired_stack_type = 119;</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearDesiredStackType() {
+      bitField1_ = (bitField1_ & ~0x00000040);
+      desiredStackType_ = 0;
+      onChanged();
+      return this;
+    }
     @java.lang.Override
     public final Builder setUnknownFields(
         final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -8184,7 +8905,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ClusterUpdate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

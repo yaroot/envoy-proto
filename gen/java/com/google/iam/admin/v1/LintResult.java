@@ -39,89 +39,15 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private LintResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            level_ = rawValue;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            validationUnitName_ = s;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            severity_ = rawValue;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            fieldName_ = s;
-            break;
-          }
-          case 48: {
-
-            locationOffset_ = input.readInt32();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            debugMessage_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_LintResult_descriptor;
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_LintResult_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_LintResult_fieldAccessorTable
+    return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_LintResult_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             com.google.iam.admin.v1.LintResult.class, com.google.iam.admin.v1.LintResult.Builder.class);
   }
@@ -292,7 +218,7 @@ private static final long serialVersionUID = 0L;
      * won't behave as expected during policy evaluation in `checkPolicy`.
      * This includes the following common scenarios:
      * - Unsatisfiable condition: Expired timestamp in date/time condition.
-     * - Ineffective condition: Condition on a &lt;member, role&gt; pair which is
+     * - Ineffective condition: Condition on a &lt;principal, role&gt; pair which is
      *   granted unconditionally in another binding of the same policy.
      * </pre>
      *
@@ -357,7 +283,7 @@ private static final long serialVersionUID = 0L;
      * won't behave as expected during policy evaluation in `checkPolicy`.
      * This includes the following common scenarios:
      * - Unsatisfiable condition: Expired timestamp in date/time condition.
-     * - Ineffective condition: Condition on a &lt;member, role&gt; pair which is
+     * - Ineffective condition: Condition on a &lt;principal, role&gt; pair which is
      *   granted unconditionally in another binding of the same policy.
      * </pre>
      *
@@ -482,7 +408,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LEVEL_FIELD_NUMBER = 1;
-  private int level_;
+  private int level_ = 0;
   /**
    * <pre>
    * The validation unit level.
@@ -503,13 +429,13 @@ private static final long serialVersionUID = 0L;
    * @return The level.
    */
   @java.lang.Override public com.google.iam.admin.v1.LintResult.Level getLevel() {
-    @SuppressWarnings("deprecation")
-    com.google.iam.admin.v1.LintResult.Level result = com.google.iam.admin.v1.LintResult.Level.valueOf(level_);
+    com.google.iam.admin.v1.LintResult.Level result = com.google.iam.admin.v1.LintResult.Level.forNumber(level_);
     return result == null ? com.google.iam.admin.v1.LintResult.Level.UNRECOGNIZED : result;
   }
 
   public static final int VALIDATION_UNIT_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object validationUnitName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object validationUnitName_ = "";
   /**
    * <pre>
    * The validation unit name, for instance
@@ -557,7 +483,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SEVERITY_FIELD_NUMBER = 3;
-  private int severity_;
+  private int severity_ = 0;
   /**
    * <pre>
    * The validation unit severity.
@@ -578,13 +504,13 @@ private static final long serialVersionUID = 0L;
    * @return The severity.
    */
   @java.lang.Override public com.google.iam.admin.v1.LintResult.Severity getSeverity() {
-    @SuppressWarnings("deprecation")
-    com.google.iam.admin.v1.LintResult.Severity result = com.google.iam.admin.v1.LintResult.Severity.valueOf(severity_);
+    com.google.iam.admin.v1.LintResult.Severity result = com.google.iam.admin.v1.LintResult.Severity.forNumber(severity_);
     return result == null ? com.google.iam.admin.v1.LintResult.Severity.UNRECOGNIZED : result;
   }
 
   public static final int FIELD_NAME_FIELD_NUMBER = 5;
-  private volatile java.lang.Object fieldName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object fieldName_ = "";
   /**
    * <pre>
    * The name of the field for which this lint result is about.
@@ -640,7 +566,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOCATION_OFFSET_FIELD_NUMBER = 6;
-  private int locationOffset_;
+  private int locationOffset_ = 0;
   /**
    * <pre>
    * 0-based character position of problematic construct within the object
@@ -657,7 +583,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEBUG_MESSAGE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object debugMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object debugMessage_ = "";
   /**
    * <pre>
    * Human readable debug message associated with the issue.
@@ -734,7 +661,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(debugMessage_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, debugMessage_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -764,7 +691,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(debugMessage_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, debugMessage_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -789,7 +716,7 @@ private static final long serialVersionUID = 0L;
         != other.getLocationOffset()) return false;
     if (!getDebugMessage()
         .equals(other.getDebugMessage())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -812,7 +739,7 @@ private static final long serialVersionUID = 0L;
     hash = (53 * hash) + getLocationOffset();
     hash = (37 * hash) + DEBUG_MESSAGE_FIELD_NUMBER;
     hash = (53 * hash) + getDebugMessage().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -920,54 +847,44 @@ private static final long serialVersionUID = 0L;
       com.google.iam.admin.v1.LintResultOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_LintResult_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_LintResult_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_LintResult_fieldAccessorTable
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_LintResult_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.google.iam.admin.v1.LintResult.class, com.google.iam.admin.v1.LintResult.Builder.class);
     }
 
     // Construct using com.google.iam.admin.v1.LintResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       level_ = 0;
-
       validationUnitName_ = "";
-
       severity_ = 0;
-
       fieldName_ = "";
-
       locationOffset_ = 0;
-
       debugMessage_ = "";
-
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return com.google.iam.admin.v1.IamProto.internal_static_google_iam_admin_v1_LintResult_descriptor;
+      return com.google.iam.admin.v1.Iam.internal_static_google_iam_admin_v1_LintResult_descriptor;
     }
 
     @java.lang.Override
@@ -987,14 +904,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.iam.admin.v1.LintResult buildPartial() {
       com.google.iam.admin.v1.LintResult result = new com.google.iam.admin.v1.LintResult(this);
-      result.level_ = level_;
-      result.validationUnitName_ = validationUnitName_;
-      result.severity_ = severity_;
-      result.fieldName_ = fieldName_;
-      result.locationOffset_ = locationOffset_;
-      result.debugMessage_ = debugMessage_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.iam.admin.v1.LintResult result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.level_ = level_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.validationUnitName_ = validationUnitName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.severity_ = severity_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fieldName_ = fieldName_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.locationOffset_ = locationOffset_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.debugMessage_ = debugMessage_;
+      }
     }
 
     @java.lang.Override
@@ -1046,6 +980,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getValidationUnitName().isEmpty()) {
         validationUnitName_ = other.validationUnitName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.severity_ != 0) {
@@ -1053,6 +988,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getFieldName().isEmpty()) {
         fieldName_ = other.fieldName_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.getLocationOffset() != 0) {
@@ -1060,9 +996,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getDebugMessage().isEmpty()) {
         debugMessage_ = other.debugMessage_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1077,19 +1014,63 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.iam.admin.v1.LintResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              level_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              validationUnitName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              severity_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 42: {
+              fieldName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            case 48: {
+              locationOffset_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 58: {
+              debugMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.iam.admin.v1.LintResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int level_ = 0;
     /**
@@ -1113,8 +1094,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLevelValue(int value) {
-      
       level_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1128,8 +1109,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.iam.admin.v1.LintResult.Level getLevel() {
-      @SuppressWarnings("deprecation")
-      com.google.iam.admin.v1.LintResult.Level result = com.google.iam.admin.v1.LintResult.Level.valueOf(level_);
+      com.google.iam.admin.v1.LintResult.Level result = com.google.iam.admin.v1.LintResult.Level.forNumber(level_);
       return result == null ? com.google.iam.admin.v1.LintResult.Level.UNRECOGNIZED : result;
     }
     /**
@@ -1145,7 +1125,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       level_ = value.getNumber();
       onChanged();
       return this;
@@ -1159,7 +1139,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLevel() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       level_ = 0;
       onChanged();
       return this;
@@ -1221,11 +1201,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationUnitName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       validationUnitName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1239,8 +1217,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearValidationUnitName() {
-      
       validationUnitName_ = getDefaultInstance().getValidationUnitName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1256,12 +1234,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setValidationUnitNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       validationUnitName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1288,8 +1264,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setSeverityValue(int value) {
-      
       severity_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1303,8 +1279,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.iam.admin.v1.LintResult.Severity getSeverity() {
-      @SuppressWarnings("deprecation")
-      com.google.iam.admin.v1.LintResult.Severity result = com.google.iam.admin.v1.LintResult.Severity.valueOf(severity_);
+      com.google.iam.admin.v1.LintResult.Severity result = com.google.iam.admin.v1.LintResult.Severity.forNumber(severity_);
       return result == null ? com.google.iam.admin.v1.LintResult.Severity.UNRECOGNIZED : result;
     }
     /**
@@ -1320,7 +1295,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       severity_ = value.getNumber();
       onChanged();
       return this;
@@ -1334,7 +1309,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSeverity() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       severity_ = 0;
       onChanged();
       return this;
@@ -1408,11 +1383,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFieldName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       fieldName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1430,8 +1403,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearFieldName() {
-      
       fieldName_ = getDefaultInstance().getFieldName();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1451,12 +1424,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setFieldNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       fieldName_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1490,6 +1461,7 @@ private static final long serialVersionUID = 0L;
     public Builder setLocationOffset(int value) {
       
       locationOffset_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1504,7 +1476,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLocationOffset() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       locationOffset_ = 0;
       onChanged();
       return this;
@@ -1563,11 +1535,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebugMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       debugMessage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1580,8 +1550,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDebugMessage() {
-      
       debugMessage_ = getDefaultInstance().getDebugMessage();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1596,12 +1566,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDebugMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       debugMessage_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1638,7 +1606,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LintResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

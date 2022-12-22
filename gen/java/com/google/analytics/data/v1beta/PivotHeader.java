@@ -35,63 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private PivotHeader(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              pivotDimensionHeaders_ = new java.util.ArrayList<com.google.analytics.data.v1beta.PivotDimensionHeader>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            pivotDimensionHeaders_.add(
-                input.readMessage(com.google.analytics.data.v1beta.PivotDimensionHeader.parser(), extensionRegistry));
-            break;
-          }
-          case 16: {
-
-            rowCount_ = input.readInt32();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        pivotDimensionHeaders_ = java.util.Collections.unmodifiableList(pivotDimensionHeaders_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.analytics.data.v1beta.ReportingApiProto.internal_static_google_analytics_data_v1beta_PivotHeader_descriptor;
@@ -106,6 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PIVOT_DIMENSION_HEADERS_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.analytics.data.v1beta.PivotDimensionHeader> pivotDimensionHeaders_;
   /**
    * <pre>
@@ -171,7 +115,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ROW_COUNT_FIELD_NUMBER = 2;
-  private int rowCount_;
+  private int rowCount_ = 0;
   /**
    * <pre>
    * The cardinality of the pivot. The total number of rows for this pivot's
@@ -207,7 +151,7 @@ private static final long serialVersionUID = 0L;
     if (rowCount_ != 0) {
       output.writeInt32(2, rowCount_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -224,7 +168,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt32Size(2, rowCount_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -243,7 +187,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getPivotDimensionHeadersList())) return false;
     if (getRowCount()
         != other.getRowCount()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -260,7 +204,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + ROW_COUNT_FIELD_NUMBER;
     hash = (53 * hash) + getRowCount();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -381,31 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.analytics.data.v1beta.PivotHeader.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getPivotDimensionHeadersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (pivotDimensionHeadersBuilder_ == null) {
         pivotDimensionHeaders_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        pivotDimensionHeaders_ = null;
         pivotDimensionHeadersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       rowCount_ = 0;
-
       return this;
     }
 
@@ -432,7 +371,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.analytics.data.v1beta.PivotHeader buildPartial() {
       com.google.analytics.data.v1beta.PivotHeader result = new com.google.analytics.data.v1beta.PivotHeader(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.analytics.data.v1beta.PivotHeader result) {
       if (pivotDimensionHeadersBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           pivotDimensionHeaders_ = java.util.Collections.unmodifiableList(pivotDimensionHeaders_);
@@ -442,9 +387,13 @@ private static final long serialVersionUID = 0L;
       } else {
         result.pivotDimensionHeaders_ = pivotDimensionHeadersBuilder_.build();
       }
-      result.rowCount_ = rowCount_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.analytics.data.v1beta.PivotHeader result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.rowCount_ = rowCount_;
+      }
     }
 
     @java.lang.Override
@@ -520,7 +469,7 @@ private static final long serialVersionUID = 0L;
       if (other.getRowCount() != 0) {
         setRowCount(other.getRowCount());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -535,17 +484,48 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.analytics.data.v1beta.PivotHeader parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.analytics.data.v1beta.PivotDimensionHeader m =
+                  input.readMessage(
+                      com.google.analytics.data.v1beta.PivotDimensionHeader.parser(),
+                      extensionRegistry);
+              if (pivotDimensionHeadersBuilder_ == null) {
+                ensurePivotDimensionHeadersIsMutable();
+                pivotDimensionHeaders_.add(m);
+              } else {
+                pivotDimensionHeadersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              rowCount_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.analytics.data.v1beta.PivotHeader) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -909,6 +889,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRowCount(int value) {
       
       rowCount_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -923,7 +904,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRowCount() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       rowCount_ = 0;
       onChanged();
       return this;
@@ -961,7 +942,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new PivotHeader(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

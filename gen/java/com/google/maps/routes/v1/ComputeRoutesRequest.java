@@ -41,156 +41,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ComputeRoutesRequest(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.maps.routes.v1.Waypoint.Builder subBuilder = null;
-            if (origin_ != null) {
-              subBuilder = origin_.toBuilder();
-            }
-            origin_ = input.readMessage(com.google.maps.routes.v1.Waypoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(origin_);
-              origin_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.maps.routes.v1.Waypoint.Builder subBuilder = null;
-            if (destination_ != null) {
-              subBuilder = destination_.toBuilder();
-            }
-            destination_ = input.readMessage(com.google.maps.routes.v1.Waypoint.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(destination_);
-              destination_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              intermediates_ = new java.util.ArrayList<com.google.maps.routes.v1.Waypoint>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            intermediates_.add(
-                input.readMessage(com.google.maps.routes.v1.Waypoint.parser(), extensionRegistry));
-            break;
-          }
-          case 32: {
-            int rawValue = input.readEnum();
-
-            travelMode_ = rawValue;
-            break;
-          }
-          case 40: {
-            int rawValue = input.readEnum();
-
-            routingPreference_ = rawValue;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            polylineQuality_ = rawValue;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (departureTime_ != null) {
-              subBuilder = departureTime_.toBuilder();
-            }
-            departureTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(departureTime_);
-              departureTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 64: {
-
-            computeAlternativeRoutes_ = input.readBool();
-            break;
-          }
-          case 74: {
-            com.google.maps.routes.v1.RouteModifiers.Builder subBuilder = null;
-            if (routeModifiers_ != null) {
-              subBuilder = routeModifiers_.toBuilder();
-            }
-            routeModifiers_ = input.readMessage(com.google.maps.routes.v1.RouteModifiers.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routeModifiers_);
-              routeModifiers_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 88: {
-            int rawValue = input.readEnum();
-
-            units_ = rawValue;
-            break;
-          }
-          case 96: {
-            int rawValue = input.readEnum();
-
-            polylineEncoding_ = rawValue;
-            break;
-          }
-          case 104: {
-
-            optimizeWaypointOrder_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        intermediates_ = java.util.Collections.unmodifiableList(intermediates_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.routes.v1.ComputeRoutesRequestProto.internal_static_google_maps_routes_v1_ComputeRoutesRequest_descriptor;
@@ -239,7 +89,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.WaypointOrBuilder getOriginOrBuilder() {
-    return getOrigin();
+    return origin_ == null ? com.google.maps.routes.v1.Waypoint.getDefaultInstance() : origin_;
   }
 
   public static final int DESTINATION_FIELD_NUMBER = 2;
@@ -277,10 +127,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.WaypointOrBuilder getDestinationOrBuilder() {
-    return getDestination();
+    return destination_ == null ? com.google.maps.routes.v1.Waypoint.getDefaultInstance() : destination_;
   }
 
   public static final int INTERMEDIATES_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.maps.routes.v1.Waypoint> intermediates_;
   /**
    * <pre>
@@ -351,7 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRAVEL_MODE_FIELD_NUMBER = 4;
-  private int travelMode_;
+  private int travelMode_ = 0;
   /**
    * <pre>
    * Optional. Specifies the mode of transportation.
@@ -372,13 +223,12 @@ private static final long serialVersionUID = 0L;
    * @return The travelMode.
    */
   @java.lang.Override public com.google.maps.routes.v1.RouteTravelMode getTravelMode() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routes.v1.RouteTravelMode result = com.google.maps.routes.v1.RouteTravelMode.valueOf(travelMode_);
+    com.google.maps.routes.v1.RouteTravelMode result = com.google.maps.routes.v1.RouteTravelMode.forNumber(travelMode_);
     return result == null ? com.google.maps.routes.v1.RouteTravelMode.UNRECOGNIZED : result;
   }
 
   public static final int ROUTING_PREFERENCE_FIELD_NUMBER = 5;
-  private int routingPreference_;
+  private int routingPreference_ = 0;
   /**
    * <pre>
    * Optional. Specifies how to compute the route. The server
@@ -411,13 +261,12 @@ private static final long serialVersionUID = 0L;
    * @return The routingPreference.
    */
   @java.lang.Override public com.google.maps.routes.v1.RoutingPreference getRoutingPreference() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routes.v1.RoutingPreference result = com.google.maps.routes.v1.RoutingPreference.valueOf(routingPreference_);
+    com.google.maps.routes.v1.RoutingPreference result = com.google.maps.routes.v1.RoutingPreference.forNumber(routingPreference_);
     return result == null ? com.google.maps.routes.v1.RoutingPreference.UNRECOGNIZED : result;
   }
 
   public static final int POLYLINE_QUALITY_FIELD_NUMBER = 6;
-  private int polylineQuality_;
+  private int polylineQuality_ = 0;
   /**
    * <pre>
    * Optional. Specifies your preference for the quality of the polyline.
@@ -438,13 +287,12 @@ private static final long serialVersionUID = 0L;
    * @return The polylineQuality.
    */
   @java.lang.Override public com.google.maps.routes.v1.PolylineQuality getPolylineQuality() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routes.v1.PolylineQuality result = com.google.maps.routes.v1.PolylineQuality.valueOf(polylineQuality_);
+    com.google.maps.routes.v1.PolylineQuality result = com.google.maps.routes.v1.PolylineQuality.forNumber(polylineQuality_);
     return result == null ? com.google.maps.routes.v1.PolylineQuality.UNRECOGNIZED : result;
   }
 
   public static final int POLYLINE_ENCODING_FIELD_NUMBER = 12;
-  private int polylineEncoding_;
+  private int polylineEncoding_ = 0;
   /**
    * <pre>
    * Optional. Specifies the preferred encoding for the polyline.
@@ -465,8 +313,7 @@ private static final long serialVersionUID = 0L;
    * @return The polylineEncoding.
    */
   @java.lang.Override public com.google.maps.routes.v1.PolylineEncoding getPolylineEncoding() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routes.v1.PolylineEncoding result = com.google.maps.routes.v1.PolylineEncoding.valueOf(polylineEncoding_);
+    com.google.maps.routes.v1.PolylineEncoding result = com.google.maps.routes.v1.PolylineEncoding.forNumber(polylineEncoding_);
     return result == null ? com.google.maps.routes.v1.PolylineEncoding.UNRECOGNIZED : result;
   }
 
@@ -511,11 +358,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getDepartureTimeOrBuilder() {
-    return getDepartureTime();
+    return departureTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : departureTime_;
   }
 
   public static final int COMPUTE_ALTERNATIVE_ROUTES_FIELD_NUMBER = 8;
-  private boolean computeAlternativeRoutes_;
+  private boolean computeAlternativeRoutes_ = false;
   /**
    * <pre>
    * Specifies whether to calculate alternate routes in addition to the route.
@@ -567,11 +414,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.maps.routes.v1.RouteModifiersOrBuilder getRouteModifiersOrBuilder() {
-    return getRouteModifiers();
+    return routeModifiers_ == null ? com.google.maps.routes.v1.RouteModifiers.getDefaultInstance() : routeModifiers_;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 10;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * Optional. The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -627,7 +475,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UNITS_FIELD_NUMBER = 11;
-  private int units_;
+  private int units_ = 0;
   /**
    * <pre>
    * Optional. Specifies the units of measure for the display fields. This
@@ -656,13 +504,12 @@ private static final long serialVersionUID = 0L;
    * @return The units.
    */
   @java.lang.Override public com.google.maps.routes.v1.Units getUnits() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.routes.v1.Units result = com.google.maps.routes.v1.Units.valueOf(units_);
+    com.google.maps.routes.v1.Units result = com.google.maps.routes.v1.Units.forNumber(units_);
     return result == null ? com.google.maps.routes.v1.Units.UNRECOGNIZED : result;
   }
 
   public static final int OPTIMIZE_WAYPOINT_ORDER_FIELD_NUMBER = 13;
-  private boolean optimizeWaypointOrder_;
+  private boolean optimizeWaypointOrder_ = false;
   /**
    * <pre>
    * If optimizeWaypointOrder is set to true, an attempt is made to re-order the
@@ -736,7 +583,7 @@ private static final long serialVersionUID = 0L;
     if (optimizeWaypointOrder_ != false) {
       output.writeBool(13, optimizeWaypointOrder_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -796,7 +643,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(13, optimizeWaypointOrder_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -844,7 +691,7 @@ private static final long serialVersionUID = 0L;
     if (units_ != other.units_) return false;
     if (getOptimizeWaypointOrder()
         != other.getOptimizeWaypointOrder()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -893,7 +740,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + OPTIMIZE_WAYPOINT_ORDER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getOptimizeWaypointOrder());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1014,69 +861,53 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.routes.v1.ComputeRoutesRequest.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getIntermediatesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (originBuilder_ == null) {
-        origin_ = null;
-      } else {
-        origin_ = null;
+      bitField0_ = 0;
+      origin_ = null;
+      if (originBuilder_ != null) {
+        originBuilder_.dispose();
         originBuilder_ = null;
       }
-      if (destinationBuilder_ == null) {
-        destination_ = null;
-      } else {
-        destination_ = null;
+      destination_ = null;
+      if (destinationBuilder_ != null) {
+        destinationBuilder_.dispose();
         destinationBuilder_ = null;
       }
       if (intermediatesBuilder_ == null) {
         intermediates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        intermediates_ = null;
         intermediatesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       travelMode_ = 0;
-
       routingPreference_ = 0;
-
       polylineQuality_ = 0;
-
       polylineEncoding_ = 0;
-
-      if (departureTimeBuilder_ == null) {
-        departureTime_ = null;
-      } else {
-        departureTime_ = null;
+      departureTime_ = null;
+      if (departureTimeBuilder_ != null) {
+        departureTimeBuilder_.dispose();
         departureTimeBuilder_ = null;
       }
       computeAlternativeRoutes_ = false;
-
-      if (routeModifiersBuilder_ == null) {
-        routeModifiers_ = null;
-      } else {
-        routeModifiers_ = null;
+      routeModifiers_ = null;
+      if (routeModifiersBuilder_ != null) {
+        routeModifiersBuilder_.dispose();
         routeModifiersBuilder_ = null;
       }
       languageCode_ = "";
-
       units_ = 0;
-
       optimizeWaypointOrder_ = false;
-
       return this;
     }
 
@@ -1103,46 +934,70 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.routes.v1.ComputeRoutesRequest buildPartial() {
       com.google.maps.routes.v1.ComputeRoutesRequest result = new com.google.maps.routes.v1.ComputeRoutesRequest(this);
-      int from_bitField0_ = bitField0_;
-      if (originBuilder_ == null) {
-        result.origin_ = origin_;
-      } else {
-        result.origin_ = originBuilder_.build();
-      }
-      if (destinationBuilder_ == null) {
-        result.destination_ = destination_;
-      } else {
-        result.destination_ = destinationBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.maps.routes.v1.ComputeRoutesRequest result) {
       if (intermediatesBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000004) != 0)) {
           intermediates_ = java.util.Collections.unmodifiableList(intermediates_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         }
         result.intermediates_ = intermediates_;
       } else {
         result.intermediates_ = intermediatesBuilder_.build();
       }
-      result.travelMode_ = travelMode_;
-      result.routingPreference_ = routingPreference_;
-      result.polylineQuality_ = polylineQuality_;
-      result.polylineEncoding_ = polylineEncoding_;
-      if (departureTimeBuilder_ == null) {
-        result.departureTime_ = departureTime_;
-      } else {
-        result.departureTime_ = departureTimeBuilder_.build();
+    }
+
+    private void buildPartial0(com.google.maps.routes.v1.ComputeRoutesRequest result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.origin_ = originBuilder_ == null
+            ? origin_
+            : originBuilder_.build();
       }
-      result.computeAlternativeRoutes_ = computeAlternativeRoutes_;
-      if (routeModifiersBuilder_ == null) {
-        result.routeModifiers_ = routeModifiers_;
-      } else {
-        result.routeModifiers_ = routeModifiersBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.destination_ = destinationBuilder_ == null
+            ? destination_
+            : destinationBuilder_.build();
       }
-      result.languageCode_ = languageCode_;
-      result.units_ = units_;
-      result.optimizeWaypointOrder_ = optimizeWaypointOrder_;
-      onBuilt();
-      return result;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.travelMode_ = travelMode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.routingPreference_ = routingPreference_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.polylineQuality_ = polylineQuality_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.polylineEncoding_ = polylineEncoding_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.departureTime_ = departureTimeBuilder_ == null
+            ? departureTime_
+            : departureTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.computeAlternativeRoutes_ = computeAlternativeRoutes_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.routeModifiers_ = routeModifiersBuilder_ == null
+            ? routeModifiers_
+            : routeModifiersBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.units_ = units_;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.optimizeWaypointOrder_ = optimizeWaypointOrder_;
+      }
     }
 
     @java.lang.Override
@@ -1199,7 +1054,7 @@ private static final long serialVersionUID = 0L;
         if (!other.intermediates_.isEmpty()) {
           if (intermediates_.isEmpty()) {
             intermediates_ = other.intermediates_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureIntermediatesIsMutable();
             intermediates_.addAll(other.intermediates_);
@@ -1212,7 +1067,7 @@ private static final long serialVersionUID = 0L;
             intermediatesBuilder_.dispose();
             intermediatesBuilder_ = null;
             intermediates_ = other.intermediates_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000004);
             intermediatesBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getIntermediatesFieldBuilder() : null;
@@ -1244,6 +1099,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
       if (other.units_ != 0) {
@@ -1252,7 +1108,7 @@ private static final long serialVersionUID = 0L;
       if (other.getOptimizeWaypointOrder() != false) {
         setOptimizeWaypointOrder(other.getOptimizeWaypointOrder());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1267,17 +1123,111 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.routes.v1.ComputeRoutesRequest parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getOriginFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getDestinationFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.maps.routes.v1.Waypoint m =
+                  input.readMessage(
+                      com.google.maps.routes.v1.Waypoint.parser(),
+                      extensionRegistry);
+              if (intermediatesBuilder_ == null) {
+                ensureIntermediatesIsMutable();
+                intermediates_.add(m);
+              } else {
+                intermediatesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 26
+            case 32: {
+              travelMode_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              routingPreference_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              polylineQuality_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getDepartureTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 64: {
+              computeAlternativeRoutes_ = input.readBool();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 64
+            case 74: {
+              input.readMessage(
+                  getRouteModifiersFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 82: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 82
+            case 88: {
+              units_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 88
+            case 96: {
+              polylineEncoding_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 96
+            case 104: {
+              optimizeWaypointOrder_ = input.readBool();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.routes.v1.ComputeRoutesRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1294,7 +1244,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the origin field is set.
      */
     public boolean hasOrigin() {
-      return originBuilder_ != null || origin_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1324,11 +1274,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         origin_ = value;
-        onChanged();
       } else {
         originBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1342,11 +1292,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.Waypoint.Builder builderForValue) {
       if (originBuilder_ == null) {
         origin_ = builderForValue.build();
-        onChanged();
       } else {
         originBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1358,17 +1308,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOrigin(com.google.maps.routes.v1.Waypoint value) {
       if (originBuilder_ == null) {
-        if (origin_ != null) {
-          origin_ =
-            com.google.maps.routes.v1.Waypoint.newBuilder(origin_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          origin_ != null &&
+          origin_ != com.google.maps.routes.v1.Waypoint.getDefaultInstance()) {
+          getOriginBuilder().mergeFrom(value);
         } else {
           origin_ = value;
         }
-        onChanged();
       } else {
         originBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1379,14 +1330,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.Waypoint origin = 1;</code>
      */
     public Builder clearOrigin() {
-      if (originBuilder_ == null) {
-        origin_ = null;
-        onChanged();
-      } else {
-        origin_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      origin_ = null;
+      if (originBuilder_ != null) {
+        originBuilder_.dispose();
         originBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1397,7 +1347,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.Waypoint origin = 1;</code>
      */
     public com.google.maps.routes.v1.Waypoint.Builder getOriginBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getOriginFieldBuilder().getBuilder();
     }
@@ -1449,7 +1399,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the destination field is set.
      */
     public boolean hasDestination() {
-      return destinationBuilder_ != null || destination_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1479,11 +1429,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         destination_ = value;
-        onChanged();
       } else {
         destinationBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1497,11 +1447,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.Waypoint.Builder builderForValue) {
       if (destinationBuilder_ == null) {
         destination_ = builderForValue.build();
-        onChanged();
       } else {
         destinationBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1513,17 +1463,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDestination(com.google.maps.routes.v1.Waypoint value) {
       if (destinationBuilder_ == null) {
-        if (destination_ != null) {
-          destination_ =
-            com.google.maps.routes.v1.Waypoint.newBuilder(destination_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          destination_ != null &&
+          destination_ != com.google.maps.routes.v1.Waypoint.getDefaultInstance()) {
+          getDestinationBuilder().mergeFrom(value);
         } else {
           destination_ = value;
         }
-        onChanged();
       } else {
         destinationBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1534,14 +1485,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.Waypoint destination = 2;</code>
      */
     public Builder clearDestination() {
-      if (destinationBuilder_ == null) {
-        destination_ = null;
-        onChanged();
-      } else {
-        destination_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      destination_ = null;
+      if (destinationBuilder_ != null) {
+        destinationBuilder_.dispose();
         destinationBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1552,7 +1502,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.Waypoint destination = 2;</code>
      */
     public com.google.maps.routes.v1.Waypoint.Builder getDestinationBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getDestinationFieldBuilder().getBuilder();
     }
@@ -1595,9 +1545,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.maps.routes.v1.Waypoint> intermediates_ =
       java.util.Collections.emptyList();
     private void ensureIntermediatesIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         intermediates_ = new java.util.ArrayList<com.google.maps.routes.v1.Waypoint>(intermediates_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
 
@@ -1813,7 +1763,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearIntermediates() {
       if (intermediatesBuilder_ == null) {
         intermediates_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
       } else {
         intermediatesBuilder_.clear();
@@ -1932,7 +1882,7 @@ private static final long serialVersionUID = 0L;
         intermediatesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.maps.routes.v1.Waypoint, com.google.maps.routes.v1.Waypoint.Builder, com.google.maps.routes.v1.WaypointOrBuilder>(
                 intermediates_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000004) != 0),
                 getParentForChildren(),
                 isClean());
         intermediates_ = null;
@@ -1962,8 +1912,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTravelModeValue(int value) {
-      
       travelMode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1977,8 +1927,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.RouteTravelMode getTravelMode() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routes.v1.RouteTravelMode result = com.google.maps.routes.v1.RouteTravelMode.valueOf(travelMode_);
+      com.google.maps.routes.v1.RouteTravelMode result = com.google.maps.routes.v1.RouteTravelMode.forNumber(travelMode_);
       return result == null ? com.google.maps.routes.v1.RouteTravelMode.UNRECOGNIZED : result;
     }
     /**
@@ -1994,7 +1943,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000008;
       travelMode_ = value.getNumber();
       onChanged();
       return this;
@@ -2008,7 +1957,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTravelMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       travelMode_ = 0;
       onChanged();
       return this;
@@ -2048,8 +1997,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setRoutingPreferenceValue(int value) {
-      
       routingPreference_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2069,8 +2018,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.RoutingPreference getRoutingPreference() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routes.v1.RoutingPreference result = com.google.maps.routes.v1.RoutingPreference.valueOf(routingPreference_);
+      com.google.maps.routes.v1.RoutingPreference result = com.google.maps.routes.v1.RoutingPreference.forNumber(routingPreference_);
       return result == null ? com.google.maps.routes.v1.RoutingPreference.UNRECOGNIZED : result;
     }
     /**
@@ -2092,7 +2040,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000010;
       routingPreference_ = value.getNumber();
       onChanged();
       return this;
@@ -2112,7 +2060,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRoutingPreference() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       routingPreference_ = 0;
       onChanged();
       return this;
@@ -2140,8 +2088,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPolylineQualityValue(int value) {
-      
       polylineQuality_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2155,8 +2103,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.PolylineQuality getPolylineQuality() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routes.v1.PolylineQuality result = com.google.maps.routes.v1.PolylineQuality.valueOf(polylineQuality_);
+      com.google.maps.routes.v1.PolylineQuality result = com.google.maps.routes.v1.PolylineQuality.forNumber(polylineQuality_);
       return result == null ? com.google.maps.routes.v1.PolylineQuality.UNRECOGNIZED : result;
     }
     /**
@@ -2172,7 +2119,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000020;
       polylineQuality_ = value.getNumber();
       onChanged();
       return this;
@@ -2186,7 +2133,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolylineQuality() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       polylineQuality_ = 0;
       onChanged();
       return this;
@@ -2214,8 +2161,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPolylineEncodingValue(int value) {
-      
       polylineEncoding_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2229,8 +2176,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.PolylineEncoding getPolylineEncoding() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routes.v1.PolylineEncoding result = com.google.maps.routes.v1.PolylineEncoding.valueOf(polylineEncoding_);
+      com.google.maps.routes.v1.PolylineEncoding result = com.google.maps.routes.v1.PolylineEncoding.forNumber(polylineEncoding_);
       return result == null ? com.google.maps.routes.v1.PolylineEncoding.UNRECOGNIZED : result;
     }
     /**
@@ -2246,7 +2192,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000040;
       polylineEncoding_ = value.getNumber();
       onChanged();
       return this;
@@ -2260,7 +2206,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPolylineEncoding() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       polylineEncoding_ = 0;
       onChanged();
       return this;
@@ -2280,7 +2226,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the departureTime field is set.
      */
     public boolean hasDepartureTime() {
-      return departureTimeBuilder_ != null || departureTime_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2314,11 +2260,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         departureTime_ = value;
-        onChanged();
       } else {
         departureTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2334,11 +2280,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (departureTimeBuilder_ == null) {
         departureTime_ = builderForValue.build();
-        onChanged();
       } else {
         departureTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2352,17 +2298,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDepartureTime(com.google.protobuf.Timestamp value) {
       if (departureTimeBuilder_ == null) {
-        if (departureTime_ != null) {
-          departureTime_ =
-            com.google.protobuf.Timestamp.newBuilder(departureTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          departureTime_ != null &&
+          departureTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getDepartureTimeBuilder().mergeFrom(value);
         } else {
           departureTime_ = value;
         }
-        onChanged();
       } else {
         departureTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2375,14 +2322,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp departure_time = 7;</code>
      */
     public Builder clearDepartureTime() {
-      if (departureTimeBuilder_ == null) {
-        departureTime_ = null;
-        onChanged();
-      } else {
-        departureTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      departureTime_ = null;
+      if (departureTimeBuilder_ != null) {
+        departureTimeBuilder_.dispose();
         departureTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2395,7 +2341,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp departure_time = 7;</code>
      */
     public com.google.protobuf.Timestamp.Builder getDepartureTimeBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDepartureTimeFieldBuilder().getBuilder();
     }
@@ -2464,6 +2410,7 @@ private static final long serialVersionUID = 0L;
     public Builder setComputeAlternativeRoutes(boolean value) {
       
       computeAlternativeRoutes_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2476,7 +2423,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearComputeAlternativeRoutes() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       computeAlternativeRoutes_ = false;
       onChanged();
       return this;
@@ -2495,7 +2442,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routeModifiers field is set.
      */
     public boolean hasRouteModifiers() {
-      return routeModifiersBuilder_ != null || routeModifiers_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2527,11 +2474,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routeModifiers_ = value;
-        onChanged();
       } else {
         routeModifiersBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2546,11 +2493,11 @@ private static final long serialVersionUID = 0L;
         com.google.maps.routes.v1.RouteModifiers.Builder builderForValue) {
       if (routeModifiersBuilder_ == null) {
         routeModifiers_ = builderForValue.build();
-        onChanged();
       } else {
         routeModifiersBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2563,17 +2510,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouteModifiers(com.google.maps.routes.v1.RouteModifiers value) {
       if (routeModifiersBuilder_ == null) {
-        if (routeModifiers_ != null) {
-          routeModifiers_ =
-            com.google.maps.routes.v1.RouteModifiers.newBuilder(routeModifiers_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          routeModifiers_ != null &&
+          routeModifiers_ != com.google.maps.routes.v1.RouteModifiers.getDefaultInstance()) {
+          getRouteModifiersBuilder().mergeFrom(value);
         } else {
           routeModifiers_ = value;
         }
-        onChanged();
       } else {
         routeModifiersBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2585,14 +2533,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.RouteModifiers route_modifiers = 9;</code>
      */
     public Builder clearRouteModifiers() {
-      if (routeModifiersBuilder_ == null) {
-        routeModifiers_ = null;
-        onChanged();
-      } else {
-        routeModifiers_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      routeModifiers_ = null;
+      if (routeModifiersBuilder_ != null) {
+        routeModifiersBuilder_.dispose();
         routeModifiersBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2604,7 +2551,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.maps.routes.v1.RouteModifiers route_modifiers = 9;</code>
      */
     public com.google.maps.routes.v1.RouteModifiers.Builder getRouteModifiersBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getRouteModifiersFieldBuilder().getBuilder();
     }
@@ -2714,11 +2661,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2736,8 +2681,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2757,12 +2702,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2797,8 +2740,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setUnitsValue(int value) {
-      
       units_ = value;
+      bitField0_ |= 0x00000800;
       onChanged();
       return this;
     }
@@ -2816,8 +2759,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.routes.v1.Units getUnits() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.routes.v1.Units result = com.google.maps.routes.v1.Units.valueOf(units_);
+      com.google.maps.routes.v1.Units result = com.google.maps.routes.v1.Units.forNumber(units_);
       return result == null ? com.google.maps.routes.v1.Units.UNRECOGNIZED : result;
     }
     /**
@@ -2837,7 +2779,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000800;
       units_ = value.getNumber();
       onChanged();
       return this;
@@ -2855,7 +2797,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearUnits() {
-      
+      bitField0_ = (bitField0_ & ~0x00000800);
       units_ = 0;
       onChanged();
       return this;
@@ -2900,6 +2842,7 @@ private static final long serialVersionUID = 0L;
     public Builder setOptimizeWaypointOrder(boolean value) {
       
       optimizeWaypointOrder_ = value;
+      bitField0_ |= 0x00001000;
       onChanged();
       return this;
     }
@@ -2919,7 +2862,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOptimizeWaypointOrder() {
-      
+      bitField0_ = (bitField0_ & ~0x00001000);
       optimizeWaypointOrder_ = false;
       onChanged();
       return this;
@@ -2957,7 +2900,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ComputeRoutesRequest(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -12,10 +12,9 @@ _sym_db = _symbol_database.Default()
 
 
 from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/scheduler/v1beta1/target.proto\x12\x1egoogle.cloud.scheduler.v1beta1\x1a\x19google/api/resource.proto\x1a\x1cgoogle/api/annotations.proto\"\xfe\x02\n\nHttpTarget\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12?\n\x0bhttp_method\x18\x02 \x01(\x0e\x32*.google.cloud.scheduler.v1beta1.HttpMethod\x12H\n\x07headers\x18\x03 \x03(\x0b\x32\x37.google.cloud.scheduler.v1beta1.HttpTarget.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x04 \x01(\x0c\x12\x41\n\x0boauth_token\x18\x05 \x01(\x0b\x32*.google.cloud.scheduler.v1beta1.OAuthTokenH\x00\x12?\n\noidc_token\x18\x06 \x01(\x0b\x32).google.cloud.scheduler.v1beta1.OidcTokenH\x00\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x16\n\x14\x61uthorization_header\"\xcb\x02\n\x13\x41ppEngineHttpTarget\x12?\n\x0bhttp_method\x18\x01 \x01(\x0e\x32*.google.cloud.scheduler.v1beta1.HttpMethod\x12L\n\x12\x61pp_engine_routing\x18\x02 \x01(\x0b\x32\x30.google.cloud.scheduler.v1beta1.AppEngineRouting\x12\x14\n\x0crelative_uri\x18\x03 \x01(\t\x12Q\n\x07headers\x18\x04 \x03(\x0b\x32@.google.cloud.scheduler.v1beta1.AppEngineHttpTarget.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x05 \x01(\x0c\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd7\x01\n\x0cPubsubTarget\x12\x34\n\ntopic_name\x18\x01 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\x12P\n\nattributes\x18\x04 \x03(\x0b\x32<.google.cloud.scheduler.v1beta1.PubsubTarget.AttributesEntry\x1a\x31\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"T\n\x10\x41ppEngineRouting\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x10\n\x08instance\x18\x03 \x01(\t\x12\x0c\n\x04host\x18\x04 \x01(\t\":\n\nOAuthToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\r\n\x05scope\x18\x02 \x01(\t\"<\n\tOidcToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\x10\n\x08\x61udience\x18\x02 \x01(\t*s\n\nHttpMethod\x12\x1b\n\x17HTTP_METHOD_UNSPECIFIED\x10\x00\x12\x08\n\x04POST\x10\x01\x12\x07\n\x03GET\x10\x02\x12\x08\n\x04HEAD\x10\x03\x12\x07\n\x03PUT\x10\x04\x12\n\n\x06\x44\x45LETE\x10\x05\x12\t\n\x05PATCH\x10\x06\x12\x0b\n\x07OPTIONS\x10\x07\x42\xbf\x01\n\"com.google.cloud.scheduler.v1beta1B\x0bTargetProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/scheduler/v1beta1;scheduler\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n+google/cloud/scheduler/v1beta1/target.proto\x12\x1egoogle.cloud.scheduler.v1beta1\x1a\x19google/api/resource.proto\"\xfe\x02\n\nHttpTarget\x12\x0b\n\x03uri\x18\x01 \x01(\t\x12?\n\x0bhttp_method\x18\x02 \x01(\x0e\x32*.google.cloud.scheduler.v1beta1.HttpMethod\x12H\n\x07headers\x18\x03 \x03(\x0b\x32\x37.google.cloud.scheduler.v1beta1.HttpTarget.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x04 \x01(\x0c\x12\x41\n\x0boauth_token\x18\x05 \x01(\x0b\x32*.google.cloud.scheduler.v1beta1.OAuthTokenH\x00\x12?\n\noidc_token\x18\x06 \x01(\x0b\x32).google.cloud.scheduler.v1beta1.OidcTokenH\x00\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\x42\x16\n\x14\x61uthorization_header\"\xcb\x02\n\x13\x41ppEngineHttpTarget\x12?\n\x0bhttp_method\x18\x01 \x01(\x0e\x32*.google.cloud.scheduler.v1beta1.HttpMethod\x12L\n\x12\x61pp_engine_routing\x18\x02 \x01(\x0b\x32\x30.google.cloud.scheduler.v1beta1.AppEngineRouting\x12\x14\n\x0crelative_uri\x18\x03 \x01(\t\x12Q\n\x07headers\x18\x04 \x03(\x0b\x32@.google.cloud.scheduler.v1beta1.AppEngineHttpTarget.HeadersEntry\x12\x0c\n\x04\x62ody\x18\x05 \x01(\x0c\x1a.\n\x0cHeadersEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"\xd7\x01\n\x0cPubsubTarget\x12\x34\n\ntopic_name\x18\x01 \x01(\tB \xfa\x41\x1d\n\x1bpubsub.googleapis.com/Topic\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\x12P\n\nattributes\x18\x04 \x03(\x0b\x32<.google.cloud.scheduler.v1beta1.PubsubTarget.AttributesEntry\x1a\x31\n\x0f\x41ttributesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t:\x02\x38\x01\"T\n\x10\x41ppEngineRouting\x12\x0f\n\x07service\x18\x01 \x01(\t\x12\x0f\n\x07version\x18\x02 \x01(\t\x12\x10\n\x08instance\x18\x03 \x01(\t\x12\x0c\n\x04host\x18\x04 \x01(\t\":\n\nOAuthToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\r\n\x05scope\x18\x02 \x01(\t\"<\n\tOidcToken\x12\x1d\n\x15service_account_email\x18\x01 \x01(\t\x12\x10\n\x08\x61udience\x18\x02 \x01(\t*s\n\nHttpMethod\x12\x1b\n\x17HTTP_METHOD_UNSPECIFIED\x10\x00\x12\x08\n\x04POST\x10\x01\x12\x07\n\x03GET\x10\x02\x12\x08\n\x04HEAD\x10\x03\x12\x07\n\x03PUT\x10\x04\x12\n\n\x06\x44\x45LETE\x10\x05\x12\t\n\x05PATCH\x10\x06\x12\x0b\n\x07OPTIONS\x10\x07\x42\xbf\x01\n\"com.google.cloud.scheduler.v1beta1B\x0bTargetProtoP\x01ZGgoogle.golang.org/genproto/googleapis/cloud/scheduler/v1beta1;scheduler\xea\x41@\n\x1bpubsub.googleapis.com/Topic\x12!projects/{project}/topics/{topic}b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.scheduler.v1beta1.target_pb2', globals())
@@ -31,24 +30,24 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   _PUBSUBTARGET_ATTRIBUTESENTRY._serialized_options = b'8\001'
   _PUBSUBTARGET.fields_by_name['topic_name']._options = None
   _PUBSUBTARGET.fields_by_name['topic_name']._serialized_options = b'\372A\035\n\033pubsub.googleapis.com/Topic'
-  _HTTPMETHOD._serialized_start=1281
-  _HTTPMETHOD._serialized_end=1396
-  _HTTPTARGET._serialized_start=137
-  _HTTPTARGET._serialized_end=519
-  _HTTPTARGET_HEADERSENTRY._serialized_start=449
-  _HTTPTARGET_HEADERSENTRY._serialized_end=495
-  _APPENGINEHTTPTARGET._serialized_start=522
-  _APPENGINEHTTPTARGET._serialized_end=853
-  _APPENGINEHTTPTARGET_HEADERSENTRY._serialized_start=449
-  _APPENGINEHTTPTARGET_HEADERSENTRY._serialized_end=495
-  _PUBSUBTARGET._serialized_start=856
-  _PUBSUBTARGET._serialized_end=1071
-  _PUBSUBTARGET_ATTRIBUTESENTRY._serialized_start=1022
-  _PUBSUBTARGET_ATTRIBUTESENTRY._serialized_end=1071
-  _APPENGINEROUTING._serialized_start=1073
-  _APPENGINEROUTING._serialized_end=1157
-  _OAUTHTOKEN._serialized_start=1159
-  _OAUTHTOKEN._serialized_end=1217
-  _OIDCTOKEN._serialized_start=1219
-  _OIDCTOKEN._serialized_end=1279
+  _HTTPMETHOD._serialized_start=1251
+  _HTTPMETHOD._serialized_end=1366
+  _HTTPTARGET._serialized_start=107
+  _HTTPTARGET._serialized_end=489
+  _HTTPTARGET_HEADERSENTRY._serialized_start=419
+  _HTTPTARGET_HEADERSENTRY._serialized_end=465
+  _APPENGINEHTTPTARGET._serialized_start=492
+  _APPENGINEHTTPTARGET._serialized_end=823
+  _APPENGINEHTTPTARGET_HEADERSENTRY._serialized_start=419
+  _APPENGINEHTTPTARGET_HEADERSENTRY._serialized_end=465
+  _PUBSUBTARGET._serialized_start=826
+  _PUBSUBTARGET._serialized_end=1041
+  _PUBSUBTARGET_ATTRIBUTESENTRY._serialized_start=992
+  _PUBSUBTARGET_ATTRIBUTESENTRY._serialized_end=1041
+  _APPENGINEROUTING._serialized_start=1043
+  _APPENGINEROUTING._serialized_end=1127
+  _OAUTHTOKEN._serialized_start=1129
+  _OAUTHTOKEN._serialized_end=1187
+  _OIDCTOKEN._serialized_start=1189
+  _OIDCTOKEN._serialized_end=1249
 # @@protoc_insertion_point(module_scope)

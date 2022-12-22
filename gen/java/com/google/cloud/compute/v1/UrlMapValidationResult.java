@@ -36,80 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UrlMapValidationResult(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 1026609728: {
-            bitField0_ |= 0x00000001;
-            loadSucceeded_ = input.readBool();
-            break;
-          }
-          case 1541670376: {
-            bitField0_ |= 0x00000002;
-            testPassed_ = input.readBool();
-            break;
-          }
-          case -1813788894: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              loadErrors_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            loadErrors_.add(s);
-            break;
-          }
-          case -247494222: {
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              testFailures_ = new java.util.ArrayList<com.google.cloud.compute.v1.TestFailure>();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            testFailures_.add(
-                input.readMessage(com.google.cloud.compute.v1.TestFailure.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        loadErrors_ = loadErrors_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        testFailures_ = java.util.Collections.unmodifiableList(testFailures_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.compute.v1.Compute.internal_static_google_cloud_compute_v1_UrlMapValidationResult_descriptor;
@@ -125,6 +51,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int LOAD_ERRORS_FIELD_NUMBER = 310147300;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList loadErrors_;
   /**
    * <code>repeated string load_errors = 310147300;</code>
@@ -160,7 +87,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int LOAD_SUCCEEDED_FIELD_NUMBER = 128326216;
-  private boolean loadSucceeded_;
+  private boolean loadSucceeded_ = false;
   /**
    * <pre>
    * Whether the given UrlMap can be successfully loaded. If false, 'loadErrors' indicates the reasons.
@@ -187,6 +114,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEST_FAILURES_FIELD_NUMBER = 505934134;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.compute.v1.TestFailure> testFailures_;
   /**
    * <code>repeated .google.cloud.compute.v1.TestFailure test_failures = 505934134;</code>
@@ -227,7 +155,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEST_PASSED_FIELD_NUMBER = 192708797;
-  private boolean testPassed_;
+  private boolean testPassed_ = false;
   /**
    * <pre>
    * If successfully loaded, this field indicates whether the test passed. If false, 'testFailures's indicate the reason of failure.
@@ -279,7 +207,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < testFailures_.size(); i++) {
       output.writeMessage(505934134, testFailures_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -308,7 +236,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(505934134, testFailures_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -337,7 +265,7 @@ private static final long serialVersionUID = 0L;
       if (getTestPassed()
           != other.getTestPassed()) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -366,7 +294,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getTestPassed());
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -487,35 +415,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.compute.v1.UrlMapValidationResult.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getTestFailuresFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       loadErrors_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000001);
       loadSucceeded_ = false;
-      bitField0_ = (bitField0_ & ~0x00000002);
       if (testFailuresBuilder_ == null) {
         testFailures_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000004);
       } else {
+        testFailures_ = null;
         testFailuresBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000004);
       testPassed_ = false;
-      bitField0_ = (bitField0_ & ~0x00000008);
       return this;
     }
 
@@ -542,17 +464,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.compute.v1.UrlMapValidationResult buildPartial() {
       com.google.cloud.compute.v1.UrlMapValidationResult result = new com.google.cloud.compute.v1.UrlMapValidationResult(this);
-      int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.compute.v1.UrlMapValidationResult result) {
       if (((bitField0_ & 0x00000001) != 0)) {
         loadErrors_ = loadErrors_.getUnmodifiableView();
         bitField0_ = (bitField0_ & ~0x00000001);
       }
       result.loadErrors_ = loadErrors_;
-      if (((from_bitField0_ & 0x00000002) != 0)) {
-        result.loadSucceeded_ = loadSucceeded_;
-        to_bitField0_ |= 0x00000001;
-      }
       if (testFailuresBuilder_ == null) {
         if (((bitField0_ & 0x00000004) != 0)) {
           testFailures_ = java.util.Collections.unmodifiableList(testFailures_);
@@ -562,13 +485,20 @@ private static final long serialVersionUID = 0L;
       } else {
         result.testFailures_ = testFailuresBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.compute.v1.UrlMapValidationResult result) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.loadSucceeded_ = loadSucceeded_;
+        to_bitField0_ |= 0x00000001;
+      }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.testPassed_ = testPassed_;
         to_bitField0_ |= 0x00000002;
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -657,7 +587,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTestPassed()) {
         setTestPassed(other.getTestPassed());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -672,17 +602,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.compute.v1.UrlMapValidationResult parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1026609728: {
+              loadSucceeded_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 1026609728
+            case 1541670376: {
+              testPassed_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 1541670376
+            case -1813788894: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureLoadErrorsIsMutable();
+              loadErrors_.add(s);
+              break;
+            } // case -1813788894
+            case -247494222: {
+              com.google.cloud.compute.v1.TestFailure m =
+                  input.readMessage(
+                      com.google.cloud.compute.v1.TestFailure.parser(),
+                      extensionRegistry);
+              if (testFailuresBuilder_ == null) {
+                ensureTestFailuresIsMutable();
+                testFailures_.add(m);
+              } else {
+                testFailuresBuilder_.addMessage(m);
+              }
+              break;
+            } // case -247494222
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.compute.v1.UrlMapValidationResult) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -734,10 +706,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLoadErrors(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLoadErrorsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLoadErrorsIsMutable();
       loadErrors_.set(index, value);
       onChanged();
       return this;
@@ -749,10 +719,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLoadErrors(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureLoadErrorsIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureLoadErrorsIsMutable();
       loadErrors_.add(value);
       onChanged();
       return this;
@@ -787,10 +755,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addLoadErrorsBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureLoadErrorsIsMutable();
       loadErrors_.add(value);
       onChanged();
@@ -832,8 +798,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLoadSucceeded(boolean value) {
-      bitField0_ |= 0x00000002;
+      
       loadSucceeded_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1127,8 +1094,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTestPassed(boolean value) {
-      bitField0_ |= 0x00000008;
+      
       testPassed_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1179,7 +1147,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UrlMapValidationResult(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

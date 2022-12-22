@@ -34,73 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MediaImage(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder subBuilder = null;
-            if (imageCase_ == 1) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) image_).toBuilder();
-            }
-            image_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) image_);
-              image_ = subBuilder.buildPartial();
-            }
-            imageCase_ = 1;
-            break;
-          }
-          case 18: {
-            com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder subBuilder = null;
-            if (imageCase_ == 2) {
-              subBuilder = ((com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) image_).toBuilder();
-            }
-            image_ =
-                input.readMessage(com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) image_);
-              image_ = subBuilder.buildPartial();
-            }
-            imageCase_ = 2;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.actions.sdk.v2.interactionmodel.prompt.StaticMediaPromptProto.internal_static_google_actions_sdk_v2_interactionmodel_prompt_MediaImage_descriptor;
@@ -264,7 +197,7 @@ private static final long serialVersionUID = 0L;
     if (imageCase_ == 2) {
       output.writeMessage(2, (com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) image_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -281,7 +214,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, (com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt) image_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -309,7 +242,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -332,7 +265,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -453,22 +386,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
+      if (largeBuilder_ != null) {
+        largeBuilder_.clear();
+      }
+      if (iconBuilder_ != null) {
+        iconBuilder_.clear();
+      }
       imageCase_ = 0;
       image_ = null;
       return this;
@@ -497,23 +432,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage buildPartial() {
       com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage result = new com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage(this);
-      if (imageCase_ == 1) {
-        if (largeBuilder_ == null) {
-          result.image_ = image_;
-        } else {
-          result.image_ = largeBuilder_.build();
-        }
-      }
-      if (imageCase_ == 2) {
-        if (iconBuilder_ == null) {
-          result.image_ = image_;
-        } else {
-          result.image_ = iconBuilder_.build();
-        }
-      }
-      result.imageCase_ = imageCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage result) {
+      int from_bitField0_ = bitField0_;
+    }
+
+    private void buildPartialOneofs(com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage result) {
+      result.imageCase_ = imageCase_;
+      result.image_ = this.image_;
+      if (imageCase_ == 1 &&
+          largeBuilder_ != null) {
+        result.image_ = largeBuilder_.build();
+      }
+      if (imageCase_ == 2 &&
+          iconBuilder_ != null) {
+        result.image_ = iconBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -573,7 +512,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -588,17 +527,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getLargeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              imageCase_ = 1;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getIconFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              imageCase_ = 2;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.actions.sdk.v2.interactionmodel.prompt.MediaImage) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int imageCase_ = 0;
@@ -616,6 +582,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt, com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePrompt.Builder, com.google.actions.sdk.v2.interactionmodel.prompt.StaticImagePromptOrBuilder> largeBuilder_;
@@ -791,7 +758,7 @@ private static final long serialVersionUID = 0L;
         image_ = null;
       }
       imageCase_ = 1;
-      onChanged();;
+      onChanged();
       return largeBuilder_;
     }
 
@@ -978,7 +945,7 @@ private static final long serialVersionUID = 0L;
         image_ = null;
       }
       imageCase_ = 2;
-      onChanged();;
+      onChanged();
       return iconBuilder_;
     }
     @java.lang.Override
@@ -1014,7 +981,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MediaImage(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -39,137 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ThriftProxy(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            transport_ = rawValue;
-            break;
-          }
-          case 24: {
-            int rawValue = input.readEnum();
-
-            protocol_ = rawValue;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.Builder subBuilder = null;
-            if (routeConfig_ != null) {
-              subBuilder = routeConfig_.toBuilder();
-            }
-            routeConfig_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(routeConfig_);
-              routeConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              thriftFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            thriftFilters_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter.parser(), extensionRegistry));
-            break;
-          }
-          case 48: {
-
-            payloadPassthrough_ = input.readBool();
-            break;
-          }
-          case 58: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (maxRequestsPerConnection_ != null) {
-              subBuilder = maxRequestsPerConnection_.toBuilder();
-            }
-            maxRequestsPerConnection_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxRequestsPerConnection_);
-              maxRequestsPerConnection_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.Builder subBuilder = null;
-            if (trds_ != null) {
-              subBuilder = trds_.toBuilder();
-            }
-            trds_ = input.readMessage(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(trds_);
-              trds_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              accessLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            accessLog_.add(
-                input.readMessage(io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(), extensionRegistry));
-            break;
-          }
-          case 80: {
-
-            headerKeysPreserveCase_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        thriftFilters_ = java.util.Collections.unmodifiableList(thriftFilters_);
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        accessLog_ = java.util.Collections.unmodifiableList(accessLog_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxyProto.internal_static_envoy_extensions_filters_network_thrift_proxy_v3_ThriftProxy_descriptor;
@@ -184,7 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSPORT_FIELD_NUMBER = 2;
-  private int transport_;
+  private int transport_ = 0;
   /**
    * <pre>
    * Supplies the type of transport that the Thrift proxy should use. Defaults to
@@ -207,13 +76,12 @@ private static final long serialVersionUID = 0L;
    * @return The transport.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType getTransport() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType.valueOf(transport_);
+    io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType.forNumber(transport_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType.UNRECOGNIZED : result;
   }
 
   public static final int PROTOCOL_FIELD_NUMBER = 3;
-  private int protocol_;
+  private int protocol_ = 0;
   /**
    * <pre>
    * Supplies the type of protocol that the Thrift proxy should use. Defaults to
@@ -236,13 +104,13 @@ private static final long serialVersionUID = 0L;
    * @return The protocol.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType getProtocol() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType.valueOf(protocol_);
+    io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType.forNumber(protocol_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType.UNRECOGNIZED : result;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The human readable prefix to use when emitting statistics.
@@ -325,7 +193,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfigurationOrBuilder getRouteConfigOrBuilder() {
-    return getRouteConfig();
+    return routeConfig_ == null ? io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.getDefaultInstance() : routeConfig_;
   }
 
   public static final int TRDS_FIELD_NUMBER = 8;
@@ -363,10 +231,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TrdsOrBuilder getTrdsOrBuilder() {
-    return getTrds();
+    return trds_ == null ? io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.getDefaultInstance() : trds_;
   }
 
   public static final int THRIFT_FILTERS_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter> thriftFilters_;
   /**
    * <pre>
@@ -447,7 +316,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PAYLOAD_PASSTHROUGH_FIELD_NUMBER = 6;
-  private boolean payloadPassthrough_;
+  private boolean payloadPassthrough_ = false;
   /**
    * <pre>
    * If set to true, Envoy will try to skip decode data after metadata in the Thrift message.
@@ -499,10 +368,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt32ValueOrBuilder getMaxRequestsPerConnectionOrBuilder() {
-    return getMaxRequestsPerConnection();
+    return maxRequestsPerConnection_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : maxRequestsPerConnection_;
   }
 
   public static final int ACCESS_LOG_FIELD_NUMBER = 9;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> accessLog_;
   /**
    * <pre>
@@ -568,7 +438,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HEADER_KEYS_PRESERVE_CASE_FIELD_NUMBER = 10;
-  private boolean headerKeysPreserveCase_;
+  private boolean headerKeysPreserveCase_ = false;
   /**
    * <pre>
    * If set to true, Envoy will preserve the case of Thrift header keys instead of serializing them to
@@ -629,7 +499,7 @@ private static final long serialVersionUID = 0L;
     if (headerKeysPreserveCase_ != false) {
       output.writeBool(10, headerKeysPreserveCase_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -677,7 +547,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(10, headerKeysPreserveCase_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -719,7 +589,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getAccessLogList())) return false;
     if (getHeaderKeysPreserveCase()
         != other.getHeaderKeysPreserveCase()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -762,7 +632,7 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + HEADER_KEYS_PRESERVE_CASE_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getHeaderKeysPreserveCase());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -883,64 +753,52 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getThriftFiltersFieldBuilder();
-        getAccessLogFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       transport_ = 0;
-
       protocol_ = 0;
-
       statPrefix_ = "";
-
-      if (routeConfigBuilder_ == null) {
-        routeConfig_ = null;
-      } else {
-        routeConfig_ = null;
+      routeConfig_ = null;
+      if (routeConfigBuilder_ != null) {
+        routeConfigBuilder_.dispose();
         routeConfigBuilder_ = null;
       }
-      if (trdsBuilder_ == null) {
-        trds_ = null;
-      } else {
-        trds_ = null;
+      trds_ = null;
+      if (trdsBuilder_ != null) {
+        trdsBuilder_.dispose();
         trdsBuilder_ = null;
       }
       if (thriftFiltersBuilder_ == null) {
         thriftFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        thriftFilters_ = null;
         thriftFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       payloadPassthrough_ = false;
-
-      if (maxRequestsPerConnectionBuilder_ == null) {
-        maxRequestsPerConnection_ = null;
-      } else {
-        maxRequestsPerConnection_ = null;
+      maxRequestsPerConnection_ = null;
+      if (maxRequestsPerConnectionBuilder_ != null) {
+        maxRequestsPerConnectionBuilder_.dispose();
         maxRequestsPerConnectionBuilder_ = null;
       }
       if (accessLogBuilder_ == null) {
         accessLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
       } else {
+        accessLog_ = null;
         accessLogBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000100);
       headerKeysPreserveCase_ = false;
-
       return this;
     }
 
@@ -967,47 +825,65 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy buildPartial() {
       io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy result = new io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy(this);
-      int from_bitField0_ = bitField0_;
-      result.transport_ = transport_;
-      result.protocol_ = protocol_;
-      result.statPrefix_ = statPrefix_;
-      if (routeConfigBuilder_ == null) {
-        result.routeConfig_ = routeConfig_;
-      } else {
-        result.routeConfig_ = routeConfigBuilder_.build();
-      }
-      if (trdsBuilder_ == null) {
-        result.trds_ = trds_;
-      } else {
-        result.trds_ = trdsBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy result) {
       if (thriftFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           thriftFilters_ = java.util.Collections.unmodifiableList(thriftFilters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.thriftFilters_ = thriftFilters_;
       } else {
         result.thriftFilters_ = thriftFiltersBuilder_.build();
       }
-      result.payloadPassthrough_ = payloadPassthrough_;
-      if (maxRequestsPerConnectionBuilder_ == null) {
-        result.maxRequestsPerConnection_ = maxRequestsPerConnection_;
-      } else {
-        result.maxRequestsPerConnection_ = maxRequestsPerConnectionBuilder_.build();
-      }
       if (accessLogBuilder_ == null) {
-        if (((bitField0_ & 0x00000002) != 0)) {
+        if (((bitField0_ & 0x00000100) != 0)) {
           accessLog_ = java.util.Collections.unmodifiableList(accessLog_);
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000100);
         }
         result.accessLog_ = accessLog_;
       } else {
         result.accessLog_ = accessLogBuilder_.build();
       }
-      result.headerKeysPreserveCase_ = headerKeysPreserveCase_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.transport_ = transport_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.protocol_ = protocol_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.routeConfig_ = routeConfigBuilder_ == null
+            ? routeConfig_
+            : routeConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.trds_ = trdsBuilder_ == null
+            ? trds_
+            : trdsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.payloadPassthrough_ = payloadPassthrough_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.maxRequestsPerConnection_ = maxRequestsPerConnectionBuilder_ == null
+            ? maxRequestsPerConnection_
+            : maxRequestsPerConnectionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.headerKeysPreserveCase_ = headerKeysPreserveCase_;
+      }
     }
 
     @java.lang.Override
@@ -1062,6 +938,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasRouteConfig()) {
@@ -1074,7 +951,7 @@ private static final long serialVersionUID = 0L;
         if (!other.thriftFilters_.isEmpty()) {
           if (thriftFilters_.isEmpty()) {
             thriftFilters_ = other.thriftFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureThriftFiltersIsMutable();
             thriftFilters_.addAll(other.thriftFilters_);
@@ -1087,7 +964,7 @@ private static final long serialVersionUID = 0L;
             thriftFiltersBuilder_.dispose();
             thriftFiltersBuilder_ = null;
             thriftFilters_ = other.thriftFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             thriftFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getThriftFiltersFieldBuilder() : null;
@@ -1106,7 +983,7 @@ private static final long serialVersionUID = 0L;
         if (!other.accessLog_.isEmpty()) {
           if (accessLog_.isEmpty()) {
             accessLog_ = other.accessLog_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
           } else {
             ensureAccessLogIsMutable();
             accessLog_.addAll(other.accessLog_);
@@ -1119,7 +996,7 @@ private static final long serialVersionUID = 0L;
             accessLogBuilder_.dispose();
             accessLogBuilder_ = null;
             accessLog_ = other.accessLog_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000100);
             accessLogBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getAccessLogFieldBuilder() : null;
@@ -1131,7 +1008,7 @@ private static final long serialVersionUID = 0L;
       if (other.getHeaderKeysPreserveCase() != false) {
         setHeaderKeysPreserveCase(other.getHeaderKeysPreserveCase());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1146,17 +1023,102 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 10
+            case 16: {
+              transport_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 16
+            case 24: {
+              protocol_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getRouteConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter.parser(),
+                      extensionRegistry);
+              if (thriftFiltersBuilder_ == null) {
+                ensureThriftFiltersIsMutable();
+                thriftFilters_.add(m);
+              } else {
+                thriftFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 42
+            case 48: {
+              payloadPassthrough_ = input.readBool();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 48
+            case 58: {
+              input.readMessage(
+                  getMaxRequestsPerConnectionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getTrdsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            case 74: {
+              io.envoyproxy.envoy.config.accesslog.v3.AccessLog m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.config.accesslog.v3.AccessLog.parser(),
+                      extensionRegistry);
+              if (accessLogBuilder_ == null) {
+                ensureAccessLogIsMutable();
+                accessLog_.add(m);
+              } else {
+                accessLogBuilder_.addMessage(m);
+              }
+              break;
+            } // case 74
+            case 80: {
+              headerKeysPreserveCase_ = input.readBool();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftProxy) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1185,8 +1147,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransportValue(int value) {
-      
       transport_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1201,8 +1163,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType getTransport() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType.valueOf(transport_);
+      io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType.forNumber(transport_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.TransportType.UNRECOGNIZED : result;
     }
     /**
@@ -1219,7 +1180,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       transport_ = value.getNumber();
       onChanged();
       return this;
@@ -1234,7 +1195,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTransport() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       transport_ = 0;
       onChanged();
       return this;
@@ -1264,8 +1225,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setProtocolValue(int value) {
-      
       protocol_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1280,8 +1241,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType getProtocol() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType.valueOf(protocol_);
+      io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType result = io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType.forNumber(protocol_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ProtocolType.UNRECOGNIZED : result;
     }
     /**
@@ -1298,7 +1258,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       protocol_ = value.getNumber();
       onChanged();
       return this;
@@ -1313,7 +1273,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearProtocol() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       protocol_ = 0;
       onChanged();
       return this;
@@ -1372,11 +1332,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1389,8 +1347,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1405,12 +1363,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1428,7 +1384,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the routeConfig field is set.
      */
     public boolean hasRouteConfig() {
-      return routeConfigBuilder_ != null || routeConfig_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1460,11 +1416,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         routeConfig_ = value;
-        onChanged();
       } else {
         routeConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1479,11 +1435,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.Builder builderForValue) {
       if (routeConfigBuilder_ == null) {
         routeConfig_ = builderForValue.build();
-        onChanged();
       } else {
         routeConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1496,17 +1452,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRouteConfig(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration value) {
       if (routeConfigBuilder_ == null) {
-        if (routeConfig_ != null) {
-          routeConfig_ =
-            io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.newBuilder(routeConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          routeConfig_ != null &&
+          routeConfig_ != io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.getDefaultInstance()) {
+          getRouteConfigBuilder().mergeFrom(value);
         } else {
           routeConfig_ = value;
         }
-        onChanged();
       } else {
         routeConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1518,14 +1475,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration route_config = 4 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearRouteConfig() {
-      if (routeConfigBuilder_ == null) {
-        routeConfig_ = null;
-        onChanged();
-      } else {
-        routeConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      routeConfig_ = null;
+      if (routeConfigBuilder_ != null) {
+        routeConfigBuilder_.dispose();
         routeConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1537,7 +1493,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration route_config = 4 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.RouteConfiguration.Builder getRouteConfigBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getRouteConfigFieldBuilder().getBuilder();
     }
@@ -1591,7 +1547,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the trds field is set.
      */
     public boolean hasTrds() {
-      return trdsBuilder_ != null || trds_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1621,11 +1577,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         trds_ = value;
-        onChanged();
       } else {
         trdsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1639,11 +1595,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.Builder builderForValue) {
       if (trdsBuilder_ == null) {
         trds_ = builderForValue.build();
-        onChanged();
       } else {
         trdsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1655,17 +1611,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTrds(io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds value) {
       if (trdsBuilder_ == null) {
-        if (trds_ != null) {
-          trds_ =
-            io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.newBuilder(trds_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          trds_ != null &&
+          trds_ != io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.getDefaultInstance()) {
+          getTrdsBuilder().mergeFrom(value);
         } else {
           trds_ = value;
         }
-        onChanged();
       } else {
         trdsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1676,14 +1633,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.network.thrift_proxy.v3.Trds trds = 8 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public Builder clearTrds() {
-      if (trdsBuilder_ == null) {
-        trds_ = null;
-        onChanged();
-      } else {
-        trds_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      trds_ = null;
+      if (trdsBuilder_ != null) {
+        trdsBuilder_.dispose();
         trdsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1694,7 +1650,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.extensions.filters.network.thrift_proxy.v3.Trds trds = 8 [(.udpa.annotations.field_migrate) = { ... }</code>
      */
     public io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.Trds.Builder getTrdsBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getTrdsFieldBuilder().getBuilder();
     }
@@ -1737,9 +1693,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter> thriftFilters_ =
       java.util.Collections.emptyList();
     private void ensureThriftFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         thriftFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter>(thriftFilters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -1977,7 +1933,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearThriftFilters() {
       if (thriftFiltersBuilder_ == null) {
         thriftFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         thriftFiltersBuilder_.clear();
@@ -2110,7 +2066,7 @@ private static final long serialVersionUID = 0L;
         thriftFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter, io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilter.Builder, io.envoyproxy.envoy.extensions.filters.network.thrift_proxy.v3.ThriftFilterOrBuilder>(
                 thriftFilters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         thriftFilters_ = null;
@@ -2149,6 +2105,7 @@ private static final long serialVersionUID = 0L;
     public Builder setPayloadPassthrough(boolean value) {
       
       payloadPassthrough_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -2164,7 +2121,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPayloadPassthrough() {
-      
+      bitField0_ = (bitField0_ & ~0x00000040);
       payloadPassthrough_ = false;
       onChanged();
       return this;
@@ -2182,7 +2139,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxRequestsPerConnection field is set.
      */
     public boolean hasMaxRequestsPerConnection() {
-      return maxRequestsPerConnectionBuilder_ != null || maxRequestsPerConnection_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2212,11 +2169,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxRequestsPerConnection_ = value;
-        onChanged();
       } else {
         maxRequestsPerConnectionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2230,11 +2187,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (maxRequestsPerConnectionBuilder_ == null) {
         maxRequestsPerConnection_ = builderForValue.build();
-        onChanged();
       } else {
         maxRequestsPerConnectionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2246,17 +2203,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxRequestsPerConnection(com.google.protobuf.UInt32Value value) {
       if (maxRequestsPerConnectionBuilder_ == null) {
-        if (maxRequestsPerConnection_ != null) {
-          maxRequestsPerConnection_ =
-            com.google.protobuf.UInt32Value.newBuilder(maxRequestsPerConnection_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          maxRequestsPerConnection_ != null &&
+          maxRequestsPerConnection_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getMaxRequestsPerConnectionBuilder().mergeFrom(value);
         } else {
           maxRequestsPerConnection_ = value;
         }
-        onChanged();
       } else {
         maxRequestsPerConnectionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2267,14 +2225,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_requests_per_connection = 7;</code>
      */
     public Builder clearMaxRequestsPerConnection() {
-      if (maxRequestsPerConnectionBuilder_ == null) {
-        maxRequestsPerConnection_ = null;
-        onChanged();
-      } else {
-        maxRequestsPerConnection_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      maxRequestsPerConnection_ = null;
+      if (maxRequestsPerConnectionBuilder_ != null) {
+        maxRequestsPerConnectionBuilder_.dispose();
         maxRequestsPerConnectionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2285,7 +2242,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt32Value max_requests_per_connection = 7;</code>
      */
     public com.google.protobuf.UInt32Value.Builder getMaxRequestsPerConnectionBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getMaxRequestsPerConnectionFieldBuilder().getBuilder();
     }
@@ -2328,9 +2285,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.envoyproxy.envoy.config.accesslog.v3.AccessLog> accessLog_ =
       java.util.Collections.emptyList();
     private void ensureAccessLogIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         accessLog_ = new java.util.ArrayList<io.envoyproxy.envoy.config.accesslog.v3.AccessLog>(accessLog_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000100;
        }
     }
 
@@ -2535,7 +2492,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearAccessLog() {
       if (accessLogBuilder_ == null) {
         accessLog_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000100);
         onChanged();
       } else {
         accessLogBuilder_.clear();
@@ -2647,7 +2604,7 @@ private static final long serialVersionUID = 0L;
         accessLogBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.config.accesslog.v3.AccessLog, io.envoyproxy.envoy.config.accesslog.v3.AccessLog.Builder, io.envoyproxy.envoy.config.accesslog.v3.AccessLogOrBuilder>(
                 accessLog_,
-                ((bitField0_ & 0x00000002) != 0),
+                ((bitField0_ & 0x00000100) != 0),
                 getParentForChildren(),
                 isClean());
         accessLog_ = null;
@@ -2686,6 +2643,7 @@ private static final long serialVersionUID = 0L;
     public Builder setHeaderKeysPreserveCase(boolean value) {
       
       headerKeysPreserveCase_ = value;
+      bitField0_ |= 0x00000200;
       onChanged();
       return this;
     }
@@ -2701,7 +2659,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHeaderKeysPreserveCase() {
-      
+      bitField0_ = (bitField0_ & ~0x00000200);
       headerKeysPreserveCase_ = false;
       onChanged();
       return this;
@@ -2739,7 +2697,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ThriftProxy(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

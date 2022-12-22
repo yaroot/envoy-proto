@@ -33,8 +33,8 @@ public interface BatchOptimizeToursRequestOrBuilder extends
 
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -43,8 +43,8 @@ public interface BatchOptimizeToursRequestOrBuilder extends
       getModelConfigsList();
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -52,8 +52,8 @@ public interface BatchOptimizeToursRequestOrBuilder extends
   com.google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig getModelConfigs(int index);
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -61,8 +61,8 @@ public interface BatchOptimizeToursRequestOrBuilder extends
   int getModelConfigsCount();
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -71,8 +71,8 @@ public interface BatchOptimizeToursRequestOrBuilder extends
       getModelConfigsOrBuilderList();
   /**
    * <pre>
-   * Required. Input/Output information each purchase model, such as file paths and data
-   * formats.
+   * Required. Input/Output information each purchase model, such as file paths
+   * and data formats.
    * </pre>
    *
    * <code>repeated .google.cloud.optimization.v1.BatchOptimizeToursRequest.AsyncModelConfig model_configs = 2 [(.google.api.field_behavior) = REQUIRED];</code>

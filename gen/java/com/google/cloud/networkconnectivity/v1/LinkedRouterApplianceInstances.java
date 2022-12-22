@@ -24,6 +24,7 @@ private static final long serialVersionUID = 0L;
   }
   private LinkedRouterApplianceInstances() {
     instances_ = java.util.Collections.emptyList();
+    vpcNetwork_ = "";
   }
 
   @java.lang.Override
@@ -37,63 +38,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private LinkedRouterApplianceInstances(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              instances_ = new java.util.ArrayList<com.google.cloud.networkconnectivity.v1.RouterApplianceInstance>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            instances_.add(
-                input.readMessage(com.google.cloud.networkconnectivity.v1.RouterApplianceInstance.parser(), extensionRegistry));
-            break;
-          }
-          case 16: {
-
-            siteToSiteDataTransfer_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        instances_ = java.util.Collections.unmodifiableList(instances_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -109,6 +53,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INSTANCES_FIELD_NUMBER = 1;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.networkconnectivity.v1.RouterApplianceInstance> instances_;
   /**
    * <pre>
@@ -169,7 +114,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SITE_TO_SITE_DATA_TRANSFER_FIELD_NUMBER = 2;
-  private boolean siteToSiteDataTransfer_;
+  private boolean siteToSiteDataTransfer_ = false;
   /**
    * <pre>
    * A value that controls whether site-to-site data transfer is enabled for
@@ -183,6 +128,55 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public boolean getSiteToSiteDataTransfer() {
     return siteToSiteDataTransfer_;
+  }
+
+  public static final int VPC_NETWORK_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object vpcNetwork_ = "";
+  /**
+   * <pre>
+   * Output only. The VPC network where these router appliance instances are
+   * located.
+   * </pre>
+   *
+   * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+   * @return The vpcNetwork.
+   */
+  @java.lang.Override
+  public java.lang.String getVpcNetwork() {
+    java.lang.Object ref = vpcNetwork_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      vpcNetwork_ = s;
+      return s;
+    }
+  }
+  /**
+   * <pre>
+   * Output only. The VPC network where these router appliance instances are
+   * located.
+   * </pre>
+   *
+   * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+   * @return The bytes for vpcNetwork.
+   */
+  @java.lang.Override
+  public com.google.protobuf.ByteString
+      getVpcNetworkBytes() {
+    java.lang.Object ref = vpcNetwork_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      vpcNetwork_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -205,7 +199,10 @@ private static final long serialVersionUID = 0L;
     if (siteToSiteDataTransfer_ != false) {
       output.writeBool(2, siteToSiteDataTransfer_);
     }
-    unknownFields.writeTo(output);
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vpcNetwork_)) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, vpcNetwork_);
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -222,7 +219,10 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(2, siteToSiteDataTransfer_);
     }
-    size += unknownFields.getSerializedSize();
+    if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(vpcNetwork_)) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, vpcNetwork_);
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -241,7 +241,9 @@ private static final long serialVersionUID = 0L;
         .equals(other.getInstancesList())) return false;
     if (getSiteToSiteDataTransfer()
         != other.getSiteToSiteDataTransfer()) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getVpcNetwork()
+        .equals(other.getVpcNetwork())) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -259,7 +261,9 @@ private static final long serialVersionUID = 0L;
     hash = (37 * hash) + SITE_TO_SITE_DATA_TRANSFER_FIELD_NUMBER;
     hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
         getSiteToSiteDataTransfer());
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (37 * hash) + VPC_NETWORK_FIELD_NUMBER;
+    hash = (53 * hash) + getVpcNetwork().hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -383,31 +387,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getInstancesFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       if (instancesBuilder_ == null) {
         instances_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        instances_ = null;
         instancesBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000001);
       siteToSiteDataTransfer_ = false;
-
+      vpcNetwork_ = "";
       return this;
     }
 
@@ -434,7 +434,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances buildPartial() {
       com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances result = new com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances(this);
-      int from_bitField0_ = bitField0_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances result) {
       if (instancesBuilder_ == null) {
         if (((bitField0_ & 0x00000001) != 0)) {
           instances_ = java.util.Collections.unmodifiableList(instances_);
@@ -444,9 +450,16 @@ private static final long serialVersionUID = 0L;
       } else {
         result.instances_ = instancesBuilder_.build();
       }
-      result.siteToSiteDataTransfer_ = siteToSiteDataTransfer_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.siteToSiteDataTransfer_ = siteToSiteDataTransfer_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.vpcNetwork_ = vpcNetwork_;
+      }
     }
 
     @java.lang.Override
@@ -522,7 +535,12 @@ private static final long serialVersionUID = 0L;
       if (other.getSiteToSiteDataTransfer() != false) {
         setSiteToSiteDataTransfer(other.getSiteToSiteDataTransfer());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (!other.getVpcNetwork().isEmpty()) {
+        vpcNetwork_ = other.vpcNetwork_;
+        bitField0_ |= 0x00000004;
+        onChanged();
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -537,17 +555,53 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.cloud.networkconnectivity.v1.RouterApplianceInstance m =
+                  input.readMessage(
+                      com.google.cloud.networkconnectivity.v1.RouterApplianceInstance.parser(),
+                      extensionRegistry);
+              if (instancesBuilder_ == null) {
+                ensureInstancesIsMutable();
+                instances_.add(m);
+              } else {
+                instancesBuilder_.addMessage(m);
+              }
+              break;
+            } // case 10
+            case 16: {
+              siteToSiteDataTransfer_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              vpcNetwork_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.networkconnectivity.v1.LinkedRouterApplianceInstances) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -893,6 +947,7 @@ private static final long serialVersionUID = 0L;
     public Builder setSiteToSiteDataTransfer(boolean value) {
       
       siteToSiteDataTransfer_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -907,8 +962,105 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSiteToSiteDataTransfer() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       siteToSiteDataTransfer_ = false;
+      onChanged();
+      return this;
+    }
+
+    private java.lang.Object vpcNetwork_ = "";
+    /**
+     * <pre>
+     * Output only. The VPC network where these router appliance instances are
+     * located.
+     * </pre>
+     *
+     * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+     * @return The vpcNetwork.
+     */
+    public java.lang.String getVpcNetwork() {
+      java.lang.Object ref = vpcNetwork_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        vpcNetwork_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The VPC network where these router appliance instances are
+     * located.
+     * </pre>
+     *
+     * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+     * @return The bytes for vpcNetwork.
+     */
+    public com.google.protobuf.ByteString
+        getVpcNetworkBytes() {
+      java.lang.Object ref = vpcNetwork_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        vpcNetwork_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <pre>
+     * Output only. The VPC network where these router appliance instances are
+     * located.
+     * </pre>
+     *
+     * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+     * @param value The vpcNetwork to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVpcNetwork(
+        java.lang.String value) {
+      if (value == null) { throw new NullPointerException(); }
+      vpcNetwork_ = value;
+      bitField0_ |= 0x00000004;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The VPC network where these router appliance instances are
+     * located.
+     * </pre>
+     *
+     * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+     * @return This builder for chaining.
+     */
+    public Builder clearVpcNetwork() {
+      vpcNetwork_ = getDefaultInstance().getVpcNetwork();
+      bitField0_ = (bitField0_ & ~0x00000004);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Output only. The VPC network where these router appliance instances are
+     * located.
+     * </pre>
+     *
+     * <code>string vpc_network = 3 [(.google.api.field_behavior) = OUTPUT_ONLY, (.google.api.resource_reference) = { ... }</code>
+     * @param value The bytes for vpcNetwork to set.
+     * @return This builder for chaining.
+     */
+    public Builder setVpcNetworkBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
+      vpcNetwork_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -945,7 +1097,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new LinkedRouterApplianceInstances(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

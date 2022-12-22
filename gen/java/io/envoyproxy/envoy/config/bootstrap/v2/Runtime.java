@@ -37,76 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Runtime(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            symlinkRoot_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            subdirectory_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            overrideSubdirectory_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Struct.Builder subBuilder = null;
-            if (base_ != null) {
-              subBuilder = base_.toBuilder();
-            }
-            base_ = input.readMessage(com.google.protobuf.Struct.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(base_);
-              base_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.config.bootstrap.v2.BootstrapProto.internal_static_envoy_config_bootstrap_v2_Runtime_descriptor;
@@ -121,7 +51,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SYMLINK_ROOT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object symlinkRoot_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object symlinkRoot_ = "";
   /**
    * <pre>
    * The implementation assumes that the file system tree is accessed via a
@@ -177,7 +108,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBDIRECTORY_FIELD_NUMBER = 2;
-  private volatile java.lang.Object subdirectory_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object subdirectory_ = "";
   /**
    * <pre>
    * Specifies the subdirectory to load within the root directory. This is
@@ -227,7 +159,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OVERRIDE_SUBDIRECTORY_FIELD_NUMBER = 3;
-  private volatile java.lang.Object overrideSubdirectory_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object overrideSubdirectory_ = "";
   /**
    * <pre>
    * Specifies an optional subdirectory to load within the root directory. If
@@ -326,7 +259,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.StructOrBuilder getBaseOrBuilder() {
-    return getBase();
+    return base_ == null ? com.google.protobuf.Struct.getDefaultInstance() : base_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -355,7 +288,7 @@ private static final long serialVersionUID = 0L;
     if (base_ != null) {
       output.writeMessage(4, getBase());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -377,7 +310,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getBase());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -403,7 +336,7 @@ private static final long serialVersionUID = 0L;
       if (!getBase()
           .equals(other.getBase())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -424,7 +357,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + BASE_FIELD_NUMBER;
       hash = (53 * hash) + getBase().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -545,32 +478,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.config.bootstrap.v2.Runtime.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       symlinkRoot_ = "";
-
       subdirectory_ = "";
-
       overrideSubdirectory_ = "";
-
-      if (baseBuilder_ == null) {
-        base_ = null;
-      } else {
-        base_ = null;
+      base_ = null;
+      if (baseBuilder_ != null) {
+        baseBuilder_.dispose();
         baseBuilder_ = null;
       }
       return this;
@@ -599,16 +524,27 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.config.bootstrap.v2.Runtime buildPartial() {
       io.envoyproxy.envoy.config.bootstrap.v2.Runtime result = new io.envoyproxy.envoy.config.bootstrap.v2.Runtime(this);
-      result.symlinkRoot_ = symlinkRoot_;
-      result.subdirectory_ = subdirectory_;
-      result.overrideSubdirectory_ = overrideSubdirectory_;
-      if (baseBuilder_ == null) {
-        result.base_ = base_;
-      } else {
-        result.base_ = baseBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.config.bootstrap.v2.Runtime result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.symlinkRoot_ = symlinkRoot_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.subdirectory_ = subdirectory_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.overrideSubdirectory_ = overrideSubdirectory_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.base_ = baseBuilder_ == null
+            ? base_
+            : baseBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -657,20 +593,23 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.config.bootstrap.v2.Runtime.getDefaultInstance()) return this;
       if (!other.getSymlinkRoot().isEmpty()) {
         symlinkRoot_ = other.symlinkRoot_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getSubdirectory().isEmpty()) {
         subdirectory_ = other.subdirectory_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getOverrideSubdirectory().isEmpty()) {
         overrideSubdirectory_ = other.overrideSubdirectory_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasBase()) {
         mergeBase(other.getBase());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -685,19 +624,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.config.bootstrap.v2.Runtime parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              symlinkRoot_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              subdirectory_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              overrideSubdirectory_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getBaseFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.config.bootstrap.v2.Runtime) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object symlinkRoot_ = "";
     /**
@@ -767,11 +742,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSymlinkRoot(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       symlinkRoot_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -789,8 +762,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSymlinkRoot() {
-      
       symlinkRoot_ = getDefaultInstance().getSymlinkRoot();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -810,12 +783,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSymlinkRootBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       symlinkRoot_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -879,11 +850,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubdirectory(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       subdirectory_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -898,8 +867,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSubdirectory() {
-      
       subdirectory_ = getDefaultInstance().getSubdirectory();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -916,12 +885,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubdirectoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       subdirectory_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -994,11 +961,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOverrideSubdirectory(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       overrideSubdirectory_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1016,8 +981,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearOverrideSubdirectory() {
-      
       overrideSubdirectory_ = getDefaultInstance().getOverrideSubdirectory();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1037,12 +1002,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOverrideSubdirectoryBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       overrideSubdirectory_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1062,7 +1025,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the base field is set.
      */
     public boolean hasBase() {
-      return baseBuilder_ != null || base_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1098,11 +1061,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         base_ = value;
-        onChanged();
       } else {
         baseBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1119,11 +1082,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Struct.Builder builderForValue) {
       if (baseBuilder_ == null) {
         base_ = builderForValue.build();
-        onChanged();
       } else {
         baseBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1138,17 +1101,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeBase(com.google.protobuf.Struct value) {
       if (baseBuilder_ == null) {
-        if (base_ != null) {
-          base_ =
-            com.google.protobuf.Struct.newBuilder(base_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          base_ != null &&
+          base_ != com.google.protobuf.Struct.getDefaultInstance()) {
+          getBaseBuilder().mergeFrom(value);
         } else {
           base_ = value;
         }
-        onChanged();
       } else {
         baseBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1162,14 +1126,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct base = 4;</code>
      */
     public Builder clearBase() {
-      if (baseBuilder_ == null) {
-        base_ = null;
-        onChanged();
-      } else {
-        base_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      base_ = null;
+      if (baseBuilder_ != null) {
+        baseBuilder_.dispose();
         baseBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1183,7 +1146,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Struct base = 4;</code>
      */
     public com.google.protobuf.Struct.Builder getBaseBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getBaseFieldBuilder().getBuilder();
     }
@@ -1261,7 +1224,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Runtime(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

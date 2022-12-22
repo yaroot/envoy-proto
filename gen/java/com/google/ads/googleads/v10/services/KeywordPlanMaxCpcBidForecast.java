@@ -34,64 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private KeywordPlanMaxCpcBidForecast(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 18: {
-            com.google.ads.googleads.v10.services.ForecastMetrics.Builder subBuilder = null;
-            if (maxCpcBidForecast_ != null) {
-              subBuilder = maxCpcBidForecast_.toBuilder();
-            }
-            maxCpcBidForecast_ = input.readMessage(com.google.ads.googleads.v10.services.ForecastMetrics.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maxCpcBidForecast_);
-              maxCpcBidForecast_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-            bitField0_ |= 0x00000001;
-            maxCpcBidMicros_ = input.readInt64();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.services.KeywordPlanServiceProto.internal_static_google_ads_googleads_v10_services_KeywordPlanMaxCpcBidForecast_descriptor;
@@ -107,7 +49,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int MAX_CPC_BID_MICROS_FIELD_NUMBER = 3;
-  private long maxCpcBidMicros_;
+  private long maxCpcBidMicros_ = 0L;
   /**
    * <pre>
    * The max cpc bid in micros.
@@ -168,7 +110,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.services.ForecastMetricsOrBuilder getMaxCpcBidForecastOrBuilder() {
-    return getMaxCpcBidForecast();
+    return maxCpcBidForecast_ == null ? com.google.ads.googleads.v10.services.ForecastMetrics.getDefaultInstance() : maxCpcBidForecast_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -191,7 +133,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000001) != 0)) {
       output.writeInt64(3, maxCpcBidMicros_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -208,7 +150,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeInt64Size(3, maxCpcBidMicros_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -233,7 +175,7 @@ private static final long serialVersionUID = 0L;
       if (!getMaxCpcBidForecast()
           .equals(other.getMaxCpcBidForecast())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -253,7 +195,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + MAX_CPC_BID_FORECAST_FIELD_NUMBER;
       hash = (53 * hash) + getMaxCpcBidForecast().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -374,28 +316,22 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       maxCpcBidMicros_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      if (maxCpcBidForecastBuilder_ == null) {
-        maxCpcBidForecast_ = null;
-      } else {
-        maxCpcBidForecast_ = null;
+      maxCpcBidForecast_ = null;
+      if (maxCpcBidForecastBuilder_ != null) {
+        maxCpcBidForecastBuilder_.dispose();
         maxCpcBidForecastBuilder_ = null;
       }
       return this;
@@ -424,20 +360,24 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast buildPartial() {
       com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast result = new com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.maxCpcBidMicros_ = maxCpcBidMicros_;
         to_bitField0_ |= 0x00000001;
       }
-      if (maxCpcBidForecastBuilder_ == null) {
-        result.maxCpcBidForecast_ = maxCpcBidForecast_;
-      } else {
-        result.maxCpcBidForecast_ = maxCpcBidForecastBuilder_.build();
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.maxCpcBidForecast_ = maxCpcBidForecastBuilder_ == null
+            ? maxCpcBidForecast_
+            : maxCpcBidForecastBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -490,7 +430,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasMaxCpcBidForecast()) {
         mergeMaxCpcBidForecast(other.getMaxCpcBidForecast());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -505,17 +445,42 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              input.readMessage(
+                  getMaxCpcBidForecastFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              maxCpcBidMicros_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 24
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.services.KeywordPlanMaxCpcBidForecast) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -555,8 +520,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setMaxCpcBidMicros(long value) {
-      bitField0_ |= 0x00000001;
+      
       maxCpcBidMicros_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -587,7 +553,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maxCpcBidForecast field is set.
      */
     public boolean hasMaxCpcBidForecast() {
-      return maxCpcBidForecastBuilder_ != null || maxCpcBidForecast_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -617,11 +583,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maxCpcBidForecast_ = value;
-        onChanged();
       } else {
         maxCpcBidForecastBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -635,11 +601,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.services.ForecastMetrics.Builder builderForValue) {
       if (maxCpcBidForecastBuilder_ == null) {
         maxCpcBidForecast_ = builderForValue.build();
-        onChanged();
       } else {
         maxCpcBidForecastBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -651,17 +617,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaxCpcBidForecast(com.google.ads.googleads.v10.services.ForecastMetrics value) {
       if (maxCpcBidForecastBuilder_ == null) {
-        if (maxCpcBidForecast_ != null) {
-          maxCpcBidForecast_ =
-            com.google.ads.googleads.v10.services.ForecastMetrics.newBuilder(maxCpcBidForecast_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          maxCpcBidForecast_ != null &&
+          maxCpcBidForecast_ != com.google.ads.googleads.v10.services.ForecastMetrics.getDefaultInstance()) {
+          getMaxCpcBidForecastBuilder().mergeFrom(value);
         } else {
           maxCpcBidForecast_ = value;
         }
-        onChanged();
       } else {
         maxCpcBidForecastBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -672,14 +639,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.ForecastMetrics max_cpc_bid_forecast = 2;</code>
      */
     public Builder clearMaxCpcBidForecast() {
-      if (maxCpcBidForecastBuilder_ == null) {
-        maxCpcBidForecast_ = null;
-        onChanged();
-      } else {
-        maxCpcBidForecast_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      maxCpcBidForecast_ = null;
+      if (maxCpcBidForecastBuilder_ != null) {
+        maxCpcBidForecastBuilder_.dispose();
         maxCpcBidForecastBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -690,7 +656,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.services.ForecastMetrics max_cpc_bid_forecast = 2;</code>
      */
     public com.google.ads.googleads.v10.services.ForecastMetrics.Builder getMaxCpcBidForecastBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMaxCpcBidForecastFieldBuilder().getBuilder();
     }
@@ -762,7 +728,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new KeywordPlanMaxCpcBidForecast(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

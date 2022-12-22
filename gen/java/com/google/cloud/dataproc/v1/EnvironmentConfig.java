@@ -34,71 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private EnvironmentConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.dataproc.v1.ExecutionConfig.Builder subBuilder = null;
-            if (executionConfig_ != null) {
-              subBuilder = executionConfig_.toBuilder();
-            }
-            executionConfig_ = input.readMessage(com.google.cloud.dataproc.v1.ExecutionConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(executionConfig_);
-              executionConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.cloud.dataproc.v1.PeripheralsConfig.Builder subBuilder = null;
-            if (peripheralsConfig_ != null) {
-              subBuilder = peripheralsConfig_.toBuilder();
-            }
-            peripheralsConfig_ = input.readMessage(com.google.cloud.dataproc.v1.PeripheralsConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(peripheralsConfig_);
-              peripheralsConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataproc.v1.SharedProto.internal_static_google_cloud_dataproc_v1_EnvironmentConfig_descriptor;
@@ -147,7 +82,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.ExecutionConfigOrBuilder getExecutionConfigOrBuilder() {
-    return getExecutionConfig();
+    return executionConfig_ == null ? com.google.cloud.dataproc.v1.ExecutionConfig.getDefaultInstance() : executionConfig_;
   }
 
   public static final int PERIPHERALS_CONFIG_FIELD_NUMBER = 2;
@@ -185,7 +120,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataproc.v1.PeripheralsConfigOrBuilder getPeripheralsConfigOrBuilder() {
-    return getPeripheralsConfig();
+    return peripheralsConfig_ == null ? com.google.cloud.dataproc.v1.PeripheralsConfig.getDefaultInstance() : peripheralsConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -208,7 +143,7 @@ private static final long serialVersionUID = 0L;
     if (peripheralsConfig_ != null) {
       output.writeMessage(2, getPeripheralsConfig());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -225,7 +160,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getPeripheralsConfig());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -250,7 +185,7 @@ private static final long serialVersionUID = 0L;
       if (!getPeripheralsConfig()
           .equals(other.getPeripheralsConfig())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -269,7 +204,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + PERIPHERALS_CONFIG_FIELD_NUMBER;
       hash = (53 * hash) + getPeripheralsConfig().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -390,32 +325,26 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataproc.v1.EnvironmentConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (executionConfigBuilder_ == null) {
-        executionConfig_ = null;
-      } else {
-        executionConfig_ = null;
+      bitField0_ = 0;
+      executionConfig_ = null;
+      if (executionConfigBuilder_ != null) {
+        executionConfigBuilder_.dispose();
         executionConfigBuilder_ = null;
       }
-      if (peripheralsConfigBuilder_ == null) {
-        peripheralsConfig_ = null;
-      } else {
-        peripheralsConfig_ = null;
+      peripheralsConfig_ = null;
+      if (peripheralsConfigBuilder_ != null) {
+        peripheralsConfigBuilder_.dispose();
         peripheralsConfigBuilder_ = null;
       }
       return this;
@@ -444,18 +373,23 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataproc.v1.EnvironmentConfig buildPartial() {
       com.google.cloud.dataproc.v1.EnvironmentConfig result = new com.google.cloud.dataproc.v1.EnvironmentConfig(this);
-      if (executionConfigBuilder_ == null) {
-        result.executionConfig_ = executionConfig_;
-      } else {
-        result.executionConfig_ = executionConfigBuilder_.build();
-      }
-      if (peripheralsConfigBuilder_ == null) {
-        result.peripheralsConfig_ = peripheralsConfig_;
-      } else {
-        result.peripheralsConfig_ = peripheralsConfigBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataproc.v1.EnvironmentConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.executionConfig_ = executionConfigBuilder_ == null
+            ? executionConfig_
+            : executionConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.peripheralsConfig_ = peripheralsConfigBuilder_ == null
+            ? peripheralsConfig_
+            : peripheralsConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -508,7 +442,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasPeripheralsConfig()) {
         mergePeripheralsConfig(other.getPeripheralsConfig());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -523,19 +457,47 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataproc.v1.EnvironmentConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getExecutionConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getPeripheralsConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataproc.v1.EnvironmentConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.cloud.dataproc.v1.ExecutionConfig executionConfig_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -549,7 +511,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the executionConfig field is set.
      */
     public boolean hasExecutionConfig() {
-      return executionConfigBuilder_ != null || executionConfig_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -579,11 +541,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         executionConfig_ = value;
-        onChanged();
       } else {
         executionConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -597,11 +559,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.ExecutionConfig.Builder builderForValue) {
       if (executionConfigBuilder_ == null) {
         executionConfig_ = builderForValue.build();
-        onChanged();
       } else {
         executionConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -613,17 +575,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeExecutionConfig(com.google.cloud.dataproc.v1.ExecutionConfig value) {
       if (executionConfigBuilder_ == null) {
-        if (executionConfig_ != null) {
-          executionConfig_ =
-            com.google.cloud.dataproc.v1.ExecutionConfig.newBuilder(executionConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          executionConfig_ != null &&
+          executionConfig_ != com.google.cloud.dataproc.v1.ExecutionConfig.getDefaultInstance()) {
+          getExecutionConfigBuilder().mergeFrom(value);
         } else {
           executionConfig_ = value;
         }
-        onChanged();
       } else {
         executionConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -634,14 +597,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ExecutionConfig execution_config = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearExecutionConfig() {
-      if (executionConfigBuilder_ == null) {
-        executionConfig_ = null;
-        onChanged();
-      } else {
-        executionConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      executionConfig_ = null;
+      if (executionConfigBuilder_ != null) {
+        executionConfigBuilder_.dispose();
         executionConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -652,7 +614,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.ExecutionConfig execution_config = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.ExecutionConfig.Builder getExecutionConfigBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getExecutionConfigFieldBuilder().getBuilder();
     }
@@ -704,7 +666,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the peripheralsConfig field is set.
      */
     public boolean hasPeripheralsConfig() {
-      return peripheralsConfigBuilder_ != null || peripheralsConfig_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -734,11 +696,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         peripheralsConfig_ = value;
-        onChanged();
       } else {
         peripheralsConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -752,11 +714,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataproc.v1.PeripheralsConfig.Builder builderForValue) {
       if (peripheralsConfigBuilder_ == null) {
         peripheralsConfig_ = builderForValue.build();
-        onChanged();
       } else {
         peripheralsConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -768,17 +730,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePeripheralsConfig(com.google.cloud.dataproc.v1.PeripheralsConfig value) {
       if (peripheralsConfigBuilder_ == null) {
-        if (peripheralsConfig_ != null) {
-          peripheralsConfig_ =
-            com.google.cloud.dataproc.v1.PeripheralsConfig.newBuilder(peripheralsConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          peripheralsConfig_ != null &&
+          peripheralsConfig_ != com.google.cloud.dataproc.v1.PeripheralsConfig.getDefaultInstance()) {
+          getPeripheralsConfigBuilder().mergeFrom(value);
         } else {
           peripheralsConfig_ = value;
         }
-        onChanged();
       } else {
         peripheralsConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -789,14 +752,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.PeripheralsConfig peripherals_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearPeripheralsConfig() {
-      if (peripheralsConfigBuilder_ == null) {
-        peripheralsConfig_ = null;
-        onChanged();
-      } else {
-        peripheralsConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      peripheralsConfig_ = null;
+      if (peripheralsConfigBuilder_ != null) {
+        peripheralsConfigBuilder_.dispose();
         peripheralsConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -807,7 +769,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataproc.v1.PeripheralsConfig peripherals_config = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataproc.v1.PeripheralsConfig.Builder getPeripheralsConfigBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getPeripheralsConfigFieldBuilder().getBuilder();
     }
@@ -879,7 +841,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new EnvironmentConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

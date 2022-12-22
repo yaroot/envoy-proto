@@ -11,13 +11,11 @@ from google.protobuf import symbol_database as _symbol_database
 _sym_db = _symbol_database.Default()
 
 
-from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
-from google.api import resource_pb2 as google_dot_api_dot_resource__pb2
 from google.cloud.datalabeling.v1beta1 import annotation_spec_set_pb2 as google_dot_cloud_dot_datalabeling_dot_v1beta1_dot_annotation__spec__set__pb2
 from google.protobuf import duration_pb2 as google_dot_protobuf_dot_duration__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/datalabeling/v1beta1/annotation.proto\x12!google.cloud.datalabeling.v1beta1\x1a\x1cgoogle/api/annotations.proto\x1a\x19google/api/resource.proto\x1a;google/cloud/datalabeling/v1beta1/annotation_spec_set.proto\x1a\x1egoogle/protobuf/duration.proto\"\xe2\x02\n\nAnnotation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x11\x61nnotation_source\x18\x02 \x01(\x0e\x32\x33.google.cloud.datalabeling.v1beta1.AnnotationSource\x12L\n\x10\x61nnotation_value\x18\x03 \x01(\x0b\x32\x32.google.cloud.datalabeling.v1beta1.AnnotationValue\x12R\n\x13\x61nnotation_metadata\x18\x04 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.AnnotationMetadata\x12T\n\x14\x61nnotation_sentiment\x18\x06 \x01(\x0e\x32\x36.google.cloud.datalabeling.v1beta1.AnnotationSentiment\"\xd1\x07\n\x0f\x41nnotationValue\x12k\n\x1fimage_classification_annotation\x18\x01 \x01(\x0b\x32@.google.cloud.datalabeling.v1beta1.ImageClassificationAnnotationH\x00\x12h\n\x1eimage_bounding_poly_annotation\x18\x02 \x01(\x0b\x32>.google.cloud.datalabeling.v1beta1.ImageBoundingPolyAnnotationH\x00\x12_\n\x19image_polyline_annotation\x18\x08 \x01(\x0b\x32:.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotationH\x00\x12g\n\x1dimage_segmentation_annotation\x18\t \x01(\x0b\x32>.google.cloud.datalabeling.v1beta1.ImageSegmentationAnnotationH\x00\x12i\n\x1etext_classification_annotation\x18\x03 \x01(\x0b\x32?.google.cloud.datalabeling.v1beta1.TextClassificationAnnotationH\x00\x12n\n!text_entity_extraction_annotation\x18\n \x01(\x0b\x32\x41.google.cloud.datalabeling.v1beta1.TextEntityExtractionAnnotationH\x00\x12k\n\x1fvideo_classification_annotation\x18\x04 \x01(\x0b\x32@.google.cloud.datalabeling.v1beta1.VideoClassificationAnnotationH\x00\x12l\n video_object_tracking_annotation\x18\x05 \x01(\x0b\x32@.google.cloud.datalabeling.v1beta1.VideoObjectTrackingAnnotationH\x00\x12Y\n\x16video_event_annotation\x18\x06 \x01(\x0b\x32\x37.google.cloud.datalabeling.v1beta1.VideoEventAnnotationH\x00\x42\x0c\n\nvalue_type\"k\n\x1dImageClassificationAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\"\x1e\n\x06Vertex\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\"(\n\x10NormalizedVertex\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"K\n\x0c\x42oundingPoly\x12;\n\x08vertices\x18\x01 \x03(\x0b\x32).google.cloud.datalabeling.v1beta1.Vertex\"j\n\x16NormalizedBoundingPoly\x12P\n\x13normalized_vertices\x18\x01 \x03(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.NormalizedVertex\"\xa2\x02\n\x1bImageBoundingPolyAnnotation\x12H\n\rbounding_poly\x18\x02 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.BoundingPolyH\x00\x12]\n\x18normalized_bounding_poly\x18\x03 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.NormalizedBoundingPolyH\x00\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpecB\x0e\n\x0c\x62ounded_area\"G\n\x08Polyline\x12;\n\x08vertices\x18\x01 \x03(\x0b\x32).google.cloud.datalabeling.v1beta1.Vertex\"f\n\x12NormalizedPolyline\x12P\n\x13normalized_vertices\x18\x01 \x03(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.NormalizedVertex\"\x84\x02\n\x17ImagePolylineAnnotation\x12?\n\x08polyline\x18\x02 \x01(\x0b\x32+.google.cloud.datalabeling.v1beta1.PolylineH\x00\x12T\n\x13normalized_polyline\x18\x03 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.NormalizedPolylineH\x00\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpecB\x06\n\x04poly\"\xa2\x02\n\x1bImageSegmentationAnnotation\x12o\n\x11\x61nnotation_colors\x18\x01 \x03(\x0b\x32T.google.cloud.datalabeling.v1beta1.ImageSegmentationAnnotation.AnnotationColorsEntry\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x13\n\x0bimage_bytes\x18\x03 \x01(\x0c\x1aj\n\x15\x41nnotationColorsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12@\n\x05value\x18\x02 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec:\x02\x38\x01\"j\n\x1cTextClassificationAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\"\xbe\x01\n\x1eTextEntityExtractionAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12P\n\x12sequential_segment\x18\x02 \x01(\x0b\x32\x34.google.cloud.datalabeling.v1beta1.SequentialSegment\"/\n\x11SequentialSegment\x12\r\n\x05start\x18\x01 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x05\"w\n\x0bTimeSegment\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"\xb1\x01\n\x1dVideoClassificationAnnotation\x12\x44\n\x0ctime_segment\x18\x01 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TimeSegment\x12J\n\x0f\x61nnotation_spec\x18\x02 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\"\xfe\x01\n\x13ObjectTrackingFrame\x12H\n\rbounding_poly\x18\x01 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.BoundingPolyH\x00\x12]\n\x18normalized_bounding_poly\x18\x02 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.NormalizedBoundingPolyH\x00\x12.\n\x0btime_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\n\x0c\x62ounded_area\"\x89\x02\n\x1dVideoObjectTrackingAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x44\n\x0ctime_segment\x18\x02 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TimeSegment\x12V\n\x16object_tracking_frames\x18\x03 \x03(\x0b\x32\x36.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame\"\xa8\x01\n\x14VideoEventAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x44\n\x0ctime_segment\x18\x02 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TimeSegment\"d\n\x12\x41nnotationMetadata\x12N\n\x11operator_metadata\x18\x02 \x01(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.OperatorMetadata\"]\n\x10OperatorMetadata\x12\r\n\x05score\x18\x01 \x01(\x02\x12\x13\n\x0btotal_votes\x18\x02 \x01(\x05\x12\x13\n\x0blabel_votes\x18\x03 \x01(\x05\x12\x10\n\x08\x63omments\x18\x04 \x03(\t*C\n\x10\x41nnotationSource\x12!\n\x1d\x41NNOTATION_SOURCE_UNSPECIFIED\x10\x00\x12\x0c\n\x08OPERATOR\x10\x03*W\n\x13\x41nnotationSentiment\x12$\n ANNOTATION_SENTIMENT_UNSPECIFIED\x10\x00\x12\x0c\n\x08NEGATIVE\x10\x01\x12\x0c\n\x08POSITIVE\x10\x02*\x91\x04\n\x0e\x41nnotationType\x12\x1f\n\x1b\x41NNOTATION_TYPE_UNSPECIFIED\x10\x00\x12#\n\x1fIMAGE_CLASSIFICATION_ANNOTATION\x10\x01\x12!\n\x1dIMAGE_BOUNDING_BOX_ANNOTATION\x10\x02\x12*\n&IMAGE_ORIENTED_BOUNDING_BOX_ANNOTATION\x10\r\x12\"\n\x1eIMAGE_BOUNDING_POLY_ANNOTATION\x10\n\x12\x1d\n\x19IMAGE_POLYLINE_ANNOTATION\x10\x0b\x12!\n\x1dIMAGE_SEGMENTATION_ANNOTATION\x10\x0c\x12)\n%VIDEO_SHOTS_CLASSIFICATION_ANNOTATION\x10\x03\x12$\n VIDEO_OBJECT_TRACKING_ANNOTATION\x10\x04\x12%\n!VIDEO_OBJECT_DETECTION_ANNOTATION\x10\x05\x12\x1a\n\x16VIDEO_EVENT_ANNOTATION\x10\x06\x12\"\n\x1eTEXT_CLASSIFICATION_ANNOTATION\x10\x08\x12%\n!TEXT_ENTITY_EXTRACTION_ANNOTATION\x10\t\x12%\n!GENERAL_CLASSIFICATION_ANNOTATION\x10\x0e\x42\xe7\x01\n%com.google.cloud.datalabeling.v1beta1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\xaa\x02!Google.Cloud.DataLabeling.V1Beta1\xca\x02!Google\\Cloud\\DataLabeling\\V1beta1\xea\x02$Google::Cloud::DataLabeling::V1beta1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n2google/cloud/datalabeling/v1beta1/annotation.proto\x12!google.cloud.datalabeling.v1beta1\x1a;google/cloud/datalabeling/v1beta1/annotation_spec_set.proto\x1a\x1egoogle/protobuf/duration.proto\"\xe2\x02\n\nAnnotation\x12\x0c\n\x04name\x18\x01 \x01(\t\x12N\n\x11\x61nnotation_source\x18\x02 \x01(\x0e\x32\x33.google.cloud.datalabeling.v1beta1.AnnotationSource\x12L\n\x10\x61nnotation_value\x18\x03 \x01(\x0b\x32\x32.google.cloud.datalabeling.v1beta1.AnnotationValue\x12R\n\x13\x61nnotation_metadata\x18\x04 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.AnnotationMetadata\x12T\n\x14\x61nnotation_sentiment\x18\x06 \x01(\x0e\x32\x36.google.cloud.datalabeling.v1beta1.AnnotationSentiment\"\xd1\x07\n\x0f\x41nnotationValue\x12k\n\x1fimage_classification_annotation\x18\x01 \x01(\x0b\x32@.google.cloud.datalabeling.v1beta1.ImageClassificationAnnotationH\x00\x12h\n\x1eimage_bounding_poly_annotation\x18\x02 \x01(\x0b\x32>.google.cloud.datalabeling.v1beta1.ImageBoundingPolyAnnotationH\x00\x12_\n\x19image_polyline_annotation\x18\x08 \x01(\x0b\x32:.google.cloud.datalabeling.v1beta1.ImagePolylineAnnotationH\x00\x12g\n\x1dimage_segmentation_annotation\x18\t \x01(\x0b\x32>.google.cloud.datalabeling.v1beta1.ImageSegmentationAnnotationH\x00\x12i\n\x1etext_classification_annotation\x18\x03 \x01(\x0b\x32?.google.cloud.datalabeling.v1beta1.TextClassificationAnnotationH\x00\x12n\n!text_entity_extraction_annotation\x18\n \x01(\x0b\x32\x41.google.cloud.datalabeling.v1beta1.TextEntityExtractionAnnotationH\x00\x12k\n\x1fvideo_classification_annotation\x18\x04 \x01(\x0b\x32@.google.cloud.datalabeling.v1beta1.VideoClassificationAnnotationH\x00\x12l\n video_object_tracking_annotation\x18\x05 \x01(\x0b\x32@.google.cloud.datalabeling.v1beta1.VideoObjectTrackingAnnotationH\x00\x12Y\n\x16video_event_annotation\x18\x06 \x01(\x0b\x32\x37.google.cloud.datalabeling.v1beta1.VideoEventAnnotationH\x00\x42\x0c\n\nvalue_type\"k\n\x1dImageClassificationAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\"\x1e\n\x06Vertex\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\"(\n\x10NormalizedVertex\x12\t\n\x01x\x18\x01 \x01(\x02\x12\t\n\x01y\x18\x02 \x01(\x02\"K\n\x0c\x42oundingPoly\x12;\n\x08vertices\x18\x01 \x03(\x0b\x32).google.cloud.datalabeling.v1beta1.Vertex\"j\n\x16NormalizedBoundingPoly\x12P\n\x13normalized_vertices\x18\x01 \x03(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.NormalizedVertex\"\xa2\x02\n\x1bImageBoundingPolyAnnotation\x12H\n\rbounding_poly\x18\x02 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.BoundingPolyH\x00\x12]\n\x18normalized_bounding_poly\x18\x03 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.NormalizedBoundingPolyH\x00\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpecB\x0e\n\x0c\x62ounded_area\"G\n\x08Polyline\x12;\n\x08vertices\x18\x01 \x03(\x0b\x32).google.cloud.datalabeling.v1beta1.Vertex\"f\n\x12NormalizedPolyline\x12P\n\x13normalized_vertices\x18\x01 \x03(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.NormalizedVertex\"\x84\x02\n\x17ImagePolylineAnnotation\x12?\n\x08polyline\x18\x02 \x01(\x0b\x32+.google.cloud.datalabeling.v1beta1.PolylineH\x00\x12T\n\x13normalized_polyline\x18\x03 \x01(\x0b\x32\x35.google.cloud.datalabeling.v1beta1.NormalizedPolylineH\x00\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpecB\x06\n\x04poly\"\xa2\x02\n\x1bImageSegmentationAnnotation\x12o\n\x11\x61nnotation_colors\x18\x01 \x03(\x0b\x32T.google.cloud.datalabeling.v1beta1.ImageSegmentationAnnotation.AnnotationColorsEntry\x12\x11\n\tmime_type\x18\x02 \x01(\t\x12\x13\n\x0bimage_bytes\x18\x03 \x01(\x0c\x1aj\n\x15\x41nnotationColorsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12@\n\x05value\x18\x02 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec:\x02\x38\x01\"j\n\x1cTextClassificationAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\"\xbe\x01\n\x1eTextEntityExtractionAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12P\n\x12sequential_segment\x18\x02 \x01(\x0b\x32\x34.google.cloud.datalabeling.v1beta1.SequentialSegment\"/\n\x11SequentialSegment\x12\r\n\x05start\x18\x01 \x01(\x05\x12\x0b\n\x03\x65nd\x18\x02 \x01(\x05\"w\n\x0bTimeSegment\x12\x34\n\x11start_time_offset\x18\x01 \x01(\x0b\x32\x19.google.protobuf.Duration\x12\x32\n\x0f\x65nd_time_offset\x18\x02 \x01(\x0b\x32\x19.google.protobuf.Duration\"\xb1\x01\n\x1dVideoClassificationAnnotation\x12\x44\n\x0ctime_segment\x18\x01 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TimeSegment\x12J\n\x0f\x61nnotation_spec\x18\x02 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\"\xfe\x01\n\x13ObjectTrackingFrame\x12H\n\rbounding_poly\x18\x01 \x01(\x0b\x32/.google.cloud.datalabeling.v1beta1.BoundingPolyH\x00\x12]\n\x18normalized_bounding_poly\x18\x02 \x01(\x0b\x32\x39.google.cloud.datalabeling.v1beta1.NormalizedBoundingPolyH\x00\x12.\n\x0btime_offset\x18\x03 \x01(\x0b\x32\x19.google.protobuf.DurationB\x0e\n\x0c\x62ounded_area\"\x89\x02\n\x1dVideoObjectTrackingAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x44\n\x0ctime_segment\x18\x02 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TimeSegment\x12V\n\x16object_tracking_frames\x18\x03 \x03(\x0b\x32\x36.google.cloud.datalabeling.v1beta1.ObjectTrackingFrame\"\xa8\x01\n\x14VideoEventAnnotation\x12J\n\x0f\x61nnotation_spec\x18\x01 \x01(\x0b\x32\x31.google.cloud.datalabeling.v1beta1.AnnotationSpec\x12\x44\n\x0ctime_segment\x18\x02 \x01(\x0b\x32..google.cloud.datalabeling.v1beta1.TimeSegment\"d\n\x12\x41nnotationMetadata\x12N\n\x11operator_metadata\x18\x02 \x01(\x0b\x32\x33.google.cloud.datalabeling.v1beta1.OperatorMetadata\"]\n\x10OperatorMetadata\x12\r\n\x05score\x18\x01 \x01(\x02\x12\x13\n\x0btotal_votes\x18\x02 \x01(\x05\x12\x13\n\x0blabel_votes\x18\x03 \x01(\x05\x12\x10\n\x08\x63omments\x18\x04 \x03(\t*C\n\x10\x41nnotationSource\x12!\n\x1d\x41NNOTATION_SOURCE_UNSPECIFIED\x10\x00\x12\x0c\n\x08OPERATOR\x10\x03*W\n\x13\x41nnotationSentiment\x12$\n ANNOTATION_SENTIMENT_UNSPECIFIED\x10\x00\x12\x0c\n\x08NEGATIVE\x10\x01\x12\x0c\n\x08POSITIVE\x10\x02*\x91\x04\n\x0e\x41nnotationType\x12\x1f\n\x1b\x41NNOTATION_TYPE_UNSPECIFIED\x10\x00\x12#\n\x1fIMAGE_CLASSIFICATION_ANNOTATION\x10\x01\x12!\n\x1dIMAGE_BOUNDING_BOX_ANNOTATION\x10\x02\x12*\n&IMAGE_ORIENTED_BOUNDING_BOX_ANNOTATION\x10\r\x12\"\n\x1eIMAGE_BOUNDING_POLY_ANNOTATION\x10\n\x12\x1d\n\x19IMAGE_POLYLINE_ANNOTATION\x10\x0b\x12!\n\x1dIMAGE_SEGMENTATION_ANNOTATION\x10\x0c\x12)\n%VIDEO_SHOTS_CLASSIFICATION_ANNOTATION\x10\x03\x12$\n VIDEO_OBJECT_TRACKING_ANNOTATION\x10\x04\x12%\n!VIDEO_OBJECT_DETECTION_ANNOTATION\x10\x05\x12\x1a\n\x16VIDEO_EVENT_ANNOTATION\x10\x06\x12\"\n\x1eTEXT_CLASSIFICATION_ANNOTATION\x10\x08\x12%\n!TEXT_ENTITY_EXTRACTION_ANNOTATION\x10\t\x12%\n!GENERAL_CLASSIFICATION_ANNOTATION\x10\x0e\x42\xe7\x01\n%com.google.cloud.datalabeling.v1beta1P\x01ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\xaa\x02!Google.Cloud.DataLabeling.V1Beta1\xca\x02!Google\\Cloud\\DataLabeling\\V1beta1\xea\x02$Google::Cloud::DataLabeling::V1beta1b\x06proto3')
 
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, globals())
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'google.cloud.datalabeling.v1beta1.annotation_pb2', globals())
@@ -27,56 +25,56 @@ if _descriptor._USE_C_DESCRIPTORS == False:
   DESCRIPTOR._serialized_options = b'\n%com.google.cloud.datalabeling.v1beta1P\001ZMgoogle.golang.org/genproto/googleapis/cloud/datalabeling/v1beta1;datalabeling\252\002!Google.Cloud.DataLabeling.V1Beta1\312\002!Google\\Cloud\\DataLabeling\\V1beta1\352\002$Google::Cloud::DataLabeling::V1beta1'
   _IMAGESEGMENTATIONANNOTATION_ANNOTATIONCOLORSENTRY._options = None
   _IMAGESEGMENTATIONANNOTATION_ANNOTATIONCOLORSENTRY._serialized_options = b'8\001'
-  _ANNOTATIONSOURCE._serialized_start=4514
-  _ANNOTATIONSOURCE._serialized_end=4581
-  _ANNOTATIONSENTIMENT._serialized_start=4583
-  _ANNOTATIONSENTIMENT._serialized_end=4670
-  _ANNOTATIONTYPE._serialized_start=4673
-  _ANNOTATIONTYPE._serialized_end=5202
-  _ANNOTATION._serialized_start=240
-  _ANNOTATION._serialized_end=594
-  _ANNOTATIONVALUE._serialized_start=597
-  _ANNOTATIONVALUE._serialized_end=1574
-  _IMAGECLASSIFICATIONANNOTATION._serialized_start=1576
-  _IMAGECLASSIFICATIONANNOTATION._serialized_end=1683
-  _VERTEX._serialized_start=1685
-  _VERTEX._serialized_end=1715
-  _NORMALIZEDVERTEX._serialized_start=1717
-  _NORMALIZEDVERTEX._serialized_end=1757
-  _BOUNDINGPOLY._serialized_start=1759
-  _BOUNDINGPOLY._serialized_end=1834
-  _NORMALIZEDBOUNDINGPOLY._serialized_start=1836
-  _NORMALIZEDBOUNDINGPOLY._serialized_end=1942
-  _IMAGEBOUNDINGPOLYANNOTATION._serialized_start=1945
-  _IMAGEBOUNDINGPOLYANNOTATION._serialized_end=2235
-  _POLYLINE._serialized_start=2237
-  _POLYLINE._serialized_end=2308
-  _NORMALIZEDPOLYLINE._serialized_start=2310
-  _NORMALIZEDPOLYLINE._serialized_end=2412
-  _IMAGEPOLYLINEANNOTATION._serialized_start=2415
-  _IMAGEPOLYLINEANNOTATION._serialized_end=2675
-  _IMAGESEGMENTATIONANNOTATION._serialized_start=2678
-  _IMAGESEGMENTATIONANNOTATION._serialized_end=2968
-  _IMAGESEGMENTATIONANNOTATION_ANNOTATIONCOLORSENTRY._serialized_start=2862
-  _IMAGESEGMENTATIONANNOTATION_ANNOTATIONCOLORSENTRY._serialized_end=2968
-  _TEXTCLASSIFICATIONANNOTATION._serialized_start=2970
-  _TEXTCLASSIFICATIONANNOTATION._serialized_end=3076
-  _TEXTENTITYEXTRACTIONANNOTATION._serialized_start=3079
-  _TEXTENTITYEXTRACTIONANNOTATION._serialized_end=3269
-  _SEQUENTIALSEGMENT._serialized_start=3271
-  _SEQUENTIALSEGMENT._serialized_end=3318
-  _TIMESEGMENT._serialized_start=3320
-  _TIMESEGMENT._serialized_end=3439
-  _VIDEOCLASSIFICATIONANNOTATION._serialized_start=3442
-  _VIDEOCLASSIFICATIONANNOTATION._serialized_end=3619
-  _OBJECTTRACKINGFRAME._serialized_start=3622
-  _OBJECTTRACKINGFRAME._serialized_end=3876
-  _VIDEOOBJECTTRACKINGANNOTATION._serialized_start=3879
-  _VIDEOOBJECTTRACKINGANNOTATION._serialized_end=4144
-  _VIDEOEVENTANNOTATION._serialized_start=4147
-  _VIDEOEVENTANNOTATION._serialized_end=4315
-  _ANNOTATIONMETADATA._serialized_start=4317
-  _ANNOTATIONMETADATA._serialized_end=4417
-  _OPERATORMETADATA._serialized_start=4419
-  _OPERATORMETADATA._serialized_end=4512
+  _ANNOTATIONSOURCE._serialized_start=4457
+  _ANNOTATIONSOURCE._serialized_end=4524
+  _ANNOTATIONSENTIMENT._serialized_start=4526
+  _ANNOTATIONSENTIMENT._serialized_end=4613
+  _ANNOTATIONTYPE._serialized_start=4616
+  _ANNOTATIONTYPE._serialized_end=5145
+  _ANNOTATION._serialized_start=183
+  _ANNOTATION._serialized_end=537
+  _ANNOTATIONVALUE._serialized_start=540
+  _ANNOTATIONVALUE._serialized_end=1517
+  _IMAGECLASSIFICATIONANNOTATION._serialized_start=1519
+  _IMAGECLASSIFICATIONANNOTATION._serialized_end=1626
+  _VERTEX._serialized_start=1628
+  _VERTEX._serialized_end=1658
+  _NORMALIZEDVERTEX._serialized_start=1660
+  _NORMALIZEDVERTEX._serialized_end=1700
+  _BOUNDINGPOLY._serialized_start=1702
+  _BOUNDINGPOLY._serialized_end=1777
+  _NORMALIZEDBOUNDINGPOLY._serialized_start=1779
+  _NORMALIZEDBOUNDINGPOLY._serialized_end=1885
+  _IMAGEBOUNDINGPOLYANNOTATION._serialized_start=1888
+  _IMAGEBOUNDINGPOLYANNOTATION._serialized_end=2178
+  _POLYLINE._serialized_start=2180
+  _POLYLINE._serialized_end=2251
+  _NORMALIZEDPOLYLINE._serialized_start=2253
+  _NORMALIZEDPOLYLINE._serialized_end=2355
+  _IMAGEPOLYLINEANNOTATION._serialized_start=2358
+  _IMAGEPOLYLINEANNOTATION._serialized_end=2618
+  _IMAGESEGMENTATIONANNOTATION._serialized_start=2621
+  _IMAGESEGMENTATIONANNOTATION._serialized_end=2911
+  _IMAGESEGMENTATIONANNOTATION_ANNOTATIONCOLORSENTRY._serialized_start=2805
+  _IMAGESEGMENTATIONANNOTATION_ANNOTATIONCOLORSENTRY._serialized_end=2911
+  _TEXTCLASSIFICATIONANNOTATION._serialized_start=2913
+  _TEXTCLASSIFICATIONANNOTATION._serialized_end=3019
+  _TEXTENTITYEXTRACTIONANNOTATION._serialized_start=3022
+  _TEXTENTITYEXTRACTIONANNOTATION._serialized_end=3212
+  _SEQUENTIALSEGMENT._serialized_start=3214
+  _SEQUENTIALSEGMENT._serialized_end=3261
+  _TIMESEGMENT._serialized_start=3263
+  _TIMESEGMENT._serialized_end=3382
+  _VIDEOCLASSIFICATIONANNOTATION._serialized_start=3385
+  _VIDEOCLASSIFICATIONANNOTATION._serialized_end=3562
+  _OBJECTTRACKINGFRAME._serialized_start=3565
+  _OBJECTTRACKINGFRAME._serialized_end=3819
+  _VIDEOOBJECTTRACKINGANNOTATION._serialized_start=3822
+  _VIDEOOBJECTTRACKINGANNOTATION._serialized_end=4087
+  _VIDEOEVENTANNOTATION._serialized_start=4090
+  _VIDEOEVENTANNOTATION._serialized_end=4258
+  _ANNOTATIONMETADATA._serialized_start=4260
+  _ANNOTATIONMETADATA._serialized_end=4360
+  _OPERATORMETADATA._serialized_start=4362
+  _OPERATORMETADATA._serialized_end=4455
 # @@protoc_insertion_point(module_scope)

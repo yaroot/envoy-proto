@@ -37,107 +37,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private BandwidthLimit(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            statPrefix_ = s;
-            break;
-          }
-          case 16: {
-            int rawValue = input.readEnum();
-
-            enableMode_ = rawValue;
-            break;
-          }
-          case 26: {
-            com.google.protobuf.UInt64Value.Builder subBuilder = null;
-            if (limitKbps_ != null) {
-              subBuilder = limitKbps_.toBuilder();
-            }
-            limitKbps_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(limitKbps_);
-              limitKbps_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Duration.Builder subBuilder = null;
-            if (fillInterval_ != null) {
-              subBuilder = fillInterval_.toBuilder();
-            }
-            fillInterval_ = input.readMessage(com.google.protobuf.Duration.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(fillInterval_);
-              fillInterval_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder subBuilder = null;
-            if (runtimeEnabled_ != null) {
-              subBuilder = runtimeEnabled_.toBuilder();
-            }
-            runtimeEnabled_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(runtimeEnabled_);
-              runtimeEnabled_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 48: {
-
-            enableResponseTrailers_ = input.readBool();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            responseTrailerPrefix_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimitProto.internal_static_envoy_extensions_filters_http_bandwidth_limit_v3_BandwidthLimit_descriptor;
@@ -315,7 +214,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STAT_PREFIX_FIELD_NUMBER = 1;
-  private volatile java.lang.Object statPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object statPrefix_ = "";
   /**
    * <pre>
    * The human readable prefix to use when emitting stats.
@@ -361,7 +261,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ENABLE_MODE_FIELD_NUMBER = 2;
-  private int enableMode_;
+  private int enableMode_ = 0;
   /**
    * <pre>
    * The enable mode for the bandwidth limit filter.
@@ -384,8 +284,7 @@ private static final long serialVersionUID = 0L;
    * @return The enableMode.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode getEnableMode() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode result = io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode.valueOf(enableMode_);
+    io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode result = io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode.forNumber(enableMode_);
     return result == null ? io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode.UNRECOGNIZED : result;
   }
 
@@ -442,7 +341,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt64ValueOrBuilder getLimitKbpsOrBuilder() {
-    return getLimitKbps();
+    return limitKbps_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : limitKbps_;
   }
 
   public static final int FILL_INTERVAL_FIELD_NUMBER = 4;
@@ -483,7 +382,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.DurationOrBuilder getFillIntervalOrBuilder() {
-    return getFillInterval();
+    return fillInterval_ == null ? com.google.protobuf.Duration.getDefaultInstance() : fillInterval_;
   }
 
   public static final int RUNTIME_ENABLED_FIELD_NUMBER = 5;
@@ -524,20 +423,22 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlagOrBuilder getRuntimeEnabledOrBuilder() {
-    return getRuntimeEnabled();
+    return runtimeEnabled_ == null ? io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance() : runtimeEnabled_;
   }
 
   public static final int ENABLE_RESPONSE_TRAILERS_FIELD_NUMBER = 6;
-  private boolean enableResponseTrailers_;
+  private boolean enableResponseTrailers_ = false;
   /**
    * <pre>
    * Enable response trailers.
    * .. note::
-   *   * If set true, the response trailers ``bandwidth-request-delay-ms`` and ``bandwidth-response-delay-ms`` will be added, prefixed by ``response_trailer_prefix``.
-   *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer.
-   *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer.
-   *   * If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
-   *   * If both the request and response delay time is 0, the trailers will not be set.
+   *   If set true, the following 4 trailers will be added, prefixed by ``response_trailer_prefix``:
+   *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer including request body transfer time and the time added by the filter.
+   *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer including response body transfer time and the time added by the filter.
+   *   * bandwidth-request-filter-delay-ms: delay time in milliseconds in request stream transfer added by the filter.
+   *   * bandwidth-response-filter-delay-ms: delay time in milliseconds that added by the filter.
+   *   If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
+   *   If both the request and response delay time is 0, the trailers will not be set.
    * </pre>
    *
    * <code>bool enable_response_trailers = 6;</code>
@@ -549,7 +450,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_TRAILER_PREFIX_FIELD_NUMBER = 7;
-  private volatile java.lang.Object responseTrailerPrefix_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object responseTrailerPrefix_ = "";
   /**
    * <pre>
    * Optional The prefix for the response trailers.
@@ -629,7 +531,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(responseTrailerPrefix_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, responseTrailerPrefix_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -664,7 +566,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(responseTrailerPrefix_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, responseTrailerPrefix_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -701,7 +603,7 @@ private static final long serialVersionUID = 0L;
         != other.getEnableResponseTrailers()) return false;
     if (!getResponseTrailerPrefix()
         .equals(other.getResponseTrailerPrefix())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -733,7 +635,7 @@ private static final long serialVersionUID = 0L;
         getEnableResponseTrailers());
     hash = (37 * hash) + RESPONSE_TRAILER_PREFIX_FIELD_NUMBER;
     hash = (53 * hash) + getResponseTrailerPrefix().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -854,48 +756,37 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       statPrefix_ = "";
-
       enableMode_ = 0;
-
-      if (limitKbpsBuilder_ == null) {
-        limitKbps_ = null;
-      } else {
-        limitKbps_ = null;
+      limitKbps_ = null;
+      if (limitKbpsBuilder_ != null) {
+        limitKbpsBuilder_.dispose();
         limitKbpsBuilder_ = null;
       }
-      if (fillIntervalBuilder_ == null) {
-        fillInterval_ = null;
-      } else {
-        fillInterval_ = null;
+      fillInterval_ = null;
+      if (fillIntervalBuilder_ != null) {
+        fillIntervalBuilder_.dispose();
         fillIntervalBuilder_ = null;
       }
-      if (runtimeEnabledBuilder_ == null) {
-        runtimeEnabled_ = null;
-      } else {
-        runtimeEnabled_ = null;
+      runtimeEnabled_ = null;
+      if (runtimeEnabledBuilder_ != null) {
+        runtimeEnabledBuilder_.dispose();
         runtimeEnabledBuilder_ = null;
       }
       enableResponseTrailers_ = false;
-
       responseTrailerPrefix_ = "";
-
       return this;
     }
 
@@ -922,27 +813,40 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit buildPartial() {
       io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit result = new io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit(this);
-      result.statPrefix_ = statPrefix_;
-      result.enableMode_ = enableMode_;
-      if (limitKbpsBuilder_ == null) {
-        result.limitKbps_ = limitKbps_;
-      } else {
-        result.limitKbps_ = limitKbpsBuilder_.build();
-      }
-      if (fillIntervalBuilder_ == null) {
-        result.fillInterval_ = fillInterval_;
-      } else {
-        result.fillInterval_ = fillIntervalBuilder_.build();
-      }
-      if (runtimeEnabledBuilder_ == null) {
-        result.runtimeEnabled_ = runtimeEnabled_;
-      } else {
-        result.runtimeEnabled_ = runtimeEnabledBuilder_.build();
-      }
-      result.enableResponseTrailers_ = enableResponseTrailers_;
-      result.responseTrailerPrefix_ = responseTrailerPrefix_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.statPrefix_ = statPrefix_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.enableMode_ = enableMode_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.limitKbps_ = limitKbpsBuilder_ == null
+            ? limitKbps_
+            : limitKbpsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fillInterval_ = fillIntervalBuilder_ == null
+            ? fillInterval_
+            : fillIntervalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.runtimeEnabled_ = runtimeEnabledBuilder_ == null
+            ? runtimeEnabled_
+            : runtimeEnabledBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.enableResponseTrailers_ = enableResponseTrailers_;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.responseTrailerPrefix_ = responseTrailerPrefix_;
+      }
     }
 
     @java.lang.Override
@@ -991,6 +895,7 @@ private static final long serialVersionUID = 0L;
       if (other == io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.getDefaultInstance()) return this;
       if (!other.getStatPrefix().isEmpty()) {
         statPrefix_ = other.statPrefix_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.enableMode_ != 0) {
@@ -1010,9 +915,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getResponseTrailerPrefix().isEmpty()) {
         responseTrailerPrefix_ = other.responseTrailerPrefix_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1027,19 +933,74 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              statPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              enableMode_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              input.readMessage(
+                  getLimitKbpsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getFillIntervalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getRuntimeEnabledFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 48: {
+              enableResponseTrailers_ = input.readBool();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 58: {
+              responseTrailerPrefix_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object statPrefix_ = "";
     /**
@@ -1094,11 +1055,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1111,8 +1070,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStatPrefix() {
-      
       statPrefix_ = getDefaultInstance().getStatPrefix();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1127,12 +1086,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStatPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       statPrefix_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1161,8 +1118,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setEnableModeValue(int value) {
-      
       enableMode_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1177,8 +1134,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode getEnableMode() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode result = io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode.valueOf(enableMode_);
+      io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode result = io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode.forNumber(enableMode_);
       return result == null ? io.envoyproxy.envoy.extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.EnableMode.UNRECOGNIZED : result;
     }
     /**
@@ -1195,7 +1151,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000002;
       enableMode_ = value.getNumber();
       onChanged();
       return this;
@@ -1210,7 +1166,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearEnableMode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       enableMode_ = 0;
       onChanged();
       return this;
@@ -1234,7 +1190,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the limitKbps field is set.
      */
     public boolean hasLimitKbps() {
-      return limitKbpsBuilder_ != null || limitKbps_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1276,11 +1232,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         limitKbps_ = value;
-        onChanged();
       } else {
         limitKbpsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1300,11 +1256,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt64Value.Builder builderForValue) {
       if (limitKbpsBuilder_ == null) {
         limitKbps_ = builderForValue.build();
-        onChanged();
       } else {
         limitKbpsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1322,17 +1278,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeLimitKbps(com.google.protobuf.UInt64Value value) {
       if (limitKbpsBuilder_ == null) {
-        if (limitKbps_ != null) {
-          limitKbps_ =
-            com.google.protobuf.UInt64Value.newBuilder(limitKbps_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          limitKbps_ != null &&
+          limitKbps_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
+          getLimitKbpsBuilder().mergeFrom(value);
         } else {
           limitKbps_ = value;
         }
-        onChanged();
       } else {
         limitKbpsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1349,14 +1306,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value limit_kbps = 3 [(.validate.rules) = { ... }</code>
      */
     public Builder clearLimitKbps() {
-      if (limitKbpsBuilder_ == null) {
-        limitKbps_ = null;
-        onChanged();
-      } else {
-        limitKbps_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      limitKbps_ = null;
+      if (limitKbpsBuilder_ != null) {
+        limitKbpsBuilder_.dispose();
         limitKbpsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1373,7 +1329,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value limit_kbps = 3 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt64Value.Builder getLimitKbpsBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getLimitKbpsFieldBuilder().getBuilder();
     }
@@ -1438,7 +1394,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the fillInterval field is set.
      */
     public boolean hasFillInterval() {
-      return fillIntervalBuilder_ != null || fillInterval_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1470,11 +1426,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         fillInterval_ = value;
-        onChanged();
       } else {
         fillIntervalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1489,11 +1445,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Duration.Builder builderForValue) {
       if (fillIntervalBuilder_ == null) {
         fillInterval_ = builderForValue.build();
-        onChanged();
       } else {
         fillIntervalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1506,17 +1462,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeFillInterval(com.google.protobuf.Duration value) {
       if (fillIntervalBuilder_ == null) {
-        if (fillInterval_ != null) {
-          fillInterval_ =
-            com.google.protobuf.Duration.newBuilder(fillInterval_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          fillInterval_ != null &&
+          fillInterval_ != com.google.protobuf.Duration.getDefaultInstance()) {
+          getFillIntervalBuilder().mergeFrom(value);
         } else {
           fillInterval_ = value;
         }
-        onChanged();
       } else {
         fillIntervalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1528,14 +1485,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration fill_interval = 4 [(.validate.rules) = { ... }</code>
      */
     public Builder clearFillInterval() {
-      if (fillIntervalBuilder_ == null) {
-        fillInterval_ = null;
-        onChanged();
-      } else {
-        fillInterval_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      fillInterval_ = null;
+      if (fillIntervalBuilder_ != null) {
+        fillIntervalBuilder_.dispose();
         fillIntervalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1547,7 +1503,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Duration fill_interval = 4 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.Duration.Builder getFillIntervalBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getFillIntervalFieldBuilder().getBuilder();
     }
@@ -1602,7 +1558,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the runtimeEnabled field is set.
      */
     public boolean hasRuntimeEnabled() {
-      return runtimeEnabledBuilder_ != null || runtimeEnabled_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1634,11 +1590,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         runtimeEnabled_ = value;
-        onChanged();
       } else {
         runtimeEnabledBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1653,11 +1609,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder builderForValue) {
       if (runtimeEnabledBuilder_ == null) {
         runtimeEnabled_ = builderForValue.build();
-        onChanged();
       } else {
         runtimeEnabledBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1670,17 +1626,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRuntimeEnabled(io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag value) {
       if (runtimeEnabledBuilder_ == null) {
-        if (runtimeEnabled_ != null) {
-          runtimeEnabled_ =
-            io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.newBuilder(runtimeEnabled_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          runtimeEnabled_ != null &&
+          runtimeEnabled_ != io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.getDefaultInstance()) {
+          getRuntimeEnabledBuilder().mergeFrom(value);
         } else {
           runtimeEnabled_ = value;
         }
-        onChanged();
       } else {
         runtimeEnabledBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1692,14 +1649,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5;</code>
      */
     public Builder clearRuntimeEnabled() {
-      if (runtimeEnabledBuilder_ == null) {
-        runtimeEnabled_ = null;
-        onChanged();
-      } else {
-        runtimeEnabled_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      runtimeEnabled_ = null;
+      if (runtimeEnabledBuilder_ != null) {
+        runtimeEnabledBuilder_.dispose();
         runtimeEnabledBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1711,7 +1667,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.RuntimeFeatureFlag runtime_enabled = 5;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.RuntimeFeatureFlag.Builder getRuntimeEnabledBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getRuntimeEnabledFieldBuilder().getBuilder();
     }
@@ -1758,11 +1714,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Enable response trailers.
      * .. note::
-     *   * If set true, the response trailers ``bandwidth-request-delay-ms`` and ``bandwidth-response-delay-ms`` will be added, prefixed by ``response_trailer_prefix``.
-     *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer.
-     *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer.
-     *   * If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
-     *   * If both the request and response delay time is 0, the trailers will not be set.
+     *   If set true, the following 4 trailers will be added, prefixed by ``response_trailer_prefix``:
+     *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer including request body transfer time and the time added by the filter.
+     *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer including response body transfer time and the time added by the filter.
+     *   * bandwidth-request-filter-delay-ms: delay time in milliseconds in request stream transfer added by the filter.
+     *   * bandwidth-response-filter-delay-ms: delay time in milliseconds that added by the filter.
+     *   If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
+     *   If both the request and response delay time is 0, the trailers will not be set.
      * </pre>
      *
      * <code>bool enable_response_trailers = 6;</code>
@@ -1776,11 +1734,13 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Enable response trailers.
      * .. note::
-     *   * If set true, the response trailers ``bandwidth-request-delay-ms`` and ``bandwidth-response-delay-ms`` will be added, prefixed by ``response_trailer_prefix``.
-     *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer.
-     *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer.
-     *   * If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
-     *   * If both the request and response delay time is 0, the trailers will not be set.
+     *   If set true, the following 4 trailers will be added, prefixed by ``response_trailer_prefix``:
+     *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer including request body transfer time and the time added by the filter.
+     *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer including response body transfer time and the time added by the filter.
+     *   * bandwidth-request-filter-delay-ms: delay time in milliseconds in request stream transfer added by the filter.
+     *   * bandwidth-response-filter-delay-ms: delay time in milliseconds that added by the filter.
+     *   If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
+     *   If both the request and response delay time is 0, the trailers will not be set.
      * </pre>
      *
      * <code>bool enable_response_trailers = 6;</code>
@@ -1790,6 +1750,7 @@ private static final long serialVersionUID = 0L;
     public Builder setEnableResponseTrailers(boolean value) {
       
       enableResponseTrailers_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -1797,18 +1758,20 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * Enable response trailers.
      * .. note::
-     *   * If set true, the response trailers ``bandwidth-request-delay-ms`` and ``bandwidth-response-delay-ms`` will be added, prefixed by ``response_trailer_prefix``.
-     *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer.
-     *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer.
-     *   * If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
-     *   * If both the request and response delay time is 0, the trailers will not be set.
+     *   If set true, the following 4 trailers will be added, prefixed by ``response_trailer_prefix``:
+     *   * bandwidth-request-delay-ms: delay time in milliseconds it took for the request stream transfer including request body transfer time and the time added by the filter.
+     *   * bandwidth-response-delay-ms: delay time in milliseconds it took for the response stream transfer including response body transfer time and the time added by the filter.
+     *   * bandwidth-request-filter-delay-ms: delay time in milliseconds in request stream transfer added by the filter.
+     *   * bandwidth-response-filter-delay-ms: delay time in milliseconds that added by the filter.
+     *   If :ref:`enable_mode &lt;envoy_v3_api_field_extensions.filters.http.bandwidth_limit.v3.BandwidthLimit.enable_mode&gt;` is ``DISABLED`` or ``REQUEST``, the trailers will not be set.
+     *   If both the request and response delay time is 0, the trailers will not be set.
      * </pre>
      *
      * <code>bool enable_response_trailers = 6;</code>
      * @return This builder for chaining.
      */
     public Builder clearEnableResponseTrailers() {
-      
+      bitField0_ = (bitField0_ & ~0x00000020);
       enableResponseTrailers_ = false;
       onChanged();
       return this;
@@ -1867,11 +1830,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseTrailerPrefix(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       responseTrailerPrefix_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1884,8 +1845,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResponseTrailerPrefix() {
-      
       responseTrailerPrefix_ = getDefaultInstance().getResponseTrailerPrefix();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1900,12 +1861,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseTrailerPrefixBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       responseTrailerPrefix_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1942,7 +1901,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new BandwidthLimit(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

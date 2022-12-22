@@ -51,8 +51,9 @@ public interface EnvironmentOrBuilder extends
 
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the environment. This ID will be
-   * different if the environment is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the environment. This
+   * ID will be different if the environment is deleted and re-created with the
+   * same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -61,8 +62,9 @@ public interface EnvironmentOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the environment. This ID will be
-   * different if the environment is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the environment. This
+   * ID will be different if the environment is deleted and re-created with the
+   * same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -164,7 +166,6 @@ public interface EnvironmentOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -177,7 +178,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -303,7 +303,8 @@ java.lang.String defaultValue);
 
   /**
    * <pre>
-   * Output only. URI Endpoints to access sessions associated with the Environment.
+   * Output only. URI Endpoints to access sessions associated with the
+   * Environment.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Environment.Endpoints endpoints = 200 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -312,7 +313,8 @@ java.lang.String defaultValue);
   boolean hasEndpoints();
   /**
    * <pre>
-   * Output only. URI Endpoints to access sessions associated with the Environment.
+   * Output only. URI Endpoints to access sessions associated with the
+   * Environment.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Environment.Endpoints endpoints = 200 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -321,7 +323,8 @@ java.lang.String defaultValue);
   com.google.cloud.dataplex.v1.Environment.Endpoints getEndpoints();
   /**
    * <pre>
-   * Output only. URI Endpoints to access sessions associated with the Environment.
+   * Output only. URI Endpoints to access sessions associated with the
+   * Environment.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Environment.Endpoints endpoints = 200 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>

@@ -39,169 +39,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FeedItemAttributeValue(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 50: {
-            com.google.ads.googleads.v10.common.Money.Builder subBuilder = null;
-            if (priceValue_ != null) {
-              subBuilder = priceValue_.toBuilder();
-            }
-            priceValue_ = input.readMessage(com.google.ads.googleads.v10.common.Money.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(priceValue_);
-              priceValue_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 88: {
-            bitField0_ |= 0x00000001;
-            feedAttributeId_ = input.readInt64();
-            break;
-          }
-          case 96: {
-            bitField0_ |= 0x00000002;
-            integerValue_ = input.readInt64();
-            break;
-          }
-          case 104: {
-            bitField0_ |= 0x00000004;
-            booleanValue_ = input.readBool();
-            break;
-          }
-          case 114: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000008;
-            stringValue_ = s;
-            break;
-          }
-          case 121: {
-            bitField0_ |= 0x00000010;
-            doubleValue_ = input.readDouble();
-            break;
-          }
-          case 128: {
-            if (!((mutable_bitField0_ & 0x00000020) != 0)) {
-              integerValues_ = newLongList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            integerValues_.addLong(input.readInt64());
-            break;
-          }
-          case 130: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000020) != 0) && input.getBytesUntilLimit() > 0) {
-              integerValues_ = newLongList();
-              mutable_bitField0_ |= 0x00000020;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              integerValues_.addLong(input.readInt64());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 136: {
-            if (!((mutable_bitField0_ & 0x00000040) != 0)) {
-              booleanValues_ = newBooleanList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            booleanValues_.addBoolean(input.readBool());
-            break;
-          }
-          case 138: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000040) != 0) && input.getBytesUntilLimit() > 0) {
-              booleanValues_ = newBooleanList();
-              mutable_bitField0_ |= 0x00000040;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              booleanValues_.addBoolean(input.readBool());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          case 146: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000080) != 0)) {
-              stringValues_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000080;
-            }
-            stringValues_.add(s);
-            break;
-          }
-          case 153: {
-            if (!((mutable_bitField0_ & 0x00000100) != 0)) {
-              doubleValues_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            doubleValues_.addDouble(input.readDouble());
-            break;
-          }
-          case 154: {
-            int length = input.readRawVarint32();
-            int limit = input.pushLimit(length);
-            if (!((mutable_bitField0_ & 0x00000100) != 0) && input.getBytesUntilLimit() > 0) {
-              doubleValues_ = newDoubleList();
-              mutable_bitField0_ |= 0x00000100;
-            }
-            while (input.getBytesUntilLimit() > 0) {
-              doubleValues_.addDouble(input.readDouble());
-            }
-            input.popLimit(limit);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000020) != 0)) {
-        integerValues_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000040) != 0)) {
-        booleanValues_.makeImmutable(); // C
-      }
-      if (((mutable_bitField0_ & 0x00000080) != 0)) {
-        stringValues_ = stringValues_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000100) != 0)) {
-        doubleValues_.makeImmutable(); // C
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.resources.FeedItemProto.internal_static_google_ads_googleads_v10_resources_FeedItemAttributeValue_descriptor;
@@ -217,7 +54,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int FEED_ATTRIBUTE_ID_FIELD_NUMBER = 11;
-  private long feedAttributeId_;
+  private long feedAttributeId_ = 0L;
   /**
    * <pre>
    * Id of the feed attribute for which the value is associated with.
@@ -244,7 +81,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int INTEGER_VALUE_FIELD_NUMBER = 12;
-  private long integerValue_;
+  private long integerValue_ = 0L;
   /**
    * <pre>
    * Int64 value. Should be set if feed_attribute_id refers to a feed attribute
@@ -273,7 +110,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BOOLEAN_VALUE_FIELD_NUMBER = 13;
-  private boolean booleanValue_;
+  private boolean booleanValue_ = false;
   /**
    * <pre>
    * Bool value. Should be set if feed_attribute_id refers to a feed attribute
@@ -302,7 +139,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STRING_VALUE_FIELD_NUMBER = 14;
-  private volatile java.lang.Object stringValue_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object stringValue_ = "";
   /**
    * <pre>
    * String value. Should be set if feed_attribute_id refers to a feed attribute
@@ -372,7 +210,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOUBLE_VALUE_FIELD_NUMBER = 15;
-  private double doubleValue_;
+  private double doubleValue_ = 0D;
   /**
    * <pre>
    * Double value. Should be set if feed_attribute_id refers to a feed attribute
@@ -438,10 +276,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.common.MoneyOrBuilder getPriceValueOrBuilder() {
-    return getPriceValue();
+    return priceValue_ == null ? com.google.ads.googleads.v10.common.Money.getDefaultInstance() : priceValue_;
   }
 
   public static final int INTEGER_VALUES_FIELD_NUMBER = 16;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.LongList integerValues_;
   /**
    * <pre>
@@ -485,6 +324,7 @@ private static final long serialVersionUID = 0L;
   private int integerValuesMemoizedSerializedSize = -1;
 
   public static final int BOOLEAN_VALUES_FIELD_NUMBER = 17;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.BooleanList booleanValues_;
   /**
    * <pre>
@@ -528,6 +368,7 @@ private static final long serialVersionUID = 0L;
   private int booleanValuesMemoizedSerializedSize = -1;
 
   public static final int STRING_VALUES_FIELD_NUMBER = 18;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList stringValues_;
   /**
    * <pre>
@@ -607,6 +448,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DOUBLE_VALUES_FIELD_NUMBER = 19;
+  @SuppressWarnings("serial")
   private com.google.protobuf.Internal.DoubleList doubleValues_;
   /**
    * <pre>
@@ -706,7 +548,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < doubleValues_.size(); i++) {
       output.writeDoubleNoTag(doubleValues_.getDouble(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -782,7 +624,7 @@ private static final long serialVersionUID = 0L;
       }
       doubleValuesMemoizedSerializedSize = dataSize;
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -836,7 +678,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getStringValuesList())) return false;
     if (!getDoubleValuesList()
         .equals(other.getDoubleValuesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -891,7 +733,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + DOUBLE_VALUES_FIELD_NUMBER;
       hash = (53 * hash) + getDoubleValuesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1012,46 +854,33 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.resources.FeedItemAttributeValue.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       feedAttributeId_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000001);
       integerValue_ = 0L;
-      bitField0_ = (bitField0_ & ~0x00000002);
       booleanValue_ = false;
-      bitField0_ = (bitField0_ & ~0x00000004);
       stringValue_ = "";
-      bitField0_ = (bitField0_ & ~0x00000008);
       doubleValue_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000010);
-      if (priceValueBuilder_ == null) {
-        priceValue_ = null;
-      } else {
-        priceValue_ = null;
+      priceValue_ = null;
+      if (priceValueBuilder_ != null) {
+        priceValueBuilder_.dispose();
         priceValueBuilder_ = null;
       }
       integerValues_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000020);
       booleanValues_ = emptyBooleanList();
-      bitField0_ = (bitField0_ & ~0x00000040);
       stringValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
-      doubleValues_ = emptyDoubleList();
       bitField0_ = (bitField0_ & ~0x00000100);
+      doubleValues_ = emptyDoubleList();
       return this;
     }
 
@@ -1078,6 +907,36 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.resources.FeedItemAttributeValue buildPartial() {
       com.google.ads.googleads.v10.resources.FeedItemAttributeValue result = new com.google.ads.googleads.v10.resources.FeedItemAttributeValue(this);
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.ads.googleads.v10.resources.FeedItemAttributeValue result) {
+      if (((bitField0_ & 0x00000040) != 0)) {
+        integerValues_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.integerValues_ = integerValues_;
+      if (((bitField0_ & 0x00000080) != 0)) {
+        booleanValues_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000080);
+      }
+      result.booleanValues_ = booleanValues_;
+      if (((bitField0_ & 0x00000100) != 0)) {
+        stringValues_ = stringValues_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000100);
+      }
+      result.stringValues_ = stringValues_;
+      if (((bitField0_ & 0x00000200) != 0)) {
+        doubleValues_.makeImmutable();
+        bitField0_ = (bitField0_ & ~0x00000200);
+      }
+      result.doubleValues_ = doubleValues_;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.resources.FeedItemAttributeValue result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -1093,41 +952,19 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.stringValue_ = stringValue_;
         to_bitField0_ |= 0x00000008;
       }
-      result.stringValue_ = stringValue_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.doubleValue_ = doubleValue_;
         to_bitField0_ |= 0x00000010;
       }
-      if (priceValueBuilder_ == null) {
-        result.priceValue_ = priceValue_;
-      } else {
-        result.priceValue_ = priceValueBuilder_.build();
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.priceValue_ = priceValueBuilder_ == null
+            ? priceValue_
+            : priceValueBuilder_.build();
       }
-      if (((bitField0_ & 0x00000020) != 0)) {
-        integerValues_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000020);
-      }
-      result.integerValues_ = integerValues_;
-      if (((bitField0_ & 0x00000040) != 0)) {
-        booleanValues_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000040);
-      }
-      result.booleanValues_ = booleanValues_;
-      if (((bitField0_ & 0x00000080) != 0)) {
-        stringValues_ = stringValues_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000080);
-      }
-      result.stringValues_ = stringValues_;
-      if (((bitField0_ & 0x00000100) != 0)) {
-        doubleValues_.makeImmutable();
-        bitField0_ = (bitField0_ & ~0x00000100);
-      }
-      result.doubleValues_ = doubleValues_;
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1184,8 +1021,8 @@ private static final long serialVersionUID = 0L;
         setBooleanValue(other.getBooleanValue());
       }
       if (other.hasStringValue()) {
-        bitField0_ |= 0x00000008;
         stringValue_ = other.stringValue_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (other.hasDoubleValue()) {
@@ -1197,7 +1034,7 @@ private static final long serialVersionUID = 0L;
       if (!other.integerValues_.isEmpty()) {
         if (integerValues_.isEmpty()) {
           integerValues_ = other.integerValues_;
-          bitField0_ = (bitField0_ & ~0x00000020);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureIntegerValuesIsMutable();
           integerValues_.addAll(other.integerValues_);
@@ -1207,7 +1044,7 @@ private static final long serialVersionUID = 0L;
       if (!other.booleanValues_.isEmpty()) {
         if (booleanValues_.isEmpty()) {
           booleanValues_ = other.booleanValues_;
-          bitField0_ = (bitField0_ & ~0x00000040);
+          bitField0_ = (bitField0_ & ~0x00000080);
         } else {
           ensureBooleanValuesIsMutable();
           booleanValues_.addAll(other.booleanValues_);
@@ -1217,7 +1054,7 @@ private static final long serialVersionUID = 0L;
       if (!other.stringValues_.isEmpty()) {
         if (stringValues_.isEmpty()) {
           stringValues_ = other.stringValues_;
-          bitField0_ = (bitField0_ & ~0x00000080);
+          bitField0_ = (bitField0_ & ~0x00000100);
         } else {
           ensureStringValuesIsMutable();
           stringValues_.addAll(other.stringValues_);
@@ -1227,14 +1064,14 @@ private static final long serialVersionUID = 0L;
       if (!other.doubleValues_.isEmpty()) {
         if (doubleValues_.isEmpty()) {
           doubleValues_ = other.doubleValues_;
-          bitField0_ = (bitField0_ & ~0x00000100);
+          bitField0_ = (bitField0_ & ~0x00000200);
         } else {
           ensureDoubleValuesIsMutable();
           doubleValues_.addAll(other.doubleValues_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1249,17 +1086,116 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.resources.FeedItemAttributeValue parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 50: {
+              input.readMessage(
+                  getPriceValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 88: {
+              feedAttributeId_ = input.readInt64();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 88
+            case 96: {
+              integerValue_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 96
+            case 104: {
+              booleanValue_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 104
+            case 114: {
+              stringValue_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 114
+            case 121: {
+              doubleValue_ = input.readDouble();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 121
+            case 128: {
+              long v = input.readInt64();
+              ensureIntegerValuesIsMutable();
+              integerValues_.addLong(v);
+              break;
+            } // case 128
+            case 130: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureIntegerValuesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                integerValues_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 130
+            case 136: {
+              boolean v = input.readBool();
+              ensureBooleanValuesIsMutable();
+              booleanValues_.addBoolean(v);
+              break;
+            } // case 136
+            case 138: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureBooleanValuesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                booleanValues_.addBoolean(input.readBool());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 138
+            case 146: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureStringValuesIsMutable();
+              stringValues_.add(s);
+              break;
+            } // case 146
+            case 153: {
+              double v = input.readDouble();
+              ensureDoubleValuesIsMutable();
+              doubleValues_.addDouble(v);
+              break;
+            } // case 153
+            case 154: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              ensureDoubleValuesIsMutable();
+              while (input.getBytesUntilLimit() > 0) {
+                doubleValues_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 154
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.resources.FeedItemAttributeValue) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1299,8 +1235,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setFeedAttributeId(long value) {
-      bitField0_ |= 0x00000001;
+      
       feedAttributeId_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1357,8 +1294,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setIntegerValue(long value) {
-      bitField0_ |= 0x00000002;
+      
       integerValue_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1416,8 +1354,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setBooleanValue(boolean value) {
-      bitField0_ |= 0x00000004;
+      
       booleanValue_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1517,11 +1456,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValue(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
       stringValue_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1538,8 +1475,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearStringValue() {
-      bitField0_ = (bitField0_ & ~0x00000008);
       stringValue_ = getDefaultInstance().getStringValue();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1558,12 +1495,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValueBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000008;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       stringValue_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1606,8 +1541,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setDoubleValue(double value) {
-      bitField0_ |= 0x00000010;
+      
       doubleValue_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1640,7 +1576,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the priceValue field is set.
      */
     public boolean hasPriceValue() {
-      return priceValueBuilder_ != null || priceValue_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1672,11 +1608,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         priceValue_ = value;
-        onChanged();
       } else {
         priceValueBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1691,11 +1627,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.Money.Builder builderForValue) {
       if (priceValueBuilder_ == null) {
         priceValue_ = builderForValue.build();
-        onChanged();
       } else {
         priceValueBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1708,17 +1644,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergePriceValue(com.google.ads.googleads.v10.common.Money value) {
       if (priceValueBuilder_ == null) {
-        if (priceValue_ != null) {
-          priceValue_ =
-            com.google.ads.googleads.v10.common.Money.newBuilder(priceValue_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          priceValue_ != null &&
+          priceValue_ != com.google.ads.googleads.v10.common.Money.getDefaultInstance()) {
+          getPriceValueBuilder().mergeFrom(value);
         } else {
           priceValue_ = value;
         }
-        onChanged();
       } else {
         priceValueBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1730,14 +1667,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.Money price_value = 6;</code>
      */
     public Builder clearPriceValue() {
-      if (priceValueBuilder_ == null) {
-        priceValue_ = null;
-        onChanged();
-      } else {
-        priceValue_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      priceValue_ = null;
+      if (priceValueBuilder_ != null) {
+        priceValueBuilder_.dispose();
         priceValueBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1749,7 +1685,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.Money price_value = 6;</code>
      */
     public com.google.ads.googleads.v10.common.Money.Builder getPriceValueBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getPriceValueFieldBuilder().getBuilder();
     }
@@ -1793,10 +1729,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.LongList integerValues_ = emptyLongList();
     private void ensureIntegerValuesIsMutable() {
-      if (!((bitField0_ & 0x00000020) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         integerValues_ = mutableCopy(integerValues_);
-        bitField0_ |= 0x00000020;
-       }
+        bitField0_ |= 0x00000040;
+      }
     }
     /**
      * <pre>
@@ -1809,7 +1745,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Long>
         getIntegerValuesList() {
-      return ((bitField0_ & 0x00000020) != 0) ?
+      return ((bitField0_ & 0x00000040) != 0) ?
                java.util.Collections.unmodifiableList(integerValues_) : integerValues_;
     }
     /**
@@ -1850,6 +1786,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIntegerValues(
         int index, long value) {
+      
       ensureIntegerValuesIsMutable();
       integerValues_.setLong(index, value);
       onChanged();
@@ -1866,6 +1803,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addIntegerValues(long value) {
+      
       ensureIntegerValuesIsMutable();
       integerValues_.addLong(value);
       onChanged();
@@ -1900,17 +1838,17 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIntegerValues() {
       integerValues_ = emptyLongList();
-      bitField0_ = (bitField0_ & ~0x00000020);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
 
     private com.google.protobuf.Internal.BooleanList booleanValues_ = emptyBooleanList();
     private void ensureBooleanValuesIsMutable() {
-      if (!((bitField0_ & 0x00000040) != 0)) {
+      if (!((bitField0_ & 0x00000080) != 0)) {
         booleanValues_ = mutableCopy(booleanValues_);
-        bitField0_ |= 0x00000040;
-       }
+        bitField0_ |= 0x00000080;
+      }
     }
     /**
      * <pre>
@@ -1923,7 +1861,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Boolean>
         getBooleanValuesList() {
-      return ((bitField0_ & 0x00000040) != 0) ?
+      return ((bitField0_ & 0x00000080) != 0) ?
                java.util.Collections.unmodifiableList(booleanValues_) : booleanValues_;
     }
     /**
@@ -1964,6 +1902,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setBooleanValues(
         int index, boolean value) {
+      
       ensureBooleanValuesIsMutable();
       booleanValues_.setBoolean(index, value);
       onChanged();
@@ -1980,6 +1919,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addBooleanValues(boolean value) {
+      
       ensureBooleanValuesIsMutable();
       booleanValues_.addBoolean(value);
       onChanged();
@@ -2014,16 +1954,16 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearBooleanValues() {
       booleanValues_ = emptyBooleanList();
-      bitField0_ = (bitField0_ & ~0x00000040);
+      bitField0_ = (bitField0_ & ~0x00000080);
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList stringValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureStringValuesIsMutable() {
-      if (!((bitField0_ & 0x00000080) != 0)) {
+      if (!((bitField0_ & 0x00000100) != 0)) {
         stringValues_ = new com.google.protobuf.LazyStringArrayList(stringValues_);
-        bitField0_ |= 0x00000080;
+        bitField0_ |= 0x00000100;
        }
     }
     /**
@@ -2121,10 +2061,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setStringValues(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStringValuesIsMutable();
       stringValues_.set(index, value);
       onChanged();
       return this;
@@ -2147,10 +2085,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStringValues(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureStringValuesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureStringValuesIsMutable();
       stringValues_.add(value);
       onChanged();
       return this;
@@ -2196,7 +2132,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearStringValues() {
       stringValues_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000080);
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2218,10 +2154,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addStringValuesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureStringValuesIsMutable();
       stringValues_.add(value);
       onChanged();
@@ -2230,10 +2164,10 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.Internal.DoubleList doubleValues_ = emptyDoubleList();
     private void ensureDoubleValuesIsMutable() {
-      if (!((bitField0_ & 0x00000100) != 0)) {
+      if (!((bitField0_ & 0x00000200) != 0)) {
         doubleValues_ = mutableCopy(doubleValues_);
-        bitField0_ |= 0x00000100;
-       }
+        bitField0_ |= 0x00000200;
+      }
     }
     /**
      * <pre>
@@ -2246,7 +2180,7 @@ private static final long serialVersionUID = 0L;
      */
     public java.util.List<java.lang.Double>
         getDoubleValuesList() {
-      return ((bitField0_ & 0x00000100) != 0) ?
+      return ((bitField0_ & 0x00000200) != 0) ?
                java.util.Collections.unmodifiableList(doubleValues_) : doubleValues_;
     }
     /**
@@ -2287,6 +2221,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDoubleValues(
         int index, double value) {
+      
       ensureDoubleValuesIsMutable();
       doubleValues_.setDouble(index, value);
       onChanged();
@@ -2303,6 +2238,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder addDoubleValues(double value) {
+      
       ensureDoubleValuesIsMutable();
       doubleValues_.addDouble(value);
       onChanged();
@@ -2337,7 +2273,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearDoubleValues() {
       doubleValues_ = emptyDoubleList();
-      bitField0_ = (bitField0_ & ~0x00000100);
+      bitField0_ = (bitField0_ & ~0x00000200);
       onChanged();
       return this;
     }
@@ -2374,7 +2310,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FeedItemAttributeValue(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

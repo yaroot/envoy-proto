@@ -38,90 +38,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ContactSettings(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            privacy_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder subBuilder = null;
-            if (registrantContact_ != null) {
-              subBuilder = registrantContact_.toBuilder();
-            }
-            registrantContact_ = input.readMessage(com.google.cloud.domains.v1beta1.ContactSettings.Contact.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(registrantContact_);
-              registrantContact_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder subBuilder = null;
-            if (adminContact_ != null) {
-              subBuilder = adminContact_.toBuilder();
-            }
-            adminContact_ = input.readMessage(com.google.cloud.domains.v1beta1.ContactSettings.Contact.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(adminContact_);
-              adminContact_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 34: {
-            com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder subBuilder = null;
-            if (technicalContact_ != null) {
-              subBuilder = technicalContact_.toBuilder();
-            }
-            technicalContact_ = input.readMessage(com.google.cloud.domains.v1beta1.ContactSettings.Contact.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(technicalContact_);
-              technicalContact_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.domains.v1beta1.DomainsProto.internal_static_google_cloud_domains_v1beta1_ContactSettings_descriptor;
@@ -264,76 +180,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Contact(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              com.google.type.PostalAddress.Builder subBuilder = null;
-              if (postalAddress_ != null) {
-                subBuilder = postalAddress_.toBuilder();
-              }
-              postalAddress_ = input.readMessage(com.google.type.PostalAddress.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(postalAddress_);
-                postalAddress_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              phoneNumber_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              faxNumber_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.domains.v1beta1.DomainsProto.internal_static_google_cloud_domains_v1beta1_ContactSettings_Contact_descriptor;
@@ -382,11 +228,12 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.type.PostalAddressOrBuilder getPostalAddressOrBuilder() {
-      return getPostalAddress();
+      return postalAddress_ == null ? com.google.type.PostalAddress.getDefaultInstance() : postalAddress_;
     }
 
     public static final int EMAIL_FIELD_NUMBER = 2;
-    private volatile java.lang.Object email_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object email_ = "";
     /**
      * <pre>
      * Required. Email address of the contact.
@@ -432,7 +279,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int PHONE_NUMBER_FIELD_NUMBER = 3;
-    private volatile java.lang.Object phoneNumber_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object phoneNumber_ = "";
     /**
      * <pre>
      * Required. Phone number of the contact in international format. For example,
@@ -480,7 +328,8 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int FAX_NUMBER_FIELD_NUMBER = 4;
-    private volatile java.lang.Object faxNumber_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object faxNumber_ = "";
     /**
      * <pre>
      * Fax number of the contact in international format. For example,
@@ -553,7 +402,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(faxNumber_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, faxNumber_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -575,7 +424,7 @@ private static final long serialVersionUID = 0L;
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(faxNumber_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, faxNumber_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -601,7 +450,7 @@ private static final long serialVersionUID = 0L;
           .equals(other.getPhoneNumber())) return false;
       if (!getFaxNumber()
           .equals(other.getFaxNumber())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -622,7 +471,7 @@ private static final long serialVersionUID = 0L;
       hash = (53 * hash) + getPhoneNumber().hashCode();
       hash = (37 * hash) + FAX_NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getFaxNumber().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -743,34 +592,26 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.domains.v1beta1.ContactSettings.Contact.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (postalAddressBuilder_ == null) {
-          postalAddress_ = null;
-        } else {
-          postalAddress_ = null;
+        bitField0_ = 0;
+        postalAddress_ = null;
+        if (postalAddressBuilder_ != null) {
+          postalAddressBuilder_.dispose();
           postalAddressBuilder_ = null;
         }
         email_ = "";
-
         phoneNumber_ = "";
-
         faxNumber_ = "";
-
         return this;
       }
 
@@ -797,16 +638,27 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.domains.v1beta1.ContactSettings.Contact buildPartial() {
         com.google.cloud.domains.v1beta1.ContactSettings.Contact result = new com.google.cloud.domains.v1beta1.ContactSettings.Contact(this);
-        if (postalAddressBuilder_ == null) {
-          result.postalAddress_ = postalAddress_;
-        } else {
-          result.postalAddress_ = postalAddressBuilder_.build();
-        }
-        result.email_ = email_;
-        result.phoneNumber_ = phoneNumber_;
-        result.faxNumber_ = faxNumber_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.domains.v1beta1.ContactSettings.Contact result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.postalAddress_ = postalAddressBuilder_ == null
+              ? postalAddress_
+              : postalAddressBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.email_ = email_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.phoneNumber_ = phoneNumber_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.faxNumber_ = faxNumber_;
+        }
       }
 
       @java.lang.Override
@@ -858,17 +710,20 @@ private static final long serialVersionUID = 0L;
         }
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getPhoneNumber().isEmpty()) {
           phoneNumber_ = other.phoneNumber_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getFaxNumber().isEmpty()) {
           faxNumber_ = other.faxNumber_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -883,19 +738,55 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.domains.v1beta1.ContactSettings.Contact parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getPostalAddressFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                email_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                phoneNumber_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                faxNumber_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.domains.v1beta1.ContactSettings.Contact) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private com.google.type.PostalAddress postalAddress_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -909,7 +800,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the postalAddress field is set.
        */
       public boolean hasPostalAddress() {
-        return postalAddressBuilder_ != null || postalAddress_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <pre>
@@ -939,11 +830,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           postalAddress_ = value;
-          onChanged();
         } else {
           postalAddressBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -957,11 +848,11 @@ private static final long serialVersionUID = 0L;
           com.google.type.PostalAddress.Builder builderForValue) {
         if (postalAddressBuilder_ == null) {
           postalAddress_ = builderForValue.build();
-          onChanged();
         } else {
           postalAddressBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -973,17 +864,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergePostalAddress(com.google.type.PostalAddress value) {
         if (postalAddressBuilder_ == null) {
-          if (postalAddress_ != null) {
-            postalAddress_ =
-              com.google.type.PostalAddress.newBuilder(postalAddress_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            postalAddress_ != null &&
+            postalAddress_ != com.google.type.PostalAddress.getDefaultInstance()) {
+            getPostalAddressBuilder().mergeFrom(value);
           } else {
             postalAddress_ = value;
           }
-          onChanged();
         } else {
           postalAddressBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -994,14 +886,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.PostalAddress postal_address = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public Builder clearPostalAddress() {
-        if (postalAddressBuilder_ == null) {
-          postalAddress_ = null;
-          onChanged();
-        } else {
-          postalAddress_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        postalAddress_ = null;
+        if (postalAddressBuilder_ != null) {
+          postalAddressBuilder_.dispose();
           postalAddressBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -1012,7 +903,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.type.PostalAddress postal_address = 1 [(.google.api.field_behavior) = REQUIRED];</code>
        */
       public com.google.type.PostalAddress.Builder getPostalAddressBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getPostalAddressFieldBuilder().getBuilder();
       }
@@ -1105,11 +996,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         email_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1122,8 +1011,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
-        
         email_ = getDefaultInstance().getEmail();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1138,12 +1027,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         email_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1204,11 +1091,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPhoneNumber(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         phoneNumber_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1222,8 +1107,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearPhoneNumber() {
-        
         phoneNumber_ = getDefaultInstance().getPhoneNumber();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1239,12 +1124,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setPhoneNumberBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         phoneNumber_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1305,11 +1188,9 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFaxNumber(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         faxNumber_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1323,8 +1204,8 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearFaxNumber() {
-        
         faxNumber_ = getDefaultInstance().getFaxNumber();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1340,12 +1221,10 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setFaxNumberBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         faxNumber_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1382,7 +1261,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Contact(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1403,7 +1293,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PRIVACY_FIELD_NUMBER = 1;
-  private int privacy_;
+  private int privacy_ = 0;
   /**
    * <pre>
    * Required. Privacy setting for the contacts associated with the `Registration`.
@@ -1424,8 +1314,7 @@ private static final long serialVersionUID = 0L;
    * @return The privacy.
    */
   @java.lang.Override public com.google.cloud.domains.v1beta1.ContactPrivacy getPrivacy() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.domains.v1beta1.ContactPrivacy result = com.google.cloud.domains.v1beta1.ContactPrivacy.valueOf(privacy_);
+    com.google.cloud.domains.v1beta1.ContactPrivacy result = com.google.cloud.domains.v1beta1.ContactPrivacy.forNumber(privacy_);
     return result == null ? com.google.cloud.domains.v1beta1.ContactPrivacy.UNRECOGNIZED : result;
   }
 
@@ -1479,7 +1368,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.domains.v1beta1.ContactSettings.ContactOrBuilder getRegistrantContactOrBuilder() {
-    return getRegistrantContact();
+    return registrantContact_ == null ? com.google.cloud.domains.v1beta1.ContactSettings.Contact.getDefaultInstance() : registrantContact_;
   }
 
   public static final int ADMIN_CONTACT_FIELD_NUMBER = 3;
@@ -1517,7 +1406,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.domains.v1beta1.ContactSettings.ContactOrBuilder getAdminContactOrBuilder() {
-    return getAdminContact();
+    return adminContact_ == null ? com.google.cloud.domains.v1beta1.ContactSettings.Contact.getDefaultInstance() : adminContact_;
   }
 
   public static final int TECHNICAL_CONTACT_FIELD_NUMBER = 4;
@@ -1555,7 +1444,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.domains.v1beta1.ContactSettings.ContactOrBuilder getTechnicalContactOrBuilder() {
-    return getTechnicalContact();
+    return technicalContact_ == null ? com.google.cloud.domains.v1beta1.ContactSettings.Contact.getDefaultInstance() : technicalContact_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -1584,7 +1473,7 @@ private static final long serialVersionUID = 0L;
     if (technicalContact_ != null) {
       output.writeMessage(4, getTechnicalContact());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1609,7 +1498,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(4, getTechnicalContact());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1640,7 +1529,7 @@ private static final long serialVersionUID = 0L;
       if (!getTechnicalContact()
           .equals(other.getTechnicalContact())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1665,7 +1554,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + TECHNICAL_CONTACT_FIELD_NUMBER;
       hash = (53 * hash) + getTechnicalContact().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1789,40 +1678,32 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.domains.v1beta1.ContactSettings.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       privacy_ = 0;
-
-      if (registrantContactBuilder_ == null) {
-        registrantContact_ = null;
-      } else {
-        registrantContact_ = null;
+      registrantContact_ = null;
+      if (registrantContactBuilder_ != null) {
+        registrantContactBuilder_.dispose();
         registrantContactBuilder_ = null;
       }
-      if (adminContactBuilder_ == null) {
-        adminContact_ = null;
-      } else {
-        adminContact_ = null;
+      adminContact_ = null;
+      if (adminContactBuilder_ != null) {
+        adminContactBuilder_.dispose();
         adminContactBuilder_ = null;
       }
-      if (technicalContactBuilder_ == null) {
-        technicalContact_ = null;
-      } else {
-        technicalContact_ = null;
+      technicalContact_ = null;
+      if (technicalContactBuilder_ != null) {
+        technicalContactBuilder_.dispose();
         technicalContactBuilder_ = null;
       }
       return this;
@@ -1851,24 +1732,31 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.domains.v1beta1.ContactSettings buildPartial() {
       com.google.cloud.domains.v1beta1.ContactSettings result = new com.google.cloud.domains.v1beta1.ContactSettings(this);
-      result.privacy_ = privacy_;
-      if (registrantContactBuilder_ == null) {
-        result.registrantContact_ = registrantContact_;
-      } else {
-        result.registrantContact_ = registrantContactBuilder_.build();
-      }
-      if (adminContactBuilder_ == null) {
-        result.adminContact_ = adminContact_;
-      } else {
-        result.adminContact_ = adminContactBuilder_.build();
-      }
-      if (technicalContactBuilder_ == null) {
-        result.technicalContact_ = technicalContact_;
-      } else {
-        result.technicalContact_ = technicalContactBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.domains.v1beta1.ContactSettings result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.privacy_ = privacy_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.registrantContact_ = registrantContactBuilder_ == null
+            ? registrantContact_
+            : registrantContactBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.adminContact_ = adminContactBuilder_ == null
+            ? adminContact_
+            : adminContactBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.technicalContact_ = technicalContactBuilder_ == null
+            ? technicalContact_
+            : technicalContactBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1927,7 +1815,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasTechnicalContact()) {
         mergeTechnicalContact(other.getTechnicalContact());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1942,19 +1830,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.domains.v1beta1.ContactSettings parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              privacy_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getRegistrantContactFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getAdminContactFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getTechnicalContactFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.domains.v1beta1.ContactSettings) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int privacy_ = 0;
     /**
@@ -1978,8 +1906,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPrivacyValue(int value) {
-      
       privacy_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1993,8 +1921,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.domains.v1beta1.ContactPrivacy getPrivacy() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.domains.v1beta1.ContactPrivacy result = com.google.cloud.domains.v1beta1.ContactPrivacy.valueOf(privacy_);
+      com.google.cloud.domains.v1beta1.ContactPrivacy result = com.google.cloud.domains.v1beta1.ContactPrivacy.forNumber(privacy_);
       return result == null ? com.google.cloud.domains.v1beta1.ContactPrivacy.UNRECOGNIZED : result;
     }
     /**
@@ -2010,7 +1937,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       privacy_ = value.getNumber();
       onChanged();
       return this;
@@ -2024,7 +1951,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPrivacy() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       privacy_ = 0;
       onChanged();
       return this;
@@ -2047,7 +1974,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the registrantContact field is set.
      */
     public boolean hasRegistrantContact() {
-      return registrantContactBuilder_ != null || registrantContact_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -2087,11 +2014,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         registrantContact_ = value;
-        onChanged();
       } else {
         registrantContactBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2110,11 +2037,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder builderForValue) {
       if (registrantContactBuilder_ == null) {
         registrantContact_ = builderForValue.build();
-        onChanged();
       } else {
         registrantContactBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2131,17 +2058,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeRegistrantContact(com.google.cloud.domains.v1beta1.ContactSettings.Contact value) {
       if (registrantContactBuilder_ == null) {
-        if (registrantContact_ != null) {
-          registrantContact_ =
-            com.google.cloud.domains.v1beta1.ContactSettings.Contact.newBuilder(registrantContact_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          registrantContact_ != null &&
+          registrantContact_ != com.google.cloud.domains.v1beta1.ContactSettings.Contact.getDefaultInstance()) {
+          getRegistrantContactBuilder().mergeFrom(value);
         } else {
           registrantContact_ = value;
         }
-        onChanged();
       } else {
         registrantContactBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -2157,14 +2085,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.ContactSettings.Contact registrant_contact = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearRegistrantContact() {
-      if (registrantContactBuilder_ == null) {
-        registrantContact_ = null;
-        onChanged();
-      } else {
-        registrantContact_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      registrantContact_ = null;
+      if (registrantContactBuilder_ != null) {
+        registrantContactBuilder_.dispose();
         registrantContactBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2180,7 +2107,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.ContactSettings.Contact registrant_contact = 2 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder getRegistrantContactBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getRegistrantContactFieldBuilder().getBuilder();
     }
@@ -2242,7 +2169,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the adminContact field is set.
      */
     public boolean hasAdminContact() {
-      return adminContactBuilder_ != null || adminContact_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -2272,11 +2199,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         adminContact_ = value;
-        onChanged();
       } else {
         adminContactBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2290,11 +2217,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder builderForValue) {
       if (adminContactBuilder_ == null) {
         adminContact_ = builderForValue.build();
-        onChanged();
       } else {
         adminContactBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2306,17 +2233,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAdminContact(com.google.cloud.domains.v1beta1.ContactSettings.Contact value) {
       if (adminContactBuilder_ == null) {
-        if (adminContact_ != null) {
-          adminContact_ =
-            com.google.cloud.domains.v1beta1.ContactSettings.Contact.newBuilder(adminContact_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          adminContact_ != null &&
+          adminContact_ != com.google.cloud.domains.v1beta1.ContactSettings.Contact.getDefaultInstance()) {
+          getAdminContactBuilder().mergeFrom(value);
         } else {
           adminContact_ = value;
         }
-        onChanged();
       } else {
         adminContactBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -2327,14 +2255,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.ContactSettings.Contact admin_contact = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearAdminContact() {
-      if (adminContactBuilder_ == null) {
-        adminContact_ = null;
-        onChanged();
-      } else {
-        adminContact_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      adminContact_ = null;
+      if (adminContactBuilder_ != null) {
+        adminContactBuilder_.dispose();
         adminContactBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2345,7 +2272,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.ContactSettings.Contact admin_contact = 3 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder getAdminContactBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getAdminContactFieldBuilder().getBuilder();
     }
@@ -2397,7 +2324,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the technicalContact field is set.
      */
     public boolean hasTechnicalContact() {
-      return technicalContactBuilder_ != null || technicalContact_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -2427,11 +2354,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         technicalContact_ = value;
-        onChanged();
       } else {
         technicalContactBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2445,11 +2372,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder builderForValue) {
       if (technicalContactBuilder_ == null) {
         technicalContact_ = builderForValue.build();
-        onChanged();
       } else {
         technicalContactBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2461,17 +2388,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeTechnicalContact(com.google.cloud.domains.v1beta1.ContactSettings.Contact value) {
       if (technicalContactBuilder_ == null) {
-        if (technicalContact_ != null) {
-          technicalContact_ =
-            com.google.cloud.domains.v1beta1.ContactSettings.Contact.newBuilder(technicalContact_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          technicalContact_ != null &&
+          technicalContact_ != com.google.cloud.domains.v1beta1.ContactSettings.Contact.getDefaultInstance()) {
+          getTechnicalContactBuilder().mergeFrom(value);
         } else {
           technicalContact_ = value;
         }
-        onChanged();
       } else {
         technicalContactBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -2482,14 +2410,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.ContactSettings.Contact technical_contact = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearTechnicalContact() {
-      if (technicalContactBuilder_ == null) {
-        technicalContact_ = null;
-        onChanged();
-      } else {
-        technicalContact_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      technicalContact_ = null;
+      if (technicalContactBuilder_ != null) {
+        technicalContactBuilder_.dispose();
         technicalContactBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2500,7 +2427,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.domains.v1beta1.ContactSettings.Contact technical_contact = 4 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.domains.v1beta1.ContactSettings.Contact.Builder getTechnicalContactBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getTechnicalContactFieldBuilder().getBuilder();
     }
@@ -2572,7 +2499,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ContactSettings(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -49,58 +49,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CookieBasedSessionState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.type.http.v3.Cookie.Builder subBuilder = null;
-            if (cookie_ != null) {
-              subBuilder = cookie_.toBuilder();
-            }
-            cookie_ = input.readMessage(io.envoyproxy.envoy.type.http.v3.Cookie.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(cookie_);
-              cookie_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieProto.internal_static_envoy_extensions_http_stateful_session_cookie_v3_CookieBasedSessionState_descriptor;
@@ -149,7 +97,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.type.http.v3.CookieOrBuilder getCookieOrBuilder() {
-    return getCookie();
+    return cookie_ == null ? io.envoyproxy.envoy.type.http.v3.Cookie.getDefaultInstance() : cookie_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -169,7 +117,7 @@ private static final long serialVersionUID = 0L;
     if (cookie_ != null) {
       output.writeMessage(1, getCookie());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -182,7 +130,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(1, getCookie());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -202,7 +150,7 @@ private static final long serialVersionUID = 0L;
       if (!getCookie()
           .equals(other.getCookie())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -217,7 +165,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + COOKIE_FIELD_NUMBER;
       hash = (53 * hash) + getCookie().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -353,26 +301,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (cookieBuilder_ == null) {
-        cookie_ = null;
-      } else {
-        cookie_ = null;
+      bitField0_ = 0;
+      cookie_ = null;
+      if (cookieBuilder_ != null) {
+        cookieBuilder_.dispose();
         cookieBuilder_ = null;
       }
       return this;
@@ -401,13 +344,18 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState buildPartial() {
       io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState result = new io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState(this);
-      if (cookieBuilder_ == null) {
-        result.cookie_ = cookie_;
-      } else {
-        result.cookie_ = cookieBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.cookie_ = cookieBuilder_ == null
+            ? cookie_
+            : cookieBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -457,7 +405,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasCookie()) {
         mergeCookie(other.getCookie());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -472,19 +420,40 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCookieFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.http.stateful_session.cookie.v3.CookieBasedSessionState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private io.envoyproxy.envoy.type.http.v3.Cookie cookie_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -498,7 +467,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the cookie field is set.
      */
     public boolean hasCookie() {
-      return cookieBuilder_ != null || cookie_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -528,11 +497,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         cookie_ = value;
-        onChanged();
       } else {
         cookieBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -546,11 +515,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.type.http.v3.Cookie.Builder builderForValue) {
       if (cookieBuilder_ == null) {
         cookie_ = builderForValue.build();
-        onChanged();
       } else {
         cookieBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -562,17 +531,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCookie(io.envoyproxy.envoy.type.http.v3.Cookie value) {
       if (cookieBuilder_ == null) {
-        if (cookie_ != null) {
-          cookie_ =
-            io.envoyproxy.envoy.type.http.v3.Cookie.newBuilder(cookie_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          cookie_ != null &&
+          cookie_ != io.envoyproxy.envoy.type.http.v3.Cookie.getDefaultInstance()) {
+          getCookieBuilder().mergeFrom(value);
         } else {
           cookie_ = value;
         }
-        onChanged();
       } else {
         cookieBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -583,14 +553,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.http.v3.Cookie cookie = 1 [(.validate.rules) = { ... }</code>
      */
     public Builder clearCookie() {
-      if (cookieBuilder_ == null) {
-        cookie_ = null;
-        onChanged();
-      } else {
-        cookie_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      cookie_ = null;
+      if (cookieBuilder_ != null) {
+        cookieBuilder_.dispose();
         cookieBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -601,7 +570,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.type.http.v3.Cookie cookie = 1 [(.validate.rules) = { ... }</code>
      */
     public io.envoyproxy.envoy.type.http.v3.Cookie.Builder getCookieBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCookieFieldBuilder().getBuilder();
     }
@@ -673,7 +642,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CookieBasedSessionState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

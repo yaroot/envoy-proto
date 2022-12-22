@@ -34,72 +34,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CommonFeatureState(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.gkehub.v1alpha.FeatureState.Builder subBuilder = null;
-            if (state_ != null) {
-              subBuilder = state_.toBuilder();
-            }
-            state_ = input.readMessage(com.google.cloud.gkehub.v1alpha.FeatureState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(state_);
-              state_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 802: {
-            com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState.Builder subBuilder = null;
-            if (featureStateCase_ == 100) {
-              subBuilder = ((com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState) featureState_).toBuilder();
-            }
-            featureState_ =
-                input.readMessage(com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState) featureState_);
-              featureState_ = subBuilder.buildPartial();
-            }
-            featureStateCase_ = 100;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.gkehub.v1alpha.FeatureProto.internal_static_google_cloud_gkehub_v1alpha_CommonFeatureState_descriptor;
@@ -230,7 +164,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.gkehub.v1alpha.FeatureStateOrBuilder getStateOrBuilder() {
-    return getState();
+    return state_ == null ? com.google.cloud.gkehub.v1alpha.FeatureState.getDefaultInstance() : state_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -253,7 +187,7 @@ private static final long serialVersionUID = 0L;
     if (featureStateCase_ == 100) {
       output.writeMessage(100, (com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState) featureState_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -270,7 +204,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(100, (com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState) featureState_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -299,7 +233,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -322,7 +256,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -443,26 +377,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.gkehub.v1alpha.CommonFeatureState.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (stateBuilder_ == null) {
-        state_ = null;
-      } else {
-        state_ = null;
+      bitField0_ = 0;
+      if (servicemeshBuilder_ != null) {
+        servicemeshBuilder_.clear();
+      }
+      state_ = null;
+      if (stateBuilder_ != null) {
+        stateBuilder_.dispose();
         stateBuilder_ = null;
       }
       featureStateCase_ = 0;
@@ -493,21 +425,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.gkehub.v1alpha.CommonFeatureState buildPartial() {
       com.google.cloud.gkehub.v1alpha.CommonFeatureState result = new com.google.cloud.gkehub.v1alpha.CommonFeatureState(this);
-      if (featureStateCase_ == 100) {
-        if (servicemeshBuilder_ == null) {
-          result.featureState_ = featureState_;
-        } else {
-          result.featureState_ = servicemeshBuilder_.build();
-        }
-      }
-      if (stateBuilder_ == null) {
-        result.state_ = state_;
-      } else {
-        result.state_ = stateBuilder_.build();
-      }
-      result.featureStateCase_ = featureStateCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.gkehub.v1alpha.CommonFeatureState result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.state_ = stateBuilder_ == null
+            ? state_
+            : stateBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.gkehub.v1alpha.CommonFeatureState result) {
+      result.featureStateCase_ = featureStateCase_;
+      result.featureState_ = this.featureState_;
+      if (featureStateCase_ == 100 &&
+          servicemeshBuilder_ != null) {
+        result.featureState_ = servicemeshBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -566,7 +505,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -581,17 +520,44 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.gkehub.v1alpha.CommonFeatureState parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getStateFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 10
+            case 802: {
+              input.readMessage(
+                  getServicemeshFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              featureStateCase_ = 100;
+              break;
+            } // case 802
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.gkehub.v1alpha.CommonFeatureState) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int featureStateCase_ = 0;
@@ -609,6 +575,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState, com.google.cloud.gkehub.servicemesh.v1alpha.FeatureState.Builder, com.google.cloud.gkehub.servicemesh.v1alpha.FeatureStateOrBuilder> servicemeshBuilder_;
@@ -784,7 +751,7 @@ private static final long serialVersionUID = 0L;
         featureState_ = null;
       }
       featureStateCase_ = 100;
-      onChanged();;
+      onChanged();
       return servicemeshBuilder_;
     }
 
@@ -800,7 +767,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the state field is set.
      */
     public boolean hasState() {
-      return stateBuilder_ != null || state_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -830,11 +797,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         state_ = value;
-        onChanged();
       } else {
         stateBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -848,11 +815,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.gkehub.v1alpha.FeatureState.Builder builderForValue) {
       if (stateBuilder_ == null) {
         state_ = builderForValue.build();
-        onChanged();
       } else {
         stateBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -864,17 +831,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeState(com.google.cloud.gkehub.v1alpha.FeatureState value) {
       if (stateBuilder_ == null) {
-        if (state_ != null) {
-          state_ =
-            com.google.cloud.gkehub.v1alpha.FeatureState.newBuilder(state_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          state_ != null &&
+          state_ != com.google.cloud.gkehub.v1alpha.FeatureState.getDefaultInstance()) {
+          getStateBuilder().mergeFrom(value);
         } else {
           state_ = value;
         }
-        onChanged();
       } else {
         stateBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -885,14 +853,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1alpha.FeatureState state = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearState() {
-      if (stateBuilder_ == null) {
-        state_ = null;
-        onChanged();
-      } else {
-        state_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      state_ = null;
+      if (stateBuilder_ != null) {
+        stateBuilder_.dispose();
         stateBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -903,7 +870,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.gkehub.v1alpha.FeatureState state = 1 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.gkehub.v1alpha.FeatureState.Builder getStateBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getStateFieldBuilder().getBuilder();
     }
@@ -975,7 +942,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CommonFeatureState(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

@@ -69,126 +69,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private HttpProtocolOptions(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.Builder subBuilder = null;
-            if (commonHttpProtocolOptions_ != null) {
-              subBuilder = commonHttpProtocolOptions_.toBuilder();
-            }
-            commonHttpProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(commonHttpProtocolOptions_);
-              commonHttpProtocolOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.Builder subBuilder = null;
-            if (upstreamHttpProtocolOptions_ != null) {
-              subBuilder = upstreamHttpProtocolOptions_.toBuilder();
-            }
-            upstreamHttpProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(upstreamHttpProtocolOptions_);
-              upstreamHttpProtocolOptions_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig.Builder subBuilder = null;
-            if (upstreamProtocolOptionsCase_ == 3) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig) upstreamProtocolOptions_).toBuilder();
-            }
-            upstreamProtocolOptions_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig) upstreamProtocolOptions_);
-              upstreamProtocolOptions_ = subBuilder.buildPartial();
-            }
-            upstreamProtocolOptionsCase_ = 3;
-            break;
-          }
-          case 34: {
-            io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig.Builder subBuilder = null;
-            if (upstreamProtocolOptionsCase_ == 4) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig) upstreamProtocolOptions_).toBuilder();
-            }
-            upstreamProtocolOptions_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig) upstreamProtocolOptions_);
-              upstreamProtocolOptions_ = subBuilder.buildPartial();
-            }
-            upstreamProtocolOptionsCase_ = 4;
-            break;
-          }
-          case 42: {
-            io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig.Builder subBuilder = null;
-            if (upstreamProtocolOptionsCase_ == 5) {
-              subBuilder = ((io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig) upstreamProtocolOptions_).toBuilder();
-            }
-            upstreamProtocolOptions_ =
-                input.readMessage(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig) upstreamProtocolOptions_);
-              upstreamProtocolOptions_ = subBuilder.buildPartial();
-            }
-            upstreamProtocolOptionsCase_ = 5;
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              httpFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            httpFilters_.add(
-                input.readMessage(io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.parser(), extensionRegistry));
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        httpFilters_ = java.util.Collections.unmodifiableList(httpFilters_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptionsProto.internal_static_envoy_extensions_upstreams_http_v3_HttpProtocolOptions_descriptor;
@@ -302,87 +182,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ExplicitHttpConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder subBuilder = null;
-              if (protocolConfigCase_ == 1) {
-                subBuilder = ((io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions) protocolConfig_).toBuilder();
-              }
-              protocolConfig_ =
-                  input.readMessage(io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions) protocolConfig_);
-                protocolConfig_ = subBuilder.buildPartial();
-              }
-              protocolConfigCase_ = 1;
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder subBuilder = null;
-              if (protocolConfigCase_ == 2) {
-                subBuilder = ((io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions) protocolConfig_).toBuilder();
-              }
-              protocolConfig_ =
-                  input.readMessage(io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions) protocolConfig_);
-                protocolConfig_ = subBuilder.buildPartial();
-              }
-              protocolConfigCase_ = 2;
-              break;
-            }
-            case 26: {
-              io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder subBuilder = null;
-              if (protocolConfigCase_ == 3) {
-                subBuilder = ((io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions) protocolConfig_).toBuilder();
-              }
-              protocolConfig_ =
-                  input.readMessage(io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom((io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions) protocolConfig_);
-                protocolConfig_ = subBuilder.buildPartial();
-              }
-              protocolConfigCase_ = 3;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -574,7 +373,7 @@ private static final long serialVersionUID = 0L;
       if (protocolConfigCase_ == 3) {
         output.writeMessage(3, (io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions) protocolConfig_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -595,7 +394,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, (io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions) protocolConfig_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -627,7 +426,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -654,7 +453,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -776,22 +575,27 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
+        if (httpProtocolOptionsBuilder_ != null) {
+          httpProtocolOptionsBuilder_.clear();
+        }
+        if (http2ProtocolOptionsBuilder_ != null) {
+          http2ProtocolOptionsBuilder_.clear();
+        }
+        if (http3ProtocolOptionsBuilder_ != null) {
+          http3ProtocolOptionsBuilder_.clear();
+        }
         protocolConfigCase_ = 0;
         protocolConfig_ = null;
         return this;
@@ -820,30 +624,31 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig buildPartial() {
         io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig result = new io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig(this);
-        if (protocolConfigCase_ == 1) {
-          if (httpProtocolOptionsBuilder_ == null) {
-            result.protocolConfig_ = protocolConfig_;
-          } else {
-            result.protocolConfig_ = httpProtocolOptionsBuilder_.build();
-          }
-        }
-        if (protocolConfigCase_ == 2) {
-          if (http2ProtocolOptionsBuilder_ == null) {
-            result.protocolConfig_ = protocolConfig_;
-          } else {
-            result.protocolConfig_ = http2ProtocolOptionsBuilder_.build();
-          }
-        }
-        if (protocolConfigCase_ == 3) {
-          if (http3ProtocolOptionsBuilder_ == null) {
-            result.protocolConfig_ = protocolConfig_;
-          } else {
-            result.protocolConfig_ = http3ProtocolOptionsBuilder_.build();
-          }
-        }
-        result.protocolConfigCase_ = protocolConfigCase_;
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig result) {
+        int from_bitField0_ = bitField0_;
+      }
+
+      private void buildPartialOneofs(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig result) {
+        result.protocolConfigCase_ = protocolConfigCase_;
+        result.protocolConfig_ = this.protocolConfig_;
+        if (protocolConfigCase_ == 1 &&
+            httpProtocolOptionsBuilder_ != null) {
+          result.protocolConfig_ = httpProtocolOptionsBuilder_.build();
+        }
+        if (protocolConfigCase_ == 2 &&
+            http2ProtocolOptionsBuilder_ != null) {
+          result.protocolConfig_ = http2ProtocolOptionsBuilder_.build();
+        }
+        if (protocolConfigCase_ == 3 &&
+            http3ProtocolOptionsBuilder_ != null) {
+          result.protocolConfig_ = http3ProtocolOptionsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -907,7 +712,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -922,17 +727,51 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHttpProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                protocolConfigCase_ = 1;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getHttp2ProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                protocolConfigCase_ = 2;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getHttp3ProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                protocolConfigCase_ = 3;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.ExplicitHttpConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int protocolConfigCase_ = 0;
@@ -950,6 +789,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
+      private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
           io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions, io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder, io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptionsOrBuilder> httpProtocolOptionsBuilder_;
@@ -1089,7 +929,7 @@ private static final long serialVersionUID = 0L;
           protocolConfig_ = null;
         }
         protocolConfigCase_ = 1;
-        onChanged();;
+        onChanged();
         return httpProtocolOptionsBuilder_;
       }
 
@@ -1231,7 +1071,7 @@ private static final long serialVersionUID = 0L;
           protocolConfig_ = null;
         }
         protocolConfigCase_ = 2;
-        onChanged();;
+        onChanged();
         return http2ProtocolOptionsBuilder_;
       }
 
@@ -1427,7 +1267,7 @@ private static final long serialVersionUID = 0L;
           protocolConfig_ = null;
         }
         protocolConfigCase_ = 3;
-        onChanged();;
+        onChanged();
         return http3ProtocolOptionsBuilder_;
       }
       @java.lang.Override
@@ -1463,7 +1303,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ExplicitHttpConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1584,84 +1435,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private UseDownstreamHttpConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder subBuilder = null;
-              if (httpProtocolOptions_ != null) {
-                subBuilder = httpProtocolOptions_.toBuilder();
-              }
-              httpProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(httpProtocolOptions_);
-                httpProtocolOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder subBuilder = null;
-              if (http2ProtocolOptions_ != null) {
-                subBuilder = http2ProtocolOptions_.toBuilder();
-              }
-              http2ProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(http2ProtocolOptions_);
-                http2ProtocolOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder subBuilder = null;
-              if (http3ProtocolOptions_ != null) {
-                subBuilder = http3ProtocolOptions_.toBuilder();
-              }
-              http3ProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(http3ProtocolOptions_);
-                http3ProtocolOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptionsProto.internal_static_envoy_extensions_upstreams_http_v3_HttpProtocolOptions_UseDownstreamHttpConfig_descriptor;
@@ -1698,7 +1471,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptionsOrBuilder getHttpProtocolOptionsOrBuilder() {
-      return getHttpProtocolOptions();
+      return httpProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.getDefaultInstance() : httpProtocolOptions_;
     }
 
     public static final int HTTP2_PROTOCOL_OPTIONS_FIELD_NUMBER = 2;
@@ -1724,7 +1497,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptionsOrBuilder getHttp2ProtocolOptionsOrBuilder() {
-      return getHttp2ProtocolOptions();
+      return http2ProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.getDefaultInstance() : http2ProtocolOptions_;
     }
 
     public static final int HTTP3_PROTOCOL_OPTIONS_FIELD_NUMBER = 3;
@@ -1768,7 +1541,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptionsOrBuilder getHttp3ProtocolOptionsOrBuilder() {
-      return getHttp3ProtocolOptions();
+      return http3ProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.getDefaultInstance() : http3ProtocolOptions_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1794,7 +1567,7 @@ private static final long serialVersionUID = 0L;
       if (http3ProtocolOptions_ != null) {
         output.writeMessage(3, getHttp3ProtocolOptions());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -1815,7 +1588,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getHttp3ProtocolOptions());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -1845,7 +1618,7 @@ private static final long serialVersionUID = 0L;
         if (!getHttp3ProtocolOptions()
             .equals(other.getHttp3ProtocolOptions())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -1868,7 +1641,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + HTTP3_PROTOCOL_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getHttp3ProtocolOptions().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -1992,38 +1765,31 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (httpProtocolOptionsBuilder_ == null) {
-          httpProtocolOptions_ = null;
-        } else {
-          httpProtocolOptions_ = null;
+        bitField0_ = 0;
+        httpProtocolOptions_ = null;
+        if (httpProtocolOptionsBuilder_ != null) {
+          httpProtocolOptionsBuilder_.dispose();
           httpProtocolOptionsBuilder_ = null;
         }
-        if (http2ProtocolOptionsBuilder_ == null) {
-          http2ProtocolOptions_ = null;
-        } else {
-          http2ProtocolOptions_ = null;
+        http2ProtocolOptions_ = null;
+        if (http2ProtocolOptionsBuilder_ != null) {
+          http2ProtocolOptionsBuilder_.dispose();
           http2ProtocolOptionsBuilder_ = null;
         }
-        if (http3ProtocolOptionsBuilder_ == null) {
-          http3ProtocolOptions_ = null;
-        } else {
-          http3ProtocolOptions_ = null;
+        http3ProtocolOptions_ = null;
+        if (http3ProtocolOptionsBuilder_ != null) {
+          http3ProtocolOptionsBuilder_.dispose();
           http3ProtocolOptionsBuilder_ = null;
         }
         return this;
@@ -2052,23 +1818,28 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig buildPartial() {
         io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig result = new io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig(this);
-        if (httpProtocolOptionsBuilder_ == null) {
-          result.httpProtocolOptions_ = httpProtocolOptions_;
-        } else {
-          result.httpProtocolOptions_ = httpProtocolOptionsBuilder_.build();
-        }
-        if (http2ProtocolOptionsBuilder_ == null) {
-          result.http2ProtocolOptions_ = http2ProtocolOptions_;
-        } else {
-          result.http2ProtocolOptions_ = http2ProtocolOptionsBuilder_.build();
-        }
-        if (http3ProtocolOptionsBuilder_ == null) {
-          result.http3ProtocolOptions_ = http3ProtocolOptions_;
-        } else {
-          result.http3ProtocolOptions_ = http3ProtocolOptionsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.httpProtocolOptions_ = httpProtocolOptionsBuilder_ == null
+              ? httpProtocolOptions_
+              : httpProtocolOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.http2ProtocolOptions_ = http2ProtocolOptionsBuilder_ == null
+              ? http2ProtocolOptions_
+              : http2ProtocolOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.http3ProtocolOptions_ = http3ProtocolOptionsBuilder_ == null
+              ? http3ProtocolOptions_
+              : http3ProtocolOptionsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -2124,7 +1895,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasHttp3ProtocolOptions()) {
           mergeHttp3ProtocolOptions(other.getHttp3ProtocolOptions());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -2139,19 +1910,54 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHttpProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getHttp2ProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getHttp3ProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.UseDownstreamHttpConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions httpProtocolOptions_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -2161,7 +1967,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the httpProtocolOptions field is set.
        */
       public boolean hasHttpProtocolOptions() {
-        return httpProtocolOptionsBuilder_ != null || httpProtocolOptions_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 1;</code>
@@ -2183,11 +1989,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           httpProtocolOptions_ = value;
-          onChanged();
         } else {
           httpProtocolOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2197,11 +2003,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder builderForValue) {
         if (httpProtocolOptionsBuilder_ == null) {
           httpProtocolOptions_ = builderForValue.build();
-          onChanged();
         } else {
           httpProtocolOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -2209,38 +2015,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHttpProtocolOptions(io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions value) {
         if (httpProtocolOptionsBuilder_ == null) {
-          if (httpProtocolOptions_ != null) {
-            httpProtocolOptions_ =
-              io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.newBuilder(httpProtocolOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            httpProtocolOptions_ != null &&
+            httpProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.getDefaultInstance()) {
+            getHttpProtocolOptionsBuilder().mergeFrom(value);
           } else {
             httpProtocolOptions_ = value;
           }
-          onChanged();
         } else {
           httpProtocolOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 1;</code>
        */
       public Builder clearHttpProtocolOptions() {
-        if (httpProtocolOptionsBuilder_ == null) {
-          httpProtocolOptions_ = null;
-          onChanged();
-        } else {
-          httpProtocolOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        httpProtocolOptions_ = null;
+        if (httpProtocolOptionsBuilder_ != null) {
+          httpProtocolOptionsBuilder_.dispose();
           httpProtocolOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 1;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder getHttpProtocolOptionsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getHttpProtocolOptionsFieldBuilder().getBuilder();
       }
@@ -2280,7 +2086,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the http2ProtocolOptions field is set.
        */
       public boolean hasHttp2ProtocolOptions() {
-        return http2ProtocolOptionsBuilder_ != null || http2ProtocolOptions_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 2;</code>
@@ -2302,11 +2108,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           http2ProtocolOptions_ = value;
-          onChanged();
         } else {
           http2ProtocolOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2316,11 +2122,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder builderForValue) {
         if (http2ProtocolOptionsBuilder_ == null) {
           http2ProtocolOptions_ = builderForValue.build();
-          onChanged();
         } else {
           http2ProtocolOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -2328,38 +2134,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHttp2ProtocolOptions(io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions value) {
         if (http2ProtocolOptionsBuilder_ == null) {
-          if (http2ProtocolOptions_ != null) {
-            http2ProtocolOptions_ =
-              io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.newBuilder(http2ProtocolOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            http2ProtocolOptions_ != null &&
+            http2ProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.getDefaultInstance()) {
+            getHttp2ProtocolOptionsBuilder().mergeFrom(value);
           } else {
             http2ProtocolOptions_ = value;
           }
-          onChanged();
         } else {
           http2ProtocolOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 2;</code>
        */
       public Builder clearHttp2ProtocolOptions() {
-        if (http2ProtocolOptionsBuilder_ == null) {
-          http2ProtocolOptions_ = null;
-          onChanged();
-        } else {
-          http2ProtocolOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        http2ProtocolOptions_ = null;
+        if (http2ProtocolOptionsBuilder_ != null) {
+          http2ProtocolOptionsBuilder_.dispose();
           http2ProtocolOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 2;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder getHttp2ProtocolOptionsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getHttp2ProtocolOptionsFieldBuilder().getBuilder();
       }
@@ -2405,7 +2211,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the http3ProtocolOptions field is set.
        */
       public boolean hasHttp3ProtocolOptions() {
-        return http3ProtocolOptionsBuilder_ != null || http3ProtocolOptions_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -2439,11 +2245,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           http3ProtocolOptions_ = value;
-          onChanged();
         } else {
           http3ProtocolOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2459,11 +2265,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder builderForValue) {
         if (http3ProtocolOptionsBuilder_ == null) {
           http3ProtocolOptions_ = builderForValue.build();
-          onChanged();
         } else {
           http3ProtocolOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2477,17 +2283,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHttp3ProtocolOptions(io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions value) {
         if (http3ProtocolOptionsBuilder_ == null) {
-          if (http3ProtocolOptions_ != null) {
-            http3ProtocolOptions_ =
-              io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.newBuilder(http3ProtocolOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            http3ProtocolOptions_ != null &&
+            http3ProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.getDefaultInstance()) {
+            getHttp3ProtocolOptionsBuilder().mergeFrom(value);
           } else {
             http3ProtocolOptions_ = value;
           }
-          onChanged();
         } else {
           http3ProtocolOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -2500,14 +2307,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.Http3ProtocolOptions http3_protocol_options = 3;</code>
        */
       public Builder clearHttp3ProtocolOptions() {
-        if (http3ProtocolOptionsBuilder_ == null) {
-          http3ProtocolOptions_ = null;
-          onChanged();
-        } else {
-          http3ProtocolOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        http3ProtocolOptions_ = null;
+        if (http3ProtocolOptionsBuilder_ != null) {
+          http3ProtocolOptionsBuilder_.dispose();
           http3ProtocolOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -2520,7 +2326,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.Http3ProtocolOptions http3_protocol_options = 3;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder getHttp3ProtocolOptionsBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getHttp3ProtocolOptionsFieldBuilder().getBuilder();
       }
@@ -2596,7 +2402,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new UseDownstreamHttpConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -2779,97 +2596,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private AutoHttpConfig(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder subBuilder = null;
-              if (httpProtocolOptions_ != null) {
-                subBuilder = httpProtocolOptions_.toBuilder();
-              }
-              httpProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(httpProtocolOptions_);
-                httpProtocolOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 18: {
-              io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder subBuilder = null;
-              if (http2ProtocolOptions_ != null) {
-                subBuilder = http2ProtocolOptions_.toBuilder();
-              }
-              http2ProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(http2ProtocolOptions_);
-                http2ProtocolOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
-              io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder subBuilder = null;
-              if (http3ProtocolOptions_ != null) {
-                subBuilder = http3ProtocolOptions_.toBuilder();
-              }
-              http3ProtocolOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(http3ProtocolOptions_);
-                http3ProtocolOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 34: {
-              io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.Builder subBuilder = null;
-              if (alternateProtocolsCacheOptions_ != null) {
-                subBuilder = alternateProtocolsCacheOptions_.toBuilder();
-              }
-              alternateProtocolsCacheOptions_ = input.readMessage(io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(alternateProtocolsCacheOptions_);
-                alternateProtocolsCacheOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptionsProto.internal_static_envoy_extensions_upstreams_http_v3_HttpProtocolOptions_AutoHttpConfig_descriptor;
@@ -2906,7 +2632,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptionsOrBuilder getHttpProtocolOptionsOrBuilder() {
-      return getHttpProtocolOptions();
+      return httpProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.getDefaultInstance() : httpProtocolOptions_;
     }
 
     public static final int HTTP2_PROTOCOL_OPTIONS_FIELD_NUMBER = 2;
@@ -2932,7 +2658,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptionsOrBuilder getHttp2ProtocolOptionsOrBuilder() {
-      return getHttp2ProtocolOptions();
+      return http2ProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.getDefaultInstance() : http2ProtocolOptions_;
     }
 
     public static final int HTTP3_PROTOCOL_OPTIONS_FIELD_NUMBER = 3;
@@ -2991,7 +2717,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptionsOrBuilder getHttp3ProtocolOptionsOrBuilder() {
-      return getHttp3ProtocolOptions();
+      return http3ProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.getDefaultInstance() : http3ProtocolOptions_;
     }
 
     public static final int ALTERNATE_PROTOCOLS_CACHE_OPTIONS_FIELD_NUMBER = 4;
@@ -3044,7 +2770,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptionsOrBuilder getAlternateProtocolsCacheOptionsOrBuilder() {
-      return getAlternateProtocolsCacheOptions();
+      return alternateProtocolsCacheOptions_ == null ? io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.getDefaultInstance() : alternateProtocolsCacheOptions_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -3073,7 +2799,7 @@ private static final long serialVersionUID = 0L;
       if (alternateProtocolsCacheOptions_ != null) {
         output.writeMessage(4, getAlternateProtocolsCacheOptions());
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3098,7 +2824,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(4, getAlternateProtocolsCacheOptions());
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3133,7 +2859,7 @@ private static final long serialVersionUID = 0L;
         if (!getAlternateProtocolsCacheOptions()
             .equals(other.getAlternateProtocolsCacheOptions())) return false;
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3160,7 +2886,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + ALTERNATE_PROTOCOLS_CACHE_OPTIONS_FIELD_NUMBER;
         hash = (53 * hash) + getAlternateProtocolsCacheOptions().hashCode();
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3289,44 +3015,36 @@ private static final long serialVersionUID = 0L;
 
       // Construct using io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        if (httpProtocolOptionsBuilder_ == null) {
-          httpProtocolOptions_ = null;
-        } else {
-          httpProtocolOptions_ = null;
+        bitField0_ = 0;
+        httpProtocolOptions_ = null;
+        if (httpProtocolOptionsBuilder_ != null) {
+          httpProtocolOptionsBuilder_.dispose();
           httpProtocolOptionsBuilder_ = null;
         }
-        if (http2ProtocolOptionsBuilder_ == null) {
-          http2ProtocolOptions_ = null;
-        } else {
-          http2ProtocolOptions_ = null;
+        http2ProtocolOptions_ = null;
+        if (http2ProtocolOptionsBuilder_ != null) {
+          http2ProtocolOptionsBuilder_.dispose();
           http2ProtocolOptionsBuilder_ = null;
         }
-        if (http3ProtocolOptionsBuilder_ == null) {
-          http3ProtocolOptions_ = null;
-        } else {
-          http3ProtocolOptions_ = null;
+        http3ProtocolOptions_ = null;
+        if (http3ProtocolOptionsBuilder_ != null) {
+          http3ProtocolOptionsBuilder_.dispose();
           http3ProtocolOptionsBuilder_ = null;
         }
-        if (alternateProtocolsCacheOptionsBuilder_ == null) {
-          alternateProtocolsCacheOptions_ = null;
-        } else {
-          alternateProtocolsCacheOptions_ = null;
+        alternateProtocolsCacheOptions_ = null;
+        if (alternateProtocolsCacheOptionsBuilder_ != null) {
+          alternateProtocolsCacheOptionsBuilder_.dispose();
           alternateProtocolsCacheOptionsBuilder_ = null;
         }
         return this;
@@ -3355,28 +3073,33 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig buildPartial() {
         io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig result = new io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig(this);
-        if (httpProtocolOptionsBuilder_ == null) {
-          result.httpProtocolOptions_ = httpProtocolOptions_;
-        } else {
-          result.httpProtocolOptions_ = httpProtocolOptionsBuilder_.build();
-        }
-        if (http2ProtocolOptionsBuilder_ == null) {
-          result.http2ProtocolOptions_ = http2ProtocolOptions_;
-        } else {
-          result.http2ProtocolOptions_ = http2ProtocolOptionsBuilder_.build();
-        }
-        if (http3ProtocolOptionsBuilder_ == null) {
-          result.http3ProtocolOptions_ = http3ProtocolOptions_;
-        } else {
-          result.http3ProtocolOptions_ = http3ProtocolOptionsBuilder_.build();
-        }
-        if (alternateProtocolsCacheOptionsBuilder_ == null) {
-          result.alternateProtocolsCacheOptions_ = alternateProtocolsCacheOptions_;
-        } else {
-          result.alternateProtocolsCacheOptions_ = alternateProtocolsCacheOptionsBuilder_.build();
-        }
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.httpProtocolOptions_ = httpProtocolOptionsBuilder_ == null
+              ? httpProtocolOptions_
+              : httpProtocolOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.http2ProtocolOptions_ = http2ProtocolOptionsBuilder_ == null
+              ? http2ProtocolOptions_
+              : http2ProtocolOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.http3ProtocolOptions_ = http3ProtocolOptionsBuilder_ == null
+              ? http3ProtocolOptions_
+              : http3ProtocolOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.alternateProtocolsCacheOptions_ = alternateProtocolsCacheOptionsBuilder_ == null
+              ? alternateProtocolsCacheOptions_
+              : alternateProtocolsCacheOptionsBuilder_.build();
+        }
       }
 
       @java.lang.Override
@@ -3435,7 +3158,7 @@ private static final long serialVersionUID = 0L;
         if (other.hasAlternateProtocolsCacheOptions()) {
           mergeAlternateProtocolsCacheOptions(other.getAlternateProtocolsCacheOptions());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3450,19 +3173,61 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                input.readMessage(
+                    getHttpProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                input.readMessage(
+                    getHttp2ProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                input.readMessage(
+                    getHttp3ProtocolOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getAlternateProtocolsCacheOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.AutoHttpConfig) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions httpProtocolOptions_;
       private com.google.protobuf.SingleFieldBuilderV3<
@@ -3472,7 +3237,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the httpProtocolOptions field is set.
        */
       public boolean hasHttpProtocolOptions() {
-        return httpProtocolOptionsBuilder_ != null || httpProtocolOptions_ != null;
+        return ((bitField0_ & 0x00000001) != 0);
       }
       /**
        * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 1;</code>
@@ -3494,11 +3259,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           httpProtocolOptions_ = value;
-          onChanged();
         } else {
           httpProtocolOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3508,11 +3273,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder builderForValue) {
         if (httpProtocolOptionsBuilder_ == null) {
           httpProtocolOptions_ = builderForValue.build();
-          onChanged();
         } else {
           httpProtocolOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
@@ -3520,38 +3285,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHttpProtocolOptions(io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions value) {
         if (httpProtocolOptionsBuilder_ == null) {
-          if (httpProtocolOptions_ != null) {
-            httpProtocolOptions_ =
-              io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.newBuilder(httpProtocolOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000001) != 0) &&
+            httpProtocolOptions_ != null &&
+            httpProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.getDefaultInstance()) {
+            getHttpProtocolOptionsBuilder().mergeFrom(value);
           } else {
             httpProtocolOptions_ = value;
           }
-          onChanged();
         } else {
           httpProtocolOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000001;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 1;</code>
        */
       public Builder clearHttpProtocolOptions() {
-        if (httpProtocolOptionsBuilder_ == null) {
-          httpProtocolOptions_ = null;
-          onChanged();
-        } else {
-          httpProtocolOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        httpProtocolOptions_ = null;
+        if (httpProtocolOptionsBuilder_ != null) {
+          httpProtocolOptionsBuilder_.dispose();
           httpProtocolOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http1ProtocolOptions http_protocol_options = 1;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Http1ProtocolOptions.Builder getHttpProtocolOptionsBuilder() {
-        
+        bitField0_ |= 0x00000001;
         onChanged();
         return getHttpProtocolOptionsFieldBuilder().getBuilder();
       }
@@ -3591,7 +3356,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the http2ProtocolOptions field is set.
        */
       public boolean hasHttp2ProtocolOptions() {
-        return http2ProtocolOptionsBuilder_ != null || http2ProtocolOptions_ != null;
+        return ((bitField0_ & 0x00000002) != 0);
       }
       /**
        * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 2;</code>
@@ -3613,11 +3378,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           http2ProtocolOptions_ = value;
-          onChanged();
         } else {
           http2ProtocolOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3627,11 +3392,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder builderForValue) {
         if (http2ProtocolOptionsBuilder_ == null) {
           http2ProtocolOptions_ = builderForValue.build();
-          onChanged();
         } else {
           http2ProtocolOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
@@ -3639,38 +3404,38 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHttp2ProtocolOptions(io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions value) {
         if (http2ProtocolOptionsBuilder_ == null) {
-          if (http2ProtocolOptions_ != null) {
-            http2ProtocolOptions_ =
-              io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.newBuilder(http2ProtocolOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000002) != 0) &&
+            http2ProtocolOptions_ != null &&
+            http2ProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.getDefaultInstance()) {
+            getHttp2ProtocolOptionsBuilder().mergeFrom(value);
           } else {
             http2ProtocolOptions_ = value;
           }
-          onChanged();
         } else {
           http2ProtocolOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000002;
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 2;</code>
        */
       public Builder clearHttp2ProtocolOptions() {
-        if (http2ProtocolOptionsBuilder_ == null) {
-          http2ProtocolOptions_ = null;
-          onChanged();
-        } else {
-          http2ProtocolOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        http2ProtocolOptions_ = null;
+        if (http2ProtocolOptionsBuilder_ != null) {
+          http2ProtocolOptionsBuilder_.dispose();
           http2ProtocolOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
        * <code>.envoy.config.core.v3.Http2ProtocolOptions http2_protocol_options = 2;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Http2ProtocolOptions.Builder getHttp2ProtocolOptionsBuilder() {
-        
+        bitField0_ |= 0x00000002;
         onChanged();
         return getHttp2ProtocolOptionsFieldBuilder().getBuilder();
       }
@@ -3721,7 +3486,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the http3ProtocolOptions field is set.
        */
       public boolean hasHttp3ProtocolOptions() {
-        return http3ProtocolOptionsBuilder_ != null || http3ProtocolOptions_ != null;
+        return ((bitField0_ & 0x00000004) != 0);
       }
       /**
        * <pre>
@@ -3765,11 +3530,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           http3ProtocolOptions_ = value;
-          onChanged();
         } else {
           http3ProtocolOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3790,11 +3555,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder builderForValue) {
         if (http3ProtocolOptionsBuilder_ == null) {
           http3ProtocolOptions_ = builderForValue.build();
-          onChanged();
         } else {
           http3ProtocolOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3813,17 +3578,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeHttp3ProtocolOptions(io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions value) {
         if (http3ProtocolOptionsBuilder_ == null) {
-          if (http3ProtocolOptions_ != null) {
-            http3ProtocolOptions_ =
-              io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.newBuilder(http3ProtocolOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000004) != 0) &&
+            http3ProtocolOptions_ != null &&
+            http3ProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.getDefaultInstance()) {
+            getHttp3ProtocolOptionsBuilder().mergeFrom(value);
           } else {
             http3ProtocolOptions_ = value;
           }
-          onChanged();
         } else {
           http3ProtocolOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000004;
+        onChanged();
         return this;
       }
       /**
@@ -3841,14 +3607,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.Http3ProtocolOptions http3_protocol_options = 3;</code>
        */
       public Builder clearHttp3ProtocolOptions() {
-        if (http3ProtocolOptionsBuilder_ == null) {
-          http3ProtocolOptions_ = null;
-          onChanged();
-        } else {
-          http3ProtocolOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        http3ProtocolOptions_ = null;
+        if (http3ProtocolOptionsBuilder_ != null) {
+          http3ProtocolOptionsBuilder_.dispose();
           http3ProtocolOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -3866,7 +3631,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.Http3ProtocolOptions http3_protocol_options = 3;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.Http3ProtocolOptions.Builder getHttp3ProtocolOptionsBuilder() {
-        
+        bitField0_ |= 0x00000004;
         onChanged();
         return getHttp3ProtocolOptionsFieldBuilder().getBuilder();
       }
@@ -3937,7 +3702,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the alternateProtocolsCacheOptions field is set.
        */
       public boolean hasAlternateProtocolsCacheOptions() {
-        return alternateProtocolsCacheOptionsBuilder_ != null || alternateProtocolsCacheOptions_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -3977,11 +3742,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           alternateProtocolsCacheOptions_ = value;
-          onChanged();
         } else {
           alternateProtocolsCacheOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4000,11 +3765,11 @@ private static final long serialVersionUID = 0L;
           io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.Builder builderForValue) {
         if (alternateProtocolsCacheOptionsBuilder_ == null) {
           alternateProtocolsCacheOptions_ = builderForValue.build();
-          onChanged();
         } else {
           alternateProtocolsCacheOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4021,17 +3786,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeAlternateProtocolsCacheOptions(io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions value) {
         if (alternateProtocolsCacheOptionsBuilder_ == null) {
-          if (alternateProtocolsCacheOptions_ != null) {
-            alternateProtocolsCacheOptions_ =
-              io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.newBuilder(alternateProtocolsCacheOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            alternateProtocolsCacheOptions_ != null &&
+            alternateProtocolsCacheOptions_ != io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.getDefaultInstance()) {
+            getAlternateProtocolsCacheOptionsBuilder().mergeFrom(value);
           } else {
             alternateProtocolsCacheOptions_ = value;
           }
-          onChanged();
         } else {
           alternateProtocolsCacheOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4047,14 +3813,13 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.AlternateProtocolsCacheOptions alternate_protocols_cache_options = 4;</code>
        */
       public Builder clearAlternateProtocolsCacheOptions() {
-        if (alternateProtocolsCacheOptionsBuilder_ == null) {
-          alternateProtocolsCacheOptions_ = null;
-          onChanged();
-        } else {
-          alternateProtocolsCacheOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        alternateProtocolsCacheOptions_ = null;
+        if (alternateProtocolsCacheOptionsBuilder_ != null) {
+          alternateProtocolsCacheOptionsBuilder_.dispose();
           alternateProtocolsCacheOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4070,7 +3835,7 @@ private static final long serialVersionUID = 0L;
        * <code>.envoy.config.core.v3.AlternateProtocolsCacheOptions alternate_protocols_cache_options = 4;</code>
        */
       public io.envoyproxy.envoy.config.core.v3.AlternateProtocolsCacheOptions.Builder getAlternateProtocolsCacheOptionsBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getAlternateProtocolsCacheOptionsFieldBuilder().getBuilder();
       }
@@ -4152,7 +3917,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new AutoHttpConfig(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4250,7 +4026,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.HttpProtocolOptionsOrBuilder getCommonHttpProtocolOptionsOrBuilder() {
-    return getCommonHttpProtocolOptions();
+    return commonHttpProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.getDefaultInstance() : commonHttpProtocolOptions_;
   }
 
   public static final int UPSTREAM_HTTP_PROTOCOL_OPTIONS_FIELD_NUMBER = 2;
@@ -4288,7 +4064,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptionsOrBuilder getUpstreamHttpProtocolOptionsOrBuilder() {
-    return getUpstreamHttpProtocolOptions();
+    return upstreamHttpProtocolOptions_ == null ? io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.getDefaultInstance() : upstreamHttpProtocolOptions_;
   }
 
   public static final int EXPLICIT_HTTP_CONFIG_FIELD_NUMBER = 3;
@@ -4427,11 +4203,19 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HTTP_FILTERS_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> httpFilters_;
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -4442,8 +4226,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -4455,8 +4246,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -4467,8 +4265,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -4479,8 +4284,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * [#not-implemented-hide:]
+   * .. note::
+   *   Upstream HTTP filters are currently in alpha.
    * Optional HTTP filters for the upstream filter chain.
+   * These filters will be applied for all HTTP streams which flow through this
+   * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+   * If using upstream filters, please be aware that local errors sent by
+   * upstream filters will not trigger retries, and local errors sent by
+   * upstream filters will count as a final response if hedging is configured.
+   * [#extension-category: envoy.filters.http.upstream]
    * </pre>
    *
    * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -4523,7 +4335,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < httpFilters_.size(); i++) {
       output.writeMessage(6, httpFilters_.get(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -4556,7 +4368,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(6, httpFilters_.get(i));
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -4600,7 +4412,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -4639,7 +4451,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -4794,41 +4606,44 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getHttpFiltersFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (commonHttpProtocolOptionsBuilder_ == null) {
-        commonHttpProtocolOptions_ = null;
-      } else {
-        commonHttpProtocolOptions_ = null;
+      bitField0_ = 0;
+      commonHttpProtocolOptions_ = null;
+      if (commonHttpProtocolOptionsBuilder_ != null) {
+        commonHttpProtocolOptionsBuilder_.dispose();
         commonHttpProtocolOptionsBuilder_ = null;
       }
-      if (upstreamHttpProtocolOptionsBuilder_ == null) {
-        upstreamHttpProtocolOptions_ = null;
-      } else {
-        upstreamHttpProtocolOptions_ = null;
+      upstreamHttpProtocolOptions_ = null;
+      if (upstreamHttpProtocolOptionsBuilder_ != null) {
+        upstreamHttpProtocolOptionsBuilder_.dispose();
         upstreamHttpProtocolOptionsBuilder_ = null;
+      }
+      if (explicitHttpConfigBuilder_ != null) {
+        explicitHttpConfigBuilder_.clear();
+      }
+      if (useDownstreamProtocolConfigBuilder_ != null) {
+        useDownstreamProtocolConfigBuilder_.clear();
+      }
+      if (autoConfigBuilder_ != null) {
+        autoConfigBuilder_.clear();
       }
       if (httpFiltersBuilder_ == null) {
         httpFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        httpFilters_ = null;
         httpFiltersBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000020);
       upstreamProtocolOptionsCase_ = 0;
       upstreamProtocolOptions_ = null;
       return this;
@@ -4857,50 +4672,54 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions buildPartial() {
       io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions result = new io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions(this);
-      int from_bitField0_ = bitField0_;
-      if (commonHttpProtocolOptionsBuilder_ == null) {
-        result.commonHttpProtocolOptions_ = commonHttpProtocolOptions_;
-      } else {
-        result.commonHttpProtocolOptions_ = commonHttpProtocolOptionsBuilder_.build();
-      }
-      if (upstreamHttpProtocolOptionsBuilder_ == null) {
-        result.upstreamHttpProtocolOptions_ = upstreamHttpProtocolOptions_;
-      } else {
-        result.upstreamHttpProtocolOptions_ = upstreamHttpProtocolOptionsBuilder_.build();
-      }
-      if (upstreamProtocolOptionsCase_ == 3) {
-        if (explicitHttpConfigBuilder_ == null) {
-          result.upstreamProtocolOptions_ = upstreamProtocolOptions_;
-        } else {
-          result.upstreamProtocolOptions_ = explicitHttpConfigBuilder_.build();
-        }
-      }
-      if (upstreamProtocolOptionsCase_ == 4) {
-        if (useDownstreamProtocolConfigBuilder_ == null) {
-          result.upstreamProtocolOptions_ = upstreamProtocolOptions_;
-        } else {
-          result.upstreamProtocolOptions_ = useDownstreamProtocolConfigBuilder_.build();
-        }
-      }
-      if (upstreamProtocolOptionsCase_ == 5) {
-        if (autoConfigBuilder_ == null) {
-          result.upstreamProtocolOptions_ = upstreamProtocolOptions_;
-        } else {
-          result.upstreamProtocolOptions_ = autoConfigBuilder_.build();
-        }
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions result) {
       if (httpFiltersBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000020) != 0)) {
           httpFilters_ = java.util.Collections.unmodifiableList(httpFilters_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000020);
         }
         result.httpFilters_ = httpFilters_;
       } else {
         result.httpFilters_ = httpFiltersBuilder_.build();
       }
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.commonHttpProtocolOptions_ = commonHttpProtocolOptionsBuilder_ == null
+            ? commonHttpProtocolOptions_
+            : commonHttpProtocolOptionsBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.upstreamHttpProtocolOptions_ = upstreamHttpProtocolOptionsBuilder_ == null
+            ? upstreamHttpProtocolOptions_
+            : upstreamHttpProtocolOptionsBuilder_.build();
+      }
+    }
+
+    private void buildPartialOneofs(io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions result) {
       result.upstreamProtocolOptionsCase_ = upstreamProtocolOptionsCase_;
-      onBuilt();
-      return result;
+      result.upstreamProtocolOptions_ = this.upstreamProtocolOptions_;
+      if (upstreamProtocolOptionsCase_ == 3 &&
+          explicitHttpConfigBuilder_ != null) {
+        result.upstreamProtocolOptions_ = explicitHttpConfigBuilder_.build();
+      }
+      if (upstreamProtocolOptionsCase_ == 4 &&
+          useDownstreamProtocolConfigBuilder_ != null) {
+        result.upstreamProtocolOptions_ = useDownstreamProtocolConfigBuilder_.build();
+      }
+      if (upstreamProtocolOptionsCase_ == 5 &&
+          autoConfigBuilder_ != null) {
+        result.upstreamProtocolOptions_ = autoConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -4957,7 +4776,7 @@ private static final long serialVersionUID = 0L;
         if (!other.httpFilters_.isEmpty()) {
           if (httpFilters_.isEmpty()) {
             httpFilters_ = other.httpFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
           } else {
             ensureHttpFiltersIsMutable();
             httpFilters_.addAll(other.httpFilters_);
@@ -4970,7 +4789,7 @@ private static final long serialVersionUID = 0L;
             httpFiltersBuilder_.dispose();
             httpFiltersBuilder_ = null;
             httpFilters_ = other.httpFilters_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000020);
             httpFiltersBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getHttpFiltersFieldBuilder() : null;
@@ -4996,7 +4815,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -5011,17 +4830,78 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getCommonHttpProtocolOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getUpstreamHttpProtocolOptionsFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getExplicitHttpConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              upstreamProtocolOptionsCase_ = 3;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getUseDownstreamProtocolConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              upstreamProtocolOptionsCase_ = 4;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getAutoConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              upstreamProtocolOptionsCase_ = 5;
+              break;
+            } // case 42
+            case 50: {
+              io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter m =
+                  input.readMessage(
+                      io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.parser(),
+                      extensionRegistry);
+              if (httpFiltersBuilder_ == null) {
+                ensureHttpFiltersIsMutable();
+                httpFilters_.add(m);
+              } else {
+                httpFiltersBuilder_.addMessage(m);
+              }
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.upstreams.http.v3.HttpProtocolOptions) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int upstreamProtocolOptionsCase_ = 0;
@@ -5053,7 +4933,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the commonHttpProtocolOptions field is set.
      */
     public boolean hasCommonHttpProtocolOptions() {
-      return commonHttpProtocolOptionsBuilder_ != null || commonHttpProtocolOptions_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -5083,11 +4963,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         commonHttpProtocolOptions_ = value;
-        onChanged();
       } else {
         commonHttpProtocolOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -5101,11 +4981,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.Builder builderForValue) {
       if (commonHttpProtocolOptionsBuilder_ == null) {
         commonHttpProtocolOptions_ = builderForValue.build();
-        onChanged();
       } else {
         commonHttpProtocolOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -5117,17 +4997,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCommonHttpProtocolOptions(io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions value) {
       if (commonHttpProtocolOptionsBuilder_ == null) {
-        if (commonHttpProtocolOptions_ != null) {
-          commonHttpProtocolOptions_ =
-            io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.newBuilder(commonHttpProtocolOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          commonHttpProtocolOptions_ != null &&
+          commonHttpProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.getDefaultInstance()) {
+          getCommonHttpProtocolOptionsBuilder().mergeFrom(value);
         } else {
           commonHttpProtocolOptions_ = value;
         }
-        onChanged();
       } else {
         commonHttpProtocolOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -5138,14 +5019,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HttpProtocolOptions common_http_protocol_options = 1;</code>
      */
     public Builder clearCommonHttpProtocolOptions() {
-      if (commonHttpProtocolOptionsBuilder_ == null) {
-        commonHttpProtocolOptions_ = null;
-        onChanged();
-      } else {
-        commonHttpProtocolOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      commonHttpProtocolOptions_ = null;
+      if (commonHttpProtocolOptionsBuilder_ != null) {
+        commonHttpProtocolOptionsBuilder_.dispose();
         commonHttpProtocolOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5156,7 +5036,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.HttpProtocolOptions common_http_protocol_options = 1;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.HttpProtocolOptions.Builder getCommonHttpProtocolOptionsBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getCommonHttpProtocolOptionsFieldBuilder().getBuilder();
     }
@@ -5208,7 +5088,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the upstreamHttpProtocolOptions field is set.
      */
     public boolean hasUpstreamHttpProtocolOptions() {
-      return upstreamHttpProtocolOptionsBuilder_ != null || upstreamHttpProtocolOptions_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -5238,11 +5118,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         upstreamHttpProtocolOptions_ = value;
-        onChanged();
       } else {
         upstreamHttpProtocolOptionsBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5256,11 +5136,11 @@ private static final long serialVersionUID = 0L;
         io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.Builder builderForValue) {
       if (upstreamHttpProtocolOptionsBuilder_ == null) {
         upstreamHttpProtocolOptions_ = builderForValue.build();
-        onChanged();
       } else {
         upstreamHttpProtocolOptionsBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5272,17 +5152,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpstreamHttpProtocolOptions(io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions value) {
       if (upstreamHttpProtocolOptionsBuilder_ == null) {
-        if (upstreamHttpProtocolOptions_ != null) {
-          upstreamHttpProtocolOptions_ =
-            io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.newBuilder(upstreamHttpProtocolOptions_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          upstreamHttpProtocolOptions_ != null &&
+          upstreamHttpProtocolOptions_ != io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.getDefaultInstance()) {
+          getUpstreamHttpProtocolOptionsBuilder().mergeFrom(value);
         } else {
           upstreamHttpProtocolOptions_ = value;
         }
-        onChanged();
       } else {
         upstreamHttpProtocolOptionsBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -5293,14 +5174,13 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.UpstreamHttpProtocolOptions upstream_http_protocol_options = 2;</code>
      */
     public Builder clearUpstreamHttpProtocolOptions() {
-      if (upstreamHttpProtocolOptionsBuilder_ == null) {
-        upstreamHttpProtocolOptions_ = null;
-        onChanged();
-      } else {
-        upstreamHttpProtocolOptions_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      upstreamHttpProtocolOptions_ = null;
+      if (upstreamHttpProtocolOptionsBuilder_ != null) {
+        upstreamHttpProtocolOptionsBuilder_.dispose();
         upstreamHttpProtocolOptionsBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -5311,7 +5191,7 @@ private static final long serialVersionUID = 0L;
      * <code>.envoy.config.core.v3.UpstreamHttpProtocolOptions upstream_http_protocol_options = 2;</code>
      */
     public io.envoyproxy.envoy.config.core.v3.UpstreamHttpProtocolOptions.Builder getUpstreamHttpProtocolOptionsBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getUpstreamHttpProtocolOptionsFieldBuilder().getBuilder();
     }
@@ -5534,7 +5414,7 @@ private static final long serialVersionUID = 0L;
         upstreamProtocolOptions_ = null;
       }
       upstreamProtocolOptionsCase_ = 3;
-      onChanged();;
+      onChanged();
       return explicitHttpConfigBuilder_;
     }
 
@@ -5721,7 +5601,7 @@ private static final long serialVersionUID = 0L;
         upstreamProtocolOptions_ = null;
       }
       upstreamProtocolOptionsCase_ = 4;
-      onChanged();;
+      onChanged();
       return useDownstreamProtocolConfigBuilder_;
     }
 
@@ -5899,16 +5779,16 @@ private static final long serialVersionUID = 0L;
         upstreamProtocolOptions_ = null;
       }
       upstreamProtocolOptionsCase_ = 5;
-      onChanged();;
+      onChanged();
       return autoConfigBuilder_;
     }
 
     private java.util.List<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter> httpFilters_ =
       java.util.Collections.emptyList();
     private void ensureHttpFiltersIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         httpFilters_ = new java.util.ArrayList<io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter>(httpFilters_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000020;
        }
     }
 
@@ -5917,8 +5797,15 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -5932,8 +5819,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -5947,8 +5841,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -5962,8 +5863,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -5984,8 +5892,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6003,8 +5918,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6024,8 +5946,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6046,8 +5975,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6065,8 +6001,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6084,8 +6027,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6104,8 +6054,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6113,7 +6070,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearHttpFilters() {
       if (httpFiltersBuilder_ == null) {
         httpFilters_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
       } else {
         httpFiltersBuilder_.clear();
@@ -6122,8 +6079,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6140,8 +6104,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6152,8 +6123,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6167,8 +6145,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6183,8 +6168,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6195,8 +6187,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6208,8 +6207,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * [#not-implemented-hide:]
+     * .. note::
+     *   Upstream HTTP filters are currently in alpha.
      * Optional HTTP filters for the upstream filter chain.
+     * These filters will be applied for all HTTP streams which flow through this
+     * cluster. Unlike downstream filters, they will *not* be applied to terminated CONNECT requests.
+     * If using upstream filters, please be aware that local errors sent by
+     * upstream filters will not trigger retries, and local errors sent by
+     * upstream filters will count as a final response if hedging is configured.
+     * [#extension-category: envoy.filters.http.upstream]
      * </pre>
      *
      * <code>repeated .envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter http_filters = 6;</code>
@@ -6225,7 +6231,7 @@ private static final long serialVersionUID = 0L;
         httpFiltersBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilter.Builder, io.envoyproxy.envoy.extensions.filters.network.http_connection_manager.v3.HttpFilterOrBuilder>(
                 httpFilters_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000020) != 0),
                 getParentForChildren(),
                 isClean());
         httpFilters_ = null;
@@ -6265,7 +6271,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new HttpProtocolOptions(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

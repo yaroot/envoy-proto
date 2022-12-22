@@ -8,8 +8,7 @@ package io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3;
  * This configuration allows the built-in RING_HASH LB policy to be configured via the LB policy
  * extension point. See the :ref:`load balancing architecture overview
  * &lt;arch_overview_load_balancing_types&gt;` for more information.
- * [#extension: envoy.clusters.lb_policy]
- * [#next-free-field: 6]
+ * [#next-free-field: 7]
  * </pre>
  *
  * Protobuf type {@code envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash}
@@ -38,95 +37,6 @@ private static final long serialVersionUID = 0L;
   public final com.google.protobuf.UnknownFieldSet
   getUnknownFields() {
     return this.unknownFields;
-  }
-  private RingHash(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-            int rawValue = input.readEnum();
-
-            hashFunction_ = rawValue;
-            break;
-          }
-          case 18: {
-            com.google.protobuf.UInt64Value.Builder subBuilder = null;
-            if (minimumRingSize_ != null) {
-              subBuilder = minimumRingSize_.toBuilder();
-            }
-            minimumRingSize_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(minimumRingSize_);
-              minimumRingSize_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 26: {
-            com.google.protobuf.UInt64Value.Builder subBuilder = null;
-            if (maximumRingSize_ != null) {
-              subBuilder = maximumRingSize_.toBuilder();
-            }
-            maximumRingSize_ = input.readMessage(com.google.protobuf.UInt64Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(maximumRingSize_);
-              maximumRingSize_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 32: {
-
-            useHostnameForHashing_ = input.readBool();
-            break;
-          }
-          case 42: {
-            com.google.protobuf.UInt32Value.Builder subBuilder = null;
-            if (hashBalanceFactor_ != null) {
-              subBuilder = hashBalanceFactor_.toBuilder();
-            }
-            hashBalanceFactor_ = input.readMessage(com.google.protobuf.UInt32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(hashBalanceFactor_);
-              hashBalanceFactor_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
@@ -291,7 +201,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int HASH_FUNCTION_FIELD_NUMBER = 1;
-  private int hashFunction_;
+  private int hashFunction_ = 0;
   /**
    * <pre>
    * The hash function used to hash hosts onto the ketama ring. The value defaults to
@@ -314,8 +224,7 @@ private static final long serialVersionUID = 0L;
    * @return The hashFunction.
    */
   @java.lang.Override public io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction getHashFunction() {
-    @SuppressWarnings("deprecation")
-    io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction result = io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction.valueOf(hashFunction_);
+    io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction result = io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction.forNumber(hashFunction_);
     return result == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction.UNRECOGNIZED : result;
   }
 
@@ -363,7 +272,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt64ValueOrBuilder getMinimumRingSizeOrBuilder() {
-    return getMinimumRingSize();
+    return minimumRingSize_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : minimumRingSize_;
   }
 
   public static final int MAXIMUM_RING_SIZE_FIELD_NUMBER = 3;
@@ -407,22 +316,27 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.UInt64ValueOrBuilder getMaximumRingSizeOrBuilder() {
-    return getMaximumRingSize();
+    return maximumRingSize_ == null ? com.google.protobuf.UInt64Value.getDefaultInstance() : maximumRingSize_;
   }
 
   public static final int USE_HOSTNAME_FOR_HASHING_FIELD_NUMBER = 4;
-  private boolean useHostnameForHashing_;
+  private boolean useHostnameForHashing_ = false;
   /**
    * <pre>
    * If set to `true`, the cluster will use hostname instead of the resolved
    * address as the key to consistently hash to an upstream host. Only valid for StrictDNS clusters with hostnames which resolve to a single IP address.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>bool use_hostname_for_hashing = 4;</code>
+   * <code>bool use_hostname_for_hashing = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+   * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.use_hostname_for_hashing is deprecated.
+   *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=61
    * @return The useHostnameForHashing.
    */
   @java.lang.Override
-  public boolean getUseHostnameForHashing() {
+  @java.lang.Deprecated public boolean getUseHostnameForHashing() {
     return useHostnameForHashing_;
   }
 
@@ -443,13 +357,18 @@ private static final long serialVersionUID = 0L;
    * If weights are specified on the hosts, they are respected.
    * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
    * being probed, so use a higher value if you require better performance.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
+   * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.hash_balance_factor is deprecated.
+   *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=84
    * @return Whether the hashBalanceFactor field is set.
    */
   @java.lang.Override
-  public boolean hasHashBalanceFactor() {
+  @java.lang.Deprecated public boolean hasHashBalanceFactor() {
     return hashBalanceFactor_ != null;
   }
   /**
@@ -467,13 +386,18 @@ private static final long serialVersionUID = 0L;
    * If weights are specified on the hosts, they are respected.
    * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
    * being probed, so use a higher value if you require better performance.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
+   * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.hash_balance_factor is deprecated.
+   *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=84
    * @return The hashBalanceFactor.
    */
   @java.lang.Override
-  public com.google.protobuf.UInt32Value getHashBalanceFactor() {
+  @java.lang.Deprecated public com.google.protobuf.UInt32Value getHashBalanceFactor() {
     return hashBalanceFactor_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : hashBalanceFactor_;
   }
   /**
@@ -491,13 +415,54 @@ private static final long serialVersionUID = 0L;
    * If weights are specified on the hosts, they are respected.
    * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
    * being probed, so use a higher value if you require better performance.
+   * ..note::
+   *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+   *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
    * </pre>
    *
-   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+   * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
    */
   @java.lang.Override
-  public com.google.protobuf.UInt32ValueOrBuilder getHashBalanceFactorOrBuilder() {
-    return getHashBalanceFactor();
+  @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getHashBalanceFactorOrBuilder() {
+    return hashBalanceFactor_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : hashBalanceFactor_;
+  }
+
+  public static final int CONSISTENT_HASHING_LB_CONFIG_FIELD_NUMBER = 6;
+  private io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistentHashingLbConfig_;
+  /**
+   * <pre>
+   * Common configuration for hashing-based load balancing policies.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+   * @return Whether the consistentHashingLbConfig field is set.
+   */
+  @java.lang.Override
+  public boolean hasConsistentHashingLbConfig() {
+    return consistentHashingLbConfig_ != null;
+  }
+  /**
+   * <pre>
+   * Common configuration for hashing-based load balancing policies.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+   * @return The consistentHashingLbConfig.
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig getConsistentHashingLbConfig() {
+    return consistentHashingLbConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.getDefaultInstance() : consistentHashingLbConfig_;
+  }
+  /**
+   * <pre>
+   * Common configuration for hashing-based load balancing policies.
+   * </pre>
+   *
+   * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+   */
+  @java.lang.Override
+  public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfigOrBuilder getConsistentHashingLbConfigOrBuilder() {
+    return consistentHashingLbConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.getDefaultInstance() : consistentHashingLbConfig_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -529,7 +494,10 @@ private static final long serialVersionUID = 0L;
     if (hashBalanceFactor_ != null) {
       output.writeMessage(5, getHashBalanceFactor());
     }
-    unknownFields.writeTo(output);
+    if (consistentHashingLbConfig_ != null) {
+      output.writeMessage(6, getConsistentHashingLbConfig());
+    }
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -558,7 +526,11 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getHashBalanceFactor());
     }
-    size += unknownFields.getSerializedSize();
+    if (consistentHashingLbConfig_ != null) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeMessageSize(6, getConsistentHashingLbConfig());
+    }
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -591,7 +563,12 @@ private static final long serialVersionUID = 0L;
       if (!getHashBalanceFactor()
           .equals(other.getHashBalanceFactor())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (hasConsistentHashingLbConfig() != other.hasConsistentHashingLbConfig()) return false;
+    if (hasConsistentHashingLbConfig()) {
+      if (!getConsistentHashingLbConfig()
+          .equals(other.getConsistentHashingLbConfig())) return false;
+    }
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -619,7 +596,11 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + HASH_BALANCE_FACTOR_FIELD_NUMBER;
       hash = (53 * hash) + getHashBalanceFactor().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    if (hasConsistentHashingLbConfig()) {
+      hash = (37 * hash) + CONSISTENT_HASHING_LB_CONFIG_FIELD_NUMBER;
+      hash = (53 * hash) + getConsistentHashingLbConfig().hashCode();
+    }
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -719,8 +700,7 @@ private static final long serialVersionUID = 0L;
    * This configuration allows the built-in RING_HASH LB policy to be configured via the LB policy
    * extension point. See the :ref:`load balancing architecture overview
    * &lt;arch_overview_load_balancing_types&gt;` for more information.
-   * [#extension: envoy.clusters.lb_policy]
-   * [#next-free-field: 6]
+   * [#next-free-field: 7]
    * </pre>
    *
    * Protobuf type {@code envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash}
@@ -744,43 +724,39 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       hashFunction_ = 0;
-
-      if (minimumRingSizeBuilder_ == null) {
-        minimumRingSize_ = null;
-      } else {
-        minimumRingSize_ = null;
+      minimumRingSize_ = null;
+      if (minimumRingSizeBuilder_ != null) {
+        minimumRingSizeBuilder_.dispose();
         minimumRingSizeBuilder_ = null;
       }
-      if (maximumRingSizeBuilder_ == null) {
-        maximumRingSize_ = null;
-      } else {
-        maximumRingSize_ = null;
+      maximumRingSize_ = null;
+      if (maximumRingSizeBuilder_ != null) {
+        maximumRingSizeBuilder_.dispose();
         maximumRingSizeBuilder_ = null;
       }
       useHostnameForHashing_ = false;
-
-      if (hashBalanceFactorBuilder_ == null) {
-        hashBalanceFactor_ = null;
-      } else {
-        hashBalanceFactor_ = null;
+      hashBalanceFactor_ = null;
+      if (hashBalanceFactorBuilder_ != null) {
+        hashBalanceFactorBuilder_.dispose();
         hashBalanceFactorBuilder_ = null;
+      }
+      consistentHashingLbConfig_ = null;
+      if (consistentHashingLbConfigBuilder_ != null) {
+        consistentHashingLbConfigBuilder_.dispose();
+        consistentHashingLbConfigBuilder_ = null;
       }
       return this;
     }
@@ -808,25 +784,39 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash buildPartial() {
       io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash result = new io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash(this);
-      result.hashFunction_ = hashFunction_;
-      if (minimumRingSizeBuilder_ == null) {
-        result.minimumRingSize_ = minimumRingSize_;
-      } else {
-        result.minimumRingSize_ = minimumRingSizeBuilder_.build();
-      }
-      if (maximumRingSizeBuilder_ == null) {
-        result.maximumRingSize_ = maximumRingSize_;
-      } else {
-        result.maximumRingSize_ = maximumRingSizeBuilder_.build();
-      }
-      result.useHostnameForHashing_ = useHostnameForHashing_;
-      if (hashBalanceFactorBuilder_ == null) {
-        result.hashBalanceFactor_ = hashBalanceFactor_;
-      } else {
-        result.hashBalanceFactor_ = hashBalanceFactorBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.hashFunction_ = hashFunction_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.minimumRingSize_ = minimumRingSizeBuilder_ == null
+            ? minimumRingSize_
+            : minimumRingSizeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maximumRingSize_ = maximumRingSizeBuilder_ == null
+            ? maximumRingSize_
+            : maximumRingSizeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.useHostnameForHashing_ = useHostnameForHashing_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.hashBalanceFactor_ = hashBalanceFactorBuilder_ == null
+            ? hashBalanceFactor_
+            : hashBalanceFactorBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.consistentHashingLbConfig_ = consistentHashingLbConfigBuilder_ == null
+            ? consistentHashingLbConfig_
+            : consistentHashingLbConfigBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -888,7 +878,10 @@ private static final long serialVersionUID = 0L;
       if (other.hasHashBalanceFactor()) {
         mergeHashBalanceFactor(other.getHashBalanceFactor());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      if (other.hasConsistentHashingLbConfig()) {
+        mergeConsistentHashingLbConfig(other.getConsistentHashingLbConfig());
+      }
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -903,19 +896,71 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              hashFunction_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              input.readMessage(
+                  getMinimumRingSizeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              input.readMessage(
+                  getMaximumRingSizeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              useHostnameForHashing_ = input.readBool();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getHashBalanceFactorFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getConsistentHashingLbConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private int hashFunction_ = 0;
     /**
@@ -941,8 +986,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setHashFunctionValue(int value) {
-      
       hashFunction_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -957,8 +1002,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction getHashFunction() {
-      @SuppressWarnings("deprecation")
-      io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction result = io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction.valueOf(hashFunction_);
+      io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction result = io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction.forNumber(hashFunction_);
       return result == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.HashFunction.UNRECOGNIZED : result;
     }
     /**
@@ -975,7 +1019,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000001;
       hashFunction_ = value.getNumber();
       onChanged();
       return this;
@@ -990,7 +1034,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearHashFunction() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       hashFunction_ = 0;
       onChanged();
       return this;
@@ -1011,7 +1055,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the minimumRingSize field is set.
      */
     public boolean hasMinimumRingSize() {
-      return minimumRingSizeBuilder_ != null || minimumRingSize_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1047,11 +1091,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         minimumRingSize_ = value;
-        onChanged();
       } else {
         minimumRingSizeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1068,11 +1112,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt64Value.Builder builderForValue) {
       if (minimumRingSizeBuilder_ == null) {
         minimumRingSize_ = builderForValue.build();
-        onChanged();
       } else {
         minimumRingSizeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1087,17 +1131,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMinimumRingSize(com.google.protobuf.UInt64Value value) {
       if (minimumRingSizeBuilder_ == null) {
-        if (minimumRingSize_ != null) {
-          minimumRingSize_ =
-            com.google.protobuf.UInt64Value.newBuilder(minimumRingSize_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          minimumRingSize_ != null &&
+          minimumRingSize_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
+          getMinimumRingSizeBuilder().mergeFrom(value);
         } else {
           minimumRingSize_ = value;
         }
-        onChanged();
       } else {
         minimumRingSizeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1111,14 +1156,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value minimum_ring_size = 2 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMinimumRingSize() {
-      if (minimumRingSizeBuilder_ == null) {
-        minimumRingSize_ = null;
-        onChanged();
-      } else {
-        minimumRingSize_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      minimumRingSize_ = null;
+      if (minimumRingSizeBuilder_ != null) {
+        minimumRingSizeBuilder_.dispose();
         minimumRingSizeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1132,7 +1176,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value minimum_ring_size = 2 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt64Value.Builder getMinimumRingSizeBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getMinimumRingSizeFieldBuilder().getBuilder();
     }
@@ -1192,7 +1236,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the maximumRingSize field is set.
      */
     public boolean hasMaximumRingSize() {
-      return maximumRingSizeBuilder_ != null || maximumRingSize_ != null;
+      return ((bitField0_ & 0x00000004) != 0);
     }
     /**
      * <pre>
@@ -1226,11 +1270,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         maximumRingSize_ = value;
-        onChanged();
       } else {
         maximumRingSizeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1246,11 +1290,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.UInt64Value.Builder builderForValue) {
       if (maximumRingSizeBuilder_ == null) {
         maximumRingSize_ = builderForValue.build();
-        onChanged();
       } else {
         maximumRingSizeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1264,17 +1308,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMaximumRingSize(com.google.protobuf.UInt64Value value) {
       if (maximumRingSizeBuilder_ == null) {
-        if (maximumRingSize_ != null) {
-          maximumRingSize_ =
-            com.google.protobuf.UInt64Value.newBuilder(maximumRingSize_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000004) != 0) &&
+          maximumRingSize_ != null &&
+          maximumRingSize_ != com.google.protobuf.UInt64Value.getDefaultInstance()) {
+          getMaximumRingSizeBuilder().mergeFrom(value);
         } else {
           maximumRingSize_ = value;
         }
-        onChanged();
       } else {
         maximumRingSizeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000004;
+      onChanged();
       return this;
     }
     /**
@@ -1287,14 +1332,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value maximum_ring_size = 3 [(.validate.rules) = { ... }</code>
      */
     public Builder clearMaximumRingSize() {
-      if (maximumRingSizeBuilder_ == null) {
-        maximumRingSize_ = null;
-        onChanged();
-      } else {
-        maximumRingSize_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+      maximumRingSize_ = null;
+      if (maximumRingSizeBuilder_ != null) {
+        maximumRingSizeBuilder_.dispose();
         maximumRingSizeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1307,7 +1351,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.UInt64Value maximum_ring_size = 3 [(.validate.rules) = { ... }</code>
      */
     public com.google.protobuf.UInt64Value.Builder getMaximumRingSizeBuilder() {
-      
+      bitField0_ |= 0x00000004;
       onChanged();
       return getMaximumRingSizeFieldBuilder().getBuilder();
     }
@@ -1356,28 +1400,39 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If set to `true`, the cluster will use hostname instead of the resolved
      * address as the key to consistently hash to an upstream host. Only valid for StrictDNS clusters with hostnames which resolve to a single IP address.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>bool use_hostname_for_hashing = 4;</code>
+     * <code>bool use_hostname_for_hashing = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.use_hostname_for_hashing is deprecated.
+     *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=61
      * @return The useHostnameForHashing.
      */
     @java.lang.Override
-    public boolean getUseHostnameForHashing() {
+    @java.lang.Deprecated public boolean getUseHostnameForHashing() {
       return useHostnameForHashing_;
     }
     /**
      * <pre>
      * If set to `true`, the cluster will use hostname instead of the resolved
      * address as the key to consistently hash to an upstream host. Only valid for StrictDNS clusters with hostnames which resolve to a single IP address.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>bool use_hostname_for_hashing = 4;</code>
+     * <code>bool use_hostname_for_hashing = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.use_hostname_for_hashing is deprecated.
+     *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=61
      * @param value The useHostnameForHashing to set.
      * @return This builder for chaining.
      */
-    public Builder setUseHostnameForHashing(boolean value) {
+    @java.lang.Deprecated public Builder setUseHostnameForHashing(boolean value) {
       
       useHostnameForHashing_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1385,13 +1440,18 @@ private static final long serialVersionUID = 0L;
      * <pre>
      * If set to `true`, the cluster will use hostname instead of the resolved
      * address as the key to consistently hash to an upstream host. Only valid for StrictDNS clusters with hostnames which resolve to a single IP address.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>bool use_hostname_for_hashing = 4;</code>
+     * <code>bool use_hostname_for_hashing = 4 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
+     * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.use_hostname_for_hashing is deprecated.
+     *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=61
      * @return This builder for chaining.
      */
-    public Builder clearUseHostnameForHashing() {
-      
+    @java.lang.Deprecated public Builder clearUseHostnameForHashing() {
+      bitField0_ = (bitField0_ & ~0x00000008);
       useHostnameForHashing_ = false;
       onChanged();
       return this;
@@ -1415,13 +1475,18 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
+     * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.hash_balance_factor is deprecated.
+     *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=84
      * @return Whether the hashBalanceFactor field is set.
      */
-    public boolean hasHashBalanceFactor() {
-      return hashBalanceFactorBuilder_ != null || hashBalanceFactor_ != null;
+    @java.lang.Deprecated public boolean hasHashBalanceFactor() {
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1438,12 +1503,17 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
+     * @deprecated envoy.extensions.load_balancing_policies.ring_hash.v3.RingHash.hash_balance_factor is deprecated.
+     *     See envoy/extensions/load_balancing_policies/ring_hash/v3/ring_hash.proto;l=84
      * @return The hashBalanceFactor.
      */
-    public com.google.protobuf.UInt32Value getHashBalanceFactor() {
+    @java.lang.Deprecated public com.google.protobuf.UInt32Value getHashBalanceFactor() {
       if (hashBalanceFactorBuilder_ == null) {
         return hashBalanceFactor_ == null ? com.google.protobuf.UInt32Value.getDefaultInstance() : hashBalanceFactor_;
       } else {
@@ -1465,21 +1535,24 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
-    public Builder setHashBalanceFactor(com.google.protobuf.UInt32Value value) {
+    @java.lang.Deprecated public Builder setHashBalanceFactor(com.google.protobuf.UInt32Value value) {
       if (hashBalanceFactorBuilder_ == null) {
         if (value == null) {
           throw new NullPointerException();
         }
         hashBalanceFactor_ = value;
-        onChanged();
       } else {
         hashBalanceFactorBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1497,19 +1570,22 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
-    public Builder setHashBalanceFactor(
+    @java.lang.Deprecated public Builder setHashBalanceFactor(
         com.google.protobuf.UInt32Value.Builder builderForValue) {
       if (hashBalanceFactorBuilder_ == null) {
         hashBalanceFactor_ = builderForValue.build();
-        onChanged();
       } else {
         hashBalanceFactorBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1527,23 +1603,27 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
-    public Builder mergeHashBalanceFactor(com.google.protobuf.UInt32Value value) {
+    @java.lang.Deprecated public Builder mergeHashBalanceFactor(com.google.protobuf.UInt32Value value) {
       if (hashBalanceFactorBuilder_ == null) {
-        if (hashBalanceFactor_ != null) {
-          hashBalanceFactor_ =
-            com.google.protobuf.UInt32Value.newBuilder(hashBalanceFactor_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          hashBalanceFactor_ != null &&
+          hashBalanceFactor_ != com.google.protobuf.UInt32Value.getDefaultInstance()) {
+          getHashBalanceFactorBuilder().mergeFrom(value);
         } else {
           hashBalanceFactor_ = value;
         }
-        onChanged();
       } else {
         hashBalanceFactorBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1561,19 +1641,21 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
-    public Builder clearHashBalanceFactor() {
-      if (hashBalanceFactorBuilder_ == null) {
-        hashBalanceFactor_ = null;
-        onChanged();
-      } else {
-        hashBalanceFactor_ = null;
+    @java.lang.Deprecated public Builder clearHashBalanceFactor() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      hashBalanceFactor_ = null;
+      if (hashBalanceFactorBuilder_ != null) {
+        hashBalanceFactorBuilder_.dispose();
         hashBalanceFactorBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1591,12 +1673,15 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
-    public com.google.protobuf.UInt32Value.Builder getHashBalanceFactorBuilder() {
-      
+    @java.lang.Deprecated public com.google.protobuf.UInt32Value.Builder getHashBalanceFactorBuilder() {
+      bitField0_ |= 0x00000010;
       onChanged();
       return getHashBalanceFactorFieldBuilder().getBuilder();
     }
@@ -1615,11 +1700,14 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
-    public com.google.protobuf.UInt32ValueOrBuilder getHashBalanceFactorOrBuilder() {
+    @java.lang.Deprecated public com.google.protobuf.UInt32ValueOrBuilder getHashBalanceFactorOrBuilder() {
       if (hashBalanceFactorBuilder_ != null) {
         return hashBalanceFactorBuilder_.getMessageOrBuilder();
       } else {
@@ -1642,9 +1730,12 @@ private static final long serialVersionUID = 0L;
      * If weights are specified on the hosts, they are respected.
      * This is an O(N) algorithm, unlike other load balancers. Using a lower `hash_balance_factor` results in more hosts
      * being probed, so use a higher value if you require better performance.
+     * ..note::
+     *   This is deprecated and please use :ref:`consistent_hashing_lb_config
+     *   &lt;envoy_v3_api_field_extensions.load_balancing_policies.ring_hash.v3.RingHash.consistent_hashing_lb_config&gt;` instead.
      * </pre>
      *
-     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [(.validate.rules) = { ... }</code>
+     * <code>.google.protobuf.UInt32Value hash_balance_factor = 5 [deprecated = true, (.validate.rules) = { ... }</code>
      */
     private com.google.protobuf.SingleFieldBuilderV3<
         com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
@@ -1658,6 +1749,161 @@ private static final long serialVersionUID = 0L;
         hashBalanceFactor_ = null;
       }
       return hashBalanceFactorBuilder_;
+    }
+
+    private io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistentHashingLbConfig_;
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfigOrBuilder> consistentHashingLbConfigBuilder_;
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     * @return Whether the consistentHashingLbConfig field is set.
+     */
+    public boolean hasConsistentHashingLbConfig() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     * @return The consistentHashingLbConfig.
+     */
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig getConsistentHashingLbConfig() {
+      if (consistentHashingLbConfigBuilder_ == null) {
+        return consistentHashingLbConfig_ == null ? io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.getDefaultInstance() : consistentHashingLbConfig_;
+      } else {
+        return consistentHashingLbConfigBuilder_.getMessage();
+      }
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    public Builder setConsistentHashingLbConfig(io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig value) {
+      if (consistentHashingLbConfigBuilder_ == null) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        consistentHashingLbConfig_ = value;
+      } else {
+        consistentHashingLbConfigBuilder_.setMessage(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    public Builder setConsistentHashingLbConfig(
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.Builder builderForValue) {
+      if (consistentHashingLbConfigBuilder_ == null) {
+        consistentHashingLbConfig_ = builderForValue.build();
+      } else {
+        consistentHashingLbConfigBuilder_.setMessage(builderForValue.build());
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    public Builder mergeConsistentHashingLbConfig(io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig value) {
+      if (consistentHashingLbConfigBuilder_ == null) {
+        if (((bitField0_ & 0x00000020) != 0) &&
+          consistentHashingLbConfig_ != null &&
+          consistentHashingLbConfig_ != io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.getDefaultInstance()) {
+          getConsistentHashingLbConfigBuilder().mergeFrom(value);
+        } else {
+          consistentHashingLbConfig_ = value;
+        }
+      } else {
+        consistentHashingLbConfigBuilder_.mergeFrom(value);
+      }
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    public Builder clearConsistentHashingLbConfig() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      consistentHashingLbConfig_ = null;
+      if (consistentHashingLbConfigBuilder_ != null) {
+        consistentHashingLbConfigBuilder_.dispose();
+        consistentHashingLbConfigBuilder_ = null;
+      }
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.Builder getConsistentHashingLbConfigBuilder() {
+      bitField0_ |= 0x00000020;
+      onChanged();
+      return getConsistentHashingLbConfigFieldBuilder().getBuilder();
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    public io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfigOrBuilder getConsistentHashingLbConfigOrBuilder() {
+      if (consistentHashingLbConfigBuilder_ != null) {
+        return consistentHashingLbConfigBuilder_.getMessageOrBuilder();
+      } else {
+        return consistentHashingLbConfig_ == null ?
+            io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.getDefaultInstance() : consistentHashingLbConfig_;
+      }
+    }
+    /**
+     * <pre>
+     * Common configuration for hashing-based load balancing policies.
+     * </pre>
+     *
+     * <code>.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig consistent_hashing_lb_config = 6;</code>
+     */
+    private com.google.protobuf.SingleFieldBuilderV3<
+        io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfigOrBuilder> 
+        getConsistentHashingLbConfigFieldBuilder() {
+      if (consistentHashingLbConfigBuilder_ == null) {
+        consistentHashingLbConfigBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+            io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfig.Builder, io.envoyproxy.envoy.extensions.load_balancing_policies.common.v3.ConsistentHashingLbConfigOrBuilder>(
+                getConsistentHashingLbConfig(),
+                getParentForChildren(),
+                isClean());
+        consistentHashingLbConfig_ = null;
+      }
+      return consistentHashingLbConfigBuilder_;
     }
     @java.lang.Override
     public final Builder setUnknownFields(
@@ -1692,7 +1938,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RingHash(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

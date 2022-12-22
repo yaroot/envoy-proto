@@ -66,7 +66,6 @@ public interface FeatureMapOrBuilder extends
    *
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
    */
-
   /* nullable */
 com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrDefault(
       java.lang.String key,
@@ -84,7 +83,6 @@ com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList defaultValue
    *
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.StringList&gt; categorical_features = 1;</code>
    */
-
   com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList getCategoricalFeaturesOrThrow(
       java.lang.String key);
 
@@ -143,7 +141,6 @@ com.google.cloud.recommendationengine.v1beta1.FeatureMap.StringList defaultValue
    *
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
    */
-
   /* nullable */
 com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrDefault(
       java.lang.String key,
@@ -160,7 +157,6 @@ com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList defaultValue)
    *
    * <code>map&lt;string, .google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList&gt; numerical_features = 2;</code>
    */
-
   com.google.cloud.recommendationengine.v1beta1.FeatureMap.FloatList getNumericalFeaturesOrThrow(
       java.lang.String key);
 }

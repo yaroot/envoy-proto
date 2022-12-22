@@ -94,7 +94,8 @@ public interface ListExecutionsRequestOrBuilder extends
    *    For example:
    *    `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
    * Each of the above supported filters can be combined together using
-   * logical operators (`AND` &amp; `OR`).
+   * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+   * is 5.
    * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
    * </pre>
    *
@@ -126,7 +127,8 @@ public interface ListExecutionsRequestOrBuilder extends
    *    For example:
    *    `in_context("projects/&lt;project_number&gt;/locations/&lt;location&gt;/metadataStores/&lt;metadatastore_name&gt;/contexts/&lt;context-id&gt;")`
    * Each of the above supported filters can be combined together using
-   * logical operators (`AND` &amp; `OR`).
+   * logical operators (`AND` &amp; `OR`). Maximum nested expression depth allowed
+   * is 5.
    * For example: `display_name = "test" AND metadata.field1.bool_value = true`.
    * </pre>
    *
@@ -135,4 +137,34 @@ public interface ListExecutionsRequestOrBuilder extends
    */
   com.google.protobuf.ByteString
       getFilterBytes();
+
+  /**
+   * <pre>
+   * How the list of messages is ordered. Specify the values to order by and an
+   * ordering operation. The default sorting order is ascending. To specify
+   * descending order for a field, users append a " desc" suffix; for example:
+   * "foo desc, bar".
+   * Subfields are specified with a `.` character, such as foo.bar.
+   * see https://google.aip.dev/132#ordering for more details.
+   * </pre>
+   *
+   * <code>string order_by = 5;</code>
+   * @return The orderBy.
+   */
+  java.lang.String getOrderBy();
+  /**
+   * <pre>
+   * How the list of messages is ordered. Specify the values to order by and an
+   * ordering operation. The default sorting order is ascending. To specify
+   * descending order for a field, users append a " desc" suffix; for example:
+   * "foo desc, bar".
+   * Subfields are specified with a `.` character, such as foo.bar.
+   * see https://google.aip.dev/132#ordering for more details.
+   * </pre>
+   *
+   * <code>string order_by = 5;</code>
+   * @return The bytes for orderBy.
+   */
+  com.google.protobuf.ByteString
+      getOrderByBytes();
 }

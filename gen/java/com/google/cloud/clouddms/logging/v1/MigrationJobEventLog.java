@@ -35,93 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MigrationJobEventLog(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.Builder subBuilder = null;
-            if (migrationJob_ != null) {
-              subBuilder = migrationJob_.toBuilder();
-            }
-            migrationJob_ = input.readMessage(com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(migrationJob_);
-              migrationJob_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (occurrenceTimestamp_ != null) {
-              subBuilder = occurrenceTimestamp_.toBuilder();
-            }
-            occurrenceTimestamp_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(occurrenceTimestamp_);
-              occurrenceTimestamp_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 24: {
-
-            code_ = input.readInt32();
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            textMessage_ = s;
-            break;
-          }
-          case 1600: {
-            originalCause_ = input.readInt32();
-            originalCauseCase_ = 200;
-            break;
-          }
-          case 1610: {
-            java.lang.String s = input.readStringRequireUtf8();
-            originalCauseCase_ = 201;
-            originalCause_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.clouddms.logging.v1.ClouddmsPlatformLogsProto.internal_static_google_cloud_clouddms_logging_v1_MigrationJobEventLog_descriptor;
@@ -211,7 +124,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.clouddms.logging.v1.LoggedMigrationJobOrBuilder getMigrationJobOrBuilder() {
-    return getMigrationJob();
+    return migrationJob_ == null ? com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.getDefaultInstance() : migrationJob_;
   }
 
   public static final int OCCURRENCE_TIMESTAMP_FIELD_NUMBER = 2;
@@ -249,11 +162,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getOccurrenceTimestampOrBuilder() {
-    return getOccurrenceTimestamp();
+    return occurrenceTimestamp_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : occurrenceTimestamp_;
   }
 
   public static final int CODE_FIELD_NUMBER = 3;
-  private int code_;
+  private int code_ = 0;
   /**
    * <pre>
    * Event code
@@ -268,7 +181,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TEXT_MESSAGE_FIELD_NUMBER = 4;
-  private volatile java.lang.Object textMessage_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object textMessage_ = "";
   /**
    * <pre>
    * Event message
@@ -439,7 +353,7 @@ private static final long serialVersionUID = 0L;
     if (originalCauseCase_ == 201) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 201, originalCause_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -471,7 +385,7 @@ private static final long serialVersionUID = 0L;
     if (originalCauseCase_ == 201) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(201, originalCause_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -513,7 +427,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -548,7 +462,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -669,38 +583,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.clouddms.logging.v1.MigrationJobEventLog.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (migrationJobBuilder_ == null) {
-        migrationJob_ = null;
-      } else {
-        migrationJob_ = null;
+      bitField0_ = 0;
+      migrationJob_ = null;
+      if (migrationJobBuilder_ != null) {
+        migrationJobBuilder_.dispose();
         migrationJobBuilder_ = null;
       }
-      if (occurrenceTimestampBuilder_ == null) {
-        occurrenceTimestamp_ = null;
-      } else {
-        occurrenceTimestamp_ = null;
+      occurrenceTimestamp_ = null;
+      if (occurrenceTimestampBuilder_ != null) {
+        occurrenceTimestampBuilder_.dispose();
         occurrenceTimestampBuilder_ = null;
       }
       code_ = 0;
-
       textMessage_ = "";
-
       originalCauseCase_ = 0;
       originalCause_ = null;
       return this;
@@ -729,27 +635,35 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.clouddms.logging.v1.MigrationJobEventLog buildPartial() {
       com.google.cloud.clouddms.logging.v1.MigrationJobEventLog result = new com.google.cloud.clouddms.logging.v1.MigrationJobEventLog(this);
-      if (migrationJobBuilder_ == null) {
-        result.migrationJob_ = migrationJob_;
-      } else {
-        result.migrationJob_ = migrationJobBuilder_.build();
-      }
-      if (occurrenceTimestampBuilder_ == null) {
-        result.occurrenceTimestamp_ = occurrenceTimestamp_;
-      } else {
-        result.occurrenceTimestamp_ = occurrenceTimestampBuilder_.build();
-      }
-      result.code_ = code_;
-      result.textMessage_ = textMessage_;
-      if (originalCauseCase_ == 200) {
-        result.originalCause_ = originalCause_;
-      }
-      if (originalCauseCase_ == 201) {
-        result.originalCause_ = originalCause_;
-      }
-      result.originalCauseCase_ = originalCauseCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.clouddms.logging.v1.MigrationJobEventLog result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.migrationJob_ = migrationJobBuilder_ == null
+            ? migrationJob_
+            : migrationJobBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.occurrenceTimestamp_ = occurrenceTimestampBuilder_ == null
+            ? occurrenceTimestamp_
+            : occurrenceTimestampBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.code_ = code_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.textMessage_ = textMessage_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.clouddms.logging.v1.MigrationJobEventLog result) {
+      result.originalCauseCase_ = originalCauseCase_;
+      result.originalCause_ = this.originalCause_;
     }
 
     @java.lang.Override
@@ -807,6 +721,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getTextMessage().isEmpty()) {
         textMessage_ = other.textMessage_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       switch (other.getOriginalCauseCase()) {
@@ -824,7 +739,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -839,17 +754,65 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.clouddms.logging.v1.MigrationJobEventLog parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getMigrationJobFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              input.readMessage(
+                  getOccurrenceTimestampFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              code_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              textMessage_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 1600: {
+              originalCause_ = input.readInt32();
+              originalCauseCase_ = 200;
+              break;
+            } // case 1600
+            case 1610: {
+              java.lang.String s = input.readStringRequireUtf8();
+              originalCauseCase_ = 201;
+              originalCause_ = s;
+              break;
+            } // case 1610
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.clouddms.logging.v1.MigrationJobEventLog) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int originalCauseCase_ = 0;
@@ -867,6 +830,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     private com.google.cloud.clouddms.logging.v1.LoggedMigrationJob migrationJob_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -880,7 +844,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the migrationJob field is set.
      */
     public boolean hasMigrationJob() {
-      return migrationJobBuilder_ != null || migrationJob_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -910,11 +874,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         migrationJob_ = value;
-        onChanged();
       } else {
         migrationJobBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -928,11 +892,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.Builder builderForValue) {
       if (migrationJobBuilder_ == null) {
         migrationJob_ = builderForValue.build();
-        onChanged();
       } else {
         migrationJobBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -944,17 +908,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMigrationJob(com.google.cloud.clouddms.logging.v1.LoggedMigrationJob value) {
       if (migrationJobBuilder_ == null) {
-        if (migrationJob_ != null) {
-          migrationJob_ =
-            com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.newBuilder(migrationJob_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          migrationJob_ != null &&
+          migrationJob_ != com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.getDefaultInstance()) {
+          getMigrationJobBuilder().mergeFrom(value);
         } else {
           migrationJob_ = value;
         }
-        onChanged();
       } else {
         migrationJobBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -965,14 +930,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.clouddms.logging.v1.LoggedMigrationJob migration_job = 1;</code>
      */
     public Builder clearMigrationJob() {
-      if (migrationJobBuilder_ == null) {
-        migrationJob_ = null;
-        onChanged();
-      } else {
-        migrationJob_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      migrationJob_ = null;
+      if (migrationJobBuilder_ != null) {
+        migrationJobBuilder_.dispose();
         migrationJobBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -983,7 +947,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.clouddms.logging.v1.LoggedMigrationJob migration_job = 1;</code>
      */
     public com.google.cloud.clouddms.logging.v1.LoggedMigrationJob.Builder getMigrationJobBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getMigrationJobFieldBuilder().getBuilder();
     }
@@ -1035,7 +999,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the occurrenceTimestamp field is set.
      */
     public boolean hasOccurrenceTimestamp() {
-      return occurrenceTimestampBuilder_ != null || occurrenceTimestamp_ != null;
+      return ((bitField0_ & 0x00000002) != 0);
     }
     /**
      * <pre>
@@ -1065,11 +1029,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         occurrenceTimestamp_ = value;
-        onChanged();
       } else {
         occurrenceTimestampBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1083,11 +1047,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (occurrenceTimestampBuilder_ == null) {
         occurrenceTimestamp_ = builderForValue.build();
-        onChanged();
       } else {
         occurrenceTimestampBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1099,17 +1063,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeOccurrenceTimestamp(com.google.protobuf.Timestamp value) {
       if (occurrenceTimestampBuilder_ == null) {
-        if (occurrenceTimestamp_ != null) {
-          occurrenceTimestamp_ =
-            com.google.protobuf.Timestamp.newBuilder(occurrenceTimestamp_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000002) != 0) &&
+          occurrenceTimestamp_ != null &&
+          occurrenceTimestamp_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getOccurrenceTimestampBuilder().mergeFrom(value);
         } else {
           occurrenceTimestamp_ = value;
         }
-        onChanged();
       } else {
         occurrenceTimestampBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000002;
+      onChanged();
       return this;
     }
     /**
@@ -1120,14 +1085,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp occurrence_timestamp = 2;</code>
      */
     public Builder clearOccurrenceTimestamp() {
-      if (occurrenceTimestampBuilder_ == null) {
-        occurrenceTimestamp_ = null;
-        onChanged();
-      } else {
-        occurrenceTimestamp_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+      occurrenceTimestamp_ = null;
+      if (occurrenceTimestampBuilder_ != null) {
+        occurrenceTimestampBuilder_.dispose();
         occurrenceTimestampBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1138,7 +1102,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp occurrence_timestamp = 2;</code>
      */
     public com.google.protobuf.Timestamp.Builder getOccurrenceTimestampBuilder() {
-      
+      bitField0_ |= 0x00000002;
       onChanged();
       return getOccurrenceTimestampFieldBuilder().getBuilder();
     }
@@ -1203,6 +1167,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCode(int value) {
       
       code_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1215,7 +1180,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCode() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       code_ = 0;
       onChanged();
       return this;
@@ -1274,11 +1239,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTextMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       textMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1291,8 +1254,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearTextMessage() {
-      
       textMessage_ = getDefaultInstance().getTextMessage();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1307,12 +1270,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setTextMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       textMessage_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1352,6 +1313,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setOriginalCode(int value) {
+      
       originalCauseCase_ = 200;
       originalCause_ = value;
       onChanged();
@@ -1450,10 +1412,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginalMessage(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  originalCauseCase_ = 201;
+      if (value == null) { throw new NullPointerException(); }
+      originalCauseCase_ = 201;
       originalCause_ = value;
       onChanged();
       return this;
@@ -1485,10 +1445,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setOriginalMessageBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       originalCauseCase_ = 201;
       originalCause_ = value;
       onChanged();
@@ -1527,7 +1485,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MigrationJobEventLog(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

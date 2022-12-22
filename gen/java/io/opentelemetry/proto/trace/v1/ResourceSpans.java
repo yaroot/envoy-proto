@@ -36,77 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ResourceSpans(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            io.opentelemetry.proto.resource.v1.Resource.Builder subBuilder = null;
-            if (resource_ != null) {
-              subBuilder = resource_.toBuilder();
-            }
-            resource_ = input.readMessage(io.opentelemetry.proto.resource.v1.Resource.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resource_);
-              resource_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              scopeSpans_ = new java.util.ArrayList<io.opentelemetry.proto.trace.v1.ScopeSpans>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            scopeSpans_.add(
-                input.readMessage(io.opentelemetry.proto.trace.v1.ScopeSpans.parser(), extensionRegistry));
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            schemaUrl_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        scopeSpans_ = java.util.Collections.unmodifiableList(scopeSpans_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return io.opentelemetry.proto.trace.v1.TraceProto.internal_static_opentelemetry_proto_trace_v1_ResourceSpans_descriptor;
@@ -158,10 +87,11 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public io.opentelemetry.proto.resource.v1.ResourceOrBuilder getResourceOrBuilder() {
-    return getResource();
+    return resource_ == null ? io.opentelemetry.proto.resource.v1.Resource.getDefaultInstance() : resource_;
   }
 
   public static final int SCOPE_SPANS_FIELD_NUMBER = 2;
+  @SuppressWarnings("serial")
   private java.util.List<io.opentelemetry.proto.trace.v1.ScopeSpans> scopeSpans_;
   /**
    * <pre>
@@ -222,7 +152,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SCHEMA_URL_FIELD_NUMBER = 3;
-  private volatile java.lang.Object schemaUrl_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object schemaUrl_ = "";
   /**
    * <pre>
    * This schema_url applies to the data in the "resource" field. It does not apply
@@ -292,7 +223,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaUrl_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 3, schemaUrl_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -312,7 +243,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(schemaUrl_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, schemaUrl_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -336,7 +267,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getScopeSpansList())) return false;
     if (!getSchemaUrl()
         .equals(other.getSchemaUrl())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -357,7 +288,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + SCHEMA_URL_FIELD_NUMBER;
     hash = (53 * hash) + getSchemaUrl().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -478,37 +409,31 @@ private static final long serialVersionUID = 0L;
 
     // Construct using io.opentelemetry.proto.trace.v1.ResourceSpans.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getScopeSpansFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (resourceBuilder_ == null) {
-        resource_ = null;
-      } else {
-        resource_ = null;
+      bitField0_ = 0;
+      resource_ = null;
+      if (resourceBuilder_ != null) {
+        resourceBuilder_.dispose();
         resourceBuilder_ = null;
       }
       if (scopeSpansBuilder_ == null) {
         scopeSpans_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        scopeSpans_ = null;
         scopeSpansBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000002);
       schemaUrl_ = "";
-
       return this;
     }
 
@@ -535,24 +460,34 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public io.opentelemetry.proto.trace.v1.ResourceSpans buildPartial() {
       io.opentelemetry.proto.trace.v1.ResourceSpans result = new io.opentelemetry.proto.trace.v1.ResourceSpans(this);
-      int from_bitField0_ = bitField0_;
-      if (resourceBuilder_ == null) {
-        result.resource_ = resource_;
-      } else {
-        result.resource_ = resourceBuilder_.build();
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(io.opentelemetry.proto.trace.v1.ResourceSpans result) {
       if (scopeSpansBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000002) != 0)) {
           scopeSpans_ = java.util.Collections.unmodifiableList(scopeSpans_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000002);
         }
         result.scopeSpans_ = scopeSpans_;
       } else {
         result.scopeSpans_ = scopeSpansBuilder_.build();
       }
-      result.schemaUrl_ = schemaUrl_;
-      onBuilt();
-      return result;
+    }
+
+    private void buildPartial0(io.opentelemetry.proto.trace.v1.ResourceSpans result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.resource_ = resourceBuilder_ == null
+            ? resource_
+            : resourceBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.schemaUrl_ = schemaUrl_;
+      }
     }
 
     @java.lang.Override
@@ -606,7 +541,7 @@ private static final long serialVersionUID = 0L;
         if (!other.scopeSpans_.isEmpty()) {
           if (scopeSpans_.isEmpty()) {
             scopeSpans_ = other.scopeSpans_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureScopeSpansIsMutable();
             scopeSpans_.addAll(other.scopeSpans_);
@@ -619,7 +554,7 @@ private static final long serialVersionUID = 0L;
             scopeSpansBuilder_.dispose();
             scopeSpansBuilder_ = null;
             scopeSpans_ = other.scopeSpans_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
             scopeSpansBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getScopeSpansFieldBuilder() : null;
@@ -630,9 +565,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getSchemaUrl().isEmpty()) {
         schemaUrl_ = other.schemaUrl_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -647,17 +583,55 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.opentelemetry.proto.trace.v1.ResourceSpans parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getResourceFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              io.opentelemetry.proto.trace.v1.ScopeSpans m =
+                  input.readMessage(
+                      io.opentelemetry.proto.trace.v1.ScopeSpans.parser(),
+                      extensionRegistry);
+              if (scopeSpansBuilder_ == null) {
+                ensureScopeSpansIsMutable();
+                scopeSpans_.add(m);
+              } else {
+                scopeSpansBuilder_.addMessage(m);
+              }
+              break;
+            } // case 18
+            case 26: {
+              schemaUrl_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.opentelemetry.proto.trace.v1.ResourceSpans) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -675,7 +649,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the resource field is set.
      */
     public boolean hasResource() {
-      return resourceBuilder_ != null || resource_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -707,11 +681,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resource_ = value;
-        onChanged();
       } else {
         resourceBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -726,11 +700,11 @@ private static final long serialVersionUID = 0L;
         io.opentelemetry.proto.resource.v1.Resource.Builder builderForValue) {
       if (resourceBuilder_ == null) {
         resource_ = builderForValue.build();
-        onChanged();
       } else {
         resourceBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -743,17 +717,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeResource(io.opentelemetry.proto.resource.v1.Resource value) {
       if (resourceBuilder_ == null) {
-        if (resource_ != null) {
-          resource_ =
-            io.opentelemetry.proto.resource.v1.Resource.newBuilder(resource_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          resource_ != null &&
+          resource_ != io.opentelemetry.proto.resource.v1.Resource.getDefaultInstance()) {
+          getResourceBuilder().mergeFrom(value);
         } else {
           resource_ = value;
         }
-        onChanged();
       } else {
         resourceBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -765,14 +740,13 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.resource.v1.Resource resource = 1;</code>
      */
     public Builder clearResource() {
-      if (resourceBuilder_ == null) {
-        resource_ = null;
-        onChanged();
-      } else {
-        resource_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      resource_ = null;
+      if (resourceBuilder_ != null) {
+        resourceBuilder_.dispose();
         resourceBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -784,7 +758,7 @@ private static final long serialVersionUID = 0L;
      * <code>.opentelemetry.proto.resource.v1.Resource resource = 1;</code>
      */
     public io.opentelemetry.proto.resource.v1.Resource.Builder getResourceBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getResourceFieldBuilder().getBuilder();
     }
@@ -829,9 +803,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<io.opentelemetry.proto.trace.v1.ScopeSpans> scopeSpans_ =
       java.util.Collections.emptyList();
     private void ensureScopeSpansIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000002) != 0)) {
         scopeSpans_ = new java.util.ArrayList<io.opentelemetry.proto.trace.v1.ScopeSpans>(scopeSpans_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000002;
        }
     }
 
@@ -1025,7 +999,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearScopeSpans() {
       if (scopeSpansBuilder_ == null) {
         scopeSpans_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
       } else {
         scopeSpansBuilder_.clear();
@@ -1130,7 +1104,7 @@ private static final long serialVersionUID = 0L;
         scopeSpansBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             io.opentelemetry.proto.trace.v1.ScopeSpans, io.opentelemetry.proto.trace.v1.ScopeSpans.Builder, io.opentelemetry.proto.trace.v1.ScopeSpansOrBuilder>(
                 scopeSpans_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000002) != 0),
                 getParentForChildren(),
                 isClean());
         scopeSpans_ = null;
@@ -1194,11 +1168,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchemaUrl(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       schemaUrl_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1212,8 +1184,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSchemaUrl() {
-      
       schemaUrl_ = getDefaultInstance().getSchemaUrl();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1229,12 +1201,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSchemaUrlBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       schemaUrl_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1271,7 +1241,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ResourceSpans(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

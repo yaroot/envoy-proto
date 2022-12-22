@@ -40,129 +40,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private CompletionConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            matchingOrder_ = s;
-            break;
-          }
-          case 24: {
-
-            maxSuggestions_ = input.readInt32();
-            break;
-          }
-          case 32: {
-
-            minPrefixLength_ = input.readInt32();
-            break;
-          }
-          case 42: {
-            com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder subBuilder = null;
-            if (suggestionsInputConfig_ != null) {
-              subBuilder = suggestionsInputConfig_.toBuilder();
-            }
-            suggestionsInputConfig_ = input.readMessage(com.google.cloud.retail.v2alpha.CompletionDataInputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(suggestionsInputConfig_);
-              suggestionsInputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lastSuggestionsImportOperation_ = s;
-            break;
-          }
-          case 58: {
-            com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder subBuilder = null;
-            if (denylistInputConfig_ != null) {
-              subBuilder = denylistInputConfig_.toBuilder();
-            }
-            denylistInputConfig_ = input.readMessage(com.google.cloud.retail.v2alpha.CompletionDataInputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(denylistInputConfig_);
-              denylistInputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lastDenylistImportOperation_ = s;
-            break;
-          }
-          case 74: {
-            com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder subBuilder = null;
-            if (allowlistInputConfig_ != null) {
-              subBuilder = allowlistInputConfig_.toBuilder();
-            }
-            allowlistInputConfig_ = input.readMessage(com.google.cloud.retail.v2alpha.CompletionDataInputConfig.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(allowlistInputConfig_);
-              allowlistInputConfig_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 82: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            lastAllowlistImportOperation_ = s;
-            break;
-          }
-          case 88: {
-
-            autoLearning_ = input.readBool();
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.retail.v2alpha.CatalogProto.internal_static_google_cloud_retail_v2alpha_CompletionConfig_descriptor;
@@ -177,7 +54,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Required. Immutable. Fully qualified name
@@ -225,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MATCHING_ORDER_FIELD_NUMBER = 2;
-  private volatile java.lang.Object matchingOrder_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object matchingOrder_ = "";
   /**
    * <pre>
    * Specifies the matching order for autocomplete suggestions, e.g., a query
@@ -283,7 +162,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MAX_SUGGESTIONS_FIELD_NUMBER = 3;
-  private int maxSuggestions_;
+  private int maxSuggestions_ = 0;
   /**
    * <pre>
    * The maximum number of autocomplete suggestions returned per term. Default
@@ -301,7 +180,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int MIN_PREFIX_LENGTH_FIELD_NUMBER = 4;
-  private int minPrefixLength_;
+  private int minPrefixLength_ = 0;
   /**
    * <pre>
    * The minimum number of characters needed to be typed in order to get
@@ -319,7 +198,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int AUTO_LEARNING_FIELD_NUMBER = 11;
-  private boolean autoLearning_;
+  private boolean autoLearning_ = false;
   /**
    * <pre>
    * If set to true, the auto learning function is enabled. Auto learning uses
@@ -375,11 +254,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2alpha.CompletionDataInputConfigOrBuilder getSuggestionsInputConfigOrBuilder() {
-    return getSuggestionsInputConfig();
+    return suggestionsInputConfig_ == null ? com.google.cloud.retail.v2alpha.CompletionDataInputConfig.getDefaultInstance() : suggestionsInputConfig_;
   }
 
   public static final int LAST_SUGGESTIONS_IMPORT_OPERATION_FIELD_NUMBER = 6;
-  private volatile java.lang.Object lastSuggestionsImportOperation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lastSuggestionsImportOperation_ = "";
   /**
    * <pre>
    * Output only. Name of the LRO corresponding to the latest suggestion terms
@@ -468,11 +348,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2alpha.CompletionDataInputConfigOrBuilder getDenylistInputConfigOrBuilder() {
-    return getDenylistInputConfig();
+    return denylistInputConfig_ == null ? com.google.cloud.retail.v2alpha.CompletionDataInputConfig.getDefaultInstance() : denylistInputConfig_;
   }
 
   public static final int LAST_DENYLIST_IMPORT_OPERATION_FIELD_NUMBER = 8;
-  private volatile java.lang.Object lastDenylistImportOperation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lastDenylistImportOperation_ = "";
   /**
    * <pre>
    * Output only. Name of the LRO corresponding to the latest denylist import.
@@ -559,11 +440,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.retail.v2alpha.CompletionDataInputConfigOrBuilder getAllowlistInputConfigOrBuilder() {
-    return getAllowlistInputConfig();
+    return allowlistInputConfig_ == null ? com.google.cloud.retail.v2alpha.CompletionDataInputConfig.getDefaultInstance() : allowlistInputConfig_;
   }
 
   public static final int LAST_ALLOWLIST_IMPORT_OPERATION_FIELD_NUMBER = 10;
-  private volatile java.lang.Object lastAllowlistImportOperation_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object lastAllowlistImportOperation_ = "";
   /**
    * <pre>
    * Output only. Name of the LRO corresponding to the latest allowlist import.
@@ -659,7 +541,7 @@ private static final long serialVersionUID = 0L;
     if (autoLearning_ != false) {
       output.writeBool(11, autoLearning_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -707,7 +589,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeBoolSize(11, autoLearning_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -753,7 +635,7 @@ private static final long serialVersionUID = 0L;
     }
     if (!getLastAllowlistImportOperation()
         .equals(other.getLastAllowlistImportOperation())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -793,7 +675,7 @@ private static final long serialVersionUID = 0L;
     }
     hash = (37 * hash) + LAST_ALLOWLIST_IMPORT_OPERATION_FIELD_NUMBER;
     hash = (53 * hash) + getLastAllowlistImportOperation().hashCode();
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -915,56 +797,41 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.retail.v2alpha.CompletionConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       matchingOrder_ = "";
-
       maxSuggestions_ = 0;
-
       minPrefixLength_ = 0;
-
       autoLearning_ = false;
-
-      if (suggestionsInputConfigBuilder_ == null) {
-        suggestionsInputConfig_ = null;
-      } else {
-        suggestionsInputConfig_ = null;
+      suggestionsInputConfig_ = null;
+      if (suggestionsInputConfigBuilder_ != null) {
+        suggestionsInputConfigBuilder_.dispose();
         suggestionsInputConfigBuilder_ = null;
       }
       lastSuggestionsImportOperation_ = "";
-
-      if (denylistInputConfigBuilder_ == null) {
-        denylistInputConfig_ = null;
-      } else {
-        denylistInputConfig_ = null;
+      denylistInputConfig_ = null;
+      if (denylistInputConfigBuilder_ != null) {
+        denylistInputConfigBuilder_.dispose();
         denylistInputConfigBuilder_ = null;
       }
       lastDenylistImportOperation_ = "";
-
-      if (allowlistInputConfigBuilder_ == null) {
-        allowlistInputConfig_ = null;
-      } else {
-        allowlistInputConfig_ = null;
+      allowlistInputConfig_ = null;
+      if (allowlistInputConfigBuilder_ != null) {
+        allowlistInputConfigBuilder_.dispose();
         allowlistInputConfigBuilder_ = null;
       }
       lastAllowlistImportOperation_ = "";
-
       return this;
     }
 
@@ -991,31 +858,52 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.retail.v2alpha.CompletionConfig buildPartial() {
       com.google.cloud.retail.v2alpha.CompletionConfig result = new com.google.cloud.retail.v2alpha.CompletionConfig(this);
-      result.name_ = name_;
-      result.matchingOrder_ = matchingOrder_;
-      result.maxSuggestions_ = maxSuggestions_;
-      result.minPrefixLength_ = minPrefixLength_;
-      result.autoLearning_ = autoLearning_;
-      if (suggestionsInputConfigBuilder_ == null) {
-        result.suggestionsInputConfig_ = suggestionsInputConfig_;
-      } else {
-        result.suggestionsInputConfig_ = suggestionsInputConfigBuilder_.build();
-      }
-      result.lastSuggestionsImportOperation_ = lastSuggestionsImportOperation_;
-      if (denylistInputConfigBuilder_ == null) {
-        result.denylistInputConfig_ = denylistInputConfig_;
-      } else {
-        result.denylistInputConfig_ = denylistInputConfigBuilder_.build();
-      }
-      result.lastDenylistImportOperation_ = lastDenylistImportOperation_;
-      if (allowlistInputConfigBuilder_ == null) {
-        result.allowlistInputConfig_ = allowlistInputConfig_;
-      } else {
-        result.allowlistInputConfig_ = allowlistInputConfigBuilder_.build();
-      }
-      result.lastAllowlistImportOperation_ = lastAllowlistImportOperation_;
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.retail.v2alpha.CompletionConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.matchingOrder_ = matchingOrder_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.maxSuggestions_ = maxSuggestions_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.minPrefixLength_ = minPrefixLength_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.autoLearning_ = autoLearning_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.suggestionsInputConfig_ = suggestionsInputConfigBuilder_ == null
+            ? suggestionsInputConfig_
+            : suggestionsInputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.lastSuggestionsImportOperation_ = lastSuggestionsImportOperation_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.denylistInputConfig_ = denylistInputConfigBuilder_ == null
+            ? denylistInputConfig_
+            : denylistInputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.lastDenylistImportOperation_ = lastDenylistImportOperation_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.allowlistInputConfig_ = allowlistInputConfigBuilder_ == null
+            ? allowlistInputConfig_
+            : allowlistInputConfigBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.lastAllowlistImportOperation_ = lastAllowlistImportOperation_;
+      }
     }
 
     @java.lang.Override
@@ -1064,10 +952,12 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.retail.v2alpha.CompletionConfig.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getMatchingOrder().isEmpty()) {
         matchingOrder_ = other.matchingOrder_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getMaxSuggestions() != 0) {
@@ -1084,6 +974,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLastSuggestionsImportOperation().isEmpty()) {
         lastSuggestionsImportOperation_ = other.lastSuggestionsImportOperation_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.hasDenylistInputConfig()) {
@@ -1091,6 +982,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLastDenylistImportOperation().isEmpty()) {
         lastDenylistImportOperation_ = other.lastDenylistImportOperation_;
+        bitField0_ |= 0x00000100;
         onChanged();
       }
       if (other.hasAllowlistInputConfig()) {
@@ -1098,9 +990,10 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLastAllowlistImportOperation().isEmpty()) {
         lastAllowlistImportOperation_ = other.lastAllowlistImportOperation_;
+        bitField0_ |= 0x00000400;
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1115,19 +1008,94 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.retail.v2alpha.CompletionConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              matchingOrder_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              maxSuggestions_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              minPrefixLength_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42: {
+              input.readMessage(
+                  getSuggestionsInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 42
+            case 50: {
+              lastSuggestionsImportOperation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getDenylistInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 58
+            case 66: {
+              lastDenylistImportOperation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getAllowlistInputConfigFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 74
+            case 82: {
+              lastAllowlistImportOperation_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 82
+            case 88: {
+              autoLearning_ = input.readBool();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 88
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.retail.v2alpha.CompletionConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private java.lang.Object name_ = "";
     /**
@@ -1185,11 +1153,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1203,8 +1169,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1220,12 +1186,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1301,11 +1265,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMatchingOrder(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       matchingOrder_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1324,8 +1286,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMatchingOrder() {
-      
       matchingOrder_ = getDefaultInstance().getMatchingOrder();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1346,12 +1308,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setMatchingOrderBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       matchingOrder_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1387,6 +1347,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMaxSuggestions(int value) {
       
       maxSuggestions_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1402,7 +1363,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMaxSuggestions() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       maxSuggestions_ = 0;
       onChanged();
       return this;
@@ -1439,6 +1400,7 @@ private static final long serialVersionUID = 0L;
     public Builder setMinPrefixLength(int value) {
       
       minPrefixLength_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1454,7 +1416,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearMinPrefixLength() {
-      
+      bitField0_ = (bitField0_ & ~0x00000008);
       minPrefixLength_ = 0;
       onChanged();
       return this;
@@ -1493,6 +1455,7 @@ private static final long serialVersionUID = 0L;
     public Builder setAutoLearning(boolean value) {
       
       autoLearning_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1509,7 +1472,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAutoLearning() {
-      
+      bitField0_ = (bitField0_ & ~0x00000010);
       autoLearning_ = false;
       onChanged();
       return this;
@@ -1528,7 +1491,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the suggestionsInputConfig field is set.
      */
     public boolean hasSuggestionsInputConfig() {
-      return suggestionsInputConfigBuilder_ != null || suggestionsInputConfig_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1560,11 +1523,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         suggestionsInputConfig_ = value;
-        onChanged();
       } else {
         suggestionsInputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1579,11 +1542,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder builderForValue) {
       if (suggestionsInputConfigBuilder_ == null) {
         suggestionsInputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         suggestionsInputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1596,17 +1559,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSuggestionsInputConfig(com.google.cloud.retail.v2alpha.CompletionDataInputConfig value) {
       if (suggestionsInputConfigBuilder_ == null) {
-        if (suggestionsInputConfig_ != null) {
-          suggestionsInputConfig_ =
-            com.google.cloud.retail.v2alpha.CompletionDataInputConfig.newBuilder(suggestionsInputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          suggestionsInputConfig_ != null &&
+          suggestionsInputConfig_ != com.google.cloud.retail.v2alpha.CompletionDataInputConfig.getDefaultInstance()) {
+          getSuggestionsInputConfigBuilder().mergeFrom(value);
         } else {
           suggestionsInputConfig_ = value;
         }
-        onChanged();
       } else {
         suggestionsInputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -1618,14 +1582,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.CompletionDataInputConfig suggestions_input_config = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearSuggestionsInputConfig() {
-      if (suggestionsInputConfigBuilder_ == null) {
-        suggestionsInputConfig_ = null;
-        onChanged();
-      } else {
-        suggestionsInputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      suggestionsInputConfig_ = null;
+      if (suggestionsInputConfigBuilder_ != null) {
+        suggestionsInputConfigBuilder_.dispose();
         suggestionsInputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1637,7 +1600,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.CompletionDataInputConfig suggestions_input_config = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder getSuggestionsInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getSuggestionsInputConfigFieldBuilder().getBuilder();
     }
@@ -1741,11 +1704,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastSuggestionsImportOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lastSuggestionsImportOperation_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1761,8 +1722,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLastSuggestionsImportOperation() {
-      
       lastSuggestionsImportOperation_ = getDefaultInstance().getLastSuggestionsImportOperation();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1780,12 +1741,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastSuggestionsImportOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lastSuggestionsImportOperation_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -1803,7 +1762,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the denylistInputConfig field is set.
      */
     public boolean hasDenylistInputConfig() {
-      return denylistInputConfigBuilder_ != null || denylistInputConfig_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -1835,11 +1794,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         denylistInputConfig_ = value;
-        onChanged();
       } else {
         denylistInputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1854,11 +1813,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder builderForValue) {
       if (denylistInputConfigBuilder_ == null) {
         denylistInputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         denylistInputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1871,17 +1830,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDenylistInputConfig(com.google.cloud.retail.v2alpha.CompletionDataInputConfig value) {
       if (denylistInputConfigBuilder_ == null) {
-        if (denylistInputConfig_ != null) {
-          denylistInputConfig_ =
-            com.google.cloud.retail.v2alpha.CompletionDataInputConfig.newBuilder(denylistInputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          denylistInputConfig_ != null &&
+          denylistInputConfig_ != com.google.cloud.retail.v2alpha.CompletionDataInputConfig.getDefaultInstance()) {
+          getDenylistInputConfigBuilder().mergeFrom(value);
         } else {
           denylistInputConfig_ = value;
         }
-        onChanged();
       } else {
         denylistInputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -1893,14 +1853,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.CompletionDataInputConfig denylist_input_config = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearDenylistInputConfig() {
-      if (denylistInputConfigBuilder_ == null) {
-        denylistInputConfig_ = null;
-        onChanged();
-      } else {
-        denylistInputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      denylistInputConfig_ = null;
+      if (denylistInputConfigBuilder_ != null) {
+        denylistInputConfigBuilder_.dispose();
         denylistInputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1912,7 +1871,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.CompletionDataInputConfig denylist_input_config = 7 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder getDenylistInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDenylistInputConfigFieldBuilder().getBuilder();
     }
@@ -2013,11 +1972,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastDenylistImportOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lastDenylistImportOperation_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2032,8 +1989,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLastDenylistImportOperation() {
-      
       lastDenylistImportOperation_ = getDefaultInstance().getLastDenylistImportOperation();
+      bitField0_ = (bitField0_ & ~0x00000100);
       onChanged();
       return this;
     }
@@ -2050,12 +2007,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastDenylistImportOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lastDenylistImportOperation_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -2073,7 +2028,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the allowlistInputConfig field is set.
      */
     public boolean hasAllowlistInputConfig() {
-      return allowlistInputConfigBuilder_ != null || allowlistInputConfig_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2105,11 +2060,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         allowlistInputConfig_ = value;
-        onChanged();
       } else {
         allowlistInputConfigBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2124,11 +2079,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder builderForValue) {
       if (allowlistInputConfigBuilder_ == null) {
         allowlistInputConfig_ = builderForValue.build();
-        onChanged();
       } else {
         allowlistInputConfigBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2141,17 +2096,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAllowlistInputConfig(com.google.cloud.retail.v2alpha.CompletionDataInputConfig value) {
       if (allowlistInputConfigBuilder_ == null) {
-        if (allowlistInputConfig_ != null) {
-          allowlistInputConfig_ =
-            com.google.cloud.retail.v2alpha.CompletionDataInputConfig.newBuilder(allowlistInputConfig_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          allowlistInputConfig_ != null &&
+          allowlistInputConfig_ != com.google.cloud.retail.v2alpha.CompletionDataInputConfig.getDefaultInstance()) {
+          getAllowlistInputConfigBuilder().mergeFrom(value);
         } else {
           allowlistInputConfig_ = value;
         }
-        onChanged();
       } else {
         allowlistInputConfigBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2163,14 +2119,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.CompletionDataInputConfig allowlist_input_config = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearAllowlistInputConfig() {
-      if (allowlistInputConfigBuilder_ == null) {
-        allowlistInputConfig_ = null;
-        onChanged();
-      } else {
-        allowlistInputConfig_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      allowlistInputConfig_ = null;
+      if (allowlistInputConfigBuilder_ != null) {
+        allowlistInputConfigBuilder_.dispose();
         allowlistInputConfigBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2182,7 +2137,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.retail.v2alpha.CompletionDataInputConfig allowlist_input_config = 9 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.retail.v2alpha.CompletionDataInputConfig.Builder getAllowlistInputConfigBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getAllowlistInputConfigFieldBuilder().getBuilder();
     }
@@ -2283,11 +2238,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastAllowlistImportOperation(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       lastAllowlistImportOperation_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2302,8 +2255,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLastAllowlistImportOperation() {
-      
       lastAllowlistImportOperation_ = getDefaultInstance().getLastAllowlistImportOperation();
+      bitField0_ = (bitField0_ & ~0x00000400);
       onChanged();
       return this;
     }
@@ -2320,12 +2273,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLastAllowlistImportOperationBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       lastAllowlistImportOperation_ = value;
+      bitField0_ |= 0x00000400;
       onChanged();
       return this;
     }
@@ -2362,7 +2313,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new CompletionConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

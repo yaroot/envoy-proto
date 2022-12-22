@@ -36,75 +36,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private FileShareConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 16: {
-
-            capacityGb_ = input.readInt64();
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              nfsExportOptions_ = new java.util.ArrayList<com.google.cloud.filestore.v1beta1.NfsExportOptions>();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            nfsExportOptions_.add(
-                input.readMessage(com.google.cloud.filestore.v1beta1.NfsExportOptions.parser(), extensionRegistry));
-            break;
-          }
-          case 74: {
-            java.lang.String s = input.readStringRequireUtf8();
-            sourceCase_ = 9;
-            source_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        nfsExportOptions_ = java.util.Collections.unmodifiableList(nfsExportOptions_);
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.filestore.v1beta1.CloudFilestoreServiceProto.internal_static_google_cloud_filestore_v1beta1_FileShareConfig_descriptor;
@@ -158,10 +89,13 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
-   * The name of the file share (must be 16 characters or less).
+   * The name of the file share (must be 32 characters or less for
+   * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+   * tiers).
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -182,7 +116,9 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * The name of the file share (must be 16 characters or less).
+   * The name of the file share (must be 32 characters or less for
+   * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+   * tiers).
    * </pre>
    *
    * <code>string name = 1;</code>
@@ -204,11 +140,11 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CAPACITY_GB_FIELD_NUMBER = 2;
-  private long capacityGb_;
+  private long capacityGb_ = 0L;
   /**
    * <pre>
    * File share capacity in gigabytes (GB).
-   * Cloud Filestore defines 1 GB as 1024^3 bytes.
+   * Filestore defines 1 GB as 1024^3 bytes.
    * </pre>
    *
    * <code>int64 capacity_gb = 2;</code>
@@ -290,6 +226,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NFS_EXPORT_OPTIONS_FIELD_NUMBER = 8;
+  @SuppressWarnings("serial")
   private java.util.List<com.google.cloud.filestore.v1beta1.NfsExportOptions> nfsExportOptions_;
   /**
    * <pre>
@@ -380,7 +317,7 @@ private static final long serialVersionUID = 0L;
     if (sourceCase_ == 9) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 9, source_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -403,7 +340,7 @@ private static final long serialVersionUID = 0L;
     if (sourceCase_ == 9) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, source_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -433,7 +370,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -461,7 +398,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -582,33 +519,27 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.filestore.v1beta1.FileShareConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-        getNfsExportOptionsFieldBuilder();
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       capacityGb_ = 0L;
-
       if (nfsExportOptionsBuilder_ == null) {
         nfsExportOptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
       } else {
+        nfsExportOptions_ = null;
         nfsExportOptionsBuilder_.clear();
       }
+      bitField0_ = (bitField0_ & ~0x00000008);
       sourceCase_ = 0;
       source_ = null;
       return this;
@@ -637,24 +568,38 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.filestore.v1beta1.FileShareConfig buildPartial() {
       com.google.cloud.filestore.v1beta1.FileShareConfig result = new com.google.cloud.filestore.v1beta1.FileShareConfig(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.capacityGb_ = capacityGb_;
-      if (sourceCase_ == 9) {
-        result.source_ = source_;
-      }
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.cloud.filestore.v1beta1.FileShareConfig result) {
       if (nfsExportOptionsBuilder_ == null) {
-        if (((bitField0_ & 0x00000001) != 0)) {
+        if (((bitField0_ & 0x00000008) != 0)) {
           nfsExportOptions_ = java.util.Collections.unmodifiableList(nfsExportOptions_);
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.nfsExportOptions_ = nfsExportOptions_;
       } else {
         result.nfsExportOptions_ = nfsExportOptionsBuilder_.build();
       }
+    }
+
+    private void buildPartial0(com.google.cloud.filestore.v1beta1.FileShareConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.capacityGb_ = capacityGb_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.filestore.v1beta1.FileShareConfig result) {
       result.sourceCase_ = sourceCase_;
-      onBuilt();
-      return result;
+      result.source_ = this.source_;
     }
 
     @java.lang.Override
@@ -703,6 +648,7 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.filestore.v1beta1.FileShareConfig.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (other.getCapacityGb() != 0L) {
@@ -712,7 +658,7 @@ private static final long serialVersionUID = 0L;
         if (!other.nfsExportOptions_.isEmpty()) {
           if (nfsExportOptions_.isEmpty()) {
             nfsExportOptions_ = other.nfsExportOptions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
           } else {
             ensureNfsExportOptionsIsMutable();
             nfsExportOptions_.addAll(other.nfsExportOptions_);
@@ -725,7 +671,7 @@ private static final long serialVersionUID = 0L;
             nfsExportOptionsBuilder_.dispose();
             nfsExportOptionsBuilder_ = null;
             nfsExportOptions_ = other.nfsExportOptions_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000008);
             nfsExportOptionsBuilder_ = 
               com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
                  getNfsExportOptionsFieldBuilder() : null;
@@ -745,7 +691,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -760,17 +706,59 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.filestore.v1beta1.FileShareConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              capacityGb_ = input.readInt64();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 66: {
+              com.google.cloud.filestore.v1beta1.NfsExportOptions m =
+                  input.readMessage(
+                      com.google.cloud.filestore.v1beta1.NfsExportOptions.parser(),
+                      extensionRegistry);
+              if (nfsExportOptionsBuilder_ == null) {
+                ensureNfsExportOptionsIsMutable();
+                nfsExportOptions_.add(m);
+              } else {
+                nfsExportOptionsBuilder_.addMessage(m);
+              }
+              break;
+            } // case 66
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+              sourceCase_ = 9;
+              source_ = s;
+              break;
+            } // case 74
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.filestore.v1beta1.FileShareConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int sourceCase_ = 0;
@@ -793,7 +781,9 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object name_ = "";
     /**
      * <pre>
-     * The name of the file share (must be 16 characters or less).
+     * The name of the file share (must be 32 characters or less for
+     * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+     * tiers).
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -813,7 +803,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The name of the file share (must be 16 characters or less).
+     * The name of the file share (must be 32 characters or less for
+     * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+     * tiers).
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -834,7 +826,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * The name of the file share (must be 16 characters or less).
+     * The name of the file share (must be 32 characters or less for
+     * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+     * tiers).
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -843,31 +837,33 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The name of the file share (must be 16 characters or less).
+     * The name of the file share (must be 32 characters or less for
+     * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+     * tiers).
      * </pre>
      *
      * <code>string name = 1;</code>
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * The name of the file share (must be 16 characters or less).
+     * The name of the file share (must be 32 characters or less for
+     * Enterprise and High Scale SSD tiers and 16 characters or less for all other
+     * tiers).
      * </pre>
      *
      * <code>string name = 1;</code>
@@ -876,12 +872,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -890,7 +884,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * File share capacity in gigabytes (GB).
-     * Cloud Filestore defines 1 GB as 1024^3 bytes.
+     * Filestore defines 1 GB as 1024^3 bytes.
      * </pre>
      *
      * <code>int64 capacity_gb = 2;</code>
@@ -903,7 +897,7 @@ private static final long serialVersionUID = 0L;
     /**
      * <pre>
      * File share capacity in gigabytes (GB).
-     * Cloud Filestore defines 1 GB as 1024^3 bytes.
+     * Filestore defines 1 GB as 1024^3 bytes.
      * </pre>
      *
      * <code>int64 capacity_gb = 2;</code>
@@ -913,20 +907,21 @@ private static final long serialVersionUID = 0L;
     public Builder setCapacityGb(long value) {
       
       capacityGb_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
     /**
      * <pre>
      * File share capacity in gigabytes (GB).
-     * Cloud Filestore defines 1 GB as 1024^3 bytes.
+     * Filestore defines 1 GB as 1024^3 bytes.
      * </pre>
      *
      * <code>int64 capacity_gb = 2;</code>
      * @return This builder for chaining.
      */
     public Builder clearCapacityGb() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       capacityGb_ = 0L;
       onChanged();
       return this;
@@ -1016,10 +1011,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceBackup(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  sourceCase_ = 9;
+      if (value == null) { throw new NullPointerException(); }
+      sourceCase_ = 9;
       source_ = value;
       onChanged();
       return this;
@@ -1055,10 +1048,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceBackupBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceCase_ = 9;
       source_ = value;
       onChanged();
@@ -1068,9 +1059,9 @@ private static final long serialVersionUID = 0L;
     private java.util.List<com.google.cloud.filestore.v1beta1.NfsExportOptions> nfsExportOptions_ =
       java.util.Collections.emptyList();
     private void ensureNfsExportOptionsIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         nfsExportOptions_ = new java.util.ArrayList<com.google.cloud.filestore.v1beta1.NfsExportOptions>(nfsExportOptions_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000008;
        }
     }
 
@@ -1275,7 +1266,7 @@ private static final long serialVersionUID = 0L;
     public Builder clearNfsExportOptions() {
       if (nfsExportOptionsBuilder_ == null) {
         nfsExportOptions_ = java.util.Collections.emptyList();
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
       } else {
         nfsExportOptionsBuilder_.clear();
@@ -1387,7 +1378,7 @@ private static final long serialVersionUID = 0L;
         nfsExportOptionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
             com.google.cloud.filestore.v1beta1.NfsExportOptions, com.google.cloud.filestore.v1beta1.NfsExportOptions.Builder, com.google.cloud.filestore.v1beta1.NfsExportOptionsOrBuilder>(
                 nfsExportOptions_,
-                ((bitField0_ & 0x00000001) != 0),
+                ((bitField0_ & 0x00000008) != 0),
                 getParentForChildren(),
                 isClean());
         nfsExportOptions_ = null;
@@ -1427,7 +1418,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new FileShareConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

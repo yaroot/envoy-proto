@@ -35,173 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private MetricUpdate(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            com.google.dataflow.v1beta3.MetricStructuredName.Builder subBuilder = null;
-            if (name_ != null) {
-              subBuilder = name_.toBuilder();
-            }
-            name_ = input.readMessage(com.google.dataflow.v1beta3.MetricStructuredName.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(name_);
-              name_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            kind_ = s;
-            break;
-          }
-          case 24: {
-
-            cumulative_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (scalar_ != null) {
-              subBuilder = scalar_.toBuilder();
-            }
-            scalar_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(scalar_);
-              scalar_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (meanSum_ != null) {
-              subBuilder = meanSum_.toBuilder();
-            }
-            meanSum_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(meanSum_);
-              meanSum_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (meanCount_ != null) {
-              subBuilder = meanCount_.toBuilder();
-            }
-            meanCount_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(meanCount_);
-              meanCount_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (set_ != null) {
-              subBuilder = set_.toBuilder();
-            }
-            set_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(set_);
-              set_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 66: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (internal_ != null) {
-              subBuilder = internal_.toBuilder();
-            }
-            internal_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(internal_);
-              internal_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 74: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 90: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (distribution_ != null) {
-              subBuilder = distribution_.toBuilder();
-            }
-            distribution_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(distribution_);
-              distribution_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 98: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (gauge_ != null) {
-              subBuilder = gauge_.toBuilder();
-            }
-            gauge_ = input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(gauge_);
-              gauge_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.dataflow.v1beta3.MetricsProto.internal_static_google_dataflow_v1beta3_MetricUpdate_descriptor;
@@ -250,11 +83,12 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.dataflow.v1beta3.MetricStructuredNameOrBuilder getNameOrBuilder() {
-    return getName();
+    return name_ == null ? com.google.dataflow.v1beta3.MetricStructuredName.getDefaultInstance() : name_;
   }
 
   public static final int KIND_FIELD_NUMBER = 2;
-  private volatile java.lang.Object kind_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object kind_ = "";
   /**
    * <pre>
    * Metric aggregation kind.  The possible metric aggregation kinds are
@@ -308,7 +142,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUMULATIVE_FIELD_NUMBER = 3;
-  private boolean cumulative_;
+  private boolean cumulative_ = false;
   /**
    * <pre>
    * True if this metric is reported as the total cumulative aggregate
@@ -363,7 +197,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getScalarOrBuilder() {
-    return getScalar();
+    return scalar_ == null ? com.google.protobuf.Value.getDefaultInstance() : scalar_;
   }
 
   public static final int MEAN_SUM_FIELD_NUMBER = 5;
@@ -410,7 +244,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getMeanSumOrBuilder() {
-    return getMeanSum();
+    return meanSum_ == null ? com.google.protobuf.Value.getDefaultInstance() : meanSum_;
   }
 
   public static final int MEAN_COUNT_FIELD_NUMBER = 6;
@@ -457,7 +291,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getMeanCountOrBuilder() {
-    return getMeanCount();
+    return meanCount_ == null ? com.google.protobuf.Value.getDefaultInstance() : meanCount_;
   }
 
   public static final int SET_FIELD_NUMBER = 7;
@@ -504,7 +338,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getSetOrBuilder() {
-    return getSet();
+    return set_ == null ? com.google.protobuf.Value.getDefaultInstance() : set_;
   }
 
   public static final int DISTRIBUTION_FIELD_NUMBER = 11;
@@ -542,7 +376,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getDistributionOrBuilder() {
-    return getDistribution();
+    return distribution_ == null ? com.google.protobuf.Value.getDefaultInstance() : distribution_;
   }
 
   public static final int GAUGE_FIELD_NUMBER = 12;
@@ -586,7 +420,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getGaugeOrBuilder() {
-    return getGauge();
+    return gauge_ == null ? com.google.protobuf.Value.getDefaultInstance() : gauge_;
   }
 
   public static final int INTERNAL_FIELD_NUMBER = 8;
@@ -627,7 +461,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.ValueOrBuilder getInternalOrBuilder() {
-    return getInternal();
+    return internal_ == null ? com.google.protobuf.Value.getDefaultInstance() : internal_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 9;
@@ -671,7 +505,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -721,7 +555,7 @@ private static final long serialVersionUID = 0L;
     if (gauge_ != null) {
       output.writeMessage(12, getGauge());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -773,7 +607,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(12, getGauge());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -837,7 +671,7 @@ private static final long serialVersionUID = 0L;
       if (!getUpdateTime()
           .equals(other.getUpdateTime())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -889,7 +723,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + UPDATE_TIME_FIELD_NUMBER;
       hash = (53 * hash) + getUpdateTime().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1010,78 +844,63 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.dataflow.v1beta3.MetricUpdate.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      if (nameBuilder_ == null) {
-        name_ = null;
-      } else {
-        name_ = null;
+      bitField0_ = 0;
+      name_ = null;
+      if (nameBuilder_ != null) {
+        nameBuilder_.dispose();
         nameBuilder_ = null;
       }
       kind_ = "";
-
       cumulative_ = false;
-
-      if (scalarBuilder_ == null) {
-        scalar_ = null;
-      } else {
-        scalar_ = null;
+      scalar_ = null;
+      if (scalarBuilder_ != null) {
+        scalarBuilder_.dispose();
         scalarBuilder_ = null;
       }
-      if (meanSumBuilder_ == null) {
-        meanSum_ = null;
-      } else {
-        meanSum_ = null;
+      meanSum_ = null;
+      if (meanSumBuilder_ != null) {
+        meanSumBuilder_.dispose();
         meanSumBuilder_ = null;
       }
-      if (meanCountBuilder_ == null) {
-        meanCount_ = null;
-      } else {
-        meanCount_ = null;
+      meanCount_ = null;
+      if (meanCountBuilder_ != null) {
+        meanCountBuilder_.dispose();
         meanCountBuilder_ = null;
       }
-      if (setBuilder_ == null) {
-        set_ = null;
-      } else {
-        set_ = null;
+      set_ = null;
+      if (setBuilder_ != null) {
+        setBuilder_.dispose();
         setBuilder_ = null;
       }
-      if (distributionBuilder_ == null) {
-        distribution_ = null;
-      } else {
-        distribution_ = null;
+      distribution_ = null;
+      if (distributionBuilder_ != null) {
+        distributionBuilder_.dispose();
         distributionBuilder_ = null;
       }
-      if (gaugeBuilder_ == null) {
-        gauge_ = null;
-      } else {
-        gauge_ = null;
+      gauge_ = null;
+      if (gaugeBuilder_ != null) {
+        gaugeBuilder_.dispose();
         gaugeBuilder_ = null;
       }
-      if (internalBuilder_ == null) {
-        internal_ = null;
-      } else {
-        internal_ = null;
+      internal_ = null;
+      if (internalBuilder_ != null) {
+        internalBuilder_.dispose();
         internalBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       return this;
@@ -1110,55 +929,64 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.dataflow.v1beta3.MetricUpdate buildPartial() {
       com.google.dataflow.v1beta3.MetricUpdate result = new com.google.dataflow.v1beta3.MetricUpdate(this);
-      if (nameBuilder_ == null) {
-        result.name_ = name_;
-      } else {
-        result.name_ = nameBuilder_.build();
-      }
-      result.kind_ = kind_;
-      result.cumulative_ = cumulative_;
-      if (scalarBuilder_ == null) {
-        result.scalar_ = scalar_;
-      } else {
-        result.scalar_ = scalarBuilder_.build();
-      }
-      if (meanSumBuilder_ == null) {
-        result.meanSum_ = meanSum_;
-      } else {
-        result.meanSum_ = meanSumBuilder_.build();
-      }
-      if (meanCountBuilder_ == null) {
-        result.meanCount_ = meanCount_;
-      } else {
-        result.meanCount_ = meanCountBuilder_.build();
-      }
-      if (setBuilder_ == null) {
-        result.set_ = set_;
-      } else {
-        result.set_ = setBuilder_.build();
-      }
-      if (distributionBuilder_ == null) {
-        result.distribution_ = distribution_;
-      } else {
-        result.distribution_ = distributionBuilder_.build();
-      }
-      if (gaugeBuilder_ == null) {
-        result.gauge_ = gauge_;
-      } else {
-        result.gauge_ = gaugeBuilder_.build();
-      }
-      if (internalBuilder_ == null) {
-        result.internal_ = internal_;
-      } else {
-        result.internal_ = internalBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.dataflow.v1beta3.MetricUpdate result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = nameBuilder_ == null
+            ? name_
+            : nameBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.kind_ = kind_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.cumulative_ = cumulative_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.scalar_ = scalarBuilder_ == null
+            ? scalar_
+            : scalarBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.meanSum_ = meanSumBuilder_ == null
+            ? meanSum_
+            : meanSumBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.meanCount_ = meanCountBuilder_ == null
+            ? meanCount_
+            : meanCountBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.set_ = setBuilder_ == null
+            ? set_
+            : setBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.distribution_ = distributionBuilder_ == null
+            ? distribution_
+            : distributionBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.gauge_ = gaugeBuilder_ == null
+            ? gauge_
+            : gaugeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.internal_ = internalBuilder_ == null
+            ? internal_
+            : internalBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1210,6 +1038,7 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getKind().isEmpty()) {
         kind_ = other.kind_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (other.getCumulative() != false) {
@@ -1239,7 +1068,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasUpdateTime()) {
         mergeUpdateTime(other.getUpdateTime());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1254,19 +1083,106 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.dataflow.v1beta3.MetricUpdate parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              input.readMessage(
+                  getNameFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              kind_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              cumulative_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getScalarFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getMeanSumFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              input.readMessage(
+                  getMeanCountFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getSetFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              input.readMessage(
+                  getInternalFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 66
+            case 74: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 74
+            case 90: {
+              input.readMessage(
+                  getDistributionFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 90
+            case 98: {
+              input.readMessage(
+                  getGaugeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 98
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.dataflow.v1beta3.MetricUpdate) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private com.google.dataflow.v1beta3.MetricStructuredName name_;
     private com.google.protobuf.SingleFieldBuilderV3<
@@ -1280,7 +1196,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the name field is set.
      */
     public boolean hasName() {
-      return nameBuilder_ != null || name_ != null;
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
      * <pre>
@@ -1310,11 +1226,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         name_ = value;
-        onChanged();
       } else {
         nameBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1328,11 +1244,11 @@ private static final long serialVersionUID = 0L;
         com.google.dataflow.v1beta3.MetricStructuredName.Builder builderForValue) {
       if (nameBuilder_ == null) {
         name_ = builderForValue.build();
-        onChanged();
       } else {
         nameBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1344,17 +1260,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeName(com.google.dataflow.v1beta3.MetricStructuredName value) {
       if (nameBuilder_ == null) {
-        if (name_ != null) {
-          name_ =
-            com.google.dataflow.v1beta3.MetricStructuredName.newBuilder(name_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000001) != 0) &&
+          name_ != null &&
+          name_ != com.google.dataflow.v1beta3.MetricStructuredName.getDefaultInstance()) {
+          getNameBuilder().mergeFrom(value);
         } else {
           name_ = value;
         }
-        onChanged();
       } else {
         nameBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000001;
+      onChanged();
       return this;
     }
     /**
@@ -1365,14 +1282,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.MetricStructuredName name = 1;</code>
      */
     public Builder clearName() {
-      if (nameBuilder_ == null) {
-        name_ = null;
-        onChanged();
-      } else {
-        name_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+      name_ = null;
+      if (nameBuilder_ != null) {
+        nameBuilder_.dispose();
         nameBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1383,7 +1299,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.dataflow.v1beta3.MetricStructuredName name = 1;</code>
      */
     public com.google.dataflow.v1beta3.MetricStructuredName.Builder getNameBuilder() {
-      
+      bitField0_ |= 0x00000001;
       onChanged();
       return getNameFieldBuilder().getBuilder();
     }
@@ -1488,11 +1404,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKind(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       kind_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1509,8 +1423,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearKind() {
-      
       kind_ = getDefaultInstance().getKind();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1529,12 +1443,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setKindBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       kind_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1570,6 +1482,7 @@ private static final long serialVersionUID = 0L;
     public Builder setCumulative(boolean value) {
       
       cumulative_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1585,7 +1498,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCumulative() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       cumulative_ = false;
       onChanged();
       return this;
@@ -1604,7 +1517,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the scalar field is set.
      */
     public boolean hasScalar() {
-      return scalarBuilder_ != null || scalar_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -1636,11 +1549,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         scalar_ = value;
-        onChanged();
       } else {
         scalarBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1655,11 +1568,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (scalarBuilder_ == null) {
         scalar_ = builderForValue.build();
-        onChanged();
       } else {
         scalarBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1672,17 +1585,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeScalar(com.google.protobuf.Value value) {
       if (scalarBuilder_ == null) {
-        if (scalar_ != null) {
-          scalar_ =
-            com.google.protobuf.Value.newBuilder(scalar_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          scalar_ != null &&
+          scalar_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getScalarBuilder().mergeFrom(value);
         } else {
           scalar_ = value;
         }
-        onChanged();
       } else {
         scalarBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1694,14 +1608,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value scalar = 4;</code>
      */
     public Builder clearScalar() {
-      if (scalarBuilder_ == null) {
-        scalar_ = null;
-        onChanged();
-      } else {
-        scalar_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      scalar_ = null;
+      if (scalarBuilder_ != null) {
+        scalarBuilder_.dispose();
         scalarBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1713,7 +1626,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value scalar = 4;</code>
      */
     public com.google.protobuf.Value.Builder getScalarBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getScalarFieldBuilder().getBuilder();
     }
@@ -1770,7 +1683,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the meanSum field is set.
      */
     public boolean hasMeanSum() {
-      return meanSumBuilder_ != null || meanSum_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1806,11 +1719,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         meanSum_ = value;
-        onChanged();
       } else {
         meanSumBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1827,11 +1740,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (meanSumBuilder_ == null) {
         meanSum_ = builderForValue.build();
-        onChanged();
       } else {
         meanSumBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1846,17 +1759,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMeanSum(com.google.protobuf.Value value) {
       if (meanSumBuilder_ == null) {
-        if (meanSum_ != null) {
-          meanSum_ =
-            com.google.protobuf.Value.newBuilder(meanSum_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          meanSum_ != null &&
+          meanSum_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getMeanSumBuilder().mergeFrom(value);
         } else {
           meanSum_ = value;
         }
-        onChanged();
       } else {
         meanSumBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1870,14 +1784,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value mean_sum = 5;</code>
      */
     public Builder clearMeanSum() {
-      if (meanSumBuilder_ == null) {
-        meanSum_ = null;
-        onChanged();
-      } else {
-        meanSum_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      meanSum_ = null;
+      if (meanSumBuilder_ != null) {
+        meanSumBuilder_.dispose();
         meanSumBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1891,7 +1804,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value mean_sum = 5;</code>
      */
     public com.google.protobuf.Value.Builder getMeanSumBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getMeanSumFieldBuilder().getBuilder();
     }
@@ -1952,7 +1865,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the meanCount field is set.
      */
     public boolean hasMeanCount() {
-      return meanCountBuilder_ != null || meanCount_ != null;
+      return ((bitField0_ & 0x00000020) != 0);
     }
     /**
      * <pre>
@@ -1988,11 +1901,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         meanCount_ = value;
-        onChanged();
       } else {
         meanCountBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2009,11 +1922,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (meanCountBuilder_ == null) {
         meanCount_ = builderForValue.build();
-        onChanged();
       } else {
         meanCountBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2028,17 +1941,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeMeanCount(com.google.protobuf.Value value) {
       if (meanCountBuilder_ == null) {
-        if (meanCount_ != null) {
-          meanCount_ =
-            com.google.protobuf.Value.newBuilder(meanCount_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000020) != 0) &&
+          meanCount_ != null &&
+          meanCount_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getMeanCountBuilder().mergeFrom(value);
         } else {
           meanCount_ = value;
         }
-        onChanged();
       } else {
         meanCountBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000020;
+      onChanged();
       return this;
     }
     /**
@@ -2052,14 +1966,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value mean_count = 6;</code>
      */
     public Builder clearMeanCount() {
-      if (meanCountBuilder_ == null) {
-        meanCount_ = null;
-        onChanged();
-      } else {
-        meanCount_ = null;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      meanCount_ = null;
+      if (meanCountBuilder_ != null) {
+        meanCountBuilder_.dispose();
         meanCountBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2073,7 +1986,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value mean_count = 6;</code>
      */
     public com.google.protobuf.Value.Builder getMeanCountBuilder() {
-      
+      bitField0_ |= 0x00000020;
       onChanged();
       return getMeanCountFieldBuilder().getBuilder();
     }
@@ -2134,7 +2047,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the set field is set.
      */
     public boolean hasSet() {
-      return setBuilder_ != null || set_ != null;
+      return ((bitField0_ & 0x00000040) != 0);
     }
     /**
      * <pre>
@@ -2170,11 +2083,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         set_ = value;
-        onChanged();
       } else {
         setBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2191,11 +2104,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (setBuilder_ == null) {
         set_ = builderForValue.build();
-        onChanged();
       } else {
         setBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2210,17 +2123,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeSet(com.google.protobuf.Value value) {
       if (setBuilder_ == null) {
-        if (set_ != null) {
-          set_ =
-            com.google.protobuf.Value.newBuilder(set_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000040) != 0) &&
+          set_ != null &&
+          set_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getSetBuilder().mergeFrom(value);
         } else {
           set_ = value;
         }
-        onChanged();
       } else {
         setBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000040;
+      onChanged();
       return this;
     }
     /**
@@ -2234,14 +2148,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value set = 7;</code>
      */
     public Builder clearSet() {
-      if (setBuilder_ == null) {
-        set_ = null;
-        onChanged();
-      } else {
-        set_ = null;
+      bitField0_ = (bitField0_ & ~0x00000040);
+      set_ = null;
+      if (setBuilder_ != null) {
+        setBuilder_.dispose();
         setBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2255,7 +2168,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value set = 7;</code>
      */
     public com.google.protobuf.Value.Builder getSetBuilder() {
-      
+      bitField0_ |= 0x00000040;
       onChanged();
       return getSetFieldBuilder().getBuilder();
     }
@@ -2313,7 +2226,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the distribution field is set.
      */
     public boolean hasDistribution() {
-      return distributionBuilder_ != null || distribution_ != null;
+      return ((bitField0_ & 0x00000080) != 0);
     }
     /**
      * <pre>
@@ -2343,11 +2256,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         distribution_ = value;
-        onChanged();
       } else {
         distributionBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2361,11 +2274,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (distributionBuilder_ == null) {
         distribution_ = builderForValue.build();
-        onChanged();
       } else {
         distributionBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2377,17 +2290,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeDistribution(com.google.protobuf.Value value) {
       if (distributionBuilder_ == null) {
-        if (distribution_ != null) {
-          distribution_ =
-            com.google.protobuf.Value.newBuilder(distribution_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000080) != 0) &&
+          distribution_ != null &&
+          distribution_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getDistributionBuilder().mergeFrom(value);
         } else {
           distribution_ = value;
         }
-        onChanged();
       } else {
         distributionBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000080;
+      onChanged();
       return this;
     }
     /**
@@ -2398,14 +2312,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value distribution = 11;</code>
      */
     public Builder clearDistribution() {
-      if (distributionBuilder_ == null) {
-        distribution_ = null;
-        onChanged();
-      } else {
-        distribution_ = null;
+      bitField0_ = (bitField0_ & ~0x00000080);
+      distribution_ = null;
+      if (distributionBuilder_ != null) {
+        distributionBuilder_.dispose();
         distributionBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2416,7 +2329,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value distribution = 11;</code>
      */
     public com.google.protobuf.Value.Builder getDistributionBuilder() {
-      
+      bitField0_ |= 0x00000080;
       onChanged();
       return getDistributionFieldBuilder().getBuilder();
     }
@@ -2470,7 +2383,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the gauge field is set.
      */
     public boolean hasGauge() {
-      return gaugeBuilder_ != null || gauge_ != null;
+      return ((bitField0_ & 0x00000100) != 0);
     }
     /**
      * <pre>
@@ -2504,11 +2417,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         gauge_ = value;
-        onChanged();
       } else {
         gaugeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2524,11 +2437,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (gaugeBuilder_ == null) {
         gauge_ = builderForValue.build();
-        onChanged();
       } else {
         gaugeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2542,17 +2455,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeGauge(com.google.protobuf.Value value) {
       if (gaugeBuilder_ == null) {
-        if (gauge_ != null) {
-          gauge_ =
-            com.google.protobuf.Value.newBuilder(gauge_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000100) != 0) &&
+          gauge_ != null &&
+          gauge_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getGaugeBuilder().mergeFrom(value);
         } else {
           gauge_ = value;
         }
-        onChanged();
       } else {
         gaugeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000100;
+      onChanged();
       return this;
     }
     /**
@@ -2565,14 +2479,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value gauge = 12;</code>
      */
     public Builder clearGauge() {
-      if (gaugeBuilder_ == null) {
-        gauge_ = null;
-        onChanged();
-      } else {
-        gauge_ = null;
+      bitField0_ = (bitField0_ & ~0x00000100);
+      gauge_ = null;
+      if (gaugeBuilder_ != null) {
+        gaugeBuilder_.dispose();
         gaugeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2585,7 +2498,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value gauge = 12;</code>
      */
     public com.google.protobuf.Value.Builder getGaugeBuilder() {
-      
+      bitField0_ |= 0x00000100;
       onChanged();
       return getGaugeFieldBuilder().getBuilder();
     }
@@ -2642,7 +2555,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the internal field is set.
      */
     public boolean hasInternal() {
-      return internalBuilder_ != null || internal_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
@@ -2674,11 +2587,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         internal_ = value;
-        onChanged();
       } else {
         internalBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2693,11 +2606,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Value.Builder builderForValue) {
       if (internalBuilder_ == null) {
         internal_ = builderForValue.build();
-        onChanged();
       } else {
         internalBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2710,17 +2623,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeInternal(com.google.protobuf.Value value) {
       if (internalBuilder_ == null) {
-        if (internal_ != null) {
-          internal_ =
-            com.google.protobuf.Value.newBuilder(internal_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          internal_ != null &&
+          internal_ != com.google.protobuf.Value.getDefaultInstance()) {
+          getInternalBuilder().mergeFrom(value);
         } else {
           internal_ = value;
         }
-        onChanged();
       } else {
         internalBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
@@ -2732,14 +2646,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value internal = 8;</code>
      */
     public Builder clearInternal() {
-      if (internalBuilder_ == null) {
-        internal_ = null;
-        onChanged();
-      } else {
-        internal_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      internal_ = null;
+      if (internalBuilder_ != null) {
+        internalBuilder_.dispose();
         internalBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2751,7 +2664,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Value internal = 8;</code>
      */
     public com.google.protobuf.Value.Builder getInternalBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getInternalFieldBuilder().getBuilder();
     }
@@ -2807,7 +2720,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
@@ -2841,11 +2754,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2861,11 +2774,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2879,17 +2792,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
@@ -2902,14 +2816,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 9;</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -2922,7 +2835,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 9;</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -2998,7 +2911,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new MetricUpdate(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

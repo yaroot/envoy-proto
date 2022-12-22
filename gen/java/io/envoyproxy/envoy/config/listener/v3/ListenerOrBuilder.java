@@ -413,7 +413,7 @@ public interface ListenerOrBuilder extends
    *
    * <code>.envoy.config.listener.v3.Listener.DeprecatedV1 deprecated_v1 = 7 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.listener.v3.Listener.deprecated_v1 is deprecated.
-   *     See envoy/config/listener/v3/listener.proto;l=180
+   *     See envoy/config/listener/v3/listener.proto;l=188
    * @return Whether the deprecatedV1 field is set.
    */
   @java.lang.Deprecated boolean hasDeprecatedV1();
@@ -424,7 +424,7 @@ public interface ListenerOrBuilder extends
    *
    * <code>.envoy.config.listener.v3.Listener.DeprecatedV1 deprecated_v1 = 7 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.listener.v3.Listener.deprecated_v1 is deprecated.
-   *     See envoy/config/listener/v3/listener.proto;l=180
+   *     See envoy/config/listener/v3/listener.proto;l=188
    * @return The deprecatedV1.
    */
   @java.lang.Deprecated io.envoyproxy.envoy.config.listener.v3.Listener.DeprecatedV1 getDeprecatedV1();
@@ -696,7 +696,10 @@ public interface ListenerOrBuilder extends
   /**
    * <pre>
    * Additional socket options that may not be present in Envoy source code or
-   * precompiled binaries.
+   * precompiled binaries. The socket options can be updated for a listener when
+   * :ref:`enable_reuse_port &lt;envoy_v3_api_field_config.listener.v3.Listener.enable_reuse_port&gt;`
+   * is `true`. Otherwise, if socket options change during a listener update the update will be rejected
+   * to make it clear that the options were not updated.
    * </pre>
    *
    * <code>repeated .envoy.config.core.v3.SocketOption socket_options = 13;</code>
@@ -706,7 +709,10 @@ public interface ListenerOrBuilder extends
   /**
    * <pre>
    * Additional socket options that may not be present in Envoy source code or
-   * precompiled binaries.
+   * precompiled binaries. The socket options can be updated for a listener when
+   * :ref:`enable_reuse_port &lt;envoy_v3_api_field_config.listener.v3.Listener.enable_reuse_port&gt;`
+   * is `true`. Otherwise, if socket options change during a listener update the update will be rejected
+   * to make it clear that the options were not updated.
    * </pre>
    *
    * <code>repeated .envoy.config.core.v3.SocketOption socket_options = 13;</code>
@@ -715,7 +721,10 @@ public interface ListenerOrBuilder extends
   /**
    * <pre>
    * Additional socket options that may not be present in Envoy source code or
-   * precompiled binaries.
+   * precompiled binaries. The socket options can be updated for a listener when
+   * :ref:`enable_reuse_port &lt;envoy_v3_api_field_config.listener.v3.Listener.enable_reuse_port&gt;`
+   * is `true`. Otherwise, if socket options change during a listener update the update will be rejected
+   * to make it clear that the options were not updated.
    * </pre>
    *
    * <code>repeated .envoy.config.core.v3.SocketOption socket_options = 13;</code>
@@ -724,7 +733,10 @@ public interface ListenerOrBuilder extends
   /**
    * <pre>
    * Additional socket options that may not be present in Envoy source code or
-   * precompiled binaries.
+   * precompiled binaries. The socket options can be updated for a listener when
+   * :ref:`enable_reuse_port &lt;envoy_v3_api_field_config.listener.v3.Listener.enable_reuse_port&gt;`
+   * is `true`. Otherwise, if socket options change during a listener update the update will be rejected
+   * to make it clear that the options were not updated.
    * </pre>
    *
    * <code>repeated .envoy.config.core.v3.SocketOption socket_options = 13;</code>
@@ -734,7 +746,10 @@ public interface ListenerOrBuilder extends
   /**
    * <pre>
    * Additional socket options that may not be present in Envoy source code or
-   * precompiled binaries.
+   * precompiled binaries. The socket options can be updated for a listener when
+   * :ref:`enable_reuse_port &lt;envoy_v3_api_field_config.listener.v3.Listener.enable_reuse_port&gt;`
+   * is `true`. Otherwise, if socket options change during a listener update the update will be rejected
+   * to make it clear that the options were not updated.
    * </pre>
    *
    * <code>repeated .envoy.config.core.v3.SocketOption socket_options = 13;</code>
@@ -979,7 +994,7 @@ public interface ListenerOrBuilder extends
    *
    * <code>bool reuse_port = 21 [deprecated = true, (.envoy.annotations.deprecated_at_minor_version) = "3.0"];</code>
    * @deprecated envoy.config.listener.v3.Listener.reuse_port is deprecated.
-   *     See envoy/config/listener/v3/listener.proto;l=296
+   *     See envoy/config/listener/v3/listener.proto;l=307
    * @return The reusePort.
    */
   @java.lang.Deprecated boolean getReusePort();
@@ -990,7 +1005,9 @@ public interface ListenerOrBuilder extends
    * create one socket for each worker thread. This makes inbound connections
    * distribute among worker threads roughly evenly in cases where there are a high number
    * of connections. When this flag is set to false, all worker threads share one socket. This field
-   * defaults to true.
+   * defaults to true. The change of field will be rejected during an listener update when the
+   * runtime flag ``envoy.reloadable_features.enable_update_listener_socket_options`` is enabled.
+   * Otherwise, the update of this field will be ignored quietly.
    * .. attention::
    *   Although this field defaults to true, it has different behavior on different platforms. See
    *   the following text for more information.
@@ -1015,7 +1032,9 @@ public interface ListenerOrBuilder extends
    * create one socket for each worker thread. This makes inbound connections
    * distribute among worker threads roughly evenly in cases where there are a high number
    * of connections. When this flag is set to false, all worker threads share one socket. This field
-   * defaults to true.
+   * defaults to true. The change of field will be rejected during an listener update when the
+   * runtime flag ``envoy.reloadable_features.enable_update_listener_socket_options`` is enabled.
+   * Otherwise, the update of this field will be ignored quietly.
    * .. attention::
    *   Although this field defaults to true, it has different behavior on different platforms. See
    *   the following text for more information.
@@ -1040,7 +1059,9 @@ public interface ListenerOrBuilder extends
    * create one socket for each worker thread. This makes inbound connections
    * distribute among worker threads roughly evenly in cases where there are a high number
    * of connections. When this flag is set to false, all worker threads share one socket. This field
-   * defaults to true.
+   * defaults to true. The change of field will be rejected during an listener update when the
+   * runtime flag ``envoy.reloadable_features.enable_update_listener_socket_options`` is enabled.
+   * Otherwise, the update of this field will be ignored quietly.
    * .. attention::
    *   Although this field defaults to true, it has different behavior on different platforms. See
    *   the following text for more information.
@@ -1178,16 +1199,16 @@ public interface ListenerOrBuilder extends
    * <pre>
    * Used to represent an internal listener which does not listen on OSI L4 address but can be used by the
    * :ref:`envoy cluster &lt;envoy_v3_api_msg_config.cluster.v3.Cluster&gt;` to create a user space connection to.
-   * The internal listener acts as a tcp listener. It supports listener filters and network filter chains.
-   * The internal listener require :ref:`address &lt;envoy_v3_api_field_config.listener.v3.Listener.address&gt;` has
-   * field `envoy_internal_address`.
-   * There are some limitations are derived from the implementation. The known limitations include
+   * The internal listener acts as a TCP listener. It supports listener filters and network filter chains.
+   * Upstream clusters refer to the internal listeners by their :ref:`name
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;`. :ref:`Address
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.address&gt;` must not be set on the internal listeners.
+   * There are some limitations that are derived from the implementation. The known limitations include:
    * * :ref:`ConnectionBalanceConfig &lt;envoy_v3_api_msg_config.listener.v3.Listener.ConnectionBalanceConfig&gt;` is not
-   *   allowed because both cluster connection and listener connection must be owned by the same dispatcher.
+   *   allowed because both the cluster connection and the listener connection must be owned by the same dispatcher.
    * * :ref:`tcp_backlog_size &lt;envoy_v3_api_field_config.listener.v3.Listener.tcp_backlog_size&gt;`
    * * :ref:`freebind &lt;envoy_v3_api_field_config.listener.v3.Listener.freebind&gt;`
    * * :ref:`transparent &lt;envoy_v3_api_field_config.listener.v3.Listener.transparent&gt;`
-   * [#not-implemented-hide:]
    * </pre>
    *
    * <code>.envoy.config.listener.v3.Listener.InternalListenerConfig internal_listener = 27;</code>
@@ -1198,16 +1219,16 @@ public interface ListenerOrBuilder extends
    * <pre>
    * Used to represent an internal listener which does not listen on OSI L4 address but can be used by the
    * :ref:`envoy cluster &lt;envoy_v3_api_msg_config.cluster.v3.Cluster&gt;` to create a user space connection to.
-   * The internal listener acts as a tcp listener. It supports listener filters and network filter chains.
-   * The internal listener require :ref:`address &lt;envoy_v3_api_field_config.listener.v3.Listener.address&gt;` has
-   * field `envoy_internal_address`.
-   * There are some limitations are derived from the implementation. The known limitations include
+   * The internal listener acts as a TCP listener. It supports listener filters and network filter chains.
+   * Upstream clusters refer to the internal listeners by their :ref:`name
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;`. :ref:`Address
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.address&gt;` must not be set on the internal listeners.
+   * There are some limitations that are derived from the implementation. The known limitations include:
    * * :ref:`ConnectionBalanceConfig &lt;envoy_v3_api_msg_config.listener.v3.Listener.ConnectionBalanceConfig&gt;` is not
-   *   allowed because both cluster connection and listener connection must be owned by the same dispatcher.
+   *   allowed because both the cluster connection and the listener connection must be owned by the same dispatcher.
    * * :ref:`tcp_backlog_size &lt;envoy_v3_api_field_config.listener.v3.Listener.tcp_backlog_size&gt;`
    * * :ref:`freebind &lt;envoy_v3_api_field_config.listener.v3.Listener.freebind&gt;`
    * * :ref:`transparent &lt;envoy_v3_api_field_config.listener.v3.Listener.transparent&gt;`
-   * [#not-implemented-hide:]
    * </pre>
    *
    * <code>.envoy.config.listener.v3.Listener.InternalListenerConfig internal_listener = 27;</code>
@@ -1218,16 +1239,16 @@ public interface ListenerOrBuilder extends
    * <pre>
    * Used to represent an internal listener which does not listen on OSI L4 address but can be used by the
    * :ref:`envoy cluster &lt;envoy_v3_api_msg_config.cluster.v3.Cluster&gt;` to create a user space connection to.
-   * The internal listener acts as a tcp listener. It supports listener filters and network filter chains.
-   * The internal listener require :ref:`address &lt;envoy_v3_api_field_config.listener.v3.Listener.address&gt;` has
-   * field `envoy_internal_address`.
-   * There are some limitations are derived from the implementation. The known limitations include
+   * The internal listener acts as a TCP listener. It supports listener filters and network filter chains.
+   * Upstream clusters refer to the internal listeners by their :ref:`name
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.name&gt;`. :ref:`Address
+   * &lt;envoy_v3_api_field_config.listener.v3.Listener.address&gt;` must not be set on the internal listeners.
+   * There are some limitations that are derived from the implementation. The known limitations include:
    * * :ref:`ConnectionBalanceConfig &lt;envoy_v3_api_msg_config.listener.v3.Listener.ConnectionBalanceConfig&gt;` is not
-   *   allowed because both cluster connection and listener connection must be owned by the same dispatcher.
+   *   allowed because both the cluster connection and the listener connection must be owned by the same dispatcher.
    * * :ref:`tcp_backlog_size &lt;envoy_v3_api_field_config.listener.v3.Listener.tcp_backlog_size&gt;`
    * * :ref:`freebind &lt;envoy_v3_api_field_config.listener.v3.Listener.freebind&gt;`
    * * :ref:`transparent &lt;envoy_v3_api_field_config.listener.v3.Listener.transparent&gt;`
-   * [#not-implemented-hide:]
    * </pre>
    *
    * <code>.envoy.config.listener.v3.Listener.InternalListenerConfig internal_listener = 27;</code>

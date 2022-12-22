@@ -43,160 +43,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Zone(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            name_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            displayName_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            uid_ = s;
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (createTime_ != null) {
-              subBuilder = createTime_.toBuilder();
-            }
-            createTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(createTime_);
-              createTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Timestamp.Builder subBuilder = null;
-            if (updateTime_ != null) {
-              subBuilder = updateTime_.toBuilder();
-            }
-            updateTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(updateTime_);
-              updateTime_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 50: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              labels_ = com.google.protobuf.MapField.newMapField(
-                  LabelsDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
-            labels__ = input.readMessage(
-                LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            labels_.getMutableMap().put(
-                labels__.getKey(), labels__.getValue());
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            description_ = s;
-            break;
-          }
-          case 64: {
-            int rawValue = input.readEnum();
-
-            state_ = rawValue;
-            break;
-          }
-          case 72: {
-            int rawValue = input.readEnum();
-
-            type_ = rawValue;
-            break;
-          }
-          case 826: {
-            com.google.cloud.dataplex.v1.Zone.DiscoverySpec.Builder subBuilder = null;
-            if (discoverySpec_ != null) {
-              subBuilder = discoverySpec_.toBuilder();
-            }
-            discoverySpec_ = input.readMessage(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(discoverySpec_);
-              discoverySpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 834: {
-            com.google.cloud.dataplex.v1.Zone.ResourceSpec.Builder subBuilder = null;
-            if (resourceSpec_ != null) {
-              subBuilder = resourceSpec_.toBuilder();
-            }
-            resourceSpec_ = input.readMessage(com.google.cloud.dataplex.v1.Zone.ResourceSpec.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(resourceSpec_);
-              resourceSpec_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 842: {
-            com.google.cloud.dataplex.v1.AssetStatus.Builder subBuilder = null;
-            if (assetStatus_ != null) {
-              subBuilder = assetStatus_.toBuilder();
-            }
-            assetStatus_ = input.readMessage(com.google.cloud.dataplex.v1.AssetStatus.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(assetStatus_);
-              assetStatus_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.dataplex.v1.ResourcesProto.internal_static_google_cloud_dataplex_v1_Zone_descriptor;
@@ -381,8 +227,8 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Required. Immutable. The location type of the resources that are allowed to be attached to the
-     * assets within this zone.
+     * Required. Immutable. The location type of the resources that are allowed
+     * to be attached to the assets within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -391,8 +237,8 @@ private static final long serialVersionUID = 0L;
     int getLocationTypeValue();
     /**
      * <pre>
-     * Required. Immutable. The location type of the resources that are allowed to be attached to the
-     * assets within this zone.
+     * Required. Immutable. The location type of the resources that are allowed
+     * to be attached to the assets within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -431,51 +277,6 @@ private static final long serialVersionUID = 0L;
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
-    }
-    private ResourceSpec(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-              int rawValue = input.readEnum();
-
-              locationType_ = rawValue;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
@@ -636,11 +437,11 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int LOCATION_TYPE_FIELD_NUMBER = 1;
-    private int locationType_;
+    private int locationType_ = 0;
     /**
      * <pre>
-     * Required. Immutable. The location type of the resources that are allowed to be attached to the
-     * assets within this zone.
+     * Required. Immutable. The location type of the resources that are allowed
+     * to be attached to the assets within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -651,16 +452,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Immutable. The location type of the resources that are allowed to be attached to the
-     * assets within this zone.
+     * Required. Immutable. The location type of the resources that are allowed
+     * to be attached to the assets within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
      * @return The locationType.
      */
     @java.lang.Override public com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType getLocationType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType result = com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.valueOf(locationType_);
+      com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType result = com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.forNumber(locationType_);
       return result == null ? com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.UNRECOGNIZED : result;
     }
 
@@ -681,7 +481,7 @@ private static final long serialVersionUID = 0L;
       if (locationType_ != com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.LOCATION_TYPE_UNSPECIFIED.getNumber()) {
         output.writeEnum(1, locationType_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -694,7 +494,7 @@ private static final long serialVersionUID = 0L;
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, locationType_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -710,7 +510,7 @@ private static final long serialVersionUID = 0L;
       com.google.cloud.dataplex.v1.Zone.ResourceSpec other = (com.google.cloud.dataplex.v1.Zone.ResourceSpec) obj;
 
       if (locationType_ != other.locationType_) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -723,7 +523,7 @@ private static final long serialVersionUID = 0L;
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + LOCATION_TYPE_FIELD_NUMBER;
       hash = (53 * hash) + locationType_;
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -844,24 +644,19 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.Zone.ResourceSpec.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         locationType_ = 0;
-
         return this;
       }
 
@@ -888,9 +683,16 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Zone.ResourceSpec buildPartial() {
         com.google.cloud.dataplex.v1.Zone.ResourceSpec result = new com.google.cloud.dataplex.v1.Zone.ResourceSpec(this);
-        result.locationType_ = locationType_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.Zone.ResourceSpec result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.locationType_ = locationType_;
+        }
       }
 
       @java.lang.Override
@@ -940,7 +742,7 @@ private static final long serialVersionUID = 0L;
         if (other.locationType_ != 0) {
           setLocationTypeValue(other.getLocationTypeValue());
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -955,25 +757,44 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.Zone.ResourceSpec parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                locationType_ = input.readEnum();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.Zone.ResourceSpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
+      private int bitField0_;
 
       private int locationType_ = 0;
       /**
        * <pre>
-       * Required. Immutable. The location type of the resources that are allowed to be attached to the
-       * assets within this zone.
+       * Required. Immutable. The location type of the resources that are allowed
+       * to be attached to the assets within this zone.
        * </pre>
        *
        * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -984,8 +805,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Required. Immutable. The location type of the resources that are allowed to be attached to the
-       * assets within this zone.
+       * Required. Immutable. The location type of the resources that are allowed
+       * to be attached to the assets within this zone.
        * </pre>
        *
        * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -993,15 +814,15 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder setLocationTypeValue(int value) {
-        
         locationType_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Immutable. The location type of the resources that are allowed to be attached to the
-       * assets within this zone.
+       * Required. Immutable. The location type of the resources that are allowed
+       * to be attached to the assets within this zone.
        * </pre>
        *
        * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1009,14 +830,13 @@ private static final long serialVersionUID = 0L;
        */
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType getLocationType() {
-        @SuppressWarnings("deprecation")
-        com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType result = com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.valueOf(locationType_);
+        com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType result = com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.forNumber(locationType_);
         return result == null ? com.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType.UNRECOGNIZED : result;
       }
       /**
        * <pre>
-       * Required. Immutable. The location type of the resources that are allowed to be attached to the
-       * assets within this zone.
+       * Required. Immutable. The location type of the resources that are allowed
+       * to be attached to the assets within this zone.
        * </pre>
        *
        * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
@@ -1027,22 +847,22 @@ private static final long serialVersionUID = 0L;
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000001;
         locationType_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Required. Immutable. The location type of the resources that are allowed to be attached to the
-       * assets within this zone.
+       * Required. Immutable. The location type of the resources that are allowed
+       * to be attached to the assets within this zone.
        * </pre>
        *
        * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec.LocationType location_type = 1 [(.google.api.field_behavior) = REQUIRED, (.google.api.field_behavior) = IMMUTABLE];</code>
        * @return This builder for chaining.
        */
       public Builder clearLocationType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         locationType_ = 0;
         onChanged();
         return this;
@@ -1080,7 +900,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new ResourceSpec(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -1116,11 +947,11 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1130,11 +961,11 @@ private static final long serialVersionUID = 0L;
         getIncludePatternsList();
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1143,11 +974,11 @@ private static final long serialVersionUID = 0L;
     int getIncludePatternsCount();
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1157,11 +988,11 @@ private static final long serialVersionUID = 0L;
     java.lang.String getIncludePatterns(int index);
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1173,9 +1004,9 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -1186,9 +1017,9 @@ private static final long serialVersionUID = 0L;
         getExcludePatternsList();
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -1198,9 +1029,9 @@ private static final long serialVersionUID = 0L;
     int getExcludePatternsCount();
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -1211,9 +1042,9 @@ private static final long serialVersionUID = 0L;
     java.lang.String getExcludePatterns(int index);
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -1280,15 +1111,15 @@ private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-     * discovery periodically. Successive discovery runs must be scheduled at
-     * least 60 minutes apart.
-     * The default value is to run discovery every 60 minutes.
-     * To explicitly set a timezone to the cron tab, apply a prefix in the
-     * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-     * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-     * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-     * "TZ=America/New_York 1 * * * *".
+     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+     * running discovery periodically. Successive discovery runs must be
+     * scheduled at least 60 minutes apart. The default value is to run
+     * discovery every 60 minutes. To explicitly set a timezone to the cron
+     * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+     * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+     * from IANA time zone database. For example,
+     * `CRON_TZ=America/New_York 1 * * * *`,
+     * or `TZ=America/New_York 1 * * * *`.
      * </pre>
      *
      * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1297,15 +1128,15 @@ private static final long serialVersionUID = 0L;
     boolean hasSchedule();
     /**
      * <pre>
-     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-     * discovery periodically. Successive discovery runs must be scheduled at
-     * least 60 minutes apart.
-     * The default value is to run discovery every 60 minutes.
-     * To explicitly set a timezone to the cron tab, apply a prefix in the
-     * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-     * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-     * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-     * "TZ=America/New_York 1 * * * *".
+     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+     * running discovery periodically. Successive discovery runs must be
+     * scheduled at least 60 minutes apart. The default value is to run
+     * discovery every 60 minutes. To explicitly set a timezone to the cron
+     * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+     * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+     * from IANA time zone database. For example,
+     * `CRON_TZ=America/New_York 1 * * * *`,
+     * or `TZ=America/New_York 1 * * * *`.
      * </pre>
      *
      * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1314,15 +1145,15 @@ private static final long serialVersionUID = 0L;
     java.lang.String getSchedule();
     /**
      * <pre>
-     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-     * discovery periodically. Successive discovery runs must be scheduled at
-     * least 60 minutes apart.
-     * The default value is to run discovery every 60 minutes.
-     * To explicitly set a timezone to the cron tab, apply a prefix in the
-     * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-     * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-     * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-     * "TZ=America/New_York 1 * * * *".
+     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+     * running discovery periodically. Successive discovery runs must be
+     * scheduled at least 60 minutes apart. The default value is to run
+     * discovery every 60 minutes. To explicitly set a timezone to the cron
+     * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+     * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+     * from IANA time zone database. For example,
+     * `CRON_TZ=America/New_York 1 * * * *`,
+     * or `TZ=America/New_York 1 * * * *`.
      * </pre>
      *
      * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1366,107 +1197,6 @@ private static final long serialVersionUID = 0L;
     getUnknownFields() {
       return this.unknownFields;
     }
-    private DiscoverySpec(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 8: {
-
-              enabled_ = input.readBool();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                includePatterns_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              includePatterns_.add(s);
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-                excludePatterns_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000002;
-              }
-              excludePatterns_.add(s);
-              break;
-            }
-            case 34: {
-              com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.Builder subBuilder = null;
-              if (csvOptions_ != null) {
-                subBuilder = csvOptions_.toBuilder();
-              }
-              csvOptions_ = input.readMessage(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(csvOptions_);
-                csvOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 42: {
-              com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.Builder subBuilder = null;
-              if (jsonOptions_ != null) {
-                subBuilder = jsonOptions_.toBuilder();
-              }
-              jsonOptions_ = input.readMessage(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(jsonOptions_);
-                jsonOptions_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-              triggerCase_ = 10;
-              trigger_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (com.google.protobuf.UninitializedMessageException e) {
-        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          includePatterns_ = includePatterns_.getUnmodifiableView();
-        }
-        if (((mutable_bitField0_ & 0x00000002) != 0)) {
-          excludePatterns_ = excludePatterns_.getUnmodifiableView();
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return com.google.cloud.dataplex.v1.ResourcesProto.internal_static_google_cloud_dataplex_v1_Zone_DiscoverySpec_descriptor;
@@ -1486,8 +1216,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Optional. The number of rows to interpret as header rows that should be skipped
-       * when reading data rows.
+       * Optional. The number of rows to interpret as header rows that should be
+       * skipped when reading data rows.
        * </pre>
        *
        * <code>int32 header_rows = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1497,7 +1227,8 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Optional. The delimiter being used to separate values. This defaults to ','.
+       * Optional. The delimiter being used to separate values. This defaults to
+       * ','.
        * </pre>
        *
        * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1506,7 +1237,8 @@ private static final long serialVersionUID = 0L;
       java.lang.String getDelimiter();
       /**
        * <pre>
-       * Optional. The delimiter being used to separate values. This defaults to ','.
+       * Optional. The delimiter being used to separate values. This defaults to
+       * ','.
        * </pre>
        *
        * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1579,67 +1311,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private CsvOptions(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 8: {
-
-                headerRows_ = input.readInt32();
-                break;
-              }
-              case 18: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                delimiter_ = s;
-                break;
-              }
-              case 26: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                encoding_ = s;
-                break;
-              }
-              case 32: {
-
-                disableTypeInference_ = input.readBool();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.dataplex.v1.ResourcesProto.internal_static_google_cloud_dataplex_v1_Zone_DiscoverySpec_CsvOptions_descriptor;
@@ -1654,11 +1325,11 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int HEADER_ROWS_FIELD_NUMBER = 1;
-      private int headerRows_;
+      private int headerRows_ = 0;
       /**
        * <pre>
-       * Optional. The number of rows to interpret as header rows that should be skipped
-       * when reading data rows.
+       * Optional. The number of rows to interpret as header rows that should be
+       * skipped when reading data rows.
        * </pre>
        *
        * <code>int32 header_rows = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1670,10 +1341,12 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DELIMITER_FIELD_NUMBER = 2;
-      private volatile java.lang.Object delimiter_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object delimiter_ = "";
       /**
        * <pre>
-       * Optional. The delimiter being used to separate values. This defaults to ','.
+       * Optional. The delimiter being used to separate values. This defaults to
+       * ','.
        * </pre>
        *
        * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1694,7 +1367,8 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The delimiter being used to separate values. This defaults to ','.
+       * Optional. The delimiter being used to separate values. This defaults to
+       * ','.
        * </pre>
        *
        * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -1716,7 +1390,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int ENCODING_FIELD_NUMBER = 3;
-      private volatile java.lang.Object encoding_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object encoding_ = "";
       /**
        * <pre>
        * Optional. The character encoding of the data. The default is UTF-8.
@@ -1762,7 +1437,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DISABLE_TYPE_INFERENCE_FIELD_NUMBER = 4;
-      private boolean disableTypeInference_;
+      private boolean disableTypeInference_ = false;
       /**
        * <pre>
        * Optional. Whether to disable the inference of data type for CSV data.
@@ -1803,7 +1478,7 @@ private static final long serialVersionUID = 0L;
         if (disableTypeInference_ != false) {
           output.writeBool(4, disableTypeInference_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -1826,7 +1501,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeBoolSize(4, disableTypeInference_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -1849,7 +1524,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getEncoding())) return false;
         if (getDisableTypeInference()
             != other.getDisableTypeInference()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -1869,7 +1544,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DISABLE_TYPE_INFERENCE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getDisableTypeInference());
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -1990,30 +1665,22 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           headerRows_ = 0;
-
           delimiter_ = "";
-
           encoding_ = "";
-
           disableTypeInference_ = false;
-
           return this;
         }
 
@@ -2040,12 +1707,25 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions buildPartial() {
           com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions result = new com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions(this);
-          result.headerRows_ = headerRows_;
-          result.delimiter_ = delimiter_;
-          result.encoding_ = encoding_;
-          result.disableTypeInference_ = disableTypeInference_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.headerRows_ = headerRows_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.delimiter_ = delimiter_;
+          }
+          if (((from_bitField0_ & 0x00000004) != 0)) {
+            result.encoding_ = encoding_;
+          }
+          if (((from_bitField0_ & 0x00000008) != 0)) {
+            result.disableTypeInference_ = disableTypeInference_;
+          }
         }
 
         @java.lang.Override
@@ -2097,16 +1777,18 @@ private static final long serialVersionUID = 0L;
           }
           if (!other.getDelimiter().isEmpty()) {
             delimiter_ = other.delimiter_;
+            bitField0_ |= 0x00000002;
             onChanged();
           }
           if (!other.getEncoding().isEmpty()) {
             encoding_ = other.encoding_;
+            bitField0_ |= 0x00000004;
             onChanged();
           }
           if (other.getDisableTypeInference() != false) {
             setDisableTypeInference(other.getDisableTypeInference());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2121,25 +1803,59 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  headerRows_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 18: {
+                  delimiter_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 26: {
+                  encoding_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000004;
+                  break;
+                } // case 26
+                case 32: {
+                  disableTypeInference_ = input.readBool();
+                  bitField0_ |= 0x00000008;
+                  break;
+                } // case 32
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private int headerRows_ ;
         /**
          * <pre>
-         * Optional. The number of rows to interpret as header rows that should be skipped
-         * when reading data rows.
+         * Optional. The number of rows to interpret as header rows that should be
+         * skipped when reading data rows.
          * </pre>
          *
          * <code>int32 header_rows = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2151,8 +1867,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Optional. The number of rows to interpret as header rows that should be skipped
-         * when reading data rows.
+         * Optional. The number of rows to interpret as header rows that should be
+         * skipped when reading data rows.
          * </pre>
          *
          * <code>int32 header_rows = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2162,20 +1878,21 @@ private static final long serialVersionUID = 0L;
         public Builder setHeaderRows(int value) {
           
           headerRows_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The number of rows to interpret as header rows that should be skipped
-         * when reading data rows.
+         * Optional. The number of rows to interpret as header rows that should be
+         * skipped when reading data rows.
          * </pre>
          *
          * <code>int32 header_rows = 1 [(.google.api.field_behavior) = OPTIONAL];</code>
          * @return This builder for chaining.
          */
         public Builder clearHeaderRows() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           headerRows_ = 0;
           onChanged();
           return this;
@@ -2184,7 +1901,8 @@ private static final long serialVersionUID = 0L;
         private java.lang.Object delimiter_ = "";
         /**
          * <pre>
-         * Optional. The delimiter being used to separate values. This defaults to ','.
+         * Optional. The delimiter being used to separate values. This defaults to
+         * ','.
          * </pre>
          *
          * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2204,7 +1922,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Optional. The delimiter being used to separate values. This defaults to ','.
+         * Optional. The delimiter being used to separate values. This defaults to
+         * ','.
          * </pre>
          *
          * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2225,7 +1944,8 @@ private static final long serialVersionUID = 0L;
         }
         /**
          * <pre>
-         * Optional. The delimiter being used to separate values. This defaults to ','.
+         * Optional. The delimiter being used to separate values. This defaults to
+         * ','.
          * </pre>
          *
          * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2234,31 +1954,31 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDelimiter(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           delimiter_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The delimiter being used to separate values. This defaults to ','.
+         * Optional. The delimiter being used to separate values. This defaults to
+         * ','.
          * </pre>
          *
          * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
          * @return This builder for chaining.
          */
         public Builder clearDelimiter() {
-          
           delimiter_ = getDefaultInstance().getDelimiter();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
           return this;
         }
         /**
          * <pre>
-         * Optional. The delimiter being used to separate values. This defaults to ','.
+         * Optional. The delimiter being used to separate values. This defaults to
+         * ','.
          * </pre>
          *
          * <code>string delimiter = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -2267,12 +1987,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setDelimiterBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           delimiter_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -2330,11 +2048,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setEncoding(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           encoding_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -2347,8 +2063,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearEncoding() {
-          
           encoding_ = getDefaultInstance().getEncoding();
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
           return this;
         }
@@ -2363,12 +2079,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setEncodingBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           encoding_ = value;
+          bitField0_ |= 0x00000004;
           onChanged();
           return this;
         }
@@ -2400,6 +2114,7 @@ private static final long serialVersionUID = 0L;
         public Builder setDisableTypeInference(boolean value) {
           
           disableTypeInference_ = value;
+          bitField0_ |= 0x00000008;
           onChanged();
           return this;
         }
@@ -2413,7 +2128,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDisableTypeInference() {
-          
+          bitField0_ = (bitField0_ & ~0x00000008);
           disableTypeInference_ = false;
           onChanged();
           return this;
@@ -2451,7 +2166,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CsvOptions(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -2539,56 +2265,6 @@ private static final long serialVersionUID = 0L;
       getUnknownFields() {
         return this.unknownFields;
       }
-      private JsonOptions(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        this();
-        if (extensionRegistry == null) {
-          throw new java.lang.NullPointerException();
-        }
-        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-            com.google.protobuf.UnknownFieldSet.newBuilder();
-        try {
-          boolean done = false;
-          while (!done) {
-            int tag = input.readTag();
-            switch (tag) {
-              case 0:
-                done = true;
-                break;
-              case 10: {
-                java.lang.String s = input.readStringRequireUtf8();
-
-                encoding_ = s;
-                break;
-              }
-              case 16: {
-
-                disableTypeInference_ = input.readBool();
-                break;
-              }
-              default: {
-                if (!parseUnknownField(
-                    input, unknownFields, extensionRegistry, tag)) {
-                  done = true;
-                }
-                break;
-              }
-            }
-          }
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          throw e.setUnfinishedMessage(this);
-        } catch (com.google.protobuf.UninitializedMessageException e) {
-          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-        } catch (java.io.IOException e) {
-          throw new com.google.protobuf.InvalidProtocolBufferException(
-              e).setUnfinishedMessage(this);
-        } finally {
-          this.unknownFields = unknownFields.build();
-          makeExtensionsImmutable();
-        }
-      }
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.google.cloud.dataplex.v1.ResourcesProto.internal_static_google_cloud_dataplex_v1_Zone_DiscoverySpec_JsonOptions_descriptor;
@@ -2603,7 +2279,8 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int ENCODING_FIELD_NUMBER = 1;
-      private volatile java.lang.Object encoding_;
+      @SuppressWarnings("serial")
+      private volatile java.lang.Object encoding_ = "";
       /**
        * <pre>
        * Optional. The character encoding of the data. The default is UTF-8.
@@ -2649,7 +2326,7 @@ private static final long serialVersionUID = 0L;
       }
 
       public static final int DISABLE_TYPE_INFERENCE_FIELD_NUMBER = 2;
-      private boolean disableTypeInference_;
+      private boolean disableTypeInference_ = false;
       /**
        * <pre>
        * Optional. Whether to disable the inference of data type for Json data.
@@ -2685,7 +2362,7 @@ private static final long serialVersionUID = 0L;
         if (disableTypeInference_ != false) {
           output.writeBool(2, disableTypeInference_);
         }
-        unknownFields.writeTo(output);
+        getUnknownFields().writeTo(output);
       }
 
       @java.lang.Override
@@ -2701,7 +2378,7 @@ private static final long serialVersionUID = 0L;
           size += com.google.protobuf.CodedOutputStream
             .computeBoolSize(2, disableTypeInference_);
         }
-        size += unknownFields.getSerializedSize();
+        size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
       }
@@ -2720,7 +2397,7 @@ private static final long serialVersionUID = 0L;
             .equals(other.getEncoding())) return false;
         if (getDisableTypeInference()
             != other.getDisableTypeInference()) return false;
-        if (!unknownFields.equals(other.unknownFields)) return false;
+        if (!getUnknownFields().equals(other.getUnknownFields())) return false;
         return true;
       }
 
@@ -2736,7 +2413,7 @@ private static final long serialVersionUID = 0L;
         hash = (37 * hash) + DISABLE_TYPE_INFERENCE_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getDisableTypeInference());
-        hash = (29 * hash) + unknownFields.hashCode();
+        hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
       }
@@ -2857,26 +2534,20 @@ private static final long serialVersionUID = 0L;
 
         // Construct using com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
           super(parent);
-          maybeForceBuilderInitialization();
-        }
-        private void maybeForceBuilderInitialization() {
-          if (com.google.protobuf.GeneratedMessageV3
-                  .alwaysUseFieldBuilders) {
-          }
+
         }
         @java.lang.Override
         public Builder clear() {
           super.clear();
+          bitField0_ = 0;
           encoding_ = "";
-
           disableTypeInference_ = false;
-
           return this;
         }
 
@@ -2903,10 +2574,19 @@ private static final long serialVersionUID = 0L;
         @java.lang.Override
         public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions buildPartial() {
           com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions result = new com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions(this);
-          result.encoding_ = encoding_;
-          result.disableTypeInference_ = disableTypeInference_;
+          if (bitField0_ != 0) { buildPartial0(result); }
           onBuilt();
           return result;
+        }
+
+        private void buildPartial0(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions result) {
+          int from_bitField0_ = bitField0_;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.encoding_ = encoding_;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.disableTypeInference_ = disableTypeInference_;
+          }
         }
 
         @java.lang.Override
@@ -2955,12 +2635,13 @@ private static final long serialVersionUID = 0L;
           if (other == com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.getDefaultInstance()) return this;
           if (!other.getEncoding().isEmpty()) {
             encoding_ = other.encoding_;
+            bitField0_ |= 0x00000001;
             onChanged();
           }
           if (other.getDisableTypeInference() != false) {
             setDisableTypeInference(other.getDisableTypeInference());
           }
-          this.mergeUnknownFields(other.unknownFields);
+          this.mergeUnknownFields(other.getUnknownFields());
           onChanged();
           return this;
         }
@@ -2975,19 +2656,43 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws java.io.IOException {
-          com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions parsedMessage = null;
+          if (extensionRegistry == null) {
+            throw new java.lang.NullPointerException();
+          }
           try {
-            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+            boolean done = false;
+            while (!done) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 10: {
+                  encoding_ = input.readStringRequireUtf8();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 10
+                case 16: {
+                  disableTypeInference_ = input.readBool();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                    done = true; // was an endgroup tag
+                  }
+                  break;
+                } // default:
+              } // switch (tag)
+            } // while (!done)
           } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-            parsedMessage = (com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions) e.getUnfinishedMessage();
             throw e.unwrapIOException();
           } finally {
-            if (parsedMessage != null) {
-              mergeFrom(parsedMessage);
-            }
-          }
+            onChanged();
+          } // finally
           return this;
         }
+        private int bitField0_;
 
         private java.lang.Object encoding_ = "";
         /**
@@ -3042,11 +2747,9 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setEncoding(
             java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  
+          if (value == null) { throw new NullPointerException(); }
           encoding_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3059,8 +2762,8 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearEncoding() {
-          
           encoding_ = getDefaultInstance().getEncoding();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
@@ -3075,12 +2778,10 @@ private static final long serialVersionUID = 0L;
          */
         public Builder setEncodingBytes(
             com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-          
+          if (value == null) { throw new NullPointerException(); }
+          checkByteStringIsUtf8(value);
           encoding_ = value;
+          bitField0_ |= 0x00000001;
           onChanged();
           return this;
         }
@@ -3114,6 +2815,7 @@ private static final long serialVersionUID = 0L;
         public Builder setDisableTypeInference(boolean value) {
           
           disableTypeInference_ = value;
+          bitField0_ |= 0x00000002;
           onChanged();
           return this;
         }
@@ -3128,7 +2830,7 @@ private static final long serialVersionUID = 0L;
          * @return This builder for chaining.
          */
         public Builder clearDisableTypeInference() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           disableTypeInference_ = false;
           onChanged();
           return this;
@@ -3166,7 +2868,18 @@ private static final long serialVersionUID = 0L;
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          return new JsonOptions(input, extensionRegistry);
+          Builder builder = newBuilder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            throw e.setUnfinishedMessage(builder.buildPartial());
+          } catch (com.google.protobuf.UninitializedMessageException e) {
+            throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+          } catch (java.io.IOException e) {
+            throw new com.google.protobuf.InvalidProtocolBufferException(e)
+                .setUnfinishedMessage(builder.buildPartial());
+          }
+          return builder.buildPartial();
         }
       };
 
@@ -3226,7 +2939,7 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int ENABLED_FIELD_NUMBER = 1;
-    private boolean enabled_;
+    private boolean enabled_ = false;
     /**
      * <pre>
      * Required. Whether discovery is enabled.
@@ -3241,14 +2954,15 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int INCLUDE_PATTERNS_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList includePatterns_;
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3260,11 +2974,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3275,11 +2989,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3291,11 +3005,11 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to include during
-     * discovery if only a subset of the data should considered. For Cloud
-     * Storage bucket assets, these are interpreted as glob patterns used to
-     * match object names. For BigQuery dataset assets, these are
-     * interpreted as patterns to match table names.
+     * Optional. The list of patterns to apply for selecting data to include
+     * during discovery if only a subset of the data should considered. For
+     * Cloud Storage bucket assets, these are interpreted as glob patterns used
+     * to match object names. For BigQuery dataset assets, these are interpreted
+     * as patterns to match table names.
      * </pre>
      *
      * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3308,12 +3022,13 @@ private static final long serialVersionUID = 0L;
     }
 
     public static final int EXCLUDE_PATTERNS_FIELD_NUMBER = 3;
+    @SuppressWarnings("serial")
     private com.google.protobuf.LazyStringList excludePatterns_;
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -3326,9 +3041,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -3340,9 +3055,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -3355,9 +3070,9 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. The list of patterns to apply for selecting data to exclude during
-     * discovery.  For Cloud Storage bucket assets, these are interpreted as
-     * glob patterns used to match object names. For BigQuery dataset assets,
+     * Optional. The list of patterns to apply for selecting data to exclude
+     * during discovery.  For Cloud Storage bucket assets, these are interpreted
+     * as glob patterns used to match object names. For BigQuery dataset assets,
      * these are interpreted as patterns to match table names.
      * </pre>
      *
@@ -3405,7 +3120,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptionsOrBuilder getCsvOptionsOrBuilder() {
-      return getCsvOptions();
+      return csvOptions_ == null ? com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.getDefaultInstance() : csvOptions_;
     }
 
     public static final int JSON_OPTIONS_FIELD_NUMBER = 5;
@@ -3443,21 +3158,21 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptionsOrBuilder getJsonOptionsOrBuilder() {
-      return getJsonOptions();
+      return jsonOptions_ == null ? com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.getDefaultInstance() : jsonOptions_;
     }
 
     public static final int SCHEDULE_FIELD_NUMBER = 10;
     /**
      * <pre>
-     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-     * discovery periodically. Successive discovery runs must be scheduled at
-     * least 60 minutes apart.
-     * The default value is to run discovery every 60 minutes.
-     * To explicitly set a timezone to the cron tab, apply a prefix in the
-     * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-     * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-     * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-     * "TZ=America/New_York 1 * * * *".
+     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+     * running discovery periodically. Successive discovery runs must be
+     * scheduled at least 60 minutes apart. The default value is to run
+     * discovery every 60 minutes. To explicitly set a timezone to the cron
+     * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+     * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+     * from IANA time zone database. For example,
+     * `CRON_TZ=America/New_York 1 * * * *`,
+     * or `TZ=America/New_York 1 * * * *`.
      * </pre>
      *
      * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3468,15 +3183,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-     * discovery periodically. Successive discovery runs must be scheduled at
-     * least 60 minutes apart.
-     * The default value is to run discovery every 60 minutes.
-     * To explicitly set a timezone to the cron tab, apply a prefix in the
-     * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-     * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-     * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-     * "TZ=America/New_York 1 * * * *".
+     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+     * running discovery periodically. Successive discovery runs must be
+     * scheduled at least 60 minutes apart. The default value is to run
+     * discovery every 60 minutes. To explicitly set a timezone to the cron
+     * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+     * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+     * from IANA time zone database. For example,
+     * `CRON_TZ=America/New_York 1 * * * *`,
+     * or `TZ=America/New_York 1 * * * *`.
      * </pre>
      *
      * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3501,15 +3216,15 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-     * discovery periodically. Successive discovery runs must be scheduled at
-     * least 60 minutes apart.
-     * The default value is to run discovery every 60 minutes.
-     * To explicitly set a timezone to the cron tab, apply a prefix in the
-     * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-     * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-     * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-     * "TZ=America/New_York 1 * * * *".
+     * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+     * running discovery periodically. Successive discovery runs must be
+     * scheduled at least 60 minutes apart. The default value is to run
+     * discovery every 60 minutes. To explicitly set a timezone to the cron
+     * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+     * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+     * from IANA time zone database. For example,
+     * `CRON_TZ=America/New_York 1 * * * *`,
+     * or `TZ=America/New_York 1 * * * *`.
      * </pre>
      *
      * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -3566,7 +3281,7 @@ private static final long serialVersionUID = 0L;
       if (triggerCase_ == 10) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, trigger_);
       }
-      unknownFields.writeTo(output);
+      getUnknownFields().writeTo(output);
     }
 
     @java.lang.Override
@@ -3606,7 +3321,7 @@ private static final long serialVersionUID = 0L;
       if (triggerCase_ == 10) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, trigger_);
       }
-      size += unknownFields.getSerializedSize();
+      size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
       return size;
     }
@@ -3646,7 +3361,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
 
@@ -3684,7 +3399,7 @@ private static final long serialVersionUID = 0L;
         case 0:
         default:
       }
-      hash = (29 * hash) + unknownFields.hashCode();
+      hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
       return hash;
     }
@@ -3805,38 +3520,31 @@ private static final long serialVersionUID = 0L;
 
       // Construct using com.google.cloud.dataplex.v1.Zone.DiscoverySpec.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
+
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         enabled_ = false;
-
         includePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        excludePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (csvOptionsBuilder_ == null) {
-          csvOptions_ = null;
-        } else {
-          csvOptions_ = null;
+        excludePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        csvOptions_ = null;
+        if (csvOptionsBuilder_ != null) {
+          csvOptionsBuilder_.dispose();
           csvOptionsBuilder_ = null;
         }
-        if (jsonOptionsBuilder_ == null) {
-          jsonOptions_ = null;
-        } else {
-          jsonOptions_ = null;
+        jsonOptions_ = null;
+        if (jsonOptionsBuilder_ != null) {
+          jsonOptionsBuilder_.dispose();
           jsonOptionsBuilder_ = null;
         }
         triggerCase_ = 0;
@@ -3867,34 +3575,46 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.cloud.dataplex.v1.Zone.DiscoverySpec buildPartial() {
         com.google.cloud.dataplex.v1.Zone.DiscoverySpec result = new com.google.cloud.dataplex.v1.Zone.DiscoverySpec(this);
-        int from_bitField0_ = bitField0_;
-        result.enabled_ = enabled_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          includePatterns_ = includePatterns_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        }
-        result.includePatterns_ = includePatterns_;
-        if (((bitField0_ & 0x00000002) != 0)) {
-          excludePatterns_ = excludePatterns_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000002);
-        }
-        result.excludePatterns_ = excludePatterns_;
-        if (csvOptionsBuilder_ == null) {
-          result.csvOptions_ = csvOptions_;
-        } else {
-          result.csvOptions_ = csvOptionsBuilder_.build();
-        }
-        if (jsonOptionsBuilder_ == null) {
-          result.jsonOptions_ = jsonOptions_;
-        } else {
-          result.jsonOptions_ = jsonOptionsBuilder_.build();
-        }
-        if (triggerCase_ == 10) {
-          result.trigger_ = trigger_;
-        }
-        result.triggerCase_ = triggerCase_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        buildPartialOneofs(result);
         onBuilt();
         return result;
+      }
+
+      private void buildPartialRepeatedFields(com.google.cloud.dataplex.v1.Zone.DiscoverySpec result) {
+        if (((bitField0_ & 0x00000002) != 0)) {
+          includePatterns_ = includePatterns_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.includePatterns_ = includePatterns_;
+        if (((bitField0_ & 0x00000004) != 0)) {
+          excludePatterns_ = excludePatterns_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000004);
+        }
+        result.excludePatterns_ = excludePatterns_;
+      }
+
+      private void buildPartial0(com.google.cloud.dataplex.v1.Zone.DiscoverySpec result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.enabled_ = enabled_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.csvOptions_ = csvOptionsBuilder_ == null
+              ? csvOptions_
+              : csvOptionsBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.jsonOptions_ = jsonOptionsBuilder_ == null
+              ? jsonOptions_
+              : jsonOptionsBuilder_.build();
+        }
+      }
+
+      private void buildPartialOneofs(com.google.cloud.dataplex.v1.Zone.DiscoverySpec result) {
+        result.triggerCase_ = triggerCase_;
+        result.trigger_ = this.trigger_;
       }
 
       @java.lang.Override
@@ -3947,7 +3667,7 @@ private static final long serialVersionUID = 0L;
         if (!other.includePatterns_.isEmpty()) {
           if (includePatterns_.isEmpty()) {
             includePatterns_ = other.includePatterns_;
-            bitField0_ = (bitField0_ & ~0x00000001);
+            bitField0_ = (bitField0_ & ~0x00000002);
           } else {
             ensureIncludePatternsIsMutable();
             includePatterns_.addAll(other.includePatterns_);
@@ -3957,7 +3677,7 @@ private static final long serialVersionUID = 0L;
         if (!other.excludePatterns_.isEmpty()) {
           if (excludePatterns_.isEmpty()) {
             excludePatterns_ = other.excludePatterns_;
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000004);
           } else {
             ensureExcludePatternsIsMutable();
             excludePatterns_.addAll(other.excludePatterns_);
@@ -3981,7 +3701,7 @@ private static final long serialVersionUID = 0L;
             break;
           }
         }
-        this.mergeUnknownFields(other.unknownFields);
+        this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
       }
@@ -3996,17 +3716,67 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.google.cloud.dataplex.v1.Zone.DiscoverySpec parsedMessage = null;
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
         try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                enabled_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureIncludePatternsIsMutable();
+                includePatterns_.add(s);
+                break;
+              } // case 18
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+                ensureExcludePatternsIsMutable();
+                excludePatterns_.add(s);
+                break;
+              } // case 26
+              case 34: {
+                input.readMessage(
+                    getCsvOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 42: {
+                input.readMessage(
+                    getJsonOptionsFieldBuilder().getBuilder(),
+                    extensionRegistry);
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 42
+              case 82: {
+                java.lang.String s = input.readStringRequireUtf8();
+                triggerCase_ = 10;
+                trigger_ = s;
+                break;
+              } // case 82
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.google.cloud.dataplex.v1.Zone.DiscoverySpec) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
+          onChanged();
+        } // finally
         return this;
       }
       private int triggerCase_ = 0;
@@ -4051,6 +3821,7 @@ private static final long serialVersionUID = 0L;
       public Builder setEnabled(boolean value) {
         
         enabled_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -4063,7 +3834,7 @@ private static final long serialVersionUID = 0L;
        * @return This builder for chaining.
        */
       public Builder clearEnabled() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         enabled_ = false;
         onChanged();
         return this;
@@ -4071,18 +3842,18 @@ private static final long serialVersionUID = 0L;
 
       private com.google.protobuf.LazyStringList includePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureIncludePatternsIsMutable() {
-        if (!((bitField0_ & 0x00000001) != 0)) {
+        if (!((bitField0_ & 0x00000002) != 0)) {
           includePatterns_ = new com.google.protobuf.LazyStringArrayList(includePatterns_);
-          bitField0_ |= 0x00000001;
+          bitField0_ |= 0x00000002;
          }
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4094,11 +3865,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4109,11 +3880,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4125,11 +3896,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4142,11 +3913,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4156,21 +3927,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setIncludePatterns(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludePatternsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIncludePatternsIsMutable();
         includePatterns_.set(index, value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4179,21 +3948,19 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addIncludePatterns(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIncludePatternsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureIncludePatternsIsMutable();
         includePatterns_.add(value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4210,11 +3977,11 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4222,17 +3989,17 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearIncludePatterns() {
         includePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to include during
-       * discovery if only a subset of the data should considered. For Cloud
-       * Storage bucket assets, these are interpreted as glob patterns used to
-       * match object names. For BigQuery dataset assets, these are
-       * interpreted as patterns to match table names.
+       * Optional. The list of patterns to apply for selecting data to include
+       * during discovery if only a subset of the data should considered. For
+       * Cloud Storage bucket assets, these are interpreted as glob patterns used
+       * to match object names. For BigQuery dataset assets, these are interpreted
+       * as patterns to match table names.
        * </pre>
        *
        * <code>repeated string include_patterns = 2 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4241,10 +4008,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addIncludePatternsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureIncludePatternsIsMutable();
         includePatterns_.add(value);
         onChanged();
@@ -4253,16 +4018,16 @@ private static final long serialVersionUID = 0L;
 
       private com.google.protobuf.LazyStringList excludePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureExcludePatternsIsMutable() {
-        if (!((bitField0_ & 0x00000002) != 0)) {
+        if (!((bitField0_ & 0x00000004) != 0)) {
           excludePatterns_ = new com.google.protobuf.LazyStringArrayList(excludePatterns_);
-          bitField0_ |= 0x00000002;
+          bitField0_ |= 0x00000004;
          }
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4275,9 +4040,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4289,9 +4054,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4304,9 +4069,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4320,9 +4085,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4333,19 +4098,17 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setExcludePatterns(
           int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludePatternsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludePatternsIsMutable();
         excludePatterns_.set(index, value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4355,19 +4118,17 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addExcludePatterns(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExcludePatternsIsMutable();
+        if (value == null) { throw new NullPointerException(); }
+        ensureExcludePatternsIsMutable();
         excludePatterns_.add(value);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4385,9 +4146,9 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4396,15 +4157,15 @@ private static final long serialVersionUID = 0L;
        */
       public Builder clearExcludePatterns() {
         excludePatterns_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000002);
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. The list of patterns to apply for selecting data to exclude during
-       * discovery.  For Cloud Storage bucket assets, these are interpreted as
-       * glob patterns used to match object names. For BigQuery dataset assets,
+       * Optional. The list of patterns to apply for selecting data to exclude
+       * during discovery.  For Cloud Storage bucket assets, these are interpreted
+       * as glob patterns used to match object names. For BigQuery dataset assets,
        * these are interpreted as patterns to match table names.
        * </pre>
        *
@@ -4414,10 +4175,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder addExcludePatternsBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         ensureExcludePatternsIsMutable();
         excludePatterns_.add(value);
         onChanged();
@@ -4436,7 +4195,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the csvOptions field is set.
        */
       public boolean hasCsvOptions() {
-        return csvOptionsBuilder_ != null || csvOptions_ != null;
+        return ((bitField0_ & 0x00000008) != 0);
       }
       /**
        * <pre>
@@ -4466,11 +4225,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           csvOptions_ = value;
-          onChanged();
         } else {
           csvOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4484,11 +4243,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.Builder builderForValue) {
         if (csvOptionsBuilder_ == null) {
           csvOptions_ = builderForValue.build();
-          onChanged();
         } else {
           csvOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4500,17 +4259,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeCsvOptions(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions value) {
         if (csvOptionsBuilder_ == null) {
-          if (csvOptions_ != null) {
-            csvOptions_ =
-              com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.newBuilder(csvOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000008) != 0) &&
+            csvOptions_ != null &&
+            csvOptions_ != com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.getDefaultInstance()) {
+            getCsvOptionsBuilder().mergeFrom(value);
           } else {
             csvOptions_ = value;
           }
-          onChanged();
         } else {
           csvOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000008;
+        onChanged();
         return this;
       }
       /**
@@ -4521,14 +4281,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions csv_options = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearCsvOptions() {
-        if (csvOptionsBuilder_ == null) {
-          csvOptions_ = null;
-          onChanged();
-        } else {
-          csvOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        csvOptions_ = null;
+        if (csvOptionsBuilder_ != null) {
+          csvOptionsBuilder_.dispose();
           csvOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4539,7 +4298,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions csv_options = 4 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.CsvOptions.Builder getCsvOptionsBuilder() {
-        
+        bitField0_ |= 0x00000008;
         onChanged();
         return getCsvOptionsFieldBuilder().getBuilder();
       }
@@ -4591,7 +4350,7 @@ private static final long serialVersionUID = 0L;
        * @return Whether the jsonOptions field is set.
        */
       public boolean hasJsonOptions() {
-        return jsonOptionsBuilder_ != null || jsonOptions_ != null;
+        return ((bitField0_ & 0x00000010) != 0);
       }
       /**
        * <pre>
@@ -4621,11 +4380,11 @@ private static final long serialVersionUID = 0L;
             throw new NullPointerException();
           }
           jsonOptions_ = value;
-          onChanged();
         } else {
           jsonOptionsBuilder_.setMessage(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -4639,11 +4398,11 @@ private static final long serialVersionUID = 0L;
           com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.Builder builderForValue) {
         if (jsonOptionsBuilder_ == null) {
           jsonOptions_ = builderForValue.build();
-          onChanged();
         } else {
           jsonOptionsBuilder_.setMessage(builderForValue.build());
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -4655,17 +4414,18 @@ private static final long serialVersionUID = 0L;
        */
       public Builder mergeJsonOptions(com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions value) {
         if (jsonOptionsBuilder_ == null) {
-          if (jsonOptions_ != null) {
-            jsonOptions_ =
-              com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.newBuilder(jsonOptions_).mergeFrom(value).buildPartial();
+          if (((bitField0_ & 0x00000010) != 0) &&
+            jsonOptions_ != null &&
+            jsonOptions_ != com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.getDefaultInstance()) {
+            getJsonOptionsBuilder().mergeFrom(value);
           } else {
             jsonOptions_ = value;
           }
-          onChanged();
         } else {
           jsonOptionsBuilder_.mergeFrom(value);
         }
-
+        bitField0_ |= 0x00000010;
+        onChanged();
         return this;
       }
       /**
@@ -4676,14 +4436,13 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions json_options = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public Builder clearJsonOptions() {
-        if (jsonOptionsBuilder_ == null) {
-          jsonOptions_ = null;
-          onChanged();
-        } else {
-          jsonOptions_ = null;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        jsonOptions_ = null;
+        if (jsonOptionsBuilder_ != null) {
+          jsonOptionsBuilder_.dispose();
           jsonOptionsBuilder_ = null;
         }
-
+        onChanged();
         return this;
       }
       /**
@@ -4694,7 +4453,7 @@ private static final long serialVersionUID = 0L;
        * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions json_options = 5 [(.google.api.field_behavior) = OPTIONAL];</code>
        */
       public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.JsonOptions.Builder getJsonOptionsBuilder() {
-        
+        bitField0_ |= 0x00000010;
         onChanged();
         return getJsonOptionsFieldBuilder().getBuilder();
       }
@@ -4736,15 +4495,15 @@ private static final long serialVersionUID = 0L;
 
       /**
        * <pre>
-       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-       * discovery periodically. Successive discovery runs must be scheduled at
-       * least 60 minutes apart.
-       * The default value is to run discovery every 60 minutes.
-       * To explicitly set a timezone to the cron tab, apply a prefix in the
-       * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-       * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-       * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-       * "TZ=America/New_York 1 * * * *".
+       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+       * running discovery periodically. Successive discovery runs must be
+       * scheduled at least 60 minutes apart. The default value is to run
+       * discovery every 60 minutes. To explicitly set a timezone to the cron
+       * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+       * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+       * from IANA time zone database. For example,
+       * `CRON_TZ=America/New_York 1 * * * *`,
+       * or `TZ=America/New_York 1 * * * *`.
        * </pre>
        *
        * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4756,15 +4515,15 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-       * discovery periodically. Successive discovery runs must be scheduled at
-       * least 60 minutes apart.
-       * The default value is to run discovery every 60 minutes.
-       * To explicitly set a timezone to the cron tab, apply a prefix in the
-       * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-       * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-       * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-       * "TZ=America/New_York 1 * * * *".
+       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+       * running discovery periodically. Successive discovery runs must be
+       * scheduled at least 60 minutes apart. The default value is to run
+       * discovery every 60 minutes. To explicitly set a timezone to the cron
+       * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+       * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+       * from IANA time zone database. For example,
+       * `CRON_TZ=America/New_York 1 * * * *`,
+       * or `TZ=America/New_York 1 * * * *`.
        * </pre>
        *
        * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4790,15 +4549,15 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-       * discovery periodically. Successive discovery runs must be scheduled at
-       * least 60 minutes apart.
-       * The default value is to run discovery every 60 minutes.
-       * To explicitly set a timezone to the cron tab, apply a prefix in the
-       * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-       * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-       * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-       * "TZ=America/New_York 1 * * * *".
+       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+       * running discovery periodically. Successive discovery runs must be
+       * scheduled at least 60 minutes apart. The default value is to run
+       * discovery every 60 minutes. To explicitly set a timezone to the cron
+       * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+       * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+       * from IANA time zone database. For example,
+       * `CRON_TZ=America/New_York 1 * * * *`,
+       * or `TZ=America/New_York 1 * * * *`.
        * </pre>
        *
        * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4825,15 +4584,15 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-       * discovery periodically. Successive discovery runs must be scheduled at
-       * least 60 minutes apart.
-       * The default value is to run discovery every 60 minutes.
-       * To explicitly set a timezone to the cron tab, apply a prefix in the
-       * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-       * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-       * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-       * "TZ=America/New_York 1 * * * *".
+       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+       * running discovery periodically. Successive discovery runs must be
+       * scheduled at least 60 minutes apart. The default value is to run
+       * discovery every 60 minutes. To explicitly set a timezone to the cron
+       * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+       * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+       * from IANA time zone database. For example,
+       * `CRON_TZ=America/New_York 1 * * * *`,
+       * or `TZ=America/New_York 1 * * * *`.
        * </pre>
        *
        * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4842,25 +4601,23 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setSchedule(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  triggerCase_ = 10;
+        if (value == null) { throw new NullPointerException(); }
+        triggerCase_ = 10;
         trigger_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-       * discovery periodically. Successive discovery runs must be scheduled at
-       * least 60 minutes apart.
-       * The default value is to run discovery every 60 minutes.
-       * To explicitly set a timezone to the cron tab, apply a prefix in the
-       * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-       * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-       * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-       * "TZ=America/New_York 1 * * * *".
+       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+       * running discovery periodically. Successive discovery runs must be
+       * scheduled at least 60 minutes apart. The default value is to run
+       * discovery every 60 minutes. To explicitly set a timezone to the cron
+       * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+       * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+       * from IANA time zone database. For example,
+       * `CRON_TZ=America/New_York 1 * * * *`,
+       * or `TZ=America/New_York 1 * * * *`.
        * </pre>
        *
        * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4876,15 +4633,15 @@ private static final long serialVersionUID = 0L;
       }
       /**
        * <pre>
-       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for running
-       * discovery periodically. Successive discovery runs must be scheduled at
-       * least 60 minutes apart.
-       * The default value is to run discovery every 60 minutes.
-       * To explicitly set a timezone to the cron tab, apply a prefix in the
-       * cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or TZ=${IANA_TIME_ZONE}".
-       * The ${IANA_TIME_ZONE} may only be a valid string from IANA time zone
-       * database. For example, "CRON_TZ=America/New_York 1 * * * *", or
-       * "TZ=America/New_York 1 * * * *".
+       * Optional. Cron schedule (https://en.wikipedia.org/wiki/Cron) for
+       * running discovery periodically. Successive discovery runs must be
+       * scheduled at least 60 minutes apart. The default value is to run
+       * discovery every 60 minutes. To explicitly set a timezone to the cron
+       * tab, apply a prefix in the cron tab: "CRON_TZ=${IANA_TIME_ZONE}" or
+       * TZ=${IANA_TIME_ZONE}". The ${IANA_TIME_ZONE} may only be a valid string
+       * from IANA time zone database. For example,
+       * `CRON_TZ=America/New_York 1 * * * *`,
+       * or `TZ=America/New_York 1 * * * *`.
        * </pre>
        *
        * <code>string schedule = 10 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -4893,10 +4650,8 @@ private static final long serialVersionUID = 0L;
        */
       public Builder setScheduleBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         triggerCase_ = 10;
         trigger_ = value;
         onChanged();
@@ -4935,7 +4690,18 @@ private static final long serialVersionUID = 0L;
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new DiscoverySpec(input, extensionRegistry);
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
       }
     };
 
@@ -4956,7 +4722,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object name_ = "";
   /**
    * <pre>
    * Output only. The relative resource name of the zone, of the form:
@@ -5004,7 +4771,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DISPLAY_NAME_FIELD_NUMBER = 2;
-  private volatile java.lang.Object displayName_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object displayName_ = "";
   /**
    * <pre>
    * Optional. User friendly display name.
@@ -5050,11 +4818,12 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int UID_FIELD_NUMBER = 3;
-  private volatile java.lang.Object uid_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object uid_ = "";
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the zone. This ID will be
-   * different if the zone is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the zone. This ID will
+   * be different if the zone is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5075,8 +4844,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the zone. This ID will be
-   * different if the zone is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the zone. This ID will
+   * be different if the zone is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -5132,7 +4901,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getCreateTimeOrBuilder() {
-    return getCreateTime();
+    return createTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : createTime_;
   }
 
   public static final int UPDATE_TIME_FIELD_NUMBER = 5;
@@ -5170,7 +4939,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.TimestampOrBuilder getUpdateTimeOrBuilder() {
-    return getUpdateTime();
+    return updateTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : updateTime_;
   }
 
   public static final int LABELS_FIELD_NUMBER = 6;
@@ -5185,6 +4954,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.STRING,
                 "");
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, java.lang.String> labels_;
   private com.google.protobuf.MapField<java.lang.String, java.lang.String>
@@ -5195,7 +4965,6 @@ private static final long serialVersionUID = 0L;
     }
     return labels_;
   }
-
   public int getLabelsCount() {
     return internalGetLabels().getMap().size();
   }
@@ -5206,7 +4975,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   @java.lang.Override
   public boolean containsLabels(
       java.lang.String key) {
@@ -5229,7 +4997,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
     return internalGetLabels().getMap();
   }
@@ -5241,10 +5008,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
-  public java.lang.String getLabelsOrDefault(
+  public /* nullable */
+java.lang.String getLabelsOrDefault(
       java.lang.String key,
-      java.lang.String defaultValue) {
+      /* nullable */
+java.lang.String defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, java.lang.String> map =
         internalGetLabels().getMap();
@@ -5258,7 +5026,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
-
   public java.lang.String getLabelsOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -5271,7 +5038,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DESCRIPTION_FIELD_NUMBER = 7;
-  private volatile java.lang.Object description_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object description_ = "";
   /**
    * <pre>
    * Optional. Description of the zone.
@@ -5317,7 +5085,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int STATE_FIELD_NUMBER = 8;
-  private int state_;
+  private int state_ = 0;
   /**
    * <pre>
    * Output only. Current state of the zone.
@@ -5338,13 +5106,12 @@ private static final long serialVersionUID = 0L;
    * @return The state.
    */
   @java.lang.Override public com.google.cloud.dataplex.v1.State getState() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataplex.v1.State result = com.google.cloud.dataplex.v1.State.valueOf(state_);
+    com.google.cloud.dataplex.v1.State result = com.google.cloud.dataplex.v1.State.forNumber(state_);
     return result == null ? com.google.cloud.dataplex.v1.State.UNRECOGNIZED : result;
   }
 
   public static final int TYPE_FIELD_NUMBER = 9;
-  private int type_;
+  private int type_ = 0;
   /**
    * <pre>
    * Required. Immutable. The type of the zone.
@@ -5365,8 +5132,7 @@ private static final long serialVersionUID = 0L;
    * @return The type.
    */
   @java.lang.Override public com.google.cloud.dataplex.v1.Zone.Type getType() {
-    @SuppressWarnings("deprecation")
-    com.google.cloud.dataplex.v1.Zone.Type result = com.google.cloud.dataplex.v1.Zone.Type.valueOf(type_);
+    com.google.cloud.dataplex.v1.Zone.Type result = com.google.cloud.dataplex.v1.Zone.Type.forNumber(type_);
     return result == null ? com.google.cloud.dataplex.v1.Zone.Type.UNRECOGNIZED : result;
   }
 
@@ -5374,7 +5140,8 @@ private static final long serialVersionUID = 0L;
   private com.google.cloud.dataplex.v1.Zone.DiscoverySpec discoverySpec_;
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data in this zone.
+   * Optional. Specification of the discovery feature applied to data in this
+   * zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5386,7 +5153,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data in this zone.
+   * Optional. Specification of the discovery feature applied to data in this
+   * zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -5398,22 +5166,23 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Optional. Specification of the discovery feature applied to data in this zone.
+   * Optional. Specification of the discovery feature applied to data in this
+   * zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
   @java.lang.Override
   public com.google.cloud.dataplex.v1.Zone.DiscoverySpecOrBuilder getDiscoverySpecOrBuilder() {
-    return getDiscoverySpec();
+    return discoverySpec_ == null ? com.google.cloud.dataplex.v1.Zone.DiscoverySpec.getDefaultInstance() : discoverySpec_;
   }
 
   public static final int RESOURCE_SPEC_FIELD_NUMBER = 104;
   private com.google.cloud.dataplex.v1.Zone.ResourceSpec resourceSpec_;
   /**
    * <pre>
-   * Required. Specification of the resources that are referenced by the assets within
-   * this zone.
+   * Required. Specification of the resources that are referenced by the assets
+   * within this zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -5425,8 +5194,8 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Specification of the resources that are referenced by the assets within
-   * this zone.
+   * Required. Specification of the resources that are referenced by the assets
+   * within this zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -5438,15 +5207,15 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * Required. Specification of the resources that are referenced by the assets within
-   * this zone.
+   * Required. Specification of the resources that are referenced by the assets
+   * within this zone.
    * </pre>
    *
    * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
    */
   @java.lang.Override
   public com.google.cloud.dataplex.v1.Zone.ResourceSpecOrBuilder getResourceSpecOrBuilder() {
-    return getResourceSpec();
+    return resourceSpec_ == null ? com.google.cloud.dataplex.v1.Zone.ResourceSpec.getDefaultInstance() : resourceSpec_;
   }
 
   public static final int ASSET_STATUS_FIELD_NUMBER = 105;
@@ -5484,7 +5253,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.cloud.dataplex.v1.AssetStatusOrBuilder getAssetStatusOrBuilder() {
-    return getAssetStatus();
+    return assetStatus_ == null ? com.google.cloud.dataplex.v1.AssetStatus.getDefaultInstance() : assetStatus_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -5540,7 +5309,7 @@ private static final long serialVersionUID = 0L;
     if (assetStatus_ != null) {
       output.writeMessage(105, getAssetStatus());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -5599,7 +5368,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(105, getAssetStatus());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -5651,7 +5420,7 @@ private static final long serialVersionUID = 0L;
       if (!getAssetStatus()
           .equals(other.getAssetStatus())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -5698,7 +5467,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + ASSET_STATUS_FIELD_NUMBER;
       hash = (53 * hash) + getAssetStatus().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -5844,63 +5613,48 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.dataplex.v1.Zone.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       name_ = "";
-
       displayName_ = "";
-
       uid_ = "";
-
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-      } else {
-        createTime_ = null;
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-      } else {
-        updateTime_ = null;
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
       internalGetMutableLabels().clear();
       description_ = "";
-
       state_ = 0;
-
       type_ = 0;
-
-      if (discoverySpecBuilder_ == null) {
-        discoverySpec_ = null;
-      } else {
-        discoverySpec_ = null;
+      discoverySpec_ = null;
+      if (discoverySpecBuilder_ != null) {
+        discoverySpecBuilder_.dispose();
         discoverySpecBuilder_ = null;
       }
-      if (resourceSpecBuilder_ == null) {
-        resourceSpec_ = null;
-      } else {
-        resourceSpec_ = null;
+      resourceSpec_ = null;
+      if (resourceSpecBuilder_ != null) {
+        resourceSpecBuilder_.dispose();
         resourceSpecBuilder_ = null;
       }
-      if (assetStatusBuilder_ == null) {
-        assetStatus_ = null;
-      } else {
-        assetStatus_ = null;
+      assetStatus_ = null;
+      if (assetStatusBuilder_ != null) {
+        assetStatusBuilder_.dispose();
         assetStatusBuilder_ = null;
       }
       return this;
@@ -5929,42 +5683,60 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.dataplex.v1.Zone buildPartial() {
       com.google.cloud.dataplex.v1.Zone result = new com.google.cloud.dataplex.v1.Zone(this);
-      int from_bitField0_ = bitField0_;
-      result.name_ = name_;
-      result.displayName_ = displayName_;
-      result.uid_ = uid_;
-      if (createTimeBuilder_ == null) {
-        result.createTime_ = createTime_;
-      } else {
-        result.createTime_ = createTimeBuilder_.build();
-      }
-      if (updateTimeBuilder_ == null) {
-        result.updateTime_ = updateTime_;
-      } else {
-        result.updateTime_ = updateTimeBuilder_.build();
-      }
-      result.labels_ = internalGetLabels();
-      result.labels_.makeImmutable();
-      result.description_ = description_;
-      result.state_ = state_;
-      result.type_ = type_;
-      if (discoverySpecBuilder_ == null) {
-        result.discoverySpec_ = discoverySpec_;
-      } else {
-        result.discoverySpec_ = discoverySpecBuilder_.build();
-      }
-      if (resourceSpecBuilder_ == null) {
-        result.resourceSpec_ = resourceSpec_;
-      } else {
-        result.resourceSpec_ = resourceSpecBuilder_.build();
-      }
-      if (assetStatusBuilder_ == null) {
-        result.assetStatus_ = assetStatus_;
-      } else {
-        result.assetStatus_ = assetStatusBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.dataplex.v1.Zone result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.name_ = name_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.displayName_ = displayName_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.uid_ = uid_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.createTime_ = createTimeBuilder_ == null
+            ? createTime_
+            : createTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.updateTime_ = updateTimeBuilder_ == null
+            ? updateTime_
+            : updateTimeBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.labels_ = internalGetLabels();
+        result.labels_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.description_ = description_;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.state_ = state_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.type_ = type_;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.discoverySpec_ = discoverySpecBuilder_ == null
+            ? discoverySpec_
+            : discoverySpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.resourceSpec_ = resourceSpecBuilder_ == null
+            ? resourceSpec_
+            : resourceSpecBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.assetStatus_ = assetStatusBuilder_ == null
+            ? assetStatus_
+            : assetStatusBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -6013,14 +5785,17 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.dataplex.v1.Zone.getDefaultInstance()) return this;
       if (!other.getName().isEmpty()) {
         name_ = other.name_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getDisplayName().isEmpty()) {
         displayName_ = other.displayName_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getUid().isEmpty()) {
         uid_ = other.uid_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasCreateTime()) {
@@ -6031,8 +5806,10 @@ private static final long serialVersionUID = 0L;
       }
       internalGetMutableLabels().mergeFrom(
           other.internalGetLabels());
+      bitField0_ |= 0x00000020;
       if (!other.getDescription().isEmpty()) {
         description_ = other.description_;
+        bitField0_ |= 0x00000040;
         onChanged();
       }
       if (other.state_ != 0) {
@@ -6050,7 +5827,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasAssetStatus()) {
         mergeAssetStatus(other.getAssetStatus());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -6065,17 +5842,104 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.dataplex.v1.Zone parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              name_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              displayName_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              uid_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              input.readMessage(
+                  getCreateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getUpdateTimeFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              labels__ = input.readMessage(
+                  LabelsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableLabels().getMutableMap().put(
+                  labels__.getKey(), labels__.getValue());
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              description_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 64: {
+              state_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              type_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 826: {
+              input.readMessage(
+                  getDiscoverySpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 826
+            case 834: {
+              input.readMessage(
+                  getResourceSpecFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 834
+            case 842: {
+              input.readMessage(
+                  getAssetStatusFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 842
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.dataplex.v1.Zone) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -6136,11 +6000,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -6154,8 +6016,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearName() {
-      
       name_ = getDefaultInstance().getName();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -6171,12 +6033,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       name_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -6234,11 +6094,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayName(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -6251,8 +6109,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDisplayName() {
-      
       displayName_ = getDefaultInstance().getDisplayName();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -6267,12 +6125,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDisplayNameBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       displayName_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -6280,8 +6136,8 @@ private static final long serialVersionUID = 0L;
     private java.lang.Object uid_ = "";
     /**
      * <pre>
-     * Output only. System generated globally unique ID for the zone. This ID will be
-     * different if the zone is deleted and re-created with the same name.
+     * Output only. System generated globally unique ID for the zone. This ID will
+     * be different if the zone is deleted and re-created with the same name.
      * </pre>
      *
      * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6301,8 +6157,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. System generated globally unique ID for the zone. This ID will be
-     * different if the zone is deleted and re-created with the same name.
+     * Output only. System generated globally unique ID for the zone. This ID will
+     * be different if the zone is deleted and re-created with the same name.
      * </pre>
      *
      * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6323,8 +6179,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Output only. System generated globally unique ID for the zone. This ID will be
-     * different if the zone is deleted and re-created with the same name.
+     * Output only. System generated globally unique ID for the zone. This ID will
+     * be different if the zone is deleted and re-created with the same name.
      * </pre>
      *
      * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6333,33 +6189,31 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUid(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       uid_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. System generated globally unique ID for the zone. This ID will be
-     * different if the zone is deleted and re-created with the same name.
+     * Output only. System generated globally unique ID for the zone. This ID will
+     * be different if the zone is deleted and re-created with the same name.
      * </pre>
      *
      * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      * @return This builder for chaining.
      */
     public Builder clearUid() {
-      
       uid_ = getDefaultInstance().getUid();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
     /**
      * <pre>
-     * Output only. System generated globally unique ID for the zone. This ID will be
-     * different if the zone is deleted and re-created with the same name.
+     * Output only. System generated globally unique ID for the zone. This ID will
+     * be different if the zone is deleted and re-created with the same name.
      * </pre>
      *
      * <code>string uid = 3 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -6368,12 +6222,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUidBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       uid_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -6390,7 +6242,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the createTime field is set.
      */
     public boolean hasCreateTime() {
-      return createTimeBuilder_ != null || createTime_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -6420,11 +6272,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         createTime_ = value;
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -6438,11 +6290,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (createTimeBuilder_ == null) {
         createTime_ = builderForValue.build();
-        onChanged();
       } else {
         createTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -6454,17 +6306,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeCreateTime(com.google.protobuf.Timestamp value) {
       if (createTimeBuilder_ == null) {
-        if (createTime_ != null) {
-          createTime_ =
-            com.google.protobuf.Timestamp.newBuilder(createTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          createTime_ != null &&
+          createTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getCreateTimeBuilder().mergeFrom(value);
         } else {
           createTime_ = value;
         }
-        onChanged();
       } else {
         createTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -6475,14 +6328,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearCreateTime() {
-      if (createTimeBuilder_ == null) {
-        createTime_ = null;
-        onChanged();
-      } else {
-        createTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      createTime_ = null;
+      if (createTimeBuilder_ != null) {
+        createTimeBuilder_.dispose();
         createTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6493,7 +6345,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp create_time = 4 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getCreateTimeBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getCreateTimeFieldBuilder().getBuilder();
     }
@@ -6545,7 +6397,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the updateTime field is set.
      */
     public boolean hasUpdateTime() {
-      return updateTimeBuilder_ != null || updateTime_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -6575,11 +6427,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         updateTime_ = value;
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -6593,11 +6445,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Timestamp.Builder builderForValue) {
       if (updateTimeBuilder_ == null) {
         updateTime_ = builderForValue.build();
-        onChanged();
       } else {
         updateTimeBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -6609,17 +6461,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeUpdateTime(com.google.protobuf.Timestamp value) {
       if (updateTimeBuilder_ == null) {
-        if (updateTime_ != null) {
-          updateTime_ =
-            com.google.protobuf.Timestamp.newBuilder(updateTime_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          updateTime_ != null &&
+          updateTime_ != com.google.protobuf.Timestamp.getDefaultInstance()) {
+          getUpdateTimeBuilder().mergeFrom(value);
         } else {
           updateTime_ = value;
         }
-        onChanged();
       } else {
         updateTimeBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -6630,14 +6483,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearUpdateTime() {
-      if (updateTimeBuilder_ == null) {
-        updateTime_ = null;
-        onChanged();
-      } else {
-        updateTime_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      updateTime_ = null;
+      if (updateTimeBuilder_ != null) {
+        updateTimeBuilder_.dispose();
         updateTimeBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -6648,7 +6500,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Timestamp update_time = 5 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.protobuf.Timestamp.Builder getUpdateTimeBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getUpdateTimeFieldBuilder().getBuilder();
     }
@@ -6691,7 +6543,7 @@ private static final long serialVersionUID = 0L;
     private com.google.protobuf.MapField<
         java.lang.String, java.lang.String> labels_;
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetLabels() {
+        internalGetLabels() {
       if (labels_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -6699,8 +6551,7 @@ private static final long serialVersionUID = 0L;
       return labels_;
     }
     private com.google.protobuf.MapField<java.lang.String, java.lang.String>
-    internalGetMutableLabels() {
-      onChanged();;
+        internalGetMutableLabels() {
       if (labels_ == null) {
         labels_ = com.google.protobuf.MapField.newMapField(
             LabelsDefaultEntryHolder.defaultEntry);
@@ -6708,9 +6559,10 @@ private static final long serialVersionUID = 0L;
       if (!labels_.isMutable()) {
         labels_ = labels_.copy();
       }
+      bitField0_ |= 0x00000020;
+      onChanged();
       return labels_;
     }
-
     public int getLabelsCount() {
       return internalGetLabels().getMap().size();
     }
@@ -6721,7 +6573,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     @java.lang.Override
     public boolean containsLabels(
         java.lang.String key) {
@@ -6744,7 +6595,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, java.lang.String> getLabelsMap() {
       return internalGetLabels().getMap();
     }
@@ -6756,10 +6606,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
-    public java.lang.String getLabelsOrDefault(
+    public /* nullable */
+java.lang.String getLabelsOrDefault(
         java.lang.String key,
-        java.lang.String defaultValue) {
+        /* nullable */
+java.lang.String defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, java.lang.String> map =
           internalGetLabels().getMap();
@@ -6773,7 +6624,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     @java.lang.Override
-
     public java.lang.String getLabelsOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6784,8 +6634,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearLabels() {
+      bitField0_ = (bitField0_ & ~0x00000020);
       internalGetMutableLabels().getMutableMap()
           .clear();
       return this;
@@ -6797,7 +6647,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder removeLabels(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -6810,7 +6659,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, java.lang.String>
-    getMutableLabels() {
+        getMutableLabels() {
+      bitField0_ |= 0x00000020;
       return internalGetMutableLabels().getMutableMap();
     }
     /**
@@ -6824,12 +6674,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         java.lang.String value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutableLabels().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000020;
       return this;
     }
     /**
@@ -6839,11 +6687,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, string&gt; labels = 6 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
-
     public Builder putAllLabels(
         java.util.Map<java.lang.String, java.lang.String> values) {
       internalGetMutableLabels().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000020;
       return this;
     }
 
@@ -6900,11 +6748,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescription(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -6917,8 +6763,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearDescription() {
-      
       description_ = getDefaultInstance().getDescription();
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -6933,12 +6779,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setDescriptionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       description_ = value;
+      bitField0_ |= 0x00000040;
       onChanged();
       return this;
     }
@@ -6965,8 +6809,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setStateValue(int value) {
-      
       state_ = value;
+      bitField0_ |= 0x00000080;
       onChanged();
       return this;
     }
@@ -6980,8 +6824,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.State getState() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.State result = com.google.cloud.dataplex.v1.State.valueOf(state_);
+      com.google.cloud.dataplex.v1.State result = com.google.cloud.dataplex.v1.State.forNumber(state_);
       return result == null ? com.google.cloud.dataplex.v1.State.UNRECOGNIZED : result;
     }
     /**
@@ -6997,7 +6840,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000080;
       state_ = value.getNumber();
       onChanged();
       return this;
@@ -7011,7 +6854,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearState() {
-      
+      bitField0_ = (bitField0_ & ~0x00000080);
       state_ = 0;
       onChanged();
       return this;
@@ -7039,8 +6882,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTypeValue(int value) {
-      
       type_ = value;
+      bitField0_ |= 0x00000100;
       onChanged();
       return this;
     }
@@ -7054,8 +6897,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.cloud.dataplex.v1.Zone.Type getType() {
-      @SuppressWarnings("deprecation")
-      com.google.cloud.dataplex.v1.Zone.Type result = com.google.cloud.dataplex.v1.Zone.Type.valueOf(type_);
+      com.google.cloud.dataplex.v1.Zone.Type result = com.google.cloud.dataplex.v1.Zone.Type.forNumber(type_);
       return result == null ? com.google.cloud.dataplex.v1.Zone.Type.UNRECOGNIZED : result;
     }
     /**
@@ -7071,7 +6913,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000100;
       type_ = value.getNumber();
       onChanged();
       return this;
@@ -7085,7 +6927,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000100);
       type_ = 0;
       onChanged();
       return this;
@@ -7096,18 +6938,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataplex.v1.Zone.DiscoverySpec, com.google.cloud.dataplex.v1.Zone.DiscoverySpec.Builder, com.google.cloud.dataplex.v1.Zone.DiscoverySpecOrBuilder> discoverySpecBuilder_;
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
      * @return Whether the discoverySpec field is set.
      */
     public boolean hasDiscoverySpec() {
-      return discoverySpecBuilder_ != null || discoverySpec_ != null;
+      return ((bitField0_ & 0x00000200) != 0);
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7122,7 +6966,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7133,16 +6978,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         discoverySpec_ = value;
-        onChanged();
       } else {
         discoverySpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7151,68 +6997,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataplex.v1.Zone.DiscoverySpec.Builder builderForValue) {
       if (discoverySpecBuilder_ == null) {
         discoverySpec_ = builderForValue.build();
-        onChanged();
       } else {
         discoverySpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder mergeDiscoverySpec(com.google.cloud.dataplex.v1.Zone.DiscoverySpec value) {
       if (discoverySpecBuilder_ == null) {
-        if (discoverySpec_ != null) {
-          discoverySpec_ =
-            com.google.cloud.dataplex.v1.Zone.DiscoverySpec.newBuilder(discoverySpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000200) != 0) &&
+          discoverySpec_ != null &&
+          discoverySpec_ != com.google.cloud.dataplex.v1.Zone.DiscoverySpec.getDefaultInstance()) {
+          getDiscoverySpecBuilder().mergeFrom(value);
         } else {
           discoverySpec_ = value;
         }
-        onChanged();
       } else {
         discoverySpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000200;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public Builder clearDiscoverySpec() {
-      if (discoverySpecBuilder_ == null) {
-        discoverySpec_ = null;
-        onChanged();
-      } else {
-        discoverySpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000200);
+      discoverySpec_ = null;
+      if (discoverySpecBuilder_ != null) {
+        discoverySpecBuilder_.dispose();
         discoverySpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
      */
     public com.google.cloud.dataplex.v1.Zone.DiscoverySpec.Builder getDiscoverySpecBuilder() {
-      
+      bitField0_ |= 0x00000200;
       onChanged();
       return getDiscoverySpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7227,7 +7077,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Optional. Specification of the discovery feature applied to data in this zone.
+     * Optional. Specification of the discovery feature applied to data in this
+     * zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.DiscoverySpec discovery_spec = 103 [(.google.api.field_behavior) = OPTIONAL];</code>
@@ -7251,20 +7102,20 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataplex.v1.Zone.ResourceSpec, com.google.cloud.dataplex.v1.Zone.ResourceSpec.Builder, com.google.cloud.dataplex.v1.Zone.ResourceSpecOrBuilder> resourceSpecBuilder_;
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
      * @return Whether the resourceSpec field is set.
      */
     public boolean hasResourceSpec() {
-      return resourceSpecBuilder_ != null || resourceSpec_ != null;
+      return ((bitField0_ & 0x00000400) != 0);
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7279,8 +7130,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7291,17 +7142,17 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         resourceSpec_ = value;
-        onChanged();
       } else {
         resourceSpecBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7310,72 +7161,72 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataplex.v1.Zone.ResourceSpec.Builder builderForValue) {
       if (resourceSpecBuilder_ == null) {
         resourceSpec_ = builderForValue.build();
-        onChanged();
       } else {
         resourceSpecBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder mergeResourceSpec(com.google.cloud.dataplex.v1.Zone.ResourceSpec value) {
       if (resourceSpecBuilder_ == null) {
-        if (resourceSpec_ != null) {
-          resourceSpec_ =
-            com.google.cloud.dataplex.v1.Zone.ResourceSpec.newBuilder(resourceSpec_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000400) != 0) &&
+          resourceSpec_ != null &&
+          resourceSpec_ != com.google.cloud.dataplex.v1.Zone.ResourceSpec.getDefaultInstance()) {
+          getResourceSpecBuilder().mergeFrom(value);
         } else {
           resourceSpec_ = value;
         }
-        onChanged();
       } else {
         resourceSpecBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000400;
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public Builder clearResourceSpec() {
-      if (resourceSpecBuilder_ == null) {
-        resourceSpec_ = null;
-        onChanged();
-      } else {
-        resourceSpec_ = null;
+      bitField0_ = (bitField0_ & ~0x00000400);
+      resourceSpec_ = null;
+      if (resourceSpecBuilder_ != null) {
+        resourceSpecBuilder_.dispose();
         resourceSpecBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
      */
     public com.google.cloud.dataplex.v1.Zone.ResourceSpec.Builder getResourceSpecBuilder() {
-      
+      bitField0_ |= 0x00000400;
       onChanged();
       return getResourceSpecFieldBuilder().getBuilder();
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7390,8 +7241,8 @@ private static final long serialVersionUID = 0L;
     }
     /**
      * <pre>
-     * Required. Specification of the resources that are referenced by the assets within
-     * this zone.
+     * Required. Specification of the resources that are referenced by the assets
+     * within this zone.
      * </pre>
      *
      * <code>.google.cloud.dataplex.v1.Zone.ResourceSpec resource_spec = 104 [(.google.api.field_behavior) = REQUIRED];</code>
@@ -7422,7 +7273,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the assetStatus field is set.
      */
     public boolean hasAssetStatus() {
-      return assetStatusBuilder_ != null || assetStatus_ != null;
+      return ((bitField0_ & 0x00000800) != 0);
     }
     /**
      * <pre>
@@ -7452,11 +7303,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         assetStatus_ = value;
-        onChanged();
       } else {
         assetStatusBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -7470,11 +7321,11 @@ private static final long serialVersionUID = 0L;
         com.google.cloud.dataplex.v1.AssetStatus.Builder builderForValue) {
       if (assetStatusBuilder_ == null) {
         assetStatus_ = builderForValue.build();
-        onChanged();
       } else {
         assetStatusBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -7486,17 +7337,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeAssetStatus(com.google.cloud.dataplex.v1.AssetStatus value) {
       if (assetStatusBuilder_ == null) {
-        if (assetStatus_ != null) {
-          assetStatus_ =
-            com.google.cloud.dataplex.v1.AssetStatus.newBuilder(assetStatus_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000800) != 0) &&
+          assetStatus_ != null &&
+          assetStatus_ != com.google.cloud.dataplex.v1.AssetStatus.getDefaultInstance()) {
+          getAssetStatusBuilder().mergeFrom(value);
         } else {
           assetStatus_ = value;
         }
-        onChanged();
       } else {
         assetStatusBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000800;
+      onChanged();
       return this;
     }
     /**
@@ -7507,14 +7359,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataplex.v1.AssetStatus asset_status = 105 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public Builder clearAssetStatus() {
-      if (assetStatusBuilder_ == null) {
-        assetStatus_ = null;
-        onChanged();
-      } else {
-        assetStatus_ = null;
+      bitField0_ = (bitField0_ & ~0x00000800);
+      assetStatus_ = null;
+      if (assetStatusBuilder_ != null) {
+        assetStatusBuilder_.dispose();
         assetStatusBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -7525,7 +7376,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.cloud.dataplex.v1.AssetStatus asset_status = 105 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
      */
     public com.google.cloud.dataplex.v1.AssetStatus.Builder getAssetStatusBuilder() {
-      
+      bitField0_ |= 0x00000800;
       onChanged();
       return getAssetStatusFieldBuilder().getBuilder();
     }
@@ -7597,7 +7448,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Zone(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

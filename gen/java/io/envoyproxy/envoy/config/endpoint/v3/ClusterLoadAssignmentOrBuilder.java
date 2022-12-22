@@ -120,7 +120,6 @@ public interface ClusterLoadAssignmentOrBuilder extends
    *
    * <code>map&lt;string, .envoy.config.endpoint.v3.Endpoint&gt; named_endpoints = 5;</code>
    */
-
   /* nullable */
 io.envoyproxy.envoy.config.endpoint.v3.Endpoint getNamedEndpointsOrDefault(
       java.lang.String key,
@@ -134,7 +133,6 @@ io.envoyproxy.envoy.config.endpoint.v3.Endpoint defaultValue);
    *
    * <code>map&lt;string, .envoy.config.endpoint.v3.Endpoint&gt; named_endpoints = 5;</code>
    */
-
   io.envoyproxy.envoy.config.endpoint.v3.Endpoint getNamedEndpointsOrThrow(
       java.lang.String key);
 

@@ -47,136 +47,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Operation(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            action_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resourceType_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            resource_ = s;
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            path_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourceResource_ = s;
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            sourcePath_ = s;
-            break;
-          }
-          case 58: {
-            com.google.protobuf.Value.Builder subBuilder = null;
-            if (pathValueCase_ == 7) {
-              subBuilder = ((com.google.protobuf.Value) pathValue_).toBuilder();
-            }
-            pathValue_ =
-                input.readMessage(com.google.protobuf.Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.protobuf.Value) pathValue_);
-              pathValue_ = subBuilder.buildPartial();
-            }
-            pathValueCase_ = 7;
-            break;
-          }
-          case 66: {
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              pathFilters_ = com.google.protobuf.MapField.newMapField(
-                  PathFiltersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000001;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
-            pathFilters__ = input.readMessage(
-                PathFiltersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            pathFilters_.getMutableMap().put(
-                pathFilters__.getKey(), pathFilters__.getValue());
-            break;
-          }
-          case 82: {
-            com.google.cloud.recommender.v1beta1.ValueMatcher.Builder subBuilder = null;
-            if (pathValueCase_ == 10) {
-              subBuilder = ((com.google.cloud.recommender.v1beta1.ValueMatcher) pathValue_).toBuilder();
-            }
-            pathValue_ =
-                input.readMessage(com.google.cloud.recommender.v1beta1.ValueMatcher.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom((com.google.cloud.recommender.v1beta1.ValueMatcher) pathValue_);
-              pathValue_ = subBuilder.buildPartial();
-            }
-            pathValueCase_ = 10;
-            break;
-          }
-          case 90: {
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              pathValueMatchers_ = com.google.protobuf.MapField.newMapField(
-                  PathValueMatchersDefaultEntryHolder.defaultEntry);
-              mutable_bitField0_ |= 0x00000002;
-            }
-            com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher>
-            pathValueMatchers__ = input.readMessage(
-                PathValueMatchersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
-            pathValueMatchers_.getMutableMap().put(
-                pathValueMatchers__.getKey(), pathValueMatchers__.getValue());
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.recommender.v1beta1.RecommendationOuterClass.internal_static_google_cloud_recommender_v1beta1_Operation_descriptor;
@@ -246,7 +116,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ACTION_FIELD_NUMBER = 1;
-  private volatile java.lang.Object action_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object action_ = "";
   /**
    * <pre>
    * Type of this operation. Contains one of 'add', 'remove', 'replace', 'move',
@@ -296,7 +167,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_TYPE_FIELD_NUMBER = 2;
-  private volatile java.lang.Object resourceType_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resourceType_ = "";
   /**
    * <pre>
    * Type of GCP resource being modified/tested. This field is always populated.
@@ -346,7 +218,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESOURCE_FIELD_NUMBER = 3;
-  private volatile java.lang.Object resource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object resource_ = "";
   /**
    * <pre>
    * Contains the fully qualified resource name. This field is always populated.
@@ -394,7 +267,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PATH_FIELD_NUMBER = 4;
-  private volatile java.lang.Object path_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object path_ = "";
   /**
    * <pre>
    * Path to the target field being operated on. If the operation is at the
@@ -442,7 +316,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_RESOURCE_FIELD_NUMBER = 5;
-  private volatile java.lang.Object sourceResource_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourceResource_ = "";
   /**
    * <pre>
    * Can be set with action 'copy' to copy resource configuration across
@@ -496,7 +371,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SOURCE_PATH_FIELD_NUMBER = 6;
-  private volatile java.lang.Object sourcePath_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object sourcePath_ = "";
   /**
    * <pre>
    * Can be set with action 'copy' or 'move' to indicate the source field within
@@ -650,6 +526,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.protobuf.Value.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.protobuf.Value> pathFilters_;
   private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
@@ -660,7 +537,6 @@ private static final long serialVersionUID = 0L;
     }
     return pathFilters_;
   }
-
   public int getPathFiltersCount() {
     return internalGetPathFilters().getMap().size();
   }
@@ -698,7 +574,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
    */
-
   @java.lang.Override
   public boolean containsPathFilters(
       java.lang.String key) {
@@ -748,7 +623,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.protobuf.Value> getPathFiltersMap() {
     return internalGetPathFilters().getMap();
   }
@@ -787,10 +661,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
    */
   @java.lang.Override
-
-  public com.google.protobuf.Value getPathFiltersOrDefault(
+  public /* nullable */
+com.google.protobuf.Value getPathFiltersOrDefault(
       java.lang.String key,
-      com.google.protobuf.Value defaultValue) {
+      /* nullable */
+com.google.protobuf.Value defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.protobuf.Value> map =
         internalGetPathFilters().getMap();
@@ -831,7 +706,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
    */
   @java.lang.Override
-
   public com.google.protobuf.Value getPathFiltersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -855,6 +729,7 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.WireFormat.FieldType.MESSAGE,
                 com.google.cloud.recommender.v1beta1.ValueMatcher.getDefaultInstance());
   }
+  @SuppressWarnings("serial")
   private com.google.protobuf.MapField<
       java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> pathValueMatchers_;
   private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher>
@@ -865,7 +740,6 @@ private static final long serialVersionUID = 0L;
     }
     return pathValueMatchers_;
   }
-
   public int getPathValueMatchersCount() {
     return internalGetPathValueMatchers().getMap().size();
   }
@@ -880,7 +754,6 @@ private static final long serialVersionUID = 0L;
    *
    * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
    */
-
   @java.lang.Override
   public boolean containsPathValueMatchers(
       java.lang.String key) {
@@ -907,7 +780,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
    */
   @java.lang.Override
-
   public java.util.Map<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> getPathValueMatchersMap() {
     return internalGetPathValueMatchers().getMap();
   }
@@ -923,10 +795,11 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
    */
   @java.lang.Override
-
-  public com.google.cloud.recommender.v1beta1.ValueMatcher getPathValueMatchersOrDefault(
+  public /* nullable */
+com.google.cloud.recommender.v1beta1.ValueMatcher getPathValueMatchersOrDefault(
       java.lang.String key,
-      com.google.cloud.recommender.v1beta1.ValueMatcher defaultValue) {
+      /* nullable */
+com.google.cloud.recommender.v1beta1.ValueMatcher defaultValue) {
     if (key == null) { throw new NullPointerException("map key"); }
     java.util.Map<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> map =
         internalGetPathValueMatchers().getMap();
@@ -944,7 +817,6 @@ private static final long serialVersionUID = 0L;
    * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
    */
   @java.lang.Override
-
   public com.google.cloud.recommender.v1beta1.ValueMatcher getPathValueMatchersOrThrow(
       java.lang.String key) {
     if (key == null) { throw new NullPointerException("map key"); }
@@ -1006,7 +878,7 @@ private static final long serialVersionUID = 0L;
         internalGetPathValueMatchers(),
         PathValueMatchersDefaultEntryHolder.defaultEntry,
         11);
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -1061,7 +933,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(11, pathValueMatchers__);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -1105,7 +977,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -1148,7 +1020,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1302,34 +1174,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.recommender.v1beta1.Operation.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       action_ = "";
-
       resourceType_ = "";
-
       resource_ = "";
-
       path_ = "";
-
       sourceResource_ = "";
-
       sourcePath_ = "";
-
+      if (valueBuilder_ != null) {
+        valueBuilder_.clear();
+      }
+      if (valueMatcherBuilder_ != null) {
+        valueMatcherBuilder_.clear();
+      }
       internalGetMutablePathFilters().clear();
       internalGetMutablePathValueMatchers().clear();
       pathValueCase_ = 0;
@@ -1360,34 +1228,53 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.recommender.v1beta1.Operation buildPartial() {
       com.google.cloud.recommender.v1beta1.Operation result = new com.google.cloud.recommender.v1beta1.Operation(this);
-      int from_bitField0_ = bitField0_;
-      result.action_ = action_;
-      result.resourceType_ = resourceType_;
-      result.resource_ = resource_;
-      result.path_ = path_;
-      result.sourceResource_ = sourceResource_;
-      result.sourcePath_ = sourcePath_;
-      if (pathValueCase_ == 7) {
-        if (valueBuilder_ == null) {
-          result.pathValue_ = pathValue_;
-        } else {
-          result.pathValue_ = valueBuilder_.build();
-        }
-      }
-      if (pathValueCase_ == 10) {
-        if (valueMatcherBuilder_ == null) {
-          result.pathValue_ = pathValue_;
-        } else {
-          result.pathValue_ = valueMatcherBuilder_.build();
-        }
-      }
-      result.pathFilters_ = internalGetPathFilters();
-      result.pathFilters_.makeImmutable();
-      result.pathValueMatchers_ = internalGetPathValueMatchers();
-      result.pathValueMatchers_.makeImmutable();
-      result.pathValueCase_ = pathValueCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.recommender.v1beta1.Operation result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.action_ = action_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.resourceType_ = resourceType_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.resource_ = resource_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.path_ = path_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.sourceResource_ = sourceResource_;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.sourcePath_ = sourcePath_;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.pathFilters_ = internalGetPathFilters();
+        result.pathFilters_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.pathValueMatchers_ = internalGetPathValueMatchers();
+        result.pathValueMatchers_.makeImmutable();
+      }
+    }
+
+    private void buildPartialOneofs(com.google.cloud.recommender.v1beta1.Operation result) {
+      result.pathValueCase_ = pathValueCase_;
+      result.pathValue_ = this.pathValue_;
+      if (pathValueCase_ == 7 &&
+          valueBuilder_ != null) {
+        result.pathValue_ = valueBuilder_.build();
+      }
+      if (pathValueCase_ == 10 &&
+          valueMatcherBuilder_ != null) {
+        result.pathValue_ = valueMatcherBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -1436,32 +1323,40 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.cloud.recommender.v1beta1.Operation.getDefaultInstance()) return this;
       if (!other.getAction().isEmpty()) {
         action_ = other.action_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getResourceType().isEmpty()) {
         resourceType_ = other.resourceType_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.getResource().isEmpty()) {
         resource_ = other.resource_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (!other.getPath().isEmpty()) {
         path_ = other.path_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getSourceResource().isEmpty()) {
         sourceResource_ = other.sourceResource_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       if (!other.getSourcePath().isEmpty()) {
         sourcePath_ = other.sourcePath_;
+        bitField0_ |= 0x00000020;
         onChanged();
       }
       internalGetMutablePathFilters().mergeFrom(
           other.internalGetPathFilters());
+      bitField0_ |= 0x00000100;
       internalGetMutablePathValueMatchers().mergeFrom(
           other.internalGetPathValueMatchers());
+      bitField0_ |= 0x00000200;
       switch (other.getPathValueCase()) {
         case VALUE: {
           mergeValue(other.getValue());
@@ -1475,7 +1370,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1490,17 +1385,92 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.recommender.v1beta1.Operation parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              action_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              resourceType_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              resource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              path_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              sourceResource_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              sourcePath_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              input.readMessage(
+                  getValueFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              pathValueCase_ = 7;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+              pathFilters__ = input.readMessage(
+                  PathFiltersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePathFilters().getMutableMap().put(
+                  pathFilters__.getKey(), pathFilters__.getValue());
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 66
+            case 82: {
+              input.readMessage(
+                  getValueMatcherFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              pathValueCase_ = 10;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher>
+              pathValueMatchers__ = input.readMessage(
+                  PathValueMatchersDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePathValueMatchers().getMutableMap().put(
+                  pathValueMatchers__.getKey(), pathValueMatchers__.getValue());
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 90
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.recommender.v1beta1.Operation) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int pathValueCase_ = 0;
@@ -1579,11 +1549,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setAction(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       action_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1598,8 +1566,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearAction() {
-      
       action_ = getDefaultInstance().getAction();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1616,12 +1584,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setActionBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       action_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1685,11 +1651,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceType(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resourceType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1704,8 +1668,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResourceType() {
-      
       resourceType_ = getDefaultInstance().getResourceType();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1722,12 +1686,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceTypeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resourceType_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1788,11 +1750,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       resource_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1806,8 +1766,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearResource() {
-      
       resource_ = getDefaultInstance().getResource();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1823,12 +1783,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       resource_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1889,11 +1847,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       path_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1907,8 +1863,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPath() {
-      
       path_ = getDefaultInstance().getPath();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1924,12 +1880,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       path_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1999,11 +1953,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceResource(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourceResource_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2020,8 +1972,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourceResource() {
-      
       sourceResource_ = getDefaultInstance().getSourceResource();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -2040,12 +1992,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourceResourceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourceResource_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -2106,11 +2056,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourcePath(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       sourcePath_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2124,8 +2072,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearSourcePath() {
-      
       sourcePath_ = getDefaultInstance().getSourcePath();
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -2141,12 +2089,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSourcePathBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       sourcePath_ = value;
+      bitField0_ |= 0x00000020;
       onChanged();
       return this;
     }
@@ -2343,7 +2289,7 @@ private static final long serialVersionUID = 0L;
         pathValue_ = null;
       }
       pathValueCase_ = 7;
-      onChanged();;
+      onChanged();
       return valueBuilder_;
     }
 
@@ -2530,14 +2476,14 @@ private static final long serialVersionUID = 0L;
         pathValue_ = null;
       }
       pathValueCase_ = 10;
-      onChanged();;
+      onChanged();
       return valueMatcherBuilder_;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.protobuf.Value> pathFilters_;
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetPathFilters() {
+        internalGetPathFilters() {
       if (pathFilters_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PathFiltersDefaultEntryHolder.defaultEntry);
@@ -2545,8 +2491,7 @@ private static final long serialVersionUID = 0L;
       return pathFilters_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.protobuf.Value>
-    internalGetMutablePathFilters() {
-      onChanged();;
+        internalGetMutablePathFilters() {
       if (pathFilters_ == null) {
         pathFilters_ = com.google.protobuf.MapField.newMapField(
             PathFiltersDefaultEntryHolder.defaultEntry);
@@ -2554,9 +2499,10 @@ private static final long serialVersionUID = 0L;
       if (!pathFilters_.isMutable()) {
         pathFilters_ = pathFilters_.copy();
       }
+      bitField0_ |= 0x00000100;
+      onChanged();
       return pathFilters_;
     }
-
     public int getPathFiltersCount() {
       return internalGetPathFilters().getMap().size();
     }
@@ -2594,7 +2540,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
      */
-
     @java.lang.Override
     public boolean containsPathFilters(
         java.lang.String key) {
@@ -2644,7 +2589,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.protobuf.Value> getPathFiltersMap() {
       return internalGetPathFilters().getMap();
     }
@@ -2683,10 +2627,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
      */
     @java.lang.Override
-
-    public com.google.protobuf.Value getPathFiltersOrDefault(
+    public /* nullable */
+com.google.protobuf.Value getPathFiltersOrDefault(
         java.lang.String key,
-        com.google.protobuf.Value defaultValue) {
+        /* nullable */
+com.google.protobuf.Value defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.protobuf.Value> map =
           internalGetPathFilters().getMap();
@@ -2727,7 +2672,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
      */
     @java.lang.Override
-
     public com.google.protobuf.Value getPathFiltersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2738,8 +2682,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearPathFilters() {
+      bitField0_ = (bitField0_ & ~0x00000100);
       internalGetMutablePathFilters().getMutableMap()
           .clear();
       return this;
@@ -2778,7 +2722,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
      */
-
     public Builder removePathFilters(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2791,7 +2734,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.protobuf.Value>
-    getMutablePathFilters() {
+        getMutablePathFilters() {
+      bitField0_ |= 0x00000100;
       return internalGetMutablePathFilters().getMutableMap();
     }
     /**
@@ -2832,12 +2776,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.protobuf.Value value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePathFilters().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000100;
       return this;
     }
     /**
@@ -2874,18 +2816,18 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.protobuf.Value&gt; path_filters = 8;</code>
      */
-
     public Builder putAllPathFilters(
         java.util.Map<java.lang.String, com.google.protobuf.Value> values) {
       internalGetMutablePathFilters().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000100;
       return this;
     }
 
     private com.google.protobuf.MapField<
         java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> pathValueMatchers_;
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher>
-    internalGetPathValueMatchers() {
+        internalGetPathValueMatchers() {
       if (pathValueMatchers_ == null) {
         return com.google.protobuf.MapField.emptyMapField(
             PathValueMatchersDefaultEntryHolder.defaultEntry);
@@ -2893,8 +2835,7 @@ private static final long serialVersionUID = 0L;
       return pathValueMatchers_;
     }
     private com.google.protobuf.MapField<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher>
-    internalGetMutablePathValueMatchers() {
-      onChanged();;
+        internalGetMutablePathValueMatchers() {
       if (pathValueMatchers_ == null) {
         pathValueMatchers_ = com.google.protobuf.MapField.newMapField(
             PathValueMatchersDefaultEntryHolder.defaultEntry);
@@ -2902,9 +2843,10 @@ private static final long serialVersionUID = 0L;
       if (!pathValueMatchers_.isMutable()) {
         pathValueMatchers_ = pathValueMatchers_.copy();
       }
+      bitField0_ |= 0x00000200;
+      onChanged();
       return pathValueMatchers_;
     }
-
     public int getPathValueMatchersCount() {
       return internalGetPathValueMatchers().getMap().size();
     }
@@ -2919,7 +2861,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
      */
-
     @java.lang.Override
     public boolean containsPathValueMatchers(
         java.lang.String key) {
@@ -2946,7 +2887,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
      */
     @java.lang.Override
-
     public java.util.Map<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> getPathValueMatchersMap() {
       return internalGetPathValueMatchers().getMap();
     }
@@ -2962,10 +2902,11 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
      */
     @java.lang.Override
-
-    public com.google.cloud.recommender.v1beta1.ValueMatcher getPathValueMatchersOrDefault(
+    public /* nullable */
+com.google.cloud.recommender.v1beta1.ValueMatcher getPathValueMatchersOrDefault(
         java.lang.String key,
-        com.google.cloud.recommender.v1beta1.ValueMatcher defaultValue) {
+        /* nullable */
+com.google.cloud.recommender.v1beta1.ValueMatcher defaultValue) {
       if (key == null) { throw new NullPointerException("map key"); }
       java.util.Map<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> map =
           internalGetPathValueMatchers().getMap();
@@ -2983,7 +2924,6 @@ private static final long serialVersionUID = 0L;
      * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
      */
     @java.lang.Override
-
     public com.google.cloud.recommender.v1beta1.ValueMatcher getPathValueMatchersOrThrow(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -2994,8 +2934,8 @@ private static final long serialVersionUID = 0L;
       }
       return map.get(key);
     }
-
     public Builder clearPathValueMatchers() {
+      bitField0_ = (bitField0_ & ~0x00000200);
       internalGetMutablePathValueMatchers().getMutableMap()
           .clear();
       return this;
@@ -3011,7 +2951,6 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
      */
-
     public Builder removePathValueMatchers(
         java.lang.String key) {
       if (key == null) { throw new NullPointerException("map key"); }
@@ -3024,7 +2963,8 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Deprecated
     public java.util.Map<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher>
-    getMutablePathValueMatchers() {
+        getMutablePathValueMatchers() {
+      bitField0_ |= 0x00000200;
       return internalGetMutablePathValueMatchers().getMutableMap();
     }
     /**
@@ -3042,12 +2982,10 @@ private static final long serialVersionUID = 0L;
         java.lang.String key,
         com.google.cloud.recommender.v1beta1.ValueMatcher value) {
       if (key == null) { throw new NullPointerException("map key"); }
-      if (value == null) {
-  throw new NullPointerException("map value");
-}
-
+      if (value == null) { throw new NullPointerException("map value"); }
       internalGetMutablePathValueMatchers().getMutableMap()
           .put(key, value);
+      bitField0_ |= 0x00000200;
       return this;
     }
     /**
@@ -3061,11 +2999,11 @@ private static final long serialVersionUID = 0L;
      *
      * <code>map&lt;string, .google.cloud.recommender.v1beta1.ValueMatcher&gt; path_value_matchers = 11;</code>
      */
-
     public Builder putAllPathValueMatchers(
         java.util.Map<java.lang.String, com.google.cloud.recommender.v1beta1.ValueMatcher> values) {
       internalGetMutablePathValueMatchers().getMutableMap()
           .putAll(values);
+      bitField0_ |= 0x00000200;
       return this;
     }
     @java.lang.Override
@@ -3101,7 +3039,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Operation(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

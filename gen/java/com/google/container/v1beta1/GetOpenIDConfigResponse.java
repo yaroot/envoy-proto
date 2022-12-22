@@ -42,118 +42,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private GetOpenIDConfigResponse(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            issuer_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            jwksUri_ = s;
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-              responseTypesSupported_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000001;
-            }
-            responseTypesSupported_.add(s);
-            break;
-          }
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000002) != 0)) {
-              subjectTypesSupported_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000002;
-            }
-            subjectTypesSupported_.add(s);
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000004) != 0)) {
-              idTokenSigningAlgValuesSupported_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000004;
-            }
-            idTokenSigningAlgValuesSupported_.add(s);
-            break;
-          }
-          case 50: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000008) != 0)) {
-              claimsSupported_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000008;
-            }
-            claimsSupported_.add(s);
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            if (!((mutable_bitField0_ & 0x00000010) != 0)) {
-              grantTypes_ = new com.google.protobuf.LazyStringArrayList();
-              mutable_bitField0_ |= 0x00000010;
-            }
-            grantTypes_.add(s);
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      if (((mutable_bitField0_ & 0x00000001) != 0)) {
-        responseTypesSupported_ = responseTypesSupported_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000002) != 0)) {
-        subjectTypesSupported_ = subjectTypesSupported_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000004) != 0)) {
-        idTokenSigningAlgValuesSupported_ = idTokenSigningAlgValuesSupported_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000008) != 0)) {
-        claimsSupported_ = claimsSupported_.getUnmodifiableView();
-      }
-      if (((mutable_bitField0_ & 0x00000010) != 0)) {
-        grantTypes_ = grantTypes_.getUnmodifiableView();
-      }
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.container.v1beta1.ClusterServiceProto.internal_static_google_container_v1beta1_GetOpenIDConfigResponse_descriptor;
@@ -168,7 +56,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ISSUER_FIELD_NUMBER = 1;
-  private volatile java.lang.Object issuer_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object issuer_ = "";
   /**
    * <pre>
    * OIDC Issuer.
@@ -214,7 +103,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int JWKS_URI_FIELD_NUMBER = 2;
-  private volatile java.lang.Object jwksUri_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object jwksUri_ = "";
   /**
    * <pre>
    * JSON Web Key uri.
@@ -260,6 +150,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RESPONSE_TYPES_SUPPORTED_FIELD_NUMBER = 3;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList responseTypesSupported_;
   /**
    * <pre>
@@ -311,6 +202,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int SUBJECT_TYPES_SUPPORTED_FIELD_NUMBER = 4;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList subjectTypesSupported_;
   /**
    * <pre>
@@ -362,6 +254,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int ID_TOKEN_SIGNING_ALG_VALUES_SUPPORTED_FIELD_NUMBER = 5;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList idTokenSigningAlgValuesSupported_;
   /**
    * <pre>
@@ -413,6 +306,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CLAIMS_SUPPORTED_FIELD_NUMBER = 6;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList claimsSupported_;
   /**
    * <pre>
@@ -464,6 +358,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int GRANT_TYPES_FIELD_NUMBER = 7;
+  @SuppressWarnings("serial")
   private com.google.protobuf.LazyStringList grantTypes_;
   /**
    * <pre>
@@ -549,7 +444,7 @@ private static final long serialVersionUID = 0L;
     for (int i = 0; i < grantTypes_.size(); i++) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, grantTypes_.getRaw(i));
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -604,7 +499,7 @@ private static final long serialVersionUID = 0L;
       size += dataSize;
       size += 1 * getGrantTypesList().size();
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -633,7 +528,7 @@ private static final long serialVersionUID = 0L;
         .equals(other.getClaimsSupportedList())) return false;
     if (!getGrantTypesList()
         .equals(other.getGrantTypesList())) return false;
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -668,7 +563,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + GRANT_TYPES_FIELD_NUMBER;
       hash = (53 * hash) + getGrantTypesList().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -790,36 +685,30 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.container.v1beta1.GetOpenIDConfigResponse.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       issuer_ = "";
-
       jwksUri_ = "";
-
       responseTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
-      subjectTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
-      idTokenSigningAlgValuesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000004);
-      claimsSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      subjectTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000008);
-      grantTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      idTokenSigningAlgValuesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       bitField0_ = (bitField0_ & ~0x00000010);
+      claimsSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000020);
+      grantTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000040);
       return this;
     }
 
@@ -846,36 +735,48 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.container.v1beta1.GetOpenIDConfigResponse buildPartial() {
       com.google.container.v1beta1.GetOpenIDConfigResponse result = new com.google.container.v1beta1.GetOpenIDConfigResponse(this);
-      int from_bitField0_ = bitField0_;
-      result.issuer_ = issuer_;
-      result.jwksUri_ = jwksUri_;
-      if (((bitField0_ & 0x00000001) != 0)) {
-        responseTypesSupported_ = responseTypesSupported_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000001);
-      }
-      result.responseTypesSupported_ = responseTypesSupported_;
-      if (((bitField0_ & 0x00000002) != 0)) {
-        subjectTypesSupported_ = subjectTypesSupported_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000002);
-      }
-      result.subjectTypesSupported_ = subjectTypesSupported_;
-      if (((bitField0_ & 0x00000004) != 0)) {
-        idTokenSigningAlgValuesSupported_ = idTokenSigningAlgValuesSupported_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000004);
-      }
-      result.idTokenSigningAlgValuesSupported_ = idTokenSigningAlgValuesSupported_;
-      if (((bitField0_ & 0x00000008) != 0)) {
-        claimsSupported_ = claimsSupported_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000008);
-      }
-      result.claimsSupported_ = claimsSupported_;
-      if (((bitField0_ & 0x00000010) != 0)) {
-        grantTypes_ = grantTypes_.getUnmodifiableView();
-        bitField0_ = (bitField0_ & ~0x00000010);
-      }
-      result.grantTypes_ = grantTypes_;
+      buildPartialRepeatedFields(result);
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartialRepeatedFields(com.google.container.v1beta1.GetOpenIDConfigResponse result) {
+      if (((bitField0_ & 0x00000004) != 0)) {
+        responseTypesSupported_ = responseTypesSupported_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000004);
+      }
+      result.responseTypesSupported_ = responseTypesSupported_;
+      if (((bitField0_ & 0x00000008) != 0)) {
+        subjectTypesSupported_ = subjectTypesSupported_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000008);
+      }
+      result.subjectTypesSupported_ = subjectTypesSupported_;
+      if (((bitField0_ & 0x00000010) != 0)) {
+        idTokenSigningAlgValuesSupported_ = idTokenSigningAlgValuesSupported_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000010);
+      }
+      result.idTokenSigningAlgValuesSupported_ = idTokenSigningAlgValuesSupported_;
+      if (((bitField0_ & 0x00000020) != 0)) {
+        claimsSupported_ = claimsSupported_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000020);
+      }
+      result.claimsSupported_ = claimsSupported_;
+      if (((bitField0_ & 0x00000040) != 0)) {
+        grantTypes_ = grantTypes_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000040);
+      }
+      result.grantTypes_ = grantTypes_;
+    }
+
+    private void buildPartial0(com.google.container.v1beta1.GetOpenIDConfigResponse result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.issuer_ = issuer_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.jwksUri_ = jwksUri_;
+      }
     }
 
     @java.lang.Override
@@ -924,16 +825,18 @@ private static final long serialVersionUID = 0L;
       if (other == com.google.container.v1beta1.GetOpenIDConfigResponse.getDefaultInstance()) return this;
       if (!other.getIssuer().isEmpty()) {
         issuer_ = other.issuer_;
+        bitField0_ |= 0x00000001;
         onChanged();
       }
       if (!other.getJwksUri().isEmpty()) {
         jwksUri_ = other.jwksUri_;
+        bitField0_ |= 0x00000002;
         onChanged();
       }
       if (!other.responseTypesSupported_.isEmpty()) {
         if (responseTypesSupported_.isEmpty()) {
           responseTypesSupported_ = other.responseTypesSupported_;
-          bitField0_ = (bitField0_ & ~0x00000001);
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
           ensureResponseTypesSupportedIsMutable();
           responseTypesSupported_.addAll(other.responseTypesSupported_);
@@ -943,7 +846,7 @@ private static final long serialVersionUID = 0L;
       if (!other.subjectTypesSupported_.isEmpty()) {
         if (subjectTypesSupported_.isEmpty()) {
           subjectTypesSupported_ = other.subjectTypesSupported_;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000008);
         } else {
           ensureSubjectTypesSupportedIsMutable();
           subjectTypesSupported_.addAll(other.subjectTypesSupported_);
@@ -953,7 +856,7 @@ private static final long serialVersionUID = 0L;
       if (!other.idTokenSigningAlgValuesSupported_.isEmpty()) {
         if (idTokenSigningAlgValuesSupported_.isEmpty()) {
           idTokenSigningAlgValuesSupported_ = other.idTokenSigningAlgValuesSupported_;
-          bitField0_ = (bitField0_ & ~0x00000004);
+          bitField0_ = (bitField0_ & ~0x00000010);
         } else {
           ensureIdTokenSigningAlgValuesSupportedIsMutable();
           idTokenSigningAlgValuesSupported_.addAll(other.idTokenSigningAlgValuesSupported_);
@@ -963,7 +866,7 @@ private static final long serialVersionUID = 0L;
       if (!other.claimsSupported_.isEmpty()) {
         if (claimsSupported_.isEmpty()) {
           claimsSupported_ = other.claimsSupported_;
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000020);
         } else {
           ensureClaimsSupportedIsMutable();
           claimsSupported_.addAll(other.claimsSupported_);
@@ -973,14 +876,14 @@ private static final long serialVersionUID = 0L;
       if (!other.grantTypes_.isEmpty()) {
         if (grantTypes_.isEmpty()) {
           grantTypes_ = other.grantTypes_;
-          bitField0_ = (bitField0_ & ~0x00000010);
+          bitField0_ = (bitField0_ & ~0x00000040);
         } else {
           ensureGrantTypesIsMutable();
           grantTypes_.addAll(other.grantTypes_);
         }
         onChanged();
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -995,17 +898,70 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.container.v1beta1.GetOpenIDConfigResponse parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              issuer_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              jwksUri_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureResponseTypesSupportedIsMutable();
+              responseTypesSupported_.add(s);
+              break;
+            } // case 26
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureSubjectTypesSupportedIsMutable();
+              subjectTypesSupported_.add(s);
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureIdTokenSigningAlgValuesSupportedIsMutable();
+              idTokenSigningAlgValuesSupported_.add(s);
+              break;
+            } // case 42
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureClaimsSupportedIsMutable();
+              claimsSupported_.add(s);
+              break;
+            } // case 50
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+              ensureGrantTypesIsMutable();
+              grantTypes_.add(s);
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.container.v1beta1.GetOpenIDConfigResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -1063,11 +1019,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIssuer(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       issuer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1080,8 +1034,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearIssuer() {
-      
       issuer_ = getDefaultInstance().getIssuer();
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
@@ -1096,12 +1050,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIssuerBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       issuer_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -1159,11 +1111,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJwksUri(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       jwksUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -1176,8 +1126,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearJwksUri() {
-      
       jwksUri_ = getDefaultInstance().getJwksUri();
+      bitField0_ = (bitField0_ & ~0x00000002);
       onChanged();
       return this;
     }
@@ -1192,21 +1142,19 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setJwksUriBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       jwksUri_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
 
     private com.google.protobuf.LazyStringList responseTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureResponseTypesSupportedIsMutable() {
-      if (!((bitField0_ & 0x00000001) != 0)) {
+      if (!((bitField0_ & 0x00000004) != 0)) {
         responseTypesSupported_ = new com.google.protobuf.LazyStringArrayList(responseTypesSupported_);
-        bitField0_ |= 0x00000001;
+        bitField0_ |= 0x00000004;
        }
     }
     /**
@@ -1269,10 +1217,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setResponseTypesSupported(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseTypesSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResponseTypesSupportedIsMutable();
       responseTypesSupported_.set(index, value);
       onChanged();
       return this;
@@ -1288,10 +1234,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResponseTypesSupported(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureResponseTypesSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureResponseTypesSupportedIsMutable();
       responseTypesSupported_.add(value);
       onChanged();
       return this;
@@ -1323,7 +1267,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearResponseTypesSupported() {
       responseTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000001);
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -1338,10 +1282,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addResponseTypesSupportedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureResponseTypesSupportedIsMutable();
       responseTypesSupported_.add(value);
       onChanged();
@@ -1350,9 +1292,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList subjectTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureSubjectTypesSupportedIsMutable() {
-      if (!((bitField0_ & 0x00000002) != 0)) {
+      if (!((bitField0_ & 0x00000008) != 0)) {
         subjectTypesSupported_ = new com.google.protobuf.LazyStringArrayList(subjectTypesSupported_);
-        bitField0_ |= 0x00000002;
+        bitField0_ |= 0x00000008;
        }
     }
     /**
@@ -1415,10 +1357,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setSubjectTypesSupported(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSubjectTypesSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSubjectTypesSupportedIsMutable();
       subjectTypesSupported_.set(index, value);
       onChanged();
       return this;
@@ -1434,10 +1374,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSubjectTypesSupported(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureSubjectTypesSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureSubjectTypesSupportedIsMutable();
       subjectTypesSupported_.add(value);
       onChanged();
       return this;
@@ -1469,7 +1407,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearSubjectTypesSupported() {
       subjectTypesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000002);
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1484,10 +1422,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addSubjectTypesSupportedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureSubjectTypesSupportedIsMutable();
       subjectTypesSupported_.add(value);
       onChanged();
@@ -1496,9 +1432,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList idTokenSigningAlgValuesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureIdTokenSigningAlgValuesSupportedIsMutable() {
-      if (!((bitField0_ & 0x00000004) != 0)) {
+      if (!((bitField0_ & 0x00000010) != 0)) {
         idTokenSigningAlgValuesSupported_ = new com.google.protobuf.LazyStringArrayList(idTokenSigningAlgValuesSupported_);
-        bitField0_ |= 0x00000004;
+        bitField0_ |= 0x00000010;
        }
     }
     /**
@@ -1561,10 +1497,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setIdTokenSigningAlgValuesSupported(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIdTokenSigningAlgValuesSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIdTokenSigningAlgValuesSupportedIsMutable();
       idTokenSigningAlgValuesSupported_.set(index, value);
       onChanged();
       return this;
@@ -1580,10 +1514,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIdTokenSigningAlgValuesSupported(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIdTokenSigningAlgValuesSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureIdTokenSigningAlgValuesSupportedIsMutable();
       idTokenSigningAlgValuesSupported_.add(value);
       onChanged();
       return this;
@@ -1615,7 +1547,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearIdTokenSigningAlgValuesSupported() {
       idTokenSigningAlgValuesSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000004);
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1630,10 +1562,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addIdTokenSigningAlgValuesSupportedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureIdTokenSigningAlgValuesSupportedIsMutable();
       idTokenSigningAlgValuesSupported_.add(value);
       onChanged();
@@ -1642,9 +1572,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList claimsSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureClaimsSupportedIsMutable() {
-      if (!((bitField0_ & 0x00000008) != 0)) {
+      if (!((bitField0_ & 0x00000020) != 0)) {
         claimsSupported_ = new com.google.protobuf.LazyStringArrayList(claimsSupported_);
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
        }
     }
     /**
@@ -1707,10 +1637,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setClaimsSupported(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureClaimsSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureClaimsSupportedIsMutable();
       claimsSupported_.set(index, value);
       onChanged();
       return this;
@@ -1726,10 +1654,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addClaimsSupported(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureClaimsSupportedIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureClaimsSupportedIsMutable();
       claimsSupported_.add(value);
       onChanged();
       return this;
@@ -1761,7 +1687,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearClaimsSupported() {
       claimsSupported_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000008);
+      bitField0_ = (bitField0_ & ~0x00000020);
       onChanged();
       return this;
     }
@@ -1776,10 +1702,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addClaimsSupportedBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureClaimsSupportedIsMutable();
       claimsSupported_.add(value);
       onChanged();
@@ -1788,9 +1712,9 @@ private static final long serialVersionUID = 0L;
 
     private com.google.protobuf.LazyStringList grantTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     private void ensureGrantTypesIsMutable() {
-      if (!((bitField0_ & 0x00000010) != 0)) {
+      if (!((bitField0_ & 0x00000040) != 0)) {
         grantTypes_ = new com.google.protobuf.LazyStringArrayList(grantTypes_);
-        bitField0_ |= 0x00000010;
+        bitField0_ |= 0x00000040;
        }
     }
     /**
@@ -1853,10 +1777,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setGrantTypes(
         int index, java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGrantTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureGrantTypesIsMutable();
       grantTypes_.set(index, value);
       onChanged();
       return this;
@@ -1872,10 +1794,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addGrantTypes(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureGrantTypesIsMutable();
+      if (value == null) { throw new NullPointerException(); }
+      ensureGrantTypesIsMutable();
       grantTypes_.add(value);
       onChanged();
       return this;
@@ -1907,7 +1827,7 @@ private static final long serialVersionUID = 0L;
      */
     public Builder clearGrantTypes() {
       grantTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      bitField0_ = (bitField0_ & ~0x00000010);
+      bitField0_ = (bitField0_ & ~0x00000040);
       onChanged();
       return this;
     }
@@ -1922,10 +1842,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder addGrantTypesBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       ensureGrantTypesIsMutable();
       grantTypes_.add(value);
       onChanged();
@@ -1964,7 +1882,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new GetOpenIDConfigResponse(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

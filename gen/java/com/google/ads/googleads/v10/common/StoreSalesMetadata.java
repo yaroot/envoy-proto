@@ -35,75 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private StoreSalesMetadata(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    int mutable_bitField0_ = 0;
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 26: {
-            com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.Builder subBuilder = null;
-            if (thirdPartyMetadata_ != null) {
-              subBuilder = thirdPartyMetadata_.toBuilder();
-            }
-            thirdPartyMetadata_ = input.readMessage(com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(thirdPartyMetadata_);
-              thirdPartyMetadata_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 41: {
-            bitField0_ |= 0x00000001;
-            loyaltyFraction_ = input.readDouble();
-            break;
-          }
-          case 49: {
-            bitField0_ |= 0x00000002;
-            transactionUploadFraction_ = input.readDouble();
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-            bitField0_ |= 0x00000004;
-            customKey_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.ads.googleads.v10.common.OfflineUserDataProto.internal_static_google_ads_googleads_v10_common_StoreSalesMetadata_descriptor;
@@ -119,7 +50,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int LOYALTY_FRACTION_FIELD_NUMBER = 5;
-  private double loyaltyFraction_;
+  private double loyaltyFraction_ = 0D;
   /**
    * <pre>
    * This is the fraction of all transactions that are identifiable (i.e.,
@@ -152,7 +83,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int TRANSACTION_UPLOAD_FRACTION_FIELD_NUMBER = 6;
-  private double transactionUploadFraction_;
+  private double transactionUploadFraction_ = 0D;
   /**
    * <pre>
    * This is the ratio of sales being uploaded compared to the overall sales
@@ -187,7 +118,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int CUSTOM_KEY_FIELD_NUMBER = 7;
-  private volatile java.lang.Object customKey_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object customKey_ = "";
   /**
    * <pre>
    * Name of the store sales custom variable key. A predefined key that
@@ -288,7 +220,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadataOrBuilder getThirdPartyMetadataOrBuilder() {
-    return getThirdPartyMetadata();
+    return thirdPartyMetadata_ == null ? com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.getDefaultInstance() : thirdPartyMetadata_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -317,7 +249,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 7, customKey_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -341,7 +273,7 @@ private static final long serialVersionUID = 0L;
     if (((bitField0_ & 0x00000004) != 0)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, customKey_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -378,7 +310,7 @@ private static final long serialVersionUID = 0L;
       if (!getThirdPartyMetadata()
           .equals(other.getThirdPartyMetadata())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -407,7 +339,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + THIRD_PARTY_METADATA_FIELD_NUMBER;
       hash = (53 * hash) + getThirdPartyMetadata().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -528,32 +460,24 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.ads.googleads.v10.common.StoreSalesMetadata.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       loyaltyFraction_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000001);
       transactionUploadFraction_ = 0D;
-      bitField0_ = (bitField0_ & ~0x00000002);
       customKey_ = "";
-      bitField0_ = (bitField0_ & ~0x00000004);
-      if (thirdPartyMetadataBuilder_ == null) {
-        thirdPartyMetadata_ = null;
-      } else {
-        thirdPartyMetadata_ = null;
+      thirdPartyMetadata_ = null;
+      if (thirdPartyMetadataBuilder_ != null) {
+        thirdPartyMetadataBuilder_.dispose();
         thirdPartyMetadataBuilder_ = null;
       }
       return this;
@@ -582,6 +506,12 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.ads.googleads.v10.common.StoreSalesMetadata buildPartial() {
       com.google.ads.googleads.v10.common.StoreSalesMetadata result = new com.google.ads.googleads.v10.common.StoreSalesMetadata(this);
+      if (bitField0_ != 0) { buildPartial0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private void buildPartial0(com.google.ads.googleads.v10.common.StoreSalesMetadata result) {
       int from_bitField0_ = bitField0_;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
@@ -593,17 +523,15 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.customKey_ = customKey_;
         to_bitField0_ |= 0x00000004;
       }
-      result.customKey_ = customKey_;
-      if (thirdPartyMetadataBuilder_ == null) {
-        result.thirdPartyMetadata_ = thirdPartyMetadata_;
-      } else {
-        result.thirdPartyMetadata_ = thirdPartyMetadataBuilder_.build();
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.thirdPartyMetadata_ = thirdPartyMetadataBuilder_ == null
+            ? thirdPartyMetadata_
+            : thirdPartyMetadataBuilder_.build();
       }
-      result.bitField0_ = to_bitField0_;
-      onBuilt();
-      return result;
+      result.bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -657,14 +585,14 @@ private static final long serialVersionUID = 0L;
         setTransactionUploadFraction(other.getTransactionUploadFraction());
       }
       if (other.hasCustomKey()) {
-        bitField0_ |= 0x00000004;
         customKey_ = other.customKey_;
+        bitField0_ |= 0x00000004;
         onChanged();
       }
       if (other.hasThirdPartyMetadata()) {
         mergeThirdPartyMetadata(other.getThirdPartyMetadata());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -679,17 +607,52 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.ads.googleads.v10.common.StoreSalesMetadata parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              input.readMessage(
+                  getThirdPartyMetadataFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 26
+            case 41: {
+              loyaltyFraction_ = input.readDouble();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 41
+            case 49: {
+              transactionUploadFraction_ = input.readDouble();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 49
+            case 58: {
+              customKey_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 58
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.ads.googleads.v10.common.StoreSalesMetadata) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int bitField0_;
@@ -738,8 +701,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setLoyaltyFraction(double value) {
-      bitField0_ |= 0x00000001;
+      
       loyaltyFraction_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -808,8 +772,9 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setTransactionUploadFraction(double value) {
-      bitField0_ |= 0x00000002;
+      
       transactionUploadFraction_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -908,11 +873,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomKey(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
       customKey_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -928,8 +891,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearCustomKey() {
-      bitField0_ = (bitField0_ & ~0x00000004);
       customKey_ = getDefaultInstance().getCustomKey();
+      bitField0_ = (bitField0_ & ~0x00000004);
       onChanged();
       return this;
     }
@@ -947,12 +910,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setCustomKeyBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      bitField0_ |= 0x00000004;
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       customKey_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -969,7 +930,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the thirdPartyMetadata field is set.
      */
     public boolean hasThirdPartyMetadata() {
-      return thirdPartyMetadataBuilder_ != null || thirdPartyMetadata_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -999,11 +960,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         thirdPartyMetadata_ = value;
-        onChanged();
       } else {
         thirdPartyMetadataBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1017,11 +978,11 @@ private static final long serialVersionUID = 0L;
         com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.Builder builderForValue) {
       if (thirdPartyMetadataBuilder_ == null) {
         thirdPartyMetadata_ = builderForValue.build();
-        onChanged();
       } else {
         thirdPartyMetadataBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1033,17 +994,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeThirdPartyMetadata(com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata value) {
       if (thirdPartyMetadataBuilder_ == null) {
-        if (thirdPartyMetadata_ != null) {
-          thirdPartyMetadata_ =
-            com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.newBuilder(thirdPartyMetadata_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          thirdPartyMetadata_ != null &&
+          thirdPartyMetadata_ != com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.getDefaultInstance()) {
+          getThirdPartyMetadataBuilder().mergeFrom(value);
         } else {
           thirdPartyMetadata_ = value;
         }
-        onChanged();
       } else {
         thirdPartyMetadataBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -1054,14 +1016,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata third_party_metadata = 3;</code>
      */
     public Builder clearThirdPartyMetadata() {
-      if (thirdPartyMetadataBuilder_ == null) {
-        thirdPartyMetadata_ = null;
-        onChanged();
-      } else {
-        thirdPartyMetadata_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      thirdPartyMetadata_ = null;
+      if (thirdPartyMetadataBuilder_ != null) {
+        thirdPartyMetadataBuilder_.dispose();
         thirdPartyMetadataBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1072,7 +1033,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata third_party_metadata = 3;</code>
      */
     public com.google.ads.googleads.v10.common.StoreSalesThirdPartyMetadata.Builder getThirdPartyMetadataBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getThirdPartyMetadataFieldBuilder().getBuilder();
     }
@@ -1144,7 +1105,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new StoreSalesMetadata(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

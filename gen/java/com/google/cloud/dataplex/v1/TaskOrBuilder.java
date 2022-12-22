@@ -33,8 +33,8 @@ public interface TaskOrBuilder extends
 
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the task. This ID will be
-   * different if the task is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the task. This ID will
+   * be different if the task is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -43,8 +43,8 @@ public interface TaskOrBuilder extends
   java.lang.String getUid();
   /**
    * <pre>
-   * Output only. System generated globally unique ID for the task. This ID will be
-   * different if the task is deleted and re-created with the same name.
+   * Output only. System generated globally unique ID for the task. This ID will
+   * be different if the task is deleted and re-created with the same name.
    * </pre>
    *
    * <code>string uid = 2 [(.google.api.field_behavior) = OUTPUT_ONLY];</code>
@@ -205,7 +205,6 @@ public interface TaskOrBuilder extends
    *
    * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   /* nullable */
 java.lang.String getLabelsOrDefault(
       java.lang.String key,
@@ -218,7 +217,6 @@ java.lang.String defaultValue);
    *
    * <code>map&lt;string, string&gt; labels = 8 [(.google.api.field_behavior) = OPTIONAL];</code>
    */
-
   java.lang.String getLabelsOrThrow(
       java.lang.String key);
 
@@ -329,6 +327,33 @@ java.lang.String defaultValue);
    * <code>.google.cloud.dataplex.v1.Task.SparkTaskConfig spark = 300;</code>
    */
   com.google.cloud.dataplex.v1.Task.SparkTaskConfigOrBuilder getSparkOrBuilder();
+
+  /**
+   * <pre>
+   * Config related to running scheduled Notebooks.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.Task.NotebookTaskConfig notebook = 302;</code>
+   * @return Whether the notebook field is set.
+   */
+  boolean hasNotebook();
+  /**
+   * <pre>
+   * Config related to running scheduled Notebooks.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.Task.NotebookTaskConfig notebook = 302;</code>
+   * @return The notebook.
+   */
+  com.google.cloud.dataplex.v1.Task.NotebookTaskConfig getNotebook();
+  /**
+   * <pre>
+   * Config related to running scheduled Notebooks.
+   * </pre>
+   *
+   * <code>.google.cloud.dataplex.v1.Task.NotebookTaskConfig notebook = 302;</code>
+   */
+  com.google.cloud.dataplex.v1.Task.NotebookTaskConfigOrBuilder getNotebookOrBuilder();
 
   public com.google.cloud.dataplex.v1.Task.ConfigCase getConfigCase();
 }

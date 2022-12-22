@@ -35,86 +35,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private InsightsConfig(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 8: {
-
-            queryInsightsEnabled_ = input.readBool();
-            break;
-          }
-          case 16: {
-
-            recordClientAddress_ = input.readBool();
-            break;
-          }
-          case 24: {
-
-            recordApplicationTags_ = input.readBool();
-            break;
-          }
-          case 34: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (queryStringLength_ != null) {
-              subBuilder = queryStringLength_.toBuilder();
-            }
-            queryStringLength_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryStringLength_);
-              queryStringLength_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          case 42: {
-            com.google.protobuf.Int32Value.Builder subBuilder = null;
-            if (queryPlansPerMinute_ != null) {
-              subBuilder = queryPlansPerMinute_.toBuilder();
-            }
-            queryPlansPerMinute_ = input.readMessage(com.google.protobuf.Int32Value.parser(), extensionRegistry);
-            if (subBuilder != null) {
-              subBuilder.mergeFrom(queryPlansPerMinute_);
-              queryPlansPerMinute_ = subBuilder.buildPartial();
-            }
-
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.cloud.sql.v1.CloudSqlResourcesProto.internal_static_google_cloud_sql_v1_InsightsConfig_descriptor;
@@ -129,7 +49,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int QUERY_INSIGHTS_ENABLED_FIELD_NUMBER = 1;
-  private boolean queryInsightsEnabled_;
+  private boolean queryInsightsEnabled_ = false;
   /**
    * <pre>
    * Whether Query Insights feature is enabled.
@@ -144,7 +64,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECORD_CLIENT_ADDRESS_FIELD_NUMBER = 2;
-  private boolean recordClientAddress_;
+  private boolean recordClientAddress_ = false;
   /**
    * <pre>
    * Whether Query Insights will record client address when enabled.
@@ -159,7 +79,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int RECORD_APPLICATION_TAGS_FIELD_NUMBER = 3;
-  private boolean recordApplicationTags_;
+  private boolean recordApplicationTags_ = false;
   /**
    * <pre>
    * Whether Query Insights will record application tags from query when
@@ -218,7 +138,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getQueryStringLengthOrBuilder() {
-    return getQueryStringLength();
+    return queryStringLength_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : queryStringLength_;
   }
 
   public static final int QUERY_PLANS_PER_MINUTE_FIELD_NUMBER = 5;
@@ -259,7 +179,7 @@ private static final long serialVersionUID = 0L;
    */
   @java.lang.Override
   public com.google.protobuf.Int32ValueOrBuilder getQueryPlansPerMinuteOrBuilder() {
-    return getQueryPlansPerMinute();
+    return queryPlansPerMinute_ == null ? com.google.protobuf.Int32Value.getDefaultInstance() : queryPlansPerMinute_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -291,7 +211,7 @@ private static final long serialVersionUID = 0L;
     if (queryPlansPerMinute_ != null) {
       output.writeMessage(5, getQueryPlansPerMinute());
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -320,7 +240,7 @@ private static final long serialVersionUID = 0L;
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(5, getQueryPlansPerMinute());
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -351,7 +271,7 @@ private static final long serialVersionUID = 0L;
       if (!getQueryPlansPerMinute()
           .equals(other.getQueryPlansPerMinute())) return false;
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -379,7 +299,7 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + QUERY_PLANS_PER_MINUTE_FIELD_NUMBER;
       hash = (53 * hash) + getQueryPlansPerMinute().hashCode();
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -501,38 +421,29 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.cloud.sql.v1.InsightsConfig.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       queryInsightsEnabled_ = false;
-
       recordClientAddress_ = false;
-
       recordApplicationTags_ = false;
-
-      if (queryStringLengthBuilder_ == null) {
-        queryStringLength_ = null;
-      } else {
-        queryStringLength_ = null;
+      queryStringLength_ = null;
+      if (queryStringLengthBuilder_ != null) {
+        queryStringLengthBuilder_.dispose();
         queryStringLengthBuilder_ = null;
       }
-      if (queryPlansPerMinuteBuilder_ == null) {
-        queryPlansPerMinute_ = null;
-      } else {
-        queryPlansPerMinute_ = null;
+      queryPlansPerMinute_ = null;
+      if (queryPlansPerMinuteBuilder_ != null) {
+        queryPlansPerMinuteBuilder_.dispose();
         queryPlansPerMinuteBuilder_ = null;
       }
       return this;
@@ -561,21 +472,32 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.cloud.sql.v1.InsightsConfig buildPartial() {
       com.google.cloud.sql.v1.InsightsConfig result = new com.google.cloud.sql.v1.InsightsConfig(this);
-      result.queryInsightsEnabled_ = queryInsightsEnabled_;
-      result.recordClientAddress_ = recordClientAddress_;
-      result.recordApplicationTags_ = recordApplicationTags_;
-      if (queryStringLengthBuilder_ == null) {
-        result.queryStringLength_ = queryStringLength_;
-      } else {
-        result.queryStringLength_ = queryStringLengthBuilder_.build();
-      }
-      if (queryPlansPerMinuteBuilder_ == null) {
-        result.queryPlansPerMinute_ = queryPlansPerMinute_;
-      } else {
-        result.queryPlansPerMinute_ = queryPlansPerMinuteBuilder_.build();
-      }
+      if (bitField0_ != 0) { buildPartial0(result); }
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.cloud.sql.v1.InsightsConfig result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.queryInsightsEnabled_ = queryInsightsEnabled_;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.recordClientAddress_ = recordClientAddress_;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.recordApplicationTags_ = recordApplicationTags_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.queryStringLength_ = queryStringLengthBuilder_ == null
+            ? queryStringLength_
+            : queryStringLengthBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.queryPlansPerMinute_ = queryPlansPerMinuteBuilder_ == null
+            ? queryPlansPerMinute_
+            : queryPlansPerMinuteBuilder_.build();
+      }
     }
 
     @java.lang.Override
@@ -637,7 +559,7 @@ private static final long serialVersionUID = 0L;
       if (other.hasQueryPlansPerMinute()) {
         mergeQueryPlansPerMinute(other.getQueryPlansPerMinute());
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -652,19 +574,62 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.cloud.sql.v1.InsightsConfig parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              queryInsightsEnabled_ = input.readBool();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              recordClientAddress_ = input.readBool();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              recordApplicationTags_ = input.readBool();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              input.readMessage(
+                  getQueryStringLengthFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              input.readMessage(
+                  getQueryPlansPerMinuteFieldBuilder().getBuilder(),
+                  extensionRegistry);
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.cloud.sql.v1.InsightsConfig) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
+    private int bitField0_;
 
     private boolean queryInsightsEnabled_ ;
     /**
@@ -691,6 +656,7 @@ private static final long serialVersionUID = 0L;
     public Builder setQueryInsightsEnabled(boolean value) {
       
       queryInsightsEnabled_ = value;
+      bitField0_ |= 0x00000001;
       onChanged();
       return this;
     }
@@ -703,7 +669,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearQueryInsightsEnabled() {
-      
+      bitField0_ = (bitField0_ & ~0x00000001);
       queryInsightsEnabled_ = false;
       onChanged();
       return this;
@@ -734,6 +700,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRecordClientAddress(boolean value) {
       
       recordClientAddress_ = value;
+      bitField0_ |= 0x00000002;
       onChanged();
       return this;
     }
@@ -746,7 +713,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecordClientAddress() {
-      
+      bitField0_ = (bitField0_ & ~0x00000002);
       recordClientAddress_ = false;
       onChanged();
       return this;
@@ -779,6 +746,7 @@ private static final long serialVersionUID = 0L;
     public Builder setRecordApplicationTags(boolean value) {
       
       recordApplicationTags_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -792,7 +760,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRecordApplicationTags() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       recordApplicationTags_ = false;
       onChanged();
       return this;
@@ -813,7 +781,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryStringLength field is set.
      */
     public boolean hasQueryStringLength() {
-      return queryStringLengthBuilder_ != null || queryStringLength_ != null;
+      return ((bitField0_ & 0x00000008) != 0);
     }
     /**
      * <pre>
@@ -849,11 +817,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryStringLength_ = value;
-        onChanged();
       } else {
         queryStringLengthBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -870,11 +838,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (queryStringLengthBuilder_ == null) {
         queryStringLength_ = builderForValue.build();
-        onChanged();
       } else {
         queryStringLengthBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -889,17 +857,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryStringLength(com.google.protobuf.Int32Value value) {
       if (queryStringLengthBuilder_ == null) {
-        if (queryStringLength_ != null) {
-          queryStringLength_ =
-            com.google.protobuf.Int32Value.newBuilder(queryStringLength_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000008) != 0) &&
+          queryStringLength_ != null &&
+          queryStringLength_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getQueryStringLengthBuilder().mergeFrom(value);
         } else {
           queryStringLength_ = value;
         }
-        onChanged();
       } else {
         queryStringLengthBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000008;
+      onChanged();
       return this;
     }
     /**
@@ -913,14 +882,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value query_string_length = 4;</code>
      */
     public Builder clearQueryStringLength() {
-      if (queryStringLengthBuilder_ == null) {
-        queryStringLength_ = null;
-        onChanged();
-      } else {
-        queryStringLength_ = null;
+      bitField0_ = (bitField0_ & ~0x00000008);
+      queryStringLength_ = null;
+      if (queryStringLengthBuilder_ != null) {
+        queryStringLengthBuilder_.dispose();
         queryStringLengthBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -934,7 +902,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value query_string_length = 4;</code>
      */
     public com.google.protobuf.Int32Value.Builder getQueryStringLengthBuilder() {
-      
+      bitField0_ |= 0x00000008;
       onChanged();
       return getQueryStringLengthFieldBuilder().getBuilder();
     }
@@ -993,7 +961,7 @@ private static final long serialVersionUID = 0L;
      * @return Whether the queryPlansPerMinute field is set.
      */
     public boolean hasQueryPlansPerMinute() {
-      return queryPlansPerMinuteBuilder_ != null || queryPlansPerMinute_ != null;
+      return ((bitField0_ & 0x00000010) != 0);
     }
     /**
      * <pre>
@@ -1025,11 +993,11 @@ private static final long serialVersionUID = 0L;
           throw new NullPointerException();
         }
         queryPlansPerMinute_ = value;
-        onChanged();
       } else {
         queryPlansPerMinuteBuilder_.setMessage(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1044,11 +1012,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.Int32Value.Builder builderForValue) {
       if (queryPlansPerMinuteBuilder_ == null) {
         queryPlansPerMinute_ = builderForValue.build();
-        onChanged();
       } else {
         queryPlansPerMinuteBuilder_.setMessage(builderForValue.build());
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1061,17 +1029,18 @@ private static final long serialVersionUID = 0L;
      */
     public Builder mergeQueryPlansPerMinute(com.google.protobuf.Int32Value value) {
       if (queryPlansPerMinuteBuilder_ == null) {
-        if (queryPlansPerMinute_ != null) {
-          queryPlansPerMinute_ =
-            com.google.protobuf.Int32Value.newBuilder(queryPlansPerMinute_).mergeFrom(value).buildPartial();
+        if (((bitField0_ & 0x00000010) != 0) &&
+          queryPlansPerMinute_ != null &&
+          queryPlansPerMinute_ != com.google.protobuf.Int32Value.getDefaultInstance()) {
+          getQueryPlansPerMinuteBuilder().mergeFrom(value);
         } else {
           queryPlansPerMinute_ = value;
         }
-        onChanged();
       } else {
         queryPlansPerMinuteBuilder_.mergeFrom(value);
       }
-
+      bitField0_ |= 0x00000010;
+      onChanged();
       return this;
     }
     /**
@@ -1083,14 +1052,13 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value query_plans_per_minute = 5;</code>
      */
     public Builder clearQueryPlansPerMinute() {
-      if (queryPlansPerMinuteBuilder_ == null) {
-        queryPlansPerMinute_ = null;
-        onChanged();
-      } else {
-        queryPlansPerMinute_ = null;
+      bitField0_ = (bitField0_ & ~0x00000010);
+      queryPlansPerMinute_ = null;
+      if (queryPlansPerMinuteBuilder_ != null) {
+        queryPlansPerMinuteBuilder_.dispose();
         queryPlansPerMinuteBuilder_ = null;
       }
-
+      onChanged();
       return this;
     }
     /**
@@ -1102,7 +1070,7 @@ private static final long serialVersionUID = 0L;
      * <code>.google.protobuf.Int32Value query_plans_per_minute = 5;</code>
      */
     public com.google.protobuf.Int32Value.Builder getQueryPlansPerMinuteBuilder() {
-      
+      bitField0_ |= 0x00000010;
       onChanged();
       return getQueryPlansPerMinuteFieldBuilder().getBuilder();
     }
@@ -1176,7 +1144,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new InsightsConfig(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 

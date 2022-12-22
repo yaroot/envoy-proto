@@ -65,75 +65,6 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private RegionIdentifier(
-      com.google.protobuf.CodedInputStream input,
-      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-      throws com.google.protobuf.InvalidProtocolBufferException {
-    this();
-    if (extensionRegistry == null) {
-      throw new java.lang.NullPointerException();
-    }
-    com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-        com.google.protobuf.UnknownFieldSet.newBuilder();
-    try {
-      boolean done = false;
-      while (!done) {
-        int tag = input.readTag();
-        switch (tag) {
-          case 0:
-            done = true;
-            break;
-          case 34: {
-            java.lang.String s = input.readStringRequireUtf8();
-            locationCase_ = 4;
-            location_ = s;
-            break;
-          }
-          case 42: {
-            java.lang.String s = input.readStringRequireUtf8();
-            locationCase_ = 5;
-            location_ = s;
-            break;
-          }
-          case 48: {
-            int rawValue = input.readEnum();
-
-            placeType_ = rawValue;
-            break;
-          }
-          case 58: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            languageCode_ = s;
-            break;
-          }
-          case 66: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            regionCode_ = s;
-            break;
-          }
-          default: {
-            if (!parseUnknownField(
-                input, unknownFields, extensionRegistry, tag)) {
-              done = true;
-            }
-            break;
-          }
-        }
-      }
-    } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-      throw e.setUnfinishedMessage(this);
-    } catch (com.google.protobuf.UninitializedMessageException e) {
-      throw e.asInvalidProtocolBufferException().setUnfinishedMessage(this);
-    } catch (java.io.IOException e) {
-      throw new com.google.protobuf.InvalidProtocolBufferException(
-          e).setUnfinishedMessage(this);
-    } finally {
-      this.unknownFields = unknownFields.build();
-      makeExtensionsImmutable();
-    }
-  }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
     return com.google.maps.regionlookup.v1alpha.RegionIdentifierProto.internal_static_google_maps_regionlookup_v1alpha_RegionIdentifier_descriptor;
@@ -670,7 +601,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int PLACE_TYPE_FIELD_NUMBER = 6;
-  private int placeType_;
+  private int placeType_ = 0;
   /**
    * <pre>
    * Required. Place type to match.
@@ -691,13 +622,13 @@ private static final long serialVersionUID = 0L;
    * @return The placeType.
    */
   @java.lang.Override public com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType getPlaceType() {
-    @SuppressWarnings("deprecation")
-    com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType result = com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType.valueOf(placeType_);
+    com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType result = com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType.forNumber(placeType_);
     return result == null ? com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType.UNRECOGNIZED : result;
   }
 
   public static final int LANGUAGE_CODE_FIELD_NUMBER = 7;
-  private volatile java.lang.Object languageCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object languageCode_ = "";
   /**
    * <pre>
    * The BCP-47 language code, such as "en-US" or "sr-Latn", corresponding to
@@ -747,7 +678,8 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int REGION_CODE_FIELD_NUMBER = 8;
-  private volatile java.lang.Object regionCode_;
+  @SuppressWarnings("serial")
+  private volatile java.lang.Object regionCode_ = "";
   /**
    * <pre>
    * Two-letter ISO-3166 country/region code for the location you're trying to
@@ -823,7 +755,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(regionCode_)) {
       com.google.protobuf.GeneratedMessageV3.writeString(output, 8, regionCode_);
     }
-    unknownFields.writeTo(output);
+    getUnknownFields().writeTo(output);
   }
 
   @java.lang.Override
@@ -848,7 +780,7 @@ private static final long serialVersionUID = 0L;
     if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(regionCode_)) {
       size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, regionCode_);
     }
-    size += unknownFields.getSerializedSize();
+    size += getUnknownFields().getSerializedSize();
     memoizedSize = size;
     return size;
   }
@@ -881,7 +813,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    if (!unknownFields.equals(other.unknownFields)) return false;
+    if (!getUnknownFields().equals(other.getUnknownFields())) return false;
     return true;
   }
 
@@ -910,7 +842,7 @@ private static final long serialVersionUID = 0L;
       case 0:
       default:
     }
-    hash = (29 * hash) + unknownFields.hashCode();
+    hash = (29 * hash) + getUnknownFields().hashCode();
     memoizedHashCode = hash;
     return hash;
   }
@@ -1059,28 +991,21 @@ private static final long serialVersionUID = 0L;
 
     // Construct using com.google.maps.regionlookup.v1alpha.RegionIdentifier.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       super(parent);
-      maybeForceBuilderInitialization();
-    }
-    private void maybeForceBuilderInitialization() {
-      if (com.google.protobuf.GeneratedMessageV3
-              .alwaysUseFieldBuilders) {
-      }
+
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      bitField0_ = 0;
       placeType_ = 0;
-
       languageCode_ = "";
-
       regionCode_ = "";
-
       locationCase_ = 0;
       location_ = null;
       return this;
@@ -1109,18 +1034,28 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.maps.regionlookup.v1alpha.RegionIdentifier buildPartial() {
       com.google.maps.regionlookup.v1alpha.RegionIdentifier result = new com.google.maps.regionlookup.v1alpha.RegionIdentifier(this);
-      if (locationCase_ == 4) {
-        result.location_ = location_;
-      }
-      if (locationCase_ == 5) {
-        result.location_ = location_;
-      }
-      result.placeType_ = placeType_;
-      result.languageCode_ = languageCode_;
-      result.regionCode_ = regionCode_;
-      result.locationCase_ = locationCase_;
+      if (bitField0_ != 0) { buildPartial0(result); }
+      buildPartialOneofs(result);
       onBuilt();
       return result;
+    }
+
+    private void buildPartial0(com.google.maps.regionlookup.v1alpha.RegionIdentifier result) {
+      int from_bitField0_ = bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.placeType_ = placeType_;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.languageCode_ = languageCode_;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.regionCode_ = regionCode_;
+      }
+    }
+
+    private void buildPartialOneofs(com.google.maps.regionlookup.v1alpha.RegionIdentifier result) {
+      result.locationCase_ = locationCase_;
+      result.location_ = this.location_;
     }
 
     @java.lang.Override
@@ -1172,10 +1107,12 @@ private static final long serialVersionUID = 0L;
       }
       if (!other.getLanguageCode().isEmpty()) {
         languageCode_ = other.languageCode_;
+        bitField0_ |= 0x00000008;
         onChanged();
       }
       if (!other.getRegionCode().isEmpty()) {
         regionCode_ = other.regionCode_;
+        bitField0_ |= 0x00000010;
         onChanged();
       }
       switch (other.getLocationCase()) {
@@ -1195,7 +1132,7 @@ private static final long serialVersionUID = 0L;
           break;
         }
       }
-      this.mergeUnknownFields(other.unknownFields);
+      this.mergeUnknownFields(other.getUnknownFields());
       onChanged();
       return this;
     }
@@ -1210,17 +1147,57 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      com.google.maps.regionlookup.v1alpha.RegionIdentifier parsedMessage = null;
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       try {
-        parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+              locationCase_ = 4;
+              location_ = s;
+              break;
+            } // case 34
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              locationCase_ = 5;
+              location_ = s;
+              break;
+            } // case 42
+            case 48: {
+              placeType_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 48
+            case 58: {
+              languageCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 58
+            case 66: {
+              regionCode_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 66
+            default: {
+              if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (com.google.maps.regionlookup.v1alpha.RegionIdentifier) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
-        if (parsedMessage != null) {
-          mergeFrom(parsedMessage);
-        }
-      }
+        onChanged();
+      } // finally
       return this;
     }
     private int locationCase_ = 0;
@@ -1238,6 +1215,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
+    private int bitField0_;
 
     /**
      * <pre>
@@ -1351,10 +1329,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlace(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  locationCase_ = 4;
+      if (value == null) { throw new NullPointerException(); }
+      locationCase_ = 4;
       location_ = value;
       onChanged();
       return this;
@@ -1404,10 +1380,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setPlaceBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locationCase_ = 4;
       location_ = value;
       onChanged();
@@ -1550,10 +1524,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  locationCase_ = 5;
+      if (value == null) { throw new NullPointerException(); }
+      locationCase_ = 5;
       location_ = value;
       onChanged();
       return this;
@@ -1615,10 +1587,8 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setUnitCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       locationCase_ = 5;
       location_ = value;
       onChanged();
@@ -1647,8 +1617,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder setPlaceTypeValue(int value) {
-      
       placeType_ = value;
+      bitField0_ |= 0x00000004;
       onChanged();
       return this;
     }
@@ -1662,8 +1632,7 @@ private static final long serialVersionUID = 0L;
      */
     @java.lang.Override
     public com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType getPlaceType() {
-      @SuppressWarnings("deprecation")
-      com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType result = com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType.valueOf(placeType_);
+      com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType result = com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType.forNumber(placeType_);
       return result == null ? com.google.maps.regionlookup.v1alpha.RegionIdentifier.PlaceType.UNRECOGNIZED : result;
     }
     /**
@@ -1679,7 +1648,7 @@ private static final long serialVersionUID = 0L;
       if (value == null) {
         throw new NullPointerException();
       }
-      
+      bitField0_ |= 0x00000004;
       placeType_ = value.getNumber();
       onChanged();
       return this;
@@ -1693,7 +1662,7 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearPlaceType() {
-      
+      bitField0_ = (bitField0_ & ~0x00000004);
       placeType_ = 0;
       onChanged();
       return this;
@@ -1758,11 +1727,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       languageCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1777,8 +1744,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearLanguageCode() {
-      
       languageCode_ = getDefaultInstance().getLanguageCode();
+      bitField0_ = (bitField0_ & ~0x00000008);
       onChanged();
       return this;
     }
@@ -1795,12 +1762,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setLanguageCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       languageCode_ = value;
+      bitField0_ |= 0x00000008;
       onChanged();
       return this;
     }
@@ -1861,11 +1826,9 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionCode(
         java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      if (value == null) { throw new NullPointerException(); }
       regionCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1879,8 +1842,8 @@ private static final long serialVersionUID = 0L;
      * @return This builder for chaining.
      */
     public Builder clearRegionCode() {
-      
       regionCode_ = getDefaultInstance().getRegionCode();
+      bitField0_ = (bitField0_ & ~0x00000010);
       onChanged();
       return this;
     }
@@ -1896,12 +1859,10 @@ private static final long serialVersionUID = 0L;
      */
     public Builder setRegionCodeBytes(
         com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
+      if (value == null) { throw new NullPointerException(); }
+      checkByteStringIsUtf8(value);
       regionCode_ = value;
+      bitField0_ |= 0x00000010;
       onChanged();
       return this;
     }
@@ -1938,7 +1899,18 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new RegionIdentifier(input, extensionRegistry);
+      Builder builder = newBuilder();
+      try {
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(builder.buildPartial());
+      } catch (com.google.protobuf.UninitializedMessageException e) {
+        throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(e)
+            .setUnfinishedMessage(builder.buildPartial());
+      }
+      return builder.buildPartial();
     }
   };
 
